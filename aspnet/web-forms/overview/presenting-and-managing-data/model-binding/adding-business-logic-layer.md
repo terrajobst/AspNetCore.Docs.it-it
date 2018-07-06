@@ -4,19 +4,16 @@ title: Livello di logica di business aggiunta a un progetto che usa l'associazio
 author: tfitzmac
 description: Questa serie di esercitazioni illustra aspetti di base dell'uso di associazione di modelli con un progetto di Web Form ASP.NET. Associazione di modelli consente l'interazione dei dati più linee rette-...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/27/2014
-ms.topic: article
 ms.assetid: 7ef664b3-1cc8-4cbf-bb18-9f0f3a3ada2b
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/adding-business-logic-layer
 msc.type: authoredcontent
-ms.openlocfilehash: be69bf56c6a1c5bf601a47e90e4e1c67c48a760f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 70e7ae6ad12c26ea5001ff68b25c0431a7440a77
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37386500"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37837873"
 ---
 <a name="adding-business-logic-layer-to-a-project-that-uses-model-binding-and-web-forms"></a>Livello di logica di business aggiunta a un progetto che usa l'associazione di modelli e web form
 ====================

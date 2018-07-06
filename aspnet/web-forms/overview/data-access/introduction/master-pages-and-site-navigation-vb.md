@@ -4,19 +4,16 @@ title: Pagine master e spostamento nel sito (VB) | Microsoft Docs
 author: rick-anderson
 description: Una caratteristica comune dei siti Web semplici da usare è che dispongono di uno schema di layout e la navigazione pagina coerenti e a livello di sito. Questa esercitazione viene descritto come y...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/31/2010
-ms.topic: article
 ms.assetid: 022801d8-a327-4d0c-8780-6094c9cee00d
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/introduction/master-pages-and-site-navigation-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c823421a6b934951dd08656b48801c3d26247c5c
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: d00e535445551a7cfe2d4c46be36abccea31c770
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37372044"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37810815"
 ---
 <a name="master-pages-and-site-navigation-vb"></a>Pagine master e spostamento nel sito (VB)
 ====================

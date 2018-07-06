@@ -4,19 +4,16 @@ title: 'Distribuzione Web aziendale: Panoramica dello Scenario | Microsoft Docs'
 author: jrjlee
 description: Questa serie di esercitazioni pratiche Usa una soluzione di esempio con un livello di complessità, insieme a uno scenario di distribuzione azienda fittizia, realistico per fornire un parametro ref...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/03/2012
-ms.topic: article
 ms.assetid: aa862153-4cd8-4e33-beeb-abf502c6664f
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview
 msc.type: authoredcontent
-ms.openlocfilehash: 47bd0a0f7b71a6069d573f1454583cdb832f6b4c
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: ce533b246b14c9e041c89a778c022784f09d01a0
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37366077"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37836746"
 ---
 <a name="enterprise-web-deployment-scenario-overview"></a>Distribuzione Web aziendale: Panoramica dello Scenario
 ====================

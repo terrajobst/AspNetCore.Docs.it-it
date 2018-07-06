@@ -4,19 +4,16 @@ title: Installazione di un Helper in un Web ASP.NET le pagine del sito (Razor) |
 author: tfitzmac
 description: Questo articolo descrive come installare un helper in un sito Web ASP.NET Web Pages (Razor). Un helper è un componente riutilizzabile che include il codice e markup per...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/18/2014
-ms.topic: article
 ms.assetid: 5e968ead-906a-45ea-ac2a-c70e57e1a9b1
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/installing-helpers
 msc.type: authoredcontent
-ms.openlocfilehash: 38290fd47355e7893eddd1f867f47b113b54ca7e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: db3dff9f2d70577bb0618335c0100b9899e87727
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37361806"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37838614"
 ---
 <a name="installing-a-helper-in-an-aspnet-web-pages-razor-site"></a>Installazione di un Helper in un sito di ASP.NET Web Pages (Razor)
 ====================

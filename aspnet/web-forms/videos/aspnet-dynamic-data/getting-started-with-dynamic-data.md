@@ -4,19 +4,16 @@ title: Introduzione a Dynamic Data | Microsoft Docs
 author: JoeStagner
 description: In questo video verrà compilata un'intera applicazione ASP.NET con ASP.NET Dynamic Data usando i dati di Northwind tramite il codice dei dati dinamici generazione, scaffoldi...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/23/2008
-ms.topic: article
 ms.assetid: 2011925a-789d-4160-af31-4667097727f1
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/getting-started-with-dynamic-data
 msc.type: video
-ms.openlocfilehash: eca479a859813c01dfe854f729198ef84143b212
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: d0a59996fbf7ec5f1c1888489144179d73deb238
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37376083"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37812899"
 ---
 <a name="getting-started-with-dynamic-data"></a>Introduzione a Dynamic Data
 ====================

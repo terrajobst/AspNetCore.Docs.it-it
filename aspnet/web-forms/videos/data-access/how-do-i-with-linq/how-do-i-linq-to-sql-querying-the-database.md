@@ -4,19 +4,16 @@ title: '[Procedura:] LINQ to SQL: una query sul Database | Microsoft Docs'
 author: scottstanfield
 description: In questo video viene illustrato come eseguire query in un database con LINQ, il codice SQL sottostante con un visualizzatore di query, associazione dati ai controlli ASP.NET e paging record.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/15/2007
-ms.topic: article
 ms.assetid: 199c6ca0-3a9e-4a88-96c5-70fce8d4d9bf
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-querying-the-database
 msc.type: video
-ms.openlocfilehash: f7fa388cc24b602a1050142a883186d7a6572952
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: dc66d403af34ad3e080a25d3d8d384aabaa68fd6
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37402626"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37822150"
 ---
 <a name="how-do-i-linq-to-sql-querying-the-database"></a>[Procedura:] LINQ to SQL: una query sul Database
 ====================

@@ -4,19 +4,16 @@ title: Implementazione dell'ereditarietà con Entity Framework in un'applicazion
 author: tdykstra
 description: L'applicazione web di esempio Contoso University illustra come creare applicazioni ASP.NET MVC 4 con Code First di Entity Framework 5 e Visual Studio...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/30/2013
-ms.topic: article
 ms.assetid: a5c3feff-5335-4cdd-a97d-f7a8785c2494
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: d3c3d19a62f601d007b0fac031ade1eef9f35771
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b39fc609007d437dd0845f9087dd5a32272cebe9
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37378936"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37821276"
 ---
 <a name="implementing-inheritance-with-the-entity-framework-in-an-aspnet-mvc-application-8-of-10"></a>Implementazione dell'ereditarietà con Entity Framework in un'applicazione ASP.NET MVC (8 di 10)
 ====================

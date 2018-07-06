@@ -4,19 +4,16 @@ title: Guida all'API di ASP.NET SignalR Hubs - Client .NET (SignalR 1.x) | Micro
 author: pfletcher
 description: Questo documento viene fornita un'introduzione all'uso dell'API di hub per la versione 2 nel client .NET, ad esempio Windows Store (WinRT), WPF, Silverlight e gli svantaggi di SignalR...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/17/2013
-ms.topic: article
 ms.assetid: c334adc3-d6dc-44f3-9f06-f7634475aad3
-ms.technology: dotnet-signalr
 msc.legacyurl: /signalr/overview/older-versions/signalr-1x-hubs-api-guide-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 948384298366ba87effeaaff55f38e4edc7be940
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 64d4f16dfcd121bc73f05cf8d320dc6ff2488f9a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37389534"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37834688"
 ---
 <a name="aspnet-signalr-hubs-api-guide---net-client-signalr-1x"></a>Guida all'API di ASP.NET SignalR Hubs - Client .NET (SignalR 1.x)
 ====================

@@ -4,19 +4,16 @@ title: L'elaborazione di eccezioni non gestite (VB) | Microsoft Docs
 author: rick-anderson
 description: Quando si verifica un errore di runtime in un'applicazione web nell'ambiente di produzione è importante per notificare a uno sviluppatore e di registrare l'errore, in modo che potrebbe essere diagnosticato in un oggetto la...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/09/2009
-ms.topic: article
 ms.assetid: 051296f0-9519-4e78-835c-d868da13b0a0
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6c0f6883f2a19d060aff1573238cc1df1838e824
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f925a2e2a8cf2785aa2df89c82d2a29965a543d9
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37365984"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37835230"
 ---
 <a name="processing-unhandled-exceptions-vb"></a>L'elaborazione di eccezioni non gestite (VB)
 ====================

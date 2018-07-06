@@ -4,19 +4,16 @@ title: Visual Studio 2013 funzionalità dell'Editor Web - controllo pagina | Mic
 author: shanselman
 description: Scott Hansleman viene illustrato come la funzionalità di controllo pagina in Visual Studio 2013 consente di lavorare in modo interattivo con il markup della pagina sottoposta a rendering, completamente integrato w...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/17/2013
-ms.topic: article
 ms.assetid: 17b67048-c61c-4ac0-a73a-a8079b493253
-ms.technology: ''
 msc.legacyurl: /visual-studio/overview/2013/visual-studio-2013-web-editor-features-page-inspector
 msc.type: video
-ms.openlocfilehash: e96cdbe8182bf3f178e939503cdc32f6c633e865
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 29c875f0c296fda81ab85c172ae63b94e14768b0
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37369825"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37842034"
 ---
 <a name="visual-studio-2013-web-editor-features---page-inspector"></a>Visual Studio 2013 funzionalità dell'Editor Web - controllo pagina
 ====================

@@ -4,19 +4,16 @@ title: Informazioni sui controller, azioni del Controller e i risultati dell'azi
 author: StephenWalther
 description: In questa esercitazione, Stephen Walther presenta controller ASP.NET MVC. Descrive come creare nuovi controller e di restituire tipi diversi di res azione...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/20/2008
-ms.topic: article
 ms.assetid: 2456a5da-d376-4d45-8275-9e0dc46bf7dd
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/understanding-controllers-controller-actions-and-action-results
 msc.type: video
-ms.openlocfilehash: 0038408f028a56bdcdf5b972e9d2e69e6d89a0e2
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 7a9172a09d9be23cd5b83121cbaebdfb03386fcf
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37393186"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37837555"
 ---
 <a name="understanding-controllers-controller-actions-and-action-results"></a>Informazioni sui controller, azioni del Controller e i risultati dell'azione
 ====================

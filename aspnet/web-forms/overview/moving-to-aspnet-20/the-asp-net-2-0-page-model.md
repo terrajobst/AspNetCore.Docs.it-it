@@ -4,19 +4,16 @@ title: Il modello di pagina 2.0 ASP.NET | Microsoft Docs
 author: microsoft
 description: In ASP.NET 1.x, gli sviluppatori poteva scegliere tra un modello di codice inline e un modello di codice code-behind. Code-behind può essere implementato usando entrambi i attr Src...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2005
-ms.topic: article
 ms.assetid: af4575a3-0ae3-4638-ba4d-218fad7a1642
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/the-asp-net-2-0-page-model
 msc.type: authoredcontent
-ms.openlocfilehash: 9d62aee5e0754b1910b923ad9ae501ebed91097e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2c8a0624af30d93d2ba68dc4b0b0880d6e371616
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37379887"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37811701"
 ---
 <a name="the-aspnet-20-page-model"></a>Il modello ASP.NET 2.0 pagina
 ====================

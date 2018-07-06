@@ -4,19 +4,16 @@ title: Come installare ASP.NET e strumenti | Microsoft Docs
 author: shanselman
 description: Scott Hanselman di Microsoft illustra come scaricare e installare ASP.NET e strumenti in modo che è possibile iniziare a sviluppare le applicazioni web.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/10/2011
-ms.topic: article
 ms.assetid: 84007aa5-4f60-4417-9cc0-44cb8b7b9323
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-to-install-asp-net-and-tools
 msc.type: video
-ms.openlocfilehash: bf5e2d0ac004386890b4d10bd357243eb3967ffc
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: ecfa693bd84ba99b2037f6bdc465051c503f6ece
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37374621"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37825882"
 ---
 <a name="how-to-install-aspnet-and-tools"></a>Come installare ASP.NET e strumenti
 ====================

@@ -4,19 +4,16 @@ title: '[Procedura:] Creare una pagina Master annidata in Visual Studio 2008 | M
 author: rick-anderson
 description: Utilizzando Visual Studio 2008 migliorato di finestra di progettazione, illustrerò come creare una pagina Master annidata. Pagine Master annidate sono utili quando si compila un hierarch...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/14/2008
-ms.topic: article
 ms.assetid: 0cab7010-e60e-4a18-9750-61068d3a2da3
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-35/how-do-i/how-do-i-create-nested-master-page-in-visual-studio-2008
 msc.type: video
-ms.openlocfilehash: 93b80be0343cf8c5001337b5634d8961f42a43b1
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: db5d6f0c030bdc70bb8da72ae6ddb89b1359960d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37398819"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37827773"
 ---
 <a name="how-do-i-create-nested-master-page-in-visual-studio-2008"></a>[Procedura:] Creare una pagina Master annidata in Visual Studio 2008
 ====================

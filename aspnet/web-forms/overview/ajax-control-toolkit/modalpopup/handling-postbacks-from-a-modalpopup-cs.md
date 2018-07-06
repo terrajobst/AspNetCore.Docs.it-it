@@ -4,19 +4,16 @@ title: Gestione dei postback da un controllo ModalPopup (c#) | Microsoft Docs
 author: wenz
 description: Il controllo ModalPopup in AJAX Control Toolkit offre un modo semplice per creare un popup modale utilizzano i canali lato client. È necessario prestare particolare attenzione quando un pos...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: 7963890b-4ea3-4a1c-b65d-6098a3d56f62
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/modalpopup/handling-postbacks-from-a-modalpopup-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 2c5c3b573b62d779ab09caad22b0c0e3a6995634
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 0f27d28b9851f8e26c207a6bc495e98ad70577a2
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37399068"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37838122"
 ---
 <a name="handling-postbacks-from-a-modalpopup-c"></a>Gestione dei postback da un controllo ModalPopup (c#)
 ====================

@@ -4,19 +4,16 @@ title: '[Procedura:] Usare il controllo della cronologia ASP.NET AJAX? | Microso
 author: scottgolightly
 description: Un problema che colpisce un'applicazione AJAX tipica è che un aggiornamento parziale della pagina non viene aggiunto alla cronologia del browser Web. Ciò significa che B. del browser...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/21/2007
-ms.topic: article
 ms.assetid: 557b0118-fde8-48c9-bf6d-829f9043706b
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-use-the-aspnet-ajax-history-control
 msc.type: video
-ms.openlocfilehash: 7b3408dcc4f2fea2d8ef5b7d4bf74dcc529ddb0b
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 50a74721860c992de4f1f06a171469e7799ef23c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37384173"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37837909"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-history-control"></a>[Procedura:] Usare il controllo della cronologia ASP.NET AJAX?
 ====================

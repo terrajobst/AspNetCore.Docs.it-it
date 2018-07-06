@@ -4,19 +4,16 @@ title: 'Parte 3: Visualizzazioni e ViewModel | Microsoft Docs'
 author: jongalloway
 description: Questa serie di esercitazioni illustra tutti i passaggi necessari per compilare l'applicazione di esempio ASP.NET MVC Music Store. Parte 3 riguarda le visualizzazioni e ViewModel.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/21/2011
-ms.topic: article
 ms.assetid: 94297aa0-1f2d-4d72-bbcb-63f64653e0c0
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 0cfdc2864221a0efc81eb362571c72f20eb05af8
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 8fd89c2a448877bf13a7828f545ffcd400f63bb1
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37368735"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37837410"
 ---
 <a name="part-3-views-and-viewmodels"></a>Parte 3: Visualizzazioni e ViewModel
 ====================

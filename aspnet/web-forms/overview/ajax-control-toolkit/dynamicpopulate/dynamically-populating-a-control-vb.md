@@ -4,19 +4,16 @@ title: Popolamento dinamico di un controllo (VB) | Microsoft Docs
 author: wenz
 description: Il controllo di DynamicPopulate di ASP.NET AJAX Control Toolkit chiama un servizio web (o un metodo di pagina) e inserisce il valore risultante in un controllo di destinazione in t...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: 27305347-7b5d-4519-97b7-197a357e7f6e
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/dynamically-populating-a-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: fd55b59f9375eb320711ffea8d971a8d86179c43
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: d82f8302ddd861531ba517d785a8695d7b914fa0
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37368660"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37806345"
 ---
 <a name="dynamically-populating-a-control-vb"></a>Popolamento dinamico di un controllo (VB)
 ====================

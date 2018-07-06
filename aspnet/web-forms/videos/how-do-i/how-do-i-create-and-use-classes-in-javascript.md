@@ -4,19 +4,16 @@ title: 'Come ricerca per categorie: creare e usare le classi in JavaScript? | Mi
 author: rick-anderson
 description: In questo video Chris Pels illustra come creare le classi in JavaScript con funzionalità simili per altri linguaggi di programmazione con funzionalità orientate a oggetti...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/08/2010
-ms.topic: article
 ms.assetid: 348d1bda-69e0-4cb5-a59f-a104133c2f93
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-create-and-use-classes-in-javascript
 msc.type: video
-ms.openlocfilehash: 763e715bb724c90a52ad7a23eaee90522fb8c95e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: bc0ea2ab8aa61cc9855704b41031e602557fe8bd
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37386420"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37812466"
 ---
 <a name="how-do-i-create-and-use-classes-in-javascript"></a>Come ricerca per categorie: creare e usare le classi in JavaScript?
 ====================

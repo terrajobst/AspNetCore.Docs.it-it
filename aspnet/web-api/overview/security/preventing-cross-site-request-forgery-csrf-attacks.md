@@ -4,19 +4,16 @@ title: Prevenzione degli attacchi di richiesta intersito falsa (CSRF) nell'API W
 author: MikeWasson
 description: Viene descritto come implementare misure anti-CSRF in ASP.NET Web API e l'attacco di richiesta intersito falsa (CSRF).
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 12/12/2012
-ms.topic: article
 ms.assetid: 81d46f14-8f48-4d8c-830d-cc8d594dc11b
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks
 msc.type: authoredcontent
-ms.openlocfilehash: 7dfddf09a1577cfa7a52f58b37533724a8475435
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b8cb42120822c56f620f22a4c7fcbc4bfc5141d3
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37379874"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37838530"
 ---
 <a name="preventing-cross-site-request-forgery-csrf-attacks-in-aspnet-web-api"></a>Prevenzione degli attacchi di richiesta intersito falsa (CSRF) nell'API Web ASP.NET
 ====================

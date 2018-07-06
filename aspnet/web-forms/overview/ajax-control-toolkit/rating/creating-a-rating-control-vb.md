@@ -4,19 +4,16 @@ title: Creazione di un controllo Rating (VB) | Microsoft Docs
 author: wenz
 description: Molti siti Web, di e-commerce a siti di community, offrono agli utenti di articoli di frequenza o elementi. Ciò in genere richiede alcune attività di codifica, ma non è disponibile il...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: 6d0d70f4-725e-4258-8ae8-24a6ba1ddbf7
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/rating/creating-a-rating-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 501859b833eb18147e483b0d7a7359133d790d8b
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: cb8bd8ab400bf5633b8218e724ad86cf7271699d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37368848"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37811973"
 ---
 <a name="creating-a-rating-control-vb"></a>Creazione di un controllo Rating (VB)
 ====================

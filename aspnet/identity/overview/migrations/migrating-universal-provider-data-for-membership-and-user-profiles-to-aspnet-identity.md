@@ -4,19 +4,16 @@ title: La migrazione di dati del Provider universali per appartenenza e i profil
 author: rustd
 description: Questa esercitazione vengono descritti i passaggi necessari eseguire la migrazione di utenti e i dati del ruolo e i dati di profilo utente creati con i provider universali di un'app esistente...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 12/13/2013
-ms.topic: article
 ms.assetid: 2e260430-d13c-4658-bd05-e256fc0d63b8
-ms.technology: ''
 msc.legacyurl: /identity/overview/migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: dce27af273adb45c1ad8f07790c98d2fa5862f67
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 1f685e676d3ca4eeb64f48f0df7212402a9f6f5f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37377960"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37810034"
 ---
 <a name="migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity-c"></a>La migrazione dei dati del Provider universali per appartenenza e i profili utente mobili ad ASP.NET Identity (c#)
 ====================

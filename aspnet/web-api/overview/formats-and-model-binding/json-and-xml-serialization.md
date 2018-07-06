@@ -4,19 +4,16 @@ title: Serializzazione JSON e XML nell'API Web ASP.NET | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/30/2012
-ms.topic: article
 ms.assetid: 1cd7525d-de5e-4ab6-94f0-51480d3255d1
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/formats-and-model-binding/json-and-xml-serialization
 msc.type: authoredcontent
-ms.openlocfilehash: e7fbcd41d64651255763c7629f0232788dcb3d30
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: c6610eebbc6bd03426771087f0112c1ffa63aa15
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37400921"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37836321"
 ---
 <a name="json-and-xml-serialization-in-aspnet-web-api"></a>Serializzazione JSON e XML nell'API Web ASP.NET
 ====================

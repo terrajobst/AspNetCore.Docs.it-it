@@ -4,19 +4,16 @@ title: Guida all'API di ASP.NET SignalR Hubs - Client JavaScript | Microsoft Doc
 author: pfletcher
 description: Questo documento viene fornita un'introduzione all'uso dell'API di hub per SignalR versione 2 nel client JavaScript, ad esempio browser e Windows Store (WinJS) applicat...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/28/2015
-ms.topic: article
 ms.assetid: a9fd4dc0-1b96-4443-82ca-932a5b4a8ea4
-ms.technology: dotnet-signalr
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-javascript-client
 msc.type: authoredcontent
-ms.openlocfilehash: 155ad6599f7f790bf52b0bd59053290f3a662a90
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: ed25843f5eb6145d29ef90f6205715bdd341d1a4
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37398219"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37839726"
 ---
 <a name="aspnet-signalr-hubs-api-guide---javascript-client"></a>Guida all'API di ASP.NET SignalR Hubs - Client JavaScript
 ====================

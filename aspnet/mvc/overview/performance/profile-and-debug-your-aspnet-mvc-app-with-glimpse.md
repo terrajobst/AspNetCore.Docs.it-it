@@ -4,19 +4,16 @@ title: Profilatura e il debug dell'app ASP.NET MVC con Glimpse | Microsoft Docs
 author: Rick-Anderson
 description: Glimpse è che intraprendono e aumento delle dimensioni della famiglia di pacchetti NuGet open source che fornisce dettagliati sulle prestazioni, debug e informazioni di diagnostica per ASP.NET un...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/26/2015
-ms.topic: article
 ms.assetid: c205805f-efdd-4fa7-9616-f26eab180611
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse
 msc.type: authoredcontent
-ms.openlocfilehash: ef65b512645d3f013ea34d3557da93254425c419
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 4d044217d6c33594b39747a765165b8702338027
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37391070"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37808541"
 ---
 <a name="profile-and-debug-your-aspnet-mvc-app-with-glimpse"></a>Profilatura e il debug dell'app ASP.NET MVC con Glimpse
 ====================

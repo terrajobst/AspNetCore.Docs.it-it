@@ -4,19 +4,16 @@ title: What ' s New in ASP.NET MVC 4 | Microsoft Docs
 author: rick-anderson
 description: ASP.NET MVC 4 è un framework per compilare applicazioni scalabili, basati su standard web usando le potenzialità di ASP.NET e modelli di progettazione consolidati e...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/18/2013
-ms.topic: article
 ms.assetid: 48f7feb3-872f-485d-b96f-e30011ff8c4a
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/whats-new-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 8862c4da0d881a6f1084317e08697354c0ae6d48
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 718a31de3d2d60788ba4affb0463a4ae871ef89a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37374104"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37805350"
 ---
 # <a name="whats-new-in-aspnet-mvc-4"></a>What ' s New in ASP.NET MVC 4
 

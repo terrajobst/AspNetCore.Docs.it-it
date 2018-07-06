@@ -4,19 +4,16 @@ title: Esecuzione di aggiornamenti Batch (c#) | Microsoft Docs
 author: rick-anderson
 description: Informazioni su come creare un completamente modificabile DataList in cui tutti i relativi elementi sono in modalità di modifica e i cui valori possono essere salvati facendo clic su un pulsante "Aggiorna tutto" il...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/30/2006
-ms.topic: article
 ms.assetid: 57743ca7-5695-4e07-aed1-44b297f245a9
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 94bff897d28adfec001f7d818c2dc17329651e80
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 3528444269a3595681696251d3906a204090410c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37371207"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37807805"
 ---
 <a name="performing-batch-updates-c"></a>Esecuzione di aggiornamenti Batch (c#)
 ====================

@@ -4,19 +4,16 @@ title: 'Parte 2: Controller | Microsoft Docs'
 author: jongalloway
 description: Questa serie di esercitazioni illustra tutti i passaggi necessari per compilare l'applicazione di esempio ASP.NET MVC Music Store. Parte 2 illustra i controller.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/21/2011
-ms.topic: article
 ms.assetid: 998ce4e1-9d72-435b-8f1c-399a10ae4360
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: a854feff675cae302b9927d209808257b7d087cb
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 8824d5d2f5670aee2df6dc6e74767e4a851dd4ae
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37381803"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37841095"
 ---
 <a name="part-2-controllers"></a>Parte 2: controller
 ====================

@@ -4,19 +4,16 @@ title: A livello di codice impostando i valori dei parametri di ObjectDataSource
 author: rick-anderson
 description: In questa esercitazione verrà esaminato l'aggiunta di un metodo al nostro DAL e BLL che accetta un parametro di input e restituisce i dati. Questo parametro viene impostato nell'esempio...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/31/2010
-ms.topic: article
 ms.assetid: 1c4588bb-255d-4088-b319-5208da756f4d
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/programmatically-setting-the-objectdatasource-s-parameter-values-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 946db6ad8acd5c1229659c6bc5beb454320740ba
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 561b197aae925eb432a3e93d37b347a081f64a2b
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37376336"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37827351"
 ---
 <a name="programmatically-setting-the-objectdatasources-parameter-values-c"></a>A livello di codice impostando i valori dei parametri di ObjectDataSource (c#)
 ====================

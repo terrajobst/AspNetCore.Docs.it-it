@@ -4,19 +4,16 @@ title: Progetti di sviluppo Web | Microsoft Docs
 author: BradleyBartz
 description: Bradley Bartz e Richard Ersek mostrano come i progetti di distribuzione Web offrono funzionalità aggiuntive per la compilazione e creare la distribuzione delle applicazioni del sito web...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/21/2006
-ms.topic: article
 ms.assetid: eca1b75a-2f32-4004-842e-aa555175a3ea
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/vs-2005/web-deployment-projects
 msc.type: video
-ms.openlocfilehash: 14320f98c17e741c6e6dab1299102ce3e48fedb0
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b0b5174e5f07e16cea30d743f0e7d8eac5892159
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37382007"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37842205"
 ---
 <a name="web-deployment-projects"></a>Progetti di distribuzione Web
 ====================

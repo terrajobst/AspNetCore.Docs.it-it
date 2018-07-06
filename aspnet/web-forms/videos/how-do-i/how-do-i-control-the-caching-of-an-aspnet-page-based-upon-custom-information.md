@@ -4,19 +4,16 @@ title: '[Procedura:] Controllo la memorizzazione nella cache di una pagina ASP.N
 author: rick-anderson
 description: In questo video Chris Pels illustra come controllare i criteri per la memorizzazione nella cache una pagina ASP.NET in base alle informazioni personalizzate. Viene creata una pagina di esempio e quindi gli O....
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/19/2009
-ms.topic: article
 ms.assetid: f230c316-1313-4b8f-967c-62f9684fe378
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-control-the-caching-of-an-aspnet-page-based-upon-custom-information
 msc.type: video
-ms.openlocfilehash: d2c8e2384d39255f66c11f1cc303398750229779
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: d069b7798d3659e9f6786fb8d63862817fbdd68b
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37376020"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37808694"
 ---
 <a name="how-do-i-control-the-caching-of-an-aspnet-page-based-upon-custom-information"></a>[Procedura:] Controllo la memorizzazione nella cache di una pagina ASP.NET in base alle informazioni personalizzate
 ====================

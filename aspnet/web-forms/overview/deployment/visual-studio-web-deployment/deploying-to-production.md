@@ -4,19 +4,16 @@ title: "Distribuzione Web ASP.NET tramite Visual Studio: la distribuzione nell'a
 author: tdykstra
 description: Questa serie di esercitazioni illustra come distribuire, pubblicare, ASP.NET per App Web di servizio App di Azure o per un provider di hosting di terze parti, di applicazioni web da utilizza...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/15/2013
-ms.topic: article
 ms.assetid: 416438a1-3b2f-4d27-bf53-6b76223c33bf
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: 5bc39162bc53dc27230f8ccc55266212a51b6380
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: a91feedb9ac09b2a70ca256c72d312a1e78ecbc8
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37369645"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37827877"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-to-production"></a>Distribuzione Web ASP.NET tramite Visual Studio: distribuzione in produzione
 ====================

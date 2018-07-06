@@ -4,19 +4,16 @@ title: La memorizzazione nella cache i dati all'avvio dell'applicazione (VB) | M
 author: rick-anderson
 description: In qualsiasi applicazione Web alcuni dati verranno frequentemente utilizzati e alcuni dati verranno utilizzati raramente. Migliorare le prestazioni dei nostri ASP.NET applicazione b...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/30/2007
-ms.topic: article
 ms.assetid: 84afe4ac-cc53-4f2e-a867-27eaf692c2df
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-at-application-startup-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 04f3fde9954161fec9bc310d6c4306cbfe7c5ee6
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: cf63cafbd4fd3937d18afa0d72a48868d76d3888
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37364047"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37841383"
 ---
 <a name="caching-data-at-application-startup-vb"></a>La memorizzazione nella cache i dati all'avvio dell'applicazione (VB)
 ====================

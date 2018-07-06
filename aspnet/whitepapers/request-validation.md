@@ -4,19 +4,16 @@ title: Richiesta di convalida - prevenzione degli attacchi tramite Script | Micr
 author: rick-anderson
 description: In questo documento descrive la funzionalità di convalida richiesta di ASP.NET in cui, per impostazione predefinita, l'applicazione viene impedita l'elaborazione submitt di contenuto HTML non codificato...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/10/2010
-ms.topic: article
 ms.assetid: fa429113-5f8f-4ef4-97c5-5c04900a19fa
-ms.technology: ''
 msc.legacyurl: /whitepapers/request-validation
 msc.type: content
-ms.openlocfilehash: 783fb1ae27d88f9c6d6d3484d26d3e206e7f2fba
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 0dfbfcae70792c57d530fc5e6fb73f8f96ec6e02
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37372929"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37809745"
 ---
 <a name="request-validation---preventing-script-attacks"></a>Richiesta di convalida - prevenzione degli attacchi tramite Script
 ====================

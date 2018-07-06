@@ -4,19 +4,16 @@ title: Master/dettaglio con un elenco puntato di record Master e un controllo Da
 author: rick-anderson
 description: In questa esercitazione verranno compressi i report di due pagine master-details dell'esercitazione precedente in una singola pagina, che mostra un elenco puntato di nomi di categoria in t...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/17/2006
-ms.topic: article
 ms.assetid: ee20742f-6fb7-49a0-a009-058fe363aacb
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5b7fdcb5ba38e89b073960d6bce473c3a5aadf8b
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 90629046869460869d6c85e179980811b7bede51
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37389638"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37841992"
 ---
 <a name="masterdetail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb"></a>Master/dettaglio con un elenco puntato di record Master e un controllo DataList di dettagli (VB)
 ====================

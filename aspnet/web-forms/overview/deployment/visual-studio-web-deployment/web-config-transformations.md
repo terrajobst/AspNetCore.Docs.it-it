@@ -4,19 +4,16 @@ title: 'Distribuzione Web ASP.NET tramite Visual Studio: trasformazioni del File
 author: tdykstra
 description: Questa serie di esercitazioni illustra come distribuire, pubblicare, ASP.NET per App Web di servizio App di Azure o per un provider di hosting di terze parti, di applicazioni web da utilizza...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/15/2013
-ms.topic: article
 ms.assetid: 5a2a927b-14cb-40bc-867a-f0680f9febd7
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations
 msc.type: authoredcontent
-ms.openlocfilehash: 4d8a7d2a6faa0b03fff4416778101b47df2dd26e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 0a52530396efa3612d19817eeaa0498cffdac38f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37371765"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37842439"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-webconfig-file-transformations"></a>Distribuzione Web ASP.NET tramite Visual Studio: trasformazioni del File Web. config
 ====================

@@ -4,19 +4,16 @@ title: Implementazione della concorrenza ottimistica con SqlDataSource (c#) | Mi
 author: rick-anderson
 description: In questa esercitazione è esaminare i passaggi fondamentali del controllo della concorrenza ottimistica e quindi esplorare come implementarla mediante il controllo SqlDataSource.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2007
-ms.topic: article
 ms.assetid: df999966-ac48-460e-b82b-4877a57d6ab9
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/implementing-optimistic-concurrency-with-the-sqldatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ba0a87ffe2aaebf2b8a24eafd039c639632fee03
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2907e05dfa82d44d38217b90d85d5c2192613560
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37397958"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37811465"
 ---
 <a name="implementing-optimistic-concurrency-with-the-sqldatasource-c"></a>Implementazione della concorrenza ottimistica con SqlDataSource (c#)
 ====================

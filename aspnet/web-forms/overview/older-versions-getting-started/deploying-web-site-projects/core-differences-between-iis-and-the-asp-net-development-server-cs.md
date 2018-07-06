@@ -4,19 +4,16 @@ title: Principali differenze tra IIS e il Server di sviluppo ASP.NET (c#) | Micr
 author: rick-anderson
 description: Quando si testa in locale un'applicazione ASP.NET, è probabile che si usa Server Web di sviluppo ASP.NET. Tuttavia, il sito Web di produzione è più probabile pow...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/01/2009
-ms.topic: article
 ms.assetid: 13a5a423-9235-4dde-b408-2fd10f791d63
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 50f3115fd124cf058e70cab71b8c0168d242ff21
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f4284a46fbae9ed609554b77c4e19f936b80595d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37363416"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37839687"
 ---
 <a name="core-differences-between-iis-and-the-aspnet-development-server-c"></a>Differenze principali tra IIS e il Server di sviluppo ASP.NET (c#)
 ====================

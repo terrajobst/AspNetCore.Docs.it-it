@@ -4,19 +4,16 @@ title: '[Procedura:] Usare il dispositivo Extender ResizableControl ASP.NET AJAX
 author: JoeStagner
 description: Il dispositivo extender ResizableControl di ASP.NET AJAX Control Toolkit consente allo sviluppatore di specificare un'area della pagina Web che l'utente può ridimensionare dinamica...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/01/2007
-ms.topic: article
 ms.assetid: 99b23369-dac6-458b-b002-56be35f43236
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-resizablecontrol-extender
 msc.type: video
-ms.openlocfilehash: 50e10bafb6d5a8df3d7d7815bf47b95411318f4b
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: da3f54e84602bd9276f4b063ebdddab099f03691
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37398948"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37808116"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-resizablecontrol-extender"></a>[Procedura:] Usare il dispositivo Extender ResizableControl ASP.NET AJAX?
 ====================

@@ -4,19 +4,16 @@ title: Determinazione dei file da distribuire (VB) | Microsoft Docs
 author: rick-anderson
 description: Quali file devono essere distribuiti dall'ambiente di sviluppo all'ambiente di produzione dipende in parte che ci sia stato generato l'applicazione ASP.NET...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/01/2009
-ms.topic: article
 ms.assetid: ea918f62-c9d6-4a7f-9bc6-e054d3764b2c
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/determining-what-files-need-to-be-deployed-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 89b45bff705996b799242ad55f156083f310af97
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 52ba518ec1c911b2eb659c0b36a2a718fbdd0c36
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37380389"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37825702"
 ---
 <a name="determining-what-files-need-to-be-deployed-vb"></a>Determinazione dei file da distribuire (VB)
 ====================

@@ -4,19 +4,16 @@ title: Convalida le credenziali dell'utente di appartenenza utente Store (VB) | 
 author: rick-anderson
 description: In questa esercitazione verrà esaminato come convalidare le credenziali dell'utente rispetto all'archivio utente di appartenenza utilizzando sia a livello di codice indica che il controllo di accesso...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/18/2008
-ms.topic: article
 ms.assetid: 17772912-b47b-4557-9ce9-80f22df642f7
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ad9f76f6c7c64c29971aed10ba165b5f4807eb64
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: c5eeb67c8d175173f38ffcbc1b01fd5a5931866e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37364831"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37821404"
 ---
 <a name="validating-user-credentials-against-the-membership-user-store-vb"></a>Convalida le credenziali dell'utente di appartenenza utente Store (VB)
 ====================

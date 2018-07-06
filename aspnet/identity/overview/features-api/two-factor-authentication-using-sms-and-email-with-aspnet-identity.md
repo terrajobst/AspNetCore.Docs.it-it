@@ -4,19 +4,16 @@ title: Autenticazione a due fattori tramite SMS e posta elettronica con ASP.NET 
 author: HaoK
 description: Questa esercitazione illustrerà come configurare l'autenticazione a due fattori (2FA) tramite SMS e posta elettronica. Questo articolo è stato scritto da Rick Anderson ( @RickAndMSFT ), PR....
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/15/2015
-ms.topic: article
 ms.assetid: 053e23c4-13c9-40fa-87cb-3e9b0823b31e
-ms.technology: ''
 msc.legacyurl: /identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 0519ae69b3d2ef129d206a936b199f781fef5bf6
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: c1f4bd4a3f65d4b7fccd86214fd0ba45c891e390
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37399679"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37807622"
 ---
 <a name="two-factor-authentication-using-sms-and-email-with-aspnet-identity"></a>Autenticazione a due fattori tramite SMS e posta elettronica con ASP.NET Identity
 ====================

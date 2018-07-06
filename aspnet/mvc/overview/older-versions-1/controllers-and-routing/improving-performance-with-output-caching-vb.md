@@ -4,19 +4,16 @@ title: Miglioramento delle prestazioni con Output di memorizzazione nella cache 
 author: microsoft
 description: In questa esercitazione descrive come è possibile migliorare notevolmente le prestazioni delle applicazioni web ASP.NET MVC, sfruttando i vantaggi della memorizzazione nella cache di output. È...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/27/2009
-ms.topic: article
 ms.assetid: 0e7b4d85-2c46-4eaf-b6a8-6cd566a67334
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/improving-performance-with-output-caching-vb
 msc.type: authoredcontent
-ms.openlocfilehash: debc456531ee771a9ecb24b81e35d3084d8e49b8
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 72d73067f6f7dabe4644a35c8d9462bfbc7a93ed
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37398359"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37807330"
 ---
 <a name="improving-performance-with-output-caching-vb"></a>Miglioramento delle prestazioni con Output la memorizzazione nella cache (VB)
 ====================

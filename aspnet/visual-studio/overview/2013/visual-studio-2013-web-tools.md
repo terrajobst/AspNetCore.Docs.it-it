@@ -4,19 +4,16 @@ title: 'Laboratorio pratico: Visual Studio 2013 Web Tools | Microsoft Docs'
 author: rick-anderson
 description: Visual Studio è un ambiente di sviluppo straordinaria per. Windows basata su rete e i progetti web. Include un editor di testo potente che può essere utilizzato con facilità per...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/16/2014
-ms.topic: article
 ms.assetid: 09e82351-816b-402d-acd1-0f9ac6901d16
-ms.technology: ''
 msc.legacyurl: /visual-studio/overview/2013/visual-studio-2013-web-tools
 msc.type: authoredcontent
-ms.openlocfilehash: 8f0f19a184d50cdc6e8e5a2da0e55a0e8ca44dc5
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 9553d3129ff4c942eacbba628d1daaf6c4e33635
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37399400"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37807528"
 ---
 <a name="hands-on-lab-visual-studio-2013-web-tools"></a>Laboratorio pratico: Visual Studio 2013 Web Tools
 ====================

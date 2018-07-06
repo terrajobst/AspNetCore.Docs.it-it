@@ -4,19 +4,16 @@ title: Creazione di bundle e minimizzazione | Microsoft Docs
 author: Rick-Anderson
 description: Creazione di bundle e minimizzazione sono due tecniche è possibile usare in ASP.NET 4.5 per migliorare il tempo di caricamento di richiesta. Creazione di bundle e minimizzazione migliora il tempo di caricamento reducin...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/23/2012
-ms.topic: article
 ms.assetid: 5894dc13-5d45-4dad-8096-136499120f1d
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/performance/bundling-and-minification
 msc.type: authoredcontent
-ms.openlocfilehash: 4f21184f0917cd957e9e1719c63769e1a027961c
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 090bb58f762302e0f58db7b8c005fe584e5ec419
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37384779"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37827375"
 ---
 <a name="bundling-and-minification"></a>Creazione di bundle e minimizzazione
 ====================
