@@ -4,19 +4,16 @@ title: Aggiunta di un Controller | Microsoft Docs
 author: shanselman
 description: Una versione aggiornata se questa esercitazione è disponibile qui utilizzando Visual Studio 2013. La nuova esercitazione Usa ASP.NET MVC 5, che offre numerosi miglioramenti rispetto t...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/14/2010
-ms.topic: article
 ms.assetid: ff03dcc0-da97-458d-838f-0823e7482642
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part2
 msc.type: authoredcontent
-ms.openlocfilehash: f20889cf1c1cd9a2a69f0008d879b518c38334d6
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: afe1182bca0fe58e1df162c5027df35992eeef38
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37395669"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37809910"
 ---
 <a name="adding-a-controller"></a>Aggiunta di un controller
 ====================

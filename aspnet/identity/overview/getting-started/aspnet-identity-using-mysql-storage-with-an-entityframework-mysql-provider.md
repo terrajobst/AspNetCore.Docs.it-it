@@ -4,19 +4,16 @@ title: "ASP.NET Identity: Uso dell'archiviazione MySQL con un Provider MySQL Ent
 author: maumar
 description: Questa esercitazione illustra come sostituire il meccanismo di archiviazione di dati predefinito per ASP.NET Identity con Entity Framework (provider di SQL client) con un essere ampliati o ridotti di MySQL...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 12/10/2013
-ms.topic: article
 ms.assetid: 15253312-a92c-43ba-908e-b5dacd3d08b8
-ms.technology: ''
 msc.legacyurl: /identity/overview/getting-started/aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider
 msc.type: authoredcontent
-ms.openlocfilehash: 6b1d57c65cb4197d1b20175415ee73b3e81cb53f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 13cb1d9a862429bfb4e20a8d9700fc17eb721c6b
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37383039"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37812675"
 ---
 <a name="aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider-c"></a>ASP.NET Identity: Uso dell'archiviazione MySQL con un Provider EntityFramework MySQL (c#)
 ====================

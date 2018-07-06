@@ -4,19 +4,16 @@ title: Protezione delle stringhe di connessione e altre informazioni di configur
 author: rick-anderson
 description: Un'applicazione ASP.NET in genere archivia le informazioni di configurazione in un file Web. config. Alcune di queste informazioni è sensibile e garantisce la protezione dati. Da def....
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/03/2007
-ms.topic: article
 ms.assetid: cd17dbe1-c5e1-4be8-ad3d-57233d52cef1
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/protecting-connection-strings-and-other-configuration-information-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 83be60143ceaaf074e54ae25721cebdf8c375261
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 7007496ad3aa137d8a6a9d4ba8e486d6b32ec295
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37363261"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37810904"
 ---
 <a name="protecting-connection-strings-and-other-configuration-information-vb"></a>Protezione delle stringhe di connessione e altre informazioni di configurazione (VB)
 ====================

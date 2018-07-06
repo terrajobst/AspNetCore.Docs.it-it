@@ -4,19 +4,16 @@ title: '[Procedura:] Usare il controllo Extender Pagingbulletedlist? | Microsoft
 author: JoeStagner
 description: In questo video viene illustrato l'utilizzo del controllo extender pagingbulletedlist da ASP.NET AJAX Control Toolkit. Contiene informazioni come il extende PagingBulletedList...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/12/2007
-ms.topic: article
 ms.assetid: 7f2231f1-c105-499e-b980-c24824bed56a
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-pagingbulletedlist-extender-control
 msc.type: video
-ms.openlocfilehash: 394ba543245d97a1925f81ef369a95b944984722
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 9c660eb834c8e858efacacf6104099d34e91baa4
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37392409"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37814327"
 ---
 <a name="how-do-i-use-the-pagingbulletedlist-extender-control"></a>[Procedura:] Usare il controllo Extender Pagingbulletedlist?
 ====================

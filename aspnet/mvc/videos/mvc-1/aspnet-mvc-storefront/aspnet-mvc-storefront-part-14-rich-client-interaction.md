@@ -4,19 +4,16 @@ title: 'ASP.NET MVC StoreFront-parte 14: Interazione Rich Client | Microsoft Doc
 author: robconery
 description: Interazione Rich Client appositamente progettate per AJAX. Rob Conery ha documentato ogni passaggio nel processo di sviluppo nel suo blog.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/10/2008
-ms.topic: article
 ms.assetid: 28e3602f-34f8-4123-bf6d-235857202b5e
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-14-rich-client-interaction
 msc.type: video
-ms.openlocfilehash: cdfcf0db0fd4773c0951e56038e1c3a75184744e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 664bbc9002a97ddcc19b93a23d4a41dcefda0876
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37387887"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37818534"
 ---
 <a name="aspnet-mvc-storefront-part-14-rich-client-interaction"></a>ASP.NET MVC StoreFront-parte 14: Interazione di Rich Client
 ====================

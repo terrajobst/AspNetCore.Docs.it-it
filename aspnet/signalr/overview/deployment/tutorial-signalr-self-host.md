@@ -4,19 +4,16 @@ title: 'Esercitazione: Hosting indipendente di SignalR | Microsoft Docs'
 author: pfletcher
 description: Questa esercitazione illustra come creare un server di SignalR 2 self-hosted e come connettersi a esso con un client JavaScript. Versioni del software utilizzate nell'esercitazione V...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/10/2014
-ms.topic: article
 ms.assetid: 400db427-27af-4f2f-abf0-5486d5e024b5
-ms.technology: dotnet-signalr
 msc.legacyurl: /signalr/overview/deployment/tutorial-signalr-self-host
 msc.type: authoredcontent
-ms.openlocfilehash: 34e307499c7dabcd2afc73780649d79e68c10fdc
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 71fb121377a49bb741ebff098ff20ec82e85c82a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37378998"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37821784"
 ---
 <a name="tutorial-signalr-self-host"></a>Esercitazione: Hosting indipendente di SignalR
 ====================

@@ -4,19 +4,16 @@ title: L'esecuzione di ASP.NET Side-by-Side di .NET Framework 1.0 e 1.1 | Micros
 author: rick-anderson
 description: Questo white paper viene descritto come installare sia .NET 1.0 e 1.1 di .NET nel computer, consentendo un'applicazione Web ASP.NET per l'esecuzione in entrambe le versioni di con i fotogrammi...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/10/2010
-ms.topic: article
 ms.assetid: bdea2003-e964-4db5-9092-d56cc7560616
-ms.technology: ''
 msc.legacyurl: /whitepapers/side-by-side-with-10
 msc.type: content
-ms.openlocfilehash: 1b8bcebd59a900e54c759509fd4fc5ad1f4f8576
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 1018845e3d2c6603732bfbbde78f4a9183e49d5d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37391160"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37808395"
 ---
 <a name="aspnet-side-by-side-execution-of-net-framework-10-and-11"></a>Esecuzione di ASP.NET Side-by-Side di .NET Framework 1.0 e 1.1
 ====================

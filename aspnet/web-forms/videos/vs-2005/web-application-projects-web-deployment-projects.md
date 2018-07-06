@@ -4,19 +4,16 @@ title: Progetti di distribuzione Web e progetti di applicazione Web | Microsoft 
 author: BradleyBartz
 description: Bradley Bartz viene illustrato come i progetti di applicazioni Web e progetti di distribuzione Web per Visual Studio 2005 fare in modo sviluppare e distribuire simila progetti ASP.NET...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/20/2006
-ms.topic: article
 ms.assetid: 66d242f5-0306-4df2-8f05-c93e405f9847
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/vs-2005/web-application-projects-web-deployment-projects
 msc.type: video
-ms.openlocfilehash: 8c5eb9827158f626315c03d1d2ce91367ab695cb
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6c8048937a0281e7b90965be9f823557a9f86d46
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37390556"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37836133"
 ---
 <a name="web-application-projects--web-deployment-projects"></a>Progetti di applicazioni Web e progetti di distribuzione Web
 ====================

@@ -4,19 +4,16 @@ title: Creazione di un livello di accesso ai dati (c#) | Microsoft Docs
 author: rick-anderson
 description: In questa esercitazione verrà avviare sin dall'inizio e creare Data Access Layer (DAL), usando i dataset tipizzati, accedere alle informazioni in un database.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/05/2010
-ms.topic: article
 ms.assetid: cfe2a6a0-1e56-4dc8-9537-c8ec76ba96a4
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3e124edc137db8444c687092f33db7e03aaeb179
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 556771994fd80773ec1e86bcbab0f60f2bb821e4
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37398320"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37838754"
 ---
 <a name="creating-a-data-access-layer-c"></a>Creazione di un livello di accesso ai dati (c#)
 ====================

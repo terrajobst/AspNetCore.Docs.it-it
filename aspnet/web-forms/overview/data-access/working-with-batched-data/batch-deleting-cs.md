@@ -4,19 +4,16 @@ title: Batch di eliminazione (c#) | Microsoft Docs
 author: rick-anderson
 description: Informazioni su come eliminare più record di database in un'unica operazione. Nel livello di interfaccia utente si basano un GridView avanzato creati in un precedente tut...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/26/2007
-ms.topic: article
 ms.assetid: ac6916d0-a5ab-4218-9760-7ba9e72d258c
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-deleting-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c6d792519d4a9c30f8d28497a74bc45b00197169
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: e81c1aca63c07597915999144695d5a6a7deafbf
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37365305"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37834064"
 ---
 <a name="batch-deleting-c"></a>Batch di eliminazione (c#)
 ====================

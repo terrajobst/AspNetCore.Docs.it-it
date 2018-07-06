@@ -4,19 +4,16 @@ title: Creazione di helper HTML personalizzati | Microsoft Docs
 author: StephenWalther
 description: Creare nuovo helper HTML per renderne più semplice generare contenuto della visualizzazione. Stephen Walther illustra due metodi semplici di creazione di nuovi helper HTML.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/20/2008
-ms.topic: article
 ms.assetid: e67b3889-ac7d-4811-8bf5-54f6abc7f49f
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/creating-custom-html-helpers
 msc.type: video
-ms.openlocfilehash: b7f18369ec9869310109945679b874920ad4e996
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: e30984d52bb5933b29815c9f09cd1aa19f6cedba
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37362031"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37814314"
 ---
 <a name="creating-custom-html-helpers"></a>Creazione di helper HTML personalizzati
 ====================

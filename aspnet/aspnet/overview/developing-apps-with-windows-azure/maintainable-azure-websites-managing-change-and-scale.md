@@ -4,19 +4,16 @@ title: 'Laboratorio pratico: siti Web di Azure gestibili: gestione del cambiamen
 author: rick-anderson
 description: In questo laboratorio, informazioni su come Microsoft Azure semplifica compilare e distribuire siti Web nell'ambiente di produzione.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/16/2014
-ms.topic: article
 ms.assetid: ecfd0eb4-c4ad-44e6-9db9-a2a66611ff6a
-ms.technology: ''
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
 msc.type: authoredcontent
-ms.openlocfilehash: e7dcca855e55d10926de6d5e11e5a40e766128fd
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 3a118cdd7e3f3878976e4f8480ce2236b8d3ba88
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37385353"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37824796"
 ---
 <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>Laboratorio pratico: siti Web di Azure gestibili: gestione del cambiamento e scalabilità
 ====================

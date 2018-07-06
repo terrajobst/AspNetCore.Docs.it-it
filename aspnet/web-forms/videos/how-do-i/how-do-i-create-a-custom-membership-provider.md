@@ -4,19 +4,16 @@ title: '[Procedura:] Creare un Provider di appartenenze personalizzato? | Micros
 author: rick-anderson
 description: Un Provider di appartenenze consente a un'applicazione web archiviare e recuperare i dati di appartenenza per un utente e l'Usa Provider di appartenenze ASP.NET standard predefinire...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/05/2007
-ms.topic: article
 ms.assetid: a250a97d-e04d-403a-816e-cd6efda396cd
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-create-a-custom-membership-provider
 msc.type: video
-ms.openlocfilehash: 732a996f1c73c7fdaeed5dde355a5c242de8b7c6
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f329323eb17bb8d8f8ef8f3591eeab706d95a90f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37372647"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37812912"
 ---
 <a name="how-do-i-create-a-custom-membership-provider"></a>[Procedura:] Creare un Provider di appartenenze personalizzato?
 ====================

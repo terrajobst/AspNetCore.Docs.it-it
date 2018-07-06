@@ -4,19 +4,16 @@ title: '[Procedura:] Usare il dispositivo Extender casella di controllo Mutually
 author: JoeStagner
 description: Il controllo MutuallyExclusive di ASP.NET AJAX Control Toolkit consente agli sviluppatori di configurare un numero di caselle di controllo come si escludono a vicenda, quali e...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/04/2007
-ms.topic: article
 ms.assetid: 808a89d3-4a98-4abe-83b5-0aa01f749048
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-mutuallyexclusive-checkbox-extender
 msc.type: video
-ms.openlocfilehash: 29b07af7e09bd72227e2ca8893f7bd4d424e32aa
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 0a06ffc397a596159404740d65683fc2b54ec248
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37392497"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37812964"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-mutuallyexclusive-checkbox-extender"></a>[Procedura:] Usare il dispositivo Extender casella di controllo MutuallyExclusive ASP.NET AJAX?
 ====================

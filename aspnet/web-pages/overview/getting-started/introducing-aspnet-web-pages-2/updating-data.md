@@ -4,19 +4,16 @@ title: Introduzione a pagine Web ASP.NET - aggiornamento di dati del Database | 
 author: tfitzmac
 description: Questa esercitazione illustra come aggiornare la voce (modifica) un database esistente quando si usa ASP.NET Web Pages (Razor). Si presuppone di aver completato la serie th...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/02/2018
-ms.topic: article
 ms.assetid: ac86ec9c-6b69-485b-b9e0-8b9127b13e6b
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/updating-data
 msc.type: authoredcontent
-ms.openlocfilehash: 259034a795b9dff7001165a182bc0e84bb690491
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 948f5b5933669a43bf37dc0317ad644660dc67e9
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37377057"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37842902"
 ---
 <a name="introducing-aspnet-web-pages---updating-database-data"></a>Introduzione a pagine Web ASP.NET - aggiornamento di dati del Database
 ====================

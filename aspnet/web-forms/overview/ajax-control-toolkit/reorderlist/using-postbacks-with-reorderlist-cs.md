@@ -4,19 +4,16 @@ title: Uso di postback con ReorderList (c#) | Microsoft Docs
 author: wenz
 description: Il controllo ReorderList in AJAX Control Toolkit fornisce un elenco che possa essere riordinato in base all'utente tramite trascinamento della selezione. Ogni volta che l'elenco viene riordinato, un ordine di acquisto...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: 70d5d106-b547-442c-a7fd-3492b3e3d646
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/reorderlist/using-postbacks-with-reorderlist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 71e806b7915c010cec66931d87bd8c1f3b6d1fb3
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 4510adc4ecf6928863b035d0afe8d008968d25b0
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37365633"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37820104"
 ---
 <a name="using-postbacks-with-reorderlist-c"></a>Uso di postback con ReorderList (c#)
 ====================

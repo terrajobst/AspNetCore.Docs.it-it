@@ -4,19 +4,16 @@ title: Visualizzare i dati degli elementi e i dettagli | Microsoft Docs
 author: Erikre
 description: Questa serie di esercitazioni insegnerà le nozioni di base della creazione di un'applicazione Web Form ASP.NET con ASP.NET 4.5 e Microsoft Visual Studio Express 2013 per Microsoft...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/08/2014
-ms.topic: article
 ms.assetid: 64a491a8-0ed6-4c2f-9c1c-412962eb6006
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/display_data_items_and_details
 msc.type: authoredcontent
-ms.openlocfilehash: 08efafc1ae076bcf481c5c7d8aea2bbaa704af17
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 083f7182416012c85f05db255fcab4d8e535b52a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37379738"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37820347"
 ---
 <a name="display-data-items-and-details"></a>Visualizzare i dati degli elementi e i dettagli
 ====================

@@ -4,19 +4,16 @@ title: Configurazione delle autorizzazioni per Team di distribuzione della compi
 author: jrjlee
 description: In questo argomento descrive come configurare le autorizzazioni per abilitare il server di compilazione distribuire il contenuto al server web e server di database come parte di un automatizzati b...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/04/2012
-ms.topic: article
 ms.assetid: 2488a91e-b0a8-465a-b874-3233f724b56b
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-permissions-for-team-build-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: f84e72bd5991b0407008ccdaff5243979cbb986e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: b577d887b4a4476b6796ae9f1df538d16eededa3
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37384662"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37820360"
 ---
 <a name="configuring-permissions-for-team-build-deployment"></a>Configurazione delle autorizzazioni per Team di distribuzione della compilazione
 ====================

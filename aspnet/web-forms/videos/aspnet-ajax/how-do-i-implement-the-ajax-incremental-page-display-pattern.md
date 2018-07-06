@@ -4,19 +4,16 @@ title: '[Procedura:] Implementare il modello di visualizzazione incrementale del
 author: JoeStagner
 description: In genere quando una pagina Web viene richiesto, l'utente deve attendere mentre viene recuperato l'intera pagina dal server dopo il quale la pagina operazione completata viene visualizzato sudde...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/05/2007
-ms.topic: article
 ms.assetid: 17dfc331-1186-4240-8abf-f0220c90e081
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-implement-the-ajax-incremental-page-display-pattern
 msc.type: video
-ms.openlocfilehash: 0b01ac87636449f1c0c87335615715c632391ec8
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 214e2af5fbcdbf2491d1a11e84033bb2747cc26d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37367551"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37835185"
 ---
 <a name="how-do-i-implement-the-ajax-incremental-page-display-pattern"></a>[Procedura:] Implementare il modello di visualizzazione incrementale delle pagine AJAX?
 ====================

@@ -4,19 +4,16 @@ title: Convalida dell'Input utente in ASP.NET Web Pages (Razor) siti | Microsoft
 author: tfitzmac
 description: Questo articolo viene illustrato come convalidare le informazioni ricevute dagli utenti &mdash; , ovvero per assicurarsi che gli utenti immettano valido informazioni in formato HTML basata su form in un sistema autonomo....
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2014
-ms.topic: article
 ms.assetid: 4eb060cc-cf14-41ae-bab1-14a2c15332d0
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/validating-user-input-in-aspnet-web-pages-sites
 msc.type: authoredcontent
-ms.openlocfilehash: 2a35e9895c5b711d5c6c5544987f99fe7e2e0085
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: d412f3fa4ca144a8a9107c971279f7bf2663cfe5
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37368227"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37819266"
 ---
 <a name="validating-user-input-in-aspnet-web-pages-razor-sites"></a>Convalida dell'Input utente in ASP.NET Web Pages (Razor) Sites
 ====================

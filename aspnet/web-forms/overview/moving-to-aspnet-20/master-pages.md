@@ -4,19 +4,16 @@ title: Pagine master | Microsoft Docs
 author: microsoft
 description: Uno dei componenti principali di un sito Web corretto è un aspetto uniforme e coerente. In ASP.NET 1.x, gli sviluppatori utilizzavano controlli utente replicare comuni elem. di pagina...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2005
-ms.topic: article
 ms.assetid: 9c0cce4d-efd9-4c14-b0e8-a1a140abb3f4
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/master-pages
 msc.type: authoredcontent
-ms.openlocfilehash: b31627fec45f153f5832afa6e317f2dd2b296d02
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 631aa39c51601f1ae843079d8cd930f77b1093ab
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37382621"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37819215"
 ---
 <a name="master-pages"></a>Pagine master
 ====================

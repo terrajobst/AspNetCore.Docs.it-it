@@ -4,19 +4,16 @@ title: '[Procedura:] Esplorazione del sito di implementare in ASP.NET? | Microso
 author: rick-anderson
 description: In questo video abbiamo informazioni su come definire una mappa del sito e usarla con i controlli server Menu, TreeView e Sitemap. Viene illustrato come utilizzare una mappa del sito in una pagina master...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/18/2007
-ms.topic: article
 ms.assetid: 889e8100-a80c-41c0-bfeb-7d466c754548
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-implement-site-navigation-in-aspnet
 msc.type: video
-ms.openlocfilehash: dd11d5b44e44f56e6268838c918dd12e448cdb19
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 1995ce735698f0c7827e2721c07c1d98922a7ba3
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37374769"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37822431"
 ---
 <a name="how-do-i-implement-site-navigation-in-aspnet"></a>[Procedura:] Esplorazione del sito di implementare in ASP.NET?
 ====================

@@ -4,19 +4,16 @@ title: Popolamento dinamico di un controllo tramite codice JavaScript (VB) | Mic
 author: wenz
 description: Il controllo di DynamicPopulate di ASP.NET AJAX Control Toolkit chiama un servizio web (o un metodo di pagina) e inserisce il valore risultante in un controllo di destinazione in t...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: 90582e54-3e90-432a-9da5-689fb39ed56b
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/dynamically-populating-a-control-using-javascript-code-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9df2a66bd49ecba52b0dd8b1d52a65b36c38a5dc
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: fae87d87b0783dff6fc8f5f282a73b05ee64affa
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37366848"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37812740"
 ---
 <a name="dynamically-populating-a-control-using-javascript-code-vb"></a>Popolamento dinamico di un controllo tramite codice JavaScript (VB)
 ====================

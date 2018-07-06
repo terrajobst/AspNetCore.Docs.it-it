@@ -4,19 +4,16 @@ title: Uso di TextBoxWatermark con i controlli di convalida (VB) | Microsoft Doc
 author: wenz
 description: Il controllo di TextBoxWatermark in AJAX Control Toolkit estende una casella di testo in modo che sia visualizzato all'interno della casella. Quando un utente fa clic nella casella, lo posso...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: e6c2cb98-f745-4bc8-973a-813879c8a891
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/textboxwatermark/using-textboxwatermark-with-validation-controls-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 25a18bf4ad514fbeadd321f50d3b715b38d656cd
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 67e7a715545b35c25147c6dbf6684e0e1634027b
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37376578"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37811565"
 ---
 <a name="using-textboxwatermark-with-validation-controls-vb"></a>Uso di TextBoxWatermark con i controlli di convalida (VB)
 ====================

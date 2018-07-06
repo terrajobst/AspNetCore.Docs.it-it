@@ -4,19 +4,16 @@ title: '[Procedura:] ASP.NET AJAX attiva un servizio Web esistente? | Microsoft 
 author: JoeStagner
 description: In questo video viene illustrato quanto sia semplice per aggiungere funzionalità di Microsoft ASP.NET AJAX a un servizio web ASP.NET esistente. Ciò consente al servizio web di gene...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/26/2007
-ms.topic: article
 ms.assetid: 15a8d767-a99e-4459-8466-7746b5f29362
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-aspnet-ajax-enable-an-existing-web-service
 msc.type: video
-ms.openlocfilehash: c632c5871c6cd90ece394be2e8e04859783b8cc1
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 3d952db80c61997253c27044b3f602100cd06e33
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37386513"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37842156"
 ---
 <a name="how-do-i-aspnet-ajax-enable-an-existing-web-service"></a>[Procedura:] ASP.NET AJAX attiva un servizio Web esistente?
 ====================

@@ -3,17 +3,14 @@ title: Aggiunta di una vista a un'app MVC
 author: Rick-Anderson
 description: Aggiunta di una vista a un'app MVC
 ms.author: riande
-manager: wpickett
 ms.date: 09/1721/2017
-ms.topic: article
-ms.technology: dotnet-mvc
 uid: mvc/overview/getting-started/introduction/adding-a-view
-ms.openlocfilehash: a6046d467dbd36f4f3ca5721a3b7c7424e18e00a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 8b9ef79d630623019b22414ef730edffa5a83a09
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37370283"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37824577"
 ---
 <a name="adding-a-view"></a>Aggiunta di una vista
 ====================

@@ -4,19 +4,16 @@ title: ASP.NET e Web Tools 2012.2 note sulla versione | Microsoft Docs
 author: rick-anderson
 description: Note sulla versione di ASP.NET and Web Tools 2012.2.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/14/2013
-ms.topic: article
 ms.assetid: bdb18d02-9f61-4676-836d-6fdea94f9282
-ms.technology: ''
 msc.legacyurl: /whitepapers/aspnet-and-web-tools-20122-release-notes
 msc.type: content
-ms.openlocfilehash: a5558648450650f9939a490ed669e4918e7ee36d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 687eca7d1a7368338bb16c5de24fbe99e9ba500d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37390464"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37806407"
 ---
 <a name="aspnet-and-web-tools-20122-release-notes"></a>ASP.NET and Web Tools 2012.2 note sulla versione
 ====================

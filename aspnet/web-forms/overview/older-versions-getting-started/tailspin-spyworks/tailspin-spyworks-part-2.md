@@ -4,19 +4,16 @@ title: 'Nella parte 2: Livello di accesso ai dati | Microsoft Docs'
 author: JoeStagner
 description: Questa serie di esercitazioni illustra tutti i passaggi necessari per compilare l'applicazione di esempio Tailspin Spyworks. Parte 2 illustra l'aggiunta di livello di accesso ai dati.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/21/2010
-ms.topic: article
 ms.assetid: 5a9d5429-d70b-411c-8474-f42cf7ef8a2b
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 13abb02e76b3af80aa11d09e75dc223403917804
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: c1d61681952cbf1f0587f0e42da21f8436d79ebb
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37382569"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37812032"
 ---
 <a name="part-2-data-access-layer"></a>Parte 2: Livello di accesso ai dati
 ====================

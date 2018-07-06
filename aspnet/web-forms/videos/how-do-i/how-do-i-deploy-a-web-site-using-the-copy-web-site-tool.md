@@ -4,19 +4,16 @@ title: '[Procedura:] Distribuire un sito Web mediante lo strumento Copia sito We
 author: rick-anderson
 description: In questo video Chris Pels verrà illustrato come distribuire un sito web utilizzando lo strumento Copia sito Web in Visual Studio. Prima di tutto informazioni su come connettersi a un sito web remoto e...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/03/2008
-ms.topic: article
 ms.assetid: 4926a73c-fa70-4f47-b57d-b33556447377
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-deploy-a-web-site-using-the-copy-web-site-tool
 msc.type: video
-ms.openlocfilehash: cac0323682b2b4830b49bdb16c702cc13ad51015
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b922996542fd11c1c0b13913a8d8ed48acf1bbf5
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37391945"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37824809"
 ---
 <a name="how-do-i-deploy-a-web-site-using-the-copy-web-site-tool"></a>[Procedura:] Distribuire un sito Web mediante lo strumento Copia sito Web
 ====================

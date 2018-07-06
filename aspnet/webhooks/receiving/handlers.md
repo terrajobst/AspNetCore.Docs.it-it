@@ -4,17 +4,14 @@ title: Gestori eventi Webhook ASP.NET | Microsoft Docs
 author: rick-anderson
 description: Come gestire le richieste in ASP.NET i Webhook.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/17/2012
-ms.topic: article
 ms.assetid: a55b0d20-9c90-4bd3-a471-20da6f569f0c
-ms.technology: ''
-ms.openlocfilehash: 7e45a97ac9d61b2d046984e5ede3be158b741b7d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: bc8f4ef3f4ade775b395d73dfa8d73fec92fba3f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37372699"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37841422"
 ---
 # <a name="aspnet-webhooks-handlers"></a>Gestori eventi Webhook ASP.NET
 

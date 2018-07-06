@@ -4,19 +4,16 @@ title: Uso di metodi asincroni in ASP.NET 4.5 | Microsoft Docs
 author: Rick-Anderson
 description: Questa esercitazione insegnerà le nozioni di base della creazione di un'applicazione Web Form ASP.NET asincrona usando Visual Studio Express 2012 per Web, che è disponibile gratuitamente come...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/06/2012
-ms.topic: article
 ms.assetid: a585c9a2-7c8e-478b-9706-90f3739c50d1
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/performance-and-caching/using-asynchronous-methods-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: 3e35365cb2307ed89ee423af8afdf9c4588fcd58
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 94adc03eeba61310d60ca88a0495c5a2e5dc4cf6
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37382634"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37819302"
 ---
 <a name="using-asynchronous-methods-in-aspnet-45"></a>Uso di metodi asincroni in ASP.NET 4.5
 ====================

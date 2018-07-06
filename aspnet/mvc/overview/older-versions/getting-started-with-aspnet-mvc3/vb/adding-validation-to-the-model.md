@@ -4,19 +4,16 @@ title: Aggiunta della convalida al modello (VB) | Microsoft Docs
 author: Rick-Anderson
 description: Questa esercitazione insegnerà le nozioni di base della creazione di un'applicazione Web MVC ASP.NET utilizzando Microsoft Visual Web Developer 2010 Express Service Pack 1, ovvero...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/12/2011
-ms.topic: article
 ms.assetid: 878f6c31-972d-45f4-8849-5c633b511409
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-validation-to-the-model
 msc.type: authoredcontent
-ms.openlocfilehash: 25d11eb018e571d17c0ef1d91c1d47c8a7023722
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 671200c3f87e2c2c24de38b9ebadd286798b2fd7
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37397824"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37811406"
 ---
 <a name="adding-validation-to-the-model-vb"></a>Aggiunta della convalida al modello (VB)
 ====================

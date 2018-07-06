@@ -4,19 +4,16 @@ title: Creazione di un Layout coerente in ASP.NET Web Pages (Razor) siti | Micro
 author: tfitzmac
 description: Per rendere più efficiente creare pagine web per il sito, è possibile creare blocchi riutilizzabili di contenuto (ad esempio, le intestazioni e piè di pagina) per il sito Web e si c...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/10/2014
-ms.topic: article
 ms.assetid: d7bd001b-6db2-4422-9b78-f3d08b743b00
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/3-creating-a-consistent-look
 msc.type: authoredcontent
-ms.openlocfilehash: 91cabc8c026cbdbc89812577bdeaa939bfa828d4
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: d27cdc70417f380d596f4d07384a615586427643
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37378433"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37821214"
 ---
 <a name="creating-a-consistent-layout-in-aspnet-web-pages-razor-sites"></a>Creazione di un Layout coerente in ASP.NET Web Pages (Razor) Sites
 ====================

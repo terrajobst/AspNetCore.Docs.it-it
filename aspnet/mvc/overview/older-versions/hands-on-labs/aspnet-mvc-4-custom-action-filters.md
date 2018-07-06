@@ -4,19 +4,16 @@ title: Filtri azione personalizzati di ASP.NET MVC 4 | Microsoft Docs
 author: rick-anderson
 description: ASP.NET MVC fornisce i filtri di azione per l'esecuzione di logica di filtro prima o dopo che viene chiamato un metodo di azione. I filtri azione sono gli attributi personalizzati che...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/18/2013
-ms.topic: article
 ms.assetid: 969ab824-1b98-4552-81fe-b60ef5fc6887
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-custom-action-filters
 msc.type: authoredcontent
-ms.openlocfilehash: 879642de0bf6a9818528b847650b44e7021ca874
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: c435fef624d526ceb01dbc370c5df52e2a1e8350
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37399990"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37807935"
 ---
 # <a name="aspnet-mvc-4-custom-action-filters"></a>Filtri azione personalizzati di ASP.NET MVC 4
 

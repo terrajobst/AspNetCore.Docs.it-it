@@ -4,19 +4,16 @@ title: Più elementi ContentPlaceHolder e contenuto predefinito (VB) | Microsoft
 author: rick-anderson
 description: Esamina come aggiungere più segnaposto di contenuto a una pagina master e come specificare il contenuto predefinito i segnaposto del contenuto.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/21/2008
-ms.topic: article
 ms.assetid: 866a7177-6884-451e-88f4-c934b1dd1af5
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/multiple-contentplaceholders-and-default-content-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5425d59ac1ccec46617400601655ae72f860cab1
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 98cb78e03f9f7aff4a36625416188aba04512f6a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37395114"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37839700"
 ---
 <a name="multiple-contentplaceholders-and-default-content-vb"></a>Più elementi ContentPlaceHolder e contenuto predefinito (VB)
 ====================
