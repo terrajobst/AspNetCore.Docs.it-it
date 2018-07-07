@@ -5,12 +5,12 @@ description: Informazioni su come configurare il provider di archiviazione perso
 ms.author: riande
 ms.date: 05/24/2017
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: d7baa8ed142a7d3337adceff2dc93274604bde4c
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: bdde9b93449c2f3f8d43cc4ff86472ed8a60ed1c
+ms.sourcegitcommit: a09820f91e71a7d98b7347bf93210abb9e995e22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37831336"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37889168"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Provider di archiviazione personalizzati per ASP.NET Core Identity
 
@@ -51,7 +51,7 @@ Per creare un provider di archiviazione personalizzati, creare l'origine dati, i
 
 Quando si crea una nuova istanza della `UserManager` o `RoleManager` è specificare il tipo della classe utente e passare un'istanza della classe store come argomento. Questo approccio consente di inserire le classi personalizzate in ASP.NET Core. 
 
-[Riconfigurare l'appper utilizzare il nuovo provider di archiviazione](#reconfigure-app-to-use-new-storage-provider) viene illustrato come creare un'istanza `UserManager` e `RoleManager` con un archivio personalizzato.
+[Riconfigurare l'appper utilizzare il nuovo provider di archiviazione](#reconfigure-app-to-use-a-new-storage-provider) viene illustrato come creare un'istanza `UserManager` e `RoleManager` con un archivio personalizzato.
 
 ## <a name="aspnet-core-identity-stores-data-types"></a>ASP.NET Core Identity archivia i tipi di dati
 
