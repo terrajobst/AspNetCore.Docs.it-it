@@ -4,19 +4,16 @@ title: Esaminare i metodi di modifica e visualizzazione di modifica (VB) | Micro
 author: Rick-Anderson
 description: Questa esercitazione insegnerà le nozioni di base della creazione di un'applicazione Web MVC ASP.NET utilizzando Microsoft Visual Web Developer 2010 Express Service Pack 1, ovvero...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/12/2011
-ms.topic: article
 ms.assetid: 5cb3c59b-1e96-464b-b3a8-c55607201872
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: 9f99981b41d0e67514f5667b00640ad9174d1e4d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 4c0478f077ef22a301d21a5a8ce65d4117ee2348
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37362667"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37815262"
 ---
 <a name="examining-the-edit-methods-and-edit-view-vb"></a>Esaminare i metodi di modifica e visualizzazione di modifica (VB)
 ====================
@@ -67,11 +64,11 @@ Si noti come il modello di vista ha un `@ModelType MvcMovie.Models.Movie` istruz
 
 Il codice con scaffolding Usa diversi *metodi helper* per semplificare il markup HTML. Il [ `Html.LabelFor` ](https://msdn.microsoft.com/library/gg401864(VS.98).aspx) helper Visualizza il nome del campo (&quot;Title&quot;, &quot;ReleaseDate&quot;, &quot;Genre&quot;, o &quot;prezzo &quot;). Il [ `Html.EditorFor` ](https://msdn.microsoft.com/library/system.web.mvc.html.editorextensions.editorfor(VS.98).aspx) helper Visualizza HTML `<input>` elemento. Il [ `Html.ValidationMessageFor` ](https://msdn.microsoft.com/library/system.web.mvc.html.validationextensions.validationmessagefor(VS.98).aspx) helper Visualizza gli eventuali messaggi di convalida associati alla proprietà.
 
-Eseguire l'applicazione e passare al */Movies* URL. Fare clic su un collegamento **Edit** (Modifica). Nel browser visualizzare l'origine per la pagina. Il codice Usa il  metodo del tipo generico  raccolta a cui aggiungere tutti i generi distinti all'elenco. (Senza il  modificatore, verrebbero aggiunti generi duplicati, ad esempio, commedie verrebbero aggiunto due volte nel nostro esempio).
+Eseguire l'applicazione e passare al */Movies* URL. Fare clic su un collegamento **Edit** (Modifica). Nel browser visualizzare l'origine per la pagina. Il codice HTML nella pagina sarà simile all'esempio seguente. (Per maggiore chiarezza è stato escluso il markup di menu).
 
 [!code-html[Main](examining-the-edit-methods-and-edit-view/samples/sample5.html)]
 
-Il codice quindi archivia l'elenco dei generi nel `<input>` oggetto. Il codice seguente viene illustrato come controllare il ** parametro.
+Il `<input>` elementi si trovano in un elemento HTML `<form>` elemento la cui `action` attributo è impostato su post per il */Movies/Edit* URL. I dati del modulo verranno inviati al server quando il **modifica** si fa clic sul pulsante.
 
 ## <a name="processing-the-post-request"></a>Elaborazione della richiesta POST
 
@@ -79,16 +76,16 @@ Nell'elenco seguente viene indicata la versione `HttpPost` del metodo di azione 
 
 [!code-vb[Main](examining-the-edit-methods-and-edit-view/samples/sample6.vb)]
 
-Se non è vuota ulteriormente il codice vincola la query dei film per limitare il film selezionato per il genere specificato. Aggiunta di Markup alla visualizzazione SearchIndex per supportare la ricerca in base al genere Aggiungere un `Movies` helper per il `MovieDBContext`Views\Movies\SearchIndex.vbhtml nel file, subito prima di  helper. Di seguito è riportato il markup completato: Eseguire l'applicazione e passare a `Index`/Movies/SearchIndex`MoviesController`.
+Il raccoglitore di modelli ASP.NET framework accetta i valori di modulo e crea un `Movie` che viene passato come il `movie` parametro. Il `ModelState.IsValid` archivia il codice verifica che i dati inviati nel formato possono essere utilizzati per modificare un `Movie` oggetto. Se i dati sono validi, il codice consente di salvare i dati dei film per i `Movies` raccolta del `MovieDBContext` istanza. Il codice quindi Salva i nuovi dati del film nel database chiamando il `SaveChanges` metodo `MovieDBContext`, che mantiene le modifiche al database. Dopo aver salvato i dati, il codice reindirizza l'utente per il `Index` metodo di azione del `MoviesController` classe, che fa sì che il film aggiornato da visualizzare nell'elenco di film.
 
-Eseguire una ricerca in base al genere dal nome del film e da entrambi i criteri. In questa sezione sono stati esaminati i metodi di azione CRUD e visualizzazioni generate dal framework.
+Se i valori inviati non sono validi, essi verranno nuovamente visualizzati nel formato. Il `Html.ValidationMessageFor` helper nel *Edit.vbhtml* vista modello ci occupiamo della visualizzazione dei messaggi di errore appropriato.
 
 [![abcNotValid](examining-the-edit-methods-and-edit-view/_static/image7.png)](examining-the-edit-methods-and-edit-view/_static/image6.png)
 
-> **È stato creato un metodo di azione di ricerca e visualizzazione che consentono agli utenti di ricerca in base al titolo del film e genere.](https://msdn.microsoft.com/library/gg674880(VS.98).aspx)
+> **Nota sulle impostazioni internazionali** se si usano in genere le impostazioni locali diverse dall'inglese, vedere [che supportano ASP.NET MVC 3 convalida con le impostazioni locali diverse dall'inglese.](https://msdn.microsoft.com/library/gg674880(VS.98).aspx)
 
 
-## <a name="making-the-edit-method-more-robust"></a>Nella sezione successiva, vedrà come aggiungere una proprietà per il  modello e come aggiungere un inizializzatore che creerà automaticamente un database di test.
+## <a name="making-the-edit-method-more-robust"></a>Rendere più affidabile il metodo di modifica
 
 Il `HttpGet` `Edit` metodo generato dal sistema di scaffolding non verifica che l'ID che viene passato al metodo è valido. Se un utente rimuove il segmento ID dall'URL (`http://localhost:xxxxx/Movies/Edit`), viene visualizzato l'errore seguente:
 

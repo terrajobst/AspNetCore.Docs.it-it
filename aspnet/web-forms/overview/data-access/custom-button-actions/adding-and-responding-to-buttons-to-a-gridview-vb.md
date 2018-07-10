@@ -4,19 +4,16 @@ title: Aggiunta e risposta ai pulsanti in un controllo GridView (VB) | Microsoft
 author: rick-anderson
 description: In questa esercitazione verrà esaminato come aggiungere pulsanti personalizzati, sia a un modello e ai campi di un controllo GridView o DetailsView. In particolare, ti invieremo un numero di comp...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/13/2006
-ms.topic: article
 ms.assetid: 06c6bbd2-4bdc-435b-87a3-df2c868f4baa
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions/adding-and-responding-to-buttons-to-a-gridview-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 458f90bf70d6f10402583623ef62bf1572040ce4
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 1e35c6655506b5ec79efe8a5000e136e865854f2
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37365058"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37831693"
 ---
 <a name="adding-and-responding-to-buttons-to-a-gridview-vb"></a>Aggiunta e risposta ai pulsanti in un controllo GridView (VB)
 ====================
@@ -82,7 +79,7 @@ Iniziare aprendo il `CustomButtons.aspx` nella pagina di `CustomButtons` cartell
 
 [![Creare un nuovo oggetto ObjectDataSource denominato SuppliersDataSource](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image10.png)](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image9.png)
 
-**Salvare opzione (nessuno) come un database **valore, è necessario restituire il** gestore dell'evento.
+**Figura 5**: creare un nuovo oggetto ObjectDataSource denominato `SuppliersDataSource` ([fare clic per visualizzare l'immagine con dimensioni normali](adding-and-responding-to-buttons-to-a-gridview-vb/_static/image11.png))
 
 
 Configurare il nuovo oggetto ObjectDataSource in modo che viene eseguita una query dal `SuppliersBLL` classe s `GetSuppliers()` (metodo) (vedere la figura 6). Poiché questo controllo FormView non fornisce un'interfaccia per l'aggiornamento delle informazioni sul fornitore, selezionare opzione (nessuno) nell'elenco a discesa nella scheda aggiornamenti.

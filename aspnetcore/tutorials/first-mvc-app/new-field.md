@@ -1,18 +1,18 @@
 ---
-title: Aggiungere un nuovo campo a un'app ASP.NET Core
+title: Aggiungere un nuovo campo a un'app ASP.NET Core MVC
 author: rick-anderson
 description: Informazioni sull'uso di Migrazioni Code First di Entity Framework per aggiungere un nuovo campo a un modello ed eseguire la migrazione di questa modifica in un database.
 ms.author: riande
 ms.date: 10/14/2016
 uid: tutorials/first-mvc-app/new-field
-ms.openlocfilehash: 0077205e0f10037c9b24eab80337cb76f027e688
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: eb98ebcde1086ad605127dddc055a18d4874c722
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278778"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961035"
 ---
-# <a name="add-a-new-field-to-an-aspnet-core-app"></a>Aggiungere un nuovo campo a un'app ASP.NET Core
+# <a name="add-a-new-field-to-an-aspnet-core-mvc-app"></a>Aggiungere un nuovo campo a un'app ASP.NET Core MVC
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 

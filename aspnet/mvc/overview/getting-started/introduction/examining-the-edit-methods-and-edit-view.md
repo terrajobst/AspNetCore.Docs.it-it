@@ -4,19 +4,16 @@ title: Esaminare i metodi di modifica e visualizzazione di modifica | Microsoft 
 author: Rick-Anderson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/22/2015
-ms.topic: article
 ms.assetid: 52a4d5fe-aa31-4471-b3cb-a064f82cb791
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/getting-started/introduction/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: 563da09adac93a0f6db4637a5884763ffb36e4fd
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: a166f6c4450c72adc23f7d36113ceba7e04f1929
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37396747"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37820889"
 ---
 <a name="examining-the-edit-methods-and-edit-view"></a>Esaminare i metodi di modifica e visualizzazione di modifica
 ====================
@@ -76,7 +73,7 @@ Eseguire l'applicazione e passare al */Movies* URL. Fare clic su un collegamento
 
 [!code-cshtml[Main](examining-the-edit-methods-and-edit-view/samples/sample8.cshtml?highlight=1-2)]
 
-Il codice quindi archivia l'elenco dei generi nel `<input>` oggetto. I dati del modulo verranno inviati al server quando il **salvare** si fa clic sul pulsante. La seconda riga Mostra nascosti [XSRF](../../security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages.md) token generati dal `@Html.AntiForgeryToken()` chiamare.
+Il `<input>` elementi si trovano in un elemento HTML `<form>` elemento la cui `action` attributo è impostato su post per il */Movies/Edit* URL. I dati del modulo verranno inviati al server quando il **salvare** si fa clic sul pulsante. La seconda riga Mostra nascosti [XSRF](../../security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages.md) token generati dal `@Html.AntiForgeryToken()` chiamare.
 
 ## <a name="processing-the-post-request"></a>Elaborazione della richiesta POST
 
@@ -100,7 +97,7 @@ Se si utilizza un computer in lingua inglese Stati Uniti, è possibile ignorare 
 
 
 > [!NOTE]
-> Per supportare la convalida di jQuery per impostazioni locali di lingua diversa dall'inglese che usano la virgola (&quot;,&quot;) per un separatore decimale e formati di data non in lingua inglese Stati Uniti, è necessario includere *globalize.js* specifiche e  *Cultures/globalize.Cultures.js* file (da [ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) e JavaScript usare `Globalize.parseFloat`. È possibile ottenere la convalida di jQuery non in lingua inglese da NuGet. (Non installare Globalize se si usa delle impostazioni locali in inglese.)
+> per supportare la convalida di jQuery per impostazioni locali di lingua diversa dall'inglese che usano la virgola (&quot;,&quot;) per un separatore decimale e formati di data non in lingua inglese Stati Uniti, è necessario includere *globalize.js* specifiche e  *Cultures/globalize.Cultures.js* file (da [ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) e JavaScript usare `Globalize.parseFloat`. È possibile ottenere la convalida di jQuery non in lingua inglese da NuGet. (Non installare Globalize se si usa delle impostazioni locali in inglese.)
 
 
 1. Dal **degli strumenti** menu fare clic su **NuGetLibrary Package Manager**e quindi fare clic su **Gestisci pacchetti NuGet per la soluzione**.  

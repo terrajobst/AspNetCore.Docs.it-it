@@ -4,19 +4,16 @@ title: Visualizzazione di dati binari nel Web dei dati controlla (c#) | Microsof
 author: rick-anderson
 description: Questa esercitazione esamina le opzioni per presentare i dati binari in una pagina Web, tra cui la visualizzazione di un file di immagine e il provisioning di un collegamento 'Scarica' f...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/27/2007
-ms.topic: article
 ms.assetid: 5cbeb9f8-5f92-4ba8-87ae-0b4d460ae6d4
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/displaying-binary-data-in-the-data-web-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7c3e2b75b74198877b19e0be3a6428cabaf2cf25
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 62cc931b670931677b4e9632dccd6634715b3c71
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37366770"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37814854"
 ---
 <a name="displaying-binary-data-in-the-data-web-controls-c"></a>Visualizzazione di dati binari nei controlli Web dei dati (c#)
 ====================
@@ -56,7 +53,7 @@ Con il `BrochurePath` i valori specificati per il `Categories` tabella, sono pro
 Per iniziare, trascinare un controllo GridView dalla casella degli strumenti nella finestra di progettazione della `DisplayOrDownloadData.aspx` nella pagina di `BinaryData` cartella. Impostare la s GridView `ID` a `Categories` tramite GridView s smart tag, scegliere da associare a una nuova origine dati. In particolare, associarlo a ObjectDataSource denominato `CategoriesDataSource` che consente di recuperare dati usando il `CategoriesBLL` oggetto s `GetCategories()` (metodo).
 
 
-[![Figura 10![: il ](displaying-binary-data-in-the-data-web-controls-cs/_static/image2.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image3.png) e  controlli DropDownList includono (nessuna) opzione (fare clic per visualizzare l'immagine con dimensioni normali)](displaying-binary-data-in-the-data-web-controls-cs/_static/image2.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image3.png)
+[![Creare un nuovo oggetto ObjectDataSource denominato CategoriesDataSource](displaying-binary-data-in-the-data-web-controls-cs/_static/image2.gif)](displaying-binary-data-in-the-data-web-controls-cs/_static/image3.png)
 
 **Figura 2**: creare un nuovo oggetto ObjectDataSource denominato `CategoriesDataSource` ([fare clic per visualizzare l'immagine con dimensioni normali](displaying-binary-data-in-the-data-web-controls-cs/_static/image4.png))
 

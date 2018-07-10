@@ -1,4 +1,4 @@
-# <a name="adding-validation"></a>Aggiunta della convalida
+# <a name="add-validation-to-an-aspnet-core-mvc-app"></a>Aggiungere la funzionalità di convalida a un'app ASP.NET Core MVC
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 

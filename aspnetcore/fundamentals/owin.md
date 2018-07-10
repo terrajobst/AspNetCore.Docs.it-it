@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 10/14/2016
 uid: fundamentals/owin
-ms.openlocfilehash: 864580edd62032ad1409c1d3263cb5d464fa59fe
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 04042eedc52b4e6f57685e2d9ec1a75cd130fd8d
+ms.sourcegitcommit: 08f1a9baa97060da5168840b332c9c0805b5f901
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273624"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37144963"
 ---
 # <a name="open-web-interface-for-net-owin-with-aspnet-core"></a>Open Web Interface for .NET (OWIN) con ASP.NET Core
 
@@ -20,12 +20,14 @@ Di [Steve Smith](https://ardalis.com/) e [Rick Anderson](https://twitter.com/Ric
 ASP.NET Core supporta Open Web Interface for .NET (OWIN). OWIN consente alle app Web di essere disaccoppiate dai server Web. Definisce un modo standard per usare il middleware in una pipeline per gestire le richieste e le risposte associate. Le applicazioni ASP.NET Core e il middleware possono interagire con middleware, server e applicazioni basati su OWIN.
 
 OWIN specifica un livello di disaccoppiamento che consente di usare contemporaneamente due framework con modelli a oggetti diversi. Il pacchetto `Microsoft.AspNetCore.Owin` offre due implementazioni dell'adattatore:
-- Da ASP.NET Core a OWIN 
-- Da OWIN a ASP.NET Core
 
-In questo modo ASP.NET Core può essere ospitato in un server/host compatibile con OWIN, o altri componenti compatibili con OWIN possono essere eseguiti su ASP.NET Core.
+* Da ASP.NET Core a OWIN 
+* Da OWIN a ASP.NET Core
 
-Nota: l'uso di questi adattatori comporta una riduzione delle prestazioni. Le applicazioni che usano solo componenti di ASP.NET Core non devono usare il pacchetto o gli adattatori OWIN.
+In questo modo ASP.NET Core può essere ospitato in un server/host compatibile con OWIN o altri componenti compatibili con OWIN possono essere eseguiti su ASP.NET Core.
+
+> [!NOTE]
+> L'uso di questi adattatori comporta una riduzione delle prestazioni. Le app che usano solo componenti di ASP.NET Core non devono usare il pacchetto o gli adattatori `Microsoft.AspNetCore.Owin`.
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/owin/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
 

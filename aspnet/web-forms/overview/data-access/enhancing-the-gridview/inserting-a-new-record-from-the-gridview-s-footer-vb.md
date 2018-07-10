@@ -4,19 +4,16 @@ title: Inserimento di un nuovo Record dal piè di pagina del controllo GridView 
 author: rick-anderson
 description: Mentre il controllo GridView non fornisce supporto incorporato per l'inserimento di un nuovo record di dati, questa esercitazione illustra come migliorare il controllo GridView per includere un...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/06/2007
-ms.topic: article
 ms.assetid: 528acc48-f20c-4b4e-aa16-4cc02f068ebb
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/inserting-a-new-record-from-the-gridview-s-footer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c228128e551f58aa003af10cf787875d26b1fab7
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 69aa6659a6c18ed6d16e2916f0f9088ef38a453f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37375179"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37828319"
 ---
 <a name="inserting-a-new-record-from-the-gridviews-footer-vb"></a>Inserimento di un nuovo Record dal piè di pagina del controllo GridView (VB)
 ====================
@@ -74,20 +71,20 @@ A questo punto, il markup dichiarativo s GridView e ObjectDataSource dovrebbe es
 
 [![Tutti i campi di dati prodotto vengono visualizzati in un controllo GridView di paging](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image5.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image9.png)
 
-**Per visualizzare la riga di piè di pagina in un controllo GridView è sufficiente impostare relativi **proprietà**.
+**Figura 5**: tutti i campi di dati prodotto vengono visualizzati in un controllo GridView di paging ([fare clic per visualizzare l'immagine con dimensioni normali](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image10.png))
 
 
-## <a name="step-2-adding-a-footer-row"></a>Il contenuto della riga del piè di pagina può essere personalizzato per ogni campo convertendo il campo in un TemplateField e aggiungendo l'inserimento dell'interfaccia per il .
+## <a name="step-2-adding-a-footer-row"></a>Passaggio 2: Aggiunta di una riga di piè di pagina
 
-Come abbiamo visto in questa esercitazione il  può contenere i pulsanti, caselle di testo, controlli DropDownList, caselle di controllo, i controlli origine dati per il popolamento basato sui dati di controlli Web (ad esempio controlli DropDownList) e i controlli di convalida. Insieme a controlli per la raccolta di input dell'utente s, è necessario un pulsante Aggiungi, LinkButton o ImageButton. Quando si fa clic sul pulsante Aggiungi, s ObjectDataSource `ShowFooter` metodo viene richiamato per iniziare l'inserimento del flusso di lavoro. ObjectDataSource chiamerà quindi il metodo insert configurato (il `ShowFooter` classe s `True` metodo, in questa esercitazione).
-
-
-[![È necessario copiare i valori da s GridView inserimento dell'interfaccia per gli oggetti ObjectDataSource [ raccolta prima dell'inserimento metodo richiamato.](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image6.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image11.png)
-
-**Questa operazione può essere eseguita facendo riferimento a livello di codice i controlli Web interfaccia inserimento in s ObjectDataSource ** gestore dell'evento.
+Insieme all'intestazione e le righe di dati, il controllo GridView include una riga di piè di pagina. Vengono visualizzate le righe di intestazione e piè di pagina a seconda dei valori di istanze della classe GridView [ `ShowHeader` ](https://msdn.microsoft.com/en-gb/library/system.web.ui.webcontrols.gridview.showheader.aspx) e [ `ShowFooter` ](https://msdn.microsoft.com/en-gb/library/system.web.ui.webcontrols.gridview.showfooter.aspx) proprietà. Per visualizzare la riga di piè di pagina, è sufficiente impostare il `ShowFooter` proprietà `True`. Come illustrato nella figura 6, impostando il `ShowFooter` proprietà `True` aggiunta alla griglia una riga di piè di pagina.
 
 
-Questa esercitazione viene completata la sguardo alle tecniche per migliorare l'aspetto GridView. Il set successivo di esercitazioni verrà esaminate come lavorare con dati binari quali immagini, PDF, documenti di Word e così via e i controlli Web dei dati. Il revisore capo di questa esercitazione è stata Bernadette Leigh. Il `FooterStyle` classe è definita in `Styles.css` come indicato di seguito:
+[![Per visualizzare la riga di piè di pagina, impostare ShowFooter su True](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image6.gif)](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image11.png)
+
+**Figura 6**: per visualizzare la riga di piè di pagina, impostare `ShowFooter` al `True` ([fare clic per visualizzare l'immagine con dimensioni normali](inserting-a-new-record-from-the-gridview-s-footer-vb/_static/image12.png))
+
+
+Si noti che la riga di piè di pagina ha un colore di sfondo rosso scuro. Ciò è dovuto al tema DataWebControls viene creata e applicata a tutte le pagine nella [visualizzazione di dati con ObjectDataSource](../basic-reporting/displaying-data-with-the-objectdatasource-vb.md) esercitazione. In particolare, il `GridView.skin` file consente di configurare la `FooterStyle` proprietà di questo tipo che viene utilizzata la `FooterStyle` classe CSS. Il `FooterStyle` classe è definita in `Styles.css` come indicato di seguito:
 
 
 [!code-css[Main](inserting-a-new-record-from-the-gridview-s-footer-vb/samples/sample2.css)]

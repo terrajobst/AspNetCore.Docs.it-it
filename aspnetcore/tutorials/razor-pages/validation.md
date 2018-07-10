@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/07/2017
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 569c5b977d832aec3657321cad8d0f9520aae031
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: cabf3d955ef2eb17b3bcb40170a9de7b53ffd107
+ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277774"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37077631"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Aggiungere la convalida a una pagina Razor ASP.NET Core
 
@@ -45,7 +45,7 @@ Aggiornamento della classe `Movie` per poter sfruttare gli attributi di convalid
 Gli attributi di convalida specificano il comportamento che viene applicato alle proprietà del modello:
 
 * Gli attributi `Required` e `MinimumLength` indicano che una proprietà deve avere un valore. Tuttavia, niente impedisce a un utente di immettere spazi vuoti per soddisfare il vincolo di convalida per un tipo nullable. I [tipi valore](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/value-types) non nullable (ad esempio `decimal`, `int`, `float` e `DateTime`) sono intrinsecamente necessari e non richiedono l'attributo `Required`.
-* L'attributo `RegularExpression` limita i caratteri che può immettere l'utente. Nel codice precedente `Genre` e `Rating` devono usare solo lettere (spazi, numeri e caratteri speciali non sono consentiti).
+* L'attributo `RegularExpression` limita i caratteri che può immettere l'utente. Nel codice precedente `Genre` deve iniziare con una o più lettere maiuscole seguite da zero o più lettere, virgolette singole o doppie, spazi vuoti o trattini. `Rating` deve iniziare con una o più lettere maiuscole seguite da zero o più lettere, numeri, virgolette singole o doppie, spazi vuoti o trattini.
 * L'attributo `Range` vincola un valore a un intervallo specificato.
 * L'attributo `StringLength` imposta la lunghezza massima di una stringa e, facoltativamente, la lunghezza minima. 
 

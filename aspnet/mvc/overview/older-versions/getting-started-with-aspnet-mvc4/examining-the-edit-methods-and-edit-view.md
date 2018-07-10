@@ -4,19 +4,16 @@ title: Esaminare i metodi di modifica e visualizzazione di modifica | Microsoft 
 author: Rick-Anderson
 description: 'Nota: Una versione aggiornata di questa esercitazione è disponibile qui che usa ASP.NET MVC 5 e Visual Studio 2013. È più sicuro e molto più semplice da seguire e demo...'
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/28/2012
-ms.topic: article
 ms.assetid: 41eb99ca-e88f-4720-ae6d-49a958da8116
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: 61db62d138be8234db0c5b04373e7cb25acc5d3c
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: f8d66343ad74e45f167701f405c5e6e2fef0dd13
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37365737"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37824374"
 ---
 <a name="examining-the-edit-methods-and-edit-view"></a>Esaminare i metodi di modifica e visualizzazione di modifica
 ====================
@@ -66,7 +63,7 @@ Eseguire l'applicazione e passare al */Movies* URL. Fare clic su un collegamento
 
 [!code-html[Main](examining-the-edit-methods-and-edit-view/samples/sample5.html?highlight=7,10-11)]
 
-Il codice quindi archivia l'elenco dei generi nel `<input>` oggetto. Il codice seguente viene illustrato come controllare il ** parametro.
+Il `<input>` elementi si trovano in un elemento HTML `<form>` elemento la cui `action` attributo è impostato su post per il */Movies/Edit* URL. I dati del modulo verranno inviati al server quando il **modifica** si fa clic sul pulsante.
 
 ## <a name="processing-the-post-request"></a>Elaborazione della richiesta POST
 
@@ -76,7 +73,7 @@ Nell'elenco seguente viene indicata la versione `HttpPost` del metodo di azione 
 
 Il [Raccoglitore di modelli ASP.NET MVC](https://msdn.microsoft.com/magazine/hh781022.aspx) accetta i valori di modulo e consente di creare un `Movie` che viene passato come il `movie` parametro. Il metodo `ModelState.IsValid` verifica che i dati inviati nel formato possano essere usati per cambiare (modificare o aggiornare) un oggetto `Movie`. Se i dati sono validi, i dati dei film viene salvati per il `Movies` raccolta del `db(MovieDBContext` istanza). I nuovi dati del film viene salvati nel database chiamando il `SaveChanges` metodo `MovieDBContext`. Dopo aver salvato i dati, il codice reindirizza l'utente per il `Index` metodo di azione del `MoviesController` classe, che consente di visualizzare della raccolta di film, incluse le modifiche appena apportate.
 
-Eseguire una ricerca in base al genere dal nome del film e da entrambi i criteri. Il `Html.ValidationMessageFor` helper nel *Edit. cshtml* vista modello ci occupiamo della visualizzazione dei messaggi di errore appropriato.
+Se i valori inviati non sono validi, essi verranno nuovamente visualizzati nel formato. Il `Html.ValidationMessageFor` helper nel *Edit. cshtml* vista modello ci occupiamo della visualizzazione dei messaggi di errore appropriato.
 
 ![abcNotValid](examining-the-edit-methods-and-edit-view/_static/image4.png)
 

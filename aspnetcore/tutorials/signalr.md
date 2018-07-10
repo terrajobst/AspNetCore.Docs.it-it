@@ -7,12 +7,12 @@ ms.author: rachelap
 ms.custom: mvc
 ms.date: 05/22/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 8762a4be1032d58014dd32dfdd3707197e14c6f9
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 62cef2d6f032caa2f048cfdd49a225d975dad10d
+ms.sourcegitcommit: 7003d27b607e529642ded0400aa48ae692a0e666
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36297200"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37033342"
 ---
 # <a name="get-started-with-signalr-on-aspnet-core"></a>Introduzione a SignalR in ASP.NET Core
 
@@ -29,9 +29,9 @@ In questa esercitazione vengono illustrate le attività di sviluppo di SignalR s
 > * Creare un hub SignalR per eseguire il push dei contenuti ai client.
 > * Modificare la classe `Startup` e configurare l'app.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/get-started/sample/) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/signalr/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
 
-# <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Installare il software seguente:
 
@@ -100,7 +100,7 @@ Un hub è una classe che funge da pipeline di alto livello che consente al clien
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
-1. Aggiungere una classe al progetto scegliendo **File** > **Nuovo** > **File** e selezionando **Classe di Visual C#**. Denominare il file *ChatHub*.
+1. Aggiungere una classe al progetto scegliendo **File** > **Nuovo** > **File** e selezionando **Classe di Visual C#**. Assegnare alla classe il nome `ChatHub` e al file il nome *ChatHub.cs*.
 
 2. Ereditare da `Microsoft.AspNetCore.SignalR.Hub`. La classe `Hub` contiene proprietà ed eventi per gestire connessioni e gruppi, nonché per inviare e ricevere dati.
 
@@ -112,13 +112,13 @@ Un hub è una classe che funge da pipeline di alto livello che consente al clien
 
 1. Aprire la cartella *SignalRChat* in Visual Studio Code.
 
-2. Aggiungere una classe al progetto selezionando **File** > **Nuovo file** dal menu.
+2. Aggiungere una classe al progetto selezionando **File** > **Nuovo file** dal menu. Assegnare alla classe il nome `ChatHub` e al file il nome *ChatHub.cs*.
 
 3. Ereditare da `Microsoft.AspNetCore.SignalR.Hub`. La classe `Hub` contiene proprietà ed eventi per gestire connessioni e gruppi, nonché per inviare e ricevere dati dai client.
 
 4. Aggiungere un metodo `SendMessage` alla classe. Il metodo `SendMessage` invia un messaggio a tutti i client di chat connessi. Si noti che il metodo restituisce una classe [Task](/dotnet/api/system.threading.tasks.task), in quanto SignalR è asincrono. Il codice asincrono ha una scalabilità migliore.
 
-   [!code-csharp[Startup](signalr/sample/Hubs/ChatHub.cs?range=6-12)]
+   [!code-csharp[Startup](signalr/sample/Hubs/ChatHub.cs)]
 
 -----
 
