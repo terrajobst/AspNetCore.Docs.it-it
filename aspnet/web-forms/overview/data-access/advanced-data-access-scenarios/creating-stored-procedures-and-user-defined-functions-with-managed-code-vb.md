@@ -4,19 +4,16 @@ title: Creazione di Stored procedure e funzioni definite dall'utente con il codi
 author: rick-anderson
 description: Microsoft SQL Server 2005 si integra con .NET Common Language Runtime per consentire agli sviluppatori di creare oggetti di database tramite codice gestito. Questa esercitazione...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/03/2007
-ms.topic: article
 ms.assetid: 8be9a51b-ea6b-46c7-bfa2-476d9b14c24c
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-stored-procedures-and-user-defined-functions-with-managed-code-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a2a4042303fe507af449e83e36f67f4624f579cc
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: dcbd55185e7d5e3910b4f74f11554bae100057cc
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37371843"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37806167"
 ---
 <a name="creating-stored-procedures-and-user-defined-functions-with-managed-code-vb"></a>Creazione di Stored procedure e funzioni definite dall'utente con codice gestito (VB)
 ====================

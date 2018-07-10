@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/12/2018
 uid: razor-pages/index
-ms.openlocfilehash: 9d7d4d49dbb55e327a208df99a0e3ca744de8609
-ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
+ms.openlocfilehash: 49bed6cc150a74ff8b72848f276c55c2490b6fa5
+ms.sourcegitcommit: a09820f91e71a7d98b7347bf93210abb9e995e22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37077748"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37889142"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introduzione a Razor Pages in ASP.NET Core
 
@@ -322,7 +322,7 @@ La proprietà [Layout](xref:mvc/views/layout#specifying-a-layout) proprietà vie
 
 ::: moniker range=">= aspnetcore-2.1"
 
-Il layout è nella cartella *Shared/Pages*. Le pagine cercano altre visualizzazioni (layout, modelli, righe parzialmente eseguite) in modo gerarchico, partendo dalla stessa cartella della pagina corrente. Un layout nella cartella *Shared/Pages* può essere usato da qualsiasi pagina Razor della cartella *Pages*.
+Il layout è nella cartella *Pages/Shared*. Le pagine cercano altre visualizzazioni (layout, modelli, righe parzialmente eseguite) in modo gerarchico, partendo dalla stessa cartella della pagina corrente. Un layout nella cartella *Pages/Shared* può essere usato da qualsiasi pagina Razor della cartella *Pages*.
 
 Il file di layout dovrebbe andare nella cartella *Pages/Shared*.
 

@@ -4,19 +4,16 @@ title: Applicazione di filtri su due pagine (VB) master/dettaglio | Microsoft Do
 author: rick-anderson
 description: In questa esercitazione implementeremo questo modello usando un controllo GridView per elencare i fornitori nel database. Ogni riga del fornitore in GridView conterrà un Vie...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/31/2010
-ms.topic: article
 ms.assetid: 361d6a44-3f1f-4daf-85df-d4c2b8bf065d
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-across-two-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 80b2ba88237b0eb956f69cd144bc919e1b06def0
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 88bd06c8b9e4a4b369c538c902b213e444ad6790
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37388503"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37810715"
 ---
 <a name="masterdetail-filtering-across-two-pages-vb"></a>Applicazione di filtri su due pagine (VB) master/dettaglio
 ====================

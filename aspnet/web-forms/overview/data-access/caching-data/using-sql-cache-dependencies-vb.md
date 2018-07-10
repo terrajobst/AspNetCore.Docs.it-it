@@ -4,19 +4,16 @@ title: Uso delle dipendenze della Cache SQL (VB) | Microsoft Docs
 author: rick-anderson
 description: La strategia di memorizzazione nella cache più semplice consiste nel consentire dei dati memorizzati nella cache scadono dopo un periodo di tempo specificato. Ma questo semplice approccio significa che i dati memorizzati nella cache maintai...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/30/2007
-ms.topic: article
 ms.assetid: bd347d93-4251-4532-801c-a36f2dfa7f96
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/caching-data/using-sql-cache-dependencies-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 74692fb7018cd75e29afc6d5852caddfdac1ed06
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 7929966d9eb82994b9d427d0c3fd7f08c41212fc
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37379845"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37821645"
 ---
 <a name="using-sql-cache-dependencies-vb"></a>Uso delle dipendenze della Cache SQL (VB)
 ====================
@@ -148,7 +145,7 @@ Per illustrare l'utilizzo delle dipendenze della cache SQL in modo dichiarativo,
 
 [![Creare un nuovo oggetto ObjectDataSource denominato ProductsDataSourceDeclarative](using-sql-cache-dependencies-vb/_static/image5.gif)](using-sql-cache-dependencies-vb/_static/image3.png)
 
-**Salvare opzione (nessuno) come un database **valore, è necessario restituire il** gestore dell'evento.
+**Figura 5**: creare un nuovo oggetto ObjectDataSource denominato `ProductsDataSourceDeclarative` ([fare clic per visualizzare l'immagine con dimensioni normali](using-sql-cache-dependencies-vb/_static/image4.png))
 
 
 Configurare ObjectDataSource per usare la `ProductsBLL` classe e impostare l'elenco a discesa nella scheda Seleziona `GetProducts()`. Nella scheda aggiornamento, scegliere il `UpdateProduct` rapporto di overload con tre parametri di input - `productName`, `unitPrice`, e `productID`. Impostare gli elenchi di riepilogo a discesa su (nessuno) nelle schede INSERT e DELETE.

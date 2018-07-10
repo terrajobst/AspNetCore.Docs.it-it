@@ -4,19 +4,16 @@ title: Informazioni su modelli, visualizzazioni e controller (VB) | Microsoft Do
 author: StephenWalther
 description: Per informazioni dettagliate sugli modelli, visualizzazioni e controller? In questa esercitazione, Stephen Walther presenta le diverse parti di un'applicazione ASP.NET MVC.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/19/2008
-ms.topic: article
 ms.assetid: a106374a-5e74-4fd0-9ac0-1a32280e5d0d
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/overview/understanding-models-views-and-controllers-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c651201a34b9ab6b459d0f2ecf491b49feb64434
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 1c751972b0f59a3988e15eed0c6cff3bc566de0e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37399899"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37838728"
 ---
 <a name="understanding-models-views-and-controllers-vb"></a>Informazioni su modelli, visualizzazioni e controller (VB)
 ====================
@@ -123,15 +120,15 @@ Questo URL viene analizzato nei tre parametri simile al seguente:
 
 Controller = dipendente
 
-azione = indice
+Azione = indice
 
 ID =
 
 Infine, se si apre un'applicazione ASP.NET MVC senza fornire qualsiasi URL (ad esempio, `http://localhost`) l'URL viene analizzato come segue:
 
-controller = Home
+Controller = Home
 
-azione = indice
+Azione = indice
 
 ID =
 

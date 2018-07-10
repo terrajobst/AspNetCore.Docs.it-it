@@ -4,19 +4,16 @@ title: Creazione dello Schema di appartenenza in SQL Server (VB) | Microsoft Doc
 author: rick-anderson
 description: Questa esercitazione inizia esaminando le tecniche per l'aggiunta lo schema necessario per il database per utilizzare il provider SqlMembershipProvider. In seguito, si wi...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/18/2008
-ms.topic: article
 ms.assetid: 112a674d-716f-41a6-99b8-4074d65a54c0
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/creating-the-membership-schema-in-sql-server-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6fe5ab7e2748a7502f47cb29ecc0b93b6cb07d6b
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 1fa1e3f57c1218af6fec8bddeed6cdcbdffe1965
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37396988"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37831845"
 ---
 <a name="creating-the-membership-schema-in-sql-server-vb"></a>Creazione dello Schema di appartenenza in SQL Server (VB)
 ====================

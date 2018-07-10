@@ -4,19 +4,16 @@ title: Uso dei controlli AJAX controllo Toolkit e controlli Extender (VB) | Micr
 author: microsoft
 description: Informazioni su come aggiungere i controlli di AJAX Control Toolkit e dispositivi Extender alle pagine ASP.NET.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/12/2009
-ms.topic: article
 ms.assetid: 763650a9-ffde-46a9-b779-7a9145dd5d88
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/getting-started/using-ajax-control-toolkit-controls-and-control-extenders-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1fa23eb878bec3266441c092038befd08fdaa11a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 292a6e41740538d41e26b01fa76ff59f9af21221
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37361914"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37825360"
 ---
 <a name="using-ajax-control-toolkit-controls-and-control-extenders-vb"></a>Uso dei controlli AJAX controllo Toolkit e controlli Extender (VB)
 ====================
