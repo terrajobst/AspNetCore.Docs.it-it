@@ -7,12 +7,12 @@ ms.author: rachelap
 ms.custom: mvc
 ms.date: 05/22/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 62cef2d6f032caa2f048cfdd49a225d975dad10d
-ms.sourcegitcommit: 7003d27b607e529642ded0400aa48ae692a0e666
+ms.openlocfilehash: 6b8222ee04573ca7157b4e1125ed5a4453b2b9a9
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37033342"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37830555"
 ---
 # <a name="get-started-with-signalr-on-aspnet-core"></a>Introduzione a SignalR in ASP.NET Core
 
@@ -38,7 +38,7 @@ Installare il software seguente:
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * [.NET Core SDK 2.1 o versione successiva](https://www.microsoft.com/net/download/all)
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/) versione 15.7 o successiva con il carico di lavoro **Sviluppo ASP.NET e Web**
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/) versione 15.7.3 o successive con il carico di lavoro **Sviluppo ASP.NET e Web**
 * [npm](https://www.npmjs.com/get-npm)
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
@@ -128,9 +128,9 @@ Il server di SignalR deve essere configurato in modo che passi le richieste a Si
 
 1. Per configurare un progetto SignalR, modificare il metodo `Startup.ConfigureServices` del progetto.
 
-   `services.AddSignalR` aggiunge SignalR come parte della pipeline del [middleware](xref:fundamentals/middleware/index).
+   `services.AddSignalR` rende disponibili i servizi SignalR per il sistema di [inserimento delle dipendenze](xref:fundamentals/dependency-injection).
 
-2. Configurare le route per gli hub usando `UseSignalR`.
+1. Configurare le route per gli hub con `UseSignalR` nel metodo `Configure`. `app.UseSignalR` aggiunge SignalR alla pipeline del [middleware](xref:fundamentals/middleware/index).
 
    [!code-csharp[Startup](signalr/sample/Startup.cs?highlight=37,57-60)]
 

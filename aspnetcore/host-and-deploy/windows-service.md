@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/04/2018
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 718cc83bb29c0cff323853d22c107e00616b1dd1
-ms.sourcegitcommit: 2941e24d7f3fd3d5e88d27e5f852aaedd564deda
+ms.openlocfilehash: bce09a500160f0bf13926786d277f8b1e88c1bf8
+ms.sourcegitcommit: ea7ec8d47f94cfb8e008d771f647f86bbb4baa44
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37126235"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37894257"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Ospitare ASP.NET Core in un servizio Windows
 
@@ -40,7 +40,7 @@ Le modifiche minime seguenti sono necessarie per configurare un progetto ASP.NET
 
    * Chiamare [host.RunAsService](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostwindowsserviceextensions.runasservice) invece di `host.Run`.
 
-   * Se il codice chiama `UseContentRoot`, usare un percorso di pubblicazione dell'app anziché `Directory.GetCurrentDirectory()`.
+   * Chiamare [UseContentRoot](xref:fundamentals/host/web-host#content-root) e usare un percorso di pubblicazione dell'app invece di `Directory.GetCurrentDirectory()`.
 
      ::: moniker range=">= aspnetcore-2.0"
 
@@ -70,7 +70,7 @@ Le modifiche minime seguenti sono necessarie per configurare un progetto ASP.NET
 
    Per creare un servizio pubblicato nella cartella del progetto, usare il percorso della cartella *publish*. Nell'esempio seguente il servizio è:
 
-   * Denominato **MyService**.
+   * **MyService** denominato.
    * Pubblicato nella cartella *c:\\my_services\\AspNetCoreService\\bin\\Release\\&lt;TARGET_FRAMEWORK&gt;\\publish*.
    * Rappresentato da un eseguibile dell'app denominato *AspNetCoreService.exe*.
 
