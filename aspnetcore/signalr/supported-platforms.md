@@ -1,30 +1,30 @@
 ---
-title: Piattaforme supportate dei componenti di base di ASP.NET SignalR
+title: Piattaforme supportate di ASP.NET Core SignalR
 author: rachelappel
-description: Piattaforme supportate per ASP.NET SignalR Core
+description: Piattaforme supportate per ASP.NET Core SignalR
 monikerRange: '>= aspnetcore-2.1'
 ms.author: rachelap
 ms.custom: mvc
 ms.date: 04/20/2018
 uid: signalr/supported-platforms
-ms.openlocfilehash: 26365bf62ac935eda4ab119a834e753ba40e6123
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 1e40efa53f854e7b223287779557936a7c43410d
+ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274334"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37937855"
 ---
-# <a name="aspnet-core-signalr-supported-platforms"></a>Piattaforme supportate dei componenti di base di ASP.NET SignalR
+# <a name="aspnet-core-signalr-supported-platforms"></a>Piattaforme supportate di ASP.NET Core SignalR
 
 ## <a name="server-system-requirements"></a>Requisiti di sistema di server
 
-SignalR per ASP.NET Core supporta qualsiasi piattaforma server che supporta ASP.NET Core.
+SignalR per ASP.NET Core supporta qualsiasi piattaforma del server di che ASP.NET Core supporta.
 
-## <a name="client-system-requirements"></a>Requisiti del sistema client
+## <a name="client-system-requirements"></a>Requisiti di sistema client
 
 ### <a name="browser-support"></a>Supporto browser
 
-SignalR per il client di ASP.NET Core JavaScript supporta i browser seguenti:
+SignalR per ASP.NET Core JavaScript client supporta i browser seguenti:
 
 | Browser | Versione |
 | ------- | ------- |
@@ -34,6 +34,6 @@ SignalR per il client di ASP.NET Core JavaScript supporta i browser seguenti:
 | Google Chrome; include Android | corrente |
 | Safari; include iOS | corrente |
  
-### <a name="net-client-support"></a>Supporto client .NET
+### <a name="net-client-support"></a>Supporto del client .NET
 
-Qualsiasi piattaforma server supportato da ASP.NET Core. Quando si utilizza IIS, il trasporto WebSocket richiede IIS 8.0 o versioni successive, in Windows Server 2012 o versione successiva. Gli altri trasporti sono supportati in tutte le piattaforme.
+Qualsiasi piattaforma di server supportato da ASP.NET Core. Quando si utilizza IIS, il trasporto WebSocket richiede IIS 8.0 o versione successiva, in Windows Server 2012 o versione successiva. Sono supportati altri tipi di trasporto in tutte le piattaforme.

@@ -1,6 +1,6 @@
-# <a name="how-to-buildrun-secure-user-data-sample"></a>Come compilare ed eseguire l'esempio di dati utente protetto
+# <a name="how-to-buildrun-secure-user-data-sample"></a>Come compilare ed eseguire il campione di dati sicura degli utenti
 
-* Impostare la password con lo strumento di gestione di chiave privata:
+* Impostazione della password con lo strumento Secret Manager:
 
   `dotnet user-secrets set SeedUserPW <pw>`
 
@@ -8,4 +8,4 @@
 
     `dotnet ef database update`
 
-* Abilitazione di SSL nel progetto
+* Abilitare SSL nel progetto
