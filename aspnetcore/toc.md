@@ -255,6 +255,8 @@
 ### [Client JavaScript](xref:signalr/javascript-client)
 ### [Client .NET](xref:signalr/dotnet-client)
 ### [WebPack e TypeScript](xref:tutorials/signalr-typescript-webpack)
+### [JavaScript API](/javascript/api/?view=signalr-js-latest)
+
 ## [Configurazione](xref:signalr/configuration)
 ## [Protocollo hub MessagePack](xref:signalr/messagepackhubprotocol)
 ## [Flusso](xref:signalr/streaming)
