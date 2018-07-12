@@ -8,12 +8,12 @@ ms.date: 10/14/2017
 ms.assetid: 8935bf14-ca6d-4a4e-9dbe-b96ce74cef49
 msc.legacyurl: /ajax/cdn
 msc.type: content
-ms.openlocfilehash: f875d743cd43087cfa96f3c564335999982632b7
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 3ec70bb0746d18e453b6e5728b6ba90b2a3e87f3
+ms.sourcegitcommit: 19cbda409bdbbe42553dc385ea72d2a8e246509c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37819656"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38992935"
 ---
 <a name="microsoft-ajax-content-delivery-network"></a>Rete CDN Microsoft Ajax
 ====================
@@ -794,6 +794,20 @@ Le seguenti versioni di [ https://github.com/scottjehl/Respond ] (https://github
 ### <a name="bootstrap-releases-on-the-cdn"></a>Versioni bootstrap sulla rete CDN
 
 Le seguenti versioni di [getbootstrap.com](http://getbootstrap.com "getbootstrap.com") bootstrap sono ospitati nella rete CDN:
+
+#### <a name="bootstrap-version-411"></a>Versione bootstrap 4.1.1
+
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.1.1/bootstrap.js
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.1.1/bootstrap.min.js
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.1.1/css/bootstrap.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.1.1/css/bootstrap.css.map
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.1.1/css/bootstrap.min.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.1.1/css/bootstrap-grid.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.1.1/css/bootstrap-grid.min.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.1.1/css/bootstrap-grid.css.map
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.1.1/css/bootstrap-reboot.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.1.1/css/bootstrap-reboot.min.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.1.1/css/bootstrap-reboot.css.map
 
 #### <a name="bootstrap-version-400"></a>Eseguire il bootstrap versione 4.0.0
 
