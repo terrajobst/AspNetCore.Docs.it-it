@@ -5,14 +5,14 @@ description: Informazioni sull'helper tag Partial di ASP.NET Core e sul ruolo de
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 04/13/2018
+ms.date: 07/06/2018
 uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
-ms.openlocfilehash: fea84621f185c4113147cf0dfd173704bc7b6d81
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 2272b2ecdd6f2b0a759356b1f03dd5c495ea1c91
+ms.sourcegitcommit: a09820f91e71a7d98b7347bf93210abb9e995e22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274414"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37889103"
 ---
 # <a name="partial-tag-helper-in-aspnet-core"></a>Helper tag Partial in ASP.NET Core
 
@@ -25,7 +25,7 @@ Di [Scott Addie](https://github.com/scottaddie)
 L'helper tag Partial viene usato per il rendering di una [visualizzazione parziale](xref:mvc/views/partial) in Razor Pages e nelle app MVC. Tenere presente che:
 
 * Richiede ASP.NET Core 2.1 o versione successiva.
-* Rappresenta un'alternativa alla [sintassi helper HTML](xref:mvc/views/partial#referencing-a-partial-view).
+* Rappresenta un'alternativa alla [sintassi helper HTML](xref:mvc/views/partial#reference-a-partial-view).
 * Esegue il rendering della visualizzazione parziale in modo asincrono.
 
 Le opzioni helper HTML per il rendering di una visualizzazione parziale includono:
@@ -81,7 +81,17 @@ Nel codice precedente, il valore della chiave `IsNumberReadOnly` è impostato su
 
 In questo esempio il valore di `ViewData["IsNumberReadOnly"]` determina se il campo *Number* viene visualizzato come campo di sola lettura.
 
+## <a name="migrate-from-an-html-helper"></a>Eseguire la migrazione da un helper HTML
+
+Osservare l'esempio di helper HTML asincrono seguente. Viene eseguita l'iterazione e visualizzata una raccolta di prodotti. Per il primo parametro del metodo `PartialAsync`, viene caricata la visualizzazione parziale *_ProductPartial.cshtml*. Un'istanza del modello `Product` viene passata alla visualizzazione parziale per l'associazione.
+
+[!code-cshtml[](samples/TagHelpersBuiltIn/Pages/Products.cshtml?name=snippet_HtmlHelper&highlight=3)]
+
+L'helper tag Partial seguente consente di ottenere lo stesso comportamento asincrono dell'helper HTML `PartialAsync`. All'attributo `model` viene assegnata un'istanza del modello `Product` per l'associazione alla visualizzazione parziale.
+
+[!code-cshtml[](samples/TagHelpersBuiltIn/Pages/Products.cshtml?name=snippet_TagHelper&highlight=3)]
+
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Visualizzazioni parziali](xref:mvc/views/partial)
-* [Dati con tipizzazione debole (ViewData, attributo ViewData e ViewBag)](xref:mvc/views/overview#weakly-typed-data-viewdata-viewdata-attribute-and-viewbag)
+* <xref:mvc/views/partial>
+* <xref:mvc/views/overview#weakly-typed-data-viewdata-viewdata-attribute-and-viewbag>

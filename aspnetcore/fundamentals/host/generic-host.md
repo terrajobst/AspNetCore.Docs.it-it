@@ -7,18 +7,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/16/2018
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: 40d297257895a4defeb89cef9c5ec6deea64a985
-ms.sourcegitcommit: 7003d27b607e529642ded0400aa48ae692a0e666
+ms.openlocfilehash: 879f31a5916646a4d63f9f503173dc9ff4c53434
+ms.sourcegitcommit: ea7ec8d47f94cfb8e008d771f647f86bbb4baa44
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37033355"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37894153"
 ---
 # <a name="net-generic-host"></a>Host generico .NET
 
 Di [Luke Latham](https://github.com/guardrex)
 
-Le app .NET configurano e avviano un *host*. L'host è responsabile della gestione dell'avvio e della durata delle app. Questo argomento illustra l'host generico di ASP.NET Core ([HostBuilder](/dotnet/api/microsoft.extensions.hosting.hostbuilder)), utile per l'hosting di app che non elaborano le richieste HTTP. Per informazioni sull'host Web ([WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder)), vedere l'argomento [Host Web](xref:fundamentals/host/web-host).
+Le app .NET configurano e avviano un *host*. L'host è responsabile della gestione dell'avvio e della durata delle app. Questo argomento illustra l'host generico di ASP.NET Core ([HostBuilder](/dotnet/api/microsoft.extensions.hosting.hostbuilder)), utile per l'hosting di app che non elaborano le richieste HTTP. Per informazioni sull'host Web ([WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder)), vedere <xref:fundamentals/host/web-host>.
 
 L'obiettivo dell'host generico è separare la pipeline HTTP dall'API dell'host Web, per abilitare una gamma più ampia di scenari host. La messaggistica, le attività in background e altri carichi di lavoro non HTTP basati sull'host generico traggono vantaggio dalle funzionalità a montaggio incrociato come la configurazione, l'inserimento di dipendenze (DI) e la registrazione.
 
@@ -58,7 +58,7 @@ La configurazione del generatore host viene creata chiamando [ConfigureHostConfi
 
 La configurazione della variabile di ambiente non viene aggiunta per impostazione predefinita. Chiamare [AddEnvironmentVariables](/dotnet/api/microsoft.extensions.configuration.environmentvariablesextensions.addenvironmentvariables) nel generatore di host per configurare l'host dalle variabili di ambiente. `AddEnvironmentVariables` accetta un prefisso facoltativo definito dall'utente. L'app di esempio usa un prefisso di `PREFIX_`. Il prefisso viene rimosso quando vengono lette le variabili di ambiente. Quando viene configurato l'host dell'app di esempio, il valore della variabile di ambiente per `PREFIX_ENVIRONMENT` diventa il valore di configurazione dell'host per la chiave `environment`.
 
-Durante lo sviluppo quando si usa [Visual Studio](https://www.visualstudio.com/) o si esegue un'app con `dotnet run`, le variabili di ambiente possono essere impostate nel file *Properties/launchSettings.json*. Durante lo sviluppo in [Visual Studio Code](https://code.visualstudio.com/), le variabili di ambiente possono essere impostate nel file *.vscode/launch.json*. Per altre informazioni, vedere [Usare più ambienti](xref:fundamentals/environments).
+Durante lo sviluppo quando si usa [Visual Studio](https://www.visualstudio.com/) o si esegue un'app con `dotnet run`, le variabili di ambiente possono essere impostate nel file *Properties/launchSettings.json*. Durante lo sviluppo in [Visual Studio Code](https://code.visualstudio.com/), le variabili di ambiente possono essere impostate nel file *.vscode/launch.json*. Per ulteriori informazioni, vedere <xref:fundamentals/environments>.
 
 `ConfigureHostConfiguration` può essere chiamato più volte e i risultati si sommano. L'host usa l'ultima opzione che imposta un valore.
 
@@ -76,6 +76,21 @@ Configurazione di esempio di `HostBuilder` che usa `ConfigureHostConfiguration`:
 ### <a name="extension-method-configuration"></a>Configurazione del metodo di estensione
 
 I metodi di estensione vengono chiamati nell'implementazione `IHostBuilder` per configurare la radice del contenuto e l'ambiente.
+
+#### <a name="application-key-name"></a>Chiave applicazione (nome)
+
+La proprietà [IHostingEnvironment.ApplicationName](/dotnet/api/microsoft.extensions.hosting.ihostingenvironment.applicationname) viene impostata dalla configurazione dell'host durante la costruzione dell'host. Per impostare il valore in modo esplicito, usare [HostDefaults.ApplicationKey](/dotnet/api/microsoft.extensions.hosting.hostdefaults.applicationkey):
+
+**Chiave**: applicationName  
+**Tipo**: *string*  
+**Impostazione predefinita**: il nome dell'assembly contenente il punto di ingresso dell'app.  
+**Impostare usando**: `UseSetting`  
+**Variabile di ambiente**: `<PREFIX_>APPLICATIONKEY` (`<PREFIX_>` è [facoltativo e definito dall'utente](#configuration-builder))
+
+```csharp
+WebHost.CreateDefaultBuilder(args)
+    .UseSetting(WebHostDefaults.ApplicationKey, "CustomApplicationName")
+```
 
 #### <a name="content-root"></a>Radice del contenuto
 
@@ -128,11 +143,19 @@ Configurazione app di esempio che usa `ConfigureAppConfiguration`:
 > [!NOTE]
 > Il metodo di estensione [AddConfiguration](/dotnet/api/microsoft.extensions.configuration.chainedbuilderextensions.addconfiguration) non è attualmente in grado di analizzare una sezione di configurazione restituita da [GetSection](/dotnet/api/microsoft.extensions.configuration.iconfiguration.getsection) (ad esempio `.AddConfiguration(Configuration.GetSection("section"))`). Il metodo `GetSection` filtra le chiavi di configurazione per la sezione richiesta, ma lascia il nome di sezione sulle chiavi (ad esempio `section:Logging:LogLevel:Default`). Il metodo `AddConfiguration` prevede una corrispondenza esatta per le chiavi di configurazione (ad esempio `Logging:LogLevel:Default`). La presenza del nome di sezione sulle chiavi impedisce ai valori della sezione di configurare l'app. Questo problema verrà risolto in una delle prossime versioni. Per altre informazioni e soluzioni alternative, vedere [Passing configuration section into WebHostBuilder.UseConfiguration uses full keys](https://github.com/aspnet/Hosting/issues/839).
 
+Per spostare i file delle impostazioni nella directory di output, specificare i file delle impostazioni come [elementi di progetto MSBuild](/visualstudio/msbuild/common-msbuild-project-items) nel file di progetto. L'app di esempio sposta i file delle impostazioni dell'app JSON e *hostsettings.json* con l'elemento **&lt;Content:&gt;** seguente:
+
+```xml
+<ItemGroup>
+  <Content Include="**\*.json" CopyToOutputDirectory="PreserveNewest" />
+</ItemGroup>
+```
+
 ## <a name="configureservices"></a>ConfigureServices
 
 [ConfigureServices](/dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.configureservices) aggiunge servizi al contenitore di [inserimento delle dipendenze](xref:fundamentals/dependency-injection) dell'app. `ConfigureServices` può essere chiamato più volte e i risultati si sommano.
 
-Un servizio ospitato è una classe con logica di attività in background che implementa l'interfaccia [IHostedService](/dotnet/api/microsoft.extensions.hosting.ihostedservice). Per altre informazioni, vedere l'argomento [Attività in background con servizi ospitati](xref:fundamentals/host/hosted-services).
+Un servizio ospitato è una classe con logica di attività in background che implementa l'interfaccia [IHostedService](/dotnet/api/microsoft.extensions.hosting.ihostedservice). Per ulteriori informazioni, vedere <xref:fundamentals/host/hosted-services>.
 
 L'[app di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/generic-host/samples/) usa il metodo di estensione `AddHostedService` per aggiungere all'app un servizio per gli eventi di durata (`LifetimeEventsHostedService`) e un'attività in background con timeout (`TimedHostedService`):
 
@@ -382,7 +405,7 @@ public class MyClass
 }
 ```
 
-Per altre informazioni, vedere [Usare più ambienti](xref:fundamentals/environments).
+Per ulteriori informazioni, vedere <xref:fundamentals/environments>.
 
 ## <a name="iapplicationlifetime-interface"></a>Interfaccia IApplicationLifetime
 
@@ -421,5 +444,5 @@ public class MyClass
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Attività in background con servizi ospitati](xref:fundamentals/host/hosted-services)
+* <xref:fundamentals/host/hosted-services>
 * [Esempi di repository Hosting in GitHub](https://github.com/aspnet/Hosting/tree/release/2.1/samples)

@@ -6,12 +6,12 @@ ms.author: spboyer
 ms.custom: mvc
 ms.date: 03/13/2018
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: c46c0aa578867ce306adc67a2e0d8b650b5fa5bd
-ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
+ms.openlocfilehash: d02fbd82be37e6d67214a9a0bf5851662b577cb9
+ms.sourcegitcommit: 18339e3cb5a891a3ca36d8146fa83cf91c32e707
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960892"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37433974"
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Hosting di ASP.NET Core in Linux con Apache
 
@@ -154,7 +154,7 @@ Creare un file di configurazione denominato *hellomvc.conf* per l'app:
 </VirtualHost>
 ```
 
-Il blocco `VirtualHost` può comparire più volte, in uno o più file su un server. Nel file di configurazione precedente Apache accetta il traffico pubblico sulla porta 80. Il dominio `www.example.com` viene gestito e l'alias `*.example.com` viene risolto nello stesso sito. Per altre informazioni, vedere [Name-based virtual host support](https://httpd.apache.org/docs/current/vhosts/name-based.html) (Supporto degli host virtuali basati sul nome). Le richieste vengono trasmesse tramite proxy alla radice sulla porta 5000 del server all'indirizzo 127.0.0.1. Per la comunicazione bidirezionale, sono necessari `ProxyPass` e `ProxyPassReverse`.
+Il blocco `VirtualHost` può comparire più volte, in uno o più file su un server. Nel file di configurazione precedente Apache accetta il traffico pubblico sulla porta 80. Il dominio `www.example.com` viene gestito e l'alias `*.example.com` viene risolto nello stesso sito. Per altre informazioni, vedere [Name-based virtual host support](https://httpd.apache.org/docs/current/vhosts/name-based.html) (Supporto degli host virtuali basati sul nome). Le richieste vengono trasmesse tramite proxy alla radice sulla porta 5000 del server all'indirizzo 127.0.0.1. Per la comunicazione bidirezionale, sono necessari `ProxyPass` e `ProxyPassReverse`. Per cambiare porta/IP di Kestrel, vedere [Kestrel: Configurazione dell'endpoint](xref:fundamentals/servers/kestrel#endpoint-configuration).
 
 > [!WARNING]
 > Se non si specifica una [direttiva ServerName](https://httpd.apache.org/docs/current/mod/core.html#servername) corretta nel blocco **VirtualHost**, l'app può risultare esposta a vulnerabilità di sicurezza. L'associazione con caratteri jolly del sottodominio (ad esempio, `*.example.com`) non costituisce un rischio per la sicurezza se viene controllato l'intero dominio padre (a differenza di `*.com`, che è vulnerabile). Vedere la [sezione 5.4 di RFC7230](https://tools.ietf.org/html/rfc7230#section-5.4) per altre informazioni.

@@ -5,12 +5,12 @@ description: Informazioni su come ASP.NET Core offre servizi e middleware per la
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 0f48490af5805e4351c983f3ae519268c8e9c7a7
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 9647b605d4b9a23b365085e3677fb0e9b93f0da4
+ms.sourcegitcommit: 18339e3cb5a891a3ca36d8146fa83cf91c32e707
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274131"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434013"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalizzazione e localizzazione in ASP.NET Core
 
@@ -158,6 +158,27 @@ I file di risorse che usano `@inject IViewLocalizer` nelle visualizzazioni Razor
 * Resources/Views.Home.About.fr.resx
 
 Se non si usa l'opzione `ResourcesPath`, il file con estensione *resx* per una visualizzazione viene inserito nella stessa cartella della visualizzazione.
+
+### <a name="rootnamespaceattribute"></a>RootNamespaceAttribute 
+
+L'attributo [RootNamespace](/dotnet/api/microsoft.extensions.localization.rootnamespaceattribute?view=aspnetcore-2.1) specifica lo spazio dei nomi radice di un assembly quando tale spazio dei nomi è diverso dal nome dell'assembly. 
+
+Se lo spazio dei nomi radice di un assembly è diverso dal nome dell'assembly:
+
+* Per impostazione predefinita, la localizzazione non funziona.
+* Le risorse vengono cercate all'interno dell'assembly in un modo che impedisce la localizzazione. `RootNamespace` è un valore necessario in fase di compilazione che non è disponibile per il processo in esecuzione. 
+
+Se l'attributo `RootNamespace` è diverso da `AssemblyName`, includere quanto segue in *AssemblyInfo.cs*, sostituendo i valori dei parametri con quelli effettivi:
+
+```Csharp
+using System.Reflection;
+using Microsoft.Extensions.Localization;
+
+[assembly: ResourceLocation("Resource Folder Name")]
+[assembly: RootNamespace("App Root Namespace")]
+```
+
+Il codice precedente consente di risolvere correttamente i file resx.
 
 ## <a name="culture-fallback-behavior"></a>Comportamento di fallback delle impostazioni cultura
 

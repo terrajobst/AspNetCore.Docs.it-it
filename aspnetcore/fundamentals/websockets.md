@@ -2,16 +2,17 @@
 title: Supporto di WebSocket in ASP.NET Core
 author: rick-anderson
 description: Introduzione all'uso di oggetti WebSocket in ASP.NET Core.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/15/2018
+ms.date: 06/28/2018
 uid: fundamentals/websockets
-ms.openlocfilehash: ee529f1aaadb6b6062bed56003c51f161eae7e72
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: a9fe13ef7895ea3ab43257dbbaf4521f883c0804
+ms.sourcegitcommit: 18339e3cb5a891a3ca36d8146fa83cf91c32e707
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273797"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37433987"
 ---
 # <a name="websockets-support-in-aspnet-core"></a>Supporto di WebSocket in ASP.NET Core
 
@@ -46,16 +47,9 @@ L'articolo contiene l'introduzione all'uso di oggetti WebSocket in ASP.NET Core.
 
 Usare gli oggetti WebSocket per operare direttamente con una connessione socket. Ad esempio usare i WebSocket per avere le prestazioni migliori possibili per un gioco in tempo reale.
 
-[ASP.NET SignalR](/aspnet/signalr/overview/getting-started/introduction-to-signalr) offre un modello di app più ricco per la funzionalità in tempo reale, ma viene eseguito solo su ASP.NET 4.x, non su ASP.NET Core. Una versione di SignalR per ASP.NET Core è prevista per il rilascio con ASP.NET Core 2.1. Vedere [Pianificazione generale di ASP.NET Core 2.1](https://github.com/aspnet/Announcements/issues/288).
+[ASP.NET Core SignalR](xref:signalr/introduction) è una libreria che consente di aggiungere in modo più semplice funzionalità Web in tempo reale alle app. Laddove possibile, usa oggetti WebSocket.
 
-Fino a quando non viene rilasciata SignalR Core è possibile usare i WebSocket. Tuttavia, le caratteristiche offerte da SignalR devono essere offerte e supportate dallo sviluppatore. Ad esempio:
-
-* Supporto per un'ampia gamma di versioni di browser mediante il fallback automatico in metodi di trasporto alternativo.
-* Riconnessione automatica quando una connessione si interrompe.
-* Supporto per i client che chiamano metodi nel server o viceversa.
-* Supporto per il ridimensionamento a più server.
-
-## <a name="how-to-use-it"></a>Come usare la funzionalità
+## <a name="how-to-use-websockets"></a>Come usare oggetti WebSocket
 
 * Installare il pacchetto [Microsoft.AspNetCore.WebSockets](https://www.nuget.org/packages/Microsoft.AspNetCore.WebSockets/).
 * Configurare il middleware.
