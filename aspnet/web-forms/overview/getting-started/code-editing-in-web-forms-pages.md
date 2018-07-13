@@ -4,19 +4,16 @@ title: Modifica del codice Web Form ASP.NET in Visual Studio 2013 | Microsoft Do
 author: Erikre
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/03/2014
-ms.topic: article
 ms.assetid: 5344b74e-b888-479a-92bc-601a33bd61a2
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/getting-started/code-editing-in-web-forms-pages
 msc.type: authoredcontent
-ms.openlocfilehash: 322a9aa6fb366eb9d5be33838fd6ac7ea51047f8
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: c8f0184ffcec0a988dc8bc814e16936c173659c7
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37371794"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37815973"
 ---
 <a name="code-editing-aspnet-web-forms-in-visual-studio-2013"></a>Codice di modifica Web Form ASP.NET in Visual Studio 2013
 ====================
@@ -132,29 +129,29 @@ In questa parte della procedura dettagliata, si verrà scrivere semplice codice 
 ### <a name="to-extract-a-method-in-a-c-page"></a>Per estrarre un metodo in una pagina di c#
 
 1. Passare a **progettazione** visualizzazione.
-2. Ogni lingua da utilizzare in Visual Studio presenta lievi differenze nella modalità di inserimento di frammenti di codice.
-3. Per informazioni sull'inserimento di frammenti di codice, vedere **frammenti di codice IntelliSense di Visual Basic**.
+2. Nel **della casella degli strumenti**, dal **Standard** scheda, trascinare un' [pulsante](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) controllo nella pagina.
+3. Fare doppio clic il **sul pulsante** controllo per creare un gestore per relativo [fare clic su](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx) evento e quindi aggiungere il codice evidenziato seguente:
 
     [!code-csharp[Main](code-editing-in-web-forms-pages/samples/sample2.cs?highlight=3-16)]
 
-   Per informazioni sull'inserimento di frammenti di codice in Visual c#, vedere **frammenti di codice Visual c#**.
-4. Questa procedura dettagliata è state illustrate le funzionalità di base dell'editor del codice di Visual Studio 2010 per la correzione degli errori nel codice, il refactoring del codice, la ridenominazione di variabili e inserimento di frammenti di codice nel codice.   
+   Il codice crea un' **ArrayList** utilizza un ciclo per caricarlo con i valori, oggetto e quindi Usa un altro ciclo per visualizzare il contenuto delle **ArrayList** oggetto.
+4. Premere **CTRL+F5** per eseguire la pagina e quindi scegliere il **pulsante** per assicurarsi che viene visualizzato l'output seguente:   
 
     [!code-html[Main](code-editing-in-web-forms-pages/samples/sample3.html)]
-5. Funzionalità aggiuntive nell'editor può rendere rapido e semplice lo sviluppo di applicazioni.   
+5. Tornare all'editor del codice e quindi selezionare le righe seguenti nel gestore dell'evento.   
 
     [!code-html[Main](code-editing-in-web-forms-pages/samples/sample4.html)]
-6. Altre informazioni sulle funzionalità di IntelliSense, ad esempio la modifica delle opzioni di IntelliSense e la Gestione frammenti di codice per frammenti di codice in linea. 
+6. Fare doppio clic la selezione, fare clic su **refactoring**, quindi scegliere **Estrai metodo**. 
 
-    Informazioni su come creare i propri frammenti di codice.
-7. Per altre informazioni, vedere **creazione e uso dei frammenti di codice IntelliSense 
+    Il **Estrai metodo** verrà visualizzata la finestra di dialogo.
+7. Nel **nuovo nome del metodo** , digitare **DisplayArray**, quindi fare clic su **OK**. 
 
-    Altre informazioni sulle funzionalità specifiche per Visual Basic IntelliSense di frammenti di codice, ad esempio i frammenti di codice di personalizzazione e la risoluzione dei problemi.
+    L'editor di codice crea un nuovo metodo denominato `DisplayArray`e di inserire una chiamata al metodo di nuovo nella **fare clic su** gestore in cui il ciclo è stato originariamente.
 
     [!code-csharp[Main](code-editing-in-web-forms-pages/samples/sample5.cs?highlight=12)]
-8. Per altre informazioni, vedere **frammenti di codice IntelliSense di Visual Basic
+8. Premere **CTRL+F5** per eseguire nuovamente la pagina, scegliere il **pulsante**.
 
-    Altre informazioni su c#-funzionalità specifiche di IntelliSense, ad esempio il refactoring e frammenti di codice. Per altre informazioni, vedere `DisplayArray`Visual c# IntelliSense.
+    La pagina funziona esattamente come in precedenza. Il `DisplayArray` metodo può essere chiamata da qualsiasi posizione nella classe della pagina.
 
 ## <a name="renaming-variables"></a>Ridenominazione di variabili
 
