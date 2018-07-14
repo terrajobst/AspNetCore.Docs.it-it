@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 09/08/2017
 uid: tutorials/razor-pages/index
-ms.openlocfilehash: dea67cd16c9ad6bdf2b43ff13ae72645528b3e13
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 9d32a7becb291697313dc28925ab94b452385fc7
+ms.sourcegitcommit: 19cbda409bdbbe42553dc385ea72d2a8e246509c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275632"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38992841"
 ---
 # <a name="create-a-razor-pages-web-app-with-aspnet-core"></a>Creare un'app web Razor Pages con ASP.NET Core
 
@@ -25,4 +25,5 @@ Questa serie illustra le nozioni di base della creazione di un'app web Razor Pag
 1. [Aggiungere la ricerca](xref:tutorials/razor-pages/search)
 1. [Aggiungere un nuovo campo](xref:tutorials/razor-pages/new-field)
 1. [Aggiungere la convalida](xref:tutorials/razor-pages/validation)
-1. [Caricare file](xref:tutorials/razor-pages/uploading-files)
+
+Dopo l'esercitazione per aggiungere una funzionalità di caricamento file per l'app di esempio, vedere <xref:razor-pages/upload-files>.
