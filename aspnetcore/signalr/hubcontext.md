@@ -18,7 +18,7 @@ ms.locfileid: "36277761"
 
 Da [Mikael Mengistu](https://twitter.com/MikaelM_12)
 
-L'hub SignalR è l'astrazione fondamentale per l'invio di messaggi ai client connessi al server di SignalR. È anche possibile inviare i messaggi da altre posizioni in cui l'app utilizzando il `IHubContext` servizio. In questo articolo viene illustrato come accedere a un SignalR `IHubContext` per inviare notifiche ai client all'esterno di un hub.
+L'hub SignalR è l'astrazione fondamentale per l'invio di messaggi ai client connessi al server di SignalR. È anche possibile inviare i messaggi da altre posizioni in cui l'app utilizzando il servizio `IHubContext`. In questo articolo viene illustrato come accedere a un `IHubContext` di SignalR per inviare notifiche ai client all'esterno di un hub.
 
 [Consente di visualizzare o scaricare codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/hubcontext/sample/) [(come scaricare)](xref:tutorials/index#how-to-download-a-sample)
 
@@ -27,15 +27,15 @@ L'hub SignalR è l'astrazione fondamentale per l'invio di messaggi ai client con
 In ASP.NET SignalR Core, è possibile accedere a un'istanza di `IHubContext` tramite l'inserimento di dipendenze. È possibile inserire un'istanza di `IHubContext` in un controller, middleware o altro servizio (DISCONNECTED Inbound). Utilizzare l'istanza per inviare messaggi al client.
 
 > [!NOTE]
-> Questo comportamento è diverso da ASP.NET SignalR utilizzato GlobalHost per fornire l'accesso per il `IHubContext`. ASP.NET Core ha un framework di inserimento di dipendenza che elimina la necessità di singleton globale.
+> Questo comportamento è diverso da ASP.NET SignalR che utilizza GlobalHost per fornire l'accesso all'`IHubContext`. ASP.NET Core ha un framework di dependency injection che elimina la necessità di questo singleton globale.
 
 ### <a name="inject-an-instance-of-ihubcontext-in-a-controller"></a>Inserire un'istanza di `IHubContext` in un controller
 
-È possibile inserire un'istanza di `IHubContext` in un controller, aggiungerla al costruttore eventi:
+È possibile inserire un'istanza di `IHubContext` in un controller, aggiungendola al costruttore eventi:
 
 [!code-csharp[IHubContext](hubcontext/sample/Controllers/HomeController.cs?range=12-19,57)]
 
-A questo punto, con accesso a un'istanza di `IHubContext`, è possibile chiamare i metodi dell'hub come se fossero nell'hub di se stesso.
+A questo punto, con l'accesso a un'istanza di `IHubContext`, è possibile chiamare i metodi dell'hub come se fossi nell'hub stesso.
 
 [!code-csharp[IHubContext](hubcontext/sample/Controllers/HomeController.cs?range=21-25)]
 
