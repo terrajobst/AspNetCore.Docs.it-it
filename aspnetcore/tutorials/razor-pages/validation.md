@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/07/2017
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: cabf3d955ef2eb17b3bcb40170a9de7b53ffd107
-ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
+ms.openlocfilehash: 0d35de827ca6fea530229f1ef263ea7b9351e5ad
+ms.sourcegitcommit: 19cbda409bdbbe42553dc385ea72d2a8e246509c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37077631"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38992828"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Aggiungere la convalida a una pagina Razor ASP.NET Core
 
@@ -157,6 +157,8 @@ Il codice seguente illustra la combinazione di attributi in una sola riga:
 
 Per istruzioni su come pubblicare l'app in Azure, vedere [Pubblicare un'app Web ASP.NET Core in Servizio app di Azure con Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs).
 
+Grazie aver completato questa introduzione alle pagine Razor. I suggerimenti degli utenti sono importanti. [Get started with MVC and EF Core](xref:data/ef-mvc/intro) (Introduzione a MVC ed Entity Framework Core) è un complemento ideale per questa esercitazione.
+
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Utilizzo dei moduli](xref:mvc/views/working-with-forms)
@@ -165,5 +167,4 @@ Per istruzioni su come pubblicare l'app in Azure, vedere [Pubblicare un'app Web 
 * [Creare helper tag](xref:mvc/views/tag-helpers/authoring)
 
 > [!div class="step-by-step"]
-> [Articolo precedente: Aggiunta di un nuovo campo](xref:tutorials/razor-pages/new-field)
-> [Articolo successivo: Caricamento di file](xref:tutorials/razor-pages/uploading-files)
+> [Precedente: Aggiunta di un nuovo campo](xref:tutorials/razor-pages/new-field)

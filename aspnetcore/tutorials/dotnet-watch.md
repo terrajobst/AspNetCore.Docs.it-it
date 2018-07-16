@@ -5,12 +5,12 @@ description: Questa esercitazione illustra come installare e usare lo strumento 
 ms.author: riande
 ms.date: 05/31/2018
 uid: tutorials/dotnet-watch
-ms.openlocfilehash: 2a59267b36faf1e00ea2f0cc7e2b9ceb9828f791
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: fc08efa433f688a0b9009aed35fdee2b0c228619
+ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278853"
+ms.lasthandoff: 07/15/2018
+ms.locfileid: "39063299"
 ---
 # <a name="develop-aspnet-core-apps-using-a-file-watcher"></a>Sviluppare app ASP.NET Core usando un watcher per file
 
@@ -179,4 +179,4 @@ VSTest viene eseguito quando un qualsiasi file viene modificato in uno dei proge
 
 ## <a name="dotnet-watch-in-github"></a>`dotnet-watch` in GitHub
 
-`dotnet-watch`fa parte del [repository DotNetTools](https://github.com/aspnet/DotNetTools/tree/dev/src/dotnet-watch) di GitHub.
+`dotnet-watch`fa parte del [repository DotNetTools](https://github.com/aspnet/DotNetTools/tree/master/src/dotnet-watch) di GitHub.
