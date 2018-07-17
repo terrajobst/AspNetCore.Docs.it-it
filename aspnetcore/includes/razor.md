@@ -1,4 +1,6 @@
-Questa esercitazione illustra lo sviluppo Web per ASP.NET Core MVC con i controller e le viste. Razor Pages è una nuova alternativa in ASP.NET Core 2.0 e versioni successive, un modello di programmazione basato su pagine che rende più semplice ed efficiente la creazione di un'interfaccia utente Web. È consigliabile provare l'esercitazione sulle [pagine Razor](xref:tutorials/razor-pages/razor-pages-start) prima della versione MVC. L'esercitazione sulle pagine Razor:
+Questa esercitazione illustra lo sviluppo Web per ASP.NET Core MVC con i controller e le viste. Razor Pages è una funzionalità del framework ASP.NET Core MVC che consente di compilare e testare l'interfaccia utente Web in modo più semplice e produttivo. È possibile usare le pagine Razor insieme a controller e visualizzazioni nello stesso progetto.
+
+Dopo aver usato le pagine Razor, molti sviluppatori le preferiscono a controller e visualizzazioni. È consigliabile provare l'esercitazione su [Razor Pages](xref:tutorials/razor-pages/razor-pages-start) prima della versione MVC/controller/visualizzazioni. L'esercitazione sulle pagine Razor:
 
 * È l'approccio consigliato per lo sviluppo di nuove applicazioni.
 * È più semplice da seguire.
