@@ -18,7 +18,7 @@ ms.locfileid: "36277761"
 
 Da [Mikael Mengistu](https://twitter.com/MikaelM_12)
 
-L'hub SignalR è l'astrazione fondamentale per l'invio di messaggi ai client connessi al server di SignalR. È anche possibile inviare i messaggi da altre posizioni in cui l'app utilizzando il servizio `IHubContext`. In questo articolo viene illustrato come accedere a un `IHubContext` di SignalR per inviare notifiche ai client all'esterno di un hub.
+L'hub SignalR è l'astrazione fondamentale per l'invio di messaggi ai client connessi al server di SignalR. È anche possibile inviare messaggi da altre posizioni all'interno dell'app tramite il IHubContext servizio. In questo articolo viene illustrato come accedere a un `IHubContext` di SignalR per inviare notifiche ai client all'esterno di un hub.
 
 [Consente di visualizzare o scaricare codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/hubcontext/sample/) [(come scaricare)](xref:tutorials/index#how-to-download-a-sample)
 
