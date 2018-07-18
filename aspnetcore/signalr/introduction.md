@@ -1,18 +1,18 @@
 ---
 title: Introduzione a ASP.NET Core SignalR
-author: rachelappel
-description: Informazioni su come la libreria di ASP.NET SignalR Core semplifica l'aggiunta di funzionalità in tempo reale alle app.
+author: tdykstra
+description: Informazioni su come la libreria di ASP.NET Core SignalR semplifica l'aggiunta di funzionalità in tempo reale per le app.
 monikerRange: '>= aspnetcore-2.1'
-ms.author: rachelap
+ms.author: tdykstra
 ms.custom: mvc
 ms.date: 04/25/2018
 uid: signalr/introduction
-ms.openlocfilehash: 0c833acea139d22883a69a02c2357a71f3ac8db8
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: bc6f25c3f35e7fb0c2c68220697f2e0fdc6a9958
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277904"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095389"
 ---
 # <a name="introduction-to-aspnet-core-signalr"></a>Introduzione a ASP.NET Core SignalR
 
@@ -20,38 +20,38 @@ ms.locfileid: "36277904"
 
 ## <a name="what-is-signalr"></a>Che cos'è SignalR?
 
-Componenti di base di ASP.NET SignalR è una libreria che semplifica l'aggiunta di funzionalità per le app web in tempo reale. Funzionalità web in tempo reale consente immediatamente il codice lato server per il contenuto push ai client.
+ASP.NET Core SignalR è una libreria che semplifica l'aggiunta della funzionalità web in tempo reale per le app. Funzionalità web in tempo reale consente immediatamente il codice lato server push di contenuti ai client.
 
 Buoni candidati per SignalR:
 
-* Applicazioni che richiedono aggiornamenti ad alta frequenza dal server. Esempi sono giochi, social network, voto, asta, mappe e App GPS.
-* I dashboard e le applicazioni di monitoraggio. Gli esempi includono dashboard aziendali, gli aggiornamenti di vendita immediati, o si spostano gli avvisi.
-* Applicazioni di collaborazione. Le applicazioni di lavagna e riunione software del team sono esempi di applicazioni di collaborazione.
-* Applicazioni che richiedono le notifiche. Social network, posta elettronica, chat, giochi, gli avvisi di viaggi e molte altre app di usare le notifiche.
+* App che richiedono aggiornamenti ad alta frequenza dal server. Esempi sono di gioco, social network, voto, delle aste, mappe e App GPS.
+* I dashboard e App di monitoraggio. Gli esempi includono dashboard aziendali, gli aggiornamenti di vendita immediati, o avvisi di comunicazione.
+* App di collaborazione. Le app di lavagna e riunione software del team sono esempi di App di collaborazione.
+* App che richiedono le notifiche. Social network, messaggio di posta elettronica, chat, giochi, gli avvisi di viaggi e molte altre App usare le notifiche.
 
-SignalR fornisce un'API per la creazione di server a client [chiamate di procedura remota (RPC)](https://wikipedia.org/wiki/Remote_procedure_call). Il RPC chiamare le funzioni JavaScript nei client dal codice .NET Core sul lato server.
+SignalR fornisce un'API per la creazione di server a client [remote procedure call (RPC)](https://wikipedia.org/wiki/Remote_procedure_call). Le chiamate RPC chiamare le funzioni JavaScript nei client dal codice di .NET Core sul lato server.
 
 SignalR per ASP.NET Core:
 
 * Gestisce automaticamente la gestione della connessione.
-* Consente la trasmissione di messaggi a tutti i client connessi contemporaneamente. Ad esempio una chat room.
-* Abilita l'invio di messaggi al client specifici o gruppi di client.
+* Abilita la trasmissione di messaggi per tutti i client connessi contemporaneamente. Ad esempio una chat room.
+* Abilita l'invio di messaggi a client specifici o gruppi di client.
 * È open source in [GitHub](https://github.com/aspnet/signalr).
 * Scalabile.
 
-La connessione tra il client e server è persistente, a differenza di una connessione HTTP.
+La connessione tra il client e server è permanente, a differenza di una connessione HTTP.
 
 ## <a name="transports"></a>Trasporti
 
-Estrae SignalR su diverse tecniche per la compilazione di applicazioni web in tempo reale. [WebSocket](https://tools.ietf.org/html/rfc7118) è il trasporto ottimale, ma altre tecniche quali eventi Server-Sent e di Polling lungo possono essere usati quando quelli non sono disponibili. SignalR verranno automaticamente rilevate e inizializzare il trasporto appropriato in base alle funzionalità supportate nel server e client.
+Riassunti di SignalR su una serie di tecniche per la compilazione di applicazioni web in tempo reale. [WebSockets](https://tools.ietf.org/html/rfc7118) è il trasporto ottima, ma è possibile utilizzare altre tecniche quali Server-Sent eventi e di Polling lungo quando questi non sono disponibili. SignalR verranno automaticamente rilevate e inizializzare il trasporto appropriato in base alle funzionalità supportate nel server e client.
 
 ## <a name="hubs"></a>Hub
 
-SignalR utilizza hub per le comunicazioni tra client e server.
+SignalR Usa hub per la comunicazione tra client e server.
 
-Un hub è una pipeline di alto livello che consente il client e server chiamare i metodi di reciproca. SignalR gestisce la distribuzione tra i limiti della macchina automaticamente, consentendo ai client di chiamare metodi sul server come facilmente come metodi locali e viceversa. Gli hub di consentono il passaggio di parametri fortemente tipizzati per metodi, che consente l'associazione del modello. SignalR fornisce due protocolli di hub incorporato: un protocollo di testo in base a JSON e un protocollo binario in base a [MessagePack](https://msgpack.org/).  In genere, MessagePack crea messaggi più piccoli rispetto all'utilizzo di JSON. Deve supportare i browser meno recenti [livello XHR 2](https://caniuse.com/#feat=xhr2) per fornire il supporto del protocollo MessagePack.
+Un hub è una pipeline di alto livello che consente il client e server chiamare i metodi a vicenda. SignalR gestisce l'invio fra computer automaticamente, consentendo ai client di chiamare metodi sul server come facilmente come metodi locali e viceversa. Hub consentono il passaggio di parametri fortemente tipizzati per metodi, che consente l'associazione di modelli. SignalR fornisce due protocolli di hub predefinito: un protocollo di testo basati su JSON e un protocollo binario basato sul [MessagePack](https://msgpack.org/).  MessagePack crea in genere i messaggi più piccoli rispetto all'uso di JSON. Devono supportare i browser meno recenti [livello XHR 2](https://caniuse.com/#feat=xhr2) per fornire supporto del protocollo MessagePack.
 
-Gli hub di chiamare il codice sul lato client mediante l'invio di messaggi mediante il trasporto attivo. I messaggi contengono il nome e i parametri del metodo sul lato client. Gli oggetti inviati come parametri di metodo vengono deserializzati mediante il protocollo configurato. Il client tenta di corrispondere al nome a un metodo nel codice sul lato client. Quando si verifica una corrispondenza, viene eseguito il metodo di client utilizzando i dati del parametro deserializzato.
+Hub di chiamare codice lato client mediante l'invio di messaggi mediante il trasporto attivo. I messaggi contengono il nome e parametri del metodo lato client. Gli oggetti inviati come parametri di metodo vengono deserializzati tramite il protocollo configurato. Il client cerca la corrispondenza con il nome a un metodo nel codice lato client. Quando viene trovata una corrispondenza, viene eseguito il metodo client usando i dati del parametro deserializzato.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

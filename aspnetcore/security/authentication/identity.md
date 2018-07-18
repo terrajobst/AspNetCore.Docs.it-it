@@ -5,12 +5,12 @@ description: Usare l'identità con un'app ASP.NET Core. Include, i requisiti di 
 ms.author: riande
 ms.date: 01/24/2018
 uid: security/authentication/identity
-ms.openlocfilehash: c231a7619a4433ce004342ce68564e4c3892e702
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 50ddb96000e6a3f9e1762e9bb3e1f215f20d4356
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37829302"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095639"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Introduzione all'identità in ASP.NET Core
 
@@ -199,7 +199,8 @@ Visualizzare [configurazione](#pw) per un esempio che imposta i requisiti di lun
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Eseguire la migrazione di autenticazione e identità](xref:migration/identity)
-* [Conferma account e recupero password](xref:security/authentication/accconfirm)
-* [Autenticazione a due fattori con SMS](xref:security/authentication/2fa)
-* [Facebook, Google e autenticazione basata su provider esterni](xref:security/authentication/social/index)
+* <xref:migration/identity>
+* <xref:security/authentication/accconfirm>
+* <xref:security/authentication/2fa>
+* <xref:security/authentication/social/index>
+* <xref:host-and-deploy/web-farm>
