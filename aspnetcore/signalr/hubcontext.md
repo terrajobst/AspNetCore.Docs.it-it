@@ -1,4 +1,4 @@
----
+﻿---
 title: SignalR HubContext
 author: tdykstra
 description: Informazioni su come usare il servizio ASP.NET Core SignalR HubContext per l'invio di notifiche ai client all'esterno di un hub.
@@ -35,7 +35,7 @@ In ASP.NET Core SignalR, è possibile accedere a un'istanza di `IHubContext` tra
 
 [!code-csharp[IHubContext](hubcontext/sample/Controllers/HomeController.cs?range=12-19,57)]
 
-A questo punto, con accesso a un'istanza di `IHubContext`, è possibile chiamare i metodi dell'hub come se fossero nell'hub stesso.
+A questo punto, con l'accesso a un'istanza di `IHubContext`, è possibile chiamare i metodi dell'hub come se fossi nell'hub stesso.
 
 [!code-csharp[IHubContext](hubcontext/sample/Controllers/HomeController.cs?range=21-25)]
 
