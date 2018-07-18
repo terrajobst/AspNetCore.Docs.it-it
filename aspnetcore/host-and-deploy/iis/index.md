@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/13/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 96a4403653e474bb056374909b3ee66998bc99be
-ms.sourcegitcommit: 19cbda409bdbbe42553dc385ea72d2a8e246509c
+ms.openlocfilehash: 607bdb7ee830c9a3bbb83ca2aec4661772a285b2
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992815"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095840"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host ASP.NET Core in Windows con IIS
 
@@ -168,9 +168,8 @@ Abilitare **Console di gestione IIS** e **Servizi Web**.
 
 1. Installare il *bundle di hosting .NET Core* nel sistema di hosting. L'aggregazione installa il runtime di .NET Core, la libreria di .NET Core e il [modulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module). Il modulo crea il proxy inverso tra IIS e il server Kestrel. Se il sistema non ha una connessione Internet, ottenere e installare [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840) prima di installare il bundle di hosting .NET Core.
 
-   1. Passare alla [pagina di tutti i download per .NET](https://www.microsoft.com/net/download/all).
-   1. Nella colonna **Runtime** della tabella selezionare il runtime di .NET Core non di anteprima più recente dall'elenco (**X.Y Runtime (vX.Y.Z) downloads**) (Download runtime X.Y (vX.Y.Z)). Il runtime più recente ha l'etichetta **Current** (Corrente). A meno che non si preveda di usare software di anteprima, evitare un runtime con il termine "anteprima" o "rc" (versione finale candidata) nel testo del collegamento.
-   1. Nella pagina di download del runtime di .NET Core in **Windows** selezionare il collegamento **Hosting Bundle Installer** (Programma di installazione del bundle di hosting) per scaricare il programma di installazione del *bundle di hosting .NET Core*.
+   1. Passare alla [pagina dei download .NET](https://www.microsoft.com/net/download/windows).
+   1. In **.NET Core** selezionare il pulsante **Download .NET Core Runtime** (Scarica runtime di .NET Core) accanto all'etichetta **Run Apps** (Esegui app). Il file eseguibile del programma di installazione contiene la parola "hosting" nel nome del file (ad esempio, *dotnet-hosting-2.1.2-win.exe*).
    1. Eseguire il programma di installazione nel server.
 
    **Importante**: Se il bundle di hosting viene installato prima di IIS, è necessario riparare l'installazione del bundle. Eseguire di nuovo il programma di installazione del bundle di hosting dopo l'installazione di IIS.
