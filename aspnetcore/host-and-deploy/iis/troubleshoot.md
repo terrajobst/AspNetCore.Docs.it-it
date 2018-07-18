@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/07/2018
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: d57196693feb6413560ec25e09cf74e9babf93bf
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: cbbdee6849768004476d94c58be4a0e7cc2d6f9e
+ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276165"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37938472"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>Risolvere i problemi di ASP.NET Core in IIS
 
@@ -31,6 +31,9 @@ Informazioni su come gestire gli errori nelle app ASP.NET Core durante lo svilup
 
 [Informazioni sul debug tramite Visual Studio](/visualstudio/debugger/getting-started-with-the-debugger)  
 Questo argomento presenta le funzionalità del debugger di Visual Studio.
+
+[Debugging with Visual Studio Code](https://code.visualstudio.com/docs/editor/debugging) (Debug con Visual Studio Code)  
+Informazioni sul supporto del debug incorporato in Visual Studio Code.
 
 ## <a name="app-startup-errors"></a>Errori di avvio delle app
 

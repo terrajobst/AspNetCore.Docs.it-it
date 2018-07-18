@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/07/2017
 uid: host-and-deploy/index
-ms.openlocfilehash: 31444475e39a12d526dd624bb508770429e414ca
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: e62b68c4cfad29bb8bea3b9fbb2c231a4afeccea
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277150"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095668"
 ---
 # <a name="host-and-deploy-aspnet-core"></a>Hosting e distribuzione di ASP.NET Core
 
@@ -71,6 +71,10 @@ Mediante la [funzionalità Pubblica sito Web](xref:tutorials/publish-to-azure-we
 ## <a name="publishing-to-azure"></a>Pubblicazione in Azure
 
 Per istruzioni su come pubblicare l'app in Azure usando Visual Studio, vedere [Pubblicare un'app Web ASP.NET Core in Servizio app di Azure con Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs). L'app può essere pubblicata in Azure anche dalla [riga di comando](xref:tutorials/publish-to-azure-webapp-using-cli).
+
+## <a name="host-in-a-web-farm"></a>Hosting in una Web farm
+
+Per informazioni sulla configurazione per ospitare app ASP.NET Core in un ambiente Web farm (ad esempio, distribuzione di più istanze di un'app per la scalabilità), vedere <xref:host-and-deploy/web-farm>.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
