@@ -8,12 +8,12 @@ ms.date: 08/23/2012
 ms.assetid: 5894dc13-5d45-4dad-8096-136499120f1d
 msc.legacyurl: /mvc/overview/performance/bundling-and-minification
 msc.type: authoredcontent
-ms.openlocfilehash: 090bb58f762302e0f58db7b8c005fe584e5ec419
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 4e72804593c07318af8cc577f9d43ab96be4de05
+ms.sourcegitcommit: cb0c27fa0184f954fce591d417e6ab2a51d8bb22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37827375"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39123788"
 ---
 <a name="bundling-and-minification"></a>Creazione di bundle e minimizzazione
 ====================
@@ -69,7 +69,7 @@ La tabella seguente illustra alcune differenze importanti tra elencando tutte le
 | **KB ricevuti** | 388.51 | 530 | 36% |
 | **Tempo di caricamento** | 510 MS | 780 MS | 53% |
 
-I byte inviati aveva una significativa riduzione con creazione di bundle come i browser sono piuttosto dettagliati con le intestazioni HTTP che si applicano alle richieste. La riduzione di byte ricevuti non è più grande poiché i file più grandi (*Scripts\jquery-ui-1.8.11.min.js* e *Scripts\jquery-1.7.1.min.js*) sono già minimizzati. Nota: Gli intervalli di tempo nel programma di esempio usata la [Fiddler](http://www.fiddler2.com/fiddler2/) dello strumento per simulare una rete lenta. (Da di Fiddler **regole** dal menu **prestazioni** quindi **simulare le velocità dei Modem**.)
+I byte inviati aveva una significativa riduzione con creazione di bundle come i browser sono piuttosto dettagliati con le intestazioni HTTP che si applicano alle richieste. La riduzione di byte ricevuti non è più grande poiché i file più grandi (*gli script\\jquery-ui-1.8.11.min.js* e *script\\jquery 1.7.1.min.js*) sono già minimizzati . Nota: Gli intervalli di tempo nel programma di esempio usata la [Fiddler](http://www.fiddler2.com/fiddler2/) dello strumento per simulare una rete lenta. (Da di Fiddler **regole** dal menu **prestazioni** quindi **simulare le velocità dei Modem**.)
 
 ## <a name="debugging-bundled-and-minified-javascript"></a>Debug in bundle e minimizzato JavaScript
 
@@ -79,7 +79,7 @@ I byte inviati aveva una significativa riduzione con creazione di bundle come i 
 2. Selezionare il pacchetto che contiene la funzione JavaScript da sottoporre a debug utilizzando il pulsante di asset.  
     ![](bundling-and-minification/_static/image4.png)
 3. Formattare il codice JavaScript minimizzato selezionando il **pulsante di configurazione** ![](bundling-and-minification/_static/image5.png), quindi selezionando **formato JavaScript**.
-4. Nel **script di ricerca** casella input t, selezionare il nome della funzione da sottoporre a debug. Nell'immagine seguente, **AddAltToImg** è stato immesso con la **script di ricerca** casella di input t.  
+4. Nel **Script di ricerca** casella di input, selezionare il nome della funzione da sottoporre a debug. Nell'immagine seguente, **AddAltToImg** è stato immesso con la **Script di ricerca** casella di input.  
     ![](bundling-and-minification/_static/image6.png)
 
 Per altre informazioni sul debug con gli strumenti di sviluppo F12, vedere l'articolo MSDN [usando gli strumenti di sviluppo F12 per eseguire il Debug degli errori JavaScript](https://msdn.microsoft.com/library/ie/gg699336(v=vs.85).aspx).
@@ -107,15 +107,15 @@ Per abilitare la creazione di bundle e minimizzazione, impostare il `debug` valo
 
 In questa sezione si creerà un ASP.NET MVC progetto esaminare la creazione di bundle e minimizzazione. In primo luogo, creare un nuovo progetto ASP.NET MVC internet denominato **MvcBM** senza modificare le impostazioni predefinite.
 
-Aprire il *App\_Start\BundleConfig.cs* file ed esaminare il `RegisterBundles` metodo che consente di creare, registrare e configurare bundle. Il codice seguente illustra una parte di `RegisterBundles` (metodo).
+Aprire il *App\\\_avviare\\BundleConfig.cs* file ed esaminare il `RegisterBundles` metodo che consente di creare, registrare e configurare bundle. Il codice seguente illustra una parte di `RegisterBundles` (metodo).
 
 [!code-csharp[Main](bundling-and-minification/samples/sample5.cs)]
 
 Il codice precedente crea un nuovo bundle di JavaScript denominato *~/bundles/jquery* che include tutti i (debug o che ma non minimizzati. *vsdoc*) file con il *script* cartella che corrisponde alla stringa con caratteri jolly "~/Scripts/jquery-{version}. js". Per ASP.NET MVC 4, questo significa che con una configurazione di debug, il file *jquery 1.7.1.js* verrà aggiunto al bundle. In una configurazione rilascio *jquery 1.7.1.min.js* verrà aggiunto. Il framework di creazione di bundle segue le convenzioni comuni diverse, ad esempio:
 
-- Selezione di file ".min" per il rilascio quando sono presenti "FileX.min.js" e "FileX.js".
+- La selezione di file ".min" per versione quando *FileX.min.js* e *FileX.js* esiste.
 - Selezionare la versione non ".min" per il debug.
-- Verrà ignorato "-vsdoc" i file (ad esempio jquery-1.7.1-vsdoc. js.), che vengono usati solo da IntelliSense.
+- Verrà ignorato "-vsdoc" i file (ad esempio *jquery-1.7.1-vsdoc. js.*), che vengono usati solo da IntelliSense.
 
 Il `{version}` con caratteri jolly corrispondente illustrato in precedenza viene usato per creare automaticamente un bundle di jQuery con la versione appropriata di jQuery nel *script* cartella. In questo esempio, usando un carattere jolly offre i vantaggi seguenti:
 
@@ -134,7 +134,7 @@ Nel codice precedente, jQuery viene richiesto dalla rete CDN mentre nella versio
 
 ## <a name="creating-a-bundle"></a>Creazione di un Bundle
 
-Il [Bundle](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx) classe `Include` metodo accetta una matrice di stringhe, dove ogni stringa è un percorso virtuale alla risorsa. Il codice seguente dal metodo RegisterBundles nel *App\_Start\BundleConfig.cs* file Mostra come più file vengono aggiunti a un bundle:
+Il [Bundle](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx) classe `Include` metodo accetta una matrice di stringhe, dove ogni stringa è un percorso virtuale alla risorsa. Nell'esempio di codice dal `RegisterBundles` metodo nella *App\\\_Start\\BundleConfig.cs* file Mostra come più file vengono aggiunti a un bundle:
 
 [!code-csharp[Main](bundling-and-minification/samples/sample8.cs)]
 
@@ -142,7 +142,7 @@ Il [Bundle](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=
 
 [!code-csharp[Main](bundling-and-minification/samples/sample9.cs)]
 
-Bundle vengono fatto riferimento nelle viste tramite il metodo Render, ( `Styles.Render` per CSS e `Scripts.Render` per JavaScript). Il markup seguente dal *Views\Shared\\layout. cshtml* file Mostra come impostazione predefinita ASP.NET internet progetto un riferimento a bundle CSS e JavaScript.
+Bundle vengono fatto riferimento nelle viste tramite il metodo Render, (`Styles.Render` per CSS e `Scripts.Render` per JavaScript). Il markup seguente dal *viste\\Shared\\\_layout. cshtml* file Mostra come impostazione predefinita ASP.NET internet progetto un riferimento a bundle CSS e JavaScript.
 
 [!code-cshtml[Main](bundling-and-minification/samples/sample10.cshtml?highlight=5-6,11)]
 
@@ -156,10 +156,10 @@ Il percorso virtuale specificato nel `Include` metodo e la ricerca di creare una
 
 Si consideri un progetto con i seguenti file JavaScript:
 
-- *Scripts\Common\AddAltToImg.js*
-- *Scripts\Common\ToggleDiv.js*
-- *Scripts\Common\ToggleImg.js*
-- *Scripts\Common\Sub1\ToggleLinks.js*
+- *Gli script\\comuni\\AddAltToImg.js*
+- *Gli script\\comuni\\ToggleDiv.js*
+- *Gli script\\comuni\\ToggleImg.js*
+- *Gli script\\comuni\\Sub1\\ToggleLinks.js*
 
 ![imag Dir](bundling-and-minification/_static/image7.png)
 
@@ -167,13 +167,13 @@ La tabella seguente illustra i file aggiunti a un bundle utilizzando il caratter
 
 | **Call** | **Eccezione generata o i file aggiunti** |
 | --- | --- |
-| Include ("~/Scripts/Common/\*. js") | *AddAltToImg.js, ToggleDiv.js, ToggleImg.js* |
+| Include ("~/Scripts/Common/\*. js") | *AddAltToImg.js*, *ToggleDiv.js*, *ToggleImg.js* |
 | Include("~/Scripts/Common/T\*.js") | Eccezione di modello non valido. Il carattere jolly è consentito solo nel prefisso o suffisso. |
 | Include ("~/Scripts/Common/\*og.\*") | Eccezione di modello non valido. È consentito un solo carattere jolly. |
-| "Includono (" ~/Scripts/Common/T\*") | *ToggleDiv.js, ToggleImg.js* |
-| "Includono (" ~/Scripts/Common/\*") | Eccezione di modello non valido. Un segmento con carattere jolly pure non è valido. |
-| IncludeDirectory("~/Scripts/Common", "T\*") | *ToggleDiv.js, ToggleImg.js* |
-| IncludeDirectory ("~/Scripts/Common", "T\*": true) | *ToggleDiv.js, ToggleImg.js, ToggleLinks.js* |
+| Include ("~/Scripts/Common/T\*") | *ToggleDiv.js*, *ToggleImg.js* |
+| Include ("~/Scripts/Common/\*") | Eccezione di modello non valido. Un segmento con carattere jolly pure non è valido. |
+| IncludeDirectory("~/Scripts/Common", "T\*") | *ToggleDiv.js*, *ToggleImg.js* |
+| IncludeDirectory ("~/Scripts/Common", "T\*": true) | *ToggleDiv.js*, *ToggleImg.js*, *ToggleLinks.js* |
 
 In modo esplicito l'aggiunta di ogni file a un bundle è in genere il valore desiderato tramite il caricamento con caratteri jolly dei file per i motivi seguenti:
 
@@ -183,7 +183,7 @@ In modo esplicito l'aggiunta di ogni file a un bundle è in genere il valore des
 
     [!code-csharp[Main](bundling-and-minification/samples/sample12.cs)]
 
-  Il selettore con caratteri jolly "\*CSS" porta in ogni file CSS nella cartella, tra cui la *Content\themes\base\jquery.ui.all.css* file. Il *jquery.ui.all.css* file Importa altri file CSS.
+  Il selettore con caratteri jolly "\*CSS" porta in ogni file CSS nella cartella, tra cui la *contenuto\\temi\\base\\jquery.ui.all.css* file. Il *jquery.ui.all.css* file Importa altri file CSS.
 
 ## <a name="bundle-caching"></a>Creare un bundle di memorizzazione nella cache
 
@@ -195,7 +195,7 @@ La figura seguente mostra le **Caching** scheda del riquadro di risposta di Fidd
 
 La richiesta   
 `http://localhost/MvcBM_time/bundles/AllMyScripts?v=r0sLDicvP58AIXN_mc3QdyVvVj5euZNzdsa2N1PKvb81`  
- è per il bundle **AllMyScripts** e contiene una coppia di stringa di query **v = r0sLDicvP58AIXN\_mc3QdyVvVj5euZNzdsa2N1PKvb81**. La stringa di query **v** ha un valore di token che rappresenta un identificatore univoco utilizzato per la memorizzazione nella cache. Fino a quando non viene modificati il bundle, l'applicazione ASP.NET richiede la **AllMyScripts** del bundle usando il token. Se qualsiasi file nel bundle cambia, il framework di ottimizzazione di ASP.NET genera un nuovo token, garantendo che le richieste del browser per il bundle consentirà di ottenere il pacchetto più recente.
+ è per il bundle **AllMyScripts** e contiene una coppia di stringa di query **v = r0sLDicvP58AIXN\\\_mc3QdyVvVj5euZNzdsa2N1PKvb81**. La stringa di query **v** ha un valore di token che rappresenta un identificatore univoco utilizzato per la memorizzazione nella cache. Fino a quando non viene modificati il bundle, l'applicazione ASP.NET richiede la **AllMyScripts** del bundle usando il token. Se qualsiasi file nel bundle cambia, il framework di ottimizzazione di ASP.NET genera un nuovo token, garantendo che le richieste del browser per il bundle consentirà di ottenere il pacchetto più recente.
 
 Se si eseguono strumenti di sviluppo F12 di Internet Explorer 9 e passare a una pagina caricata in precedenza, Internet Explorer in modo non corretto Mostra richieste GET condizionale apportate a ogni bundle e il server di restituzione di HTTP 304. È possibile leggere il motivo per cui Internet Explorer 9 presenta problemi che determina se è stata effettuata una richiesta condizionale nella voce del blog [usando le reti CDN ed Expires per migliorare le prestazioni dei siti Web](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx).
 
@@ -203,13 +203,13 @@ Se si eseguono strumenti di sviluppo F12 di Internet Explorer 9 e passare a una 
 
 Il framework di creazione di bundle e minimizzazione fornisce un meccanismo per l'elaborazione, ad esempio linguaggi intermedi [SCSS](http://sass-lang.com/), [Sass](http://sass-lang.com/), [meno](http://www.dotlesscss.org/) o [Coffeescript ](http://coffeescript.org/)e applicare trasformazioni, ad esempio minimizzazione per il pacchetto risulta. Ad esempio, per aggiungere [.less](http://www.dotlesscss.org/) file al progetto MVC 4:
 
-1. Creare una cartella per il contenuto di LESS. L'esempio seguente usa il *Content\MyLess* cartella.
+1. Creare una cartella per il contenuto di LESS. L'esempio seguente usa il *contenuti\\MyLess* cartella.
 2. Aggiungere il [.less](http://www.dotlesscss.org/) pacchetto NuGet **senza punto** al progetto.  
     ![Installazione di NuGet senza punto](bundling-and-minification/_static/image9.png)
 3. Aggiungere una classe che implementa il [IBundleTransform](https://msdn.microsoft.com/library/system.web.optimization.ibundletransform(VS.110).aspx) interfaccia. Per la trasformazione .less, aggiungere il codice seguente al progetto.
 
     [!code-csharp[Main](bundling-and-minification/samples/sample13.cs)]
-4. Creare un bundle di file di LESS con il `LessTransform` e il [CssMinify](https://msdn.microsoft.com/library/system.web.optimization.cssminify(VS.110).aspx) trasformare. Aggiungere il codice seguente per il `RegisterBundles` metodo nella *App\_Start\BundleConfig.cs* file.
+4. Creare un bundle di file di LESS con il `LessTransform` e il [CssMinify](https://msdn.microsoft.com/library/system.web.optimization.cssminify(VS.110).aspx) trasformare. Aggiungere il codice seguente per il `RegisterBundles` metodo nella *App\\avvia\\BundleConfig.cs* file.
 
     [!code-csharp[Main](bundling-and-minification/samples/sample14.cs)]
 5. Aggiungere il codice seguente per tutte le viste che fa riferimento il bundle di LESS.
@@ -228,7 +228,7 @@ La limitazione di browser di sei connessioni simultanee per ogni nome host può 
 
 Aggregazioni devono essere partizionate dalle pagine che ne hanno bisogno. Ad esempio, il modello MVC di ASP.NET per un'applicazione internet predefinito crea un bundle di convalida di jQuery separato dal jQuery. Poiché le visualizzazioni predefinite create non dispone di alcun input e non pubblicare i valori, non includono il bundle di convalida.
 
-Il `System.Web.Optimization` dello spazio dei nomi viene implementato in System.Web.Optimization.DLL. Sfrutta la libreria WebGrease (WebGrease.dll) per le funzionalità di minimizzazione, che a sua volta utilizza Antlr3.Runtime.dll.
+Il `System.Web.Optimization` dello spazio dei nomi viene implementato in *System.Web.Optimization.dll*. Sfrutta la libreria WebGrease (*WebGrease.dll*) per le funzionalità di minimizzazione, che a sua volta utilizza *Antlr3.Runtime.dll*.
 
 *Usare Twitter per rendere rapide post e condividere collegamenti. L'handle di Twitter*: [@RickAndMSFT](http://twitter.com/RickAndMSFT)
 
