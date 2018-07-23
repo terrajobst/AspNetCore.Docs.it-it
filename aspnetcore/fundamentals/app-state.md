@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2018
 uid: fundamentals/app-state
-ms.openlocfilehash: 9c63d9313acb055e6c692a7fef3d28e94cb37093
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 072699113a45056ec3ea79436ad56896ba0a4197
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272883"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095814"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>Stato di sessioni e app in ASP.NET Core
 
@@ -174,7 +174,7 @@ Lo stato della sessione è accessibile da una classe [PageModel](/dotnet/api/mic
 
 ::: moniker range=">= aspnetcore-2.0"
 
-L'implementazione `ISession` offre diversi metodi di estensione per impostare e recuperare i valori Integer e stringa. I metodi di estensione si trovano nello spazio dei nomi [Microsoft.AspNetCore.Http](/dotnet/api/microsoft.aspnetcore.http) (aggiungere un'istruzione `using Microsoft.AspNetCore.Http;` per ottenere l'accesso ai metodi di estensione) quando al pacchetto [Microsoft.AspNetCore.Http.Extensions](https://www.nuget.org/packages/Microsoft.AspNetCore.Http.Extensions/) fa riferimento il progetto. Entrambi i pacchetti sono inclusi nel [metapacchetto Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
+L'implementazione `ISession` offre diversi metodi di estensione per impostare e recuperare i valori interi e stringa. I metodi di estensione si trovano nello spazio dei nomi [Microsoft.AspNetCore.Http](/dotnet/api/microsoft.aspnetcore.http) (aggiungere un'istruzione `using Microsoft.AspNetCore.Http;` per ottenere l'accesso ai metodi di estensione) quando al pacchetto [Microsoft.AspNetCore.Http.Extensions](https://www.nuget.org/packages/Microsoft.AspNetCore.Http.Extensions/) fa riferimento il progetto. Entrambi i pacchetti sono inclusi nel [metapacchetto Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
 
 ::: moniker-end
 
@@ -441,3 +441,7 @@ Usare [Dependency Injection](xref:fundamentals/dependency-injection) (Inseriment
   Ad esempio, un utente archivia un carrello acquisti nella sessione. L'utente aggiunge un articolo al carrello ma il commit ha esito negativo. L'app non riconosce l'errore e segnala all'utente che l'articolo è stato aggiunto al carrello anche se non è vero.
 
   L'approccio consigliato per verificare la presenza di errori è chiamare `await feature.Session.CommitAsync();` dal codice dell'app quando l'app termina di scrivere nella sessione. `CommitAsync` genera un'eccezione se l'archivio di backup non è disponibile. Se `CommitAsync` ha esito negativo, l'app è in grado di elaborare l'eccezione. `LoadAsync` viene generata nelle stesse condizioni in cui l'archivio dati non è disponibile.
+
+## <a name="additional-resources"></a>Risorse aggiuntive
+
+<xref:host-and-deploy/web-farm>

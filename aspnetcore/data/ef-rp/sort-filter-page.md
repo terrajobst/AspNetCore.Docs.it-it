@@ -5,12 +5,12 @@ description: In questa esercitazione viene spiegato come aggiungere alla pagina 
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: fce524a5cb386fbf286907be42e920be13115ca6
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 86321538f02ccf1a36ee9e50729e63e007f10327
+ms.sourcegitcommit: ee2b26c7d08b38c908c668522554b52ab8efa221
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38216278"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39146897"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Ordinamento, filtro, suddivisione in pagine - 3 di 8
 
@@ -210,7 +210,7 @@ Il metodo `PaginatedList.CreateAsync` converte la query degli studenti in una pa
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage4)]
 
-I due punti interrogativi in `PaginatedList.CreateAsync` rappresentano l'[operatore null-coalescing](https://docs.microsoft.com/ dotnet/csharp/language-reference/operators/null-conditional-operator). L'operatore null-coalescing definisce un valore predefinito per un tipo nullable. L'espressione `(pageIndex ?? 1)` restituisce il valore di `pageIndex` se ha un valore. Se `pageIndex` non ha un valore, restituisce 1.
+I due punti interrogativi in `PaginatedList.CreateAsync` rappresentano l'[operatore null-coalescing](/dotnet/csharp/language-reference/operators/null-conditional-operator). L'operatore null-coalescing definisce un valore predefinito per un tipo nullable. L'espressione `(pageIndex ?? 1)` restituisce il valore di `pageIndex` se ha un valore. Se `pageIndex` non ha un valore, restituisce 1.
 
 ## <a name="add-paging-links-to-the-student-razor-page"></a>Aggiungere collegamenti di suddivisione in pagine alla pagina Razor degli studenti
 

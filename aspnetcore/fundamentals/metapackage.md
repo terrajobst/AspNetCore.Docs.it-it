@@ -1,17 +1,17 @@
 ---
-title: Metapacchetto Microsoft.AspNetCore.All per ASP.NET Core 2.0 e versioni successive
+title: Metapacchetto Microsoft.AspNetCore.All per ASP.NET Core 2.0
 author: Rick-Anderson
 description: Il metapacchetto Microsoft.AspNetCore.All include tutti i pacchetti ASP.NET Core e Entity Framework Core supportati con le relative dipendenze.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 09/20/2017
 uid: fundamentals/metapackage
-ms.openlocfilehash: 2fddc59d74dce4b114b5b4ed0646f773eb66ffb9
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: fbc0f5465dc37a612b81c293f1a58b53ea4b2238
+ms.sourcegitcommit: cb0c27fa0184f954fce591d417e6ab2a51d8bb22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277815"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39123827"
 ---
 # <a name="microsoftaspnetcoreall-metapackage-for-aspnet-core-20"></a>Metapacchetto Microsoft.AspNetCore.All per ASP.NET Core 2.0
 
@@ -23,8 +23,8 @@ Questa funzionalità richiede ASP.NET Core 2.x con destinazione .NET Core 2.x.
 Il metapacchetto [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) per ASP.NET include:
 
 * Tutti i pacchetti supportati dal team ASP.NET Core.
-* Tutti i pacchetti supportati da Entity Framework Core. 
-* Le dipendenze interne e di terze parti usate da ASP.NET Core e da Entity Framework Core. 
+* Tutti i pacchetti supportati da Entity Framework Core.
+* Le dipendenze interne e di terze parti usate da ASP.NET Core e da Entity Framework Core.
 
 Tutte le funzionalità di ASP.NET Core 2.x e Entity Framework Core 2.x sono incluse nel pacchetto `Microsoft.AspNetCore.All`. I modelli di progetto predefiniti destinati ad ASP.NET Core 2.0 usano questo pacchetto.
 

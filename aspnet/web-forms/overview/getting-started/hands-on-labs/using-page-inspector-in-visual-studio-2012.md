@@ -333,7 +333,7 @@ In questa attività si apprenderà come usare le funzionalità di controllo pagi
     ![Esaminare gli elementi](using-page-inspector-in-visual-studio-2012/_static/image29.png "esaminare gli elementi")
 
     *Esaminare gli elementi*
-7. Scegliere il **attiva/disattiva modalità di controllo** pulsante (![Select-the-HTML-tab-to-display-the-HTML-code-rendered-in-the-Page-Inspector-browser.] (using-page-inspector-in-visual-studio-2012/_static/image30.png "Select-the-HTML-tab-to-display-the-HTML-code-rendered-in-the-Page-Inspector-browser.") ), che si trova nelle schede di controllo pagina, per disabilitare il cursore.
+7. Scegliere il **attiva/disattiva modalità di controllo** pulsante (![Select-the-HTML-tab-to-display-the-HTML-code-rendered-in-the-Page-Inspector-browser.](using-page-inspector-in-visual-studio-2012/_static/image30.png "Select-the-HTML-tab-to-display-the-HTML-code-rendered-in-the-Page-Inspector-browser.") ), che si trova nelle schede di controllo pagina, per disabilitare il cursore.
 8. Selezionare il **HTML** scheda per visualizzare il codice HTML sottoposto a rendering nel browser di controllo pagina.
 9. Nel codice HTML, individuare l'elemento di elenco con collegamento Koala e selezionarlo.
 
