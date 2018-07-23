@@ -5,12 +5,12 @@ description: In questa esercitazione si aggiungono altre entità e relazioni e s
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: d96ce7a3f81c54d3c4c0fe26d3fb588d9ce2e0ce
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 6888df174e92ab2ddf8add7b8927250be320bff8
+ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38127102"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39202653"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Modello di dati - 5 di 8
 
@@ -540,8 +540,6 @@ Il codice precedente offre i dati di inizializzazione per le nuove entità. La m
 
 * `Enrollments`
 * `CourseAssignment`
-
-Nota: [EF Core 2.1](https://github.com/aspnet/EntityFrameworkCore/wiki/Roadmap) supporterà il [seeding dei dati](https://github.com/aspnet/EntityFrameworkCore/issues/629).
 
 ## <a name="add-a-migration"></a>Aggiungere una migrazione
 

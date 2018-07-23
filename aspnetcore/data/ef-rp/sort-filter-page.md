@@ -5,12 +5,12 @@ description: In questa esercitazione viene spiegato come aggiungere alla pagina 
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 86321538f02ccf1a36ee9e50729e63e007f10327
-ms.sourcegitcommit: ee2b26c7d08b38c908c668522554b52ab8efa221
+ms.openlocfilehash: ee5a0dae41ba0afba518f0bd6fbd379fdbbfb1c1
+ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39146897"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39202614"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Ordinamento, filtro, suddivisione in pagine - 3 di 8
 
@@ -263,8 +263,6 @@ Aggiornare il file *Pages/About.cshtml.cs* file con il codice seguente:
 [!code-csharp[](intro/samples/cu21/Pages/About.cshtml.cs)]
 
 L'istruzione LINQ raggruppa le entità di studenti per data di registrazione, calcola il numero di entità in ogni gruppo e archivia i risultati in una raccolta di oggetti di modello della visualizzazione `EnrollmentDateGroup`.
-
-Nota: il comando LINQ `group` attualmente non è supportato da Entity Framework Core. Nel codice precedente, tutti i record di studenti vengono restituiti da SQL Server. Il comando `group` viene applicato nell'app Razor Pages, non in SQL Server. EF Core 2.1 supporterà questo operatore `group` LINQ e il raggruppamento si verifica in SQL Server. Vedere [Relational: Support translating GroupBy() to SQL](https://github.com/aspnet/EntityFrameworkCore/issues/2341) (Relazionale: Supporto per la conversione di GroupBy() in SQL). [EF Core 2.1](https://github.com/aspnet/EntityFrameworkCore/wiki/roadmap) verrà rilasciato con .NET Core 2.1. Per altre informazioni, vedere la [.NET Core Roadmap](https://github.com/dotnet/core/blob/master/roadmap.md) (Guida di orientamento di .NET Core).
 
 ### <a name="modify-the-about-razor-page"></a>Modificare la pagina Razor About (Informazioni)
 
