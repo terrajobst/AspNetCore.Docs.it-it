@@ -113,7 +113,7 @@ Gli sviluppatori Web Form ASP.NET e MVC possono immediatamente individuare impor
 - Request.Browser.MobileDeviceManufacturer, Request.Browser.MobileDeviceModel
 - Request.Browser.ScreenPixelsWidth
 - Request.Browser.SupportsXmlHttp
-- .. e molti altri
+- ...e molti altri
 
 Dietro le quinte, la piattaforma ASP.NET corrisponde in ingresso *User-Agent* intestazione HTTP (UA) contro espressioni regolari in un set di file XML di definizione del Browser. Per impostazione predefinita, la piattaforma include le definizioni per diversi dispositivi mobili comuni ed è possibile aggiungere file di definizione Browser personalizzati per gli altri utenti che si desidera riconoscere. Per altre informazioni, vedere la pagina MSDN [controlli Server Web ASP.NET e le funzionalità del Browser](https://msdn.microsoft.com/library/x3k2ssx2.aspx).
 

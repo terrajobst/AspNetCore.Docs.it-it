@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/30/2018
 uid: signalr/configuration
-ms.openlocfilehash: fac0226c939f4cf446c876b1c0b359d6c5b9dfd3
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: f5a345795f17dafd482e359e77a151d5b0a15688
+ms.sourcegitcommit: 8b68e144aab75374af52605a71717c77345a28b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095402"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39182590"
 ---
 # <a name="aspnet-core-signalr-configuration"></a>Configurazione di ASP.NET Core SignalR
 
@@ -62,7 +62,7 @@ La tabella seguente descrive le opzioni per la configurazione degli hub SignalR:
 
 | Opzione | Descrizione |
 | ------ | ----------- |
-| `HandshakeTimeout` | Se il client non invia un messaggio di handshake iniziale all'interno di questo intervallo di tempo, la connessione viene chiusa. |
+| `HandshakeTimeout` | Se il client non invia un messaggio di handshake iniziale all'interno di questo intervallo di tempo, la connessione viene chiusa. Si tratta di un'impostazione avanzata che deve essere modificata solo se si verificano a causa della latenza di rete gravi errori di timeout di handshake. Per informazioni dettagliate sul processo di Handshake, vedere la [specifica del protocollo dell'Hub SignalR](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md). |
 | `KeepAliveInterval` | Se il server non ha inviato un messaggio all'interno di questo intervallo, un messaggio ping viene inviato automaticamente a mantenere aperta la connessione. |
 | `SupportedProtocols` | Protocolli supportati da questo hub. Per impostazione predefinita, sono consentiti tutti i protocolli registrati nel server, ma i protocolli possono essere rimossi da questo elenco per disabilitare i protocolli specifici per singoli hub. |
 | `EnableDetailedErrors` | Se `true`dettagliati vengono restituiti i messaggi di eccezione ai client quando viene generata un'eccezione in un metodo dell'Hub. Il valore predefinito è `false`, come i messaggi di eccezione possono contenere informazioni sensibili. |
@@ -216,10 +216,10 @@ Sono disponibili in opzioni aggiuntive per la configurazione di timeout e il com
 
 | Opzione di .NET | Opzione di JavaScript | Descrizione |
 | ----------- | ----------------- | ----------- |
-| `ServerTimeout` | `serverTimeoutInMilliseconds` | Timeout per l'attività del server. Se il server non ha inviato un messaggio in questo intervallo, il client considera il server disconnesso e attivare i `Closed` evento (`onclose` in JavaScript). |
-| `HandshakeTimeout` | Non è configurabile | Timeout per l'handshake iniziale del server. Se il server non invia una risposta di handshake in questo intervallo, il client viene annullata l'handshake e attivare i `Closed` evento (`onclose` in JavaScript). |
+| `ServerTimeout` | `serverTimeoutInMilliseconds` | Timeout per l'attività del server. Se il server non ha inviato un messaggio in questo intervallo, il client considera il trigger server disconnessa la `Closed` evento (`onclose` in JavaScript). |
+| `HandshakeTimeout` | Non è configurabile | Timeout per l'handshake iniziale del server. Se il server non invia una risposta di handshake in questo intervallo, il client viene annullata l'handshake e trigger la `Closed` evento (`onclose` in JavaScript). Si tratta di un'impostazione avanzata che deve essere modificata solo se si verificano a causa della latenza di rete gravi errori di timeout di handshake. Per informazioni dettagliate sul processo di Handshake, vedere la [specifica del protocollo dell'Hub SignalR](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md). |
 
-Nel Client .NET, i valori di timeout vengono specificati come `TimeSpan` valori. Nel client JavaScript, i valori di timeout vengono specificati come numeri. I numeri rappresentano i valori di tempo in millisecondi.
+Nel Client .NET, i valori di timeout vengono specificati come `TimeSpan` valori. Nel client JavaScript, i valori di timeout vengono specificati come un numero che indica la durata in millisecondi.
 
 ### <a name="configure-additional-options"></a>Configurare le opzioni aggiuntive
 
