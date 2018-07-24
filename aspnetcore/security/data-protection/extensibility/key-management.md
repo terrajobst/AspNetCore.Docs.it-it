@@ -1,222 +1,230 @@
 ---
-title: Estendibilità di gestione delle chiavi in ASP.NET Core
+title: Estendibilità della gestione delle chiavi in ASP.NET Core
 author: rick-anderson
 description: Informazioni sulle estendibilità di gestione delle chiavi di protezione dei dati di ASP.NET Core.
 ms.author: riande
 ms.date: 11/22/2017
 uid: security/data-protection/extensibility/key-management
-ms.openlocfilehash: 3ebde889d207e02aff8c042b1d80884210a68ff4
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 965a7ed8ca2f72a66cfe093b5978a54fea5440fd
+ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274752"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219316"
 ---
-# <a name="key-management-extensibility-in-aspnet-core"></a>Estendibilità di gestione delle chiavi in ASP.NET Core
+# <a name="key-management-extensibility-in-aspnet-core"></a>Estendibilità della gestione delle chiavi in ASP.NET Core
 
-<a name="data-protection-extensibility-key-management"></a>
+> [!TIP]
+> Leggere il [gestione delle chiavi](xref:security/data-protection/implementation/key-management#data-protection-implementation-key-management) sezione prima di leggere questa sezione, perché vengono descritti alcuni dei concetti fondamentali alla base di queste API.
 
->[!TIP]
-> Lettura di [gestione delle chiavi](xref:security/data-protection/implementation/key-management#data-protection-implementation-key-management) sezione prima di leggere questa sezione, come vengono illustrati alcuni dei concetti di queste API.
-
->[!WARNING]
-> Tipi che implementano le interfacce seguenti devono essere thread-safe per più i chiamanti.
+> [!WARNING]
+> I tipi che implementano una delle interfacce seguenti devono essere thread-safe per i chiamanti di più.
 
 ## <a name="key"></a>Chiave
 
-Il `IKey` interfaccia è la rappresentazione di base di una chiave nel sistema di crittografia. La chiave di termine viene usata in senso astratta, non in senso letterale "crittografia materiale della chiave". Una chiave ha le proprietà seguenti:
+Il `IKey` interfaccia è la rappresentazione di base di una chiave nel sistema di crittografia. La chiave di termine viene usata in senso astratta, non nel senso letterale di "materiale della chiave crittografica". Una chiave presenta le proprietà seguenti:
 
-* Date di scadenza, la creazione e attivazione
+* Date di attivazione, la creazione e la scadenza
 
 * Stato di revoca
 
 * Identificatore di chiave (GUID)
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
-Inoltre, `IKey` espone un `CreateEncryptor` metodo che può essere utilizzato per creare un [IAuthenticatedEncryptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptor) istanza associato a questa chiave.
+È inoltre `IKey` espone una `CreateEncryptor` metodo che può essere usato per creare un [IAuthenticatedEncryptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptor) istanza associate a questa chiave.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
 
-Inoltre, `IKey` espone un `CreateEncryptorInstance` metodo che può essere utilizzato per creare un [IAuthenticatedEncryptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptor) istanza associato a questa chiave.
+::: moniker range="< aspnetcore-2.0"
 
----
+È inoltre `IKey` espone una `CreateEncryptorInstance` metodo che può essere usato per creare un [IAuthenticatedEncryptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptor) istanza associate a questa chiave.
+
+::: moniker-end
 
 > [!NOTE]
-> Non è disponibile alcuna API per recuperare il materiale crittografico non elaborato da un `IKey` istanza.
+> Non è disponibile alcuna API per recuperare il materiale di crittografia non elaborato da un `IKey` istanza.
 
 ## <a name="ikeymanager"></a>IKeyManager
 
-Il `IKeyManager` interfaccia rappresenta un oggetto responsabile dell'archiviazione delle chiavi generale, il recupero e la modifica. Espone tre operazioni di alto livello:
+Il `IKeyManager` interfaccia rappresenta un oggetto responsabile dell'archiviazione delle chiavi generale, il recupero e la modifica. Che espone tre operazioni generali:
 
-* Creare una nuova chiave e archiviarlo in un archivio.
+* Creare una nuova chiave e renderlo persistente nell'archiviazione.
 
-* Ottenere tutte le chiavi dall'archiviazione.
+* Ottiene tutte le chiavi di archiviazione.
 
-* Revocare una o più chiavi e rendere persistenti le informazioni di revoca all'archiviazione.
+* Revoca le chiavi di uno o più e rendere persistenti le informazioni di revoca all'archiviazione.
 
 >[!WARNING]
-> Scrittura di un `IKeyManager` un'attività molto avanzata e la maggior parte degli sviluppatori non deve tentare. Al contrario, la maggior parte degli sviluppatori devono sfruttare le funzionalità offerte dal [XmlKeyManager](xref:security/data-protection/extensibility/key-management#data-protection-extensibility-key-management-xmlkeymanager) classe.
-
-<a name="data-protection-extensibility-key-management-xmlkeymanager"></a>
+> La scrittura di un `IKeyManager` è un'attività molto avanzata e la maggior parte degli sviluppatori non deve provare lo. Al contrario, la maggior parte degli sviluppatori consigliabile sfruttare le funzionalità offerte dal [XmlKeyManager](#xmlkeymanager) classe.
 
 ## <a name="xmlkeymanager"></a>XmlKeyManager
 
-Il `XmlKeyManager` tipo è un'implementazione concreta nella casella della `IKeyManager`. Fornisce diverse funzionalità utili, inclusi deposito delle chiave e la crittografia delle chiavi inattivi. Le chiavi nel sistema sono rappresentate come elementi XML (in particolare, [XElement](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/linq/xelement-class-overview)).
+Il `XmlKeyManager` il tipo è l'implementazione concreta in arrivo del `IKeyManager`. Fornisce diverse funzionalità utili, inclusa deposito delle chiave e la crittografia delle chiavi a riposo. Le chiavi nel sistema sono rappresentate come elementi XML (in particolare [XElement](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/linq/xelement-class-overview)).
 
-`XmlKeyManager` dipende da numerosi altri componenti nel corso di completare le attività:
+`XmlKeyManager` dipende da diversi altri componenti nel corso di evadere la suddetta le relative attività:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
-* `AlgorithmConfiguration`, che indicano gli algoritmi utilizzati dai nuove chiavi.
-
-* `IXmlRepository`, che controlla in cui le chiavi vengono rese persistenti nell'archiviazione.
-
-* `IXmlEncryptor` [facoltativo], che consente di crittografare le chiavi inattivi.
-
-* `IKeyEscrowSink` [facoltativo], che fornisce servizi di deposito delle chiavi.
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+* `AlgorithmConfiguration`, che determinano gli algoritmi utilizzati dai nuovi codici.
 
 * `IXmlRepository`, che controlla in cui le chiavi vengono rese persistenti nell'archiviazione.
 
-* `IXmlEncryptor` [facoltativo], che consente di crittografare le chiavi inattivi.
+* `IXmlEncryptor` [optional], che consente di crittografare le chiavi a riposo.
 
-* `IKeyEscrowSink` [facoltativo], che fornisce servizi di deposito delle chiavi.
+* `IKeyEscrowSink` [optional], che fornisce servizi di deposito delle chiavi.
 
----
+::: moniker-end
 
-Di seguito sono diagrammi di livello superiore che indicano come questi componenti vengono collegati tra loro in `XmlKeyManager`.
+::: moniker range="< aspnetcore-2.0"
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+* `IXmlRepository`, che controlla in cui le chiavi vengono rese persistenti nell'archiviazione.
 
-   ![Creazione della chiave](key-management/_static/keycreation2.png)
+* `IXmlEncryptor` [optional], che consente di crittografare le chiavi a riposo.
 
-   *Chiave creazione / CreateNewKey*
+* `IKeyEscrowSink` [optional], che fornisce servizi di deposito delle chiavi.
 
-Nell'implementazione di `CreateNewKey`, `AlgorithmConfiguration` componente viene utilizzato per creare un nome `IAuthenticatedEncryptorDescriptor`, che viene quindi serializzato come XML. Se un sink di deposito delle chiavi è presente, il XML non elaborato (non crittografato) viene fornita al sink per l'archiviazione a lungo termine. Il codice XML non crittografato viene quindi eseguito tramite un `IXmlEncryptor` (se richiesto) per generare il documento XML crittografato. Questo documento crittografato viene reso persistente per archiviazione a lungo termine tramite il `IXmlRepository`. (Se non `IXmlEncryptor` è configurato, il documento non crittografato è persistente nel `IXmlRepository`.)
+::: moniker-end
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+Di seguito sono diagrammi di livello superiore che indicano come questi componenti vengono collegati tra loro all'interno di `XmlKeyManager`.
 
-   ![Creazione della chiave](key-management/_static/keycreation1.png)
+::: moniker range=">= aspnetcore-2.0"
 
-   *Chiave creazione / CreateNewKey*
+![Creazione della chiave](key-management/_static/keycreation2.png)
 
-Nell'implementazione di `CreateNewKey`, `IAuthenticatedEncryptorConfiguration` componente viene utilizzato per creare un nome `IAuthenticatedEncryptorDescriptor`, che viene quindi serializzato come XML. Se un sink di deposito delle chiavi è presente, il XML non elaborato (non crittografato) viene fornita al sink per l'archiviazione a lungo termine. Il codice XML non crittografato viene quindi eseguito tramite un `IXmlEncryptor` (se richiesto) per generare il documento XML crittografato. Questo documento crittografato viene reso persistente per archiviazione a lungo termine tramite il `IXmlRepository`. (Se non `IXmlEncryptor` è configurato, il documento non crittografato è persistente nel `IXmlRepository`.)
+*La creazione della chiave / CreateNewKey*
 
----
+Nell'implementazione di `CreateNewKey`, il `AlgorithmConfiguration` componente viene usato per creare un valore univoco `IAuthenticatedEncryptorDescriptor`, che vengono quindi serializzati come XML. Se è presente un sink di deposito delle chiavi, il XML non elaborato (non crittografato) viene fornito per il sink per l'archiviazione a lungo termine. Il codice XML non crittografato viene quindi eseguito un `IXmlEncryptor` (se richiesto) per generare il documento XML crittografato. Questo documento è persistente in un archivio a lungo termine tramite il `IXmlRepository`. (Se no `IXmlEncryptor` è configurato, il documento non crittografato viene mantenuto nel `IXmlRepository`.)
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+![Recupero della chiave](key-management/_static/keyretrieval2.png)
 
-   ![Recupero della chiave](key-management/_static/keyretrieval2.png)
-   
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
 
-   ![Recupero della chiave](key-management/_static/keyretrieval1.png)
+::: moniker range="< aspnetcore-2.0"
 
----
+![Creazione della chiave](key-management/_static/keycreation1.png)
 
-   *Chiave di recupero / GetAllKeys*
+*La creazione della chiave / CreateNewKey*
 
-Nell'implementazione di `GetAllKeys`, le chiavi che rappresenta i documenti XML e revoca è leggervi sottostante `IXmlRepository`. Se questi documenti sono crittografati, il sistema verrà automaticamente decrittografarli. `XmlKeyManager` Crea l'oggetto appropriato `IAuthenticatedEncryptorDescriptorDeserializer` nuovamente le istanze per deserializzare i documenti in `IAuthenticatedEncryptorDescriptor` istanze, che vengono quindi eseguito il wrapping in singoli `IKey` istanze. Questa raccolta di `IKey` istanze viene restituito al chiamante.
+Nell'implementazione di `CreateNewKey`, il `IAuthenticatedEncryptorConfiguration` componente viene usato per creare un valore univoco `IAuthenticatedEncryptorDescriptor`, che vengono quindi serializzati come XML. Se è presente un sink di deposito delle chiavi, il XML non elaborato (non crittografato) viene fornito per il sink per l'archiviazione a lungo termine. Il codice XML non crittografato viene quindi eseguito un `IXmlEncryptor` (se richiesto) per generare il documento XML crittografato. Questo documento è persistente in un archivio a lungo termine tramite il `IXmlRepository`. (Se no `IXmlEncryptor` è configurato, il documento non crittografato viene mantenuto nel `IXmlRepository`.)
 
-Per altre informazioni sugli elementi XML specifici, vedere il [documento di formato di archiviazione chiavi](xref:security/data-protection/implementation/key-storage-format#data-protection-implementation-key-storage-format).
+![Recupero della chiave](key-management/_static/keyretrieval1.png)
+
+::: moniker-end
+
+*Il recupero della chiave / GetAllKeys*
+
+Nell'implementazione di `GetAllKeys`, che rappresentano le chiavi di documenti XML e revoca viene letti da sottostante `IXmlRepository`. Se questi documenti sono crittografati, il sistema verrà automaticamente decrittografarle. `XmlKeyManager` Crea l'appropriato `IAuthenticatedEncryptorDescriptorDeserializer` allo stato le istanze per deserializzare i documenti `IAuthenticatedEncryptorDescriptor` istanze, che vengono quindi eseguito il wrapping in singoli `IKey` istanze. Questa raccolta di `IKey` istanze viene restituito al chiamante.
+
+Altre informazioni sugli elementi XML specifici sono reperibile nel [documento di formato di archiviazione chiavi](xref:security/data-protection/implementation/key-storage-format#data-protection-implementation-key-storage-format).
 
 ## <a name="ixmlrepository"></a>IXmlRepository
 
-Il `IXmlRepository` interfaccia rappresenta un tipo che può rendere persistenti dati XML per recuperare i dati XML da un archivio di backup. Espone due API:
+Il `IXmlRepository` interfaccia rappresenta un tipo che può rendere persistenti dati XML da e recuperare dati XML da un archivio di backup. Che espone due API:
 
-* GetAllElements(): IReadOnlyCollection<XElement>
+* `GetAllElements` :`IReadOnlyCollection<XElement>`
 
-* StoreElement (elemento XElement, friendlyName stringa)
+* `StoreElement(XElement element, string friendlyName)`
 
-Le implementazioni di `IXmlRepository` non è necessario analizzare il codice XML che li attraversano. Devono considerare i documenti XML come opaco e consentire a livelli più elevati preoccuparsi di generazione e l'analisi dei documenti.
+Le implementazioni di `IXmlRepository` non necessario analizzare il codice XML che li attraversano. Devono considerare i documenti XML come opaco e consentire ai livelli superiori di preoccuparsi di generazione e l'analisi dei documenti.
 
-Esistono due tipi concreti predefiniti che implementano `IXmlRepository`: `FileSystemXmlRepository` e `RegistryXmlRepository`. Vedere il [documento i provider di archiviazione chiavi](xref:security/data-protection/implementation/key-storage-providers#data-protection-implementation-key-storage-providers) per ulteriori informazioni. Registrazione di un oggetto personalizzato `IXmlRepository` sarebbe il modo appropriato da utilizzare un archivio di backup diversi, ad esempio, archiviazione Blob di Azure.
+Esistono quattro tipi concreti predefiniti che implementano `IXmlRepository`:
+
+* [FileSystemXmlRepository](/dotnet/api/microsoft.aspnetcore.dataprotection.repositories.filesystemxmlrepository)
+* [RegistryXmlRepository](/dotnet/api/microsoft.aspnetcore.dataprotection.repositories.registryxmlrepository)
+* [AzureStorage.AzureBlobXmlRepository](/dotnet/api/microsoft.aspnetcore.dataprotection.azurestorage.azureblobxmlrepository)
+* [RedisXmlRepository](/dotnet/api/microsoft.aspnetcore.dataprotection.redisxmlrepository)
+
+Vedere le [documento provider archiviazione chiavi](xref:security/data-protection/implementation/key-storage-providers) per altre informazioni.
+
+La registrazione di un oggetto personalizzato `IXmlRepository` è appropriato quando si usa un archivio di backup (ad esempio, archiviazione tabelle di Azure).
 
 Per modificare il repository predefinito a livello di applicazione, registrare un oggetto personalizzato `IXmlRepository` istanza:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
-   ```csharp
-   services.Configure<KeyManagementOptions>(options => options.XmlRepository = new MyCustomXmlRepository());
-   ```
-   
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+```csharp
+services.Configure<KeyManagementOptions>(options => options.XmlRepository = new MyCustomXmlRepository());
+```
 
-   ```csharp
-   services.AddSingleton<IXmlRepository>(new MyCustomXmlRepository());
-   ```
+::: moniker-end
 
----
+::: moniker range="< aspnetcore-2.0"
 
-<a name="data-protection-extensibility-key-management-ixmlencryptor"></a>
+```csharp
+services.AddSingleton<IXmlRepository>(new MyCustomXmlRepository());
+```
+
+::: moniker-end
 
 ## <a name="ixmlencryptor"></a>IXmlEncryptor
 
-Il `IXmlEncryptor` interfaccia rappresenta un tipo che è possibile crittografare un elemento XML di testo normale. Espone una singola API:
+Il `IXmlEncryptor` interfaccia rappresenta un tipo che può crittografare un elemento XML di testo non crittografato. Che espone una singola API:
 
-* Crittografare (plaintextElement XElement): EncryptedXmlInfo
+* Crittografare (XElement plaintextElement): EncryptedXmlInfo
 
-Se serializzata `IAuthenticatedEncryptorDescriptor` conterrà tutti gli elementi contrassegnati come "richiede la crittografia", quindi `XmlKeyManager` eseguirà tali elementi tramite l'applicazione configurata `IXmlEncryptor`del `Encrypt` metodo e manterrà l'elemento crittografato invece di elemento di testo normale per il `IXmlRepository`. L'output del `Encrypt` metodo è un `EncryptedXmlInfo` oggetto. Questo oggetto è un wrapper che contiene entrambi i risultanti crittografato `XElement` e il tipo che rappresenta un `IXmlDecryptor` che può essere usato per decrittografare l'elemento corrispondente.
+Se serializzato `IAuthenticatedEncryptorDescriptor` contiene tutti gli elementi contrassegnati come "richiede la crittografia", quindi `XmlKeyManager` verranno esaminate solo gli elementi dell'applicazione configurata `IXmlEncryptor`del `Encrypt` (metodo) che verranno mantenuti l'elemento cifrato anziché quella di elemento di testo non crittografato per la `IXmlRepository`. L'output del `Encrypt` metodo è un `EncryptedXmlInfo` oggetto. Questo oggetto è un wrapper che contiene entrambi i risultanti cifrati `XElement` e il tipo che rappresenta un `IXmlDecryptor` che può essere usato per decrittografare l'elemento corrispondente.
 
-Sono disponibili quattro tipi concreti predefiniti che implementano `IXmlEncryptor`:
-* `CertificateXmlEncryptor`
-* `DpapiNGXmlEncryptor`
-* `DpapiXmlEncryptor`
-* `NullXmlEncryptor`
+Esistono quattro tipi concreti predefiniti che implementano `IXmlEncryptor`:
 
-Vedere il [crittografia chiave documento rest](xref:security/data-protection/implementation/key-encryption-at-rest#data-protection-implementation-key-encryption-at-rest) per ulteriori informazioni.
+* [CertificateXmlEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.certificatexmlencryptor)
+* [DpapiNGXmlEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.dpapingxmlencryptor)
+* [DpapiXmlEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.dpapixmlencryptor)
+* [NullXmlEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.nullxmlencryptor)
 
-Per modificare il meccanismo di crittografia chiave al resto predefinito a livello di applicazione, registrare un oggetto personalizzato `IXmlEncryptor` istanza:
+Vedere le [chiave di crittografia al documento rest](xref:security/data-protection/implementation/key-encryption-at-rest) per altre informazioni.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+Per modificare il meccanismo di key---crittografia a livello di applicazione predefinito, registrare un oggetto personalizzato `IXmlEncryptor` istanza:
 
-   ```csharp
-   services.Configure<KeyManagementOptions>(options => options.XmlEncryptor = new MyCustomXmlEncryptor());
-   ```
-   
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker range=">= aspnetcore-2.0"
 
-   ```csharp
-   services.AddSingleton<IXmlEncryptor>(new MyCustomXmlEncryptor());
-   ```
+```csharp
+services.Configure<KeyManagementOptions>(options => options.XmlEncryptor = new MyCustomXmlEncryptor());
+```
 
----
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+```csharp
+services.AddSingleton<IXmlEncryptor>(new MyCustomXmlEncryptor());
+```
+
+::: moniker-end
 
 ## <a name="ixmldecryptor"></a>IXmlDecryptor
 
-Il `IXmlDecryptor` interfaccia rappresenta un tipo in grado di decrittografare un `XElement` che è stato crittografato mediante un `IXmlEncryptor`. Espone una singola API:
+Il `IXmlDecryptor` interfaccia rappresenta un tipo in grado di decrittografare un' `XElement` che è stata cifrati tramite un `IXmlEncryptor`. Che espone una singola API:
 
-* Decrittografare (encryptedElement XElement): XElement
+* Decrittografare (XElement encryptedElement): XElement
 
-Il `Decrypt` metodo annulla la crittografia eseguita da `IXmlEncryptor.Encrypt`. In genere, ogni concreto `IXmlEncryptor` implementazione avrà una corrispondente concreta `IXmlDecryptor` implementazione.
+Il `Decrypt` metodo annulla la crittografia eseguita da `IXmlEncryptor.Encrypt`. In generale, ogni concreto `IXmlEncryptor` implementazione avrà un concreto corrispondente `IXmlDecryptor` implementazione.
 
 I tipi che implementano `IXmlDecryptor` deve avere uno dei due costruttori pubblici seguenti:
 
 * .ctor(IServiceProvider)
-* . ctor)
+* ctor)
 
 > [!NOTE]
 > Il `IServiceProvider` passato al costruttore può essere null.
 
 ## <a name="ikeyescrowsink"></a>IKeyEscrowSink
 
-Il `IKeyEscrowSink` interfaccia rappresenta un tipo che può eseguire deposito delle informazioni riservate. Tieni presente che i descrittori serializzati potrebbero contenere informazioni riservate (ad esempio, il materiale di crittografia) e questo è ciò che ha portato all'introduzione del [IXmlEncryptor](xref:security/data-protection/extensibility/key-management#data-protection-extensibility-key-management-ixmlencryptor) digitare in primo luogo. Tuttavia, che degli incidenti verificarsi e anelli chiave può essere eliminati o danneggiati.
+Il `IKeyEscrowSink` interfaccia rappresenta un tipo che può eseguire il deposito di informazioni riservate. È importante ricordare che i descrittori serializzati potrebbero contenere informazioni riservate (ad esempio, il materiale di crittografia) e questo è ciò che ha portato all'introduzione del [IXmlEncryptor](#ixmlencryptor) digitare in primo luogo. Tuttavia, succedere e chiave di anelli può essere eliminati o danneggiati.
 
-L'interfaccia deposito fornisce un'emergenza stessa, che consente l'accesso al codice XML serializzato non elaborati prima che venga trasformata da qualsiasi configurato [IXmlEncryptor](xref:security/data-protection/extensibility/key-management#data-protection-extensibility-key-management-ixmlencryptor). L'interfaccia espone una singola API:
+L'interfaccia di deposito delle chiavi fornisce un'emergenza di emergenza, che consente l'accesso al codice XML serializzato non elaborati prima che venga trasformata da qualsiasi configurata [IXmlEncryptor](#ixmlencryptor). L'interfaccia espone una singola API:
 
-* Archivio (keyId Guid, elemento XElement)
+* Store (keyId Guid, elemento XElement)
 
-È il `IKeyEscrowSink` implementazione per gestire l'elemento specificato in modo sicuro coerenza con i criteri di business. Una possibile implementazione potrebbe essere usato per il sink deposito crittografare l'elemento XML usando un certificato x. 509 azienda noto in cui la chiave privata del certificato è stata depositata; il `CertificateXmlEncryptor` possono essere utili in questo tipo. Il `IKeyEscrowSink` implementazione è inoltre responsabile per la persistenza in modo appropriato l'elemento specificato.
+Fino a è il `IKeyEscrowSink` implementazione per gestire l'elemento specificato in modo sicuro coerente con i criteri di business. Una possibile implementazione potrebbe essere usato per il sink di deposito delle chiavi crittografare l'elemento XML usando un certificato X.509 azienda noto in cui la chiave privata del certificato è stata depositata; il `CertificateXmlEncryptor` tipo può essere usato per questo. Il `IKeyEscrowSink` implementazione è anche responsabile della persistenza l'elemento specificato in modo appropriato.
 
-Per impostazione predefinita non è abilitato alcun meccanismo deposito, anche se gli amministratori di server possono [questa configurazione globale](xref:security/data-protection/configuration/machine-wide-policy). Può anche essere configurato a livello di programmazione tramite le `IDataProtectionBuilder.AddKeyEscrowSink` metodo come illustrato nell'esempio riportato di seguito. Il `AddKeyEscrowSink` mirror overload di metodo di `IServiceCollection.AddSingleton` e `IServiceCollection.AddInstance` overload, come `IKeyEscrowSink` le istanze devono essere singleton. Se più `IKeyEscrowSink` registrate le istanze, verrà chiamato durante la generazione di chiavi, ognuna in modo possano depositare le chiavi per diversi meccanismi contemporaneamente.
+Per impostazione predefinita non è abilitato alcun meccanismo di deposito delle chiavi, anche se gli amministratori server possono [questa configurazione a livello globale](xref:security/data-protection/configuration/machine-wide-policy). Può anche essere configurato a livello di programmazione tramite le `IDataProtectionBuilder.AddKeyEscrowSink` metodo come illustrato nell'esempio riportato di seguito. Il `AddKeyEscrowSink` mirror gli overload di metodo di `IServiceCollection.AddSingleton` e `IServiceCollection.AddInstance` overload, come `IKeyEscrowSink` istanze sono progettate per essere singleton con stato. Se più `IKeyEscrowSink` registrate le istanze, ciascuna di esse verrà chiamato durante la generazione di chiavi, in modo che le chiavi possono potrà essere depositate ai meccanismi più contemporaneamente.
 
-Non è disponibile alcuna API per leggere materiale proveniente da un `IKeyEscrowSink` istanza. Questo comportamento è coerente con la teoria della progettazione del meccanismo del deposito: è progettato per rendere accessibili a un'autorità attendibile il materiale della chiave e poiché l'applicazione non costituisce un'autorità attendibile, non deve avere accesso al proprio materiale garantite.
+Non è disponibile alcuna API per leggere i materiali da un `IKeyEscrowSink` istanza. Questo comportamento è coerente con la teoria della progettazione del meccanismo di deposito delle chiavi: è destinato a rendere accessibili a un'autorità attendibile il materiale della chiave, e poiché l'applicazione non costituisce un'autorità attendibile, non deve avere accesso al proprio materiale garantite.
 
-Esempio di codice seguente illustra la creazione e la registrazione di un `IKeyEscrowSink` in cui sono depositare le chiavi in modo che solo i membri di "CONTOSODomain Admins" è possono ripristinare tali componenti.
+Esempio di codice seguente illustra la creazione e la registrazione di un `IKeyEscrowSink` in cui le chiavi sono depositate in modo che solo i membri di "CONTOSODomain Admins" possono ripristinare tali componenti.
 
 > [!NOTE]
-> Per eseguire questo esempio, è necessario essere in un dominio di Windows 8 / computer con Windows Server 2012 e il controller di dominio deve essere Windows Server 2012 o versione successiva.
+> Per eseguire questo esempio, è necessario essere in un dominio Windows 8 / computer con Windows Server 2012 e il controller di dominio deve essere Windows Server 2012 o versione successiva.
 
 [!code-csharp[](key-management/samples/key-management-extensibility.cs)]

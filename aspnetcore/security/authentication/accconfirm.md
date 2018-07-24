@@ -5,12 +5,12 @@ description: Informazioni su come creare un'app ASP.NET Core con messaggio di po
 ms.author: riande
 ms.date: 7/11/2018
 uid: security/authentication/accconfirm
-ms.openlocfilehash: af3ba8b27148d94c4a905c688b8165f49b9f2927
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 84eb3580107572f66f0c3b565b8e76ba401c0ddb
+ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095746"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219407"
 ---
 ::: moniker range="<= aspnetcore-2.0"
 
@@ -34,13 +34,13 @@ Questa esercitazione illustra come compilare un'app ASP.NET Core con messaggio d
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[!INCLUDE [](~/includes/2.1-SDK.md) [](~/includes/2.1-SDK.md)]
+[!INCLUDE [](~/includes/2.1-SDK.md)]
 
 ## <a name="create-a-web--app-and-scaffold-identity"></a>Creare un'app web ed eseguire lo scaffolding di identità
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
-* In Visual Studio, creare una nuova **applicazione Web** progetto.
+* In Visual Studio, creare una nuova **applicazione Web** progetto denominato **WebPWrecover**.
 * Selezionare **ASP.NET Core 2.1**.
 * Mantenere il valore predefinito **Authentication** impostata su **Nessuna autenticazione**. L'autenticazione viene aggiunto nel passaggio successivo.
 
