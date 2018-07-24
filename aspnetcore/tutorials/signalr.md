@@ -1,22 +1,20 @@
 ---
 title: Introduzione a SignalR in ASP.NET Core
-author: rachelappel
+author: tdykstra
 description: In questa esercitazione viene creata un'app usando SignalR per ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
-ms.author: rachelap
+ms.author: tdykstra
 ms.custom: mvc
 ms.date: 05/22/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 6b8222ee04573ca7157b4e1125ed5a4453b2b9a9
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 83be28b30cf06eeea37e8d76b3f6444ffd9a10e8
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37830555"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095491"
 ---
 # <a name="get-started-with-signalr-on-aspnet-core"></a>Introduzione a SignalR in ASP.NET Core
-
-[Rachel Appel](https://twitter.com/rachelappel)
 
 Questa esercitazione illustra le nozioni di base per compilare un'app in tempo reale con SignalR per ASP.NET Core.
 
@@ -39,14 +37,14 @@ Installare il software seguente:
 
 * [.NET Core SDK 2.1 o versione successiva](https://www.microsoft.com/net/download/all)
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/) versione 15.7.3 o successive con il carico di lavoro **Sviluppo ASP.NET e Web**
-* [npm](https://www.npmjs.com/get-npm)
+* [npm](https://www.npmjs.com/get-npm) (Gestione pacchetti per Node.js)
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * [.NET Core SDK 2.1 o versione successiva](https://www.microsoft.com/net/download/all)
 * [Visual Studio Code](https://code.visualstudio.com/download)
 * [C# per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
-* [npm](https://www.npmjs.com/get-npm)
+* [npm](https://www.npmjs.com/get-npm) (Gestione pacchetti per Node.js)
 
 -----
 
@@ -71,7 +69,7 @@ Visual Studio include il pacchetto `Microsoft.AspNetCore.SignalR` contenente le 
     npm install @aspnet/signalr
     ```
 
-4. Creare una nuova cartella denominata "signalr" all'interno della cartella *lib* nel progetto. Copiare il file *signalr.js* da *node_modules\\@aspnet\signalr\dist\browser* in questa cartella.
+4. Creare una nuova cartella denominata "signalr" all'interno della cartella *wwwroot/lib* nel progetto. Copiare il file *signalr.js* da *node_modules\\@aspnet\signalr\dist\browser* in questa cartella.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 

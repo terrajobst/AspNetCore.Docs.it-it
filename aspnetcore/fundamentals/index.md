@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 07/02/2018
 uid: fundamentals/index
-ms.openlocfilehash: 33786bf78567a1aa12a1ac97d44d1a596ec4c3be
-ms.sourcegitcommit: 08f1a9baa97060da5168840b332c9c0805b5f901
+ms.openlocfilehash: 30c456685ce26522faff9b58fbd2977ad2f2869a
+ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37144976"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39202627"
 ---
 # <a name="aspnet-core-fundamentals"></a>Nozioni fondamentali su ASP.NET Core
 
@@ -191,6 +191,12 @@ Per altre informazioni, vedere [Funzionalità di richiesta](xref:fundamentals/re
 Le attività in background vengono implementate come *servizi ospitati*. Un servizio ospitato è una classe con logica di attività in background che implementa l'interfaccia [IHostedService](/dotnet/api/microsoft.extensions.hosting.ihostedservice).
 
 Per altre informazioni, vedere [Attività in background con servizi ospitati](xref:fundamentals/host/hosted-services).
+
+## <a name="access-httpcontext"></a>Accedere a HttpContext
+
+Accedere a `HttpContext` tramite l'interfaccia [IHttpContextAccessor](/dotnet/api/microsoft.aspnetcore.http.ihttpcontextaccessor) e la relativa implementazione predefinita di [HttpContextAccessor](/dotnet/api/microsoft.aspnetcore.http.httpcontextaccessor).
+
+Per ulteriori informazioni, vedere <xref:fundamentals/httpcontext>.
 
 ## <a name="open-web-interface-for-net-owin"></a>Open Web Interface for .NET (OWIN)
 

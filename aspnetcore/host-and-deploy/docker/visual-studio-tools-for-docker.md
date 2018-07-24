@@ -4,14 +4,14 @@ author: spboyer
 description: Informazioni su come usare gli strumenti di Visual Studio 2017 e Docker per Windows per aggiungere un'app ASP.NET Core in un contenitore.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/12/2017
+ms.date: 07/18/2018
 uid: host-and-deploy/docker/visual-studio-tools-for-docker
-ms.openlocfilehash: fd485416ff0fab2508ab8ffd3f0ad309be338723
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: afa7b05820ba021c50d9c23804095f7edd8b71f1
+ms.sourcegitcommit: ee2b26c7d08b38c908c668522554b52ab8efa221
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276854"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39146884"
 ---
 # <a name="visual-studio-tools-for-docker-with-aspnet-core"></a>Visual Studio Tools per Docker con ASP.NET Core
 
@@ -43,7 +43,7 @@ Quando si aggiunge il supporto di Docker a un progetto, scegliere un contenitore
 
 Quando si crea una nuova app con i modelli di progetto **Applicazione Web ASP.NET Core** selezionare la casella di controllo **Abilita supporto Docker**:
 
-![Casella di controllo Abilita supporto Docker](visual-studio-tools-for-docker/_static/enable-docker-support-checkbox.png)
+![Casella di controllo Abilita supporto Docker](visual-studio-tools-for-docker/_static/enable-docker-support-check box.png)
 
 Se il framework di destinazione è .NET Core, l'elenco a discesa **Sistema operativo** consente la selezione di un tipo di contenitore.
 
@@ -85,7 +85,7 @@ Selezionare **Docker** nell'elenco a discesa Debug nella barra degli strumenti e
 * La variabile di ambiente *ASPNETCORE_ENVIRONMENT* viene impostata su `Development` all'interno del contenitore.
 * La porta 80 viene esposta e mappata a una porta assegnata in modo dinamico per localhost. La porta è determinata dall'host Docker ed è possibile eseguirvi query con il comando `docker ps`.
 * L'app viene copiata nel contenitore.
-* Usando la porta assegnata in modo dinamico, viene avviato il browser predefinito con il debugger collegato al contenitore. 
+* Usando la porta assegnata in modo dinamico, viene avviato il browser predefinito con il debugger collegato al contenitore.
 
 L'immagine Docker risultante è l'immagine *dev* dell'app con le immagini *microsoft/aspnetcore* come immagine di base. Eseguire il comando `docker images` nella finestra **Console di Gestione pacchetti**. Vengono visualizzate le immagini nel computer in uso:
 
@@ -109,9 +109,9 @@ baf9a678c88d        hellodockertools:dev   "C:\\remote_debugge..."   21 seconds 
 
 ## <a name="edit-and-continue"></a>Modifica e continuazione
 
-Le modifiche apportate ai file statici e alle visualizzazioni Razor vengono aggiornate automaticamente senza la necessità di eseguire un passaggio di compilazione. Dopo aver apportato una modifica, salvarla e aggiornare il browser per visualizzare l'aggiornamento.  
+Le modifiche apportate ai file statici e alle visualizzazioni Razor vengono aggiornate automaticamente senza la necessità di eseguire un passaggio di compilazione. Dopo aver apportato una modifica, salvarla e aggiornare il browser per visualizzare l'aggiornamento.
 
-Le modifiche ai file del codice richiedono la compilazione e il riavvio di Kestrel all'interno del contenitore. Dopo aver apportato una modifica, premere CTRL+F5 per eseguire il processo e avviare l'app all'interno del contenitore. Il contenitore Docker non viene ricompilato o arrestato. Eseguire il comando `docker ps` nella console di Gestione pacchetti. Si noti che il contenitore originale è ancora in esecuzione da 10 minuti:
+Le modifiche ai file del codice richiedono la compilazione e il riavvio di Kestrel all'interno del contenitore. Dopo aver apportato una modifica, usare `CTRL+F5` per eseguire il processo e avviare l'app all'interno del contenitore. Il contenitore Docker non viene ricompilato o arrestato. Eseguire il comando `docker ps` nella console di Gestione pacchetti. Si noti che il contenitore originale è ancora in esecuzione da 10 minuti:
 
 ```console
 CONTAINER ID        IMAGE                  COMMAND                   CREATED             STATUS              PORTS                   NAMES
@@ -120,7 +120,7 @@ baf9a678c88d        hellodockertools:dev   "C:\\remote_debugge..."   10 minutes 
 
 ## <a name="publish-docker-images"></a>Pubblicare immagini Docker
 
-Dopo il completamento del ciclo di sviluppo e debug dell'app, Visual Studio Tools per Docker consente di creare l'immagine di produzione dell'app stessa. Selezionare **Versione** nell'elenco a discesa della configurazione ed eseguire l'app. Gli strumenti generano l'immagine con il tag *latest*. È possibile effettuare il push dell'immagine nel registro privato o nell'hub Docker. 
+Dopo il completamento del ciclo di sviluppo e debug dell'app, Visual Studio Tools per Docker consente di creare l'immagine di produzione dell'app stessa. Selezionare **Versione** nell'elenco a discesa della configurazione ed eseguire l'app. Gli strumenti generano l'immagine con il tag *latest*. È possibile effettuare il push dell'immagine nel registro privato o nell'hub Docker.
 
 Eseguire il comando `docker images` nella console di Gestione pacchetti per visualizzare l'elenco delle immagini:
 
@@ -136,3 +136,8 @@ microsoft/aspnetcore         2.0-nanoserver-1709   8872347d7e5d        40 hours 
 > Il comando `docker images` restituisce le immagini intermedie con i nomi di repository e i tag identificati come *\<none>* (non inclusi nell'elenco precedente). Queste immagini senza nome vengono prodotte dal *Dockerfile* con [compilazione in più fasi](https://docs.docker.com/engine/userguide/eng-image/multistage-build/). L'efficienza della creazione dell'immagine finale risulta migliorata, dato che vengono ricompilati solo i livelli necessari in seguito a modifiche. Quando le immagini intermedie non sono più necessarie, eliminarle usando il comando [docker rmi](https://docs.docker.com/engine/reference/commandline/rmi/).
 
 Ci si potrebbe aspettare che l'immagine di produzione o di versione abbia dimensioni minori rispetto all'immagine *dev*. A causa del mapping del volume, il debugger e l'app sono stati eseguiti dal computer locale e non all'interno del contenitore. L'immagine *latest* include il codice dell'app necessario per eseguire l'app in un computer host. Pertanto, il delta è la dimensione del codice dell'app.
+
+## <a name="additional-resources"></a>Risorse aggiuntive
+
+* [Risolvere i problemi di sviluppo di Visual Studio 2017 con Docker](/azure/vs-azure-tools-docker-troubleshooting-docker-errors)
+* [Visual Studio Tools for Docker GitHub repository](https://github.com/Microsoft/DockerTools) (Repository GitHub di Visual Studio Tools per Docker)

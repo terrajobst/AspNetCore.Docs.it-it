@@ -5,15 +5,13 @@ description: Questa esercitazione descrive la gestione dei conflitti quando più
 ms.author: riande
 ms.date: 11/15/2017
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: c6ec07eb7bf484490bd7730edc44bf2d89e8fb2a
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: ff9e52df63f9c9f47ee659a68beb28b773a114a1
+ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38150483"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39202692"
 ---
-it-it/
-
 # <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Concorrenza - 8 di 8
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://github.com/tdykstra) e [Jon P Smith](https://twitter.com/thereformedprog)
@@ -54,17 +52,21 @@ La concorrenza ottimistica include le opzioni seguenti:
 
 * È possibile tenere traccia della proprietà che un utente ha modificato e aggiornare solo le colonne corrispondenti nel database.
 
-  Con questo scenario non si registra la perdita di dati. I due utenti hanno aggiornato proprietà diverse. Quando un utente torna a visualizzare il reparto English (Inglese), visualizza sia le modifiche di Jane sia quelle di John. Questo metodo di aggiornamento riduce il numero di conflitti che possono comportare la perdita di dati. Questo approccio: * Non evita la perdita di dati se vengono apportate modifiche concorrenti alla stessa proprietà.
-        * Risulta in genere poco pratico in un'app Web. Richiede la manutenzione di un volume importante di codice statico per tenere traccia di tutti i valori recuperati e i nuovi valori. La gestione di grandi quantità di codice statico può ridurre le prestazioni dell'applicazione.
-        * Può rendere più complesse le app rispetto al rilevamento della concorrenza in un'entità.
+  Con questo scenario non si registra la perdita di dati. I due utenti hanno aggiornato proprietà diverse. Quando un utente torna a visualizzare il reparto English (Inglese), visualizza sia le modifiche di Jane sia quelle di John. Questo metodo di aggiornamento riduce il numero di conflitti che possono comportare la perdita di dati. Questo approccio:
+ 
+  * Non evita la perdita di dati se vengono apportate modifiche concorrenti alla stessa proprietà.
+  * Risulta in genere poco pratico in un'app Web. Richiede la manutenzione di un volume importante di codice statico per tenere traccia di tutti i valori recuperati e i nuovi valori. La gestione di grandi quantità di codice statico può ridurre le prestazioni dell'applicazione.
+  * Può rendere più complesse le app rispetto al rilevamento della concorrenza in un'entità.
 
 * È possibile consentire che la modifica di John sovrascriva la modifica di Jane.
 
   Quando un utente torna a visualizzare il reparto English (Inglese), visualizza 9/1/2013 e il valore $ 350.000,00 recuperato. Questo scenario è detto *Priorità client* o *Last in Wins* (Priorità ultimo accesso). Tutti i valori del client hanno la precedenza sui valori presenti nell'archivio dati. Se non si configura nessun codice per la gestione della concorrenza, la priorità client viene applicata automaticamente.
 
-* È possibile impedire che la modifica di John venga implementata nel database. In genere l'app: * Visualizza un messaggio di errore.
-        * Visualizza lo stato corrente dei dati.
-        * Consente all'utente di riapplicare le modifiche.
+* È possibile impedire che la modifica di John venga implementata nel database. In genere, l'app:
+
+  * Visualizza un messaggio di errore.
+  * Visualizza lo stato corrente dei dati.
+  * Consente all'utente di riapplicare le modifiche.
 
   Questo scenario è detto *Store Wins* (Priorità archivio). I valori dell'archivio dati hanno la precedenza sui valori inoltrati dal client. In questa esercitazione viene implementato lo scenario Store Wins (Priorità archivio). Questo metodo garantisce che nessuna modifica venga sovrascritta senza che un utente riceva un avviso.
 
@@ -144,7 +146,7 @@ I comandi precedenti:
 * Aggiungono il file di migrazione *Migrations/{timestamp}_RowVersion.cs*.
 * Aggiornano il file *Migrations/SchoolContextModelSnapshot.cs*. L'aggiornamento aggiunge al metodo `BuildModel` il codice evidenziato seguente:
 
-[!code-csharp[](intro/samples/cu/Migrations/SchoolContextModelSnapshot2.cs?name=snippet&highlight=14-16)]
+  [!code-csharp[](intro/samples/cu/Migrations/SchoolContextModelSnapshot2.cs?name=snippet&highlight=14-16)]
 
 * Eseguono migrations per aggiornare il database.
 

@@ -2,17 +2,17 @@
 title: Attività in background con servizi ospitati in ASP.NET Core
 author: guardrex
 description: Informazioni su come implementare attività in background con servizi ospitati in ASP.NET Core.
-monikerRange: '>= aspnetcore-2.0'
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/15/2018
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: e5455e553cba817dce811391d4a909e501a20d9a
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 087ff4e1e169e1a1f76e93d4993441e47bafc945
+ms.sourcegitcommit: 7097dba14d5b858e82758ee031ac62dbe3611339
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273781"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39138597"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>Attività in background con servizi ospitati in ASP.NET Core
 
@@ -26,14 +26,10 @@ In ASP.NET Core le attività in background possono essere implementate come *ser
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples/) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
 
-::: moniker range=">= aspnetcore-2.1"
-
 L'app di esempio è disponibile in due versioni:
 
 * Host Web &ndash; L'host Web è utile per l'hosting di app Web. Il codice di esempio in questo argomento è tratto dalla versione host Web dell'esempio. Per altre informazioni, vedere l'argomento [Host Web](xref:fundamentals/host/web-host).
 * Host generico &ndash; L'host generico è una novità di ASP.NET Core 2.1. Per altre informazioni, vedere l'argomento [Host generico](xref:fundamentals/host/generic-host).
-
-::: moniker-end
 
 ## <a name="ihostedservice-interface"></a>Interfaccia IHostedService
 
@@ -51,21 +47,9 @@ Un'attività programmata in background utilizza la classe [System.Threading.Time
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample-WebHost/Services/TimedHostedService.cs?name=snippet1&highlight=15-16,30,37)]
 
-::: moniker range=">= aspnetcore-2.1"
-
 Il servizio registrato in `Startup.ConfigureServices` con il metodo di estensione `AddHostedService`:
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample-WebHost/Startup.cs?name=snippet1)]
-
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.0"
-
-Il servizio è registrato in `Startup.ConfigureServices`:
-
-[!code-csharp[](hosted-services/samples-snapshot/2.x/BackgroundTasksSample-WebHost/Startup.cs?name=snippet1)]
-
-::: moniker-end
 
 ## <a name="consuming-a-scoped-service-in-a-background-task"></a>Utilizzo di un servizio con ambito in un'attività in background
 
@@ -79,21 +63,9 @@ Il servizio ospitato crea un ambito per risolvere il servizio dell'attività in 
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample-WebHost/Services/ConsumeScopedServiceHostedService.cs?name=snippet1&highlight=29-36)]
 
-::: moniker range=">= aspnetcore-2.1"
-
 I servizi vengono registrati in `Startup.ConfigureServices`. L'implementazione di `IHostedService`viene registrata con il metodo di estensione `AddHostedService`:
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample-WebHost/Startup.cs?name=snippet2)]
-
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.0"
-
-I servizi sono registrati in `Startup.ConfigureServices`:
-
-[!code-csharp[](hosted-services/samples-snapshot/2.x/BackgroundTasksSample-WebHost/Startup.cs?name=snippet2)]
-
-::: moniker-end
 
 ## <a name="queued-background-tasks"></a>Attività in background in coda
 
@@ -101,25 +73,13 @@ Una coda di attività in background si basa su .NET 4.x [QueueBackgroundWorkItem
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample-WebHost/Services/BackgroundTaskQueue.cs?name=snippet1)]
 
-In `QueueHostedService` le attività in background (`workItem`) nella coda vengono rimosse dalla coda ed eseguite:
+In `QueueHostedService`, le attività in background in coda vengono rimosse dalla coda ed eseguite come [BackgroundService](/dotnet/api/microsoft.extensions.hosting.backgroundservice), ovvero una classe di base per l'implementazione di un `IHostedService` a esecuzione prolungata:
 
-[!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample-WebHost/Services/QueuedHostedService.cs?name=snippet1&highlight=30-31,35)]
-
-::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample-WebHost/Services/QueuedHostedService.cs?name=snippet1&highlight=16,20)]
 
 I servizi vengono registrati in `Startup.ConfigureServices`. L'implementazione di `IHostedService`viene registrata con il metodo di estensione `AddHostedService`:
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample-WebHost/Startup.cs?name=snippet3)]
-
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.0"
-
-I servizi sono registrati in `Startup.ConfigureServices`:
-
-[!code-csharp[](hosted-services/samples-snapshot/2.x/BackgroundTasksSample-WebHost/Startup.cs?name=snippet3)]
-
-::: moniker-end
 
 Nella classe modello della pagina di indice `IBackgroundTaskQueue` viene inserito nel costruttore e assegnato a `Queue`:
 

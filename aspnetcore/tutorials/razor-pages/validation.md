@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/07/2017
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 0d35de827ca6fea530229f1ef263ea7b9351e5ad
-ms.sourcegitcommit: 19cbda409bdbbe42553dc385ea72d2a8e246509c
+ms.openlocfilehash: ea3f26f9377715ea27f19908932d2dcf3cfcbea6
+ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992828"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39202601"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Aggiungere la convalida a una pagina Razor ASP.NET Core
 
@@ -38,7 +38,7 @@ Aggiornamento della classe `Movie` per poter sfruttare gli attributi di convalid
 
 ::: moniker range=">= aspnetcore-2.1"
 
-[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie21/Models/MovieDateRatingDA.cs)]
+[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie21/Models/MovieDateRatingDA.cs?name=snippet1)]
 
 ::: moniker-end
 
@@ -157,7 +157,7 @@ Il codice seguente illustra la combinazione di attributi in una sola riga:
 
 Per istruzioni su come pubblicare l'app in Azure, vedere [Pubblicare un'app Web ASP.NET Core in Servizio app di Azure con Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs).
 
-Grazie aver completato questa introduzione alle pagine Razor. I suggerimenti degli utenti sono importanti. [Get started with MVC and EF Core](xref:data/ef-mvc/intro) (Introduzione a MVC ed Entity Framework Core) è un complemento ideale per questa esercitazione.
+Grazie aver completato questa introduzione alle pagine Razor. I suggerimenti degli utenti sono importanti. [Get started with Razor Pages and EF Core](xref:data/ef-rp/intro) (Introduzione a Razor Pages ed Entity Framework Core) è un complemento ideale per questa esercitazione.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
