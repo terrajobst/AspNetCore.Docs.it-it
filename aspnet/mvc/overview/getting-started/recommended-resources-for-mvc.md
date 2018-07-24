@@ -4,19 +4,16 @@ title: Risorse consigliate su MVC | Microsoft Docs
 author: Rick-Anderson
 description: In questo argomento vengono forniti collegamenti a risorse di documentazione su ASP.NET MVC 5. Se si conosce un post di blog, thread di stackoverflow o qualsiasi altro tipo di collegamento che sarà...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/10/2014
-ms.topic: article
 ms.assetid: 7958d725-e958-4566-a85b-535eeb985f94
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/getting-started/recommended-resources-for-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 2098dc48e2c253f146e270866765a509e302081f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 2b9ec425654307a6685537cc058bfd25ff2ca8de
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37363284"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37821748"
 ---
 <a name="mvc-recommended-resources"></a>Risorse consigliate su MVC
 ====================
@@ -90,7 +87,7 @@ da [Rick Anderson](https://github.com/Rick-Anderson)
 - [Come creare (e come non compilare) una funzionalità sicura "remember me"](http://www.troyhunt.com/2013/07/how-to-build-and-how-not-to-build.html) Troy Hunt
 - Video: [il nuovo modello di autenticazione per applicazioni Cloud da Lucas Adams, Stuart Kwan, mobili e Web](https://channel9.msdn.com/Events/Build/2014/2-601)
 - [Video: Enterprise predefiniti e le app Web di SaaS e le API Web usando Azure Active Directory per l'accesso di Vittorio Bertocci](https://channel9.msdn.com/Events/Build/2014/3-599)
-- [Identità ASP.NET 2.0.0](https://blogs.msdn.com/b/webdev/archive/2014/03/20/test-announcing-rtm-of-asp-net-identity-2-0-0.aspx)
+- [ASP.NET Identity 2.0.0](https://blogs.msdn.com/b/webdev/archive/2014/03/20/test-announcing-rtm-of-asp-net-identity-2-0-0.aspx)
 - [Informazioni su ASP.NET MVC i filtri e gli attributi](http://www.dotnet-tricks.com/Tutorial/mvc/b11a280114-Understanding-ASP.NET-MVC-Filters-and-Attributes.html)
 - [Identità di ASP.NET MVC 5: Estensione e modifica di ruoli](http://typecastexception.com/post/2014/02/13/ASPNET-MVC-5-Identity-Extending-and-Modifying-Roles.aspx)
 - [Token antifalsificazione con MVC, API Web e AngularJS](http://www.novanet.no/blog/olav-nybo/dates/2013/12/anti-forgery-tokens-using-mvc-web-api-and-angularjs/)
@@ -216,86 +213,86 @@ da [Rick Anderson](https://github.com/Rick-Anderson)
 - [Utilizzo di dati personalizzati gli attributi per i dati JSON di Store in ASP.NET MVC](http://www.binaryintellect.net/articles/8b993a74-a84a-42bd-9127-e701a03f5885.aspx)
 - Collegamenti MVC 4 ancora rilevanti per MVC 5
 - [L'invio di JSON a un metodo di azione](http://haacked.com/archive/2010/04/15/sending-json-to-an-asp-net-mvc-action-method-argument.aspx)
-- [Libreria di metodi di estensione utili per MVC](https://msdn.microsoft.com/magazine/dd722809.aspx) da Nadeem Afana](https://msdn.microsoft.com/magazine/dd722809.aspx)
-- [Caricare e scaricare file tramite ASP.NET MVC
-- [Ottenere gli errori di visualizzazione in fase di compilazione in ASP.NET MVC](../older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1.md)
+- [Compilare interfacce utente avanzate con jQuery](https://msdn.microsoft.com/magazine/dd722809.aspx)
+- [Inserimento automatico di colonne DataTable alle visualizzazioni in ASP.NET MVC](http://www.dotnetfunda.com/articles/show/2669/auto-populate-datatable-columns-to-the-views-in-aspnet-mvc) da Sheo Narayan
+- [Uso di HTML5 e jQuery UI Datepicker Popup Calendar con ASP.NET MVC](../older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1.md)
 - [Uso dell'helper DropDownList con ASP.NET MVC](../older-versions/working-with-the-dropdownlist-box-and-jquery/using-the-dropdownlist-helper-with-aspnet-mvc.md)
-- [Uso della convalida Fluent con ASP.NET MVC](http://odetocode.com/blogs/scott/archive/2013/03/11/dropdownlistfor-with-asp-net-mvc.aspx)
-- [ASP.NET MVC sotto la parte di smanettoni](http://www.itorian.com/2013/02/dropdownlist-helper-data-binding-in-mvc.html)1 le MvcHandler, l'oggetto responsabile della gestione di una richiesta per ASP.NET MVC.](http://www.itorian.com/2013/02/dropdownlist-helper-data-binding-in-mvc.html)
-- [ASP.NET MVC sotto la parte di smanettoni](http://www.pluralsight-training.net/microsoft/players/PSODPlayer?author=scott-allen&amp;name=mvc3-building-ajax&amp;mode=live&amp;clip=0&amp;course=aspdotnet-mvc3-intro)2](http://www.pluralsight-training.net/microsoft/players/PSODPlayer?author=scott-allen&amp;name=mvc3-building-ajax&amp;mode=live&amp;clip=0&amp;course=aspdotnet-mvc3-intro)
-- [ASP.NET MVC sotto la parte di smanettoni 3](https://blogs.msdn.com/b/rickandy/archive/2012/01/09/cascasding-dropdownlist-in-asp-net-mvc.aspx?CommentPosted=true#commentmessage) ricerca del tipo di Controller](https://blogs.msdn.com/b/rickandy/archive/2012/01/09/cascasding-dropdownlist-in-asp-net-mvc.aspx?CommentPosted=true#commentmessage)
-- [ASP.NET MVC sotto la parte di smanettoni 4](https://weblogs.asp.net/rajbk/Contents/Item/Display/31) TempData](https://weblogs.asp.net/rajbk/Contents/Item/Display/31)
-- [ASP.NET MVC sotto la parte di smanettoni 5](http://msprogrammer.serviciipeweb.ro/2013/03/10/mvc-jsonresult-datetime-and-timezone/) il ActionInvoker](http://msprogrammer.serviciipeweb.ro/2013/03/10/mvc-jsonresult-datetime-and-timezone/)
-- [ASP.NET MVC sotto la parte di smanettoni 6](http://codeblockdrive.blogspot.in/2012/12/mvc-custom-validation-required.html) ActionFilters come vengono individuati e come vengono applicati](http://codeblockdrive.blogspot.in/2012/12/mvc-custom-validation-required.html)
-- [Creare il proprio ViewWebPage personalizzati per ASP.NET MVC](http://www.devcurry.com/2012/10/responsive-aspnet-mvc-ui-using-webapi.html)
-- [Traccia nelle visualizzazioni Razor ASP.NET MVC](http://evolpin.wordpress.com/2011/03/15/asp-net-mvc-ajax-using-jquery-quick-start-sample/)
-- [Il rendering di ASP.NET MVC Razor Views di fuori di MVC Rivisitazione della](http://www.binaryintellect.net/articles/b58fde6b-415e-454d-985b-d5dc4ad2fca8.aspx)
+- [DropDownListFor con ASP.NET MVC](http://odetocode.com/blogs/scott/archive/2013/03/11/dropdownlistfor-with-asp-net-mvc.aspx)
+- [Associazione dati DropDownList Helper in ASP.NET MVC](http://www.itorian.com/2013/02/dropdownlist-helper-data-binding-in-mvc.html)
+- [Video di Pluralsight che illustra come usare JavaScript e Ajax](http://www.pluralsight-training.net/microsoft/players/PSODPlayer?author=scott-allen&amp;name=mvc3-building-ajax&amp;mode=live&amp;clip=0&amp;course=aspdotnet-mvc3-intro)
+- [Cascading DropDownList in ASP.NET MVC](https://blogs.msdn.com/b/rickandy/archive/2012/01/09/cascasding-dropdownlist-in-asp-net-mvc.aspx?CommentPosted=true#commentmessage)
+- [JQuery CascadingDropDown plug-in per ASP.NET MVC](https://weblogs.asp.net/rajbk/Contents/Item/Display/31)
+- [MVC, JsonResult, data/ora e fuso orario](http://msprogrammer.serviciipeweb.ro/2013/03/10/mvc-jsonresult-datetime-and-timezone/)
+- [La convalida MVC - Custom - richiesta DropDownList](http://codeblockdrive.blogspot.in/2012/12/mvc-custom-validation-required.html)
+- [Indicatore di stato sul lato client in ASP.NET MVC tramite interfaccia utente di jQuery, WebAPI e JsRender](http://www.devcurry.com/2012/10/responsive-aspnet-mvc-ui-using-webapi.html)
+- [MVC di ASP.NET Ajax tramite jQuery-esempio di avvio rapido](http://evolpin.wordpress.com/2011/03/15/asp-net-mvc-ajax-using-jquery-quick-start-sample/)
+- [Creazione di controlli Cascading DropDownList con ASP.NET MVC 4 e jQuery](http://www.binaryintellect.net/articles/b58fde6b-415e-454d-985b-d5dc4ad2fca8.aspx)
 
 <a id="html5"></a>
 
 ## <a name="html5"></a>HTML5
 
-- [Ottenere gli errori di visualizzazione in fase di compilazione in ASP.NET MVC](../older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1.md)
-- [Cinque essenziale front-end strumenti che devono essere usati con i progetti MVC moderne](https://msdn.microsoft.com/magazine/jj863135.aspx)
-- [Associazione di modelli le funzionalità e sulle Manie delle ASP.NET MVC](https://msdn.microsoft.com/magazine/hh848259.aspx)
-- [Controllo del comportamento di sessione in Asp.Net MVC4](https://msdn.microsoft.com/magazine/jj129609.aspx)
+- [Uso di HTML5 e jQuery UI Datepicker Popup Calendar con ASP.NET MVC](../older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1.md)
+- [Progettazione dell'accessibilità con HTML5](https://msdn.microsoft.com/magazine/jj863135.aspx)
+- [Compilare moduli HTML5 per dispositivi mobili con ASP.NET MVC 4 e jQuery Mobile](https://msdn.microsoft.com/magazine/hh848259.aspx)
+- [Integrare HTML5 nei moduli Web ASP.NET esistenti e le applicazioni MVC](https://msdn.microsoft.com/magazine/jj129609.aspx)
 
 <a id="Routing"></a>
 
 ## <a name="routing"></a>Routing
 
-- [Visual Studio RenderPartial RenderAction vs vs parziale azione in Razor MVC](https://blogs.msdn.com/b/webdev/archive/2013/10/17/attribute-routing-in-asp-net-mvc-5.aspx)
+- [Routing con attributi in ASP.NET MVC 5](https://blogs.msdn.com/b/webdev/archive/2013/10/17/attribute-routing-in-asp-net-mvc-5.aspx)
 - [Ciclo di vita di un'applicazione ASP.NET MVC 5](lifecycle-of-an-aspnet-mvc-5-application.md) (PDF)
-- [Errore ambiguo Controller dalla route](http://blog.greatrexpectations.com/2012/08/03/using-constraints-for-better-routing-in-mvc/)
-- [La condivisione di un singolo ](http://blog.stevensanderson.com/2007/11/20/aspnet-mvc-pipeline-lifecycle/)ViewStart tra le aree in ASP.NET MVC](http://blog.stevensanderson.com/2007/11/20/aspnet-mvc-pipeline-lifecycle/)
-- [Applicazione di filtri in ASP.NET MVC](http://evolpin.wordpress.com/2011/03/27/asp-net-mvc-routing/)
-- [Iniziare a conoscere i filtri azione in ASP.NET MVC 3 con HandleError](http://www.simple-talk.com/dotnet/.net-framework/asp.net-mvc-routing-extensibility/) (video)](http://www.simple-talk.com/dotnet/.net-framework/asp.net-mvc-routing-extensibility/)
-- [Timeout della sessione MVC - filtri personalizzati - gestione](http://www.simple-talk.com/content/article.aspx?article=1358)
-- [Applicazione di filtri in ASP.NET MVC](http://evolpin.wordpress.com/2011/03/27/asp-net-mvc-routing/)
-- [Procedura dettagliata 4 modello MVC personalizzato](http://dysphoria.net/2013/03/14/strongly-typed-action-references-in-microsoft-mvc4/)
+- [Usando i vincoli per il Routing migliori in MVC](http://blog.greatrexpectations.com/2012/08/03/using-constraints-for-better-routing-in-mvc/)
+- [In modo approfondito: la Pipeline di MVC ASP.NET](http://blog.stevensanderson.com/2007/11/20/aspnet-mvc-pipeline-lifecycle/)
+- [Routing di ASP.NET MVC](http://evolpin.wordpress.com/2011/03/27/asp-net-mvc-routing/)
+- [Estendibilità di Routing di ASP.NET MVC](http://www.simple-talk.com/dotnet/.net-framework/asp.net-mvc-routing-extensibility/)
+- [Introduzione all'estendibilità di ASP.NET MVC](http://www.simple-talk.com/content/article.aspx?article=1358)
+- [Routing di ASP.NET MVC](http://evolpin.wordpress.com/2011/03/27/asp-net-mvc-routing/)
+- [Fortemente tipizzate routing per MVC 4](http://dysphoria.net/2013/03/14/strongly-typed-action-references-in-microsoft-mvc4/)
 
 <a id="global"></a>
 
-## <a name="globalization-internationalization-and-localization"></a>Cronologia del browser
+## <a name="globalization-internationalization-and-localization"></a>Globalizzazione, internazionalizzazione e localizzazione
 
-- [Il motivo per cui i metodi Helper HTML di ASP.NET MVC accettano espressioni lambda come parametri](http://afana.me/post/aspnet-mvc-internationalization.aspx)
+- [Internazionalizzazione di ASP.NET MVC 5](http://afana.me/post/aspnet-mvc-internationalization.aspx)
 - [Selezionando le impostazioni cultura per la localizzazione in ASP.NET](http://weblog.west-wind.com/posts/2014/Mar/27/Auto-Selecting-Cultures-for-Localization-in-ASPNET)
-- [Esaminare di uno sviluppatore Web la Pipeline delle richieste MVC4
-- [Informazioni sulla codifica del testo in ASP.NET MVC](http://afana.me/post/aspnet-mvc-internationalization-store-strings-in-database-or-xml.aspx)
-- [L'aggiornamento di una soluzione di Visual Studio 2010 MVC4 di Visual Studio 2012 e .net 4.5 ed Entity Framework 5](http://www.hanselman.com/blog/GlobalizationInternationalizationAndLocalizationInASPNETMVC3JavaScriptAndJQueryPart1.aspx)
+- [ASP.NET MVC 5 internazionalizzazione · Data e ora](http://afana.me/post/aspnet-mvc-internationalization-date-time.aspx) da Nadeem Afana
+- [ASP.NET MVC 5 internazionalizzazione · Come le stringhe di Store in un Database o Xml](http://afana.me/post/aspnet-mvc-internationalization-store-strings-in-database-or-xml.aspx)
+- [Globalizzazione, internazionalizzazione e localizzazione in ASP.NET MVC 3, JavaScript e jQuery](http://www.hanselman.com/blog/GlobalizationInternationalizationAndLocalizationInASPNETMVC3JavaScriptAndJQueryPart1.aspx)
 - [Internazionalizzazione](http://afana.me/post/aspnet-mvc-internationalization.aspx)
 - [Localizzazione](http://adamyan.blogspot.com/2010/02/aspnet-mvc-2-localization-complete.html)
 
 <a id="Azure"></a>
 
-## <a name="azure-and-aspnet-mvc"></a>ASP.NET MVC DisplayTemplate ed EditorTemplates per i tipi spaziali di Entity Framework DbGeography
+## <a name="azure-and-aspnet-mvc"></a>Azure e ASP.NET MVC
 
-- [ASP.NET MVC - collegamento corrente di evidenziazione](https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36)
-- [ASP.NET MVC: Gestione di eccezioni ed 404 errori](https://msdn.microsoft.com/magazine/jj883953.aspx)
-- [Ricerca di controller non valido](http://odetocode.com/Blogs/scott/archive/2012/08/07/configuration-tips-for-asp-net-mvc-4-on-a-windows.aspx)
-- [ASP.NET MVC suggerimenti, trucchi e strumenti utili nascosti](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-85-Windows-Azure-Sample-Content-Review) (video)
-- [Il rendering di un'estensione. RDLC direttamente nel flusso di risposta in ASP.NET MVC](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881)
+- [Applicazione multilivello con BLOB, code e tabelle di archiviazione](https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36)
+- [Siti Web di Azure di Windows: Hosting rapido e semplice come servizio](https://msdn.microsoft.com/magazine/jj883953.aspx)
+- [Suggerimenti relativi alla configurazione per ASP.NET MVC 4 in un sito Web di Azure](http://odetocode.com/Blogs/scott/archive/2012/08/07/configuration-tips-for-asp-net-mvc-4-on-a-windows.aspx)
+- [Episodio 85 - Azure, Windows 8 e MVC 4 demo](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-85-Windows-Azure-Sample-Content-Review) (video)
+- [Distribuire un sito Web ASP.NET in Azure in Visual Studio 2012 direttamente da un Repository Git](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881)
 
 <a id="mobile"></a>
 
 ## <a name="mobile"></a>Cellulare
 
-- [Come far crescere l'azienda World(-Ready) Achieve In ASP.NET MVC 4](../older-versions/aspnet-mvc-4-mobile-features.md) (video)](../older-versions/aspnet-mvc-4-mobile-features.md)
-- [Deep Integration di MVC e Web Form](https://www.bitcast.io/v/building-mobile-friendly-websites-with-mvc-4) (video)](https://www.bitcast.io/v/building-mobile-friendly-websites-with-mvc-4)
-- [Ricerca avanzata con MVC 4](http://mobile.smashingmagazine.com/2013/08/12/creating-high-performance-mobile-websites/) (video)](http://mobile.smashingmagazine.com/2013/08/12/creating-high-performance-mobile-websites/)
-- [Skinny controller in ASP.NET MVC 4](https://msdn.microsoft.com/en-gb/magazine/dn296507.aspx)
-- [Associazione di modelli le funzionalità e sulle Manie delle ASP.NET MVC](https://msdn.microsoft.com/magazine/hh848259.aspx)
-- [Menu dinamici in ASP.NET MVC 4 con Entity Framework Code First e jQuery](https://msdn.microsoft.com/magazine/jj650891.aspx)
-- [Making ASP.NET GridView reattive con jQuery FooTable](https://msdn.microsoft.com/magazine/jj906416.aspx)
-- [Distribuzione Web con Visual Studio](https://msdn.microsoft.com/magazine/hh975347.aspx)
-- [I modelli personalizzati, le annotazioni dei dati e gli hint dell'interfaccia utente in ASP.NET MVC](https://msdn.microsoft.com/magazine/hh852592.aspx)
-- [Post di forum](http://www.hanselman.com/blog/MakingASwitchableDesktopAndMobileSiteWithASPNETMVC4AndJQueryMobile.aspx)
-- [immagine sta per diventare contenttype testo/html dopo outputcache RSS](http://www.codeproject.com/Articles/455627/MVC4-Mobile-Friendly-Web-Applications)
-- [Come ottenere il controller e azione nomi o anche il nome della route da un absolutepath?](https://channel9.msdn.com/Events/aspConf/aspConf/ASP-NET-MVC-4-Mobile)
+- [Esercitazione per dispositivi mobili ASP.NET MVC 4](../older-versions/aspnet-mvc-4-mobile-features.md)
+- [[Video] Creazione di siti Web descrittivo per dispositivi mobili con MVC 4](https://www.bitcast.io/v/building-mobile-friendly-websites-with-mvc-4)
+- [Creazione di siti Web per dispositivi mobili ad alte prestazioni](http://mobile.smashingmagazine.com/2013/08/12/creating-high-performance-mobile-websites/)
+- [Creazione di visualizzazioni ottimizzate per dispositivi mobili in ASP.NET MVC 4](https://msdn.microsoft.com/en-gb/magazine/dn296507.aspx)
+- [Compilare moduli HTML5 per dispositivi mobili con ASP.NET MVC 4 e jQuery Mobile](https://msdn.microsoft.com/magazine/hh848259.aspx)
+- [L'integrazione jQuery Mobile nelle App Web MVC](https://msdn.microsoft.com/magazine/jj650891.aspx)
+- [Un approfondimento jQuery Mobile](https://msdn.microsoft.com/magazine/jj906416.aspx)
+- [Quali sono le novità per lo sviluppo per dispositivi mobili in ASP.NET MVC 4](https://msdn.microsoft.com/magazine/hh975347.aspx)
+- [Sviluppare ibrida Native e per dispositivi mobili App Web](https://msdn.microsoft.com/magazine/hh852592.aspx)
+- [Rendere un sito di Desktop e Mobile intercambiabili con ASP.NET MVC 4 e jQuery Mobile](http://www.hanselman.com/blog/MakingASwitchableDesktopAndMobileSiteWithASPNETMVC4AndJQueryMobile.aspx)
+- [Applicazioni MVC 4 Web ottimizzata per dispositivi mobili](http://www.codeproject.com/Articles/455627/MVC4-Mobile-Friendly-Web-Applications)
+- [Per dispositivi mobili ASP.NET MVC 4](https://channel9.msdn.com/Events/aspConf/aspConf/ASP-NET-MVC-4-Mobile)
 
 <a id="spa"></a>
 
-## <a name="single-page-application-spa"></a>Unobtrusive client side convalida remoto metodo chiamate AJAX per verificare l'univocità del valore
+## <a name="single-page-application-spa"></a>Applicazione a pagina singola (SPA)
 
 - [Nozioni di base per gli sviluppatori .NET per applicazioni a singola pagina](https://msdn.microsoft.com/magazine/dn605877.aspx) MSDN Magazine
 - [App a singola pagina con AngularJS e ASP.NET MVC 4](http://tarkus.me/post/32121691785/angularjs-with-asp-net-mvc-4)
