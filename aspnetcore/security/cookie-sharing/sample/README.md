@@ -1,19 +1,19 @@
-# <a name="cookie-sharing-sample-app"></a>App di esempio la condivisione di cookie
+# <a name="cookie-sharing-sample-app"></a>App di esempio di condivisione di cookie
 
-L'esempio illustra la condivisione tra tre applicazioni che utilizzano l'autenticazione dei cookie cookie:
+L'esempio illustra cookie condivisione tra le tre App che usano l'autenticazione tramite cookie:
 
 | Progetto                             | Descrizione |
 | ----------------------------------- | ----------- |
-| CookieAuth.Core                     | App ASP.NET Core 2.0 Razor pagine senza l'utilizzo di ASP.NET Identity Core |
-| CookieAuthWithIdentity.Core         | Applicazione MVC ASP.NET Core 2.0 con identità di ASP.NET Core |
-| CookieAuthWithIdentity.NETFramework | Applicazione MVC ASP.NET Framework 4.6.1 con identità di ASP.NET |
+| CookieAuth.Core                     | App ASP.NET Core Razor Pages senza l'utilizzo di ASP.NET Core Identity |
+| CookieAuthWithIdentity.Core         | App ASP.NET Core MVC con ASP.NET Core Identity |
+| CookieAuthWithIdentity.NETFramework | App del Framework ASP.NET MVC con ASP.NET Identity |
 
 Istruzioni:
 
-1. Eseguire l'app CookieAuth.Core. Registrazione di un utente. L'applicazione autentica l'utente quando l'utente è registrato. Disconnettere l'utente.
-1. Nella stessa sessione del browser, eseguire l'app CookieAuthWithIdentity.Core. Registrare lo stesso utente utilizzata con l'app di base. L'applicazione autentica l'utente quando l'utente è registrato. Disconnettere l'utente.
-1. Nella stessa sessione del browser, eseguire l'app CookieAuthWithIdentity.NETFramework. Se utilizzato con le altre App, registrare l'utente stesso. L'applicazione autentica l'utente quando l'utente è registrato. Disconnettere l'utente.
-1. Accesso dell'utente a uno dei tre app. Il cookie di autenticazione è condivisa tra le app. Si noti che l'utente è connesso automaticamente in altri due app.
-1. Disconnettersi da una qualsiasi delle App per utente. Si noti che l'utente viene automaticamente disconnesso le altre due applicazioni.
+1. Eseguire l'app CookieAuth.Core. Registrazione di un utente. L'app autentica l'utente quando l'utente è registrato. Disconnettere l'utente.
+1. Nella stessa sessione del browser, eseguire l'app CookieAuthWithIdentity.Core. Registrare lo stesso utente come quelle utilizzate con l'app di base. L'app autentica l'utente quando l'utente è registrato. Disconnettere l'utente.
+1. Nella stessa sessione del browser, eseguire l'app CookieAuthWithIdentity.NETFramework. Registrare lo stesso account utente usato con le altre app. L'app autentica l'utente quando l'utente è registrato. Disconnettere l'utente.
+1. Accesso dell'utente a uno qualsiasi dei tre app. Il cookie di autenticazione verrà condivisi tra le app. Si noti che l'utente viene connesso automaticamente in altri due app.
+1. Disconnessione dell'utente da una qualsiasi delle app. Si noti che l'utente viene automaticamente connesso all'esterno di altri due app.
 
-In questo esempio vengono illustrate le funzionalità descritte nel [condividere i cookie tra le app](https://docs.microsoft.com/aspnet/core/security/cookie-sharing) argomento.
+In questo esempio illustra le funzionalità descritte nel [condividere cookie tra le app](https://docs.microsoft.com/aspnet/core/security/cookie-sharing) argomento.

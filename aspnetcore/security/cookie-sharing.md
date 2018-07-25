@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/19/2017
 uid: security/cookie-sharing
-ms.openlocfilehash: f8347b52f68165cdbe4ab77a76664e4767bc4cdf
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: ed3496db3f7a63a704f0e57faef6b2f6c085a8bd
+ms.sourcegitcommit: b4c7b1a4c48dec0865f27874275c73da1f75e918
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095477"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39228598"
 ---
 # <a name="share-cookies-among-apps-with-aspnet-and-aspnet-core"></a>Condividere cookie tra le app con ASP.NET e ASP.NET Core
 
@@ -51,6 +51,12 @@ Nel `ConfigureServices` metodo, usare il [ConfigureApplicationCookie](/dotnet/ap
 
 Chiavi di protezione dati e il nome dell'app deve essere condivisa tra le app. Nelle app di esempio, `GetKeyRingDirInfo` restituisce la posizione di archiviazione chiavi comuni per il [PersistKeysToFileSystem](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.persistkeystofilesystem) (metodo). Uso [SetApplicationName](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.setapplicationname) per configurare un nome di app condivisa comune (`SharedCookieApp` nell'esempio). Per altre informazioni, vedere [configurazione della protezione dati](xref:security/data-protection/configuration/overview).
 
+Quando si ospitano le app che condividono i cookie in sottodomini, specificare un dominio in comune il [Cookie.Domain](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.domain) proprietà. Per condividere i cookie tra App su `contoso.com`, ad esempio `first_subdomain.contoso.com` e `second_subdomain.contoso.com`, specificare il `Cookie.Domain` come `.contoso.com`:
+
+```csharp
+options.Cookie.Domain = ".contoso.com";
+```
+
 Vedere le *CookieAuthWithIdentity.Core* del progetto nel [esempi di codice](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cookie-sharing/sample/) ([come scaricare](xref:tutorials/index#how-to-download-a-sample)).
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
@@ -89,7 +95,13 @@ Quando si usa direttamente i cookie:
 
 [!code-csharp[](cookie-sharing/sample/CookieAuth.Core/Startup.cs?name=snippet1)]
 
-Chiavi di protezione dati e il nome dell'app deve essere condivisa tra le app. Nelle app di esempio, `GetKeyRingDirInfo` restituisce la posizione di archiviazione chiavi comuni per il [PersistKeysToFileSystem](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.persistkeystofilesystem) (metodo). Uso [SetApplicationName](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.setapplicationname) per configurare un nome di app condivisa comune (`SharedCookieApp` nell'esempio). Per altre informazioni, vedere [configurazione della protezione dati](xref:security/data-protection/configuration/overview). 
+Chiavi di protezione dati e il nome dell'app deve essere condivisa tra le app. Nelle app di esempio, `GetKeyRingDirInfo` restituisce la posizione di archiviazione chiavi comuni per il [PersistKeysToFileSystem](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.persistkeystofilesystem) (metodo). Uso [SetApplicationName](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.setapplicationname) per configurare un nome di app condivisa comune (`SharedCookieApp` nell'esempio). Per altre informazioni, vedere [configurazione della protezione dati](xref:security/data-protection/configuration/overview).
+
+Quando si ospitano le app che condividono i cookie in sottodomini, specificare un dominio in comune il [Cookie.Domain](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.domain) proprietà. Per condividere i cookie tra App su `contoso.com`, ad esempio `first_subdomain.contoso.com` e `second_subdomain.contoso.com`, specificare il `Cookie.Domain` come `.contoso.com`:
+
+```csharp
+options.Cookie.Domain = ".contoso.com";
+```
 
 Vedere le *CookieAuth.Core* del progetto nel [esempi di codice](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cookie-sharing/sample/) ([come scaricare](xref:tutorials/index#how-to-download-a-sample)).
 
