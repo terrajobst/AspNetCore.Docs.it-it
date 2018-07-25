@@ -142,7 +142,7 @@ In questa attività si apprenderà come usare il controllo pagina nel contesto d
     ![Inspectingelements](using-page-inspector-in-visual-studio-2012/_static/image6.png)
 
     *Esaminare gli elementi*
-7. Scegliere il **attiva/disattiva modalità di controllo** pulsante (![selezionare la scheda HTML per visualizzare il codice HTML sottoposto a rendering nel browser di controllo pagina.] (using-page-inspector-in-visual-studio-2012/_static/image7.png "Selezionare la scheda HTML per visualizzare il codice HTML sottoposto a rendering nel browser di controllo pagina.") ) per disabilitare il cursore.
+7. Scegliere il **attiva/disattiva modalità di controllo** pulsante (![selezionare la scheda HTML per visualizzare il codice HTML sottoposto a rendering nel browser di controllo pagina.](using-page-inspector-in-visual-studio-2012/_static/image7.png "Selezionare la scheda HTML per visualizzare il codice HTML sottoposto a rendering nel browser di controllo pagina.") ) per disabilitare il cursore.
 8. Selezionare il **HTML** scheda per visualizzare il codice HTML sottoposto a rendering nel browser di controllo pagina.
 9. Nel markup HTML, individuare l'elemento di elenco con collegamento Koala e selezionarlo.
 
