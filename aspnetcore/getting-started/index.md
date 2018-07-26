@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/31/2018
 uid: getting-started
-ms.openlocfilehash: 22e9c982921cc03d89506e18ff99bf481027dda6
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 7ab9f303d74786c4ac76f002d0f2c66371e78cb8
+ms.sourcegitcommit: b4c7b1a4c48dec0865f27874275c73da1f75e918
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "38216213"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39228582"
 ---
 # <a name="get-started-with-aspnet-core"></a>Introduzione ad ASP.NET Core
 
@@ -25,7 +25,7 @@ ms.locfileid: "38216213"
     dotnet new webapp -o aspnetcoreapp
     ```
 
-    [!INCLUDE [](~/includes/webapp-alias-notice.md) [](~/includes/webapp-alias-notice.md)]
+    [!INCLUDE [](~/includes/webapp-alias-notice.md)]
 
 3. Considerare attendibile il certificato di sviluppo HTTPS:
 
@@ -35,11 +35,11 @@ ms.locfileid: "38216213"
     dotnet dev-certs https --trust
     ```
 
-    The preceding command displays the following dialog:
+   Il comando precedente consente di visualizzare la finestra di dialogo seguente:
 
-    ![Security warning dialog](_static/cert.png)
+   ![Finestra di dialogo Avviso di sicurezza](_static/cert.png)
 
-    Select **Yes** if you agree to trust the development certificate.
+   Selezionare **Sì** se si accetta di considerare attendibile il certificato di sviluppo.
 
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
@@ -47,18 +47,15 @@ ms.locfileid: "38216213"
     dotnet dev-certs https --trust
     ```
 
-    The preceding command displays the following message:
+   Il comando precedente consente di visualizzare il messaggio seguente:
 
-    *Trusting the HTTPS development certificate was requested. If the certificate is not already trusted we will run the following command:*
-    `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'`
-    *This command might prompt you for your password to install the certificate on the system keychain.
-    Password:*
+   *Trusting the HTTPS development certificate was requested (È stato richiesto di considerare attendibile il certificato di sviluppo HTTPS). Se il certificato non è già attendibile viene eseguito il comando seguente:* `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'` *Questo comando potrebbe richiedere la password per installare il certificato nel keychain del sistema.    Password:*
 
-    Enter your password if you agree to trust the development certificate.
+   Inserire la password se si accetta di considerare attendibile il certificato di sviluppo.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-    See the documentation for your Linux distribution on how to trust the HTTPS development certificate
+   <a name="see-the-documentation-for-your-linux-distribution-on-how-to-trust-the-https-development-certificate"></a>Vedere la documentazione della distribuzione di Linux su come rendere attendibile il certificato di sviluppo HTTPS
 ---
 
 4. Eseguire l'app:
