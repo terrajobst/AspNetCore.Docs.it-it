@@ -8,12 +8,12 @@ ms.date: 10/17/2013
 ms.assetid: 715a4059-d307-4631-abbb-c789c95d6eb4
 msc.legacyurl: /signalr/overview/older-versions/introduction-to-security
 msc.type: authoredcontent
-ms.openlocfilehash: b8d12969344dee9ee933509d15b586e3616bb3bc
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: cb705ccb6052297d0214deeaaeb8181e283245f3
+ms.sourcegitcommit: b4c7b1a4c48dec0865f27874275c73da1f75e918
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37833834"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39228559"
 ---
 <a name="introduction-to-signalr-security-signalr-1x"></a>Introduzione alla sicurezza di SignalR (SignalR 1.x)
 ====================
@@ -89,7 +89,7 @@ Cross-Site richiesta intersito falsa (CSRF) è un attacco in cui un sito dannoso
 
 Di seguito è riportato un esempio di un attacco CSRF:
 
-1. Un utente accede a www.example.com, tramite autenticazione basata su form.
+1. Un utente accede a `www.example.com`, tramite autenticazione basata su form.
 2. Il server autentica l'utente. La risposta dal server include un cookie di autenticazione.
 3. Senza la disconnessione, l'utente visita un sito web dannoso. Questo sito dannoso contiene il form HTML seguente: 
 
