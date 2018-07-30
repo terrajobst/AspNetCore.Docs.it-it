@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 02/14/2017
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: 3e4e597fde829ae2e2ce4dbd19a4ec0b42d078df
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 34a553c7ff8a18c367bf5e8079e2ea71f968bf3b
+ms.sourcegitcommit: 75bf5fdbfdcb6a7cfe8fe207b9ff37655ccbacd4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274853"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39219420"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>Helper tag nei moduli in ASP.NET Core
 
@@ -169,7 +169,7 @@ Quando eseguono i modelli predefiniti, `@Html.Editor()` e `@Html.EditorFor()` us
 
 ### <a name="expression-names"></a>Nomi delle espressioni
 
-Il valore dell'attributo `asp-for` è un `ModelExpression` e il lato destro di un'espressione lambda. Pertanto, `asp-for="Property1"` diventa `m => m.Property1` nel codice generato. Per questo motivo il prefisso `Model` non è necessario. È possibile usare il carattere "@" per iniziare un'espressione inline, spostandolo prima di `m.`:
+Il valore dell'attributo `asp-for` è un `ModelExpression` e il lato destro di un'espressione lambda. Pertanto, `asp-for="Property1"` diventa `m => m.Property1` nel codice generato. Per questo motivo il prefisso `Model` non è necessario. È possibile usare il carattere "\@" per iniziare un'espressione inline, spostandolo prima di `m.`:
 
 ```HTML
 @{

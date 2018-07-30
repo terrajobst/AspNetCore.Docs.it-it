@@ -5,12 +5,12 @@ description: Informazioni sul framework di registrazione di ASP.NET Core. Inform
 ms.author: tdykstra
 ms.date: 07/24/2018
 uid: fundamentals/logging/index
-ms.openlocfilehash: 0181566aeab1fa055435ac90887c019eef52878c
-ms.sourcegitcommit: b4c7b1a4c48dec0865f27874275c73da1f75e918
+ms.openlocfilehash: f629b062afb5c17cd05040a9ef0281aa7121aabc
+ms.sourcegitcommit: 516d0645c35ea784a3ae807be087ae70446a46ee
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39228637"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39320752"
 ---
 # <a name="logging-in-aspnet-core"></a>Registrazione in ASP.NET Core
 
@@ -56,7 +56,7 @@ Per usare un provider, chiamare il metodo di estensione `Add<ProviderName>` del 
 
 [!code-csharp[](index/sample2/Program.cs?name=snippet_ExpandDefault&highlight=16,17)]
 
-Il modello di progetto predefinito consente la registrazione con il metodo [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder?view=aspnetcore-2.0#Microsoft_AspNetCore_WebHost_CreateDefaultBuilder_System_String___):
+Il modello di progetto predefinito abilita i provider di registrazione Console e Debug con una chiamata al metodo di estensione [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) in *Program.cs*:
 
 [!code-csharp[](index/sample2/Program.cs?name=snippet_TemplateCode&highlight=7)]
 
@@ -77,11 +77,21 @@ L'[inserimento delle dipendenze](xref:fundamentals/dependency-injection) di ASP.
 
 ::: moniker-end
 
-Altre informazioni su ciascun [provider di registrazione incorporato](#built-in-logging-providers) e i collegamenti ai [provider di registrazione di terze parti](#third-party-logging-providers) sono disponibili più avanti in questo articolo.
+Scoprire di più sui [provider di registrazione predefiniti](#built-in-logging-providers) e vedere i collegamenti ai [provider di registrazione di terze parti](#third-party-logging-providers) più avanti in questo articolo.
 
-## <a name="settings-file-configuration"></a>Configurazione del file di impostazioni
+## <a name="configuration"></a>Configurazione
 
-Ognuno degli esempi precedenti nella sezione [Come aggiungere provider](#how-to-add-providers) carica la configurazione del provider di log dalla sezione `Logging` dei file di impostazioni dell'app. L'esempio seguente mostra il contenuto di un file *appsettings.Development.json* tipico:
+La configurazione dei provider di registrazione viene fornita da uno o più provider di configurazione:
+
+* Formati di file (INI, JSON e XML).
+* Argomenti della riga di comando.
+* Variabili di ambiente.
+* Oggetti .NET in memoria.
+* Archiviazione con [Secret Manager](xref:security/app-secrets) senza crittografia.
+* Un archivio utente non crittografato, come [Azure Key Vault](xref:security/key-vault-configuration).
+* Provider personalizzati (installati o creati).
+
+Ad esempio, la configurazione di registrazione viene comunemente fornita dalla sezione `Logging` del file di impostazioni dell'app. L'esempio seguente mostra il contenuto di un file *appsettings.Development.json* tipico:
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -122,6 +132,8 @@ Le chiavi `LogLevel` rappresentano i nomi dei log. La chiave `Default` si applic
 Le chiavi `LogLevel` rappresentano i nomi dei log. La chiave `Default` si applica ai log non esplicitamente elencati. Il valore rappresenta il [livello del log](#log-level) applicato al log specificato.
 
 ::: moniker-end
+
+Per informazioni sull'implementazione dei provider di configurazione, vedere <xref:fundamentals/configuration/index>.
 
 ## <a name="sample-logging-output"></a>Esempio di output di registrazione
 
@@ -436,7 +448,7 @@ Il codice seguente abilita gli ambiti per il provider Console:
 > [!NOTE]
 > La configurazione dell'opzione del logger della console `IncludeScopes` è necessaria per abilitare la registrazione basata sull'ambito.
 >
-> `IncludeScopes` può essere configurata tramite i file di configurazione *appsettings*. Per altre informazioni, vedere la sezione [Configurazione del file di impostazioni](#settings-file-configuration).
+> Per informazioni sulla configurazione, vedere la sezione [Configurazione](#Configuration).
 
 ::: moniker-end
 
