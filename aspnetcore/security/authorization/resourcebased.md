@@ -1,35 +1,35 @@
 ---
 title: Autorizzazione basata sulle risorse in ASP.NET Core
 author: scottaddie
-description: Informazioni su come implementare l'autorizzazione basata sulle risorse in un'applicazione ASP.NET di base quando un attributo Authorize non sono sufficienti.
+description: Informazioni su come implementare l'autorizzazione basata sulle risorse in un'app ASP.NET Core quando non sono sufficienti un attributo Authorize.
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 11/07/2017
 uid: security/authorization/resourcebased
-ms.openlocfilehash: 577af3ba45361aec715a49fa59b9ec9869ced851
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 6a110a69c58d5e20a15198378510486daec3d452
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273347"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342289"
 ---
 # <a name="resource-based-authorization-in-aspnet-core"></a>Autorizzazione basata sulle risorse in ASP.NET Core
 
-Strategia di autorizzazione dipende dalla risorsa a cui accedere. Si consideri un documento che contiene una proprietà dell'autore. È consentito solo l'autore di aggiornare il documento. Di conseguenza, il documento deve essere recuperato dall'archivio dati prima di poter eseguire la valutazione di autorizzazione.
+Strategia di autorizzazione varia a seconda della risorsa a cui si accede. Si consideri un documento che ha una proprietà dell'autore. Solo l'autore può aggiornare il documento. Di conseguenza, il documento deve essere recuperato dall'archivio dati prima di poter eseguire la valutazione di autorizzazione.
 
-Attributo valutazione si verifica prima dell'associazione a dati e prima dell'esecuzione del gestore di pagina o azione che carica il documento. Per questi motivi, l'autorizzazione dichiarativa con un `[Authorize]` attributo non sono sufficienti. In alternativa, è possibile richiamare un metodo di autorizzazione personalizzato&mdash;uno stile noto come autorizzazione imperativa.
+Attributo valutazioni prima del data binding e prima dell'esecuzione del gestore di pagina o l'azione che carica il documento. Per questi motivi, autorizzazione dichiarative con un `[Authorize]` attributo non sono sufficienti. In alternativa, è possibile richiamare un metodo di autorizzazione personalizzato&mdash;uno stile noto come autorizzazione imperativo.
 
-Utilizzare il [app di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/resourcebased/samples) ([come scaricare](xref:tutorials/index#how-to-download-a-sample)) per esplorare le funzionalità descritte in questo argomento.
+Usare la [app di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/resourcebased/samples) ([come scaricare](xref:tutorials/index#how-to-download-a-sample)) per esplorare le funzionalità descritte in questo argomento.
 
-[Crea un'applicazione ASP.NET Core con dati dell'utente protetti dall'autorizzazione](xref:security/authorization/secure-data) contiene un'app di esempio che utilizza l'autorizzazione basata sulle risorse.
+[Creare un'app ASP.NET Core con i dati utente protetti da autorizzazione](xref:security/authorization/secure-data) contiene un'app di esempio che utilizza l'autorizzazione basata sulle risorse.
 
-## <a name="use-imperative-authorization"></a>Utilizzare l'autorizzazione imperativo
+## <a name="use-imperative-authorization"></a>Usare l'autorizzazione imperativo
 
-Autorizzazione viene implementata come un [IAuthorizationService](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationservice) del servizio e viene registrato nell'insieme di servizio all'interno di `Startup` classe. Il servizio viene reso disponibile tramite [inserimento di dipendenze](xref:fundamentals/dependency-injection#fundamentals-dependency-injection) a gestori di pagina o azioni.
+Autorizzazione viene implementato come un [IAuthorizationService](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationservice) del servizio e viene registrato nell'insieme del servizio all'interno di `Startup` classe. Il servizio viene reso disponibile tramite [inserimento delle dipendenze](xref:fundamentals/dependency-injection) a gestori di pagina o azioni.
 
 [!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Controllers/DocumentController.cs?name=snippet_IAuthServiceDI&highlight=6)]
 
-`IAuthorizationService` dispone di due `AuthorizeAsync` overload del metodo: uno che accetta la risorsa e il nome del criterio e l'altro che accetta la risorsa e un elenco dei requisiti da valutare.
+`IAuthorizationService` ha due `AuthorizeAsync` overload dei metodi: uno accetta la risorsa e il nome del criterio e l'altro accetta un elenco di requisiti per la valutazione e la risorsa.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -57,10 +57,10 @@ Task<bool> AuthorizeAsync(ClaimsPrincipal user,
 
 <a name="security-authorization-resource-based-imperative"></a>
 
-Nell'esempio seguente, la risorsa da proteggere viene caricata in un oggetto personalizzato `Document` oggetto. Un `AuthorizeAsync` overload viene richiamato per determinare se l'utente corrente è autorizzato a modificare il documento specificato. Un criterio di autorizzazione personalizzato "EditPolicy" è inserito nella decisione. Vedere [autorizzazione basata su criteri personalizzati](xref:security/authorization/policies) per ulteriori informazioni sulla creazione di criteri di autorizzazione.
+Nell'esempio seguente, la risorsa deve essere protetto viene caricata in una classe personalizzata `Document` oggetto. Un `AuthorizeAsync` overload viene richiamato per determinare se l'utente corrente è autorizzato a modificare il documento specificato. Un criterio di autorizzazione "EditPolicy" personalizzato è inserito nella decisione. Visualizzare [autorizzazione basata sui criteri personalizzati](xref:security/authorization/policies) per altre informazioni sulla creazione di criteri di autorizzazione.
 
 > [!NOTE]
-> Il codice seguente si supponga di esempi è stata eseguita l'autenticazione e un set di `User` proprietà.
+> Il codice riportato di seguito esempi presumono è stata eseguita l'autenticazione e impostare il `User` proprietà.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
@@ -72,9 +72,9 @@ Nell'esempio seguente, la risorsa da proteggere viene caricata in un oggetto per
 
 ---
 
-## <a name="write-a-resource-based-handler"></a>Scrivere un gestore di risorse
+## <a name="write-a-resource-based-handler"></a>Scrivere un gestore basata sulle risorse
 
-Scrittura di un gestore per l'autorizzazione basata sulle risorse non è molto diverso rispetto a [scrittura di un gestore di requisiti normale](xref:security/authorization/policies#security-authorization-policies-based-authorization-handler). Creare una classe del requisito personalizzata e implementare una classe del requisito del gestore. La classe del gestore specifica sia il requisito e il tipo di risorsa. Ad esempio, un gestore che utilizzano un `SameAuthorRequirement` requisito e un `Document` risorse è simile al seguente:
+Scrittura di un gestore per l'autorizzazione basata sulle risorse non è molto diverso da quello [scrivendo un gestore di requisiti semplici](xref:security/authorization/policies#security-authorization-policies-based-authorization-handler). Creare una classe del requisito personalizzato e implementare una classe del requisito del gestore. La classe del gestore consente di specificare sia il requisito e il tipo di risorsa. Ad esempio, un gestore che usano un `SameAuthorRequirement` requisito e un `Document` risorse è simile al seguente:
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
@@ -92,11 +92,11 @@ Registrare un gestore in e il requisito di `Startup.ConfigureServices` metodo:
 
 ### <a name="operational-requirements"></a>Requisiti operativi
 
-Se si apportano le decisioni in base ai risultati di operazioni CRUD (Create, Read, Update, Delete), usare il [OperationAuthorizationRequirement](/dotnet/api/microsoft.aspnetcore.authorization.infrastructure.operationauthorizationrequirement) classe helper. Questa classe consente di scrivere un singolo gestore anziché una singola classe per ogni tipo di operazione. Per utilizzarlo, fornire alcuni nomi di operazione:
+Se si stanno apportando decisioni basate sui risultati di operazioni CRUD (Create, Read, Update, Delete), usare il [OperationAuthorizationRequirement](/dotnet/api/microsoft.aspnetcore.authorization.infrastructure.operationauthorizationrequirement) classe helper. Questa classe consente di scrivere un singolo gestore invece di una classe distinta per ogni tipo di operazione. Per usarlo, fornire alcuni nomi di operazione:
 
 [!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Services/DocumentAuthorizationCrudHandler.cs?name=snippet_OperationsClass)]
 
-Il gestore viene implementato come indicato di seguito, utilizzando un `OperationAuthorizationRequirement` requisito e un `Document` risorse:
+Il gestore di è implementato come segue, usando un `OperationAuthorizationRequirement` requisito e un `Document` risorsa:
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
@@ -108,23 +108,23 @@ Il gestore viene implementato come indicato di seguito, utilizzando un `Operatio
 
 ---
 
-Il gestore precedente convalida l'operazione utilizzando la risorsa, l'identità dell'utente e il requisito `Name` proprietà.
+Il gestore precedente convalida l'operazione usando la risorsa, l'identità dell'utente e il requisito `Name` proprietà.
 
-Per chiamare un gestore di risorse operative, specificare l'operazione quando si richiama `AuthorizeAsync` nel gestore di pagina o azione. Nell'esempio seguente determina se l'utente autenticato può visualizzare il documento specificato.
+Per chiamare un gestore di risorse operativa, specificare l'operazione quando si richiama `AuthorizeAsync` nel gestore di pagina o nell'azione. Nell'esempio seguente determina se l'utente autenticato ha la possibilità di visualizzare il documento specificato.
 
 > [!NOTE]
-> Il codice seguente si supponga di esempi è stata eseguita l'autenticazione e un set di `User` proprietà.
+> Il codice riportato di seguito esempi presumono è stata eseguita l'autenticazione e impostare il `User` proprietà.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
 [!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Pages/Document/View.cshtml.cs?name=snippet_DocumentViewHandler&highlight=10-11)]
 
-Se l'autorizzazione ha esito positivo, viene restituita la pagina per la visualizzazione del documento. Se si verifica un errore di autorizzazione, ma l'utente viene autenticato, restituendo `ForbidResult` informa qualsiasi middleware di autenticazione che l'autorizzazione non riuscita. Oggetto `ChallengeResult` viene restituito quando l'autenticazione deve essere eseguita. Per i client del browser interattivo, potrebbe essere opportuno reindirizzare l'utente a una pagina di accesso.
+Se l'autorizzazione ha esito positivo, viene restituita la pagina per la visualizzazione del documento. Se si verifica un errore di autorizzazione, ma l'utente viene autenticato, restituendo `ForbidResult` indica a qualsiasi middleware di autenticazione che autorizzazione non riuscita. Oggetto `ChallengeResult` viene restituito quando l'autenticazione deve essere eseguita. Per i client browser interattiva, potrebbe essere appropriata reindirizzare l'utente a una pagina di accesso.
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 
 [!code-csharp[](resourcebased/samples/ResourceBasedAuthApp1/Controllers/DocumentController.cs?name=snippet_DocumentViewAction&highlight=11-12)]
 
-Se l'autorizzazione ha esito positivo, viene restituita la visualizzazione del documento. Se l'autorizzazione ha esito negativo, restituisce `ChallengeResult` indica qualsiasi middleware di autenticazione di autorizzazione non riuscita, il middleware può richiedere la risposta appropriata. Impossibile restituire un codice di stato 401 o 403 una risposta appropriata. Per i client del browser interattiva, è possibile che il reindirizzamento dell'utente a una pagina di accesso.
+Se l'autorizzazione ha esito positivo, viene restituita la visualizzazione del documento. Se l'autorizzazione ha esito negativo, restituendo `ChallengeResult` informa qualsiasi middleware di autenticazione che autorizzazione non riuscita e che il middleware può richiedere la risposta appropriata. Una risposta appropriata potrebbe restituire un codice di stato 401 o 403. Per i client browser interattiva, è possibile reindirizzare l'utente a una pagina di accesso.
 
 ---

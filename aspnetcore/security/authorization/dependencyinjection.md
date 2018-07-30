@@ -1,26 +1,26 @@
 ---
-title: Inserimento di dipendenze nei gestori requisito in ASP.NET Core
+title: Inserimento di dipendenze nei gestori di requisiti in ASP.NET Core
 author: rick-anderson
-description: Informazioni su come inserire i gestori di requisiti di autorizzazione in un'app di ASP.NET Core mediante l'inserimento di dipendenza.
+description: Informazioni su come inserire i gestori di requisiti di autorizzazione in un'app ASP.NET Core con inserimento delle dipendenze.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/authorization/dependencyinjection
-ms.openlocfilehash: c6bb2589c6fef9f4586e6f4ddbb574866e6c48ab
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 71d563e11d308a95c08e6d012d3a071f4697d2de
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273722"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342114"
 ---
-# <a name="dependency-injection-in-requirement-handlers-in-aspnet-core"></a>Inserimento di dipendenze nei gestori requisito in ASP.NET Core
+# <a name="dependency-injection-in-requirement-handlers-in-aspnet-core"></a>Inserimento di dipendenze nei gestori di requisiti in ASP.NET Core
 
 <a name="security-authorization-di"></a>
 
-[I gestori di autorizzazione devono essere registrati](xref:security/authorization/policies#handler-registration) nella raccolta durante la configurazione del servizio (utilizzando [inserimento di dipendenze](xref:fundamentals/dependency-injection#fundamentals-dependency-injection)).
+[I gestori di autorizzazione devono essere registrati](xref:security/authorization/policies#handler-registration) nella raccolta durante la configurazione del servizio (usando [inserimento delle dipendenze](xref:fundamentals/dependency-injection)).
 
-Si supponga un repository di regole che si desidera valutare all'interno di un gestore di autorizzazione e il repository è stato registrato nella raccolta di servizio. Autorizzazione risolveranno e inserire che nel costruttore.
+Si supponga un repository di regole che si desidera valutare all'interno di un gestore di autorizzazione e tale repository è stato registrato nell'insieme del servizio. Autorizzazione risolveranno e inserirlo nel costruttore.
 
-Ad esempio, se si desidera utilizzare le pagine ASP. Registrazione dell'infrastruttura che si desidera inserire NET `ILoggerFactory` nel gestore. Un gestore di questo tipo potrebbe essere simile:
+Ad esempio, se si desidera utilizzare le pagine ASP. Registrazione dell'infrastruttura è preferibile inserire NET `ILoggerFactory` nei gestore. Un gestore di questo tipo potrebbe essere simile:
 
 ```csharp
 public class LoggingAuthorizationHandler : AuthorizationHandler<MyRequirement>
@@ -47,7 +47,7 @@ public class LoggingAuthorizationHandler : AuthorizationHandler<MyRequirement>
 services.AddSingleton<IAuthorizationHandler, LoggingAuthorizationHandler>();
 ```
 
-Un'istanza dell'oggetto gestore essere creata all'avvio dell'applicazione e verrà eseguito DI inserire registrato `ILoggerFactory` del costruttore.
+Un'istanza del gestore verrà essere creata all'avvio dell'applicazione e l'inserimento delle dipendenze verrà inserire registrato `ILoggerFactory` il costruttore.
 
 > [!NOTE]
-> I gestori che utilizzano Entity Framework non devono essere registrati come singleton.
+> I gestori che usano Entity Framework non devono essere registrati come singleton.

@@ -5,12 +5,12 @@ description: Informazioni su come configurare il provider di archiviazione perso
 ms.author: riande
 ms.date: 05/24/2017
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: bdde9b93449c2f3f8d43cc4ff86472ed8a60ed1c
-ms.sourcegitcommit: a09820f91e71a7d98b7347bf93210abb9e995e22
+ms.openlocfilehash: 7fb64f0b911c11750946697d782488c2107a3637
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37889168"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342523"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Provider di archiviazione personalizzati per ASP.NET Core Identity
 
@@ -41,7 +41,7 @@ dotnet new webapi -au Individual
 
 ## <a name="the-aspnet-core-identity-architecture"></a>L'architettura di ASP.NET Core Identity
 
-ASP.NET Core Identity è costituito da classi responsabili e gli archivi. *I responsabili* sono classi ad alto livello che gli sviluppatori di app impiega per eseguire operazioni, ad esempio la creazione di un utente di identità. *Gli archivi* sono classi di basso livello che specificano come entità, ad esempio utenti e ruoli, vengono resi persistenti. Archivi di seguono le [modello di repository](http://deviq.com/repository-pattern/) e sono strettamente associato con il meccanismo di persistenza. I responsabili sono separati dagli archivi, che significa che è possibile sostituire il meccanismo di persistenza senza modificare il codice dell'applicazione (ad eccezione di configurazione).
+ASP.NET Core Identity è costituito da classi responsabili e gli archivi. *I responsabili* sono classi ad alto livello che gli sviluppatori di app impiega per eseguire operazioni, ad esempio la creazione di un utente di identità. *Gli archivi* sono classi di basso livello che specificano come entità, ad esempio utenti e ruoli, vengono resi persistenti. Archivi di seguono le [modello di repository](xref:fundamentals/repository-pattern) e sono strettamente associato con il meccanismo di persistenza. I responsabili sono separati dagli archivi, che significa che è possibile sostituire il meccanismo di persistenza senza modificare il codice dell'applicazione (ad eccezione di configurazione).
 
 Il diagramma seguente mostra come un'app web interagisce con i gestori, mentre gli archivi interagiscono con il livello di accesso ai dati.
 

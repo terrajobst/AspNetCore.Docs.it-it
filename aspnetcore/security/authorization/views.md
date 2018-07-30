@@ -1,29 +1,29 @@
 ---
-title: Autorizzazione basata su Vista in ASP.NET MVC di base
+title: Autorizzazione basata su visualizzazione in ASP.NET Core MVC
 author: rick-anderson
-description: Questo documento viene illustrato come inserire e utilizzare il servizio di autorizzazione all'interno di una visualizzazione Razor di ASP.NET Core.
+description: Questo documento illustra come inserire e usare il servizio di autorizzazione all'interno di una visualizzazione Razor di ASP.NET Core.
 ms.author: riande
 ms.date: 10/30/2017
 uid: security/authorization/views
-ms.openlocfilehash: f25bab61afc93ff14bfd9c36d95a6d2e54b06dfb
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: e497c41d4dca29fed8733f18cf727804e3f06d8c
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277817"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342536"
 ---
-# <a name="view-based-authorization-in-aspnet-core-mvc"></a>Autorizzazione basata su Vista in ASP.NET MVC di base
+# <a name="view-based-authorization-in-aspnet-core-mvc"></a>Autorizzazione basata su visualizzazione in ASP.NET Core MVC
 
-Uno sviluppatore desidera spesso da mostrare, nascondere o modificare un'interfaccia utente in base all'identità utente corrente. È possibile accedere al servizio di autorizzazione all'interno di visualizzazioni MVC tramite [inserimento di dipendenze](xref:fundamentals/dependency-injection#fundamentals-dependency-injection). Per inserire il servizio di autorizzazione in una visualizzazione Razor, utilizzare il `@inject` direttiva:
+Uno sviluppatore desidera spesso da mostrare, nascondere o modificare in altro modo un'interfaccia utente basata sull'identità dell'utente corrente. È possibile accedere al servizio di autorizzazione all'interno di visualizzazioni MVC tramite [inserimento delle dipendenze](xref:fundamentals/dependency-injection). Per inserire il servizio di autorizzazione in una visualizzazione Razor, usare il `@inject` direttiva:
 
 ```cshtml
 @using Microsoft.AspNetCore.Authorization
 @inject IAuthorizationService AuthorizationService
 ```
 
-Se si desidera che il servizio di autorizzazione in ogni visualizzazione, inserire il `@inject` direttiva nel *viewimports. cshtml* file il *viste* directory. Per altre informazioni, vedere [Inserimento di dipendenze in visualizzazioni](xref:mvc/views/dependency-injection).
+Se si desidera che il servizio di autorizzazione in ogni visualizzazione, il `@inject` direttiva nel *viewimports. cshtml* file del *viste* directory. Per altre informazioni, vedere [Inserimento di dipendenze in visualizzazioni](xref:mvc/views/dependency-injection).
 
-Utilizzare il servizio di autorizzazione inserito per richiamare `AuthorizeAsync` esattamente nello stesso modo controllare durante [autorizzazione basata sulle risorse](xref:security/authorization/resourcebased#security-authorization-resource-based-imperative):
+Usare il servizio di autorizzazione inserito per richiamare `AuthorizeAsync` in esattamente come si controlla durante [autorizzazione basata sulle risorse](xref:security/authorization/resourcebased#security-authorization-resource-based-imperative):
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -45,7 +45,7 @@ Utilizzare il servizio di autorizzazione inserito per richiamare `AuthorizeAsync
 
 ---
 
-In alcuni casi, la risorsa sarà il modello di visualizzazione. Richiamare `AuthorizeAsync` esattamente nello stesso modo controllare durante [autorizzazione basata sulle risorse](xref:security/authorization/resourcebased#security-authorization-resource-based-imperative):
+In alcuni casi, la risorsa sarà il modello di visualizzazione. Richiamare `AuthorizeAsync` in esattamente come si controlla durante [autorizzazione basata sulle risorse](xref:security/authorization/resourcebased#security-authorization-resource-based-imperative):
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -69,7 +69,7 @@ In alcuni casi, la risorsa sarà il modello di visualizzazione. Richiamare `Auth
 
 ---
 
-Nel codice precedente, il modello viene passato come risorsa che deve eseguire la valutazione dei criteri in considerazione.
+Nel codice precedente, il modello viene passato come una risorsa che dovrebbe richiedere la valutazione dei criteri in considerazione.
 
 > [!WARNING]
-> Non fare affidamento sul Toggle visibilità degli elementi di interfaccia utente dell'applicazione come il controllo delle autorizzazioni solo. Nascondere un elemento dell'interfaccia utente potrebbe non completamente impedire l'accesso per l'azione del controller associato. Si consideri ad esempio il pulsante nel frammento di codice precedente. Un utente può richiamare il `Edit` il metodo di azione se egli conosce risorsa relativa di URL è */Document/Edit/1*. Per questo motivo, il `Edit` metodo di azione deve eseguire il proprio controllo delle autorizzazioni.
+> Non fare affidamento sulla visibilità attivata e disattivata di elementi dell'interfaccia utente dell'app come il controllo dell'autorizzazione esclusiva. Se si nasconde un elemento dell'interfaccia utente possono completamente impedisce l'accesso per l'azione del controller associato. Si consideri, ad esempio, il pulsante nel frammento di codice precedente. Un utente può richiamare il `Edit` metodo di azione se ne conosca la risorsa relativa URL viene */Document/Edit/1*. Per questo motivo, il `Edit` metodo di azione deve eseguire il proprio controllo di autorizzazione.
