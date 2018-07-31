@@ -5,12 +5,12 @@ description: Illustra come richiedere HTTPS/TLS in un ASP.NET Core web app.
 ms.author: riande
 ms.date: 2/9/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: c3d92994c0331b1408e246953454910ca1f4dc43
-ms.sourcegitcommit: c8e62aa766641aa55105f7db79cdf2b27a6e5977
+ms.openlocfilehash: a4ab91ef23a798c919a23a44f5a050bd3c09d56a
+ms.sourcegitcommit: d99a8554c91f626cf5e466911cf504dcbff0e02e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39254831"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39356688"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Imporre HTTPS in ASP.NET Core
 
@@ -64,11 +64,17 @@ I meccanismi seguenti impostate automaticamente la porta:
 > [!NOTE]
 > Quando un'app viene eseguita dietro un proxy inverso (ad esempio, IIS, IIS Express), `IServerAddressesFeature` non è disponibile. La porta deve essere configurata manualmente. Quando la porta non è impostata, le richieste non vengono reindirizzate.
 
-La porta può essere configurata impostando il:
+La porta può essere configurata impostando il [impostazione di configurazione Host Web https_port](xref:fundamentals/host/web-host#https-port):
 
-* La variabile di ambiente `ASPNETCORE_HTTPS_PORT`.
-* `http_port` chiave di configurazione host (ad esempio, tramite *hostsettings.json* o un argomento della riga di comando).
-* [HttpsRedirectionOptions.HttpsPort](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.httpsport). Vedere l'esempio precedente viene illustrato come impostare la porta in 5001.
+**Tasto**: https_port **tipo**: *stringa*
+**predefinito**: non è impostato un valore predefinito.
+**Impostare usando**: `UseSetting` 
+ **variabile di ambiente**: `<PREFIX_>HTTPS_PORT` (il prefisso è `ASPNETCORE_` quando si usa l'Host Web.)
+
+```csharp
+WebHost.CreateDefaultBuilder(args)
+    .UseSetting("https_port", "8080")
+```
 
 > [!NOTE]
 > La porta può essere configurata indirettamente impostando l'URL con il `ASPNETCORE_URLS` variabile di ambiente. La variabile di ambiente consente di configurare il server e quindi il middleware indirettamente consente di individuare la porta HTTPS tramite `IServerAddressesFeature`.
