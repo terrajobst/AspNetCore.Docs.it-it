@@ -1,16 +1,16 @@
 ---
 title: Eseguire la migrazione da ASP.NET ad ASP.NET Core 2.0
 author: isaac2004
-description: Ricevere istruzioni per la migrazione ASP.NET MVC o Web API delle applicazioni esistenti per ASP.NET 2.0 Core.
+description: Ricevere indicazioni sulla migrazione delle applicazioni esistenti ASP.NET MVC o API Web ad ASP.NET Core 2.0.
 ms.author: scaddie
 ms.date: 08/27/2017
 uid: migration/mvc2
-ms.openlocfilehash: 68b00ead1b0bf785211638692cdbeab226a2cb4e
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: d8a3f76bb5125a1ec76d0435ff3317f939a4ec67
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278635"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342257"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core-20"></a>Eseguire la migrazione da ASP.NET ad ASP.NET Core 2.0
 
@@ -20,12 +20,12 @@ Questo articolo offre una guida di riferimento per la migrazione delle applicazi
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Installare **uno** delle operazioni seguenti da [.NET Downloads: Windows](https://www.microsoft.com/net/download/windows):
+Installare **uno** delle opzioni seguenti dal [download .NET: Windows](https://www.microsoft.com/net/download/windows):
 
 * .NET Core SDK
 * Visual Studio per Windows
-  * **Lo sviluppo web ASP.NET e** carico di lavoro
-  * **Lo sviluppo multipiattaforma con .NET core** carico di lavoro
+  * **ASP.NET e carico di lavoro di sviluppo Web**
+  * Carico di lavoro di **sviluppo multipiattaforma .NET Core**
 
 ## <a name="target-frameworks"></a>Framework di destinazione
 I progetti di ASP.NET Core 2.0 offrono agli sviluppatori la flessibilità necessaria per scegliere .NET Core, .NET Framework o entrambi come destinazione. Vedere [Scelta di .NET Core o .NET Framework per le app server](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server) per determinare quale framework di destinazione è più appropriato.
@@ -110,11 +110,12 @@ services.Configure<AppConfiguration>(Configuration.GetSection("AppConfiguration"
 **Nota:** per informazioni più dettagliate sulla configurazione di ASP.NET Core, vedere l'articolo sulla [configurazione in ASP.NET Core](xref:fundamentals/configuration/index).
 
 ## <a name="native-dependency-injection"></a>Inserimento delle dipendenze nativo
-Un obiettivo importante nella compilazione di applicazioni scalabili di grandi dimensioni è l'accoppiamento libero di componenti e servizi. L'[inserimento delle dipendenze](xref:fundamentals/dependency-injection) è una tecnica comune che consente di raggiungerlo ed è un componente nativo di ASP.NET Core.
 
-Nelle applicazioni ASP.NET, gli sviluppatori si affidano a una libreria di terze parti per implementare l'inserimento delle dipendenze. Una di queste librerie è [Unity](https://github.com/unitycontainer/unity) e fa parte di Modelli e procedure Microsoft. 
+Un obiettivo importante nella compilazione di applicazioni scalabili di grandi dimensioni è l'accoppiamento libero di componenti e servizi. [Inserimento di dipendenze](xref:fundamentals/dependency-injection) è una tecnica comune per ottenere questo risultato, ed è un componente nativo di ASP.NET Core.
 
-Un esempio di configurazione dell'inserimento delle dipendenze con Unity è l'implementazione di `IDependencyResolver` che esegue il wrapping di un oggetto `UnityContainer`:
+Nelle applicazioni ASP.NET, gli sviluppatori si affidano a una libreria di terze parti per implementare l'inserimento delle dipendenze. Una di queste librerie è [Unity](https://github.com/unitycontainer/unity) e fa parte di Modelli e procedure Microsoft.
+
+Implementazione di un esempio di impostazione dell'inserimento delle dipendenze con Unity `IDependencyResolver` che esegue il wrapping di un `UnityContainer`:
 
 [!code-csharp[](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample8.cs)]
 
@@ -126,15 +127,16 @@ Inserire `IProductRepository` dove necessario:
 
 [!code-csharp[](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample5.cs)]
 
-Poiché l'inserimento delle dipendenze fa parte di ASP.NET Core, è possibile aggiungere il servizio nel metodo `ConfigureServices` di *Startup.cs*:
+Poiché l'inserimento delle dipendenze fa parte di ASP.NET Core, è possibile aggiungere il servizio nel `Startup.ConfigureServices`:
 
 [!code-csharp[](samples/configure-services.cs)]
 
 Il repository può essere inserito in qualsiasi posizione, analogamente a Unity.
 
-**Nota:** per un riferimento dettagliato all'inserimento delle dipendenze in ASP.NET Core, vedere l'introduzione all'[inserimento delle dipendenze in ASP.NET Core](xref:fundamentals/dependency-injection#replacing-the-default-services-container)
+Per altre informazioni sull'inserimento delle dipendenze in ASP.NET Core, vedere [inserimento delle dipendenze](xref:fundamentals/dependency-injection).
 
 ## <a name="serving-static-files"></a>Gestione dei file statici
+
 Una parte importante dello sviluppo Web è la possibilità di distribuire asset statici sul lato client. Gli esempi più comuni di file statici sono HTML, CSS, Javascript e immagini. Questi file devono essere salvati nella posizione di pubblicazione dell'app (o della rete CDN) con riferimenti che ne consentano il caricamento da parte di una richiesta. Questo processo è stato modificato in ASP.NET Core.
 
 In ASP.NET i file statici vengono archiviati in directory diverse e viene fatto riferimento ai file nelle viste.
@@ -147,7 +149,7 @@ In ASP.NET Core i file statici vengono archiviati nella "radice Web" (*&lt;radic
 
 Ad esempio, un asset immagine nella cartella *wwwroot/images* è accessibile al browser in corrispondenza di una posizione come `http://<app>/images/<imageFileName>`.
 
-**Nota:** per la documentazione più dettagliata di gestione dei file statici in ASP.NET Core, vedere [file statici](xref:fundamentals/static-files).
+**Nota:** per informazioni più dettagliate sulla gestione dei file statici in ASP.NET Core, vedere [i file statici](xref:fundamentals/static-files).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

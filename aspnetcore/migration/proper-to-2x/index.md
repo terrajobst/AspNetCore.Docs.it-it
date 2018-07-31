@@ -5,12 +5,12 @@ description: Indicazioni sulla migrazione di app ASP.NET MVC o Web API esistenti
 ms.author: scaddie
 ms.date: 08/27/2017
 uid: migration/proper-to-2x/index
-ms.openlocfilehash: 285f252767e4eacbb6a9ccc50bd98d1916e26bd4
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 2f42ca6f9da8d9941e5bab40afc36c95360c3550
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273508"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342185"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core"></a>Eseguire la migrazione da ASP.NET ad ASP.NET Core
 
@@ -136,7 +136,7 @@ Poiché l'inserimento delle dipendenze fa parte di ASP.NET Core, è possibile ag
 Il repository può essere inserito in qualsiasi posizione, analogamente a Unity.
 
 > [!NOTE]
-> Per un riferimento dettagliato all'inserimento delle dipendenze in ASP.NET Core, vedere [Inserimento delle dipendenze in ASP.NET Core](xref:fundamentals/dependency-injection#replacing-the-default-services-container)
+> Per altre informazioni sull'inserimento delle dipendenze, vedere [Inserimento di dipendenze](xref:fundamentals/dependency-injection).
 
 ## <a name="serve-static-files"></a>Usare i file statici
 
