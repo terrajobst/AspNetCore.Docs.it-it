@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 6/16/2018
 uid: security/authentication/add-user-data
-ms.openlocfilehash: ecd0e6d1c71b24309fab70fbb06af7731463bb0e
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 6f583d65460803c816bf1ccd314216952710cd55
+ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38215935"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39378615"
 ---
 # <a name="add-download-and-delete-custom-user-data-to-identity-in-an-aspnet-core-project"></a>Aggiungere, scaricare ed eliminare dati utente personalizzati all'identità in un progetto ASP.NET Core
 
@@ -61,8 +61,8 @@ dotnet new webapp -o WebApp1
   * Selezionare i file seguenti per eseguire l'override:
     * **Account/Register**
     * **Account/gestire/indice**
-  * Selezionare il **+** per creare un nuovo pulsante **classe contesto dati**. Accettare il tipo (**WebApp1.Models.WebApp1Context** se il progetto è stata denominata **App Web 1**).
-  * Selezionare il **+** per creare un nuovo pulsante **classe utente**. Accettare il tipo (**WebApp1User** se il progetto è stata denominata **App Web 1**) > **Add**.
+  * Selezionare il **+** per creare un nuovo pulsante **classe contesto dati**. Accettare il tipo (**WebApp1.Models.WebApp1Context** se il progetto viene denominato **App Web 1**).
+  * Selezionare il **+** per creare un nuovo pulsante **classe utente**. Accettare il tipo (**WebApp1User** se il progetto viene denominato **App Web 1**) > **Add**.
 * Selezionare **aggiungere**.
 
 # <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)

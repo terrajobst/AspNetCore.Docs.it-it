@@ -8,12 +8,12 @@ ms.date: 02/20/2009
 ms.assetid: 5b033582-1646-42c2-b20d-7edc8814e970
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-1-create-the-application-vb
 msc.type: authoredcontent
-ms.openlocfilehash: aee177164293c178fa7d2d4acfb60f85dc98bb05
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 1a61699ef3ac2936df85ea38cd472ad3f107c070
+ms.sourcegitcommit: a25b572eaed21791230c85416f449f66a405ec19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37803005"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39396127"
 ---
 <a name="iteration-1--create-the-application-vb"></a>Iterazione #1-creare l'applicazione (VB)
 ====================
@@ -36,7 +36,7 @@ Si compilerà l'applicazione a varie iterazioni. A ogni iterazione, abbiamo migl
 
 - Iterazione #3 - aggiungere la convalida dei form. Nella terza iterazione, aggiungiamo la convalida dei form di base. Persone è impedire l'invio di un modulo senza completare i campi del modulo richiesto. È anche convalidare gli indirizzi di posta elettronica e numeri di telefono.
 
-- Iterazione #4 - rendere l'applicazione a regime. In questa terza iterazione, possiamo usufruire dei diversi modelli di progettazione di software per renderne più semplice da gestire e modificare l'applicazione Contact Manager. Ad esempio, è eseguire il refactoring l'applicazione per usare il modello di Repository e il modello di inserimento delle dipendenze.
+- Iterazione #4 - rendere l'applicazione a regime. In questo quarta iterazione, possiamo usufruire dei diversi modelli di progettazione di software per renderne più semplice da gestire e modificare l'applicazione Contact Manager. Ad esempio, è eseguire il refactoring l'applicazione per usare il modello di Repository e il modello di inserimento delle dipendenze.
 
 - Iterazione #5 - creare unit test. Nell'iterazione del quinto, si semplifica l'applicazione di manutenzione e la modifica mediante l'aggiunta di unit test. È simulare le classi di modello di dati e generare unit test per i controller e logica di convalida.
 
@@ -196,8 +196,8 @@ In questa esercitazione verrà usato il Framework di entità di Microsoft per ge
 
 Seguire questi passaggi per creare le classi di modello di dati:
 
-1. La cartella Models nella finestra Esplora soluzioni e scegliere **Aggiungi, elemento nuovo**. Ad esempio, la logica di accesso del database è incorporata destra nelle azioni del controller.
-2. Ciò significa che non è possibile modificare il codice di accesso ai dati senza modificare il controller. In iterazioni successive, vengono illustrati i modelli di progettazione software che è possibile implementare per rendere più resilienti per modificare la gestione di contatto. La procedura guidata Entity Data Model viene visualizzata (vedere la figura 7).
+1. La cartella Models nella finestra Esplora soluzioni e scegliere **Aggiungi, elemento nuovo**. Il **Aggiungi nuovo elemento** viene visualizzata la finestra (vedere la figura 6).
+2. Selezionare il **Data** categoria e il **ADO.NET Entity Data Model** modello. Denominare il modello di dati *ContactManagerModel.edmx* e fare clic sui **Add** pulsante. La procedura guidata Entity Data Model viene visualizzata (vedere la figura 7).
 3. Nel **Scegli contenuto Model** passaggio, seleziona **genera da database** (vedere la figura 7).
 4. Nel **Seleziona connessione dati** passaggio, selezionare il database ContactManagerDB.mdf e immettere il nome *ContactManagerDBEntities* per le impostazioni di connessione Entity (vedere la figura 8).
 5. Nel **Scegli oggetti di Database** passaggio, selezionare la casella di controllo tabelle (vedere la figura 9). Il modello di dati includerà tutte le tabelle contenute nel database (vi è solo una, la tabella Contacts). Immettere lo spazio dei nomi *modelli*. Fare clic sul pulsante Fine per completare la procedura guidata.
