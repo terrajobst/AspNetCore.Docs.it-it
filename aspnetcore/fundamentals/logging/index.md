@@ -5,12 +5,12 @@ description: Informazioni sul framework di registrazione di ASP.NET Core. Inform
 ms.author: tdykstra
 ms.date: 07/24/2018
 uid: fundamentals/logging/index
-ms.openlocfilehash: 5d31c5609c0e98a81d76ce0581f1c63f349d14d0
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: 60777d4f8664b7f02c806abb6ca40a29602d207f
+ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342471"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39378651"
 ---
 # <a name="logging-in-aspnet-core"></a>Registrazione in ASP.NET Core
 
@@ -448,7 +448,7 @@ Il codice seguente abilita gli ambiti per il provider Console:
 > [!NOTE]
 > La configurazione dell'opzione del logger della console `IncludeScopes` è necessaria per abilitare la registrazione basata sull'ambito.
 >
-> Per informazioni sulla configurazione, vedere la sezione [Configurazione](#Configuration).
+> Per informazioni sulla configurazione, vedere la sezione [Configurazione](#configuration).
 
 ::: moniker-end
 
