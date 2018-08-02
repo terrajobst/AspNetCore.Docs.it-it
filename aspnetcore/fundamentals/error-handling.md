@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 07/05/2018
 uid: fundamentals/error-handling
-ms.openlocfilehash: 6aded9525a0abd31dec8441c7fba60d8845c7d93
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.openlocfilehash: d7e60c0f615841461a17b093bffe5fb3f82f8616
+ms.sourcegitcommit: 506a199274e9fe5fb4070b273ba94f29f14cb619
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37938241"
+ms.lasthandoff: 07/28/2018
+ms.locfileid: "39332275"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Gestire gli errori in ASP.NET Core
 
@@ -103,11 +103,11 @@ Un altro metodo accetta un tipo di contenuto e una stringa di formato:
 app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
 ```
 
-Sono disponibili anche metodi di estensione di reindirizzamento e ripetizione dell'esecuzione. Il metodo di reindirizzamento invia un codice di stato *302 - Trovato* al client:
+Sono disponibili anche metodi di estensione di reindirizzamento e ripetizione dell'esecuzione. Il metodo di reindirizzamento invia un codice di stato *302 - Trovato* al client e reindirizza il client al modello di URL di posizione specificato. Il modello può includere un segnaposto `{0}` per il codice di stato. Gli URL che iniziano con `~` vengono fatti precedere dal percorso di base. Un URL che non inizia con `~` viene usato così com'è.
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePagesWithRedirect)]
 
-Il metodo di ripetizione dell'esecuzione restituisce il codice di stato originale al client, ma esegue anche il gestore per l'URL di reindirizzamento:
+Il metodo di riesecuzione restituisce il codice di stato originale al client e specifica che il corpo della risposta deve essere generato rieseguendo la pipeline della richiesta e usando un percorso alternativo. Questo percorso può contenere un segnaposto `{0}` per il codice di stato:
 
 ```csharp
 app.UseStatusCodePagesWithReExecute("/error/{0}");

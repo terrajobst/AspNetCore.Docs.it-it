@@ -3,14 +3,14 @@ title: Routing in ASP.NET Core
 author: ardalis
 description: Descrizione del modo in cui la funzionalità di routing di ASP.NET Core è responsabile del mapping di una richiesta in ingresso a un gestore di route.
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 07/25/2018
 uid: fundamentals/routing
-ms.openlocfilehash: 4482c865671eb4f5decbd5f1cd6e26f2e68e5c25
-ms.sourcegitcommit: e22097b84d26a812cd1380a6b2d12c93e522c125
+ms.openlocfilehash: 19265ac4d19915462c50628061600b1fde04694b
+ms.sourcegitcommit: c8e62aa766641aa55105f7db79cdf2b27a6e5977
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314136"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39254883"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing in ASP.NET Core
 
@@ -73,7 +73,7 @@ Suggerimento: considerare `Values` come un set di override per `AmbientValues`. 
 
 L'output di `GetVirtualPath` è un oggetto `VirtualPathData`. `VirtualPathData` è parallelo di `RouteData`, contiene `VirtualPath` per l'URL di output e alcune proprietà aggiuntive che devono essere impostate dalla route.
 
-La proprietà `VirtualPathData.VirtualPath` contiene il *percorso virtuale* prodotto dalla route. On base alle esigenze specifiche può essere necessario elaborare ulteriormente il percorso. Ad esempio, per eseguire il rendering in HTML dell'URL generato, è necessario anteporre il percorso di base dell'applicazione.
+La proprietà `VirtualPathData.VirtualPath` contiene il *percorso virtuale* prodotto dalla route. In base alle esigenze specifiche, può essere necessario elaborare ulteriormente il percorso. Ad esempio, per eseguire il rendering in HTML dell'URL generato, è necessario anteporre il percorso di base dell'applicazione.
 
 `VirtualPathData.Router` è un riferimento alla route che ha generato correttamente l'URL.
 
@@ -322,26 +322,33 @@ La tabella seguente illustra alcuni vincoli di route con il relativo comportamen
 | `regex(expression)` | `{ssn:regex(^\\d{{3}}-\\d{{2}}-\\d{{4}}$)}` | `123-45-6789` | La stringa deve corrispondere all'espressione regolare (vedere i suggerimenti per la definizione di un'espressione regolare) |
 | `required`  | `{name:required}` | `Rick` |  Usato per imporre che un valore diverso da un parametro sia presente durante la generazione dell'URL |
 
+Più vincoli delimitati da punti possono essere applicati a un singolo parametro. Ad esempio il vincolo seguente limita un parametro a un valore intero maggiore o uguale a 1:
+
+```csharp
+[Route("users/{id:int:min(1)}")]
+public User GetUserById(int id) { }
+```
+
 >[!WARNING]
 > I vincoli di route che verificano l'URL possono essere convertiti in un tipo CLR, ad esempio `int` o `DateTime`, usano sempre le impostazioni cultura inglese non dipendenti da paese/area geografica, presupponendo che l'URL sia non localizzabile. I vincoli di route specificati dal framework non modificano i valori archiviati nei valori di route. Tutti i valori di route analizzati dall'URL vengono archiviati come stringhe. Ad esempio, il [vincolo di route Float](https://github.com/aspnet/Routing/blob/1.0.0/src/Microsoft.AspNetCore.Routing/Constraints/FloatRouteConstraint.cs#L44-L60) tenterà di convertire il valore di route in un valore float, ma il valore convertito viene usato solo per verificare che può essere convertito in un valore float.
 
-## <a name="regular-expressions"></a>Espressioni regolari 
+## <a name="regular-expressions"></a>Espressioni regolari
 
 Il framework di ASP.NET Core aggiunge `RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant` al costruttore di espressioni regolari. Vedere l'articolo sull'[enumerazione RegexOptions](/dotnet/api/system.text.regularexpressions.regexoptions) per una descrizione di questi membri.
 
-Le espressioni regolari usano delimitatori e token simili a quelli usati dal routing e dal linguaggio C#. Per i token di espressione è necessario aggiungere caratteri di escape. Ad esempio, per usare l'espressione regolare `^\d{3}-\d{2}-\d{4}$` nel routing, è necessario digitare i caratteri `\` come `\\` nel file di origine C# per eseguire l'escape del carattere di escape `\` della stringa, a meno che non si usino [valori letterali stringa verbatim](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/string). Raddoppiare i caratteri `{`, `}`, '[' e ']' per eseguire l'escape dei caratteri di delimitazione dei parametri di routing.  Nella tabella che segue sono riportate due espressioni regolari con la relativa versione dopo l'escape.
+Le espressioni regolari usano delimitatori e token simili a quelli usati dal routing e dal linguaggio C#. Per i token di espressione è necessario aggiungere caratteri di escape. Ad esempio, per usare l'espressione regolare `^\d{3}-\d{2}-\d{4}$` nel routing, è necessario digitare i caratteri `\` come `\\` nel file di origine C# per eseguire l'escape del carattere di escape `\` della stringa, a meno che non si usino [valori letterali stringa verbatim](/dotnet/csharp/language-reference/keywords/string). Raddoppiare i caratteri `{`, `}`, '[' e ']' per eseguire l'escape dei caratteri di delimitazione dei parametri di routing.  Nella tabella che segue sono riportate due espressioni regolari con la relativa versione dopo l'escape.
 
 | Espressione               | Nota |
-| ----------------- | ------------ | 
+| ----------------- | ------------ |
 | `^\d{3}-\d{2}-\d{4}$` | Espressione regolare |
 | `^\\d{{3}}-\\d{{2}}-\\d{{4}}$` | Con caratteri di escape  |
 | `^[a-z]{2}$` | Espressione regolare |
 | `^[[a-z]]{{2}}$` | Con caratteri di escape  |
 
-Le espressioni regolari usate nel routing spesso iniziano con il carattere `^` (corrispondenza con la posizione iniziale della stringa) e terminano con il carattere `$` (corrispondenza con la posizione finale della stringa). I caratteri `^` e `$` consentono di verificare che l'espressione regolare corrisponda all'intero valore del parametro di route. Senza i caratteri `^` e `$` l'espressione regolare corrisponderà a qualsiasi sottostringa all'interno della stringa e spesso questo non è il risultato previsto. La tabella seguente illustra alcuni esempi e spiega perché si verifica o non si verifica la corrispondenza.
+Le espressioni regolari usate nel routing spesso iniziano con il carattere `^` (corrispondenza con la posizione iniziale della stringa) e terminano con il carattere `$` (corrispondenza con la posizione finale della stringa). I caratteri `^` e `$` consentono di verificare che l'espressione regolare corrisponda all'intero valore del parametro di route. Senza i caratteri `^` e `$` l'espressione regolare corrisponderà a qualsiasi sottostringa all'interno della stringa e spesso questo non è il risultato desiderato. La tabella seguente illustra alcuni esempi e spiega perché si verifica o non si verifica la corrispondenza.
 
 | Espressione               | Stringa | Corrispondenza con | Commento |
-| ----------------- | ------------ |  ------------ |  ------------ | 
+| ----------------- | ------------ |  ------------ |  ------------ |
 | `[a-z]{2}` | hello | sì | corrispondenze di sottostringhe |
 | `[a-z]{2}` | 123abc456 | sì | corrispondenze di sottostringhe |
 | `[a-z]{2}` | mz | sì | corrisponde all'espressione |

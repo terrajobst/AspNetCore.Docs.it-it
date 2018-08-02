@@ -5,12 +5,12 @@ description: In questa esercitazione si aggiungono altre entità e relazioni e s
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 6888df174e92ab2ddf8add7b8927250be320bff8
-ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
+ms.openlocfilehash: 88d727b0545f1dacb56ea889e45b02f947867b19
+ms.sourcegitcommit: 6425baa92cec4537368705f8d27f3d0e958e43cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39202653"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39220599"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Modello di dati - 5 di 8
 
@@ -400,7 +400,7 @@ Se le regole business richiedevano che la proprietà `InstructorID` fosse non nu
 
 Il codice precedente disabilita l'eliminazione a catena per la relazione reparto-insegnante.
 
-## <a name="update-the-enrollment-entityupdate-the-enrollment-entity"></a>Aggiornare l'entità Enrollment (Iscrizione)Aggiornare l'entità Enrollment (Iscrizione)
+## <a name="update-the-enrollment-entity"></a>Aggiornare l'entità Enrollment
 
 Un record di iscrizione è relativo a un solo corso frequentato da un solo studente.
 

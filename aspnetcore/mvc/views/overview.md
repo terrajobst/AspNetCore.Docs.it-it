@@ -5,12 +5,12 @@ description: Informazioni su come le visualizzazioni gestiscono la presentazione
 ms.author: riande
 ms.date: 12/12/2017
 uid: mvc/views/overview
-ms.openlocfilehash: 4d5cb6288711cdef145ebb0b52e4e645c535bdf2
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 276540a5d77b1d65119d1b2104508d77f45d5588
+ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278349"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219368"
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Visualizzazioni in ASP.NET Core MVC
 
@@ -124,14 +124,14 @@ Passare i dati alle visualizzazioni usando diversi approcci:
 
 * Dati fortemente tipizzati: viewmodel
 * Dati con tipizzazione debole
-  - `ViewData` (`ViewDataAttribute`)
-  - `ViewBag`
+  * `ViewData` (`ViewDataAttribute`)
+  * `ViewBag`
 
 ### <a name="strongly-typed-data-viewmodel"></a>Dati fortemente tipizzati: (viewmodel)
 
 L'approccio più efficace consiste nello specificare un tipo di [modello](xref:mvc/models/model-binding) nella visualizzazione. Questo modello è comunemente noto come *viewmodel*. Un'istanza del tipo viewmodel viene passato alla visualizzazione dall'azione.
 
-L'uso di un viewmodel per passare i dati a una visualizzazione consente a quest'ultima di trarre vantaggio dal controllo con tipizzazione *forte*. L'espressione *tipizzazione forte* o *fortemente tipizzato* indica che ogni variabile e costante ha un tipo definito in modo esplicito, ad esempio, `string`, `int` o `DateTime`. La validità dei tipi usati in una visualizzazione viene verificata in fase di compilazione.
+L'uso di un viewmodel per passare i dati a una visualizzazione consente a quest'ultima di trarre vantaggio dal controllo con tipizzazione *forte*. L'espressione *tipizzazione forte* o *fortemente tipizzato* indica che ogni variabile e costante ha un tipo definito in modo esplicito, ad esempio `string`, `int` o `DateTime`. La validità dei tipi usati in una visualizzazione viene verificata in fase di compilazione.
 
 In [Visual Studio](https://www.visualstudio.com/vs/) e [Visual Studio Code](https://code.visualstudio.com/) i membri delle classi fortemente tipizzati vengono elencati usando una funzionalità denominata [IntelliSense](/visualstudio/ide/using-intellisense). Per visualizzare le proprietà di un elemento viewmodel, digitare il nome della variabile per l'elemento viewmodel seguito da un punto (`.`). Ciò consente di scrivere il codice più velocemente con un minor numero di errori.
 
@@ -192,7 +192,7 @@ Nulla impedisce di usare le stesse classi per i tipi viewmodel e i tipi del mode
 
 `ViewBag` *non è disponibile in Razor Pages.*
 
-Oltre alle visualizzazioni fortemente tipizzate, le visualizzazioni hanno accesso a una raccolta di dati *con tipizzazione debole* o *debolmente tipizzata*. A differenza della tipizzazione forte, la *tipizzazione debole*, o l'espressione *debolmente tipizzato*, indica che il tipo di dati in uso non viene dichiarato in modo esplicito. È possibile usare la raccolta di dati con tipizzazione debole per passare piccole quantità di dati da e verso i controller e le visualizzazioni.
+Oltre alle visualizzazioni fortemente tipizzate, le visualizzazioni hanno accesso a una raccolta di dati *con tipizzazione debole* o *debolmente tipizzati*. A differenza della tipizzazione forte, la *tipizzazione debole*, o l'espressione *debolmente tipizzato*, indica che il tipo di dati in uso non viene dichiarato in modo esplicito. È possibile usare la raccolta di dati con tipizzazione debole per passare piccole quantità di dati da e verso i controller e le visualizzazioni.
 
 | Passaggio dei dati tra...                        | Esempio                                                                        |
 | ------------------------------------------------- | ------------------------------------------------------------------------------ |
@@ -247,6 +247,7 @@ Lavorare con i dati in una visualizzazione:
 ```
 
 ::: moniker range=">= aspnetcore-2.1"
+
 **Attributo ViewData**
 
 Un altro approccio che usa [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) è [ViewDataAttribute](/dotnet/api/microsoft.aspnetcore.mvc.viewdataattribute). I valori delle proprietà nei controller o nei modelli Razor Page decorate con `[ViewData]` vengono archiviati e caricati dal dizionario.
@@ -284,6 +285,7 @@ Nel layout il titolo viene letto dal dizionario ViewData:
     <title>@ViewData["Title"] - WebApplication</title>
     ...
 ```
+
 ::: moniker-end
 
 **ViewBag**
