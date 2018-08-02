@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/30/2018
 uid: test/integration-tests
-ms.openlocfilehash: 2a5adafd30aeca163063ea76857378e97163d0b9
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: 8d304397fb7f218b395374c2b8c696fef9d9f8ad
+ms.sourcegitcommit: 571d76fbbff05e84406b6d909c8fe9cbea2c8ff1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342081"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39410182"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Test di integrazione in ASP.NET Core
 
@@ -209,6 +209,56 @@ clientOptions.HandleCookies = true;
 clientOptions.MaxAutomaticRedirections = 7;
 
 _client = _factory.CreateClient(clientOptions);
+```
+
+## <a name="inject-mock-services"></a>Inserire servizi fittizi
+
+I servizi possono essere sostituiti in un test con una chiamata a [ConfigureTestServices](/dotnet/api/microsoft.aspnetcore.testhost.webhostbuilderextensions.configuretestservices) nel generatore di host. **Per inserire servizi fittizi, è necessario disporre di SUT una `Startup` classe con un `Startup.ConfigureServices` (metodo).**
+
+L'esempio SUT include un servizio con ambito che restituisce un'offerta. L'offerta è incorporato in un campo nascosto nella pagina di indice quando viene richiesta la pagina di indice.
+
+*Services/IQuoteService.cs*:
+
+[!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/src/RazorPagesProject/Services/IQuoteService.cs?name=snippet1)]
+
+*Services/QuoteService.cs*:
+
+[!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/src/RazorPagesProject/Services/QuoteService.cs?name=snippet1)]
+
+*Startup.cs*:
+
+[!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/src/RazorPagesProject/Startup.cs?name=snippet2)]
+
+*Pages/Index.cshtml.cs*:
+
+[!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/src/RazorPagesProject/Pages/Index.cshtml.cs?name=snippet1&highlight=4,9,20,26)]
+
+*Pages/Index.cs*:
+
+[!code-cshtml[](integration-tests/samples/2.x/IntegrationTestsSample/src/RazorPagesProject/Pages/Index.cshtml?name=snippet_Quote)]
+
+Il markup seguente viene generato quando viene eseguita l'app SUT:
+
+```html
+<input id="quote" type="hidden" value="Come on, Sarah. We&#x27;ve an appointment in 
+    London, and we&#x27;re already 30,000 years late.">
+```
+
+Per testare l'inserimento del servizio e delle virgolette in un test di integrazione, un servizio fittizio viene inserito nel SUT per il test. Il servizio fittizio sostituisce l'app `QuoteService` con un servizio fornito dall'app di test, denominato `TestQuoteService`:
+
+*IntegrationTests.IndexPageTests.cs*:
+
+[!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/IndexPageTests.cs?name=snippet4)]
+
+`ConfigureTestServices` viene chiamato, e viene registrato il servizio con ambito:
+
+[!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/IndexPageTests.cs?name=snippet5&highlight=7-10,17,20-21)]
+
+Il markup generato durante l'esecuzione del test corrisponde al testo offerta fornito da `TestQuoteService`, pertanto i passaggi di asserzione:
+
+```html
+<input id="quote" type="hidden" value="Something&#x27;s interfering with time, 
+    Mr. Scarman, and time is my business.">
 ```
 
 ## <a name="how-the-test-infrastructure-infers-the-app-content-root-path"></a>Come l'infrastruttura di test viene dedotto il percorso radice del contenuto dell'app
