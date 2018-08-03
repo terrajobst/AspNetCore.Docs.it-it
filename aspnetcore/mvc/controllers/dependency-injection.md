@@ -5,12 +5,12 @@ description: Informazioni su come i controller ASP.NET Core MVC richiedono le pr
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: 23c91a4363223a135c50ceca51e6af22ed69fe3b
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 9dec9807e8fc2883144b2da518f36a7eb8ddc871
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276451"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342133"
 ---
 # <a name="dependency-injection-into-controllers-in-aspnet-core"></a>Inserimento di dipendenze in controller in ASP.NET Core
 
@@ -74,7 +74,7 @@ InvalidOperationException: Multiple constructors accepting all given argument ty
 Microsoft.Extensions.DependencyInjection.ActivatorUtilities.FindApplicableConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfo& matchingConstructor, Nullable`1[]& parameterMap)
 ```
 
-Come indicato nel messaggio di errore, è possibile correggere il problema mantenendo un unico costruttore. È anche possibile [sostituire il supporto dell'inserimento di dipendenze predefinito con un'implementazione di terze parti](../../fundamentals/dependency-injection.md#replacing-the-default-services-container). Molte di queste implementazioni supportano più costruttori.
+Come indicato nel messaggio di errore, è possibile correggere questo problema usando un unico costruttore. È anche possibile [sostituire il contenitore di inserimento delle dipendenze predefinito con un'implementazione di terze parti](xref:fundamentals/dependency-injection#default-service-container-replacement). Molte di queste implementazioni supportano più costruttori.
 
 ## <a name="action-injection-with-fromservices"></a>Inserimento di azioni con FromServices
 
