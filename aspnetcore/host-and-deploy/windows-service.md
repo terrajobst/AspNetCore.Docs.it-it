@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/04/2018
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 4fd0cc881eff3b1bbdfdf51e223d0fd42051c31d
-ms.sourcegitcommit: 516d0645c35ea784a3ae807be087ae70446a46ee
+ms.openlocfilehash: 4aded0b87ca14a5c09844cc378efb1ac0c12a289
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39320739"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342156"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Ospitare ASP.NET Core in un servizio Windows
 
@@ -82,7 +82,7 @@ Le modifiche minime seguenti sono necessarie per configurare un progetto ASP.NET
 
      ::: moniker-end
 
-1. Pubblicare l'app. Usare [dotnet publish](/dotnet/articles/core/tools/dotnet-publish) o un [profilo di pubblicazione di Visual Studio](xref:host-and-deploy/visual-studio-publish-profiles).
+1. Pubblicare l'app. Usare [dotnet publish](/dotnet/articles/core/tools/dotnet-publish) o un [profilo di pubblicazione di Visual Studio](xref:host-and-deploy/visual-studio-publish-profiles). Quando si usa Visual Studio, selezionare **FolderProfile**.
 
    Per pubblicare l'app di esempio dalla riga di comando, eseguire il comando seguente in una finestra della console dalla cartella di progetto:
 
@@ -96,16 +96,19 @@ Le modifiche minime seguenti sono necessarie per configurare un progetto ASP.NET
    sc create <SERVICE_NAME> binPath= "<PATH_TO_SERVICE_EXECUTABLE>"
    ```
 
-   Per creare un servizio pubblicato nella cartella del progetto, usare il percorso della cartella *publish*. Nell'esempio seguente il servizio è:
+   Per creare un servizio pubblicato nella cartella del progetto, usare il percorso della cartella *publish*. Nell'esempio seguente:
 
-   * **MyService** denominato.
-   * Pubblicato nella cartella *c:\\my_services\\AspNetCoreService\\bin\\Release\\&lt;TARGET_FRAMEWORK&gt;\\publish*.
-   * Rappresentato da un eseguibile dell'app denominato *AspNetCoreService.exe*.
+   * Il progetto si trova nella cartella `c:\my_services\AspNetCoreService`.
+   * Il progetto viene pubblicato nella configurazione `Release`.
+   * Il moniker framework di destinazione (TFM) è `netcoreapp2.1`.
+   * L'identificatore relativo (RID) è `win7-x64`.
+   * L'eseguibile dell'app è denominato *AspNetCoreService.exe*.
+   * Il servizio è denominato **MyService**.
 
-   Aprire una shell comandi con privilegi amministrativi ed eseguire il comando seguente:
+   Esempio:
 
    ```console
-   sc create MyService binPath= "c:\my_services\AspNetCoreService\bin\Release\<TARGET_FRAMEWORK>\publish\AspNetCoreService.exe"
+   sc create MyService binPath= "c:\my_services\AspNetCoreService\bin\Release\netcoreapp2.1\win7-x64\publish\AspNetCoreService.exe"
    ```
    
    > [!IMPORTANT]
@@ -113,7 +116,7 @@ Le modifiche minime seguenti sono necessarie per configurare un progetto ASP.NET
    
    Per pubblicare e avviare il servizio da una cartella diversa:
    
-   1. Usare l'opzione [--output &lt;OUTPUT_DIRECTORY&gt;](/dotnet/core/tools/dotnet-publish#options) sul comando `dotnet publish`.
+      1. Usare l'opzione [--output &lt;OUTPUT_DIRECTORY&gt;](/dotnet/core/tools/dotnet-publish#options) sul comando `dotnet publish`. Se si usa Visual Studio, configurare il **Percorso di destinazione** nella pagina delle proprietà di pubblicazione **FolderProfile** prima di selezionare il pulsante **Pubblica**.
    1. Creare il servizio con il comando `sc.exe` usando il percorso della cartella di output. Includere il nome dell'eseguibile del servizio nel percorso fornito a `binPath`.
 
 1. Avviare il servizio con il comando `sc start <SERVICE_NAME>`.
