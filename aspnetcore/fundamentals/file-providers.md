@@ -1,154 +1,268 @@
 ---
 title: Provider di file in ASP.NET Core
-author: ardalis
+author: guardrex
 description: Informazioni su come ASP.NET Core astrae l'accesso al file system tramite l'utilizzo di provider di file.
 ms.author: riande
-ms.date: 02/14/2017
+ms.custom: mvc
+ms.date: 08/01/2018
 uid: fundamentals/file-providers
-ms.openlocfilehash: 0d356322ea9f4cc2caead81746bf9ede4a87923f
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 512229cfe7d7efdcd9050fa13dbdbf793be29a0b
+ms.sourcegitcommit: 571d76fbbff05e84406b6d909c8fe9cbea2c8ff1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276240"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39410156"
 ---
-# <a name="file-providers-in-aspnet-core"></a><span data-ttu-id="c7758-103">Provider di file in ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="c7758-103">File Providers in ASP.NET Core</span></span>
+# <a name="file-providers-in-aspnet-core"></a><span data-ttu-id="9a53b-103">Provider di file in ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="9a53b-103">File Providers in ASP.NET Core</span></span>
 
-<span data-ttu-id="c7758-104">[Steve Smith](https://ardalis.com/)</span><span class="sxs-lookup"><span data-stu-id="c7758-104">By [Steve Smith](https://ardalis.com/)</span></span>
+<span data-ttu-id="9a53b-104">Di [Steve Smith](https://ardalis.com/) e [Luke Latham](https://github.com/guardrex)</span><span class="sxs-lookup"><span data-stu-id="9a53b-104">By [Steve Smith](https://ardalis.com/) and [Luke Latham](https://github.com/guardrex)</span></span>
 
-<span data-ttu-id="c7758-105">ASP.NET Core astrae l'accesso al file system tramite l'utilizzo di provider di file.</span><span class="sxs-lookup"><span data-stu-id="c7758-105">ASP.NET Core abstracts file system access through the use of File Providers.</span></span>
+<span data-ttu-id="9a53b-105">ASP.NET Core astrae l'accesso al file system tramite l'utilizzo di provider di file.</span><span class="sxs-lookup"><span data-stu-id="9a53b-105">ASP.NET Core abstracts file system access through the use of File Providers.</span></span> <span data-ttu-id="9a53b-106">I provider di file vengono usati in tutto il framework di ASP.NET Core:</span><span class="sxs-lookup"><span data-stu-id="9a53b-106">File Providers are used throughout the ASP.NET Core framework:</span></span>
 
-<span data-ttu-id="c7758-106">[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/file-providers/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))</span><span class="sxs-lookup"><span data-stu-id="c7758-106">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/file-providers/sample) ([how to download](xref:tutorials/index#how-to-download-a-sample))</span></span>
+* <span data-ttu-id="9a53b-107">[IHostingEnvironment](/dotnet/api/microsoft.extensions.hosting.ihostingenvironment) espone la radice del contenuto dell'app e la radice Web come tipi `IFileProvider`.</span><span class="sxs-lookup"><span data-stu-id="9a53b-107">[IHostingEnvironment](/dotnet/api/microsoft.extensions.hosting.ihostingenvironment) exposes the app's content root and web root as `IFileProvider` types.</span></span>
+* <span data-ttu-id="9a53b-108">Il [middleware dei file statici](xref:fundamentals/static-files) usa i provider di file per individuare i file statici.</span><span class="sxs-lookup"><span data-stu-id="9a53b-108">[Static Files Middleware](xref:fundamentals/static-files) uses File Providers to locate static files.</span></span>
+* <span data-ttu-id="9a53b-109">[Razor](xref:mvc/views/razor) usa i provider di file per individuare pagine e viste.</span><span class="sxs-lookup"><span data-stu-id="9a53b-109">[Razor](xref:mvc/views/razor) uses File Providers to locate pages and views.</span></span>
+* <span data-ttu-id="9a53b-110">Gli strumenti .NET Core usano i provider di file e i criteri GLOB per specificare i file da pubblicare.</span><span class="sxs-lookup"><span data-stu-id="9a53b-110">.NET Core tooling uses File Providers and glob patterns to specify which files should be published.</span></span>
 
-## <a name="file-provider-abstractions"></a><span data-ttu-id="c7758-107">Astrazioni dei provider di file</span><span class="sxs-lookup"><span data-stu-id="c7758-107">File Provider abstractions</span></span>
+<span data-ttu-id="9a53b-111">[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/file-providers/samples) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))</span><span class="sxs-lookup"><span data-stu-id="9a53b-111">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/file-providers/samples) ([how to download](xref:tutorials/index#how-to-download-a-sample))</span></span>
 
-<span data-ttu-id="c7758-108">I provider di file sono astrazioni dei file system.</span><span class="sxs-lookup"><span data-stu-id="c7758-108">File Providers are an abstraction over file systems.</span></span> <span data-ttu-id="c7758-109">L'interfaccia principale è `IFileProvider`.</span><span class="sxs-lookup"><span data-stu-id="c7758-109">The main interface is `IFileProvider`.</span></span> <span data-ttu-id="c7758-110">`IFileProvider` espone metodi per ottenere informazioni sui file (`IFileInfo`) e informazioni sulle directory (`IDirectoryContents`) e per impostare le notifiche di modifica (usando `IChangeToken`).</span><span class="sxs-lookup"><span data-stu-id="c7758-110">`IFileProvider` exposes methods to get file information (`IFileInfo`), directory information (`IDirectoryContents`), and to set up change notifications (using an `IChangeToken`).</span></span>
+## <a name="file-provider-interfaces"></a><span data-ttu-id="9a53b-112">Interfacce del provider di file</span><span class="sxs-lookup"><span data-stu-id="9a53b-112">File Provider interfaces</span></span>
 
-<span data-ttu-id="c7758-111">`IFileInfo` offre metodi e proprietà relative a singoli file o directory.</span><span class="sxs-lookup"><span data-stu-id="c7758-111">`IFileInfo` provides methods and properties about individual files or directories.</span></span> <span data-ttu-id="c7758-112">Ha due proprietà booleane, `Exists` e `IsDirectory`, e proprietà che descrivono `Name`, `Length` (in byte) e data `LastModified` del file.</span><span class="sxs-lookup"><span data-stu-id="c7758-112">It has two boolean properties, `Exists` and `IsDirectory`, as well as properties describing the file's `Name`, `Length` (in bytes), and `LastModified` date.</span></span> <span data-ttu-id="c7758-113">È possibile leggere dal file usando il relativo metodo `CreateReadStream`.</span><span class="sxs-lookup"><span data-stu-id="c7758-113">You can read from the file using its `CreateReadStream` method.</span></span>
+<span data-ttu-id="9a53b-113">L'interfaccia primaria è [IFileProvider](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider).</span><span class="sxs-lookup"><span data-stu-id="9a53b-113">The primary interface is [IFileProvider](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider).</span></span> <span data-ttu-id="9a53b-114">`IFileProvider` espone metodi per:</span><span class="sxs-lookup"><span data-stu-id="9a53b-114">`IFileProvider` exposes methods to:</span></span>
 
-## <a name="file-provider-implementations"></a><span data-ttu-id="c7758-114">Implementazioni dei provider di file</span><span class="sxs-lookup"><span data-stu-id="c7758-114">File Provider implementations</span></span>
+* <span data-ttu-id="9a53b-115">Ottenere informazioni sui file ([IFileInfo](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo)).</span><span class="sxs-lookup"><span data-stu-id="9a53b-115">Obtain file information ([IFileInfo](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo)).</span></span>
+* <span data-ttu-id="9a53b-116">Ottenere informazioni sulla directory ([IDirectoryContents](/dotnet/api/microsoft.extensions.fileproviders.idirectorycontents)).</span><span class="sxs-lookup"><span data-stu-id="9a53b-116">Obtain directory information ([IDirectoryContents](/dotnet/api/microsoft.extensions.fileproviders.idirectorycontents)).</span></span>
+* <span data-ttu-id="9a53b-117">Configurare le notifiche di modifica (usando un [IChangeToken](/dotnet/api/microsoft.extensions.primitives.ichangetoken)).</span><span class="sxs-lookup"><span data-stu-id="9a53b-117">Set up change notifications (using an [IChangeToken](/dotnet/api/microsoft.extensions.primitives.ichangetoken)).</span></span>
 
-<span data-ttu-id="c7758-115">Sono disponibili tre implementazioni di `IFileProvider`: fisica, incorporata e composita.</span><span class="sxs-lookup"><span data-stu-id="c7758-115">Three implementations of `IFileProvider` are available: Physical, Embedded, and Composite.</span></span> <span data-ttu-id="c7758-116">Il provider fisico consente di accedere ai file del sistema.</span><span class="sxs-lookup"><span data-stu-id="c7758-116">The physical provider is used to access the actual system's files.</span></span> <span data-ttu-id="c7758-117">Il provider incorporato consente di accedere ai file incorporati negli assembly.</span><span class="sxs-lookup"><span data-stu-id="c7758-117">The embedded provider is used to access files embedded in assemblies.</span></span> <span data-ttu-id="c7758-118">Il provider composito consente di offrire un accesso combinato a file e directory da uno o più provider.</span><span class="sxs-lookup"><span data-stu-id="c7758-118">The composite provider is used to provide combined access to files and directories from one or more other providers.</span></span>
+<span data-ttu-id="9a53b-118">`IFileInfo` fornisce metodi e proprietà per l'uso di file:</span><span class="sxs-lookup"><span data-stu-id="9a53b-118">`IFileInfo` provides methods and properties for working with files:</span></span>
 
-### <a name="physicalfileprovider"></a><span data-ttu-id="c7758-119">PhysicalFileProvider</span><span class="sxs-lookup"><span data-stu-id="c7758-119">PhysicalFileProvider</span></span>
+* [<span data-ttu-id="9a53b-119">Exists</span><span class="sxs-lookup"><span data-stu-id="9a53b-119">Exists</span></span>](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo.exists)
+* [<span data-ttu-id="9a53b-120">IsDirectory</span><span class="sxs-lookup"><span data-stu-id="9a53b-120">IsDirectory</span></span>](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo.isdirectory)
+* [<span data-ttu-id="9a53b-121">Nome</span><span class="sxs-lookup"><span data-stu-id="9a53b-121">Name</span></span>](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo.name)
+* <span data-ttu-id="9a53b-122">[Length](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo.length) (in byte)</span><span class="sxs-lookup"><span data-stu-id="9a53b-122">[Length](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo.length) (in bytes)</span></span>
+* <span data-ttu-id="9a53b-123">Data [LastModified](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo.lastmodified)</span><span class="sxs-lookup"><span data-stu-id="9a53b-123">[LastModified](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo.lastmodified) date</span></span>
 
-<span data-ttu-id="c7758-120">`PhysicalFileProvider` consente di accedere al file system fisico.</span><span class="sxs-lookup"><span data-stu-id="c7758-120">The `PhysicalFileProvider` provides access to the physical file system.</span></span> <span data-ttu-id="c7758-121">Esegue il wrapping del tipo `System.IO.File` (per il provider fisico), definendo l'ambito di tutti i percorsi in una directory e nei relativi elementi figlio.</span><span class="sxs-lookup"><span data-stu-id="c7758-121">It wraps the `System.IO.File` type (for the physical provider), scoping all paths to a directory and its children.</span></span> <span data-ttu-id="c7758-122">La definizione dell'ambito limita l'accesso a una determinata directory e ai relativi elementi figlio impedendo l'accesso al file system che non rientra nel limite.</span><span class="sxs-lookup"><span data-stu-id="c7758-122">This scoping limits access to a certain directory and its children, preventing access to the file system outside of this boundary.</span></span> <span data-ttu-id="c7758-123">Quando si crea un'istanza di questo provider, è necessario specificare il percorso di una directory che viene usato come percorso di base per tutte le richieste effettuate dal provider (e che impedisce l'accesso all'esterno del percorso).</span><span class="sxs-lookup"><span data-stu-id="c7758-123">When instantiating this provider, you must provide it with a directory path, which serves as the base path for all requests made to this provider (and which restricts access outside of this path).</span></span> <span data-ttu-id="c7758-124">In un'app ASP.NET Core è possibile creare direttamente un'istanza di un provider `PhysicalFileProvider` oppure richiedere `IFileProvider` in un controller o un costruttore del servizio tramite l'[inserimento di dipendenze](dependency-injection.md).</span><span class="sxs-lookup"><span data-stu-id="c7758-124">In an ASP.NET Core app, you can instantiate a `PhysicalFileProvider` provider directly, or you can request an `IFileProvider` in a Controller or service's constructor through [dependency injection](dependency-injection.md).</span></span> <span data-ttu-id="c7758-125">Il secondo approccio offre in genere una soluzione più flessibile e verificabile.</span><span class="sxs-lookup"><span data-stu-id="c7758-125">The latter approach will typically yield a more flexible and testable solution.</span></span>
+<span data-ttu-id="9a53b-124">È possibile leggere dal file usando il metodo [IFileInfo.CreateReadStream](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo.createreadstream).</span><span class="sxs-lookup"><span data-stu-id="9a53b-124">You can read from the file using the [IFileInfo.CreateReadStream](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo.createreadstream) method.</span></span>
 
-<span data-ttu-id="c7758-126">L'esempio seguente illustra come creare un provider `PhysicalFileProvider`.</span><span class="sxs-lookup"><span data-stu-id="c7758-126">The sample below shows how to create a `PhysicalFileProvider`.</span></span>
+<span data-ttu-id="9a53b-125">L'app di esempio dimostra come configurare un provider di file in `Startup.ConfigureServices` da usare in tutta l'app tramite [inserimento delle dipendenze](xref:fundamentals/dependency-injection).</span><span class="sxs-lookup"><span data-stu-id="9a53b-125">The sample app demonstrates how to configure a File Provider in `Startup.ConfigureServices` for use throughout the app via [dependency injection](xref:fundamentals/dependency-injection).</span></span>
 
+## <a name="file-provider-implementations"></a><span data-ttu-id="9a53b-126">Implementazioni dei provider di file</span><span class="sxs-lookup"><span data-stu-id="9a53b-126">File Provider implementations</span></span>
+
+<span data-ttu-id="9a53b-127">Sono disponibili tre implementazioni di `IFileProvider`.</span><span class="sxs-lookup"><span data-stu-id="9a53b-127">Three implementations of `IFileProvider` are available.</span></span>
+
+::: moniker range=">= aspnetcore-2.0"
+
+| <span data-ttu-id="9a53b-128">Implementazione</span><span class="sxs-lookup"><span data-stu-id="9a53b-128">Implementation</span></span> | <span data-ttu-id="9a53b-129">Descrizione</span><span class="sxs-lookup"><span data-stu-id="9a53b-129">Description</span></span> |
+| -------------- | ----------- |
+| [<span data-ttu-id="9a53b-130">PhysicalFileProvider</span><span class="sxs-lookup"><span data-stu-id="9a53b-130">PhysicalFileProvider</span></span>](#physicalfileprovider) | <span data-ttu-id="9a53b-131">Il provider fisico viene usato per accedere ai file fisici del sistema.</span><span class="sxs-lookup"><span data-stu-id="9a53b-131">The physical provider is used to access the system's physical files.</span></span> |
+| [<span data-ttu-id="9a53b-132">ManifestEmbeddedFileProvider</span><span class="sxs-lookup"><span data-stu-id="9a53b-132">ManifestEmbeddedFileProvider</span></span>](#manifestembeddedfileprovider) | <span data-ttu-id="9a53b-133">Il provider incorporato nel manifesto viene usato per accedere ai file incorporati negli assembly.</span><span class="sxs-lookup"><span data-stu-id="9a53b-133">The manifest embedded provider is used to access files embedded in assemblies.</span></span> |
+| [<span data-ttu-id="9a53b-134">CompositeFileProvider</span><span class="sxs-lookup"><span data-stu-id="9a53b-134">CompositeFileProvider</span></span>](#compositefileprovider) | <span data-ttu-id="9a53b-135">Il provider composito consente di offrire un accesso combinato a file e directory da uno o più provider.</span><span class="sxs-lookup"><span data-stu-id="9a53b-135">The composite provider is used to provide combined access to files and directories from one or more other providers.</span></span> |
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+| <span data-ttu-id="9a53b-136">Implementazione</span><span class="sxs-lookup"><span data-stu-id="9a53b-136">Implementation</span></span> | <span data-ttu-id="9a53b-137">Descrizione</span><span class="sxs-lookup"><span data-stu-id="9a53b-137">Description</span></span> |
+| -------------- | ----------- |
+| [<span data-ttu-id="9a53b-138">PhysicalFileProvider</span><span class="sxs-lookup"><span data-stu-id="9a53b-138">PhysicalFileProvider</span></span>](#physicalfileprovider) | <span data-ttu-id="9a53b-139">Il provider fisico viene usato per accedere ai file fisici del sistema.</span><span class="sxs-lookup"><span data-stu-id="9a53b-139">The physical provider is used to access the system's physical files.</span></span> |
+| [<span data-ttu-id="9a53b-140">EmbeddedFileProvider</span><span class="sxs-lookup"><span data-stu-id="9a53b-140">EmbeddedFileProvider</span></span>](#embeddedfileprovider) | <span data-ttu-id="9a53b-141">Il provider incorporato consente di accedere ai file incorporati negli assembly.</span><span class="sxs-lookup"><span data-stu-id="9a53b-141">The embedded provider is used to access files embedded in assemblies.</span></span> |
+| [<span data-ttu-id="9a53b-142">CompositeFileProvider</span><span class="sxs-lookup"><span data-stu-id="9a53b-142">CompositeFileProvider</span></span>](#compositefileprovider) | <span data-ttu-id="9a53b-143">Il provider composito consente di offrire un accesso combinato a file e directory da uno o più provider.</span><span class="sxs-lookup"><span data-stu-id="9a53b-143">The composite provider is used to provide combined access to files and directories from one or more other providers.</span></span> |
+
+::: moniker-end
+
+### <a name="physicalfileprovider"></a><span data-ttu-id="9a53b-144">PhysicalFileProvider</span><span class="sxs-lookup"><span data-stu-id="9a53b-144">PhysicalFileProvider</span></span>
+
+<span data-ttu-id="9a53b-145">[PhysicalFileProvider](/dotnet/api/microsoft.extensions.fileproviders.physicalfileprovider) consente di accedere al file system fisico.</span><span class="sxs-lookup"><span data-stu-id="9a53b-145">The [PhysicalFileProvider](/dotnet/api/microsoft.extensions.fileproviders.physicalfileprovider) provides access to the physical file system.</span></span> <span data-ttu-id="9a53b-146">`PhysicalFileProvider` usa il tipo [System.IO.File](/dotnet/api/system.io.file) (per il provider fisico) e definisce una directory e i relativi elementi figlio come ambito per tutti i percorsi.</span><span class="sxs-lookup"><span data-stu-id="9a53b-146">`PhysicalFileProvider` uses the [System.IO.File](/dotnet/api/system.io.file) type (for the physical provider) and scopes all paths to a directory and its children.</span></span> <span data-ttu-id="9a53b-147">La definizione dell'ambito impedisce l'accesso al file system al di fuori della directory specificata e dei relativi elementi figlio.</span><span class="sxs-lookup"><span data-stu-id="9a53b-147">This scoping prevents access to the file system outside of the specified directory and its children.</span></span> <span data-ttu-id="9a53b-148">Per la creazione di un'istanza di questo provider, è richiesto un percorso di directory che viene usato come percorso di base per tutte le richieste effettuate tramite il provider.</span><span class="sxs-lookup"><span data-stu-id="9a53b-148">When instantiating this provider, a directory path is required and serves as the base path for all requests made using the provider.</span></span> <span data-ttu-id="9a53b-149">È possibile creare direttamente un'istanza di un provider `PhysicalFileProvider` oppure richiedere un `IFileProvider` in un costruttore tramite [inserimento delle dipendenze](xref:fundamentals/dependency-injection).</span><span class="sxs-lookup"><span data-stu-id="9a53b-149">You can instantiate a `PhysicalFileProvider` provider directly, or you can request an `IFileProvider` in a constructor through [dependency injection](xref:fundamentals/dependency-injection).</span></span>
+
+<span data-ttu-id="9a53b-150">**Tipi statici**</span><span class="sxs-lookup"><span data-stu-id="9a53b-150">**Static types**</span></span>
+
+<span data-ttu-id="9a53b-151">Il codice seguente illustra come creare un `PhysicalFileProvider` e usarlo per ottenere il contenuto della directory e informazioni sui file:</span><span class="sxs-lookup"><span data-stu-id="9a53b-151">The following code shows how to create a `PhysicalFileProvider` and use it to obtain directory contents and file information:</span></span>
 
 ```csharp
-IFileProvider provider = new PhysicalFileProvider(applicationRoot);
-IDirectoryContents contents = provider.GetDirectoryContents(""); // the applicationRoot contents
-IFileInfo fileInfo = provider.GetFileInfo("wwwroot/js/site.js"); // a file under applicationRoot
+var provider = new PhysicalFileProvider(applicationRoot);
+var contents = provider.GetDirectoryContents(string.Empty);
+var fileInfo = provider.GetFileInfo("wwwroot/js/site.js");
 ```
 
-<span data-ttu-id="c7758-127">È possibile scorrere i contenuti della directory oppure ottenere le informazioni su un file specifico specificando un sottopercorso.</span><span class="sxs-lookup"><span data-stu-id="c7758-127">You can iterate through its directory contents or get a specific file's information by providing a subpath.</span></span>
+<span data-ttu-id="9a53b-152">Tipi nell'esempio precedente:</span><span class="sxs-lookup"><span data-stu-id="9a53b-152">Types in the preceding example:</span></span>
 
-<span data-ttu-id="c7758-128">Per richiedere un provider da un controller, specificarlo nel costruttore del controller e assegnarlo a un campo locale.</span><span class="sxs-lookup"><span data-stu-id="c7758-128">To request a provider from a controller, specify it in the controller's constructor and assign it to a local field.</span></span> <span data-ttu-id="c7758-129">Usare l'istanza locale dai metodi di azione:</span><span class="sxs-lookup"><span data-stu-id="c7758-129">Use the local instance from your action methods:</span></span>
+* <span data-ttu-id="9a53b-153">`provider` è `IFileProvider`.</span><span class="sxs-lookup"><span data-stu-id="9a53b-153">`provider` is an `IFileProvider`.</span></span>
+* <span data-ttu-id="9a53b-154">`contents` è `IDirectoryContents`.</span><span class="sxs-lookup"><span data-stu-id="9a53b-154">`contents` is an `IDirectoryContents`.</span></span>
+* <span data-ttu-id="9a53b-155">`fileInfo` è `IFileInfo`.</span><span class="sxs-lookup"><span data-stu-id="9a53b-155">`fileInfo` is an `IFileInfo`.</span></span>
 
-[!code-csharp[](file-providers/sample/src/FileProviderSample/Controllers/HomeController.cs?highlight=5,7,12&range=6-19)]
+<span data-ttu-id="9a53b-156">Il provider di file può essere usato per scorrere la directory specificata da `applicationRoot` oppure per chiamare `GetFileInfo` per ottenere informazioni su un file.</span><span class="sxs-lookup"><span data-stu-id="9a53b-156">The File Provider can be used to iterate through the directory specified by `applicationRoot` or call `GetFileInfo` to obtain a file's information.</span></span> <span data-ttu-id="9a53b-157">Il provider di file non ha accesso all'esterno della directory `applicationRoot`.</span><span class="sxs-lookup"><span data-stu-id="9a53b-157">The File Provider has no access outside of the `applicationRoot` directory.</span></span>
 
-<span data-ttu-id="c7758-130">Creare quindi il provider nella classe `Startup` dell'app:</span><span class="sxs-lookup"><span data-stu-id="c7758-130">Then, create the provider in the app's `Startup` class:</span></span>
+<span data-ttu-id="9a53b-158">L'app di esempio crea il provider nella classe `Startup.ConfigureServices` dell'app usando [IHostingEnvironment.ContentRootFileProvider](/dotnet/api/microsoft.extensions.hosting.ihostingenvironment.contentrootfileprovider):</span><span class="sxs-lookup"><span data-stu-id="9a53b-158">The sample app creates the provider in the app's `Startup.ConfigureServices` class using [IHostingEnvironment.ContentRootFileProvider](/dotnet/api/microsoft.extensions.hosting.ihostingenvironment.contentrootfileprovider):</span></span>
 
-[!code-csharp[](file-providers/sample/src/FileProviderSample/Startup.cs?highlight=35,40&range=1-43)]
+```csharp
+var physicalProvider = _env.ContentRootFileProvider;
+```
 
-<span data-ttu-id="c7758-131">Nella visualizzazione *Index.cshtml* scorrere `IDirectoryContents`:</span><span class="sxs-lookup"><span data-stu-id="c7758-131">In the *Index.cshtml* view, iterate through the `IDirectoryContents` provided:</span></span>
+<span data-ttu-id="9a53b-159">**Ottenere i tipi di provider di file con inserimento delle dipendenze**</span><span class="sxs-lookup"><span data-stu-id="9a53b-159">**Obtain File Provider types with dependency injection**</span></span>
 
-[!code-html[](file-providers/sample/src/FileProviderSample/Views/Home/Index.cshtml?highlight=2,7,9,11,15)]
+<span data-ttu-id="9a53b-160">Inserire il provider in un costruttore di classe e assegnarlo a un campo locale.</span><span class="sxs-lookup"><span data-stu-id="9a53b-160">Inject the provider into any class constructor and assign it to a local field.</span></span> <span data-ttu-id="9a53b-161">Usare il campo in tutti i metodi della classe per accedere ai file.</span><span class="sxs-lookup"><span data-stu-id="9a53b-161">Use the field throughout the class's methods to access files.</span></span>
 
-<span data-ttu-id="c7758-132">Il risultato sarà:</span><span class="sxs-lookup"><span data-stu-id="c7758-132">The result:</span></span>
+::: moniker range=">= aspnetcore-2.0"
 
-![Applicazione di esempio di provider di file con elenco dei file fisici e delle cartelle](file-providers/_static/physical-directory-listing.png)
+<span data-ttu-id="9a53b-162">Nell'app di esempio, la classe `IndexModel` riceve un'istanza di `IFileProvider` per ottenere il contenuto della directory per il percorso di base dell'app.</span><span class="sxs-lookup"><span data-stu-id="9a53b-162">In the sample app, the `IndexModel` class receives an `IFileProvider` instance to obtain directory contents for the app's base path.</span></span>
 
-### <a name="embeddedfileprovider"></a><span data-ttu-id="c7758-134">EmbeddedFileProvider</span><span class="sxs-lookup"><span data-stu-id="c7758-134">EmbeddedFileProvider</span></span>
+<span data-ttu-id="9a53b-163">*Pages/Index.cshtml.cs*:</span><span class="sxs-lookup"><span data-stu-id="9a53b-163">*Pages/Index.cshtml.cs*:</span></span>
 
-<span data-ttu-id="c7758-135">`EmbeddedFileProvider` consente di accedere ai file incorporati negli assembly.</span><span class="sxs-lookup"><span data-stu-id="c7758-135">The `EmbeddedFileProvider` is used to access files embedded in assemblies.</span></span> <span data-ttu-id="c7758-136">In .NET Core i file vengono incorporati in un assembly con l'elemento `<EmbeddedResource>` nel file *.csproj*:</span><span class="sxs-lookup"><span data-stu-id="c7758-136">In .NET Core, you embed files in an assembly with the `<EmbeddedResource>` element in the *.csproj* file:</span></span>
+[!code-csharp[](file-providers/samples/2.x/FileProviderSample/Pages/Index.cshtml.cs?name=snippet1)]
 
-[!code-json[](file-providers/sample/src/FileProviderSample/FileProviderSample.csproj?range=13-18)]
+<span data-ttu-id="9a53b-164">Viene eseguita l'iterazione di `IDirectoryContents` nella pagina.</span><span class="sxs-lookup"><span data-stu-id="9a53b-164">The `IDirectoryContents` are iterated in the page.</span></span>
 
-<span data-ttu-id="c7758-137">Durante la specifica dei file da incorporare nell'assembly è possibile usare [criteri GLOB](#globbing-patterns).</span><span class="sxs-lookup"><span data-stu-id="c7758-137">You can use [globbing patterns](#globbing-patterns) when specifying files to embed in the assembly.</span></span> <span data-ttu-id="c7758-138">Questi criteri possono essere usati per cercare uno o più file.</span><span class="sxs-lookup"><span data-stu-id="c7758-138">These patterns can be used to match one or more files.</span></span>
+<span data-ttu-id="9a53b-165">*Pages/Index.cshtml*:</span><span class="sxs-lookup"><span data-stu-id="9a53b-165">*Pages/Index.cshtml*:</span></span>
+
+[!code-cshtml[](file-providers/samples/2.x/FileProviderSample/Pages/Index.cshtml?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+<span data-ttu-id="9a53b-166">Nell'app di esempio, la classe `HomeController` riceve un'istanza di `IFileProvider` per ottenere il contenuto della directory per il percorso di base dell'app.</span><span class="sxs-lookup"><span data-stu-id="9a53b-166">In the sample app, the `HomeController` class receives an `IFileProvider` instance to obtain directory contents for the app's base path.</span></span>
+
+<span data-ttu-id="9a53b-167">*Controllers/HomeController.cs*:</span><span class="sxs-lookup"><span data-stu-id="9a53b-167">*Controllers/HomeController.cs*:</span></span>
+
+[!code-csharp[](file-providers/samples/1.x/FileProviderSample/Controllers/HomeController.cs?name=snippet1)]
+
+<span data-ttu-id="9a53b-168">Viene eseguita l'iterazione di `IDirectoryContents` nella vista.</span><span class="sxs-lookup"><span data-stu-id="9a53b-168">The `IDirectoryContents` are iterated in the view.</span></span>
+
+<span data-ttu-id="9a53b-169">*Views/Home/Index.cshtml*:</span><span class="sxs-lookup"><span data-stu-id="9a53b-169">*Views/Home/Index.cshtml*:</span></span>
+
+[!code-cshtml[](file-providers/samples/1.x/FileProviderSample/Views/Home/Index.cshtml?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.0"
+
+### <a name="manifestembeddedfileprovider"></a><span data-ttu-id="9a53b-170">ManifestEmbeddedFileProvider</span><span class="sxs-lookup"><span data-stu-id="9a53b-170">ManifestEmbeddedFileProvider</span></span>
+
+<span data-ttu-id="9a53b-171">[ManifestEmbeddedFileProvider](/dotnet/api/microsoft.extensions.fileproviders.manifestembeddedfileprovider) viene usato per accedere ai file incorporati negli assembly.</span><span class="sxs-lookup"><span data-stu-id="9a53b-171">The [ManifestEmbeddedFileProvider](/dotnet/api/microsoft.extensions.fileproviders.manifestembeddedfileprovider) is used to access files embedded within assemblies.</span></span> <span data-ttu-id="9a53b-172">`ManifestEmbeddedFileProvider` usa un manifesto compilato nell'assembly per ricostruire i percorsi originali dei file incorporati.</span><span class="sxs-lookup"><span data-stu-id="9a53b-172">The `ManifestEmbeddedFileProvider` uses a manifest compiled into the assembly to reconstruct the original paths of the embedded files.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="c7758-139">È improbabile che si voglia incorporare ogni file con estensione js nel progetto nel relativo assembly; l'esempio precedente è solo a scopo dimostrativo.</span><span class="sxs-lookup"><span data-stu-id="c7758-139">It's unlikely you would ever want to actually embed every .js file in your project in its assembly; the above sample is for demo purposes only.</span></span>
+> <span data-ttu-id="9a53b-173">`ManifestEmbeddedFileProvider` è disponibile in ASP.NET Core 2.1 o versioni successive.</span><span class="sxs-lookup"><span data-stu-id="9a53b-173">The `ManifestEmbeddedFileProvider` is available in ASP.NET Core 2.1 or later.</span></span> <span data-ttu-id="9a53b-174">Per accedere ai file incorporati negli assembly di ASP.NET Core 2.0 o versioni precedenti, vedere la [versione per ASP.NET Core 1.x di questo argomento](xref:fundamentals/file-providers?view=aspnetcore-1.1).</span><span class="sxs-lookup"><span data-stu-id="9a53b-174">To access files embedded in assemblies in ASP.NET Core 2.0 or earlier, see the [ASP.NET Core 1.x version of this topic](xref:fundamentals/file-providers?view=aspnetcore-1.1).</span></span>
 
-<span data-ttu-id="c7758-140">Quando si crea un provider `EmbeddedFileProvider`, passare l'assembly che verrà letto al relativo costruttore.</span><span class="sxs-lookup"><span data-stu-id="c7758-140">When creating an `EmbeddedFileProvider`, pass the assembly it will read to its constructor.</span></span>
+<span data-ttu-id="9a53b-175">Per generare un manifesto dei file incorporati, impostare la proprietà `<GenerateEmbeddedFilesManifest>` su `true`.</span><span class="sxs-lookup"><span data-stu-id="9a53b-175">To generate a manifest of the embedded files, set the `<GenerateEmbeddedFilesManifest>` property to `true`.</span></span> <span data-ttu-id="9a53b-176">Specificare i file da incorporare con [&lt;EmbeddedResource&gt;](/dotnet/core/tools/csproj#default-compilation-includes-in-net-core-projects):</span><span class="sxs-lookup"><span data-stu-id="9a53b-176">Specify the files to embed with [&lt;EmbeddedResource&gt;](/dotnet/core/tools/csproj#default-compilation-includes-in-net-core-projects):</span></span>
+
+[!code-csharp[](file-providers/samples/2.x/FileProviderSample/FileProviderSample.csproj?highlight=5,13)]
+
+<span data-ttu-id="9a53b-177">Usare [modelli GLOB](#glob-patterns) per specificare uno o più file da incorporare nell'assembly.</span><span class="sxs-lookup"><span data-stu-id="9a53b-177">Use [glob patterns](#glob-patterns) to specify one or more files to embed into the assembly.</span></span>
+
+<span data-ttu-id="9a53b-178">L'app di esempio crea un `ManifestEmbeddedFileProvider` e passa l'assembly attualmente in esecuzione al rispettivo costruttore.</span><span class="sxs-lookup"><span data-stu-id="9a53b-178">The sample app creates an `ManifestEmbeddedFileProvider` and passes the currently executing assembly to its constructor.</span></span>
+
+<span data-ttu-id="9a53b-179">*Startup.cs*:</span><span class="sxs-lookup"><span data-stu-id="9a53b-179">*Startup.cs*:</span></span>
+
+```csharp
+var manifestEmbeddedProvider = 
+    new ManifestEmbeddedFileProvider(Assembly.GetEntryAssembly());
+```
+
+<span data-ttu-id="9a53b-180">Overload aggiuntivi consentono di:</span><span class="sxs-lookup"><span data-stu-id="9a53b-180">Additional overloads allow you to:</span></span>
+
+* <span data-ttu-id="9a53b-181">Specificare un percorso di file relativo.</span><span class="sxs-lookup"><span data-stu-id="9a53b-181">Specify a relative file path.</span></span>
+* <span data-ttu-id="9a53b-182">Definire la data dell'ultima modifica come ambito dei file.</span><span class="sxs-lookup"><span data-stu-id="9a53b-182">Scope files to a last modified date.</span></span>
+* <span data-ttu-id="9a53b-183">Assegnare un nome alla risorsa incorporata contenente il manifesto dei file incorporati.</span><span class="sxs-lookup"><span data-stu-id="9a53b-183">Name the embedded resource containing the embedded file manifest.</span></span>
+
+| <span data-ttu-id="9a53b-184">Overload</span><span class="sxs-lookup"><span data-stu-id="9a53b-184">Overload</span></span> | <span data-ttu-id="9a53b-185">Descrizione</span><span class="sxs-lookup"><span data-stu-id="9a53b-185">Description</span></span> |
+| -------- | ----------- |
+| [<span data-ttu-id="9a53b-186">ManifestEmbeddedFileProvider(Assembly, String)</span><span class="sxs-lookup"><span data-stu-id="9a53b-186">ManifestEmbeddedFileProvider(Assembly, String)</span></span>](/dotnet/api/microsoft.extensions.fileproviders.manifestembeddedfileprovider.-ctor#Microsoft_Extensions_FileProviders_ManifestEmbeddedFileProvider__ctor_System_Reflection_Assembly_System_String_) | <span data-ttu-id="9a53b-187">Accetta un parametro di percorso relativo `root` facoltativo.</span><span class="sxs-lookup"><span data-stu-id="9a53b-187">Accepts an optional `root` relative path parameter.</span></span> <span data-ttu-id="9a53b-188">Specificare `root` per definire come ambito delle chiamate a [GetDirectoryContents](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider.getdirectorycontents) le risorse incluse nel percorso specificato.</span><span class="sxs-lookup"><span data-stu-id="9a53b-188">Specify the `root` to scope calls to [GetDirectoryContents](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider.getdirectorycontents) to those resources under the provided path.</span></span> |
+| [<span data-ttu-id="9a53b-189">ManifestEmbeddedFileProvider(Assembly, String, DateTimeOffset)</span><span class="sxs-lookup"><span data-stu-id="9a53b-189">ManifestEmbeddedFileProvider(Assembly, String, DateTimeOffset)</span></span>](/dotnet/api/microsoft.extensions.fileproviders.manifestembeddedfileprovider.-ctor#Microsoft_Extensions_FileProviders_ManifestEmbeddedFileProvider__ctor_System_Reflection_Assembly_System_String_System_DateTimeOffset_) | <span data-ttu-id="9a53b-190">Accetta un parametro di percorso relativo `root` facoltativo e un parametro di data `lastModified` ([DateTimeOffset](/dotnet/api/system.datetimeoffset)).</span><span class="sxs-lookup"><span data-stu-id="9a53b-190">Accepts an optional `root` relative path parameter and a `lastModified` date ([DateTimeOffset](/dotnet/api/system.datetimeoffset)) parameter.</span></span> <span data-ttu-id="9a53b-191">La data `lastModified` definisce la data dell'ultima modifica come ambito per le istanze [IFileInfo](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo) restituite da [IFileProvider](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider).</span><span class="sxs-lookup"><span data-stu-id="9a53b-191">The `lastModified` date scopes the last modification date for the [IFileInfo](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo) instances returned by the [IFileProvider](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider).</span></span> |
+| [<span data-ttu-id="9a53b-192">ManifestEmbeddedFileProvider(Assembly, String, String, DateTimeOffset)</span><span class="sxs-lookup"><span data-stu-id="9a53b-192">ManifestEmbeddedFileProvider(Assembly, String, String, DateTimeOffset)</span></span>](/dotnet/api/microsoft.extensions.fileproviders.manifestembeddedfileprovider.-ctor#Microsoft_Extensions_FileProviders_ManifestEmbeddedFileProvider__ctor_System_Reflection_Assembly_System_String_System_String_System_DateTimeOffset_) | <span data-ttu-id="9a53b-193">Accetta un parametro di percorso relativo `root` facoltativo, un parametro di data `lastModified` e il parametro `manifestName`.</span><span class="sxs-lookup"><span data-stu-id="9a53b-193">Accepts an optional `root` relative path, `lastModified` date, and `manifestName` parameters.</span></span> <span data-ttu-id="9a53b-194">`manifestName` rappresenta il nome della risorsa incorporata contenente il manifesto.</span><span class="sxs-lookup"><span data-stu-id="9a53b-194">The `manifestName` represents the name of the embedded resource containing the manifest.</span></span> |
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+### <a name="embeddedfileprovider"></a><span data-ttu-id="9a53b-195">EmbeddedFileProvider</span><span class="sxs-lookup"><span data-stu-id="9a53b-195">EmbeddedFileProvider</span></span>
+
+<span data-ttu-id="9a53b-196">[EmbeddedFileProvider](/dotnet/api/microsoft.extensions.fileproviders.embeddedfileprovider) viene usato per accedere ai file incorporati negli assembly.</span><span class="sxs-lookup"><span data-stu-id="9a53b-196">The [EmbeddedFileProvider](/dotnet/api/microsoft.extensions.fileproviders.embeddedfileprovider) is used to access files embedded within assemblies.</span></span> <span data-ttu-id="9a53b-197">Specificare i file da incorporare con la proprietà [&lt;EmbeddedResource&gt;](/dotnet/core/tools/csproj#default-compilation-includes-in-net-core-projects) nel file di progetto:</span><span class="sxs-lookup"><span data-stu-id="9a53b-197">Specify the files to embed with the [&lt;EmbeddedResource&gt;](/dotnet/core/tools/csproj#default-compilation-includes-in-net-core-projects) property in the project file:</span></span>
+
+```xml
+<ItemGroup>
+  <EmbeddedResource Include="Resource.txt" />
+</ItemGroup>
+```
+
+<span data-ttu-id="9a53b-198">Usare [modelli GLOB](#glob-patterns) per specificare uno o più file da incorporare nell'assembly.</span><span class="sxs-lookup"><span data-stu-id="9a53b-198">Use [glob patterns](#glob-patterns) to specify one or more files to embed into the assembly.</span></span>
+
+<span data-ttu-id="9a53b-199">L'app di esempio crea un `EmbeddedFileProvider` e passa l'assembly attualmente in esecuzione al rispettivo costruttore.</span><span class="sxs-lookup"><span data-stu-id="9a53b-199">The sample app creates an `EmbeddedFileProvider` and passes the currently executing assembly to its constructor.</span></span>
+
+<span data-ttu-id="9a53b-200">*Startup.cs*:</span><span class="sxs-lookup"><span data-stu-id="9a53b-200">*Startup.cs*:</span></span>
 
 ```csharp
 var embeddedProvider = new EmbeddedFileProvider(Assembly.GetEntryAssembly());
 ```
 
-<span data-ttu-id="c7758-141">Il frammento di codice precedente illustra come creare un provider `EmbeddedFileProvider` con accesso all'assembly attualmente in esecuzione.</span><span class="sxs-lookup"><span data-stu-id="c7758-141">The snippet above demonstrates how to create an `EmbeddedFileProvider` with access to the currently executing assembly.</span></span>
+<span data-ttu-id="9a53b-201">Le risorse incorporate non espongono le directory.</span><span class="sxs-lookup"><span data-stu-id="9a53b-201">Embedded resources don't expose directories.</span></span> <span data-ttu-id="9a53b-202">Il percorso della risorsa (tramite il relativo spazio dei nomi) viene invece incorporato nel nome file usando i separatori `.`.</span><span class="sxs-lookup"><span data-stu-id="9a53b-202">Rather, the path to the resource (via its namespace) is embedded in its filename using `.` separators.</span></span> <span data-ttu-id="9a53b-203">Nell'app di esempio, `baseNamespace` è `FileProviderSample.`.</span><span class="sxs-lookup"><span data-stu-id="9a53b-203">In the sample app, the `baseNamespace` is `FileProviderSample.`.</span></span>
 
-<span data-ttu-id="c7758-142">L'aggiornamento dell'app di esempio per l'uso di un provider `EmbeddedFileProvider` produce l'output seguente:</span><span class="sxs-lookup"><span data-stu-id="c7758-142">Updating the sample app to use an `EmbeddedFileProvider` results in the following output:</span></span>
+<span data-ttu-id="9a53b-204">Il costruttore [EmbeddedFileProvider(Assembly, String)](/dotnet/api/microsoft.extensions.fileproviders.embeddedfileprovider.-ctor#Microsoft_Extensions_FileProviders_EmbeddedFileProvider__ctor_System_Reflection_Assembly_) accetta un parametro `baseNamespace` facoltativo.</span><span class="sxs-lookup"><span data-stu-id="9a53b-204">The [EmbeddedFileProvider(Assembly, String)](/dotnet/api/microsoft.extensions.fileproviders.embeddedfileprovider.-ctor#Microsoft_Extensions_FileProviders_EmbeddedFileProvider__ctor_System_Reflection_Assembly_) constructor accepts an optional `baseNamespace` parameter.</span></span> <span data-ttu-id="9a53b-205">Specificare lo spazio dei nomi di base per definire come ambito delle chiamate a [GetDirectoryContents](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider.getdirectorycontents) le risorse incluse nello spazio dei nomi specificato.</span><span class="sxs-lookup"><span data-stu-id="9a53b-205">Specify the base namespace to scope calls to [GetDirectoryContents](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider.getdirectorycontents) to those resources under the provided namespace.</span></span>
 
-![Applicazione di esempio di provider di file con elenco dei file incorporati](file-providers/_static/embedded-directory-listing.png)
+::: moniker-end
 
-> [!NOTE]
-> <span data-ttu-id="c7758-144">Le risorse incorporate non espongono le directory.</span><span class="sxs-lookup"><span data-stu-id="c7758-144">Embedded resources don't expose directories.</span></span> <span data-ttu-id="c7758-145">Il percorso della risorsa (tramite il relativo spazio dei nomi) viene invece incorporato nel nome file usando i separatori `.`.</span><span class="sxs-lookup"><span data-stu-id="c7758-145">Rather, the path to the resource (via its namespace) is embedded in its filename using `.` separators.</span></span>
+### <a name="compositefileprovider"></a><span data-ttu-id="9a53b-206">CompositeFileProvider</span><span class="sxs-lookup"><span data-stu-id="9a53b-206">CompositeFileProvider</span></span>
 
-> [!TIP]
-> <span data-ttu-id="c7758-146">Il costruttore `EmbeddedFileProvider` accetta un parametro `baseNamespace` facoltativo.</span><span class="sxs-lookup"><span data-stu-id="c7758-146">The `EmbeddedFileProvider` constructor accepts an optional `baseNamespace` parameter.</span></span> <span data-ttu-id="c7758-147">Questa specifica determinerà la definizione di un ambito delle chiamate a `GetDirectoryContents` corrispondente alle risorse appartenenti allo spazio dei nomi specificato.</span><span class="sxs-lookup"><span data-stu-id="c7758-147">Specifying this will scope calls to `GetDirectoryContents` to those resources under the provided namespace.</span></span>
+<span data-ttu-id="9a53b-207">[CompositeFileProvider](/dotnet/api/microsoft.extensions.fileproviders.compositefileprovider) combina le istanze di `IFileProvider` esponendo una singola interfaccia per l'utilizzo dei file da più provider.</span><span class="sxs-lookup"><span data-stu-id="9a53b-207">The [CompositeFileProvider](/dotnet/api/microsoft.extensions.fileproviders.compositefileprovider) combines `IFileProvider` instances, exposing a single interface for working with files from multiple providers.</span></span> <span data-ttu-id="9a53b-208">Quando si crea `CompositeFileProvider`, passare una o più istanze `IFileProvider` al relativo costruttore.</span><span class="sxs-lookup"><span data-stu-id="9a53b-208">When creating the `CompositeFileProvider`, pass one or more `IFileProvider` instances to its constructor.</span></span>
 
-### <a name="compositefileprovider"></a><span data-ttu-id="c7758-148">CompositeFileProvider</span><span class="sxs-lookup"><span data-stu-id="c7758-148">CompositeFileProvider</span></span>
+::: moniker range=">= aspnetcore-2.0"
 
-<span data-ttu-id="c7758-149">`CompositeFileProvider` combina le istanze `IFileProvider` esponendo una sola interfaccia per l'uso dei file di più provider.</span><span class="sxs-lookup"><span data-stu-id="c7758-149">The `CompositeFileProvider` combines `IFileProvider` instances, exposing a single interface for working with files from multiple providers.</span></span> <span data-ttu-id="c7758-150">Quando si crea il provider `CompositeFileProvider`, si passano una o più istanze `IFileProvider` al relativo costruttore:</span><span class="sxs-lookup"><span data-stu-id="c7758-150">When creating the `CompositeFileProvider`, you pass one or more `IFileProvider` instances to its constructor:</span></span>
+<span data-ttu-id="9a53b-209">Nell'app di esempio, un `PhysicalFileProvider` e un `ManifestEmbeddedFileProvider` forniscono i file a un `CompositeFileProvider` registrato nel contenitore dei servizi dell'app:</span><span class="sxs-lookup"><span data-stu-id="9a53b-209">In the sample app, a `PhysicalFileProvider` and a `ManifestEmbeddedFileProvider` provide files to a `CompositeFileProvider` registered in the app's service container:</span></span>
 
-[!code-csharp[](file-providers/sample/src/FileProviderSample/Startup.cs?highlight=3&range=35-37)]
+[!code-csharp[](file-providers/samples/2.x/FileProviderSample/Startup.cs?name=snippet1)]
 
-<span data-ttu-id="c7758-151">L'aggiornamento dell'app di esempio per l'uso di un provider `CompositeFileProvider` che include i provider fisici e i provider incorporati definiti in precedenza produce l'output seguente:</span><span class="sxs-lookup"><span data-stu-id="c7758-151">Updating the sample app to use a `CompositeFileProvider` that includes both the physical and embedded providers configured previously, results in the following output:</span></span>
+::: moniker-end
 
-![Applicazione di esempio di provider di file con elenco dei file fisici, delle cartelle e dei file incorporati](file-providers/_static/composite-directory-listing.png)
+::: moniker range="< aspnetcore-2.0"
 
-## <a name="watching-for-changes"></a><span data-ttu-id="c7758-153">Controllo per la ricerca di modifiche</span><span class="sxs-lookup"><span data-stu-id="c7758-153">Watching for changes</span></span>
+<span data-ttu-id="9a53b-210">Nell'app di esempio, un `PhysicalFileProvider` e un `EmbeddedFileProvider` forniscono i file a un `CompositeFileProvider` registrato nel contenitore dei servizi dell'app:</span><span class="sxs-lookup"><span data-stu-id="9a53b-210">In the sample app, a `PhysicalFileProvider` and an `EmbeddedFileProvider` provide files to a `CompositeFileProvider` registered in the app's service container:</span></span>
 
-<span data-ttu-id="c7758-154">Il metodo `Watch` di `IFileProvider` consente di controllare uno o più file o directory per la ricerca di modifiche.</span><span class="sxs-lookup"><span data-stu-id="c7758-154">The `IFileProvider` `Watch` method provides a way to watch one or more files or directories for changes.</span></span> <span data-ttu-id="c7758-155">Questo metodo accetta una stringa di percorso in cui è possibile usare [criteri GLOB](#globbing-patterns) per specificare più file e restituisce `IChangeToken`.</span><span class="sxs-lookup"><span data-stu-id="c7758-155">This method accepts a path string, which can use [globbing patterns](#globbing-patterns) to specify multiple files, and returns an `IChangeToken`.</span></span> <span data-ttu-id="c7758-156">Il token espone una proprietà `HasChanged` in cui è possibile eseguire il controllo e un metodo `RegisterChangeCallback` che viene chiamato quando vengono rilevate modifiche nella stringa di percorso specificata.</span><span class="sxs-lookup"><span data-stu-id="c7758-156">This token exposes a `HasChanged` property that can be inspected, and a `RegisterChangeCallback` method that's called when changes are detected to the specified path string.</span></span> <span data-ttu-id="c7758-157">Si noti che ogni token di modifica chiama solo il relativo callback associato in risposta a una singola modifica.</span><span class="sxs-lookup"><span data-stu-id="c7758-157">Note that each change token only calls its associated callback in response to a single change.</span></span> <span data-ttu-id="c7758-158">Per abilitare un monitoraggio continuo, è possibile usare `TaskCompletionSource` come illustrato di seguito oppure ricreare istanze `IChangeToken` in risposta alle modifiche.</span><span class="sxs-lookup"><span data-stu-id="c7758-158">To enable constant monitoring, you can use a `TaskCompletionSource` as shown below, or re-create `IChangeToken` instances in response to changes.</span></span>
+[!code-csharp[](file-providers/samples/1.x/FileProviderSample/Startup.cs?name=snippet1)]
 
-<span data-ttu-id="c7758-159">Nell'esempio di questo articolo viene configurata un'applicazione console in modo che visualizzi un messaggio quando viene modificato un file di testo:</span><span class="sxs-lookup"><span data-stu-id="c7758-159">In this article's sample, a console application is configured to display a message whenever a text file is modified:</span></span>
+::: moniker-end
 
-[!code-csharp[](file-providers/sample/src/WatchConsole/Program.cs?name=snippet1&highlight=1-2,16,19-20)]
+## <a name="watch-for-changes"></a><span data-ttu-id="9a53b-211">Controllo delle modifiche</span><span class="sxs-lookup"><span data-stu-id="9a53b-211">Watch for changes</span></span>
 
-<span data-ttu-id="c7758-160">Dopo aver salvato il file più volte, il risultato è il seguente:</span><span class="sxs-lookup"><span data-stu-id="c7758-160">The result, after saving the file several times:</span></span>
+<span data-ttu-id="9a53b-212">Il metodo [IFileProvider.Watch](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider.watch) consente di controllare uno o più file o directory per il rilevamento delle modifiche.</span><span class="sxs-lookup"><span data-stu-id="9a53b-212">The [IFileProvider.Watch](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider.watch) method provides a scenario to watch one or more files or directories for changes.</span></span> <span data-ttu-id="9a53b-213">`Watch` accetta una stringa di percorso in cui è possibile usare [criteri GLOB](#glob-patterns) per specificare più file.</span><span class="sxs-lookup"><span data-stu-id="9a53b-213">`Watch` accepts a path string, which can use [glob patterns](#glob-patterns) to specify multiple files.</span></span> <span data-ttu-id="9a53b-214">`Watch` restituisce un [IChangeToken](/dotnet/api/microsoft.extensions.primitives.ichangetoken).</span><span class="sxs-lookup"><span data-stu-id="9a53b-214">`Watch` returns an [IChangeToken](/dotnet/api/microsoft.extensions.primitives.ichangetoken).</span></span> <span data-ttu-id="9a53b-215">Il token di modifica espone:</span><span class="sxs-lookup"><span data-stu-id="9a53b-215">The change token exposes:</span></span>
 
-![Finestra di comando dopo l'esecuzione di dotnet run che mostra il controllo del file quotes.txt da parte dell'applicazione e l'individuazione di cinque modifiche.](file-providers/_static/watch-console.png)
+* <span data-ttu-id="9a53b-216">[HasChanged](/dotnet/api/microsoft.extensions.primitives.ichangetoken.haschanged): una proprietà che può essere ispezionata per determinare se è stata modificata.</span><span class="sxs-lookup"><span data-stu-id="9a53b-216">[HasChanged](/dotnet/api/microsoft.extensions.primitives.ichangetoken.haschanged): A property that can be inspected to determine if a change has occurred.</span></span>
+* <span data-ttu-id="9a53b-217">[RegisterChangeCallback](/dotnet/api/microsoft.extensions.primitives.ichangetoken.registerchangecallback): chiamato quando vengono rilevate modifiche alla stringa di percorso specificata.</span><span class="sxs-lookup"><span data-stu-id="9a53b-217">[RegisterChangeCallback](/dotnet/api/microsoft.extensions.primitives.ichangetoken.registerchangecallback): Called when changes are detected to the specified path string.</span></span> <span data-ttu-id="9a53b-218">Ogni token di modifica chiama solo il relativo callback associato in risposta a una singola modifica.</span><span class="sxs-lookup"><span data-stu-id="9a53b-218">Each change token only calls its associated callback in response to a single change.</span></span> <span data-ttu-id="9a53b-219">Per abilitare un monitoraggio continuo, usare [TaskCompletionSource](/dotnet/api/system.threading.tasks.taskcompletionsource-1) come illustrato di seguito oppure ricreare istanze di `IChangeToken` in risposta alle modifiche.</span><span class="sxs-lookup"><span data-stu-id="9a53b-219">To enable constant monitoring, use a [TaskCompletionSource](/dotnet/api/system.threading.tasks.taskcompletionsource-1) (shown below) or recreate `IChangeToken` instances in response to changes.</span></span>
 
-> [!NOTE]
-> <span data-ttu-id="c7758-162">È possibile che alcuni file system, ad esempio i contenitori Docker e le condivisioni di rete, non inviino sempre le notifiche di modifica.</span><span class="sxs-lookup"><span data-stu-id="c7758-162">Some file systems, such as Docker containers and network shares, may not reliably send change notifications.</span></span> <span data-ttu-id="c7758-163">Impostare la variabile di ambiente `DOTNET_USE_POLLINGFILEWATCHER` su `1` o `true` per cercare le modifiche nel file system ogni 4 secondi.</span><span class="sxs-lookup"><span data-stu-id="c7758-163">Set the `DOTNET_USE_POLLINGFILEWATCHER` environment variable to `1` or `true` to poll the file system for changes every 4 seconds.</span></span>
+<span data-ttu-id="9a53b-220">Nell'app di esempio, l'app console *WatchConsole* viene configurata per visualizzare un messaggio quando viene modificato un file di testo:</span><span class="sxs-lookup"><span data-stu-id="9a53b-220">In the sample app, the *WatchConsole* console app is configured to display a message whenever a text file is modified:</span></span>
 
-## <a name="globbing-patterns"></a><span data-ttu-id="c7758-164">Criteri GLOB</span><span class="sxs-lookup"><span data-stu-id="c7758-164">Globbing patterns</span></span>
+::: moniker range=">= aspnetcore-2.0"
 
-<span data-ttu-id="c7758-165">Nei percorsi dei file vengono usati criteri di caratteri jolly chiamati *criteri GLOB*.</span><span class="sxs-lookup"><span data-stu-id="c7758-165">File system paths use wildcard patterns called *globbing patterns*.</span></span> <span data-ttu-id="c7758-166">Questi criteri semplici possono essere usati per specificare gruppi di file.</span><span class="sxs-lookup"><span data-stu-id="c7758-166">These simple patterns can be used to specify groups of files.</span></span> <span data-ttu-id="c7758-167">I due caratteri jolly sono `*` e `**`.</span><span class="sxs-lookup"><span data-stu-id="c7758-167">The two wildcard characters are `*` and `**`.</span></span>
+[!code-csharp[](file-providers/samples/2.x/WatchConsole/Program.cs?name=snippet1&highlight=1-2,16,19-20)]
 
-**`*`**
+::: moniker-end
 
-   <span data-ttu-id="c7758-168">Ricerca qualsiasi elemento a livello della cartella corrente o qualsiasi nome file o estensione di file.</span><span class="sxs-lookup"><span data-stu-id="c7758-168">Matches anything at the current folder level, or any filename, or any file extension.</span></span> <span data-ttu-id="c7758-169">Le corrispondenze vengono terminate con i caratteri `/` e `.` nel percorso dei file.</span><span class="sxs-lookup"><span data-stu-id="c7758-169">Matches are terminated by `/` and `.` characters in the file path.</span></span>
+::: moniker range="< aspnetcore-2.0"
 
-<strong><code>**</code></strong>
+[!code-csharp[](file-providers/samples/1.x/WatchConsole/Program.cs?name=snippet1&highlight=1-2,16,19-20)]
 
-   <span data-ttu-id="c7758-170">Cerca qualsiasi elemento in più livelli di directory.</span><span class="sxs-lookup"><span data-stu-id="c7758-170">Matches anything across multiple directory levels.</span></span> <span data-ttu-id="c7758-171">Può essere usato per cercare in modo ricorsivo numerosi file all'interno di una gerarchia di directory.</span><span class="sxs-lookup"><span data-stu-id="c7758-171">Can be used to recursively match many files within a directory hierarchy.</span></span>
+::: moniker-end
 
-### <a name="globbing-pattern-examples"></a><span data-ttu-id="c7758-172">Esempi di criteri GLOB</span><span class="sxs-lookup"><span data-stu-id="c7758-172">Globbing pattern examples</span></span>
+<span data-ttu-id="9a53b-221">È possibile che alcuni file system, ad esempio i contenitori Docker e le condivisioni di rete, non inviino sempre le notifiche di modifica.</span><span class="sxs-lookup"><span data-stu-id="9a53b-221">Some file systems, such as Docker containers and network shares, may not reliably send change notifications.</span></span> <span data-ttu-id="9a53b-222">Impostare la variabile di ambiente `DOTNET_USE_POLLING_FILE_WATCHER` su `1` o `true` per eseguire il polling delle modifiche nel file system ogni quattro secondi (intervallo non configurabile).</span><span class="sxs-lookup"><span data-stu-id="9a53b-222">Set the `DOTNET_USE_POLLING_FILE_WATCHER` environment variable to `1` or `true` to poll the file system for changes every four seconds (not configurable).</span></span>
 
-**`directory/file.txt`**
+## <a name="glob-patterns"></a><span data-ttu-id="9a53b-223">Modelli GLOB</span><span class="sxs-lookup"><span data-stu-id="9a53b-223">Glob patterns</span></span>
 
-   <span data-ttu-id="c7758-173">Cerca un file specifico in una directory specifica.</span><span class="sxs-lookup"><span data-stu-id="c7758-173">Matches a specific file in a specific directory.</span></span>
+<span data-ttu-id="9a53b-224">Nei percorsi del file system vengono usati criteri con caratteri jolly chiamati *criteri GLOB (o globbing)*.</span><span class="sxs-lookup"><span data-stu-id="9a53b-224">File system paths use wildcard patterns called *glob (or globbing) patterns*.</span></span> <span data-ttu-id="9a53b-225">Specificare gruppi di file con questi criteri.</span><span class="sxs-lookup"><span data-stu-id="9a53b-225">Specify groups of files with these patterns.</span></span> <span data-ttu-id="9a53b-226">I due caratteri jolly sono `*` e `**`:</span><span class="sxs-lookup"><span data-stu-id="9a53b-226">The two wildcard characters are `*` and `**`:</span></span>
 
-**<code>directory/*.txt</code>**
+**`*`**  
+<span data-ttu-id="9a53b-227">Cerca qualsiasi elemento a livello della cartella corrente, qualsiasi nome di file o qualsiasi estensione di file.</span><span class="sxs-lookup"><span data-stu-id="9a53b-227">Matches anything at the current folder level, any filename, or any file extension.</span></span> <span data-ttu-id="9a53b-228">Le corrispondenze vengono terminate con i caratteri `/` e `.` nel percorso dei file.</span><span class="sxs-lookup"><span data-stu-id="9a53b-228">Matches are terminated by `/` and `.` characters in the file path.</span></span>
 
-   <span data-ttu-id="c7758-174">Cerca tutti i file con estensione `.txt` in una directory specifica.</span><span class="sxs-lookup"><span data-stu-id="c7758-174">Matches all files with `.txt` extension in a specific directory.</span></span>
+**`**`**  
+<span data-ttu-id="9a53b-229">Cerca qualsiasi elemento in più livelli di directory.</span><span class="sxs-lookup"><span data-stu-id="9a53b-229">Matches anything across multiple directory levels.</span></span> <span data-ttu-id="9a53b-230">Può essere usato per cercare in modo ricorsivo numerosi file all'interno di una gerarchia di directory.</span><span class="sxs-lookup"><span data-stu-id="9a53b-230">Can be used to recursively match many files within a directory hierarchy.</span></span>
 
-**`directory/*/bower.json`**
+<span data-ttu-id="9a53b-231">**Esempi di criteri GLOB**</span><span class="sxs-lookup"><span data-stu-id="9a53b-231">**Glob pattern examples**</span></span>
 
-   <span data-ttu-id="c7758-175">Cerca tutti i file `bower.json` nelle directory esattamente un livello sotto la directory `directory`.</span><span class="sxs-lookup"><span data-stu-id="c7758-175">Matches all `bower.json` files in directories exactly one level below the `directory` directory.</span></span>
+**`directory/file.txt`**  
+<span data-ttu-id="9a53b-232">Cerca un file specifico in una directory specifica.</span><span class="sxs-lookup"><span data-stu-id="9a53b-232">Matches a specific file in a specific directory.</span></span>
 
-**<code>directory/&#42;&#42;/&#42;.txt</code>**
+**`directory/*.txt`**  
+<span data-ttu-id="9a53b-233">Cerca tutti i file con estensione *txt* in una directory specifica.</span><span class="sxs-lookup"><span data-stu-id="9a53b-233">Matches all files with *.txt* extension in a specific directory.</span></span>
 
-   <span data-ttu-id="c7758-176">Cerca tutti i file con estensione `.txt` che si trovano in qualsiasi posizione nella directory `directory`.</span><span class="sxs-lookup"><span data-stu-id="c7758-176">Matches all files with `.txt` extension found anywhere under the `directory` directory.</span></span>
+**`directory/*/appsettings.json`**  
+<span data-ttu-id="9a53b-234">Cerca tutti i file `appsettings.json` nelle directory esattamente un livello sotto la cartella *directory*.</span><span class="sxs-lookup"><span data-stu-id="9a53b-234">Matches all `appsettings.json` files in directories exactly one level below the *directory* folder.</span></span>
 
-## <a name="file-provider-usage-in-aspnet-core"></a><span data-ttu-id="c7758-177">Utilizzo dei provider di file in ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="c7758-177">File Provider usage in ASP.NET Core</span></span>
-
-<span data-ttu-id="c7758-178">Diverse parti di ASP.NET Core utilizzano i provider di file.</span><span class="sxs-lookup"><span data-stu-id="c7758-178">Several parts of ASP.NET Core utilize file providers.</span></span> <span data-ttu-id="c7758-179">`IHostingEnvironment` espone la radice del contenuto dell'app e la radice Web come tipi `IFileProvider`.</span><span class="sxs-lookup"><span data-stu-id="c7758-179">`IHostingEnvironment` exposes the app's content root and web root as `IFileProvider` types.</span></span> <span data-ttu-id="c7758-180">Il middleware dei file statici usa i provider di file per individuare i file statici.</span><span class="sxs-lookup"><span data-stu-id="c7758-180">The static files middleware uses file providers to locate static files.</span></span> <span data-ttu-id="c7758-181">Razor usa di frequente `IFileProvider` nella ricerca delle visualizzazioni.</span><span class="sxs-lookup"><span data-stu-id="c7758-181">Razor makes heavy use of `IFileProvider` in locating views.</span></span> <span data-ttu-id="c7758-182">La funzionalità di pubblicazione di Dotnet usa i provider di file e i criteri GLOB per specificare i file da pubblicare.</span><span class="sxs-lookup"><span data-stu-id="c7758-182">Dotnet's publish functionality uses file providers and globbing patterns to specify which files should be published.</span></span>
-
-## <a name="recommendations-for-use-in-apps"></a><span data-ttu-id="c7758-183">Suggerimenti per l'uso nelle app</span><span class="sxs-lookup"><span data-stu-id="c7758-183">Recommendations for use in apps</span></span>
-
-<span data-ttu-id="c7758-184">Se l'app ASP.NET Core richiede l'accesso al file system, è possibile richiedere un'istanza di `IFileProvider` tramite l'inserimento di dipendenze e quindi usarne i metodi per eseguire l'accesso, come illustrato nell'esempio.</span><span class="sxs-lookup"><span data-stu-id="c7758-184">If your ASP.NET Core app requires file system access, you can request an instance of `IFileProvider` through dependency injection, and then use its methods to perform the access, as shown in this sample.</span></span> <span data-ttu-id="c7758-185">In questo modo è possibile configurare il provider una sola volta, ovvero all'avvio dell'app, e ridurre il numero di tipi di implementazioni di cui l'app crea un'istanza.</span><span class="sxs-lookup"><span data-stu-id="c7758-185">This allows you to configure the provider once, when the app starts up, and reduces the number of implementation types your app instantiates.</span></span>
+**`directory/**/*.txt`**  
+<span data-ttu-id="9a53b-235">Cerca tutti i file con estensione *txt* che si trovano in qualsiasi posizione nella cartella *directory*.</span><span class="sxs-lookup"><span data-stu-id="9a53b-235">Matches all files with *.txt* extension found anywhere under the *directory* folder.</span></span>
