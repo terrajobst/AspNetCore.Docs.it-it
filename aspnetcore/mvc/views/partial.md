@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/06/2018
 uid: mvc/views/partial
-ms.openlocfilehash: 983f3caae34b21b46d8f556e70673cf3c97abbd3
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.openlocfilehash: 7cb20fc30609adad83cb40e91316da115817f035
+ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37938459"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39378683"
 ---
 # <a name="partial-views-in-aspnet-core"></a>Visualizzazioni parziali in ASP.NET Core
 
 Di [Steve Smith](https://ardalis.com/), [Maher JENDOUBI](https://twitter.com/maherjend), [Rick Anderson](https://twitter.com/RickAndMSFT) e [Scott Sauber](https://twitter.com/scottsauber)
 
-ASP.NET Core MVC supporta le visualizzazioni parziali, utili per la condivisione di parti riutilizzabili di pagine Web tra diverse visualizzazioni.
+ASP.NET Core supporta visualizzazioni parziali. Le visualizzazioni parziali consentono di condividere parti riutilizzabili di pagine Web tra visualizzazioni diverse.
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/partial/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
 
@@ -35,8 +35,7 @@ Le visualizzazioni parziali sono un modo efficace per suddividere le visualizzaz
 
 In una pagina complessa composta da più parti logiche, è utile lavorare con ogni parte come visualizzazione parziale. Ogni parte della pagina può essere visualizzata in modo isolato dal resto della pagina. La visualizzazione della pagina diventa più semplice, poiché contiene solo la struttura generale della pagina e chiamate per il rendering delle visualizzazioni parziali.
 
-> [!TIP]
-> Nelle visualizzazioni seguire il [principio Don't Repeat Yourself](https://deviq.com/don-t-repeat-yourself/).
+I controller MVC di ASP.NET Core includono un metodo [PartialView](/dotnet/api/microsoft.aspnetcore.mvc.controller.partialview#Microsoft_AspNetCore_Mvc_Controller_PartialView) chiamato da un metodo di azione. Per Razor Pages non è disponibile un metodo `PartialView` equivalente.
 
 ## <a name="declare-partial-views"></a>Dichiarare le visualizzazioni parziali
 

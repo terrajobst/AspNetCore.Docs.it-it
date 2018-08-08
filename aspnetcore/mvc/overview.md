@@ -5,12 +5,12 @@ description: Informazioni sul framework avanzato di ASP.NET Core MVC per la crea
 ms.author: riande
 ms.date: 01/08/2018
 uid: mvc/overview
-ms.openlocfilehash: aca34f91e8c7efaa34263ddf830b1662a2518969
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 7f8aab02c0ee37dad49ff224b182ec455e837a7a
+ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272592"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39378638"
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Panoramica di ASP.NET MVC
 
@@ -165,8 +165,7 @@ L'app può inoltre usare l'[inserimento di dipendenze nei file di visualizzazion
 
 ### <a name="filters"></a>Filtri
 
-I [filtri](controllers/filters.md) consentono agli sviluppatori di incapsulare questioni trasversali quali la gestione delle eccezioni o l'autorizzazione. I filtri consentono l'esecuzione di logica pre-elaborazione e post-elaborazione personalizzata per i metodi di azione e possono essere configurati per l'esecuzione in determinate fasi della pipeline di esecuzione per una richiesta specifica. È possibile applicare i filtri ai controller o alle azioni come attributi o eseguirli a livello globale. Il framework include diversi filtri, ad esempio, `Authorize`.
-
+I [filtri](controllers/filters.md) consentono agli sviluppatori di incapsulare questioni trasversali quali la gestione delle eccezioni o l'autorizzazione. I filtri consentono l'esecuzione di logica pre-elaborazione e post-elaborazione personalizzata per i metodi di azione e possono essere configurati per l'esecuzione in determinate fasi della pipeline di esecuzione per una richiesta specifica. È possibile applicare i filtri ai controller o alle azioni come attributi o eseguirli a livello globale. Il framework include diversi filtri, ad esempio, `Authorize`. `[Authorize]` è l'attributo usato per creare filtri di autorizzazione MVC.
 
 ```csharp
 [Authorize]

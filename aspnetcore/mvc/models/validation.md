@@ -3,14 +3,14 @@ title: Convalida del modello in ASP.NET Core MVC
 author: tdykstra
 description: Informazioni sulla convalida del modello in ASP.NET Core MVC.
 ms.author: riande
-ms.date: 12/18/2016
+ms.date: 07/31/2018
 uid: mvc/models/validation
-ms.openlocfilehash: 9c2ba1c1fad3ac077a886b3465142acfd4d639af
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: f407903577e40b6501737ef5b78d90e1e3e60c06
+ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095827"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39378667"
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>Convalida del modello in ASP.NET Core MVC
 
@@ -118,7 +118,7 @@ Perché la convalida lato client sia eseguita come illustrato di seguito,è nece
 
 [!code-cshtml[](validation/sample/Views/Shared/_ValidationScriptsPartial.cshtml)]
 
-Lo script [jQuery Unobtrusive Validation](https://github.com/aspnet/jquery-validation-unobtrusive) è una libreria front-end Microsoft personalizzata che si basa sul noto plug-in [jQuery Validate](https://jqueryvalidation.org/). Senza Query Unobtrusive Validation, sarebbe necessario scrivere il codice della stessa logica di convalida in due posizioni, vale a dire negli attributi di convalida lato server nelle proprietà del modello e nuovamente negli script lato client. Gli esempi del metodo [`validate()`](https://jqueryvalidation.org/validate/) jQuery Validate illustrano quanto sarebbe complessa questa operazione. Invece, grazie agli [helper tag](xref:mvc/views/tag-helpers/intro)e agli [helper HTML](xref:mvc/views/overview) di MVC è possibile usare gli attributi di convalida e i metadati di tipo delle proprietà del modello per eseguire il rendering degli [attributi data-](http://w3c.github.io/html/dom.html#embedding-custom-non-visible-data-with-the-data-attributes) HTML 5 negli elementi del modulo che devono essere convalidati. MVC genera gli attributi `data-` sia per gli attributi predefiniti sia per quelli personalizzati. A questo punto lo script jQuery Unobtrusive Validation analizza gli attributi `data-` e passa la logica a jQuery Validate, "copiando" in modo efficace la logica di convalida lato server nel client. È possibile visualizzare gli errori di convalida nel client tramite gli helper tag rilevanti, come illustrato di seguito:
+Lo script [jQuery Unobtrusive Validation](https://github.com/aspnet/jquery-validation-unobtrusive) è una libreria front-end Microsoft personalizzata che si basa sul noto plug-in [jQuery Validate](https://jqueryvalidation.org/). Senza Query Unobtrusive Validation, sarebbe necessario scrivere il codice della stessa logica di convalida in due posizioni, vale a dire negli attributi di convalida lato server nelle proprietà del modello e nuovamente negli script lato client. Gli esempi del metodo [`validate()`](https://jqueryvalidation.org/validate/) jQuery Validate illustrano quanto sarebbe complessa questa operazione. Invece, grazie agli [helper tag](xref:mvc/views/tag-helpers/intro)e agli [helper HTML](xref:mvc/views/overview) di MVC è possibile usare gli attributi di convalida e i metadati di tipo delle proprietà del modello per eseguire il rendering degli [attributi data-](http://w3c.github.io/html/dom.html#embedding-custom-non-visible-data-with-the-data-attributes) HTML 5 negli elementi del modulo che devono essere convalidati. MVC genera gli attributi `data-` sia per gli attributi predefiniti sia per quelli personalizzati. jQuery Unobtrusive Validation analizza quindi gli attributi `data-` e passa la logica a jQuery Validate, "copiando" in modo efficace la logica di convalida lato server nel client. È possibile visualizzare gli errori di convalida nel client tramite gli helper tag rilevanti, come illustrato di seguito:
 
 [!code-cshtml[](validation/sample/Views/Movies/Create.cshtml?highlight=4,5&range=19-25)]
 
@@ -208,11 +208,11 @@ Gli attributi che implementano questa interfaccia possono aggiungere attributi H
     id="ReleaseDate" name="ReleaseDate" value="" />
 ```
 
-La convalida discreta usa i dati negli attributi `data-` per visualizzare i messaggi di errore. jQuery non riconosce tuttavia le regole o i messaggi finché non vengono aggiunti all'oggetto `validator` di jQuery, come illustrato nell'esempio seguente, nel quale un metodo denominato `classicmovie` contenente codice di convalida client personalizzato viene aggiunto all'oggetto `validator` di jQuery. La descrizione del metodo unobtrusive.adapters.add è disponibile [qui](http://bradwilson.typepad.com/blog/2010/10/mvc3-unobtrusive-validation.html)
+La convalida discreta usa i dati negli attributi `data-` per visualizzare i messaggi di errore. jQuery non riconosce tuttavia le regole o i messaggi finché non vengono aggiunti all'oggetto `validator` di jQuery, Questa operazione è illustrata nell'esempio seguente, che aggiunge una metodo di convalida client `classicmovie` personalizzato all'oggetto jQuery `validator`. Per una spiegazione del metodo `unobtrusive.adapters.add`, vedere [Unobtrusive Client Validation in ASP.NET MVC](http://bradwilson.typepad.com/blog/2010/10/mvc3-unobtrusive-validation.html) (Unobtrusive Client Validation in MVC ASP.NET).
 
-[!code-javascript[](validation/sample/Views/Movies/Create.cshtml?range=71-93)]
+[!code-javascript[](validation/sample/Views/Movies/Create.cshtml?name=snippet_UnobtrusiveValidation)]
 
-A questo punto JQuery possiede le informazioni necessarie per eseguire la convalida personalizzata di JavaScript, nonché il messaggio di errore da visualizzare se il codice di convalida restituisce false.
+Con il codice precedente, il metodo `classicmovie` esegue la convalida lato client alla data di pubblicazione del film. Viene visualizzato il messaggio di errore se il metodo restituisce `false`.
 
 ## <a name="remote-validation"></a>Convalida remota
 
@@ -222,11 +222,14 @@ La convalida remota può essere implementata in un processo a due fasi. Prima di
 
 [!code-csharp[](validation/sample/User.cs?range=7-8)]
 
-Il secondo passaggio prevede l'inserimento di codice di convalida nel metodo di azione corrispondente come definito nell'attributo `[Remote]`. Sulla base di quanto specificato nella documentazione relativa al metodo [`remote()`](https://jqueryvalidation.org/remote-method/) jQuery:
+Il secondo passaggio prevede l'inserimento di codice di convalida nel metodo di azione corrispondente come definito nell'attributo `[Remote]`. In base alla documentazione del metodo [remote](https://jqueryvalidation.org/remote-method/) di jQuery Validate, la risposta del server deve essere una stringa JSON che può essere:
 
-> La risposta lato server deve essere una stringa JSON. Deve essere `"true"` per gli elementi validi e può essere `"false"`, `undefined` o `null` per gli elementi non validi, usando il messaggio di errore predefinito. Se la risposta lato server è ad esempio una stringa di tipo `"That name is already taken, try peter123 instead"`, questa stringa viene visualizzata come messaggio di errore personalizzato anziché predefinito.
+* `"true"` per gli elementi validi.
+* `"false"`, `undefined` o `null` per gli elementi non validi, usando il messaggio di errore predefinito.
 
-La definizione del metodo `VerifyEmail()` segue le regole illustrate di seguito. Restituisce un messaggio di errore di convalida se l'indirizzo di posta elettronica è usato oppure `true` se l'indirizzo è libero, ed esegue il wrapping del risultato in un oggetto `JsonResult`. Il lato client può usare il valore restituito per continuare o visualizzare l'errore se necessario.
+Se la risposta del server è una stringa (ad esempio, `"That name is already taken, try peter123 instead"`), la stringa viene visualizzata come messaggio di errore personalizzato al posto della stringa predefinita.
+
+La definizione del metodo `VerifyEmail` segue le regole illustrate di seguito. Restituisce un messaggio di errore di convalida se l'indirizzo di posta elettronica è usato oppure `true` se l'indirizzo è libero, ed esegue il wrapping del risultato in un oggetto `JsonResult`. Il lato client può usare il valore restituito per continuare o visualizzare l'errore se necessario.
 
 [!code-csharp[](validation/sample/UsersController.cs?range=19-28)]
 
@@ -243,7 +246,7 @@ Non è stato possibile impostare in modo esplicito `AdditionalFields` sulle stri
 A questo punto quando viene immesso un nome e un cognome, JavaScript:
 
 * Effettua una chiamata remota per controllare se la coppia di nomi è stata usata.
-* Se la coppia è stata usata, viene visualizzato un messaggio di errore. 
+* Se la coppia è stata usata, viene visualizzato un messaggio di errore.
 * In caso contrario, l'utente può inviare il modulo.
 
 Se si vuole convalidare due o più campi aggiuntivi con l'attributo `[Remote]`,specificarli sotto forma di elenco delimitato da virgole. Ad esempio, per aggiungere la proprietà `MiddleName` al modello, impostare l'attributo `[Remote]` come illustrato nel codice seguente:
