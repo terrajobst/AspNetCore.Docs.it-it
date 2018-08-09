@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 07/31/2018
 uid: signalr/configuration
-ms.openlocfilehash: 32c0ad94fba09fa099c2ab4a6b1d6d79a5542d7f
-ms.sourcegitcommit: a25b572eaed21791230c85416f449f66a405ec19
+ms.openlocfilehash: eac1202828edbcd295d7e52aa424cd625ee70e34
+ms.sourcegitcommit: 29dfe436f54a27fbb4f6494bc639d16c75001fab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39396062"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722464"
 ---
 # <a name="aspnet-core-signalr-configuration"></a>Configurazione di ASP.NET Core SignalR
 
@@ -234,7 +234,7 @@ Opzioni aggiuntive possono essere configurate nel `WithUrl` (`withUrl` in JavaSc
 | `Credentials` | Non è configurabile * | Empty | Credenziali da inviare con ogni richiesta HTTP. |
 | `CloseTimeout` | Non è configurabile * | 5 secondi | Solo WebSocket. La quantità massima di tempo è in attesa dopo la chiusura per il server confermare la richiesta di chiusura al client. Se il server non riconosciuto alla chiusura entro questo intervallo, il client si disconnette. |
 | `Headers` | Non è configurabile * | Empty | Dizionario di intestazioni HTTP aggiuntive da inviare con ogni richiesta HTTP. |
-| `HttpMessageHandlerFactory` | Non è configurabile * | `null` | Un delegato che può essere utilizzato per configurare o sostituire il `HttpMessageHandler` usato per inviare richieste HTTP. Non è utilizzato per le connessioni di WebSocket. Questo delegato deve restituire un valore diverso da null, e riceve il valore predefinito come parametro. Modificare le impostazioni del valore predefinito e restituirlo o restituire una completamente nuova `HttpMessageHandler` istanza. |
+| `HttpMessageHandlerFactory` | Non è configurabile * | `null` | Un delegato che può essere utilizzato per configurare o sostituire il `HttpMessageHandler` usato per inviare richieste HTTP. Non è utilizzato per le connessioni di WebSocket. Questo delegato deve restituire un valore diverso da null, e riceve il valore predefinito come parametro. Modificare le impostazioni del valore predefinito e restituirlo o restituire un nuovo `HttpMessageHandler` istanza. **Quando si sostituisce il gestore assicurarsi di copiare le impostazioni desiderate per impedire che il gestore fornito, in caso contrario, le opzioni configurate (ad esempio cookie e intestazioni) non si applicano al nuovo gestore.** |
 | `Proxy` | Non è configurabile * | `null` | Un proxy HTTP da usare quando si inviano richieste HTTP. |
 | `UseDefaultCredentials` | Non è configurabile * | `false` | Impostare il valore booleano per inviare le credenziali predefinite per le richieste HTTP e WebSocket. In questo modo l'uso dell'autenticazione di Windows. |
 | `WebSocketConfiguration` | Non è configurabile * | `null` | Delegato che può essere utilizzato per configurare le opzioni aggiuntive di WebSocket. Riceve un'istanza di [ClientWebSocketOptions](/dotnet/api/system.net.websockets.clientwebsocketoptions) che può essere utilizzato per configurare le opzioni. |

@@ -8,12 +8,12 @@ ms.date: 03/28/2008
 ms.assetid: 7f9380c6-19f7-4c82-a019-916ec6dffc9c
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-debugging-capabilities
 msc.type: authoredcontent
-ms.openlocfilehash: 9d420a41f50d06541d04a1dd3cb78a2e6beaaa9a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 95c2487f26109cbdd8c76dc6f269f37264f5e34b
+ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37813828"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39655446"
 ---
 <a name="understanding-aspnet-ajax-debugging-capabilities"></a>Informazioni sulle funzionalità di debug di ASP.NET AJAX
 ====================
@@ -55,8 +55,8 @@ Figura 1 mostra quali di Internet Explorer avanzata della finestra dovrebbe esse
 
 Al termine di debug è stato attivato, si noterà una nuova voce di menu visualizzato nel menu di visualizzazione denominato Debugger di Script. Sono disponibili due opzioni disponibili tra cui Open e interruzione all'istruzione successiva. Quando viene selezionato Open verrà richiesto per eseguire il debug la pagina in Visual Studio 2008 (si noti che Visual Web Developer Express consente inoltre di debug). Se è in esecuzione Visual Studio .NET è possibile scegliere di utilizzare tale istanza o per creare una nuova istanza. Quando viene selezionato l'interruzione all'istruzione successiva verrà richiesto per eseguire il debug della pagina quando viene eseguito il codice JavaScript. Se il codice JavaScript eseguito nell'evento onLoad della pagina è possibile aggiornare la pagina per attivare una sessione di debug. Se il codice JavaScript viene eseguito dopo che un pulsante, il debugger verrà eseguito immediatamente dopo aver scelto il pulsante.
 
-> *> [!NOTE] Se si esegue in Windows Vista con accesso controllo utente (UAC) abilitato e si dispone di Visual Studio 2008, impostato per l'esecuzione come amministratore, Visual Studio non riuscirà a connettersi al processo quando viene richiesto di associare. Per risolvere questo problema, avviare Visual Studio prima di tutto e usare tale istanza per il debug.*
-
+> [!NOTE]
+> Se in esecuzione in Windows Vista con accesso controllo utente (UAC) abilitato e si dispone di Visual Studio 2008, impostato per l'esecuzione come amministratore, Visual Studio non riuscirà a connettersi al processo quando viene richiesto di associare. Per risolvere questo problema, avviare Visual Studio prima di tutto e usare tale istanza per il debug.
 
 Anche se la sezione successiva illustrerà come eseguire il debug di una pagina ASP.NET AJAX direttamente da all'interno di Visual Studio 2008, usando l'opzione del Debugger di Script di Internet Explorer è utile quando una pagina è già aperta e si vuole controllarlo più completo.
 
@@ -98,8 +98,8 @@ Una volta che viene avviata una sessione di debug e di iniziare l'esame del codi
 
 Questa finestra di dialogo viene visualizzato perché Visual Studio .NET non sa come accedere a codice sorgente di alcuni degli script di cui viene fatto riferimento dalla pagina. Ciò può essere piuttosto frustrante inizialmente, è disponibile una semplice correzione. Dopo aver avviato una sessione di debug e raggiungere un punto di interruzione, passare alla finestra di Esplora Script di Windows eseguire il Debug dal menu di Visual Studio 2008 o usare il tasto di scelta rapida Ctrl + Alt + N.
 
-> *> [!NOTE] Se non è possibile visualizzare il menu di Esplora Script elencato, passare a strumenti* *Personalizza* *comandi del menu di Visual Studio .NET. Individuare la voce di Debug nella sezione categorie e farvi clic per visualizzare tutte le voci di menu disponibili. Nella casella comandi, scorrere verso il basso Esplora Script e quindi trascinare il di Debug* *menu Windows indicato in precedenza. Questa operazione renderà la voce di menu di Esplora Script disponibili ogni volta che si esegue Visual Studio .NET.*
-
+> [!NOTE]
+> Se non è possibile visualizzare il menu di Esplora Script elencato, andare al **degli strumenti** > **Personalizza** > **comandi** dal menu di Visual Studio .NET. Individuare il **Debug** voce nelle categorie di sezione e fare clic per visualizzare tutte le voci di menu disponibili. Nella casella comandi, scorrere verso il basso Esplora Script e quindi trascinare il di Windows eseguire il Debug nel menu di scelta indicato in precedenza. Questa operazione renderà la voce di menu di Esplora Script disponibili ogni volta che si esegue Visual Studio .NET.
 
 Esplora Script è utilizzabile per visualizzare tutti gli script usati in una pagina e aprirli in editor del codice. Dopo aver aperto Esplora Script, fare doppio clic nella pagina aspx in fase di debug per aprirlo nella finestra dell'editor di codice. Eseguire la stessa azione per tutti gli altri script mostrato in Esplora Script. Dopo che tutti gli script sono aperti nella finestra del codice è possibile premere F11 (e Usa gli altri tasti di scelta di debug) per esaminare il codice. Figura 3 mostra un esempio di Esplora Script. Elencato il file corrente in fase di debug (Demo.aspx), nonché due script personalizzato e due script inserito in modo dinamico nella pagina da ScriptManager di ASP.NET AJAX.
 

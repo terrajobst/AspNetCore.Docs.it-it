@@ -5,12 +5,12 @@ description: Informazioni su come creare un'app ASP.NET Core con messaggio di po
 ms.author: riande
 ms.date: 7/11/2018
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 84eb3580107572f66f0c3b565b8e76ba401c0ddb
-ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
+ms.openlocfilehash: 3ca6d014245bb2a9bc4b1c90285f47eec7cefe84
+ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219407"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39655472"
 ---
 ::: moniker range="<= aspnetcore-2.0"
 
@@ -78,24 +78,11 @@ Seguire le istruzioni in [abilitare l'autenticazione](xref:security/authenticati
 
 Eseguire l'app, selezionare la **registrare** collegare e registrare un utente. A questo punto, l'unica convalida il messaggio di posta elettronica è con il [[EmailAddress]](/dotnet/api/system.componentmodel.dataannotations.emailaddressattribute) attributo. Dopo aver inviato la registrazione, si è connessi all'app. Più avanti nell'esercitazione, il codice venga aggiornato in modo che i nuovi utenti non possono accedere fino a quando non viene convalidata la posta elettronica.
 
-## <a name="view-the-identity-database"></a>Visualizzare il database di identità
-
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
-
-* Dal **View** dal menu **Esplora oggetti di SQL Server** (SSOX).
-* Passare a **(localdb) MSSQLLocalDB (Server SQL 13)**. Fare clic su **dbo. AspNetUsers** > **consente di visualizzare dati**:
-
-![Menu di scelta rapida nella tabella AspNetUsers in Esplora oggetti di SQL Server](accconfirm/_static/ssox.png)
+[!INCLUDE[](~/includes/view-identity-db.md)]
 
 Si noti la tabella `EmailConfirmed` campo è `False`.
 
 Si potrebbe voler utilizzare nuovamente questo messaggio di posta elettronica nel passaggio successivo, quando l'app invia un messaggio di posta elettronica di conferma. Fare doppio clic sulla riga e selezionare **Elimina**. L'eliminazione di alias di posta elettronica rende più semplice nella procedura seguente.
-
-# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
-
-Visualizzare [utilizzare SQLite in un progetto ASP.NET Core MVC](xref:tutorials/first-mvc-app-xplat/working-with-sql) per istruzioni su come visualizzare i database SQLite.
-
-------
 
 <a name="prevent-login-at-registration"></a>
 ## <a name="require-email-confirmation"></a>Richiedere conferma tramite posta elettronica
@@ -113,8 +100,6 @@ Update *Areas/Identity/IdentityHostingStartup.cs* per richiedere un indirizzo di
 ### <a name="configure-email-provider"></a>Configurare il provider di posta elettronica
 
 In questa esercitazione [SendGrid](https://sendgrid.com) viene usato per inviare posta elettronica. È necessario un account SendGrid e una chiave per l'invio di posta elettronica. È possibile usare altri provider di posta elettronica. ASP.NET Core 2.x include `System.Net.Mail`, pertanto è possibile inviare tramite posta elettronica dall'app. È consigliabile che usare SendGrid o un altro servizio di posta elettronica per inviare posta elettronica. SMTP sono difficili da proteggere e configurato correttamente.
-
-Il [modello di opzioni](xref:fundamentals/configuration/options) viene utilizzato per accedere alle impostazioni account e la chiave dell'utente. Per altre informazioni, vedere [configurazione](xref:fundamentals/configuration/index).
 
 Creare una classe per recuperare la chiave di protezione della posta elettronica. Per questo esempio, creare *Services/AuthMessageSenderOptions.cs*:
 
@@ -143,6 +128,8 @@ Il contenuto del *Secrets* file non vengono crittografati. Il *Secrets* file è 
     "SendGridKey": "<key removed>"
   }
   ```
+ 
+Per altre informazioni, vedere la [modello di opzioni](xref:fundamentals/configuration/options) e [configurazione](xref:fundamentals/configuration/index).
 
 ### <a name="install-sendgrid"></a>Installare SendGrid
 

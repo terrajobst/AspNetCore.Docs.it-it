@@ -5,12 +5,12 @@ description: Illustra come richiedere HTTPS/TLS in un ASP.NET Core web app.
 ms.author: riande
 ms.date: 2/9/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: d8bf11d7d2df8d8b197f001570a8fab1f3262814
-ms.sourcegitcommit: 4e34ce61e1e7f1317102b16012ce0742abf2cca6
+ms.openlocfilehash: 3bea8661e17fec5128e822d98741d1f8ed7434e5
+ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2018
-ms.locfileid: "39514804"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39655498"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Imporre HTTPS in ASP.NET Core
 
@@ -66,8 +66,8 @@ I meccanismi seguenti impostate automaticamente la porta:
 
 La porta può essere configurata impostando il [impostazione di configurazione Host Web https_port](xref:fundamentals/host/web-host#https-port):
 
-**Tasto**: https_port **tipo**: *stringa*
-**predefinito**: non è impostato un valore predefinito.
+**Chiave**: https_port **Tipo**: *string*
+**Valore predefinito**: non è impostato un valore predefinito.
 **Impostare usando**: `UseSetting` 
  **variabile di ambiente**: `<PREFIX_>HTTPS_PORT` (il prefisso è `ASPNETCORE_` quando si usa l'Host Web.)
 
@@ -112,7 +112,10 @@ Richiesta di HTTPS a livello globale (`options.Filters.Add(new RequireHttpsAttri
 <a name="hsts"></a>
 ## <a name="http-strict-transport-security-protocol-hsts"></a>Protocollo HTTP Strict Transport Security (HSTS)
 
-Per ogni [OWASP](https://www.owasp.org/index.php/About_The_Open_Web_Application_Security_Project), [HTTP Strict Transport Security (HSTS)](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) è un miglioramento della sicurezza con consenso esplicito specificato da un'app web tramite l'uso di una speciale intestazione della risposta. Quando un browser che supporti HSTS riceve questa intestazione, memorizza la configurazione per il dominio che impedisce l'invio di tutte le comunicazioni su HTTP e impone invece tutte le comunicazioni tramite HTTPS. Impedisce inoltre l'utente usando i certificati non attendibili o non validi, si disattivano le richieste del browser che consentono all'utente di considerare temporaneamente attendibile questo certificato.
+Per ogni [OWASP](https://www.owasp.org/index.php/About_The_Open_Web_Application_Security_Project), [HTTP Strict Transport Security (HSTS)](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) è un miglioramento della sicurezza con consenso esplicito specificato da un'app web tramite l'uso di un'intestazione di risposta. Quando un browser che supporti HSTS riceve questa intestazione:
+
+* Il browser memorizza la configurazione per il dominio che impedisce l'invio di tutte le comunicazioni su HTTP. Il browser forza tutte le comunicazioni tramite HTTPS. 
+* Il browser impedisce all'utente di utilizzo di certificati non attendibili o non validi. Il browser Disabilita prompt che permettono all'utente di considerare temporaneamente attendibile questo certificato.
 
 ASP.NET Core 2.1 o versioni successive implementa HSTS con il `UseHsts` metodo di estensione. Il codice seguente chiama `UseHsts` quando l'app non è presente nel [modalità di sviluppo](xref:fundamentals/environments):
 
