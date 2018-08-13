@@ -5,14 +5,14 @@ description: Informazioni sull'uso dell'interfaccia IHttpClientFactory per gesti
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 07/23/2018
+ms.date: 08/07/2018
 uid: fundamentals/http-requests
-ms.openlocfilehash: 87424eaea499ba7ece1e5ef88649fcbb2e297635
-ms.sourcegitcommit: 516d0645c35ea784a3ae807be087ae70446a46ee
+ms.openlocfilehash: dd217cfed230ea92c31eeed64ec19838032dd224
+ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39320655"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39655232"
 ---
 # <a name="initiate-http-requests"></a>Inizializzare richieste HTTP
 
@@ -20,7 +20,7 @@ Di [Glenn Condron](https://github.com/glennc), [Ryan Nowak](https://github.com/r
 
 È possibile registrare e usare [IHttpClientFactory](/dotnet/api/system.net.http.ihttpclientfactory) per configurare e creare istanze di [HttpClient](/dotnet/api/system.net.http.httpclient) in un'app. I vantaggi offerti sono i seguenti:
 
-* Offre una posizione centrale per la denominazione e la configurazione di istanze di `HttpClient` logiche. Ad esempio, è possibile registrare e configurare un client "github" per accedere a GitHub. È possibile registrare un client predefinito per altri scopi.
+* Offre una posizione centrale per la denominazione e la configurazione di istanze di `HttpClient` logiche. Ad esempio, è possibile registrare e configurare un client *github* per accedere a GitHub. È possibile registrare un client predefinito per altri scopi.
 * Codifica il concetto di middleware in uscita tramite la delega di gestori in `HttpClient` e offre estensioni per il middleware basato su Polly per sfruttarne i vantaggi.
 * Gestisce il pooling e la durata delle istanze di `HttpClientMessageHandler` sottostanti per evitare problemi DNS comuni che si verificano quando le durate di `HttpClient` vengono gestite manualmente.
 * Aggiunge un'esperienza di registrazione configurabile, tramite `ILogger`, per tutte le richieste inviate attraverso i client creati dalla factory.
@@ -52,15 +52,15 @@ Dopo la registrazione, il codice può accettare un'interfaccia `IHttpClientFacto
 
 [!code-csharp[](http-requests/samples/Pages/BasicUsage.cshtml.cs?name=snippet1&highlight=9-12,20)]
 
-Questo uso di `IHttpClientFactory` è un ottimo modo per effettuare il refactoring di un'app esistente. Non influisce in alcun modo sulle modalità d'uso di `HttpClient`. Nelle posizioni in cui vengono attualmente create istanze di `HttpClient`, sostituire le occorrenze con una chiamata a `CreateClient`.
+Questo uso di `IHttpClientFactory` è un ottimo modo per effettuare il refactoring di un'app esistente. Non influisce in alcun modo sulle modalità d'uso di `HttpClient`. Nelle posizioni in cui vengono attualmente create istanze di `HttpClient`, sostituire le occorrenze con una chiamata a [CreateClient](/dotnet/api/system.net.http.ihttpclientfactory.createclient).
 
 ### <a name="named-clients"></a>Client denominati
 
-Se un'app richiede più usi distinti di `HttpClient`, ognuno con una configurazione diversa, un'opzione è l'uso di **client denominati**. La configurazione di un `HttpClient` denominato può essere specificata durante la registrazione in `Startup.ConfigureServices`.
+Se un'app richiede molti usi distinti di `HttpClient`, ognuno con una configurazione diversa, un'opzione è l'uso di **client denominati**. La configurazione di un `HttpClient` denominato può essere specificata durante la registrazione in `Startup.ConfigureServices`.
 
 [!code-csharp[](http-requests/samples/Startup.cs?name=snippet2)]
 
-Nel codice precedente viene chiamato `AddHttpClient`, in cui viene specificato il nome "github". Al client viene applicata una configurazione predefinita, ovvero l'indirizzo di base e due intestazioni necessari per l'uso dell'API GitHub.
+Nel codice precedente viene chiamato `AddHttpClient`, in cui viene specificato il nome *github*. Al client viene applicata una configurazione predefinita, ovvero l'indirizzo di base e due intestazioni necessari per l'uso dell'API GitHub.
 
 Ogni volta che `CreateClient` viene chiamato, verrà creata una nuova istanza di `HttpClient` e verrà chiamata l'azione di configurazione.
 
@@ -161,13 +161,13 @@ Per creare un gestore, definire una classe che deriva da `DelegatingHandler`. Es
 
 [!code-csharp[Main](http-requests/samples/Handlers/ValidateHeaderHandler.cs?name=snippet1)]
 
-Il codice precedente definisce un gestore di base. Verifica se un'intestazione X-API-KEY è stata inclusa nella richiesta. Se l'intestazione non è presente, può evitare la chiamata HTTP e restituire una risposta appropriata.
+Il codice precedente definisce un gestore di base. Verifica se un'intestazione `X-API-KEY` è stata inclusa nella richiesta. Se l'intestazione non è presente, può evitare la chiamata HTTP e restituire una risposta appropriata.
 
-Durante la registrazione è possibile aggiungere alla configurazione uno o più gestori per un'istanza di `HttpClient`. Questa attività viene eseguita tramite metodi di estensione in `IHttpClientBuilder`.
+Durante la registrazione è possibile aggiungere alla configurazione uno o più gestori per un'istanza di `HttpClient`. Questa attività viene eseguita tramite metodi di estensione in [IHttpClientBuilder](/dotnet/api/microsoft.extensions.dependencyinjection.ihttpclientbuilder).
 
 [!code-csharp[](http-requests/samples/Startup.cs?name=snippet5)]
 
-Nel codice precedente `ValidateHeaderHandler` viene registrato nell'inserimento di dipendenze. Il gestore **deve** essere registrato come temporaneo nell'inserimento di dipendenze. Dopo la registrazione è possibile chiamare `AddHttpMessageHandler`, passando il tipo di gestore.
+Nel codice precedente `ValidateHeaderHandler` viene registrato nell'inserimento di dipendenze. Il gestore **deve** essere registrato come temporaneo nell'inserimento di dipendenze. Dopo la registrazione è possibile chiamare [AddHttpMessageHandler](/dotnet/api/microsoft.extensions.dependencyinjection.httpclientbuilderextensions.addhttpmessagehandler), passando il tipo per il gestore.
 
 È possibile registrare più gestori nell'ordine di esecuzione. Ogni gestore esegue il wrapping del gestore successivo fino a quando l'elemento `HttpClientHandler` finale non esegue la richiesta:
 
@@ -185,7 +185,7 @@ Dopo il ripristino di questo pacchetto, i metodi di estensione che supportano l'
 
 ### <a name="handle-transient-faults"></a>Gestire gli errori temporanei
 
-Gli errori più comuni che si prevede possano verificarsi quando si effettuano chiamate HTTP esterne saranno temporanei. Per definire un criterio in grado di gestire gli errori temporanei è disponibile un pratico metodo di estensione denominato `AddTransientHttpErrorPolicy`. I criteri configurati con questo metodo di estensione gestiscono `HttpRequestException`, risposte HTTP 5xx e risposte HTTP 408.
+La maggior parte degli errori comuni si verifica quando le chiamate HTTP esterne sono temporanee. Per definire un criterio in grado di gestire gli errori temporanei è disponibile un pratico metodo di estensione denominato `AddTransientHttpErrorPolicy`. I criteri configurati con questo metodo di estensione gestiscono `HttpRequestException`, risposte HTTP 5xx e risposte HTTP 408.
 
 L'estensione `AddTransientHttpErrorPolicy` può essere usata all'interno di `Startup.ConfigureServices`. L'estensione consente l'accesso a un oggetto `PolicyBuilder` configurato per gestire gli errori che rappresentano un possibile errore temporaneo:
 
@@ -215,27 +215,31 @@ Un approccio alla gestione dei criteri usati di frequente consiste nel definirli
 
 [!code-csharp[Main](http-requests/samples/Startup.cs?name=snippet10)]
 
-Nel codice precedente viene aggiunto un elemento PolicyRegistry a `ServiceCollection` e vengono registrati due criteri. Per usare un criterio del registro viene usato il metodo `AddPolicyHandlerFromRegistry` passando il nome del criterio da applicare.
+Nel codice precedente vengono registrati due criteri quando si aggiunge `PolicyRegistry` a `ServiceCollection`. Per usare un criterio dal registro viene usato il metodo `AddPolicyHandlerFromRegistry` passando il nome del criterio da applicare.
 
 Altre informazioni su `IHttpClientFactory` e le integrazioni con Polly sono disponibili nel [wiki di Polly](https://github.com/App-vNext/Polly/wiki/Polly-and-HttpClientFactory).
 
 ## <a name="httpclient-and-lifetime-management"></a>Gestione di HttpClient e durata
 
-Ogni volta che `CreateClient` viene chiamato in `IHttpClientFactory` viene restituita una nuova istanza di un `HttpClient`. Per ogni client denominato sarà presente un elemento `HttpMessageHandler`. `IHttpClientFactory` eseguirà il pooling delle istanze di `HttpMessageHandler` create dalla factory per ridurre il consumo di risorse. Un'istanza di `HttpMessageHandler` può essere riusata dal pool quando si crea una nuova istanza di `HttpClient` se la relativa durata non è scaduta. 
+Viene restituita una nuova istanza di `HttpClient` per ogni chiamata di `CreateClient` per `IHttpClientFactory`. Esiste un [HttpMessageHandler](/dotnet/api/system.net.http.httpmessagehandler) per ogni client denominato. `IHttpClientFactory` esegue il pooling delle istanze di `HttpMessageHandler` create dalla factory per ridurre il consumo di risorse. Un'istanza di `HttpMessageHandler` può essere riusata dal pool quando si crea una nuova istanza di `HttpClient` se la relativa durata non è scaduta.
 
-Il pooling dei gestori è opportuno poiché ogni gestore si occupa in genere di gestire le proprie connessioni HTTP sottostanti. La creazione di un numero superiore di gestori rispetto a quelli necessari può determinare ritardi di connessione. Alcuni gestori mantengono inoltre le connessioni aperte a tempo indefinito. Ciò può impedire al gestore di reagire alle modifiche DNS.
+Il pooling dei gestori è consigliabile in quanto ogni gestore gestisce in genere le proprie connessioni HTTP sottostanti. La creazione di più gestori del necessario può causare ritardi di connessione. Alcuni gestori mantengono inoltre le connessioni aperte a tempo indefinito. Ciò può impedire al gestore di reagire alle modifiche DNS.
 
-La durata del gestore predefinito è di due minuti. Il valore predefinito può essere sottoposto a override per ogni client denominato. Per eseguire l'override, chiamare `SetHandlerLifetime` nell'elemento `IHttpClientBuilder` restituito al momento della creazione del client:
+La durata del gestore predefinito è di due minuti. Il valore predefinito può essere sottoposto a override per ogni client denominato. Per eseguire l'override, chiamare [SetHandlerLifetime](/dotnet/api/microsoft.extensions.dependencyinjection.httpclientbuilderextensions.sethandlerlifetime) per l'elemento `IHttpClientBuilder` restituito al momento della creazione del client:
 
 [!code-csharp[Main](http-requests/samples/Startup.cs?name=snippet11)]
 
+L'eliminazione del client non è obbligatoria. L'eliminazione annulla le richieste in uscita e garantisce che l'istanza di `HttpClient` specificata non possa essere usata dopo la chiamata di [Dispose](/dotnet/api/system.idisposable.dispose#System_IDisposable_Dispose). `IHttpClientFactory` tiene traccia ed elimina le risorse usate dalle istanze di `HttpClient`. Le istanze di `HttpClient` possono essere considerate a livello generale come oggetti .NET che non richiedono l'eliminazione.
+
+Mantenere una sola istanza di `HttpClient` attiva per un lungo periodo di tempo è un modello comune usato prima dell'avvento di `IHttpClientFactory`. Questo modello non è più necessario dopo la migrazione a `IHttpClientFactory`.
+
 ## <a name="logging"></a>Registrazione
 
-I client creati tramite `IHttpClientFactory` registrano i messaggi di log per tutte le richieste. Per visualizzare i messaggi di log predefiniti è necessario abilitare il livello di informazioni appropriato nella configurazione di registrazione. La registrazione aggiuntiva, ad esempio quella delle intestazioni delle richieste, è inclusa solo a livello di traccia.
+I client creati tramite `IHttpClientFactory` registrano i messaggi di log per tutte le richieste. Per visualizzare i messaggi di log predefiniti, abilitare il livello di informazioni appropriato nella configurazione di registrazione. La registrazione aggiuntiva, ad esempio quella delle intestazioni delle richieste, è inclusa solo a livello di traccia.
 
-La categoria di log usata per ogni client include il nome del client. Un client denominato "MyNamedClient", ad esempio, registra i messaggi con una categoria `System.Net.Http.HttpClient.MyNamedClient.LogicalHandler`. I messaggi con il suffisso "LogicalHandler" sono all'esterno della pipeline del gestore richieste. Nella richiesta i messaggi vengono registrati prima che qualsiasi altro gestore nella pipeline l'abbia elaborata. Nella risposta i messaggi vengono registrati dopo che qualsiasi altro gestore nella pipeline ha ricevuto la risposta.
+La categoria di log usata per ogni client include il nome del client. Un client denominato *MyNamedClient*, ad esempio, registra i messaggi con una categoria `System.Net.Http.HttpClient.MyNamedClient.LogicalHandler`. I messaggi con suffisso *LogicalHandler* sono esterni alla pipeline del gestore delle richieste. Nella richiesta i messaggi vengono registrati prima che qualsiasi altro gestore nella pipeline l'abbia elaborata. Nella risposta i messaggi vengono registrati dopo che qualsiasi altro gestore nella pipeline ha ricevuto la risposta.
 
-La registrazione avviene anche all'interno della pipeline del gestore richieste. Nel caso dell'esempio "MyNamedClient", i messaggi vengono registrati nella categoria di log `System.Net.Http.HttpClient.MyNamedClient.ClientHandler`. Per la richiesta, ciò avviene dopo l'esecuzione di tutti gli altri gestori e immediatamente prima che la richiesta sia inviata in rete. Nella risposta la registrazione include lo stato della risposta prima di restituirla attraverso la pipeline del gestore.
+La registrazione avviene anche all'interno della pipeline del gestore delle richieste. Nell'esempio *MyNamedClient*, i messaggi vengono registrati nella categoria di log `System.Net.Http.HttpClient.MyNamedClient.ClientHandler`. Per la richiesta, ciò avviene dopo l'esecuzione di tutti gli altri gestori e immediatamente prima che la richiesta sia inviata in rete. Nella risposta la registrazione include lo stato della risposta prima di restituirla attraverso la pipeline del gestore.
 
 L'abilitazione della registrazione all'esterno e all'interno della pipeline consente l'ispezione delle modifiche apportate da altri gestori nella pipeline. Le modifiche possono ad esempio riguardare le intestazioni delle richieste o il codice di stato della risposta.
 
@@ -245,6 +249,6 @@ L'inclusione del nome del client nella categoria di log consente di filtrare i l
 
 Può essere necessario controllare la configurazione dell'elemento `HttpMessageHandler` interno usato da un client.
 
-Quando si aggiungono client denominati o tipizzati viene restituito un elemento `IHttpClientBuilder`. È possibile usare il metodo di estensione `ConfigurePrimaryHttpMessageHandler` per definire un delegato. Il delegato viene usato per creare e configurare l'elemento `HttpMessageHandler` primario usato dal client:
+Quando si aggiungono client denominati o tipizzati viene restituito un elemento `IHttpClientBuilder`. Il metodo di estensione [ConfigurePrimaryHttpMessageHandler](/dotnet/api/microsoft.extensions.dependencyinjection.httpclientbuilderextensions.configureprimaryhttpmessagehandler) può essere usato per definire un delegato. Il delegato viene usato per creare e configurare l'elemento `HttpMessageHandler` primario usato dal client:
 
 [!code-csharp[Main](http-requests/samples/Startup.cs?name=snippet12)]

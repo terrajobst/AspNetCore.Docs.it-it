@@ -1,19 +1,19 @@
 ---
-title: Creare un'API Web con ASP.NET Core e Visual Studio per Windows
+title: Creare un'API Web con ASP.NET Core e Visual Studio
 author: rick-anderson
-description: Compilare un'API Web con ASP.NET Core MVC e Visual Studio per Windows
+description: Compilare un'API Web con ASP.NET Core MVC e Visual Studio in Windows
 ms.author: riande
 ms.custom: mvc
 ms.date: 05/17/2018
 uid: tutorials/first-web-api
-ms.openlocfilehash: 3da22cbbbe0db7771656997a13587521e182fb2a
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 2694388324cdbd246aad6c88d8439171704dfe89
+ms.sourcegitcommit: 29dfe436f54a27fbb4f6494bc639d16c75001fab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38164600"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722516"
 ---
-# <a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-windows"></a>Creare un'API Web con ASP.NET Core e Visual Studio per Windows
+# <a name="create-a-web-api-with-aspnet-core-and-visual-studio"></a>Creare un'API Web con ASP.NET Core e Visual Studio
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT) e [Mike Wasson](https://github.com/mikewasson)
 
@@ -21,7 +21,7 @@ Questa esercitazione consente di creare un'API Web per la gestione di un elenco 
 
 Sono disponibili tre versioni di questa esercitazione:
 
-* Windows: API Web con Visual Studio per Windows (questa esercitazione)
+* Windows: API Web con Visual Studio in Windows (questa esercitazione)
 * macOS: [API Web con Visual Studio per Mac](xref:tutorials/first-web-api-mac)
 * macOS, Linux, Windows: [API Web con Visual Studio Code](xref:tutorials/web-api-vsc)
 
