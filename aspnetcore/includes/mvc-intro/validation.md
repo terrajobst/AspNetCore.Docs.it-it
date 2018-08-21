@@ -6,7 +6,7 @@ In questa sezione si aggiungerà la logica di convalida al modello `Movie` e si 
 
 ## <a name="keeping-things-dry"></a>Rispetto del principio DRY
 
-Uno dei principi di progettazione MVC è [DRY](https://wikipedia.org/wiki/Don%27t_repeat_yourself) ("Don't Repeat Yourself"). In ASP.NET MVC si incoraggia il principio in base al quale l'utente specifica le funzionalità o il comportamento una sola volta e la specifica viene quindi applicata ovunque in un'app. In questo modo si riduce la quantità di codice che è necessario scrivere e si rende il codice meno soggetto a errori, più semplice da testare e gestire.
+Uno dei principi di progettazione MVC è [DRY](https://wikipedia.org/wiki/Don%27t_repeat_yourself) ("Don't Repeat Yourself"). ASP.NET Core MVC promuove la specifica delle funzionalità o del comportamento una sola volta, con successiva applicazione ovunque in un'app. In questo modo si riduce la quantità di codice che è necessario scrivere e si rende il codice meno soggetto a errori, più semplice da testare e gestire.
 
 Il supporto della convalida fornito da MVC ed Entity Framework Core Code First è un valido esempio pratico del principio DRY. È possibile specificare in modo dichiarativo le regole di convalida in un'unica posizione (nella classe del modello) e le regole vengono applicate ovunque nell'app.
 
@@ -25,7 +25,7 @@ Aggiornare la classe `Movie` per poter sfruttare gli attributi di convalida `Req
 
 Gli attributi di convalida specificano il comportamento da applicare per le proprietà del modello a cui vengono applicati. Gli attributi `Required` e `MinimumLength` indicano che una proprietà deve avere un valore, ma nulla impedisce all'utente di inserire spazi vuoti per soddisfare questa convalida. L'attributo `RegularExpression` viene usato per limitare i caratteri che possono essere inseriti. Nel codice precedente, per `Genre` e `Rating` è necessario usare solo lettere. Prima lettera in maiuscolo, spazi vuoti, numeri e caratteri speciali non sono consentiti. L'attributo `Range` vincola un valore all'interno di un intervallo specificato. L'attributo `StringLength` consente di impostare la lunghezza massima di una proprietà stringa e, facoltativamente, la lunghezza minima. I tipi di valore, ad esempio `decimal`, `int`, `float` e `DateTime`, sono intrinsecamente necessari e non richiedono l'attributo `[Required]`.
 
-L'uso di regole di convalida applicate automaticamente da ASP.NET consente di rendere un'app più solida. In questo modo inoltre non è possibile omettere la convalida di un elemento e quindi inserire involontariamente dati errati nel database.
+L'applicazione automatica di regole di convalida da ASP.NET Core è utile per rendere un'app più solida. In questo modo inoltre non è possibile omettere la convalida di un elemento e quindi inserire involontariamente dati errati nel database.
 
 ## <a name="validation-error-ui-in-mvc"></a>Interfaccia utente dell'errore di convalida in MVC
 
