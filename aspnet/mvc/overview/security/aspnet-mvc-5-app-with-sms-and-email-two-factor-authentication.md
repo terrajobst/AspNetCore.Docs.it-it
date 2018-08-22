@@ -3,17 +3,17 @@ uid: mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authen
 title: App ASP.NET MVC 5 con SMS e posta elettronica l'autenticazione a due fattori | Microsoft Docs
 author: Rick-Anderson
 description: Questa esercitazione illustra come compilare un'app web ASP.NET MVC 5 con autenticazione a due fattori. È necessario completare l'app web crea un ASP.NET MVC 5 sicura con...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/20/2015
 ms.assetid: f50a5cdb-c06a-46ed-aa14-fc5b049dc8dc
 msc.legacyurl: /mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: 4fd0091effcf2cc0517da91922981e49ef0eef5a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f31015f5ebd660d0f95a2e978b305c1d272293d5
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37803207"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826973"
 ---
 <a name="aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication"></a>App ASP.NET MVC 5 con SMS e posta elettronica l'autenticazione a due fattori
 ====================

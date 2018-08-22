@@ -3,17 +3,17 @@ uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms
 title: Creare il livello di accesso ai dati | Microsoft Docs
 author: Erikre
 description: Questa serie di esercitazioni insegnerà le nozioni di base della creazione di un'applicazione Web Form ASP.NET con ASP.NET 4.5 e Microsoft Visual Studio Express 2013 per Microsoft...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 09/08/2014
 ms.assetid: 0bbf7a6e-d7eb-4091-91e4-fff892777f32
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create_the_data_access_layer
 msc.type: authoredcontent
-ms.openlocfilehash: b462444396d0dcb3fcaf8ec93170c049cd1ebaef
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: e6ec385c6a4a5507ffae726157f7d52e9c5605da
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37819903"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829595"
 ---
 <a name="create-the-data-access-layer"></a>Creare il livello di accesso ai dati
 ====================

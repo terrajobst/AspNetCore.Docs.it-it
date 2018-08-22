@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/working-with-binary-files/including-a-file-u
 title: Incluso un File con opzione di caricamento quando si aggiunge un nuovo Record (c#) | Microsoft Docs
 author: rick-anderson
 description: Questa esercitazione illustra come creare un'interfaccia Web che consente all'utente sia immettere i dati di testo e caricare i file binari. Per illustrare le opzioni disponibili t...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/27/2007
 ms.assetid: 362ade25-3965-4fb2-88d2-835c4786244f
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/including-a-file-upload-option-when-adding-a-new-record-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5cc1db20a724c8a060e978e2360b977fb16f1e0c
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: c3887f920126d70b300de5a0d6e09474fd33c332
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37842381"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826355"
 ---
 <a name="including-a-file-upload-option-when-adding-a-new-record-c"></a>Inclusione di un'opzione di caricamento di File quando si aggiunge un nuovo Record (c#)
 ====================

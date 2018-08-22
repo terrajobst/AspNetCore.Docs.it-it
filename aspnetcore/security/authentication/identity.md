@@ -5,12 +5,12 @@ description: Usare l'identità con un'app ASP.NET Core. Informazioni su come imp
 ms.author: riande
 ms.date: 08/08/2018
 uid: security/authentication/identity
-ms.openlocfilehash: 6a23dd4ad78c0695b5724a78204abf6752dfe67d
-ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
+ms.openlocfilehash: fd5fa2fd1e069bf10f3baea38b1fe9f951dc4a7d
+ms.sourcegitcommit: fd461c60b5e36c7019f81da0138cc859d0fddaa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39655310"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41826853"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Introduzione all'identità in ASP.NET Core
 
@@ -98,7 +98,7 @@ Per altre informazioni, vedere la [classe IdentityOptions](/dotnet/api/microsoft
 
 ## <a name="scaffold-register-login-and-logout"></a>Eseguire lo scaffolding di registrazione, l'account di accesso e disconnessione
 
-Seguire le [lo scaffolding di identità in un progetto Razor con autorizzazione](xref:security/authentication/scaffold-identity#) istruzioni.
+Seguire le [lo scaffolding di identità in un progetto Razor con autorizzazione](xref:security/authentication/scaffold-identity#scaffold-identity-into-a-razor-project-with-authorization) istruzioni.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 

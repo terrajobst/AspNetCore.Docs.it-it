@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/paging-and-sorting/sorting-custom-paged-data
 title: Ordinamento con paging personalizzato dei dati (VB) | Microsoft Docs
 author: rick-anderson
 description: Nell'esercitazione precedente abbiamo appreso come implementare il paging personalizzato quando presentating dati in una pagina web. In questa esercitazione viene illustrato come estendere il precedente...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/15/2006
 ms.assetid: 4823a186-caaf-4116-a318-c7ff4d955ddc
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/sorting-custom-paged-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7a660f697676e20d8987af150b10fc6694ce7c57
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 63d10200300a015b35062409aba2fd7999de8c3c
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37805314"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828325"
 ---
 <a name="sorting-custom-paged-data-vb"></a>Ordinamento con paging personalizzato dei dati (VB)
 ====================

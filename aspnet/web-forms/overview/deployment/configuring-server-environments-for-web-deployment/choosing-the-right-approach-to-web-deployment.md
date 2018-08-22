@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/configuring-server-environments-for-web-deplo
 title: Scelta dell'approccio corretto per la distribuzione Web | Microsoft Docs
 author: jrjlee
 description: Quando si lavora con Internet Information Services (IIS) strumento di distribuzione Web (distribuzione Web) 2.0 o versione successiva, sono presenti tre approcci principali, che è possibile usare per ottenere...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 787a53fd-9901-4a11-9d58-61e0509cda45
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: eb1b7d50e5d7461d760ad7a963cc70369b7a4513
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 0b21852a1db2862a8452e332021b55ce7f1db423
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37807051"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826738"
 ---
 <a name="choosing-the-right-approach-to-web-deployment"></a>Scelta dell'approccio corretto per la distribuzione Web
 ====================
@@ -36,7 +36,7 @@ Questa tabella illustra i principali vantaggi e svantaggi di ogni approccio di d
 | Approccio | Vantaggi | Svantaggi | Scenari tipici |
 | --- | --- | --- | --- |
 | Agente remoto | È semplice da configurare. È adatto per gli aggiornamenti periodici per le applicazioni web e il contenuto. | L'utente deve essere un amministratore nel server di destinazione. l'utente non è possibile fornire credenziali alternative. | Ambienti di sviluppo. Ambienti di test. |
-| Agente TEMP | Non è necessario per installare distribuzione Web nel computer di destinazione. La versione più recente di distribuzione Web viene utilizzata automaticamente. | L'utente deve essere un amministratore nel server di destinazione. L'utente non è possibile fornire credenziali alternative. | Ambienti di sviluppo. Ambienti di test. |
+| Agente TEMP | Non è necessario per installare distribuzione Web nel computer di destinazione. La versione più recente di distribuzione Web viene utilizzata automaticamente. | L'utente deve essere un amministratore nel server di destinazione. l'utente non è possibile fornire credenziali alternative. | Ambienti di sviluppo. Ambienti di test. |
 | Gestore di distribuzione Web | Gli utenti non amministratori possono distribuire il contenuto. È adatto per gli aggiornamenti periodici per le applicazioni web e il contenuto. | È molto più complessa da configurare. | Ambienti di staging. Ambienti di produzione di Intranet. Ambienti host. |
 | Distribuzione offline | È molto semplice da configurare. È adatto per ambienti isolati. | L'amministratore del server deve copiare e importare il pacchetto web ogni volta manualmente. | Ambienti di produzione con connessione Internet. Ambienti di rete isolato. |
   

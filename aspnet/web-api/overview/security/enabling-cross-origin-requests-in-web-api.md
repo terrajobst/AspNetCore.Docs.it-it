@@ -3,17 +3,17 @@ uid: web-api/overview/security/enabling-cross-origin-requests-in-web-api
 title: Abilitazione di richieste Multiorigine nell'API Web ASP.NET 2 | Microsoft Docs
 author: MikeWasson
 description: Viene illustrato come il supporto di condivisione delle risorse Multiorigine (CORS) nell'API Web ASP.NET.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/15/2014
 ms.assetid: 9b265a5a-6a70-4a82-adce-2d7c56ae8bdd
 msc.legacyurl: /web-api/overview/security/enabling-cross-origin-requests-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 7ac6158c2365aa324cefe97db044f568a1a43795
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: eddf61a4468807f5efd658438c1c27a1d2f9c486
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37805412"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826768"
 ---
 <a name="enabling-cross-origin-requests-in-aspnet-web-api-2"></a>Abilitazione di richieste Multiorigine nell'API Web ASP.NET 2
 ====================

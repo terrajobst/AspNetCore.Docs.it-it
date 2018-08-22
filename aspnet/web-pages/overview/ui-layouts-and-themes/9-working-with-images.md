@@ -3,17 +3,17 @@ uid: web-pages/overview/ui-layouts-and-themes/9-working-with-images
 title: Utilizzo di immagini in un sito ASP.NET Web Pages (Razor) | Microsoft Docs
 author: tfitzmac
 description: In questo capitolo viene illustrato come aggiungere, visualizzare e manipolare immagini (ridimensionare, capovolgere e aggiungere filigrane) nel sito Web.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/20/2014
 ms.assetid: 778c4e58-4372-4d25-bab9-aec4a8d8e38d
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/9-working-with-images
 msc.type: authoredcontent
-ms.openlocfilehash: a091d942f60242748b0a1d78bf0654b222d1bdb3
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: e609cd1c6ab74b5b40d28bde353501dbacb5d544
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37840985"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826783"
 ---
 <a name="working-with-images-in-an-aspnet-web-pages-razor-site"></a>Utilizzo di immagini in un sito di ASP.NET Web Pages (Razor)
 ====================

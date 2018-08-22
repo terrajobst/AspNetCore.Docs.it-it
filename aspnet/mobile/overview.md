@@ -3,17 +3,17 @@ uid: mobile/overview
 title: App per dispositivi mobili e siti con ASP.NET | Microsoft Docs
 author: rick-anderson
 description: Informazioni su come ASP.NET semplifica la creazione di applicazioni Web per dispositivi mobili
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/28/2011
 ms.assetid: 1febce65-cdd4-47da-bdb5-1e6022ccd20a
 msc.legacyurl: /mobile
 msc.type: content
-ms.openlocfilehash: 613cb6ccd303b1dd2054210ad90bfd5dc1fbb8cc
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 1d5dea4a7f961475579cfdf677377ce9c9956540
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37834124"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41825873"
 ---
 <a name="mobile-apps--sites-with-aspnet"></a>App per dispositivi mobili e siti con ASP.NET
 ====================

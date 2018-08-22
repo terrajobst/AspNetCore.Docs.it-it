@@ -3,17 +3,17 @@ uid: web-pages/overview/mobile/rendering-aspnet-web-pages-sites-for-mobile-devic
 title: Rendering Web ASP.NET (Razor) siti con pagine per i dispositivi mobili | Microsoft Docs
 author: tfitzmac
 description: "Questo articolo descrive come creare le pagine in un sito di ASP.NET Web Pages (Razor) che verrà eseguito il rendering in modo appropriato nei dispositivi mobili. Contenuto dell'esercitazione: come è..."
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/17/2014
 ms.assetid: f15ab392-c05e-4269-83bf-7c6d2b8c8ec8
 msc.legacyurl: /web-pages/overview/mobile/rendering-aspnet-web-pages-sites-for-mobile-devices
 msc.type: authoredcontent
-ms.openlocfilehash: dcc44e0d78814ef9a8537b01efa17259a12e9c76
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 7159283efcd4a82d5dff68f2d9e315f804e7cdcb
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37816350"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41823957"
 ---
 <a name="rendering-aspnet-web-pages-razor-sites-for-mobile-devices"></a>Il rendering di ASP.NET Web Pages (Razor) siti per dispositivi mobili
 ====================

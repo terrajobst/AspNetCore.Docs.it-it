@@ -3,17 +3,17 @@ uid: web-forms/videos/sql-2005/understanding-security-and-network-connectivity
 title: Informazioni sulla sicurezza e connettività di rete | Microsoft Docs
 author: microsoft
 description: Principianti di SQL Server verranno illustrato come distinguere tra i file di database di SQL Server e i processi di SQL Server. Esplorare gli scenari per la connessione a SQL Server e...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/20/2006
 ms.assetid: 5a0df3fa-07d9-4762-b9db-1824dcd8a31a
 msc.legacyurl: /web-forms/videos/sql-2005/understanding-security-and-network-connectivity
 msc.type: video
-ms.openlocfilehash: 7c5acc53d5e54e2d1cdde2b0929a8d4b3988fb31
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 1f37c39df6b3b9c9c4847e038b490347888300a3
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37834902"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826052"
 ---
 <a name="understanding-security-and-network-connectivity"></a>Informazioni sulla sicurezza e connettività di rete
 ====================

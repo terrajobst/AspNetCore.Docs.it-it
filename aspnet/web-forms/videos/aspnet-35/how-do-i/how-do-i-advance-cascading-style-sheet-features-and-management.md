@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-35/how-do-i/how-do-i-advance-cascading-style-sheet-
 title: '[Procedura:] Passare gestione e funzionalità di foglio di stile CSS | Microsoft Docs'
 author: rick-anderson
 description: In questo video verrà compilata su base Cascading foglio di stile da un precedente video. Si passerà oltre le nozioni di base in cui è appena stato creato gli elementi e...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/14/2008
 ms.assetid: 6a7e8bea-2a0d-4011-ad71-3f3b5f152fe4
 msc.legacyurl: /web-forms/videos/aspnet-35/how-do-i/how-do-i-advance-cascading-style-sheet-features-and-management
 msc.type: video
-ms.openlocfilehash: 0a2094ceef8973cf0c9445bff8fb400c1d5612c1
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: b670ed68bf75d52df9696288e628d6ae07eedb3e
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37836519"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41823806"
 ---
 <a name="how-do-i-advance-cascading-style-sheet-features-and-management"></a>[Procedura:] Avanzate funzionalità di foglio di stile CSS e gestione
 ====================

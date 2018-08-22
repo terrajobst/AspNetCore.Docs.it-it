@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/handling
 title: Gestione delle eccezioni a livello BLL e in una pagina ASP.NET (c#) | Microsoft Docs
 author: rick-anderson
 description: In questa esercitazione si vedrà come visualizzare un messaggio di errore descrittivo e informativi deve verificarsi un'eccezione durante un inserimento, aggiornamento o operazione di eliminazione di...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/17/2006
 ms.assetid: 49d8a66c-3ea8-4087-839f-179d1d94512a
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 13d33251a8552409a17b5ff9a1dcc07d78506b12
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 0d4fa3e3e7bbe335af31423ec4fdd60e9791c2b0
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37819497"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826966"
 ---
 <a name="handling-bll--and-dal-level-exceptions-in-an-aspnet-page-c"></a>Gestione delle eccezioni a livello BLL e in una pagina ASP.NET (c#)
 ====================

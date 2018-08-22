@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/creating-a-mvc-3-application-with-razor-and-uno
 title: Creazione di un MVC 3 Application with Razor and Unobtrusive JavaScript | Microsoft Docs
 author: microsoft
 description: L'applicazione web di esempio elenco utenti viene illustrato quanto sia semplice creare applicazioni ASP.NET MVC 3 con il motore di visualizzazione Razor. Gli oggetti di applicazione di esempio...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/01/2010
 ms.assetid: 658b149b-d770-46bf-8b4b-4e47cca242f3
 msc.legacyurl: /mvc/overview/older-versions/creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript
 msc.type: authoredcontent
-ms.openlocfilehash: 136c87cba70525da53c1f74576c50c12f8759539
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f60ca3e76fda8a18da1ad83e955e5e4759f5e3af
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37840468"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826976"
 ---
 <a name="creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript"></a>Creazione di un MVC 3 Application with Razor and Unobtrusive JavaScript
 ====================

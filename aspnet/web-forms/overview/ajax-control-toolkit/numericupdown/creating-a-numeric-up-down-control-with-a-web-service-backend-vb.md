@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/numericupdown/creating-a-numeric-up
 title: Creazione di controllo su/giù numerico con un back-end del servizio Web (VB) | Microsoft Docs
 author: wenz
 description: Anziché consentire a un utente di digitare un valore in una casella di controllo, un controllo (che è presente in Windows e altri sistemi operativi) su/giù numerico potrebbe rivelarsi man mano c...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: afa59dfa-fef1-43d3-8fdd-aea3be36ed3c
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/numericupdown/creating-a-numeric-up-down-control-with-a-web-service-backend-vb
 msc.type: authoredcontent
-ms.openlocfilehash: bebf70093dacb81331c009c6642c2f2d649b8567
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: bf69b3e6932df528e8ccd2348ffa6f13132f99f8
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37805373"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826590"
 ---
 <a name="creating-a-numeric-updown-control-with-a-web-service-backend-vb"></a>Creazione di un controllo su/giù numerico con un back-end del servizio Web (VB)
 ====================

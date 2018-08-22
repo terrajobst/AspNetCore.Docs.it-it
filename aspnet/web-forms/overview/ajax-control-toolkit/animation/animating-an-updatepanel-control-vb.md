@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/animation/animating-an-updatepanel-
 title: Animazione di un controllo UpdatePanel (VB) | Microsoft Docs
 author: wenz
 description: Il controllo di animazione in ASP.NET AJAX Control Toolkit non è semplicemente un controllo, ma un intero framework aggiungere animazioni a un controllo. Per il contenuto di un...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 4c306a2c-92b6-4904-b70b-365b847334fe
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/animating-an-updatepanel-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c508d549c7740079b02da323c655c9f789cfd3b9
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 797ee37eb440bed261403aa0e1b68f38d3cd8ef9
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37805301"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826165"
 ---
 <a name="animating-an-updatepanel-control-vb"></a>Animazione di un controllo UpdatePanel (VB)
 ====================

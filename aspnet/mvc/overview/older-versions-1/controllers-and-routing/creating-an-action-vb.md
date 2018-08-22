@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/controllers-and-routing/creating-an-action-vb
 title: Creazione di un'azione (VB) | Microsoft Docs
 author: microsoft
 description: Informazioni su come aggiungere una nuova azione a un controller MVC ASP.NET. Informazioni sui requisiti per un metodo su cui eseguire un'azione.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/02/2009
 ms.assetid: c8d93e11-ef78-4a30-afbc-f30419000a60
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-an-action-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6ec69f5aa9f7a789cb533a8dc04dca952adf35d0
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 070dd4c9d68327eec52fe385000b9ca3907eaa9f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37824046"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826990"
 ---
 <a name="creating-an-action-vb"></a>Creazione di un'azione (VB)
 ====================

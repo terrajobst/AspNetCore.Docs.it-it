@@ -3,17 +3,17 @@ uid: web-forms/videos/net-4/routing/aspnet-4-quick-hit-imperative-webforms-routi
 title: ASP.NET 4 rapida Hit - Routing imperativo di Web Form
 author: JoeStagner
 description: In questo video si apprenderà come usare un generatore di espressioni per eseguire routing imperativo di Web Form.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/05/2009
 ms.assetid: c78fd810-4309-4d58-afd9-81e9ffa77429
 msc.legacyurl: /web-forms/videos/net-4/routing/aspnet-4-quick-hit-imperative-webforms-routing
 msc.type: video
-ms.openlocfilehash: c5689750a6ce4eca97a2398c4030c1f0d3fad4b2
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: cfb7dcf7ba964112cf57d2b86a5f5cf4c88820e5
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37813187"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826854"
 ---
 <a name="aspnet-4-quick-hit---imperative-webforms-routing"></a>ASP.NET 4 "Riscontro rapido" - Routing imperativo di Web Form
 ====================

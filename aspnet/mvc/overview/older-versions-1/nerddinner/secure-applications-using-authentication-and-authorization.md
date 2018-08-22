@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/nerddinner/secure-applications-using-authenti
 title: Proteggere le applicazioni usando l'autenticazione e autorizzazione | Microsoft Docs
 author: microsoft
 description: Passaggio 9 viene illustrato come aggiungere l'autenticazione e autorizzazione per proteggere l'applicazione di NerdDinner, in modo che gli utenti devono registrarsi e accedere al sito da creare...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/27/2010
 ms.assetid: 9e4d5cac-b071-440c-b044-20b6d0c964fb
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/secure-applications-using-authentication-and-authorization
 msc.type: authoredcontent
-ms.openlocfilehash: 0005b99dbf7d59e96313f025880c46cdec4838b6
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d5f1b26312f11fd6d4ab500c7f24a4d89d428e38
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37801392"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826184"
 ---
 <a name="secure-applications-using-authentication-and-authorization"></a>Proteggere le applicazioni usando l'autenticazione e autorizzazione
 ====================

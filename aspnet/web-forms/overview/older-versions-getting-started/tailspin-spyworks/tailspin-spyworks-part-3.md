@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspi
 title: 'Parte 3: Layout e Menu per la categoria | Microsoft Docs'
 author: JoeStagner
 description: Questa serie di esercitazioni illustra tutti i passaggi necessari per compilare l'applicazione di esempio Tailspin Spyworks. Parte 3 viene illustrata l'aggiunta di layout e un menu di categoria.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/21/2010
 ms.assetid: 94ea1a70-a9bc-4241-8f36-08366d64bab9
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 3047c53e21a418aef8617bd772a247bc46edb98f
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f55b29a271dbdb72d3e2249ed74517b77d78cf5e
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37817525"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41825912"
 ---
 <a name="part-3-layout-and-category-menu"></a>Parte 3: Layout e Menu per la categoria
 ====================

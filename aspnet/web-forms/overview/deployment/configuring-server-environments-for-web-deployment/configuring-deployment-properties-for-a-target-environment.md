@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/configuring-server-environments-for-web-deplo
 title: Configurazione delle proprietà di distribuzione per un ambiente di destinazione | Microsoft Docs
 author: jrjlee
 description: In questo argomento descrive come configurare le proprietà specifiche dell'ambiente per distribuire la soluzione Contact Manager di esempio in un ambiente di destinazione specifici...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: b5b86e03-b8ed-46e6-90fa-e1da88ef34e9
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-deployment-properties-for-a-target-environment
 msc.type: authoredcontent
-ms.openlocfilehash: 205a60ee8695f84054bf2139baa3eeb88728d28a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 1486cc7d8f25e823481dfab109d18c407c2d8063
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37817765"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829601"
 ---
 <a name="configuring-deployment-properties-for-a-target-environment"></a>Configurazione delle proprietà di distribuzione per un ambiente di destinazione
 ====================

@@ -3,17 +3,17 @@ uid: web-api/overview/security/forms-authentication
 title: Autenticazione basata su form nell'API Web ASP.NET | Microsoft Docs
 author: MikeWasson
 description: Viene descritto l'utilizzo di autenticazione basata su form in ASP.NET Web API.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 12/12/2012
 ms.assetid: 9f06c1f2-ffaa-4831-94a0-2e4a3befdf07
 msc.legacyurl: /web-api/overview/security/forms-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: 4b73adf1390ce9573cd2979010932365349caea0
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 35d62a83382553085ed8a728dcdcdae0e93090b8
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37827534"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826988"
 ---
 <a name="forms-authentication-in-aspnet-web-api"></a>Autenticazione basata su form nell'API Web ASP.NET
 ====================

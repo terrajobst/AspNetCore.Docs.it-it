@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/masterdetail/master-detail-filtering-with-a-
 title: Master/dettagli filtro usando un controllo DropDownList (c#) | Microsoft Docs
 author: rick-anderson
 description: In questa esercitazione si noterà come visualizzare i record master in un controllo DropDownList e i dettagli dell'elemento di elenco selezionato in un controllo GridView.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: 53e659cc-eefb-40c1-a1dc-559481c99443
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-with-a-dropdownlist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c2bf3156840c378e554eef3a0629705c059f2777
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: a2d7a27a8bf9da365e4f48d7ca2d9d902ec4a5ba
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37833342"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826963"
 ---
 <a name="masterdetail-filtering-with-a-dropdownlist-c"></a>Master/dettagli filtro usando un controllo DropDownList (c#)
 ====================

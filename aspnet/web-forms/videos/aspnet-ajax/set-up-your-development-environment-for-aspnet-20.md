@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-ajax/set-up-your-development-environment-for-aspnet
 title: Configurare l'ambiente di sviluppo per ASP.NET 2.0 | Microsoft Docs
 author: JoeStagner
 description: In questo video verrà illustrato come configurare l'ambiente di sviluppo per lo sviluppo di applicazioni ASP.NET AJAX, se si sviluppano App per ASP.NET 2.0.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/13/2009
 ms.assetid: 9cf05d32-6c0e-487a-89da-7ef42666c0a3
 msc.legacyurl: /web-forms/videos/aspnet-ajax/set-up-your-development-environment-for-aspnet-20
 msc.type: video
-ms.openlocfilehash: caa885f2be964f5b428e077aad59bef4acd734dc
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 683b824fd3185449e4f977eda4221261e87d4ead
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37801612"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41823916"
 ---
 <a name="set-up-your-development-environment-for-aspnet-20"></a>Configurare l'ambiente di sviluppo per ASP.NET 2.0
 ====================

@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/security/preventing-javascript-injection-atta
 title: Prevenzione degli attacchi Injection JavaScript (c#) | Microsoft Docs
 author: StephenWalther
 description: Evitare attacchi Injection JavaScript e gli attacchi di Cross-Site Scripting accada all'utente. In questa esercitazione, Stephen Walther spiega come è possibile eseguire facilmente Germania...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/19/2008
 ms.assetid: d0136da6-81a4-4815-b002-baa84744c09e
 msc.legacyurl: /mvc/overview/older-versions-1/security/preventing-javascript-injection-attacks-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0b0257eaef29c8e538fde92044cbc8cf2abe77f0
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 77d0f0346e9eff756cd74c64c310918f3c367ab1
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37808266"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826476"
 ---
 <a name="preventing-javascript-injection-attacks-c"></a>Prevenzione degli attacchi Injection JavaScript (c#)
 ====================

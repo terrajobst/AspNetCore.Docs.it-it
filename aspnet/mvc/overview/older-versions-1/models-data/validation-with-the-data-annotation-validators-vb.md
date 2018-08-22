@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/models-data/validation-with-the-data-annotati
 title: Convalida con i validator di annotazione dei dati (VB) | Microsoft Docs
 author: microsoft
 description: È possibile sfruttare il raccoglitore di modelli di annotazione dei dati per eseguire la convalida all'interno di un'applicazione ASP.NET MVC. Informazioni su come usare i diversi tipi di convalida...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/29/2009
 ms.assetid: 0d23ff2b-f2ec-434a-be3b-1180beeccba3
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validation-with-the-data-annotation-validators-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9d76596ede0763bde3c84dca4a545be250a3062c
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 8159693adced7f102f6fe1457d7b103f8596d231
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37837423"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41825916"
 ---
 <a name="validation-with-the-data-annotation-validators-vb"></a>Convalida con i validator di annotazione dei dati (VB)
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-password
 title: '[Procedura:] Usare il dispositivo Extender PasswordStrength ASP.NET AJAX? | Microsoft Docs'
 author: JoeStagner
 description: Scopri come il controllo extender PasswordStrength fornisce feedback immediato e dinamici per gli utenti sulla complessità delle loro password scelta. Commenti c...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/01/2007
 ms.assetid: 4acc8d48-845f-4451-8a83-0d6d935c4564
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-passwordstrength-extender
 msc.type: video
-ms.openlocfilehash: 639e7ef3d3a7547ca7e1bc4e6d7634540bc8d17d
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 588a7b4c11e74c794d81e203cf4c252dc11f3370
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37806958"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829560"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-passwordstrength-extender"></a>[Procedura:] Usare il dispositivo Extender PasswordStrength ASP.NET AJAX?
 ====================

@@ -3,17 +3,17 @@ uid: mvc/overview/getting-started/introduction/examining-the-details-and-delete-
 title: Esaminare i dettagli e i metodi Delete | Microsoft Docs
 author: Rick-Anderson
 description: ''
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/26/2015
 ms.assetid: f1d2a916-626c-4a54-8df4-77e6b9fff355
 msc.legacyurl: /mvc/overview/getting-started/introduction/examining-the-details-and-delete-methods
 msc.type: authoredcontent
-ms.openlocfilehash: ce4413f81e49c1467b574347f69f855ae4ba5bf8
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 3ec5a9a91cf1e2273f91a529779936fd26182fc4
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38212785"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41825898"
 ---
 <a name="examining-the-details-and-delete-methods"></a>Esaminare i dettagli e i metodi di eliminazione
 ====================

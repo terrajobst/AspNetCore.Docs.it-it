@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datali
 title: Aggiunta di controlli di convalida per il controllo DataList di modifica dell'interfaccia (Visual Basic) | Microsoft Docs
 author: rick-anderson
 description: In questa esercitazione verrà illustrato come è facile aggiungere i controlli di convalida al EditItemTemplate di DataList per fornire un int. utente di modifica più infallibile...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/30/2006
 ms.assetid: 6b073fc6-524d-453d-be7c-0c30986de391
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/adding-validation-controls-to-the-datalist-s-editing-interface-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6f7df844462b016ed74430db782005931562fda5
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 6fe5fcba322f3d3a37b862f0a85810d8b4dda5f4
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37833572"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826718"
 ---
 <a name="adding-validation-controls-to-the-datalists-editing-interface-vb"></a>Aggiunta di controlli di convalida all'interfaccia di modifica di DataList (VB)
 ====================

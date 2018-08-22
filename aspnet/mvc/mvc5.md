@@ -3,17 +3,17 @@ uid: mvc/mvc5
 title: ASP.NET MVC 5 | Microsoft Docs
 author: rick-anderson
 description: ASP.NET MVC 5 ASP.NET MVC 5 è un framework per compilare applicazioni scalabili, basati su standard web usando i modelli di progettazione consolidati e la potenza di AS....
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/20/2014
 ms.assetid: f79fbf7f-59e5-4279-a832-c1a0294630f4
 msc.legacyurl: /mvc/mvc5
 msc.type: content
-ms.openlocfilehash: 97423f9a2e66187329887c4c5e92bb20cb9a7fc4
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: c837560e0ad9618decaba9761da9cf35e0f03f08
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37814340"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41823900"
 ---
 <a name="aspnet-mvc-5"></a>ASP.NET MVC 5
 ====================

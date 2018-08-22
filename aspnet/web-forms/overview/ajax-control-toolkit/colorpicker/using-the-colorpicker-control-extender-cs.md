@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/colorpicker/using-the-colorpicker-c
 title: Tramite il controllo Extender ColorPicker (c#) | Microsoft Docs
 author: microsoft
 description: ColorPicker è un extender di AJAX ASP.NET che fornisce funzionalità di selezione colore lato client con l'interfaccia utente in un controllo popup. Può essere collegato a qualsiasi ASP.NET...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/12/2009
 ms.assetid: 0d86a1e7-a910-4ab2-b85c-7a9ea6906c39
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/colorpicker/using-the-colorpicker-control-extender-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 308f56ecc1ff76ebdaea26e127a06687fcbcaba6
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 58b8d581ed426227ed77435e22c84e9ea5d62ebe
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37837587"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826379"
 ---
 <a name="using-the-colorpicker-control-extender-c"></a>Tramite il controllo Extender ColorPicker (c#)
 ====================

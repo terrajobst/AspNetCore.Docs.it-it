@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-p
 title: "Distribuzione di un'applicazione Web ASP.NET con SQL Server Compact tramite Visual Studio o Visual Web Developer: distribuzione di database SQL Server Compact - 2 di 12 | Microsoft Docs"
 author: tdykstra
 description: Questa serie di esercitazioni illustra come distribuire un ASP.NET (pubblicazione) progetto di applicazione web che include un database di SQL Server Compact tramite Visual s...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/17/2011
 ms.assetid: c3c76516-4c48-4153-bd03-d70e3a3edbb0
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: dc094211df77e6d3ff5eacb878be901e3552fd13
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 378bcc038335ee852cd1a6c6e545eb72c6e0c78b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37803058"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829524"
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-sql-server-compact-databases---2-of-12"></a>Distribuzione di un'applicazione Web ASP.NET con SQL Server Compact tramite Visual Studio o Visual Web Developer: distribuzione di database SQL Server Compact - 2 pari a 12
 ====================

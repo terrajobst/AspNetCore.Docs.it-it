@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/visual-studio-web-deployment/setting-folder-p
 title: 'Distribuzione Web ASP.NET tramite Visual Studio: impostazione delle autorizzazioni di cartella | Microsoft Docs'
 author: tdykstra
 description: Questa serie di esercitazioni illustra come distribuire, pubblicare, ASP.NET per App Web di servizio App di Azure o per un provider di hosting di terze parti, di applicazioni web da utilizza...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/15/2013
 ms.assetid: 9715a121-fa55-4f1b-a5d2-fb3f6cd8be8f
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/setting-folder-permissions
 msc.type: authoredcontent
-ms.openlocfilehash: 0660a464063783406a69caf663036811c8ac818e
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 930f46c0ddb0b77525098291393e526107a542d2
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37802033"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41825887"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-setting-folder-permissions"></a>Distribuzione Web ASP.NET tramite Visual Studio: impostazione delle autorizzazioni di cartella
 ====================

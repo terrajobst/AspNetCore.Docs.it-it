@@ -3,17 +3,17 @@ uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v3/odata-actions
 title: Supportare le azioni OData nell'API Web ASP.NET 2 | Microsoft Docs
 author: MikeWasson
 description: 'In OData le azioni sono un modo per aggiungere comportamenti lato server che non sono definiti facilmente come operazioni CRUD su entità. Alcuni usi di azioni includono: implementare...'
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/25/2014
 ms.assetid: 2d7b3aa2-aa47-4e6e-b0ce-3d65a1c6fe02
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/odata-actions
 msc.type: authoredcontent
-ms.openlocfilehash: e02ab21b864e328fe6892a00e5d5aca3f88eb9a2
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 71c0f91f709aca0deb5548bdbcad60d79a2702f6
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37837772"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826467"
 ---
 <a name="supporting-odata-actions-in-aspnet-web-api-2"></a>Supportare le azioni OData nell'API Web ASP.NET 2
 ====================

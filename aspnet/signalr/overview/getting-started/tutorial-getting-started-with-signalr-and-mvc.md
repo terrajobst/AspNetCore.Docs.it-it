@@ -3,17 +3,17 @@ uid: signalr/overview/getting-started/tutorial-getting-started-with-signalr-and-
 title: 'Esercitazione: Introduzione a SignalR 2 e MVC 5 | Microsoft Docs'
 author: pfletcher
 description: Questa esercitazione illustra come usare ASP.NET SignalR 2 per creare un'applicazione di chat in tempo reale. Si verrà aggiunto SignalR a un'applicazione MVC 5 e creare una vista di chat...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/10/2014
 ms.assetid: 80bfe5fb-bdfc-41fe-ac43-2132e5d69fac
 msc.legacyurl: /signalr/overview/getting-started/tutorial-getting-started-with-signalr-and-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 4a4c013ff047f18f9d9b88595af7951577f3f200
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 3fca46ac1e73905063afec9fc1eb9cf8df3aee24
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37838650"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41830278"
 ---
 <a name="tutorial-getting-started-with-signalr-2-and-mvc-5"></a>Esercitazione: Introduzione a SignalR 2 e MVC 5
 ====================

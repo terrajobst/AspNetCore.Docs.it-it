@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-we
 title: Distribuzione di pacchetti Web | Microsoft Docs
 author: jrjlee
 description: Questo argomento viene descritto come pubblicare i pacchetti di distribuzione web a un server remoto utilizzando lo strumento di distribuzione di Internet Information Services (IIS) Web (Web...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: a5c5eed2-8683-40a5-a2e1-35c9f8d17c29
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-web-packages
 msc.type: authoredcontent
-ms.openlocfilehash: 44c3772263cbebaf03e1393542fda32467a97cd8
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d7a17a2830ab044f6f7446edc18c394d97b09fa0
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37825265"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827081"
 ---
 <a name="deploying-web-packages"></a>Distribuzione di pacchetti Web
 ====================

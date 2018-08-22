@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/basic-reporting/programmatically-setting-the
 title: A livello di codice impostando i valori dei parametri di ObjectDataSource (VB) | Microsoft Docs
 author: rick-anderson
 description: In questa esercitazione verrà esaminato l'aggiunta di un metodo al nostro DAL e BLL che accetta un parametro di input e restituisce i dati. Questo parametro viene impostato nell'esempio...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: 0ecb03b6-52a0-4731-8c7a-436391d36838
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/programmatically-setting-the-objectdatasource-s-parameter-values-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d779de4f5bd0d03f413237689e5a64330fcb491d
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f823d1db7f98dcbbef12d20df4a28e39fae0ac26
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37825782"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826480"
 ---
 <a name="programmatically-setting-the-objectdatasources-parameter-values-vb"></a>A livello di codice impostando i valori dei parametri di ObjectDataSource (VB)
 ====================

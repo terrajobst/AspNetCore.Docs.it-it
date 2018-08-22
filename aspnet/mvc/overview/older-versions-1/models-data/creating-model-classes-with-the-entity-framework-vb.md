@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/models-data/creating-model-classes-with-the-e
 title: Creazione di classi di modello con Entity Framework (Visual Basic) | Microsoft Docs
 author: microsoft
 description: In questa esercitazione descrive come usare ASP.NET MVC con Entity Framework Microsoft. Informazioni su come usare la procedura guidata Entity creare Da un'entità ADO.NET...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/27/2009
 ms.assetid: ff8322c9-12f3-4e24-aba6-a38046b9bb0d
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-the-entity-framework-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 15415547763cfcd48dc845827d8c6b12afd18d75
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: c1f64f57d4c23fe225a8268042104254e17dc456
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37810404"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826870"
 ---
 <a name="creating-model-classes-with-the-entity-framework-vb"></a>Creazione di classi di modello con Entity Framework (VB)
 ====================
