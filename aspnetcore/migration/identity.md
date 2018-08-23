@@ -1,30 +1,30 @@
 ---
-title: Eseguire la migrazione di autenticazione e identità per ASP.NET Core
+title: Eseguire la migrazione di autenticazione e identità ad ASP.NET Core
 author: ardalis
-description: Informazioni su come eseguire la migrazione di autenticazione e identità da un progetto ASP.NET MVC per un progetto ASP.NET MVC di base.
+description: Informazioni su come eseguire la migrazione di autenticazione e identità da un progetto ASP.NET MVC per un progetto ASP.NET Core MVC.
 ms.author: riande
 ms.date: 10/14/2016
 uid: migration/identity
-ms.openlocfilehash: e05d72ca78c7b8191a47f78cda31ee40e04d0706
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 72e62e78e37325ec47d54abbc11a875ae87fb63a
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275697"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828330"
 ---
-# <a name="migrate-authentication-and-identity-to-aspnet-core"></a><span data-ttu-id="30ba7-103">Eseguire la migrazione di autenticazione e identità per ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="30ba7-103">Migrate Authentication and Identity to ASP.NET Core</span></span>
+# <a name="migrate-authentication-and-identity-to-aspnet-core"></a><span data-ttu-id="e84e2-103">Eseguire la migrazione di autenticazione e identità ad ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="e84e2-103">Migrate Authentication and Identity to ASP.NET Core</span></span>
 
-<span data-ttu-id="30ba7-104">Di [Steve Smith](https://ardalis.com/)</span><span class="sxs-lookup"><span data-stu-id="30ba7-104">By [Steve Smith](https://ardalis.com/)</span></span>
+<span data-ttu-id="e84e2-104">Di [Steve Smith](https://ardalis.com/)</span><span class="sxs-lookup"><span data-stu-id="e84e2-104">By [Steve Smith](https://ardalis.com/)</span></span>
 
-<span data-ttu-id="30ba7-105">Nell'articolo precedente, si [eseguita la migrazione di configurazione da un progetto ASP.NET MVC per MVC ASP.NET Core](xref:migration/configuration).</span><span class="sxs-lookup"><span data-stu-id="30ba7-105">In the previous article, we [migrated configuration from an ASP.NET MVC project to ASP.NET Core MVC](xref:migration/configuration).</span></span> <span data-ttu-id="30ba7-106">In questo articolo è la migrazione delle funzionalità di gestione utente, account di accesso e registrazione.</span><span class="sxs-lookup"><span data-stu-id="30ba7-106">In this article, we migrate the registration, login, and user management features.</span></span>
+<span data-ttu-id="e84e2-105">Nell'articolo precedente, abbiamo [migrati configurazione da un progetto ASP.NET MVC ad ASP.NET Core MVC](xref:migration/configuration).</span><span class="sxs-lookup"><span data-stu-id="e84e2-105">In the previous article, we [migrated configuration from an ASP.NET MVC project to ASP.NET Core MVC](xref:migration/configuration).</span></span> <span data-ttu-id="e84e2-106">In questo articolo, la migrazione delle funzionalità di gestione di registrazione, accesso e utente.</span><span class="sxs-lookup"><span data-stu-id="e84e2-106">In this article, we migrate the registration, login, and user management features.</span></span>
 
-## <a name="configure-identity-and-membership"></a><span data-ttu-id="30ba7-107">Configurare l'identità e l'appartenenza</span><span class="sxs-lookup"><span data-stu-id="30ba7-107">Configure Identity and Membership</span></span>
+## <a name="configure-identity-and-membership"></a><span data-ttu-id="e84e2-107">Configurazione di identità e appartenenza</span><span class="sxs-lookup"><span data-stu-id="e84e2-107">Configure Identity and Membership</span></span>
 
-<span data-ttu-id="30ba7-108">In ASP.NET MVC, funzionalità di autenticazione e identità vengono configurate mediante ASP.NET Identity nel *Startup.Auth.cs* e *IdentityConfig.cs*, che si trova nel *App_Start* cartella.</span><span class="sxs-lookup"><span data-stu-id="30ba7-108">In ASP.NET MVC, authentication and identity features are configured using ASP.NET Identity in *Startup.Auth.cs* and *IdentityConfig.cs*, located in the *App_Start* folder.</span></span> <span data-ttu-id="30ba7-109">In ASP.NET MVC di base, queste funzionalità vengono configurate in *Startup.cs*.</span><span class="sxs-lookup"><span data-stu-id="30ba7-109">In ASP.NET Core MVC, these features are configured in *Startup.cs*.</span></span>
+<span data-ttu-id="e84e2-108">In ASP.NET MVC, funzionalità di autenticazione e identità vengono configurate mediante ASP.NET Identity nelle *Startup.Auth.cs* e *IdentityConfig.cs*, che si trova nel *App_Start* cartella.</span><span class="sxs-lookup"><span data-stu-id="e84e2-108">In ASP.NET MVC, authentication and identity features are configured using ASP.NET Identity in *Startup.Auth.cs* and *IdentityConfig.cs*, located in the *App_Start* folder.</span></span> <span data-ttu-id="e84e2-109">In ASP.NET Core MVC, queste funzionalità sono configurate nel *Startup.cs*.</span><span class="sxs-lookup"><span data-stu-id="e84e2-109">In ASP.NET Core MVC, these features are configured in *Startup.cs*.</span></span>
 
-<span data-ttu-id="30ba7-110">Installare il `Microsoft.AspNetCore.Identity.EntityFrameworkCore` e `Microsoft.AspNetCore.Authentication.Cookies` pacchetti NuGet.</span><span class="sxs-lookup"><span data-stu-id="30ba7-110">Install the `Microsoft.AspNetCore.Identity.EntityFrameworkCore` and `Microsoft.AspNetCore.Authentication.Cookies` NuGet packages.</span></span>
+<span data-ttu-id="e84e2-110">Installare il `Microsoft.AspNetCore.Identity.EntityFrameworkCore` e `Microsoft.AspNetCore.Authentication.Cookies` pacchetti NuGet.</span><span class="sxs-lookup"><span data-stu-id="e84e2-110">Install the `Microsoft.AspNetCore.Identity.EntityFrameworkCore` and `Microsoft.AspNetCore.Authentication.Cookies` NuGet packages.</span></span>
 
-<span data-ttu-id="30ba7-111">Quindi, aprire *Startup.cs* e aggiornare il `Startup.ConfigureServices` metodo per utilizzare i servizi di identità e di Entity Framework:</span><span class="sxs-lookup"><span data-stu-id="30ba7-111">Then, open *Startup.cs* and update the `Startup.ConfigureServices` method to use Entity Framework and Identity services:</span></span>
+<span data-ttu-id="e84e2-111">Quindi, aprire *Startup.cs* e aggiornare il `Startup.ConfigureServices` metodo per utilizzare i servizi di identità e di Entity Framework:</span><span class="sxs-lookup"><span data-stu-id="e84e2-111">Then, open *Startup.cs* and update the `Startup.ConfigureServices` method to use Entity Framework and Identity services:</span></span>
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -41,9 +41,9 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-<span data-ttu-id="30ba7-112">A questo punto, sono disponibili due tipi a cui fa riferimento nel codice precedente è non ancora migrati dal progetto ASP.NET MVC: `ApplicationDbContext` e `ApplicationUser`.</span><span class="sxs-lookup"><span data-stu-id="30ba7-112">At this point, there are two types referenced in the above code that we haven't yet migrated from the ASP.NET MVC project: `ApplicationDbContext` and `ApplicationUser`.</span></span> <span data-ttu-id="30ba7-113">Creare un nuovo *modelli* in ASP.NET Core cartella del progetto e aggiungere due classi corrispondenti a questi tipi.</span><span class="sxs-lookup"><span data-stu-id="30ba7-113">Create a new *Models* folder in the ASP.NET Core project, and add two classes to it corresponding to these types.</span></span> <span data-ttu-id="30ba7-114">Si noterà ASP.NET MVC versioni di queste classi */Models/IdentityModels.cs*, ma verrà utilizzato un file per ogni classe nel progetto migrato dal momento che è più chiaro.</span><span class="sxs-lookup"><span data-stu-id="30ba7-114">You will find the ASP.NET MVC versions of these classes in */Models/IdentityModels.cs*, but we will use one file per class in the migrated project since that's more clear.</span></span>
+<span data-ttu-id="e84e2-112">A questo punto, sono disponibili due tipi riferimento nel codice precedente che è ancora stato ancora migrati dal progetto ASP.NET MVC: `ApplicationDbContext` e `ApplicationUser`.</span><span class="sxs-lookup"><span data-stu-id="e84e2-112">At this point, there are two types referenced in the above code that we haven't yet migrated from the ASP.NET MVC project: `ApplicationDbContext` and `ApplicationUser`.</span></span> <span data-ttu-id="e84e2-113">Creare una nuova *modelli* cartella in ASP.NET Core di progetto, due classi per aggiungervi corrispondenti a questi tipi.</span><span class="sxs-lookup"><span data-stu-id="e84e2-113">Create a new *Models* folder in the ASP.NET Core project, and add two classes to it corresponding to these types.</span></span> <span data-ttu-id="e84e2-114">Si noterà ASP.NET MVC versioni di queste classi in */Models/IdentityModels.cs*, ma si userà un file per ogni classe nel progetto migrato dal momento che è più chiaro.</span><span class="sxs-lookup"><span data-stu-id="e84e2-114">You will find the ASP.NET MVC versions of these classes in */Models/IdentityModels.cs*, but we will use one file per class in the migrated project since that's more clear.</span></span>
 
-<span data-ttu-id="30ba7-115">*ApplicationUser.cs*:</span><span class="sxs-lookup"><span data-stu-id="30ba7-115">*ApplicationUser.cs*:</span></span>
+<span data-ttu-id="e84e2-115">*ApplicationUser.cs*:</span><span class="sxs-lookup"><span data-stu-id="e84e2-115">*ApplicationUser.cs*:</span></span>
 
 ```csharp
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -56,7 +56,7 @@ namespace NewMvcProject.Models
 }
 ```
 
-<span data-ttu-id="30ba7-116">*ApplicationDbContext.cs*:</span><span class="sxs-lookup"><span data-stu-id="30ba7-116">*ApplicationDbContext.cs*:</span></span>
+<span data-ttu-id="e84e2-116">*ApplicationDbContext.cs*:</span><span class="sxs-lookup"><span data-stu-id="e84e2-116">*ApplicationDbContext.cs*:</span></span>
 
 ```csharp
 using Microsoft.AspNetCore.Identity.EntityFramework;
@@ -74,17 +74,17 @@ namespace NewMvcProject.Models
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            // Customize the ASP.NET Identity model and override the defaults if needed.
-            // For example, you can rename the ASP.NET Identity table names and more.
+            // Customize the ASP.NET Core Identity model and override the defaults if needed.
+            // For example, you can rename the ASP.NET Core Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
         }
     }
 }
 ```
 
-<span data-ttu-id="30ba7-117">Il progetto Web ASP.NET Core MVC Starter non include a livello di personalizzazione degli utenti, o `ApplicationDbContext`.</span><span class="sxs-lookup"><span data-stu-id="30ba7-117">The ASP.NET Core MVC Starter Web project doesn't include much customization of users, or the `ApplicationDbContext`.</span></span> <span data-ttu-id="30ba7-118">Durante la migrazione di una vera app, è inoltre necessario eseguire la migrazione di tutte le proprietà personalizzate e i metodi dell'utente dell'app e `DbContext` classi, nonché altre classi di modello prevede l'utilizzo dell'app.</span><span class="sxs-lookup"><span data-stu-id="30ba7-118">When migrating a real app, you also need to migrate all of the custom properties and methods of your app's user and `DbContext` classes, as well as any other Model classes your app utilizes.</span></span> <span data-ttu-id="30ba7-119">Ad esempio, se il `DbContext` ha un `DbSet<Album>`, è necessario eseguire la migrazione di `Album` (classe).</span><span class="sxs-lookup"><span data-stu-id="30ba7-119">For example, if your `DbContext` has a `DbSet<Album>`, you need to migrate the `Album` class.</span></span>
+<span data-ttu-id="e84e2-117">Il progetto Web ASP.NET Core MVC Starter non include molte personalizzazioni degli utenti, o `ApplicationDbContext`.</span><span class="sxs-lookup"><span data-stu-id="e84e2-117">The ASP.NET Core MVC Starter Web project doesn't include much customization of users, or the `ApplicationDbContext`.</span></span> <span data-ttu-id="e84e2-118">Durante la migrazione di una vera app, è anche necessario eseguire la migrazione di tutte le proprietà personalizzate e i metodi dell'utente dell'app e `DbContext` classi, nonché a eventuali altre classi di modello Usa l'app.</span><span class="sxs-lookup"><span data-stu-id="e84e2-118">When migrating a real app, you also need to migrate all of the custom properties and methods of your app's user and `DbContext` classes, as well as any other Model classes your app utilizes.</span></span> <span data-ttu-id="e84e2-119">Ad esempio, se il `DbContext` ha un `DbSet<Album>`, è necessario eseguire la migrazione di `Album` classe.</span><span class="sxs-lookup"><span data-stu-id="e84e2-119">For example, if your `DbContext` has a `DbSet<Album>`, you need to migrate the `Album` class.</span></span>
 
-<span data-ttu-id="30ba7-120">Con questi file in punto, il *Startup.cs* file può essere resi per compilare aggiornando relativo `using` istruzioni:</span><span class="sxs-lookup"><span data-stu-id="30ba7-120">With these files in place, the *Startup.cs* file can be made to compile by updating its `using` statements:</span></span>
+<span data-ttu-id="e84e2-120">Questi file sul posto, il *Startup.cs* siano possibili dei file da compilare tramite l'aggiornamento relativo `using` istruzioni:</span><span class="sxs-lookup"><span data-stu-id="e84e2-120">With these files in place, the *Startup.cs* file can be made to compile by updating its `using` statements:</span></span>
 
 ```csharp
 using Microsoft.AspNetCore.Builder;
@@ -95,13 +95,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 ```
 
-<span data-ttu-id="30ba7-121">L'app è ora pronto per supportare i servizi di autenticazione e identità.</span><span class="sxs-lookup"><span data-stu-id="30ba7-121">Our app is now ready to support authentication and Identity services.</span></span> <span data-ttu-id="30ba7-122">È necessario solo le funzionalità esposte agli utenti.</span><span class="sxs-lookup"><span data-stu-id="30ba7-122">It just needs to have these features exposed to users.</span></span>
+<span data-ttu-id="e84e2-121">L'app è ora pronto per supportare l'autenticazione e i servizi di identità.</span><span class="sxs-lookup"><span data-stu-id="e84e2-121">Our app is now ready to support authentication and Identity services.</span></span> <span data-ttu-id="e84e2-122">È sufficiente disporre di queste funzionalità esposte agli utenti.</span><span class="sxs-lookup"><span data-stu-id="e84e2-122">It just needs to have these features exposed to users.</span></span>
 
-## <a name="migrate-registration-and-login-logic"></a><span data-ttu-id="30ba7-123">Eseguire la migrazione della logica di registrazione e account di accesso</span><span class="sxs-lookup"><span data-stu-id="30ba7-123">Migrate registration and login logic</span></span>
+## <a name="migrate-registration-and-login-logic"></a><span data-ttu-id="e84e2-123">Eseguire la migrazione di registrazione e account di accesso per la logica</span><span class="sxs-lookup"><span data-stu-id="e84e2-123">Migrate registration and login logic</span></span>
 
-<span data-ttu-id="30ba7-124">Con servizi di identità configurati per l'app e l'accesso ai dati configurati con Entity Framework e SQL Server, saremo pronti aggiungere il supporto per la registrazione e account di accesso all'app.</span><span class="sxs-lookup"><span data-stu-id="30ba7-124">With Identity services configured for the app and data access configured using Entity Framework and SQL Server, we're ready to add support for registration and login to the app.</span></span> <span data-ttu-id="30ba7-125">Si tenga presente che [più indietro nel processo di migrazione](xref:migration/mvc#migrate-the-layout-file) è impostata come commento un riferimento a *loginpartial* in *layout. cshtml*.</span><span class="sxs-lookup"><span data-stu-id="30ba7-125">Recall that [earlier in the migration process](xref:migration/mvc#migrate-the-layout-file) we commented out a reference to *_LoginPartial* in *_Layout.cshtml*.</span></span> <span data-ttu-id="30ba7-126">È ora necessario tornare a tale codice, rimuovere il commento e aggiungere nelle viste per supportare la funzionalità di accesso e controller necessari.</span><span class="sxs-lookup"><span data-stu-id="30ba7-126">Now it's time to return to that code, uncomment it, and add in the necessary controllers and views to support login functionality.</span></span>
+<span data-ttu-id="e84e2-124">Con servizi di identità configurati per l'app e l'accesso ai dati configurati tramite Entity Framework e SQL Server, siamo pronti per aggiungere il supporto per la registrazione e account di accesso all'app.</span><span class="sxs-lookup"><span data-stu-id="e84e2-124">With Identity services configured for the app and data access configured using Entity Framework and SQL Server, we're ready to add support for registration and login to the app.</span></span> <span data-ttu-id="e84e2-125">È importante ricordare che [precedenti nel processo di migrazione](xref:migration/mvc#migrate-the-layout-file) è un riferimento a come commento *loginpartial* nelle *layout. cshtml*.</span><span class="sxs-lookup"><span data-stu-id="e84e2-125">Recall that [earlier in the migration process](xref:migration/mvc#migrate-the-layout-file) we commented out a reference to *_LoginPartial* in *_Layout.cshtml*.</span></span> <span data-ttu-id="e84e2-126">È ora possibile tornare al codice, rimuovere i commenti e aggiungere necessari sui controller e visualizzazioni per supportare la funzionalità di accesso.</span><span class="sxs-lookup"><span data-stu-id="e84e2-126">Now it's time to return to that code, uncomment it, and add in the necessary controllers and views to support login functionality.</span></span>
 
-<span data-ttu-id="30ba7-127">Rimuovere il commento il `@Html.Partial` riga *cshtml*:</span><span class="sxs-lookup"><span data-stu-id="30ba7-127">Uncomment the `@Html.Partial` line in *_Layout.cshtml*:</span></span>
+<span data-ttu-id="e84e2-127">Rimuovere il commento il `@Html.Partial` linea *layout. cshtml*:</span><span class="sxs-lookup"><span data-stu-id="e84e2-127">Uncomment the `@Html.Partial` line in *_Layout.cshtml*:</span></span>
 
 ```cshtml
       <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
@@ -111,9 +111,9 @@ using Microsoft.Extensions.DependencyInjection;
 </div>
 ```
 
-<span data-ttu-id="30ba7-128">A questo punto, aggiungere una nuova visualizzazione Razor denominata *loginpartial* per il *Views/Shared* cartella:</span><span class="sxs-lookup"><span data-stu-id="30ba7-128">Now, add a new Razor view called *_LoginPartial* to the *Views/Shared* folder:</span></span>
+<span data-ttu-id="e84e2-128">A questo punto, aggiungere una nuova visualizzazione Razor chiamata *loginpartial* per il *Views/Shared* cartella:</span><span class="sxs-lookup"><span data-stu-id="e84e2-128">Now, add a new Razor view called *_LoginPartial* to the *Views/Shared* folder:</span></span>
 
-<span data-ttu-id="30ba7-129">Aggiornamento *loginpartial. cshtml* con il codice riportato di seguito (sostituire tutti i relativi contenuti):</span><span class="sxs-lookup"><span data-stu-id="30ba7-129">Update *_LoginPartial.cshtml* with the following code (replace all of its contents):</span></span>
+<span data-ttu-id="e84e2-129">Update *loginpartial. cshtml* con il codice seguente (sostituire tutti i relativi contenuti):</span><span class="sxs-lookup"><span data-stu-id="e84e2-129">Update *_LoginPartial.cshtml* with the following code (replace all of its contents):</span></span>
 
 ```cshtml
 @inject SignInManager<ApplicationUser> SignInManager
@@ -141,8 +141,8 @@ else
 }
 ```
 
-<span data-ttu-id="30ba7-130">A questo punto, dovrebbe essere in grado di aggiornare il sito nel browser.</span><span class="sxs-lookup"><span data-stu-id="30ba7-130">At this point, you should be able to refresh the site in your browser.</span></span>
+<span data-ttu-id="e84e2-130">A questo punto, è necessario essere in grado di aggiornare il sito nel browser.</span><span class="sxs-lookup"><span data-stu-id="e84e2-130">At this point, you should be able to refresh the site in your browser.</span></span>
 
-## <a name="summary"></a><span data-ttu-id="30ba7-131">Riepilogo</span><span class="sxs-lookup"><span data-stu-id="30ba7-131">Summary</span></span>
+## <a name="summary"></a><span data-ttu-id="e84e2-131">Riepilogo</span><span class="sxs-lookup"><span data-stu-id="e84e2-131">Summary</span></span>
 
-<span data-ttu-id="30ba7-132">ASP.NET Core sono state introdotte modifiche alle funzionalità di ASP.NET Identity.</span><span class="sxs-lookup"><span data-stu-id="30ba7-132">ASP.NET Core introduces changes to the ASP.NET Identity features.</span></span> <span data-ttu-id="30ba7-133">In questo articolo è stato illustrato come eseguire la migrazione alle funzionalità di ASP.NET Identity Gestione utente e l'autenticazione in ASP.NET Core.</span><span class="sxs-lookup"><span data-stu-id="30ba7-133">In this article, you have seen how to migrate the authentication and user management features of ASP.NET Identity to ASP.NET Core.</span></span>
+<span data-ttu-id="e84e2-132">ASP.NET Core introduce modifiche alle funzionalità di ASP.NET Identity.</span><span class="sxs-lookup"><span data-stu-id="e84e2-132">ASP.NET Core introduces changes to the ASP.NET Identity features.</span></span> <span data-ttu-id="e84e2-133">In questo articolo, si hanno visto come eseguire la migrazione le funzionalità di gestione utente e l'autenticazione dell'identità di ASP.NET ad ASP.NET Core.</span><span class="sxs-lookup"><span data-stu-id="e84e2-133">In this article, you have seen how to migrate the authentication and user management features of ASP.NET Identity to ASP.NET Core.</span></span>
