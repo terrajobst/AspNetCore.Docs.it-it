@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/masterdetail/master-detail-filtering-across-
 title: Master/dettagli filtro su due pagine (c#) | Microsoft Docs
 author: rick-anderson
 description: In questa esercitazione implementeremo questo modello usando un controllo GridView per elencare i fornitori nel database. Ogni riga del fornitore in GridView conterrà un Vie...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: 552d2d50-fe73-4153-9a7f-2b379bec4625
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-across-two-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 13f5a13ac33ec9dfbff1952bc3bbb4dc951ab139
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 69e5f010507784229360f71cf6f570b342f5ff46
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37823980"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826661"
 ---
 <a name="masterdetail-filtering-across-two-pages-c"></a>Master/dettagli filtro su due pagine (c#)
 ====================

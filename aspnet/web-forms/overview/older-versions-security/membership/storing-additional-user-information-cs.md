@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-security/membership/storing-additional-us
 title: L'archiviazione delle informazioni utente aggiuntive (c#) | Microsoft Docs
 author: rick-anderson
 description: In questa esercitazione verrà rispondere a questa domanda creando un'applicazione molto rudimentali guestbook. In questo modo, si esaminerà le opzioni diverse per modeli...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/18/2008
 ms.assetid: 1642132a-1ca5-4872-983f-ab59fc8865d3
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/storing-additional-user-information-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5b73a19758c420f09d178ebd395d5c89ad493505
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 76e6cd1ec290cf572023aef35e349b1146b2b432
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37819828"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41831278"
 ---
 <a name="storing-additional-user-information-c"></a>L'archiviazione delle informazioni utente aggiuntive (c#)
 ====================

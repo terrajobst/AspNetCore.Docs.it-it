@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-security/admin/building-an-interface-to-s
 title: Creazione di un'interfaccia per selezionare un Account utente da molti (Visual Basic) | Microsoft Docs
 author: rick-anderson
 description: In questa esercitazione si compilerà un'interfaccia utente con una griglia di paging, filtrabile. In particolare, l'interfaccia utente sarà costituito da una serie di LinkButton per...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/01/2008
 ms.assetid: da53380c-a16b-41c7-a20d-24343c735c52
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/building-an-interface-to-select-one-user-account-from-many-vb
 msc.type: authoredcontent
-ms.openlocfilehash: af2a9692e03f147dfc1389f8c13b7d4fd758d62e
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: bb30c5d3ce6e04f60d8192e8ed0404b89031b4b9
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37803254"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41831332"
 ---
 <a name="building-an-interface-to-select-one-user-account-from-many-vb"></a>Creazione di un'interfaccia per selezionare un Account utente da molti (VB)
 ====================

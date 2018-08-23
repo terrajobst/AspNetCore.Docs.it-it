@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/overview/understanding-models-views-and-contr
 title: Informazioni su modelli, visualizzazioni e controller (c#) | Microsoft Docs
 author: StephenWalther
 description: Per informazioni dettagliate sugli modelli, visualizzazioni e controller? In questa esercitazione, Stephen Walther presenta le diverse parti di un'applicazione ASP.NET MVC.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/19/2008
 ms.assetid: 87313792-0a96-4caf-89fc-1457d54e5c1e
 msc.legacyurl: /mvc/overview/older-versions-1/overview/understanding-models-views-and-controllers-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c4c5247ac4b880c1be60f0419ebc9fc9b790c639
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 5e9186a6c261266de8f1a1509a49b84b359bd920
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37823396"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826935"
 ---
 <a name="understanding-models-views-and-controllers-c"></a>Informazioni su modelli, visualizzazioni e controller (c#)
 ====================
@@ -120,15 +120,15 @@ Questo URL viene analizzato nei tre parametri simile al seguente:
 
 Controller = dipendente
 
-Azione = indice
+azione = indice
 
 ID =
 
 Infine, se si apre un'applicazione ASP.NET MVC senza fornire qualsiasi URL (ad esempio, `http://localhost`) l'URL viene analizzato come segue:
 
-Controller = Home
+controller = Home
 
-Azione = indice
+azione = indice
 
 ID =
 

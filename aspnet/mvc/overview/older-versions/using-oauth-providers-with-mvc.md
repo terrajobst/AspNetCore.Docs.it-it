@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/using-oauth-providers-with-mvc
 title: Uso di provider OAuth con MVC 4 | Microsoft Docs
 author: tfitzmac
 description: Questa esercitazione illustra come compilare un'applicazione web ASP.NET MVC 4 che consente agli utenti di accedere con le credenziali da un provider esterno, ad esempio Facebo...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/19/2013
 ms.assetid: 7a87f16f-0e19-4f15-a88a-094ae866c4a2
 msc.legacyurl: /mvc/overview/older-versions/using-oauth-providers-with-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 15f6b45706c0711d68b0780a7474d4c939a85fba
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 9b0db2775db5c74762bdc55328ad44ef7ebe75ce
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37823326"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41826345"
 ---
 <a name="using-oauth-providers-with-mvc-4"></a>Uso di provider OAuth con MVC 4
 ====================
@@ -186,7 +186,7 @@ Dati utente aggiuntivi viene restituiti il **ExtraData** proprietà del **Authen
 - ID
 - name
 - collegamento
-- sesso
+- Sesso
 - accesstoken
 
 Altri provider avranno i dati simili, ma leggermente diversi nella proprietà ExtraData.

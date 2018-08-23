@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/paging-and-sorting/efficiently-paging-throug
 title: Paging efficiente in grandi quantità di dati (VB) | Microsoft Docs
 author: rick-anderson
 description: L'opzione di paging predefinito di un controllo di presentazione dei dati è non adatto quando si lavora con grandi quantità di dati, come relativo retriev di controllo origine dati sottostante...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/15/2006
 ms.assetid: 3e20e64a-8808-4b49-88d6-014e2629d56f
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/efficiently-paging-through-large-amounts-of-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9b00e18287bdb791a353b7ebd1bbb6cc0ab586b5
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 5870b9ac2af7d9df927edd8230334dee4885c6a1
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37805506"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41831392"
 ---
 <a name="efficiently-paging-through-large-amounts-of-data-vb"></a>Paging efficiente in grandi quantità di dati (VB)
 ====================
@@ -352,7 +352,7 @@ Sfortunatamente, 3!s ci Nessuna dimensione adatta a tutte le risposte di seguito
 Un articolo, mio [Paging personalizzato in ASP.NET 2.0 con SQL Server 2005](http://aspnet.4guysfromrolla.com/articles/031506-1.aspx), contiene alcuni test è stato eseguito per presentare le differenze nelle prestazioni tra queste due tecniche di spostamento quando il paging attraverso una tabella di database con 50.000 record. In questi test ho esaminato il sia il tempo per eseguire la query a livello di SQL Server (utilizzando [SQL Profiler](https://msdn.microsoft.com/library/ms173757.aspx)) e di pagina ASP.NET utilizzando [le funzionalità di traccia di ASP.NET s](https://msdn.microsoft.com/library/y13fw6we.aspx). Tenere presente che questi test sono stati eseguiti nella mia finestra di sviluppo con un singolo utente attivo e pertanto sono poco e non possono simulare modelli di carico tipico sito Web. Indipendentemente da ciò, i risultati illustrano le differenze relative nel tempo di esecuzione per impostazione predefinita e il paging personalizzato quando si lavora con sufficientemente grandi quantità di dati.
 
 
-|  | **Durata media Durata (sec)** | **Operazioni di lettura** |
+|  | **Durata media Durata (sec)** | **Letture** |
 | --- | --- | --- |
 | **Paging Profiler SQL predefinito** | 1.411 | 383 |
 | **Personalizzato Paging SQL Profiler** | 0.002 | 29 |

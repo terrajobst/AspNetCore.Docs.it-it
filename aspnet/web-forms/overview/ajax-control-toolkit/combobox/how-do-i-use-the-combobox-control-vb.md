@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/combobox/how-do-i-use-the-combobox-
 title: Come si usa il controllo ComboBox? (VB) | Microsoft Docs
 author: microsoft
 description: Casella combinata è un controllo ASP.NET AJAX che combina la flessibilità di una casella di testo con un elenco di opzioni da cui gli utenti possono scegliere.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/12/2009
 ms.assetid: e887e7b2-a6e7-4a28-a134-ba334494badb
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/combobox/how-do-i-use-the-combobox-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 745871b7e8cca14b3458d9004d581dfacf55ea24
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ec00a58581f36f87ecdca2fbd96fcea645f75f48
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37837724"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828937"
 ---
 <a name="how-do-i-use-the-combobox-control-vb"></a>Come si usa il controllo ComboBox? (VB)
 ====================
