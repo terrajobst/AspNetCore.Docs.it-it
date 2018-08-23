@@ -3,190 +3,212 @@ title: Middleware di ASP.NET Core
 author: rick-anderson
 description: Informazioni sul middelware di ASP.NET Core e la pipeline delle richieste.
 ms.author: riande
-ms.date: 01/22/2018
+ms.custom: mvc
+ms.date: 08/21/2018
 uid: fundamentals/middleware/index
-ms.openlocfilehash: d22c7208390ed2de2ca31ead46ecb21bc41671bf
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 9ba77561ab4f6a8668c480d6e81f2ce7e0193c73
+ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36279584"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41870947"
 ---
 # <a name="aspnet-core-middleware"></a>Middleware di ASP.NET Core
 
 [Rick Anderson](https://twitter.com/RickAndMSFT) e [Steve Smith](https://ardalis.com/)
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/index/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
-
-## <a name="what-is-middleware"></a>Che cos'è il middleware?
-
-Il middleware è un software che viene assemblato in una pipeline dell'applicazione per gestire richieste e risposte. Ogni componente:
+Il middleware è un software che viene assemblato in una pipeline dell'app per gestire richieste e risposte. Ogni componente:
 
 * Sceglie se passare la richiesta al componente successivo nella pipeline.
-* Può eseguire le operazioni prima e dopo aver chiamato il componente successivo nella pipeline. 
+* Può eseguire le operazioni prima e dopo aver chiamato il componente successivo nella pipeline.
 
 Per compilare la pipeline delle richieste vengono usati i delegati di richiesta. I delegati di richiesta gestiscono ogni richiesta HTTP.
 
-I delegati di richiesta vengono configurati tramite i metodi di estensione [Run](/dotnet/api/microsoft.aspnetcore.builder.runextensions), [Map](/dotnet/api/microsoft.aspnetcore.builder.mapextensions) e [Use](/dotnet/api/microsoft.aspnetcore.builder.useextensions). È possibile specificare un singolo delegato di richiesta inline come metodo anonimo (chiamato middleware inline) o definirlo in una classe riutilizzabile. Le classi riutilizzabili o i metodi anonimi inline costituiscono il *middleware* o sono *componenti middleware*. Ogni componente del middleware è responsabile della chiamata del componente seguente nella pipeline o del corto circuito della catena, se necessario.
+I delegati di richiesta vengono configurati tramite i metodi di estensione <xref:Microsoft.AspNetCore.Builder.RunExtensions.Run*>, <xref:Microsoft.AspNetCore.Builder.MapExtensions.Map*> e <xref:Microsoft.AspNetCore.Builder.UseExtensions.Use*>. È possibile specificare un singolo delegato di richiesta inline come metodo anonimo (chiamato middleware inline) o definirlo in una classe riutilizzabile. Le classi riutilizzabili o i metodi anonimi inline costituiscono il *middleware* o sono noti anche come *componenti middleware*. Ogni componente middleware è responsabile della chiamata del componente seguente nella pipeline o del corto circuito della pipeline.
 
-In [Eseguire la migrazione di moduli HTTP in middleware](xref:migration/http-modules) sono descritte le differenze tra le pipeline delle richieste in ASP.NET Core e in ASP.NET 4.x e sono riportati altri esempi di middleware.
+In <xref:migration/http-modules> sono descritte le differenze tra le pipeline delle richieste in ASP.NET Core e in ASP.NET 4.x e sono riportati altri esempi di middleware.
 
-## <a name="creating-a-middleware-pipeline-with-iapplicationbuilder"></a>Creazione di una pipeline middleware con IApplicationBuilder
+## <a name="create-a-middleware-pipeline-with-iapplicationbuilder"></a>Creare una pipeline middleware con IApplicationBuilder
 
-La pipeline delle richieste ASP.NET Core è costituita da una sequenza di delegati di richiesta, chiamati uno dopo l'altro, come illustrato nella figura seguente (le frecce nere indicano il thread di esecuzione):
+La pipeline delle richieste ASP.NET Core è costituita da una sequenza di delegati di richiesta, chiamati uno dopo l'altro. Il diagramma seguente illustra il concetto. Il thread di esecuzione seguente le frecce nere.
 
-![Modello di elaborazione di richiesta che visualizza una richiesta in arrivo, l'elaborazione tramite tre middleware e la risposta che esce dall'applicazione. Ogni middleware esegue la relativa logica e passa la richiesta al middleware successivo in corrispondenza dell'istruzione next(). Dopo che il terzo middleware ha elaborato la richiesta, la richiesta torna ai due middleware precedenti in ordine inverso per un'ulteriore elaborazione dopo le istruzioni next() prima di uscire dall'applicazione sotto forma di risposta al client.](index/_static/request-delegate-pipeline.png)
+![Modello di elaborazione delle richieste che visualizza una richiesta in arrivo, l'elaborazione tramite tre middleware e la risposta che esce dall'app. Ogni middleware esegue la propria logica e passa la richiesta al middleware successivo in corrispondenza dell'istruzione next(). Dopo che il terzo middleware ha elaborato la richiesta, la richiesta torna ai due middleware precedenti in ordine inverso per un'ulteriore elaborazione dopo le istruzioni next() prima di uscire dall'app sotto forma di risposta al client.](index/_static/request-delegate-pipeline.png)
 
-Ogni delegato può eseguire operazioni prima e dopo il delegato successivo. Un delegato può anche decidere di non passare una richiesta al delegato successivo e creare un corto circuito della pipeline delle richieste. Il corto circuito è spesso opportuno poiché evita l'esecuzione di operazioni non necessarie. Ad esempio, il middleware dei file statici può restituire una richiesta di un file statico ed effettuare il corto circuito della pipeline rimanente. I delegati che gestiscono le eccezioni devono essere chiamati nella prima parte della pipeline in modo che possano individuare le eccezioni che si verificano nelle parti successive della pipeline.
+I delegati possono eseguire le operazioni prima del delegato successivo e dopo di esso. Un delegato può anche decidere di non passare una richiesta al delegato successivo e creare un cosiddetto *corto circuito della pipeline delle richieste*. Il corto circuito è spesso opportuno poiché evita l'esecuzione di operazioni non necessarie. Ad esempio, il middleware dei file statici può restituire una richiesta di un file statico ed effettuare il corto circuito della pipeline rimanente. I delegati che gestiscono le eccezioni vengono chiamati nella prima parte della pipeline, in modo che possano intercettare le eccezioni che si verificano nelle parti successive della pipeline.
 
 L'app di ASP.NET Core più semplice imposta un delegato di richiesta singolo che gestisce tutte le richieste. In questo caso non è inclusa una pipeline di richieste effettiva. Al contrario, viene chiamata una singola funzione anonima in risposta a ogni richiesta HTTP.
 
-[!code-csharp[](index/sample/Middleware/Startup.cs)]
+[!code-csharp[](index/snapshot/Middleware/Startup.cs?name=snippet1)]
 
-Il primo delegato [app.Run](/dotnet/api/microsoft.aspnetcore.builder.runextensions) termina la pipeline.
+Il primo delegato <xref:Microsoft.AspNetCore.Builder.RunExtensions.Run*> termina la pipeline.
 
-È possibile concatenare più delegati di richiesta insieme a [app.Use](/dotnet/api/microsoft.aspnetcore.builder.useextensions). Il parametro `next` rappresenta il delegato successivo nella pipeline. (Tenere presente che è possibile eseguire il corto circuito della pipeline *non* chiamando il parametro *successivo*). In genere è possibile eseguire un'azione prima e dopo il delegato successivo, come illustra l'esempio seguente:
+È possibile concatenare più delegati di richiesta insieme con <xref:Microsoft.AspNetCore.Builder.UseExtensions.Use*>. Il parametro `next` rappresenta il delegato successivo nella pipeline. È possibile eseguire il corto circuito della pipeline *non* chiamando il parametro *next*. In genere è possibile eseguire un'azione prima e dopo il delegato successivo, come illustra l'esempio seguente:
 
-[!code-csharp[](index/sample/Chain/Startup.cs?name=snippet1)]
+[!code-csharp[](index/snapshot/Chain/Startup.cs?name=snippet1)]
 
->[!WARNING]
-> Non chiamare `next.Invoke` dopo aver inviato la risposta al client. Le modifiche apportate a `HttpResponse` dopo l'avvio della risposta generano un'eccezione. Ad esempio, le modifiche come l'impostazione delle intestazioni, del codice di stato e così via, generano un'eccezione. Scrivere nel corpo della risposta dopo aver chiamato `next`:
-> - Può causare una violazione del protocollo. Ad esempio, scrivere un contenuto che supera il valore `content-length` specificato.
-> - Può danneggiare il formato del corpo. Ad esempio, scrivere un piè di pagina HTML in un file CSS.
+> [!WARNING]
+> Non chiamare `next.Invoke` dopo aver inviato la risposta al client. Le modifiche apportate a <xref:Microsoft.AspNetCore.Http.HttpResponse> dopo l'avvio della risposta generano un'eccezione. Ad esempio, le modifiche come l'impostazione delle intestazioni e di un codice di stato generano un'eccezione. Scrivere nel corpo della risposta dopo aver chiamato `next`:
 >
-> [HttpResponse.HasStarted](/dotnet/api/microsoft.aspnetcore.http.features.httpresponsefeature#Microsoft_AspNetCore_Http_Features_HttpResponseFeature_HasStarted) è un suggerimento utile per indicare se le intestazioni sono state inviate e/o se è stato scritto un contenuto nel corpo.
+> * Può causare una violazione del protocollo. Ad esempio, scrivere un contenuto che supera il valore `Content-Length` specificato.
+> * Può danneggiare il formato del corpo. Ad esempio, scrivere un piè di pagina HTML in un file CSS.
+>
+> <xref:Microsoft.AspNetCore.Http.HttpResponse.HasStarted*> è un hint utile per indicare se le intestazioni sono state inviate o se è stato scritto contenuto nel corpo.
 
-## <a name="ordering"></a>Ordinazioni
+## <a name="order"></a>Ordinamento
 
-L'ordine in cui vengono aggiunti i componenti middleware nel metodo `Configure` definisce l'ordine in cui sono chiamati nelle richieste e l'ordine inverso per la risposta. Questo ordinamento è fondamentale per la sicurezza, le prestazioni e la funzionalità.
+L'ordine in cui vengono aggiunti i componenti middleware nel metodo `Startup.Configure` definisce l'ordine in cui i componenti middleware vengono richiamati per le richieste e l'ordine inverso per la risposta. Questo ordinamento è fondamentale per la sicurezza, le prestazioni e la funzionalità.
 
-Il metodo Configure (illustrato di seguito) aggiunge i componenti middleware seguenti:
+Il metodo `Configure` seguente aggiunge i componenti middleware seguenti:
 
 1. Gestione errori/eccezioni
 2. File server statico
 3. Autenticazione
 4. MVC
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+::: moniker range=">= aspnetcore-2.0"
 
 ```csharp
 public void Configure(IApplicationBuilder app)
 {
-    app.UseExceptionHandler("/Home/Error"); // Call first to catch exceptions
-                                            // thrown in the following middleware.
+    if (env.IsDevelopment())
+    {
+        // When the app runs in the Development environment:
+        //   Use the Developer Exception Page to report app runtime errors.
+        //   Use the Database Error Page to report database runtime errors.
+        app.UseDeveloperExceptionPage();
+        app.UseDatabaseErrorPage();
+    }
+    else
+    {
+        // When the app doesn't run in the Development environment:
+        //   Enable the Exception Handler Middleware to catch exceptions
+        //     thrown in the following middlewares.
+        //   Use the HTTP Strict Transport Security Protocol (HSTS)
+        //     Middleware.
+        app.UseExceptionHandler("/Error");
+        app.UseHsts();
+    }
 
-    app.UseStaticFiles();                   // Return static files and end pipeline.
+    // Use HTTPS Redirection Middleware to redirect HTTP requests to HTTPS.
+    app.UseHttpsRedirection();
 
-    app.UseAuthentication();               // Authenticate before you access
-                                           // secure resources.
+    // Return static files and end the pipeline.
+    app.UseStaticFiles();
 
-    app.UseMvcWithDefaultRoute();          // Add MVC to the request pipeline.
+    // Use Cookie Policy Middleware to conform to EU General Data 
+    //   Protection Regulation (GDPR) regulations.
+    app.UseCookiePolicy();
+
+    // Authenticate before the user accesses secure resources.
+    app.UseAuthentication();
+
+    // Add MVC to the request pipeline.
+    app.UseMvc();
 }
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 ```csharp
 public void Configure(IApplicationBuilder app)
 {
-    app.UseExceptionHandler("/Home/Error"); // Call first to catch exceptions
-                                            // thrown in the following middleware.
+    // Enable the Exception Handler Middleware to catch exceptions
+    //   thrown in the following middlewares.
+    app.UseExceptionHandler("/Home/Error");
 
-    app.UseStaticFiles();                   // Return static files and end pipeline.
+    // Return static files and end the pipeline.
+    app.UseStaticFiles();
 
-    app.UseIdentity();                     // Authenticate before you access
-                                           // secure resources.
+    // Authenticate before you access secure resources.
+    app.UseIdentity();
 
-    app.UseMvcWithDefaultRoute();          // Add MVC to the request pipeline.
+    // Add MVC to the request pipeline.
+    app.UseMvcWithDefaultRoute();
 }
 ```
 
------------
+::: moniker-end
 
-Nel codice precedente poiché `UseExceptionHandler` è il primo componente middleware aggiunto alla pipeline, il componente consente di rilevare le eccezioni che si verificano nelle chiamate successive.
+Nel codice precedente, <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> è il primo componente middleware aggiunto alla pipeline. Pertanto, il middleware del gestore di eccezioni intercetta le eccezioni che si verificano nelle chiamate successive.
 
-Il middleware dei file statici viene chiamato nella prima parte della pipeline in moda che possa gestire le richieste ed eseguire un corto circuito senza passare attraverso i componenti rimanenti. Il middleware dei file statici **non** offre controlli di autorizzazione. I file serviti dal sever, inclusi i file in *wwwroot*, sono disponibili pubblicamente. Vedere [File statici](xref:fundamentals/static-files) per un approccio alla protezione dei file statici.
+Il middleware dei file statici viene chiamato nella prima parte della pipeline in moda che possa gestire le richieste ed eseguire un corto circuito senza passare attraverso i componenti rimanenti. Il middleware dei file statici **non** offre controlli di autorizzazione. I file serviti dal sever, inclusi i file in *wwwroot*, sono disponibili pubblicamente. Vedere <xref:fundamentals/static-files> per un approccio alla protezione dei file statici.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
+Se la richiesta non è gestita dal middleware dei file statici, viene passata al middleware di autenticazione (<xref:Microsoft.AspNetCore.Builder.AuthAppBuilderExtensions.UseAuthentication*>), che esegue l'autenticazione. L'autenticazione non esegue il corto circuito di richieste non autenticate. Sebbene il middleware di autenticazione esegua l'autenticazione delle richieste, l'autorizzazione (e il rifiuto) si verifica solo dopo che MVC seleziona una pagina Razor o un controller specifico e un'azione.
 
-Se la richiesta non è gestita dal middleware dei file statici, viene passata al middleware Identity (`app.UseAuthentication`), che esegue l'autenticazione. Identity non esegue il corto circuito di richieste non autenticate. Sebbene Identity esegua l'autenticazione delle richieste, l'autorizzazione (e il rifiuto) si verifica solo dopo che MVC seleziona una pagina Razor o un controller specifico e un'azione.
+::: moniker-end
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker range="< aspnetcore-2.0"
 
-Se la richiesta non è gestita dal middleware dei file statici, viene passata al middleware Identity (`app.UseIdentity`), che esegue l'autenticazione. Identity non esegue il corto circuito di richieste non autenticate. Sebbene Identity esegua l'autenticazione delle richieste, l'autorizzazione (e il rifiuto) si verifica solo dopo che MVC seleziona un controller specifico e un'azione.
+Se la richiesta non è gestita dal middleware dei file statici, viene passata al middleware dell'identità (<xref:Microsoft.AspNetCore.Builder.BuilderExtensions.UseIdentity*>), che esegue l'autenticazione. Identity non esegue il corto circuito di richieste non autenticate. Sebbene Identity esegua l'autenticazione delle richieste, l'autorizzazione (e il rifiuto) si verifica solo dopo che MVC seleziona un controller specifico e un'azione.
 
------------
+::: moniker-end
 
-L'esempio seguente illustra un ordinamento del middleware nel quale le richieste dei file statici vengono gestite dal middleware dei file statici prima del middleware di compressione delle risposte. I file statici non vengono compressi con questo tipo di ordinamento del middleware. Le risposte MVC da [UseMvcWithDefaultRoute](/dotnet/api/microsoft.aspnetcore.builder.mvcapplicationbuilderextensions#Microsoft_AspNetCore_Builder_MvcApplicationBuilderExtensions_UseMvcWithDefaultRoute_Microsoft_AspNetCore_Builder_IApplicationBuilder_) possono essere compresse.
+L'esempio seguente illustra un ordinamento del middleware nel quale le richieste dei file statici vengono gestite dal middleware dei file statici prima del middleware di compressione delle risposte. I file statici non vengono compressi con questo ordine di middleware. Le risposte MVC da <xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvcWithDefaultRoute*> possono essere compresse.
 
 ```csharp
 public void Configure(IApplicationBuilder app)
 {
-    app.UseStaticFiles();         // Static files not compressed
-                                  // by middleware.
+    // Static files not compressed by Static Files Middleware.
+    app.UseStaticFiles();
     app.UseResponseCompression();
     app.UseMvcWithDefaultRoute();
 }
 ```
 
-<a name="middleware-run-map-use"></a>
-
 ### <a name="use-run-and-map"></a>Use, Run e Map
 
 Configurare la pipeline HTTP usando `Use`,`Run` e `Map`. Il metodo `Use` può eseguire il corto circuito della pipeline, ovvero non chiamare un delegato di richiesta `next`. `Run` è una convenzione e alcuni componenti del middleware possono esporre metodi `Run[Middleware]` che vengono eseguiti al termine della pipeline.
 
-Le estensioni `Map*` vengono usate come convenzione per la diramazione della pipeline. [Map](/dotnet/api/microsoft.aspnetcore.builder.mapextensions) crea un ramo nella pipeline delle richieste in base alle corrispondenze del percorso della richiesta specificato. Se il percorso della richiesta inizia con il percorso specificato, il ramo viene eseguito.
+Le estensioni <xref:Microsoft.AspNetCore.Builder.MapExtensions.Map*> vengono usate come convenzione per la diramazione della pipeline. `Map*` crea un ramo nella pipeline delle richieste in base alle corrispondenze del percorso della richiesta specificato. Se il percorso della richiesta inizia con il percorso specificato, il ramo viene eseguito.
 
-[!code-csharp[](index/sample/Chain/StartupMap.cs?name=snippet1)]
+[!code-csharp[](index/snapshot/Chain/StartupMap.cs?name=snippet1)]
 
-La tabella seguente visualizza le richieste e le risposte da `http://localhost:1234` usando il codice precedente:
+La tabella seguente visualizza le richieste e le risposte da `http://localhost:1234` usando il codice precedente.
 
-| Richiesta | Risposta |
-| --- | --- |
-| localhost:1234 | Hello from non-Map delegate.  |
-| localhost:1234/map1 | Map Test 1 |
-| localhost:1234/map2 | Map Test 2 |
-| localhost:1234/map3 | Hello from non-Map delegate.  |
+| Richiesta             | Risposta                     |
+| ------------------- | ---------------------------- |
+| localhost:1234      | Hello from non-Map delegate. |
+| localhost:1234/map1 | Map Test 1                   |
+| localhost:1234/map2 | Map Test 2                   |
+| localhost:1234/map3 | Hello from non-Map delegate. |
 
 Quando si usa `Map`, i segmenti di percorso corrispondenti vengono rimossi da `HttpRequest.Path` e aggiunti a `HttpRequest.PathBase` per ogni richiesta.
 
 [MapWhen](/dotnet/api/microsoft.aspnetcore.builder.mapwhenextensions) crea un ramo nella pipeline delle richieste in base al risultato del predicato specificato. È possibile usare qualsiasi predicato di tipo `Func<HttpContext, bool>` per mappare le richieste a un nuovo ramo della pipeline. Nell'esempio seguente viene usato un predicato per rilevare la presenza di una variabile di stringa di query `branch`:
 
-[!code-csharp[](index/sample/Chain/StartupMapWhen.cs?name=snippet1)]
+[!code-csharp[](index/snapshot/Chain/StartupMapWhen.cs?name=snippet1)]
 
-La tabella seguente visualizza le richieste e le risposte da `http://localhost:1234` usando il codice precedente:
+La tabella seguente visualizza le richieste e le risposte da `http://localhost:1234` usando il codice precedente.
 
-| Richiesta | Risposta |
-| --- | --- |
-| localhost:1234 | Hello from non-Map delegate.  |
-| localhost:1234/?branch=master | Ramo usato = master|
+| Richiesta                       | Risposta                     |
+| ----------------------------- | ---------------------------- |
+| localhost:1234                | Hello from non-Map delegate. |
+| localhost:1234/?branch=master | Ramo usato = master         |
 
 `Map` supporta l'annidamento, ad esempio:
 
 ```csharp
 app.Map("/level1", level1App => {
-       level1App.Map("/level2a", level2AApp => {
-           // "/level1/level2a"
-           //...
-       });
-       level1App.Map("/level2b", level2BApp => {
-           // "/level1/level2b"
-           //...
-       });
-   });
+    level1App.Map("/level2a", level2AApp => {
+        // "/level1/level2a" processing
+    });
+    level1App.Map("/level2b", level2BApp => {
+        // "/level1/level2b" processing
+    });
+});
    ```
 
-`Map` può anche trovare la corrispondenza di più segmenti contemporaneamente, ad esempio:
+`Map` può anche trovare la corrispondenza di più segmenti contemporaneamente:
 
- ```csharp
-app.Map("/level1/level2", HandleMultiSeg);
-```
+[!code-csharp[](index/snapshot/Chain/StartupMultiSeg.cs?name=snippet1&highlight=13)]
 
 ## <a name="built-in-middleware"></a>Middleware incorporato
 
-ASP.NET Core viene dato con i componenti middleware seguenti e una descrizione dell'ordine in cui devono essere aggiunti:
+ASP.NET Core include i componenti middleware seguenti. Nella colonna *Ordinamento* sono disponibili note sul posizionamento del middleware nella pipeline delle richieste e indicazioni sulle condizioni nelle quali il middleware può terminare la richiesta e impedire l'elaborazione di una richiesta da altro middleware.
 
 | Middleware | Descrizione | Ordinamento |
 | ---------- | ----------- | ----- |
@@ -197,60 +219,64 @@ ASP.NET Core viene dato con i componenti middleware seguenti e una descrizione d
 | [Override del metodo HTTP](/dotnet/api/microsoft.aspnetcore.builder.httpmethodoverrideextensions) | Consente a una richiesta POST in arrivo di eseguire l'override del metodo. | Prima dei componenti che usano il metodo aggiornato. |
 | [Reindirizzamento HTTPS](xref:security/enforcing-ssl#require-https) | Reindirizzare tutte le richieste HTTP a HTTPS (ASP.NET Core 2.1 o versioni successive). | Prima dei componenti che usano l'URL. |
 | [Protocollo HTTP Strict Transport Security (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts) | Middleware di ottimizzazione della sicurezza che aggiunge un'intestazione della risposta speciale (ASP.NET Core 2.1 o versioni successive). | Prima dell'invio delle risposte e dopo i componenti che modificano le richieste, ad esempio intestazioni inoltrate o riscrittura dell'URL. |
+| [MVC](xref:mvc/overview) | Elabora le richieste con MVC/Razor Pages (ASP.NET Core 2.0 o versione successiva). | Terminale se una richiesta corrisponde a una route. |
+| [OWIN](xref:fundamentals/owin) | Interoperabilità con app, server e middleware basati su OWIN. | Terminale se la richiesta viene elaborata completamente dal middleware OWIN. |
 | [Memorizzazione nella cache delle risposte](xref:performance/caching/middleware) | Offre il supporto per la memorizzazione delle risposte nella cache. | Prima dei componenti che richiedono la memorizzazione nella cache. |
 | [Compressione delle risposte](xref:performance/response-compression) | Offre il supporto per la compressione delle risposte. | Prima dei componenti che richiedono la compressione. |
 | [Localizzazione della richiesta](xref:fundamentals/localization) | Offre il supporto per la localizzazione. | Prima dei componenti sensibili alla localizzazione. |
 | [Routing](xref:fundamentals/routing) | Definisce e vincola le route di richiesta. | Terminale per le route corrispondenti. |
 | [Sessione](xref:fundamentals/app-state) | Offre il supporto per la gestione delle sessioni utente. | Prima dei componenti che richiedono la Sessione. |
-| [File statici](xref:fundamentals/static-files) | Offre il supporto per la gestione di file statici e l'esplorazione directory. | Terminale se una richiesta corrisponde ai file. |
+| [File statici](xref:fundamentals/static-files) | Offre il supporto per la gestione di file statici e l'esplorazione directory. | Terminale se una richiesta corrisponde a un file. |
 | [Riscrittura dell'URL](xref:fundamentals/url-rewriting) | Offre il supporto per la riscrittura degli URL e il reindirizzamento delle richieste. | Prima dei componenti che usano l'URL. |
 | [Oggetti WebSocket](xref:fundamentals/websockets) | Abilita il protocollo WebSocket. | Prima dei componenti necessari per accettare le richieste WebSocket. |
 
-<a name="middleware-writing-middleware"></a>
+## <a name="write-middleware"></a>Scrivere il middleware
 
-## <a name="writing-middleware"></a>Scrittura di middleware
+Il middleware è in genere incapsulato in una classe ed esposto con un metodo di estensione. Si consideri il middleware seguente, che specifica le impostazioni cultura per la richiesta corrente da una stringa di query:
 
-Il middleware è in genere incapsulato in una classe ed esposto con un metodo di estensione. Si consideri il middleware seguente, che specifica le impostazioni cultura per la richiesta corrente dalla stringa di query:
+[!code-csharp[](index/snapshot/Culture/StartupCulture.cs?name=snippet1)]
 
-[!code-csharp[](index/sample/Culture/StartupCulture.cs?name=snippet1)]
-
-Nota: il codice di esempio precedente viene usato per illustrare la creazione di un componente middleware. Vedere [Globalizzazione e localizzazione](xref:fundamentals/localization) per il supporto di localizzazione incorporato di ASP.NET Core.
+Il codice di esempio precedente viene usato per illustrare la creazione di un componente middleware. Per il supporto di localizzazione incorporato di ASP.NET Core, vedere <xref:fundamentals/localization>.
 
 È possibile testare il middleware passando le impostazioni cultura, ad esempio `http://localhost:7997/?culture=no`.
 
 Il codice seguente sposta il delegato middleware in una classe:
 
-[!code-csharp[](index/sample/Culture/RequestCultureMiddleware.cs)]
+[!code-csharp[](index/snapshot/Culture/RequestCultureMiddleware.cs)]
 
-> [!NOTE]
-> In ASP.NET Core 1. x il nome del metodo `Task` del middleware deve essere `Invoke`. In ASP.NET Core 2.0 o versioni successive il nome può essere `Invoke` o `InvokeAsync`.
+::: moniker range="< aspnetcore-2.0"
 
-Il metodo di estensione seguente espone il middleware tramite [IApplicationBuilder](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder):
+Il nome del metodo `Task` del middleware deve essere `Invoke`. In ASP.NET Core 2.0 o versioni successive il nome può essere `Invoke` o `InvokeAsync`.
 
-[!code-csharp[](index/sample/Culture/RequestCultureMiddlewareExtensions.cs)]
+::: moniker-end
 
-Il codice seguente chiama il middleware da `Configure`:
+Il metodo di estensione seguente espone il middleware tramite <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder>:
 
-[!code-csharp[](index/sample/Culture/Startup.cs?name=snippet1&highlight=5)]
+[!code-csharp[](index/snapshot/Culture/RequestCultureMiddlewareExtensions.cs)]
 
-Il middleware deve seguire il [principio delle dipendenze esplicite](http://deviq.com/explicit-dependencies-principle/) esponendo le dipendenze nel costruttore. Il middleware viene costruito una volta per ogni *durata applicazione*. Se è necessario condividere servizi con il middleware all'interno di una richiesta, vedere *Dipendenze per richiesta* di seguito.
+Il codice seguente chiama il middleware da `Startup.Configure`:
 
-I componenti middleware possono risolvere le dipendenze dall'inserimento di dipendenze mediante i parametri del costruttore. [`UseMiddleware<T>`](/dotnet/api/microsoft.aspnetcore.builder.usemiddlewareextensions#methods_summary) può anche accettare direttamente parametri aggiuntivi.
+[!code-csharp[](index/snapshot/Culture/Startup.cs?name=snippet1&highlight=5)]
+
+Il middleware deve seguire il [principio delle dipendenze esplicite](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies) esponendo le dipendenze nel costruttore. Il middleware viene costruito una volta per ogni *durata applicazione*. Se è necessario condividere servizi con il middleware all'interno di una richiesta, vedere la sezione [Dipendenze per richiesta](#per-request-dependencies).
+
+I componenti middleware possono risolvere le dipendenze dall'[inserimento di dipendenze](xref:fundamentals/dependency-injection) mediante i parametri del costruttore. [UseMiddleware&lt;T&gt;](/dotnet/api/microsoft.aspnetcore.builder.usemiddlewareextensions.usemiddleware#Microsoft_AspNetCore_Builder_UseMiddlewareExtensions_UseMiddleware_Microsoft_AspNetCore_Builder_IApplicationBuilder_System_Type_System_Object___) può anche accettare direttamente parametri aggiuntivi.
 
 ### <a name="per-request-dependencies"></a>Dipendenze per richiesta
 
-Poiché il middleware viene creato all'avvio dell'app e non per richiesta, i servizi di durata *con ambito* usati dai costruttori del middleware non vengono condivisi con altri tipi di inserimento di dipendenze durante ogni richiesta. Se è necessario condividere un servizio *con ambito* tra il proprio middleware e altri tipi, aggiungere i servizi alla firma del metodo `Invoke`. Il metodo `Invoke` può accettare parametri aggiuntivi popolati dall'inserimento delle dipendenze. Ad esempio:
+Poiché il middleware viene creato all'avvio dell'app e non per richiesta, i servizi di durata *con ambito* usati dai costruttori del middleware non vengono condivisi con altri tipi di inserimento di dipendenze durante ogni richiesta. Se è necessario condividere un servizio *con ambito* tra il proprio middleware e altri tipi, aggiungere i servizi alla firma del metodo `Invoke`. Il metodo `Invoke` può accettare parametri aggiuntivi popolati dall'inserimento delle dipendenze:
 
 ```csharp
-public class MyMiddleware
+public class CustomMiddleware
 {
     private readonly RequestDelegate _next;
 
-    public MyMiddleware(RequestDelegate next)
+    public CustomMiddleware(RequestDelegate next)
     {
         _next = next;
     }
 
+    // IMyScopedService is injected into Invoke
     public async Task Invoke(HttpContext httpContext, IMyScopedService svc)
     {
         svc.MyProperty = 1000;
@@ -261,8 +287,8 @@ public class MyMiddleware
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Eseguire la migrazione di moduli HTTP in middleware](xref:migration/http-modules)
-* [Avvio dell'applicazione](xref:fundamentals/startup)
-* [Funzionalità di richiesta](xref:fundamentals/request-features)
-* [Attivazione del middleware basata sulla factory](xref:fundamentals/middleware/extensibility)
-* [Attivazione del middleware con un contenitore di terze parti](xref:fundamentals/middleware/extensibility-third-party-container)
+* <xref:migration/http-modules>
+* <xref:fundamentals/startup>
+* <xref:fundamentals/request-features>
+* <xref:fundamentals/middleware/extensibility>
+* <xref:fundamentals/middleware/extensibility-third-party-container>

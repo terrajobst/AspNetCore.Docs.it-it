@@ -5,12 +5,12 @@ description: Informazioni sui concetti di base di autenticazione, autorizzazione
 ms.author: tdykstra
 ms.date: 11/01/2017
 uid: security/index
-ms.openlocfilehash: ed64594c85d555d8417903947fc3ce927dc04cec
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 3a1c1ea1ad28fccbe5ae91b0be193938b095f60b
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095762"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41750306"
 ---
 # <a name="overview-of-aspnet-core-security"></a>Panoramica sulla sicurezza di ASP.NET Core
 
@@ -35,9 +35,9 @@ ASP.NET Core ed Entity Framework contengono funzionalità che consentono di prot
 * [Richieste intersito false](xref:security/anti-request-forgery)
 * [Attacchi di reindirizzamento aperti](xref:security/preventing-open-redirects)
 
-Esistono altre vulnerabilità di cui è necessario essere consapevoli. Per altre informazioni, vedere la sezione in questo documento sulla *documentazione sulla sicurezza di ASP.NET*.
+Esistono altre vulnerabilità di cui è necessario essere consapevoli. Per altre informazioni, vedere la sezione in questo documento sulla *documentazione sulla sicurezza di ASP.NET Core*.
 
-## <a name="aspnet-security-documentation"></a>Documentazione sulla sicurezza di ASP.NET
+## <a name="aspnet-core-security-documentation"></a>Documentazione sulla sicurezza di ASP.NET Core
 
 *   [Autenticazione](xref:security/authentication/index)
     *   [Introduzione a Identity](xref:security/authentication/identity)
