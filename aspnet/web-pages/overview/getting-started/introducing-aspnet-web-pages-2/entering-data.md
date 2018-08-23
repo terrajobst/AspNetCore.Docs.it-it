@@ -3,17 +3,17 @@ uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/entering-
 title: 'Introduzione a ASP.NET Web Pages: immissione di dati del Database tramite moduli | Microsoft Docs'
 author: tfitzmac
 description: Questa esercitazione illustra come creare un modulo di immissione e quindi immettere i dati che si ottengono dal form in una tabella di database quando si usa ASP.NET Web Pages (...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/28/2015
 ms.assetid: d37c93fc-25fd-4e94-8671-0d437beef206
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/entering-data
 msc.type: authoredcontent
-ms.openlocfilehash: 313fd6ff70af540d4dd749734f50e3fc24be0d29
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 453ed888bc219175c5a3a25f857dfa79ab22b608
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37835761"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838995"
 ---
 <a name="introducing-aspnet-web-pages---entering-database-data-by-using-forms"></a>Introduzione a ASP.NET Web Pages: immissione di dati del Database tramite moduli
 ====================

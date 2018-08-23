@@ -5,12 +5,12 @@ description: Informazioni su come usare il Provider di configurazione dell'insie
 ms.author: riande
 ms.date: 08/01/2018
 uid: security/key-vault-configuration
-ms.openlocfilehash: 6474b9f5cb9e441854565a7891c4aac7f781c810
-ms.sourcegitcommit: 571d76fbbff05e84406b6d909c8fe9cbea2c8ff1
+ms.openlocfilehash: 829c6c7e2750879b51bf3ce8225c6e472900f2ad
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39410130"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828982"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Provider di configurazione di Azure Key Vault in ASP.NET Core
 
@@ -155,7 +155,7 @@ I segreti scaduti e disabilitati generano un `KeyVaultClientException`. Per evit
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-L'app non riesce a caricare la configurazione utilizzando il provider, viene scritto un messaggio di errore per il [infrastruttura di registrazione di ASP.NET](xref:fundamentals/logging/index). Configurazione del caricamento impedire che le condizioni seguenti:
+L'app non riesce a caricare la configurazione utilizzando il provider, viene scritto un messaggio di errore per il [registrazione di ASP.NET Core infrastructure](xref:fundamentals/logging/index). Configurazione del caricamento impedire che le condizioni seguenti:
 
 * L'app non è configurato correttamente in Azure Active Directory.
 * L'insieme di credenziali delle chiavi non esiste in Azure Key Vault.

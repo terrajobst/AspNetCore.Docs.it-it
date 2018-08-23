@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 09/22/2017
 uid: client-side/using-browserlink
-ms.openlocfilehash: 5ab15c841c472e6c9d47bad70fcf5e0c6dc3010f
-ms.sourcegitcommit: ea7ec8d47f94cfb8e008d771f647f86bbb4baa44
+ms.openlocfilehash: 452ba5149563c186750466f471c7b950f0017614
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37894179"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835671"
 ---
 # <a name="browser-link-in-aspnet-core"></a>Collegamento del browser in ASP.NET Core
 
@@ -139,7 +139,7 @@ Quando è abilitato sincronizzazione automatica CSS, browser connessi vengono ag
 
 ## <a name="how-it-works"></a>Come funziona
 
-Collegamento del browser Usa SignalR per creare un canale di comunicazione tra Visual Studio e il browser. Quando è abilitato il collegamento del Browser, Visual Studio funge da un server di SignalR in grado di connettersi a più client (browser). Collegamento del browser registra anche un componente del middleware nella pipeline delle richieste ASP.NET. Il componente inserisce speciali `<script>` riferimenti in ogni richiesta di pagina dal server. È possibile visualizzare i riferimenti a script selezionando **Visualizza origine** nel browser e lo scorrimento al fine del `<body>` contrassegnare il contenuto:
+Collegamento del browser Usa SignalR per creare un canale di comunicazione tra Visual Studio e il browser. Quando è abilitato il collegamento del Browser, Visual Studio funge da un server di SignalR in grado di connettersi a più client (browser). Collegamento del browser registra anche un componente del middleware nella pipeline delle richieste ASP.NET Core. Il componente inserisce speciali `<script>` riferimenti in ogni richiesta di pagina dal server. È possibile visualizzare i riferimenti a script selezionando **Visualizza origine** nel browser e lo scorrimento al fine del `<body>` contrassegnare il contenuto:
 
 ```html
     <!-- Visual Studio Browser Link -->

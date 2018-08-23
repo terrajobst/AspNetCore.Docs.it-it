@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/30/2018
 uid: test/integration-tests
-ms.openlocfilehash: 8d304397fb7f218b395374c2b8c696fef9d9f8ad
-ms.sourcegitcommit: 571d76fbbff05e84406b6d909c8fe9cbea2c8ff1
+ms.openlocfilehash: 758162eed6d6522986e1c7b93664c55d56216452
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39410182"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827515"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Test di integrazione in ASP.NET Core
 
@@ -29,6 +29,9 @@ L'app di esempio è un'app Razor Pages e presuppone una conoscenza di base di Ra
 * [Introduzione a Razor Pages in ASP.NET Core](xref:razor-pages/index)
 * [Introduzione a Razor Pages](xref:tutorials/razor-pages/razor-pages-start)
 * [Unit test per Razor Pages](xref:test/razor-pages-tests)
+
+> [!NOTE]
+> Per i test SPAs, si consiglia di uno strumento, ad esempio [Selenium](https://www.seleniumhq.org/), che consente di automatizzare un browser.
 
 ## <a name="introduction-to-integration-tests"></a>Introduzione al test di integrazione
 
@@ -342,7 +345,7 @@ Il SUT è un sistema di messaggi di Razor Pages con le caratteristiche seguenti:
 
 &#8224;L'argomento relativo alla EF [Test con InMemory](/ef/core/miscellaneous/testing/in-memory), spiega come usare un database in memoria per i test con MSTest. Questo argomento viene utilizzato il [xUnit](https://xunit.github.io/) framework di test. Concetti di test e test implementazioni su Framework di test diversi sono simili ma non identici.
 
-Anche se l'app non usa la [modello di repository](xref:fundamentals/repository-pattern) e non è un esempio efficace delle [schema Unit of Work (UoW)](https://martinfowler.com/eaaCatalog/unitOfWork.html), pagine Razor supporta questi modelli di sviluppo. Per altre informazioni, vedere [la progettazione del livello di persistenza dell'infrastruttura](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design), [implementazione dei Repository e unità di lavoro modelli in un'applicazione ASP.NET MVC](/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application), e [controller di Test per la logica](/aspnet/core/mvc/controllers/testing) (l'esempio implementa il modello di repository).
+Anche se l'app non usa la [modello di repository](xref:fundamentals/repository-pattern) e non è un esempio efficace delle [schema Unit of Work (UoW)](https://martinfowler.com/eaaCatalog/unitOfWork.html), pagine Razor supporta questi modelli di sviluppo. Per altre informazioni, vedere [la progettazione del livello di persistenza dell'infrastruttura](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design), <xref:fundamentals/repository-pattern>, e [logica dei controller di Test](/aspnet/core/mvc/controllers/testing) (l'esempio implementa il modello di repository).
 
 ### <a name="test-app-organization"></a>Organizzazione dei test app
 

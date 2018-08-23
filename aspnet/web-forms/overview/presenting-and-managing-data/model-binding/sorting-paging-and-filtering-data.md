@@ -3,17 +3,17 @@ uid: web-forms/overview/presenting-and-managing-data/model-binding/sorting-pagin
 title: L'ordinamento, paging e filtro dei dati con l'associazione di modelli e web form | Microsoft Docs
 author: tfitzmac
 description: Questa serie di esercitazioni illustra aspetti di base dell'uso di associazione di modelli con un progetto di Web Form ASP.NET. Associazione di modelli consente l'interazione dei dati più linee rette-...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/27/2014
 ms.assetid: 266e7866-e327-4687-b29d-627a0925e87d
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/sorting-paging-and-filtering-data
 msc.type: authoredcontent
-ms.openlocfilehash: ded398bcbbb8d7d9e5c882a598bf9d6faa6ea81e
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 86ddedb68b8d18057cd2f7d68e795efda33734b1
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37833876"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836852"
 ---
 <a name="sorting-paging-and-filtering-data-with-model-binding-and-web-forms"></a>L'ordinamento, paging e filtro dei dati con l'associazione di modelli e web form
 ====================
@@ -53,7 +53,7 @@ L'abilitazione di paging è anche molto semplice. In GridView, impostare il **Al
 
 Eseguire l'applicazione web e notare che ora i record sono suddivisi su più pagine con non più di 4 record visualizzati in una singola pagina.
 
-![aggiunta di impaginazione](sorting-paging-and-filtering-data/_static/image4.png)
+![Aggiunta di impaginazione](sorting-paging-and-filtering-data/_static/image4.png)
 
 Esecuzione di query posticipata migliora l'efficienza dell'applicazione. Invece di recuperare l'intero set di dati, il controllo GridView consente di modificare la query per recuperare solo i record per la pagina corrente.
 

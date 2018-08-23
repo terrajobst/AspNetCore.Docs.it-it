@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/basic-reporting/declarative-parameters-vb
 title: Parametri dichiarativi (VB) | Microsoft Docs
 author: rick-anderson
 description: In questa esercitazione viene verrà illustrato come usare un parametro impostato su un valore hardcoded per selezionare i dati da visualizzare nel controllo DetailsView.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: dc1234a3-114f-4c9a-8d25-50ca03cc8e8e
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/declarative-parameters-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 01330d6c743fa9534cdb5dfa42bde5dbbe954c40
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 10ed3a4f019cd78033ecdd61499b1914f403414e
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37839229"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837415"
 ---
 <a name="declarative-parameters-vb"></a>Parametri dichiarativi (VB)
 ====================

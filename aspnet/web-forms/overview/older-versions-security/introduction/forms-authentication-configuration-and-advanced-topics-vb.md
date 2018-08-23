@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-security/introduction/forms-authenticatio
 title: I moduli di configurazione dell'autenticazione e argomenti avanzati (VB) | Microsoft Docs
 author: rick-anderson
 description: In questa esercitazione verranno esaminare le varie impostazioni di autenticazione form e informazioni su come modificarle tramite l'elemento di form. Ciò comporterà un dettagliate...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/14/2008
 ms.assetid: 829d2f56-5c48-445b-b826-3418a450c788
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d740694772b0fc5ad1c9c4eb5763004523586631
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: eb533cf763c2f3132ea0a5420b4d4cbea16c61cd
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37831142"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828958"
 ---
 <a name="forms-authentication-configuration-and-advanced-topics-vb"></a>Configurazione dell'autenticazione form e argomenti avanzati (VB)
 ====================

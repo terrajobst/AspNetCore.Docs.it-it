@@ -1,4 +1,4 @@
-﻿---
+---
 title: SignalR HubContext
 author: tdykstra
 description: Informazioni su come usare il servizio ASP.NET Core SignalR HubContext per l'invio di notifiche ai client all'esterno di un hub.
@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/13/2018
 uid: signalr/hubcontext
-ms.openlocfilehash: 6b955c2064d7d6a045594e56326e2f7df282675f
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: a02588dc98283a375e9deb7c8561c59f6d886eb0
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095307"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835375"
 ---
 # <a name="send-messages-from-outside-a-hub"></a>Invio di messaggi provenienti dall'esterno di un hub
 
@@ -27,7 +27,7 @@ L'hub SignalR è l'astrazione fondamentale per l'invio di messaggi ai client con
 In ASP.NET Core SignalR, è possibile accedere a un'istanza di `IHubContext` tramite inserimento delle dipendenze. È possibile inserire un'istanza di `IHubContext` in un controller, middleware o altro servizio di inserimento delle dipendenze. Usare l'istanza per inviare messaggi ai client.
 
 > [!NOTE]
-> Questo comportamento è diverso da SignalR ASP.NET che consente di fornire l'accesso a GlobalHost il `IHubContext`. ASP.NET Core include un framework di inserimento delle dipendenze che elimina la necessità di questo singleton globale.
+> Questo comportamento è diverso da ASP.NET 4.x SignalR che consente di fornire l'accesso a GlobalHost il `IHubContext`. ASP.NET Core include un framework di inserimento delle dipendenze che elimina la necessità di questo singleton globale.
 
 ### <a name="inject-an-instance-of-ihubcontext-in-a-controller"></a>Inserire un'istanza di `IHubContext` in un controller
 
@@ -35,7 +35,7 @@ In ASP.NET Core SignalR, è possibile accedere a un'istanza di `IHubContext` tra
 
 [!code-csharp[IHubContext](hubcontext/sample/Controllers/HomeController.cs?range=12-19,57)]
 
-A questo punto, con l'accesso a un'istanza di `IHubContext`, è possibile chiamare i metodi dell'hub come se fossi nell'hub stesso.
+A questo punto, con accesso a un'istanza di `IHubContext`, è possibile chiamare i metodi dell'hub come se fossero nell'hub stesso.
 
 [!code-csharp[IHubContext](hubcontext/sample/Controllers/HomeController.cs?range=21-25)]
 

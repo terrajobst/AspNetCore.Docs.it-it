@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/how-do-i-write-web-events-to-a-sql-server-databas
 title: '[Procedura:] Scrivere eventi Web in un Database di SQL Server usando il SqlWebEventProvider | Microsoft Docs'
 author: rick-anderson
 description: In questo video Chris Pels illustra come usare SqlWebEventProvider di monitoraggio dell'integrità ASP.NET per registrare gli errori in un sito web a un database di SQL Server. Primo, ancella...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/28/2008
 ms.assetid: d4c08844-fe1c-4759-9ec7-66263ba678fb
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-write-web-events-to-a-sql-server-database-using-the-sqlwebeventprovider
 msc.type: video
-ms.openlocfilehash: 7bb7394ac74e8a8772b2d05e31eb5dccae1b2d2b
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f97a294f6222f1a55e0776412cd060ecfbe25405
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37825674"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827907"
 ---
 <a name="how-do-i-write-web-events-to-a-sql-server-database-using-the-sqlwebeventprovider"></a>[Procedura:] Scrivere eventi Web in un Database SQL Server usando il SqlWebEventProvider
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/overview/moving-to-aspnet-20/data-bound-controls
 title: Controlli con associazione a dati | Microsoft Docs
 author: microsoft
 description: La maggior parte delle applicazioni ASP.NET si basano su un certo livello di presentazione dei dati da un'origine dati back-end. Controlli con associazione a dati sono stati parte pivotal di interazione w...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/20/2005
 ms.assetid: 0e23ff32-646d-43f3-8bec-6b2313d3abd6
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/data-bound-controls
 msc.type: authoredcontent
-ms.openlocfilehash: bfee5ed9c786cc8799da108b99781ff6eb508477
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: b115109c7307d05dc9e620378a51a71407204740
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37833219"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836253"
 ---
 <a name="data-bound-controls"></a>Controlli con associazione a dati
 ====================

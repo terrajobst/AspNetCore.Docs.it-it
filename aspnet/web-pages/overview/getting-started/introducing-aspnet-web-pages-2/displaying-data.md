@@ -3,17 +3,17 @@ uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/displayin
 title: 'Introduzione a ASP.NET Web Pages: visualizzazione dei dati | Microsoft Docs'
 author: tfitzmac
 description: Questa esercitazione illustra come creare un database in WebMatrix e come visualizzare i dati del database in una pagina quando si usa ASP.NET Web Pages (Razor). Si presuppone di y...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/28/2015
 ms.assetid: b3a006a0-3ea2-4d45-b833-e20e3a3c0a1a
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/displaying-data
 msc.type: authoredcontent
-ms.openlocfilehash: eeceb08e3aa281c45a2cfe35af4f23b76a5b1d25
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 864b9f7826763e307368706116458678abf50d3b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37834297"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837446"
 ---
 <a name="introducing-aspnet-web-pages---displaying-data"></a>Introduzione a pagine Web ASP.NET - visualizzazione di dati
 ====================

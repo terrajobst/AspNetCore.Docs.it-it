@@ -3,17 +3,17 @@ uid: web-forms/overview/getting-started/hands-on-labs/using-page-inspector-in-vi
 title: Utilizzo di controllo pagina in Visual Studio 2012 | Microsoft Docs
 author: rick-anderson
 description: In questo laboratorio pratico, si noterà un nuovo strumento per individuare e correggere problemi correlati alle pagine web in Visual Studio - controllo pagina. Page Inspector è un nuovo strumento che b...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/18/2013
 ms.assetid: 73232292-a5fe-4720-82a1-8f6553effd1f
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/using-page-inspector-in-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: ac945a23dc6ef060340320d047f13c8e81057138
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ce654eb5abd54613987f2375cc973febc9dc2ad5
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37833672"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835365"
 ---
 <a name="using-page-inspector-in-visual-studio-2012"></a>Utilizzo di controllo pagina in Visual Studio 2012
 ====================

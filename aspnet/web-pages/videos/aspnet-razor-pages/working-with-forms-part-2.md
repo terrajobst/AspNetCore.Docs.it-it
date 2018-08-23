@@ -3,17 +3,17 @@ uid: web-pages/videos/aspnet-razor-pages/working-with-forms-part-2
 title: Uso dei moduli (parte 2) | Microsoft Docs
 author: JoeStagner
 description: Video eccezionale nell'uso di esercitazione su moduli (parte 2)
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/25/2011
 ms.assetid: 2ceb5926-8326-41ba-858e-e86924b2e99b
 msc.legacyurl: /web-pages/videos/aspnet-razor-pages/working-with-forms-part-2
 msc.type: video
-ms.openlocfilehash: 6ef1c5b2100ad33e5027a4c4d730b0158061d7eb
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d888d8a65d80951e2855e3194af4bad6e6d7848c
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37807490"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838088"
 ---
 <a name="working-with-forms-part-2"></a>Uso dei moduli (parte 2)
 ====================

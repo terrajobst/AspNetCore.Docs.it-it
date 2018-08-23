@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-ajax/how-do-i-retrieve-values-from-server-side-ajax
 title: '[Procedura:] Recuperare i valori dai controlli AJAX lato Server | Microsoft Docs'
 author: JoeStagner
 description: In questo video illustrerò come recuperare i valori dai controlli AJAX lato server, ad esempio quelli disponibili in AJAX toolkit.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/21/2008
 ms.assetid: 9d770bb5-fd76-4ae9-a11b-9783f394a24f
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-retrieve-values-from-server-side-ajax-controls
 msc.type: video
-ms.openlocfilehash: 6d03c429336e66eec58d8f3e547b173f42e7351d
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 6911f167b16e3caa1bf942d454f0aacd583383d7
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37828982"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838399"
 ---
 <a name="how-do-i-retrieve-values-from-server-side-ajax-controls"></a>[Procedura:] Recuperare i valori dai controlli AJAX lato Server
 ====================

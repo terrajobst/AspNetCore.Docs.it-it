@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/configuring-server-environments-for-web-deplo
 title: Configurazione di un Server Web per il Web (distribuzione Offline) pubblicazione con distribuzione | Microsoft Docs
 author: jrjlee
 description: Questo argomento descrive come configurare un server web IIS per supportare la distribuzione e pubblicazione sul web non in linea. Quando si usa Internet Information Services (ho...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: ba92788f-9f03-44b1-b6b2-af8413e6a35d
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 048cd1855e3f03a6f348521c00acb03ddee8c630
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: eab69e93417ddedea9214523de34697b044a871e
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37824674"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837173"
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-offline-deployment"></a>Configurazione di un Server Web per la pubblicazione (distribuzione Offline) con distribuzione Web
 ====================

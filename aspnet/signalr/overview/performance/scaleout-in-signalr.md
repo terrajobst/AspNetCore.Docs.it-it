@@ -3,17 +3,17 @@ uid: signalr/overview/performance/scaleout-in-signalr
 title: Introduzione alla scalabilità orizzontale in SignalR | Microsoft Docs
 author: MikeWasson
 description: Le versioni del software utilizzato in questo argomento di Visual Studio 2013 .NET 4.5 SignalR le versioni precedenti la versione 2 di questo argomento per informazioni sulle versioni precedenti di...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/10/2014
 ms.assetid: 7e781fc1-1c1f-45a8-bc1d-338e96dbe9c9
 msc.legacyurl: /signalr/overview/performance/scaleout-in-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 3215d61c04222632b3fae1079184e5cbf03708e8
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: c3192adb95133610f066756c4a2dea6d13449622
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37807697"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838939"
 ---
 <a name="introduction-to-scaleout-in-signalr"></a>Introduzione alla scalabilità orizzontale in SignalR
 ====================

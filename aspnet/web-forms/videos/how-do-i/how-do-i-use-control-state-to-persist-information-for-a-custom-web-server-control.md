@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/how-do-i-use-control-state-to-persist-information
 title: '[Procedura:] Usare lo stato del controllo rendere persistenti le informazioni per un controllo Server Web personalizzato | Microsoft Docs'
 author: rick-anderson
 description: In questo video Chris Pels verrà illustrato come archiviare le informazioni relative a un controllo server web personalizzato nello stato del controllo che è indipendente dal ViewState...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 12/17/2007
 ms.assetid: 3004c934-0563-41ac-ad80-fef985e9e5b4
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-control-state-to-persist-information-for-a-custom-web-server-control
 msc.type: video
-ms.openlocfilehash: 902a36344bab1b47bc5395be19f7ba12dbf7175b
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 76abeda343c2c1bff8ad3efb96d93bc084750962
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37809839"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828971"
 ---
 <a name="how-do-i-use-control-state-to-persist-information-for-a-custom-web-server-control"></a>[Procedura:] Usare lo stato del controllo rendere persistenti le informazioni per un controllo Server Web personalizzato
 ====================

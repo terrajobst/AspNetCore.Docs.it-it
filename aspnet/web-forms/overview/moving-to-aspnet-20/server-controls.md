@@ -3,17 +3,17 @@ uid: web-forms/overview/moving-to-aspnet-20/server-controls
 title: I controlli server | Microsoft Docs
 author: microsoft
 description: ASP.NET 2.0 consente di migliorare i controlli server in molti modi. In questo modulo, illustreremo alcune delle modifiche dell'architettura per la modalità ASP.NET 2.0 e Visual Studio 200...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/20/2005
 ms.assetid: 43f6ac47-76fc-4cf7-8e9f-c18ce673dfd8
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/server-controls
 msc.type: authoredcontent
-ms.openlocfilehash: da06429f3949a47a02fccef45666d1220781e473
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ecf99fa894c1f662542aa8a613195b828bf2c67b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37837069"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838626"
 ---
 <a name="server-controls"></a>Controlli server
 ====================

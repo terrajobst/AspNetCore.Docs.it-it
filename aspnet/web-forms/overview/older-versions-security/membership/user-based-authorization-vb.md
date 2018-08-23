@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-security/membership/user-based-authorizat
 title: Autorizzazione basata sull'utente (VB) | Microsoft Docs
 author: rick-anderson
 description: In questa esercitazione si esaminerà la limitazione dell'accesso alle pagine e imponendo limitazioni sulle funzionalità a livello di pagina tramite una serie di tecniche.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/18/2008
 ms.assetid: bc937e9d-5c14-4fc4-aec7-440da924dd18
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/user-based-authorization-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 107983494350ddc06b6d3a20557baff4f4e6f9f4
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 263b421cbce68cbc9a596e40a6be4ff140edc0d4
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37834374"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838959"
 ---
 <a name="user-based-authorization-vb"></a>Autorizzazione basata sull'utente (VB)
 ====================

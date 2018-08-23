@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-col
 title: Aggiunta di una colonna GridView di pulsanti di opzione (c#) | Microsoft Docs
 author: rick-anderson
 description: Questa esercitazione verrà illustrato come aggiungere un controllo GridView per fornire all'utente un modo più intuitivo per la selezione di una singola riga di una colonna di pulsanti di opzione...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/06/2007
 ms.assetid: 32377145-ec25-4715-8370-a1c590a331d5
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-radio-buttons-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 83e7a938d9860b8f31cb391e07497def8854310f
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: e1ac64a3c5023d83259f6e2d6facd8e248768c2d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37811834"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41823944"
 ---
 <a name="adding-a-gridview-column-of-radio-buttons-c"></a>Aggiunta di una colonna GridView di pulsanti di opzione (c#)
 ====================

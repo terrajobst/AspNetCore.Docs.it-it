@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-c
 title: Aggiunta di una conferma lato Client durante l'eliminazione (c#) | Microsoft Docs
 author: rick-anderson
 description: Nelle interfacce che abbiamo creato finora, un utente può eliminare accidentalmente dei dati facendo clic sul pulsante Elimina quando si intende fare clic sul pulsante Modifica. In questo t...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/17/2006
 ms.assetid: f6e2a12a-2b5e-48fd-8db3-1e94a500c19a
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6cf3bfed1b445e95f24aa31fe3948cf8eba375fa
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: b8cca6ece2eb008170192dc1774a6f88c1b37a21
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37842234"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837450"
 ---
 <a name="adding-client-side-confirmation-when-deleting-c"></a>Aggiunta di una conferma lato Client durante l'eliminazione (c#)
 ====================

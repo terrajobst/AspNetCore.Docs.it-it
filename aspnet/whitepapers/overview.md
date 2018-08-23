@@ -3,17 +3,17 @@ uid: whitepapers/overview
 title: White paper | Microsoft Docs
 author: rick-anderson
 description: In questa pagina sono disponibili white paper consentono di installare e configurare ASP.NET di supporto per la scrittura di applicazioni ASP.NET sicure, veloci e flessibili.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/15/2011
 ms.assetid: d5e79470-01f2-4d65-8077-11c3e10a6784
 msc.legacyurl: /whitepapers
 msc.type: content
-ms.openlocfilehash: b2650c9a396b9049d9919a675be40df1ac1338c9
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 5017efc4d141afba206aaca5a8b5e6bab996ebbf
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37802934"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837761"
 ---
 <a name="whitepapers"></a>Whitepaper
 ====================
