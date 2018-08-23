@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/custom-formatting/using-templatefields-in-th
 title: Uso di TemplateFields nel controllo DetailsView (VB) | Microsoft Docs
 author: rick-anderson
 description: Le stesse funzionalità di TemplateFields disponibili con il controllo GridView sono anche disponibili con il controllo DetailsView. In questa esercitazione verrà visualizzato un unico prodotto...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: 0b91d5f8-127d-4f6a-b204-f2e2b35ef703
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-templatefields-in-the-detailsview-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5a994df097148428779c9e219ed08247d47ea1a5
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 1c18e8be25369d6e7d1703e71b80e75adb9f15fa
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37821735"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828073"
 ---
 <a name="using-templatefields-in-the-detailsview-control-vb"></a>Uso di TemplateFields nel controllo DetailsView (VB)
 ====================

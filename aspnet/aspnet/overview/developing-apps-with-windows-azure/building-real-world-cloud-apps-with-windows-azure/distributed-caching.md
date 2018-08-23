@@ -3,17 +3,17 @@ uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-clou
 title: Distributed la memorizzazione nella cache (creazione di App Cloud funzionanti con Azure) | Microsoft Docs
 author: MikeWasson
 description: La creazione Real World di App Cloud con e-book Azure si basa su una presentazione sviluppata da Scott Guthrie. Viene spiegato 13 modelli e procedure consigliate che egli può...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/20/2015
 ms.assetid: 406518e9-3817-49ce-8b90-e82bc461e2c0
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/distributed-caching
 msc.type: authoredcontent
-ms.openlocfilehash: a165c789ae656025934bc5e3ed8e8caef1c21787
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 1f67c754fcc03462c25983a8397a1093997b1213
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37821619"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836219"
 ---
 <a name="distributed-caching-building-real-world-cloud-apps-with-azure"></a>Memorizzazione nella cache (Building Real-World Cloud App distribuite con Azure)
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projec
 title: Visualizzazione di una pagina di errore personalizzato (VB) | Microsoft Docs
 author: rick-anderson
 description: Ciò che viene visualizzato quando si verifica un errore di runtime in un'applicazione web ASP.NET? La risposta dipende dalla modalità del sito Web &lt;customErrors&gt; configurazione...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/09/2009
 ms.assetid: 14873c5d-81a9-455b-bd71-30fb555583e7
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/displaying-a-custom-error-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 749b754903fb8e164b77edff4216fb2e2cf057b6
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 54aa5e31888262b80461e77d5abddcbe4fbe01eb
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37812925"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829236"
 ---
 <a name="displaying-a-custom-error-page-vb"></a>Visualizzazione di una pagina di errore personalizzato (VB)
 ====================

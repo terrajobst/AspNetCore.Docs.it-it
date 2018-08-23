@@ -3,17 +3,17 @@ uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-clou
 title: Archivio Blob non strutturati (creazione di App Cloud funzionanti con Azure) | Microsoft Docs
 author: MikeWasson
 description: La creazione Real World di App Cloud con e-book Azure si basa su una presentazione sviluppata da Scott Guthrie. Viene spiegato 13 modelli e procedure consigliate che egli può...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/30/2015
 ms.assetid: 9f05ccb1-2004-4661-ad8b-c370e6c09c8e
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage
 msc.type: authoredcontent
-ms.openlocfilehash: 55937854546fe02c36b15b7141d90b4c0785f32b
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 9ca599e023ac9b1cf8f00389048c8da6ef0e364f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37823462"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828904"
 ---
 <a name="unstructured-blob-storage-building-real-world-cloud-apps-with-azure"></a>Archivio Blob non strutturati (creazione di App Cloud funzionanti con Azure)
 ====================

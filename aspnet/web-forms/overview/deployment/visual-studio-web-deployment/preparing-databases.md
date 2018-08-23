@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/visual-studio-web-deployment/preparing-databa
 title: 'Distribuzione Web ASP.NET tramite Visual Studio: preparazione per la distribuzione di Database | Microsoft Docs'
 author: tdykstra
 description: Questa serie di esercitazioni illustra come distribuire, pubblicare, ASP.NET per App Web di servizio App di Azure o per un provider di hosting di terze parti, di applicazioni web da utilizza...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/15/2013
 ms.assetid: ae4def81-fa37-4883-a13e-d9896cbf6c36
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/preparing-databases
 msc.type: authoredcontent
-ms.openlocfilehash: a9ddeda3bfe4315c835cd447f6178669797dceb2
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 7bdf443fbce7376ac057c848df146717955203f9
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37803191"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835813"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-preparing-for-database-deployment"></a>Distribuzione Web ASP.NET tramite Visual Studio: preparazione per la distribuzione di Database
 ====================

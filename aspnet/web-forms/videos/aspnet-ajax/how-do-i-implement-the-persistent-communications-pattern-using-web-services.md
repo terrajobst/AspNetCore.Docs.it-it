@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-ajax/how-do-i-implement-the-persistent-communicatio
 title: '[Procedura:] Implementare il modello di comunicazione persistente tramite servizi Web? | Microsoft Docs'
 author: JoeStagner
 description: Il browser e il server in un sito Web tradizionali, non mantengono una comunicazione continua, ma comunicare solo in risposta all'utente di eseguire una determinata azione...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/22/2007
 ms.assetid: 424c06cd-6d61-43cd-a1f2-d1a6b62e47b1
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-implement-the-persistent-communications-pattern-using-web-services
 msc.type: video
-ms.openlocfilehash: b1cc0ad7ba9ce608a54bcf158bd71cf8a65c51ed
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: e8508fa445d412be8358d6a9a40b6e1c249eacd0
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37826468"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836215"
 ---
 <a name="how-do-i-implement-the-persistent-communications-pattern-using-web-services"></a>[Procedura:] Implementare il modello di comunicazione persistente tramite servizi Web?
 ====================

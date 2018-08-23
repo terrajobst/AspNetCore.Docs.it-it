@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/slider/databinding-the-slider-contr
 title: Data Binding del controllo Slider (VB) | Microsoft Docs
 author: wenz
 description: Il controllo dispositivo di scorrimento in AJAX Control Toolkit fornisce un dispositivo di scorrimento con interfaccia grafica che può essere controllata usando il mouse. È possibile associare la posizione corrente...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 4f3ba53f-d166-422d-b29c-403348057836
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/slider/databinding-the-slider-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c55ba530bbe7eee7c02e5dfb2e80dddafabc9325
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 284a650d1b63ceed887deb3ddd639fe9fd27019f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37836428"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827485"
 ---
 <a name="databinding-the-slider-control-vb"></a>Data Binding del controllo Slider (VB)
 ====================

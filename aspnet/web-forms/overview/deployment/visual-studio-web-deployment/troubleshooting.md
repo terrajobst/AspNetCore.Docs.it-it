@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/visual-studio-web-deployment/troubleshooting
 title: 'Distribuzione Web ASP.NET tramite Visual Studio: risoluzione dei problemi | Microsoft Docs'
 author: tdykstra
 description: Questa serie di esercitazioni illustra come distribuire, pubblicare, ASP.NET per App Web di servizio App di Azure o per un provider di hosting di terze parti, di applicazioni web da utilizza...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/01/2015
 ms.assetid: c0090595-ab3b-4b9b-9e16-7a1891e8cb2f
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: b2be5d2f5aa0b7628f7b9338c860593660ef5893
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 65cd5cd9f7d1f9c5fdaea9b0d16bdfd84259efdd
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37830892"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835613"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-troubleshooting"></a>Distribuzione Web ASP.NET tramite Visual Studio: risoluzione dei problemi
 ====================
@@ -221,25 +221,25 @@ Esecuzione di più script con le modalità di transazione diversi può causare e
 
 Se si hanno configurato le impostazioni delle transazioni in modo che tutti sono uguali ma ancora visualizzato questo errore, una possibile soluzione alternativa consiste nell'eseguire gli script separatamente. Nel **script di Database** griglia nel **pubblicazione/creazione pacchetto** scheda SQL, deseleziona il **Includi** casella di controllo per lo script che provoca l'errore di timeout, quindi pubblicare il progetto. Passare quindi al **script del Database** griglia, selezionare tale script **inclusione** casella di controllo e deselezionare il **Include** caselle di controllo per gli altri script. Quindi, pubblicare nuovamente il progetto. Questo tempo quando si pubblica, solo le esecuzioni di script personalizzato selezionato.
 
-## <a name="stream-data-of-site-manifest-is-not-yet-available"></a>Per risolvere il problema, inserire un file segnaposto, ad esempio un file con estensione txt nel AppData cartella, assicurarsi che non è escludere Appdati selezionata e ridistribuire.
+## <a name="stream-data-of-site-manifest-is-not-yet-available"></a>Stream dati del manifesto di sito non sono ancora disponibili
 
 ### <a name="scenario"></a>Scenario
 
 Quando si installa un pacchetto tramite il *deploy. cmd* file con l'opzione t (test), viene visualizzato il messaggio di errore seguente:
 
-Se si sa che le autorizzazioni predefinite per le cartelle sito siano corrette e non sono necessario impostare, è possibile disattivare questo comportamento aggiungendo @path destinazione IncludeSetACLProviderOnFalse/ IncludeSetACLProviderOnDestination  per il file del profilo di pubblicazione (da assegnare un singolo profilo) o al file WPP (per influiscono su tutti i profili).
+Errore: I dati del flusso di ' sitemanifest/dbFullSql [@path= 'C:\TEMP\AdventureWorksGrant.sql']/sqlScript' non è ancora disponibile.
 
 ### <a name="possible-cause-and-solution"></a>Possibile causa e soluzione
 
-È stata completata con un solo clic pubblica per distribuire l'applicazione e quindi si iniziano a questo errore: Tuttavia, potrebbe essere eseguito il comando se si seleziona l'ozione y (installazione effettivo). La distribuzione ha esito negativo in quanto utente credenziali utilizzate per setACL pubblicazione non dispone dell'autorità
+Il messaggio di errore indica che il comando non è possibile generare un report di test. Tuttavia, potrebbe essere eseguito il comando se si seleziona l'ozione y (installazione effettivo). Il messaggio indica solo che si è verificato un problema con l'esecuzione del comando in modalità di test.
 
-## <a name="this-application-requires-managedruntimeversion-v40"></a>Pubblicazione ha esito negativo generando un errore che indica che non dispone dell'autorità per impostare le autorizzazioni di cartella (l'account utente in uso non ha autorità setACL).
+## <a name="this-application-requires-managedruntimeversion-v40"></a>Questa applicazione richiede ManagedRuntimeVersion v4.0
 
 ### <a name="scenario"></a>Scenario
 
-Per impostazione predefinita, Visual Studio imposta autorizzazioni sulla cartella radice del sito di autorizzazioni lettura e scrittura per l'Appcartella dati.
+Quando si tenta di distribuire, è visualizzato il messaggio di errore seguente:
 
-Per informazioni su come modificare questi file, vedere procedura: modificare le impostazioni di distribuzione nel file di profilo (con estensione pubxml). Errori di accesso negato quando l'applicazione tenta di scrivere in una cartella dell'applicazione
+Il pool di applicazioni che si sta tentando di usare è la proprietà 'managedRuntimeVersion' impostato su '2.0'. Questa applicazione richiede "v4.0".
 
 ### <a name="possible-cause-and-solution"></a>Possibile causa e soluzione
 
@@ -247,19 +247,19 @@ ASP.NET 4 non è installato in IIS. Se il server che viene eseguita la distribuz
 
 [!code-console[Main](troubleshooting/samples/sample10.cmd)]
 
-## <a name="unable-to-cast-microsoftwebdeploymentdeploymentprovideroptions"></a>Gli errori dell'applicazione quando prova a creare o modificare un file in una delle cartelle dell'applicazione, perché non dispone dell'autorità di scrittura per la cartella.
+## <a name="unable-to-cast-microsoftwebdeploymentdeploymentprovideroptions"></a>Impossibile eseguire il cast Microsoft.Web.Deployment.DeploymentProviderOptions
 
 ### <a name="scenario"></a>Scenario
 
-Se l'applicazione necessita di accesso in scrittura a una sottocartella, è possibile impostare le autorizzazioni per la cartella come illustrato nella impostazione delle autorizzazioni di cartelle e distribuzione nell'ambiente di produzione esercitazioni.
+Quando si distribuisce un pacchetto, è visualizzato il messaggio di errore seguente:
 
 Impossibile eseguire il cast dell'oggetto di tipo 'Microsoft.Web.Deployment.DeploymentProviderOptions' a 'Microsoft.Web.Deployment.DeploymentProviderOptions'.
 
 ### <a name="possible-cause-and-solution"></a>Possibile causa e soluzione
 
-Se l'applicazione necessita di accesso in scrittura alla cartella radice del sito, è necessario impedirne l'impostazione di accesso in sola lettura nella cartella radice aggiungendo  destinazione IncludeSetACLProviderOnFalse/ IncludeSetACLProviderOnDestination  per il file del profilo di pubblicazione (da assegnare un singolo profilo) o al file WPP (per influiscono su tutti i profili). Errore di configurazione - attributo targetFramework fa riferimento a una versione successiva a quella installata di .NET Framework È stato pubblicato correttamente un progetto web destinato a ASP.NET 4.5, ma quando si esegue l'applicazione (con il  modalità è impostata su "off" nel file Web. config) viene visualizzato l'errore seguente: Per cancellare la connessione e ricominciare da capo, chiudere Gestione IIS e avviarlo nuovo immettendo inetmgr/Reimposta il prompt dei comandi.) Se una delle funzionalità elencate **interfaccia utente Web di distribuire**e ha un numero di versione inferiore a 8, il server viene eseguita la distribuzione potrebbe avere versioni sia 1.1 e 2.0 di distribuzione Web installati. Contattare il provider di hosting per determinare quando e se può essere aggiunto il supporto per ASP.NET 4.5. Se l'aggiornamento del server non è un'opzione, è necessario distribuire un progetto web destinata a 4 o versioni precedenti di ASP.NET invece. Se si distribuisce un ASP.NET 4 o versioni precedenti progetto web alla stessa destinazione, selezionare la Rimuovi file aggiuntivi nella destinazione casella di controllo la impostazioni scheda della finestra di pubblica sul Webprocedura guidata.
+Si tenta di distribuire da Gestione IIS usando l'interfaccia 1.1 distribuzione Web a un server con distribuzione Web 2.0 installato. Se si usa lo strumento di amministrazione remota di IIS per la distribuzione tramite l'importazione di un pacchetto, verificare i **nuove funzionalità disponibili in** finestra di dialogo quando si stabilisce la connessione. (Questa finestra di dialogo potrebbe essere visualizzata solo una volta quando innanzitutto viene stabilita la connessione. Per cancellare la connessione e ricominciare da capo, chiudere Gestione IIS e avviarlo nuovo immettendo inetmgr/Reimposta il prompt dei comandi.) Se una delle funzionalità elencate **interfaccia utente Web di distribuire**e ha un numero di versione inferiore a 8, il server viene eseguita la distribuzione potrebbe avere versioni sia 1.1 e 2.0 di distribuzione Web installati. Per distribuire da un client che ha installato 2.0, il server deve avere solo distribuzione Web 2.0 installato. È necessario contattare il provider di hosting per risolvere il problema.
 
-## <a name="unable-to-load-the-native-components-of-sql-server-compact"></a>Se non si seleziona Rimuovi file aggiuntivi nella destinazione, continuerà a essere visualizzata la pagina di errore di configurazione.
+## <a name="unable-to-load-the-native-components-of-sql-server-compact"></a>Non è possibile caricare i componenti nativi di SQL Server Compact
 
 ### <a name="scenario"></a>Scenario
 
@@ -269,7 +269,7 @@ Impossibile caricare i componenti di SQL Server Compact corrispondente per il pr
 
 ### <a name="possible-cause-and-solution"></a>Possibile causa e soluzione
 
-Il progetto *delle proprietà* windows include un elenco di riepilogo a discesa dei framework di destinazione, ma è possibile risolvere questo problema semplicemente modificando queste informazioni dal *.NET Framework 4.5* a *di.NETFramework4*. Se si modifica il framework di destinazione a una versione precedente di framework, il progetto sarà ancora disponibili riferimenti agli assembly della versione framework successiva e non verrà eseguito. È necessario modificare tali riferimenti manualmente o creare un nuovo progetto destinato a .NET Framework 4 o versioni precedenti. Per altre informazioni, vedere *.NET Framework come destinazione per i siti Web*. Affinché queste per la distribuzione, tuttavia, è necessario includerlo manualmente nel progetto. Per altre informazioni, vedere la [distribuzione di SQL Server Compact](../../older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md) esercitazione.
+Il sito distribuito non dispone *amd64* e *x86* sottocartelle con gli assembly nativi in essi contenuti sotto l'applicazione *bin* cartella. In un computer dotato di SQL Server Compact è installato, si trovano gli assembly nativi nella *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private*. Il modo migliore per ottenere i file corretti nelle cartelle corrette in un progetto di Visual Studio consiste nell'installare il pacchetto NuGet SqlServerCompact. Installazione del pacchetto aggiunge uno script di post-compilazione per copiare gli assembly nativi nella *amd64* e *x86*. Affinché queste per la distribuzione, tuttavia, è necessario includerlo manualmente nel progetto. Per altre informazioni, vedere la [distribuzione di SQL Server Compact](../../older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md) esercitazione.
 
 ## <a name="path-is-not-valid-error-after-deploying-an-entity-framework-code-first-application"></a>Errore di "Percorso non valido" dopo la distribuzione di un'applicazione Entity Framework Code First
 
