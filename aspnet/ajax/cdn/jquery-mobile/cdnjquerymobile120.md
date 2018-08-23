@@ -3,21 +3,21 @@ uid: ajax/cdn/jquery-mobile/cdnjquerymobile120
 title: jQuery Mobile 1.2.0 sulla rete CDN Microsoft Ajax | Microsoft Docs
 author: rick-anderson
 description: ''
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/23/2014
 ms.assetid: 62622f82-77e2-4e6c-b114-32d1674de7af
 msc.legacyurl: /ajax/cdn/jquery-mobile/cdnjquerymobile120
 msc.type: content
-ms.openlocfilehash: 13f7e9ac4590ae271d3f42b3c09dfe0c417f340c
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 7fd8bfd5a2a4efdd4e0b848ff434f59211e201d7
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37828896"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827339"
 ---
-<a name="jquery-mobile-120-on-the-microsoft-ajax-cdn"></a><span data-ttu-id="a1b7b-102">jQuery Mobile 1.2.0 sulla rete CDN Microsoft Ajax</span><span class="sxs-lookup"><span data-stu-id="a1b7b-102">jQuery Mobile 1.2.0 on the Microsoft Ajax CDN</span></span>
+<a name="jquery-mobile-120-on-the-microsoft-ajax-cdn"></a><span data-ttu-id="bd7d2-102">jQuery Mobile 1.2.0 sulla rete CDN Microsoft Ajax</span><span class="sxs-lookup"><span data-stu-id="bd7d2-102">jQuery Mobile 1.2.0 on the Microsoft Ajax CDN</span></span>
 ====================
-<span data-ttu-id="a1b7b-103">La libreria di jQuery Mobile 1.2.0 include i file seguenti:</span><span class="sxs-lookup"><span data-stu-id="a1b7b-103">The jQuery Mobile 1.2.0 library includes the following files:</span></span>
+<span data-ttu-id="bd7d2-103">La libreria di jQuery Mobile 1.2.0 include i file seguenti:</span><span class="sxs-lookup"><span data-stu-id="bd7d2-103">The jQuery Mobile 1.2.0 library includes the following files:</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile.structure-1.2.0.css
 - https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile.structure-1.2.0.min.css

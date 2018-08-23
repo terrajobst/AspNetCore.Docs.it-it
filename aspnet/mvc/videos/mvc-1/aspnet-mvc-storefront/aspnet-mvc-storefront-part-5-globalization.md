@@ -3,27 +3,27 @@ uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-5-globali
 title: 'ASP.NET MVC StoreFront-parte 5: Globalizzazione | Microsoft Docs'
 author: robconery
 description: Rob Conery funziona con Damien Guard per effettuare il refactoring del database per risolvere i problemi di globalizzazione e dati di test.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/27/2008
 ms.assetid: ec659d9f-8172-4c9e-9dd0-f5743bb27d4b
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-5-globalization
 msc.type: video
-ms.openlocfilehash: 5f0e6e4c91c9cc39270df7801c47bce947433845
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f250add5d8c88287fb3666741b928d8e84a31fa2
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37827414"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41834826"
 ---
-<a name="aspnet-mvc-storefront-part-5-globalization"></a><span data-ttu-id="c1c5c-103">ASP.NET MVC StoreFront-parte 5: globalizzazione</span><span class="sxs-lookup"><span data-stu-id="c1c5c-103">ASP.NET MVC Storefront Part 5: Globalization</span></span>
+<a name="aspnet-mvc-storefront-part-5-globalization"></a><span data-ttu-id="28a50-103">ASP.NET MVC StoreFront-parte 5: globalizzazione</span><span class="sxs-lookup"><span data-stu-id="28a50-103">ASP.NET MVC Storefront Part 5: Globalization</span></span>
 ====================
-<span data-ttu-id="c1c5c-104">da [Rob Conery](https://github.com/robconery)</span><span class="sxs-lookup"><span data-stu-id="c1c5c-104">by [Rob Conery](https://github.com/robconery)</span></span>
+<span data-ttu-id="28a50-104">da [Rob Conery](https://github.com/robconery)</span><span class="sxs-lookup"><span data-stu-id="28a50-104">by [Rob Conery](https://github.com/robconery)</span></span>
 
-<span data-ttu-id="c1c5c-105">Rob Conery funziona con Damien Guard per effettuare il refactoring del database per risolvere i problemi di globalizzazione e dati di test.</span><span class="sxs-lookup"><span data-stu-id="c1c5c-105">Rob Conery works with Damien Guard to refactor the database to deal with test data and globalization issues.</span></span>
+<span data-ttu-id="28a50-105">Rob Conery funziona con Damien Guard per effettuare il refactoring del database per risolvere i problemi di globalizzazione e dati di test.</span><span class="sxs-lookup"><span data-stu-id="28a50-105">Rob Conery works with Damien Guard to refactor the database to deal with test data and globalization issues.</span></span>
 
-[<span data-ttu-id="c1c5c-106">&#9654;Guarda il video (11 minuti)</span><span class="sxs-lookup"><span data-stu-id="c1c5c-106">&#9654; Watch video (11 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-5-globalization)
+[<span data-ttu-id="28a50-106">&#9654;Guarda il video (11 minuti)</span><span class="sxs-lookup"><span data-stu-id="28a50-106">&#9654; Watch video (11 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-5-globalization)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="c1c5c-107">[Precedente](aspnet-mvc-storefront-part-4-linq-to-sql-spike.md)
-> [Successivo](aspnet-mvc-storefront-part-6-finishing-the-repository-and-initial-ui-work.md)</span><span class="sxs-lookup"><span data-stu-id="c1c5c-107">[Previous](aspnet-mvc-storefront-part-4-linq-to-sql-spike.md)
+> <span data-ttu-id="28a50-107">[Precedente](aspnet-mvc-storefront-part-4-linq-to-sql-spike.md)
+> [Successivo](aspnet-mvc-storefront-part-6-finishing-the-repository-and-initial-ui-work.md)</span><span class="sxs-lookup"><span data-stu-id="28a50-107">[Previous](aspnet-mvc-storefront-part-4-linq-to-sql-spike.md)
 [Next](aspnet-mvc-storefront-part-6-finishing-the-repository-and-initial-ui-work.md)</span></span>

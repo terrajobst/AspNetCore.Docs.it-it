@@ -3,27 +3,27 @@ uid: web-forms/videos/ajax-control-toolkit/control-extenders
 title: Controllo Extender | Microsoft Docs
 author: JoeStagner
 description: Guardare questo video per comprendere la differenza tra i controlli e controlli Extender di AJAX e come utilizzare tali estensioni nelle applicazioni.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/13/2009
 ms.assetid: 26f6a508-5ad4-4551-826d-61e48135943f
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/control-extenders
 msc.type: video
-ms.openlocfilehash: 64208ee4cb152f5fdad9dede7538be103268d3de
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 2ef7fd801e6707d12fe9b24c1c1bbdd898f12b52
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37809544"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835173"
 ---
-<a name="control-extenders"></a><span data-ttu-id="c7857-103">Dispositivi Extender dei controlli</span><span class="sxs-lookup"><span data-stu-id="c7857-103">Control Extenders</span></span>
+<a name="control-extenders"></a><span data-ttu-id="3ec52-103">Dispositivi Extender dei controlli</span><span class="sxs-lookup"><span data-stu-id="3ec52-103">Control Extenders</span></span>
 ====================
-<span data-ttu-id="c7857-104">da [Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="c7857-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="3ec52-104">da [Joe Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="3ec52-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="c7857-105">Guardare questo video per comprendere la differenza tra i controlli e controlli Extender di AJAX e come utilizzare tali estensioni nelle applicazioni.</span><span class="sxs-lookup"><span data-stu-id="c7857-105">Watch this video to understand the difference between Controls and AJAX Control Extenders and how to use those extenders in your applications.</span></span>
+<span data-ttu-id="3ec52-105">Guardare questo video per comprendere la differenza tra i controlli e controlli Extender di AJAX e come utilizzare tali estensioni nelle applicazioni.</span><span class="sxs-lookup"><span data-stu-id="3ec52-105">Watch this video to understand the difference between Controls and AJAX Control Extenders and how to use those extenders in your applications.</span></span>
 
-[<span data-ttu-id="c7857-106">&#9654;Guarda il video (3 minuti)</span><span class="sxs-lookup"><span data-stu-id="c7857-106">&#9654; Watch video (3 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/control-extenders)
+[<span data-ttu-id="3ec52-106">&#9654;Guarda il video (3 minuti)</span><span class="sxs-lookup"><span data-stu-id="3ec52-106">&#9654; Watch video (3 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/control-extenders)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="c7857-107">[Precedente](utilize-the-ajax-rating-control-in-the-aspnet-toolkit.md)
-> [Successivo](color-picker.md)</span><span class="sxs-lookup"><span data-stu-id="c7857-107">[Previous](utilize-the-ajax-rating-control-in-the-aspnet-toolkit.md)
+> <span data-ttu-id="3ec52-107">[Precedente](utilize-the-ajax-rating-control-in-the-aspnet-toolkit.md)
+> [Successivo](color-picker.md)</span><span class="sxs-lookup"><span data-stu-id="3ec52-107">[Previous](utilize-the-ajax-rating-control-in-the-aspnet-toolkit.md)
 [Next](color-picker.md)</span></span>
