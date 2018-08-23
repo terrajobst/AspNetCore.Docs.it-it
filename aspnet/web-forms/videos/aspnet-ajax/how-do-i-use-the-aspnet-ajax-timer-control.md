@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-ajax/how-do-i-use-the-aspnet-ajax-timer-control
 title: '[Procedura:] Usare il controllo Timer ASP.NET AJAX? | Microsoft Docs'
 author: JoeStagner
 description: Controllo Timer AJAX consente a una parte di una pagina web ASP.NET in modo dinamico da aggiornare a intervalli regolari, anziché all'utente di eseguire un un...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/13/2007
 ms.assetid: 1488f788-54ca-43ce-bf65-8179ebbe2c7c
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-use-the-aspnet-ajax-timer-control
 msc.type: video
-ms.openlocfilehash: fc212a8e09d305a532010cbc4295d29c85d59395
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 5bc77c8de1763109784818156a19b1a286ee1f10
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37824951"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41831911"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-timer-control"></a>[Procedura:] Usare il controllo Timer ASP.NET AJAX?
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projec
 title: Registrazione dei dettagli di errore con ASP.NET di monitoraggio (c#) | Microsoft Docs
 author: rick-anderson
 description: Sistema di monitoraggio dell'integrità di Microsoft fornisce un modo semplice e personalizzabile per registrare eventi web diversi, tra cui le eccezioni non gestite. Questa esercitazione illustra in modo through...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/09/2009
 ms.assetid: b1abb452-642a-4ff3-8504-37b85590ff79
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-asp-net-health-monitoring-cs
 msc.type: authoredcontent
-ms.openlocfilehash: bd6b89f63c6d0634e6d6b809d8285b9870485c43
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 32f78927ae3e3f90392fea5968a035ab30c423ac
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37842643"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41834838"
 ---
 <a name="logging-error-details-with-aspnet-health-monitoring-c"></a>Registrazione dei dettagli di errore con ASP.NET di monitoraggio (c#)
 ====================

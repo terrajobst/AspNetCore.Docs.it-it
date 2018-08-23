@@ -3,17 +3,17 @@ uid: visual-studio/overview/2013/aspnet-and-web-tools-20132-preview-for-visual-s
 title: ASP.NET e Web Tools 2013.2 per Visual Studio 2013 Release Notes | Microsoft Docs
 author: microsoft
 description: ''
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/06/2014
 ms.assetid: 7ef5f73c-ca60-43c1-bdb2-702800347e7e
 msc.legacyurl: /visual-studio/overview/2013/aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes
 msc.type: authoredcontent
-ms.openlocfilehash: fb36d9f469265be60a7e40ed7e317d8da6560bf9
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 2a22c5b686cb8e02054f421f78a8fc910af7ce28
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37824497"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41833381"
 ---
 <a name="aspnet-and-web-tools-20132--for-visual-studio-2013-release-notes"></a>ASP.NET and Web Tools 2013.2 per Visual Studio 2013 Release Notes
 ====================
@@ -49,7 +49,7 @@ Le sezioni seguenti descrivono le funzionalità che sono state introdotte nella 
 - [2.1.2 l'API Web ASP.NET](#webapi)
 - [3.1.2 delle pagine Web ASP.NET](#webpages)
 - [Entity Framework 6.1](#ef)
-- [Identità ASP.NET 2.0.0](#identity)
+- [ASP.NET Identity 2.0.0](#identity)
 - [Componenti Microsoft OWIN](#owin)
 - [ASP.NET SignalR 2.0.2](#signalr)
 

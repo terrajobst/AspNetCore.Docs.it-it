@@ -3,17 +3,17 @@ uid: mvc/videos/mvc-2/how-do-i/mvc2-model-validation
 title: MVC2 - convalida del modello | Microsoft Docs
 author: microsoft
 description: In questo video apprenderà come usare gli attributi di annotazione dei dati per definire le regole di convalida e su come abilitare la convalida lato client (AJAX).
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/23/2010
 ms.assetid: fe3676fd-ecec-4756-8c8d-269da9754c31
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/mvc2-model-validation
 msc.type: video
-ms.openlocfilehash: 018e335d168312e50ecae245a02e2ad72a61bd3e
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 723961c47e3063e86958c6ff77d64b86fdc69f14
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37832302"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832740"
 ---
 <a name="mvc2---model-validation"></a>MVC2 - convalida del modello
 ====================

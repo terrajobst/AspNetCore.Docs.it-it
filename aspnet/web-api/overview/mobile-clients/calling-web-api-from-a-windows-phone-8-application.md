@@ -3,17 +3,17 @@ uid: web-api/overview/mobile-clients/calling-web-api-from-a-windows-phone-8-appl
 title: Chiamata di API Web da un Windows Phone 8 applicazione (c#) | Microsoft Docs
 author: rmcmurray
 description: Crea uno scenario end-to-end completato costituita da un'applicazione API Web ASP.NET che fornisce un catalogo di libri a un'applicazione Windows Phone 8.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/09/2013
 ms.assetid: b9775f41-352a-4f82-baa6-23e95b342e20
 msc.legacyurl: /web-api/overview/mobile-clients/calling-web-api-from-a-windows-phone-8-application
 msc.type: authoredcontent
-ms.openlocfilehash: 6b7a833818424cbf3a3bf9e1e14e5b2864742c38
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ca2b5f41f6c3bd38faacd1e15c4dee6f6210aff7
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37805042"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832703"
 ---
 <a name="calling-web-api-from-a-windows-phone-8-application-c"></a>Chiamata di API Web da un'applicazione di 8 Windows Phone (c#)
 ====================
@@ -108,12 +108,12 @@ Il passaggio successivo di questo scenario end-to-end consiste nel creare l'appl
 1. Fare doppio clic sul **BookStore** soluzione nel in Esplora soluzioni, quindi fare clic su **Add**e quindi **nuovo progetto**.
 2. Quando la **nuovo progetto** verrà visualizzata la finestra di dialogo, espandere **installati**, quindi **Visual c#** e quindi **Windows Phone**.
 3. Evidenziare **Windows Phone Databound App**, immettere **BookCatalog** per il nome e quindi fare clic su **OK**.
-4. Quando si preme F5, Visual Studio avvierà sia il Windows Phone emulatore, che verrà visualizzato un **attendere** del messaggio mentre i dati dell'applicazione vengono recuperati dall'API Web:
+4. Aggiungere il pacchetto NuGet di Json.NET per la **BookCatalog** progetto:
 
-    1. Se tutto ciò che ha esito positivo, verrà visualizzato il catalogo visualizzato:
-    2. Se si tocca su qualsiasi titolo del libro, l'applicazione visualizzerà la descrizione del libro:
-    3. Se l'applicazione non può comunicare con l'API Web, verrà visualizzato un messaggio di errore:
-    4. Se si tocca sul messaggio di errore, verranno visualizzati eventuali dettagli aggiuntivi sull'errore:
+    1. Fare doppio clic su **riferimenti** per il **BookCatalog** del progetto in Esplora soluzioni e quindi fare clic su **Gestisci pacchetti NuGet**.
+    2. Quando la **Gestisci pacchetti NuGet** verrà visualizzata la finestra di dialogo, espandere il **Online** sezione ed evidenziare **nuget.org**.
+    3. Immettere **Json.NET** nella ricerca e fare clic sull'icona di ricerca.
+    4. Evidenziare **Json.NET** nei risultati di ricerca e quindi fare clic su **installare**.
     5. Al termine dell'installazione, fare clic su **Chiudi**.
 5. Aggiungere il **BookDetails** del modello per il **BookCatalog** progetto; contiene un modello generico della classe della libreria:
 

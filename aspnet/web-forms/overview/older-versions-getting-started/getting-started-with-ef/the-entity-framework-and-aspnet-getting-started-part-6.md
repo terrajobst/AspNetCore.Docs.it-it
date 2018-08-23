@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/t
 title: Introduzione a Entity Framework 4.0 Database First e ASP.NET 4 Web Form - parte 6 | Microsoft Docs
 author: tdykstra
 description: L'applicazione web di esempio Contoso University illustra come creare applicazioni Web Form ASP.NET utilizzando Entity Framework. L'applicazione di esempio è...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 12/03/2010
 ms.assetid: 994a5496-c648-4830-b03c-55bb43f325d2
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-6
 msc.type: authoredcontent
-ms.openlocfilehash: 1f0a0f050f74b41d6e33a406dfcf7a760c81321b
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 57ba4a47dcc33a1fcc449bc32e9ce186e76cfb5b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37817434"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835195"
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-6"></a>Introduzione a Entity Framework 4.0 Database First e ASP.NET 4 Web Form - parte 6
 ====================
@@ -34,13 +34,13 @@ In questa parte dell'esercitazione, è non creare nuove pagine web. Al contrario
 
 Un database può archiviare informazioni sugli oggetti correlati in una tabella o in più tabelle. Ad esempio, nelle `School` database, il `Person` tabella include informazioni relative a studenti e docenti in un'unica tabella. Alcune colonne si applicano solo a instructors (insegnanti) (`HireDate`), altre solo gli studenti (`EnrollmentDate`) e alcuni a entrambi (`LastName`, `FirstName`).
 
-[![image11](the-entity-framework-and-aspnet-getting-started-part-6/_static/image2.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image1.png)
+[![Image11](the-entity-framework-and-aspnet-getting-started-part-6/_static/image2.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image1.png)
 
 È possibile configurare Entity Framework per creare `Instructor` e `Student` entità che ereditano dal `Person` entità. Il modello di generazione di una struttura di ereditarietà di entità da una singola tabella di database è definito *tabella per gerarchia* ereditarietà.
 
 Per i corsi, il `School` database utilizza un modello diverso. Corsi online e i corsi in sede vengono archiviati in tabelle separate, ognuna delle quali ha una chiave esterna che punta al `Course` tabella. Informazioni comuni a entrambi i tipi di corso vengono archiviate solo nel `Course` tabella.
 
-[![image12](the-entity-framework-and-aspnet-getting-started-part-6/_static/image4.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image3.png)
+[![Image12](the-entity-framework-and-aspnet-getting-started-part-6/_static/image4.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image3.png)
 
 È possibile configurare il modello di dati Entity Framework in modo che `OnlineCourse` e `OnsiteCourse` entità di ereditano il `Course` entità. Questo modello di generazione di una struttura di ereditarietà di entità da tabelle separate per ogni tipo, con ogni tabella separata Riferendosi di nuovo a una tabella che archivia i dati comuni a tutti i tipi, viene chiamato *tabella per tipo* ereditarietà (TPT).
 
@@ -80,7 +80,7 @@ Ripetere la procedura per spostare il `EnrollmentDate` proprietà dal `Person` e
 
 Ora che un `Person` entità include solo le proprietà comuni ai `Instructor` e `Student` entità (a parte le proprietà di navigazione, che non vengono spostati), l'entità può essere utilizzato solo come un'entità di base della struttura di ereditarietà. Pertanto, è necessario assicurare che non sia mai considerata come entità indipendenti. Fare doppio clic sul `Person` entità, selezionare **proprietà**e quindi nel **proprietà** finestra modificare il valore della **astratta** proprietà  **True**.
 
-[![image06](the-entity-framework-and-aspnet-getting-started-part-6/_static/image16.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image15.png)
+[![Image06](the-entity-framework-and-aspnet-getting-started-part-6/_static/image16.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image15.png)
 
 ## <a name="mapping-instructor-and-student-entities-to-the-person-table"></a>Mapping di entità Instructor e Student alla tabella Person
 
@@ -88,15 +88,15 @@ Ora che un `Person` entità include solo le proprietà comuni ai `Instructor` e 
 
 Fare doppio clic il `Instructor` entità e selezionare **Mapping di tabelle**. Nel **Dettagli Mapping** finestra, fare clic su **aggiungere una tabella o vista** e selezionare **persona**.
 
-[![image07](the-entity-framework-and-aspnet-getting-started-part-6/_static/image18.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image17.png)
+[![Image07](the-entity-framework-and-aspnet-getting-started-part-6/_static/image18.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image17.png)
 
 Fare clic su **aggiungere una condizione**, quindi selezionare **HireDate**.
 
-[![image09](the-entity-framework-and-aspnet-getting-started-part-6/_static/image20.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image19.png)
+[![Image09](the-entity-framework-and-aspnet-getting-started-part-6/_static/image20.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image19.png)
 
 Change **operatore** al **viene** e **valore / proprietà** a **non Null**.
 
-[![image10](the-entity-framework-and-aspnet-getting-started-part-6/_static/image22.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image21.png)
+[![Image10](the-entity-framework-and-aspnet-getting-started-part-6/_static/image22.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image21.png)
 
 Ripetere la procedura per la `Students` entità, che specifica che l'entità è mappata al `Person` tabella quando il `EnrollmentDate` colonna non null. Quindi salvare e chiudere il modello di dati.
 
@@ -108,7 +108,7 @@ Durante la creazione di pagine web che usano i dati student e instructor, è ass
 
 Nella progettazione di Visual Studio, è possibile specificare tipo di entità che un `EntityDataSource` controllo dovrebbe selezionare nel **EntityTypeFilter** casella di riepilogo a discesa del `Configure Data Source` procedura guidata, come illustrato nell'esempio seguente.
 
-[![image13](the-entity-framework-and-aspnet-getting-started-part-6/_static/image24.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image23.png)
+[![Image13](the-entity-framework-and-aspnet-getting-started-part-6/_static/image24.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image23.png)
 
 E il **delle proprietà** finestra è possibile rimuovere `Where` valori clausola che non sono più necessari, come illustrato nell'esempio seguente.
 
@@ -136,23 +136,23 @@ Aggiornare le pagine seguenti creato nelle esercitazioni precedenti in modo che 
 
     [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-6/samples/sample3.aspx)]
 
-    [![image16](the-entity-framework-and-aspnet-getting-started-part-6/_static/image30.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image29.png)
+    [![Image16](the-entity-framework-and-aspnet-getting-started-part-6/_static/image30.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image29.png)
 - Nelle *About*, aggiungere `EntityTypeFilter="Student"` per il `StudentStatisticsEntityDataSource` controllare e rimuovere `Where="it.EnrollmentDate is not null"`. Il markup sarà ora simile all'esempio seguente: 
 
     [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-6/samples/sample4.aspx)]
 
-    [![image17](the-entity-framework-and-aspnet-getting-started-part-6/_static/image32.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image31.png)
+    [![Image17](the-entity-framework-and-aspnet-getting-started-part-6/_static/image32.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image31.png)
 - Nelle *Instructors.aspx* e *InstructorsCourses.aspx*, aggiungere `EntityTypeFilter="Instructor"` per i `InstructorsEntityDataSource` controllare e rimuovere `Where="it.HireDate is not null"`. Il markup *Instructors.aspx* ora simile al seguente: 
 
     [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-6/samples/sample5.aspx)]
 
-    [![image18](the-entity-framework-and-aspnet-getting-started-part-6/_static/image34.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image33.png)
+    [![Image18](the-entity-framework-and-aspnet-getting-started-part-6/_static/image34.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image33.png)
 
     Il markup *InstructorsCourses.aspx* sarà ora simile all'esempio seguente:
 
     [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-6/samples/sample6.aspx)]
 
-    [![image19](the-entity-framework-and-aspnet-getting-started-part-6/_static/image36.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image35.png)
+    [![Image19](the-entity-framework-and-aspnet-getting-started-part-6/_static/image36.png)](the-entity-framework-and-aspnet-getting-started-part-6/_static/image35.png)
 
 In seguito a queste modifiche, è stata migliorata la manutenibilità dell'applicazione Contoso University in diversi modi. Si è spostati logica di selezione e convalida dal livello dell'interfaccia utente (*aspx* markup) e ha reso parte integrante del livello di accesso ai dati. Ciò aiuta a isolare il codice dell'applicazione di modifiche che è possibile apportare in futuro per lo schema del database o il modello di dati. Ad esempio, è possibile decidere che gli studenti potrebbero assumere come ausilio degli insegnanti e pertanto otterrebbe una data di assunzione. È quindi possibile aggiungere una nuova proprietà per differenziare gli studenti da istruttori e aggiornare il modello di dati. Nessun codice nell'applicazione web dovrà essere modificato, ad eccezione di dove si desidera mostrare una data di assunzione per gli studenti. Un altro vantaggio dell'aggiunta `Instructor` e `Student` entità è che il codice sia più facilmente comprensibile rispetto a quando definito `Person` gli oggetti che erano in realtà studenti o instructors (insegnanti).
 

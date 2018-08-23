@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-da
 title: Distribuzione di progetti di Database | Microsoft Docs
 author: jrjlee
 description: "Nota: In molti scenari di distribuzione aziendale, è necessario la possibilità di pubblicare aggiornamenti incrementali per un database distribuito. L'alternativa consiste nel ricreare..."
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 832f226a-1aa3-4093-8c29-ce4196793259
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-database-projects
 msc.type: authoredcontent
-ms.openlocfilehash: 1e5af29a91f5f432f9241dc3ba0c8fc0bfcf773f
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 43fa197a1d5a3cf521f4d2202754ff0d121cebe3
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37804983"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41833320"
 ---
 <a name="deploying-database-projects"></a>Distribuzione di progetti di Database
 ====================
@@ -61,17 +61,17 @@ Esistono vari approcci diversi per la distribuzione di progetti di database. Tut
 
 Esistono tre approcci principali, che è possibile usare per distribuire un progetto di database:
 
-- È possibile usare la funzionalità di distribuzione con il tipo di progetto di database in Visual Studio 2010. Quando si compila e distribuisce un progetto di database in Visual Studio 2010, il processo di distribuzione Usa il manifesto di distribuzione per generare un file di distribuzione basato su SQL specifico per la configurazione della build. Il database verrà creato se non esiste o apportare le modifiche necessarie nel database se esiste già. In altre parole, il DeployToDatabase proprietà deve essere sempre False. Quando un DeployToDatabase proprietà viene specificata, il /dd commutatore solo eseguirà l'override della proprietà se il valore della proprietà false: Se il DeployToDatabase proprietà è False, e si specifica /dd+ oppure /dd, VSDBCMD eseguirà l'override di  DeployToDatabase proprietà e distribuire il database. Se il DeployToDatabase è di proprietà False, e si specifica /dd- o omettere il commutatore, VSDBCMD non verrà distribuito il database.
-- Se il [DeployToDatabase](https://msdn.microsoft.com/library/dd465343.aspx) è di proprietà True, VSDBCMD ignora il commutatore e distribuire il database. In ogni caso, indipendentemente dal fatto che si distribuisce il database, viene generato uno script di distribuzione. In questo argomento è fornita una panoramica del processo di compilazione e distribuzione per i progetti di database in Visual Studio 2010. Inoltre illustrato come è possibile usare VSDBCMD.exe con MSBuild per supportare la distribuzione di database su larga scala. Per altre informazioni sul funzionamento in pratica, vedere personalizzazione le distribuzioni dei Database per più ambienti. Per informazioni su come personalizzare le distribuzioni dei database tramite la creazione di un file di configurazione di distribuzione distinto per ogni ambiente, vedere [personalizzazione le distribuzioni dei Database per più ambienti](https://go.microsoft.com/?linkid=9805121).
-- Per indicazioni su come configurare le appartenenze ai ruoli di database eseguendo uno script di post-distribuzione, vedere distribuzione di Database le appartenenze ai ruoli per gli ambienti di Test. Per indicazioni sulla gestione di alcune delle problematiche tale appartenenza impongono i database, vedere la distribuzione dei database di appartenenza negli ambienti aziendali. Questi argomenti in MSDN forniscono indicazioni più ampio e informazioni generali sui progetti di database di Visual Studio e il processo di distribuzione di database: Progetti di Database di Visual Studio 2010 SQL Server Gestione delle modifiche di Database
+- È possibile usare la funzionalità di distribuzione con il tipo di progetto di database in Visual Studio 2010. Quando si compila e distribuisce un progetto di database in Visual Studio 2010, il processo di distribuzione Usa il manifesto di distribuzione per generare un file di distribuzione basato su SQL specifico per la configurazione della build. Il database verrà creato se non esiste o apportare le modifiche necessarie nel database se esiste già. È possibile usare SQLCMD.exe per eseguire questo file nel server di destinazione oppure è possibile impostare Visual Studio per creare ed eseguire il file. Lo svantaggio di questo approccio è che l'utente sono limitate solo controllare le impostazioni di distribuzione. È spesso anche potrebbe essere necessario modificare il file di distribuzione di SQL per fornire i valori delle variabili specifiche dell'ambiente. È possibile usare solo questo approccio da un computer con Visual Studio 2010 installato, e gli sviluppatori dovranno conoscere e fornire le stringhe di connessione e credenziali per tutti gli ambienti di destinazione.
+- È possibile utilizzare lo strumento di distribuzione di Internet Information Services (IIS) Web (distribuzione Web) per [distribuire un database come parte di un progetto di applicazione web](https://msdn.microsoft.com/library/dd465343.aspx). Tuttavia, questo approccio è molto più complesso se si desidera distribuire un progetto di database anziché semplicemente eseguire la replica di un database esistente locale in un server di destinazione. È possibile configurare distribuzione Web per eseguire lo script di distribuzione SQL che genera il progetto di database, ma a questo scopo, è necessario creare un file di destinazioni WPP personalizzato per il progetto di applicazione web. Verrà aggiunta una notevole quantità di complessità del processo di distribuzione. Inoltre, distribuzione Web non supportano direttamente gli aggiornamenti incrementali per i database esistenti. Per altre informazioni su questo approccio, vedere [estendendo la Pipeline di pubblicazione sul Web al progetto di database di pacchetto distribuita file SQL](https://go.microsoft.com/?linkid=9805121).
+- È possibile utilizzare l'utilità VSDBCMD per distribuire il database, usando lo schema del database o il manifesto di distribuzione. È possibile chiamare VSDBCMD.exe da una destinazione di MSBuild, che consente di pubblicare i database come parte di un processo di distribuzione con script e di grandi dimensioni. È possibile sostituire le variabili nel file sqlcmdvars e molte altre proprietà di database da un comando VSDBCMD, che consente di personalizzare la distribuzione per diversi ambienti senza creare più configurazioni della build. VSDBCMD fornisce funzionalità di differenziazione, ovvero che apporterà solo le modifiche necessarie per l'allineamento di un database di destinazione con lo schema del database. VSDBCMD offre anche un'ampia gamma di opzioni della riga di comando, che consentono un controllo accurato sul processo di distribuzione.
 
-Procedura: preparare un Database per la distribuzione da un prompt dei comandi usando VSDBCMD. FILE EXE
+Questa panoramica, si noterà che l'utilizzo VSDBCMD con MSBuild è l'approccio più adatto per uno scenario di distribuzione aziendale tipica:
 
 |  | Visual Studio 2010 | Web Deploy 2.0 | VSDBCMD.exe |
 | --- | --- | --- | --- |
-| Una panoramica della distribuzione e compilazione del Database | Yes | Sì | Yes |
+| Supporta la distribuzione remota? | Yes | Yes | Yes |
 | Supporta aggiornamenti incrementali? | Yes | No | Yes |
-| Supporta gli script di pre/post-distribuzione? | Yes | Sì | Yes |
+| Supporta gli script di pre/post-distribuzione? | Yes | Yes | Yes |
 | Supporta la distribuzione di più ambienti? | Limitato | Limitato | Yes |
 | Supporta la distribuzione con script? | Limitato | Yes | Yes |
 

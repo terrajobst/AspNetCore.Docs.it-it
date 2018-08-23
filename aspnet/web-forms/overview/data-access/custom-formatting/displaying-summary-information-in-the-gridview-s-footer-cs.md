@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/custom-formatting/displaying-summary-informa
 title: Visualizzazione di informazioni di riepilogo nel piè di pagina del controllo GridView (c#) | Microsoft Docs
 author: rick-anderson
 description: Le informazioni di riepilogo viene spesso visualizzate nella parte inferiore del report in una riga di riepilogo. Il controllo GridView può includere una riga di piè di pagina in cui le celle viene possibile delle richieste pull...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: d50edc31-9286-4c6a-8635-be09e72752a4
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/displaying-summary-information-in-the-gridview-s-footer-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 34d5dbf4a019f798714f80964789cd85a466b43e
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 76df8ea925f4485b52090723b2f0a37b25f7e684
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37818809"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41834033"
 ---
 <a name="displaying-summary-information-in-the-gridviews-footer-c"></a>Visualizzazione di informazioni di riepilogo nel piè di pagina del controllo GridView (c#)
 ====================

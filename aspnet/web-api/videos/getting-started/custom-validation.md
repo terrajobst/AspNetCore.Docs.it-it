@@ -3,17 +3,17 @@ uid: web-api/videos/getting-started/custom-validation
 title: 'API Web ASP.NET, parte 5: Convalida personalizzata | Microsoft Docs'
 author: jongalloway
 description: 'Nota: In questo video contiene le informazioni da una versione non definitiva di API Web ASP.NET'
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/15/2012
 ms.assetid: f8eadb72-fa15-4537-8c6d-1b120e6d3aab
 msc.legacyurl: /web-api/videos/getting-started/custom-validation
 msc.type: video
-ms.openlocfilehash: af737e4513ca6eab49a7e1f9fe99fe2bb8173505
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 3c5b3c3d7f985a78806c49db3203152d8b746e10
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37826585"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41833550"
 ---
 <a name="aspnet-web-api-part-5-custom-validation"></a>API Web ASP.NET, parte 5: Convalida personalizzata
 ====================

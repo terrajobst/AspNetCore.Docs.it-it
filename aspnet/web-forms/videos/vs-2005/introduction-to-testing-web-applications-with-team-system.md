@@ -3,17 +3,17 @@ uid: web-forms/videos/vs-2005/introduction-to-testing-web-applications-with-team
 title: Introduzione al Testing delle applicazioni Web con Team System | Microsoft Docs
 author: rick-anderson
 description: In questo video viene illustrato come è possibile automatizzare il test delle applicazioni web usando le funzionalità di Visual Studio Team System test web.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/09/2007
 ms.assetid: 0924e7ff-b148-4a3e-bfaf-6f866ca13495
 msc.legacyurl: /web-forms/videos/vs-2005/introduction-to-testing-web-applications-with-team-system
 msc.type: video
-ms.openlocfilehash: c29d71b33663b27000a62c44cca8e0a895e20a98
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 9c3079bab611103617bce3cf91a4b67ae8405491
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37817882"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832096"
 ---
 <a name="introduction-to-testing-web-applications-with-team-system"></a>Introduzione al Testing delle applicazioni Web con Team System
 ====================

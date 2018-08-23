@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/views/creating-page-layouts-with-view-master-
 title: Creazione di layout di pagina con pagine Master di visualizzazione (VB) | Microsoft Docs
 author: microsoft
 description: In questa esercitazione descrive come creare un layout di pagina comuni per più pagine nell'applicazione, sfruttando i vantaggi della visualizzazione pagine master. È possibile usare un...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/16/2008
 ms.assetid: d34f90a1-6de3-482a-a326-f87fdcbaaaff
 msc.legacyurl: /mvc/overview/older-versions-1/views/creating-page-layouts-with-view-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 75db98647b9595deedc601905f6a0c0ddc596302
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 4ff74b1dc1d83b7ec1c8ecf6eca341a5cd14403f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37824690"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832756"
 ---
 <a name="creating-page-layouts-with-view-master-pages-vb"></a>Creazione di layout di pagina con pagine Master di visualizzazione (VB)
 ====================

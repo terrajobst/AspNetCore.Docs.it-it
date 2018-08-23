@@ -3,17 +3,17 @@ uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/odata-containment
 title: Contenimento in OData v4 Using Web API 2.2 | Microsoft Docs
 author: rick-anderson
 description: In genere, un'entità è stato possibile accedere solo se si sono stato incapsulato all'interno di un set di entità. Ma OData v4 fornisce due opzioni aggiuntive, Singleton e Con...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/27/2014
 ms.assetid: 5fbfefad-a17a-4c46-8646-f1ccd154cd56
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/odata-containment-in-web-api-22
 msc.type: authoredcontent
-ms.openlocfilehash: 56e550b56e9ad237dbf4fab04f2bd545164ee90a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: aca263a04df25ca241bc0b9798b3a0b588d4cae8
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37824912"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41831364"
 ---
 <a name="containment-in-odata-v4-using-web-api-22"></a>Contenimento in OData v4 tramite l'API Web 2.2
 ====================

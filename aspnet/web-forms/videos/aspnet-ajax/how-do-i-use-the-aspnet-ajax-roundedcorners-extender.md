@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-ajax/how-do-i-use-the-aspnet-ajax-roundedcorners-ex
 title: '[Procedura:] Usare il dispositivo Extender RoundedCorners ASP.NET AJAX? | Microsoft Docs'
 author: JoeStagner
 description: In questo video viene illustrato come il controllo extender RoundedCorner può concedere a pagine web un aspetto tenue aggiungendo interessanti angoli arrotondati all'area di contenuto...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/01/2007
 ms.assetid: 2a23e599-2969-4d2a-92c2-4bdfea8f59bc
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-use-the-aspnet-ajax-roundedcorners-extender
 msc.type: video
-ms.openlocfilehash: 80fb08b2a2a3235be28f159c9701c574deb8ef31
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: a7d14486b23b929d7cecf7b914baa83c99b17cd1
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37818028"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832406"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-roundedcorners-extender"></a>[Procedura:] Usare il dispositivo Extender RoundedCorners ASP.NET AJAX?
 ====================

@@ -3,17 +3,17 @@ uid: mvc/overview/getting-started/introduction/examining-the-edit-methods-and-ed
 title: Esaminare i metodi di modifica e visualizzazione di modifica | Microsoft Docs
 author: Rick-Anderson
 description: ''
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/22/2015
 ms.assetid: 52a4d5fe-aa31-4471-b3cb-a064f82cb791
 msc.legacyurl: /mvc/overview/getting-started/introduction/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: a166f6c4450c72adc23f7d36113ceba7e04f1929
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 950af5fad99bebc5f9d49f30c2ce1e9e4e5c0f25
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38170274"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41834736"
 ---
 <a name="examining-the-edit-methods-and-edit-view"></a>Esaminare i metodi di modifica e visualizzazione di modifica
 ====================
@@ -97,7 +97,7 @@ Se si utilizza un computer in lingua inglese Stati Uniti, è possibile ignorare 
 
 
 > [!NOTE]
-> per supportare la convalida di jQuery per impostazioni locali di lingua diversa dall'inglese che usano la virgola (&quot;,&quot;) per un separatore decimale e formati di data non in lingua inglese Stati Uniti, è necessario includere *globalize.js* specifiche e  *Cultures/globalize.Cultures.js* file (da [ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) e JavaScript usare `Globalize.parseFloat`. È possibile ottenere la convalida di jQuery non in lingua inglese da NuGet. (Non installare Globalize se si usa delle impostazioni locali in inglese.)
+> Per supportare la convalida di jQuery per impostazioni locali di lingua diversa dall'inglese che usano la virgola (&quot;,&quot;) per un separatore decimale e formati di data non in lingua inglese Stati Uniti, è necessario includere *globalize.js* specifiche e  *Cultures/globalize.Cultures.js* file (da [ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) e JavaScript usare `Globalize.parseFloat`. È possibile ottenere la convalida di jQuery non in lingua inglese da NuGet. (Non installare Globalize se si usa delle impostazioni locali in inglese.)
 
 
 1. Dal **degli strumenti** menu fare clic su **NuGetLibrary Package Manager**e quindi fare clic su **Gestisci pacchetti NuGet per la soluzione**.  

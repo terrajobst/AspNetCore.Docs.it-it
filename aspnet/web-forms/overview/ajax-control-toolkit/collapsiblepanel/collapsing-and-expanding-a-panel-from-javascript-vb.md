@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/collapsiblepanel/collapsing-and-exp
 title: Compressione ed espansione di un pannello da JavaScript (VB) | Microsoft Docs
 author: wenz
 description: Il controllo CollapsiblePanel in ASP.NET AJAX Control Toolkit estende un pannello e fornisce funzionalità per comprimere il contenuto e per espanderlo in un...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 298789b4-2964-49f5-a0a8-d4dbeb9ff2c2
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/collapsiblepanel/collapsing-and-expanding-a-panel-from-javascript-vb
 msc.type: authoredcontent
-ms.openlocfilehash: da1bc6958dba99ffc5ef54fbfbc003bb26050495
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 1f80a6979966a887db0557b4f1b98570e10b1ab7
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37812505"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835270"
 ---
 <a name="collapsing-and-expanding-a-panel-from-javascript-vb"></a>Compressione ed espansione di un pannello da JavaScript (VB)
 ====================

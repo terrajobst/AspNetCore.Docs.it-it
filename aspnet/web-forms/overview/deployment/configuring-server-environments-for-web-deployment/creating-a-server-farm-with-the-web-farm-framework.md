@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/configuring-server-environments-for-web-deplo
 title: Creazione di una Server Farm con Web Farm Framework | Microsoft Docs
 author: jrjlee
 description: In questo argomento viene descritto come utilizzare la Web Farm Framework (WFF) 2.0 per creare e configurare una farm di server web da una raccolta di server.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 656dd06d-806c-467c-863d-9fc45e5ba3ab
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/creating-a-server-farm-with-the-web-farm-framework
 msc.type: authoredcontent
-ms.openlocfilehash: 5fdd1088f1f4e21f5e79b8c8379b7865f825ad53
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: b650a05a22f18ffdcc114a9a64054dd0a34bc041
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37808940"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41833578"
 ---
 <a name="creating-a-server-farm-with-the-web-farm-framework"></a>Creazione di una Server Farm con Web Farm Framework
 ====================

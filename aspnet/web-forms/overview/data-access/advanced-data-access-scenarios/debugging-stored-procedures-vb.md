@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/advanced-data-access-scenarios/debugging-sto
 title: Debug di Stored procedure (VB) | Microsoft Docs
 author: rick-anderson
 description: Versioni di Visual Studio Professional e Team System Edition consentono di impostare punti di interruzione e passaggio alle stored procedure all'interno di SQL Server, effettua il debug archiviate...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/03/2007
 ms.assetid: 9ed8ccb5-5f31-4eb4-976d-cabf4b45ca09
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/debugging-stored-procedures-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a4a507205ff8e837f64e01acf84f6376006a87b9
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 5d951fab4fea59226e5d34bbf468377d436df944
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37806651"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832769"
 ---
 <a name="debugging-stored-procedures-vb"></a>Debug di Stored procedure (VB)
 ====================

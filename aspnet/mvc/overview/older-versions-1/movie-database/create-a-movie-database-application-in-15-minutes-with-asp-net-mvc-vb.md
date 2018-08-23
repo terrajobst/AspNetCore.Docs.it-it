@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/movie-database/create-a-movie-database-applic
 title: Creare un'applicazione di Database di film in 15 minuti con ASP.NET MVC (VB) | Microsoft Docs
 author: StephenWalther
 description: Stephen Walther compila un'intera basate su database applicazione ASP.NET MVC dall'inizio alla fine. Questa esercitazione è un'ottima introduzione per gli utenti che sono nuove t...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/27/2009
 ms.assetid: e4ba9786-734c-4eb3-91bb-089793325d0d
 msc.legacyurl: /mvc/overview/older-versions-1/movie-database/create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d852dd2797f6df40cd233759648ec442259d4d26
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f0a060bffc2e45f54d03571b6609a30876202e32
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37831200"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41831977"
 ---
 <a name="create-a-movie-database-application-in-15-minutes-with-aspnet-mvc-vb"></a>Creare un'applicazione di Database di film in 15 minuti con ASP.NET MVC (VB)
 ====================

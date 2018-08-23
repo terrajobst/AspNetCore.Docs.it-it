@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/database-driven-site-maps/building-a-custom-
 title: Creazione di un Provider di mappa del sito personalizzato basato su Database (VB) | Microsoft Docs
 author: rick-anderson
 description: Il provider di mappa del sito predefinito in ASP.NET 2.0 consente di recuperare i dati da un file XML statico. Mentre il provider basato su XML è adatto a molte piccole e medie-finestra...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/26/2007
 ms.assetid: f904cd2c-a408-4484-9324-8b8d7fe33893
 msc.legacyurl: /web-forms/overview/data-access/database-driven-site-maps/building-a-custom-database-driven-site-map-provider-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ecf09fc6adc59e1b6280ed6f3829f0add2b4a299
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 55658c563b6dd3c3b097e562cb1fe036bbfce815
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37815960"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41833433"
 ---
 <a name="building-a-custom-database-driven-site-map-provider-vb"></a>Creazione di un Provider di mappa del sito personalizzato basato su Database (VB)
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-slidesho
 title: '[Procedura:] Usare il dispositivo Extender SlideShow ASP.NET AJAX? | Microsoft Docs'
 author: JoeStagner
 description: Questo video viene illustrato come il dispositivo extender SlideShow di ASP.NET AJAX Control Toolkit diventa il controllo immagine ASP.NET standard in un sl completamente funzionante...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/16/2007
 ms.assetid: dfc9f5bb-5e51-46ec-8e1d-2ef9942d258b
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-slideshow-extender
 msc.type: video
-ms.openlocfilehash: ca4edb59eabce98d2c2bdbe6bf99d9863cb29ea3
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 3aaeb417bd4e137839256cb3768f59dc6dda1785
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37801210"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832383"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-slideshow-extender"></a>[Procedura:] Usare il dispositivo Extender SlideShow ASP.NET AJAX?
 ====================

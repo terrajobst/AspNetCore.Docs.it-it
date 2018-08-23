@@ -3,17 +3,17 @@ uid: web-forms/videos/net-4/routing/aspnet-4-quick-hit-outbound-webforms-routing
 title: Routing in uscita WebForms | Microsoft Docs
 author: JoeStagner
 description: In questo video si vedrà come utilizzare il meccanismo di distribuzione per creare dinamicamente un URL in uscita in base all'input dell'utente.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/11/2009
 ms.assetid: 90d79218-505c-4b6d-87f5-a59592d59ccc
 msc.legacyurl: /web-forms/videos/net-4/routing/aspnet-4-quick-hit-outbound-webforms-routing
 msc.type: video
-ms.openlocfilehash: b153af8877369c93cff6ef9702e21cfc33e562fb
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 9e7453906403b17a897eaa1183f56b60a4412ad5
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37834429"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832811"
 ---
 <a name="aspnet-4-quick-hit---outbound-webforms-routing"></a>ASP.NET 4 "Riscontro rapido" - Routing in uscita di Web Form
 ====================

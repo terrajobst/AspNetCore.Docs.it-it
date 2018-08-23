@@ -3,17 +3,17 @@ uid: web-pages/overview/ui-layouts-and-themes/4-working-with-forms
 title: Utilizzo di moduli HTML in ASP.NET Web Pages (Razor) Sites | Microsoft Docs
 author: tfitzmac
 description: Un modulo è una sezione di un documento HTML si inseriranno i controlli dell'input dell'utente, ad esempio le caselle di testo, caselle di controllo, pulsanti di opzione e gli elenchi a discesa. È necessario utilizzare moduli eriore a...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/10/2014
 ms.assetid: f3f4b8c8-e8f6-4474-ad94-69228a6c01ee
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/4-working-with-forms
 msc.type: authoredcontent
-ms.openlocfilehash: 4658e80d63c9c3665f197071f3f3d1420362e4a3
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 3f4effecb3b871f1bd7db1cd2a7aab6eeca80c50
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37820285"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41833553"
 ---
 <a name="working-with-html-forms-in-aspnet-web-pages-razor-sites"></a>Uso dei moduli HTML in ASP.NET Web Pages (Razor) Sites
 ====================

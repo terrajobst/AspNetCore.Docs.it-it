@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/accordion/databinding-to-an-accordi
 title: Data Binding a un controllo Accordion (VB) | Microsoft Docs
 author: wenz
 description: Il controllo Accordion in AJAX Control Toolkit fornisce più riquadri e consente all'utente di visualizzare uno di essi alla volta. I pannelli vengono dichiarati in genere w...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: b19f0875-7d3e-4ecf-baa1-a0c693c765b3
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/accordion/databinding-to-an-accordion-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e21eeacf776111656eb539b1fef8203db1b761c7
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 948741e3b8618a642c440a527fddef825faf595e
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37805888"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832197"
 ---
 <a name="databinding-to-an-accordion-vb"></a>Data Binding a un controllo Accordion (VB)
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-35/visual-studio-editor/multi-targeting-support-in-
 title: Supporto multitargeting in Visual Studio 2008 | Microsoft Docs
 author: JoeStagner
 description: Verrà illustrata la funzionalità di definire più destinazioni di Visual Studio 2008. In passato, era necessario scegliere la versione di Visual Studio in modo che corrisponda il versi .NET di destinazione...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/15/2007
 ms.assetid: 297bd67d-10d9-406d-9c6e-9db0bbe35491
 msc.legacyurl: /web-forms/videos/aspnet-35/visual-studio-editor/multi-targeting-support-in-visual-studio-2008
 msc.type: video
-ms.openlocfilehash: aaa25197987faadd73f36c335554342fdc005014
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: e78fcd35c61a147e9ea40d41a7ca826db60952a3
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37815369"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41831516"
 ---
 <a name="multi-targeting-support-in-visual-studio-2008"></a>Supporto multitargeting in Visual Studio 2008
 ====================

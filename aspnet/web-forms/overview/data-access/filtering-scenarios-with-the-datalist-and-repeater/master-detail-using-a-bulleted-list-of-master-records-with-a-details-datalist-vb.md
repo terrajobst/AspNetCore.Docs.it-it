@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-re
 title: Master/dettaglio con un elenco puntato di record Master e un controllo DataList di dettagli (VB) | Microsoft Docs
 author: rick-anderson
 description: In questa esercitazione verranno compressi i report di due pagine master-details dell'esercitazione precedente in una singola pagina, che mostra un elenco puntato di nomi di categoria in t...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/17/2006
 ms.assetid: ee20742f-6fb7-49a0-a009-058fe363aacb
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 90629046869460869d6c85e179980811b7bede51
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 3a10d6e5f60efad1f88c5acc8371a24dbf8d2cb7
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37841992"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41833586"
 ---
 <a name="masterdetail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb"></a>Master/dettaglio con un elenco puntato di record Master e un controllo DataList di dettagli (VB)
 ====================

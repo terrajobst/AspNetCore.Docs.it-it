@@ -3,17 +3,17 @@ uid: whitepapers/what-is-new-in-aspnet-mvc
 title: What ' s New in ASP.NET MVC 2 | Microsoft Docs
 author: rick-anderson
 description: Questo documento descrive le nuove funzionalità e i miglioramenti introdotti con ASP.NET MVC 2. Questo documento è anche disponibile per il download.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/20/2010
 ms.assetid: 69a8d6f8-4b10-4602-8822-2d6c05fc432b
 msc.legacyurl: /whitepapers/what-is-new-in-aspnet-mvc
 msc.type: content
-ms.openlocfilehash: 54f62b0f6bbde50f53d062eda422f5f58806cbe1
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 82a3fd4fe74202ed9a23298390322458cfc029f8
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37834164"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41831563"
 ---
 <a name="whats-new-in-aspnet-mvc-2"></a>What ' s New in ASP.NET MVC 2
 ====================

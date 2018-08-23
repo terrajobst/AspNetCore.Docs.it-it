@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-routing-o
 title: Panoramica del Routing di ASP.NET MVC (c#) | Microsoft Docs
 author: StephenWalther
 description: In questa esercitazione, Stephen Walther spiega come il framework ASP.NET MVC esegue il mapping alle richieste del browser per le azioni del controller.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/19/2008
 ms.assetid: 5b39d2d5-4bf9-4d04-94c7-81b84dfeeb31
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-routing-overview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 2b43c3dca1587d79a60c5a89a451dda989403d56
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 188490c5ca075710dcbdcd1c325808f7c1d383bc
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37819147"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832162"
 ---
 <a name="aspnet-mvc-routing-overview-c"></a>Panoramica del Routing di ASP.NET MVC (c#)
 ====================

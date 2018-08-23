@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeat
 title: Formattazione di DataList e Repeater in base ai dati (c#) | Microsoft Docs
 author: rick-anderson
 description: In questa esercitazione verrà esaminare esempi di come si formatta l'aspetto dei controlli DataList e Repeater, tramite l'utilizzo di funzioni di formattazione con...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 09/13/2006
 ms.assetid: 83e3d759-82b8-41e6-8d62-f0f4b3edec41
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/formatting-the-datalist-and-repeater-based-upon-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: cfb23a65c288ed155625a1f8a4d7db1330ab2407
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 4c3a6b085dbd9faec8dab45e64b10678aa9a73b3
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37840258"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41834761"
 ---
 <a name="formatting-the-datalist-and-repeater-based-upon-data-c"></a>Formattazione di DataList e Repeater in base ai dati (c#)
 ====================

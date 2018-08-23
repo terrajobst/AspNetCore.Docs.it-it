@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 title: Funzionalità per dispositivi mobili ASP.NET MVC 4 | Microsoft Docs
 author: Rick-Anderson
 description: È ora disponibile una versione di MVC 5 di questa esercitazione con esempi di codice in Deploy un'applicazione Web ASP.NET MVC 5 per dispositivi mobili su siti Web di Azure.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/15/2012
 ms.assetid: 27dc4fc8-1b51-43b0-933f-fc1b52476523
 msc.legacyurl: /mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 msc.type: authoredcontent
-ms.openlocfilehash: c852f4a853d14badb6c9a1c2c1ddb7b069bc3441
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: a3cb2414775b2c29617296dcf0c2dc5729153cdd
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37806587"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41834839"
 ---
 <a name="aspnet-mvc-4-mobile-features"></a>Funzionalità per dispositivi mobili ASP.NET MVC 4
 ====================
@@ -212,7 +212,7 @@ Il codice seguente illustra l'intero *Global. asax* file.
 [!code-csharp[Main](aspnet-mvc-4-mobile-features/samples/sample11.cs?highlight=26)]
 
 > [!NOTE]
-> Se si usa Internet Explorer 9 e non viene visualizzato il `BundleMobileConfig` riga sopra nell'evidenziazione di colore giallo, fare clic sui [pulsante visualizzazione compatibilità](https://windows.microsoft.com/windows7/How-to-use-Compatibility-View-in-Internet-Explorer-9)![immagine del pulsante visualizzazione compatibilità (disattivato)] (http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg " Immagine del pulsante visualizzazione compatibilità (disattivato)") in Internet Explorer per verificare l'icona di modifica da un contorno ![immagine del pulsante visualizzazione compatibilità (disattivato)](http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg "immagine del pulsante visualizzazione compatibilità (disattivato) ") a un colore a tinta unita ![immagine del pulsante visualizzazione compatibilità (on)](http://res1.windows.microsoft.com/resbox/en/Windows 7/main/156805ff-3130-481b-a12d-4d3a96470f36_14.jpg "immagine del pulsante visualizzazione compatibilità (on)"). In alternativa è possibile visualizzare in questa esercitazione in FireFox o Chrome.
+> Se si usa Internet Explorer 9 e non viene visualizzato il `BundleMobileConfig` riga sopra nell'evidenziazione di colore giallo, fare clic sui [pulsante visualizzazione compatibilità](https://windows.microsoft.com/windows7/How-to-use-Compatibility-View-in-Internet-Explorer-9)![immagine del pulsante visualizzazione compatibilità (disattivato)](http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg " Immagine del pulsante visualizzazione compatibilità (disattivato)") in Internet Explorer per verificare l'icona di modifica da un contorno ![immagine del pulsante visualizzazione compatibilità (disattivato)](http://res2.windows.microsoft.com/resbox/en/Windows 7/main/f080e77f-9b66-4ac8-9af0-803c4f8a859c_15.jpg "immagine del pulsante visualizzazione compatibilità (disattivato) ") a un colore a tinta unita ![immagine del pulsante visualizzazione compatibilità (on)](http://res1.windows.microsoft.com/resbox/en/Windows 7/main/156805ff-3130-481b-a12d-4d3a96470f36_14.jpg "immagine del pulsante visualizzazione compatibilità (on)"). In alternativa è possibile visualizzare in questa esercitazione in FireFox o Chrome.
 
 
 Aprire il *MvcMobile\Views\Shared\\_Layout.Mobile.cshtml* file e aggiungere il markup seguente direttamente dopo il `Html.Partial` chiamare:

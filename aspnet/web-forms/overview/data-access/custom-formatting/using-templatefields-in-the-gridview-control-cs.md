@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/custom-formatting/using-templatefields-in-th
 title: Uso di TemplateFields nel controllo GridView (c#) | Microsoft Docs
 author: rick-anderson
 description: Per garantire flessibilità, il controllo GridView offre il TemplateField, che esegue il rendering usando un modello. Un modello può includere una combinazione di codice HTML statico, controlli Web, e...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: 11de31e8-a78a-4f96-bd75-66e994175902
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-templatefields-in-the-gridview-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b01d2018d4164f8db7c86226f7f1d5999743e6c2
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 4d1cad54d07ba3756d653685b3e04cb66e5ca98b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37826702"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832119"
 ---
 <a name="using-templatefields-in-the-gridview-control-c"></a>Uso di TemplateFields nel controllo GridView (c#)
 ====================

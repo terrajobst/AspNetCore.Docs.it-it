@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/manually-ins
 title: Installazione manuale dei pacchetti Web | Microsoft Docs
 author: jrjlee
 description: In questo argomento viene descritto come importare manualmente un pacchetto di distribuzione web in Internet Information Services (IIS). La compilazione di argomento e l'applicazione Web di creazione dei pacchetti...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: f11d22a7-5d32-4ad0-8a9b-276460a61c06
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/manually-installing-web-packages
 msc.type: authoredcontent
-ms.openlocfilehash: 7fd8060104ca4e02919a3fbac135edb3e9396c64
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ca85db5cfb30bc06d6d3b94001a3668088461b87
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37833005"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832179"
 ---
 <a name="manually-installing-web-packages"></a>Installazione manuale dei pacchetti Web
 ====================

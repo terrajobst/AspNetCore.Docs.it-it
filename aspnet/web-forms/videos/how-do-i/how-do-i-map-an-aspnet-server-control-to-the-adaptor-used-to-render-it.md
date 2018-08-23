@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/how-do-i-map-an-aspnet-server-control-to-the-adap
 title: "[Procedura:] Eseguire il mapping di un controllo Server ASP.NET all'adattatore usato per eseguirne il rendering | Microsoft Docs"
 author: rick-anderson
 description: In questo video Chris Pels mostrerà come utilizzare un adattatore di controllo per fornire rendering diverso per un controllo server ASP.NET senza cambiare realmente c...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/19/2008
 ms.assetid: d4b498ef-8e1c-4fa2-9c35-1f32f20bb9b7
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-map-an-aspnet-server-control-to-the-adaptor-used-to-render-it
 msc.type: video
-ms.openlocfilehash: 951f494a82566ad35db464aedcab8bf2ab28b5fd
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 5e9a8194fb6a51362e1426654a0afb4c7ffd5dd3
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37831213"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832346"
 ---
 <a name="how-do-i-map-an-aspnet-server-control-to-the-adaptor-used-to-render-it"></a>[Procedura:] Eseguire il mapping di un controllo Server ASP.NET all'adattatore usato per eseguirne il rendering
 ====================

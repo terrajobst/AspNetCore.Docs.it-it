@@ -3,17 +3,17 @@ uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-clou
 title: Progettazione per sopravvivere a errori (creazione di App Cloud funzionanti con Azure) | Microsoft Docs
 author: MikeWasson
 description: La creazione Real World di App Cloud con e-book Azure si basa su una presentazione sviluppata da Scott Guthrie. Viene spiegato 13 modelli e procedure consigliate che egli può...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/12/2014
 ms.assetid: 364ce84e-5af8-4e08-afc9-75a512b01f84
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/design-to-survive-failures
 msc.type: authoredcontent
-ms.openlocfilehash: 29a430a223fb62d9530ea00a60d458a6dbc5199a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 1098892c621b8add624b18788076be2fac1cc158
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37820655"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41832358"
 ---
 <a name="design-to-survive-failures-building-real-world-cloud-apps-with-azure"></a>Progettare per sopravvivere a errori (creazione di App Cloud funzionanti con Azure)
 ====================

@@ -3,17 +3,17 @@ uid: mvc/videos/mvc-2/how-do-i/understanding-models-views-and-controllers
 title: Informazioni su modelli, visualizzazioni e controller | Microsoft Docs
 author: StephenWalther
 description: Per informazioni dettagliate sugli modelli, visualizzazioni e controller? In questa esercitazione, Stephen Walther presenta le diverse parti di un'applicazione ASP.NET MVC.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/20/2008
 ms.assetid: 10b39a66-091b-4719-8283-7ef3e671a32b
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/understanding-models-views-and-controllers
 msc.type: video
-ms.openlocfilehash: 31dee449aab99bcfab20ed62379fc3f194530f59
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ff6aa6c8b933941c566c2071d32c1bf47d1110c9
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37817736"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41831941"
 ---
 <a name="understanding-models-views-and-controllers"></a>Informazioni su modelli, visualizzazioni e controller
 ====================
