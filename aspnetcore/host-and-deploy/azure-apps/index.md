@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/24/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: ece61a3e362ec5e2ff8f415351a0f9257fc72098
-ms.sourcegitcommit: b4c7b1a4c48dec0865f27874275c73da1f75e918
+ms.openlocfilehash: 9a7d20378cac597b748d8a60eb0f0bf17c9ba082
+ms.sourcegitcommit: d27317c16f113e7c111583042ec7e4c5a26adf6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39228611"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41746421"
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Ospitare ASP.NET Core in Servizio app di Azure
 
@@ -99,7 +99,7 @@ Per altre informazioni, vedere [Provider di archiviazione chiavi](xref:security/
 Le app in anteprima di ASP.NET Core possono essere distribuite in Servizio app di Azure con gli approcci seguenti:
 
 * [Installare l'estensione del sito di anteprima](#install-the-preview-site-extension)
-* [Distribuire l'app autonoma](#deploy-the-app-self-contained)
+<!-- * [Deploy the app self-contained](#deploy-the-app-self-contained) -->
 * [Usare Docker con app Web per contenitori](#use-docker-with-web-apps-for-containers)
 
 Se si verifica un problema con l'estensione del sito di anteprima, aprire un problema in [GitHub](https://github.com/aspnet/azureintegration/issues/new).
@@ -138,14 +138,16 @@ Se per creare e distribuire le app si usa un modello ARM, è possibile usare il 
 
 [!code-json[Main](index/sample/arm.json?highlight=2)]
 
-### <a name="deploy-the-app-self-contained"></a>Distribuire l'app autonoma
+<!--
+### Deploy the app self-contained
 
-È possibile distribuire un'[app autonoma](/dotnet/core/deploying/#self-contained-deployments-scd) che porti il runtime di anteprima nella distribuzione. Per la distribuzione di un'app autonoma:
+A [self-contained app](/dotnet/core/deploying/#self-contained-deployments-scd) can be deployed that carries the preview runtime in the deployment. When deploying a self-contained app:
 
-* Non è necessario preparare il sito.
-* L'app deve essere pubblicata in modo diverso rispetto a quando la pubblicazione riguarda una distribuzione dipendente dal framework con il runtime condiviso e l'host nel server.
+* The site doesn't need to be prepared.
+* The app must be published differently than when publishing for a framework-dependent deployment with the shared runtime and host on the server.
 
-Le app autonome sono un'opzione per tutte le app ASP.NET Core.
+Self-contained apps are an option for all ASP.NET Core apps.
+-->
 
 ### <a name="use-docker-with-web-apps-for-containers"></a>Usare Docker con app Web per contenitori
 
