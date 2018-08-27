@@ -5,12 +5,12 @@ description: Informazioni su come usare i token di modifica per rilevare le modi
 ms.author: riande
 ms.date: 11/10/2017
 uid: fundamentals/primitives/change-tokens
-ms.openlocfilehash: 165602587d73907416f47a7ce82a3081e8d74c4b
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: ac80e4c9da6d38e5f1acf8aa6f7ac3f4803ffb33
+ms.sourcegitcommit: 25150f4398de83132965a89f12d3a030f6cce48d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276893"
+ms.lasthandoff: 08/25/2018
+ms.locfileid: "42927852"
 ---
 # <a name="detect-changes-with-change-tokens-in-aspnet-core"></a>Rilevare le modifiche apportate con i token di modifica in ASP.NET Core
 
@@ -54,9 +54,9 @@ I token di modifica vengono usati nelle aree principali di ASP.NET Core per moni
 
 ## <a name="monitoring-for-configuration-changes"></a>Monitoraggio delle modifiche alla configurazione
 
-Per impostazione predefinita, i modelli ASP.NET Core usano [file di configurazione JSON](xref:fundamentals/configuration/index#json-configuration) (*appsettings.json*, *appsettings.Development.json* e *appsettings.Production.json*) per caricare le impostazioni di configurazione dell'app.
+Per impostazione predefinita, i modelli ASP.NET Core usano [file di configurazione JSON](xref:fundamentals/configuration/index#json-configuration-provider) (*appsettings.json*, *appsettings.Development.json* e *appsettings.Production.json*) per caricare le impostazioni di configurazione dell'app.
 
-Questi file vengono configurati usando il metodo di estensione [AddJsonFile(IConfigurationBuilder, String, Boolean, Boolean)](/dotnet/api/microsoft.extensions.configuration.jsonconfigurationextensions.addjsonfile?view=aspnetcore-2.0#Microsoft_Extensions_Configuration_JsonConfigurationExtensions_AddJsonFile_Microsoft_Extensions_Configuration_IConfigurationBuilder_System_String_System_Boolean_System_Boolean_) su [ConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.configurationbuilder) che accetta un parametro `reloadOnChange` (ASP.NET Core 1.1 e versioni successive). `reloadOnChange` indica se la configurazione deve essere ricaricata alla modifica del file. Vedere questa impostazione nel metodo pratico [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) di [WebHost](/dotnet/api/microsoft.aspnetcore.webhost):
+Questi file vengono configurati usando il metodo di estensione [AddJsonFile(IConfigurationBuilder, String, Boolean, Boolean)](/dotnet/api/microsoft.extensions.configuration.jsonconfigurationextensions.addjsonfile#Microsoft_Extensions_Configuration_JsonConfigurationExtensions_AddJsonFile_Microsoft_Extensions_Configuration_IConfigurationBuilder_System_String_System_Boolean_System_Boolean_) su [ConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.configurationbuilder) che accetta un parametro `reloadOnChange` (ASP.NET Core 1.1 e versioni successive). `reloadOnChange` indica se la configurazione deve essere ricaricata alla modifica del file. Vedere questa impostazione nel metodo pratico [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) di [WebHost](/dotnet/api/microsoft.aspnetcore.webhost):
 
 ```csharp
 config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)

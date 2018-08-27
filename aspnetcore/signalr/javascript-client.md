@@ -31,7 +31,7 @@ La libreria client SignalR JavaScript viene fornita come un [npm](https://www.np
   npm install @aspnet/signalr
   ```
 
-Monitoraggio prestazioni rete consente di installare il contenuto del pacchetto nel *node_modules\\ @aspnet\signalr\dist\browser* cartella. Creare una nuova cartella denominata *signalr* sotto il *wwwroot\\lib* cartella. Copia il *signalr.js* del file per il *wwwroot\lib\signalr* cartella.
+Monitoraggio prestazioni rete consente di installare il contenuto del pacchetto nel *node_modules\\@aspnet\signalr\dist\browser* cartella. Creare una nuova cartella denominata *signalr* sotto il *wwwroot\\lib* cartella. Copia il *signalr.js* del file per il *wwwroot\lib\signalr* cartella.
 
 ## <a name="use-the-signalr-javascript-client"></a>Usare il client SignalR JavaScript
 
