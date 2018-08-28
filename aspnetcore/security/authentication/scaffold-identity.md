@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni su come eseguire lo scaffolding di identità in un progetto ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 5/16/2018
+ms.date: 08/16/2018
 uid: security/authentication/scaffold-identity
-ms.openlocfilehash: 07163941d0bd1fea6f9b3d9867536580d8a9e9d8
-ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
+ms.openlocfilehash: e35836fa9c20729da7c857243410833749b3a595
+ms.sourcegitcommit: 847cc1de5526ff42a7303491e6336c2dbdb45de4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2018
-ms.locfileid: "39063273"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43055848"
 ---
 # <a name="scaffold-identity-in-aspnet-core-projects"></a>Identità di scaffolding in progetti ASP.NET Core
 
@@ -26,6 +26,9 @@ Anche se l'utilità di scaffolding genera la maggior parte del codice necessario
 Quando si esegue l'utilità di scaffolding di identità, un *Scaffoldingreadme* file viene creato nella directory del progetto. Il *Scaffoldingreadme* file contiene istruzioni generali sul cosa è necessario per completare l'aggiornamento di scaffolding di identità. Questo documento contiene istruzioni più complete rispetto al *Scaffoldingreadme* file.
 
 È consigliabile usare un sistema di controllo di origine che mostra le differenze tra file e consente di eseguire l'annullamento delle modifiche. Esaminare le modifiche dopo aver eseguito l'utilità di scaffolding di identità.
+
+> [!NOTE]
+> Servizi sono necessari quando si usa [autenticazione a due fattori](xref:security/authentication/identity-enable-qrcodes), [ripristino conferma e la password dell'Account](xref:security/authentication/accconfirm)e altre funzionalità di sicurezza con identità. I servizi o stub di servizio non viene generato quando lo scaffolding di identità. Servizi per abilitare queste funzionalità devono essere aggiunti manualmente. Ad esempio, vedere [richiedere conferma tramite posta elettronica](xref:security/authentication/accconfirm#require-email-confirmation).
 
 ## <a name="scaffold-identity-into-an-empty-project"></a>Identità di scaffolding in un progetto vuoto
 
@@ -94,7 +97,8 @@ dotnet aspnet-codegenerator identity -dc RPauth.Data.ApplicationDbContext --file
 [!INCLUDE[](~/includes/webapp-alias-notice.md)]
 -->
 
-[!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg-auth.md)] Alcune opzioni di identità configurati nella *Areas/Identity/IdentityHostingStartup.cs*. Per altre informazioni, vedere [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration).
+[!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg-auth.md)]
+Alcune opzioni di identità configurati nella *Areas/Identity/IdentityHostingStartup.cs*. per altre informazioni, vedere [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration).
 
 ## <a name="scaffold-identity-into-an-mvc-project-without-existing-authorization"></a>Identità di scaffolding in un progetto MVC senza autorizzazione esistenti
 

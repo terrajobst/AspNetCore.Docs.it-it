@@ -8,12 +8,12 @@ ms.date: 02/21/2014
 ms.assetid: 5fa1daf9-1161-4cfa-bd4c-658f48b2c229
 msc.legacyurl: /web-forms/what-is-web-forms
 msc.type: content
-ms.openlocfilehash: ccb0e6096b0281e5ef8af63bfd84b172e7f209b9
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: e135cfa2945b9e7e5269eb436ff0c1dff20aacdf
+ms.sourcegitcommit: 847cc1de5526ff42a7303491e6336c2dbdb45de4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41835644"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43055712"
 ---
 <a name="what-is-web-forms"></a>What ' s Web Forms
 ====================
@@ -21,7 +21,7 @@ Web Form ASP.NET è una parte del framework dell'applicazione web ASP.NET ed è 
 
 Web Form sono le pagine che gli utenti richiedono utilizzando il proprio browser. Queste pagine possono essere scritte utilizzando una combinazione di HTML, script client, i controlli server e il codice lato server. Quando gli utenti richiedono una pagina, viene compilata ed eseguita nel server dal framework, e quindi il framework genera il markup HTML che può eseguire il rendering nel browser. Una pagina Web Form ASP.NET presenta le informazioni dell'utente in qualsiasi browser o un dispositivo client.
 
-Usa Visual Studio, è possibile creare Web Form ASP.NET. L'IDE Visual Studio Integrated Development ambiente () consente di trascinare e rilasciare controlli server per il layout della pagina Web Form. È possibile quindi è impostare facilmente le proprietà, metodi ed eventi per i controlli nella pagina o per la pagina desiderata. Queste proprietà, metodi ed eventi vengono usati per definire il comportamento della pagina web, aspetto e così via. Per scrivere il codice server per gestire la logica per la pagina, è possibile usare un linguaggio .NET, ad esempio Visual Basic o c#.
+Usa Visual Studio, è possibile creare Web Form ASP.NET. L'IDE Visual Studio Integrated Development ambiente () consente di trascinare e rilasciare controlli server per il layout della pagina Web Form. È possibile quindi è impostare facilmente le proprietà, metodi ed eventi per i controlli nella pagina o per la pagina stessa. Queste proprietà, metodi ed eventi vengono usati per definire il comportamento della pagina web, aspetto e così via. Per scrivere il codice server per gestire la logica per la pagina, è possibile usare un linguaggio .NET, ad esempio Visual Basic o c#.
 
 > [!NOTE] 
 > 
