@@ -35,7 +35,7 @@ Confrontare le informazioni con i seguenti errori comuni. Se viene trovata una c
 
 * **Installer Log Exception&#8224;:** Error 0x80072efd oppure0x80072f76: Impossibile eseguire i file EXE del pacchetto
 
-  & #8224; Il log si trova in C:\Users\\{USER}\AppData\Local\Temp\dd_DotNetCoreWinSvrHosting__{timestamp}.log.
+  &#8224; Il log si trova in C:\Users\\{USER}\AppData\Local\Temp\dd_DotNetCoreWinSvrHosting__{timestamp}.log.
 
 Risoluzione dei problemi:
 
