@@ -6,17 +6,17 @@ ms.author: riande
 ms.date: 07/07/2017
 uid: tutorials/first-mvc-app-xplat/start-mvc
 ms.openlocfilehash: b25ee29541e345a3bf6700b67d992409c02b183a
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
+ms.lasthandoff: 08/31/2018
 ms.locfileid: "36275275"
 ---
 # <a name="introduction-to-aspnet-core-mvc-on-macos-linux-or-windows"></a>Introduzione ad ASP.NET Core MVC in macOS, Linux o Windows
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Questa esercitazione mostra i concetti fondamentali di compilazione di un'app Web ASP.NET Core MVC tramite [Visual Studio Code](https://code.visualstudio.com) (VS Code). Nell'esercitazione si presuppone una familarità con Visual Studio Code. Vedere [Introduzione a VS Code](https://code.visualstudio.com/docs) e [Guida a Visual Studio Code](#visual-studio-code-help) per altre informazioni. 
+Questa esercitazione mostra i concetti fondamentali di compiplazione di un'app Web ASP.NET Core MVC tramite [Visual Studio Code](https://code.visualstudio.com) (VS Code). Nell'esercitazione si presuppone una familarità con Visual Studio Code. Vedere [Introduzione a VS Code](https://code.visualstudio.com/docs) e [Guida a Visual Studio Code](#visual-studio-code-help) per altre informazioni. 
 
 [!INCLUDE [consider RP](../../includes/razor.md)]
 
