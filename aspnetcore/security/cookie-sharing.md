@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/19/2017
 uid: security/cookie-sharing
-ms.openlocfilehash: ed3496db3f7a63a704f0e57faef6b2f6c085a8bd
-ms.sourcegitcommit: b4c7b1a4c48dec0865f27874275c73da1f75e918
+ms.openlocfilehash: afb0405ea87a6239c3017ba0a59a22527a817feb
+ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39228598"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43312282"
 ---
 # <a name="share-cookies-among-apps-with-aspnet-and-aspnet-core"></a>Condividere cookie tra le app con ASP.NET e ASP.NET Core
 
@@ -43,7 +43,7 @@ Negli esempi che seguono:
 
 Quando si usa ASP.NET Core Identity:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
 Nel `ConfigureServices` metodo, usare il [ConfigureApplicationCookie](/dotnet/api/microsoft.extensions.dependencyinjection.identityservicecollectionextensions.configureapplicationcookie) metodo di estensione per configurare il servizio di protezione dati per i cookie.
 
@@ -59,7 +59,9 @@ options.Cookie.Domain = ".contoso.com";
 
 Vedere le *CookieAuthWithIdentity.Core* del progetto nel [esempi di codice](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cookie-sharing/sample/) ([come scaricare](xref:tutorials/index#how-to-download-a-sample)).
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 Nel `Configure` metodo, usare il [CookieAuthenticationOptions](/dotnet/api/microsoft.aspnetcore.builder.cookieauthenticationoptions) configurare:
 
@@ -87,11 +89,11 @@ app.AddIdentity<ApplicationUser, IdentityRole>(options =>
 });
 ```
 
----
+::: moniker-end
 
 Quando si usa direttamente i cookie:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
 [!code-csharp[](cookie-sharing/sample/CookieAuth.Core/Startup.cs?name=snippet1)]
 
@@ -105,7 +107,10 @@ options.Cookie.Domain = ".contoso.com";
 
 Vedere le *CookieAuth.Core* del progetto nel [esempi di codice](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cookie-sharing/sample/) ([come scaricare](xref:tutorials/index#how-to-download-a-sample)).
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
 
 ```csharp
 app.UseCookieAuthentication(new CookieAuthenticationOptions
@@ -116,20 +121,22 @@ app.UseCookieAuthentication(new CookieAuthenticationOptions
 });
 ```
 
----
+::: moniker-end
 
 ## <a name="encrypting-data-protection-keys-at-rest"></a>Crittografare le chiavi di protezione dei dati inattivi
 
 Per le distribuzioni di produzione, configurare il `DataProtectionProvider` per crittografare le chiavi a riposo con DPAPI o un X509Certificate. Visualizzare [chiave di crittografia dei dati](xref:security/data-protection/implementation/key-encryption-at-rest) per altre informazioni.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
 ```csharp
 services.AddDataProtection()
     .ProtectKeysWithCertificate("thumbprint");
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 ```csharp
 app.UseCookieAuthentication(new CookieAuthenticationOptions
@@ -143,7 +150,7 @@ app.UseCookieAuthentication(new CookieAuthenticationOptions
 });
 ```
 
----
+::: moniker-end
 
 ## <a name="sharing-authentication-cookies-between-aspnet-4x-and-aspnet-core-apps"></a>Condivisione dei cookie di autenticazione tra ASP.NET 4.x e le app ASP.NET Core
 

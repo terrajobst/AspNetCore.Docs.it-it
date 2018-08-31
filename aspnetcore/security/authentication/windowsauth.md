@@ -5,12 +5,12 @@ description: Questo articolo descrive come configurare l'autenticazione di Windo
 ms.author: riande
 ms.date: 08/18/2018
 uid: security/authentication/windowsauth
-ms.openlocfilehash: 93b1a1de74ef6554d48709b04870f7e23738846b
-ms.sourcegitcommit: 15d7bd0b2c4e6fe9ac335d658bab71a45ca5bc72
+ms.openlocfilehash: a8066d248c0d4db1d1f61b2a14bdb4656a2f4265
+ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41837796"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43312412"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>Configurare l'autenticazione di Windows in ASP.NET Core
 
@@ -129,7 +129,7 @@ Quando sono abilitati sia l'autenticazione di Windows e l'accesso anonimo, usare
 In ASP.NET Core 2.x, il `[Authorize]` attributo richiede una configurazione aggiuntiva nel *Startup.cs* per stimolare le richieste anonime per l'autenticazione di Windows. La configurazione consigliata varia leggermente in base sul server web in uso.
 
 > [!NOTE]
-> Per impostazione predefinita, gli utenti che non dispongono di autorizzazione per accedere a una pagina vengono visualizzati una risposta HTTP 403 vuota. Il [StatusCodePages middleware](xref:fundamentals/error-handling#configuring-status-code-pages) può essere configurato per fornire agli utenti una migliore esperienza di "Accesso negato".
+> Per impostazione predefinita, gli utenti che non dispongono di autorizzazione per accedere a una pagina vengono visualizzati una risposta HTTP 403 vuota. Il [StatusCodePages middleware](xref:fundamentals/error-handling#configure-status-code-pages) può essere configurato per fornire agli utenti una migliore esperienza di "Accesso negato".
 
 #### <a name="iis"></a>IIS
 

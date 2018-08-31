@@ -5,12 +5,12 @@ description: Informazioni su come creare un'app Razor Pages con i dati utente pr
 ms.author: riande
 ms.date: 7/24/2018
 uid: security/authorization/secure-data
-ms.openlocfilehash: ba59e8d6243965188397c4ba7a130eec42acfb91
-ms.sourcegitcommit: 847cc1de5526ff42a7303491e6336c2dbdb45de4
+ms.openlocfilehash: 9f264daa4a6b63478077cadb06a697f274014199
+ms.sourcegitcommit: a669c4e3f42e387e214a354ac4143555602e6f66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43055880"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336011"
 ---
 ::: moniker range="<= aspnetcore-1.1"
 
@@ -19,7 +19,7 @@ Visualizzare [questo PDF](https://github.com/aspnet/Docs/tree/master/aspnetcore/
 
 ::: moniker range="= aspnetcore-2.0"
 
-Vedere la [questo pdf] (https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/asp.net_repo_pdf_July16_18.pdf)
+Vedere [questo pdf](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/asp.net_repo_pdf_July16_18.pdf)
 
 ::: moniker-end
 
@@ -75,7 +75,13 @@ Questa esercitazione viene fatto avanzare. È necessario avere familiarità con:
 * [Autorizzazione](xref:security/authorization/index)
 * [Entity Framework Core](xref:data/ef-mvc/intro)
 
-Il codice di download per questa esercitazione richiede ASP.NET Core 2.2 preview 1 o versione successiva. Visualizzare [questo problema su GitHub](https://github.com/aspnet/Identity/issues/1813#issuecomment-394543909) per una soluzione alternativa.
+::: moniker-end
+::: moniker range="= aspnetcore-2.1"
+
+In ASP.NET Core 2.1 `User.IsInRole` ha esito negativo quando si usa `AddDefaultIdentity`. Questa esercitazione Usa `AddDefaultIdentity` e pertanto richiede ASP.NET Core 2.2 preview 1 o versione successiva. Visualizzare [questo problema su GitHub](https://github.com/aspnet/Identity/issues/1813#issuecomment-394543909) per una soluzione alternativa.
+
+::: moniker-end
+::: moniker range=">= aspnetcore-2.1"
 
 ## <a name="the-starter-and-completed-app"></a>Starter e app completata
 
