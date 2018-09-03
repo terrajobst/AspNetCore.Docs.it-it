@@ -4,14 +4,14 @@ author: tdykstra
 description: Informazioni su come l'associazione di modelli in ASP.NET Core MVC esegue il mapping dei dati dalle richieste HTTP ai parametri dei metodi di azione.
 ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: tdykstra
-ms.date: 01/22/2018
+ms.date: 08/14/2018
 uid: mvc/models/model-binding
-ms.openlocfilehash: 200e2c22e02ec9e24b7cdb3883cf6f2f93f2f4b7
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 0ce20a8040c6b19da1f57e1c053a7ef81d8bcb23
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095733"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751527"
 ---
 # <a name="model-binding-in-aspnet-core"></a>Associazione di modelli in ASP.NET Core
 
@@ -65,7 +65,7 @@ Quando un parametro viene associato, l'associazione di modelli interrompe la ric
 
 * Tipi nullable: i tipi nullable vengono impostati su `null`. Nell'esempio precedente, l'associazione di modelli imposta `id` su `null`, perché è di tipo `int?`.
 
-* Tipi: valore: i tipi valore non-nullable di tipo `T` vengono impostati su `default(T)`. L'associazione di modelli, ad esempio, imposta un parametro `int id` su 0. Anziché basarsi sui valori predefiniti, è consigliabile usare la convalida del modello o tipi nullable.
+* Tipi: valore: i tipi valore non-nullable di tipo `T` vengono impostati su `default(T)`. L'associazione di modelli, ad esempio, imposta un parametro `int id` su 0. Invece di basarsi sui valori predefiniti, è consigliabile usare la convalida del modello o tipi nullable.
 
 Se l'associazione non riesce, MVC non genera un errore. Tutte le azioni che accettano input utente devono controllare la proprietà `ModelState.IsValid`.
 
@@ -99,6 +99,31 @@ MVC contiene diversi attributi che è possibile usare per indirizzare il comport
 
 Gli attributi sono strumenti molto utili quando è necessario eseguire l'override del comportamento predefinito dell'associazione di modelli.
 
+## <a name="customize-model-binding-and-validation-globally"></a>Personalizzare l'associazione di modelli e la convalida a livello globale
+
+Il comportamento dell'associazione di modelli e del sistema di convalida è determinato da [ModelMetadata](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.modelmetadata) che descrive:
+
+* Il modo in cui è necessario associare un modello.
+* Il modo in cui viene eseguita la convalida sul tipo e sulle relative proprietà.
+
+È possibile configurare a livello globale alcuni aspetti del comportamento del sistema aggiungendo un provider di dettagli a [MvcOptions.ModelMetadataDetailsProviders](/dotnet/api/microsoft.aspnetcore.mvc.mvcoptions.modelmetadatadetailsproviders#Microsoft_AspNetCore_Mvc_MvcOptions_ModelMetadataDetailsProviders). MVC include alcuni provider di dettagli predefiniti che consentono di configurare comportamenti quali la disabilitazione dell'associazione di modelli o della convalida per determinati tipi.
+
+Per disabilitare l'associazione di modelli per tutti i modelli di un determinato tipo, aggiungere un elemento [ExcludeBindingMetadataProvider](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.metadata.excludebindingmetadataprovider) in `Startup.ConfigureServices`. Ad esempio, per disabilitare l'associazione di modelli per tutti i modelli di tipo `System.Version`:
+
+```csharp
+services.AddMvc().AddMvcOptions(options =>
+    options.ModelMetadataDetailsProviders.Add(
+        new ExcludeBindingMetadataProvider(typeof(System.Version))));
+```
+
+Per disabilitare la convalida delle proprietà di un determinato tipo, aggiungere un elemento [SuppressChildValidationMetadataProvider](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.suppresschildvalidationmetadataprovider) in `Startup.ConfigureServices`. Ad esempio, per disabilitare la convalida per le proprietà di tipo `System.Guid`:
+
+```csharp
+services.AddMvc().AddMvcOptions(options =>
+    options.ModelMetadataDetailsProviders.Add(
+        new SuppressChildValidationMetadataProvider(typeof(System.Guid))));
+```
+
 ## <a name="bind-formatted-data-from-the-request-body"></a>Associare dati formattati dal corpo della richiesta
 
 I dati delle richieste possono avere un'ampia gamma di formati, ad esempio JSON, XML e molti altri. Quando si usa l'attributo [FromBody] per indicare che si vuole associare un parametro ai dati nel corpo della richiesta, MVC usa un set di formattatori configurato per gestire i dati della richiesta in base al tipo di contenuto di questa. Per impostazione predefinita, MVC include una classe `JsonInputFormatter` per la gestione dei dati JSON, ma è possibile aggiungere altri formattatori per la gestione del formato XML e di altri formati personalizzati.
@@ -109,7 +134,7 @@ I dati delle richieste possono avere un'ampia gamma di formati, ad esempio JSON,
 > [!NOTE]
 > `JsonInputFormatter`, il formattatore predefinito, si basa su [Json.NET](https://www.newtonsoft.com/json).
 
-ASP.NET seleziona i formattatori di input in base all'intestazione [Content-Type](https://www.w3.org/Protocols/rfc1341/4_Content-Type.html) e al tipo del parametro, a meno che un attributo applicato ad esso non specifichi altrimenti. Se si vuole usare codice XML o in un altro formato, è necessario eseguire la configurazione corrispondente nel file *Startup.cs*, ma prima può essere necessario ottenere un riferimento a `Microsoft.AspNetCore.Mvc.Formatters.Xml` tramite NuGet. Il codice di avvio dovrebbe apparire come segue:
+ASP.NET Core seleziona i formattatori di input in base all'intestazione [Content-Type](https://www.w3.org/Protocols/rfc1341/4_Content-Type.html) e al tipo del parametro, a meno che un attributo applicato ad esso non specifichi diversamente. Se si vuole usare codice XML o in un altro formato, è necessario eseguire la configurazione corrispondente nel file *Startup.cs*, ma prima può essere necessario ottenere un riferimento a `Microsoft.AspNetCore.Mvc.Formatters.Xml` tramite NuGet. Il codice di avvio dovrebbe apparire come segue:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -119,7 +144,7 @@ public void ConfigureServices(IServiceCollection services)
    }
 ```
 
-Il codice nel file *Startup.cs* contiene un metodo `ConfigureServices` con un argomento `services` che è possibile usare per compilare i servizi per l'app ASP.NET. Nell'esempio viene aggiunto un formattatore XML come servizio offerto da MVC per questa app. L'argomento `options` passato al metodo `AddMvc` consente di aggiungere e gestire filtri, formattatori e altre opzioni di sistema da MVC dopo l'avvio dell'app. Applicare quindi l'attributo `Consumes` alle classi controller o ai metodi di azione per usare il formato voluto.
+Il codice nel file *Startup.cs* contiene un metodo `ConfigureServices` con un argomento `services` che è possibile usare per compilare i servizi per l'app ASP.NET Core. Nell'esempio viene aggiunto un formattatore XML come servizio offerto da MVC per questa app. L'argomento `options` passato al metodo `AddMvc` consente di aggiungere e gestire filtri, formattatori e altre opzioni di sistema da MVC dopo l'avvio dell'app. Applicare quindi l'attributo `Consumes` alle classi controller o ai metodi di azione per usare il formato voluto.
 
 ### <a name="custom-model-binding"></a>Associazione di modelli personalizzata
 

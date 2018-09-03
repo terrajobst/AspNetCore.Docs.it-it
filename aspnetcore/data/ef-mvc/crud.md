@@ -5,12 +5,12 @@ description: ''
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 1c724da918640c514acbc24c390de4e735f8bf49
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: 626b828e2391d3982ff2cf393f0c9e0748c12810
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342432"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751778"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---crud---2-of-10"></a>ASP.NET Core MVC con EF Core - CRUD - 2 di 10
 
@@ -117,7 +117,7 @@ In *StudentsController.cs* modificare il metodo HttpPost `Create` aggiungendo un
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Create&highlight=4,6-7,14-21)]
 
-Questo codice aggiunge l'entità Student creata dallo strumento di associazione di modelli di ASP.NET MVC al set di entità Students e salva le modifiche nel database. (Lo strumento di associazione di modelli corrisponde alla funzionalità di ASP.NET MVC che rende più semplice l'uso di dati inviati da un modulo; lo strumento di associazione di modelli converte i valori di modulo inviati in tipi CLR e li passa al metodo di azione nei parametri. In questo caso lo strumento di associazione di modelli crea automaticamente un'istanza di un'entità Student usando i valori di proprietà della raccolta Form).
+Questo codice aggiunge l'entità Student creata dallo strumento di associazione di modelli di ASP.NET Core MVC al set di entità Students e salva le modifiche nel database. Lo strumento di associazione di modelli corrisponde alla funzionalità di ASP.NET Core MVC che rende più semplice l'uso di dati inviati da un modulo; lo strumento di associazione di modelli converte i valori di modulo inviati in tipi CLR e li passa al metodo di azione nei parametri. In questo caso lo strumento di associazione di modelli crea automaticamente un'istanza di un'entità Student usando i valori di proprietà della raccolta Form.
 
 `ID` è stato rimosso dall'attributo `Bind` poiché l'ID è il valore di chiave primaria che SQL Server imposta automaticamente quando viene inserita la riga. L'input dell'utente non imposta il valore ID.
 
@@ -273,7 +273,7 @@ Fare clic su **Elimina**. Viene visualizzata la pagina Index senza lo studente e
 
 Per liberare le risorse di una connessione di database, è necessario eliminare l'istanza del contesto il prima possibile dopo averla usata. L'[inserimento delle dipendenze](../../fundamentals/dependency-injection.md) incorporato di ASP.NET Core esegue automaticamente questa attività.
 
-In *Startup.cs* chiamare il [metodo di estensione AddDbContext](https://github.com/aspnet/EntityFrameworkCore/blob/03bcb5122e3f577a84498545fcf130ba79a3d987/src/Microsoft.EntityFrameworkCore/EntityFrameworkServiceCollectionExtensions.cs) per effettuare il provisioning della classe `DbContext` nel contenitore di inserimento delle dipendenze di ASP.NET. Il metodo imposta la durata del servizio su `Scoped` per impostazione predefinita. `Scoped` indica che la durata dell'oggetto del contesto corrisponde alla durata della richiesta Web e il metodo `Dispose` viene chiamato automaticamente alla fine della richiesta Web.
+In *Startup.cs* chiamare il [metodo di estensione AddDbContext](https://github.com/aspnet/EntityFrameworkCore/blob/03bcb5122e3f577a84498545fcf130ba79a3d987/src/Microsoft.EntityFrameworkCore/EntityFrameworkServiceCollectionExtensions.cs) per effettuare il provisioning della classe `DbContext` nel contenitore di inserimento delle dipendenze di ASP.NET Core. Il metodo imposta la durata del servizio su `Scoped` per impostazione predefinita. `Scoped` indica che la durata dell'oggetto del contesto corrisponde alla durata della richiesta Web e il metodo `Dispose` viene chiamato automaticamente alla fine della richiesta Web.
 
 ## <a name="handling-transactions"></a>Gestione delle transazioni
 

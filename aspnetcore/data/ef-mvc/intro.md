@@ -5,12 +5,12 @@ description: ''
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 4e0bcffd1162681aa4d31c4fe74acac5a7e981f1
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: cbef7e5edf2950a87a4cd4155c63a22fff2990fe
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38216312"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751643"
 ---
 # <a name="aspnet-core-mvc-with-entity-framework-core---tutorial-1-of-10"></a>ASP.NET Core MVC con Entity Framework Core: esercitazione 1 di 10
 
@@ -35,7 +35,7 @@ Entity Framework Core 2.0 è la versione più recente di Entity Framework, ma no
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[!INCLUDE [](~/includes/net-core-prereqs.md) [](~/includes/net-core-prereqs.md)]
+[!INCLUDE [](~/includes/net-core-prereqs.md)]
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
@@ -80,7 +80,7 @@ Aprire Visual Studio e creare un nuovo progetto Web ASP.NET Core C# denominato "
 
 * Fare clic su **OK**
 
-  ![Nuova finestra di dialogo Progetto ASP.NET](intro/_static/new-aspnet.png)
+  ![Finestra di dialogo Nuovo progetto ASP.NET Core](intro/_static/new-aspnet.png)
 
 ## <a name="set-up-the-site-style"></a>Impostare lo stile del sito
 
@@ -273,7 +273,7 @@ Si noti che il controller usa `SchoolContext` come parametro del costruttore.
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Context&highlight=5,7,9)]
 
-L'inserimento delle dipendenze di ASP.NET si occupa di passare un'istanza di `SchoolContext` al controller. Tale comportamento è configurato nel file *Startup.cs* in precedenza.
+L'inserimento delle dipendenze di ASP.NET Core si occupa di passare un'istanza di `SchoolContext` al controller. Tale comportamento è configurato nel file *Startup.cs* in precedenza.
 
 Il controller contiene un metodo di azione `Index` che consente di visualizzare tutti gli studenti nel database. Il metodo ottiene un elenco degli studenti dal set di entità Students (Studenti) leggendo la proprietà `Students` dell'istanza del contesto di database:
 

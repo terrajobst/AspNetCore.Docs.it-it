@@ -5,22 +5,16 @@ description: Informazioni sul test della logica dei controller in ASP.NET Core c
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/controllers/testing
-ms.openlocfilehash: fc5f10b4d5947a6af114bf00f8b1d955b083a44d
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: d0b2a25d00187c088671be147844aa892f824c6e
+ms.sourcegitcommit: 64c2ca86fff445944b155635918126165ee0f8aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273923"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41751504"
 ---
 # <a name="test-controller-logic-in-aspnet-core"></a>Test della logica dei controller in ASP.NET Core
 
 Di [Steve Smith](https://ardalis.com/)
-
-I controller nelle app ASP.NET MVC devono avere dimensioni ridotte ed essere incentrati sugli aspetti dell'interfaccia utente. Il test e la gestione risultano più complessi con controller di grandi dimensioni che gestiscono aspetti non associati all'interfaccia utente.
-
-[Visualizzare o scaricare un esempio da GitHub](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/testing/sample)
-
-## <a name="testing-controllers"></a>Test dei controller
 
 I controller sono un componente essenziale di qualsiasi applicazione ASP.NET Core MVC. Di conseguenza è importante verificare che funzionino correttamente nell'app. I test automatizzati eseguono questa verifica e rilevano gli errori dei controller prima che questi raggiungano la fase di produzione. È importante evitare di includere responsabilità non necessarie nei controller e verificare che i test riguardino esclusivamente le responsabilità dei controller.
 
@@ -35,11 +29,13 @@ Responsabilità tipiche del controller:
 * Salvare l'entità di business nella persistenza.
 * Restituire un risultato `IActionResult` appropriato.
 
-## <a name="unit-testing"></a>Testing unità
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/testing/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
 
-Lo [unit test](/dotnet/articles/core/testing/unit-testing-with-dotnet-test) prevede l'esecuzione di test su una parte di un'app isolandola dall'infrastruttura e dalle dipendenze. Quando si sottopone a unit test la logica del controller, si verifica solo il contenuto di una singola azione e non il comportamento delle relative dipendenze o del framework. Quando si sottopongono a unit test le azioni del controller, è importante concentrarsi esclusivamente sul funzionamento del controller. Uno unit test del controller non prende in esame elementi come [filtri](filters.md), [routing](../../fundamentals/routing.md) o [associazione di modelli](../models/model-binding.md). Gli unit test risultano in genere facili da creare e rapidi da eseguire, in quanto verificano un solo aspetto. Un set di unit test ben organizzato può essere eseguito spesso senza sovraccarichi eccessivi. Tuttavia gli unit test non rilevano i problemi dell'interazione tra componenti: a questo scopo esistono i [test di integrazione](xref:mvc/controllers/testing#integration-testing).
+## <a name="unit-tests-of-controller-logic"></a>Unit test della logica dei controller
 
-Se si scrivono filtri personalizzati, route personalizzate e così via è importante sottoporli a unit test, ma non nel quadro dei test relativi a una determinata azione del controller. Il test di questi elementi va eseguito in isolamento.
+Gli [unit test](/dotnet/articles/core/testing/unit-testing-with-dotnet-test) implicano l'esecuzione di test su una parte di un'app isolandola dall'infrastruttura e dalle dipendenze. Quando si sottopone a unit test la logica del controller, si verifica solo il contenuto di una singola azione e non il comportamento delle relative dipendenze o del framework. Quando si sottopongono a unit test le azioni del controller, è importante concentrarsi esclusivamente sul funzionamento del controller. Uno unit test del controller non prende in esame elementi come [filtri](xref:mvc/controllers/filters), [routing](xref:fundamentals/routing) o [associazione di modelli](xref:mvc/models/model-binding). Gli unit test risultano in genere facili da creare e rapidi da eseguire, in quanto verificano un solo aspetto. Un set di unit test ben organizzato può essere eseguito spesso senza sovraccarichi eccessivi. Tuttavia gli unit test non rilevano i problemi dell'interazione tra componenti: a questo scopo esistono i [test di integrazione](xref:test/integration-tests).
+
+Se si scrivono route e filtri personalizzati, è opportuno sottoporli a unit test in isolamento e non durante i test relativi a una determinata azione del controller.
 
 > [!TIP]
 > [Creare ed eseguire unit test con Visual Studio](/visualstudio/test/unit-test-your-code).
@@ -54,7 +50,7 @@ Il controller si basa sul [principio delle dipendenze esplicite](http://deviq.co
 
 Il metodo `HomeController` `HTTP POST Index` (visualizzato sopra) deve verificare quanto segue:
 
-* Il metodo di azione restituisce un `ViewResult` di tipo Richiesta non valida con i dati appropriati quando `ModelState.IsValid` è `false`
+* Il metodo di azione restituisce un elemento `ViewResult` di tipo Richiesta non valida con i dati appropriati quando `ModelState.IsValid` è `false`.
 
 * Viene chiamato il metodo `Add` del repository e viene restituito un `RedirectToActionResult` con gli argomenti appropriati quando `ModelState.IsValid` è true.
 
@@ -62,7 +58,7 @@ Il metodo `HomeController` `HTTP POST Index` (visualizzato sopra) deve verificar
 
 [!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=8,15-16,37-39&range=35-75)]
 
-Il primo test conferma quando `ModelState` non è valido e restituisce lo stesso risultato `ViewResult` ottenuto in una richiesta `GET`. Si noti che il test non prova a passare un modello non valido. L'operazione non funzionerebbe in ogni caso, dato che l'associazione di modelli non è in esecuzione (tuttavia un [test di integrazione](xref:mvc/controllers/testing#integration-testing) userebbe l'associazione di modelli dell'esercizio). In questo caso, l'associazione di modelli non viene sottoposta a test. Questi unit test verificano solo le operazioni eseguite dal codice del metodo di azione.
+Il primo test conferma quando `ModelState` non è valido e restituisce lo stesso risultato `ViewResult` ottenuto in una richiesta `GET`. Si noti che il test non prova a passare un modello non valido. L'operazione non funzionerebbe in ogni caso, dato che l'associazione di modelli non è in esecuzione (tuttavia un [test di integrazione](xref:test/integration-tests) userebbe l'associazione di modelli dell'esercizio). In questo caso, l'associazione di modelli non viene sottoposta a test. Questi unit test verificano solo le operazioni eseguite dal codice del metodo di azione.
 
 Il secondo test verifica che quando `ModelState` è valido viene aggiunto un nuovo elemento `BrainstormSession` (tramite il repository) e il metodo restituisce un elemento `RedirectToActionResult` con le proprietà previste. Le chiamate fittizie che non vengono attivate sono in genere ignorate, ma la chiamata di `Verifiable` al termine della chiamata setup consente di verificarle nel test. Questa operazione viene eseguita con la chiamata a `mockRepo.Verify`, che non supera il test se non è stato chiamato il metodo previsto.
 
@@ -79,8 +75,6 @@ L'azione del controller deve eseguire il test di tre casi, uno per ogni istruzio
 
 L'app espone la funzionalità di un'API Web (un elenco di idee associate a una sessione di brainstorming e un metodo per aggiungere nuove idee a una sessione):
 
-<a name="ideas-controller"></a>
-
 [!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Api/IdeasController.cs?highlight=21,22,27,30,31,32,33,34,35,36,41,42,46,52,65)]
 
 Il metodo `ForSession` restituisce un elenco di tipi `IdeaDTO`. Evitare di restituire direttamente le entità di dominio aziendali tramite chiamate API, poiché spesso includono più dati di quelli richiesti dal client API e associano senza necessità il modello di dominio interno dell'app con l'API esposta esternamente. Il mapping tra le entità di dominio e i tipi restituiti in rete può essere eseguito manualmente (usando un LINQ `Select` come illustrato di seguito) o tramite una libreria come [AutoMapper](https://github.com/AutoMapper/AutoMapper).
@@ -95,53 +89,6 @@ Il secondo test dipende dal fatto che il repository restituisca null, pertanto i
 
 L'ultimo test verifica che venga chiamato il metodo `Update` del repository. Come in precedenza, la simulazione viene chiamata con `Verifiable` e quindi il viene chiamato il metodo `Verify` del repository fittizio per confermare che il metodo verificabile sia stato eseguito. Non spetta a un unit test verificare che il metodo `Update` abbia salvato i dati. Questo compito può essere eseguito con un test di integrazione.
 
-## <a name="integration-testing"></a>Test di integrazione
+## <a name="additional-resources"></a>Risorse aggiuntive
 
-I [test di integrazione](xref:test/integration-tests) vengono eseguiti per verificare che moduli separati dell'app interagiscano correttamente. In generale tutto ciò che è possibile verificare con uno unit test può essere verificato anche con un test di integrazione, ma non viceversa. I test di integrazione tendono tuttavia a essere molto più lenti degli unit test. Pertanto è consigliabile verificare tutti gli elementi possibili con unit test e limitare i test di integrazione agli scenari che coinvolgono più collaboratori.
-
-Anche se possono risultare utili, gli oggetti fittizi vengono usati di rado nei test di integrazione. Negli unit test gli oggetti fittizi sono un metodo efficace per verificare il comportamento previsto dei collaboratori all'esterno dell'unità oggetto del test. In un test di integrazione vengono usati collaboratori reali per confermare che l'intero sottosistema interagisca correttamente.
-
-### <a name="application-state"></a>Stato dell'applicazione
-
-Una considerazione importante quando si eseguono test di integrazione è la modalità di impostazione dello stato dell'app. I test vanno eseguiti indipendentemente l'uno dall'altro, pertanto ogni test deve iniziare con l'app in uno stato noto. Se l'app non usa un database o non dispone di persistenza, questo non dovrebbe rappresentare un problema. Tuttavia la maggior parte delle app reali gestisce la persistenza del proprio stato in un archivio dati, pertanto le modifiche apportate da un test possono influire su un altro test se l'archivio dati non viene reimpostato. Se si usa l'elemento `TestServer` incorporato, l'hosting delle app ASP.NET Core nei test di integrazione è intuitivo, ma non garantisce necessariamente l'accesso ai dati che verranno usati. Se si usa un database, un approccio possibile è fare connettere l'app a un database di test accessibile anche dai test, quindi verificare venga reimpostato su uno stato noto prima dell'esecuzione di ogni singolo test.
-
-In questa applicazione di esempio si usa il supporto InMemoryDatabase di Entity Framework Core, pertanto non è possibile stabilire la connessione direttamente dal progetto di test. Invece si espone un metodo `InitializeDatabase` della classe `Startup` che viene chiamato all'avvio dell'app se si trova nell'ambiente `Development`. I test di integrazione traggono automaticamente vantaggio da questa situazione se impostano l'ambiente su `Development`. Non è necessario preoccuparsi di reimpostare il database, poiché InMemoryDatabase viene reimpostato ad ogni riavvio dell'app.
-
-La classe `Startup`:
-
-[!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Startup.cs?highlight=19,20,34,35,43,52)]
-
-Il metodo `GetTestSession` viene usato spesso nei test di integrazione che seguono.
-
-### <a name="accessing-views"></a>Accesso alle visualizzazioni
-
-Ogni classe di test di integrazione configura l'elemento `TestServer` che esegue l'app ASP.NET Core. Per impostazione predefinita `TestServer` ospita l'app Web nella cartella in cui è in esecuzione, in questo caso la cartella del progetto di test. Di conseguenza quando si prova il test di azioni del controller che restituiscono `ViewResult` può essere visualizzato questo errore:
-
-```
-The view 'Index' wasn't found. The following locations were searched:
-(list of locations)
-```
-
-Per risolvere questo problema, è necessario configurare la radice del contenuto del server in modo che individui le visualizzazioni del progetto sottoposto a test. Questa operazione viene eseguita mediante una chiamata a `UseContentRoot` nella classe `TestFixture`, visualizzata di seguito:
-
-[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/TestFixture.cs?highlight=30,33)]
-
-La classe `TestFixture` è responsabile della configurazione e della creazione di `TestServer` e imposta un `HttpClient` per comunicare con `TestServer`. Ogni test di integrazione usa la proprietà `Client` per connettersi al server di test e creare una richiesta.
-
-[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/HomeControllerTests.cs?highlight=20,26,29,30,31,35,38,39,40,41,44,47,48)]
-
-Nel primo dei test precedenti `responseString` contiene il codice HTML sottoposto a rendering della vista, che può essere verificato per confermare che contenga i risultati previsti.
-
-Il secondo test costruisce un'operazione POST del modulo con un nome di sessione univoco e lo pubblica (POST) nell'app, quindi verifica che venga restituito il reindirizzamento previsto.
-
-### <a name="api-methods"></a>Metodi dell'API
-
-Se l'app espone API Web, è consigliabile impostare test automatizzati per confermare che le API vengano eseguite come previsto. L'elemento `TestServer` predefinito semplifica il test delle API Web. Se i metodi API usano l'associazione di modelli è necessario controllare sempre `ModelState.IsValid`. I test di integrazione sono lo strumento ottimale per confermare che la convalida del modello funzioni correttamente.
-
-Il seguente set di test opera sul metodo `Create` nella classe [IdeasController](xref:mvc/controllers/testing#ideas-controller) illustrata in precedenza:
-
-[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/ApiIdeasControllerTests.cs)]
-
-A differenza dei test di integrazione delle azioni che restituiscono visualizzazioni HTML, i metodi per le API Web che restituiscono risultati sono in genere deserializzabili come oggetti fortemente tipizzati, come illustrato nell'ultimo dei test precedenti. In questo caso il test deserializza il risultato in un'istanza `BrainstormSession` e conferma che l'idea è stata aggiunta correttamente alla relativa raccolta di idee.
-
-Altri esempi di test di integrazione sono disponibili nel [progetto di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/testing/sample) di questo articolo.
+* <xref:test/integration-tests>
