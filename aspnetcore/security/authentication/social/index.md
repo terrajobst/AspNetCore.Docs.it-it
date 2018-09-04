@@ -5,12 +5,12 @@ description: Questa esercitazione illustra come compilare un'app ASP.NET Core 2.
 ms.author: riande
 ms.date: 11/01/2016
 uid: security/authentication/social/index
-ms.openlocfilehash: b2176ef40faaee02c5ef53dbb92a802212e58e8b
-ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
+ms.openlocfilehash: 48a01ab241f9a6ad6ad3fb2ee9e210f459075c33
+ms.sourcegitcommit: a669c4e3f42e387e214a354ac4143555602e6f66
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2018
-ms.locfileid: "39063325"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336120"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Autenticazione dei provider Facebook, Google ed esterni in ASP.NET Core
 
@@ -97,3 +97,5 @@ Per creare una password e accedere usando la posta elettronica impostata durante
 * Questo articolo ha introdotto l'autenticazione esterna e ha illustrato i prerequisiti necessari per aggiungere gli account di accesso esterni all'app di ASP.NET Core.
 
 * Pagine di riferimento specifico del provider per configurare gli account di accesso per i provider richiesti dall'app.
+
+* Può essere opportuno salvare in modo permanente dati aggiuntivi sull'utente e il relativo accesso e i token di aggiornamento. Per ulteriori informazioni, vedere <xref:security/authentication/social/additional-claims>.
