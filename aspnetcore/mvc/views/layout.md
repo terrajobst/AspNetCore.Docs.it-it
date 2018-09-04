@@ -5,18 +5,18 @@ description: Informazioni su come usare layout comuni, condividere direttive ed 
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/views/layout
-ms.openlocfilehash: a99b239a0aeeb14492b1eee962dc1149f056f0eb
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: ad0b339572f387be8a636204015ffc361947acb8
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274118"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751744"
 ---
 # <a name="layout-in-aspnet-core"></a>Layout in ASP.NET Core
 
 Di [Steve Smith](https://ardalis.com/)
 
-Le visualizzazioni condividono spesso elementi visivi e a livello di codice. In questo articolo si apprenderà come usare layout comuni, condividere direttive ed eseguire codice comune prima di eseguire il rendering delle visualizzazioni nell'applicazione ASP.NET.
+Le visualizzazioni condividono spesso elementi visivi e a livello di codice. In questo articolo verrà spiegato come usare layout comuni, condividere direttive ed eseguire codice comune prima di eseguire il rendering delle visualizzazioni nell'app ASP.NET Core.
 
 ## <a name="what-is-a-layout"></a>Che cos'è il layout?
 
@@ -26,7 +26,7 @@ La maggior parte delle applicazioni web presenta un layout comune che fornisce a
 
 Molte pagine all'interno di un'app utilizzano anche strutture HTML comuni, come script e fogli di stile. Tutti questi elementi condivisi possono essere definiti in un file di *layout*, cui è possibile fare riferimento da qualsiasi visualizzazione utilizzata all'interno dell'app. I layout riducono il codice duplicato nelle visualizzazioni, consentendo di seguire il [principio Don't Repeat Yourself (DRY)](http://deviq.com/don-t-repeat-yourself/).
 
-Per convenzione, il layout predefinito per un'app ASP.NET è denominato `_Layout.cshtml`. Il modello di progetto di Visual Studio ASP.NET Core MVC include questo file di layout nella cartella `Views/Shared`:
+Per convenzione, il layout predefinito per un'app ASP.NET Core è denominato `_Layout.cshtml`. Il modello di progetto di Visual Studio ASP.NET Core MVC include questo file di layout nella cartella `Views/Shared`:
 
 ![cartella visualizzazioni in Esplora soluzioni](layout/_static/web-project-views.png)
 

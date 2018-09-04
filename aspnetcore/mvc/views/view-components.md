@@ -5,12 +5,12 @@ description: Informazioni sull'uso dei componenti di visualizzazione in ASP.NET 
 ms.author: riande
 ms.date: 02/14/2017
 uid: mvc/views/view-components
-ms.openlocfilehash: 2b196d8d46942604d1c85eb5f2f073661e5acb30
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: c4e4de6e4ffb634a636bccdb2a929a524baebecf
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278362"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751632"
 ---
 # <a name="view-components-in-aspnet-core"></a>Componenti di visualizzazione in ASP.NET Core
 
@@ -75,8 +75,9 @@ Un componente di visualizzazione definisce la propria logica in un metodo `Invok
 
 Il runtime esegue la ricerca della visualizzazione nei percorsi seguenti:
 
-   * Views/\<nome_controller>/Components/\<nome_componente_visualizzazione>/\<nome_visualizzazione>
-   * Views/Shared/Components/\<nome_componente_visualizzazione>/\<nome_visualizzazione>
+* /Pages/Components/<component name>/\<nome_visualizzazione>
+* Views/\<nome_controller>/Components/\<nome_componente_visualizzazione>/\<nome_visualizzazione>
+* Views/Shared/Components/\<nome_componente_visualizzazione>/\<nome_visualizzazione>
 
 Il nome di visualizzazione predefinito per un componente di visualizzazione è *Default*, quindi il file della visualizzazione viene solitamente denominato *Default.cshtml*. È possibile specificare un nome di visualizzazione diverso quando si crea il risultato del componente di visualizzazione o quando si chiama il metodo `View`.
 

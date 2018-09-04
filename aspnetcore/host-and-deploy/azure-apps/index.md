@@ -4,14 +4,14 @@ author: guardrex
 description: Informazioni su come ospitare le app ASP.NET Core nel servizio app di Azure con collegamenti a risorse utili.
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/24/2018
+ms.date: 08/29/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 42775bf4d3e88893260a5973f6f7bc9d3a006b5a
-ms.sourcegitcommit: 25150f4398de83132965a89f12d3a030f6cce48d
+ms.openlocfilehash: bc2a686c5ddc44fded135c9eed5caf676218773a
+ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2018
-ms.locfileid: "42927828"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43312070"
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Ospitare ASP.NET Core in Servizio app di Azure
 
@@ -110,35 +110,55 @@ Le app in anteprima di ASP.NET Core possono essere distribuite in Servizio app d
 <!-- * [Deploy the app self-contained](#deploy-the-app-self-contained) -->
 * [Usare Docker con app Web per contenitori](#use-docker-with-web-apps-for-containers)
 
-Se si verifica un problema con l'estensione del sito di anteprima, aprire un problema in [GitHub](https://github.com/aspnet/azureintegration/issues/new).
-
 ### <a name="install-the-preview-site-extension"></a>Installare l'estensione del sito di anteprima
+
+Se si verifica un problema con l'estensione del sito di anteprima, aprire un problema in [GitHub](https://github.com/aspnet/azureintegration/issues/new).
 
 1. Dal portale di Azure passare al pannello Servizi App.
 1. Selezionare l'app Web.
-1. Immettere "ex" nella casella di ricerca o scorrere verso il basso l'elenco dei riquadri di gestione fino a **STRUMENTI DI LAVORO**.
+1. Digitare "ex" nella casella di ricerca o scorrere verso il basso l'elenco dei riquadri di gestione fino a **STRUMENTI DI LAVORO**.
 1. Selezionare **STRUMENTI DI LAVORO** > **Extensions** (Estensioni).
 1. Selezionare **Aggiungi**.
-
-   ![Pannello dell'app Azure con i passaggi precedenti](index/_static/x1.png)
-
-1. Selezionare **ASP.NET Core Runtime Extensions** (Estensioni di ASP.NET Core).
+1. Selezionare l'estensione **ASP.NET Core &lt;x.y&gt; (x86) Runtime** dall'elenco, dove `<x.y>` è la versione di anteprima di ASP.NET Core (ad esempio, **ASP.NET Core 2.2 (x86) Runtime**). Il runtime x86 è consigliato per le [distribuzioni dipendenti dal framework](/dotnet/core/deploying/#framework-dependent-deployments-fdd) che si basano sull'hosting out-of-process dal modulo ASP.NET Core.
 1. Selezionare **OK** per accettare le condizioni legali.
 1. Per installare l'estensione, selezionare **OK**.
 
-Al termine delle operazioni di aggiunta, viene installata l'anteprima più recente di .NET Core. Verificare l'installazione eseguendo `dotnet --info` nella console. Dal pannello **Servizi app**:
+Al termine dell'operazione, viene installata l'anteprima più recente di .NET Core. Verificare l'installazione:
 
-1. Immettere "con" nella casella di ricerca o scorrere verso il basso l'elenco dei riquadri di gestione fino a **STRUMENTI DI LAVORO**.
-1. Selezionare **STRUMENTI DI LAVORO** > **Console**.
-1. Immettere `dotnet --info` nella console.
+1. Selezionare **Strumenti avanzati** in **STRUMENTI DI LAVORO**.
+1. Selezionare **Vai** nel pannello **Strumenti avanzati**.
+1. Selezionare l'elemento di menu **Console di debug** > **PowerShell**.
+1. Eseguire il comando seguente dal prompt di PowerShell. Sostituire la versione di runtime di ASP.NET Core per `<x.y>` nel comando:
 
-Se la versione `2.1.300-preview1-008174` è la versione di anteprima più recente,viene ottenuto l'output seguente eseguendo `dotnet --info` al prompt dei comandi:
+   ```powershell
+   Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.<x.y>.x86\
+   ```
+   Se il runtime dell'anteprima installata si applica ad ASP.NET Core 2.2, il comando è:
+   ```powershell
+   Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.2.2.x86\
+   ```
+   Il comando restituisce `True` quando è installato il runtime di anteprima x64.
 
-![Pannello dell'app Azure con i passaggi precedenti](index/_static/cons.png)
+::: moniker range=">= aspnetcore-2.2"
 
-La versione di ASP.NET Core illustrata nell'immagine precedente `2.1.300-preview1-008174` è un esempio. La versione di anteprima di ASP.NET Core più recente al momento della configurazione dell'estensione del sito viene visualizzata quando si esegue `dotnet --info`.
+> [!NOTE]
+> L'architettura della piattaforma (x86 o x64) di un'app di Servizi app è impostata nel pannello **Impostazioni applicazione** in **Impostazioni generali** per le app ospitate in un livello di hosting con calcolo di serie A o migliore. Se l'app viene eseguita in modalità in-process e l'architettura della piattaforma è configurata per 64 bit (x64), il modulo ASP.NET Core usa il runtime dell'anteprima a 64 bit, se presente. Installare l'estensione **ASP.NET Core &lt;x.y&gt; (x64) Runtime** (ad esempio, **ASP.NET Core 2.2 (x64) Runtime**).
+>
+> Dopo aver installato il runtime di anteprima x64, eseguire il comando seguente nella finestra di comando di PowerShell di Kudu per verificare l'installazione. Sostituire la versione di runtime di ASP.NET Core per `<x.y>` nel comando:
+>
+> ```powershell
+> Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.<x.y>.x64\
+> ```
+> Se il runtime dell'anteprima installata si applica ad ASP.NET Core 2.2, il comando è:
+> ```powershell
+> Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.2.2.x64\
+> ```
+> Il comando restituisce `True` quando è installato il runtime di anteprima x64.
 
-`dotnet --info` consente di visualizzare il percorso dell'estensione del sito in cui è stata installata l'anteprima. Mostra che l'app è in esecuzione dall'estensione del sito invece che dal percorso predefinito *ProgramFiles*. Se viene visualizzato *ProgramFiles*, riavviare il sito ed eseguire `dotnet --info`.
+::: moniker-end
+
+> [!NOTE]
+> Le **estensioni di ASP.NET Core** abilitano funzionalità aggiuntive per ASP.NET Core nei Servizi app di Azure, ad esempio la registrazione di Azure. L'estensione viene installata automaticamente durante la distribuzione da Visual Studio. Se l'estensione non è installata, installarla per l'app.
 
 **Usare l'estensione del sito di anteprima con un modello ARM**
 

@@ -5,12 +5,12 @@ description: In questa esercitazione si aggiungono altre entità e relazioni e s
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 1d3c69c8c658b5ca2f0253b790b0dc75d44d3064
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: c97acd2b943e1d4c466c060247220b3b8bab6d6b
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38194091"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751614"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---data-model---5-of-10"></a>ASP.NET Core MVC con EF Core - Modello di dati - 5 di 10
 
@@ -66,7 +66,7 @@ Eseguire l'app, passare alla pagina Students Index (Indice studenti) e verificar
 
 ### <a name="the-stringlength-attribute"></a>Attributo StringLength
 
-È anche possibile specificare regole di convalida dei dati e messaggi di errore di convalida mediante gli attributi. L'attributo `StringLength` imposta la lunghezza massima nel database e offre la convalida lato client e lato server per ASP.NET MVC. È anche possibile specificare la lunghezza minima della stringa in questo attributo, ma il valore minimo non ha alcun effetto sullo schema del database.
+È anche possibile specificare regole di convalida dei dati e messaggi di errore di convalida mediante gli attributi. L'attributo `StringLength` imposta la lunghezza massima nel database e offre la convalida lato client e lato server per ASP.NET Core MVC. È anche possibile specificare la lunghezza minima della stringa in questo attributo, ma il valore minimo non ha alcun effetto sullo schema del database.
 
 Ad esempio si supponga di voler limitare a 50 il numero massimo di caratteri che gli utenti possono immettere per un nome. Per aggiungere questa limitazione aggiungere attributi `StringLength` alle proprietà `LastName` e `FirstMidName`, come illustrato nell'esempio seguente:
 

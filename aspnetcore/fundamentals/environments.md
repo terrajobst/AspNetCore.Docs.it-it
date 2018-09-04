@@ -5,12 +5,12 @@ description: Informazioni su come controllare il comportamento di app ASP.NET Co
 ms.author: riande
 ms.date: 07/03/2018
 uid: fundamentals/environments
-ms.openlocfilehash: eaa6fa44ed90d0c85a11f5e67a4bb9a91e84c196
-ms.sourcegitcommit: c8e62aa766641aa55105f7db79cdf2b27a6e5977
+ms.openlocfilehash: 720e5ef9fb63b83499ce1801a1c3f9df4786d748
+ms.sourcegitcommit: 25150f4398de83132965a89f12d3a030f6cce48d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39254870"
+ms.lasthandoff: 08/25/2018
+ms.locfileid: "42927942"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>Usare più ambienti in ASP.NET Core
 
@@ -275,7 +275,11 @@ Per le distribuzioni di Linux, usare il comando `export` al prompt dei comandi p
 
 ### <a name="configuration-by-environment"></a>Configurazione per ambiente
 
-Vedere la sezione *Configurazione per ambiente* in <xref:fundamentals/configuration/index#configuration-by-environment>.
+Per caricare la configurazione dall'ambiente, sono consigliabili:
+
+* File *appsettings* (*appsettings.&lt;<Environment>&gt;.json). Vedere [Configurazione: Provider di configurazione dei file](xref:fundamentals/configuration/index#file-configuration-provider).
+* Variabili di ambiente (impostate in ogni sistema in cui è ospitata l'app). Vedere [Configurazione: Provider di configurazione dei file](xref:fundamentals/configuration/index#file-configuration-provider) e [Archiviazione sicura di segreti dell'app durante lo sviluppo: Variabili di ambiente](xref:security/app-secrets#environment-variables).
+* Secret Manager (solo nell'ambiente di sviluppo). Vedere <xref:security/app-secrets>.
 
 ## <a name="environment-based-startup-class-and-methods"></a>Classe Startup e metodi basati sull'ambiente
 

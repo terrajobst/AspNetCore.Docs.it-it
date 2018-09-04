@@ -5,12 +5,12 @@ description: Informazioni sul framework avanzato di ASP.NET Core MVC per la crea
 ms.author: riande
 ms.date: 01/08/2018
 uid: mvc/overview
-ms.openlocfilehash: 7f8aab02c0ee37dad49ff224b182ec455e837a7a
-ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
+ms.openlocfilehash: d2a50e48c20fe69b1fe691bfc9c91a27d4219922
+ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39378638"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41902599"
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Panoramica di ASP.NET MVC
 
@@ -251,3 +251,9 @@ Gli helper tag offrono un'esperienza di sviluppo HTML semplice e un ambiente Int
 ### <a name="view-components"></a>Componenti di visualizzazione
 
 I [componenti di visualizzazione](views/view-components.md) consentono di creare pacchetti di logica di rendering e di riusarla nell'applicazione. Sono simili alle [visualizzazioni parziali](views/partial.md), ma con la logica associata.
+
+## <a name="compatibility-version"></a>Versione di compatibilità
+
+Il metodo <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> consente a un'app di acconsentire o rifiutare esplicitamente modifiche potenzialmente importanti del comportamento introdotte in ASP.NET Core MVC 2.1 o versioni successive.
+
+Per altre informazioni, vedere <xref:mvc/compatibility-version>.

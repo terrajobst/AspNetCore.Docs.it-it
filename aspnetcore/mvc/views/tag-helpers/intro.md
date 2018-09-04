@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2018
 uid: mvc/views/tag-helpers/intro
-ms.openlocfilehash: be75667f34eed7ba601eee331e3451c5738ef223
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: c2af9099fe439e1cdbf9ba86ffae3b2b0f67391e
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273569"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751715"
 ---
 # <a name="tag-helpers-in-aspnet-core"></a>Helper tag in ASP.NET Core
 
@@ -130,7 +130,7 @@ Le stesse regole di gerarchia che si applicano a `@addTagHelper` sono valide anc
 
 ## <a name="intellisense-support-for-tag-helpers"></a>Supporto IntelliSense per gli helper tag
 
-Quando si crea una nuova app Web ASP.NET in Visual Studio, viene aggiunto il pacchetto NuGet "Microsoft.AspNetCore.Razor.Tools", ovvero il pacchetto che aggiunge gli strumenti dell'helper tag.
+Quando si crea una nuova app Web ASP.NET Core in Visual Studio, viene aggiunto il pacchetto NuGet "Microsoft.AspNetCore.Razor.Tools", ovvero il pacchetto che aggiunge gli strumenti dell'helper tag.
 
 Si supponga di scrivere un elemento `<label>` HTML. Non appena si inizia a digitare `<l` nell'editor di Visual Studio, IntelliSense visualizza gli elementi corrispondenti:
 
