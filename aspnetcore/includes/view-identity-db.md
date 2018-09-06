@@ -1,14 +1,14 @@
-### <a name="view-the-identity-database"></a><span data-ttu-id="ffdcf-101">Visualizzare il database di identità</span><span class="sxs-lookup"><span data-stu-id="ffdcf-101">View the Identity database</span></span>
+### <a name="view-the-identity-database"></a><span data-ttu-id="be379-101">Visualizzare il database di identità</span><span class="sxs-lookup"><span data-stu-id="be379-101">View the Identity database</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="ffdcf-102">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="ffdcf-102">Visual Studio</span></span>](#tab/visual-studio) 
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="be379-102">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="be379-102">Visual Studio</span></span>](#tab/visual-studio) 
 
-* <span data-ttu-id="ffdcf-103">Dal **View** dal menu **Esplora oggetti di SQL Server** (SSOX).</span><span class="sxs-lookup"><span data-stu-id="ffdcf-103">From the **View** menu, select **SQL Server Object Explorer** (SSOX).</span></span>
-* <span data-ttu-id="ffdcf-104">Passare a **(localdb) MSSQLLocalDB (Server SQL 13)**.</span><span class="sxs-lookup"><span data-stu-id="ffdcf-104">Navigate to **(localdb)MSSQLLocalDB(SQL Server 13)**.</span></span> <span data-ttu-id="ffdcf-105">Fare clic su **dbo. AspNetUsers** > **consente di visualizzare dati**:</span><span class="sxs-lookup"><span data-stu-id="ffdcf-105">Right-click on **dbo.AspNetUsers** > **View Data**:</span></span>
+* <span data-ttu-id="be379-103">Dal **View** dal menu **Esplora oggetti di SQL Server** (SSOX).</span><span class="sxs-lookup"><span data-stu-id="be379-103">From the **View** menu, select **SQL Server Object Explorer** (SSOX).</span></span>
+* <span data-ttu-id="be379-104">Passare a **(localdb) MSSQLLocalDB (Server SQL 13)**.</span><span class="sxs-lookup"><span data-stu-id="be379-104">Navigate to **(localdb)MSSQLLocalDB(SQL Server 13)**.</span></span> <span data-ttu-id="be379-105">Fare clic su **dbo. AspNetUsers** > **consente di visualizzare dati**:</span><span class="sxs-lookup"><span data-stu-id="be379-105">Right-click on **dbo.AspNetUsers** > **View Data**:</span></span>
 
 ![Menu di scelta rapida nella tabella AspNetUsers in Esplora oggetti di SQL Server](~/security/authentication/accconfirm/_static/ssox.png)
 
-# <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="ffdcf-107">Interfaccia della riga di comando di .NET Core</span><span class="sxs-lookup"><span data-stu-id="ffdcf-107">.NET Core CLI</span></span>](#tab/netcore-cli)
+# <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="be379-107">Interfaccia della riga di comando di .NET Core</span><span class="sxs-lookup"><span data-stu-id="be379-107">.NET Core CLI</span></span>](#tab/netcore-cli)
 
-<span data-ttu-id="ffdcf-108">Sono disponibili numerosi strumenti di terze parti è possibile scaricare per gestire e visualizzare un database SQLite, ad esempio [DB Browser for SQLite](http://sqlitebrowser.org/).</span><span class="sxs-lookup"><span data-stu-id="ffdcf-108">There are many third party tools you can download to manage and view a SQLite database, for example [DB Browser for SQLite](http://sqlitebrowser.org/).</span></span>
+<span data-ttu-id="be379-108">Sono disponibili numerosi strumenti di terze parti è possibile scaricare per gestire e visualizzare un database SQLite, ad esempio [DB Browser for SQLite](http://sqlitebrowser.org/).</span><span class="sxs-lookup"><span data-stu-id="be379-108">There are many third party tools you can download to manage and view a SQLite database, for example [DB Browser for SQLite](http://sqlitebrowser.org/).</span></span>
 
 ------
