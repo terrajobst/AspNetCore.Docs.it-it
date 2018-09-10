@@ -5,12 +5,12 @@ description: Informazioni sulle aree, una funzionalità di ASP.NET MVC che conse
 ms.author: riande
 ms.date: 02/14/2017
 uid: mvc/controllers/areas
-ms.openlocfilehash: 3e998af42cd6209271495dd8dd97a8aed35717a4
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: b78bb5146f1ab9039fa9ff015471654510718ed6
+ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274827"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43312218"
 ---
 # <a name="areas-in-aspnet-core"></a>Aree in ASP.NET Core
 
@@ -30,13 +30,13 @@ In un progetto MVC è consigliabile usare le aree quando:
 
 Caratteristiche delle aree:
 
-* Un'app ASP.NET Core MVC può avere un numero qualsiasi di aree
+* Un'app ASP.NET Core MVC può avere un numero qualsiasi di aree.
 
-* Ogni area ha un proprio controller, nonché modelli e visualizzazioni propri
+* Ogni area ha un proprio controller, nonché modelli e visualizzazioni propri.
 
-* Consente di organizzare progetti MVC di grandi dimensioni in più componenti di alto livello che è possibile usare in modo indipendente
+* Le aree consentono di organizzare i progetti MVC di grandi dimensioni in più componenti di alto livello che è possibile usare in modo indipendente.
 
-* Supporta più controller con lo stesso nome, purché abbiano *aree* diverse
+* Le aree supportano più controller con lo stesso nome, purché abbiano *aree* diverse.
 
 Di seguito viene presentato un esempio di creazione e di uso delle aree. Si supponga di avere un'app di vendita con due raggruppamenti distinti di controller e visualizzazioni: Products e Services. Una struttura di cartelle tipica per questo tipo di uso delle MVC è la seguente:
 

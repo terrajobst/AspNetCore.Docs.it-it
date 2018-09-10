@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/27/2017
 uid: tutorials/razor-pages-vsc/model
-ms.openlocfilehash: 3552b541c43375aef43838800855ec63e7fed372
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: b891b921baf1fe6d167c7bfb8b4c5278ce9fe9f5
+ms.sourcegitcommit: 847cc1de5526ff42a7303491e6336c2dbdb45de4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38152971"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43055864"
 ---
 # <a name="add-a-model-to-an-aspnet-core-razor-pages-app-with-visual-studio-code"></a>Aggiungere un modello a un'app Razor Pages in ASP.NET Core con Visual Studio Code
 
@@ -26,6 +26,14 @@ ms.locfileid: "38152971"
 [!INCLUDE [model 2](../../includes/RP/model2.md)]
 
 [!INCLUDE [model 2a](../../includes/RP/model2a.md)]
+
+### <a name="entity-framework-core-nuget-package-for-sqlite"></a>Pacchetto NuGet di Entity Framework Core per SQLite
+
+Dalla riga di comando, eseguire il seguente comando dell'interfaccia della riga di comando di .NET Core:
+
+```console
+dotnet add package Microsoft.EntityFrameworkCore.SQLite
+```
 
 [!code-csharp[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices2&highlight=3-4)]
 

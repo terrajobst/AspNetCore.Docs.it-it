@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/19/2018
 uid: fundamentals/host/web-host
-ms.openlocfilehash: dfef2bf21f325f11d147379f75a8d81a8bd05eec
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: abb687c864ebe863c2bba265131c29939961cac0
+ms.sourcegitcommit: a669c4e3f42e387e214a354ac4143555602e6f66
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41886746"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336066"
 ---
 # <a name="aspnet-core-web-host"></a>Host Web ASP.NET Core
 
@@ -338,6 +338,23 @@ Impostare la porta di reindirizzamento HTTPS. Usata per [imporre HTTPS](xref:sec
 ```csharp
 WebHost.CreateDefaultBuilder(args)
     .UseSetting("https_port", "8080")
+```
+
+### <a name="hosting-startup-exclude-assemblies"></a>Assembly di avvio dell'hosting da escludere
+
+DESCRIPTION
+
+**Chiave**: hostingStartupExcludeAssemblies  
+**Tipo**: *string*  
+**Impostazione predefinita**: stringa vuota  
+**Impostare usando**: `UseSetting`  
+**Variabile di ambiente**: `ASPNETCORE_HOSTINGSTARTUPEXCLUDEASSEMBLIES`
+
+Una stringa delimitata da punto e virgola di assembly di avvio dell'hosting da escludere all'avvio.
+
+```csharp
+WebHost.CreateDefaultBuilder(args)
+    .UseSetting(WebHostDefaults.HostingStartupExcludeAssembliesKey, "assembly1;assembly2")
 ```
 
 ::: moniker-end
