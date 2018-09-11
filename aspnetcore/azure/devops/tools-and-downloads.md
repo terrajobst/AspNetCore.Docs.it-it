@@ -5,12 +5,12 @@ description: Questa guida include informazioni complete sulla creazione di una p
 ms.author: casoper
 ms.date: 08/07/2018
 uid: azure/devops/tools-and-downloads
-ms.openlocfilehash: a63e97d9ab9eb0ed2fbd30e8c2e033f0c048d33e
-ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
+ms.openlocfilehash: 5529068b83db475315784571fbf4151d7ecd0d5d
+ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43312301"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44340160"
 ---
 # <a name="tools-and-downloads"></a>Strumenti e download
 
@@ -21,7 +21,7 @@ Azure offre diverse interfacce per il provisioning e gestione delle risorse, ad 
 Le sottoscrizioni seguenti sono necessari:
 
 * Azure &mdash; se non hai un account [ottenere una versione di valutazione gratuita](https://azure.microsoft.com/free/).
-* Visual Studio Team Services (VSTS) &mdash; questo account viene creato nel capitolo 4.
+* Servizi di Azure DevOps &mdash; viene creata la sottoscrizione di Azure DevOps e organizzazione nel capitolo 4.
 * GitHub &mdash; se non hai un account [Iscriviti gratuitamente](https://github.com/join).
 
 Gli strumenti seguenti sono necessari:

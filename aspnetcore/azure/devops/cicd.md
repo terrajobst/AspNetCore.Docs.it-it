@@ -5,27 +5,27 @@ description: Questa guida include informazioni complete sulla creazione di una p
 ms.author: scaddie
 ms.date: 08/17/2018
 uid: azure/devops/cicd
-ms.openlocfilehash: e084a6115dc7e176c17b2b318233b7a003b39a83
-ms.sourcegitcommit: 1cf65c25ed16495e27f35ded98b3952a30c68f36
+ms.openlocfilehash: 0bfe1545da4c0778055d7c81c1588d3267d2e711
+ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42910020"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44340108"
 ---
 # <a name="continuous-integration-and-deployment"></a>Integrazione continua e distribuzione
 
-Nel capitolo precedente, è stato creato un repository Git locale per l'app semplice lettore di Feed. In questo capitolo verrà pubblicare tale codice in un repository GitHub e creare una pipeline di DevOps di Visual Studio Team Services (VSTS). La pipeline consente le compilazioni continue e le distribuzioni dell'app. Qualsiasi commit al repository GitHub attiva una compilazione e una distribuzione in slot di staging dell'App Web di Azure.
+Nel capitolo precedente, è stato creato un repository Git locale per l'app semplice lettore di Feed. In questo capitolo verrà pubblicare tale codice in un repository GitHub e creare una pipeline di servizi di Azure DevOps con le pipeline di Azure. La pipeline consente le compilazioni continue e le distribuzioni dell'app. Qualsiasi commit al repository GitHub attiva una compilazione e una distribuzione in slot di staging dell'App Web di Azure.
 
 In questa sezione, si completeranno le attività seguenti:
 
 * Pubblicare il codice dell'app in GitHub
 * Disconnettere la distribuzione Git locale
-* Creare un account di Visual Studio Team Services
-* Creare un progetto team in Visual Studio Team Services
+* Creazione di un'organizzazione di Azure DevOps
+* Creare un progetto team in servizi di Azure DevOps
 * Creazione di una definizione di compilazione
 * Creare una pipeline di rilascio
 * Eseguire il commit delle modifiche a GitHub e distribuire automaticamente in Azure
-* Esaminare la pipeline di DevOps di Visual Studio Team Services
+* Esaminare la pipeline della pipeline di Azure
 
 ## <a name="publish-the-apps-code-to-github"></a>Pubblicare il codice dell'app in GitHub
 
@@ -53,7 +53,7 @@ In questa sezione, si completeranno le attività seguenti:
 
 ## <a name="disconnect-local-git-deployment"></a>Disconnettere la distribuzione Git locale
 
-Rimuovere la distribuzione Git locale con i passaggi seguenti. Visual Studio Team Services sia sostituisce e aggiunge tale funzionalità.
+Rimuovere la distribuzione Git locale con i passaggi seguenti. Le pipeline di Azure, un servizio di Azure DevOps, sia sostituisce e aggiunge tale funzionalità.
 
 1. Aprire il [portale di Azure](https://portal.azure.com/)e passare al *di gestione temporanea (mywebapp\<unique_number\>/staging)* App Web. L'App Web è possibile trovare rapidamente immettendo *staging* nella casella di ricerca del portale:
 
@@ -63,26 +63,26 @@ Rimuovere la distribuzione Git locale con i passaggi seguenti. Visual Studio Tea
 1. Passare il *mywebapp < unique_number >* servizio App. Come promemoria, finestra di ricerca del portale è utilizzabile per individuare rapidamente il servizio App.
 1. Fare clic su **opzioni di distribuzione**. Viene visualizzato un nuovo pannello. Fare clic su **Disconnect** per rimuovere la configurazione di controllo codice sorgente Git locale di che è stato aggiunto nel capitolo precedente. Confermare l'operazione di rimozione facendo il **Sì** pulsante.
 
-## <a name="create-a-vsts-account"></a>Creare un account di Visual Studio Team Services
+## <a name="create-an-azure-devops-organization"></a>Creazione di un'organizzazione di Azure DevOps
 
-1. Aprire un browser e passare per il [pagina di creazione di account di Visual Studio Team Services](https://go.microsoft.com/fwlink/?LinkId=307137).
-1. Digitare un nome univoco nel **scegliere un nome facile da ricordare** nella casella di testo in modo da formare l'URL per accedere al proprio account di Visual Studio Team Services.
+1. Aprire un browser e passare per il [pagina di creazione dell'organizzazione di Azure DevOps](https://go.microsoft.com/fwlink/?LinkId=307137).
+1. Digitare un nome univoco nel **scegliere un nome facile da ricordare** nella casella di testo per comporre l'URL per l'accesso dell'organizzazione di Azure DevOps.
 1. Selezionare il **Git** pulsante di opzione, poiché il codice è ospitato in un repository GitHub.
 1. Fare clic sul pulsante **Continue** (Continua). Dopo una breve attesa, un account e un progetto team, denominato *MyFirstProject*, vengono creati.
 
-    ![Pagina di creazione di account di Visual Studio Team Services](media/cicd/vsts-account-creation.png)
+    ![Pagina di creazione di Azure DevOps dell'organizzazione](media/cicd/vsts-account-creation.png)
 
-1. Aprire il messaggio di posta elettronica di conferma che indica che l'account di Visual Studio Team Services e progetto siano pronte per l'uso. Scegliere il **avvia il tuo progetto** pulsante:
+1. Aprire il messaggio di posta elettronica di conferma che indica che l'organizzazione di Azure DevOps e progetto siano pronte per l'uso. Scegliere il **avvia il tuo progetto** pulsante:
 
     ![Il pulsante di progetto di avvio](media/cicd/vsts-start-project.png)
 
 1. Viene aperto un browser  *\<account_name\>. visualstudio.com*. Scegliere il *MyFirstProject* collegamento per avviare la configurazione della pipeline di DevOps del progetto.
 
-## <a name="configure-the-devops-pipeline"></a>Configurare la pipeline di DevOps
+## <a name="configure-the-azure-pipelines-pipeline"></a>Configurare la pipeline della pipeline di Azure
 
 Esistono tre passaggi distinti per il completamento. Completare i passaggi nei risultati di tre sezioni seguenti in una pipeline DevOps operativa.
 
-### <a name="grant-vsts-access-to-the-github-repository"></a>Concedere l'accesso di Visual Studio Team Services al repository GitHub
+### <a name="grant-azure-devops-access-to-the-github-repository"></a>DevOps di Azure di concedere l'accesso al repository GitHub
 
 1. Espandere la **o compilare il codice da un repository esterno** accordion. Scegliere il **compilare il programma di installazione** pulsante:
 
@@ -92,12 +92,12 @@ Esistono tre passaggi distinti per il completamento. Completare i passaggi nei r
 
     ![Selezionare un'origine - GitHub](media/cicd/vsts-select-source.png)
 
-1. Visual Studio Team Services possono accedere al repository di GitHub, è necessaria l'autorizzazione. Immettere *< GitHub_username > connessione GitHub* nel **nome connessione** nella casella di testo. Ad esempio:
+1. È necessaria l'autorizzazione prima di DevOps di Azure possono accedere al repository GitHub. Immettere *< GitHub_username > connessione GitHub* nel **nome connessione** nella casella di testo. Ad esempio:
 
     ![Nome della connessione GitHub](media/cicd/vsts-repo-authz.png)
 
 1. Se l'autenticazione a due fattori è abilitata nell'account GitHub, è necessario un token di accesso personale. In tal caso, scegliere il **Authorize con un token di accesso personale GitHub** collegamento. Vedere le [istruzioni di creazione del token di accesso personale GitHub ufficiali](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) per assistenza. Solo le *repository* ambito delle autorizzazioni è necessaria. In caso contrario, scegliere il **autorizza con OAuth** pulsante.
-1. Quando richiesto, accedere al proprio account GitHub. Selezionare quindi autorizza per concedere l'accesso all'account di Visual Studio Team Services. Se ha esito positivo, viene creato un nuovo endpoint del servizio.
+1. Quando richiesto, accedere al proprio account GitHub. Selezionare quindi autorizza per concedere l'accesso all'organizzazione di Azure DevOps. Se ha esito positivo, viene creato un nuovo endpoint del servizio.
 1. Fare clic sui puntini di sospensione accanto al **Repository** pulsante. Selezionare il *< GitHub_username > / lettore di feed semplice* repository dall'elenco. Scegliere il **seleziona** pulsante.
 1. Selezionare il *master* creare un ramo dalle **ramo predefinito per le compilazioni manuale e pianificate** elenco a discesa. Fare clic sul pulsante **Continue** (Continua). Viene visualizzata la pagina di selezione del modello.
 
@@ -205,7 +205,7 @@ Esistono tre passaggi distinti per il completamento. Completare i passaggi nei r
 
     ![abilitare l'integrazione continua](media/cicd/enable-ci.png)
 
-1. Passare al **in coda** scheda della finestra di **compilazione e rilascio** > **Compila** pagina in Visual Studio Team Services. La compilazione in coda Mostra i rami e commit che ha attivato la compilazione:
+1. Passare al **in coda** scheda della finestra di **le pipeline di Azure** > **Compila** pagina in servizi di Azure DevOps. La compilazione in coda Mostra i rami e commit che ha attivato la compilazione:
 
     ![compilazione in coda](media/cicd/build-queued.png)
 
@@ -213,7 +213,7 @@ Esistono tre passaggi distinti per il completamento. Completare i passaggi nei r
 
     ![app aggiornata](media/cicd/updated-app-v4.png)
 
-## <a name="examine-the-vsts-devops-pipeline"></a>Esaminare la pipeline di DevOps di Visual Studio Team Services
+## <a name="examine-the-azure-pipelines-pipeline"></a>Esaminare la pipeline della pipeline di Azure
 
 ### <a name="build-definition"></a>Definizione di compilazione
 
@@ -275,6 +275,6 @@ La sottoscrizione, gruppo di risorse, tipo di servizio, nome dell'app web e i de
 
 ## <a name="additional-reading"></a>Altre informazioni
 
-* [Compilare app ASP.NET Core](https://docs.microsoft.com/vsts/build-release/apps/aspnet/build-aspnet-core)
-* [Compilare e distribuire un'App Web di Azure](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp)
-* [Definire un processo di compilazione CI per repository GitHub](https://docs.microsoft.com/vsts/pipelines/build/ci-build-github)
+* [Creare la prima pipeline con Azure Pipelines](/azure/devops/pipelines/get-started-yaml)
+* [Progetto di compilazione e .NET Core](/azure/devops/pipelines/languages/dotnet-core)
+* [Distribuire un'app web con le pipeline di Azure](/azure/devops/pipelines/targets/webapp)

@@ -5,12 +5,12 @@ description: Questa guida include informazioni complete sulla creazione di una p
 ms.author: casoper
 ms.date: 08/07/2018
 uid: azure/devops/deploy-to-app-service
-ms.openlocfilehash: abd7167b313e131dc8b7ea6a49b774e14ae53bb9
-ms.sourcegitcommit: 29dfe436f54a27fbb4f6494bc639d16c75001fab
+ms.openlocfilehash: 710e65a048fdc062219e90b0db323e8e96fd8e9d
+ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42909322"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44340134"
 ---
 # <a name="deploy-an-app-to-app-service"></a>Distribuire un'app in servizio App
 
@@ -234,7 +234,7 @@ In questa sezione sono state completate le attività seguenti:
 * Distribuzione di un aggiornamento allo slot di staging.
 * Scambiare gli slot di staging e produzione.
 
-Nella sezione successiva, si apprenderà come creare una pipeline di DevOps con Azure e Visual Studio Team Services.
+Nella sezione successiva, si apprenderà come creare una pipeline di DevOps con le pipeline di Azure.
 
 ## <a name="additional-reading"></a>Altre informazioni
 
