@@ -5,12 +5,12 @@ description: Informazioni su come creare un'app Razor Pages con i dati utente pr
 ms.author: riande
 ms.date: 7/24/2018
 uid: security/authorization/secure-data
-ms.openlocfilehash: 9f264daa4a6b63478077cadb06a697f274014199
-ms.sourcegitcommit: a669c4e3f42e387e214a354ac4143555602e6f66
+ms.openlocfilehash: a263b092194763ae4ff3360fc0d76e8ee494b5a6
+ms.sourcegitcommit: e7e1e531b80b3f4117ff119caadbebf4dcf5dcb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336011"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44510363"
 ---
 ::: moniker range="<= aspnetcore-1.1"
 
@@ -268,6 +268,10 @@ Aggiornare la visualizzazione dei dettagli in modo che i responsabili possono ap
 Aggiornare il modello di pagina dei dettagli:
 
 [!code-csharp[](secure-data/samples/final2.1/Pages/Contacts/Details.cshtml.cs?name=snippet)]
+
+## <a name="add-a-user-to-a-role"></a>Aggiungere un utente a un ruolo
+
+Ruoli sono archiviati nel cookie di identità. Le modifiche apportate a utente ruoli non sono persistenti al cookie fino a quando non viene rigenerato il cookie o l'utente si disconnette ed effettua l'accesso. Le applicazioni che aggiungono utenti a un ruolo devono chiamare `SignInManager.RefreshSignInAsync(user)` per aggiornare il cookie.
 
 ## <a name="test-the-completed-app"></a>Testare l'app completata
 
