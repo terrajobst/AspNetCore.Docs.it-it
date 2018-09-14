@@ -5,12 +5,12 @@ description: Informazioni su come creare un'app Razor Pages con i dati utente pr
 ms.author: riande
 ms.date: 7/24/2018
 uid: security/authorization/secure-data
-ms.openlocfilehash: a263b092194763ae4ff3360fc0d76e8ee494b5a6
-ms.sourcegitcommit: e7e1e531b80b3f4117ff119caadbebf4dcf5dcb7
+ms.openlocfilehash: e4a54c95aa8131441d29a835751ce6241aac2ed3
+ms.sourcegitcommit: 70fb7c9d5f2ddfcf4747382a9f7159feca7a6aa7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44510363"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45601769"
 ---
 ::: moniker range="<= aspnetcore-1.1"
 
@@ -269,9 +269,12 @@ Aggiornare il modello di pagina dei dettagli:
 
 [!code-csharp[](secure-data/samples/final2.1/Pages/Contacts/Details.cshtml.cs?name=snippet)]
 
-## <a name="add-a-user-to-a-role"></a>Aggiungere un utente a un ruolo
+## <a name="add-or-remove-a-user-to-a-role"></a>Aggiungere o rimuovere un utente a un ruolo
 
-Ruoli sono archiviati nel cookie di identità. Le modifiche apportate a utente ruoli non sono persistenti al cookie fino a quando non viene rigenerato il cookie o l'utente si disconnette ed effettua l'accesso. Le applicazioni che aggiungono utenti a un ruolo devono chiamare `SignInManager.RefreshSignInAsync(user)` per aggiornare il cookie.
+Visualizzare [questo problema](https://github.com/aspnet/Docs/issues/8502) per informazioni su:
+
+* Rimozione dei privilegi da un utente. La disattivazione dell'audio, ad esempio un utente in un'app di chat.
+* Aggiunta di privilegi a un utente.
 
 ## <a name="test-the-completed-app"></a>Testare l'app completata
 
