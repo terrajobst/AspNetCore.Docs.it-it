@@ -5,14 +5,14 @@ description: Informazioni su come usare hub in ASP.NET Core SignalR.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 05/01/2018
+ms.date: 09/12/2018
 uid: signalr/hubs
-ms.openlocfilehash: e583676ab0eed45aeaf6391d8cdf8c1485aa914e
-ms.sourcegitcommit: e7e1e531b80b3f4117ff119caadbebf4dcf5dcb7
+ms.openlocfilehash: 17e3ee23967bc1097a3121b3e3e5b58cebe3887d
+ms.sourcegitcommit: a742b55e4b8276a48b8b4394784554fecd883c84
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44510337"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45538362"
 ---
 # <a name="use-hubs-in-signalr-for-aspnet-core"></a>Usare hub di SignalR per ASP.NET Core
 
@@ -94,6 +94,22 @@ Ogni proprietà o metodo nelle tabelle precedenti restituisce un oggetto con un 
 Per effettuare chiamate a client specifici, usare le proprietà del `Clients` oggetto. Nell'esempio seguente, il `SendMessageToCaller` metodo illustra l'invio di un messaggio per la connessione che ha richiamato il metodo dell'hub. Il `SendMessageToGroups` metodo invia un messaggio ai gruppi di cui è archiviati in un `List` denominata `groups`.
 
 [!code-csharp[Send messages](hubs/sample/hubs/chathub.cs?range=15-24)]
+
+## <a name="strongly-typed-hubs"></a>Hub fortemente tipizzato
+
+Uno svantaggio dell'uso `SendAsync` è che si basa su una stringa magic per specificare il metodo client da chiamare. Questo lascia aperte di codice a errori di runtime se il nome del metodo è errato o mancante dal client.
+
+Un'alternativa all'uso `SendAsync` è per tipizzare fortemente i `Hub` con <xref:Microsoft.AspNetCore.SignalR.Hub`1>. Nell'esempio seguente, il `ChatHub` metodi di client sono state estratte out in un'interfaccia denominata `IChatClient`.  
+
+[!code-csharp[Interface for IChatClient](hubs/sample/hubs/ichatclient.cs?name=snippet_IChatClient)]
+
+Questa interfaccia può essere utilizzata per effettuare il refactoring precedenti `ChatHub` esempio.
+
+[!code-csharp[Strongly typed ChatHub](hubs/sample/hubs/StronglyTypedChatHub.cs?range=8-18,36)]
+
+Usando `Hub<IChatClient>` permette di controllare i metodi del client in fase di compilazione. In questo modo si evitano problemi causati dall'utilizzo di "stringhe magiche", poiché `Hub<T>` può solo fornire l'accesso ai metodi definiti nell'interfaccia.
+
+Usando un oggetto fortemente tipizzato `Hub<T>` disabilita la possibilità di usare `SendAsync`.
 
 ## <a name="handle-events-for-a-connection"></a>Gestire gli eventi per una connessione
 
