@@ -3,14 +3,14 @@ title: Provider di archiviazione personalizzati per ASP.NET Core Identity
 author: ardalis
 description: Informazioni su come configurare il provider di archiviazione personalizzati per ASP.NET Core Identity.
 ms.author: riande
-ms.date: 05/24/2017
+ms.date: 09/17/2018
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: 4b210a52ae9761bb838dd5611e86ce8f71345499
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: db51c39cc700f93917f54c80adbfe7922ffcd67e
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41838116"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011261"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Provider di archiviazione personalizzati per ASP.NET Core Identity
 
@@ -59,7 +59,7 @@ Quando si crea una nuova istanza della `UserManager` o `RoleManager` è specific
 
 ### <a name="users"></a>Utenti
 
-Utenti registrati del sito web. Il [IdentityUser](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuser) tipo può essere estesa o utilizzato come esempio per il tipo personalizzato. Non è necessario ereditare da un determinato tipo per implementare la propria soluzione di archiviazione identità personalizzata.
+Utenti registrati del sito web. Il [IdentityUser](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuser) tipo può essere estesa o utilizzato come esempio per il tipo personalizzato. Non è necessario ereditare da un determinato tipo per implementare la propria soluzione di archiviazione identità personalizzata.
 
 ### <a name="user-claims"></a>Attestazioni utente
 
@@ -67,11 +67,11 @@ Un set di istruzioni (o [attestazioni](/dotnet/api/system.security.claims.claim)
 
 ### <a name="user-logins"></a>Account di accesso utente
 
-Informazioni sul provider di autenticazione esterni (ad esempio Facebook o un account Microsoft) da usare durante la registrazione di un utente. [Esempio](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuserlogin)
+Informazioni sul provider di autenticazione esterni (ad esempio Facebook o un account Microsoft) da usare durante la registrazione di un utente. [Esempio](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuserlogin)
 
 ### <a name="roles"></a>Ruoli
 
-Gruppi di autorizzazione per il sito. Include il nome di Id e il ruolo del ruolo (ad esempio, "Admin" o "Employee"). [Esempio](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityrole)
+Gruppi di autorizzazione per il sito. Include il nome di Id e il ruolo del ruolo (ad esempio, "Admin" o "Employee"). [Esempio](/dotnet/api/microsoft.aspnet.identity.corecompat.identityrole)
 
 ## <a name="the-data-access-layer"></a>Il livello di accesso ai dati
 
@@ -83,11 +83,11 @@ Il livello di accesso ai dati fornisce la logica per salvare i dati di ASP.NET C
 
 ### <a name="context-class"></a>Context (classe)
 
-Incapsula le informazioni per connettersi al meccanismo di persistenza ed eseguire query. Diverse classi di dati richiedono un'istanza di questa classe, in genere fornita tramite inserimento delle dipendenze. [Esempio](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identitydbcontext-1).
+Incapsula le informazioni per connettersi al meccanismo di persistenza ed eseguire query. Diverse classi di dati richiedono un'istanza di questa classe, in genere fornita tramite inserimento delle dipendenze. [Esempio](/dotnet/api/microsoft.aspnet.identity.corecompat.identitydbcontext-1).
 
 ### <a name="user-storage"></a>Archiviazione utente
 
-Archivia e recupera le informazioni utente (ad esempio hash della password e nome utente). [Esempio](/aspnet/core/api/microsoft.aspnet.identity.corecompat.userstore-1)
+Archivia e recupera le informazioni utente (ad esempio hash della password e nome utente). [Esempio](/dotnet/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
 ### <a name="role-storage"></a>Archiviazione di ruolo
 
@@ -95,15 +95,15 @@ Archivia e recupera le informazioni sui ruoli (ad esempio, il nome del ruolo). [
 
 ### <a name="userclaims-storage"></a>Archiviazione UserClaims
 
-Archivia e recupera informazioni sulle attestazioni di utente (ad esempio il tipo di attestazione e il valore). [Esempio](/aspnet/core/api/microsoft.aspnet.identity.corecompat.userstore-1)
+Archivia e recupera informazioni sulle attestazioni di utente (ad esempio il tipo di attestazione e il valore). [Esempio](/dotnet/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
 ### <a name="userlogins-storage"></a>Accessi utente archiviazione
 
-Archivia e recupera le informazioni di accesso utente (ad esempio un provider di autenticazione esterni). [Esempio](/aspnet/core/api/microsoft.aspnet.identity.corecompat.userstore-1)
+Archivia e recupera le informazioni di accesso utente (ad esempio un provider di autenticazione esterni). [Esempio](/dotnet/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
 ### <a name="userrole-storage"></a>Archiviazione UserRole
 
-Archivia e recupera i ruoli assegnati a cui gli utenti. [Esempio](/aspnet/core/api/microsoft.aspnet.identity.corecompat.userstore-1)
+Archivia e recupera i ruoli assegnati a cui gli utenti. [Esempio](/dotnet/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
 **Suggerimento:** implementare solo le classi si intende usare nell'app.
 
@@ -115,7 +115,7 @@ La logica di implementazione per la creazione dell'utente è nel `_usersTable.Cr
 
 ## <a name="customize-the-user-class"></a>Personalizzare la classe utente
 
-Quando si implementa un provider di archiviazione, creare una classe di utenti che corrispondono al [ `IdentityUser` classe](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuser).
+Quando si implementa un provider di archiviazione, creare una classe di utenti che corrispondono al [IdentityUser classe](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuser).
 
 Come minimo, è necessario includere la classe utente un' `Id` e un `UserName` proprietà.
 
@@ -185,7 +185,7 @@ public class UserStore : IUserStore<IdentityUser>,
 
 ### <a name="identityuserclaim-identityuserlogin-and-identityuserrole"></a>IdentityUserClaim IdentityUserLogin e IdentityUserRole
 
-Il `Microsoft.AspNet.Identity.EntityFramework` dello spazio dei nomi contiene le implementazioni del [IdentityUserClaim](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserclaim-1), [IdentityUserLogin](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuserlogin), e [IdentityUserRole](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserrole-1) classi. Se si usano queste funzionalità, è possibile creare le versioni personalizzate di queste classi e definire le proprietà per l'app. Tuttavia, a volte è più efficiente carica tali entità in memoria durante l'esecuzione di operazioni di base (ad esempio aggiungendo o rimuovendo l'attestazione dell'utente). Al contrario, le classi di archiviazione back-end possono eseguire queste operazioni direttamente sull'origine dati. Ad esempio, il `UserStore.GetClaimsAsync` metodo può chiamare il `userClaimTable.FindByUserId(user.Id)` metodo per eseguire una query su tabella direttamente e restituiscono un elenco di attestazioni.
+Il `Microsoft.AspNet.Identity.EntityFramework` dello spazio dei nomi contiene le implementazioni del [IdentityUserClaim](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserclaim-1), [IdentityUserLogin](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuserlogin), e [IdentityUserRole](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserrole-1) classi. Se si usano queste funzionalità, è possibile creare le versioni personalizzate di queste classi e definire le proprietà per l'app. Tuttavia, a volte è più efficiente carica tali entità in memoria durante l'esecuzione di operazioni di base (ad esempio aggiungendo o rimuovendo l'attestazione dell'utente). Al contrario, le classi di archiviazione back-end possono eseguire queste operazioni direttamente sull'origine dati. Ad esempio, il `UserStore.GetClaimsAsync` metodo può chiamare il `userClaimTable.FindByUserId(user.Id)` metodo per eseguire una query su tabella direttamente e restituiscono un elenco di attestazioni.
 
 ## <a name="customize-the-role-class"></a>Personalizzare la classe di ruoli
 

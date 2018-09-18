@@ -4,14 +4,14 @@ author: guardrex
 description: Informazioni su come le convenzioni di route e del provider di modello di app consentono di controllare routing, individuazione ed elaborazione delle pagine.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 04/12/2018
+ms.date: 09/17/2018
 uid: razor-pages/razor-pages-conventions
-ms.openlocfilehash: 5a5d580b4260767e411571ccacc19d6e8fe12559
-ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
+ms.openlocfilehash: ea4f785dc8a64b430e312fd122a4d3184b61949e
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "42909123"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011862"
 ---
 # <a name="razor-pages-route-and-app-conventions-in-aspnet-core"></a>Convenzioni di route e app per Razor Pages in ASP.NET Core
 
@@ -69,6 +69,26 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
+## <a name="route-order"></a>Ordine della route
+
+Le route specificano un <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> per l'elaborazione (route corrispondente).
+
+| Ordinamento            | Comportamento |
+| :--------------: | -------- |
+| -1               | La route viene elaborata prima che vengano elaborate altre route. |
+| 0                | Non è specificato l'ordine (valore predefinito). Non assegnare `Order` (`Order = null`) per impostazione predefinita la route `Order` su 0 (zero) per l'elaborazione. |
+| 1, 2, &hellip; n | Specifica l'ordine di elaborazione delle route. |
+
+Per convenzione, viene stabilita l'elaborazione delle route:
+
+* Le route vengono elaborate in ordine sequenziale (-1, 0, 1, 2, &hellip; n).
+* Quando le route hanno gli stessi `Order`, più route specifica esiste una corrispondenza per prime, seguite dalle route meno specifiche.
+* Quando le route con lo stesso `Order` e lo stesso numero di parametri corrisponde un URL della richiesta, le route vengono elaborate nell'ordine in cui vengono aggiunti al <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection>.
+
+Evitare se possibile, a seconda di un ordine di elaborazione delle route stabilita. In genere, il routing seleziona la route corretta con un URL corrispondente. Se è necessario impostare route `Order` le proprietà per instradare le richieste correttamente, lo schema di routing dell'app è probabilmente creare confusione ai client e fragile mantenere. Cercare di semplificare lo schema di routing dell'app. L'app di esempio richiede una route esplicita l'elaborazione dell'ordine per illustrare diversi scenari di routing usando una singola app. Tuttavia, è consigliabile tentare di evitare la pratica di route impostazione `Order` nelle app di produzione.
+
+Routing di Razor Pages e la condivisione di routing MVC controller un'implementazione. Informazioni sull'ordine della route negli argomenti di MVC sono disponibile all'indirizzo [Routing ad azioni del controller: route di attributi di ordinamento](xref:mvc/controllers/routing#ordering-attribute-routes).
+
 ## <a name="model-conventions"></a>Convenzioni del modello
 
 Aggiungere un delegato per [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) per aggiungere le [convenzioni del modello](xref:mvc/controllers/application-model#conventions) che si applicano a Razor Pages.
@@ -81,8 +101,13 @@ L'app di esempio aggiunge un modello di route `{globalTemplate?}` a tutte le pag
 
 [!code-csharp[](razor-pages-conventions/sample/Conventions/GlobalTemplatePageRouteModelConvention.cs?name=snippet1)]
 
-> [!NOTE]
-> La proprietà `Order` per `AttributeRouteModel` è impostata su `-1`. In questo modo si garantisce che al modello venga assegnata la priorità per la prima posizione del valore di dati della route quando viene specificato un valore singolo di route e continui ad avere la priorità sulle ruote di Razor Pages generate automaticamente. Ad esempio, l'esempio aggiunge un modello di route `{aboutTemplate?}` più avanti in questo argomento. Al modello `{aboutTemplate?}` viene assegnato un `Order` di `1`. Quando viene richiesta la pagina di informazioni in `/About/RouteDataValue`, "RouteDataValue" viene caricato in `RouteData.Values["globalTemplate"]` (`Order = -1`) e non in `RouteData.Values["aboutTemplate"]` (`Order = 1`) a causa dell'impostazione della proprietà `Order`.
+La proprietà <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> per <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> è impostata su `1`. In questo modo la route seguente comportamento nell'app di esempio di corrispondenza:
+
+* Un modello di route per `TheContactPage/{text?}` viene aggiunto più avanti in questo argomento. La route di pagina di contatto dispone di un ordine predefinito `null` (`Order = 0`), in modo che corrisponda alla prima il `{globalTemplate?}` del modello di route.
+* Un `{aboutTemplate?}` del modello di route viene aggiunto più avanti in questo argomento. Al modello `{aboutTemplate?}` viene assegnato un `Order` di `2`. Quando viene richiesta la pagina di informazioni in `/About/RouteDataValue`, "RouteDataValue" viene caricato in `RouteData.Values["globalTemplate"]` (`Order = 1`) e non in `RouteData.Values["aboutTemplate"]` (`Order = 2`) a causa dell'impostazione della proprietà `Order`.
+* Un `{otherPagesTemplate?}` del modello di route viene aggiunto più avanti in questo argomento. Al modello `{otherPagesTemplate?}` viene assegnato un `Order` di `2`. Quando una o più pagine nel *Pages/OtherPages* cartella viene richiesta con un parametro di route (ad esempio, `/OtherPages/Page1/RouteDataValue`), "RouteDataValue" viene caricato in `RouteData.Values["globalTemplate"]` (`Order = 1`) e non `RouteData.Values["otherPagesTemplate"]` (`Order = 2`) a causa dell'impostazione di `Order` proprietà.
+
+Laddove possibile, non vengono impostate le `Order`, in modo da `Order = 0`. Si basano sul routing per selezionare la route corretta.
 
 Le opzioni di Razor Pages, come l'aggiunta di [Conventions](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions), vengono integrate quando MVC è aggiunto alla raccolta di servizi in `Startup.ConfigureServices`. Per un esempio completo, vedere [l'app di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/sample/).
 
@@ -111,6 +136,7 @@ Richiedere la pagina di informazioni dell'esempio in `localhost:5000/About` ed e
 ![Le intestazioni di risposta della pagina di informazioni indicano che è stato aggiunto l'elemento GlobalHeader.](razor-pages-conventions/_static/about-page-global-header.png)
 
 ::: moniker range=">= aspnetcore-2.1"
+
 **Aggiungere una convenzione del modello di gestore a tutte le pagine**
 
 Usare [Conventions](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions) per creare e aggiungere un'interfaccia [IPageHandlerModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipagehandlermodelconvention) alla raccolta di istanze [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) che vengono applicate durante la costruzione del modello di gestore della pagina.
@@ -135,6 +161,7 @@ services.AddMvc()
             options.Conventions.Add(new GlobalPageHandlerModelConvention());
         });
 ```
+
 ::: moniker-end
 
 ## <a name="page-route-action-conventions"></a>Convenzioni per le azioni di route di pagina
@@ -149,8 +176,9 @@ L'app di esempio usa `AddFolderRouteModelConvention` per aggiungere un modello d
 
 [!code-csharp[](razor-pages-conventions/sample/Startup.cs?name=snippet3)]
 
-> [!NOTE]
-> La proprietà `Order` per `AttributeRouteModel` è impostata su `1`. In questo modo si garantisce che al modello per `{globalTemplate?}` (impostato in precedenza in questo argomento) venga assegnata la priorità per la prima posizione del valore di dati della route quando viene specificato un valore singolo di route. Se viene richiesta la pagina Page1 in `/OtherPages/Page1/RouteDataValue`, "RouteDataValue" viene caricato in `RouteData.Values["globalTemplate"]` (`Order = -1`) e non in `RouteData.Values["otherPagesTemplate"]` (`Order = 1`) a causa dell'impostazione della proprietà `Order`.
+La proprietà <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> per <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> è impostata su `2`. Ciò garantisce che il modello per `{globalTemplate?}` (in precedenza nell'argomento consentono di impostare `1`) viene assegnata la priorità per i dati della route prima posizione del valore quando viene specificato un valore singolo di route. Se una pagina nel *Pages/OtherPages* cartella viene richiesta con un valore di parametro di route (ad esempio, `/OtherPages/Page1/RouteDataValue`), "RouteDataValue" viene caricato in `RouteData.Values["globalTemplate"]` (`Order = 1`) e non `RouteData.Values["otherPagesTemplate"]` (`Order = 2`) a causa dell'impostazione di `Order` proprietà.
+
+Laddove possibile, non vengono impostate le `Order`, in modo da `Order = 0`. Si basano sul routing per selezionare la route corretta.
 
 Richiedere la pagina Page1 dell'esempio in `localhost:5000/OtherPages/Page1/GlobalRouteValue/OtherPagesRouteValue` ed esaminare il risultato:
 
@@ -164,8 +192,9 @@ L'app di esempio usa `AddPageRouteModelConvention` per aggiungere un modello di 
 
 [!code-csharp[](razor-pages-conventions/sample/Startup.cs?name=snippet4)]
 
-> [!NOTE]
-> La proprietà `Order` per `AttributeRouteModel` è impostata su `1`. In questo modo si garantisce che al modello per `{globalTemplate?}` (impostato in precedenza in questo argomento) venga assegnata la priorità per la prima posizione del valore di dati della route quando viene specificato un valore singolo di route. Se viene richiesta la pagina di informazioni in `/About/RouteDataValue`, "RouteDataValue" viene caricato in `RouteData.Values["globalTemplate"]` (`Order = -1`) e non in `RouteData.Values["aboutTemplate"]` (`Order = 1`) a causa dell'impostazione della proprietà `Order`.
+La proprietà <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> per <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> è impostata su `2`. Ciò garantisce che il modello per `{globalTemplate?}` (in precedenza nell'argomento consentono di impostare `1`) viene assegnata la priorità per i dati della route prima posizione del valore quando viene specificato un valore singolo di route. Se la pagina di informazioni viene richiesta con un valore di parametro di route in corrispondenza `/About/RouteDataValue`, "RouteDataValue" viene caricato in `RouteData.Values["globalTemplate"]` (`Order = 1`) e non `RouteData.Values["aboutTemplate"]` (`Order = 2`) a causa dell'impostazione di `Order` proprietà.
+
+Laddove possibile, non vengono impostate le `Order`, in modo da `Order = 0`. Si basano sul routing per selezionare la route corretta.
 
 Richiedere la pagina di informazioni dell'esempio in `localhost:5000/About/GlobalRouteValue/AboutRouteValue` ed esaminare il risultato:
 

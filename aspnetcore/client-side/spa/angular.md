@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 02/21/2018
 uid: spa/angular
-ms.openlocfilehash: 811e28af2b67c356ff038d8d673e2164bb56578e
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 763b4fff7c64432328af660c66e6ff3f8f697f71
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36291464"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011358"
 ---
 # <a name="use-the-angular-project-template-with-aspnet-core"></a>Usare il modello di progetto per Angular con ASP.NET Core
 
@@ -34,9 +34,10 @@ Il modello è equivalente alla creazione di un progetto ASP.NET Core che opera c
 Se si usa ASP.NET Core 2.0, assicurarsi di avere [installato il modello di progetto React aggiornato](xref:spa/index#installation).
 
 ::: moniker-end
+
 ::: moniker range=">= aspnetcore-2.1"
 
-Se si dispone di ASP.NET Core 2.1 installato, non è necessario installare il modello di progetto angolare.
+Se ASP.NET Core 2.1 è installato, non è necessario installare il modello di progetto Angular.
 
 ::: moniker-end
 
