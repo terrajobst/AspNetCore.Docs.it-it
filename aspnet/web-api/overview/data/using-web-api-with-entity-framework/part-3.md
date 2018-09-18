@@ -31,7 +31,7 @@ Questo comando aggiunge una cartella denominata migrazioni al progetto, oltre a 
 
 ![](part-3/_static/image1.png)
 
-Aprire il file Configuration.cs. Aggiungere il codice seguente **usando** istruzione.
+Aprire il file Configuration.cs. Aggiungere la seguente istruzione **using**.
 
 [!code-csharp[Main](part-3/samples/sample2.cs)]
 
