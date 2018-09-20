@@ -7,14 +7,16 @@ ms.assetid: fddf8e5e-c055-4f81-b691-78deef871112
 ms.author: riande
 ms.date: 09/20/2017
 ms.technology: aspnet
-ms.openlocfilehash: fa7fe92ae0a6545986f816c04c18e659718846f1
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 8f45f73c691600ae5138170db5cc4794246c4f2e
+ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41823850"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46482970"
 ---
 # <a name="aspnet-tutorials"></a>Esercitazioni su ASP.NET
+
+[!INCLUDE[](~/includes/rp.md)]
 
 Sono disponibili le seguenti guide dettagliate per lo sviluppo di applicazioni ASP.NET.
 
@@ -23,8 +25,6 @@ Sono disponibili le seguenti guide dettagliate per lo sviluppo di applicazioni A
 
 ## <a name="web-forms"></a>Web Form
 
-* [Introduzione a Web Form ASP.NET 4.5 e Visual Studio 2013](web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/index.md)
-* [Creazione di una pagina Web Form di base in Visual Studio 2013](web-forms/overview/getting-started/creating-a-basic-web-forms-page.md)
 * [Modifica del codice di Web Form ASP.NET in Visual Studio 2013](web-forms/overview/getting-started/code-editing-in-web-forms-pages.md)
 * [Uso di Controllo pagina in Visual Studio 2012](web-forms/overview/getting-started/hands-on-labs/using-page-inspector-in-visual-studio-2012.md)
 * [Associazione di modelli e Web Form in Visual Studio 2013](web-forms/overview/presenting-and-managing-data/model-binding/index.md)
@@ -45,9 +45,6 @@ Sono disponibili le seguenti guide dettagliate per lo sviluppo di applicazioni A
 
 ## <a name="mvc"></a>MVC
 
-* [Introduzione ad ASP.NET MVC 5 ](mvc/overview/getting-started/introduction/index.md)
-* [Introduzione a EF 6 con MVC 5](mvc/overview/getting-started/getting-started-with-ef-using-mvc/index.md)
-* [Database First di EF con ASP.NET MVC](mvc/overview/getting-started/database-first-development/index.md)
 * [Uso di Controllo pagina in ASP.NET MVC](mvc/overview/views/using-page-inspector-in-aspnet-mvc.md)
 * [Creare un'app ASP.NET MVC 5 con l'accesso OAuth2 di Facebook, Twitter, LinkedIn e Google (C#)](mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)
 * [Creare un'app Web ASP.NET MVC 5 sicura con accesso, messaggi di posta elettronica di conferma e reimpostazione della password (C#)](mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md)

@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni su come memorizzare nella cache i dati in memoria in ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 7/22/2018
+ms.date: 09/15/2018
 uid: performance/caching/memory
-ms.openlocfilehash: 091d00ca7a30b61bdd83618e055bf23e0f2753c4
-ms.sourcegitcommit: 67a0a04ebb3b21c826e5b9600bacfc897abd6a46
+ms.openlocfilehash: 2570ad7d939d67530b3de8cd0147815c2e25ecc8
+ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42899844"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46482983"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>Memorizzare nella cache in memoria in ASP.NET Core
 
@@ -31,7 +31,19 @@ Il `IMemoryCache` cache rimuoverà le voci della cache eccessivo della memoria, 
 
 La cache in memoria può archiviare qualsiasi oggetto. l'interfaccia di cache distribuita è limitata a `byte[]`.
 
-### <a name="cache-guidelines"></a>Linee guida per la cache
+## <a name="systemruntimecachingmemorycache"></a>System.Runtime.Caching/MemoryCache
+
+<xref:System.Runtime.Caching>/<xref:System.Runtime.Caching.MemoryCache> ([Mobileengagement](https://www.nuget.org/packages/System.Runtime.Caching/)) può essere usato con:
+
+* .NET standard 2.0 o versione successiva.
+* Eventuali [implementazione di .NET](/dotnet/standard/net-standard#net-implementation-support) che ha come destinazione .NET Standard 2.0 o versione successiva. Ad esempio, ASP.NET Core 2.0 o versione successiva.
+* .NET framework 4.5 o versione successiva.
+
+[Extensions](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/) / `IMemoryCache` (descritte in questo argomento) è consigliato rispetto `System.Runtime.Caching` / `MemoryCache` perché è meglio integrato in ASP.NET Core. Ad esempio, `IMemoryCache` funziona in modo nativo con ASP.NET Core [inserimento delle dipendenze](xref:fundamentals/dependency-injection).
+
+Uso `System.Runtime.Caching` / `MemoryCache` come un bridge di compatibilità durante il porting del codice da ASP.NET 4.x ad ASP.NET Core.
+
+## <a name="cache-guidelines"></a>Linee guida per la cache
 
 * Codice deve essere associato sempre un'opzione di fallback per recuperare i dati e **non** dipendono dal valore memorizzato nella cache siano disponibili.
 * La cache utilizza una risorsa limitata, della memoria. Limitare l'aumento delle dimensioni della cache:
