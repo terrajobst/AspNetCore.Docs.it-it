@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: 4b559e6c-4fb0-4a04-9812-45cf08ae5779
 msc.legacyurl: /signalr/overview/testing-and-debugging/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: 77eedeb962bed06f1375284bcf05c4e4ffcdde3b
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 9ef69ece2558260f0409e9388751f77ac84a06f1
+ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41826731"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523077"
 ---
 <a name="signalr-troubleshooting"></a>Risoluzione dei problemi di SignalR
 ====================
@@ -157,7 +157,7 @@ Una connessione bism in un'applicazione client .NET che utilizza la sicurezza de
 
 ## <a name="configuring-iis-websockets-to-pingpong-to-detect-a-dead-client"></a>Configurazione di IIS WebSocket al ping/pong per rilevare un client inattivo
 
-Se il client è inattivo o non e si basa su notifica da websocket sottostante degli errori di connessione, vale a dire, il callback OnClose, non conoscono i server di SignalR. Per risolvere questo problema consiste nel configurare IIS WebSocket per effettuare il ping/pong automaticamente. Ciò garantisce che la connessione verrà chiusa se interrompe in modo imprevisto. Per altre informazioni, vedere [questo post di stackoverflow](http://stackoverflow.com/questions/19502755/websocket-clients-state-not-changing-on-network-loss).
+I server di SignalR non sapere se il client è inattivo o non e si basano su notifica da websocket sottostante degli errori di connessione, vale a dire, il `OnClose` callback. Per risolvere questo problema consiste nel configurare IIS WebSocket per effettuare il ping/pong automaticamente. Ciò garantisce che la connessione verrà chiusa se interrompe in modo imprevisto. Per altre informazioni, vedere [questo post di stackoverflow](http://stackoverflow.com/questions/19502755/websocket-clients-state-not-changing-on-network-loss).
 
 <a id="other"></a>
 
