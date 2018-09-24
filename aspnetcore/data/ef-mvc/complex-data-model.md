@@ -5,12 +5,12 @@ description: In questa esercitazione si aggiungono altre entità e relazioni e s
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: c97acd2b943e1d4c466c060247220b3b8bab6d6b
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 3714cf7ce705a52653394319fef1728a6ddcc3ee
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41751614"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011769"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---data-model---5-of-10"></a>ASP.NET Core MVC con EF Core - Modello di dati - 5 di 10
 
@@ -495,6 +495,7 @@ Fare clic con il pulsante destro del mouse sulla tabella **CourseAssignment** e 
 ## <a name="summary"></a>Riepilogo
 
 Ora sono presenti un modello di dati più complesso e il database corrispondente. Nell'esercitazione seguente si apprenderanno tecniche per l'accesso ai dati correlati.
+
 ::: moniker-end
 
 > [!div class="step-by-step"]

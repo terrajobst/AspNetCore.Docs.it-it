@@ -11,10 +11,13 @@ In questa esercitazione vengono esaminate le pagine Razor create tramite scaffol
 Esaminare il modello di pagina *Pages/Movies/Index.cshtml.cs*:
 
 ::: moniker range="= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs)]
+
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index21.cshtml.cs)]
 
 ::: moniker-end
@@ -118,11 +121,15 @@ Salvare le modifiche e testare l'app selezionando il collegamento **RpMovie**. V
 Esaminare il modello di pagina *Pages/Movies/Create.cshtml.cs*:
 
 ::: moniker range="= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetALL)]
+
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create21.cshtml.cs?name=snippetALL)]
+
 ::: moniker-end
 
 

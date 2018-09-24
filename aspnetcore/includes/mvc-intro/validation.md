@@ -17,10 +17,15 @@ Aprire il file *Movie.cs*. DataAnnotations fornisce un set predefinito di attrib
 Aggiornare la classe `Movie` per poter sfruttare gli attributi di convalida `Required`, `StringLength`, `RegularExpression` e `Range` predefiniti.
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie21/Models/MovieDateRatingDA.cs?name=snippet1)]
+
 ::: moniker-end
+
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
+
 ::: moniker-end
 
 Gli attributi di convalida specificano il comportamento da applicare per le proprietà del modello a cui vengono applicati. Gli attributi `Required` e `MinimumLength` indicano che una proprietà deve avere un valore, ma nulla impedisce all'utente di inserire spazi vuoti per soddisfare questa convalida. L'attributo `RegularExpression` viene usato per limitare i caratteri che possono essere inseriti. Nel codice precedente, per `Genre` e `Rating` è necessario usare solo lettere. Prima lettera in maiuscolo, spazi vuoti, numeri e caratteri speciali non sono consentiti. L'attributo `Range` vincola un valore all'interno di un intervallo specificato. L'attributo `StringLength` consente di impostare la lunghezza massima di una proprietà stringa e, facoltativamente, la lunghezza minima. I tipi di valore, ad esempio `decimal`, `int`, `float` e `DateTime`, sono intrinsecamente necessari e non richiedono l'attributo `[Required]`.
@@ -82,7 +87,7 @@ Aprire il file *Movie.cs* ed esaminare la classe `Movie`. Lo spazio dei nomi `Sy
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?highlight=2,6&name=snippet2)]
 
-Gli attributi `DataType` specificano solo gli hint per far sì che il motore di vista formatti i dati (e fornisca gli elementi/attributi, ad esempio `<a>` per l'URL e `<a href="mailto:EmailAddress.com">` per la posta elettronica). È possibile usare l'attributo `RegularExpression` per convalidare il formato dei dati. L'attributo `DataType` viene usato per specificare un tipo di dati più specifico del tipo intrinseco del database; non si tratta di attributi di convalida. In questo caso si vuole solo tenere traccia della data, non dell'ora. L'enumerazione `DataType` fornisce molti tipi di dati, ad esempio Data, Ora, Numero di telefono, Valuta, Indirizzo di posta elettronica e altro ancora. L'attributo `DataType` può anche consentire all'applicazione di fornire automaticamente le funzionalità specifiche del tipo. Ad esempio, è possibile creare un collegamento `mailto:` per `DataType.EmailAddress` e fornire un selettore data per `DataType.Date` nei browser che supportano HTML5. Gli attributi `DataType` generano attributi `data-` HTML5 (dash di dati pronunciati) supportati dai browser HTML5. Gli attributi `DataType` **non** forniscono alcuna convalida.
+Gli attributi `DataType` specificano solo gli hint per far sì che il motore di vista formatti i dati (e fornisca gli elementi/attributi, ad esempio `<a>` per l'URL e `<a href="mailto:EmailAddress.com">` per la posta elettronica). È possibile usare l'attributo `RegularExpression` per convalidare il formato dei dati. L'attributo `DataType` viene usato per specificare un tipo di dati più specifico del tipo intrinseco del database; non si tratta di attributi di convalida. In questo caso si vuole solo tenere traccia della data, non dell'ora. L'enumerazione `DataType` fornisce molti tipi di dati, ad esempio Data, Ora, Numero di telefono, Valuta, Indirizzo di posta elettronica e altro ancora. L'attributo `DataType` può anche consentire all'applicazione di fornire automaticamente le funzionalità specifiche del tipo. Ad esempio, è possibile creare un collegamento `mailto:` per `DataType.EmailAddress` e fornire un selettore data per `DataType.Date` nei browser che supportano HTML5. Gli attributi `DataType` generano attributi `data-` HTML5 (pronunciato data dash) supportati dai browser HTML5. Gli attributi `DataType` **non** forniscono alcuna convalida.
 
 `DataType.Date` non specifica il formato della data visualizzata. Per impostazione predefinita, il campo dei dati viene visualizzato in base ai formati predefiniti per il valore `CultureInfo` del server.
 
@@ -115,10 +120,13 @@ L'impostazione `ApplyFormatInEditMode` specifica che la formattazione deve esser
 Il codice seguente illustra la combinazione di attributi in una sola riga:
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie21/Models/MovieDateRatingDAmult.cs?name=snippet1)]
 
 ::: moniker-end
+
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
 
 ::: moniker-end

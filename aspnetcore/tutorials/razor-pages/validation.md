@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/07/2017
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: ea3f26f9377715ea27f19908932d2dcf3cfcbea6
-ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
+ms.openlocfilehash: e27253e3f02fa808136494ed5373059ef6e0df0d
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39202601"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011591"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Aggiungere la convalida a una pagina Razor ASP.NET Core
 
@@ -32,6 +32,7 @@ Aprire il file *Movie.cs*. [DataAnnotations](https://docs.microsoft.com/aspnet/m
 Aggiornamento della classe `Movie` per poter sfruttare gli attributi di convalida `Required`, `StringLength`, `RegularExpression`, e `Range`.
 
 ::: moniker range="= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
 
 ::: moniker-end
@@ -113,7 +114,9 @@ L'enumerazione `DataType` fornisce per molti tipi di dati, ad esempio Data, Ora,
 `DataType.Date` non specifica il formato della data visualizzata. Per impostazione predefinita, il campo dei dati viene visualizzato in base ai formati predefiniti per il valore `CultureInfo` del server.
 
 ::: moniker range=">= aspnetcore-2.1"
+
 L'annotazione dei dati `[Column(TypeName = "decimal(18, 2)")]` è necessaria per consentire a Entity Framework Core di eseguire correttamente il mapping di `Price` nella valuta del database. Per altre informazioni, vedere [Tipi di dati](/ef/core/modeling/relational/data-types).
+
 ::: moniker-end
 
 L'attributo `DisplayFormat` viene usato per specificare in modo esplicito il formato della data:
@@ -142,11 +145,13 @@ In genere non è consigliabile compilare date reali nei modelli, quindi l'uso de
 Il codice seguente illustra la combinazione di attributi in una sola riga:
 
 ::: moniker range="= aspnetcore-2.0"
+
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Models/MovieDateRatingDAmult.cs?name=snippet1)]
 
 ::: moniker-end

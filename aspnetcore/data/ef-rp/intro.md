@@ -5,12 +5,12 @@ description: Viene illustrato come creare un'app Razor Pages con Entity Framewor
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/intro
-ms.openlocfilehash: d74d0909f03fe4d504f21c3880ec2447cadc8b13
-ms.sourcegitcommit: a669c4e3f42e387e214a354ac4143555602e6f66
+ms.openlocfilehash: 89002f7b4a5af17a9404b14822086c7a9a6ec265
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336094"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011458"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>Razor Pages con Entity Framework Core in ASP.NET Core: esercitazione 1 di 8
 
@@ -309,6 +309,7 @@ Alcuni aspetti da considerare quando si scrive codice asincrono usato da Entity 
 Per altre informazioni sulla programmazione asincrona in .NET, vedere [Panoramica della programmazione asincrona](/dotnet/articles/standard/async) e [Programmazione asincrona con async e await](/dotnet/csharp/programming-guide/concepts/async/).
 
 Nella prossima esercitazione, vengono esaminate le operazioni CRUD per creare, leggere, aggiornare, eliminare ed elencare.
+
 ::: moniker-end
 
 > [!div class="step-by-step"]

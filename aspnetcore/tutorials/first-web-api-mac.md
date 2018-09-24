@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/08/2018
 uid: tutorials/first-web-api-mac
-ms.openlocfilehash: 4caa6d9057de8d0e821c4abefe22985f43ff95ad
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 40f9bd9c57b97826edfddeb00cb4fb38a026d46e
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38156140"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011625"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-mac"></a>Creare un'API Web con ASP.NET Core e Visual Studio per Mac
 
@@ -126,14 +126,19 @@ Verranno aggiunti i metodi `Create`, `Update` e `Delete` al controller. Dato che
 ### <a name="create"></a>Crea
 
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](first-web-api/samples/2.0/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
 
 Il metodo precedente risponde a un POST HTTP, come indicato dall'attributo [[HttpPost]](/dotnet/api/microsoft.aspnetcore.mvc.httppostattribute). L'attributo [[FromBody]](/dotnet/api/microsoft.aspnetcore.mvc.frombodyattribute) indica a MVC di ottenere il valore dell'elemento attività dal corpo della richiesta HTTP.
+
 ::: moniker-end
+
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](first-web-api/samples/2.1/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
 
 Il metodo precedente risponde a un POST HTTP, come indicato dall'attributo [[HttpPost]](/dotnet/api/microsoft.aspnetcore.mvc.httppostattribute). MVC ottiene il valore dell'elemento attività dal corpo della richiesta HTTP.
+
 ::: moniker-end
 
 Il metodo `CreatedAtRoute` restituisce una risposta 201. Si tratta della risposta standard per un metodo HTTP POST che crea una nuova risorsa nel server. `CreatedAtRoute` aggiunge anche un'intestazione Location (Posizione) alla risposta. L'intestazione Location (Posizione) specifica l'URI dell'elemento attività appena creato. Vedere [10.2.2 201 Created](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
@@ -162,8 +167,10 @@ Il metodo `CreatedAtRoute` restituisce una risposta 201. Si tratta della rispost
 * Fare clic sul pulsante **Invia**.
 
 ::: moniker range=">= aspnetcore-2.1"
+
 > [!TIP]
 > Se dopo aver fatto clic su **Invia** non viene visualizzata nessuna risposta, disattivare l'opzione **SSL certification verification** (Verifica certificazione SSL). L'opzione è disponibile in **File** > **Impostazioni**. Fare di nuovo clic sul pulsante **Invia** dopo aver disabilitato l'impostazione.
+
 ::: moniker-end
 
 Fare clic sulla scheda **Headers** (Intestazioni) nel riquadro **Response** (Risposta) e copiare l'intestazione **Location** (Posizione):
@@ -179,10 +186,15 @@ Fare clic sulla scheda **Headers** (Intestazioni) nel riquadro **Response** (Ris
 ### <a name="update"></a>Aggiorna
 
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](first-web-api/samples/2.0/TodoApi/Controllers/TodoController.cs?name=snippet_Update)]
+
 ::: moniker-end
+
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](first-web-api/samples/2.1/TodoApi/Controllers/TodoController.cs?name=snippet_Update)]
+
 ::: moniker-end
 
 `Update` è simile a `Create` ma usa la richiesta HTTP PUT. La risposta è [204 (No Content)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). In base alla specifica HTTP una richiesta PUT richiede che il client invii l'intera entità aggiornata, non solo i delta. Per supportare gli aggiornamenti parziali usare HTTP PATCH.

@@ -21,12 +21,15 @@ I modelli di [layout](xref:mvc/views/layout) consentono di specificare il layout
 Nell'elemento del titolo cambiare `MvcMovie` in `Movie App`. Modificare il testo di ancoraggio nel modello di layout da `MvcMovie` a `Movie App` e il controller da `Home` a `Movies`, come evidenziato di seguito:
 
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout.cshtml?highlight=7,31)]
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout21.cshtml?highlight=7,31)]
+
 ::: moniker-end
 
 >[!WARNING]

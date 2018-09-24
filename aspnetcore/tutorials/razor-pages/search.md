@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/search
-ms.openlocfilehash: 14b3b501915a22aedbc10bd7bc8e5eef408f185c
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 57af33d97fc3cc467496dab9f2b499de04b005b1
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278148"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011443"
 ---
 # <a name="add-search-to-aspnet-core-razor-pages"></a>Aggiungere la funzionalità di ricerca a pagine Razor in ASP.NET Core
 
@@ -69,11 +69,15 @@ Il tag HTML `<form>` usa l'[helper tag del modulo](xref:mvc/views/working-with-f
 Aggiungere le proprietà evidenziate seguenti in *Pages/Movies/Index.cshtml.cs*:
 
 ::: moniker range="= aspnetcore-2.0"
+
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-999)]
+
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-999)]
+
 ::: moniker-end
 
 

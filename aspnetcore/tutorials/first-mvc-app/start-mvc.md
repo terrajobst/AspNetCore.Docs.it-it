@@ -5,12 +5,12 @@ description: Informazioni introduttive su ASP.NET Core MVC e Visual Studio.
 ms.author: riande
 ms.date: 10/07/2017
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: 1fb3947023843341403f4355c6ae1e61d7e4f6b1
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 41f986a06ec46dc025c4e8218745b4a513e8ee2a
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38217978"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011706"
 ---
 # <a name="get-started-with-aspnet-core-mvc-and-visual-studio"></a>Introduzione ad ASP.NET Core MVC e Visual Studio
 
@@ -28,7 +28,7 @@ Sono disponibili 3 versioni dell'esercitazione:
 
 ::: moniker range=">= aspnetcore-2.1"
 
-[!INCLUDE [](~/includes/net-core-prereqs-windows.md) [](~/includes/net-core-prereqs-windows.md)]
+[!INCLUDE [](~/includes/net-core-prereqs-windows.md)]
 
 ## <a name="create-a-web-app"></a>Creare un'app Web
 
@@ -83,7 +83,7 @@ Nella parte seguente di questa esercitazione vengono fornite informazioni su MVC
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
-[!INCLUDE [](~/includes/net-core-prereqs.md) [](~/includes/net-core-prereqs.md)]
+[!INCLUDE [](~/includes/net-core-prereqs.md)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 
@@ -165,5 +165,6 @@ Se l'esecuzione è in modalità di debug, toccare **MAIUSC+F5** per arrestare il
 Nella parte seguente di questa esercitazione vengono fornite informazioni su MVC e istruzioni per iniziare a creare codice.
 
 ::: moniker-end
+
 > [!div class="step-by-step"]
 > [avanti](adding-controller.md)  

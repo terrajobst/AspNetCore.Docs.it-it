@@ -14,4 +14,5 @@ La versione 2.0 illustra ASP.NET Core MVC ed Entity Framework Core con i control
 * È l'approccio consigliato per lo sviluppo di nuove applicazioni.
 
 Se si è scelto di eseguire questa esercitazione invece della versione per [Razor Pages](xref:data/ef-rp/intro), lasciare una nota per spiegare il motivo in [questa discussione su GitHub](https://github.com/aspnet/Docs/issues/6146).
+
 ::: moniker-end

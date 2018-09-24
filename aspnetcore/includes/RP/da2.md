@@ -1,4 +1,5 @@
 ::: moniker range=">= aspnetcore-2.1"
+
 Fare clic con il pulsante destro del mouse su una riga rossa ondulata **> Azioni rapide e refactoring** nell'attributo `[Column]` e selezionare `using System.ComponentModel.DataAnnotations.Schema;`
 
 L'annotazione dei dati `[Column(TypeName = "decimal(18, 2)")]` è necessaria per consentire a Entity Framework Core di eseguire correttamente il mapping di `Price` nella valuta del database. Per altre informazioni, vedere [Tipi di dati](/ef/core/modeling/relational/data-types).
@@ -75,11 +76,13 @@ Il codice di produzione in genere rileva i conflitti di concorrenza quando due o
 Esaminare il file *Pages/Movies/Edit.cshtml.cs*:
 
 ::: moniker range="= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Edit.cshtml.cs?name=snippet2)]
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Edit21.cshtml.cs?name=snippet2)]
 
 ::: moniker-end

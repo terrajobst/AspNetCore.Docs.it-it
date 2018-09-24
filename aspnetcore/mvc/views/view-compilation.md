@@ -7,25 +7,33 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/17/2018
 uid: mvc/views/view-compilation
-ms.openlocfilehash: 05ebc2b51401f8ce8d76d7d121e351cd9ca42c80
-ms.sourcegitcommit: 67a0a04ebb3b21c826e5b9600bacfc897abd6a46
+ms.openlocfilehash: f5888cf43d8d8192acedaa33b3fa0f313737fc9b
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42899857"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011287"
 ---
 # <a name="razor-file-compilation-in-aspnet-core"></a>Compilazione del file Razor in ASP.NET Core
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ::: moniker range="= aspnetcore-1.1"
+
 Un file Razor viene compilato in fase di runtime, quando viene richiamata la visualizzazione MVC associata. La pubblicazione dei file Razor in fase di compilazione non è supportata. I file Razor possono essere facoltativamente compilati in fase di pubblicazione e distribuiti con l'app&mdash;usando lo strumento di precompilazione.
+
 ::: moniker-end
+
 ::: moniker range="= aspnetcore-2.0"
+
 Un file Razor viene compilato in fase di runtime, quando viene richiamata la pagina Razor o la visualizzazione MVC associata. La pubblicazione dei file Razor in fase di compilazione non è supportata. I file Razor possono essere facoltativamente compilati in fase di pubblicazione e distribuiti con l'app&mdash;usando lo strumento di precompilazione.
+
 ::: moniker-end
+
 ::: moniker range=">= aspnetcore-2.1"
+
 Un file Razor viene compilato in fase di runtime, quando viene richiamata la pagina Razor o la visualizzazione MVC associata. I file Razor vengono compilati sia in fase di compilazione che in fase di pubblicazione tramite [Razor SDK](xref:razor-pages/sdk).
+
 ::: moniker-end
 
 ## <a name="precompilation-considerations"></a>Considerazioni sulla precompilazione
@@ -46,9 +54,11 @@ La compilazione di file Razor in fase di build e pubblicazione è abilitata per 
 > Lo strumento di precompilazione verrà rimosso in ASP.NET Core 3.0. È consigliabile eseguire la migrazione a [Razor SDK](xref:razor-pages/sdk).
 >
 > Razor SDK è attivo solo se nel file di progetto non sono impostate proprietà specifiche di precompilazione. Se ad esempio si imposta la proprietà `MvcRazorCompileOnPublish` del file con estensione *csproj* su `true`, Razor SDK viene disabilitato.
+
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
+
 Se il progetto è destinato a .NET Framework, installare il pacchetto NuGet [Microsoft.AspNetCore.Mvc.Razor.ViewCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.ViewCompilation/):
 
 [!code-xml[](view-compilation/sample/DotNetFrameworkProject.csproj?name=snippet_ViewCompilationPackage)]
@@ -61,15 +71,19 @@ I modelli di progetto ASP.NET Core 2.x impostano in modo implicito la proprietà
 > Lo strumento di precompilazione verrà rimosso in ASP.NET Core 3.0. È consigliabile eseguire la migrazione a [Razor SDK](xref:razor-pages/sdk).
 >
 > La precompilazione dei file Razor non è disponibile quando si esegue una [distribuzione autonoma](/dotnet/core/deploying/#self-contained-deployments-scd) in ASP.NET Core 2.0.
+
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-1.1"
+
 Impostare la proprietà `MvcRazorCompileOnPublish` su `true`e installare il pacchetto NuGet [Microsoft.AspNetCore.Mvc.Razor.ViewCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.ViewCompilation/). Nell'esempio *.csproj* seguente vengono evidenziate queste impostazioni:
 
 [!code-xml[](view-compilation/sample/MvcRazorCompileOnPublish.csproj?highlight=4,10)]
+
 ::: moniker-end
 
 ::: moniker range="<= aspnetcore-2.0"
+
 Preparare l'app per una [distribuzione dipendente dal framework](/dotnet/core/deploying/#framework-dependent-deployments-fdd) con il [comando publish dell'interfaccia della riga di comando di .NET Core](/dotnet/core/tools/dotnet-publish). Ad esempio, eseguire il comando seguente nella radice del progetto:
 
 ```console
@@ -79,21 +93,28 @@ dotnet publish -c Release
 Al termine della compilazione, viene prodotto un file *<nome_progetto>.PrecompiledViews.dll* contenente i file Razor compilati. Lo screenshot seguente, ad esempio, illustra il contenuto di *Index.cshtml* in *WebApplication1.PrecompiledViews.dll*:
 
 ![Visualizzazioni Razor in DLL](view-compilation/_static/razor-views-in-dll.png)
+
 ::: moniker-end
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 ::: moniker range="= aspnetcore-1.1"
+
 * <xref:mvc/views/overview>
+
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
+
 * <xref:razor-pages/index>
 * <xref:mvc/views/overview>
+
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
+
 * <xref:razor-pages/index>
 * <xref:mvc/views/overview>
 * <xref:razor-pages/sdk>
+
 ::: moniker-end

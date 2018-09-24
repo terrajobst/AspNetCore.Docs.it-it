@@ -5,12 +5,12 @@ description: Scoprire come aggiungere classi per la gestione dei film in un data
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 9e0fd0ee98c84bb2336749640b2a3c103e4639b6
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.openlocfilehash: de82738509bb009f030a02e28904e3155088fa6a
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37938326"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011364"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Aggiungere un modello a un'app Razor Pages in ASP.NET Core
 
@@ -103,14 +103,14 @@ Add-Migration Initial
 Update-Database
 ```
 
-In alternativa, è possibile usare i comandi dell'interfaccia della riga di comando di .NET Core seguenti:
+In alternativa, è possibile usare i comandi dell'interfaccia della riga di comando di .NET Core seguenti dalla cartella del progetto:
 
 ```console
 dotnet ef migrations add Initial
 dotnet ef database update
 ```
 
-Ignorare il messaggio di avviso seguente che sarà risolto nell'esercitazione successiva:
+Ignorare il messaggio di avviso seguente che verrà risolto in un'esercitazione successiva:
 
 `Microsoft.EntityFrameworkCore.Model.Validation[30000]`
 
@@ -126,6 +126,7 @@ SqlException: Impossibile aprire il database "RazorPagesMovieContext-GUID" richi
 Accesso non riuscito per l'utente "Nome-utente".
 
 Non è stato eseguita la [migrazione](#pmc).
+
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
