@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 01/10/2018
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: bab2f288f3c6956e44ff929bfd2e257301a5806a
-ms.sourcegitcommit: d99a8554c91f626cf5e466911cf504dcbff0e02e
+ms.openlocfilehash: 45200d34974cbbb44787616eba7508458882416c
+ms.sourcegitcommit: 4d5f8680d68b39c411b46c73f7014f8aa0f12026
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39356701"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47028141"
 ---
 # <a name="bundle-and-minify-static-assets-in-aspnet-core"></a>Aggregare e minimizzare asset statici in ASP.NET Core
 
@@ -201,7 +201,7 @@ Per minimizzare *Custom. CSS* e creare un bundle con *Site. CSS* in un *site.min
 > In alternativa, può essere utilizzato il seguente criterio glob:
 >
 > ```json
-> "inputFiles": ["wwwroot/**/*(*.css|!(*.min.css)"]
+> "inputFiles": ["wwwroot/**/*(*.css|!(*.min.css))"]
 > ```
 >
 > Questo criterio glob corrisponde a tutti i file CSS ed esclude il modello di file minimizzati.
