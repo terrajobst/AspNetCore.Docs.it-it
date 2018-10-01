@@ -5,12 +5,12 @@ description: Informazioni su come creare servizi back-end mediante ASP.NET Core 
 ms.author: riande
 ms.date: 10/14/2016
 uid: mobile/native-mobile-backend
-ms.openlocfilehash: 27051cd3c4e2c3aa1ebf6d5510db4645651120e8
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 3ebd30ad1ffbd66b256e7f3954a07d682f76a754
+ms.sourcegitcommit: 517bb1366da2a28b0014e384fa379755c21b47d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276126"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47230178"
 ---
 # <a name="create-backend-services-for-native-mobile-apps-with-aspnet-core"></a>Creare servizi back-end per app native per dispositivi mobili con ASP.NET Core
 
@@ -151,3 +151,7 @@ Si noti che durante il test della funzionalità di eliminazione non è necessari
 Durante lo sviluppo dei servizi back-end per l'app è necessario creare un set di convenzioni o criteri coerenti per la gestione dei problemi di montaggio incrociato. Ad esempio nel servizio precedente le richieste di record specifici che non sono stati trovati ricevono una risposta `NotFound` anziché una risposta `BadRequest`. Analogamente, i comandi inoltrati a questo servizio che trasmettono tipi associati al modello verificano sempre `ModelState.IsValid` e restituiscono `BadRequest` per i tipi di modello non validi.
 
 Dopo aver identificato criteri comuni per le API è in genere possibile incapsulare tali criteri in un [filtro](../mvc/controllers/filters.md). Altre informazioni su [come incapsulare criteri comuni per le API nelle applicazioni ASP.NET Core MVC](https://msdn.microsoft.com/magazine/mt767699.aspx).
+
+## <a name="additional-resources"></a>Risorse aggiuntive
+
+* [Autenticazione e autorizzazione](/xamarin/xamarin-forms/enterprise-application-patterns/authentication-and-authorization)
