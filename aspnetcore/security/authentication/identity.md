@@ -5,12 +5,12 @@ description: Usare l'identità con un'app ASP.NET Core. Informazioni su come imp
 ms.author: riande
 ms.date: 08/08/2018
 uid: security/authentication/identity
-ms.openlocfilehash: ca83d07f7d93bd0cc61cd17cc373096b8e6aa2e1
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: d427932bb175c09105534379be4d71760f4e04e5
+ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46010975"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47860953"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Introduzione all'identità in ASP.NET Core
 
@@ -45,7 +45,7 @@ Creare un progetto di applicazione Web ASP.NET Core con account utente individua
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Selezionare **File** > **Nuovo** > **Progetto**. 
+* Selezionare **File** > **Nuovo** > **Progetto**.
 * Selezionare **Applicazione Web ASP.NET Core**. Denominare il progetto **App Web 1** avere lo stesso spazio dei nomi come il download del progetto. Fare clic su **OK**.
 * Selezionare un ASP.NET Core **applicazione Web** ASP.NET Core 2.1, quindi selezionare **Modifica autenticazione**.
 * Selezionare **account utente individuali** e fare clic su **OK**.
@@ -119,15 +119,12 @@ Seguire le [lo scaffolding di identità in un progetto Razor con autorizzazione]
 
 Aggiungere i file di registrazione, l'account di accesso e disconnessione.
 
-
 # <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 
 Se è stato creato il progetto con nome **App Web 1**, eseguire i comandi seguenti. In caso contrario, usare lo spazio dei nomi corretto per il `ApplicationDbContext`:
 
-
 ```cli
 dotnet aspnet-codegenerator identity -dc WebApp1.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout"
-
 ```
 
 PowerShell Usa un punto e virgola come separatore di comandi. Quando si usa PowerShell, eseguire l'escape di punti e virgola nell'elenco di file o inserire l'elenco di file tra virgolette doppie, come illustrato nell'esempio precedente.
@@ -163,7 +160,7 @@ PowerShell Usa un punto e virgola come separatore di comandi. Quando si usa Powe
 Il modulo di accesso viene visualizzato quando:
 
 * Il **Accedi** Seleziona collegamento.
-* Quando un utente accede a una pagina in cui non sono autenticati **o** autorizzato, viene reindirizzato alla pagina di accesso. 
+* Quando un utente accede a una pagina in cui non sono autenticati **o** autorizzato, viene reindirizzato alla pagina di accesso.
 
 Quando viene inviato il modulo nella pagina di accesso, il `OnPostAsync` viene chiamata azione. `PasswordSignInAsync` viene chiamato sul `_signInManager` oggetto (fornito dall'inserimento di dipendenze).
 
@@ -254,7 +251,6 @@ Visualizzare [configurazione](#pw) per un esempio che imposta i requisiti di lun
 * <xref:security/authorization/secure-data>
 * <xref:security/authentication/add-user-data>
 * <xref:security/authentication/identity-enable-qrcodes>
-* [Configurare il tipo di dati di identità chiavi primarie](xref:security/authentication/identity-primary-key-configuration).
 * <xref:migration/identity>
 * <xref:security/authentication/accconfirm>
 * <xref:security/authentication/2fa>

@@ -6,12 +6,12 @@ description: Ricevitori di Webhook ASP.NET
 ms.author: riande
 ms.date: 01/17/2012
 ms.assetid: 6cdea089-15b2-4732-8c68-921ca561a8f1
-ms.openlocfilehash: 376cb3e3fdc0bc7bd248da1f57e1064fb27b3cef
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: d771a588b23abcd7b1b33e694af17b219683fc48
+ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41823721"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47860914"
 ---
 # <a name="aspnet-webhooks-receivers"></a>Ricevitori di Webhook ASP.NET
 
@@ -33,7 +33,7 @@ https://<host>/api/webhooks/incoming/<receiver>/{id}
 
 Per motivi di sicurezza, molti ricevitori WebHook richiedono che l'URI è un *https* URI e in alcuni casi deve contenere anche un parametro di query aggiuntive che viene utilizzato per garantire che solo l'entità desiderata può inviare i Webhook per l'URI precedente .
 
-Il <em> <receiver> </em> componente è il nome del destinatario, ad esempio <em>github</em> oppure <em>slack</em>.
+Il `<receiver>` componente è il nome del destinatario, ad esempio `github` o `slack`.
 
 Il *{id}* è un identificatore facoltativo che può essere usato per identificare una particolare configurazione ricevitore WebHook. Utilizzabile per registrare i N i Webhook con un destinatario specifico. Ad esempio, gli URI seguenti tre utilizzabile per registrarsi per tre Webhook indipendenti:
 
