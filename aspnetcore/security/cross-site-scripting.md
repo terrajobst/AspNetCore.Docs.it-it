@@ -219,9 +219,9 @@ Gli intervalli di elenco elementi attendibili vengono specificati come tabelle d
 > [!NOTE]
 > Personalizzazione dell'elenco elementi attendibili influisce solo sui codificatori originati tramite l'inserimento delle dipendenze. Se si accede direttamente a un codificatore tramite `System.Text.Encodings.Web.*Encoder.Default` quindi l'impostazione predefinita, latino di base verranno utilizzato solo dell'elenco indirizzi attendibili.
 
-## <a name="where-should-encoding-take-place"></a>In cui è necessario inserire take codifica?
+## <a name="where-should-encoding-take-place"></a>Dove dovrebbe avvenire la codifica?
 
-Generali accettati pratica è che la codifica viene eseguita nel punto di output e i valori codificati non devono mai essere archiviati in un database. Codifica nel punto di output consente di modificare l'utilizzo di dati, ad esempio, da HTML a un valore di stringa di query. Inoltre, consente di cercare facilmente i dati senza dover codificare i valori prima di eseguire ricerche e consente di sfruttare i vantaggi di eventuali modifiche apportate ai codificatori correzioni di bug.
+La pratica generalmente accettata è che la codifica avvenga nel punto di output e che i valori codificati non devono mai essere archiviati in un database. La codifica nel punto di output consente di modificare l'utilizzo dei dati, ad esempio da HTML a un valore query string. Consente inoltre di cercare facilmente i dati senza dover codificare i valori prima di eseguire ricerca e di sfruttare i vantaggi di eventuali modifiche o correzioni di errori apportate agli encoder.
 
 ## <a name="validation-as-an-xss-prevention-technique"></a>Convalida di una tecnica di prevenzione di XSS
 
