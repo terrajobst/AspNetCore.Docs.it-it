@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/05/2018
 uid: security/cors
-ms.openlocfilehash: f654260411f1bd5725a0e3d14951c7e9bbc893e8
-ms.sourcegitcommit: 08bf41d4b3e696ab512b044970e8304816f8cc56
+ms.openlocfilehash: cfbf24edb1dae76f676d51738b0d57266688d53e
+ms.sourcegitcommit: 317f9be24db600499e79d25872d743af74bd86c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44039978"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48045588"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>Abilitare le richieste Multiorigine (CORS) in ASP.NET Core
 
@@ -270,7 +270,7 @@ Per alcune richieste CORS, il browser invia una richiesta aggiuntiva prima di ef
 
 * Il metodo di richiesta è GET, HEAD o POST.
 * L'app non imposta le intestazioni delle richieste diverso da `Accept`, `Accept-Language`, `Content-Language`, `Content-Type`, o `Last-Event-ID`.
-* Il `Content-Type` intestazione, se impostata, con una di uno dei valori seguenti:
+* Il `Content-Type` intestazione, se impostata, dispone di uno dei valori seguenti:
   * `application/x-www-form-urlencoded`
   * `multipart/form-data`
   * `text/plain`
