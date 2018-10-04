@@ -1,39 +1,35 @@
 ---
 uid: web-forms/videos/sql-2005/index
-title: SQL 2005 | Documenti Microsoft
+title: SQL 2005 | Microsoft Docs
 author: rick-anderson
-description: Utilizzo con SQL Server Express per aggiungere funzionalità di database per le applicazioni ASP.NET.
-ms.author: aspnetcontent
-manager: wpickett
+description: Come usare SQL Server Express per aggiungere funzionalità di database per le applicazioni ASP.NET.
+ms.author: riande
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: cf0b487c-f387-46dd-b3bc-6b3c4af17c9c
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/sql-2005
 msc.type: chapter
-ms.openlocfilehash: 42fc321b4d1d51ec2fe71e4c8873ae62da43c345
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 4c64bfdd331d248cbb2cb930d151bb42b787c413
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26522250"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48254799"
 ---
 <a name="sql-2005"></a>SQL 2005
 ====================
-> Utilizzo con SQL Server Express per aggiungere funzionalità di database per le applicazioni ASP.NET.
+> Come usare SQL Server Express per aggiungere funzionalità di database per le applicazioni ASP.NET.
 
 
-- [Che cos'è un Database](what-is-a-database.md)
-- [I record e informazioni sulle tabelle di Database](understanding-database-tables-and-records.md)
-- [Ulteriori informazioni sui tipi di dati e altre proprietà](more-about-column-data-types-and-other-properties.md)
-- [Progettazione di tabelle di Database relazionale](designing-relational-database-tables.md)
-- [La modifica dei dati di Database](manipulating-database-data.md)
-- [Più Structured Query Language](more-structured-query-language.md)
+- [Che cos'è un database](what-is-a-database.md)
+- [Informazioni su tabelle e record di database](understanding-database-tables-and-records.md)
+- [Altre informazioni sui tipi di dati delle colonne e altre proprietà](more-about-column-data-types-and-other-properties.md)
+- [Progettazione di tabelle di database relazionali](designing-relational-database-tables.md)
+- [Manipolazione dei dati del database](manipulating-database-data.md)
+- [Altri elementi SQL](more-structured-query-language.md)
 - [Informazioni sulla sicurezza e la connettività di rete](understanding-security-and-network-connectivity.md)
-- [La connessione all'applicazione Web di SQL Server 2005 Express Edition](connecting-your-web-application-to-sql-server-2005-express-edition.md)
-- [Utilizzo di SQL Server Management Studio](using-sql-server-management-studio.md)
+- [Connessione all'applicazione Web a SQL Server 2005 Express Edition](connecting-your-web-application-to-sql-server-2005-express-edition.md)
+- [Uso di SQL Server Management Studio](using-sql-server-management-studio.md)
 - [Introduzione a Reporting Services](getting-started-with-reporting-services.md)
-- [La creazione e personalizzazione dei report in Business Intelligence Development Studio](building-and-customizing-reports-in-business-intelligence-development-studio.md)
-- [Creazione e utilizzo di Stored procedure](creating-and-using-stored-procedures.md)
-- [Abilitazione della ricerca Full-Text dei dati di testo](enabling-full-text-search-in-your-text-data.md)
+- [Creazione e personalizzazione di report in Business Intelligence Development Studio](building-and-customizing-reports-in-business-intelligence-development-studio.md)
+- [Creazione e uso di stored procedure](creating-and-using-stored-procedures.md)
+- [Abilitazione della ricerca full-text nei dati di testo](enabling-full-text-search-in-your-text-data.md)

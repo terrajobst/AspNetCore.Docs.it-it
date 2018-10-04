@@ -1,25 +1,21 @@
 ---
 uid: web-forms/videos/net-4/seo/index
-title: SEO | Documenti Microsoft
+title: SEO | Microsoft Docs
 author: rick-anderson
 description: In questo video vengono descritte le nuove funzionalità per Search Engine Optimization (SEO) in ASP.NET 4.
-ms.author: aspnetcontent
-manager: wpickett
+ms.author: riande
 ms.date: 11/14/2011
-ms.topic: article
 ms.assetid: 5462f2d0-e9de-45e4-8c8e-6110d62aaccc
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/net-4/seo
 msc.type: chapter
-ms.openlocfilehash: a16311736d8d051b05b4f9e9ea00a47dc502db20
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 69862430a2e28d1df0af7f4711eb96acfa8c51bd
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26525540"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255834"
 ---
-<a name="seo"></a>SEO
+<a name="seo"></a>MOTORE DI RICERCA
 ====================
 > In questo video vengono descritte le nuove funzionalità per Search Engine Optimization (SEO) in ASP.NET 4.
 

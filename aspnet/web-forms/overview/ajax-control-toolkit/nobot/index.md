@@ -1,28 +1,24 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/nobot/index
-title: NoBot | Documenti Microsoft
+title: NoBot | Microsoft Docs
 author: rick-anderson
-description: In questa esercitazione viene illustrato come utilizzare il controllo NoBot, che offre un metodo automatico per impedire Bot eseguono la registrazione a un sito.
-ms.author: aspnetcontent
-manager: wpickett
+description: Questa esercitazione illustra come usare il controllo NoBot, che fornisce un metodo automatico per impedire i bot di registrazione a un sito.
+ms.author: riande
 ms.date: 11/14/2011
-ms.topic: article
 ms.assetid: cbf87e68-de7a-4216-b328-50c30f68493c
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/nobot
 msc.type: chapter
-ms.openlocfilehash: c2e4da8991b116754b6e21f97a383f2a1003ad2a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 7e45b2ffa23a51736981ce1e077b04ce157742ef
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26510670"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255235"
 ---
 <a name="nobot"></a>NoBot
 ====================
-> In questa esercitazione viene illustrato come utilizzare il controllo NoBot, che offre un metodo automatico per impedire Bot eseguono la registrazione a un sito.
+> Questa esercitazione illustra come usare il controllo NoBot, che fornisce un metodo automatico per impedire i bot di registrazione a un sito.
 
 
-- [Tori bot (c#)](fighting-bots-cs.md)
-- [Tori bot (VB)](fighting-bots-vb.md)
+- [Lotta contro i bot (C#)](fighting-bots-cs.md)
+- [Lotta contro i bot (VB)](fighting-bots-vb.md)

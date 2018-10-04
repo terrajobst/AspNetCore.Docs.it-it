@@ -1,28 +1,24 @@
 ---
 uid: web-api/overview/hosting-aspnet-web-api/index
-title: 'ASP.NET Web API: Distribuzione e Hosting | Documenti Microsoft'
+title: 'API Web ASP.NET: Distribuzione e Hosting | Microsoft Docs'
 author: rick-anderson
 description: Viene descritto come ospitare l'API web.
-ms.author: aspnetcontent
-manager: wpickett
+ms.author: riande
 ms.date: 01/26/2012
-ms.topic: article
 ms.assetid: 500be045-e1e1-478a-97fc-0374645dd95f
-ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/hosting-aspnet-web-api
 msc.type: chapter
-ms.openlocfilehash: 903e533d96c5187e1c7875f5bfcfdc4eba0ae98d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 76e5df0e67dee23df3cd0114f50011aa41e45e51
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26506900"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255911"
 ---
-<a name="aspnet-web-api-deployment-and-hosting"></a>ASP.NET Web API: Distribuzione e Hosting
+<a name="aspnet-web-api-deployment-and-hosting"></a>API Web ASP.NET: Distribuzione e Hosting
 ====================
 > Viene descritto come ospitare l'API web.
 
 
-- [Utilizzare OWIN per l'hosting indipendente Web API 2](use-owin-to-self-host-web-api.md)
-- [Host Web API 2 a un ruolo di lavoro di Azure](host-aspnet-web-api-in-an-azure-worker-role.md)
+- [Usare OWIN per l'hosting indipendente dell'API Web 2](use-owin-to-self-host-web-api.md)
+- [Eseguire l'hosting dell'API Web 2 in un ruolo di lavoro di Azure](host-aspnet-web-api-in-an-azure-worker-role.md)

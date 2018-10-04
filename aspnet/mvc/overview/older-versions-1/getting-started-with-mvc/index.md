@@ -1,27 +1,23 @@
 ---
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/index
-title: Introduzione a MVC | Documenti Microsoft
+title: Introduzione a MVC | Microsoft Docs
 author: rick-anderson
-description: Si tratta di una serie di esercitazioni per principianti che introduce ASP.NET MVC. Creare un'applicazione web semplice la lettura e scrittura da un database.
-ms.author: aspnetcontent
-manager: wpickett
+description: Si tratta di una serie di esercitazioni per principianti che introduce ASP.NET MVC. Creare un'applicazione web semplice che legge e scrive da un database.
+ms.author: riande
 ms.date: 11/08/2011
-ms.topic: article
 ms.assetid: 057f01bf-0ad9-488a-ae75-c8f85b8e1f23
-ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc
 msc.type: chapter
-ms.openlocfilehash: b2e2f167de1e4c1c197bb0a8d37c1a1aed047f14
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
-ms.translationtype: HT
+ms.openlocfilehash: 22e344b0667ac596bea75884df6aadd8e6a5ff92
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2018
-ms.locfileid: "28883298"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255505"
 ---
 <a name="getting-started-with-mvc"></a>Introduzione a MVC
 ====================
-> Si tratta di una serie di esercitazioni per principianti che introduce ASP.NET MVC. Creare un'applicazione web semplice la lettura e scrittura da un database.
+> Si tratta di una serie di esercitazioni per principianti che introduce ASP.NET MVC. Creare un'applicazione web semplice che legge e scrive da un database.
 
 
 - [Introduzione ad ASP.NET MVC](getting-started-with-mvc-part1.md)

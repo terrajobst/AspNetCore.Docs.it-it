@@ -1,29 +1,25 @@
 ---
 uid: web-pages/overview/performance-and-traffic/index
-title: Prestazioni | Documenti Microsoft
+title: Le prestazioni | Microsoft Docs
 author: rick-anderson
-description: Viene descritto come il contenuto della cache per migliorare le prestazioni e misurare il traffico del sito.
-ms.author: aspnetcontent
-manager: wpickett
+description: Come memorizzare nella cache il contenuto per ottenere prestazioni migliori e come misurare il traffico del sito.
+ms.author: riande
 ms.date: 09/08/2014
-ms.topic: article
 ms.assetid: ce798572-e7dc-44c1-a7fe-a029820e195e
-ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/performance-and-traffic
 msc.type: chapter
-ms.openlocfilehash: fffeb7c5b5a202a273bfd8b144ad1f63d5743087
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: a38142955ffed9197b5e376a3b23fe11f46421df
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26528520"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255384"
 ---
 <a name="performance"></a>Prestazioni
 ====================
-> Viene descritto come il contenuto della cache per migliorare le prestazioni e misurare il traffico del sito.
+> Come memorizzare nella cache il contenuto per ottenere prestazioni migliori e come misurare il traffico del sito.
 
 
-- [La memorizzazione nella cache per migliorare le prestazioni del sito Web](15-caching-to-improve-the-performance-of-your-website.md)
-- [Analizzare il traffico](14-analyzing-traffic.md)
-- [Bundling and Minifying asset in un sito ASP.NET Web Pages (Razor)](bundling-and-minifying-assets-in-an-aspnet-web-pages-razor-site.md)
+- [Memorizzazione nella cache per migliorare le prestazioni del sito Web](15-caching-to-improve-the-performance-of-your-website.md)
+- [Analisi del traffico](14-analyzing-traffic.md)
+- [Creazione di bundle e minimizzazione di risorse nelle pagine Web ASP.NET (Razor)](bundling-and-minifying-assets-in-an-aspnet-web-pages-razor-site.md)

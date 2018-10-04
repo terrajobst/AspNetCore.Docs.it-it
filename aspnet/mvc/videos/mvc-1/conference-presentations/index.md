@@ -1,29 +1,25 @@
 ---
 uid: mvc/videos/mvc-1/conference-presentations/index
-title: Discussioni | Documenti Microsoft
+title: Comunica con | Microsoft Docs
 author: rick-anderson
-description: ASP.NET MVC 1 discussioni
-ms.author: aspnetcontent
-manager: wpickett
+description: Comunica con MVC ASP.NET 1
+ms.author: riande
 ms.date: 09/28/2011
-ms.topic: article
 ms.assetid: 276507d5-e9bd-46ba-8e98-32a8957504fa
-ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1/conference-presentations
 msc.type: chapter
-ms.openlocfilehash: ed730075f5c4232ff48406a2cc047d85f16c2244
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: e95a05cb4403fd373a2e0e2e4591bec3e4da2df7
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26503370"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48256070"
 ---
 <a name="talks"></a>Discussioni
 ====================
-> ASP.NET MVC 1 discussioni
+> Comunica con MVC ASP.NET 1
 
 
 - [Creazione di NerdDinner.com con Microsoft ASP.NET Model View Controller (MVC)](creating-nerddinnercom-with-microsoft-aspnet-model-view-controller-mvc.md)
 - [Framework Model View Controller per America's Next Top Model](americas-next-top-model-view-controller-framework.md)
-- [Esperto di incendio nero trasportatore suggerimenti](ninja-on-fire-black-belt-tips.md)
+- [Ninja on Fire: suggerimenti per utenti avanzati](ninja-on-fire-black-belt-tips.md)

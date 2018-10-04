@@ -1,23 +1,19 @@
 ---
 uid: web-api/overview/older-versions/index
-title: Documentazione su versioni precedenti dell'API Web | Documenti Microsoft
+title: Documentazione su versioni precedenti dell'API Web | Microsoft Docs
 author: rick-anderson
 description: Documentazione su versioni precedenti dell'API Web.
-ms.author: aspnetcontent
-manager: wpickett
+ms.author: riande
 ms.date: 10/23/2014
-ms.topic: article
 ms.assetid: f5bc7426-27c6-492c-914f-b9d2eb49753d
-ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions
 msc.type: chapter
-ms.openlocfilehash: e3cb215e60ba11ec23f4e0c8d03dd08aa39a174f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: ac59f28d61cf2dceb030ee782069679ee7e1fab0
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26508190"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255045"
 ---
 <a name="documentation-on-older-versions-of-web-api"></a>Documentazione su versioni precedenti dell'API Web
 ====================
@@ -25,14 +21,14 @@ ms.locfileid: "26508190"
 
 
 - [Abilitare le operazioni CRUD nell'API Web 1](creating-a-web-api-that-supports-crud-operations.md)
-- [Utilizzo di ASP.NET Web API 1 con Entity Framework 5](using-web-api-1-with-entity-framework-5/index.md)
+- [Uso dell'API Web ASP.NET 1 con Entity Framework 5](using-web-api-1-with-entity-framework-5/index.md)
 
-    - [Panoramica e la creazione del progetto](using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-1.md)
+    - [Panoramica e creazione del progetto](using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-1.md)
     - [Creazione dei modelli di dominio](using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-2.md)
-    - [Creazione di un Controller di amministrazione](using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-3.md)
-    - [Aggiunta di una vista di amministrazione](using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-4.md)
+    - [Creazione di un controller di amministrazione](using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-3.md)
+    - [Aggiunta di una visualizzazione di amministrazione](using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-4.md)
     - [Creazione di un'interfaccia utente dinamica con Knockout.js](using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-5.md)
-    - [Creazione di prodotto e i controller di ordine](using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-6.md)
-    - [Creazione di principale pagina](using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-7.md)
-- [Servizio indipendente API Web 1 (c#)](self-host-a-web-api.md)
-- [API REST con ASP.NET Web API di compilazione](build-restful-apis-with-aspnet-web-api.md)
+    - [Creazione di controller per prodotti e ordini](using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-6.md)
+    - [Creazione della pagina principale](using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-7.md)
+- [Hosting indipendente dell'API Web 1 (C#)](self-host-a-web-api.md)
+- [Creazione di API RESTful con l'API Web ASP.NET](build-restful-apis-with-aspnet-web-api.md)

@@ -1,32 +1,28 @@
 ---
 uid: web-api/overview/formats-and-model-binding/index
-title: La serializzazione e associazione del modello in ASP.NET Web API | Documenti Microsoft
+title: Serializzazione e associazione del modello in API Web ASP.NET | Microsoft Docs
 author: rick-anderson
-description: Come associa messaggi HTTP di ASP.NET Web API per i modelli di dominio, e come usare i supporti formatta in Web API.
-ms.author: aspnetcontent
-manager: wpickett
+description: Come API Web ASP.NET associa i messaggi HTTP per i modelli di dominio e come usare i supporti formatta in API Web.
+ms.author: riande
 ms.date: 01/17/2012
-ms.topic: article
 ms.assetid: 2d520763-3860-4b3f-8b99-ac71fb01cf37
-ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/formats-and-model-binding
 msc.type: chapter
-ms.openlocfilehash: 8aa061c2cdf4c65a1e0718e2ab146a0220fd8ee6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: fea9b9dcfa9dfbc56a724d2dab03b98a1259e3a4
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26506770"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255854"
 ---
-<a name="serialization-and-model-binding-in-aspnet-web-api"></a>La serializzazione e associazione del modello in ASP.NET Web API
+<a name="serialization-and-model-binding-in-aspnet-web-api"></a>Serializzazione e associazione di modelli in ASP.NET Web API
 ====================
-> Come associa messaggi HTTP di ASP.NET Web API per i modelli di dominio, e come usare i supporti formatta in Web API.
+> Come API Web ASP.NET associa i messaggi HTTP per i modelli di dominio e come usare i supporti formatta in API Web.
 
 
-- [Formattatori di Media in Web API 2](media-formatters.md)
-- [La serializzazione XML in Web API e JSON](json-and-xml-serialization.md)
-- [Supporto BSON in Web API 2.1](bson-support-in-web-api-21.md)
-- [Negoziazione del contenuto in Web API](content-negotiation.md)
-- [Convalida del modello in Web API](model-validation-in-aspnet-web-api.md)
-- [Parametro di associazione in Web API](parameter-binding-in-aspnet-web-api.md)
+- [Formattatori di file multimediali nell'API Web 2](media-formatters.md)
+- [Serializzazione JSON e XML nell'API Web](json-and-xml-serialization.md)
+- [Supporto di BSON nell'API Web 2.1](bson-support-in-web-api-21.md)
+- [Negoziazione del contenuto nell'API Web](content-negotiation.md)
+- [Convalida del modello nell'API Web](model-validation-in-aspnet-web-api.md)
+- [Associazione di parametri nell'API Web](parameter-binding-in-aspnet-web-api.md)

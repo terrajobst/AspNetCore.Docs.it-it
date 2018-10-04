@@ -1,36 +1,32 @@
 ---
 uid: web-forms/overview/older-versions-security/membership/index
-title: ASP.NET 3.5 - appartenenza | Documenti Microsoft
+title: ASP.NET 3.5 - appartenenza | Microsoft Docs
 author: rick-anderson
-description: Questa serie di esercitazioni vengono esaminate le tecniche per l'uso il sistema di appartenenze predefinito (sicurezza) per creare gli account utente e configurare le regole di autorizzazione.
-ms.author: aspnetcontent
-manager: wpickett
+description: Questa serie di esercitazioni vengono esaminate le tecniche d'uso il sistema di appartenenze predefinito (sicurezza) per creare gli account utente e configurare le regole di autorizzazione.
+ms.author: riande
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: 96fc5552-05cd-4547-909f-9bb3176e44d6
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership
 msc.type: chapter
-ms.openlocfilehash: bcd354111798d45c6207f0eead00647f6a031fcc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 99409da3b5e54e1f1fa0d2d3ef3668dcc16083d5
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26519100"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48254927"
 ---
 <a name="aspnet-35---membership"></a>ASP.NET 3.5 - appartenenza
 ====================
-> Questa serie di esercitazioni vengono esaminate le tecniche per l'uso il sistema di appartenenze predefinito (sicurezza) per creare gli account utente e configurare le regole di autorizzazione.
+> Questa serie di esercitazioni vengono esaminate le tecniche d'uso il sistema di appartenenze predefinito (sicurezza) per creare gli account utente e configurare le regole di autorizzazione.
 
 
-- [Creazione dello Schema di appartenenza in SQL Server (c#)](creating-the-membership-schema-in-sql-server-cs.md)
-- [Creazione di account utente (c#)](creating-user-accounts-cs.md)
-- [Convalida le credenziali utente nell'archivio utente di appartenenza (c#)](validating-user-credentials-against-the-membership-user-store-cs.md)
-- [Autorizzazione basata sull'utente (c#)](user-based-authorization-cs.md)
-- [L'archiviazione delle informazioni utente aggiuntive (c#)](storing-additional-user-information-cs.md)
-- [Creazione dello Schema di appartenenza in SQL Server (VB)](creating-the-membership-schema-in-sql-server-vb.md)
+- [Creazione dello schema di appartenenza in SQL Server (C#)](creating-the-membership-schema-in-sql-server-cs.md)
+- [Creazione di account utente (C#)](creating-user-accounts-cs.md)
+- [Convalida delle credenziali utente rispetto all'archivio utente di appartenenza (C#)](validating-user-credentials-against-the-membership-user-store-cs.md)
+- [Autorizzazione basata sull'utente (C#)](user-based-authorization-cs.md)
+- [Archiviazione di informazioni utente aggiuntive (C#)](storing-additional-user-information-cs.md)
+- [Creazione dello schema di appartenenza in SQL Server (VB)](creating-the-membership-schema-in-sql-server-vb.md)
 - [Creazione di account utente (VB)](creating-user-accounts-vb.md)
-- [Convalida le credenziali utente nell'archivio utente di appartenenza (VB)](validating-user-credentials-against-the-membership-user-store-vb.md)
+- [Convalida delle credenziali utente rispetto all'archivio utente di appartenenza (VB)](validating-user-credentials-against-the-membership-user-store-vb.md)
 - [Autorizzazione basata sull'utente (VB)](user-based-authorization-vb.md)
-- [L'archiviazione delle informazioni utente aggiuntive (VB)](storing-additional-user-information-vb.md)
+- [Archiviazione di informazioni utente aggiuntive (VB)](storing-additional-user-information-vb.md)

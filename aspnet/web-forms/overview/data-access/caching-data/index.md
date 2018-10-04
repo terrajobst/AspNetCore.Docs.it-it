@@ -1,34 +1,30 @@
 ---
 uid: web-forms/overview/data-access/caching-data/index
-title: La memorizzazione nella cache dati | Documenti Microsoft
+title: La memorizzazione nella cache dei dati | Microsoft Docs
 author: rick-anderson
-description: Questa esercitazione viene spiegato la memorizzazione nella cache, che può migliorare le prestazioni del sito e come applicare la memorizzazione nella cache a livello di presentazione utilizzando il controllo ObjectDataSource...
-ms.author: aspnetcontent
-manager: wpickett
+description: Questa serie di esercitazioni illustra la memorizzazione nella cache, che può migliorare le prestazioni del sito e come applicare la memorizzazione nella cache a livello di presentazione tramite il controllo ObjectDataSource...
+ms.author: riande
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: 7d7ee56c-a867-4777-9407-ec8f73a605a3
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/caching-data
 msc.type: chapter
-ms.openlocfilehash: 0b14ecdd4a8cab1d61bf9b7c238fc32330d54e52
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: daa92182f2c28a7fd79d584c0a647f6a15700d12
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26512620"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255054"
 ---
 <a name="caching-data"></a>Memorizzazione di dati nella cache
 ====================
-> Questa esercitazione viene spiegato la memorizzazione nella cache, che può migliorare le prestazioni del sito e come applicare la memorizzazione nella cache a livello di presentazione utilizzando il controllo ObjectDataSource.
+> Questa serie di esercitazioni illustra la memorizzazione nella cache, che può migliorare le prestazioni del sito e come applicare la memorizzazione nella cache a livello di presentazione tramite il controllo ObjectDataSource.
 
 
-- [La memorizzazione nella cache di dati con ObjectDataSource (c#)](caching-data-with-the-objectdatasource-cs.md)
-- [Memorizzazione nella cache i dati dell'architettura della finestra (c#)](caching-data-in-the-architecture-cs.md)
-- [Memorizzazione nella cache i dati all'avvio dell'applicazione (c#)](caching-data-at-application-startup-cs.md)
-- [Utilizzando le dipendenze della Cache SQL (c#)](using-sql-cache-dependencies-cs.md)
-- [La memorizzazione nella cache di dati con ObjectDataSource (VB)](caching-data-with-the-objectdatasource-vb.md)
-- [Memorizzazione nella cache i dati dell'architettura della finestra (VB)](caching-data-in-the-architecture-vb.md)
-- [Memorizzazione nella cache i dati all'avvio dell'applicazione (VB)](caching-data-at-application-startup-vb.md)
-- [Utilizzando le dipendenze della Cache SQL (VB)](using-sql-cache-dependencies-vb.md)
+- [Memorizzazione di dati nella cache con ObjectDataSource (C#)](caching-data-with-the-objectdatasource-cs.md)
+- [Memorizzazione di dati nella cache nell'architettura (C#)](caching-data-in-the-architecture-cs.md)
+- [Memorizzazione di dati nella cache all'avvio dell'applicazione (C#)](caching-data-at-application-startup-cs.md)
+- [Uso delle dipendenze della cache SQL (C#)](using-sql-cache-dependencies-cs.md)
+- [Memorizzazione di dati nella cache con ObjectDataSource (VB)](caching-data-with-the-objectdatasource-vb.md)
+- [Memorizzazione di dati nella cache nell'architettura (VB)](caching-data-in-the-architecture-vb.md)
+- [Memorizzazione di dati nella cache all'avvio dell'applicazione (VB)](caching-data-at-application-startup-vb.md)
+- [Uso delle dipendenze della cache SQL (VB)](using-sql-cache-dependencies-vb.md)

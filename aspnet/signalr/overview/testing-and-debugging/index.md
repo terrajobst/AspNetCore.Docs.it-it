@@ -1,29 +1,25 @@
 ---
 uid: signalr/overview/testing-and-debugging/index
-title: SignalR test e debug | Documenti Microsoft
+title: SignalR test e debug | Microsoft Docs
 author: rick-anderson
-description: Procedura di test e debug delle applicazioni SignalR.
-ms.author: aspnetcontent
-manager: wpickett
+description: Come eseguire test e debug di applicazioni SignalR.
+ms.author: riande
 ms.date: 09/19/2014
-ms.topic: article
 ms.assetid: 437f6dec-ab4b-4d12-af71-e8ab028aab7b
-ms.technology: dotnet-signalr
-ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/testing-and-debugging
 msc.type: chapter
-ms.openlocfilehash: 54cace2dff97e405ab5b4d9205b4c85266a02e96
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 4d252a080819873435318b6fd317383ad710980a
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26505530"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255465"
 ---
 <a name="signalr-testing-and-debugging"></a>SignalR test e debug
 ====================
-> Procedura di test e debug delle applicazioni SignalR.
+> Come eseguire test e debug di applicazioni SignalR.
 
 
 - [Risoluzione dei problemi di SignalR](troubleshooting.md)
-- [Unit test delle applicazioni SignalR](unit-testing-signalr-applications.md)
-- [Abilitazione della traccia SignalR](enabling-signalr-tracing.md)
+- [Unit test di applicazioni SignalR](unit-testing-signalr-applications.md)
+- [Abilitazione della traccia di SignalR](enabling-signalr-tracing.md)

@@ -1,28 +1,24 @@
 ---
 uid: mvc/overview/older-versions-1/deployment/index
-title: Distribuzione | Documenti Microsoft
+title: Distribuzione | Microsoft Docs
 author: rick-anderson
-description: In questa esercitazione imparare a usare ASP.NET MVC e routing con diverse versioni di IIS.
-ms.author: aspnetcontent
-manager: wpickett
+description: In questa esercitazione descrive come usare ASP.NET MVC e il routing con versioni diverse di IIS.
+ms.author: riande
 ms.date: 09/28/2011
-ms.topic: article
 ms.assetid: 1e9204db-664c-4376-aa50-1fb9e245a4d9
-ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/deployment
 msc.type: chapter
-ms.openlocfilehash: bc88ac685e9d776b7cbf4ffd6e15231e4a932de2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: f6ad66f93e0bc4efbd85c2d0b25ff70eef9deee0
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26499670"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255305"
 ---
 <a name="deployment"></a>Distribuzione
 ====================
-> In questa esercitazione imparare a usare ASP.NET MVC e routing con diverse versioni di IIS.
+> In questa esercitazione descrive come usare ASP.NET MVC e il routing con versioni diverse di IIS.
 
 
-- [Utilizzo di ASP.NET MVC con versioni diverse di IIS (c#)](using-asp-net-mvc-with-different-versions-of-iis-cs.md)
-- [Utilizzo di ASP.NET MVC con versioni diverse di IIS (VB)](using-asp-net-mvc-with-different-versions-of-iis-vb.md)
+- [Uso di ASP.NET MVC con versioni diverse di IIS (C#)](using-asp-net-mvc-with-different-versions-of-iis-cs.md)
+- [Uso di ASP.NET MVC con versioni diverse di IIS (VB)](using-asp-net-mvc-with-different-versions-of-iis-vb.md)

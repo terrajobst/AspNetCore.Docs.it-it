@@ -1,33 +1,29 @@
 ---
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/index
-title: Utilizzo di ASP.NET Web API 1 con Entity Framework 5 | Documenti Microsoft
+title: Uso di API Web ASP.NET 1 con Entity Framework 5 | Microsoft Docs
 author: rick-anderson
-description: Come creare un'applicazione API Web 1 che usa Entity Framework per la persistenza di database.
-ms.author: aspnetcontent
-manager: wpickett
+description: Come creare un'applicazione API Web 1 che usa Entity Framework per la persistenza del database.
+ms.author: riande
 ms.date: 06/16/2014
-ms.topic: article
 ms.assetid: b380c940-84c4-4e4a-980a-fa69986e919b
-ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5
 msc.type: chapter
-ms.openlocfilehash: 30fc6619da6ac16599eed9de18aaf558c248e980
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 805bf4e94dfbba7b8495ee42438b58bbad6e4b91
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26508120"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255595"
 ---
-<a name="using-aspnet-web-api-1-with-entity-framework-5"></a>Utilizzo di ASP.NET Web API 1 con Entity Framework 5
+<a name="using-aspnet-web-api-1-with-entity-framework-5"></a>Uso di API Web ASP.NET 1 con Entity Framework 5
 ====================
-> Come creare un'applicazione API Web 1 che usa Entity Framework per la persistenza di database.
+> Come creare un'applicazione API Web 1 che usa Entity Framework per la persistenza del database.
 
 
-- [Panoramica e la creazione del progetto](using-web-api-with-entity-framework-part-1.md)
+- [Panoramica e creazione del progetto](using-web-api-with-entity-framework-part-1.md)
 - [Creazione dei modelli di dominio](using-web-api-with-entity-framework-part-2.md)
-- [Creazione di un Controller di amministrazione](using-web-api-with-entity-framework-part-3.md)
-- [Aggiunta di una vista di amministrazione](using-web-api-with-entity-framework-part-4.md)
+- [Creazione di un controller di amministrazione](using-web-api-with-entity-framework-part-3.md)
+- [Aggiunta di una visualizzazione di amministrazione](using-web-api-with-entity-framework-part-4.md)
 - [Creazione di un'interfaccia utente dinamica con Knockout.js](using-web-api-with-entity-framework-part-5.md)
-- [Creazione di prodotto e i controller di ordine](using-web-api-with-entity-framework-part-6.md)
-- [Creazione di principale pagina](using-web-api-with-entity-framework-part-7.md)
+- [Creazione di controller per prodotti e ordini](using-web-api-with-entity-framework-part-6.md)
+- [Creazione della pagina principale](using-web-api-with-entity-framework-part-7.md)

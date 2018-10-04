@@ -1,28 +1,24 @@
 ---
 uid: web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-repeater/index
-title: Azioni personalizzate e DataList Ripetitore | Documenti Microsoft
+title: Azioni dei pulsanti personalizzati con DataList e Repeater | Microsoft Docs
 author: rick-anderson
-description: Queste esercitazioni viene illustrato come aggiungere i pulsanti per i controlli DataList e Repeater per aggiungere funzionalità personalizzate.
-ms.author: aspnetcontent
-manager: wpickett
+description: Queste esercitazioni mostrano come aggiungere pulsanti ai controlli DataList e Repeater per aggiungere funzionalità personalizzate.
+ms.author: riande
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: d017f36f-0152-43c7-ac44-6c7c755ea79a
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-repeater
 msc.type: chapter
-ms.openlocfilehash: b9ec5df400ce445e703119b398e9f7a26d3f5446
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 4156ab56cda4e88caa883cf8968dca319109e59f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26512680"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48256190"
 ---
-<a name="custom-button-actions-with-the-datalist-and-repeater"></a>Azioni personalizzate e DataList Ripetitore
+<a name="custom-button-actions-with-the-datalist-and-repeater"></a>Azioni dei pulsanti personalizzati con DataList e Repeater
 ====================
-> Queste esercitazioni viene illustrato come aggiungere i pulsanti per i controlli DataList e Repeater per aggiungere funzionalità personalizzate.
+> Queste esercitazioni mostrano come aggiungere pulsanti ai controlli DataList e Repeater per aggiungere funzionalità personalizzate.
 
 
-- [Pulsanti personalizzati in DataList e Repeater (c#)](custom-buttons-in-the-datalist-and-repeater-cs.md)
-- [Pulsanti personalizzati in DataList e Repeater (VB)](custom-buttons-in-the-datalist-and-repeater-vb.md)
+- [Pulsanti personalizzati con DataList e Repeater (C#)](custom-buttons-in-the-datalist-and-repeater-cs.md)
+- [Pulsanti personalizzati con DataList e Repeater (VB)](custom-buttons-in-the-datalist-and-repeater-vb.md)

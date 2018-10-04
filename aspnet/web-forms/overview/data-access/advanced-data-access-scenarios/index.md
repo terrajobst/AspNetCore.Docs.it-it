@@ -1,44 +1,40 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/index
-title: Scenari di accesso ai dati avanzate | Documenti Microsoft
+title: Scenari di accesso di dati avanzati | Microsoft Docs
 author: rick-anderson
-description: Queste esercitazioni illustrano come crittografare le informazioni di connessione dati sull'utilizzo di stored procedure e le colonne calcolate e come utilizzare join con tabelle di database...
-ms.author: aspnetcontent
-manager: wpickett
+description: Queste esercitazioni illustrano come usare stored procedure e le colonne calcolate e come usare join con tabelle di database come crittografare le informazioni di connessione dati...
+ms.author: riande
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: 00d198ed-fddc-4fd3-a86e-3f29c5f707cc
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios
 msc.type: chapter
-ms.openlocfilehash: e773ced66465ab99e9b662d84e1cdb8e607918e7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 6c0abbe94f743a24541a79c6dd4144d8992cd224
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26512290"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255943"
 ---
-<a name="advanced-data-access-scenarios"></a>Scenari di accesso ai dati avanzati
+<a name="advanced-data-access-scenarios"></a>Scenari di accesso di dati avanzati
 ====================
-> Queste esercitazioni illustrano come crittografare le informazioni di connessione dati sull'utilizzo di stored procedure e le colonne calcolate e come utilizzare join con tabelle di database.
+> Queste esercitazioni illustrano come usare stored procedure e le colonne calcolate, come usare join con tabelle di database e come crittografare le informazioni di connessione dati.
 
 
-- [Creazione di nuove Stored procedure per gli oggetti TableAdapter del DataSet tipizzato (c#)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md)
-- [Usando Stored procedure per gli oggetti TableAdapter del DataSet tipizzato (c#)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md)
-- [L'aggiornamento dell'oggetto TableAdapter per usare join (c#)](updating-the-tableadapter-to-use-joins-cs.md)
-- [Aggiunta di colonne aggiuntive DataTable (c#)](adding-additional-datatable-columns-cs.md)
-- [Utilizzo di colonne calcolate (c#)](working-with-computed-columns-cs.md)
-- [Configurazione delle impostazioni del livello di accesso ai dati del livello di connessione e comando (c#)](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs.md)
-- [Proteggere le stringhe di connessione e altre informazioni di configurazione (c#)](protecting-connection-strings-and-other-configuration-information-cs.md)
-- [Debug di Stored procedure (c#)](debugging-stored-procedures-cs.md)
-- [Creazione di Stored procedure e funzioni definite dall'utente con codice gestito (c#)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs.md)
-- [Creazione di nuove Stored procedure per gli oggetti TableAdapter del DataSet tipizzato (VB)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md)
-- [Usando Stored procedure per gli oggetti TableAdapter del DataSet tipizzato (VB)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md)
-- [L'aggiornamento dell'oggetto TableAdapter per usare join (Visual Basic)](updating-the-tableadapter-to-use-joins-vb.md)
-- [Aggiunta di colonne aggiuntive DataTable (VB)](adding-additional-datatable-columns-vb.md)
-- [Utilizzo delle colonne calcolate (VB)](working-with-computed-columns-vb.md)
-- [Configurazione delle impostazioni di connessione e comando livello del livello di accesso ai dati (VB)](configuring-the-data-access-layer-s-connection-and-command-level-settings-vb.md)
-- [Proteggere le stringhe di connessione e altre informazioni di configurazione (VB)](protecting-connection-strings-and-other-configuration-information-vb.md)
-- [Debug di Stored procedure (VB)](debugging-stored-procedures-vb.md)
-- [Creazione di Stored procedure e funzioni definite dall'utente con codice gestito (VB)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb.md)
+- [Creazione di nuove stored procedure per i TableAdapter del set di dati tipizzato (C#)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md)
+- [Uso di stored procedure esistenti per i TableAdapter del set di dati tipizzato (C#)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md)
+- [Aggiornamento del TableAdapter per l'uso dei join (C#)](updating-the-tableadapter-to-use-joins-cs.md)
+- [Aggiunta di colonne DataTable aggiuntive (C#)](adding-additional-datatable-columns-cs.md)
+- [Uso di colonne calcolate (C#)](working-with-computed-columns-cs.md)
+- [Configurazione delle impostazioni del livello di accesso ai dati a livello di connessione e di comando (C#)](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs.md)
+- [Protezione delle stringhe di connessione e di altre informazioni di configurazione (C#)](protecting-connection-strings-and-other-configuration-information-cs.md)
+- [Debug di stored procedure (C#)](debugging-stored-procedures-cs.md)
+- [Creazione di stored procedure e funzioni definite dall'utente con codice gestito (C#)](creating-stored-procedures-and-user-defined-functions-with-managed-code-cs.md)
+- [Creazione di nuove stored procedure per i TableAdapter del set di dati tipizzato (VB)](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md)
+- [Uso di stored procedure esistenti per i TableAdapter del set di dati tipizzato (VB)](using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-vb.md)
+- [Aggiornamento del TableAdapter per l'uso dei join (VB)](updating-the-tableadapter-to-use-joins-vb.md)
+- [Aggiunta di colonne DataTable aggiuntive (VB)](adding-additional-datatable-columns-vb.md)
+- [Uso di colonne calcolate (VB)](working-with-computed-columns-vb.md)
+- [Configurazione delle impostazioni del livello di accesso ai dati a livello di connessione e di comando (VB)](configuring-the-data-access-layer-s-connection-and-command-level-settings-vb.md)
+- [Protezione delle stringhe di connessione e di altre informazioni di configurazione (VB)](protecting-connection-strings-and-other-configuration-information-vb.md)
+- [Debug di stored procedure (VB)](debugging-stored-procedures-vb.md)
+- [Creazione di stored procedure e funzioni definite dall'utente con codice gestito (VB)](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb.md)

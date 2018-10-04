@@ -1,26 +1,22 @@
 ---
 uid: signalr/videos/index
-title: Video di ASP.NET SignalR | Documenti Microsoft
+title: Video su ASP.NET SignalR | Microsoft Docs
 author: rick-anderson
 description: ''
-ms.author: aspnetcontent
-manager: wpickett
+ms.author: riande
 ms.date: 12/12/2012
-ms.topic: article
 ms.assetid: c0ea52a3-7497-4204-88c6-91591ac1a6b2
-ms.technology: dotnet-signalr
-ms.prod: .net-framework
 msc.legacyurl: /signalr/videos
 msc.type: book
-ms.openlocfilehash: c05938c415b1dd9eae60b865fc4434660b767579
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 41722eb0c46836942f8b0042e14ddadbbff73c2f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26505510"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255095"
 ---
-<a name="aspnet-signalr-videos"></a>Video di ASP.NET SignalR
+<a name="aspnet-signalr-videos"></a>Video su ASP.NET SignalR
 ====================
-- [Video di ASP.NET SignalR](getting-started/index.md)
+- [Video su ASP.NET SignalR](getting-started/index.md)
 
-    - [SignalR e WebSocket](getting-started/signalr-and-web-sockets.md)
+    - [SignalR e Web Sockets](getting-started/signalr-and-web-sockets.md)

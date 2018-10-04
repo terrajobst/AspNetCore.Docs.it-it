@@ -1,37 +1,33 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/index
-title: In ASP.NET 4 - Enterprise distribuzione serie 1 | Documenti Microsoft
+title: ASP.NET 4 - serie sulla distribuzione aziendale 1 | Microsoft Docs
 author: rick-anderson
-description: In questa esercitazione viene descritto come soddisfano molti dei problemi che si verificano quando si gestisce la distribuzione di applicazioni web su larga scala per developmen...
-ms.author: aspnetcontent
-manager: wpickett
+description: Questa esercitazione descrive come soddisfare molte delle sfide che possono incontrare quando si gestisce la distribuzione di applicazioni web su scala aziendale per servizi di distribuzione...
+ms.author: riande
 ms.date: 05/16/2012
-ms.topic: article
 ms.assetid: 83e0a572-428f-4bea-9638-1a031c6901c0
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise
 msc.type: chapter
-ms.openlocfilehash: 50918b1aef416a7b262e982bcf67607aa36933a3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 92bc3d18c417e73e198d0f7663489fd931bf75b5
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26515180"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48256286"
 ---
-<a name="aspnet-4---enterprise-deployment-series-1"></a>In ASP.NET 4 - Enterprise distribuzione serie 1
+<a name="aspnet-4---enterprise-deployment-series-1"></a>ASP.NET 4 - serie sulla distribuzione aziendale 1
 ====================
-> In questa esercitazione viene descritto come soddisfano molti dei problemi che si verificano quando si gestisce la distribuzione di applicazioni web su larga scala per ambienti di sviluppo, test, gestione temporanea e produzione. L'esercitazione include una soluzione di riferimento con una combinazione di contenuto concettuale e orientata alle attività per eseguire varie attività comuni e procedure.
+> Questa esercitazione descrive come soddisfare molte delle sfide che possono incontrare quando si gestisce la distribuzione di applicazioni web su larga scala per ambienti di sviluppo, test, staging e produzione. L'esercitazione include una soluzione di riferimento insieme a una combinazione di contenuto concettuale e orientati alle attività consentono di eseguire varie attività comuni e procedure.
 
 
-- [Distribuzione Web dell'organizzazione](web-deployment-in-the-enterprise.md)
-- [La soluzione di gestione di contatto](the-contact-manager-solution.md)
-- [Impostazione della soluzione di gestione di contatto](setting-up-the-contact-manager-solution.md)
-- [Informazioni sui File di progetto](understanding-the-project-file.md)
+- [Distribuzione Web nell'organizzazione](web-deployment-in-the-enterprise.md)
+- [Soluzione Contact Manager](the-contact-manager-solution.md)
+- [Configurazione della soluzione Contact Manager](setting-up-the-contact-manager-solution.md)
+- [Informazioni sul file di progetto](understanding-the-project-file.md)
 - [Informazioni sul processo di compilazione](understanding-the-build-process.md)
-- [Compilazione e l'assemblaggio di progetti di applicazione Web](building-and-packaging-web-application-projects.md)
-- [Configurazione dei parametri per la distribuzione di pacchetto Web](configuring-parameters-for-web-package-deployment.md)
+- [Compilazione e creazione di pacchetti di progetti di applicazione Web](building-and-packaging-web-application-projects.md)
+- [Configurazione dei parametri per la distribuzione di pacchetti Web](configuring-parameters-for-web-package-deployment.md)
 - [Distribuzione di pacchetti Web](deploying-web-packages.md)
-- [Distribuzione di progetti di Database](deploying-database-projects.md)
-- [Creazione ed esecuzione di un File di comando di distribuzione](creating-and-running-a-deployment-command-file.md)
-- [Installare manualmente i pacchetti Web](manually-installing-web-packages.md)
+- [Distribuzione di progetti di database](deploying-database-projects.md)
+- [Creazione ed esecuzione di un file di comando per la distribuzione](creating-and-running-a-deployment-command-file.md)
+- [Installazione manuale dei pacchetti Web](manually-installing-web-packages.md)

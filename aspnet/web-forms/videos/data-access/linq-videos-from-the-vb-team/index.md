@@ -1,33 +1,29 @@
 ---
 uid: web-forms/videos/data-access/linq-videos-from-the-vb-team/index
-title: Video LINQ dal Team di Visual Basic | Documenti Microsoft
+title: Video su LINQ dal Team di Visual Basic | Microsoft Docs
 author: rick-anderson
-description: In questi video forniscono un'ora e il metà del contenuto attivando le nuove funzionalità del linguaggio LINQ di Visual Basic 9.0 è incluso in Visual Studio 2008.
-ms.author: aspnetcontent
-manager: wpickett
+description: Questi video forniscono su un'ora e il metà del contenuto incentrato su nuove funzionalità del linguaggio LINQ di Visual Basic 9.0 incluso in Visual Studio 2008.
+ms.author: riande
 ms.date: 02/24/2012
-ms.topic: article
 ms.assetid: 257373bb-eab0-47bc-b5a2-37a9e91666d6
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/data-access/linq-videos-from-the-vb-team
 msc.type: chapter
-ms.openlocfilehash: a33cb02630be7ec688e4fce3d290f4a692f958ff
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 67c6aaf358d4c7c2764493e8c17e1d5245096014
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26525920"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48254798"
 ---
-<a name="linq-videos-from-the-vb-team"></a>Video LINQ dal Team di Visual Basic
+<a name="linq-videos-from-the-vb-team"></a>Video su LINQ dal Team di Visual Basic
 ====================
-> In questi video forniscono un'ora e il metà del contenuto attivando le nuove funzionalità del linguaggio LINQ di Visual Basic 9.0 è incluso in Visual Studio 2008.
+> Questi video forniscono su un'ora e il metà del contenuto incentrato su nuove funzionalità del linguaggio LINQ di Visual Basic 9.0 incluso in Visual Studio 2008.
 
 
 - [Introduzione a LINQ](how-do-i-get-started-with-linq.md)
-- [Eseguire le query di aggregazione e di gruppo](how-do-i-perform-group-and-aggregate-queries.md)
-- [Aggiornare i progetti di Visual Basic per abilitare LINQ](how-do-i-upgrade-visual-basic-projects-to-enable-linq.md)
+- [Esecuzione di query di raggruppamento e aggregazione](how-do-i-perform-group-and-aggregate-queries.md)
+- [Aggiornamento di progetti Visual Basic per abilitare LINQ](how-do-i-upgrade-visual-basic-projects-to-enable-linq.md)
 - [Introduzione a LINQ to XML](how-do-i-get-started-with-linq-to-xml.md)
-- [Abilitare IntelliSense XML e usare gli spazi dei nomi XML](how-do-i-enable-xml-intellisense-and-use-xml-namespaces.md)
-- [Creare documenti XML dai dati SQL](how-do-i-create-xml-documents-from-sql-data.md)
-- [Creazione di fogli di calcolo di Excel tramite LINQ to XML](how-do-i-create-excel-spreadsheets-using-linq-to-xml.md)
+- [Abilitare XML IntelliSense e usare lo spazio dei nomi XML](how-do-i-enable-xml-intellisense-and-use-xml-namespaces.md)
+- [Creare documenti XML basati su dati SQL](how-do-i-create-xml-documents-from-sql-data.md)
+- [Creare fogli di calcolo di Excel mediante LINQ to XML](how-do-i-create-excel-spreadsheets-using-linq-to-xml.md)

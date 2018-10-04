@@ -1,28 +1,24 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/htmleditor/index
-title: HTMLEditor | Documenti Microsoft
+title: HTMLEditor | Microsoft Docs
 author: rick-anderson
-description: In questa esercitazione viene illustrato come utilizzare il controllo HTMLEditor, che fornisce un editor avanzato e WYSIWYG o modifica dell'origine di contenuto HTML.
-ms.author: aspnetcontent
-manager: wpickett
+description: Questa esercitazione illustra come usare il controllo HTMLEditor, che fornisce un editor avanzato e WYSIWYG o modifica di origini di contenuto HTML.
+ms.author: riande
 ms.date: 11/14/2011
-ms.topic: article
 ms.assetid: b43a6e83-7391-407c-953c-222e7567b509
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/htmleditor
 msc.type: chapter
-ms.openlocfilehash: 06e68d964cecc00c0ab45f7965a8df11e8afc6ea
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 39d5eae69f5d23aef7454148f1a6084fc1425b66
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26510620"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255234"
 ---
 <a name="htmleditor"></a>HTMLEditor
 ====================
-> In questa esercitazione viene illustrato come utilizzare il controllo HTMLEditor, che fornisce un editor avanzato e WYSIWYG o modifica dell'origine di contenuto HTML.
+> Questa esercitazione illustra come usare il controllo HTMLEditor, che fornisce un editor avanzato e WYSIWYG o modifica di origini di contenuto HTML.
 
 
-- [Controllo dell'Editor HTML (c#)](how-do-i-use-the-html-editor-control-cs.md)
-- [Controllo dell'Editor HTML (VB)](how-do-i-use-the-html-editor-control-vb.md)
+- [Controllo HTMLEditor (C#)](how-do-i-use-the-html-editor-control-cs.md)
+- [Controllo HTMLEditor (VB)](how-do-i-use-the-html-editor-control-vb.md)

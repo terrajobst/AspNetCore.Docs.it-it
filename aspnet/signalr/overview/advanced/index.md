@@ -1,27 +1,23 @@
 ---
 uid: signalr/overview/advanced/index
-title: Argomenti avanzati SignalR | Documenti Microsoft
+title: SignalR argomenti avanzati | Microsoft Docs
 author: rick-anderson
 description: Documentazione di SignalR - argomenti avanzati.
-ms.author: aspnetcontent
-manager: wpickett
+ms.author: riande
 ms.date: 09/19/2014
-ms.topic: article
 ms.assetid: d8f5d0e8-1ddd-4005-a7aa-50ae87f9f9f3
-ms.technology: dotnet-signalr
-ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/advanced
 msc.type: chapter
-ms.openlocfilehash: dffeb2d91c034ca87732cbdd0784e22a32b7b7cd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 06239a87b831062bed14a3b941a8ca76ef5aeb5a
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26503550"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255425"
 ---
 <a name="signalr-advanced-topics"></a>SignalR argomenti avanzati
 ====================
 > Documentazione di SignalR - argomenti avanzati.
 
 
-- [Inserimento di dipendenze in SignalR](dependency-injection.md)
+- [Inserimento delle dipendenze in SignalR](dependency-injection.md)

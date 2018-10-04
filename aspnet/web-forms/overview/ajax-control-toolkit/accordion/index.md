@@ -1,30 +1,26 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/accordion/index
-title: Accordion | Documenti Microsoft
+title: Controllo Accordion | Microsoft Docs
 author: rick-anderson
-description: In questa esercitazione viene illustrato come utilizzare il controllo Accordion, che contiene più riquadri e consente agli utenti di visualizzare uno di essi alla volta.
-ms.author: aspnetcontent
-manager: wpickett
+description: Questa esercitazione illustra come usare il controllo Accordion, che contiene più riquadri e consente agli utenti di visualizzare uno di essi alla volta.
+ms.author: riande
 ms.date: 11/11/2011
-ms.topic: article
 ms.assetid: afd41278-b4c5-43ee-9845-2b665932dcff
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/accordion
 msc.type: chapter
-ms.openlocfilehash: 6d21104c82419da4a6445d505fab549eba686efb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 86e1e368165d40b8d0fc1e2c24dde862c1691822
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26509070"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255344"
 ---
-<a name="accordion"></a>Accordion
+<a name="accordion"></a>Controllo Accordion
 ====================
-> In questa esercitazione viene illustrato come utilizzare il controllo Accordion, che contiene più riquadri e consente agli utenti di visualizzare uno di essi alla volta.
+> Questa esercitazione illustra come usare il controllo Accordion, che contiene più riquadri e consente agli utenti di visualizzare uno di essi alla volta.
 
 
-- [Associazione dati per Accordion (c#)](databinding-to-an-accordion-cs.md)
-- [Aggiunta dinamica di riquadro soffietto (c#)](dynamically-adding-an-accordion-pane-cs.md)
-- [Associazione dati per Accordion (VB)](databinding-to-an-accordion-vb.md)
-- [Aggiunta dinamica di riquadro soffietto (VB)](dynamically-adding-an-accordion-pane-vb.md)
+- [Data binding a un controllo Accordion (C#)](databinding-to-an-accordion-cs.md)
+- [Aggiunta dinamica di un riquadro Accordion (C#)](dynamically-adding-an-accordion-pane-cs.md)
+- [Data binding a un controllo Accordion (VB)](databinding-to-an-accordion-vb.md)
+- [Aggiunta dinamica di un riquadro Accordion (VB)](dynamically-adding-an-accordion-pane-vb.md)
