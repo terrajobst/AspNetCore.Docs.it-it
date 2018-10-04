@@ -8,16 +8,16 @@ ms.date: 04/03/2015
 ms.assetid: 81ee500f-fc37-40d6-8722-f1b64720fbb6
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: 330cb290668ae951e822b95990ed92100b790cd5
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 611a4b59b2ea2eee771f4060fb5d5af041b2ccc6
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41833359"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577769"
 ---
 <a name="create-an-aspnet-mvc-5-app-with-facebook-twitter-linkedin-and-google-oauth2-sign-on-c"></a>Creare un'App ASP.NET MVC 5 con Facebook, Twitter, LinkedIn e Google OAuth2 Sign-on (c#)
 ====================
-da [Rick Anderson](https://github.com/Rick-Anderson)
+da [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Questa esercitazione illustra come compilare un'applicazione web ASP.NET MVC 5 che consente agli utenti di accedere tramite [OAuth 2.0](http://oauth.net/2/) con le credenziali di un provider di autenticazione esterni, ad esempio Facebook, Twitter, LinkedIn, Microsoft o Google. Per semplicità, questa esercitazione è incentrata sull'uso di credenziali da Facebook e Google.
 > 

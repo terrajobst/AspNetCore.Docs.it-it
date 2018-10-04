@@ -8,23 +8,22 @@ ms.date: 06/23/2015
 ms.assetid: 2a0370d3-c2fb-4bf3-88b8-aad5a736c793
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
 msc.type: authoredcontent
-ms.openlocfilehash: 8402b73f5f9d063d958df39f98267468e4aef746
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 5df863762523b62759bb4f7849ca2635e5241b0a
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41826548"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577795"
 ---
 <a name="source-control-building-real-world-cloud-apps-with-azure"></a>Controllo del codice sorgente (creazione di App Cloud funzionanti con Azure)
 ====================
-dal [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
+dal [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra)
 
 [Download risolverlo Project](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) o [Scarica l'E-book](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
 > Il **creazione Real World di App Cloud con Azure** eBook si basa su una presentazione sviluppata da Scott Guthrie. Viene illustrato 13 modelli e procedure consigliate che consentono di avere esito positivo lo sviluppo di App web per il cloud. Per informazioni sull'e-book, vedere [capitolo prima](introduction.md).
 
-
-Controllo del codice sorgente è essenziale per tutti i progetti di sviluppo cloud, non solo gli ambienti di team. Non sarebbe pensi di modifica del codice sorgente o di un documento di Word senza una funzione di annullamento e i backup automatici e controllo del codice sorgente ti offre le funzioni a un livello di progetto in cui è possibile risparmiare ancora più tempo quando si verifica un problema. Con servizi cloud di controllo origine, non è più necessario preoccuparsi di configurazione complesse ed è possibile usare Visual Studio Online gratuito per un massimo di 5 utenti controllo del codice sorgente.
+Controllo del codice sorgente è essenziale per tutti i progetti di sviluppo cloud, non solo gli ambienti di team. Non sarebbe pensi di modifica del codice sorgente o di un documento di Word senza una funzione di annullamento e i backup automatici e controllo del codice sorgente ti offre le funzioni a un livello di progetto in cui è possibile risparmiare ancora più tempo quando si verifica un problema. Con servizi cloud di controllo origine, non è più necessario preoccuparsi di configurazione complesse ed è possibile usare il codice sorgente repository di Azure gratuiti per un massimo di 5 utenti.
 
 La prima parte di questo capitolo illustra tre principali procedure consigliate da tenere presenti:
 
@@ -32,11 +31,11 @@ La prima parte di questo capitolo illustra tre principali procedure consigliate 
 - [Non controllare mai nei segreti](#secrets) (dati sensibili, ad esempio le credenziali) in un repository del codice sorgente.
 - [Impostare i rami di origine](#devops) per abilitare il flusso di lavoro DevOps.
 
-Il resto del capitolo offre alcuni esempi di implementazione di questi modelli in Visual Studio, Azure e Visual Studio Online:
+Il resto del capitolo offre alcuni esempi di implementazione di questi modelli in Visual Studio, Azure e archivi di Azure:
 
 - [Aggiungere script al controllo del codice sorgente in Visual Studio](#vsscripts)
 - [Dati sensibili di Store in Azure](#appsettings)
-- [Usare Git in Visual Studio e Visual Studio Online](#gittfs)
+- [Uso di Git in Visual Studio e archivi di Azure](#gittfs)
 
 <a id="scripts"></a>
 ## <a name="treat-automation-scripts-as-source-code"></a>Considerare gli script di automazione come codice sorgente
@@ -73,7 +72,7 @@ Questa struttura consente inoltre di reagire rapidamente ai commenti dei clienti
 
 Senza una struttura ramificata simile al seguente con la separazione dei rami di sviluppo e produzione, un problema di produzione è stato possibile inserire è nella posizione di dover promuovere nuovo codice di funzionalità con la correzione di produzione. Il nuovo codice di funzionalità potrebbe non essere completamente testato e pronto per l'ambiente di produzione e potrebbe essere necessario eseguire numerose operazioni di backup le modifiche non pronte. Oppure è possibile ritardare la correzione per testare le modifiche e prepararli per la distribuzione.
 
-Quindi sono riportati esempi di come implementare i tre modelli in Visual Studio, Azure e Visual Studio Online. Questi sono esempi anziché how-to--it istruzioni dettagliate; Per istruzioni dettagliate che forniscono tutte il contesto necessario, vedere la [risorse](#resources) sezione alla fine del capitolo.
+Quindi sono riportati esempi di come implementare i tre modelli in Visual Studio, Azure e archivi di Azure. Questi sono esempi anziché how-to--it istruzioni dettagliate; Per istruzioni dettagliate che forniscono tutte il contesto necessario, vedere la [risorse](#resources) sezione alla fine del capitolo.
 
 <a id="vsscripts"></a>
 ## <a name="add-scripts-to-source-control-in-visual-studio"></a>Aggiungere script al controllo del codice sorgente in Visual Studio
@@ -128,17 +127,17 @@ Si noti che gli script vengono parametrizzati in modo che i valori effettivi non
 Quando si esegue in locale nell'ambiente di sviluppo, l'app legge il file Web. config locale e la connessione di punti di stringa a un database LocalDB di SQL Server nel *App\_dati* cartella del progetto web. Quando si esegue l'app in Azure e l'app prova a leggere questi valori dal file Web. config, le operazioni che riceve e Usa sono i valori archiviati per il sito Web, non che cos'è effettivamente nel file Web. config.
 
 <a id="gittfs"></a>
-## <a name="use-git-in-visual-studio-and-visual-studio-online"></a>Usare Git in Visual Studio e Visual Studio Online
+## <a name="use-git-in-visual-studio-and-azure-devops"></a>Uso di Git in Visual Studio e Azure DevOps
 
 È possibile usare qualsiasi ambiente di controllo di origine per implementare la struttura con rami DevOps presentata in precedenza. Per i team distribuiti un [sistema di controllo della versione distribuito](http://en.wikipedia.org/wiki/Distributed_revision_control) potrebbe funzionare meglio (molto DIFFUSO); per gli altri team un [sistema centralizzato](http://en.wikipedia.org/wiki/Revision_control) potrebbero funzionare meglio.
 
-[GIT](http://git-scm.com/) è un molto DIFFUSO che è diventato molto diffuso. Quando si usa Git per controllo del codice sorgente, si ha una copia completa del repository con tutta la relativa cronologia nel computer locale. Molte persone preferiscono che perché è più facile continuare a lavorare quando non si è connessi alla rete, è possibile continuare a eseguire operazioni esegue il commit e rollback, creare e cambiare ramo e così via. Anche quando si è connessi alla rete, è più semplice e rapido creare rami e cambiare rami quando tutto è locale. È anche possibile eseguire i rollback e commit locali senza impatto sugli altri sviluppatori. Ed è possibile creare batch commit prima di inviarli al server.
+[GIT](http://git-scm.com/) è un sistema di controllo della versione distribuita più diffusi. Quando si usa Git per controllo del codice sorgente, si ha una copia completa del repository con tutta la relativa cronologia nel computer locale. Molte persone preferiscono che perché è più facile continuare a lavorare quando non si è connessi alla rete, è possibile continuare a eseguire operazioni esegue il commit e rollback, creare e cambiare ramo e così via. Anche quando si è connessi alla rete, è più semplice e rapido creare rami e cambiare rami quando tutto è locale. È anche possibile eseguire i rollback e commit locali senza impatto sugli altri sviluppatori. Ed è possibile creare batch commit prima di inviarli al server.
 
-[Microsoft Visual Studio Online](https://www.visualstudio.com/)(VSO), precedentemente noto come Team Foundation Service, offre sia Git e [Team Foundation Version Control](https://msdn.microsoft.com/library/ms181237(v=vs.120).aspx) (TFVC; centralizzato di controllo del codice sorgente). Presso Microsoft nel gruppo di Azure qui alcuni team usano controllo del codice sorgente centralizzato, utilizzato per scopi distribuito, e alcune usano una combinazione (centralizzata per alcuni progetti e distribuita per altri progetti). Il servizio di Visual Studio Online è disponibile per un massimo di 5 utenti. È possibile iscriversi per un piano gratuito [qui](https://go.microsoft.com/fwlink/?LinkId=307137).
+[Repository di Azure](/azure/devops/repos/index?view=vsts) offre entrambi [Git](/azure/devops/repos/git/?view=vsts) e [Team Foundation Version Control](/azure/devops/repos/tfvc/index?view=vsts) (TFVC; centralizzato di controllo del codice sorgente). Introduzione a Azure DevOps [qui](https://app.vsaex.visualstudio.com/signup).
 
-Visual Studio 2013 include incorporati di prim'ordine [supporto per Git](https://msdn.microsoft.com/library/hh850437.aspx); Ecco una rapida dimostrazione del funzionamento.
+Visual Studio 2017 include incorporata, eccellente [supporto per Git](https://msdn.microsoft.com/library/hh850437.aspx). Ecco una rapida dimostrazione del funzionamento.
 
-Con un progetto aperto in Visual Studio 2013, fare doppio clic la soluzione in **Esplora soluzioni**, quindi scegliere **Aggiungi soluzione al controllo del codice sorgente**.
+Con un progetto aperto in Visual Studio, fare doppio clic la soluzione in **Esplora soluzioni**, quindi scegliere **Aggiungi soluzione al controllo del codice sorgente**.
 
 ![Aggiungi soluzione al controllo del codice sorgente](source-control/_static/image9.png)
 
@@ -184,7 +183,7 @@ Se si passa nuovamente al master ramo, il contenuto del  *\_layout. cshtml* file
 
 Questo un semplice esempio di come può rapidamente creare un ramo e passa alternativamente tra rami. Questa funzionalità consente un flusso di lavoro altamente agile usando la struttura di branch e gli script di automazione presentati nel [automatizzare tutto](automate-everything.md) capitolo. Ad esempio, è possibile essere lavora nel ramo di sviluppo, creare un correzione rapida ramo master, passare al nuovo ramo, apportare le modifiche non esiste e, eseguirne il commit e quindi passare al ramo Development e continuare a quello che stavi.
 
-Ho illustrato di seguito è l'utilizzo di un repository Git locale in Visual Studio. In un ambiente di team in genere anche push delle modifiche un repository comune. Gli strumenti di Visual Studio consentono, inoltre, in modo che punti a un repository Git remoto. È possibile usare GitHub.com a tale scopo oppure è possibile usare [Git in Visual Studio Online](https://msdn.microsoft.com/library/hh850437.aspx) integrato con tutte le altre funzionalità Visual Studio Online, ad esempio l'elemento di lavoro e rilevamento dei bug.
+Ho illustrato di seguito è l'utilizzo di un repository Git locale in Visual Studio. In un ambiente di team in genere anche push delle modifiche un repository comune. Gli strumenti di Visual Studio consentono, inoltre, in modo che punti a un repository Git remoto. È possibile usare GitHub.com a tale scopo oppure è possibile usare [Git e repository di Azure](/azure/devops/repos/git/overview?view=vsts) integrato con tutte le altre funzionalità DevOps di Azure, ad esempio l'elemento di lavoro e rilevamento dei bug.
 
 Non è l'unico modo è possibile implementare una strategia di creazione rami agile, ovviamente. È possibile abilitare il flusso di lavoro agile stesso usando un repository di controllo del codice sorgente centralizzato.
 
@@ -194,13 +193,6 @@ Valutare il successo del sistema del controllo codice sorgente basato su rapidit
 
 <a id="resources"></a>
 ## <a name="resources"></a>Risorse
-
-Il [Visual Studio Online](https://www.visualstudio.com/) portale fornisce servizi di supporto e documentazione ed è possibile iscriversi per un account. Se si dispone di Visual Studio 2012 e si vuole usare Git, vedere [Visual Studio Tools per Git](https://visualstudiogallery.msdn.microsoft.com/abafc7d6-dcaa-40f4-8a5e-d6724bdb980c).
-
-Per ulteriori informazioni su (controllo della versione centralizzato) TFVC e Git (controllo della versione distribuito), vedere le risorse seguenti:
-
-- [Quale sistema di controllo della versione usare: TFVC o Git?](https://msdn.microsoft.com/library/vstudio/ms181368.aspx#tfvc_or_git_summary) Documentazione di MSDN, include una tabella che riepiloga le differenze tra TFVC e Git.
-- [Beh, mi piace Team Foundation Server e mi piace Git, ma che è preferibile?](https://blogs.msdn.com/b/visualstudiouk/archive/2013/08/05/well-i-like-team-foundation-server-and-i-like-git-but-which-is-better.aspx) Confronto tra Git e TFVC.
 
 Per altre informazioni sulle strategie di diramazione, vedere le risorse seguenti:
 

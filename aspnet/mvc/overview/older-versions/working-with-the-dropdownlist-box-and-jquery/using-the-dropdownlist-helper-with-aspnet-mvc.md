@@ -8,16 +8,16 @@ ms.date: 01/12/2012
 ms.assetid: 53767e05-c8ab-42e1-a94b-22d906195200
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/using-the-dropdownlist-helper-with-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 600a8ad409d55f0b01eedc8168eaec2b39c88a3b
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 11b874d2d07c84631c6c5c266c22c6de49d40cf2
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41837391"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48578068"
 ---
 <a name="using-the-dropdownlist-helper-with-aspnet-mvc"></a>Utilizzo del DropDownList Helper con ASP.NET MVC
 ====================
-da [Rick Anderson](https://github.com/Rick-Anderson)
+da [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 Questa esercitazione insegnerà le nozioni di base dell'utilizzo con il [DropDownList](https://msdn.microsoft.com/library/dd492948.aspx) helper e il [ListBox](https://msdn.microsoft.com/library/system.web.mvc.html.selectextensions.listbox.aspx) helper in un'applicazione Web ASP.NET MVC. È possibile utilizzare Microsoft Visual Web Developer 2010 Express Service Pack 1, che è una versione gratuita di Microsoft Visual Studio per seguire l'esercitazione. Prima di iniziare, assicurarsi di che aver installato i prerequisiti elencati di seguito. È possibile installare tutti gli elementi facendo clic sul collegamento seguente: [instalace Webové Platformy](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). In alternativa, è possibile installare singolarmente i prerequisiti usando i collegamenti seguenti:
 

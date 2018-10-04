@@ -8,12 +8,12 @@ ms.date: 07/16/2014
 ms.assetid: ecfd0eb4-c4ad-44e6-9db9-a2a66611ff6a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
 msc.type: authoredcontent
-ms.openlocfilehash: a26f22a7cf39593ee068fb8e8d57200120c97ccb
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 05181ae1b2d857eea45983d378b28011c1cd755a
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41827086"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48578133"
 ---
 <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>Laboratorio pratico: siti Web di Azure gestibili: gestione del cambiamento e scalabilità
 ====================
@@ -22,17 +22,17 @@ da [Camp Web Team](https://twitter.com/webcamps)
 [Download Web Camp Kit di formazione](http://aka.ms/webcamps-training-kit)
 
 > Microsoft Azure semplifica compilare e distribuire siti Web nell'ambiente di produzione. Ma non abbiamo ancora finito quando l'applicazione è in tempo reale, appena agli inizi. È necessario gestire modifica i requisiti, gli aggiornamenti del database, scalabilità e altro ancora. Fortunatamente, servizio App di Azure è te, con una vasta gamma di funzionalità che consentono di mantenere i siti in esecuzione senza problemi.
-> 
+>
 > Azure offre sicure e flessibile di sviluppo, distribuzione e opzioni di ridimensionamento per qualsiasi applicazione web di dimensioni. Sfrutta gli strumenti esistenti per creare e distribuire le applicazioni senza la complessità di gestione dell'infrastruttura.
-> 
+>
 > Effettuare il provisioning di un'applicazione web di produzione se stessi in pochi minuti con facilità la distribuzione di contenuti creati usando lo strumento di sviluppo preferito. È possibile distribuire un sito esistente direttamente dal controllo del codice sorgente con il supporto per **Git**, **GitHub**, **Bitbucket**, **TFS**e persino  **DropBox**. Distribuire direttamente dal tuo IDE preferito o da script mediante **PowerShell** in Windows o **CLI** strumenti in esecuzione in qualsiasi sistema operativo. Una volta distribuito, mantenere i tuoi siti costantemente aggiornato con il supporto per la distribuzione continua.
-> 
+>
 > Azure offre soluzioni di ripristino, backup e archiviazione cloud scalabili e durevoli per tutti i dati, indipendentemente dalle dimensioni. Quando si distribuiscono applicazioni per un ambiente di produzione, servizi di archiviazione, ad esempio tabelle, BLOB e database SQL, che consentono di ridimensionare l'applicazione nel cloud.
-> 
+>
 > Con i database SQL, è importante mantenere aggiornato il database produttività durante la distribuzione di nuove versioni dell'applicazione. Grazie a **migrazioni di Entity Framework Code First**, sviluppo e alla distribuzione del modello di dati è stata semplificata per aggiornare gli ambienti in pochi minuti. Questa esercitazione pratica illustra i diversi argomenti che potrebbe riscontrare quando si distribuisce l'app web in ambienti di produzione in Microsoft Azure.
-> 
+>
 > Tutto il codice di esempio e frammenti di codice sono inclusi nel Web Camp Kit di formazione, disponibile all'indirizzo [ http://aka.ms/webcamps-training-kit ](http://aka.ms/webcamps-training-kit).
-> 
+>
 > Per una trattazione più approfondita di questo argomento, vedere la [creazione di App Cloud reali con e-book Azure](building-real-world-cloud-apps-with-windows-azure/introduction.md).
 
 
@@ -60,7 +60,7 @@ Di seguito è necessario per completare questo laboratorio pratico:
 - [Visual Studio Express 2013 per Web](https://www.microsoft.com/visualstudio/) o versione successiva
 - [Azure SDK per .NET 2.2](https://www.microsoft.com/windowsazure/sdk/)
 - [Sistema di controllo della versione GIT](http://git-scm.com/download)
-- Una sottoscrizione di Microsoft Azure 
+- Una sottoscrizione di Microsoft Azure
 
     - Iscriversi per una [versione di valutazione gratuita](http://aka.ms/watk-freetrial)
     - Se sei un Visual Studio Professional, Test Professional, Premium o Ultimate con MSDN o MSDN Platforms sottoscrittore, attivare i [benefici MSDN per](http://aka.ms/watk-msdn) adesso per iniziare lo sviluppo e test in Azure
@@ -202,10 +202,10 @@ In questa attività si userà **migrazioni di Entity Framework Code First** rile
 
     > [!NOTE]
     > Un file di migrazione è costituito da due metodi, **iscrizione** e **verso il basso**.
-    > 
+    >
     > - Il **backup** metodo verrà utilizzato per specificare quali modifiche la versione corrente di esigenze dell'applicazione da applicare al database.
     > - Il **verso il basso** viene utilizzato per annullare le modifiche sono state aggiunte per il **backup** (metodo).
-    > 
+    >
     > Quando la migrazione del Database aggiorna il database, eseguirà tutte le migrazioni in ordine di timestamp e solo quelli che non sono stati utilizzati dopo l'ultimo aggiornamento (il \_MigrationHistory tabella tiene traccia di quali migrazioni sono state applicate). Il **backup** metodo di tutte le migrazioni verrà chiamato e apporta le modifiche è stato specificato per il database. Se decidiamo di tornare a una migrazione precedente, il **verso il basso** metodo verrà chiamato per ripristinare le modifiche in ordine inverso.
 4. Nel **Console di gestione pacchetti**, immettere il comando seguente e quindi premere **invio**.
 
@@ -298,15 +298,15 @@ In questa attività si creerà un'app web nel **servizio App di Azure** dal port
 
     > [!NOTE]
     > Per impostazione predefinita, Azure offre domini *azurewebsites.net* ma offre anche la possibilità di impostare i domini personalizzati tramite il portale di gestione di Azure. Tuttavia, è possibile gestire i domini personalizzati solo se si utilizza determinate modalità di servizio App di Azure.
-    > 
+    >
     > Servizio App di Azure è disponibile nelle edizioni gratuito, condiviso, Basic, Standard e Premium. Nella modalità gratuito e condiviso, tutte le app web eseguite in un ambiente multi-tenant e sono previste quote per l'utilizzo della CPU, memoria e rete. Il numero massimo di App gratuite può variare con il piano. Nella modalità Standard, si scelgono le risorse di calcolo quali le app eseguite in macchine virtuali dedicate che corrispondono al standard di Azure. È possibile trovare la configurazione della modalità di app web nel **scalabilità** menu dell'app web.
-    > 
+    >
     > ![Modalità di servizio App di Azure](maintainable-azure-websites-managing-change-and-scale/_static/image19.png "le modalità di servizio App di Azure")
-    > 
+    >
     > Se si usa **Shared** oppure **Standard** modalità, sarà in grado di gestire i domini personalizzati per l'app web, passare all'app **configura** menu e scegliendo **Manage Domains** sotto *nomi di dominio*.
-    > 
+    >
     > ![Gestire i domini](maintainable-azure-websites-managing-change-and-scale/_static/image20.png "gestire domini")
-    > 
+    >
     > ![Gestire domini personalizzati](maintainable-azure-websites-managing-change-and-scale/_static/image21.png "gestire domini personalizzati")
 9. Dopo aver creato l'app web, fare clic sul collegamento sotto i **URL** colonna per verificare che la nuova app web sia in esecuzione.
 
@@ -754,7 +754,7 @@ In questa attività si userà il portale di gestione di Azure per abilitare la f
 
     > [!NOTE]
     > Questo intervallo rappresenta l'utilizzo medio della CPU per l'app web. Azure aggiungerà o rimuoverà istanze per mantenere l'app web in questo intervallo. Viene specificato il numero minimo e massimo di istanze utilizzate per la scalabilità nel **numero di istanze** configurazione. Azure si rivolgerà mai di sopra o oltre il limite stabilito.
-    > 
+    >
     > Il valore predefinito **CPU destinazione** i valori vengono modificati solo ai fini di questa esercitazione. Configurando l'intervallo di CPU con valori di piccole dimensioni, si stanno aumentando le probabilità per attivare la scalabilità automatica, quando l'applicazione presenta un carico moderato.
 
     ![Modifica della destinazione della CPU deve essere compresa tra 20 e il 40 percento](maintainable-azure-websites-managing-change-and-scale/_static/image78.png "modifica della CPU di destinazione per essere compreso tra 20 e il 40%")
@@ -869,7 +869,7 @@ A questo punto **scalabilità automatica** è stato configurato, si creerà un *
 20. Nelle **Esplora soluzioni**, fare doppio clic il **Local.settings** file per esaminare le impostazioni di test. Per impostazione predefinita, Visual Studio Usa il computer locale per eseguire i test.
 
     > [!NOTE]
-    > In alternativa, è possibile configurare il progetto di test per eseguire i test di carico nel cloud usando **Visual Studio Online (VSO)**. Visual Studio Online offre un carico basati sul cloud servizio che simula un carico più realistico di test, evitare i vincoli dell'ambiente locale, ad esempio la capacità della CPU, memoria disponibile e la larghezza di banda di rete. Per altre informazioni sull'utilizzo di Visual Studio online per eseguire i test di carico, vedere [questo articolo](https://www.visualstudio.com/get-started/load-test-your-app-vs).
+    > In alternativa, è possibile configurare il progetto di test per eseguire i test di carico nel cloud usando **piani di Test Azure**. Piani di Test di Azure fornisce un carico basati sul cloud servizio che simula un carico più realistico di test, evitare i vincoli dell'ambiente locale, ad esempio la capacità della CPU, memoria disponibile e la larghezza di banda di rete. Per altre informazioni sull'utilizzo di piani di Test di Azure per eseguire i test di carico, vedere [scenari di test di carico](/azure/devops/test/load-test/overview?view=vsts).
 
     ![Impostazioni di test](maintainable-azure-websites-managing-change-and-scale/_static/image98.png)
 
@@ -904,10 +904,10 @@ Verrà ora eseguire il test di carico che è stato creato nell'attività precede
 
     > [!NOTE]
     > Potrebbero occorrere alcuni minuti per le modifiche vengano visualizzate nel grafico (premere **CTRL + F5** periodicamente per aggiornare la pagina). Se non è possibile visualizzare tutte le modifiche, è possibile procedere come segue:
-    > 
+    >
     > - Aumentare la durata del test di carico (ad esempio, al **10 minuti**)
     > - I valori minimo e massimi di ridurre la **CPU destinazione** intervallo nella configurazione di scalabilità automatica dell'app web
-    > - Eseguire il test di carico nel cloud con **Visual Studio Online**. Altre informazioni [qui](https://www.visualstudio.com/get-started/load-test-your-app-vs.aspx)
+    > - Eseguire il test di carico nel cloud con **piani di Test Azure**. Altre informazioni [qui](/azure/devops/test/load-test/index?view=vsts)
 
 * * *
 

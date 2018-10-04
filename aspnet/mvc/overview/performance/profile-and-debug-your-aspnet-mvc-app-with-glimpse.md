@@ -8,16 +8,16 @@ ms.date: 03/26/2015
 ms.assetid: c205805f-efdd-4fa7-9616-f26eab180611
 msc.legacyurl: /mvc/overview/performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse
 msc.type: authoredcontent
-ms.openlocfilehash: f5d174ff6823d654a24dcb2c90f10a3cbd24f1e7
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 94a72f22cbcd7fa84528dde502cceaa1e26dcaa1
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41829293"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577288"
 ---
 <a name="profile-and-debug-your-aspnet-mvc-app-with-glimpse"></a>Profilatura e il debug dell'app ASP.NET MVC con Glimpse
 ====================
-da [Rick Anderson](https://github.com/Rick-Anderson)
+da [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Glimpse è che intraprendono e aumento delle dimensioni della famiglia di pacchetti NuGet open source che fornisce dettagliati sulle prestazioni, debug e informazioni di diagnostica per le app ASP.NET. È semplice da installare, leggero, eccezionalmente rapide e visualizza le metriche di prestazioni chiave nella parte inferiore di ogni pagina. Permette di drill-down per l'app quando è necessario scoprire cosa sta succedendo nel server. Rapida panoramica fornisce informazioni molto utili, che è consigliabile che usarla in tutto il ciclo di sviluppo, tra cui l'ambiente di test di Azure. Anche se [Fiddler](http://www.telerik.com/fiddler) e il [strumenti di sviluppo F-12](https://msdn.microsoft.com/library/ie/gg589512(v=vs.85).aspx) forniscono un lato client, Glimpse fornisce una visualizzazione dettagliata del server. Questa esercitazione è incentrata sull'uso di Glimpse ASP.NET MVC e i pacchetti EF, ma sono disponibili molti altri pacchetti. Dove possibile collegherà appropriata [documentazione di Glimpse](http://getglimpse.com/Docs/) che consentono di gestire. Glimpse è un progetto open source, è anche possibile contribuire al codice sorgente e i documenti.
 

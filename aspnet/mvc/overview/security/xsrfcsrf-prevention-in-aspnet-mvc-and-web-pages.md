@@ -8,16 +8,16 @@ ms.date: 03/14/2013
 ms.assetid: aadc5fa4-8215-4fc7-afd5-bcd2ef879728
 msc.legacyurl: /mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages
 msc.type: authoredcontent
-ms.openlocfilehash: cd1b8de51c180471ab273c4541959368ffbd48a3
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 5db661cccc58d1101f95091b069ab5cbfe78a378
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41826393"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577938"
 ---
 <a name="xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages"></a>Prevenzione di XSRF/CSRF in ASP.NET MVC e pagine Web
 ====================
-da [Rick Anderson](https://github.com/Rick-Anderson)
+da [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Richiesta intersito falsa (nota anche come XSRF o CSRF) è un attacco contro applicazioni ospitate sul web in base al quale un sito web dannoso può influenzare l'interazione tra un browser client e un sito web considerato attendibile da tale browser. Questi attacchi sono possibili in quanto i web browser invia i token di autenticazione automaticamente con ogni richiesta a un sito web. L'esempio canonico è un cookie di autenticazione, ad esempio, ASP. Ticket di autenticazione basata su form di NET. Tuttavia, siti web che utilizzano qualsiasi meccanismo di autenticazione persistente (ad esempio l'autenticazione di Windows, Basic e così via) di destinazione per questi attacchi.
 > 

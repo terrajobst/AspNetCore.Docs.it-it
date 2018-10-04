@@ -8,16 +8,16 @@ ms.date: 12/19/2014
 ms.assetid: 220d3d75-16b2-4240-beae-a5b534f06419
 msc.legacyurl: /identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 51b97ee413ea0304177d5963b5fd9d7253778d4f
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 393d14799973e9126379743f63f79a7131206f38
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41835785"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577613"
 ---
 <a name="migrating-an-existing-website-from-sql-membership-to-aspnet-identity"></a>La migrazione di un sito Web esistente dall'appartenenza SQL ad ASP.NET Identity
 ====================
-dal [Rick Anderson](https://github.com/Rick-Anderson), [Suhas Joshi](https://github.com/suhasj)
+dal [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Suhas Joshi](https://github.com/suhasj)
 
 > Questa esercitazione illustra i passaggi per eseguire la migrazione di un'applicazione web esistente con l'utente e i dati del ruolo creati mediante l'appartenenza di SQL nel nuovo sistema di identità di ASP.NET. Questo approccio comporta la modifica lo schema del database esistente a quella necessaria per l'identità di ASP.NET e hook nelle classi vecchi/nuovi a esso. Dopo che si adotta questo approccio, dopo la migrazione del database, gli aggiornamenti futuri all'identità verranno gestiti senza fatica.
 

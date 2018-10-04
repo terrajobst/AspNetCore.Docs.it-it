@@ -8,16 +8,16 @@ ms.date: 01/12/2012
 ms.assetid: 44aa1ac4-6ea2-48a2-972d-52710c48eae5
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/adding-a-new-category-to-the-dropdownlist-using-jquery-ui
 msc.type: authoredcontent
-ms.openlocfilehash: 9a893bf55070adde575d223cd527b02d6f0d470c
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 9fb95d22be473a4318520a391fa424106246a054
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41826910"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48576352"
 ---
 <a name="adding-a-new-category-to-the-dropdownlist-using-jquery-ui"></a>Aggiunta di una nuova categoria a DropDownList tramite l'interfaccia utente di jQuery
 ====================
-da [Rick Anderson](https://github.com/Rick-Anderson)
+da [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 Il codice HTML `Select` tag è ideale per presentare un elenco di dati della categoria fisso, ma spesso è necessario aggiungere una nuova categoria. Si supponga che si vuole aggiungere il genere "Opera" per le categorie nel nostro database? In questa sezione, useremo l'indirizzo dell'interfaccia utente di jQuery per aggiungere una finestra di dialogo che è possibile usare per aggiungere una nuova categoria. L'immagine seguente mostra come l'interfaccia utente verrà visualizzate nel browser.
 

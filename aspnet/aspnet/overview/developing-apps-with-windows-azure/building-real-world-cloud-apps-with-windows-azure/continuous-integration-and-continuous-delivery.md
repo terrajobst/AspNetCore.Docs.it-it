@@ -8,16 +8,16 @@ ms.date: 06/12/2014
 ms.assetid: eaece9f5-f80c-428b-b771-5db66d275b7d
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
 msc.type: authoredcontent
-ms.openlocfilehash: 7a92a68ce8bbeec604a22e082975d33f9f3377c1
-ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
+ms.openlocfilehash: f701488025ec84a17651f9abff43f84531d35689
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44340069"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48576248"
 ---
 <a name="continuous-integration-and-continuous-delivery-building-real-world-cloud-apps-with-azure"></a>Integrazione continua e recapito continuo (creazione di App Cloud funzionanti con Azure)
 ====================
-dal [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
+dal [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra)
 
 [Download risolverlo Project](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) o [Scarica l'E-book](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
@@ -40,7 +40,7 @@ Nel seguente diagramma da [un Microsoft Patterns and Practices e-book sul recapi
 
 Automazione di tali processi in Azure è facile. Poiché tutto ciò che viene eseguito nel cloud, non è necessario acquistare o gestire server per le compilazioni o ambienti di test. E non è necessario attendere che sia possibile eseguire test su un server. Con ogni compilazione è eseguire, è possibile creare rapidamente un ambiente di test in Azure usando lo script di automazione, i test di accettazione esecuzione o più test approfonditi su di esso e quindi dopo aver appena ridurne le dimensioni. E se si esegue solo tale server per 2 ore o 8 ore al giorno, la quantità di denaro che è necessario pagarlo è minima, poiché sta pagando solo per l'ora in cui è in esecuzione una macchina. Ad esempio, l'ambiente necessari per la correzione che dell'applicazione in pratica costa circa 1 centesimi all'ora se si passa un livello di dal livello gratuito. Nel corso di un mese, se è stato eseguito solo l'ambiente di un'ora alla volta, l'ambiente di test sarebbe probabilmente costare meno di un latte che acquista Starbucks.
 
-## <a name="azure-devops-services"></a>Servizi di Azure DevOps 
+## <a name="azure-devops-services"></a>Azure DevOps Services 
 
 Servizi di Azure DevOps offre numerose funzionalità che consentono lo sviluppo di applicazioni dalla pianificazione alla distribuzione.
 

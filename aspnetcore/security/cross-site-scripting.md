@@ -3,14 +3,14 @@ title: Evitare il Cross-Site Scripting (XSS) in ASP.NET Core
 author: rick-anderson
 description: Informazioni su Cross-Site Scripting (XSS) e le tecniche per risolvere questa vulnerabilità in un'app ASP.NET Core.
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 10/02/2018
 uid: security/cross-site-scripting
-ms.openlocfilehash: 4784b1775d955f0ef00526e50b960fc873ea218d
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
-ms.translationtype: HT
+ms.openlocfilehash: e937ce47b7151155197cd607832eeb6bf62e3a19
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342211"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577444"
 ---
 # <a name="prevent-cross-site-scripting-xss-in-aspnet-core"></a>Evitare il Cross-Site Scripting (XSS) in ASP.NET Core
 
@@ -36,9 +36,9 @@ AT un XSS a livello di base funziona inducendo dell'applicazione nell'inseriment
 
 Il motore di Razor usato automaticamente in MVC consente di codificare tutte output originate dalle variabili, a meno che non lavorare sodo per evitare che in questo modo. Usa attributo HTML di regole di codifica quando si usa la *@* direttiva. HTML codifica dell'attributo è un superset di codifica HTML ciò significa che non è necessario preoccuparsi se sia necessario utilizzare la codifica HTML o codifica dell'attributo HTML. È necessario assicurarsi di utilizzare solo in un contesto HTML, non quando si tenta di inserire input non attendibile direttamente in JavaScript. Gli helper tag verranno inoltre codificare l'input che utilizzare nei parametri di tag.
 
-Eseguire la seguente vista Razor;
+Richiedere la visualizzazione Razor seguente:
 
-```none
+```cshtml
 @{
        var untrustedInput = "<\"123\">";
    }
@@ -59,7 +59,7 @@ In questa vista restituisce il contenuto della *untrustedInput* variabile. Quest
 
 È possibile che si desidera inserire un valore in JavaScript per l'elaborazione nella propria visualizzazione. È possibile ottenere questo risultato in due modi. Il modo più sicuro per inserire i valori è di inserire il valore in un attributo di dati di un tag e recuperarla in JavaScript. Ad esempio:
 
-```none
+```cshtml
 @{
        var untrustedInput = "<\"123\">";
    }
@@ -114,9 +114,9 @@ Che, quando è in esecuzione, verrà eseguito il rendering quanto segue:
    <"123">
    ```
 
-È inoltre possibile chiamare direttamente, il codificatore di JavaScript
+È inoltre possibile chiamare direttamente il codificatore di JavaScript:
 
-```none
+```cshtml
 @using System.Text.Encodings.Web;
    @inject JavaScriptEncoder encoder;
 
@@ -225,4 +225,4 @@ La pratica generalmente accettata è che la codifica avvenga nel punto di output
 
 ## <a name="validation-as-an-xss-prevention-technique"></a>Convalida di una tecnica di prevenzione di XSS
 
-La convalida può essere uno strumento utile per limitare gli attacchi XSS. Ad esempio, una stringa numerica che contiene solo i caratteri 0-9 non attiva un attacco XSS. Convalida diventa più complessa se si desidera accettare HTML nell'input dell'utente - l'analisi di input HTML è difficile, se non impossibile. MarkDown e altri formati di testo sarebbe un'opzione più sicura per l'input avanzati. Non fare mai affidamento sulla convalida da solo. Codificare sempre l'input non attendibile prima di output, indipendentemente dal tipo di convalida è stata eseguita.
+La convalida può essere uno strumento utile per limitare gli attacchi XSS. Ad esempio, una stringa numerica che contiene solo i caratteri 0-9 non attiva un attacco XSS. Convalida diventa più complessa quando si accettano HTML nell'input dell'utente. L'analisi di input HTML è difficile, se non impossibile. Markdown, insieme a un parser che estrae con HTML incorporati, è un'opzione più sicura per accettare gli input avanzati. Non basarsi sulla convalida da solo. Codificare sempre l'input non attendibile prima di output, indipendentemente da quali la convalida o la purificazione dei processi è stata eseguita.
