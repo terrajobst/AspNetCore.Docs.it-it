@@ -7,7 +7,7 @@ ms.date: 10/14/2016
 uid: security/cross-site-scripting
 ms.openlocfilehash: 4784b1775d955f0ef00526e50b960fc873ea218d
 ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/30/2018
 ms.locfileid: "39342211"
