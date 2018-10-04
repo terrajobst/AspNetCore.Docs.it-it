@@ -1,32 +1,28 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/popup/index
-title: Popup | Documenti Microsoft
+title: Controllo popup | Microsoft Docs
 author: rick-anderson
-description: In questa esercitazione viene illustrato come utilizzare il controllo Popup per visualizzare una finestra popup quando viene attivato un altro controllo.
-ms.author: aspnetcontent
-manager: wpickett
+description: Questa esercitazione illustra come usare il controllo Popup per visualizzare un popup quando viene attivato un qualsiasi altro controllo.
+ms.author: riande
 ms.date: 11/14/2011
-ms.topic: article
 ms.assetid: c993c38f-ffcc-412c-a8bb-09569a4cba23
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/popup
 msc.type: chapter
-ms.openlocfilehash: f0d9ab97c0d04b0fd6b8798d08676755bda43cdf
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 4e5e77b6d1ddba1b04e8f53d9a529551ec370015
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26510580"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48254487"
 ---
-<a name="popup"></a><span data-ttu-id="a65db-103">Popup</span><span class="sxs-lookup"><span data-stu-id="a65db-103">Popup</span></span>
+<a name="popup"></a><span data-ttu-id="01e51-103">Popup</span><span class="sxs-lookup"><span data-stu-id="01e51-103">Popup</span></span>
 ====================
-> <span data-ttu-id="a65db-104">In questa esercitazione viene illustrato come utilizzare il controllo Popup per visualizzare una finestra popup quando viene attivato un altro controllo.</span><span class="sxs-lookup"><span data-stu-id="a65db-104">This tutorial shows how to use the Popup control to display a popup when any other control is activated.</span></span>
+> <span data-ttu-id="01e51-104">Questa esercitazione illustra come usare il controllo Popup per visualizzare un popup quando viene attivato un qualsiasi altro controllo.</span><span class="sxs-lookup"><span data-stu-id="01e51-104">This tutorial shows how to use the Popup control to display a popup when any other control is activated.</span></span>
 
 
-- [<span data-ttu-id="a65db-105">Utilizzo di più controlli Popup (c#)</span><span class="sxs-lookup"><span data-stu-id="a65db-105">Using Multiple Popup Controls (C#)</span></span>](using-multiple-popup-controls-cs.md)
-- [<span data-ttu-id="a65db-106">Gestione dei postback da un controllo Popup con un UpdatePanel (c#)</span><span class="sxs-lookup"><span data-stu-id="a65db-106">Handling Postbacks from A Popup Control With an UpdatePanel (C#)</span></span>](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs.md)
-- [<span data-ttu-id="a65db-107">Gestione dei postback da un controllo Popup senza un UpdatePanel (c#)</span><span class="sxs-lookup"><span data-stu-id="a65db-107">Handling Postbacks from A Popup Control Without an UpdatePanel (C#)</span></span>](handling-postbacks-from-a-popup-control-without-an-updatepanel-cs.md)
-- [<span data-ttu-id="a65db-108">Utilizzo di più controlli Popup (VB)</span><span class="sxs-lookup"><span data-stu-id="a65db-108">Using Multiple Popup Controls (VB)</span></span>](using-multiple-popup-controls-vb.md)
-- [<span data-ttu-id="a65db-109">Gestione dei postback da un controllo Popup con un UpdatePanel (VB)</span><span class="sxs-lookup"><span data-stu-id="a65db-109">Handling Postbacks from A Popup Control With an UpdatePanel (VB)</span></span>](handling-postbacks-from-a-popup-control-with-an-updatepanel-vb.md)
-- [<span data-ttu-id="a65db-110">Gestione dei postback da un controllo Popup senza un UpdatePanel (VB)</span><span class="sxs-lookup"><span data-stu-id="a65db-110">Handling Postbacks from A Popup Control Without an UpdatePanel (VB)</span></span>](handling-postbacks-from-a-popup-control-without-an-updatepanel-vb.md)
+- [<span data-ttu-id="01e51-105">Uso di più controlli Popup (C#)</span><span class="sxs-lookup"><span data-stu-id="01e51-105">Using Multiple Popup Controls (C#)</span></span>](using-multiple-popup-controls-cs.md)
+- [<span data-ttu-id="01e51-106">Gestione dei postback da un controllo Popup con UpdatePanel (C#)</span><span class="sxs-lookup"><span data-stu-id="01e51-106">Handling Postbacks from A Popup Control With an UpdatePanel (C#)</span></span>](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs.md)
+- [<span data-ttu-id="01e51-107">Gestione dei postback da un controllo Popup senza UpdatePanel (C#)</span><span class="sxs-lookup"><span data-stu-id="01e51-107">Handling Postbacks from A Popup Control Without an UpdatePanel (C#)</span></span>](handling-postbacks-from-a-popup-control-without-an-updatepanel-cs.md)
+- [<span data-ttu-id="01e51-108">Uso di più controlli Popup (VB)</span><span class="sxs-lookup"><span data-stu-id="01e51-108">Using Multiple Popup Controls (VB)</span></span>](using-multiple-popup-controls-vb.md)
+- [<span data-ttu-id="01e51-109">Gestione dei postback da un controllo Popup con UpdatePanel (VB)</span><span class="sxs-lookup"><span data-stu-id="01e51-109">Handling Postbacks from A Popup Control With an UpdatePanel (VB)</span></span>](handling-postbacks-from-a-popup-control-with-an-updatepanel-vb.md)
+- [<span data-ttu-id="01e51-110">Gestione dei postback da un controllo Popup senza UpdatePanel (VB)</span><span class="sxs-lookup"><span data-stu-id="01e51-110">Handling Postbacks from A Popup Control Without an UpdatePanel (VB)</span></span>](handling-postbacks-from-a-popup-control-without-an-updatepanel-vb.md)
