@@ -1,26 +1,22 @@
 ---
 uid: signalr/videos/index
-title: Video di ASP.NET SignalR | Documenti Microsoft
+title: Video su ASP.NET SignalR | Microsoft Docs
 author: rick-anderson
 description: ''
-ms.author: aspnetcontent
-manager: wpickett
+ms.author: riande
 ms.date: 12/12/2012
-ms.topic: article
 ms.assetid: c0ea52a3-7497-4204-88c6-91591ac1a6b2
-ms.technology: dotnet-signalr
-ms.prod: .net-framework
 msc.legacyurl: /signalr/videos
 msc.type: book
-ms.openlocfilehash: c05938c415b1dd9eae60b865fc4434660b767579
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 41722eb0c46836942f8b0042e14ddadbbff73c2f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26505510"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255095"
 ---
-<a name="aspnet-signalr-videos"></a><span data-ttu-id="041fd-102">Video di ASP.NET SignalR</span><span class="sxs-lookup"><span data-stu-id="041fd-102">ASP.NET SignalR Videos</span></span>
+<a name="aspnet-signalr-videos"></a><span data-ttu-id="f993e-102">Video su ASP.NET SignalR</span><span class="sxs-lookup"><span data-stu-id="f993e-102">ASP.NET SignalR Videos</span></span>
 ====================
-- [<span data-ttu-id="041fd-103">Video di ASP.NET SignalR</span><span class="sxs-lookup"><span data-stu-id="041fd-103">ASP.NET SignalR Videos</span></span>](getting-started/index.md)
+- [<span data-ttu-id="f993e-103">Video su ASP.NET SignalR</span><span class="sxs-lookup"><span data-stu-id="f993e-103">ASP.NET SignalR Videos</span></span>](getting-started/index.md)
 
-    - [<span data-ttu-id="041fd-104">SignalR e WebSocket</span><span class="sxs-lookup"><span data-stu-id="041fd-104">SignalR and Web Sockets</span></span>](getting-started/signalr-and-web-sockets.md)
+    - [<span data-ttu-id="f993e-104">SignalR e Web Sockets</span><span class="sxs-lookup"><span data-stu-id="f993e-104">SignalR and Web Sockets</span></span>](getting-started/signalr-and-web-sockets.md)

@@ -1,33 +1,29 @@
 ---
 uid: web-forms/videos/data-access/linq-videos-from-the-vb-team/index
-title: Video LINQ dal Team di Visual Basic | Documenti Microsoft
+title: Video su LINQ dal Team di Visual Basic | Microsoft Docs
 author: rick-anderson
-description: In questi video forniscono un'ora e il metà del contenuto attivando le nuove funzionalità del linguaggio LINQ di Visual Basic 9.0 è incluso in Visual Studio 2008.
-ms.author: aspnetcontent
-manager: wpickett
+description: Questi video forniscono su un'ora e il metà del contenuto incentrato su nuove funzionalità del linguaggio LINQ di Visual Basic 9.0 incluso in Visual Studio 2008.
+ms.author: riande
 ms.date: 02/24/2012
-ms.topic: article
 ms.assetid: 257373bb-eab0-47bc-b5a2-37a9e91666d6
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/data-access/linq-videos-from-the-vb-team
 msc.type: chapter
-ms.openlocfilehash: a33cb02630be7ec688e4fce3d290f4a692f958ff
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 67c6aaf358d4c7c2764493e8c17e1d5245096014
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26525920"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48254798"
 ---
-<a name="linq-videos-from-the-vb-team"></a><span data-ttu-id="3d77e-103">Video LINQ dal Team di Visual Basic</span><span class="sxs-lookup"><span data-stu-id="3d77e-103">LINQ Videos from the VB Team</span></span>
+<a name="linq-videos-from-the-vb-team"></a><span data-ttu-id="8ab6c-103">Video su LINQ dal Team di Visual Basic</span><span class="sxs-lookup"><span data-stu-id="8ab6c-103">LINQ Videos from the VB Team</span></span>
 ====================
-> <span data-ttu-id="3d77e-104">In questi video forniscono un'ora e il metà del contenuto attivando le nuove funzionalità del linguaggio LINQ di Visual Basic 9.0 è incluso in Visual Studio 2008.</span><span class="sxs-lookup"><span data-stu-id="3d77e-104">These videos provide over an hour and half of content focused on the new LINQ language features of Visual Basic 9.0 included in Visual Studio 2008.</span></span>
+> <span data-ttu-id="8ab6c-104">Questi video forniscono su un'ora e il metà del contenuto incentrato su nuove funzionalità del linguaggio LINQ di Visual Basic 9.0 incluso in Visual Studio 2008.</span><span class="sxs-lookup"><span data-stu-id="8ab6c-104">These videos provide over an hour and half of content focused on the new LINQ language features of Visual Basic 9.0 included in Visual Studio 2008.</span></span>
 
 
-- [<span data-ttu-id="3d77e-105">Introduzione a LINQ</span><span class="sxs-lookup"><span data-stu-id="3d77e-105">Get Started with LINQ</span></span>](how-do-i-get-started-with-linq.md)
-- [<span data-ttu-id="3d77e-106">Eseguire le query di aggregazione e di gruppo</span><span class="sxs-lookup"><span data-stu-id="3d77e-106">Perform Group and Aggregate Queries</span></span>](how-do-i-perform-group-and-aggregate-queries.md)
-- [<span data-ttu-id="3d77e-107">Aggiornare i progetti di Visual Basic per abilitare LINQ</span><span class="sxs-lookup"><span data-stu-id="3d77e-107">Upgrade Visual Basic Projects to Enable LINQ</span></span>](how-do-i-upgrade-visual-basic-projects-to-enable-linq.md)
-- [<span data-ttu-id="3d77e-108">Introduzione a LINQ to XML</span><span class="sxs-lookup"><span data-stu-id="3d77e-108">Get Started with LINQ to XML</span></span>](how-do-i-get-started-with-linq-to-xml.md)
-- [<span data-ttu-id="3d77e-109">Abilitare IntelliSense XML e usare gli spazi dei nomi XML</span><span class="sxs-lookup"><span data-stu-id="3d77e-109">Enable XML IntelliSense and Use XML Namespaces</span></span>](how-do-i-enable-xml-intellisense-and-use-xml-namespaces.md)
-- [<span data-ttu-id="3d77e-110">Creare documenti XML dai dati SQL</span><span class="sxs-lookup"><span data-stu-id="3d77e-110">Create XML Documents from SQL Data</span></span>](how-do-i-create-xml-documents-from-sql-data.md)
-- [<span data-ttu-id="3d77e-111">Creazione di fogli di calcolo di Excel tramite LINQ to XML</span><span class="sxs-lookup"><span data-stu-id="3d77e-111">Create Excel Spreadsheets using LINQ to XML</span></span>](how-do-i-create-excel-spreadsheets-using-linq-to-xml.md)
+- [<span data-ttu-id="8ab6c-105">Introduzione a LINQ</span><span class="sxs-lookup"><span data-stu-id="8ab6c-105">Get Started with LINQ</span></span>](how-do-i-get-started-with-linq.md)
+- [<span data-ttu-id="8ab6c-106">Esecuzione di query di raggruppamento e aggregazione</span><span class="sxs-lookup"><span data-stu-id="8ab6c-106">Perform Group and Aggregate Queries</span></span>](how-do-i-perform-group-and-aggregate-queries.md)
+- [<span data-ttu-id="8ab6c-107">Aggiornamento di progetti Visual Basic per abilitare LINQ</span><span class="sxs-lookup"><span data-stu-id="8ab6c-107">Upgrade Visual Basic Projects to Enable LINQ</span></span>](how-do-i-upgrade-visual-basic-projects-to-enable-linq.md)
+- [<span data-ttu-id="8ab6c-108">Introduzione a LINQ to XML</span><span class="sxs-lookup"><span data-stu-id="8ab6c-108">Get Started with LINQ to XML</span></span>](how-do-i-get-started-with-linq-to-xml.md)
+- [<span data-ttu-id="8ab6c-109">Abilitare XML IntelliSense e usare lo spazio dei nomi XML</span><span class="sxs-lookup"><span data-stu-id="8ab6c-109">Enable XML IntelliSense and Use XML Namespaces</span></span>](how-do-i-enable-xml-intellisense-and-use-xml-namespaces.md)
+- [<span data-ttu-id="8ab6c-110">Creare documenti XML basati su dati SQL</span><span class="sxs-lookup"><span data-stu-id="8ab6c-110">Create XML Documents from SQL Data</span></span>](how-do-i-create-xml-documents-from-sql-data.md)
+- [<span data-ttu-id="8ab6c-111">Creare fogli di calcolo di Excel mediante LINQ to XML</span><span class="sxs-lookup"><span data-stu-id="8ab6c-111">Create Excel Spreadsheets using LINQ to XML</span></span>](how-do-i-create-excel-spreadsheets-using-linq-to-xml.md)

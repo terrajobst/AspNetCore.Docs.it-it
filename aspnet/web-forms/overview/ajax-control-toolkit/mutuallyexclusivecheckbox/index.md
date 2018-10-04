@@ -1,28 +1,24 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/mutuallyexclusivecheckbox/index
-title: MutuallyExclusiveCheckbox | Documenti Microsoft
+title: MutuallyExclusiveCheckbox | Microsoft Docs
 author: rick-anderson
-description: In questa esercitazione viene illustrato come utilizzare il controllo MutuallyExclusiveCheckbox per creare le caselle di controllo che funzionano come pulsanti di opzione (si escludono a vicenda) ma che può essere...
-ms.author: aspnetcontent
-manager: wpickett
+description: Questa esercitazione illustra come usare il controllo MutuallyExclusiveCheckbox per creare le caselle di controllo che funzionano come pulsanti di opzione (che si escludono a vicenda) ma che può essere...
+ms.author: riande
 ms.date: 11/14/2011
-ms.topic: article
 ms.assetid: f3f8ccad-2bb3-4cf7-94bf-24b184d987dc
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/mutuallyexclusivecheckbox
 msc.type: chapter
-ms.openlocfilehash: bea70dbaeb855c586cc0180511c454bf4ffd6e5f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: d171d1908034d81f931236f1494db29599014f70
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26510460"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255694"
 ---
-<a name="mutuallyexclusivecheckbox"></a><span data-ttu-id="d9470-103">MutuallyExclusiveCheckbox</span><span class="sxs-lookup"><span data-stu-id="d9470-103">MutuallyExclusiveCheckbox</span></span>
+<a name="mutuallyexclusivecheckbox"></a><span data-ttu-id="15577-103">MutuallyExclusiveCheckbox</span><span class="sxs-lookup"><span data-stu-id="15577-103">MutuallyExclusiveCheckbox</span></span>
 ====================
-> <span data-ttu-id="d9470-104">In questa esercitazione viene illustrato come utilizzare il controllo MutuallyExclusiveCheckbox per creare le caselle di controllo che funzionano come pulsanti di opzione (si escludono a vicenda) ma che può essere cancellata completamente.</span><span class="sxs-lookup"><span data-stu-id="d9470-104">This tutorial shows how to use the MutuallyExclusiveCheckbox control to create check boxes that work like radio buttons (mutually exclusive) but that can be completely cleared.</span></span>
+> <span data-ttu-id="15577-104">Questa esercitazione illustra come usare il controllo MutuallyExclusiveCheckbox per creare le caselle di controllo che funzionano come pulsanti di opzione (che si escludono a vicenda) ma che può essere cancellata completamente.</span><span class="sxs-lookup"><span data-stu-id="15577-104">This tutorial shows how to use the MutuallyExclusiveCheckbox control to create check boxes that work like radio buttons (mutually exclusive) but that can be completely cleared.</span></span>
 
 
-- [<span data-ttu-id="d9470-105">Creazione di caselle di controllo si escludono a vicenda (c#)</span><span class="sxs-lookup"><span data-stu-id="d9470-105">Creating Mutually Exclusive Checkboxes (C#)</span></span>](creating-mutually-exclusive-checkboxes-cs.md)
-- [<span data-ttu-id="d9470-106">Creazione di caselle di controllo si escludono a vicenda (VB)</span><span class="sxs-lookup"><span data-stu-id="d9470-106">Creating Mutually Exclusive Checkboxes (VB)</span></span>](creating-mutually-exclusive-checkboxes-vb.md)
+- [<span data-ttu-id="15577-105">Creazione di caselle di controllo che si escludono a vicenda (C#)</span><span class="sxs-lookup"><span data-stu-id="15577-105">Creating Mutually Exclusive Checkboxes (C#)</span></span>](creating-mutually-exclusive-checkboxes-cs.md)
+- [<span data-ttu-id="15577-106">Creazione di caselle di controllo che si escludono a vicenda (VB)</span><span class="sxs-lookup"><span data-stu-id="15577-106">Creating Mutually Exclusive Checkboxes (VB)</span></span>](creating-mutually-exclusive-checkboxes-vb.md)

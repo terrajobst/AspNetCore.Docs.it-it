@@ -1,27 +1,23 @@
 ---
 uid: web-api/overview/mobile-clients/index
-title: Web API e client mobili | Documenti Microsoft
+title: Web API e i client per dispositivi mobili | Microsoft Docs
 author: rick-anderson
-description: Utilizzo di ASP.NET Web API per raggiungere native client mobili.
-ms.author: aspnetcontent
-manager: wpickett
+description: Usando l'API Web ASP.NET per raggiungere i client per dispositivi mobili native.
+ms.author: riande
 ms.date: 07/23/2014
-ms.topic: article
 ms.assetid: 36ed9dd2-095b-48dc-8fe5-2de475b4098d
-ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/mobile-clients
 msc.type: chapter
-ms.openlocfilehash: c3415ce41bf47a50b46bf72951955a04c617bab7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 57ab4d5ae318673261d7701944c6a349cce46227
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26508270"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48255445"
 ---
-<a name="web-api-and-mobile-clients"></a><span data-ttu-id="ec3f3-103">API Web e client mobili</span><span class="sxs-lookup"><span data-stu-id="ec3f3-103">Web API and Mobile Clients</span></span>
+<a name="web-api-and-mobile-clients"></a><span data-ttu-id="0a984-103">API Web e client per dispositivi mobili</span><span class="sxs-lookup"><span data-stu-id="0a984-103">Web API and Mobile Clients</span></span>
 ====================
-> <span data-ttu-id="ec3f3-104">Utilizzo di ASP.NET Web API per raggiungere native client mobili.</span><span class="sxs-lookup"><span data-stu-id="ec3f3-104">Using ASP.NET Web API to reach native mobile clients.</span></span>
+> <span data-ttu-id="0a984-104">Usando l'API Web ASP.NET per raggiungere i client per dispositivi mobili native.</span><span class="sxs-lookup"><span data-stu-id="0a984-104">Using ASP.NET Web API to reach native mobile clients.</span></span>
 
 
-- [<span data-ttu-id="ec3f3-105">Chiamata di API Web da un'applicazione di Windows Phone 8 (c#)</span><span class="sxs-lookup"><span data-stu-id="ec3f3-105">Calling Web API from a Windows Phone 8 Application (C#)</span></span>](calling-web-api-from-a-windows-phone-8-application.md)
+- [<span data-ttu-id="0a984-105">Chiamata dell'API Web da un'applicazione Windows Phone 8 (C#)</span><span class="sxs-lookup"><span data-stu-id="0a984-105">Calling Web API from a Windows Phone 8 Application (C#)</span></span>](calling-web-api-from-a-windows-phone-8-application.md)
