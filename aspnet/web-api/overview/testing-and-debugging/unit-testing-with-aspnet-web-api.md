@@ -8,12 +8,12 @@ ms.date: 06/05/2014
 ms.assetid: bf20f78d-ff91-48be-abd1-88e23dcc70ba
 msc.legacyurl: /web-api/overview/testing-and-debugging/unit-testing-with-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 0a3f9ddde725995359de85c5e0783106f5de02bd
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 91cca2789b66b7b8983f8786b506c5fc71db8b75
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41829315"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795434"
 ---
 <a name="unit-testing-aspnet-web-api-2"></a>Unit test ASP.NET Web API 2
 ====================
@@ -22,17 +22,15 @@ da [Tom FitzMacken](https://github.com/tfitzmac)
 [Download progetto completato](https://code.msdn.microsoft.com/Unit-Testing-with-ASPNET-1374bc11)
 
 > Questo materiale sussidiario e applicazione illustrano come creare semplici unit test per l'applicazione API Web 2. Questa esercitazione illustra come includere un progetto unit test nella soluzione e scrivere i metodi di test che consentono di controllare i valori restituiti da un metodo del controller.
-> 
+>
 > Questa esercitazione presuppone che si abbia familiarità con i concetti di base dell'API Web ASP.NET. Per un'esercitazione introduttiva, vedere [Introduzione a ASP.NET Web API 2](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md).
-> 
+>
 > Gli unit test in questo argomento sono intenzionalmente limitato a scenari di dati semplici. Per gli unit test di scenari di dati più avanzati, vedere [comportamento fittizio di Entity Framework quando Unit test ASP.NET Web API 2](mocking-entity-framework-when-unit-testing-aspnet-web-api-2.md).
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Versioni del software utilizzate nell'esercitazione
-> 
-> 
-> - [Visual Studio 2017](https://www.visualstudio.com/vs/)
+>
+> - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)
 > - API Web 2
-
 
 ## <a name="in-this-topic"></a>Contenuto dell'argomento
 
@@ -41,7 +39,6 @@ Di seguito sono elencate le diverse sezioni di questo argomento:
 - [Prerequisiti](#prereqs)
 - [Scaricare il codice](#download)
 - [Creare applicazioni con progetto unit test](#appwithunittest)
-
     - [Aggiungi progetto di unit test, la creazione dell'applicazione](#whencreate)
     - [Aggiungi progetto di unit test per un'applicazione esistente](#addtoexisting)
 - [Configurare l'applicazione API Web 2](#setupproject)
@@ -52,7 +49,7 @@ Di seguito sono elencate le diverse sezioni di questo argomento:
 <a id="prereqs"></a>
 ## <a name="prerequisites"></a>Prerequisiti
 
-Visual Studio 2017 Community, Professional o Enterprise edition
+[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) Community, Professional o Enterprise edition
 
 <a id="download"></a>
 ## <a name="download-code"></a>Scaricare il codice

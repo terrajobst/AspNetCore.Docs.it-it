@@ -8,12 +8,12 @@ ms.date: 01/20/2014
 ms.assetid: 979d6c9f-0129-4e5b-ae56-4507b281b86d
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: f13720c5e9de99fb4ae5b27a757c257cac881f89
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 35cf3bf555218b6b49b30f48186e4c67aff4ff7b
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41826780"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795551"
 ---
 <a name="attribute-routing-in-aspnet-web-api-2"></a>Routing mediante attributi n API Web ASP.NET 2
 ====================
@@ -25,10 +25,9 @@ Lo stile di versioni precedenti del routing, denominato basato sulle convenzioni
 
 Questo argomento viene illustrato come abilitare il routing con attributi e descrive le varie opzioni per il routing con attributi. Per un'esercitazione end-to-end che usa il routing con attributi, vedere [creare un'API REST con il Routing con attributi nell'API Web 2](create-a-rest-api-with-attribute-routing.md).
 
-
 ## <a name="prerequisites"></a>Prerequisiti
 
-[Visual Studio 2017](https://www.visualstudio.com/vs/) Community, Professional o Enterprise Edition
+[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) Community, Professional o Enterprise edition
 
 In alternativa, usare Gestione pacchetti NuGet per installare i pacchetti necessari. Dal **degli strumenti** dal menu di Visual Studio, selezionare **Library Package Manager**, quindi selezionare **Package Manager Console**. Immettere il comando seguente nella finestra della Console di gestione pacchetti:
 
@@ -55,21 +54,21 @@ Ecco alcuni altri modelli di tale attributo routing rende facile.
 
 In questo esempio, "/ prodotti/api/v1" sarà indirizzato a un controller diverso rispetto a "/ prodotti/api/v2".
 
-`/api/v1/products`  
+`/api/v1/products`
 `/api/v2/products`
 
 **Segmenti URI overload**
 
 In questo esempio, "1" è un numero di ordine, ma "pending" viene eseguito il mapping a una raccolta.
 
-`/orders/1`  
+`/orders/1`
 `/orders/pending`
 
 **Più tipi di parametro**
 
 In questo esempio, "1" è un numero di ordine, ma "2013/06/16" specifica una data.
 
-`/orders/1`  
+`/orders/1`
 `/orders/2013/06/16`
 
 <a id="enable"></a>
@@ -251,7 +250,7 @@ Quando il framework cerca la corrispondenza con un URI con una route, la valuta 
 Ecco come viene determinata l'ordinamento totale:
 
 1. Confrontare le **RouteOrder** proprietà dell'attributo di route.
-2. Esaminare ogni segmento URI nel modello di route. Per ogni segmento, ordine come indicato di seguito: 
+2. Esaminare ogni segmento URI nel modello di route. Per ogni segmento, ordine come indicato di seguito:
 
     1. Segmenti del valore letterale.
     2. Parametri di route con vincoli.

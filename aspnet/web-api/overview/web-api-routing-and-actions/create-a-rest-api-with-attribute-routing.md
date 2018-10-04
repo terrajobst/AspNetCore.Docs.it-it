@@ -8,12 +8,12 @@ ms.date: 06/26/2013
 ms.assetid: 23fc77da-2725-4434-99a0-ff872d96336b
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
 msc.type: authoredcontent
-ms.openlocfilehash: da3ca8f89f823fcb2c4ab74af6ddf4f61d4e663a
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 191452204d4347396b1d339d9b82d583a2ce9f3c
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41832371"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795518"
 ---
 <a name="create-a-rest-api-with-attribute-routing-in-aspnet-web-api-2"></a>Creare un'API REST con Routing degli attributi nell'API Web ASP.NET 2
 ====================
@@ -46,13 +46,13 @@ Per la maggior parte delle richieste, tuttavia, l'API restituirà un subset dei 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[Visual Studio 2017](https://www.visualstudio.com/vs/) Community, Professional o Enterprise edition.
+[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) Community, Professional o Enterprise edition.
 
 ## <a name="create-the-visual-studio-project"></a>Creare il progetto di Visual Studio
 
 Iniziare eseguendo Visual Studio. Dal **File** dal menu **New** e quindi selezionare **progetto**.
 
-Nel **modelli** riquadro, selezionare **modelli installati** ed espandere le **Visual c#** nodo. Sotto **Visual c#**, selezionare **Web**. Nell'elenco dei modelli di progetto, selezionare **applicazione Web ASP.NET MVC 4**. Denominare il progetto &quot;BooksAPI&quot;.
+Espandere la **Installed** > **Visual c#** categoria. Sotto **Visual c#**, selezionare **Web**. Nell'elenco dei modelli di progetto, selezionare **applicazione Web ASP.NET MVC 4**. Denominare il progetto &quot;BooksAPI&quot;.
 
 ![](create-a-rest-api-with-attribute-routing/_static/image1.png)
 

@@ -7,12 +7,12 @@ ms.author: riande
 ms.date: 11/28/2017
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 14796ce31187a0f6a6331b46477fadc77e281c3b
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 62e99a41ba935470c39476c9aea8ee4193543425
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41833913"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795293"
 ---
 <a name="get-started-with-aspnet-web-api-2-c"></a>Introduzione a ASP.NET Web API 2 (c#)
 ====================
@@ -21,14 +21,13 @@ da [Mike Wasson](https://github.com/MikeWasson)
 [Download progetto completato](https://code.msdn.microsoft.com/Sample-code-of-Getting-c56ccb28)
 
 HTTP non è disponibile solo per mettere a disposizione le pagine web. HTTP è anche una potente piattaforma per la compilazione di API che espongono servizi e i dati. HTTP è semplice, flessibile e universale. Quasi tutte le piattaforme che è possibile pensare dispone di una libreria HTTP, in modo che i servizi HTTP possono raggiungere una vasta gamma di client, inclusi i browser, dispositivi mobili e applicazioni desktop tradizionali.
- 
+
 API Web ASP.NET è un framework per la compilazione di API web in .NET Framework. In questa esercitazione si utilizzerà API Web ASP.NET per creare un'API web che restituisce un elenco di prodotti.
 
- 
- ## <a name="software-versions-used-in-the-tutorial"></a>Versioni del software utilizzate nell'esercitazione
-  
- - [Visual Studio 2017](https://www.visualstudio.com/downloads/)
- - API Web 2
+## <a name="software-versions-used-in-the-tutorial"></a>Versioni del software utilizzate nell'esercitazione
+
+- [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)
+- API Web 2
 
 Visualizzare [creare un'API web con ASP.NET Core e Visual Studio per Windows](https://docs.microsoft.com/aspnet/core/tutorials/first-web-api) per una versione più recente di questa esercitazione.
 

@@ -8,37 +8,34 @@ ms.date: 06/24/2014
 ms.assetid: 1e1927c0-ded1-4752-80fd-a146628d2f09
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-endpoint
 msc.type: authoredcontent
-ms.openlocfilehash: 7f2d0b8fa8ac290e5018cb5237b1fedb5f40eeb0
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 48c1a78c96cb0ebfa0b053dfef84e76433112650
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41834849"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795418"
 ---
 <a name="create-an-odata-v4-endpoint-using-aspnet-web-api-22"></a>Creare un Endpoint OData v4 tramite ASP.NET Web API 2.2
 ====================
 da [Mike Wasson](https://github.com/MikeWasson)
 
 > Open Data Protocol (OData) è un protocollo di accesso di dati per il web. OData offre un metodo uniforme per eseguire query e modificare set di dati tramite operazioni CRUD (creare, leggere, aggiornare ed eliminare).
-> 
+>
 > API Web ASP.NET supporta v3 e v4 del protocollo. È anche possibile avere un endpoint v4 che viene eseguito side-by-side con un endpoint di v3.
-> 
+>
 > Questa esercitazione illustra come creare un endpoint OData v4 che supporta operazioni CRUD.
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Versioni del software utilizzate nell'esercitazione
-> 
-> 
+>
 > - API Web 2.2
 > - OData v4
-> - [Visual Studio 2013 Update 2](https://www.visualstudio.com/downloads/download-visual-studio-vs)
+> - Visual Studio 2013 (download di Visual Studio 2017 [qui](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017))
 > - Entity Framework 6
 > - .NET 4.5
-> 
-> 
+>
 > ## <a name="tutorial-versions"></a>Versioni dell'esercitazione
-> 
+>
 > Per OData versione 3, vedere [creazione di un Endpoint OData v3](../odata-v3/creating-an-odata-endpoint.md).
-
 
 ## <a name="create-the-visual-studio-project"></a>Creare il progetto di Visual Studio
 

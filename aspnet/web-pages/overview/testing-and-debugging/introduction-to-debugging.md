@@ -8,38 +8,38 @@ ms.date: 02/20/2014
 ms.assetid: 68de4326-7611-4b9b-b5f6-79b7adc3069f
 msc.legacyurl: /web-pages/overview/testing-and-debugging/introduction-to-debugging
 msc.type: authoredcontent
-ms.openlocfilehash: da04158c58054a8c0b8e31d3a55bea2dcbae7a05
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: fb9a69d568e10ddafd71e2b9600b3dae21576807
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41833516"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48794989"
 ---
 <a name="introduction-to-debugging-aspnet-web-pages-razor-sites"></a>Introduzione al debug ASP.NET Web Pages (Razor) siti
 ====================
 da [Tom FitzMacken](https://github.com/tfitzmac)
 
 > Questo articolo illustra vari modi per eseguire il debug di pagine in un sito Web di ASP.NET Web Pages (Razor). Il debug è il processo di individuazione e correzione degli errori nelle pagine di codice.
-> 
-> **Che cosa si apprenderà come:** 
-> 
+>
+> **Che cosa si apprenderà come:**
+>
 > - Come visualizzare informazioni utili per analizzare ed eseguire il debug di pagine.
 > - Come eseguire il debug degli strumenti in Visual Studio.
->   
-> 
+>
+>
 > Queste sono le funzionalità ASP.NET introdotte nell'articolo:
-> 
+>
 > - Il `ServerInfo` helper.
 > - `ObjectInfo` metodo di supporto.
->   
-> 
+>
+>
 > ## <a name="software-versions"></a>Versioni del software
-> 
-> 
+>
+>
 > - ASP.NET Web Pages (Razor) 3
 > - Visual Studio 2013
->   
-> 
+>
+>
 > Questa esercitazione si integra inoltre con ASP.NET Web Pages 2. È possibile utilizzare WebMatrix 3 ma il debugger integrato non è supportato.
 
 
@@ -54,8 +54,8 @@ Il `ServerInfo` helper è uno strumento diagnostico che ti offre una panoramica 
 
     È possibile aggiungere il `ServerInfo` codice in un punto qualsiasi della pagina. Ma viene aggiunta alla fine manterrà il proprio output separato da altro contenuto della pagina, che rende più facile da leggere.
 
-    > [!NOTE] 
-    > 
+    > [!NOTE]
+    >
     > **Importante** è necessario rimuovere qualsiasi codice di diagnostica dalle pagine web prima di spostare le pagine web in un server di produzione. Questo vale per il `ServerInfo` helper, nonché altre tecniche diagnostiche in questo articolo che implicano l'aggiunta di codice a una pagina. Per evitare che i visitatori del sito Web per visualizzare informazioni sul nome del server, nomi di utenti, i percorsi nel server e i dettagli simili, perché questo tipo di informazioni potrebbe essere utile per le persone con finalità dannose.
 3. Salvare la pagina ed eseguirlo in un browser.
 
@@ -119,7 +119,7 @@ Il `ObjectInfo` helper Visualizza il tipo e il valore di ogni oggetto viene pass
 
 ## <a name="using-debugging-tools-in-visual-studio"></a>Usando gli strumenti di debug in Visual Studio
 
-Per un'esperienza di debug più completa, usare Visual Studio 2013 o la versione gratuita [Visual Studio Express 2013 per Web](https://www.visualstudio.com/downloads/download-visual-studio-vs#d-2013-express). Con Visual Studio, è possibile impostare un punto di interruzione nel codice nella riga che si desidera controllare.
+Per un'esperienza di debug più completa, usare [Visual Studio](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017). Con Visual Studio, è possibile impostare un punto di interruzione nel codice nella riga che si desidera controllare.
 
 ![Imposta punto di interruzione](introduction-to-debugging/_static/image1.png)
 

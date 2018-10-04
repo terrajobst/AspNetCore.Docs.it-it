@@ -8,32 +8,29 @@ ms.date: 06/27/2014
 ms.assetid: 0e6fb03c-b16d-4bb0-ab0b-552bd2b6ece1
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/odata-actions-and-functions
 msc.type: authoredcontent
-ms.openlocfilehash: 4e61c6b4bf59792b6570e32e6d24635d4f5e5ac3
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 45b84ec4ee76e83ece99bf6841c28e13c3ab7728
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41838017"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795267"
 ---
 <a name="actions-and-functions-in-odata-v4-using-aspnet-web-api-22"></a>Azioni e funzioni in OData v4 tramite ASP.NET Web API 2.2
 ====================
 da [Mike Wasson](https://github.com/MikeWasson)
 
 > In OData, funzioni e le azioni sono un modo per aggiungere comportamenti lato server che non sono definiti facilmente come operazioni CRUD su entità. Questa esercitazione illustra come aggiungere azioni e funzioni a un endpoint OData v4, usando l'API Web 2.2. L'esercitazione si basa sull'esercitazione [creare un OData v4 Endpoint Using ASP.NET Web API 2](create-an-odata-v4-endpoint.md)
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Versioni del software utilizzate nell'esercitazione
-> 
-> 
+>
 > - API Web 2.2
 > - OData v4
-> - [Visual Studio 2013 Update 2](https://www.visualstudio.com/downloads/download-visual-studio-vs)
+> - Visual Studio 2013 (download di Visual Studio 2017 [qui](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017))
 > - .NET 4.5
-> 
-> 
+>
 > ## <a name="tutorial-versions"></a>Versioni dell'esercitazione
-> 
+>
 > Per OData versione 3, vedere [azioni OData nell'API Web ASP.NET 2](../odata-v3/odata-actions.md).
-
 
 La differenza tra *azioni* e *funzioni* è che le azioni possono avere effetti collaterali e non funzioni. Le azioni e funzioni possono restituire dati. Alcuni usi della azioni includono:
 
