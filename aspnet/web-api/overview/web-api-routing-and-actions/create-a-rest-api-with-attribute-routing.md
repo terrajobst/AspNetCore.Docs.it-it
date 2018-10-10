@@ -8,12 +8,12 @@ ms.date: 06/26/2013
 ms.assetid: 23fc77da-2725-4434-99a0-ff872d96336b
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
 msc.type: authoredcontent
-ms.openlocfilehash: 191452204d4347396b1d339d9b82d583a2ce9f3c
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: 3b66f02c9be6441ff7d6c38d6180cc8556c6b8b9
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795518"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912891"
 ---
 <a name="create-a-rest-api-with-attribute-routing-in-aspnet-web-api-2"></a>Creare un'API REST con Routing degli attributi nell'API Web ASP.NET 2
 ====================
@@ -39,7 +39,7 @@ Per il livello di dati, si userà Entity Framework. I record dei libri avrà i c
 - Genre
 - Data di pubblicazione
 - Prezzo
-- Descrizione
+- Description
 - AuthorID (chiave esterna per una tabella Authors)
 
 Per la maggior parte delle richieste, tuttavia, l'API restituirà un subset dei dati (titolo, autore e il genere). Per ottenere il record completo, il client richieste `/api/books/{id}/details`.
@@ -104,7 +104,7 @@ Fare clic su **Add** nel **Aggiungi Controller** finestra di dialogo. Lo scaffol
 
 ### <a name="seed-the-database"></a>Seeding del Database
 
-Dal menu Strumenti, selezionare **Gestione pacchetti libreria**, quindi selezionare **Console di gestione pacchetti**.
+Dal menu Strumenti, selezionare **Gestione pacchetti NuGet**, quindi selezionare **la Console di Gestione pacchetti**.
 
 Nella finestra della Console di gestione pacchetti immettere il comando seguente:
 
@@ -171,7 +171,7 @@ Il modello di route per ogni metodo del controller è il prefisso più la string
 
 Per ottenere i dettagli della Rubrica, il client invia una richiesta GET a `/api/books/{id}/details`, dove *{id}* è l'ID del libro.
 
-Aggiungere il metodo seguente alla classe `BooksController`.
+Aggiungere il metodo seguente alla classe `BooksController` .
 
 [!code-csharp[Main](create-a-rest-api-with-attribute-routing/samples/sample13.cs)]
 

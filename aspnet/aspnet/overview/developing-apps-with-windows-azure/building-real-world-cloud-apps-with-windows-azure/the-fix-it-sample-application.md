@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: 1bc333c5-f096-4ea7-b170-779accc21c1a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
 msc.type: authoredcontent
-ms.openlocfilehash: 435ee61a9c28ad0035457990cd3a889f5b240517
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: de3c8ea29f2c271136f58d8165bb92f4ab28ce83
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795538"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912826"
 ---
 <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a>Appendice: La correzione applicazione di esempio (compilazione di App per Cloud funzionanti con Azure)
 ====================
@@ -221,7 +221,7 @@ Esistono due modi per eseguire l'app Fix It:
 4. In Esplora File fare clic con il file con estensione zip e fare clic su proprietà e nella finestra Proprietà fare clic su Annulla blocco.
 5. Decomprimere il file.
 6. Fare doppio clic sul file con estensione sln per avviare Visual Studio.
-7. Dal menu Strumenti, fare clic su Gestione pacchetti libreria e quindi Console di gestione pacchetti.
+7. Dal **strumenti** menu, fare clic su **Gestione pacchetti NuGet**, quindi **Console di Gestione pacchetti**.
 8. In Package Manager Console (PMC), fare clic su Ripristina.
 9. Uscire da Visual Studio.
 10. Avviare il [emulatore di archiviazione di Azure](/azure/storage/common/storage-use-emulator).
@@ -249,7 +249,7 @@ Esistono due modi per eseguire l'app Fix It:
    3. In Esplora soluzioni fare doppio clic la soluzione FixIt e selezionare **proprietà**.
    4. Selezionare **progetti di avvio multipli**.
    5. Nel **azione** elenco a discesa in MyFixIt e MyFixItCloudService, selezionare **avviare**.
-   6. Fare clic su **OK**.
+   6. Scegliere **OK**.
    7. Premere **F5** eseguire entrambi i progetti.
 
       Quando si esegue il progetto MyFixItCloudService, Visual Studio avvia l'emulatore di calcolo di Azure. A seconda della configurazione di firewall, è necessario consentire all'emulatore attraverso il firewall.

@@ -8,12 +8,12 @@ ms.date: 02/25/2014
 ms.assetid: 66a837e9-600b-4b72-97a9-19804231c64a
 msc.legacyurl: /web-api/overview/testing-and-debugging/tracing-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 426e3500c504a651a325eec021e2d9e8b9cc1d32
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: e0d525e497cf41a79820417a9c832fa6b5cd7f8a
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795280"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912839"
 ---
 <a name="tracing-in-aspnet-web-api-2"></a>Traccia in ASP.NET Web API 2
 ====================
@@ -37,7 +37,7 @@ Scegliere il modello di progetto API Web.
 
 [![](tracing-in-aspnet-web-api/_static/image4.png)](tracing-in-aspnet-web-api/_static/image3.png)
 
-Dal **degli strumenti** dal menu **Library Package Manager**, quindi **Console di gestione pacchetti**.
+Dal **degli strumenti** dal menu **Gestione pacchetti NuGet**, quindi **Console di gestione pacchetti**.
 
 Nella finestra della Console di gestione pacchetti, digitare i comandi seguenti.
 
@@ -47,7 +47,6 @@ Il primo comando consente di installare il pacchetto più recente di traccia API
 
 > [!NOTE]
 > Se si vuole destinare una versione specifica di API Web, usare l'opzione - flag di versione quando si installa il pacchetto di analisi.
-
 
 Aprire il file WebApiConfig.cs nell'App\_cartella di avvio. Aggiungere il codice seguente per il **registrare** (metodo).
 

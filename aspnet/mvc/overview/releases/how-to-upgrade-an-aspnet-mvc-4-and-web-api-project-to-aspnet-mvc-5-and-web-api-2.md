@@ -8,12 +8,12 @@ ms.date: 10/17/2013
 ms.assetid: db0d02d9-58e8-4a0b-8d7d-b8df8ea97b88
 msc.legacyurl: /mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: d6fb40741c5f7b992e907a462ac92972fe603624
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 2566e201e44ccd9642abda7c7996056c73178fd6
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578367"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912852"
 ---
 <a name="how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2"></a>Come aggiornare un ASP.NET MVC 4 e un progetto API Web ASP.NET MVC 5 e API Web 2
 ====================
@@ -71,8 +71,8 @@ da [Rick Anderson]((https://twitter.com/RickAndMSFT))
     > Microsoft-Web-helper è stata sostituita con Microsoft.AspNet.WebHelpers. È necessario rimuovere innanzitutto il pacchetto precedente e quindi installare il pacchetto più recente.   
     >   
     > Non è Nessuna compatibilità di versione tra i vari pacchetti principali di ASP.NET. Ad esempio, MVC 5 è compatibile con solo 3 Razor e non 2 Razor.
-4. Aprire il progetto in Visual Studio 2013.
-5. Rimuovere i seguenti pacchetti NuGet ASP.NET installati. Si rimuoverà le using Package Manager Console (console di gestione pacchetti). Per aprire la console di gestione pacchetti, selezionare il **degli strumenti** menu e quindi selezionare **Gestione pacchetti libreria** quindi selezionare **Console di gestione pacchetti**. Il progetto potrebbe non includere tutti questi componenti.
+4. Aprire il progetto in Visual Studio.
+5. Rimuovere i seguenti pacchetti NuGet ASP.NET installati. Si rimuoverà le using Package Manager Console (console di gestione pacchetti). Per aprire la console di gestione pacchetti, selezionare la **degli strumenti** menu e quindi selezionare **Gestione pacchetti NuGet** quindi selezionare **Package Manager Console**. Il progetto potrebbe non includere tutti questi componenti.
 
     1. `Microsoft.AspNet.WebPages.Administration`  
    Questo pacchetto viene in genere aggiunto l'aggiornamento da MVC 3 a MVC 4. Per rimuoverlo, eseguire il comando seguente nella console di gestione pacchetti:  

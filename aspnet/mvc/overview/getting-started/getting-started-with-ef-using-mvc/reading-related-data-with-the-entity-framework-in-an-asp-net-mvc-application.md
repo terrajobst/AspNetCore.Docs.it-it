@@ -8,20 +8,20 @@ ms.date: 11/07/2014
 ms.assetid: 18cdd896-8ed9-4547-b143-114711e3eafb
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 16bef0094406f3f45307eabd19c0872e90ecf7ef
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 18d3720f891e2356af42b58389776f2d04eee39d
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41836461"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913203"
 ---
 <a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Lettura di dati con Entity Framework in un'applicazione ASP.NET MVC correlati
 ====================
 da [Tom Dykstra](https://github.com/tdykstra)
 
-[Download progetto completato](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) o [Scarica il PDF](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
+[Download progetto completato](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
-> L'applicazione web di esempio Contoso University illustra come creare applicazioni ASP.NET MVC 5 con Entity Framework 6 Code First e Visual Studio 2013. Per informazioni sulla serie di esercitazioni, vedere la [prima esercitazione della serie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+> L'applicazione web di esempio Contoso University illustra come creare applicazioni ASP.NET MVC 5 con Entity Framework 6 Code First e Visual Studio. Per informazioni sulla serie di esercitazioni, vedere la [prima esercitazione della serie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
 
 Nell'esercitazione precedente è stato completato il modello di dati dell'istituto di istruzione. In questa esercitazione verrà letto e visualizzare dati correlati, ovvero i dati che Entity Framework carica all'interno di proprietà di navigazione.
@@ -36,7 +36,7 @@ Le figure seguenti illustrano le pagine che verranno usate.
 
 Esistono diversi modi che Entity Framework può caricare i dati correlati nelle proprietà di navigazione di un'entità:
 
-- *Caricamento lazy*. Quando un'entità viene letta per la prima volta, i dati correlati non vengono recuperati. La prima volta che si tenta di accedere a una proprietà di navigazione, tuttavia, i dati necessari per quest'ultima vengono recuperati automaticamente. Ciò comporta più query inviate al database, ovvero uno per l'entità stessa e uno ogni volta che i dati per l'entità correlati deve essere recuperato. Il `DbContext` classe consente il caricamento lazy per impostazione predefinita. 
+- *Caricamento lazy*. Quando un'entità viene letta per la prima volta, i dati correlati non vengono recuperati. La prima volta che si tenta di accedere a una proprietà di navigazione, tuttavia, i dati necessari per quest'ultima vengono recuperati automaticamente. Ciò comporta più query inviate al database, ovvero uno per l'entità stessa e uno ogni volta che i dati per l'entità correlati deve essere recuperato. Il `DbContext` classe consente il caricamento lazy per impostazione predefinita.
 
     ![Lazy_loading_example](https://asp.net/media/2577850/Windows-Live-Writer_Reading-Re.NET-MVC-Application-5-of-10h1_ADC3_Lazy_loading_example_2c44eabb-5fd3-485a-837d-8e3d053f2c0c.png)
 - *Caricamento eager*. Quando l'entità viene letta, i dati correlati corrispondenti vengono recuperati insieme ad essa. Ciò in genere ha come risultato una query join singola che recupera tutti i dati necessari. Specificare il caricamento eager con la `Include` (metodo).
@@ -69,7 +69,7 @@ Se non si usano gli oggetti DTO, è possibile disabilitare il caricamento lazy e
 Ecco un altro [modi per disabilitare il caricamento lazy](https://msdn.microsoft.com/data/jj574232):
 
 - Per le proprietà di navigazione specifici, omettere il `virtual` parola chiave quando si dichiara la proprietà.
-- Per tutte le proprietà di navigazione, impostare `LazyLoadingEnabled` a `false`, inserire il codice seguente nel costruttore della classe di contesto: 
+- Per tutte le proprietà di navigazione, impostare `LazyLoadingEnabled` a `false`, inserire il codice seguente nel costruttore della classe di contesto:
 
     [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
@@ -183,10 +183,10 @@ Al codice esistente sono state apportate le modifiche seguenti:
 
 - La classe del modello è stata modificata in `InstructorIndexData`.
 - Il titolo pagina è stato modificato da **Index** (Indice) a **Instructors** (Insegnanti).
-- Aggiungere un **Office** colonna che consente di visualizzare `item.OfficeAssignment.Location` solo se `item.OfficeAssignment` non null. (Poiché si tratta di una relazione uno-a-zero-o-uno, potrebbe non esserci una correlati `OfficeAssignment` entity.) 
+- Aggiungere un **Office** colonna che consente di visualizzare `item.OfficeAssignment.Location` solo se `item.OfficeAssignment` non null. (Poiché si tratta di una relazione uno-a-zero-o-uno, potrebbe non esserci una correlati `OfficeAssignment` entity.)
 
     [!code-cshtml[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample16.cshtml)]
-- Aggiunto il codice che verrà aggiunto in modo dinamico `class="success"` per il `tr` elemento dell'insegnante selezionato. Consente di impostare un colore di sfondo per la riga selezionata utilizzando un [Bootstrap](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#bootstrap) classe. 
+- Aggiunto il codice che verrà aggiunto in modo dinamico `class="success"` per il `tr` elemento dell'insegnante selezionato. Consente di impostare un colore di sfondo per la riga selezionata utilizzando un [Bootstrap](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#bootstrap) classe.
 
     [!code-cshtml[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample17.cshtml)]
 - Aggiunto un nuovo `ActionLink` etichettato **selezionate** immediatamente prima degli altri collegamenti in ogni riga, in modo che l'ID dell'insegnante selezionato da inviare al `Index` (metodo).
@@ -243,7 +243,7 @@ Eseguire ora la pagina di indice degli insegnanti e non si vedrà alcuna differe
 
 È stato usato tutti i tre modi (lazy, eager ed espliciti) per caricare i dati correlati nelle proprietà di navigazione. Nella prossima esercitazione si apprenderà come aggiornare i dati correlati.
 
-Inviaci un feedback sul modo in cui è stato apprezzato questa esercitazione e cosa possiamo migliorare. È anche possibile richiedere nuovi argomenti in [Mostra Me How With Code](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code).
+Inviaci un feedback sul modo in cui è stato apprezzato questa esercitazione e cosa possiamo migliorare.
 
 Sono disponibili collegamenti ad altre risorse di Entity Framework nel [l'accesso ai dati ASP.NET - risorse consigliate](../../../../whitepapers/aspnet-data-access-content-map.md).
 

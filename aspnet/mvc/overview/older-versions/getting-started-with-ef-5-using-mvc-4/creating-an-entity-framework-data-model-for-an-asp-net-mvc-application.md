@@ -8,12 +8,12 @@ ms.date: 07/30/2013
 ms.assetid: 4ba029b6-ee7c-4e45-a0e7-b703c37e5d9a
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 037f67d679762a037eaef9f0a4060156b94d97b1
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: b691f718258f98e03513a089ca26b286f284765e
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41838089"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913235"
 ---
 <a name="creating-an-entity-framework-data-model-for-an-aspnet-mvc-application-1-of-10"></a>Creazione di un modello di dati di Entity Framework per un'applicazione ASP.NET MVC (1 di 10)
 ====================
@@ -89,7 +89,7 @@ Nel **nuovo progetto ASP.NET MVC 4** finestra di dialogo per selezionare la **ap
 
 Lasciare il **Razor** visualizzare motore selezionato e lasciare il **creare un progetto di unit test** casella di controllo deselezionata.
 
-Fare clic su **OK**.
+Scegliere **OK**.
 
 ![Project_template_options](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image4.png)
 
@@ -97,7 +97,7 @@ Fare clic su **OK**.
 
 Con alcune modifiche è possibile impostare il menu del sito, il layout e la home page.
 
-Aprire *Views\Shared\\layout. cshtml*e sostituire il contenuto del file con il codice seguente. Le modifiche sono evidenziate.
+Apri *Views\Shared\\cshtml*e sostituire il contenuto del file con il codice riportato di seguito. Le modifiche sono evidenziate.
 
 [!code-cshtml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample1.cshtml?highlight=5,15,25-28,43)]
 
@@ -142,7 +142,7 @@ Nel *modelli* cartella, creare *Student.cs* e sostituire il codice esistente con
 
 La proprietà `StudentID` diventa la colonna di chiave primaria della tabella di database che corrisponde a questa classe. Per impostazione predefinita, Entity Framework interpreta una proprietà denominata `ID` oppure *NomeClasse* `ID` come chiave primaria.
 
-Il `Enrollments` proprietà è una *proprietà di navigazione*. Le proprietà di navigazione contengono altre entità correlate a questa entità. In questo caso, il `Enrollments` proprietà di un `Student` entità conterrà tutte le `Enrollment` entità correlate a quella `Student` entità. In altre parole, se un determinato `Student` riga nel database ha due correlate `Enrollment` righe (valore righe che contengono una chiave primaria dello studente in loro `StudentID` colonna chiave esterna), che `Student` dell'entità `Enrollments` proprietà di navigazione contiene quelle due `Enrollment` entità.
+La proprietà `Enrollments` rappresenta una *proprietà di navigazione*. Le proprietà di navigazione contengono altre entità correlate a questa entità. In questo caso, il `Enrollments` proprietà di un `Student` entità conterrà tutte le `Enrollment` entità correlate a quella `Student` entità. In altre parole, se un determinato `Student` riga nel database ha due correlate `Enrollment` righe (valore righe che contengono una chiave primaria dello studente in loro `StudentID` colonna chiave esterna), che `Student` dell'entità `Enrollments` proprietà di navigazione contiene quelle due `Enrollment` entità.
 
 Le proprietà di navigazione sono in genere definite come `virtual` in modo che è possibile sfruttare alcune funzionalità di Entity Framework, ad esempio *caricamento lazy*. (Caricamento lazy sarà spiegato più avanti, nelle [lettura di dati correlati](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md) esercitazione più avanti in questa serie.
 
@@ -172,7 +172,7 @@ Nel *modelli* cartella, creare *Course.cs*, sostituendo il codice esistente con 
 
 La proprietà `Enrollments` rappresenta una proprietà di navigazione. È possibile correlare un'entità `Course` a un numero qualsiasi di entità `Enrollment`.
 
-Ciò che diremo informazioni sul [[DatabaseGenerated](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.databasegeneratedattribute(v=vs.110).aspx)([DatabaseGeneratedOption](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.databasegeneratedoption(v=vs.95).aspx). Nessuno)] dell'attributo nella prossima esercitazione. In pratica, questo attributo consente di immettere la chiave primaria per il corso invece di essere generata dal database.
+Ciò che diremo più informazioni di [[DatabaseGenerated](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.databasegeneratedattribute(v=vs.110).aspx)([DatabaseGeneratedOption](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.schema.databasegeneratedoption(v=vs.95).aspx). None)] attributo nell'esercitazione successiva. In pratica, questo attributo consente di immettere la chiave primaria per il corso invece di essere generata dal database.
 
 ## <a name="create-the-database-context"></a>Creare il contesto di database
 
@@ -210,7 +210,7 @@ Al primo avvio sviluppare un'applicazione, il modello di dati delle modifiche fr
 
 ### <a name="enable-code-first-migrations"></a>Abilitare migrazioni Code First
 
-1. Dal **degli strumenti** menu, fare clic su **Library Package Manager** e quindi **Package Manager Console**.
+1. Dal **degli strumenti** menu, fare clic su **Gestione pacchetti NuGet** e quindi **Package Manager Console**.
 
     ![Selecting_Package_Manager_Console](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image10.png)
 2. Nel `PM>` prompt dei comandi immettere il comando seguente:

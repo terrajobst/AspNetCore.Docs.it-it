@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 48f7feb3-872f-485d-b96f-e30011ff8c4a
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/whats-new-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: b1d80928d765bc71ea1579272662b6697371c47b
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 9d5a51a5887ecbbc96fce1416b88aa849bc3674e
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41826317"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912722"
 ---
 # <a name="whats-new-in-aspnet-mvc-4"></a>What ' s New in ASP.NET MVC 4
 
@@ -382,7 +382,7 @@ Uno degli aggiornamenti della chiave in ASP.NET MVC 4 è il supporto per lo svil
 
       > [!NOTE]
       > Uno dei vantaggi dell'uso di NuGet è che non è necessario per la spedizione di tutte le librerie nel progetto, ridurre le dimensioni del progetto. Con gli strumenti avanzati di NuGet, specificando le versioni del pacchetto nel file Packages. config, sarà possibile scaricare tutte le librerie necessarie alla prima che esecuzione del progetto. Ecco perché è necessario eseguire questi passaggi dopo l'apertura di una soluzione esistente da questa esercitazione.
-2. Aprire il **Console di gestione pacchetti** facendo clic la **strumenti** &gt; **Library Package Manager** &gt; **Package Manager Console** l'opzione di menu.
+2. Aprire il **Console di gestione pacchetti** facendo clic la **strumenti** > **Gestione pacchetti NuGet** > **Console di gestione pacchetti**  l'opzione di menu.
 
     ![Apertura della Console di gestione pacchetti NuGet](whats-new-in-aspnet-mvc-4/_static/image22.png "aprendo la Console di gestione pacchetti NuGet")
 

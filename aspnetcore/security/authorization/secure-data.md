@@ -5,12 +5,12 @@ description: Informazioni su come creare un'app Razor Pages con i dati utente pr
 ms.author: riande
 ms.date: 7/24/2018
 uid: security/authorization/secure-data
-ms.openlocfilehash: 2fb13f0772a1f8aa4ed2ff3ece2a2c5d3b7360c9
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 71b7855958b530b8bac32843a8d1e7db0113ffd9
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46010936"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912631"
 ---
 ::: moniker range="<= aspnetcore-1.1"
 
@@ -249,7 +249,7 @@ Aggiornare il modello di pagina delete per utilizzare il gestore dell'autorizzaz
 
 Attualmente, l'interfaccia utente Mostra modifica ed elimina i collegamenti per i contatti che l'utente non è possibile modificare.
 
-Inserire il servizio di autorizzazione nel *viewimports* file in modo che sia disponibile per tutte le viste:
+Inserire il servizio di autorizzazione nel *Views/_ViewImports.cshtml* in modo che sia disponibile per tutte le visualizzazioni di file:
 
 [!code-cshtml[](secure-data/samples/final2.1/Pages/_ViewImports.cshtml?highlight=6-99)]
 
@@ -328,7 +328,7 @@ dotnet ef migrations add initial
 dotnet ef database update
 ```
 
-* Aggiorna il **ContactManager** ancoraggio nel *cshtml* file:
+* Aggiornamento del **ContactManager** di ancoraggio nel *Pages/_Layout.cshtml* file:
 
 ```cshtml
 <a asp-page="/Contacts/Index" class="navbar-brand">ContactManager</a>
@@ -350,6 +350,7 @@ Verificare che l'app effettuato il seeding del database. Se sono presenti tutte 
 
 ### <a name="additional-resources"></a>Risorse aggiuntive
 
+* [Creare un'app web .NET Core e Database SQL di Azure App Service](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
 * [ASP.NET Core autorizzazione Lab](https://github.com/blowdart/AspNetAuthorizationWorkshop). Questa esercitazione descrive in dettaglio più le funzionalità di sicurezza introdotte in questa esercitazione.
 * [Autorizzazione in ASP.NET Core: semplice, ruolo, basata sulle attestazioni e personalizzato](xref:security/authorization/index)
 * [Autorizzazione personalizzata basata su criteri](xref:security/authorization/policies)

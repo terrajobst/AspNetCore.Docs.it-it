@@ -8,12 +8,12 @@ ms.date: 07/16/2014
 ms.assetid: ecfd0eb4-c4ad-44e6-9db9-a2a66611ff6a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
 msc.type: authoredcontent
-ms.openlocfilehash: 05181ae1b2d857eea45983d378b28011c1cd755a
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: bc6de2f0c8b2cd958c198abb90fc4ad97613e973
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578133"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913307"
 ---
 <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>Laboratorio pratico: siti Web di Azure gestibili: gestione del cambiamento e scalabilità
 ====================
@@ -124,7 +124,7 @@ In questa attività verrà illustrata la procedura di abilitazione **migrazioni 
 
 1. Aprire Visual Studio e aprire il **GeekQuiz.sln** file di soluzione dal **Source\Ex1 UsingEntityFrameworkMigrations\Begin**.
 2. Compilare la soluzione per scaricare e installare il **NuGet** dipendenze dei pacchetti. A tale scopo, fare doppio clic la soluzione e fare clic su **Compila soluzione** o premere **Ctrl + MAIUSC + B**.
-3. Dal **degli strumenti** dal menu di Visual Studio, selezionare **Library Package Manager**e quindi fare clic su **Package Manager Console**.
+3. Dal **strumenti** menu in Visual Studio, selezionare **NuGet Gestione pacchetti**, quindi fare clic su **la Console di Gestione pacchetti**.
 4. Nel **Console di gestione pacchetti**, immettere il comando seguente e quindi premere **invio**. Verrà creata una migrazione iniziale in base al modello esistente.
 
     [!code-powershell[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample1.ps1)]

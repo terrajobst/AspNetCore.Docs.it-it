@@ -8,12 +8,12 @@ ms.date: 01/26/2012
 ms.assetid: be5ab1e2-4140-4275-ac59-ca82a1bac0c1
 msc.legacyurl: /web-api/overview/older-versions/self-host-a-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: cac0d5aeaf49f45051d062935e0e9207ce59c7eb
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 63d192a6fa2aafef3770d5b0b97ec32e001b69db
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41835287"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912702"
 ---
 <a name="self-host-aspnet-web-api-1-c"></a>Self-hosting di API Web ASP.NET 1 (c#)
 ====================
@@ -50,7 +50,7 @@ In Esplora soluzioni fare clic sul progetto e selezionare **proprietà**. Nel **
 
 Gestione pacchetti NuGet è il modo più semplice per aggiungere gli assembly di API Web a un progetto non ASP.NET.
 
-Per verificare se è installato Gestione pacchetti NuGet, scegliere il **strumenti** menu di Visual Studio. Se viene visualizzato un menu chiamato **Library Package Manager**, è necessario Gestione pacchetti NuGet.
+Per verificare se è installato Gestione pacchetti NuGet, scegliere il **strumenti** menu di Visual Studio. Se viene visualizzato un menu chiamato **Gestisci pacchetti NuGet**, è necessario Gestione pacchetti NuGet.
 
 Per installare Gestione pacchetti NuGet:
 
@@ -68,8 +68,8 @@ Per installare Gestione pacchetti NuGet:
 
 Dopo aver installato Gestione pacchetti NuGet, aggiungere il pacchetto dell'API Web al progetto.
 
-1. Dal **degli strumenti** dal menu **Library Package Manager**. *Nota*: se non possibile visualizzare il menu di elemento, assicurarsi che Gestione pacchetti NuGet è installato correttamente.
-2. Selezionare **Gestisci pacchetti NuGet per la soluzione...**
+1. Dal **degli strumenti** dal menu **Gestione pacchetti NuGet**. *Nota*: se non possibile visualizzare il menu di elemento, assicurarsi che Gestione pacchetti NuGet è installato correttamente.
+2. Selezionare **Gestisci pacchetti NuGet per la soluzione**
 3. Nel **Gestisci pacchetti NugGet** finestra di dialogo, seleziona **Online**.
 4. Nella casella di ricerca, digitare &quot;Microsoft.AspNet.WebApi.SelfHost&quot;.
 5. Selezionare il pacchetto di ASP.NET Web API Self Host e fare clic su **installare**.
@@ -77,7 +77,6 @@ Dopo aver installato Gestione pacchetti NuGet, aggiungere il pacchetto dell'API 
 
 > [!NOTE]
 > Assicurarsi di installare il pacchetto denominato Microsoft.AspNet.WebApi.SelfHost, non AspNetWebApi.SelfHost.
-
 
 ![](self-host-a-web-api/_static/image4.png)
 
@@ -95,7 +94,7 @@ Aggiungere una classe pubblica denominata `ProductsController`. Questa classe da
 
 Per altre informazioni sul codice in questo controller, vedere la [introduttiva](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md) esercitazione. Questo controller definisce tre operazioni GET:
 
-| URI | Descrizione |
+| URI | Description |
 | --- | --- |
 | prodotti/api / | Ottenere un elenco di tutti i prodotti. |
 | /api/products/*id* | Ottenere un prodotto base all'ID. |
@@ -141,8 +140,8 @@ Aggiungere un nuovo progetto applicazione console alla soluzione:
 
 Usare Gestione pacchetti NuGet per aggiungere il pacchetto di librerie di base di ASP.NET Web API:
 
-- Dal menu Strumenti, selezionare **Library Package Manager**.
-- Selezionare **Gestisci pacchetti NuGet per la soluzione...**
+- Dal menu Strumenti, selezionare **Gestisci pacchetti NuGet**.
+- Selezionare **Gestisci pacchetti NuGet per la soluzione**
 - Nel **Gestisci pacchetti NuGet** finestra di dialogo, seleziona **Online**.
 - Nella casella di ricerca, digitare &quot;ASPNET&quot;.
 - Selezionare il pacchetto di librerie Client di Microsoft ASP.NET Web API e fare clic su **installare**.
@@ -153,7 +152,7 @@ Aggiungere un riferimento in ClientApp al progetto SelfHost:
 - Selezionare **Aggiungi riferimento**.
 - Nel **gestione riferimenti** finestra di dialogo, sotto **soluzione**, selezionare **progetti**.
 - Selezionare il progetto SelfHost.
-- Fare clic su **OK**.
+- Scegliere **OK**.
 
 ![](self-host-a-web-api/_static/image6.png)
 
