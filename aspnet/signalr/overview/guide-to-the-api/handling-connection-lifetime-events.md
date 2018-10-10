@@ -8,40 +8,40 @@ ms.date: 06/10/2014
 ms.assetid: 03960de2-8d95-4444-9169-4426dcc64913
 msc.legacyurl: /signalr/overview/guide-to-the-api/handling-connection-lifetime-events
 msc.type: authoredcontent
-ms.openlocfilehash: 42cf7faf9112875e15072993b6210348d0c42534
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 1783a3ab292a5460d5cc1b7ad78073071d65d379
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41826056"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911952"
 ---
 <a name="understanding-and-handling-connection-lifetime-events-in-signalr"></a>Comprensione e gestione degli eventi di durata connessione in SignalR
 ====================
 dal [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://github.com/tdykstra)
 
 > Questo articolo offre una panoramica degli eventi di connessione e riconnessione disconnessione SignalR che è possibile gestire e le impostazioni di timeout e keepalive che è possibile configurare.
-> 
+>
 > L'articolo si presuppone già una conoscenza di eventi di durata SignalR e connessione. Per un'introduzione a SignalR, vedere [Introduzione a SignalR](../getting-started/introduction-to-signalr.md). Per un elenco di eventi di durata connessione, vedere le risorse seguenti:
-> 
+>
 > - [Come gestire gli eventi di durata connessione nella classe Hub](hubs-api-guide-server.md#connectionlifetime)
 > - [Come gestire gli eventi di durata connessione nei client JavaScript](hubs-api-guide-javascript-client.md#connectionlifetime)
 > - [Come gestire gli eventi di durata connessione nei client .NET](hubs-api-guide-net-client.md#connectionlifetime)
-> 
+>
 > ## <a name="software-versions-used-in-this-topic"></a>Versioni del software utilizzate in questo argomento
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - SignalR versione 2
->   
-> 
-> 
+>
+>
+>
 > ## <a name="previous-versions-of-this-topic"></a>Versioni precedenti di questo argomento
-> 
+>
 > Per informazioni sulle versioni precedenti di SignalR, vedere [le versioni precedenti di SignalR](../older-versions/index.md).
-> 
+>
 > ## <a name="questions-and-comments"></a>Domande e commenti
-> 
+>
 > Inviaci un feedback sul modo in cui è stato apprezzato questa esercitazione e cosa possiamo migliorare nei commenti nella parte inferiore della pagina. Se hai domande che non sono direttamente correlate con l'esercitazione, è possibile pubblicarli per i [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) oppure [StackOverflow.com](http://stackoverflow.com/).
 
 
@@ -144,8 +144,8 @@ Interruzioni di connessione di trasporto che non vengono rilevate dal trasporto 
 
 Alcuni ambienti di rete deliberatamente chiudono le connessioni inattive e un'altra funzione dei pacchetti di keepalive è per evitare questo problema consentendo di che queste reti sapere che una connessione SignalR è in uso. In casi estremi la frequenza predefinita di keepalive ping potrebbe non essere sufficiente a impedire connessioni chiuse. In tal caso è possibile configurare keepalive ping da inviare più spesso. Per altre informazioni, vedere [impostazioni di Timeout e keepalive](#timeoutkeepalive) più avanti in questo argomento.
 
-> [!NOTE] 
-> 
+> [!NOTE]
+>
 > **Importante**: la sequenza di eventi descritte di seguito non è garantita. SignalR esegue ogni tentativo di generare eventi di durata connessione in modo prevedibile in base a questo schema, ma esistono molte varianti degli eventi di rete e molti modi in cui Framework di comunicazione sottostante, ad esempio trasporto API gestirle. Ad esempio, il `Reconnected` evento potrebbe non essere generato quando il client si riconnette, o `OnConnected` gestore nel server è possibile eseguire quando il tentativo di stabilire una connessione ha esito negativo. In questo argomento descrive solo gli effetti che può essere prodotto generalmente da determinate circostanze tipiche.
 
 

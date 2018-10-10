@@ -8,34 +8,34 @@ ms.date: 06/10/2014
 ms.assetid: ed562717-8591-4936-8e10-c7e63dcb570a
 msc.legacyurl: /signalr/overview/security/introduction-to-security
 msc.type: authoredcontent
-ms.openlocfilehash: 62f835349697d02ebe7363b00a032a5353d3dfc2
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 765abd36c5182f291499042e787bcb4fcc727997
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41829512"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910856"
 ---
 <a name="introduction-to-signalr-security"></a>Introduzione alla sicurezza di SignalR
 ====================
 dal [Patrick Fletcher](https://github.com/pfletcher), [Tom FitzMacken](https://github.com/tfitzmac)
 
-> Questo articolo descrive i problemi di sicurezza che è necessario considerare quando si sviluppa un'applicazione di SignalR. 
-> 
+> Questo articolo descrive i problemi di sicurezza che è necessario considerare quando si sviluppa un'applicazione di SignalR.
+>
 > ## <a name="software-versions-used-in-this-topic"></a>Versioni del software utilizzate in questo argomento
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - SignalR versione 2
->   
-> 
-> 
+>
+>
+>
 > ## <a name="previous-versions-of-this-topic"></a>Versioni precedenti di questo argomento
-> 
+>
 > Per informazioni sulle versioni precedenti di SignalR, vedere [le versioni precedenti di SignalR](../older-versions/index.md).
-> 
+>
 > ## <a name="questions-and-comments"></a>Domande e commenti
-> 
+>
 > Inviaci un feedback sul modo in cui è stato apprezzato questa esercitazione e cosa possiamo migliorare nei commenti nella parte inferiore della pagina. Se hai domande che non sono direttamente correlate con l'esercitazione, è possibile pubblicarli per i [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) oppure [StackOverflow.com](http://stackoverflow.com/).
 
 
@@ -108,7 +108,7 @@ Di seguito è riportato un esempio di un attacco CSRF:
 
 1. Un utente accede a www.example.com, tramite autenticazione basata su form.
 2. Il server autentica l'utente. La risposta dal server include un cookie di autenticazione.
-3. Senza la disconnessione, l'utente visita un sito web dannoso. Questo sito dannoso contiene il form HTML seguente: 
+3. Senza la disconnessione, l'utente visita un sito web dannoso. Questo sito dannoso contiene il form HTML seguente:
 
     [!code-html[Main](introduction-to-security/samples/sample1.html)]
 
@@ -124,12 +124,9 @@ In genere, gli attacchi CSRF sono possibili contro i siti web che usano i cookie
 
 SignalR esegue i passaggi seguenti per impedire a un sito dannoso di creazione di richieste valide per l'applicazione. SignalR è necessario eseguire queste operazioni per impostazione predefinita, non è necessario intraprendere alcuna azione nel codice.
 
-- **Disabilitare le richieste tra domini**  
- SignalR disabilita le richieste tra domini per impedire agli utenti di chiamare un endpoint di SignalR da un dominio esterno. SignalR prende in considerazione qualsiasi richiesta proveniente da un dominio esterno non è valido e blocca la richiesta. È consigliabile mantenere questo comportamento predefinito; in caso contrario, un sito dannoso potrebbe indurre gli utenti a inviare comandi al sito. Se è necessario usare richieste tra domini, vedere [come stabilire una connessione cross-domain](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain) .
-- **Passare il token di connessione nella stringa di query, non i cookie**  
- SignalR passa il token di connessione come valore di stringa di query, anziché come un cookie. L'archiviazione dei token di connessione in un cookie non è sicuro perché il browser inavvertitamente può inoltrare il token di connessione quando viene rilevato malware. Inoltre, passando il token di connessione nella stringa di query impedisce il token di connessione renda persistente oltre la connessione corrente. Pertanto, un utente malintenzionato non può effettuare una richiesta con credenziali di autenticazione di un altro utente.
-- **Verificare il token di connessione**  
- Come descritto nel [token di connessione](#connectiontoken) sezione, il server sa quali id di connessione è associato a ciascun utente autenticato. Il server non elabora qualsiasi richiesta proveniente da un id di connessione che non corrisponde al nome utente. È improbabile che un utente malintenzionato è stato possibile ipotizzare una richiesta valida perché l'utente malintenzionato sarebbe dover conoscere il nome utente e l'id generati in modo casuale connessione corrente. Tale id di connessione non è più valido, non appena la connessione viene terminata. Gli utenti anonimi non dovrebbero avere accesso a informazioni riservate.
+- **Disabilitare le richieste tra domini** SignalR disabilita le richieste tra domini per impedire agli utenti di chiamare un endpoint SignalR dal dominio esterno. SignalR prende in considerazione qualsiasi richiesta proveniente da un dominio esterno non è valido e blocca la richiesta. È consigliabile mantenere questo comportamento predefinito; in caso contrario, un sito dannoso potrebbe indurre gli utenti a inviare comandi al sito. Se è necessario usare richieste tra domini, vedere [come stabilire una connessione cross-domain](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain) .
+- **Passare il token di connessione nella stringa di query, cookie non** SignalR passa il token di connessione come un valore di stringa di query, anziché sotto forma di cookie. L'archiviazione dei token di connessione in un cookie non è sicuro perché il browser inavvertitamente può inoltrare il token di connessione quando viene rilevato malware. Inoltre, passando il token di connessione nella stringa di query impedisce il token di connessione renda persistente oltre la connessione corrente. Pertanto, un utente malintenzionato non può effettuare una richiesta con credenziali di autenticazione di un altro utente.
+- **Verificare i token di connessione** come descritto nel [il token di connessione](#connectiontoken) sezione, il server sa quale id di connessione è associato a ciascun utente autenticato. Il server non elabora qualsiasi richiesta proveniente da un id di connessione che non corrisponde al nome utente. È improbabile che un utente malintenzionato è stato possibile ipotizzare una richiesta valida perché l'utente malintenzionato sarebbe dover conoscere il nome utente e l'id generati in modo casuale connessione corrente. Tale id di connessione non è più valido, non appena la connessione viene terminata. Gli utenti anonimi non dovrebbero avere accesso a informazioni riservate.
 
 <a id="recommendations"></a>
 

@@ -8,12 +8,12 @@ ms.date: 07/30/2013
 ms.assetid: 8af630e0-fffa-4110-9eca-c96e201b2724
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 72180686ea1ee6f6695b24fcedf3af90c1eddcfa
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 8bea3d4bc19a5a47240abeb2cc015116814a8fdf
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41827318"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911819"
 ---
 <a name="sorting-filtering-and-paging-with-the-entity-framework-in-an-aspnet-mvc-application-3-of-10"></a>L'ordinamento, filtro e Paging con Entity Framework in un'applicazione ASP.NET MVC (3 di 10)
 ====================
@@ -117,7 +117,7 @@ Per aggiungere paging alla pagina Students Index, si inizia installando i **Page
 
 NuGet **PagedList.Mvc** pacchetto installa automaticamente il **PagedList** pacchetto come dipendenza. Il **PagedList** pacchetto installa un `PagedList` metodi di estensione e tipo di raccolta per `IQueryable` e `IEnumerable` raccolte. I metodi di estensione creano una singola pagina di dati in un `PagedList` raccolta fuori il `IQueryable` o `IEnumerable`e il `PagedList` raccolta fornisce molte proprietà e metodi che facilitano il paging. Il **PagedList.Mvc** pacchetto viene installato un supporto di paging che visualizza i pulsanti di spostamento.
 
-Dal **degli strumenti** dal menu **Library Package Manager** e quindi **Gestisci pacchetti NuGet per la soluzione**.
+Dal **strumenti** dal menu **NuGet Gestione pacchetti** e **Gestisci NuGet pacchetti di soluzione**.
 
 Nel **Gestisci pacchetti NuGet** finestra di dialogo, fare clic sui **Online** scheda a sinistra e quindi immettere "paging" nella casella di ricerca. Quando viene visualizzato il **PagedList.Mvc** del pacchetto, fare clic su **installare**.
 

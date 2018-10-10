@@ -8,21 +8,20 @@ ms.date: 12/08/2014
 ms.assetid: f35a9b0c-49ef-4cde-b06d-19d1543feb0b
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 6e3de242f7cfc584f4c3d1dfa3d1948ee4d49d66
-ms.sourcegitcommit: 67a0a04ebb3b21c826e5b9600bacfc897abd6a46
+ms.openlocfilehash: 0aa440e700c9bfb02aa5d55ebf481850a730febe
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42899825"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912683"
 ---
 <a name="advanced-entity-framework-6-scenarios-for-an-mvc-5-web-application-12-of-12"></a>Scenari avanzati Entity Framework 6 per un'applicazione Web 5 MVC (12 12)
 ====================
 da [Tom Dykstra](https://github.com/tdykstra)
 
-[Download progetto completato](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) o [Scarica il PDF](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
+[Download progetto completato](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
-> L'applicazione web di esempio Contoso University illustra come creare applicazioni ASP.NET MVC 5 con Entity Framework 6 Code First e Visual Studio 2013. Per informazioni sulla serie di esercitazioni, vedere la [prima esercitazione della serie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
-
+> L'applicazione web di esempio Contoso University illustra come creare applicazioni ASP.NET MVC 5 con Entity Framework 6 Code First e Visual Studio. Per informazioni sulla serie di esercitazioni, vedere la [prima esercitazione della serie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
 Nell'esercitazione precedente è implementata l'ereditarietà tabella per gerarchia. Sono incluse in questa esercitazione presenta diversi argomenti che è utili tenere presente dopo aver appreso le nozioni di base dello sviluppo di applicazioni web ASP.NET che usano Entity Framework Code First. Istruzioni dettagliate consentono di eseguire il codice e l'utilizzo di Visual Studio per gli argomenti seguenti:
 
@@ -150,7 +149,7 @@ Nelle *controller/CourseController*, sostituire il `Index` metodo con il codice 
 
 [!code-csharp[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample6.cs)]
 
-Ora impostare un punto di interruzione il `return` istruzione (F9 con il cursore sulla riga). Premere F5 per eseguire il progetto in modalità di debug e selezionare la pagina di indice del corso. Quando il codice raggiunge il punto di interruzione, esaminare il `sql` variabile. Viene visualizzata la query che viene inviata a SQL Server. È una semplice `Select` istruzione.
+Ora impostare un punto di interruzione il `return` istruzione (F9 con il cursore sulla riga). Premere **F5** per eseguire il progetto in modalità di debug e selezionare la pagina di indice del corso. Quando il codice raggiunge il punto di interruzione, esaminare il `sql` variabile. Viene visualizzata la query che viene inviata a SQL Server. È una semplice `Select` istruzione.
 
 [!code-json[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample7.json)]
 
@@ -291,7 +290,6 @@ Messaggio di errore:
 
 > Non è possibile creare/shadow copia '&lt;filename&gt;' quando il file esiste già.
 
-
 Soluzione
 
 Attendere alcuni secondi e aggiornare la pagina.
@@ -301,7 +299,6 @@ Attendere alcuni secondi e aggiornare la pagina.
 Messaggio di errore (dal `Update-Database` comando nella console di gestione pacchetti):
 
 > Il termine "Update-Database" non è riconosciuto come il nome di un cmdlet, funzione, file di script o programma eseguibile. Controllare l'ortografia del nome, o se è stato incluso un percorso, verificare che il percorso sia corretto e riprovare.
-
 
 Soluzione
 
@@ -313,7 +310,6 @@ Messaggio di errore (dal `Update-Database` comando nella console di gestione pac
 
 > Convalida non riuscita per uno o più entità. Vedere la proprietà 'EntityValidationErrors' per altri dettagli.
 
-
 Soluzione
 
 Una delle cause di questo problema è errori di convalida quando il `Seed` esecuzione del metodo. Visualizzare [Seeding e al debug di Entity Framework (EF) DBs](https://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx) per suggerimenti sul debug di `Seed` (metodo).
@@ -322,9 +318,7 @@ Una delle cause di questo problema è errori di convalida quando il `Seed` esecu
 
 Messaggio di errore:
 
-> Errore HTTP 500.19 - errore interno del Server  
-> Non è possibile accedere alla pagina richiesta perché i dati di configurazione per la pagina non sono validi.
-
+> Errore HTTP 500.19 - errore interno del Server alla pagina richiesta non è accessibile perché i dati di configurazione per la pagina non sono validi.
 
 Soluzione
 
@@ -335,7 +329,6 @@ Soluzione
 Messaggio di errore:
 
 > Si è verificato un errore di rete o specifico dell'istanza mentre si cercava di stabilire una connessione con SQL Server. Il server non è stato trovato o non è accessibile. Verificare che il nome dell'istanza sia corretto e che SQL Server sia configurato in modo da consentire connessioni remote. (provider: interfacce di rete SQL, errore: 26 - Errore nell'individuazione del server/dell'istanza specificata)
-
 
 Soluzione
 

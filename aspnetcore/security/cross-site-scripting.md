@@ -5,18 +5,18 @@ description: Informazioni su Cross-Site Scripting (XSS) e le tecniche per risolv
 ms.author: riande
 ms.date: 10/02/2018
 uid: security/cross-site-scripting
-ms.openlocfilehash: e937ce47b7151155197cd607832eeb6bf62e3a19
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 50f0211a2c64708d9b788dd10ce9064e66014d55
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48577444"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910525"
 ---
 # <a name="prevent-cross-site-scripting-xss-in-aspnet-core"></a>Evitare il Cross-Site Scripting (XSS) in ASP.NET Core
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Cross-Site Scripting (XSS) è una vulnerabilità di sicurezza che consente a un utente malintenzionato di inserire gli script sul lato client (in genere JavaScript) in pagine web. Quando altri utenti caricare pagine interessate verranno eseguiti gli script di utenti malintenzionati, consentendo all'utente malintenzionato di impadronirsi di cookie e token di sessione, modificare il contenuto della pagina web mediante modifica DOM o reindirizzare il browser a un'altra pagina. Le vulnerabilità XSS, in genere, vengono eseguiti quando un'applicazione accetta input dell'utente e lo restituisce in una pagina senza la convalida, la codifica o facendola.
+Cross-Site Scripting (XSS) è una vulnerabilità di sicurezza che consente a un utente malintenzionato di inserire gli script sul lato client (in genere JavaScript) in pagine web. Quando altri utenti caricare pagine interessate verranno eseguiti script non autorizzato, consentendo all'utente malintenzionato di impadronirsi di cookie e token di sessione, modificare il contenuto della pagina web mediante modifica DOM o reindirizzare il browser a un'altra pagina. Le vulnerabilità XSS, in genere, vengono eseguiti quando un'applicazione accetta input dell'utente e lo invia a una pagina senza la convalida, la codifica o facendola.
 
 ## <a name="protecting-your-application-against-xss"></a>Proteggere l'applicazione da XSS
 
@@ -26,15 +26,15 @@ AT un XSS a livello di base funziona inducendo dell'applicazione nell'inseriment
 
 2. Prima di inserire i dati non attendibili all'interno di un elemento HTML verificare che sia codificato in formato HTML. La codifica HTML accetta caratteri, ad esempio &lt; e li converte in un formato sicuro, ad esempio &amp;lt;
 
-3. Prima di inserire i dati non attendibili in un attributo HTML verificare che si tratta dell'attributo HTML con codificata. Codifica dell'attributo HTML è un superset di codifica HTML e codifica i caratteri aggiuntivi, ad esempio "e".
+3. Prima di inserire i dati non attendibili in un attributo HTML verificare che è codificato in formato HTML. Codifica dell'attributo HTML è un superset di codifica HTML e codifica i caratteri aggiuntivi, ad esempio "e".
 
-4. Prima di inserire i dati non attendibili in JavaScript inserire i dati in un elemento HTML il cui contenuto è recuperare in fase di esecuzione. Se questo non è possibile garantire che i dati JavaScript è codificato. Codifica JavaScript accetta caratteri pericolosi per JavaScript e li sostituisce con loro esadecimale, ad esempio &lt; potrebbe essere codificato come `\u003C`.
+4. Prima di inserire i dati non attendibili in JavaScript inserire i dati in un elemento HTML il cui contenuto è recuperare in fase di esecuzione. Se questo non è possibile, quindi verificare che i dati sono con codificata JavaScript. Codifica JavaScript accetta caratteri pericolosi per JavaScript e li sostituisce con loro esadecimale, ad esempio &lt; potrebbe essere codificato come `\u003C`.
 
 5. Prima di inserire i dati non attendibili in una stringa di query URL assicurarsi che è codificato in URL.
 
 ## <a name="html-encoding-using-razor"></a>Codifica HTML con Razor
 
-Il motore di Razor usato automaticamente in MVC consente di codificare tutte output originate dalle variabili, a meno che non lavorare sodo per evitare che in questo modo. Usa attributo HTML di regole di codifica quando si usa la *@* direttiva. HTML codifica dell'attributo è un superset di codifica HTML ciò significa che non è necessario preoccuparsi se sia necessario utilizzare la codifica HTML o codifica dell'attributo HTML. È necessario assicurarsi di utilizzare solo in un contesto HTML, non quando si tenta di inserire input non attendibile direttamente in JavaScript. Gli helper tag verranno inoltre codificare l'input che utilizzare nei parametri di tag.
+Il motore di Razor usato automaticamente in MVC consente di codificare tutte output originate dalle variabili, a meno che non lavorare sodo per evitare che in questo modo. Usa le regole di codifica attributi HTML quando si usa la *@* direttiva. HTML codifica dell'attributo è un superset di codifica HTML ciò significa che non è necessario preoccuparsi se sia necessario utilizzare la codifica HTML o codifica dell'attributo HTML. È necessario assicurarsi di utilizzare solo in un contesto HTML, non quando si tenta di inserire input non attendibile direttamente in JavaScript. Gli helper tag verranno inoltre codificare l'input che utilizzare nei parametri di tag.
 
 Richiedere la visualizzazione Razor seguente:
 
@@ -107,7 +107,7 @@ Questo modo verrà generato il codice HTML seguente
    </script>
    ```
 
-Che, quando è in esecuzione, verrà eseguito il rendering quanto segue:
+Che, quando è in esecuzione, verrà visualizzato quanto segue:
 
 ```none
 <"123">
@@ -129,7 +129,7 @@ Che, quando è in esecuzione, verrà eseguito il rendering quanto segue:
    </script>
    ```
 
-Questo verrà eseguito il rendering nel browser come segue:
+Questo verrà eseguito il rendering nel browser come indicato di seguito:
 
 ```html
 <script>

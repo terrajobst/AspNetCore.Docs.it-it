@@ -8,41 +8,41 @@ ms.date: 06/10/2014
 ms.assetid: adcfef99-9bc5-489d-a91b-9b7c2bc35e04
 msc.legacyurl: /signalr/overview/releases/upgrading-signalr-1x-projects-to-20
 msc.type: authoredcontent
-ms.openlocfilehash: 84155a4c171a2ac2149dbbf4237b6561d2814aa0
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 450ddedb520035cc05a0dbcca1a2666dd1ba24c7
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41826474"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910551"
 ---
 <a name="upgrading-signalr-1x-projects-to-version-2"></a>L'aggiornamento di progetti SignalR 1.x alla versione 2
 ====================
 da [Patrick Fletcher](https://github.com/pfletcher)
 
 > In questo argomento descrive come aggiornare un progetto 1.x SignalR esistente a SignalR 2.x e come risolvere i problemi che potrebbero verificarsi durante il processo di aggiornamento.
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Versioni del software utilizzate nell'esercitazione
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - Versioni di SignalR 1 e 2
->   
-> 
-> 
+>
+>
+>
 > ## <a name="using-visual-studio-2012-with-this-tutorial"></a>Uso di Visual Studio 2012 con questa esercitazione
-> 
-> 
+>
+>
 > Per usare Visual Studio 2012 con questa esercitazione, eseguire le operazioni seguenti:
-> 
+>
 > - Aggiornamento di [Package Manager](http://docs.nuget.org/docs/start-here/installing-nuget) alla versione più recente.
 > - Installare il [installazione guidata piattaforma Web](https://www.microsoft.com/web/downloads/platform.aspx).
 > - L'installazione guidata piattaforma Web, cercare e installare **ASP.NET e Web Tools 2013.1 per Visual Studio 2012**. Verrà installato, ad esempio modelli di Visual Studio per le classi di SignalR **Hub**.
 > - Alcuni modelli (ad esempio **classe di avvio OWIN**) non è disponibile; per questo motivo, usare invece un file di classe.
-> 
-> 
+>
+>
 > ## <a name="questions-and-comments"></a>Domande e commenti
-> 
+>
 > Inviaci un feedback sul modo in cui è stato apprezzato questa esercitazione e cosa possiamo migliorare nei commenti nella parte inferiore della pagina. Se hai domande che non sono direttamente correlate con l'esercitazione, è possibile pubblicarli per i [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) oppure [StackOverflow.com](http://stackoverflow.com/).
 
 

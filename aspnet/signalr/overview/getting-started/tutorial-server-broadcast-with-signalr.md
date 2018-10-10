@@ -8,49 +8,49 @@ ms.date: 10/13/2014
 ms.assetid: 1568247f-60b5-4eca-96e0-e661fbb2b273
 msc.legacyurl: /signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: c2248e68b3c9411687ab6410f12ec85488fe0738
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 7a85a704dc5d830ec793540fbc44a3ce7ec8c934
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41836775"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911542"
 ---
 <a name="tutorial-server-broadcast-with-signalr-2"></a>Esercitazione: Trasmissione Server con SignalR 2
 ====================
 dal [Tom Dykstra](https://github.com/tdykstra), [Tom FitzMacken](https://github.com/tfitzmac)
 
 > Questa esercitazione illustra come creare un'applicazione web che usa ASP.NET SignalR 2 per fornire funzionalità di trasmissione di server. Trasmissione del server significa che le comunicazioni inviate ai client avviate tramite il server. Questo scenario richiede un approccio di programmazione diverso rispetto agli scenari peer-to-peer, ad esempio applicazioni chat, in cui vengono avviate le comunicazioni inviate ai client da una o più dei client.
-> 
+>
 > L'applicazione che verrà creata in questa esercitazione simula le quotazioni di borsa, uno scenario tipico per la funzionalità di trasmissione di server.
-> 
+>
 > In questo argomento è stato scritto originariamente da Patrick Fletcher.
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Versioni del software utilizzate nell'esercitazione
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - SignalR versione 2
->   
-> 
-> 
+>
+>
+>
 > ## <a name="using-visual-studio-2012-with-this-tutorial"></a>Uso di Visual Studio 2012 con questa esercitazione
-> 
-> 
+>
+>
 > Per usare Visual Studio 2012 con questa esercitazione, eseguire le operazioni seguenti:
-> 
+>
 > - Aggiornamento di [Package Manager](http://docs.nuget.org/docs/start-here/installing-nuget) alla versione più recente.
 > - Installare il [installazione guidata piattaforma Web](https://www.microsoft.com/web/downloads/platform.aspx).
 > - L'installazione guidata piattaforma Web, cercare e installare **ASP.NET e Web Tools 2013.1 per Visual Studio 2012**. Verrà installato, ad esempio modelli di Visual Studio per le classi di SignalR **Hub**.
 > - Alcuni modelli (ad esempio **classe di avvio OWIN**) non è disponibile; per questo motivo, usare invece un file di classe.
-> 
-> 
+>
+>
 > ## <a name="tutorial-versions"></a>Versioni dell'esercitazione
-> 
+>
 > Per informazioni sulle versioni precedenti di SignalR, vedere [le versioni precedenti di SignalR](../older-versions/index.md).
-> 
+>
 > ## <a name="questions-and-comments"></a>Domande e commenti
-> 
+>
 > Inviaci un feedback sul modo in cui è stato apprezzato questa esercitazione e cosa possiamo migliorare nei commenti nella parte inferiore della pagina. Se hai domande che non sono direttamente correlate con l'esercitazione, è possibile pubblicarli per i [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) oppure [StackOverflow.com](http://stackoverflow.com/).
 
 

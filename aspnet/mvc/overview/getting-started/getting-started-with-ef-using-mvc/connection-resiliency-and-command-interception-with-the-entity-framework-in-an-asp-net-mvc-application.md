@@ -8,21 +8,20 @@ ms.date: 01/13/2015
 ms.assetid: c89d809f-6c65-4425-a3fa-c9f6e8ac89f2
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 9b326ec22fc70a8c1746c5cd2c302c7f04fa8d3e
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: ab6a553100d704746840eaad512ec140d4576c44
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41831376"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911786"
 ---
 <a name="connection-resiliency-and-command-interception-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Resilienza della connessione e intercettazione dei comandi con Entity Framework in un'applicazione ASP.NET MVC
 ====================
 da [Tom Dykstra](https://github.com/tdykstra)
 
-[Download progetto completato](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) o [Scarica il PDF](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
+[Download progetto completato](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
-> L'applicazione web di esempio Contoso University illustra come creare applicazioni ASP.NET MVC 5 con Entity Framework 6 Code First e Visual Studio 2013. Per informazioni sulla serie di esercitazioni, vedere la [prima esercitazione della serie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
-
+> L'applicazione web di esempio Contoso University illustra come creare applicazioni ASP.NET MVC 5 con Entity Framework 6 Code First e Visual Studio. Per informazioni sulla serie di esercitazioni, vedere la [prima esercitazione della serie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
 Finora l'applicazione è stata in esecuzione in locale in IIS Express nel computer di sviluppo. Per rendere disponibile ad altri utenti per usare la rete Internet un'applicazione reale, è necessario distribuirla in un provider di hosting web, ed è necessario distribuire il database in un server di database.
 
@@ -73,7 +72,7 @@ Ora che hai attivato un criterio di ripetizione dei tentativi, come testare per 
 
 ### <a name="create-a-logging-interface-and-class"></a>Creare una classe e l'interfaccia di registrazione
 
-Oggetto [procedure consigliate per la registrazione](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log) consiste nell'eseguire questa operazione usando un'interfaccia anziché impostare come hardcoded le chiamate a Diagnostics. Trace o una classe di registrazione. Che rende più semplice modificare il meccanismo di registrazione in un secondo momento, se è necessario eseguire questa operazione. In modo che in questa sezione si creerà l'interfaccia di registrazione e una classe per implementare tale/p > 
+Oggetto [procedure consigliate per la registrazione](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log) consiste nell'eseguire questa operazione usando un'interfaccia anziché impostare come hardcoded le chiamate a Diagnostics. Trace o una classe di registrazione. Che rende più semplice modificare il meccanismo di registrazione in un secondo momento, se è necessario eseguire questa operazione. In modo che in questa sezione si creerà l'interfaccia di registrazione e una classe per implementare tale/p >
 
 1. Creare una cartella nel progetto e denominarla *Logging*.
 2. Nel *Logging* cartella, creare un file di classe denominato *ILogger.cs*e sostituire il codice del modello con il codice seguente:
@@ -114,7 +113,7 @@ Successivamente si creerà le classi di Entity Framework chiamerà in ogni volta
 
     Il numero di tentativi di Entity Framework è configurabile; il codice specifica quattro volte, perché questo è il valore predefinito per i criteri di esecuzione di Database SQL. Se si modificano i criteri di esecuzione, è stato anche modificato il codice che specifica quante volte vengono generati gli errori temporanei. È inoltre possibile modificare il codice per generare più eccezioni in modo che Entity Framework genererà il `RetryLimitExceededException` eccezione.
 
-    Il valore immesso nella casella di ricerca si trovano `command.Parameters[0]` e `command.Parameters[1]` (uno viene usato per il nome e uno per il cognome). Quando viene trovato il valore "% Throw %", "Throw" viene sostituito in tali parametri dalla "an" in modo che alcuni studenti h verranno trovati e restituiti.
+    Il valore immesso nella casella di ricerca si trovano `command.Parameters[0]` e `command.Parameters[1]` (uno viene usato per il nome e uno per il cognome). Quando viene trovato il valore "% Throw %", "Throw" viene sostituito in tali parametri da "an" in modo che alcuni studenti verranno trovati e restituiti.
 
     Si tratta semplicemente un modo pratico per testare la resilienza di connessione in base alle modifiche alcuni input per l'applicazione dell'interfaccia utente. È anche possibile scrivere codice che genera gli errori temporanei per tutte le query o aggiornamenti, come illustrato in un secondo momento nei commenti sui *DbInterception.Add* (metodo).
 3. Nelle *Global. asax*, aggiungere il codice seguente `using` istruzioni:
@@ -138,7 +137,7 @@ Successivamente si creerà le classi di Entity Framework chiamerà in ogni volta
 
 ## <a name="test-logging-and-connection-resiliency"></a>Resilienza di connessione e la registrazione dei test
 
-1. Premere F5 per eseguire l'applicazione in modalità di debug e quindi scegliere il **studenti** scheda.
+1. Premere **F5** per eseguire l'applicazione in modalità di debug e quindi fare clic sui **studenti** scheda.
 2. Esaminare il Visual Studio **Output** finestra per visualizzare l'output di traccia. Si potrebbe essere necessario scorrere verso l'alto precedenti alcuni errori JavaScript per ottenere i log scritti dal logger.
 
     Si noti che è possibile visualizzare le query SQL inviate al database. Vengono visualizzate alcune query iniziale e i comandi che Entity Framework esegue per iniziare, controllare la versione del database e tabella di cronologia della migrazione (apprenderanno le migrazioni nella prossima esercitazione). E viene visualizzata una query per il paging, per scoprire il numero di studenti sono presenti, e infine viene visualizzata la query che recupera i dati degli studenti.
@@ -172,7 +171,7 @@ Successivamente si creerà le classi di Entity Framework chiamerà in ogni volta
 
 In questa esercitazione è stato spiegato come abilitare la resilienza di connessione e registrare i comandi SQL che compone e invia al database di Entity Framework. Nella prossima esercitazione verrà distribuita l'applicazione a Internet, usando migrazioni Code First per distribuire il database.
 
-Inviaci un feedback sul modo in cui è stato apprezzato questa esercitazione e cosa possiamo migliorare. È anche possibile richiedere nuovi argomenti in [Mostra Me How With Code](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code).
+Inviaci un feedback sul modo in cui è stato apprezzato questa esercitazione e cosa possiamo migliorare.
 
 Collegamenti ad altre risorse di Entity Framework sono disponibili nel [l'accesso ai dati ASP.NET - risorse consigliate](../../../../whitepapers/aspnet-data-access-content-map.md).
 

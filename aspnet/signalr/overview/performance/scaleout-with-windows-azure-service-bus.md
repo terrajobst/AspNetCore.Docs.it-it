@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: ce1305f9-30fd-49e3-bf38-d0a78dfb06c3
 msc.legacyurl: /signalr/overview/performance/scaleout-with-windows-azure-service-bus
 msc.type: authoredcontent
-ms.openlocfilehash: b87eb9f2df82d92c07ea0c86873849a44660e5c2
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 3adc8768eb7271de32180ba98f67864b22283510
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41832104"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910798"
 ---
 <a name="signalr-scaleout-with-azure-service-bus"></a>Scalabilità orizzontale di SignalR con il Bus di servizio di Azure
 ====================
@@ -94,7 +94,7 @@ La creazione guidata progetto crea due progetti:
 
 Per creare l'applicazione di chat, seguire i passaggi nell'esercitazione [Introduzione a SignalR e MVC 5](../getting-started/tutorial-getting-started-with-signalr-and-mvc.md).
 
-Usare NuGet per installare le librerie necessarie. Dal **degli strumenti** dal menu **Library Package Manager**, quindi selezionare **Package Manager Console**. Nel **Console di gestione pacchetti** finestra, immettere i comandi seguenti:
+Usare NuGet per installare le librerie necessarie. Dal **degli strumenti** dal menu **Gestione pacchetti NuGet**, quindi selezionare **Package Manager Console**. Nel **Console di gestione pacchetti** finestra, immettere i comandi seguenti:
 
 [!code-powershell[Main](scaleout-with-windows-azure-service-bus/samples/sample2.ps1)]
 

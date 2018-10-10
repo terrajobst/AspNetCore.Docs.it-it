@@ -8,20 +8,20 @@ ms.date: 05/01/2015
 ms.assetid: 7ba88418-5d0a-437d-b6dc-7c3816d4ec07
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: e7f5fd725a0d151f19f49be9ceaf52b049d459c0
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 647793a65dec8feaf37de561ad77b4585bb869a8
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41833610"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912215"
 ---
 <a name="updating-related-data-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Aggiornamento dei dati correlati con Entity Framework in un'applicazione ASP.NET MVC
 ====================
 da [Tom Dykstra](https://github.com/tdykstra)
 
-[Download progetto completato](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) o [Scarica il PDF](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
+[Download progetto completato](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
-> L'applicazione web di esempio Contoso University illustra come creare applicazioni ASP.NET MVC 5 con Entity Framework 6 Code First e Visual Studio 2013. Per informazioni sulla serie di esercitazioni, vedere la [prima esercitazione della serie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+> L'applicazione web di esempio Contoso University illustra come creare applicazioni ASP.NET MVC 5 con Entity Framework 6 Code First e Visual Studio. Per informazioni sulla serie di esercitazioni, vedere la [prima esercitazione della serie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
 
 Nell'esercitazione precedente si visualizzati dati correlati. in questa esercitazione si aggiornerà i dati correlati. Per la maggior parte delle relazioni, questa operazione può essere eseguita tramite l'aggiornamento di campi di chiave esterna o le proprietà di navigazione. Per le relazioni molti-a-molti, Entity Framework non espone la tabella di join direttamente, in modo da aggiungerà e rimuove le entità da e verso le proprietà di navigazione appropriate.
@@ -214,8 +214,8 @@ Fare clic su **modifica** per un insegnante per visualizzare la pagina di modifi
 
 Modificare alcune assegnazioni di corsi e fare clic su **salvare**. Le modifiche effettuate si riflettono nella pagina di indice.
 
- Nota: L'approccio qui adottato per la modifica di dati course insegnante funziona bene quando è presente un numero limitato di corsi. Per raccolte molto più grandi, sarebbero necessari un'interfaccia utente diversa e un altro metodo di aggiornamento.  
- 
+ Nota: L'approccio qui adottato per la modifica di dati course insegnante funziona bene quando è presente un numero limitato di corsi. Per raccolte molto più grandi, sarebbero necessari un'interfaccia utente diversa e un altro metodo di aggiornamento.
+
 
 ## <a name="update-the-deleteconfirmed-method"></a>Aggiornare il metodo DeleteConfirmed
 
@@ -269,7 +269,7 @@ Come spiegato nel [esercitazione di base funzionalità CRUD](implementing-basic-
 
 A questo punto è stata completata questa introduzione all'uso con i dati correlati. In queste esercitazioni finora è lavorato con il codice che esegue i/o sincrono. È possibile rendere l'applicazione Usa in modo più efficiente le risorse di server web mediante l'implementazione di codice asincrono e che è ciò che verrà eseguita nella prossima esercitazione.
 
-Inviaci un feedback sul modo in cui è stato apprezzato questa esercitazione e cosa possiamo migliorare. È anche possibile richiedere nuovi argomenti in [Mostra Me How With Code](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code).
+Inviaci un feedback sul modo in cui è stato apprezzato questa esercitazione e cosa possiamo migliorare.
 
 Collegamenti ad altre risorse di Entity Framework sono disponibili nel [l'accesso ai dati ASP.NET - risorse consigliate](../../../../whitepapers/aspnet-data-access-content-map.md).
 

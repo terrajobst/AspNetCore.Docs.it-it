@@ -8,32 +8,32 @@ ms.date: 06/10/2014
 ms.assetid: 98358b6e-9139-4239-ba3a-2d7dd74dd664
 msc.legacyurl: /signalr/overview/performance/scaleout-with-sql-server
 msc.type: authoredcontent
-ms.openlocfilehash: c99b38e9326ee60bfedbd7ec2f383685343cf3c0
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 7d9acfc8ed2dd692f36528a8a9700d92d86a4203
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41826387"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910447"
 ---
 <a name="signalr-scaleout-with-sql-server"></a>Scalabilità orizzontale di SignalR con SQL Server
 ====================
 dal [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](https://github.com/pfletcher)
 
 > ## <a name="software-versions-used-in-this-topic"></a>Versioni del software utilizzate in questo argomento
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - SignalR versione 2
->   
-> 
-> 
+>
+>
+>
 > ## <a name="previous-versions-of-this-topic"></a>Versioni precedenti di questo argomento
-> 
+>
 > Per informazioni sulle versioni precedenti di SignalR, vedere [le versioni precedenti di SignalR](../older-versions/index.md).
-> 
+>
 > ## <a name="questions-and-comments"></a>Domande e commenti
-> 
+>
 > Inviaci un feedback sul modo in cui è stato apprezzato questa esercitazione e cosa possiamo migliorare nei commenti nella parte inferiore della pagina. Se hai domande che non sono direttamente correlate con l'esercitazione, è possibile pubblicarli per i [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) oppure [StackOverflow.com](http://stackoverflow.com/).
 
 
@@ -50,16 +50,16 @@ Microsoft SQL Server 2005 o versione successiva. Backplane supporta le edizioni 
 Prima di passare all'esercitazione dettagliata, ecco una rapida panoramica delle azioni da eseguire.
 
 1. Creare un nuovo database vuoto. Backplane creerà le tabelle necessarie in questo database.
-2. Aggiungere i pacchetti NuGet per l'applicazione: 
+2. Aggiungere i pacchetti NuGet per l'applicazione:
 
     - [Microsoft.AspNet.SignalR](http://nuget.org/packages/Microsoft.AspNet.SignalR)
     - [Microsoft.AspNet.SignalR.SqlServer](http://nuget.org/packages/Microsoft.AspNet.SignalR.SqlServer)
 3. Creare un'applicazione di SignalR.
-4. Aggiungere il codice seguente per configurare backplane Startup.cs: 
+4. Aggiungere il codice seguente per configurare backplane Startup.cs:
 
     [!code-csharp[Main](scaleout-with-sql-server/samples/sample1.cs)]
 
-   Questo codice consente di configurare con i valori predefiniti per il backplane [TableCount](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.sqlscaleoutconfiguration.tablecount(v=vs.118).aspx) e [MaxQueueLength](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx). Per informazioni sulla modifica di questi valori, vedere [prestazioni di SignalR: la metrica di scalabilità orizzontale](signalr-performance.md#scaleout_metrics). 
+   Questo codice consente di configurare con i valori predefiniti per il backplane [TableCount](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.sqlscaleoutconfiguration.tablecount(v=vs.118).aspx) e [MaxQueueLength](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx). Per informazioni sulla modifica di questi valori, vedere [prestazioni di SignalR: la metrica di scalabilità orizzontale](signalr-performance.md#scaleout_metrics).
 
 ## <a name="configure-the-database"></a>Configurare il Database
 
@@ -96,7 +96,7 @@ Creare un'applicazione di SignalR seguendo una di queste esercitazioni:
 - [Introduzione a SignalR 2.0](../getting-started/tutorial-getting-started-with-signalr.md)
 - [Introduzione a SignalR 2.0 e MVC 5](../getting-started/tutorial-getting-started-with-signalr-and-mvc.md)
 
-Successivamente, modifichiamo l'applicazione di chat per supportare scalabilità orizzontale con SQL Server. In primo luogo, aggiungere il pacchetto SignalR.SqlServer NuGet al progetto. In Visual Studio dal **degli strumenti** dal menu **Library Package Manager**, quindi selezionare **Package Manager Console**. Nella finestra della Console di gestione pacchetti immettere il comando seguente:
+Successivamente, modifichiamo l'applicazione di chat per supportare scalabilità orizzontale con SQL Server. In primo luogo, aggiungere il pacchetto SignalR.SqlServer NuGet al progetto. In Visual Studio dal **degli strumenti** dal menu **Gestione pacchetti NuGet**, quindi selezionare **Package Manager Console**. Nella finestra della Console di gestione pacchetti immettere il comando seguente:
 
 [!code-powershell[Main](scaleout-with-sql-server/samples/sample4.ps1)]
 

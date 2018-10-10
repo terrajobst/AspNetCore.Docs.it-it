@@ -8,34 +8,34 @@ ms.date: 06/10/2014
 ms.assetid: cd378ecd-3e9e-4236-b902-65916d85a048
 msc.legacyurl: /signalr/overview/guide-to-the-api/working-with-groups
 msc.type: authoredcontent
-ms.openlocfilehash: 31dd3239e2e0cd919c23419459bc43ae8e1a6437
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 75ef2998efe4d9bcea62c4a42a2043e2dabd6d85
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41838947"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911510"
 ---
 <a name="working-with-groups-in-signalr"></a>Uso dei gruppi in SignalR
 ====================
 dal [Patrick Fletcher](https://github.com/pfletcher), [Tom FitzMacken](https://github.com/tfitzmac)
 
-> In questo argomento viene descritto come aggiungere utenti ai gruppi e rendere persistenti le informazioni di appartenenza al gruppo. 
-> 
+> In questo argomento viene descritto come aggiungere utenti ai gruppi e rendere persistenti le informazioni di appartenenza al gruppo.
+>
 > ## <a name="software-versions-used-in-this-topic"></a>Versioni del software utilizzate in questo argomento
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - SignalR versione 2
->   
-> 
-> 
+>
+>
+>
 > ## <a name="previous-versions-of-this-topic"></a>Versioni precedenti di questo argomento
-> 
+>
 > Per informazioni sulle versioni precedenti di SignalR, vedere [le versioni precedenti di SignalR](../older-versions/index.md).
-> 
+>
 > ## <a name="questions-and-comments"></a>Domande e commenti
-> 
+>
 > Inviaci un feedback sul modo in cui è stato apprezzato questa esercitazione e cosa possiamo migliorare nei commenti nella parte inferiore della pagina. Se hai domande che non sono direttamente correlate con l'esercitazione, è possibile pubblicarli per i [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) oppure [StackOverflow.com](http://stackoverflow.com/).
 
 
@@ -81,13 +81,13 @@ In generale, non è necessario includere `await` quando si chiama il `Groups.Rem
 
 È possibile inviare messaggi a tutti i membri di un gruppo o solo i membri specificati del gruppo, come illustrato negli esempi seguenti.
 
-- **Tutti i** connessi i client in un gruppo specificato. 
+- **Tutti i** connessi i client in un gruppo specificato.
 
     [!code-css[Main](working-with-groups/samples/sample3.css)]
-- Tutti i client in un gruppo specificato connessi **eccetto il client specificati**, identificato dall'ID di connessione. 
+- Tutti i client in un gruppo specificato connessi **eccetto il client specificati**, identificato dall'ID di connessione.
 
     [!code-csharp[Main](working-with-groups/samples/sample4.cs)]
-- Tutti i client in un gruppo specificato connessi **eccetto il client chiamante**. 
+- Tutti i client in un gruppo specificato connessi **eccetto il client chiamante**.
 
     [!code-css[Main](working-with-groups/samples/sample5.css)]
 

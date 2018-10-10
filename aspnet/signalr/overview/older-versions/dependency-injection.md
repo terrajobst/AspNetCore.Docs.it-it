@@ -8,12 +8,12 @@ ms.date: 05/15/2013
 ms.assetid: eaa206c4-edb3-487e-8fcb-54a3261fed36
 msc.legacyurl: /signalr/overview/older-versions/dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: d59ca85f1005b08ff52ded61d94323dabdb40d0a
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 905dea4918be731673c39e788069ce2dc78e1649
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41831571"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910694"
 ---
 <a name="dependency-injection-in-signalr-1x"></a>Inserimento delle dipendenze in SignalR 1.x
 ====================
@@ -102,7 +102,7 @@ Visual Studio rende questo tipo di refactoring semplice. Aprire il file StockTic
 
 ![](dependency-injection/_static/image1.png)
 
-Nel **Estrai interfaccia** finestra di dialogo, fare clic su **Seleziona tutto**. Lasciare le altre impostazioni predefinite. Fare clic su **OK**.
+Nel **Estrai interfaccia** finestra di dialogo, fare clic su **Seleziona tutto**. Lasciare le altre impostazioni predefinite. Scegliere **OK**.
 
 ![](dependency-injection/_static/image2.png)
 
@@ -122,7 +122,7 @@ Creazione di un `IStockTicker` interfaccia non è strettamente necessaria, ma ho
 
 Esistono numerosi contenitori IoC open source per .NET. Per questa esercitazione userà [Ninject](http://www.ninject.org/). (Includono altre librerie molto diffuse [Castle Windsor](http://www.castleproject.org/), [Spring.Net](http://www.springframework.net/), [Autofac](https://code.google.com/p/autofac/), [Unity](https://github.com/unitycontainer/unity), e [StructureMap ](http://docs.structuremap.net).)
 
-Usare Gestione pacchetti NuGet per installare il [Ninject libreria](https://nuget.org/packages/Ninject/3.0.1.10). In Visual Studio dal **strumenti** dal menu **Library Package Manager** | **Package Manager Console**. Nella finestra della Console di gestione pacchetti immettere il comando seguente:
+Usare Gestione pacchetti NuGet per installare il [Ninject libreria](https://nuget.org/packages/Ninject/3.0.1.10). In Visual Studio dal **strumenti** dal menu **Gestione pacchetti NuGet** > **Package Manager Console**. Nella finestra della Console di gestione pacchetti immettere il comando seguente:
 
 [!code-powershell[Main](dependency-injection/samples/sample13.ps1)]
 

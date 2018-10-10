@@ -8,12 +8,12 @@ ms.date: 07/30/2013
 ms.assetid: d0a89089-eed8-4f61-a478-c5ffa30186f5
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/building-the-ef5-mvc4-chapter-downloads
 msc.type: authoredcontent
-ms.openlocfilehash: fa018ea12929efa742a323d96938d372b634fdd7
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 6b5d10ba9e878908953e999bd1fd44970acf4ca5
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48577065"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911968"
 ---
 <a name="building-the-chapter-downloads-for-the-ef-5-mvc-4-tutorials"></a>Compilazione il capitolo download per Entity Framework 5 MVC 4 esercitazioni
 ====================
@@ -32,7 +32,7 @@ da [Rick Anderson]((https://twitter.com/RickAndMSFT))
     ![](building-the-ef5-mvc4-chapter-downloads/_static/image1.png)
 3. Decomprimere il file.
 4. Fare doppio clic il *CUx.sln* file per avviare Visual Studio.
-5. Dal **degli strumenti** menu, fare clic su **Library Package Manager**, quindi **Package Manager Console**.  
+5. Dal **strumenti** menu, fare clic su **Gestione pacchetti NuGet**, quindi **Console di Gestione pacchetti**.  
   
     ![](building-the-ef5-mvc4-chapter-downloads/_static/image2.png)
 6. In Package Manager Console (PMC), fare clic su **ripristinare**.  

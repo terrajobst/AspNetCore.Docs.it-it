@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 07/11/2018
 uid: razor-pages/upload-files
-ms.openlocfilehash: 4b2f80cd5644cf21d5d8452aff6df4eb5591d41b
-ms.sourcegitcommit: 19cbda409bdbbe42553dc385ea72d2a8e246509c
+ms.openlocfilehash: 92e72869967b6e3202c97b92e341ea22adc69651
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "42909917"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912501"
 ---
 # <a name="upload-files-to-a-razor-page-in-aspnet-core"></a>Caricare file in una pagina Razor in ASP.NET Core
 
@@ -342,4 +342,4 @@ L'utente può scegliere il collegamento **Eliminazione** per accedere alla scher
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-Per risolvere i problemi relativi al caricamento di `IFormFile`, vedere [Caricamento di file in ASP.NET Core: Risoluzione dei problemi](xref:mvc/models/file-uploads#troubleshooting).
+Per risolvere i problemi relativi con `IFormFile` caricamento, vedere [caricamenti di File in ASP.NET Core: risoluzione dei problemi](xref:mvc/models/file-uploads#troubleshooting).

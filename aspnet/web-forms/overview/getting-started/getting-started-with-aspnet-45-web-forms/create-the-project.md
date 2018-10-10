@@ -8,12 +8,12 @@ ms.date: 09/08/2014
 ms.assetid: 2ce36f78-8ecb-4ab1-b748-6d0ab633ea3f
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create-the-project
 msc.type: authoredcontent
-ms.openlocfilehash: de0f8092342a8ba8979a31e9a97b603e44e6a85d
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 754f085e3e43f7efa155f410d02a0d29d3349612
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41826554"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912293"
 ---
 <a name="create-the-project"></a>Creare il progetto
 ====================
@@ -174,8 +174,7 @@ Quando un server Web riceve una richiesta per una pagina, individua la pagina, l
 > 
 > Oltre alle funzionalità nel modello di applicazione Web Form ASP.NET, viene utilizzata l'applicazione Wingtip Toys [Code First di Entity Framework](https://weblogs.asp.net/scottgu/archive/2010/12/08/announcing-entity-framework-code-first-ctp5-release.aspx), che è una libreria di NuGet che consente lo sviluppo incentrato sul codice quando si lavora con i dati. In parole semplici, crea la parte di database dell'applicazione per l'utente in base al codice scritto. Si usa Entity Framework, recuperare e manipolare i dati come oggetti fortemente tipizzati. Questo consente di concentrarsi sulla logica di business dell'applicazione anziché i dettagli della modalità di accesso ai dati.
 > 
-> Per altre informazioni sulle librerie installate e i pacchetti inclusi con il modello Web Form ASP.NET, vedere l'elenco dei pacchetti NuGet installati. A questo scopo, In Visual Studio creare un nuovo progetto di Web Form, selezionare **degli strumenti**  - &gt; **Library Package Manager**  - &gt; **Gestisci Pacchetti NuGet per la soluzione**e selezionare **dei pacchetti installati** nel **Gestisci pacchetti NuGet** nella finestra di dialogo.
-
+> Per altre informazioni sulle librerie installate e i pacchetti inclusi con il modello Web Form ASP.NET, vedere l'elenco dei pacchetti NuGet installati. A tale scopo, In Visual Studio creare un nuovo progetto Web Form, selezionare **strumenti di** > **Gestione pacchetti NuGet** > **Gestisci NuGet pacchetti di soluzione**e selezionare **pacchetti installati** nel **Gestisci pacchetti NuGet** finestra di dialogo.
 
 ### <a name="touring-visual-studio"></a>Touring Visual Studio
 

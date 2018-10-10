@@ -8,39 +8,39 @@ ms.date: 08/15/2012
 ms.assetid: ed66530a-04d5-49eb-b76a-85be1f57c437
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 62f67d0d0dfe7a3c9d04eacfbcac56f7fd03ef07
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: ea3d1517192ded0e5372c49897bb1fec33324b6f
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48577366"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912397"
 ---
 <a name="intro-to-aspnet-mvc-4"></a>Introduzione ad ASP.NET MVC 4
 ====================
 da [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
-> Una versione aggiornata se è disponibile in questa esercitazione [Ecco](../../getting-started/introduction/getting-started.md) utilizzando [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads). La nuova esercitazione Usa ASP.NET MVC 5, che offre numerosi miglioramenti in questa esercitazione.
-> 
+> Una versione aggiornata se è disponibile in questa esercitazione [Ecco](../../getting-started/introduction/getting-started.md) utilizzando [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013). La nuova esercitazione Usa ASP.NET MVC 5, che offre numerosi miglioramenti in questa esercitazione.
+>
 > Questa esercitazione insegnerà le nozioni di base della creazione di un'applicazione Web ASP.NET MVC 4 con Microsoft [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express) o Visual Web Developer 2010 Express Service Pack 1. È consigliabile Visual Studio 2012, non dovrai installare nulla per completare l'esercitazione. Se si usa Visual Studio 2010 è necessario installare i componenti riportati di seguito. È possibile installare tutti gli elementi facendo clic sui collegamenti seguenti:
-> 
+>
 > - [Prerequisiti di Visual Studio Web Developer Express SP1](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)
 > - [Programma di installazione WPI per ASP.NET MVC 4](https://go.microsoft.com/fwlink/?LinkId=243392)
 > - [LocalDB](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLLocalDBOnly_11_0)
 > - [SSDT](https://blogs.msdn.com/b/rickandy/archive/2012/08/02/installing-and-using-sql-server-data-tools-ssdt-on-visual-studio-2010-and-vwd.aspx)
-> 
+>
 > Se si usa Visual Studio 2010 anziché Visual Web Developer 2010, installare il [programma di installazione WPI per ASP.NET MVC 4](https://go.microsoft.com/fwlink/?LinkId=243392) e il: [prerequisiti di Visual Studio 2010](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack)
-> 
+>
 > Un progetto di Visual Web Developer con codice sorgente c# è disponibile a complemento di questo argomento. [Scaricare la versione c#](https://code.msdn.microsoft.com/Intro-to-ASPNET-MVC-4-61d0219d/file/114480/1/MvcMovie.zip).
-> 
+>
 > In questa esercitazione si esegue l'applicazione in Visual Studio. Si può anche rendere disponibile l'applicazione su Internet tramite distribuzione su un provider di hosting. Microsoft offre l'hosting web gratuito per fino a 10 siti web in un [account di valutazione di Microsoft Azure gratuito](https://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A443DD604). Per informazioni su come distribuire un progetto web Visual Studio per un sito Web di Microsoft Azure, vedere [crea e Distribuisci un sito web ASP.NET e Database SQL con Visual Studio](https://docs.microsoft.com/dotnet/azure/). Tale esercitazione illustra anche come usare le migrazioni di Entity Framework Code First per distribuire il database di SQL Server in Database SQL di Azure (precedentemente SQL Azure).
-> 
+>
 > Questa esercitazione è stato scritto da Rick Anderson ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) ).
 
 
 ## <a name="what-youll-build"></a>Scopo dell'esercitazione
 
 > [!NOTE]
-> Una versione aggiornata se è disponibile in questa esercitazione [Ecco](../../getting-started/introduction/getting-started.md) utilizzando [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads). La nuova esercitazione Usa ASP.NET MVC 5, che offre numerosi miglioramenti in questa esercitazione.
+> Una versione aggiornata se è disponibile in questa esercitazione [Ecco](../../getting-started/introduction/getting-started.md) utilizzando [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013). La nuova esercitazione Usa ASP.NET MVC 5, che offre numerosi miglioramenti in questa esercitazione.
 
 
 Si sarà implementare una semplice applicazione di elenco di film che supporta la creazione, modifica, la ricerca e l'elenco di film da un database. Di seguito sono riportate due schermate dell'applicazione che verrà compilata. Include una pagina che visualizza un elenco di film da un database:
@@ -69,7 +69,7 @@ Nel **nuovo progetto ASP.NET MVC 4** finestra di dialogo **applicazione Internet
 
 ![](intro-to-aspnet-mvc-4/_static/image5.png)
 
-Fare clic su **OK**. Visual Studio usato un modello predefinito per il progetto ASP.NET MVC che appena creato, in modo che sia subito un'applicazione funzionante non esegue alcuna operazione. Si tratta di una semplice &quot;Hello World!&quot; progetto che di un buon punto di partenza dell'applicazione.
+Scegliere **OK**. Visual Studio usato un modello predefinito per il progetto ASP.NET MVC che appena creato, in modo che sia subito un'applicazione funzionante non esegue alcuna operazione. Si tratta di una semplice &quot;Hello World!&quot; progetto che di un buon punto di partenza dell'applicazione.
 
 ![](intro-to-aspnet-mvc-4/_static/image6.png)
 

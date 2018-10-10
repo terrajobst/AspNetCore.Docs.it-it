@@ -8,12 +8,12 @@ ms.date: 11/17/2011
 ms.assetid: c3c76516-4c48-4153-bd03-d70e3a3edbb0
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 378bcc038335ee852cd1a6c6e545eb72c6e0c78b
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 9b3d47c3c8fe5f0b37f1d45e19341df3f91a5bb0
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41829524"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911188"
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-sql-server-compact-databases---2-of-12"></a>Distribuzione di un'applicazione Web ASP.NET con SQL Server Compact tramite Visual Studio o Visual Web Developer: distribuzione di database SQL Server Compact - 2 pari a 12
 ====================
@@ -105,18 +105,17 @@ Aprire il file Web. config dell'applicazione e rimuovere l'elemento che specific
 > [!NOTE]
 > Un altro modo per specificare un inizializzatore di classe è eseguire questa operazione chiamando `Database.SetInitializer` nella `Application_Start` metodo nella *Global. asax* file. Se si intende abilitare le migrazioni in un progetto che utilizza questo metodo per specificare l'inizializzatore, rimuovere questa riga di codice.
 
-
 Successivamente, abilitare migrazioni Code First.
 
 Il primo passaggio è assicurarsi che il progetto ContosoUniversity è impostato come progetto di avvio. Nelle **Esplora soluzioni**, fare clic sul progetto ContosoUniversity e selezionare **imposta come progetto di avvio**. Migrazioni Code First avrà un aspetto nel progetto di avvio per trovare la stringa di connessione di database.
 
-Dal **degli strumenti** menu, fare clic su **Library Package Manager** e quindi **Package Manager Console**.
+Dal **degli strumenti** menu, fare clic su **Gestione pacchetti NuGet** e quindi **Package Manager Console**.
 
 ![Selecting_Package_Manager_Console](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image6.png)
 
 In cima il **Console di gestione pacchetti** finestra Seleziona ContosoUniversity.DAL come progetto predefinito e quindi at il `PM>` prompt dei comandi immettere "enable-migrations".
 
-![Enable-migrations_command](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image7.png)
+![Attiva-migrations_command](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image7.png)
 
 Questo comando crea una *Configuration.cs* in un nuovo file *migrazioni* cartella nel progetto ContosoUniversity.DAL.
 

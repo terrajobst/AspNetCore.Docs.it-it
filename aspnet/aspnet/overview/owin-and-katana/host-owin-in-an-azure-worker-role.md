@@ -8,27 +8,27 @@ ms.date: 04/11/2014
 ms.assetid: 07aa855a-92ee-4d43-ba66-5bfd7de20ee6
 msc.legacyurl: /aspnet/overview/owin-and-katana/host-owin-in-an-azure-worker-role
 msc.type: authoredcontent
-ms.openlocfilehash: 6bead915491c62de809b8625d8071a63c70a6ef5
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: dbf0964695dd2592d063b05c0778923edffe8e2e
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41826584"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910774"
 ---
 <a name="host-owin-in-an-azure-worker-role"></a>Hosting di OWIN in un ruolo di lavoro di Azure
 ====================
 da [Mike Wasson](https://github.com/MikeWasson)
 
 > Questa esercitazione illustra come a Self-hosting OWIN in un ruolo di lavoro di Microsoft Azure.
-> 
+>
 > [Open Web Interface for .NET](http://owin.org/) (OWIN) definisce un'astrazione tra i server web .NET e applicazioni web. OWIN consente di disaccoppiare l'applicazione web dal server, che rende ideale per un'applicazione web nel proprio processo, all'esterno di IIS di self-hosting OWIN – ad esempio, all'interno di un ruolo di lavoro di Azure.
-> 
+>
 > In questa esercitazione si apprenderà come indipendente su delle applicazioni OWIN all'interno di un ruolo di lavoro di Microsoft Azure. Per altre informazioni sui ruoli di lavoro, vedere [modelli di esecuzione di Azure](https://azure.microsoft.com/documentation/articles/fundamentals-application-models/#CloudServices).
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Versioni del software utilizzate nell'esercitazione
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - [Azure SDK per .NET 2.3](https://azure.microsoft.com/downloads/)
 > - [Microsoft.Owin.Selfhost 2.1.0](http://www.nuget.org/packages/Microsoft.Owin.SelfHost/2.1.0)
 
@@ -41,7 +41,7 @@ Nel **File** menu, fare clic su **New**, quindi fare clic su **progetto**. Dal *
 
 [![](host-owin-in-an-azure-worker-role/_static/image2.png)](host-owin-in-an-azure-worker-role/_static/image1.png)
 
-Nel **nuovo servizio Cloud di Windows Azure** finestra di dialogo, fare doppio clic su **ruolo di lavoro**. Lasciare il nome predefinito ("WorkerRole1"). Questo passaggio aggiunge un ruolo di lavoro alla soluzione. Fare clic su **OK**.
+Nel **nuovo servizio Cloud di Windows Azure** finestra di dialogo, fare doppio clic su **ruolo di lavoro**. Lasciare il nome predefinito ("WorkerRole1"). Questo passaggio aggiunge un ruolo di lavoro alla soluzione. Scegliere **OK**.
 
 [![](host-owin-in-an-azure-worker-role/_static/image4.png)](host-owin-in-an-azure-worker-role/_static/image3.png)
 
@@ -56,7 +56,7 @@ In generale, un'applicazione Azure può contenere più ruoli, sebbene questa ese
 
 ## <a name="add-the-owin-self-host-packages"></a>Aggiungere i pacchetti di self-hosting OWIN
 
-Dal **degli strumenti** menu, fare clic su **Library Package Manager**, quindi fare clic su **Package Manager Console**.
+Dal **degli strumenti** menu, fare clic su **Gestione pacchetti NuGet**, quindi fare clic su **Package Manager Console**.
 
 Nella finestra della Console di gestione pacchetti immettere il comando seguente:
 

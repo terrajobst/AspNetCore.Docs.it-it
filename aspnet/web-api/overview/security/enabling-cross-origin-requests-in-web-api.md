@@ -8,12 +8,12 @@ ms.date: 07/15/2014
 ms.assetid: 9b265a5a-6a70-4a82-adce-2d7c56ae8bdd
 msc.legacyurl: /web-api/overview/security/enabling-cross-origin-requests-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: eddf61a4468807f5efd658438c1c27a1d2f9c486
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: dc95c39af0821c2f456f5a312de5532c5aeb3c10
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41826768"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912202"
 ---
 <a name="enabling-cross-origin-requests-in-aspnet-web-api-2"></a>Abilitazione di richieste Multiorigine nell'API Web ASP.NET 2
 ====================
@@ -102,7 +102,7 @@ Scegliendo il pulsante "prova" Invia una richiesta AJAX all'app, servizio Web ut
 <a id="enable-cors"></a>
 ## <a name="enable-cors"></a>Abilitare CORS
 
-A questo punto è possibile abilitare CORS nell'app di servizio Web. In primo luogo, aggiungere il pacchetto NuGet di CORS. In Visual Studio dal **degli strumenti** dal menu **Library Package Manager**, quindi selezionare **Package Manager Console**. Nella finestra della Console di gestione pacchetti, digitare il comando seguente:
+A questo punto è possibile abilitare CORS nell'app di servizio Web. In primo luogo, aggiungere il pacchetto NuGet di CORS. In Visual Studio dal **degli strumenti** dal menu **Gestione pacchetti NuGet**, quindi selezionare **Package Manager Console**. Nella finestra della Console di gestione pacchetti, digitare il comando seguente:
 
 [!code-powershell[Main](enabling-cross-origin-requests-in-web-api/samples/sample3.ps1)]
 
@@ -112,11 +112,11 @@ Aprire il file App\_Start/WebApiConfig.cs. Aggiungere il codice seguente per il 
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample4.cs?highlight=9)]
 
-Successivamente, aggiungere il **[EnableCors]** dell'attributo di `TestController` classe:
+Aggiungere quindi il **[EnableCors]** attributo per la `TestController` classe:
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample5.cs?highlight=3,7)]
 
-Per il *le entità Origin* parametro, usare l'URI in cui è distribuita l'applicazione WebClient. In questo modo le richieste multiorigine da WebClient, mentre comunque impedire tutte le altre richieste tra domini. In un secondo momento, descriverò i parametri per **[EnableCors]** in modo più dettagliato.
+Per il *le entità Origin* parametro, usare l'URI in cui è distribuita l'applicazione WebClient. In questo modo le richieste multiorigine da WebClient, mentre comunque impedire tutte le altre richieste tra domini. In seguito, descriverò i parametri per **[EnableCors]** in modo più dettagliato.
 
 Non includere una barra rovesciata alla fine del *le entità Origin* URL.
 
@@ -127,7 +127,7 @@ Ridistribuire l'applicazione di servizio Web aggiornato. Non devi aggiornare Web
 <a id="how-it-works"></a>
 ## <a name="how-cors-works"></a>Funzionamento della condivisione CORS
 
-In questa sezione viene descritto cosa succede in una richiesta CORS, il livello dei messaggi HTTP. È importante comprendere il funzionamento di CORS, in modo che sia possibile configurare il **[EnableCors]** attributo correttamente e risolvere i problemi se ciò non funziona come previsto.
+In questa sezione viene descritto cosa succede in una richiesta CORS, il livello dei messaggi HTTP. È importante comprendere il funzionamento di CORS, in modo che è possibile configurare il **[EnableCors]** attributo correttamente e risolvere i problemi se le cose non funzionano come previsto.
 
 La specifica CORS introduce diverse nuove intestazioni HTTP che attivare richieste multiorigine. Se un browser supporta la condivisione CORS, imposta le intestazioni automaticamente per le richieste multiorigine. non è necessario eseguire alcuna operazione speciale nel codice JavaScript.
 
@@ -179,13 +179,13 @@ La risposta include un'intestazione Access-Control-Allow-Methods in cui sono ele
 
 **Per ogni azione**
 
-Per abilitare CORS per una singola azione, impostare il **[EnableCors]** attributo del metodo di azione. L'esempio seguente Abilita CORS per il `GetItem` solo metodo.
+Per attivare CORS per una singola operazione, impostare il **[EnableCors]** attributo del metodo di azione. L'esempio seguente Abilita CORS per il `GetItem` solo metodo.
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample10.cs)]
 
 **Per ogni Controller**
 
-Se si imposta **[EnableCors]** nella classe controller, si applica a tutte le azioni nel controller. Per disabilitare CORS per un'azione, aggiungere il **[DisableCors]** attributo all'azione. L'esempio seguente Abilita CORS per qualsiasi metodo ad eccezione `PutItem`.
+Se si imposta **[EnableCors]** sulla classe controller, si applica a tutte le azioni del controller. Per disattivare CORS per un'azione, aggiungere il **[DisableCors]** di attributo per l'azione. L'esempio seguente Abilita CORS per qualsiasi metodo ad eccezione `PutItem`.
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample11.cs)]
 
@@ -204,7 +204,7 @@ Se si imposta l'attributo più di un ambito, l'ordine di precedenza è:
 <a id="allowed-origins"></a>
 ## <a name="set-the-allowed-origins"></a>Impostare le origini consentite
 
-Il *le entità Origin* parametro delle **[EnableCors]** attributo specifica quali origini sono consentite per accedere alla risorsa. Il valore è un elenco delimitato da virgole di origini consentite.
+Il *origini* parametro di **[EnableCors]** attributo consente di specificare quali origini sono autorizzati ad accedere alla risorsa. Il valore è un elenco delimitato da virgole di origini consentite.
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample13.cs)]
 

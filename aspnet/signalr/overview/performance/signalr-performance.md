@@ -8,34 +8,34 @@ ms.date: 06/10/2014
 ms.assetid: 3751f5e7-59db-4be0-a290-50abc24e5c84
 msc.legacyurl: /signalr/overview/performance/signalr-performance
 msc.type: authoredcontent
-ms.openlocfilehash: ae19493c46ae9670bd200529f73b74b0c3f4db00
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 269c10d7a73f181eaceac1c43ad51f3933d6711c
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41834025"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911860"
 ---
 <a name="signalr-performance"></a>Prestazioni di SignalR
 ====================
 da [Patrick Fletcher](https://github.com/pfletcher)
 
 > In questo argomento viene descritto come progettare per misurare e migliorare le prestazioni in un'applicazione di SignalR.
-> 
+>
 > ## <a name="software-versions-used-in-this-topic"></a>Versioni del software utilizzate in questo argomento
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - SignalR versione 2
->   
-> 
-> 
+>
+>
+>
 > ## <a name="previous-versions-of-this-topic"></a>Versioni precedenti di questo argomento
-> 
+>
 > Per informazioni sulle versioni precedenti di SignalR, vedere [le versioni precedenti di SignalR](../older-versions/index.md).
-> 
+>
 > ## <a name="questions-and-comments"></a>Domande e commenti
-> 
+>
 > Inviaci un feedback sul modo in cui è stato apprezzato questa esercitazione e cosa possiamo migliorare nei commenti nella parte inferiore della pagina. Se hai domande che non sono direttamente correlate con l'esercitazione, è possibile pubblicarli per i [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) oppure [StackOverflow.com](http://stackoverflow.com/).
 
 
@@ -139,7 +139,7 @@ Questa sezione descrive come abilitare e usare contatori delle prestazioni di Si
 
 I contatori delle prestazioni possono essere aggiunti al server usando un'utilità denominata SignalR.exe. Per installare questa utilità, seguire questa procedura:
 
-1. Nell'applicazione Visual Studio, selezionare **degli strumenti**, **Library Package Manager**, **Gestisci pacchetti NuGet per la soluzione...**
+1. In Visual Studio, selezionare **strumenti di** > **Gestione pacchetti NuGet** > **Gestisci pacchetti NuGet per soluzione**
 2. Cercare **signalr.utils**e scegliere Installa.
 
     ![](signalr-performance/_static/image1.png)

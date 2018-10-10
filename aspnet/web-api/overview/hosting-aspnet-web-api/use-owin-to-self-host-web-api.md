@@ -8,25 +8,25 @@ ms.date: 07/09/2013
 ms.assetid: a90a04ce-9d07-43ad-8250-8a92fb2bd3d5
 msc.legacyurl: /web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 0d16498e94ac0a66c117ed057db398c14080beaa
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 06fd13fe9b12d172d615ae76a71d246a89f5386d
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41828284"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910486"
 ---
 <a name="use-owin-to-self-host-aspnet-web-api-2"></a>Usare OWIN per l'hosting indipendente di API Web ASP.NET 2
 ====================
 da [Kanchan Mehrotra](https://twitter.com/kanchanmeh)
 
 > Questa esercitazione illustra come eseguire l'hosting di API Web ASP.NET in un'applicazione console, Usa OWIN per l'hosting indipendente il framework API Web.
-> 
+>
 > [Open Web Interface for .NET](http://owin.org) (OWIN) definisce un'astrazione tra i server web .NET e applicazioni web. OWIN consente di disaccoppiare l'applicazione web dal server, che rende ideale per un'applicazione web nel proprio processo, all'esterno di IIS di self-hosting OWIN.
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Versioni del software utilizzate nell'esercitazione
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads) (funziona anche con Visual Studio 2012)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013) (funziona anche con Visual Studio 2012)
 > - API Web 2
 
 
@@ -42,7 +42,7 @@ Nel **File** menu, fare clic su **New**, quindi fare clic su **progetto**. Dal *
 
 ## <a name="add-the-web-api-and-owin-packages"></a>Aggiungere l'API Web e pacchetti OWIN
 
-Dal **degli strumenti** menu, fare clic su **Library Package Manager**, quindi fare clic su **Package Manager Console**. Nella finestra della Console di gestione pacchetti immettere il comando seguente:
+Dal **degli strumenti** menu, fare clic su **Gestione pacchetti NuGet**, quindi fare clic su **Package Manager Console**. Nella finestra della Console di gestione pacchetti immettere il comando seguente:
 
 `Install-Package Microsoft.AspNet.WebApi.OwinSelfHost`
 

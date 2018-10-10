@@ -8,34 +8,34 @@ ms.date: 06/10/2014
 ms.assetid: 4b559e6c-4fb0-4a04-9812-45cf08ae5779
 msc.legacyurl: /signalr/overview/testing-and-debugging/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: 9ef69ece2558260f0409e9388751f77ac84a06f1
-ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
+ms.openlocfilehash: bdb0562955f3bde56a95ce937c27fdbe4aa94823
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523077"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911690"
 ---
 <a name="signalr-troubleshooting"></a>Risoluzione dei problemi di SignalR
 ====================
 da [Patrick Fletcher](https://github.com/pfletcher)
 
 > Questo documento descrive problemi comuni di risoluzione dei problemi di SignalR.
-> 
+>
 > ## <a name="software-versions-used-in-this-topic"></a>Versioni del software utilizzate in questo argomento
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - SignalR versione 2
->   
-> 
-> 
+>
+>
+>
 > ## <a name="previous-versions-of-this-topic"></a>Versioni precedenti di questo argomento
-> 
+>
 > Per informazioni sulle versioni precedenti di SignalR, vedere [le versioni precedenti di SignalR](../older-versions/index.md).
-> 
+>
 > ## <a name="questions-and-comments"></a>Domande e commenti
-> 
+>
 > Inviaci un feedback sul modo in cui è stato apprezzato questa esercitazione e cosa possiamo migliorare nei commenti nella parte inferiore della pagina. Se hai domande che non sono direttamente correlate con l'esercitazione, è possibile pubblicarli per i [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) oppure [StackOverflow.com](http://stackoverflow.com/).
 
 
@@ -294,7 +294,7 @@ Questo errore può dipendere dall'utilizzo di tipi di dati che non possono esser
 
 ## <a name="compilation-and-server-side-errors"></a>Errori di compilazione e sul lato server
 
- La sezione seguente contiene le possibili soluzioni al compilatore e degli errori di runtime lato server. 
+ La sezione seguente contiene le possibili soluzioni al compilatore e degli errori di runtime lato server.
 
 ### <a name="reference-to-hub-instance-is-null"></a>Riferimento all'istanza dell'Hub è null
 

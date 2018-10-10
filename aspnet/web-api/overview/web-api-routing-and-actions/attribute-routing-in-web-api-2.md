@@ -8,12 +8,12 @@ ms.date: 01/20/2014
 ms.assetid: 979d6c9f-0129-4e5b-ae56-4507b281b86d
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: 35cf3bf555218b6b49b30f48186e4c67aff4ff7b
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: d16dcc618bf6c60714179601db14f4dd2a9e41ce
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795551"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912152"
 ---
 <a name="attribute-routing-in-aspnet-web-api-2"></a>Routing mediante attributi n API Web ASP.NET 2
 ====================
@@ -29,7 +29,7 @@ Questo argomento viene illustrato come abilitare il routing con attributi e desc
 
 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) Community, Professional o Enterprise edition
 
-In alternativa, usare Gestione pacchetti NuGet per installare i pacchetti necessari. Dal **degli strumenti** dal menu di Visual Studio, selezionare **Library Package Manager**, quindi selezionare **Package Manager Console**. Immettere il comando seguente nella finestra della Console di gestione pacchetti:
+In alternativa, usare Gestione pacchetti NuGet per installare i pacchetti necessari. Dal **strumenti** menu in Visual Studio, selezionare **Gestione pacchetti NuGet**, quindi **Console di Gestione pacchetti**. Immettere il comando seguente nella finestra della Console di gestione pacchetti:
 
 `Install-Package Microsoft.AspNet.WebApi.WebHost`
 
@@ -174,7 +174,7 @@ In questo caso, la prima route sarà essere selezionata solo se il &quot;id&quot
 
 Nella tabella seguente sono elencati i vincoli che sono supportati.
 
-| Vincolo | Descrizione | Esempio |
+| Vincolo | Description | Esempio |
 | --- | --- | --- |
 | alfa | Corrispondenze maiuscolo o minuscolo i caratteri dell'alfabeto latino (a-z, A-Z) | {x:alpha} |
 | bool | Corrisponde a un valore booleano. | {x:bool} |

@@ -8,12 +8,12 @@ ms.date: 02/15/2013
 ms.assetid: ae4def81-fa37-4883-a13e-d9896cbf6c36
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/preparing-databases
 msc.type: authoredcontent
-ms.openlocfilehash: 7bdf443fbce7376ac057c848df146717955203f9
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 67f44d9f23a2fe83c48e68328b1dee739056e32f
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41835813"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912384"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-preparing-for-database-deployment"></a>Distribuzione Web ASP.NET tramite Visual Studio: preparazione per la distribuzione di Database
 ====================
@@ -84,15 +84,13 @@ Aprire l'applicazione *Web. config* del file e rimuovere o impostare come commen
 > [!NOTE]
 > Un altro modo per specificare un inizializzatore di classe è eseguire questa operazione chiamando `Database.SetInitializer` nella `Application_Start` metodo nella *Global. asax* file. Se si intende abilitare le migrazioni in un progetto che utilizza questo metodo per specificare l'inizializzatore, rimuovere questa riga di codice.
 
-
 > [!NOTE]
 > Se si usa Visual Studio 2013, aggiungere i passaggi seguenti tra i passaggi 2 e 3: (a) nella console di gestione pacchetti immettere "update-package entityframework-versione 6.1.1" per ottenere la versione corrente di Entity Framework. Quindi compilare (b) il progetto per ottenere un elenco di errori di compilazione e risolverli. Eliminare con istruzioni per gli spazi dei nomi non sono più presenti, fare doppio clic su e fare clic su Risolvi aggiungere istruzioni using dove sono più necessarie e modificare le occorrenze di System.Data.EntityState System.Data.Entity.EntityState.
-
 
 ### <a name="enable-code-first-migrations"></a>Abilitare migrazioni Code First
 
 1. Assicurarsi che il progetto ContosoUniversity (non ContosoUniversity.DAL) è impostato come progetto di avvio. Nelle **Esplora soluzioni**, fare clic sul progetto ContosoUniversity e selezionare **imposta come progetto di avvio**. Migrazioni Code First avrà un aspetto nel progetto di avvio per trovare la stringa di connessione di database.
-2. Dal **degli strumenti** menu, fare clic su **Library Package Manager** (o **Gestione pacchetti NuGet**) e quindi **Package Manager Console**.
+2. Dal **strumenti** menu, scegliere **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**.
 
     ![Selecting_Package_Manager_Console](preparing-databases/_static/image3.png)
 3. In cima il **Console di gestione pacchetti** finestra Seleziona ContosoUniversity.DAL come progetto predefinito e quindi at il `PM>` prompt dei comandi immettere "enable-migrations".
@@ -198,7 +196,7 @@ Nella prima pagina del Centro installazione SQL Server, fare clic su **nuova ins
 7. Change **Script per USE DATABASE** al **False**. USO delle istruzioni non è validi per il Database SQL di Azure e non è necessari per la distribuzione in SQL Server Express nell'ambiente di test.
 
     ![SQL Server Management Studio Script solo dati, alcuna istruzione USE](preparing-databases/_static/image13.png)
-8. Fare clic su **OK**.
+8. Scegliere **OK**.
 9. Nel **genera e pubblica script** finestra di dialogo, il **nome File** finestra specifica in cui verrà creato lo script. Modificare il percorso di cartella della soluzione (la cartella che contiene il file ContosoUniversity.sln) e il nome del file per *aspnet-data-dev.sql*.
 10. Fare clic su **successivo** per passare alle **riepilogo** scheda e quindi fare clic su **Avanti** nuovamente per creare lo script.
 
@@ -215,7 +213,7 @@ Poiché il progetto è stata ancora eseguita con il database di produzione, non 
 2. Nel **Collega database** nella finestra di dialogo fare clic su **Add** e quindi passare al *aspnet-ContosoUniversity-Prod.mdf* del file nei *App\_ Dati* cartella.
 
      ![SQL Server Management Studio aggiungere file con estensione mdf da collegare](preparing-databases/_static/image16.png)
-3. Fare clic su **OK**.
+3. Scegliere **OK**.
 4. Seguire la stessa procedura usata in precedenza per creare uno script per il file di produzione. Denominare il file di script *aspnet-data-prod.sql*.
 
 ## <a name="summary"></a>Riepilogo

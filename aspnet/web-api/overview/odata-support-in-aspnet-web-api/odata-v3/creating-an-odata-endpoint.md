@@ -8,12 +8,12 @@ ms.date: 02/25/2014
 ms.assetid: 262843d6-43a2-4f1c-82d9-0b90ae6df0cf
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/creating-an-odata-endpoint
 msc.type: authoredcontent
-ms.openlocfilehash: 654f697c8d095d45ba31e2808c52f9ad24b606c8
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 2e0d3b45fd51192d227d852dc2f05b45ca42944c
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41826167"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910915"
 ---
 <a name="creating-an-odata-v3-endpoint-with-web-api-2"></a>Creazione di un Endpoint OData v3 con API Web 2
 ====================
@@ -22,18 +22,18 @@ da [Mike Wasson](https://github.com/MikeWasson)
 [Download progetto completato](http://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
 
 > Il [Open Data Protocol](http://www.odata.org/) (OData) è un protocollo di accesso di dati per il web. OData offre un metodo uniforme per strutturare i dati, eseguire query sui dati e modificare il set di dati tramite operazioni CRUD (creare, leggere, aggiornare ed eliminare). OData supporta AtomPub (XML) e formati JSON. OData definisce anche un modo per esporre i metadati relativi a dati. I client possono usare i metadati per individuare le informazioni sul tipo e le relazioni per il set di dati.
-> 
+>
 > API Web ASP.NET rende più semplice creare un endpoint OData per un set di dati. È possibile controllare esattamente quali operazioni OData supportati dall'endpoint. È possibile ospitare più endpoint OData, insieme a endpoint non OData. Si hanno pieno controllo sul modello di dati, la logica di business back-end e livello dati.
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Versioni del software utilizzate nell'esercitazione
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - API Web 2
 > - OData versione 3
 > - Entity Framework 6
 > - [Fiddler Web Debugging Proxy (facoltativo)](http://www.fiddler2.com)
-> 
+>
 > È stato aggiunto il supporto di Web API OData [ASP.NET e Web Tools 2012.2 Update](https://go.microsoft.com/fwlink/?LinkId=282650). Tuttavia, questa esercitazione Usa lo scaffolding che è stato aggiunto in Visual Studio 2013.
 
 
@@ -58,7 +58,7 @@ Nel **modelli** riquadro, selezionare **modelli installati** ed espandere il nod
 
 ![](creating-an-odata-endpoint/_static/image1.png)
 
-Nel **nuovo progetto ASP.NET** finestra di dialogo, seleziona la **vuota** modello. In &quot;aggiungere cartelle e di base di riferimenti per... &quot;, controllare **API Web**. Fare clic su **OK**.
+Nel **nuovo progetto ASP.NET** finestra di dialogo, seleziona la **vuota** modello. In &quot;aggiungere cartelle e di base di riferimenti per... &quot;, controllare **API Web**. Scegliere **OK**.
 
 ![](creating-an-odata-endpoint/_static/image2.png)
 
@@ -154,7 +154,7 @@ Il primo parametro è un nome descrittivo per la route. Client del servizio non 
 
 In questo passaggio si userà Entity Framework per effettuare il seeding del database con alcuni dati di test. Questo passaggio è facoltativo, ma consente di testare l'endpoint OData sin da subito.
 
-Dal **degli strumenti** dal menu **Library Package Manager**, quindi selezionare **Package Manager Console**. Nella finestra della Console di gestione pacchetti immettere il comando seguente:
+Dal **degli strumenti** dal menu **Gestione pacchetti NuGet**, quindi selezionare **Package Manager Console**. Nella finestra della Console di gestione pacchetti immettere il comando seguente:
 
 [!code-console[Main](creating-an-odata-endpoint/samples/sample5.cmd)]
 
@@ -240,7 +240,7 @@ OData supporta diversi formati di serializzazione:
 - JSON "light" (introdotta in OData v3)
 - JSON "verbose" (OData v2)
 
-Per impostazione predefinita, API Web Usa AtomPubJSON "light" formato. 
+Per impostazione predefinita, API Web Usa AtomPubJSON "light" formato.
 
 Per ottenere il formato AtomPub, impostare l'intestazione Accept su "application/atom + xml". Di seguito è riportato un corpo della risposta di esempio:
 

@@ -8,21 +8,21 @@ ms.date: 08/14/2010
 ms.assetid: ff03dcc0-da97-458d-838f-0823e7482642
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part2
 msc.type: authoredcontent
-ms.openlocfilehash: 856b7d98ac8bd30982d81b0609bb9c1288e07e49
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 9a8ecac5203234c140783bbe3a518d35f6a57675
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41826954"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910785"
 ---
 <a name="adding-a-controller"></a>Aggiunta di un controller
 ====================
 da [Scott Hanselman](https://github.com/shanselman)
 
 > > [!NOTE]
-> > Una versione aggiornata se è disponibile in questa esercitazione [Ecco](../../getting-started/introduction/getting-started.md) utilizzando [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads). La nuova esercitazione Usa ASP.NET MVC 5, che offre numerosi miglioramenti in questa esercitazione.
-> 
-> 
+> > Una versione aggiornata se è disponibile in questa esercitazione [Ecco](../../getting-started/introduction/getting-started.md) utilizzando [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013). La nuova esercitazione Usa ASP.NET MVC 5, che offre numerosi miglioramenti in questa esercitazione.
+>
+>
 > Si tratta di un'esercitazione per principianti che introduce i concetti di base di ASP.NET MVC. Si creerà una semplice applicazione web che legge e scrive da un database. Visitare il [centro di formazione di ASP.NET MVC](../../../index.md) per trovare altri ASP.NET MVC, esercitazioni ed esempi.
 
 
@@ -62,7 +62,7 @@ La prima parte dell'URL determina la classe Controller da eseguire. Quindi, /Hel
 
 A questo punto, è possibile visitare `http://localhost:xx/HelloWorld/Welcome.` ora il metodo iniziale ha eseguito e ha restituito la stringa HTML.
 
-Anche in questo caso / [Controller] / [ActionName] / [parametri] Controller è HelloWorld e Benvenuti in questo caso sono il metodo. È stata ancora eseguita ancora parametri.
+Nuovo / [Controller] / [ActionName] / [parametri] pertanto Controller HelloWorld e, in questo caso il metodo è benvenuto. È stata ancora eseguita ancora parametri.
 
 [![Si tratta del metodo di azione iniziale](getting-started-with-mvc-part2/_static/image10.png)](getting-started-with-mvc-part2/_static/image9.png)
 

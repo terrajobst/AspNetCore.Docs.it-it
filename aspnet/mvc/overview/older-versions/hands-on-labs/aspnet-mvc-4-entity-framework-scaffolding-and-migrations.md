@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 093c1362-f10b-407c-a708-be370f4b62b0
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-entity-framework-scaffolding-and-migrations
 msc.type: authoredcontent
-ms.openlocfilehash: 10a61b70ef52aa9f5bb9004df3dba9e323d021db
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: bfb1edfcb756706e44126e7e96803bd2e9ce99fb
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41831482"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911019"
 ---
 # <a name="aspnet-mvc-4-entity-framework-scaffolding-and-migrations"></a>Le migrazioni e lo Scaffolding di ASP.NET MVC 4 Entity Framework
 
@@ -90,7 +90,7 @@ In questo esercizio, si apprenderà come usare lo scaffolding di ASP.NET MVC 4 c
 #### <a name="task-1--creating-a-new-aspnet-mvc-4-project-using-scaffolding"></a>Attività 1-Creazione in corso un nuovo ASP.NET MVC 4 progetto usando lo Scaffolding
 
 1. Se non è già aperta, avviare **Visual Studio 2012**.
-2. Selezionare **File | Nuovo progetto**. Nella nuova finestra di dialogo progetto, sotto il **Visual c# | Web** sezione, selezionare **applicazione Web ASP.NET MVC 4**. Denominare il progetto di **MVC4andEFMigrations** e impostare il percorso al **Source\Ex1 UsingMVC4ScaffoldingEFMigrations** cartella della presente esercitazione. Impostare il **Nome soluzione** a **Begin** e verificare che **Crea directory per soluzione** sia selezionata. Fare clic su **OK**.
+2. Selezionare **File | Nuovo progetto**. Nella nuova finestra di dialogo progetto, sotto il **Visual c# | Web** sezione, selezionare **applicazione Web ASP.NET MVC 4**. Denominare il progetto di **MVC4andEFMigrations** e impostare il percorso al **Source\Ex1 UsingMVC4ScaffoldingEFMigrations** cartella della presente esercitazione. Impostare il **Nome soluzione** a **Begin** e verificare che **Crea directory per soluzione** sia selezionata. Scegliere **OK**.
 
     ![Finestra di dialogo Nuovo progetto ASP.NET MVC 4](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image1.png "finestra di dialogo Nuovo progetto ASP.NET MVC 4")
 
@@ -172,7 +172,7 @@ A questo punto, il database non è ancora creato. In questa attività, eseguire 
 
 In questa attività si aggiornerà il database tramite migrazioni di Entity Framework. Si scoprirà quanto è facile modificare il modello e riflettere le modifiche nei database utilizzando la funzionalità migrazioni di Entity Framework.
 
-1. Aprire la Console di gestione pacchetti. Selezionare **strumenti | Gestione pacchetti libreria | Console di gestione pacchetti**.
+1. Aprire la Console di gestione pacchetti. Selezionare **strumenti di** > **Gestione pacchetti NuGet** > **la Console di Gestione pacchetti**.
 2. Nella Console di gestione pacchetti immettere il comando seguente:
 
     PMC

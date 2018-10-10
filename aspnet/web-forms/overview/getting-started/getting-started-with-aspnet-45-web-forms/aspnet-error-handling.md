@@ -8,12 +8,12 @@ ms.date: 09/08/2014
 ms.assetid: 423498f7-1a4b-44a1-b342-5f39d0bcf94f
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/aspnet-error-handling
 msc.type: authoredcontent
-ms.openlocfilehash: ed5d7b9b4e61b0289734f4cdef1039b31ddda7a7
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: af5e5a9c8d211b07b57aa50238b02cabe249aef8
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41833521"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911841"
 ---
 <a name="aspnet-error-handling"></a>Gestione degli errori di ASP.NET
 ====================
@@ -275,7 +275,7 @@ ELMAH (errore Logging Modules and Handlers) è una funzione di registrazione di 
 
 Prima di lavorare con i ELMAH, è necessario installarlo. È semplice usando il *NuGet* programma di installazione del pacchetto. Come accennato in precedenza in questa serie di esercitazioni, NuGet è un'estensione di Visual Studio che rende più semplice installare e aggiornare librerie open source e gli strumenti in Visual Studio.
 
-1. All'interno di Visual Studio, dal **degli strumenti** dal menu **Library Package Manager**  - &gt; **Gestisci pacchetti NuGet per la soluzione**. 
+1. In Visual Studio è dalla **strumenti** dal menu **Gestione pacchetti NuGet** > **Gestisci pacchetti NuGet per soluzione**. 
 
     ![Gestione degli errori di ASP.NET - Gestisci pacchetti NuGet per la soluzione](aspnet-error-handling/_static/image6.png)
 2. Il **Gestisci pacchetti NuGet** all'interno di Visual Studio verrà visualizzata la finestra di dialogo.
@@ -286,7 +286,7 @@ Prima di lavorare con i ELMAH, è necessario installarlo. È semplice usando il 
 5. Nel **Seleziona progetti** finestra di dialogo verificare che il **WingtipToys** selezione è selezionata e quindi fare clic su **OK**. 
 
     ![Gestione degli errori di ASP.NET: finestra di dialogo progetti seleziona](aspnet-error-handling/_static/image8.png)
-6. Fare clic su **Close** nelle **Gestisci pacchetti NuGet** finestra di dialogo se necessario.
+6. Fare clic su **chiusura** nel **Gestisci pacchetti NuGet** la finestra di dialogo, se necessario.
 7. Se Visual Studio è richiesto di ricaricare i file aperti, selezionare "**Sì a tutto**".
 8. Il pacchetto ELMAH aggiunge voci per se stesso nel *Web. config* file nella radice del progetto. Se Visual Studio chiede all'utente se si vuole ricaricare il modificata *Web. config* del file, fare clic su **Yes**.
 
