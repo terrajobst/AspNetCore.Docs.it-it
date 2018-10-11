@@ -8,27 +8,27 @@ ms.date: 04/02/2014
 ms.assetid: 6980ee2e-d6b0-4a08-8fb6-ab96362dd0e3
 msc.legacyurl: /web-api/overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role
 msc.type: authoredcontent
-ms.openlocfilehash: cabf88e4e6c946f92a9e4534a4db5ae15dd8cae5
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 40cb1a4514beaf81e7ed75bbd3e478f2ba146fe5
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41829509"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910746"
 ---
 <a name="host-aspnet-web-api-2-in-an-azure-worker-role"></a>Ospitare API Web ASP.NET 2 in un ruolo di lavoro di Azure
 ====================
 da [Mike Wasson](https://github.com/MikeWasson)
 
 > Questa esercitazione illustra come eseguire l'hosting di API Web ASP.NET in un ruolo di lavoro di Azure, Usa OWIN per l'hosting indipendente il framework API Web.
-> 
+>
 > [Open Web Interface for .NET](http://owin.org/) (OWIN) definisce un'astrazione tra i server web .NET e applicazioni web. OWIN consente di disaccoppiare l'applicazione web dal server, che rende ideale per un'applicazione web nel proprio processo, all'esterno di IIS di self-hosting OWIN – ad esempio, all'interno di un ruolo di lavoro di Azure.
-> 
+>
 > In questa esercitazione si userà il pacchetto Microsoft.Owin.Host.HttpListener, che fornisce un server HTTP che consente di self-hosting delle applicazioni OWIN.
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Versioni del software utilizzate nell'esercitazione
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - API Web 2
 > - [Azure SDK per .NET 2.3](https://azure.microsoft.com/downloads/)
 
@@ -56,7 +56,7 @@ In generale, un'applicazione Azure può contenere più ruoli, sebbene questa ese
 
 ## <a name="add-the-web-api-and-owin-packages"></a>Aggiungere l'API Web e pacchetti OWIN
 
-Dal **degli strumenti** menu, fare clic su **Library Package Manager**, quindi fare clic su **Package Manager Console**.
+Dal **degli strumenti** menu, fare clic su **Gestione pacchetti NuGet**, quindi fare clic su **Package Manager Console**.
 
 Nella finestra della Console di gestione pacchetti immettere il comando seguente:
 
