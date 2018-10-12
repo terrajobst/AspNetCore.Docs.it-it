@@ -4,28 +4,28 @@ author: rsuter
 description: In questa esercitazione viene descritta una procedura dettagliata per aggiungere Swagger e generare la documentazione e le pagine della Guida di un'app API Web.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 03/09/2018
+ms.date: 09/20/2018
 uid: tutorials/web-api-help-pages-using-swagger
-ms.openlocfilehash: 56e146337ad9e94298f72abf5ede009eea65fb46
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 586195e3a29130c0b638ed6763ea5c9032ca6b2b
+ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272251"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523129"
 ---
-# <a name="aspnet-core-web-api-help-pages-with-swagger--open-api"></a>Pagine della Guida dell'API Web ASP.NET Core con Swagger/OpenAPI
+# <a name="aspnet-core-web-api-help-pages-with-swagger--openapi"></a>Pagine della Guida dell'API Web ASP.NET Core con Swagger/OpenAPI
 
 Di [Christoph Nienaber](https://twitter.com/zuckerthoben) e [Rico Suter](http://rsuter.com)
 
-Quando si usa un'API Web, la comprensione dei vari metodi che la compongono può risultare complessa per gli sviluppatori. [Swagger](https://swagger.io/), detto anche OpenAPI, risolve il problema della generazione di pagine della Guida e documentazione utili per le API Web. Offre vantaggi quali la documentazione interattiva, la generazione di SDK client e l'individuabilità delle API.
+Quando si usa un'API Web, la comprensione dei vari metodi che la compongono può risultare complessa per gli sviluppatori. [Swagger](https://swagger.io/), detto anche [OpenAPI](https://www.openapis.org/), risolve il problema della generazione di pagine della Guida e della documentazione utili per le API Web. Offre vantaggi quali la documentazione interattiva, la generazione di SDK client e l'individuabilità delle API.
 
 Questo articolo illustra le implementazioni .NET di Swagger [Swashbuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore) e [NSwag](https://github.com/RSuter/NSwag):
 
 * **Swashbuckle.AspNetCore** è un progetto open source per la generazione di documenti Swagger per le API Web di ASP.NET Core.
 
-* **NSwag** è un altro progetto open source per l'integrazione di [Swagger UI](https://swagger.io/swagger-ui/) o [ReDoc](https://github.com/Rebilly/ReDoc) nelle API Web di ASP.NET Core. Offre approcci per generare codice client C# e TypeScript per l'API.
+* **NSwag** è un altro progetto open source per la generazione di documenti di Swagger e l'integrazione dell'[interfaccia utente di Swagger](https://swagger.io/swagger-ui/) o di [ReDoc](https://github.com/Rebilly/ReDoc) nelle API Web di ASP.NET Core. Inoltre, NSwag offre diversi modi per generare codice client C# e TypeScript per l'API.
 
-## <a name="what-is-swagger--open-api"></a>Che cos'è Swagger/OpenAPI?
+## <a name="what-is-swagger--openapi"></a>Che cos'è Swagger/OpenAPI?
 
 Swagger è una specifica indipendente dal linguaggio per la descrizione delle API [REST](https://en.wikipedia.org/wiki/Representational_state_transfer). Il progetto Swagger è stato donato all'[iniziativa OpenAPI](https://www.openapis.org/), in cui è ora denominato OpenAPI. I nomi sono intercambiabili, ma è preferibile usare OpenAPI. Questo strumento consente a computer e utenti di comprendere le funzionalità di un servizio senza accedere direttamente all'implementazione (codice sorgente, accesso alla rete, documentazione). Un obiettivo è la riduzione al minimo della quantità di lavoro necessaria per la connessione di servizi non associati. Un altro obiettivo è la riduzione del tempo necessario per documentare in modo accurato un servizio.
 

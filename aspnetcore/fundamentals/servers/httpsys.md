@@ -4,14 +4,15 @@ author: guardrex
 description: Informazioni su HTTP.sys, un server Web per ASP.NET Core in Windows. Basato sul driver in modalità kernel HTTP.sys, HTTP.sys è un'alternativa a Kestrel che consente la connessione diretta a Internet senza IIS.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: tdykstra
-ms.date: 08/15/2018
+ms.custom: mvc
+ms.date: 09/13/2018
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 58f71596b8ad54dd500699265ab022dc57c4f7a3
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: e845cb4eb7fe805e3d2195124073f7ab646d66cb
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41751678"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011668"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>Implementazione del server Web HTTP.sys in ASP.NET Core
 
@@ -55,6 +56,28 @@ HTTP.sys è utile per le distribuzioni nei casi seguenti:
   ![HTTP.sys comunica direttamente con la rete interna](httpsys/_static/httpsys-to-internal.png)
 
 HTTP.sys è una tecnologia consolidata che protegge da molti tipi di attacchi e offre l'affidabilità, la sicurezza e la scalabilità di un server Web con funzionalità complete. IIS viene eseguito come listener HTTP in HTTP.sys.
+
+## <a name="http2-support"></a>Supporto per HTTP/2
+
+[HTTP/2](https://httpwg.org/specs/rfc7540.html) è abilitato per le app ASP.NET Core se vengono soddisfatti i requisiti di base seguenti:
+
+* Windows Server 2016/Windows 10 o versioni successive
+* Connessione [ALPN (Application-Layer Protocol Negotiation)](https://tools.ietf.org/html/rfc7301#section-3)
+* Connessione TLS 1.2 o successiva
+
+::: moniker range=">= aspnetcore-2.2"
+
+Se viene stabilita una connessione HTTP/2, [HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) corrisponde a `HTTP/2`.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+Se viene stabilita una connessione HTTP/2, [HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) corrisponde a `HTTP/1.1`.
+
+::: moniker-end
+
+HTTP/2 è abilitato per impostazione predefinita. Se non viene stabilita una connessione HTTP/2, la connessione esegue il fallback a HTTP/1.1. In una versione futura di Windows sarà disponibile il flag di configurazione di HTTP/2 e sarà possibile disabilitare il protocollo HTTP/2 con HTTP.sys.
 
 ## <a name="kernel-mode-authentication-with-kerberos"></a>Autenticazione in modalità kernel con Kerberos
 

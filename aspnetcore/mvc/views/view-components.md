@@ -5,12 +5,12 @@ description: Informazioni sull'uso dei componenti di visualizzazione in ASP.NET 
 ms.author: riande
 ms.date: 02/14/2017
 uid: mvc/views/view-components
-ms.openlocfilehash: c4e4de6e4ffb634a636bccdb2a929a524baebecf
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: cf2cfcdb07271503b844e31940e90b7376db0a6f
+ms.sourcegitcommit: 599ebae5c2d6fcb22dfa6ae7d1f4bdfcacb79af4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41751632"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47211065"
 ---
 # <a name="view-components-in-aspnet-core"></a>Componenti di visualizzazione in ASP.NET Core
 
@@ -75,7 +75,7 @@ Un componente di visualizzazione definisce la propria logica in un metodo `Invok
 
 Il runtime esegue la ricerca della visualizzazione nei percorsi seguenti:
 
-* /Pages/Components/<component name>/\<nome_visualizzazione>
+* /Pages/Components/\<nome_componente_visualizzazione>/\<nome_visualizzazione>
 * Views/\<nome_controller>/Components/\<nome_componente_visualizzazione>/\<nome_visualizzazione>
 * Views/Shared/Components/\<nome_componente_visualizzazione>/\<nome_visualizzazione>
 
@@ -95,6 +95,8 @@ I parametri saranno passati al metodo `InvokeAsync`. Il componente di visualizza
 
 [!code-cshtml[](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
 
+::: moniker range=">= aspnetcore-1.1"
+
 ## <a name="invoking-a-view-component-as-a-tag-helper"></a>Chiamata di un componente di visualizzazione come helper tag
 
 Per ASP.NET Core 1.1 e versioni successive, è possibile richiamare un componente di visualizzazione come [helper tag](xref:mvc/views/tag-helpers/intro):
@@ -110,7 +112,7 @@ La classe scritta usando la convenzione Pascal e i parametri del metodo per gli 
 </vc:[view-component-name]>
 ```
 
-Nota: per usare un componente di visualizzazione come helper tag, è necessario registrare l'assembly contenente il componente di visualizzazione usando la direttiva `@addTagHelper`. Ad esempio, se il componente di visualizzazione si trova in un assembly denominato "MyWebApp", aggiungere la direttiva seguente al file `_ViewImports.cshtml`:
+Per usare un componente di visualizzazione come helper tag, registrare l'assembly contenente il componente di visualizzazione usando la direttiva `@addTagHelper`. Se il componente di visualizzazione si trova in un assembly denominato `MyWebApp`, aggiungere la direttiva seguente al file *_ViewImports.cshtml*:
 
 ```cshtml
 @addTagHelper *, MyWebApp
@@ -127,6 +129,8 @@ Nel markup dell'helper tag:
 [!code-cshtml[](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
 
 Nell'esempio precedente il componente di visualizzazione `PriorityList` diventa `priority-list`. I parametri per il componente di visualizzazione vengono passati come attributi nel formato kebab case minuscolo.
+
+::: moniker-end
 
 ### <a name="invoking-a-view-component-directly-from-a-controller"></a>Richiamo di un componente di visualizzazione direttamente da un controller
 
@@ -243,6 +247,76 @@ Per garantire la sicurezza in fase di compilazione, è possibile sostituire il n
 Aggiungere un'istruzione `using` al file di visualizzazione Razor e usare l'operatore `nameof`:
 
 [!code-cshtml[](view-components/sample/ViewCompFinal/Views/Todo/IndexNameof.cshtml?range=1-6,35-)]
+
+## <a name="perform-synchronous-work"></a>Eseguire operazioni sincrone
+
+Il framework gestisce la chiamata di un metodo `Invoke` sincrono se non è necessario eseguire operazioni asincrone. Il metodo seguente crea un componente di visualizzazione `Invoke` sincrono:
+
+```csharp
+public class PriorityList : ViewComponent
+{
+    public IViewComponentResult Invoke(int maxPriority, bool isDone)
+    {
+        var items = new List<string> { $"maxPriority: {maxPriority}", $"isDone: {isDone}" };
+        return View(items);
+    }
+}
+```
+
+Il file Razor del componente di visualizzazione elenca le stringhe passate al metodo `Invoke` (*Views/Home/Components/PriorityList/Default.cshtml*):
+
+```cshtml
+@model List<string>
+
+<h3>Priority Items</h3>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@item</li>
+    }
+</ul>
+```
+
+::: moniker range=">= aspnetcore-1.1"
+
+Il componente di visualizzazione viene richiamato in un file Razor (ad esempio *Views/Home/Index.cshtml*) usando uno degli approcci seguenti:
+
+* <xref:Microsoft.AspNetCore.Mvc.IViewComponentHelper>
+* [Helper tag](xref:mvc/views/tag-helpers/intro)
+
+Per usare l'approccio <xref:Microsoft.AspNetCore.Mvc.IViewComponentHelper>, chiamare `Component.InvokeAsync`:
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-1.1"
+
+Il componente di visualizzazione viene richiamato in un file Razor (ad esempio *Views/Home/Index.cshtml*) con <xref:Microsoft.AspNetCore.Mvc.IViewComponentHelper>.
+
+Chiamare `Component.InvokeAsync`:
+
+::: moniker-end
+
+```cshtml
+@await Component.InvokeAsync(nameof(PriorityList), new { maxPriority = 4, isDone = true })
+```
+
+::: moniker range=">= aspnetcore-1.1"
+
+Per usare l'helper tag, registrare l'assembly contenente il componente di visualizzazione usando la direttiva `@addTagHelper` (il componente di visualizzazione è in un assembly denominato `MyWebApp`):
+
+```cshtml
+@addTagHelper *, MyWebApp
+```
+
+Usare l'helper tag del componente di visualizzazione nel file di markup Razor:
+
+```cshtml
+<vc:priority-list max-priority="999" is-done="false">
+</vc:priority-list>
+```
+::: moniker-end
+
+La firma del metodo di `PriorityList.Invoke` è sincrona, ma Razor trova e chiama il metodo con `Component.InvokeAsync` nel file di markup.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

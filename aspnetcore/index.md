@@ -3,14 +3,14 @@ title: Introduzione a ASP.NET Core
 author: rick-anderson
 description: Introduzione ad ASP.NET Core, un framework multipiattaforma, ad alte prestazioni, open source per la compilazione di applicazioni moderne basate sul cloud, connesse a Internet.
 ms.author: riande
-ms.date: 02/28/2018
+ms.date: 9/28/2018
 uid: index
-ms.openlocfilehash: 6de7f1bc8229c5de519e4064dda0a7061cf8b9c6
-ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
+ms.openlocfilehash: 85f2aa04e4b6692dd03a63f14bcebdec97ee270e
+ms.sourcegitcommit: 32f5ee0690604d451f61e9a5c28881c9fcf85738
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37077712"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47454778"
 ---
 # <a name="introduction-to-aspnet-core"></a>Introduzione a ASP.NET Core
 
@@ -39,8 +39,6 @@ ASP.NET Core offre i vantaggi seguenti:
 * Gli strumenti che semplificano lo sviluppo del web moderno.
 * Possibilità di compilare ed eseguire in Windows, macOS e Linux.
 * Open-source e [incentrato sulle community](https://live.asp.net/).
-
-ASP.NET Core viene fornito esclusivamente come pacchetti [NuGet](https://www.nuget.org/). L'uso di pacchetto NuGet consente di ottimizzare l'app includendo solo le dipendenze necessarie. In effetti, le app ASP.NET Core 2.x destinate a NET Core richiedono un [singolo pacchetto NuGet](xref:fundamentals/metapackage). Una riduzione della superficie occupata dall'app offre anche diversi vantaggi, tra cui una maggiore sicurezza, una riduzione delle esigenze di assistenza e un miglioramento delle prestazioni.
 
 ## <a name="build-web-apis-and-web-ui-using-aspnet-core-mvc"></a>Compilare API web e interfaccia utente web tramite ASP.NET Core MVC
 
@@ -78,5 +76,6 @@ Per altre informazioni, vedere le seguenti risorse:
 
 * [Introduzione a Razor Pages](xref:tutorials/razor-pages/razor-pages-start)
 * [Esercitazioni di ASP.NET Core](xref:tutorials/index)
+* <xref:tutorials/publish-to-azure-webapp-using-vs>
 * [Nozioni fondamentali su ASP.NET Core](xref:fundamentals/index)
 * [La trasmissione settimanale della community di ASP.NET](https://live.asp.net/) offre una presentazione dei progressi e dei piani del team. Vengono segnalati nuovi blog e software di terze parti.

@@ -1,23 +1,33 @@
 ---
 title: Memorizzare le risposte nella cache in ASP.NET Core
-author: ardalis
-description: Questo articolo descrive come usare la memorizzazione nella cache per migliorare le prestazioni delle app ASP.NET Core.
+author: guardrex
+description: Questo articolo descrive come usare la memorizzazione dei dati e delle risposte nella cache per migliorare le prestazioni delle app ASP.NET Core.
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 09/16/2018
 uid: performance/caching/index
-ms.openlocfilehash: 3600d5be18e35901fba23e4e507435741ab4d14d
-ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
+ms.openlocfilehash: bb188f598f3acdbc6eca59d58d26e1b8382f5701
+ms.sourcegitcommit: 4d5f8680d68b39c411b46c73f7014f8aa0f12026
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37077682"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47028115"
 ---
 # <a name="cache-responses-in-aspnet-core"></a>Memorizzare le risposte nella cache in ASP.NET Core
 
-* [Cache in memoria](xref:performance/caching/memory)
-* [Usare una cache distribuita](xref:performance/caching/distributed)
-* [Rilevare le modifiche apportate con i token di modifica](xref:fundamentals/primitives/change-tokens)
-* [Memorizzazione nella cache delle risposte](xref:performance/caching/response)
-* [Middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware)
-* [Helper per tag di cache](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Helper per tag di cache distribuita](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+[Cache in memoria](xref:performance/caching/memory)  
+Informazioni su come memorizzare i dati nella cache in memoria in ASP.NET Core.
+
+[Usare una cache distribuita](xref:performance/caching/distributed)  
+Informazioni su come usare la cache distribuita di ASP.NET Core per migliorare le prestazioni e la scalabilità delle app, in particolare in un ambiente cloud o di server farm.
+
+[Memorizzazione nella cache delle risposte](xref:performance/caching/response)  
+Informazioni su come usare la memorizzazione nella cache delle risposte per ridurre i requisiti di larghezza di banda e migliorare le prestazioni delle app ASP.NET Core.
+
+[Middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware)  
+Informazioni su come configurare e usare il middleware di memorizzazione nella cache delle risposte in ASP.NET Core.
+
+[Helper per tag di cache](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)  
+Informazioni su come usare l'helper tag di cache.
+
+[Helper per tag di cache distribuita](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)  
+Informazioni su come usare l'helper tag di cache distribuita.

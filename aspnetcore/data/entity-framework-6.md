@@ -5,12 +5,12 @@ description: In questo articolo viene illustrato come usare Entity Framework 6 i
 ms.author: tdykstra
 ms.date: 02/24/2017
 uid: data/entity-framework-6
-ms.openlocfilehash: 500954bdf8ea592e0ed706943e0f5ba4f4594dbc
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: ba3ee137bfefd53cf2b7be2f328651ad38104ab5
+ms.sourcegitcommit: 70fb7c9d5f2ddfcf4747382a9f7159feca7a6aa7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274079"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45601743"
 ---
 # <a name="get-started-with-aspnet-core-and-entity-framework-6"></a>Introduzione ad ASP.NET Core ed Entity Framework 6
 
@@ -66,9 +66,10 @@ Questo esempio può essere creato da zero tramite i passaggi seguenti in Visual 
 
 * Creare una soluzione.
 
-* **Aggiungi nuovo progetto > Web > Applicazione Web ASP.NET Core (.NET Framework)**
+* **Aggiungi** > **Nuovo progetto** > **Web** > **Applicazione Web ASP.NET Core**
+  * Nella finestra di dialogo di selezione del modello di progetto selezionare API e .NET Framework nell'elenco a discesa
 
-* **Aggiungi nuovo progetto > Desktop classico di Windows > libreria di classi (.NET Framework)**
+* **Aggiungi** > **Nuovo progetto** > **Windows Desktop** > **Libreria di classi (.NET Framework)**
 
 * Nella **Console di Gestione pacchetti** eseguire il comando per entrambi i progetti`Install-Package Entityframework`.
 
