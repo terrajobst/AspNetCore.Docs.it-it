@@ -1,19 +1,19 @@
 ---
-title: Ospitare ASP.NET Core in Servizio app di Azure
+title: Distribuire le app ASP.NET Core in Servizio app di Azure
 author: guardrex
-description: Informazioni su come ospitare le app ASP.NET Core nel servizio app di Azure con collegamenti a risorse utili.
+description: Questo articolo contiene collegamenti a risorse di hosting e distribuzione di Azure.
 ms.author: riande
 ms.custom: mvc
 ms.date: 08/29/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: bc2a686c5ddc44fded135c9eed5caf676218773a
-ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
+ms.openlocfilehash: f2de81af4bd2992aec76a287484d0057021231d8
+ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43312070"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47860966"
 ---
-# <a name="host-aspnet-core-on-azure-app-service"></a>Ospitare ASP.NET Core in Servizio app di Azure
+# <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Distribuire le app ASP.NET Core in Servizio app di Azure
 
 Il [servizio app di Azure](https://azure.microsoft.com/services/app-service/) è un [servizio di piattaforma di cloud computing Microsoft](https://azure.microsoft.com/) per l'hosting di app Web, inclusa ASP.NET Core.
 
@@ -32,13 +32,10 @@ Gli articoli seguenti sono disponibili nella documentazione di ASP.NET Core:
 [Pubblicare in Azure con Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs)  
 Informazioni su come pubblicare un'app ASP.NET Core in Servizio app di Azure con Visual Studio.
 
-[Pubblicare in Azure con gli strumenti dell'interfaccia della riga di comando](xref:tutorials/publish-to-azure-webapp-using-cli)  
-Informazioni su come pubblicare un'app ASP.NET Core nel servizio app di Azure con il client della riga di comando Git.
-
 [Distribuzione continua in Azure con Visual Studio e Git](xref:host-and-deploy/azure-apps/azure-continuous-deployment)  
 Informazioni su come creare un'app Web ASP.NET Core tramite Visual Studio e distribuirla nel Servizio app di Azure usando Git per la distribuzione continua.
 
-[Distribuzione continua in Azure con VSTS](https://www.visualstudio.com/docs/build/aspnet/core/quick-to-azure)  
+[Creare la prima pipeline con Azure Pipelines](/azure/devops/pipelines/get-started-yaml)  
 Impostare una build CI per un'app ASP.NET Core e quindi creare una versione di distribuzione continua in Servizio App di Azure.
 
 [Azure Web App sandbox](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) (Sandbox per app Web di Azure)  
