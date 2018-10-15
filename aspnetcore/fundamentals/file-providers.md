@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/01/2018
 uid: fundamentals/file-providers
-ms.openlocfilehash: 512229cfe7d7efdcd9050fa13dbdbf793be29a0b
-ms.sourcegitcommit: 571d76fbbff05e84406b6d909c8fe9cbea2c8ff1
+ms.openlocfilehash: a0d326f5fc995cb903380315879d39a8ce851d06
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39410156"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913216"
 ---
 # <a name="file-providers-in-aspnet-core"></a>Provider di file in ASP.NET Core
 
@@ -38,7 +38,7 @@ L'interfaccia primaria è [IFileProvider](/dotnet/api/microsoft.extensions.filep
 
 * [Exists](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo.exists)
 * [IsDirectory](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo.isdirectory)
-* [Nome](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo.name)
+* [Name](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo.name)
 * [Length](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo.length) (in byte)
 * Data [LastModified](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo.lastmodified)
 
@@ -141,7 +141,7 @@ Viene eseguita l'iterazione di `IDirectoryContents` nella vista.
 [ManifestEmbeddedFileProvider](/dotnet/api/microsoft.extensions.fileproviders.manifestembeddedfileprovider) viene usato per accedere ai file incorporati negli assembly. `ManifestEmbeddedFileProvider` usa un manifesto compilato nell'assembly per ricostruire i percorsi originali dei file incorporati.
 
 > [!NOTE]
-> `ManifestEmbeddedFileProvider` è disponibile in ASP.NET Core 2.1 o versioni successive. Per accedere ai file incorporati negli assembly di ASP.NET Core 2.0 o versioni precedenti, vedere la [versione per ASP.NET Core 1.x di questo argomento](xref:fundamentals/file-providers?view=aspnetcore-1.1).
+> `ManifestEmbeddedFileProvider` è disponibile in ASP.NET Core 2.1 o versioni successive. Per accedere ai file incorporati negli assembly di ASP.NET Core 2.0 o versioni precedenti, vedere la [versione per ASP.NET Core 1.x di questo argomento](/aspnet/core/fundamentals/file-providers?view=aspnetcore-1.1).
 
 Per generare un manifesto dei file incorporati, impostare la proprietà `<GenerateEmbeddedFilesManifest>` su `true`. Specificare i file da incorporare con [&lt;EmbeddedResource&gt;](/dotnet/core/tools/csproj#default-compilation-includes-in-net-core-projects):
 
