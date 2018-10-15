@@ -8,12 +8,12 @@ ms.date: 02/06/2013
 ms.assetid: b91e6424-1544-4747-bd0b-d1f8418c9653
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-security-guidance
 msc.type: authoredcontent
-ms.openlocfilehash: 2a5b776a81cb3e3cf809dd3c4229448988086a32
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 4ba53e15dab83368097a58ba4d0d2e46d113d1d2
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41833924"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325718"
 ---
 <a name="security-guidance-for-aspnet-web-api-2-odata"></a>Guida alla sicurezza per ASP.NET Web API 2 OData
 ====================
@@ -59,7 +59,7 @@ Se si sa che tutti i client sono considerati attendibili (ad esempio, in un ambi
 - È consigliabile disabilitare le funzioni All () e Any (), come queste può essere lenta. 
 
     [!code-csharp[Main](odata-security-guidance/samples/sample7.cs)]
-- Se qualsiasi proprietà della stringa contengono stringhe di grandi dimensioni & 8212for esempio, una descrizione del prodotto o un post di blog & 8212consider & disabilitare le funzioni di stringa. 
+- Se qualsiasi proprietà di stringa contengono stringhe di grandi dimensioni&#8212;, ad esempio, una descrizione del prodotto o una voce di blog&#8212;è consigliabile disabilitare le funzioni di stringa. 
 
     [!code-csharp[Main](odata-security-guidance/samples/sample8.cs)]
 - È consigliabile impedire l'applicazione di filtri alle proprietà di navigazione. Applicazione di filtri alle proprietà di navigazione può comportare un join, che potrebbe risultare lento, a seconda dello schema del database. Il codice seguente illustra un validator della query che impedisce l'applicazione di filtri alle proprietà di navigazione. Per altre informazioni sulle convalide di query, vedere [convalida Query](supporting-odata-query-options.md#query-validation). 

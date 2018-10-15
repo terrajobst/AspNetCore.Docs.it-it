@@ -5,12 +5,12 @@ description: Usare l'identità con un'app ASP.NET Core. Informazioni su come imp
 ms.author: riande
 ms.date: 08/08/2018
 uid: security/authentication/identity
-ms.openlocfilehash: d427932bb175c09105534379be4d71760f4e04e5
-ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
+ms.openlocfilehash: e0494afd807080f4cd71127abce7bdb93f952dca
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47860953"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325510"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Introduzione all'identità in ASP.NET Core
 
@@ -160,7 +160,7 @@ PowerShell Usa un punto e virgola come separatore di comandi. Quando si usa Powe
 Il modulo di accesso viene visualizzato quando:
 
 * Il **Accedi** Seleziona collegamento.
-* Quando un utente accede a una pagina in cui non sono autenticati **o** autorizzato, viene reindirizzato alla pagina di accesso.
+* Un utente prova ad accedere a una pagina con restrizioni che non sono autorizzati ad accedere **o** quando non sono stati autenticati dal sistema.
 
 Quando viene inviato il modulo nella pagina di accesso, il `OnPostAsync` viene chiamata azione. `PasswordSignInAsync` viene chiamato sul `_signInManager` oggetto (fornito dall'inserimento di dipendenze).
 

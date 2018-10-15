@@ -1,17 +1,17 @@
 ---
 title: Memorizzare nella cache in memoria in ASP.NET Core
 author: rick-anderson
-description: Informazioni su come memorizzare nella cache i dati in memoria in ASP.NET Core.
+description: Informazioni su come memorizzare i dati nella cache in memoria in ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
 ms.date: 09/15/2018
 uid: performance/caching/memory
-ms.openlocfilehash: 2570ad7d939d67530b3de8cd0147815c2e25ecc8
-ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
+ms.openlocfilehash: 960aa18f9d14f633118ccd716201e61464085c05
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46482983"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325926"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>Memorizzare nella cache in memoria in ASP.NET Core
 
@@ -27,7 +27,11 @@ ASP.NET Core supporta diverse cache diverse. La cache più semplice si basa sull
 
 Richiedono sessioni permanenti con non in una web farm un' [cache distribuita](distributed.md) per evitare problemi di coerenza della cache. Per alcune App, una cache distribuita può supportare l'aumento maggiore rispetto a un'istanza di cache in memoria. Usando una cache distribuita ripartisce la memoria cache a un processo esterno.
 
+::: moniker range="< aspnetcore-2.0"
+
 Il `IMemoryCache` cache rimuoverà le voci della cache eccessivo della memoria, a meno che il [memorizza nella cache priorità](/dotnet/api/microsoft.extensions.caching.memory.cacheitempriority) è impostata su `CacheItemPriority.NeverRemove`. È possibile impostare il `CacheItemPriority` per modificare la priorità con cui la cache rimuove gli elementi sotto pressione della memoria.
+
+::: moniker-end
 
 La cache in memoria può archiviare qualsiasi oggetto. l'interfaccia di cache distribuita è limitata a `byte[]`.
 
