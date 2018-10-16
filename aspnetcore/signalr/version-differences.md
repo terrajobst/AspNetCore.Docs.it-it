@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.date: 09/10/2018
 uid: signalr/version-differences
-ms.openlocfilehash: 2f3458f27fd7f22339751e0734dd8c5da709a3c0
-ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
+ms.openlocfilehash: ea2de2606a99de70fa645c0c42303525fea0a44e
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44340121"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325536"
 ---
 # <a name="differences-between-aspnet-signalr-and-aspnet-core-signalr"></a>Differenze tra ASP.NET SignalR e ASP.NET Core SignalR
 
@@ -31,7 +31,7 @@ ASP.NET Core SignalR non è compatibile con client o server per ASP.NET SignalR.
 
 ### <a name="automatic-reconnects"></a>Connessioni automatiche
 
-Le connessioni automatica non sono più supportate. SignalR tentato in precedenza, riconnettersi al server se la connessione è stata eliminata. Se il client viene disconnesso ora l'utente deve avviare una nuova connessione in modo esplicito se si vuole riconnettere.
+Le connessioni automatica non sono supportate in ASP.NET Core SignalR. Se il client viene disconnesso, l'utente deve iniziare in modo esplicito una nuova connessione se si vuole riconnettersi. In ASP.NET SignalR, SignalR tenta di riconnettersi al server se la connessione viene interrotta. 
 
 ### <a name="protocol-support"></a>Supporto del protocollo
 

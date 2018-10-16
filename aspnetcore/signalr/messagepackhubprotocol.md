@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/04/2018
 uid: signalr/messagepackhubprotocol
-ms.openlocfilehash: c04834b0d395d08782b51b56e79badba078a5b91
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: 0874afc5493eca5d43dfde30bb28aedc1f193744
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48794837"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325581"
 ---
 # <a name="use-messagepack-hub-protocol-in-signalr-for-aspnet-core"></a>Usare il protocollo Hub MessagePack in SignalR per ASP.NET Core
 
@@ -76,7 +76,7 @@ Il supporto per il client Javascript MessagePack avviene tramite la `@aspnet/sig
 npm install @aspnet/signalr-protocol-msgpack
 ```
 
-Dopo aver installato il pacchetto npm, il modulo può essere utilizzato direttamente tramite un caricatore di modulo JavaScript o importato nel browser facendo il *node_modules\\@aspnet\signalr-protocol-msgpack\dist\browser\signalr-protocol-msgpack.js* file. In un browser il `msgpack5` libreria è necessario inoltre fare riferimento. Usare un `<script>` tag per creare un riferimento. La libreria reperibili *node_modules\msgpack5\dist\msgpack5.js*.
+Dopo aver installato il pacchetto npm, il modulo può essere utilizzato direttamente tramite un caricatore di modulo JavaScript o importato nel browser facendo il *node_modules\\@aspnet\signalr-protocol-msgpack\dist\browser\signalr-protocol-msgpack.js* file. In un browser, il `msgpack5` libreria è necessario inoltre fare riferimento. Usare un `<script>` tag per creare un riferimento. La libreria reperibili *node_modules\msgpack5\dist\msgpack5.js*.
 
 > [!NOTE]
 > Quando si usa il `<script>` elemento, l'ordine è importante. Se *signalr-protocol-msgpack.js* fa riferimento prima *msgpack5.js*, si verifica un errore quando provano a connettersi con MessagePack. *SignalR.js* è inoltre necessaria prima *signalr-protocol-msgpack.js*.
