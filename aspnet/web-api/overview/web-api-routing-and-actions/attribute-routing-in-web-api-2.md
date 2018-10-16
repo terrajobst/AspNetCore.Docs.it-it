@@ -8,12 +8,12 @@ ms.date: 01/20/2014
 ms.assetid: 979d6c9f-0129-4e5b-ae56-4507b281b86d
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: d16dcc618bf6c60714179601db14f4dd2a9e41ce
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 22eb2fd748d52ec95e813ada8b1bf3b4826ad573
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912152"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348481"
 ---
 <a name="attribute-routing-in-aspnet-web-api-2"></a>Routing mediante attributi n API Web ASP.NET 2
 ====================
@@ -174,7 +174,7 @@ In questo caso, la prima route sarà essere selezionata solo se il &quot;id&quot
 
 Nella tabella seguente sono elencati i vincoli che sono supportati.
 
-| Vincolo | Description | Esempio |
+| Vincolo | Descrizione | Esempio |
 | --- | --- | --- |
 | alfa | Corrispondenze maiuscolo o minuscolo i caratteri dell'alfabeto latino (a-z, A-Z) | {x:alpha} |
 | bool | Corrisponde a un valore booleano. | {x:bool} |
@@ -245,11 +245,11 @@ Per specificare il nome della route, impostare il **nome** proprietà sull'attri
 <a id="order"></a>
 ## <a name="route-order"></a>Ordine della route
 
-Quando il framework cerca la corrispondenza con un URI con una route, la valuta le route in un ordine particolare. Per specificare l'ordine, impostare il **RouteOrder** proprietà dell'attributo di route. I valori più bassi vengono valutati per primi. Il valore dell'ordine predefinito è zero.
+Quando il framework cerca la corrispondenza con un URI con una route, la valuta le route in un ordine particolare. Per specificare l'ordine, impostare il **ordine** proprietà dell'attributo di route. I valori più bassi vengono valutati per primi. Il valore dell'ordine predefinito è zero.
 
 Ecco come viene determinata l'ordinamento totale:
 
-1. Confrontare le **RouteOrder** proprietà dell'attributo di route.
+1. Confrontare le **ordine** proprietà dell'attributo di route.
 2. Esaminare ogni segmento URI nel modello di route. Per ogni segmento, ordine come indicato di seguito:
 
     1. Segmenti del valore letterale.
@@ -271,4 +271,4 @@ Queste route vengono ordinate come indicato di seguito.
 4. gli ordini / {\*date}
 5. gli ordini / in sospeso
 
-Si noti che "Dettagli" sono un segmento valore letterale e viene visualizzata prima di "{id}" ma "in sospeso" viene visualizzato ultimo perché il **RouteOrder** proprietà è 1. (In questo esempio presuppone che si sono Nessun cliente denominato "Dettagli" o "pending". In generale, provare a evitare route ambigue. In questo esempio, un modello di route migliorato per `GetByCustomer` è "customers / {customerName}")
+Si noti che "Dettagli" sono un segmento valore letterale e viene visualizzata prima di "{id}" ma "in sospeso" viene visualizzato ultimo perché il **ordine** proprietà è 1. (In questo esempio presuppone che si sono Nessun cliente denominato "Dettagli" o "pending". In generale, provare a evitare route ambigue. In questo esempio, un modello di route migliorato per `GetByCustomer` è "customers / {customerName}")
