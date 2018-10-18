@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 09/06/2018
 uid: signalr/configuration
-ms.openlocfilehash: 72fc53cad7caf55e85d0668c9dbea1a70fc8674b
-ms.sourcegitcommit: c684eb6c0999d11d19e15e65939e5c7f99ba47df
+ms.openlocfilehash: 855446003ae9d994854d4d8bb7d0f542a22734e4
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46292336"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391102"
 ---
 # <a name="aspnet-core-signalr-configuration"></a>Configurazione di ASP.NET Core SignalR
 
@@ -120,7 +120,7 @@ Opzioni client possono essere configurate nella `HubConnectionBuilder` tipo, dis
 
 ### <a name="configure-logging"></a>Configurare la registrazione
 
-La registrazione è configurata nel Client .NET usando il `ConfigureLogging` (metodo). Registrazione provider e i filtri possono essere registrata nello stesso modo come sono nel server. Vedere le [registrazione in ASP.NET Core](xref:fundamentals/logging/index#how-to-add-providers) per altre informazioni.
+La registrazione è configurata nel Client .NET usando il `ConfigureLogging` (metodo). Registrazione provider e i filtri possono essere registrata nello stesso modo come sono nel server. Vedere le [registrazione in ASP.NET Core](xref:fundamentals/logging/index) per altre informazioni.
 
 > [!NOTE]
 > Per registrare i provider di registrazione, è necessario installare i pacchetti necessari. Vedere le [provider di registrazione predefiniti](xref:fundamentals/logging/index#built-in-logging-providers) sezione della documentazione per un elenco completo.
