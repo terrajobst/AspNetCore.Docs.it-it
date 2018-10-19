@@ -79,9 +79,9 @@ La radice del contenuto è il percorso di base per i contenuti usati dall'app, a
 
 La radice Web di un'app è la directory del progetto contenente risorse statiche pubbliche, come ad esempio CSS, JavaScript e i file di immagine.
 
-## <a name="dependency-injection-services"></a>Inserimento di dipendenze (servizi)
+## <a name="dependency-injection-services"></a>Iniezione di dipendenze (servizi)
 
-Un *servizio* è un componente destinato a un utilizzo comune in un'app. I servizi sono resi disponibili tramite l'[inserimento delle dipendenze](xref:fundamentals/dependency-injection). ASP.NET Core include un contenitore IoC (Inversion of Control) nativo che supporta l'[inserimento del costruttore](xref:mvc/controllers/dependency-injection#constructor-injection) per impostazione predefinita. Se si vuole, è possibile sostituire il contenitore predefinito. Oltre al vantaggio dell'[accoppiamento debole](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#encapsulation), l'inserimento delle dipendenze rende disponibili i servizi in tutta l'app, ad esempio la [registrazione](xref:fundamentals/logging/index).
+Un *servizio* è un componente destinato a un utilizzo comune in un'app. I servizi sono resi disponibili tramite l'[iniezione delle dipendenze](xref:fundamentals/dependency-injection). ASP.NET Core include un contenitore IoC (Inversion of Control) nativo che supporta l'[iniezione nel costruttore](xref:mvc/controllers/dependency-injection#constructor-injection) per impostazione predefinita. Se si vuole, è possibile sostituire il contenitore predefinito. Oltre al vantaggio dell'[accoppiamento debole](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#encapsulation), l'iniezione delle dipendenze rende disponibili i servizi in tutta l'app, ad esempio la [registrazione](xref:fundamentals/logging/index).
 
 Per ulteriori informazioni, vedere <xref:fundamentals/dependency-injection>.
 
