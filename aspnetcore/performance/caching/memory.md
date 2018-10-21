@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/15/2018
 uid: performance/caching/memory
-ms.openlocfilehash: 960aa18f9d14f633118ccd716201e61464085c05
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: be2e81d1aa6a89d65414d53a70ca2d2fb5d2d3a3
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325926"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477189"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>Memorizzare nella cache in memoria in ASP.NET Core
 
@@ -173,7 +173,7 @@ Usando un `CancellationTokenSource` consente a più voci della cache essere elim
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Usare una cache distribuita](xref:performance/caching/distributed)
-* [Rilevare le modifiche apportate con i token di modifica](xref:fundamentals/primitives/change-tokens)
+* [Rilevare le modifiche apportate con i token di modifica](xref:fundamentals/change-tokens)
 * [Memorizzazione nella cache delle risposte](xref:performance/caching/response)
 * [Middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware)
 * [Helper per tag di cache](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)

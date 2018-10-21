@@ -5,12 +5,12 @@ description: Informazioni sulle estendibilità di gestione delle chiavi di prote
 ms.author: riande
 ms.date: 11/22/2017
 uid: security/data-protection/extensibility/key-management
-ms.openlocfilehash: 965a7ed8ca2f72a66cfe093b5978a54fea5440fd
-ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
+ms.openlocfilehash: b52212ff3462748a5c64f21e1b7854673e5fcadc
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219316"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477462"
 ---
 # <a name="key-management-extensibility-in-aspnet-core"></a>Estendibilità della gestione delle chiavi in ASP.NET Core
 
@@ -130,10 +130,23 @@ Le implementazioni di `IXmlRepository` non necessario analizzare il codice XML c
 
 Esistono quattro tipi concreti predefiniti che implementano `IXmlRepository`:
 
+::: moniker range=">= aspnetcore-2.2"
+
+* [FileSystemXmlRepository](/dotnet/api/microsoft.aspnetcore.dataprotection.repositories.filesystemxmlrepository)
+* [RegistryXmlRepository](/dotnet/api/microsoft.aspnetcore.dataprotection.repositories.registryxmlrepository)
+* [AzureStorage.AzureBlobXmlRepository](/dotnet/api/microsoft.aspnetcore.dataprotection.azurestorage.azureblobxmlrepository)
+* [RedisXmlRepository](/dotnet/api/microsoft.aspnetcore.dataprotection.stackexchangeredis.redisxmlrepository)
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
 * [FileSystemXmlRepository](/dotnet/api/microsoft.aspnetcore.dataprotection.repositories.filesystemxmlrepository)
 * [RegistryXmlRepository](/dotnet/api/microsoft.aspnetcore.dataprotection.repositories.registryxmlrepository)
 * [AzureStorage.AzureBlobXmlRepository](/dotnet/api/microsoft.aspnetcore.dataprotection.azurestorage.azureblobxmlrepository)
 * [RedisXmlRepository](/dotnet/api/microsoft.aspnetcore.dataprotection.redisxmlrepository)
+
+::: moniker-end
 
 Vedere le [documento provider archiviazione chiavi](xref:security/data-protection/implementation/key-storage-providers) per altre informazioni.
 

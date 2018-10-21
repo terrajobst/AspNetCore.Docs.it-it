@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/27/2017
 uid: test/razor-pages-tests
-ms.openlocfilehash: 364c4c0fd75954f1c7e0bfbc221938afe5332bde
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 924908a92eea23fd2dc81a3809e74760d9295e4f
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41828125"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477410"
 ---
 # <a name="razor-pages-unit-tests-in-aspnet-core"></a>Gli unit test di Razor Pages in ASP.NET Core
 
@@ -57,7 +57,7 @@ L'app di messaggio è un semplice sistema di messaggi di Razor Pages con le cara
 
 &#8224;L'argomento relativo alla EF [Test con InMemory](/ef/core/miscellaneous/testing/in-memory), spiega come usare un database in memoria per i test con MSTest. Questo argomento viene utilizzato il [xUnit](https://xunit.github.io/) framework di test. Concetti di test e test implementazioni su Framework di test diversi sono simili ma non identici.
 
-Anche se l'app non usa la [modello di repository](xref:fundamentals/repository-pattern) e non è un esempio efficace delle [schema Unit of Work (UoW)](https://martinfowler.com/eaaCatalog/unitOfWork.html), pagine Razor supporta questi modelli di sviluppo. Per altre informazioni, vedere [la progettazione del livello di persistenza dell'infrastruttura](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design), <xref:fundamentals/repository-pattern>, e [logica dei controller di Test](/aspnet/core/mvc/controllers/testing) (l'esempio implementa il modello di repository).
+Anche se l'app non usa il modello di repository e non è un esempio efficace del [schema Unit of Work (UoW)](https://martinfowler.com/eaaCatalog/unitOfWork.html), pagine Razor supporta questi modelli di sviluppo. Per altre informazioni, vedere [la progettazione del livello di persistenza dell'infrastruttura](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design) e [logica dei controller di Test](/aspnet/core/mvc/controllers/testing) (l'esempio implementa il modello di repository).
 
 ## <a name="test-app-organization"></a>Organizzazione dei test app
 

@@ -1,18 +1,18 @@
 ---
 title: Middleware di ASP.NET Core della memorizzazione nella cache
 author: guardrex
-description: Informazioni su come configurare e usare Middleware di memorizzazione nella cache delle risposte in ASP.NET Core.
+description: Informazioni su come configurare e usare il middleware di memorizzazione nella cache delle risposte in ASP.NET Core.
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 01/26/2017
 uid: performance/caching/middleware
-ms.openlocfilehash: f4e5a414b92e3ca65e19188ebd2bfaef6f32fee7
-ms.sourcegitcommit: 4cd8dce371d63a66d780e4af1baab2bcf9d61b24
+ms.openlocfilehash: d991bc48ed07ee71b0decaa0bee4df811fdc74c4
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43893090"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477527"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Middleware di ASP.NET Core della memorizzazione nella cache
 
@@ -159,7 +159,7 @@ Durante il test e risoluzione dei problemi di comportamento di memorizzazione ne
 * [Middleware](xref:fundamentals/middleware/index)
 * [Cache in memoria](xref:performance/caching/memory)
 * [Usare una cache distribuita](xref:performance/caching/distributed)
-* [Rilevare le modifiche apportate con i token di modifica](xref:fundamentals/primitives/change-tokens)
+* [Rilevare le modifiche apportate con i token di modifica](xref:fundamentals/change-tokens)
 * [Memorizzazione nella cache delle risposte](xref:performance/caching/response)
 * [Helper per tag di cache](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
 * [Helper per tag di cache distribuita](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
