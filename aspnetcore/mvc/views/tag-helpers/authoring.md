@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 08/20/2018
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: 2d39488caeea0c87d2efc79f265de7feb200f096
-ms.sourcegitcommit: 15d7bd0b2c4e6fe9ac335d658bab71a45ca5bc72
+ms.openlocfilehash: 3bad02c650c717b33386f028cb223d14c0a34ff9
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41755605"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477631"
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>Creare helper tag in ASP.NET Core
 
@@ -113,6 +113,8 @@ Questo approccio funziona per l'attributo "href" a condizione che non esista nel
 1. Aggiornare il markup nel file *Views/Home/Contact.cshtm* con queste modifiche: [!code-html[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/ContactCopy.cshtml?highlight=15,16)]
 
 2. Eseguire l'app e verificare che generi collegamenti corretti.
+
+<a name="self-closing"></a>
     
    > [!NOTE]
    > Se si scrive il tag di posta elettronica a chiusura automatica (`<email mail-to="Rick" />`), anche l'output finale è a chiusura automatica. Per abilitare la possibilità di scrivere il tag solo con il tag di inizio (`<email mail-to="Rick">`) è necessario decorare la classe con il codice seguente:

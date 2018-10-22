@@ -5,12 +5,12 @@ description: ''
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 626b828e2391d3982ff2cf393f0c9e0748c12810
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: de9b0bd1e0346d4c12f256e6226353f1ab47ed11
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41751778"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477579"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---crud---2-of-10"></a>ASP.NET Core MVC con EF Core - CRUD - 2 di 10
 
@@ -25,7 +25,7 @@ L'applicazione Web di esempio Contoso University illustra come creare applicazio
 Nell'esercitazione precedente è stata creata un'applicazione MVC che memorizza e visualizza i dati usando Entity Framework e SQL Server LocalDB. In questa esercitazione verrà esaminato e personalizzato il codice CRUD (Create, Read, Update, Delete) che lo scaffolding di MVC crea automaticamente nei controller e nelle visualizzazioni.
 
 > [!NOTE]
-> È pratica comune implementare lo [schema del repository](xref:fundamentals/repository-pattern) per creare un livello di astrazione tra il controller e il livello di accesso ai dati. Per mantenere le esercitazioni semplici e incentrate sulla descrizione dell'uso di Entity Framework, non vengono usati i repository. Per informazioni sui repository con EF, vedere l'[ultima esercitazione della serie](advanced.md).
+> È pratica comune implementare il modello di repository per creare un livello di astrazione tra il controller e il livello di accesso ai dati. Per mantenere le esercitazioni semplici e incentrate sulla descrizione dell'uso di Entity Framework, non vengono usati i repository. Per informazioni sui repository con EF, vedere l'[ultima esercitazione della serie](advanced.md).
 
 In questa esercitazione vengono usate le pagine Web seguenti:
 
@@ -117,7 +117,7 @@ In *StudentsController.cs* modificare il metodo HttpPost `Create` aggiungendo un
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Create&highlight=4,6-7,14-21)]
 
-Questo codice aggiunge l'entità Student creata dallo strumento di associazione di modelli di ASP.NET Core MVC al set di entità Students e salva le modifiche nel database. Lo strumento di associazione di modelli corrisponde alla funzionalità di ASP.NET Core MVC che rende più semplice l'uso di dati inviati da un modulo; lo strumento di associazione di modelli converte i valori di modulo inviati in tipi CLR e li passa al metodo di azione nei parametri. In questo caso lo strumento di associazione di modelli crea automaticamente un'istanza di un'entità Student usando i valori di proprietà della raccolta Form.
+Questo codice aggiunge l'entità Student creata dallo strumento di associazione di modelli di ASP.NET Core MVC al set di entità Students e salva le modifiche nel database. Lo strumento di associazione di modelli corrisponde alla funzionalità di ASP.NET Core MVC che rende più semplice l'uso di dati inviati da un modulo; lo strumento di associazione di modelli converte i valori di modulo inviati in tipi CLR e li passa al metodo di azione nei parametri. In questo caso lo strumento di associazione di modelli crea automaticamente un'istanza di un'entità Student usando i valori di proprietà della raccolta Form).
 
 `ID` è stato rimosso dall'attributo `Bind` poiché l'ID è il valore di chiave primaria che SQL Server imposta automaticamente quando viene inserita la riga. L'input dell'utente non imposta il valore ID.
 

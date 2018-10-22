@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/11/2018
 uid: mvc/views/partial
-ms.openlocfilehash: a836ed073dfe769fc3cc0cd0622b17937747928b
-ms.sourcegitcommit: 70fb7c9d5f2ddfcf4747382a9f7159feca7a6aa7
+ms.openlocfilehash: d3d2f55645881dd05f7663e0a9d3e45d6bb6d77f
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45601756"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477683"
 ---
 # <a name="partial-views-in-aspnet-core"></a>Visualizzazioni parziali in ASP.NET Core
 
@@ -44,7 +44,7 @@ Non usare una visualizzazione parziale in cui per il rendering del markup è nec
 
 ## <a name="declare-partial-views"></a>Dichiarare le visualizzazioni parziali
 
-::: moniker range=">= aspnetcore-2.1"
+::: moniker range=">= aspnetcore-2.0"
 
 Una visualizzazione parziale è un file di markup con estensione *cshtml* che si trova nella cartella *Views* (MVC) o *Pages* (Razor Pages).
 
@@ -52,11 +52,11 @@ In ASP.NET Core MVC, l'elemento <xref:Microsoft.AspNetCore.Mvc.ViewResult> di un
 
 A differenza del rendering di pagine o visualizzazioni MVC, una visualizzazione parziale non esegue *_ViewStart.cshtml*. Per altre informazioni su *_ViewStart.cshtml*, vedere <xref:mvc/views/layout>.
 
-I nomi dei file di visualizzazione parziale iniziano spesso con un carattere di sottolineatura (`_`). Questa convenzione di denominazione non è obbligatoria, ma è utile per differenziare visivamente le visualizzazioni parziali dalle visualizzazioni e dalle pagine. Quando il nome file inizia con un carattere di sottolineatura, Razor Pages non elabora il file di markup come pagina Razor Pages, anche quando il markup del file include la direttiva `@page`.
+I nomi dei file di visualizzazione parziale iniziano spesso con un carattere di sottolineatura (`_`). Questa convenzione di denominazione non è obbligatoria, ma è utile per differenziare visivamente le visualizzazioni parziali dalle visualizzazioni e dalle pagine.
 
 ::: moniker-end
 
-::: moniker range="< aspnetcore-2.1"
+::: moniker range="< aspnetcore-2.0"
 
 Una visualizzazione parziale è un file di markup con estensione *cshtml* che si trova nella cartella *Views*.
 
