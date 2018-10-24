@@ -4,14 +4,14 @@ author: ardalis
 description: Descrizione del modo in cui la funzionalità di routing di ASP.NET Core è responsabile del mapping di una richiesta in ingresso a un gestore di route.
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/20/2018
+ms.date: 10/01/2018
 uid: fundamentals/routing
-ms.openlocfilehash: 94fa6a278466c8cc9926d7893d1ef71d83b865df
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: d9ba96c7b2abd35b1b13c84814bf3f776e8d8731
+ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41870851"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47861057"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing in ASP.NET Core
 
@@ -37,7 +37,7 @@ Il routing è connesso alla pipeline [middleware](xref:fundamentals/middleware/i
 
 ### <a name="url-matching"></a>Corrispondenza URL
 
-La corrispondenza dell'URL è il processo con cui il routing invia una richiesta in ingresso a un *gestore*. Questo processo in genere si basa sui dati presenti nel percorso URL, ma può essere esteso in modo da prendere in considerazione tutti i dati della richiesta. La possibilità di inviare le richieste a gestori separati è fondamentale per ridurre le dimensioni e la complessità di un'app.
+La corrispondenza dell'URL è il processo con cui il routing invia una richiesta in ingresso a un *gestore*. Questo processo si basa sui dati presenti nel percorso URL, ma può essere esteso in modo da prendere in considerazione tutti i dati della richiesta. La possibilità di inviare le richieste a gestori separati è fondamentale per ridurre le dimensioni e la complessità di un'app.
 
 Le richieste in ingresso immettono `RouterMiddleware`, che chiama il metodo <xref:Microsoft.AspNetCore.Routing.IRouter.RouteAsync*> per ogni route della sequenza. L'istanza di <xref:Microsoft.AspNetCore.Routing.IRouter> sceglie se *gestire* la richiesta impostando [RouteContext.Handler](xref:Microsoft.AspNetCore.Routing.RouteContext.Handler*) su un valore <xref:Microsoft.AspNetCore.Http.RequestDelegate> non Null. Se una route imposta un gestore per la richiesta, l'elaborazione della route si interrompe e viene richiamato il gestore per elaborare la richiesta. Se si prova con tutte le route e non viene trovato alcun gestore per la richiesta, il middleware chiama *next* e viene richiamato il middleware successivo nella pipeline di richieste.
 
@@ -169,12 +169,12 @@ routes.MapRoute(
 
 Con i valori di route `{ controller = Products, action = List }` questa route genera l'URL `/Products/List`. I valori di route vengono sostituiti dai parametri di route corrispondenti per formare il percorso URL. Poiché `id` è un parametro di route facoltativo, non è un problema se non ha un valore.
 
-Con i valori di route `{ controller = Home, action = Index }` questa route genera l'URL `/`. I valori di route specificati corrispondono ai valori predefiniti, di conseguenza i segmenti corrispondenti a tali valori possono essere omessi. Si noti che per entrambi gli URL generati viene eseguito il round trip con questa definizione di route e vengono prodotti gli stessi valori di route usati per generare l'URL.
+Con i valori di route `{ controller = Home, action = Index }` questa route genera l'URL `/`. I valori di route specificati corrispondono ai valori predefiniti, di conseguenza i segmenti corrispondenti a tali valori possono essere omessi. Per entrambi gli URL generati viene eseguito il round trip con questa definizione di route e vengono prodotti gli stessi valori di route usati per generare l'URL.
 
 > [!TIP]
 > Un'app che usa ASP.NET Core MVC deve usare <xref:Microsoft.AspNetCore.Mvc.Routing.UrlHelper> per generare gli URL invece di eseguire la chiamata direttamente nel routing.
 
-Per altre informazioni sul processo di generazione degli URL, vedere [Riferimento per la generazione di URL](#url-generation-reference).
+Per altre informazioni sulla generazione di URL, vedere [Riferimento per la generazione di URL](#url-generation-reference).
 
 ## <a name="use-routing-middleware"></a>Usare il middleware di routing
 
@@ -269,9 +269,31 @@ I modelli di URL che tentano di acquisire un nome file con un'estensione facolta
 
 È possibile usare il carattere `*` come prefisso per un parametro di route da associare al resto dell'URI, ovvero un parametro *catch-all*. Ad esempio, `blog/{*slug}` corrisponde a qualsiasi URI che inizia con `/blog` seguito da qualsiasi valore (che viene assegnato al valore di route `slug`). I parametri catch-all possono anche corrispondere alla stringa vuota.
 
+::: moniker range=">= aspnetcore-2.2"
+
+Il parametro catch-all esegue l'escape dei caratteri appropriati, incluso il separatore di percorso (`/`), quando la route viene usata per generare un URL. Ad esempio, la route `foo/{*path}` con i valori di route `{ path = "my/path" }` genera `foo/my%2Fpath`. Si noti la barra di escape. Per eseguire il round trip dei caratteri di separatore di percorso, usare il prefisso del parametro di route `**`. La route `foo/{**path}` con `{ path = "my/path" }` genera `foo/my/path`.
+
+::: moniker-end
+
 I parametri di route possono avere *valori predefiniti*, definiti specificando il valore predefinito dopo il nome del parametro, separato da un segno di uguale (`=`). Ad esempio, `{controller=Home}` definisce `Home` come valore predefinito per `controller`. Il valore predefinito viene usato se nell'URL non è presente alcun valore per il parametro. Oltre ai valori predefiniti, i parametri di route possono essere facoltativi, specificati aggiungendo un punto interrogativo (`?`) alla fine del nome del parametro, come in `id?`. La differenza tra parametri facoltativi e parametri di route predefiniti è che un parametro di route con un valore predefinito produce sempre un valore, mentre un parametro facoltativo ha un valore solo se ne viene specificato uno dall'URL della richiesta.
 
-I parametri di route possono anche presentare dei vincoli, che devono corrispondere al valore di route associato dall'URL. Aggiungendo due punti `:` e il nome del vincolo dopo il nome del parametro di route, si specifica un *vincolo inline* per un parametro di route. Se il vincolo richiede argomenti, vengono specificati tra parentesi `( )` dopo il nome del vincolo. È possibile specificare più vincoli inline aggiungendo di nuovo i due punti `:` e il nome del vincolo. Il nome del vincolo viene passato al servizio <xref:Microsoft.AspNetCore.Routing.IInlineConstraintResolver> per creare un'istanza di <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> da usare nell'elaborazione dell'URL. Il modello di route `blog/{article:minlength(10)}` specifica ad esempio un vincolo `minlength` con l'argomento `10`. Per altre informazioni sui vincoli di route e per un elenco dei vincoli specificati dal framework, vedere la sezione [Riferimento per i vincoli di route](#route-constraint-reference).
+::: moniker range=">= aspnetcore-2.2"
+
+I parametri di route possono presentare dei vincoli, che devono corrispondere al valore di route associato dall'URL. Aggiungendo due punti (`:`) e il nome del vincolo dopo il nome del parametro di route, si specifica un *vincolo inline* per un parametro di route. Se il vincolo richiede argomenti, vengono racchiusi tra parentesi `( )` dopo il nome del vincolo. È possibile specificare più vincoli inline aggiungendo di nuovo i due punti (`:`) e il nome del vincolo. Il nome del vincolo e gli argomenti vengono passati al servizio <xref:Microsoft.AspNetCore.Routing.IInlineConstraintResolver> per creare un'istanza di <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> da usare nell'elaborazione dell'URL. Se per il costruttore del vincolo sono necessari servizi, questi vengono risolti dai servizi app dell'inserimento delle dipendenze. Il modello di route `blog/{article:minlength(10)}` specifica ad esempio un vincolo `minlength` con l'argomento `10`. Per altre informazioni sui vincoli di route e per un elenco dei vincoli specificati dal framework, vedere la sezione [Riferimento per i vincoli di route](#route-constraint-reference).
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+I parametri di route possono presentare dei vincoli, che devono corrispondere al valore di route associato dall'URL. Aggiungendo due punti (`:`) e il nome del vincolo dopo il nome del parametro di route, si specifica un *vincolo inline* per un parametro di route. Se il vincolo richiede argomenti, vengono racchiusi tra parentesi `( )` dopo il nome del vincolo. È possibile specificare più vincoli inline aggiungendo di nuovo i due punti (`:`) e il nome del vincolo. Il nome del vincolo e gli argomenti vengono passati al servizio <xref:Microsoft.AspNetCore.Routing.IInlineConstraintResolver> per creare un'istanza di <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> da usare nell'elaborazione dell'URL. Il modello di route `blog/{article:minlength(10)}` specifica ad esempio un vincolo `minlength` con l'argomento `10`. Per altre informazioni sui vincoli di route e per un elenco dei vincoli specificati dal framework, vedere la sezione [Riferimento per i vincoli di route](#route-constraint-reference).
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+I parametri di route possono avere anche trasformatori di parametro, che trasformano un valore di parametro durante la generazione dei collegamenti e l'abbinamento delle azioni e delle pagine agli URI. Come i vincoli, i trasformatori di parametro possono essere aggiunti inline a un parametro di route inserendo due punti (`:`) e il nome del trasformatore dopo il nome del parametro di route. Ad esempio, il modello di route `blog/{article:slugify}` specifica un trasformatore `slugify`.
+
+::: moniker-end
 
 La tabella seguente illustra alcuni modelli di route con il relativo comportamento.
 
@@ -301,7 +323,7 @@ Le parole chiave seguenti sono nomi riservati e non possono essere usate come no
 
 ## <a name="route-constraint-reference"></a>Riferimento per i vincoli di route
 
-I vincoli di route vengono eseguiti quando una `Route` corrisponde alla sintassi dell'URL in ingresso e suddivide il percorso URL in valori di route in formato token. I vincoli di route in genere controllano il valore di route associato usando il modello di route e stabiliscono con una semplice decisione sì/no se il valore è o non è accettabile. Alcuni vincoli di route usano i dati all'esterno del valore di route per stabilire se la richiesta può essere instradata. Ad esempio, <xref:Microsoft.AspNetCore.Routing.Constraints.HttpMethodRouteConstraint> può accettare o rifiutare una richiesta in base al relativo verbo HTTP.
+I vincoli di route vengono eseguiti quando una `Route` corrisponde alla sintassi dell'URL in ingresso e suddivide il percorso URL in valori di route in formato token. I vincoli di route in genere controllano il valore di route associato usando il modello di route e stabiliscono con una decisione Sì/No se il valore è accettabile o meno. Alcuni vincoli di route usano i dati all'esterno del valore di route per stabilire se la richiesta può essere instradata. Ad esempio, <xref:Microsoft.AspNetCore.Routing.Constraints.HttpMethodRouteConstraint> può accettare o rifiutare una richiesta in base al relativo verbo HTTP.
 
 > [!WARNING]
 > Evitare l'uso di vincoli per la **convalida dell'input** perché un input non valido causa la visualizzazione di un errore di tipo *404 (Non trovato)* invece di un errore di tipo *400 - Richiesta non valida* con un messaggio di errore appropriato. I vincoli di route vengono usati per evitare **ambiguità** tra route simili, non per convalidare gli input per una route specifica.
@@ -361,9 +383,29 @@ Le espressioni regolari usate nel routing spesso iniziano con il carattere `^` (
 | `^[a-z]{2}$` |  hello    | No    | Vedere `^` e `$` sopra |
 | `^[a-z]{2}$` | 123abc456 | No    | Vedere `^` e `$` sopra |
 
-Per altre informazioni sulla sintassi delle espressioni regolari, vedere [Espressioni regolari di .NET Framework](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).
+Per altre informazioni sulla sintassi delle espressioni regolari, vedere [Espressioni regolari di .NET Framework](/dotnet/standard/base-types/regular-expression-language-quick-reference).
 
 Per limitare un parametro a un set noto di valori possibili, usare un'espressione regolare. Ad esempio, `{action:regex(^(list|get|create)$)}` verifica la corrispondenza del valore di route `action` solo con `list`, `get` o `create`. Se viene passata nel dizionario di vincoli, la stringa `^(list|get|create)$` è equivalente. Anche i vincoli passati nel dizionario di vincoli (non inline all'interno di un modello) che non corrispondono a uno dei vincoli noti vengono considerati espressioni regolari.
+
+::: moniker range=">= aspnetcore-2.2"
+
+## <a name="parameter-transformer-reference"></a>Riferimento ai trasformatori di parametro
+
+I trasformatori di parametro vengono usati durante la generazione di un collegamento per `Route`. I trasformatori di parametro rilevano il valore di route del parametro e lo trasformano in un nuovo valore stringa. Il valore trasformato viene usato nel collegamento generato. Ad esempio, un trasformatore di parametro `slugify` personalizzato nel modello di route `blog\{article:slugify}` con `Url.Action(new { article = "MyTestArticle" })` genera `blog\my-test-article`. I trasformatori di parametro implementano `Microsoft.AspNetCore.Routing.IOutboundParameterTransformer` e vengono configurati usando <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap>.
+
+I trasformatori di parametro sono usati anche dai framework per trasformare l'URI in cui viene risolto un endpoint. Ad esempio, ASP.NET Core MVC usa i trasformatori di parametro per trasformare il valore di route usato per abbinare `area`, `controller`, `action` e `page`.
+
+```csharp
+routes.MapRoute(
+    name: "default",
+    template: "{controller=Home:slugify}/{action=Index:slugify}/{id?}");
+```
+
+Con la route precedente, l'azione `SubscriptionManagementController.GetAll()` viene abbinata all'URI `/subscription-management/get-all`. Un trasformatore di parametro non modifica i valori della route usati per generare un collegamento. `Url.Action("GetAll", "SubscriptionManagement")` genera `/subscription-management/get-all`.
+
+ASP.NET Core MVC include anche la convenzione API `Microsoft.AspNetCore.Mvc.ApplicationModels.RouteTokenTransformerConvention`. La convenzione applica un trasformatore di parametro specifico a tutti i token di route con attributi nell'app.
+
+::: moniker-end
 
 ## <a name="url-generation-reference"></a>Riferimento per la generazione di URL
 

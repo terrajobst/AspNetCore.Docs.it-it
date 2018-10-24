@@ -5,12 +5,12 @@ description: Informazioni su come controllare il comportamento di app ASP.NET Co
 ms.author: riande
 ms.date: 07/03/2018
 uid: fundamentals/environments
-ms.openlocfilehash: 720e5ef9fb63b83499ce1801a1c3f9df4786d748
-ms.sourcegitcommit: 25150f4398de83132965a89f12d3a030f6cce48d
+ms.openlocfilehash: de3c3fd5a2f0e49366d9d5b4e992d0247bcab0e5
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2018
-ms.locfileid: "42927942"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577522"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>Usare più ambienti in ASP.NET Core
 
@@ -28,7 +28,7 @@ ASP.NET Core legge la variabile di ambiente `ASPNETCORE_ENVIRONMENT` all'avvio d
 
 Il codice precedente:
 
-* Chiama [UseDeveloperExceptionPage](/dotnet/api/microsoft.aspnetcore.builder.developerexceptionpageextensions.usedeveloperexceptionpage) e [UseBrowserLink](/dotnet/api/microsoft.aspnetcore.builder.browserlinkextensions.usebrowserlink) quando `ASPNETCORE_ENVIRONMENT` è impostata su `Development`.
+* Chiama [UseDeveloperExceptionPage](/dotnet/api/microsoft.aspnetcore.builder.developerexceptionpageextensions.usedeveloperexceptionpage) quando `ASPNETCORE_ENVIRONMENT` è impostato su `Development`.
 * Chiama [UseExceptionHandler](/dotnet/api/microsoft.aspnetcore.builder.exceptionhandlerextensions.useexceptionhandler) quando il valore di `ASPNETCORE_ENVIRONMENT` è uno dei seguenti:
 
     * `Staging`
@@ -245,7 +245,6 @@ Per impostare la variabile di ambiente `ASPNETCORE_ENVIRONMENT` per un'app in es
 > [!IMPORTANT]
 > Durante l'hosting di un'app in IIS, quando si aggiunge o si modifica la variabile di ambiente `ASPNETCORE_ENVIRONMENT`, usare uno degli approcci seguenti per fare in modo che il nuovo valore venga selezionato dalle app:
 >
-> * Riavviare il pool di app dell'app.
 > * Eseguire `net stop was /y` seguito da `net start w3svc` da un prompt dei comandi.
 > * Riavviare il server.
 

@@ -5,12 +5,12 @@ description: Informazioni su come l'associazione di modelli consente alle azioni
 ms.author: riande
 ms.date: 04/10/2017
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: f5bd9a3eefb1fd9c1534e8767ad8e8af37514adb
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: b8745241b0699d270bb8f3a56ab614b0ca49e64b
+ms.sourcegitcommit: 317f9be24db600499e79d25872d743af74bd86c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275393"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48045536"
 ---
 # <a name="custom-model-binding-in-aspnet-core"></a>Associazione di modelli personalizzata in ASP.NET Core
 
@@ -42,7 +42,7 @@ Una piccola parte della stringa codificata è visualizzata nella figura seguente
 
 Seguire le istruzioni nel [file Leggimi dell'esempio](https://github.com/aspnet/Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/sample/CustomModelBindingSample/README.md) per convertire la stringa con codifica base64 in un file.
 
-ASP.NET Core MVC può accettare una stringa con codifica base64 e usare un `ByteArrayModelBinder` per convertirla in una matrice di byte. L'elemento [ByteArrayModelBinderProvider](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.binders.bytearraymodelbinderprovider) che implementa [IModelBinderProvider](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.imodelbinderprovider) esegue il mapping degli argomenti `byte[]` a `ByteArrayModelBinder`:
+ASP.NET Core MVC può accettare una stringa con codifica base64 e usare un oggetto `ByteArrayModelBinder` per convertirla in una matrice di byte. L'elemento [ByteArrayModelBinderProvider](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.binders.bytearraymodelbinderprovider) che implementa [IModelBinderProvider](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.imodelbinderprovider) esegue il mapping degli argomenti `byte[]` a `ByteArrayModelBinder`:
 
 ```csharp
 public IModelBinder GetBinder(ModelBinderProviderContext context)
@@ -101,7 +101,7 @@ L'attributo `ModelBinder` può essere usato per applicare gli elementi `AuthorEn
 
 [!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Controllers/BoundAuthorsController.cs?name=demo1&highlight=2)]
 
-In questo esempio, dato che il nome dell'argomento non è il valore `authorId` predefinito, viene specificato nel parametro usando l'attributo `ModelBinder`. Si noti che sia controller sia il metodo di azione risultano più semplici rispetto alla ricerca dell'entità nel metodo di azione. La logica per recuperare l'autore usando Entity Framework Core viene spostata nello strumento di associazione di modelli. Ciò può rappresentare una semplificazione notevole quando vari metodi eseguono l'associazione al modello Author e favorisce l'osservanza del [principio DRY](http://deviq.com/don-t-repeat-yourself/) (Do not Repeat Yourself, Non ripeterti).
+In questo esempio, dato che il nome dell'argomento non è il valore `authorId` predefinito, viene specificato nel parametro usando l'attributo `ModelBinder`. Si noti che sia controller sia il metodo di azione risultano più semplici rispetto alla ricerca dell'entità nel metodo di azione. La logica per recuperare l'autore usando Entity Framework Core viene spostata nello strumento di associazione di modelli. Ciò può rappresentare una semplificazione notevole quando vari metodi eseguono l'associazione al modello `Author` e favorisce l'osservanza del [principio DRY](http://deviq.com/don-t-repeat-yourself/) (Do not Repeat Yourself).
 
 È possibile applicare l'attributo `ModelBinder` a singole proprietà del modello (ad esempio a ViewModel) o a parametri del metodo di azione per specificare un determinato strumento di associazione di modelli o nome di modello solo per quel determinato tipo o azione.
 

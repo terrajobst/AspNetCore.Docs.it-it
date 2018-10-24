@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/18/2018
 uid: fundamentals/static-files
-ms.openlocfilehash: 33fad930e617c74d9a8c07f850764a6b81fa8ab5
-ms.sourcegitcommit: 2c158fcfd325cad97ead608a816e525fe3dcf757
+ms.openlocfilehash: 52c7916b9fc55c875d56acd49c01f76dd2053817
+ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41751485"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47861005"
 ---
 # <a name="static-files-in-aspnet-core"></a>File statici in ASP.NET Core
 
@@ -216,7 +216,7 @@ Vedere [Tipi di contenuto MIME](http://www.iana.org/assignments/media-types/medi
 
 ## <a name="non-standard-content-types"></a>Tipi di contenuto non standard
 
-Il middleware dei file statici riconosce almeno 400 tipi di contenuto file noti. Se si richiede un file il cui tipo è sconosciuto, il middleware dei file statici restituisce una risposta HTTP 404 (non trovato). Se è abilitata l'esplorazione directory, viene visualizzato un collegamento al file. L'URI restituisce un errore HTTP 404.
+Il middleware dei file statici riconosce almeno 400 tipi di contenuto file noti. Se viene richiesto un file con un tipo di file non noto, il middleware dei file statici passa la richiesta al middleware successivo nella pipeline. Se nessun middleware gestisce la richiesta, viene restituita la risposta *404 Non trovato*. Se è abilitata l'esplorazione directory, viene visualizzato un collegamento al file nella visualizzazione directory.
 
 Il codice seguente consente di usare tipi sconosciuti ed esegue il rendering del file sconosciuto come immagine:
 

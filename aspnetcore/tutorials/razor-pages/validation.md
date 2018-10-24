@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/07/2017
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 6144bfb9e731ace51b4f23870fdb06519fd4a9ea
-ms.sourcegitcommit: 599ebae5c2d6fcb22dfa6ae7d1f4bdfcacb79af4
+ms.openlocfilehash: cd958b9c084de4b3e12784774544610873a519f9
+ms.sourcegitcommit: 317f9be24db600499e79d25872d743af74bd86c0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47211026"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48045523"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Aggiungere la convalida a una pagina Razor ASP.NET Core
 
@@ -27,7 +27,7 @@ Il supporto della convalida fornito dalle pagine di Razor e da Entity Framework 
 
 ### <a name="adding-validation-rules-to-the-movie-model"></a>Aggiunta di regole di convalida al modello movie
 
-Aprire il file *Movie.cs*. [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) fornisce un set incorporato di attributi di convalida che si applicano in modo dichiarativo a una classe o proprietà. DataAnnotations contiene anche gli attributi di formattazione come ad esempio `DataType` che guidano nella formattazione e non forniscono la convalida.
+Aprire il file *Models/Movie.cs*. [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) fornisce un set incorporato di attributi di convalida che si applicano in modo dichiarativo a una classe o proprietà. DataAnnotations contiene anche gli attributi di formattazione come ad esempio `DataType` che guidano nella formattazione e non forniscono la convalida.
 
 Aggiornamento della classe `Movie` per poter sfruttare gli attributi di convalida `Required`, `StringLength`, `RegularExpression`, e `Range`.
 
@@ -79,7 +79,7 @@ Quando JavaScript è disabilitato nel browser, l'invio del modulo con errori ver
 
 Facoltativo, convalida sul lato server del test:
 
-* Disabilitare JavaScript nel browser. Se non è possibile disabilitare JavaScript nel browser, provare un altro browser.
+* Disabilitare JavaScript nel browser. Per eseguire questa operazione, usare gli strumenti di sviluppo del browser. Se non è possibile disabilitare JavaScript nel browser, provare un altro browser.
 * Impostare un punto di interruzione nel metodo `OnPostAsync` della pagina Crea o Modifica.
 * Invio di un form con errori di convalida.
 * Verificare che lo stato del modello non sia valido:

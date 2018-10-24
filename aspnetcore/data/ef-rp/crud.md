@@ -5,12 +5,12 @@ description: Illustra come creare, leggere, aggiornare ed eliminare con EF Core
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/crud
-ms.openlocfilehash: e3a0ec2e21ae9e9eeaae1eb7c17f1604897fb6f9
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: 25493f93daf3fe5e874ad1d06b918196cd1f074d
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342458"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912813"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>Razor Pages con EF Core in ASP.NET Core - CRUD - 2 di 8
 
@@ -26,7 +26,7 @@ In questa esercitazione viene esaminato e personalizzato il codice CRUD (Create,
 
 Per ridurre la complessità e mantenere queste esercitazioni incentrate su EF Core, viene usato il codice EF Core nei modelli di pagina. Alcuni sviluppatori usano un livello di servizio o uno [schema di repository](xref:fundamentals/repository-pattern) per creare un livello di astrazione tra l'interfaccia utente (Razor Pages) e il livello di accesso ai dati.
 
-In questa esercitazione vengono esaminate le pagine Razor Pages Create (Crea), Edit (Modifica), Delete (Elimina) e Details (Dettagli) nella cartella *Student*.
+In questa esercitazione vengono esaminate le pagine Razor Create (Crea), Edit (Modifica), Delete (Elimina) e Details (Dettagli) nella cartella *Students*.
 
 Il codice con scaffolding usa il modello seguente per le pagine Create, Edit e Delete:
 
@@ -35,7 +35,7 @@ Il codice con scaffolding usa il modello seguente per le pagine Create, Edit e D
 
 Le pagine Index e Details ottengono e visualizzano i dati richiesti con il metodo HTTP GET `OnGetAsync`
 
-## <a name="singleordefaultasync-vs-firstordefaultasync"></a>SingleOrDefaultAsync e FirstOrDefaultAsync a confronto
+## <a name="singleordefaultasync-vs-firstordefaultasync"></a>SingleOrDefaultAsync e FirstOrDefaultAsync
 
 Il codice generato usa [FirstOrDefaultAsync](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.firstordefaultasync#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_FirstOrDefaultAsync__1_System_Linq_IQueryable___0__System_Threading_CancellationToken_), che in genere è preferibile rispetto a [SingleOrDefaultAsync](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.singleordefaultasync#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_SingleOrDefaultAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_).
 
@@ -236,9 +236,9 @@ Eseguire il test di Delete.
 
 ## <a name="common-errors"></a>Errori comuni
 
-Student/Index o altri collegamenti non funzionano:
+Students/Index o altri collegamenti non funzionano:
 
-Verificare che la pagina Razor contenga la direttiva `@page` corretta. Ad esempio, la pagina Razor Student/Index **non** deve contenere un modello di route:
+Verificare che la pagina Razor contenga la direttiva `@page` corretta. Ad esempio, la pagina Razor Students/Index **non** deve contenere un modello di route:
 
 ```cshtml
 @page "{id:int}"

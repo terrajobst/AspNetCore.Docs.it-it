@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 09/19/2018
 uid: fundamentals/logging/index
-ms.openlocfilehash: e3bf5909edb515a2dabba206abaa160bc431d622
-ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
+ms.openlocfilehash: 7a87791abdc91c43796ce72764d0cb3938ed90ec
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46483087"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48578458"
 ---
 # <a name="logging-in-aspnet-core"></a>Registrazione in ASP.NET Core
 
@@ -25,7 +25,7 @@ Per informazioni sulla registrazione stdout per l'hosting con IIS, vedere <xref:
 
 ## <a name="how-to-create-logs"></a>Come creare log
 
-Per creare i log, implementare un oggetto [ILogger&lt;TCategoryName&gt;](/dotnet/api/microsoft.extensions.logging.ilogger-1) dal contenitore di [inserimento delle dipendenze](xref:fundamentals/dependency-injection):
+Per creare i log, ottenere un oggetto [ILogger&lt;TCategoryName&gt;](/dotnet/api/microsoft.extensions.logging.ilogger-1) dal contenitore di [inserimento delle dipendenze](xref:fundamentals/dependency-injection):
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -759,6 +759,7 @@ Framework di registrazione di terze parti che usano ASP.NET Core:
 * [KissLog.net](https://kisslog.net/) ([repository GitHub](https://github.com/catalingavan/KissLog-net))
 * [Loggr](http://loggr.net/) ([repository GitHub](https://github.com/imobile3/Loggr.Extensions.Logging))
 * [NLog](http://nlog-project.org/) ([repository GitHub](https://github.com/NLog/NLog.Extensions.Logging))
+* [Sentry](https://sentry.io/welcome/) ([repository GitHub](https://github.com/getsentry/sentry-dotnet))
 * [Serilog](https://serilog.net/) ([repository GitHub](https://github.com/serilog/serilog-extensions-logging))
 
 Alcuni framework di terze parti possono eseguire la [registrazione semantica, nota anche come registrazione strutturata](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).

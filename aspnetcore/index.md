@@ -5,12 +5,12 @@ description: Introduzione ad ASP.NET Core, un framework multipiattaforma, ad alt
 ms.author: riande
 ms.date: 9/28/2018
 uid: index
-ms.openlocfilehash: 85f2aa04e4b6692dd03a63f14bcebdec97ee270e
-ms.sourcegitcommit: 32f5ee0690604d451f61e9a5c28881c9fcf85738
+ms.openlocfilehash: 69ab702e9d9f8d746b7bc546d4f2bbb831ff59c7
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47454778"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911703"
 ---
 # <a name="introduction-to-aspnet-core"></a>Introduzione a ASP.NET Core
 
@@ -27,18 +27,7 @@ ASP.NET Core è un framework multipiattaforma, ad alte prestazioni, [open source
 
 Milioni di sviluppatori hanno usato, e continuano a usare, [ASP.NET 4.x](https://docs.microsoft.com/aspnet/overview) per creare app Web. ASP.NET Core è una riprogettazione di ASP.NET 4.x, con modifiche a livello di architettura che comportano un framework più efficiente e modulare.
 
-ASP.NET Core offre i vantaggi seguenti:
-
-* Una storia unificata per la compilazione dell'interfaccia utente web e delle API web.
-* Integrazione di [moderni framework lato client](xref:client-side/index) e di flussi di lavoro di sviluppo.
-* Un [sistema di configurazione](xref:fundamentals/configuration/index) basato sull'ambiente, pronto per il cloud.
-* [Inserimento delle dipendenze](xref:fundamentals/dependency-injection) incorporato.
-* Una pipeline di richieste HTTP leggera, [ad alte prestazioni](https://github.com/aspnet/benchmarks) e modulare.
-* Possibilità di gestire l'hosting in [IIS](xref:host-and-deploy/iis/index), [Nginx](xref:host-and-deploy/linux-nginx), [Apache](xref:host-and-deploy/linux-apache) e [Docker](xref:host-and-deploy/docker/index) o di testare internamente i processi personalizzati.
-* Controllo delle versioni delle app affiancato quando la destinazione è [.NET Core](https://docs.microsoft.com/dotnet/articles/standard/choosing-core-framework-server).
-* Gli strumenti che semplificano lo sviluppo del web moderno.
-* Possibilità di compilare ed eseguire in Windows, macOS e Linux.
-* Open-source e [incentrato sulle community](https://live.asp.net/).
+[!INCLUDE[](~/includes/benefits.md)]
 
 ## <a name="build-web-apis-and-web-ui-using-aspnet-core-mvc"></a>Compilare API web e interfaccia utente web tramite ASP.NET Core MVC
 
@@ -56,9 +45,16 @@ ASP.NET Core MVC offre funzionalità per la compilazione di [API Web](xref:tutor
 
 ASP.NET Core si integra perfettamente con popolari framework e librerie sul lato client, inclusi [Angular](xref:spa/angular), [React](xref:spa/react) e [Bootstrap](xref:client-side/bootstrap). Per altre informazioni, vedere [Sviluppo lato client](xref:client-side/index).
 
+<a name="target-framework"></a>
+
 ## <a name="aspnet-core-targeting-net-framework"></a>ASP.NET Core per .NET Framework
 
 ASP.NET Core può avere come destinazione .NET Core o .NET Framework. Le app ASP.NET Core destinate a .NET Framework non sono multipiattaforma, ma funzionano solo in Windows. Non è prevista la rimozione del supporto di ASP.NET Core per .NET Framework. ASP.NET Core è in genere costituito da librerie [.NET Standard](/dotnet/standard/net-standard). Le app scritte con .NET 2.0 Standard funzionano ovunque sia supportato .NET Standard 2.0.
+
+ASP.NET Core 2.x è supportato nelle versioni di .NET Framework compatibili con .NET Standard 2.0:
+
+* È consigliabile usare .NET Framework 4.7.1 e versioni successive.
+* .NET Framework 4.6.1 e versioni successive.
 
 Usare .NET Core come destinazione offre diversi vantaggi, che aumentano con ogni versione. Alcuni vantaggi di .NET Core in .NET Framework sono:
 

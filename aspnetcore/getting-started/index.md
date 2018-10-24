@@ -6,28 +6,43 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/31/2018
 uid: getting-started
-ms.openlocfilehash: a6a5023594aec01370143e7d1f35fb45c109122a
-ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
+ms.openlocfilehash: 4a5a0cc5a5dab2171ab8ef43818185a4ee91af0e
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47860940"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912566"
 ---
-# <a name="get-started-with-aspnet-core"></a>Introduzione ad ASP.NET Core
+# <a name="tutorial-get-started-with-aspnet-core"></a>Esercitazione: Introduzione ad ASP.NET Core
 
-Questo documento illustra la procedura per la creazione e l'esecuzione di un'app ASP.NET Core.
+Questa esercitazione illustra come usare l'interfaccia della riga di comando di .NET Core per creare un'app Web ASP.NET Core. Si imparerà a eseguire le operazioni seguenti:
 
-::: moniker range=">= aspnetcore-2.1"
+> [!div class="checklist"]
+> * Creare un progetto di app Web.
+> * Abilitare HTTPS locale.
+> * Eseguire l'app.
+> * Modificare una pagina Razor.
 
-1. Installare [!INCLUDE [](~/includes/2.1-SDK.md)].
+Al termine, si avrà un'app Web funzionante che viene eseguita nel computer locale.
 
-2. Creare un progetto ASP.NET Core. Aprire una shell dei comandi e immettere il comando seguente:
+![Home page dell'app Web](_static/home-page.png)
+
+
+## <a name="prerequisites"></a>Prerequisiti
+
+* Installare [!INCLUDE [](~/includes/2.1-SDK.md)].
+
+## <a name="create-a-web-app-project"></a>Creare un progetto di app Web
+
+* Aprire una shell dei comandi e immettere il comando seguente:
 
    ```console
    dotnet new webapp -o aspnetcoreapp
    ```
 
-3. Considerare attendibile il certificato di sviluppo HTTPS:
+## <a name="enable-local-https"></a>Abilitare HTTPS locale
+
+* Considerare attendibile il certificato di sviluppo HTTPS:
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
@@ -62,99 +77,36 @@ Questo documento illustra la procedura per la creazione e l'esecuzione di un'app
    
 ---
 
-4. Eseguire l'app:
+## <a name="run-the-app"></a>Eseguire l'app
+
+* Eseguire i comandi seguenti:
 
    ```console
    cd aspnetcoreapp
    dotnet run
    ```
 
-5. Passare a [http://localhost:5001](http://localhost:5001).  Fare clic su **Accept** (Accetto) per accettare l'informativa sulla privacy e la policy per i cookie. Questa app non memorizza informazioni personali.
+* Passare a [https://localhost:5001](https://localhost:5001). Fare clic su **Accept** (Accetto) per accettare l'informativa sulla privacy e la policy per i cookie. Questa app non memorizza informazioni personali.
 
-6. Aprire *Pages/About.cshtml* e modificare la pagina con il markup evidenziato seguente:
+## <a name="edit-a-razor-page"></a>Modificare una pagina Razor
+
+* Aprire *Pages/About.cshtml* e modificare la pagina con il markup evidenziato seguente:
 
    [!code-cshtml[](sample/getting-started/about.cshtml?highlight=9)]
 
-7. Passare a [http://localhost:5001/About](http://localhost:5001/About) e verificare che le modifiche siano visualizzate.
+* Passare a [https://localhost:5001/About](https://localhost:5001/About) e verificare che le modifiche siano visualizzate.
 
-[!INCLUDE [next steps](~/includes/getting-started/next-steps.md)]
+## <a name="next-steps"></a>Passaggi successivi
 
-::: moniker-end
+In questa esercitazione si è appreso come:
 
-::: moniker range="= aspnetcore-2.0"
+> [!div class="checklist"]
+> * Creare un progetto di app Web.
+> * Abilitare HTTPS locale.
+> * Eseguire il progetto.
+> * Apportare una modifica.
 
-1. Installare [!INCLUDE [](~/includes/net-core-sdk-download-link.md)].
+Per altre informazioni su ASP.NET Core, vedere l'introduzione:
 
-2. Creare un nuovo progetto ASP.NET Core.
-
-   Aprire una shell dei comandi. Immettere il comando seguente:
-
-   ```console
-   dotnet new razor -o aspnetcoreapp
-   ```
-
-3. Eseguire l'app con i comandi seguenti:
-
-   ```console
-   cd aspnetcoreapp
-   dotnet run
-   ```
-
-4. Passare a [http://localhost:5000](http://localhost:5000).
-
-5. Aprire *Pages/About.cshtml* e modificare la pagina in modo che visualizzi il messaggio "Hello, world! The time on the server is@DateTime.Now" (Buongiorno mondo! L'ora nel server è):
-
-   [!code-cshtml[](sample/getting-started/about.cshtml?highlight=9&range=1-9)]
-
-6. Passare a [http://localhost:5000/About](http://localhost:5000/About) e verificare le modifiche.
-
-[!INCLUDE [next steps](~/includes/getting-started/next-steps.md)]
-
-::: moniker-end
-
-::: moniker range="<= aspnetcore-1.1"
-
-1. Installare il **programma di installazione di SDK** per SDK 1.0.4 dalla [pagina di tutti i download di .NET Core](https://www.microsoft.com/net/download/all).
-
-2. Creare una cartella per un nuovo progetto ASP.NET Core.
-
-   Aprire una shell dei comandi. Immettere i comandi seguenti:
-
-   ```console
-   mkdir aspnetcoreapp
-   cd aspnetcoreapp
-   ```
-
-3. Se è installata una versione SDK successiva nel computer in uso, creare un file *global.json* per selezionare l'SDK 1.0.4.
-
-   ```json
-   {
-     "sdk": { "version": "1.0.4" }
-   }
-   ```
-
-4. Creare un nuovo progetto ASP.NET Core.
-
-   ```console
-   dotnet new web
-   ```
-
-5. Ripristinare i pacchetti.
-
-   ```console
-   dotnet restore
-   ```
-
-6. Eseguire l'app.
-
-   ```console
-   dotnet run
-   ```
-
-   Il comando [dotnet run](/dotnet/core/tools/dotnet-run) compila prima l'app se necessario.
-
-7. Passare a `http://localhost:5000`.
-
-[!INCLUDE [next steps](~/includes/getting-started/next-steps.md)]
-
-::: moniker-end
+> [!div class="nextstepaction"]
+> <xref:index>

@@ -5,12 +5,12 @@ description: Informazioni su come ASP.NET Core offre servizi e middleware per la
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 87df1b8cf57509ddf80ce845d85a9b3f30673c35
-ms.sourcegitcommit: a25b572eaed21791230c85416f449f66a405ec19
+ms.openlocfilehash: 6e8c4723ab0105b8c756221d3e3c5eebba6cc4e2
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39396234"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912034"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalizzazione e localizzazione in ASP.NET Core
 
@@ -341,7 +341,7 @@ Termini:
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Progetto Localization.StarterWeb](https://github.com/aspnet/entropy) usato nell'articolo.
-* [File di risorse (Visual Studio)](/cpp/windows/resource-files-visual-studio)
+* [Progetto Localization.StarterWeb](https://github.com/aspnet/Entropy/tree/master/samples/Localization.StarterWeb) usato nell'articolo.
+* [Globalizzazione e localizzazione di applicazioni .NET](/dotnet/standard/globalization-localization/index)
 * [Uso dei file RESX a livello di codice](/dotnet/framework/resources/working-with-resx-files-programmatically)
 * [Microsoft Multilingual App Toolkit](https://marketplace.visualstudio.com/items?itemName=MultilingualAppToolkit.MultilingualAppToolkit-18308)
