@@ -5,12 +5,12 @@ description: Informazioni su come ASP.NET Core offre servizi e middleware per la
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 6e8c4723ab0105b8c756221d3e3c5eebba6cc4e2
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 375d09d9bef59cf18b7805cbefe500aeb2e0cde7
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912034"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326004"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalizzazione e localizzazione in ASP.NET Core
 
@@ -206,9 +206,9 @@ Ogni combinazione di lingua e impostazioni cultura (diversa dalla lingua predefi
 
 ### <a name="configure-localization"></a>Configurare la localizzazione
 
-La localizzazione è configurata nel metodo `ConfigureServices`:
+La localizzazione è configurata nel metodo `Startup.ConfigureServices`:
 
-[!code-csharp[](localization/sample/Localization/Program.cs?name=snippet1)]
+[!code-csharp[](localization/sample/Localization/Startup.cs?name=snippet1)]
 
 * `AddLocalization` aggiunge i servizi di localizzazione al contenitore dei servizi. Il codice precedente imposta anche il percorso delle risorse su "Resources".
 
@@ -218,9 +218,9 @@ La localizzazione è configurata nel metodo `ConfigureServices`:
 
 ### <a name="localization-middleware"></a>Middleware di localizzazione
 
-Le impostazioni cultura correnti in un richiesta sono impostate nel [middleware](xref:fundamentals/middleware/index) di localizzazione. Il middleware di localizzazione viene abilitato nel metodo `Configure`. Il middleware di localizzazione deve essere configurato prima di qualsiasi middleware che potrebbe controllare le impostazioni cultura della richiesta (ad esempio, `app.UseMvcWithDefaultRoute()`).
+Le impostazioni cultura correnti in un richiesta sono impostate nel [middleware](xref:fundamentals/middleware/index) di localizzazione. Il middleware di localizzazione viene abilitato nel metodo `Startup.Configure`. Il middleware di localizzazione deve essere configurato prima di qualsiasi middleware che potrebbe controllare le impostazioni cultura della richiesta (ad esempio, `app.UseMvcWithDefaultRoute()`).
 
-[!code-csharp[](localization/sample/Localization/Program.cs?name=snippet2)]
+[!code-csharp[](localization/sample/Localization/Startup.cs?name=snippet2)]
 
 `UseRequestLocalization` inizializza un oggetto `RequestLocalizationOptions`. In ogni richiesta l'elenco di `RequestCultureProvider` in `RequestLocalizationOptions` è enumerato e viene usato il primo provider in grado di determinare le impostazioni cultura della richiesta. I provider predefiniti provengono dalla classe `RequestLocalizationOptions`:
 
