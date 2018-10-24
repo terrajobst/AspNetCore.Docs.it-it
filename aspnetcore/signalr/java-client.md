@@ -5,16 +5,16 @@ description: Informazioni su come usare il client Java di ASP.NET Core SignalR.
 monikerRange: '>= aspnetcore-2.2'
 ms.author: mimengis
 ms.custom: mvc
-ms.date: 09/06/2018
+ms.date: 10/18/2018
 uid: signalr/java-client
-ms.openlocfilehash: 0eba59a05ea6fd3fed46fcab86ac20caf40ebb65
-ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
+ms.openlocfilehash: 77ea338f08b1986e69ba8ef1578c4cfe01a310de
+ms.sourcegitcommit: ce6b6792c650708e92cdea051a5d166c0708c7c0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46482918"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652306"
 ---
-# <a name="aspnet-core-signalr-java-client"></a>ASP.NET Core SignalR Java Client
+# <a name="aspnet-core-signalr-java-client"></a>Client ASP.NET Core SignalR Java
 
 Da [Mikael Mengistu](https://twitter.com/MikaelM_12)
 
@@ -26,12 +26,13 @@ L'app console Java di esempio citato nel presente articolo usa il client Java di
 
 ## <a name="install-the-signalr-java-client-package"></a>Installare il pacchetto client Java di SignalR
 
-Il *signalr-0.1.0-preview2-35174* file con estensione JAR consente ai client di connettersi a un hub SignalR. Per trovare il numero di versione di file con estensione JAR più recente, vedere la [risultati della ricerca di Maven](https://search.maven.org/search?q=g:com.microsoft.aspnet%20AND%20a:signalr&core=gav).
+Il *signalr-1.0.0-preview3-35501* file con estensione JAR consente ai client di connettersi a un hub SignalR. Per trovare il numero di versione di file con estensione JAR più recente, vedere la [risultati della ricerca di Maven](https://search.maven.org/search?q=g:com.microsoft.signalr%20AND%20a:signalr).
 
 Se si usa Gradle, aggiungere la riga seguente al `dependencies` sezione il *Build. gradle* file:
 
 ```gradle
-implementation 'com.microsoft.aspnet:signalr:0.1.0-preview2-35174'
+implementation 'com.microsoft.signalr:signalr:1.0.0-preview3-35501'
+implementation 'io.reactivex.rxjava2:rxjava:2.2.2'
 ```
 
 Se con Maven, aggiungere le seguenti righe all'interno di `<dependencies>` elemento delle *POM. XML* file:
@@ -42,33 +43,49 @@ Se con Maven, aggiungere le seguenti righe all'interno di `<dependencies>` eleme
 
 Per stabilire una `HubConnection`, il `HubConnectionBuilder` deve essere utilizzato. Il livello di log e URL hub può essere configurato durante la compilazione di una connessione. Configurare le opzioni necessarie, chiamare uno dei `HubConnectionBuilder` metodi prima `build`. Avviare la connessione con `start`.
 
-[!code-java[Build hub connection](java-client/sample/src/main/java/Chat.java?range=17-20)]
+[!code-java[Build hub connection](java-client/sample/src/main/java/Chat.java?range=16-17)]
 
 ## <a name="call-hub-methods-from-client"></a>Chiamare i metodi dell'hub da client
 
 Una chiamata a `send` richiama un metodo dell'hub. Passare il nome del metodo dell'hub e gli argomenti definiti nel metodo dell'hub per `send`.
 
-[!code-java[send method](java-client/sample/src/main/java/Chat.java?range=31)]
+[!code-java[send method](java-client/sample/src/main/java/Chat.java?range=28)]
 
 ## <a name="call-client-methods-from-hub"></a>Chiamare i metodi client hub
 
 Usare `hubConnection.on` per definire i metodi sul client che può chiamare l'hub. Definire i metodi dopo la compilazione, ma prima di avviare la connessione.
 
-[!code-java[Define client methods](java-client/sample/src/main/java/Chat.java?range=22-24)]
+[!code-java[Define client methods](java-client/sample/src/main/java/Chat.java?range=19-21)]
+
+## <a name="add-logging"></a>Aggiungere la registrazione
+
+Il client SignalR Java Usa il [SLF4J](https://www.slf4j.org/) libreria per la registrazione. È un'API di registrazione di alto livello che consente agli utenti della libreria scegliere la propria implementazione di registrazione specifici, grazie alla disponibilità di una dipendenza di registrazione specifici. Il frammento di codice seguente viene illustrato come utilizzare `java.util.logging` con il client Java di SignalR.
+
+```gradle
+implementation 'org.slf4j:slf4j-jdk14:1.7.25'
+```
+
+Se non si configura la registrazione nelle dipendenze, SLF4J carica un logger di alcuna operazione predefinita con il messaggio di avviso seguente:
+
+```
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+```
+
+Ciò può essere ignorato.
 
 ## <a name="known-limitations"></a>Limitazioni note
 
-Si tratta di una versione di anteprima preliminare del client Java. Esistono molte funzionalità che non sono ancora supportate. I seguenti gap si sta lavorando per le versioni successive:
+Si tratta di una versione di anteprima del client Java. Alcune funzionalità non sono supportate:
 
-* Solo i tipi primitivi possono essere accettati in quanto i parametri e i tipi restituiscono.
-* Le API sono sincrone.
-* In questo momento è supportato solo il tipo di chiamata "Send". "Invoke" e lo streaming dei valori restituiti non sono supportati.
 * È supportato solo il protocollo JSON.
 * È supportato solo il trasporto WebSocket.
+* Lo streaming non è ancora supportato.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Riferimento API Java](/java/api/com.microsoft.aspnet.signalr?view=aspnet-signalr-java)
+* [Informazioni di riferimento sulle API Java](/java/api/com.microsoft.aspnet.signalr?view=aspnet-signalr-java)
 * <xref:signalr/hubs>
 * <xref:signalr/javascript-client>
 * <xref:signalr/publish-to-azure-web-app>
