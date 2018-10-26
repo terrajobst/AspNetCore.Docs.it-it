@@ -3,18 +3,19 @@ title: DevOps con ASP.NET Core e Azure | Distribuire un'app in servizio App
 author: CamSoper
 description: Questa guida include informazioni complete sulla creazione di una pipeline DevOps per un'app ASP.NET Core ospitata in Azure.
 ms.author: casoper
-ms.date: 08/07/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: azure/devops/deploy-to-app-service
-ms.openlocfilehash: 710e65a048fdc062219e90b0db323e8e96fd8e9d
-ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
+ms.openlocfilehash: 33026ed510aae63a9e580aa5d708f94aad778fca
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44340134"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090937"
 ---
 # <a name="deploy-an-app-to-app-service"></a>Distribuire un'app in servizio App
 
-[Servizio App di Azure](https://docs.microsoft.com/azure/app-service/) è piattaforma di hosting web di Azure. Distribuzione di un'app web in servizio App di Azure può essere eseguita manualmente o mediante un processo automatizzato. In questa sezione della Guida vengono illustrati i metodi di distribuzione che possono essere attivati manualmente o tramite script utilizzando la riga di comando oppure attivata manualmente tramite Visual Studio.
+[Servizio App di Azure](/azure/app-service/) è piattaforma di hosting web di Azure. Distribuzione di un'app web in servizio App di Azure può essere eseguita manualmente o mediante un processo automatizzato. In questa sezione della Guida vengono illustrati i metodi di distribuzione che possono essere attivati manualmente o tramite script utilizzando la riga di comando oppure attivata manualmente tramite Visual Studio.
 
 In questa sezione, è possibile eseguire le attività seguenti:
 
@@ -70,7 +71,7 @@ Da una shell dei comandi, scaricare il codice, compilare il progetto ed eseguirl
 
 ## <a name="create-the-azure-app-service-web-app"></a>Creare l'App Web di servizio App di Azure
 
-Per distribuire l'app, è necessario creare un servizio App [App Web](https://docs.microsoft.com/azure/app-service/app-service-web-overview). Dopo la creazione dell'App Web, verrà distribuita a esso dal computer locale tramite Git.
+Per distribuire l'app, è necessario creare un servizio App [App Web](/azure/app-service/app-service-web-overview). Dopo la creazione dell'App Web, verrà distribuita a esso dal computer locale tramite Git.
 
 1. Accedi per il [Azure Cloud Shell](https://shell.azure.com/bash). Nota: Quando si accede per la prima volta, Cloud Shell chiede di creare un account di archiviazione per i file di configurazione. Accettare le impostazioni predefinite oppure specificare un nome univoco.
 
@@ -88,7 +89,7 @@ Per distribuire l'app, è necessario creare un servizio App [App Web](https://do
     az group create --location centralus --name AzureTutorial
     ```
 
-    Il `az` comando richiama il [CLI Azure](https://docs.microsoft.com/cli/azure/). L'interfaccia della riga di comando può essere eseguito in locale, ma l'utilizzo in Cloud Shell consente di risparmiare tempo e configurazione.
+    Il `az` comando richiama il [CLI Azure](/cli/azure/). L'interfaccia della riga di comando può essere eseguito in locale, ma l'utilizzo in Cloud Shell consente di risparmiare tempo e configurazione.
 
     c. Creare un piano di servizio App nel livello S1. Un piano di servizio App è un raggruppamento di App web che condividono lo stesso livello di prezzo. Il piano S1 non è disponibile, ma è obbligatorio per la funzionalità degli slot di staging.
 
@@ -238,7 +239,7 @@ Nella sezione successiva, si apprenderà come creare una pipeline di DevOps con 
 
 ## <a name="additional-reading"></a>Altre informazioni
 
-* [Panoramica delle App Web](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
-* [Creare un'app web .NET Core e Database SQL di Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
-* [Configurare le credenziali di distribuzione per il servizio App di Azure](https://docs.microsoft.com/azure/app-service/app-service-deployment-credentials)
-* [Configurare ambienti di servizio App di Azure di staging](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing)
+* [Panoramica delle App Web](/azure/app-service/app-service-web-overview)
+* [Creare un'app web .NET Core e Database SQL di Azure App Service](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
+* [Configurare le credenziali di distribuzione per il servizio App di Azure](/azure/app-service/app-service-deployment-credentials)
+* [Configurare ambienti di servizio App di Azure di staging](/azure/app-service/web-sites-staged-publishing)

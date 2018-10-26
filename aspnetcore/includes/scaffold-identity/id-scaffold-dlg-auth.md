@@ -5,7 +5,7 @@ Eseguire l'utilità di scaffolding di identità:
 * Dal **Esplora soluzioni**, fare doppio clic sul progetto > **Add** > **nuovo elemento di scaffolding**.
 * Dal riquadro sinistro della finestra di **Add Scaffold** finestra di dialogo, seleziona **identità** > **aggiungere**.
 * Nel **identità ADD** finestra di dialogo, selezionare le opzioni desiderate.
-  * Selezionare la pagina di layout esistente verrà sovrascritto il file di layout con markup non corretto. Quando si seleziona un file layout. cshtml esistente, si tratta **non** sovrascritto.
+  * Selezionare la pagina di layout esistente verrà sovrascritto il file di layout con markup non corretto. Quando un oggetto esistente  *\_layout. cshtml* è selezionato un file, è **non** sovrascritto.
 
  Ad esempio `~/Pages/Shared/_Layout.cshtml` per le pagine Razor `~/Views/Shared/_Layout.cshtml` per i progetti MVC
 * Per usare il contesto dati esistente, selezionare almeno un file per eseguire l'override. È necessario selezionare almeno un file per aggiungere il contesto dei dati.
@@ -49,4 +49,7 @@ PowerShell Usa un punto e virgola come separatore di comandi. Quando si usa powe
 ```cli
 dotnet aspnet-codegenerator identity -dc MyWeb.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout"
 ```
+
+Se si esegue l'utilità di scaffolding di identità senza specificare il `--files` flag o `--useDefaultUI` flag, tutte le pagine dell'interfaccia utente di identità disponibili verranno create nel progetto.
+
 -------------

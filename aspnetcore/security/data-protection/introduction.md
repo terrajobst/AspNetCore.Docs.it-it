@@ -3,14 +3,15 @@ title: Protezione dei dati di ASP.NET Core
 author: rick-anderson
 description: Scopri il concetto di protezione dei dati e i principi di progettazione di ASP.NET Core Data Protection API.
 ms.author: riande
-ms.date: 10/14/2016
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: security/data-protection/introduction
-ms.openlocfilehash: a49eee89e8c11b26c76ba167215c141482159933
-ms.sourcegitcommit: c684eb6c0999d11d19e15e65939e5c7f99ba47df
+ms.openlocfilehash: 37f170a3e8a46ef2215b0999358d46dd402636df
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46292297"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50089548"
 ---
 # <a name="aspnet-core-data-protection"></a>Protezione dei dati di ASP.NET Core
 
@@ -44,7 +45,7 @@ Iniziammo identificando i problemi con lo stack di esistente. Una volta che avev
 
 Con questi principi mente abbiamo sviluppato una semplice [facile da usare](xref:security/data-protection/using-data-protection) lo stack di protezione dati.
 
-Le API di protezione dati ASP.NET Core non sono principalmente destinati indefinita persistenza del payload riservati. Come altre tecnologie [Windows CNG DPAPI](https://msdn.microsoft.com/library/windows/desktop/hh706794%28v=vs.85%29.aspx) e [Azure Rights Management](https://docs.microsoft.com/rights-management/) sono più adatte allo scenario di archiviazione illimitata, e hanno le funzionalità di gestione delle chiavi sicuro o ridotta di conseguenza. Ciò premesso, non c'è niente divieto di uno sviluppatore di usare le API di protezione dati ASP.NET Core per la protezione a lungo termine dei dati riservati.
+Le API di protezione dati ASP.NET Core non sono principalmente destinati indefinita persistenza del payload riservati. Come altre tecnologie [Windows CNG DPAPI](https://msdn.microsoft.com/library/windows/desktop/hh706794%28v=vs.85%29.aspx) e [Azure Rights Management](/rights-management/) sono più adatte allo scenario di archiviazione illimitata, e hanno le funzionalità di gestione delle chiavi sicuro o ridotta di conseguenza. Ciò premesso, non c'è niente divieto di uno sviluppatore di usare le API di protezione dati ASP.NET Core per la protezione a lungo termine dei dati riservati.
 
 ## <a name="audience"></a>Destinatari
 

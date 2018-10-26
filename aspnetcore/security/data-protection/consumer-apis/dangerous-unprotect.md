@@ -1,32 +1,33 @@
 ---
-title: Rimuovere la protezione dei payload le cui chiavi sono stati revocati in ASP.NET Core
+title: Rimuovere la protezione di payload le cui chiavi sono state revocate in ASP.NET Core
 author: rick-anderson
-description: Informazioni su come rimuovere la protezione dati, protetti con chiavi che poiché revocate in un'applicazione ASP.NET Core.
+description: Informazioni su come rimuovere la protezione dei dati, protetti con chiavi che poiché revocate in un'app ASP.NET Core.
 ms.author: riande
-ms.date: 10/14/2016
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: security/data-protection/consumer-apis/dangerous-unprotect
-ms.openlocfilehash: ed0c2a309e899f018b09b3edc86b65b299647914
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: b93ab0fa650041afdfaf1ed5572cc7e081bba244
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272386"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50089350"
 ---
-# <a name="unprotect-payloads-whose-keys-have-been-revoked-in-aspnet-core"></a>Rimuovere la protezione dei payload le cui chiavi sono stati revocati in ASP.NET Core
+# <a name="unprotect-payloads-whose-keys-have-been-revoked-in-aspnet-core"></a>Rimuovere la protezione di payload le cui chiavi sono state revocate in ASP.NET Core
 
 
 <a name="data-protection-consumer-apis-dangerous-unprotect"></a>
 
-Le API di protezione dati ASP.NET Core non sono principalmente destinati indefinita persistenza del payload riservato. Altre tecnologie come [DPAPI CNG di Windows](https://msdn.microsoft.com/library/windows/desktop/hh706794%28v=vs.85%29.aspx) e [Azure Rights Management](https://docs.microsoft.com/rights-management/) sono più adatti per lo scenario di memorizzazione indefinito, e hanno funzionalità di gestione delle chiavi conseguentemente sicuro. Ciò premesso, non c'è niente che uno sviluppatore di utilizzare le API di protezione dati ASP.NET Core per la protezione a lungo termine dei dati riservati. Le chiavi non vengono mai rimosse dalla sequenza di chiave, pertanto `IDataProtector.Unprotect` può sempre il ripristino payload esistenti, purché le chiavi sono disponibili e validi.
+Le API di protezione dati ASP.NET Core non sono principalmente destinati indefinita persistenza del payload riservati. Come altre tecnologie [Windows CNG DPAPI](https://msdn.microsoft.com/library/windows/desktop/hh706794%28v=vs.85%29.aspx) e [Azure Rights Management](/rights-management/) sono più adatte allo scenario di archiviazione illimitata, e hanno le funzionalità di gestione delle chiavi sicuro o ridotta di conseguenza. Ciò premesso, non c'è niente divieto di uno sviluppatore di usare le API di protezione dati ASP.NET Core per la protezione a lungo termine dei dati riservati. Le chiavi non vengono mai rimossi dal Keyring, pertanto `IDataProtector.Unprotect` sempre possibile recuperare i payload esistenti, purché le chiavi sono disponibili e validi.
 
-Tuttavia, si verifica un problema quando lo sviluppatore tenta di rimuovere la protezione dati che sono stato protetto con una chiave revocata, come `IDataProtector.Unprotect` genererà un'eccezione in questo caso. Potrebbe essere appropriato per payload di breve durato o temporanee (ad esempio, il token di autenticazione), questi tipi di payload possono facilmente essere ricreati mediante il sistema e nel peggiore dei casi i visitatori del sito potrebbe essere necessario eseguire nuovamente l'accesso. Ma per il payload persistente, con `Unprotect` throw può causare la perdita di dati accettabile.
+Tuttavia, un problema si verifica quando lo sviluppatore prova a rimuovere la protezione dei dati che sono stato protetto con una chiave revocata, come `IDataProtector.Unprotect` genererà un'eccezione in questo caso. Questo può essere adatto per i payload di breve durati o temporanei (ad esempio, i token di autenticazione), perché questi tipi di payload possono essere ricreati facilmente dal sistema e nel peggiore dei casi i visitatori del sito potrebbe essere necessario accedere di nuovo. Ma per i payload persistenti, visto `Unprotect` throw può causare la perdita di dati inaccettabile.
 
 ## <a name="ipersisteddataprotector"></a>IPersistedDataProtector
 
-Per supportare lo scenario di consentire il payload essere protetto anche in caso di chiavi revocate, il sistema di protezione dati contiene un `IPersistedDataProtector` tipo. Per ottenere un'istanza di `IPersistedDataProtector`, semplicemente ottenere un'istanza di `IDataProtector` in modo normale e provare a eseguire il cast di `IDataProtector` a `IPersistedDataProtector`.
+Per supportare lo scenario di consentire il payload per essere protetti anche in caso di chiavi revocate, il sistema di protezione dati contiene un `IPersistedDataProtector` tipo. Per ottenere un'istanza di `IPersistedDataProtector`, è sufficiente ottenere un'istanza di `IDataProtector` in modo normale e provare a eseguire il cast di `IDataProtector` a `IPersistedDataProtector`.
 
 > [!NOTE]
-> Non tutti i `IDataProtector` possono eseguire il cast di istanze per `IPersistedDataProtector`. Gli sviluppatori devono usare c# come operatore o simili per evitare eccezioni di runtime dovuto a cast non valido e deve essere preparato a gestire il caso di errore in modo appropriato.
+> Non tutti i `IDataProtector` istanze possono essere convertite in `IPersistedDataProtector`. Gli sviluppatori devono usare il C# per evitare eccezioni di runtime causato da un cast non valido come operatore o simile e devono essere preparati a gestire il caso di errore in modo appropriato.
 
 `IPersistedDataProtector` espone la superficie dell'API seguente:
 
@@ -35,13 +36,13 @@ DangerousUnprotect(byte[] protectedData, bool ignoreRevocationErrors,
      out bool requiresMigration, out bool wasRevoked) : byte[]
 ```
 
-Questa API richiede il payload protetto (come una matrice di byte) e restituisce il payload non protetto. Non vi è alcun overload basato su stringa. Di seguito sono riportati i due parametri out.
+Questa API richiede il payload protetto (come una matrice di byte) e restituisce il payload non protetto. Non vi è Nessun overload basato su stringa. Di seguito sono riportati i due parametri out.
 
-* `requiresMigration`: verrà impostato su true se la chiave utilizzata per proteggere il payload non è più la chiave predefinita attiva, ad esempio, la chiave utilizzata per proteggere il payload è precedente ed è una chiave di sequenza di operazione eseguita sul posto. Il chiamante potrebbe essere necessario prendere in considerazione proteggere di nuovo il payload a seconda delle esigenze aziendali.
+* `requiresMigration`: impostato su true se la chiave utilizzata per proteggere questo payload non è più la chiave predefinita attiva, ad esempio, la chiave usata per proteggere questo payload è vecchia e dispone di un'operazione di rollover della chiave poiché vengono intraprese sul posto. Il chiamante può essere opportuno provare a eseguire la riprotezione del payload in base alla proprie esigenze aziendali.
 
-* `wasRevoked`: verrà impostato su true se la chiave utilizzata per proteggere il payload è stata revocata.
+* `wasRevoked`: verrà impostato su true se la chiave utilizzata per proteggere questo payload è stata revocata.
 
 >[!WARNING]
-> Prestare molta attenzione quando si passa `ignoreRevocationErrors: true` per il `DangerousUnprotect` metodo. Se dopo aver chiamato questo metodo il `wasRevoked` valore è true, quindi la chiave utilizzata per proteggere il payload è stata revocata e l'autenticità del payload devono essere considerate come sospetto. In questo caso, solo smettere di funzionare nel payload di non protetto se si dispone di una discreta garanzia separato che sia autentico, ad esempio, che provengono da un database protetto anziché inviati da un client web non attendibili.
+> Prestare molta attenzione quando si passano `ignoreRevocationErrors: true` per il `DangerousUnprotect` (metodo). Se dopo la chiamata a questo metodo il `wasRevoked` valore è true, quindi la chiave utilizzata per proteggere questo payload è stata revocata e autenticità del payload deve essere trattato come sospetto. In questo caso, solo senza smettere di funzionare il payload non protetti se hai una discreta garanzia distinto che è autenticato, ad esempio, che proviene da un database sicuro, anziché inviati da un client web non attendibili.
 
 [!code-csharp[](dangerous-unprotect/samples/dangerous-unprotect.cs)]

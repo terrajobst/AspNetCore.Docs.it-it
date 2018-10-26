@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/26/2017
 uid: performance/caching/middleware
-ms.openlocfilehash: d991bc48ed07ee71b0decaa0bee4df811fdc74c4
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: b5eef012356236d600d026e5161a2df5a7954e3b
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477527"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090485"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Middleware di ASP.NET Core della memorizzazione nella cache
 
@@ -22,7 +22,7 @@ Dal [Luke Latham](https://github.com/guardrex) e [John Luo](https://github.com/J
 
 Questo articolo illustra come configurare Middleware di memorizzazione nella cache delle risposte in un'app ASP.NET Core. Il middleware determina quando le risposte sono inseribili nella cache, archivi di risposte e funge da risposta dalla cache. Per un'introduzione alla memorizzazione nella cache HTTP e il `ResponseCache` dell'attributo, vedere [risposte nella cache](xref:performance/caching/response).
 
-## <a name="package"></a>Pacchetto
+## <a name="package"></a>Package
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -120,10 +120,10 @@ Il middleware rispetta le regole del [specifica la memorizzazione nella cache di
 
 Per un maggiore controllo sul comportamento di memorizzazione nella cache, esplorare altre funzionalità di memorizzazione nella cache di ASP.NET Core. Vedere gli argomenti seguenti:
 
-* [Cache in memoria](xref:performance/caching/memory)
-* [Usare una cache distribuita](xref:performance/caching/distributed)
-* [Helper Tag in ASP.NET Core MVC di cache](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Helper per tag di cache distribuita](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* <xref:performance/caching/memory>
+* <xref:performance/caching/distributed>
+* <xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper>
+* <xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
@@ -155,11 +155,11 @@ Durante il test e risoluzione dei problemi di comportamento di memorizzazione ne
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Avvio dell'applicazione](xref:fundamentals/startup)
-* [Middleware](xref:fundamentals/middleware/index)
-* [Cache in memoria](xref:performance/caching/memory)
-* [Usare una cache distribuita](xref:performance/caching/distributed)
-* [Rilevare le modifiche apportate con i token di modifica](xref:fundamentals/change-tokens)
-* [Memorizzazione nella cache delle risposte](xref:performance/caching/response)
-* [Helper per tag di cache](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Helper per tag di cache distribuita](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* <xref:fundamentals/startup>
+* <xref:fundamentals/middleware/index>
+* <xref:performance/caching/memory>
+* <xref:performance/caching/distributed>
+* <xref:fundamentals/change-tokens>
+* <xref:performance/caching/response>
+* <xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper>
+* <xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>

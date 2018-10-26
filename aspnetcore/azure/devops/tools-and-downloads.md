@@ -3,18 +3,19 @@ title: DevOps con ASP.NET Core e Azure | Strumenti e download
 author: CamSoper
 description: Questa guida include informazioni complete sulla creazione di una pipeline DevOps per un'app ASP.NET Core ospitata in Azure.
 ms.author: casoper
-ms.date: 08/07/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: azure/devops/tools-and-downloads
-ms.openlocfilehash: 5529068b83db475315784571fbf4151d7ecd0d5d
-ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
+ms.openlocfilehash: 573e257e6fc7614010a8749ff439f16011c2c10a
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44340160"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50089383"
 ---
 # <a name="tools-and-downloads"></a>Strumenti e download
 
-Azure offre diverse interfacce per il provisioning e gestione delle risorse, ad esempio la [portale di Azure](https://portal.azure.com), [CLI di Azure](https://docs.microsoft.com/cli/azure/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), [Cloud di Azure Shell](https://shell.azure.com/bash)e Visual Studio. Questa Guida adotta un approccio minimalista e Usa Azure Cloud Shell ogni volta che è possibile ridurre i passaggi necessari. Tuttavia, il portale di Azure deve essere usato per alcune parti.
+Azure offre diverse interfacce per il provisioning e gestione delle risorse, ad esempio la [portale di Azure](https://portal.azure.com), [CLI di Azure](/cli/azure/), [Azure PowerShell](/powershell/azure/overview), [Cloud di Azure Shell](https://shell.azure.com/bash)e Visual Studio. Questa Guida adotta un approccio minimalista e Usa Azure Cloud Shell ogni volta che è possibile ridurre i passaggi necessari. Tuttavia, il portale di Azure deve essere usato per alcune parti.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -39,7 +40,7 @@ Gli strumenti seguenti sono necessari:
 
 * [Visual Studio](https://www.visualstudio.com/)di strumenti di Azure affidabili forniscono un'interfaccia utente grafica per la maggior parte delle funzionalità descritte in questa Guida. Qualsiasi edizione di Visual Studio funzionerà, tra cui l'edizione gratuita di Visual Studio Community. Le esercitazioni vengono scritti per illustrare lo sviluppo, distribuzione e DevOps con e senza Visual Studio.
 
-  Verificare che Visual Studio offre i seguenti [carichi di lavoro](https://docs.microsoft.com/visualstudio/install/modify-visual-studio) installato:
+  Verificare che Visual Studio offre i seguenti [carichi di lavoro](/visualstudio/install/modify-visual-studio) installato:
 
   * Sviluppo ASP.NET e Web
   * Sviluppo di Azure

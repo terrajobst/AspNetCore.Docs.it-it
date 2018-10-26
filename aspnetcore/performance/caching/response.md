@@ -5,12 +5,12 @@ description: Informazioni su come usare la memorizzazione nella cache delle risp
 ms.author: riande
 ms.date: 09/20/2017
 uid: performance/caching/response
-ms.openlocfilehash: 4bf61502738d70760679ec98c8f2f303eca9d504
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: bbf5b649bac9d31aa6d0ecdc3828648677b05716
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477489"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090693"
 ---
 # <a name="response-caching-in-aspnet-core"></a>La memorizzazione nella cache di risposta in ASP.NET Core
 
@@ -31,7 +31,7 @@ Il [specifica la memorizzazione nella cache di HTTP 1.1](https://tools.ietf.org/
 
 Common `Cache-Control` direttive vengono visualizzate nella tabella seguente.
 
-| Direttiva                                                       | Operazione |
+| Direttiva                                                       | Azione |
 | --------------------------------------------------------------- | ------ |
 | [public](https://tools.ietf.org/html/rfc7234#section-5.2.2.5)   | Una cache può archiviare la risposta. |
 | [private](https://tools.ietf.org/html/rfc7234#section-5.2.2.6)  | La risposta non deve essere archiviata da una cache condivisa. Una cache privata può archiviare e riutilizzare la risposta. |
@@ -68,7 +68,7 @@ Per altre informazioni, vedere [memorizza nella Cache in memoria](xref:performan
 
 Usare una cache distribuita per archiviare i dati in memoria quando l'app è ospitata in una farm di server o cloud. La cache viene condivisa tra i server di elaborazione delle richieste. Un client può inviare una richiesta che viene gestita da qualsiasi server nel gruppo, se i dati memorizzati nella cache per il client sono disponibili. ASP.NET Core offre SQL Server e le cache distribuite Redis.
 
-Per altre informazioni, vedere [Usare una cache distribuita](xref:performance/caching/distributed).
+Per altre informazioni, vedere <xref:performance/caching/distributed>.
 
 ### <a name="cache-tag-helper"></a>Helper Tag di cache
 
@@ -230,9 +230,9 @@ Cache-Control: public,max-age=60
 
 * [La memorizzazione delle risposte nella cache](https://tools.ietf.org/html/rfc7234#section-3)
 * [Cache-Control](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
-* [Cache in memoria](xref:performance/caching/memory)
-* [Usare una cache distribuita](xref:performance/caching/distributed)
-* [Rilevare le modifiche apportate con i token di modifica](xref:fundamentals/change-tokens)
-* [Middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware)
-* [Helper per tag di cache](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Helper per tag di cache distribuita](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* <xref:performance/caching/memory>
+* <xref:performance/caching/distributed>
+* <xref:fundamentals/change-tokens>
+* <xref:performance/caching/middleware>
+* <xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper>
+* <xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>

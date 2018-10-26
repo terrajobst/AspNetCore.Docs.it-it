@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.date: 09/10/2018
 uid: signalr/version-differences
-ms.openlocfilehash: ea2de2606a99de70fa645c0c42303525fea0a44e
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 4ac7952f26500285fc1c8f9453feb3ea8b33851a
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325536"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50089828"
 ---
 # <a name="differences-between-aspnet-signalr-and-aspnet-core-signalr"></a>Differenze tra ASP.NET SignalR e ASP.NET Core SignalR
 
@@ -68,7 +68,7 @@ In ASP.NET Core SignalR, il modello di connessione è stato semplificato. Le con
 
 ASP.NET Core SignalR ora supporta [dati in streaming](xref:signalr/streaming) dall'hub al client.
 
-### <a name="state"></a>Stato
+### <a name="state"></a>State
 
 La possibilità di passare informazioni sullo stato arbitrarie tra client e l'hub (spesso chiamati HubState) è stato rimosso, nonché il supporto per i messaggi di stato. Nel momento in cui non vi è alcun equivalente di proxy dell'hub.
 
@@ -135,7 +135,7 @@ connection = new HubConnectionBuilder()
 
 ## <a name="scaleout-differences"></a>Differenze di scalabilità orizzontale
 
-ASP.NET SignalR supporta SQL Server e Redis. ASP.NET Core SignalR supporta il servizio Azure SignalR e Redis.
+ASP.NET SignalR supporta SQL Server e Redis. ASP.NET Core SignalR supporta servizio Azure SignalR e Redis.
 
 ### <a name="aspnet"></a>ASP.NET
 
