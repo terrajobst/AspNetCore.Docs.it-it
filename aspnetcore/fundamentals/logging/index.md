@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 10/11/2018
 uid: fundamentals/logging/index
-ms.openlocfilehash: e11657e27787e2fab8eacc8d4148a7ab089f9f53
-ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
+ms.openlocfilehash: 65e6b13dc3430d7bd9b513da34fbd53e349f9cc2
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49391323"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091106"
 ---
 # <a name="logging-in-aspnet-core"></a>Registrazione in ASP.NET Core
 
@@ -54,7 +54,7 @@ Per usare un provider, installare il relativo pacchetto NuGet e chiamare il meto
 L'[inserimento delle dipendenze](xref:fundamentals/dependency-injection) di ASP.NET Core fornisce l'istanza di `ILoggerFactory`. I metodi di estensione `AddConsole` e `AddDebug` sono definiti nei pacchetti [Microsoft.Extensions.Logging.Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console/) e [Microsoft.Extensions.Logging.Debug](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Debug/). Ogni metodo di estensione chiama il metodo `ILoggerFactory.AddProvider` passando un'istanza del provider.
 
 > [!NOTE]
-> L'[app di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/index/samples/1.x) aggiunge provider di registrazione nel metodo `Startup.Configure`. Per ottenere l'output di log dal codice eseguito in precedenza, aggiungere i provider di registrazione nel costruttore della classe `Startup`.
+> L'[app di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/index/samples/1.x) aggiunge provider di log nel metodo `Startup.Configure`. Per ottenere l'output di log dal codice eseguito in precedenza, aggiungere i provider di registrazione nel costruttore della classe `Startup`.
 
 ::: moniker-end
 
@@ -168,7 +168,7 @@ Se i livelli sono specificati in `Logging.{providername}.LogLevel`, eseguono l'o
 }
 ```
 
-Le chiavi `LogLevel` rappresentano i nomi dei log. La chiave `Default` si applica ai log non esplicitamente elencati. Il valore rappresenta il [livello di registrazione](#log-level) applicato al log specificato.
+Le chiavi `LogLevel` rappresentano i nomi dei log. La chiave `Default` si applica ai log non esplicitamente elencati. Il valore rappresenta il [livello del log](#log-level) applicato al log specificato.
 
 ::: moniker-end
 
@@ -338,7 +338,7 @@ info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
       Request finished in 2.7286ms 404
 ```
 
-## <a name="log-event-id"></a>ID evento di log
+## <a name="log-event-id"></a>ID evento di registrazione
 
 Ogni log può specificare un *ID evento*. A tale scopo, l'app di esempio usa una classe `LoggingEvents` definita a livello locale:
 
@@ -444,7 +444,7 @@ Per eliminare tutti i log, specificare `LogLevel.None` come livello di registraz
 
 Il codice del modello di progetto chiama `CreateDefaultBuilder` per configurare la registrazione per i provider Console e Debug. Il metodo `CreateDefaultBuilder` imposta inoltre la registrazione per la ricerca della configurazione di una sezione `Logging` tramite codice simile al seguente:
 
-[!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_ExpandDefault&highlight=15)]
+[!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_ExpandDefault&highlight=16)]
 
 I dati di configurazione specificano i livelli di registrazione minimi in base al provider e alla categoria, come nell'esempio seguente:
 
@@ -780,7 +780,7 @@ Per informazioni sulla registrazione in Azure, vedere le sezioni seguenti:
 
 ::: moniker-end
 
-### <a name="azure-app-service-provider"></a>Provider di Servizio app di Azure
+### <a name="azure-app-service-provider"></a>Provider del Servizio app di Azure
 
 Il pacchetto di provider [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) scrive i log in file di testo nel file system di un'app del Servizio app di Azure e nell'[archivio di BLOB](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#what-is-blob-storage) in un account di archiviazione di Azure. Il pacchetto di provider è disponibile per le app destinate a .NET Core 1.1 o versione successiva.
 
@@ -857,7 +857,7 @@ Passare alla pagina **Flusso di registrazione** per visualizzare i messaggi dell
 
 ::: moniker range=">= aspnetcore-1.1"
 
-### <a name="azure-application-insights-trace-logging"></a>Registrazione traccia di Azure Application Insights
+### <a name="azure-application-insights-trace-logging"></a>Registrazione di traccia di Azure Application Insights
 
 Application Insights SDK è in grado di raccogliere e segnalare i log generati dall'infrastruttura di registrazione di ASP.NET Core. Per altre informazioni, vedere le seguenti risorse:
 
@@ -879,6 +879,7 @@ Framework di registrazione di terze parti che usano ASP.NET Core:
 * [NLog](http://nlog-project.org/) ([repository GitHub](https://github.com/NLog/NLog.Extensions.Logging))
 * [Sentry](https://sentry.io/welcome/) ([repository GitHub](https://github.com/getsentry/sentry-dotnet))
 * [Serilog](https://serilog.net/) ([repository GitHub](https://github.com/serilog/serilog-extensions-logging))
+* [Stackdriver](https://cloud.google.com/dotnet/docs/stackdriver#logging) ([repository Github](https://github.com/googleapis/google-cloud-dotnet))
 
 Alcuni framework di terze parti possono eseguire la [registrazione semantica, nota anche come registrazione strutturata](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
