@@ -3,14 +3,15 @@ title: Introduzione a ASP.NET Core
 author: rick-anderson
 description: Introduzione ad ASP.NET Core, un framework multipiattaforma, ad alte prestazioni, open source per la compilazione di applicazioni moderne basate sul cloud, connesse a Internet.
 ms.author: riande
-ms.date: 9/28/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: index
-ms.openlocfilehash: 3bb86fa255548ff66592ac14c1020e0c6b47959c
-ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
+ms.openlocfilehash: fcd95b88b970073f4d7eddf89729683d18be449d
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49391157"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090654"
 ---
 # <a name="introduction-to-aspnet-core"></a>Introduzione a ASP.NET Core
 
@@ -21,11 +22,11 @@ ASP.NET Core è un framework multipiattaforma, ad alte prestazioni, [open source
 * Compilare app web e servizi, app [IoT](https://www.microsoft.com/internet-of-things/) e back-end per dispositivi mobili.
 * Usare gli strumenti di sviluppo preferiti in Windows, macOS e Linux.
 * Distribuire nel cloud o in locale.
-* Eseguire in [.NET Core o .NET Framework](https://docs.microsoft.com/dotnet/articles/standard/choosing-core-framework-server).
+* Eseguire in [.NET Core o .NET Framework](/dotnet/articles/standard/choosing-core-framework-server).
 
 ## <a name="why-use-aspnet-core"></a>Perché usare ASP.NET Core?
 
-Milioni di sviluppatori hanno usato, e continuano a usare, [ASP.NET 4.x](https://docs.microsoft.com/aspnet/overview) per creare app Web. ASP.NET Core è una riprogettazione di ASP.NET 4.x, con modifiche a livello di architettura che comportano un framework più efficiente e modulare.
+Milioni di sviluppatori hanno usato, e continuano a usare, [ASP.NET 4.x](/aspnet/overview) per creare app Web. ASP.NET Core è una riprogettazione di ASP.NET 4.x, con modifiche a livello di architettura che comportano un framework più efficiente e modulare.
 
 [!INCLUDE[](~/includes/benefits.md)]
 
