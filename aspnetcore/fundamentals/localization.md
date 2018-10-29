@@ -5,12 +5,12 @@ description: Informazioni su come ASP.NET Core offre servizi e middleware per la
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 375d09d9bef59cf18b7805cbefe500aeb2e0cde7
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 5014d697603d802929b417e6439d4cc6983184d2
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326004"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207589"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalizzazione e localizzazione in ASP.NET Core
 
@@ -30,7 +30,7 @@ La localizzazione dell'app comporta quanto segue:
 
 3. Implementare una strategia per la selezione della lingua o delle impostazioni cultura per ogni richiesta
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/localization/sample/Localization) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/localization/sample/Localization) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="make-the-apps-content-localizable"></a>Rendere localizzabile il contenuto dell'app
 

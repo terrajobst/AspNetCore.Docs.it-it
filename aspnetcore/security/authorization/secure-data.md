@@ -5,12 +5,12 @@ description: Informazioni su come creare un'app Razor Pages con i dati utente pr
 ms.author: riande
 ms.date: 7/24/2018
 uid: security/authorization/secure-data
-ms.openlocfilehash: 71b7855958b530b8bac32843a8d1e7db0113ffd9
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 7d9521686c67ab9120238886d50af081ce4c6907
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912631"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207862"
 ---
 ::: moniker range="<= aspnetcore-1.1"
 
@@ -88,11 +88,11 @@ In ASP.NET Core 2.1 `User.IsInRole` ha esito negativo quando si usa `AddDefaultI
 
 ## <a name="the-starter-and-completed-app"></a>Starter e app completata
 
-[Scaricare](xref:tutorials/index#how-to-download-a-sample) il [completato](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2) app. [Test](#test-the-completed-app) dell'app completata in modo da avere acquisito familiarità con le funzionalità di sicurezza.
+[Scaricare](xref:index#how-to-download-a-sample) il [completato](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2) app. [Test](#test-the-completed-app) dell'app completata in modo da avere acquisito familiarità con le funzionalità di sicurezza.
 
 ### <a name="the-starter-app"></a>L'app di base
 
-[Scaricare](xref:tutorials/index#how-to-download-a-sample) il [starter](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2) app.
+[Scaricare](xref:index#how-to-download-a-sample) il [starter](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2) app.
 
 Eseguire l'app, toccare il **ContactManager** collegare e verificare è possibile creare, modificare ed eliminare un contatto.
 
@@ -249,7 +249,7 @@ Aggiornare il modello di pagina delete per utilizzare il gestore dell'autorizzaz
 
 Attualmente, l'interfaccia utente Mostra modifica ed elimina i collegamenti per i contatti che l'utente non è possibile modificare.
 
-Inserire il servizio di autorizzazione nel *Views/_ViewImports.cshtml* in modo che sia disponibile per tutte le visualizzazioni di file:
+Inserire il servizio di autorizzazione nel *viewimports* file in modo che sia disponibile per tutte le viste:
 
 [!code-cshtml[](secure-data/samples/final2.1/Pages/_ViewImports.cshtml?highlight=6-99)]
 
@@ -328,7 +328,7 @@ dotnet ef migrations add initial
 dotnet ef database update
 ```
 
-* Aggiornamento del **ContactManager** di ancoraggio nel *Pages/_Layout.cshtml* file:
+* Aggiorna il **ContactManager** ancoraggio nel *cshtml* file:
 
 ```cshtml
 <a asp-page="/Contacts/Index" class="navbar-brand">ContactManager</a>

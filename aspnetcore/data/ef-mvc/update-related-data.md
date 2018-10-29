@@ -3,14 +3,15 @@ title: ASP.NET Core MVC con EF Core - Aggiornare dati correlati - 7 di 10
 author: rick-anderson
 description: In questa esercitazione verrà effettuato l'aggiornamento di dati correlati tramite l'aggiornamento di campi di chiave esterna e proprietà di navigazione.
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: ef8cb3916e5d1542e4d36cad694351462b94ed32
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 37985c945f2e4b15cfcefb0c126c3209e0bdeac4
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38126726"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090732"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---update-related-data---7-of-10"></a>ASP.NET Core MVC con EF Core - Aggiornare dati correlati - 7 di 10
 
@@ -290,7 +291,7 @@ Eseguire il test eseguendo l'app e creando un insegnante.
 
 ## <a name="handling-transactions"></a>Gestione delle transazioni
 
-Come spiegato nell' [esercitazione su CRUD](crud.md), per impostazione predefinita Entity Framework implementa in modo implicito le transazioni. Per gli scenari in cui è necessario un maggior controllo, ad esempio per includere le operazioni eseguite all'esterno di Entity Framework in una transazione, vedere [Transazioni](https://docs.microsoft.com/ef/core/saving/transactions).
+Come spiegato nell' [esercitazione su CRUD](crud.md), per impostazione predefinita Entity Framework implementa in modo implicito le transazioni. Per gli scenari in cui è necessario un maggior controllo, ad esempio per includere le operazioni eseguite all'esterno di Entity Framework in una transazione, vedere [Transazioni](/ef/core/saving/transactions).
 
 ## <a name="summary"></a>Riepilogo
 

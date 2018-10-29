@@ -8,12 +8,12 @@ ms.date: 02/10/2010
 ms.assetid: 1365eebb-bdf7-4a05-8d18-7f200531be55
 msc.legacyurl: /whitepapers/ms03-32-issue
 msc.type: content
-ms.openlocfilehash: ce2d705a93577b0c6d28f86069873c6ecd891db6
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 9041f8d15a449a517594f8051c3d9f0ceb18a8a3
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41837137"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207017"
 ---
 <a name="fix-for-server-application-unavailable-error-after-applying-security-update-for-ie"></a>Correzione per errore Server "applicazione non disponibile" dopo aver applicato l'aggiornamento della sicurezza per Internet Explorer
 ====================
@@ -38,7 +38,7 @@ Stiamo lavorando sodo su una soluzione definitiva per risolvere questo problema.
 4. Registrare nuovamente ASP.NET. Ciò crea una nuova password casuale per l'account e applica impostazioni di controllo di accesso predefinita ASP.NET per tale
 5. Riavvia il servizio IIS
 
-Il file batch contiene una password temporanea hardcoded di "<strong>1pass@word</strong>" quale sarà chiesto di immettere per il runas comando quando viene eseguito il file batch. Al termine dell'esecuzione del comando runas, la password dell'account ASPNET viene ricreata con un valore casuale complesso. Si noti che il file batch potrebbe non riuscire se la password specificata non soddisfa i requisiti di complessità delle password nell'ambiente in uso. In tal caso, è possibile modificarlo in un altro valore appropriato per l'ambiente.
+Il file batch contiene una password temporanea hardcoded di "<strong>1pass\@word</strong>" quale sarà chiesto di immettere per il runas comando quando viene eseguito il file batch. Al termine dell'esecuzione del comando runas, la password dell'account ASPNET viene ricreata con un valore casuale complesso. Si noti che il file batch potrebbe non riuscire se la password specificata non soddisfa i requisiti di complessità delle password nell'ambiente in uso. In tal caso, è possibile modificarlo in un altro valore appropriato per l'ambiente.
 
 *> [!IMPORTANT]* Se si hanno aggiunto le impostazioni di controllo di accesso personalizzati o database account le autorizzazioni per l'account ASPNET, dovranno essere ricreati dopo il completamento di questo file batch. Questo avviene perché quando viene ricreata l'account, otterrà un nuovo ID di sicurezza (SID).
 
@@ -51,7 +51,7 @@ Il file batch è incluso nell'archivio autoestraente riportato di seguito. Per u
 3. Estrarre il contenuto in c:\.
 4. Selezionare Esegui... dal menu start e immettere `cmd.exe`
 5. Nelle finestre di comando di apertura, digitare `c:\fixup.cmd`.
-6. Quando richiesto, immettere <strong>1pass@word</strong> come password.
+6. Quando richiesto, immettere <strong>1pass\@word</strong> come password.
 7. Se si dispone di autorizzazioni dell'account del database per l'account ASPNET o le impostazioni di controllo di accesso personalizzati in precedenza, è necessario applicare nuovamente tali impostazioni a questo punto.
 
 Molti scusiamo per eventuali inconvenienti che ciò ha causato. È possibile registrare informazioni aggiuntive appena sarà disponibile.

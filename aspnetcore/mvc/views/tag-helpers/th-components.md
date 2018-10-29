@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: scaddie
 ms.date: 09/18/2018
 uid: mvc/views/tag-helpers/th-components
-ms.openlocfilehash: c6986ebd179be588b0dc829065a3a8dc36ede3f5
-ms.sourcegitcommit: c684eb6c0999d11d19e15e65939e5c7f99ba47df
+ms.openlocfilehash: 3d21e12650d844f05bdfdf5b3451ab6219e3c3b7
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46293441"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206874"
 ---
 # <a name="tag-helper-components-in-aspnet-core"></a>Componenti helper tag in ASP.NET Core
 
@@ -21,7 +21,7 @@ Un componente helper tag è un helper tag che consente di modificare o aggiunger
 
 ASP.NET Core include due componenti helper tag predefiniti: `head` e `body`. Si trovano nello spazio dei nomi <xref:Microsoft.AspNetCore.Mvc.Razor.TagHelpers> e possono essere usati sia in MVC sia in Razor Pages. I componenti helper tag non richiedono la registrazione con l'app in *_ViewImports.cshtml*.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/th-components/samples) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/th-components/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="use-cases"></a>Casi d'uso
 

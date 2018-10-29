@@ -5,12 +5,12 @@ description: Una spiegazione dell'uso l'autenticazione tramite cookie senza ASP.
 ms.author: riande
 ms.date: 10/11/2017
 uid: security/authentication/cookie
-ms.openlocfilehash: 8045a1bf27853ff5f03166e7cf10d89e2ad38fd1
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 8add7559557d505397c3be8d8a48aa2e9d9e45e8
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011836"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207420"
 ---
 # <a name="use-cookie-authentication-without-aspnet-core-identity"></a>Usare l'autenticazione tramite cookie senza ASP.NET Core Identity
 
@@ -18,7 +18,7 @@ Dal [Rick Anderson](https://twitter.com/RickAndMSFT) e [Luke Latham](https://git
 
 Come si è visto negli argomenti precedenti authentication [ASP.NET Core Identity](xref:security/authentication/identity) è un provider di autenticazione completa e completo per creare e gestire gli account di accesso. Tuttavia, è possibile usare la propria logica di autenticazione personalizzato con autenticazione basata su cookie in alcuni casi. È possibile usare l'autenticazione basata su cookie come un provider di autenticazione autonomo senza ASP.NET Core Identity.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/cookie/samples) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/cookie/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 A scopo dimostrativo nell'app di esempio, l'account utente per l'utente ipotetica, Maria Rodriguez, è hardcoded nell'app. Usare il nome utente di posta elettronica "maria.rodriguez@contoso.com" e qualsiasi password di accesso dell'utente. L'utente viene autenticato nel `AuthenticateUser` metodo nella *Pages/Account/Login.cshtml.cs* file. In un esempio reale, l'utente viene autenticato in un database.
 

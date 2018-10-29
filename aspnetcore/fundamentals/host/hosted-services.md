@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/15/2018
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: 9c38b1e1d429498bcd59f780e3d3fe1a50eae32d
-ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
+ms.openlocfilehash: 92905d86cb963d01f1806f08d07b270a7f6d8563
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47860927"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207407"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>Attività in background con servizi ospitati in ASP.NET Core
 
@@ -24,7 +24,7 @@ In ASP.NET Core le attività in background possono essere implementate come *ser
 * Servizio ospitato che attiva un servizio con ambito. Il servizio con ambito può utilizzare l'inserimento di dipendenze.
 * Attività in background in coda che vengono eseguite in sequenza.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples/) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 L'app di esempio è disponibile in due versioni:
 

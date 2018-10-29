@@ -1,24 +1,24 @@
 ---
 title: Compressione delle risposte in ASP.NET Core
 author: guardrex
-description: Informazioni su come usare Middleware di compressione delle risposte nelle App ASP.NET Core e compressione delle risposte.
+description: Informazioni sulla compressione delle risposte e su come usare il relativo middleware nelle app ASP.NET Core.
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 09/21/2018
 uid: performance/response-compression
-ms.openlocfilehash: d5e0b6ed21c14f2e76396cde846c69a76ad40794
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 8c3d74b6a346d51507d3c278b03ddc842feea13e
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578146"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207979"
 ---
 # <a name="response-compression-in-aspnet-core"></a>Compressione delle risposte in ASP.NET Core
 
 Di [Luke Latham](https://github.com/guardrex)
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 Larghezza di banda di rete è una risorsa limitata. Riduzione delle dimensioni della risposta in genere aumenta la velocità di risposta di un'app, spesso notevolmente. Un modo per ridurre le dimensioni dei payload è per la compressione delle risposte di un'app.
 

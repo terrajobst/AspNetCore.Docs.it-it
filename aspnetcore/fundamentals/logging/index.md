@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 10/11/2018
 uid: fundamentals/logging/index
-ms.openlocfilehash: 65e6b13dc3430d7bd9b513da34fbd53e349f9cc2
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: f7cfb3823a188f28398d59e0d009e9ddc159dc32
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091106"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207576"
 ---
 # <a name="logging-in-aspnet-core"></a>Registrazione in ASP.NET Core
 
@@ -19,7 +19,7 @@ Di [Steve Smith](https://ardalis.com/) e [Tom Dykstra](https://github.com/tdykst
 
 ASP.NET Core supporta un'API di registrazione che funziona con un'ampia gamma di provider di registrazione predefiniti e di terze parti. Questo articolo illustra come usare l'API di registrazione con i provider predefiniti.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/index/samples) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/index/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="add-providers"></a>Aggiungere provider
 

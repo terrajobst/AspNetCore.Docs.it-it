@@ -3,14 +3,15 @@ title: ASP.NET Core MVC con EF Core - Ereditarietà - 9 di 10
 author: rick-anderson
 description: Questa esercitazione illustra come implementare l'ereditarietà nel modello di dati usando Entity Framework Core in un'applicazione ASP.NET Core.
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: a71954297f44f936893a7f1e9d3b0685f81378b9
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 60417040dd296311e1aecff8f224aadf8da82779
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38126704"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090758"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---inheritance---9-of-10"></a>ASP.NET Core MVC con EF Core - Ereditarietà - 9 di 10
 
@@ -142,7 +143,7 @@ Fare clic con il pulsante destro del mouse sulla tabella Person e quindi su **Mo
 
 ## <a name="summary"></a>Riepilogo
 
-È stata implementata l'ereditarietà tabella per gerarchia per le classi `Person`, `Student` e `Instructor`. Per altre informazioni sull'ereditarietà in Entity Framework Core, vedere [Ereditarietà](https://docs.microsoft.com/ef/core/modeling/inheritance). Nella prossima esercitazione si apprenderà come gestire diversi scenari Entity Framework relativamente avanzati.
+È stata implementata l'ereditarietà tabella per gerarchia per le classi `Person`, `Student` e `Instructor`. Per altre informazioni sull'ereditarietà in Entity Framework Core, vedere [Ereditarietà](/ef/core/modeling/inheritance). Nella prossima esercitazione si apprenderà come gestire diversi scenari Entity Framework relativamente avanzati.
 
 ::: moniker-end
 

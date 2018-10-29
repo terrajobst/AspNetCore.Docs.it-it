@@ -3,14 +3,15 @@ title: Razor Pages con EF Core in ASP.NET Core - Concorrenza - 8 di 8
 author: rick-anderson
 description: Questa esercitazione descrive la gestione dei conflitti quando più utenti aggiornano la stessa entità contemporaneamente.
 ms.author: riande
-ms.date: 11/15/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 722676b6765c32f3d11d5a3e23a5bea6ebe5488d
-ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
+ms.openlocfilehash: cd06cb1056e1c856214d2440533aad5789907107
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523259"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207342"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Concorrenza - 8 di 8
 
@@ -18,7 +19,7 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://githu
 
 [!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
-Questa esercitazione descrive la gestione dei conflitti quando più utenti aggiornano la stessa entità contemporaneamente. Se si verificano problemi che non si è in grado di risolvere, [scaricare o visualizzare l'app completa](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples). [Istruzioni per il download](xref:tutorials/index#how-to-download-a-sample).
+Questa esercitazione descrive la gestione dei conflitti quando più utenti aggiornano la stessa entità contemporaneamente. Se si verificano problemi che non si è in grado di risolvere, [scaricare o visualizzare l'app completa](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples). [Istruzioni per il download](xref:index#how-to-download-a-sample).
 
 ## <a name="concurrency-conflicts"></a>Conflitti di concorrenza
 
@@ -72,7 +73,7 @@ La concorrenza ottimistica include le opzioni seguenti:
 
 ## <a name="handling-concurrency"></a>Gestione della concorrenza 
 
-Quando una proprietà è configurata come [token di concorrenza](https://docs.microsoft.com/ef/core/modeling/concurrency):
+Quando una proprietà è configurata come [token di concorrenza](/ef/core/modeling/concurrency):
 
 * EF Core verifica che la proprietà non sia stata modificata dopo il suo recupero. La verifica viene eseguita quando si chiama [SaveChanges](/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechanges?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChanges) o [SaveChangesAsync](/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechangesasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChangesAsync_System_Threading_CancellationToken_).
 * Se la proprietà è stata modificata dopo il recupero, viene generata un'eccezione [DbUpdateConcurrencyException](/dotnet/api/microsoft.entityframeworkcore.dbupdateconcurrencyexception?view=efcore-2.0). 

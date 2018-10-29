@@ -5,12 +5,12 @@ description: Informazioni su come i controller ASP.NET Core MVC richiedono le pr
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: 9dec9807e8fc2883144b2da518f36a7eb8ddc871
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: 12247dbbbb6de3f8feb7bc37caec4ecf4bd21719
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342133"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206342"
 ---
 # <a name="dependency-injection-into-controllers-in-aspnet-core"></a>Inserimento di dipendenze in controller in ASP.NET Core
 
@@ -20,7 +20,7 @@ Di [Steve Smith](https://ardalis.com/)
 
 I controller ASP.NET Core MVC devono richiedere le proprie dipendenze in modo esplicito tramite i rispettivi costruttori. In alcune istanze, singole azioni di controller possono richiedere un servizio che potrebbe non avere senso richiedere a livello di controller. In questo caso, è anche possibile inserire un servizio come parametro nel metodo di azione.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/dependency-injection/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/dependency-injection/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="dependency-injection"></a>Inserimento di dipendenze
 

@@ -7,12 +7,12 @@ author: BillWagner
 ms.author: wiwagn
 ms.date: 02/01/2017
 ms.assetid: c9f1d52c-b4bd-4b5d-b7f9-8f9ceaf778c4
-ms.openlocfilehash: b3eb643daf230336ce5def96007b6096f86390e6
-ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
+ms.openlocfilehash: 7b34187747d3081998b8b60a72adae78cafe2c3e
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50148941"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207966"
 ---
 # <a name="migrating-aspnet-mvc-applications-to-windows-containers"></a>Migrazione di applicazioni ASP.NET MVC ai contenitori di Windows
 
@@ -71,7 +71,7 @@ Fare clic su **Pubblica** in modo che Visual Studio copi tutti gli asset necessa
 Definire l'immagine Docker in un Dockerfile. Il Dockerfile contiene le istruzioni per l'immagine di base, eventuali componenti aggiuntivi, l'app da eseguire e altre immagini di configurazione.  Il Dockerfile costituisce l'input per il comando `docker build` che crea l'immagine.
 
 Verrà creata un'immagine basata sull'immagine `microsoft/aspnet` situata nell'[hub Docker](https://hub.docker.com/r/microsoft/aspnet/).
-L'immagine di base, `microsoft/aspnet`, è un'immagine di Windows Server. Contiene Windows Server Core, IIS e ASP.NET 4.6.2. Quando si esegue questa immagine in un contenitore, verranno avviati automaticamente IIS e i siti Web installati.
+L'immagine di base, `microsoft/aspnet`, è un'immagine di Windows Server. Contiene Windows Server Core, IIS e ASP.NET 4.7.2. Quando si esegue questa immagine in un contenitore, verranno avviati automaticamente IIS e i siti Web installati.
 
 Il documento Dockerfile che crea l'immagine è simile al seguente:
 
@@ -122,18 +122,7 @@ Il valore `mvcrandomanswers` è il nome dell'immagine da avviare.
 
 ## <a name="verify-in-the-browser"></a>Verificare nel browser
 
-> [!NOTE]
-> Con la versione corrente di contenitore di Windows, è possibile esplorare `http://localhost`.
-> Questo è un comportamento noto in WinNAT e verrà risolto in futuro. Fino a quel momento sarà necessario usare l'indirizzo IP del contenitore.
-
-Dopo l'avvio del contenitore, trovarne l'indirizzo IP in modo da consentire la connessione al contenitore in esecuzione da un browser:
-
-```console
-docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" randomanswers
-172.31.194.61
-```
-
-Connettersi al contenitore in esecuzione usando l'indirizzo IPv4, `http://172.31.194.61` nell'esempio illustrato. Digitando l'URL nel browser viene visualizzato il sito in esecuzione.
+Dopo aver avviato il contenitore, connettersi al contenitore in esecuzione con `http://localhost` nell'esempio illustrato. Digitando l'URL nel browser viene visualizzato il sito in esecuzione.
 
 > [!NOTE]
 > Alcuni software VPN o proxy possono impedire la navigazione nel sito.
@@ -145,10 +134,9 @@ La directory di esempio su GitHub contiene un [script di PowerShell](https://git
 ./run.ps1
 ```
 
-Il comando precedente crea l'immagine, visualizza l'elenco di immagini presenti nel computer, avvia un contenitore e visualizza l'indirizzo IP per tale contenitore.
+Il comando precedente crea l'immagine, Visualizza l'elenco delle immagini nel computer e avvia un contenitore.
 
-Per arrestare il contenitore, eseguire un comando `docker
-stop`:
+Per arrestare il contenitore, eseguire un comando `docker stop`:
 
 ```console
 docker stop randomanswers

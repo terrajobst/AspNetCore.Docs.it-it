@@ -4,14 +4,15 @@ author: rick-anderson
 description: Informazioni su come aggiungere la convalida a una pagina Razor in ASP.NET Core.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 08/07/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: cd958b9c084de4b3e12784774544610873a519f9
-ms.sourcegitcommit: 317f9be24db600499e79d25872d743af74bd86c0
+ms.openlocfilehash: 2518b9911f13da79c76c84e530cf53fc2df474e5
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48045523"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090446"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Aggiungere la convalida a una pagina Razor ASP.NET Core
 
@@ -27,7 +28,7 @@ Il supporto della convalida fornito dalle pagine di Razor e da Entity Framework 
 
 ### <a name="adding-validation-rules-to-the-movie-model"></a>Aggiunta di regole di convalida al modello movie
 
-Aprire il file *Models/Movie.cs*. [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) fornisce un set incorporato di attributi di convalida che si applicano in modo dichiarativo a una classe o proprietà. DataAnnotations contiene anche gli attributi di formattazione come ad esempio `DataType` che guidano nella formattazione e non forniscono la convalida.
+Aprire il file *Models/Movie.cs*. [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) fornisce un set incorporato di attributi di convalida che si applicano in modo dichiarativo a una classe o proprietà. DataAnnotations contiene anche gli attributi di formattazione come ad esempio `DataType` che guidano nella formattazione e non forniscono la convalida.
 
 Aggiornamento della classe `Movie` per poter sfruttare gli attributi di convalida `Required`, `StringLength`, `RegularExpression`, e `Range`.
 
@@ -45,7 +46,7 @@ Aggiornamento della classe `Movie` per poter sfruttare gli attributi di convalid
 
 Gli attributi di convalida specificano il comportamento che viene applicato alle proprietà del modello:
 
-* Gli attributi `Required` e `MinimumLength` indicano che una proprietà deve avere un valore. Tuttavia, niente impedisce a un utente di immettere spazi vuoti per soddisfare il vincolo di convalida per un tipo nullable. I [tipi valore](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/value-types) non nullable (ad esempio `decimal`, `int`, `float` e `DateTime`) sono intrinsecamente necessari e non richiedono l'attributo `Required`.
+* Gli attributi `Required` e `MinimumLength` indicano che una proprietà deve avere un valore. Tuttavia, niente impedisce a un utente di immettere spazi vuoti per soddisfare il vincolo di convalida per un tipo nullable. I [tipi valore](/dotnet/csharp/language-reference/keywords/value-types) non nullable (ad esempio `decimal`, `int`, `float` e `DateTime`) sono intrinsecamente necessari e non richiedono l'attributo `Required`.
 * L'attributo `RegularExpression` limita i caratteri che può immettere l'utente. Nel codice precedente `Genre` deve iniziare con una o più lettere maiuscole seguite da zero o più lettere, virgolette singole o doppie, spazi vuoti o trattini. `Rating` deve iniziare con una o più lettere maiuscole seguite da zero o più lettere, numeri, virgolette singole o doppie, spazi vuoti o trattini.
 * L'attributo `Range` vincola un valore a un intervallo specificato.
 * L'attributo `StringLength` imposta la lunghezza massima di una stringa e, facoltativamente, la lunghezza minima. 
@@ -95,7 +96,7 @@ Il codice seguente mostra una porzione della pagina *Create.cshtml* di cui è st
 
 [!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Create.cshtml?range=14-20)]
 
-L'[helper tag di input](xref:mvc/views/working-with-forms) usa gli attributi [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) e produce gli attributi HTML necessari per la convalida jQuery sul lato client. L'[helper tag di convalida](xref:mvc/views/working-with-forms#the-validation-tag-helpers) visualizza gli errori di convalida. Per altre informazioni, vedere [Convalida](xref:mvc/models/validation).
+L'[helper tag di input](xref:mvc/views/working-with-forms) usa gli attributi [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) e produce gli attributi HTML necessari per la convalida jQuery sul lato client. L'[helper tag di convalida](xref:mvc/views/working-with-forms#the-validation-tag-helpers) visualizza gli errori di convalida. Per altre informazioni, vedere [Convalida](xref:mvc/models/validation).
 
 Le pagine Crea e Modifica non dispongono di nessuna regola di convalida. Le regole di convalida e le stringhe di errore vengono specificate solo nella classe `Movie`. Queste regole di convalida vengono applicate automaticamente alle pagine Razor che modificano il modello `Movie`.
 
@@ -166,10 +167,10 @@ Grazie aver completato questa introduzione alle pagine Razor. I suggerimenti deg
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Utilizzo dei moduli](xref:mvc/views/working-with-forms)
-* [Globalizzazione e localizzazione](xref:fundamentals/localization)
-* [Introduzione agli helper tag](xref:mvc/views/tag-helpers/intro)
-* [Creare helper tag](xref:mvc/views/tag-helpers/authoring)
+* <xref:mvc/views/working-with-forms>
+* <xref:fundamentals/localization>
+* <xref:mvc/views/tag-helpers/intro>
+* <xref:mvc/views/tag-helpers/authoring>
 
 > [!div class="step-by-step"]
 > [Precedente: Aggiunta di un nuovo campo](xref:tutorials/razor-pages/new-field)

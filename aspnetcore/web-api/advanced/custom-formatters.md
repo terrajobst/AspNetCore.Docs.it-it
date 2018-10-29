@@ -5,12 +5,12 @@ description: Informazioni su come creare e usare i formattatori personalizzati n
 ms.author: tdykstra
 ms.date: 02/08/2017
 uid: web-api/advanced/custom-formatters
-ms.openlocfilehash: a21fcea68d957d0344309c9bbd3286b71c092f60
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: a038cd9c05950333fce9e72f67d6721198fae4d3
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273858"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206315"
 ---
 # <a name="custom-formatters-in-aspnet-core-web-api"></a>Formattatori personalizzati nell'API Web ASP.NET Core
 
@@ -18,7 +18,7 @@ ms.locfileid: "36273858"
 
 ASP.NET Core MVC offre supporto predefinito per lo scambio di dati in API Web usando i formati JSON, XML o testo normale. In questo articolo viene illustrato come aggiungere supporto per altri formati creando formattatori personalizzati.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-custom-formatters"></a>Quando usare i formattatori personalizzati
 

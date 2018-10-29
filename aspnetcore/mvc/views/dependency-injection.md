@@ -5,12 +5,12 @@ description: Informazioni sulle modalità con cui ASP.NET Core supporta l'inseri
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/views/dependency-injection
-ms.openlocfilehash: 753a335ec4f9f6a62fd20851af43da078b6f6a37
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 9b437d27a8d391db4533596674d144628a0c10b1
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277332"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207061"
 ---
 # <a name="dependency-injection-into-views-in-aspnet-core"></a>Inserimento di dipendenze nelle visualizzazioni in ASP.NET Core
 
@@ -18,7 +18,7 @@ Di [Steve Smith](https://ardalis.com/)
 
 ASP.NET Core supporta l'[inserimento di dipendenze](xref:fundamentals/dependency-injection) nelle visualizzazioni. Questo può essere utile per i servizi specifici delle visualizzazioni, ad esempio per la localizzazione o per dati necessari solo per il popolamento degli elementi delle visualizzazioni. È consigliabile mantenere la [separazione delle competenze](http://deviq.com/separation-of-concerns/) tra i controller e le visualizzazioni. La maggior parte dei dati nelle visualizzazioni devono essere passati dal controller.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/dependency-injection/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/dependency-injection/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="a-simple-example"></a>Un semplice esempio
 

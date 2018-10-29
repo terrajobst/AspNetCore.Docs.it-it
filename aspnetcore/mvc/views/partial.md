@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/11/2018
 uid: mvc/views/partial
-ms.openlocfilehash: d3d2f55645881dd05f7663e0a9d3e45d6bb6d77f
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: ff4b99580990edbd768128d77214e664a1e29e56
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477683"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207225"
 ---
 # <a name="partial-views-in-aspnet-core"></a>Visualizzazioni parziali in ASP.NET Core
 
@@ -25,7 +25,7 @@ Il termine *visualizzazione parziale* viene usato nell'ambito dello sviluppo di 
 
 ::: moniker-end
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/partial/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/partial/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-partial-views"></a>Quando usare le visualizzazioni parziali
 

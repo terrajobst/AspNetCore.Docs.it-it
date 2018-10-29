@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 11/07/2017
 uid: security/authorization/resourcebased
-ms.openlocfilehash: 6a110a69c58d5e20a15198378510486daec3d452
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: 2cb3844a38f7482c27fb471343109d51a516ea20
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342289"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206696"
 ---
 # <a name="resource-based-authorization-in-aspnet-core"></a>Autorizzazione basata sulle risorse in ASP.NET Core
 
@@ -19,7 +19,7 @@ Strategia di autorizzazione varia a seconda della risorsa a cui si accede. Si co
 
 Attributo valutazioni prima del data binding e prima dell'esecuzione del gestore di pagina o l'azione che carica il documento. Per questi motivi, autorizzazione dichiarative con un `[Authorize]` attributo non sono sufficienti. In alternativa, è possibile richiamare un metodo di autorizzazione personalizzato&mdash;uno stile noto come autorizzazione imperativo.
 
-Usare la [app di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/resourcebased/samples) ([come scaricare](xref:tutorials/index#how-to-download-a-sample)) per esplorare le funzionalità descritte in questo argomento.
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/resourcebased/samples) ([procedura per il download](xref:index#how-to-download-a-sample)).
 
 [Creare un'app ASP.NET Core con i dati utente protetti da autorizzazione](xref:security/authorization/secure-data) contiene un'app di esempio che utilizza l'autorizzazione basata sulle risorse.
 

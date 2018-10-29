@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 07/05/2018
 uid: fundamentals/error-handling
-ms.openlocfilehash: df7af9fd05c19c42357989bbd8a81da062a564cc
-ms.sourcegitcommit: 4cd8dce371d63a66d780e4af1baab2bcf9d61b24
+ms.openlocfilehash: d1e94fdc89fbebc264dc001bbf35666af16f4799
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43893103"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50208031"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Gestire gli errori in ASP.NET Core
 
@@ -19,7 +19,7 @@ Di [Steve Smith](https://ardalis.com/) e [Tom Dykstra](https://github.com/tdykst
 
 Questo articolo descrive gli approcci comuni per la gestione degli errori nelle app ASP.NET Core.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples/2.x/ErrorHandlingSample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples/2.x/ErrorHandlingSample) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="the-developer-exception-page"></a>Pagina delle eccezioni per gli sviluppatori
 

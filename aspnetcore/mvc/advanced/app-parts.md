@@ -5,16 +5,16 @@ description: Informazioni sull'uso delle parti dell'applicazione, che sono astra
 ms.author: riande
 ms.date: 01/04/2017
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: 41ae3fd4059844698ded4551dcedc8933ab8cff6
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: c0d3ad6bcdf2e56df915b176b28759c59e76faf6
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011313"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206563"
 ---
 # <a name="application-parts-in-aspnet-core"></a>Parti dell'applicazione in ASP.NET Core
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 Una *parte dell'applicazione* è un'astrazione relativa alle risorse di un'applicazione che consente il rilevamento di funzionalità MVC quali controller, componenti della visualizzazione o helper tag. Un esempio di parte dell'applicazione è AssemblyPart, che incapsula un riferimento all'assembly ed espone tipi e riferimenti di compilazione. I *provider di funzionalità* vengono eseguiti con le parti dell'applicazione per popolare le funzionalità di un'app ASP.NET Core MVC. Il caso d'uso principale delle parti dell'applicazione è la configurazione dell'app in modo che rilevi (o eviti di caricare) funzionalità MVC da un assembly.
 

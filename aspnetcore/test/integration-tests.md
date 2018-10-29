@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/30/2018
 uid: test/integration-tests
-ms.openlocfilehash: 15186383497f8dd9a9766f8fe7cf32f70a121c8e
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: a136a362cd8973b3684f9a70bd4792d75238eab0
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477592"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207875"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Test di integrazione in ASP.NET Core
 
@@ -22,7 +22,7 @@ Test di integrazione di garantiscono che i componenti di un'app funzionano corre
 
 Questo argomento presuppone una conoscenza di base di unit test. Familiarità con i concetti di test, vedere la [Unit Testing in .NET Core e .NET Standard](/dotnet/core/testing/) argomento e il relativo contenuto collegato.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 L'app di esempio è un'app Razor Pages e presuppone una conoscenza di base di Razor Pages. Se ha dimestichezza con le pagine Razor, vedere gli argomenti seguenti:
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/01/2018
 uid: fundamentals/file-providers
-ms.openlocfilehash: a0d326f5fc995cb903380315879d39a8ce851d06
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 3274615a0d6b6f928301ce97d18f5d9768963a30
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913216"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207316"
 ---
 # <a name="file-providers-in-aspnet-core"></a>Provider di file in ASP.NET Core
 
@@ -24,7 +24,7 @@ ASP.NET Core astrae l'accesso al file system tramite l'utilizzo di provider di f
 * [Razor](xref:mvc/views/razor) usa i provider di file per individuare pagine e viste.
 * Gli strumenti .NET Core usano i provider di file e i criteri GLOB per specificare i file da pubblicare.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/file-providers/samples) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/file-providers/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="file-provider-interfaces"></a>Interfacce del provider di file
 

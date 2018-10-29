@@ -3,14 +3,15 @@ title: Razor Pages con EF Core in ASP.NET Core - Ordinamento, filtro, suddivisio
 author: rick-anderson
 description: In questa esercitazione viene spiegato come aggiungere alla pagina le funzionalità di ordinamento, filtro e suddivisione in pagine tramite ASP.NET Core e Entity Framework.
 ms.author: riande
-ms.date: 6/31/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 06669d69fa9fec87d262c2b5bfd8b11649259849
-ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
+ms.openlocfilehash: 19fe24e0f901c50e8425db7665b5b2257b608146
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49348442"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090882"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Ordinamento, filtro, suddivisione in pagine - 3 di 8
 
@@ -51,7 +52,7 @@ Gli elementi `NameSort` e `DateSort` vengono usati dalla pagina Razor per config
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly&highlight=3-4)]
 
-Il codice seguente contiene l'[operatore condizionale ?:](https://docs.microsoft.com/dotnet/csharp/language-reference/operators/conditional-operator) di C#:
+Il codice seguente contiene l'[operatore condizionale ?:](/dotnet/csharp/language-reference/operators/conditional-operator) di C#:
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet_Ternary)]
 

@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 06/29/2018
 uid: tutorials/signalr-typescript-webpack
-ms.openlocfilehash: 7f47192dbf39432334f6d7ae4829a45860dafcc5
-ms.sourcegitcommit: ee2b26c7d08b38c908c668522554b52ab8efa221
+ms.openlocfilehash: a7b39bbf657244db83e9d60014a5759000eb5f14
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39146845"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206952"
 ---
 # <a name="use-aspnet-core-signalr-with-typescript-and-webpack"></a>Usare ASP.NET Core SignalR con TypeScript e Webpack
 
@@ -29,7 +29,7 @@ In questa esercitazione si imparerà a:
 > * Configurare il server SignalR
 > * Abilitare la comunicazione tra client e server
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/signalr-typescript-webpack/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/signalr-typescript-webpack/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Prerequisiti
 

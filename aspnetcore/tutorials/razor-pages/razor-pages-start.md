@@ -5,12 +5,12 @@ description: Questa serie di esercitazioni illustra come usare Razor Pages in AS
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 2e1c84a704856a22e1e105f56612194d4bb9c234
-ms.sourcegitcommit: 599ebae5c2d6fcb22dfa6ae7d1f4bdfcacb79af4
+ms.openlocfilehash: 4ee9a014114e2536f7584b2a1ff9d699fb971aa8
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47211000"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206978"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Esercitazione: Introduzione all'uso di Razor Pages in ASP.NET Core
 
@@ -32,7 +32,7 @@ Sono disponibili tre versioni di questa esercitazione:
 * MacOS: [Introduzione a pagine Razor con Visual Studio per Mac](xref:tutorials/razor-pages-mac/razor-pages-start)
 * macOS, Linux e Windows: [Introduzione a pagine Razor ASP.NET Core in Visual Studio Code](xref:tutorials/razor-pages-vsc/razor-pages-start)
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ::: moniker range=">= aspnetcore-2.1"
 

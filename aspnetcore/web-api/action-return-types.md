@@ -6,18 +6,18 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 07/23/2018
 uid: web-api/action-return-types
-ms.openlocfilehash: 179a3e23ebc13a40b8e2d955b6adcc23d9a0f323
-ms.sourcegitcommit: 8268cc67beb1bb1ca470abb0e28b15a7a71b8204
+ms.openlocfilehash: 84300eae4271c3ee4387be022c3576dc83e144eb
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44126722"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207524"
 ---
 # <a name="controller-action-return-types-in-aspnet-core-web-api"></a>Tipi restituiti per le azioni del controller nell'API Web di ASP.NET Core
 
 Di [Scott Addie](https://github.com/scottaddie)
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/action-return-types/samples) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/action-return-types/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ASP.NET Core offre le seguenti opzioni per i tipi restituiti per le azioni del controller nell'API Web:
 

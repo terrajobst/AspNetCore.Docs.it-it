@@ -4,14 +4,15 @@ author: rick-anderson
 description: Informazioni di base sulla compilazione di un'app Web pagine Razor ASP.NET Core con Visual Studio Code.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 08/27/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: tutorials/razor-pages-vsc/razor-pages-start
-ms.openlocfilehash: b7f6ca377a892fce912dc0ee9d4b7378f40fbf24
-ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
+ms.openlocfilehash: 9ea66134c524a6a1a670d55bae4e66cf38a45274
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46522927"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50089852"
 ---
 # <a name="get-started-with-aspnet-core-razor-pages-in-visual-studio-code"></a>Introduzione a pagine Razor ASP.NET Core in Visual Studio Code
 
@@ -47,7 +48,7 @@ dotnet run
 
 ::: moniker-end
 
-I comandi precedenti usano [.NET Core CLI](https://docs.microsoft.com/dotnet/core/tools/dotnet) per creare ed eseguire un progetto di pagine Razor. Aprire un browser all'indirizzo http://localhost:5000 per visualizzare l'applicazione.
+I comandi precedenti usano [.NET Core CLI](/dotnet/core/tools/dotnet) per creare ed eseguire un progetto di pagine Razor. Aprire un browser all'indirizzo http://localhost:5000 per visualizzare l'applicazione.
 
 ![Pagina Home o di indice](../razor-pages/razor-pages-start/_static/home.png)
 

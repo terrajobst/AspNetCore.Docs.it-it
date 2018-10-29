@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 08/31/2018
 uid: security/ip-safelist
-ms.openlocfilehash: 362d1ded00bda3f328e029fb467f2b3eeaa01396
-ms.sourcegitcommit: 8268cc67beb1bb1ca470abb0e28b15a7a71b8204
+ms.openlocfilehash: 286f199c0d9164fa70d511aba523210c85c2fdfd
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44126709"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207732"
 ---
 # <a name="client-ip-safelist-for-aspnet-core"></a>Client IP safelist per ASP.NET Core
 
@@ -25,7 +25,7 @@ Questo articolo illustra tre modi per implementare un safelist IP (noto anche co
 
 L'app di esempio illustra entrambi gli approcci. In ogni caso, una stringa che contiene gli indirizzi IP client riconosciuto viene archiviata in un'impostazione dell'app. Il middleware o il filtro analizza la stringa in un elenco e verifica se l'indirizzo IP remoto è nell'elenco. In caso contrario, viene restituito un codice di stato HTTP 403-accesso negato.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/ip-safelist/samples/2.x/ClientIpAspNetCore) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/ip-safelist/samples/2.x/ClientIpAspNetCore) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="the-safelist"></a>Il safelist
 

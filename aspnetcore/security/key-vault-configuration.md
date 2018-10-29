@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: security/key-vault-configuration
-ms.openlocfilehash: 06445eb2ecec4cf101b23a4bfe131b2c56a18f62
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: c6dc8b9c462841351b3ada72deeae727da356a6c
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090306"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207888"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Provider di configurazione di Azure Key Vault in ASP.NET Core
 
@@ -20,9 +20,9 @@ Dal [Luke Latham](https://github.com/guardrex) e [Andrew Stanton-Nurse](https://
 
 Questo documento illustra come usare il [Microsoft Azure Key Vault](https://azure.microsoft.com/services/key-vault/) provider di configurazione per caricare i valori di configurazione di app da segreti di Azure Key Vault. Azure Key Vault è un servizio basato sul cloud che consente di proteggere le chiavi crittografiche e segreti usati da App e servizi. Gli scenari comuni includono il controllo dell'accesso ai dati di configurazione sensibili e che soddisfano il requisito per FIPS 140-2 livello 2 convalidati i moduli di protezione Hardware (HSM) quando si archiviano i dati di configurazione. Questa funzionalità è disponibile per le app destinate a ASP.NET Core 1.1 o versione successiva.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
-## <a name="package"></a>Package
+## <a name="package"></a>Pacchetto
 
 Per usare il provider, aggiungere un riferimento per la [azurekeyvault](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureKeyVault/) pacchetto.
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/28/2017
 uid: fundamentals/configuration/options
-ms.openlocfilehash: 0ab920cc8890f2a1e4d1fb8d783dea666751a53f
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 359bd438066aefcf572c91dacee99e85c0f10b1a
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911292"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207355"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>Modello di opzioni in ASP.NET Core
 
@@ -22,7 +22,7 @@ Il modello di opzioni usa le classi per rappresentare i gruppi di impostazioni c
 * [Principio di segregazione delle interfacce (Interface Segregation Principle, ISP)](http://deviq.com/interface-segregation-principle/): gli scenari (classi) che dipendono dalle impostazioni di configurazione dipendono solo dalle impostazioni di configurazione che usano.
 * [Separazione delle competenze (Separation of Concerns, SoC)](http://deviq.com/separation-of-concerns/): le impostazioni di parti diverse dell'app non sono dipendenti o accoppiate l'una con l'altra.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/options/sample) ([come eseguire il download](xref:tutorials/index#how-to-download-a-sample)) Questo articolo è più semplice da seguire con l'app di esempio.
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/options/sample) ([come eseguire il download](xref:index#how-to-download-a-sample)) Questo articolo è più semplice da seguire con l'app di esempio.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

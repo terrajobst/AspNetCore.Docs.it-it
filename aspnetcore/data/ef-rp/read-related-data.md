@@ -3,14 +3,15 @@ title: Razor Pages con EF Core in ASP.NET Core - Leggere dati correlati - 6 di 8
 author: rick-anderson
 description: In questa esercitazione verranno letti e visualizzati dati correlati, ovvero dati che Entity Framework carica all'interno delle proprietà di navigazione.
 ms.author: riande
-ms.date: 11/05/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: e8b59c19eac2c2adc1f13cf1e44f750576686c87
-ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
+ms.openlocfilehash: cf8733e1e806c4be0c4b217fc45c7a338a03a3ce
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49348494"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207556"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Leggere dati correlati - 6 di 8
 
@@ -20,7 +21,7 @@ Di [Tom Dykstra](https://github.com/tdykstra), [Jon P Smith](https://twitter.com
 
 In questa esercitazione vengono letti e visualizzati dati correlati. I dati correlati sono dati che EF Core carica all'interno delle proprietà di navigazione.
 
-Se si verificano problemi che non si è in grado di risolvere, [scaricare o visualizzare l'app completa](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples). [Istruzioni per il download](xref:tutorials/index#how-to-download-a-sample).
+Se si verificano problemi che non si è in grado di risolvere, [scaricare o visualizzare l'app completa](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples). [Istruzioni per il download](xref:index#how-to-download-a-sample).
 
 Le figure seguenti mostrano le pagine completate per questa esercitazione:
 
@@ -32,7 +33,7 @@ Le figure seguenti mostrano le pagine completate per questa esercitazione:
 
 Esistono diversi modi con cui EF Core può caricare i dati correlati nelle proprietà di navigazione di un'entità:
 
-* [Caricamento eager](https://docs.microsoft.com/ef/core/querying/related-data#eager-loading). Il caricamento eager si verifica quando una query per un solo tipo di entità carica anche entità correlate. Quando l'entità viene letta, vengono recuperati i dati correlati corrispondenti. Ciò in genere ha come risultato una query join singola che recupera tutti i dati necessari. Per alcuni tipi di caricamento eager, EF Core genera più query. La generazione di più query può essere più efficiente rispetto al caso di alcune query in EF6, in cui era presente una singola query. Il caricamento eager viene specificato con i metodi `Include` e `ThenInclude`.
+* [Caricamento eager](/ef/core/querying/related-data#eager-loading). Il caricamento eager si verifica quando una query per un solo tipo di entità carica anche entità correlate. Quando l'entità viene letta, vengono recuperati i dati correlati corrispondenti. Ciò in genere ha come risultato una query join singola che recupera tutti i dati necessari. Per alcuni tipi di caricamento eager, EF Core genera più query. La generazione di più query può essere più efficiente rispetto al caso di alcune query in EF6, in cui era presente una singola query. Il caricamento eager viene specificato con i metodi `Include` e `ThenInclude`.
 
   ![Esempio di caricamento eager](read-related-data/_static/eager-loading.png)
  
@@ -47,11 +48,11 @@ Esistono diversi modi con cui EF Core può caricare i dati correlati nelle propr
 
   Nota: EF Core corregge automaticamente le proprietà di navigazione per qualsiasi altra entità caricata in precedenza nell'istanza contesto. Anche se i dati per una proprietà di navigazione *non* sono inclusi in modo esplicito, la proprietà può comunque essere popolata se alcune o tutte le entità correlate sono state caricate in precedenza.
 
-* [Caricamento esplicito](https://docs.microsoft.com/ef/core/querying/related-data#explicit-loading) Quando un'entità viene letta per la prima volta, i dati correlati non vengono recuperati. Per recuperare i dati correlati quando necessario, è necessario scrivere codice. Il caricamento esplicito con query separate ha come risultato l'invio di più query al database. Con il caricamento esplicito, il codice specifica le proprietà di navigazione da caricare. Per eseguire il caricamento esplicito, usare il metodo `Load`. Ad esempio:
+* [Caricamento esplicito](/ef/core/querying/related-data#explicit-loading) Quando un'entità viene letta per la prima volta, i dati correlati non vengono recuperati. Per recuperare i dati correlati quando necessario, è necessario scrivere codice. Il caricamento esplicito con query separate ha come risultato l'invio di più query al database. Con il caricamento esplicito, il codice specifica le proprietà di navigazione da caricare. Per eseguire il caricamento esplicito, usare il metodo `Load`. Ad esempio:
 
   ![Esempio di caricamento esplicito](read-related-data/_static/explicit-loading.png)
 
-* [Caricamento lazy](https://docs.microsoft.com/ef/core/querying/related-data#lazy-loading). [Il caricamento lazy è stato aggiunto a EF Core nella versione 2.1](/ef/core/querying/related-data#lazy-loading). Quando un'entità viene letta per la prima volta, i dati correlati non vengono recuperati. La prima volta che si accede a una proprietà di navigazione, i dati necessari per quest'ultima vengono recuperati automaticamente. Ogni volta che si accede a una proprietà di navigazione per la prima volta, viene inviata una query al database.
+* [Caricamento lazy](/ef/core/querying/related-data#lazy-loading). [Il caricamento lazy è stato aggiunto a EF Core nella versione 2.1](/ef/core/querying/related-data#lazy-loading). Quando un'entità viene letta per la prima volta, i dati correlati non vengono recuperati. La prima volta che si accede a una proprietà di navigazione, i dati necessari per quest'ultima vengono recuperati automaticamente. Ogni volta che si accede a una proprietà di navigazione per la prima volta, viene inviata una query al database.
 
 * L'operatore `Select` carica solo i dati correlati necessari.
 

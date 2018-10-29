@@ -5,12 +5,12 @@ description: Viene illustrato come creare un'app Razor Pages con Entity Framewor
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/intro
-ms.openlocfilehash: f714934a2ef804813290ae0c04432470a2ba5816
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: a234d5fefd671d4503f6c63b79074d47c893f69c
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477566"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207706"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>Razor Pages con Entity Framework Core in ASP.NET Core: esercitazione 1 di 8
 
@@ -24,7 +24,7 @@ L'app Web di esempio di Contoso University illustra come creare un'app ASP.NET C
 
 L'app di esempio è un sito Web per una fittizia Contoso University. Include funzionalità, come ad esempio l'ammissione di studenti, la creazione di corsi e le assegnazioni di insegnati. Questa pagina è il prima di una serie di esercitazioni che illustrano come compilare l'app di esempio di Contoso University.
 
-[Scaricare o visualizzare l'app completata.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) [Istruzioni per il download](xref:tutorials/index#how-to-download-a-sample).
+[Scaricare o visualizzare l'app completata.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) [Istruzioni per il download](xref:index#how-to-download-a-sample).
 
 ## <a name="prerequisites"></a>Prerequisiti
 

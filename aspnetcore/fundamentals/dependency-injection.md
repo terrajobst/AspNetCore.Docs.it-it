@@ -4,14 +4,14 @@ author: guardrex
 description: Informazioni su come ASP.NET Core implementa l'inserimento delle dipendenze e su come usare questa funzionalità.
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/02/2018
+ms.date: 10/24/2018
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 193bfc7651b6da6db69e8c15bd6beb82906bde0a
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: d9eb6a01e096c7e8cbcb0979e24331a8d5316a14
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477670"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207654"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Inserimento delle dipendenze in ASP.NET Core
 
@@ -21,7 +21,7 @@ ASP.NET Core supporta il modello progettuale software per l'inserimento delle di
 
 Per altre informazioni specifiche per l'inserimento delle dipendenze all'interno di controller MVC, vedere <xref:mvc/controllers/dependency-injection>.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/samples) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="overview-of-dependency-injection"></a>Panoramica dell'inserimento delle dipendenze
 
@@ -195,8 +195,8 @@ Il metodo `Startup.ConfigureServices` è responsabile della definizione dei serv
 | [Microsoft.Extensions.ObjectPool.ObjectPoolProvider](/dotnet/api/microsoft.extensions.objectpool.objectpoolprovider) | Singleton |
 | [Microsoft.Extensions.Options.IConfigureOptions&lt;T&gt;](/dotnet/api/microsoft.extensions.options.iconfigureoptions-1) | Temporaneo |
 | [Microsoft.Extensions.Options.IOptions&lt;T&gt;](/dotnet/api/microsoft.extensions.options.ioptions-1) | Singleton |
-| [System.Diagnostics.DiagnosticSource](https://docs.microsoft.com/dotnet/core/api/system.diagnostics.diagnosticsource) | Singleton |
-| [System.Diagnostics.DiagnosticListener](https://docs.microsoft.com/dotnet/core/api/system.diagnostics.diagnosticlistener) | Singleton |
+| [System.Diagnostics.DiagnosticSource](/dotnet/core/api/system.diagnostics.diagnosticsource) | Singleton |
+| [System.Diagnostics.DiagnosticListener](/dotnet/core/api/system.diagnostics.diagnosticlistener) | Singleton |
 
 Quando è disponibile un metodo di estensione della raccolta di servizi per la registrazione di un servizio (e dei servizi dipendenti, se necessario), la convenzione consiste nell'usare un singolo metodo di estensione `Add{SERVICE_NAME}` per registrare tutti i servizi richiesti da tale servizio. Il codice seguente è un esempio di come aggiungere servizi aggiuntivi al contenitore usando i metodi di estensione [AddDbContext](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext), [AddIdentity](/dotnet/api/microsoft.extensions.dependencyinjection.identityservicecollectionextensions.addidentity) e [AddMvc](/dotnet/api/microsoft.extensions.dependencyinjection.mvcservicecollectionextensions.addmvc):
 
@@ -494,8 +494,8 @@ L'esempio seguente consente di sostituire il contenitore predefinito con [Autofa
 
 * Installare i pacchetti contenitore appropriati:
 
-    * [Autofac](https://www.nuget.org/packages/Autofac/)
-    * [Autofac.Extensions.DependencyInjection](https://www.nuget.org/packages/Autofac.Extensions.DependencyInjection/)
+  * [Autofac](https://www.nuget.org/packages/Autofac/)
+  * [Autofac.Extensions.DependencyInjection](https://www.nuget.org/packages/Autofac.Extensions.DependencyInjection/)
 
 * Configurare il contenitore in `Startup.ConfigureServices` e restituire `IServiceProvider`:
 

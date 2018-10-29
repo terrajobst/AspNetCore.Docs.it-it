@@ -5,12 +5,12 @@ description: Informazioni su come usare la memorizzazione nella cache delle risp
 ms.author: riande
 ms.date: 09/20/2017
 uid: performance/caching/response
-ms.openlocfilehash: bbf5b649bac9d31aa6d0ecdc3828648677b05716
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 99093cd281ffa8dddc574dc27254c0175e2651b3
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090693"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207368"
 ---
 # <a name="response-caching-in-aspnet-core"></a>La memorizzazione nella cache di risposta in ASP.NET Core
 
@@ -19,7 +19,7 @@ Dal [John Luo](https://github.com/JunTaoLuo), [Rick Anderson](https://twitter.co
 > [!NOTE]
 > La memorizzazione nella cache di risposta in Razor Pages è disponibile in ASP.NET Core 2.1 o versione successiva.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/response/samples) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/response/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 Risposta di memorizzazione nella cache riduce il numero di richieste di che un client o un proxy effettua a un server web. Risposta di memorizzazione nella cache riduce anche la quantità di lavoro esegue il server web per generare una risposta. La memorizzazione nella cache di risposta viene controllato dalle intestazioni che specificano la modalità client, proxy e middleware per memorizzare le risposte.
 
@@ -31,7 +31,7 @@ Il [specifica la memorizzazione nella cache di HTTP 1.1](https://tools.ietf.org/
 
 Common `Cache-Control` direttive vengono visualizzate nella tabella seguente.
 
-| Direttiva                                                       | Azione |
+| Direttiva                                                       | Operazione |
 | --------------------------------------------------------------- | ------ |
 | [public](https://tools.ietf.org/html/rfc7234#section-5.2.2.5)   | Una cache può archiviare la risposta. |
 | [private](https://tools.ietf.org/html/rfc7234#section-5.2.2.6)  | La risposta non deve essere archiviata da una cache condivisa. Una cache privata può archiviare e riutilizzare la risposta. |

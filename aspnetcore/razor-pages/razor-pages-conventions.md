@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 10/12/2018
 uid: razor-pages/razor-pages-conventions
-ms.openlocfilehash: 13fd6c156afd5ab62739b09296a929120ce3450f
-ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
+ms.openlocfilehash: f04e0930966c9aaf38543729565b1ef4a80a09e2
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49348533"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207693"
 ---
 # <a name="razor-pages-route-and-app-conventions-in-aspnet-core"></a>Convenzioni di route e app per Razor Pages in ASP.NET Core
 
@@ -25,7 +25,7 @@ Per specificare una route di pagina, aggiungere segmenti di route o aggiungere p
 
 Sono presenti parole riservate non possono essere usati come segmenti di route o i nomi dei parametri. Per altre informazioni, vedere [Routing: routing nomi riservati](xref:fundamentals/routing#reserved-routing-names).
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/sample/) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/sample/) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ::: moniker range="= aspnetcore-2.0"
 
@@ -204,7 +204,7 @@ Richiedere la pagina di informazioni dell'esempio in `localhost:5000/About/Globa
 
 ## <a name="use-a-parameter-transformer-to-customize-page-routes"></a>Usare un trasformatore di parametri per personalizzare le route di pagina
 
-Le route di pagina generate da ASP.NET Core possono essere personalizzate usando un trasformatore di parametro. Implementa un trasformatore parametro `IOutboundParameterTransformer` e trasforma il valore dei parametri. Ad esempio, una classe personalizzata `SlugifyParameterTransformer` modifiche trasformatore parametro il `SubscriptionManagement` valore di route `subscription-management`.
+Le route di pagina generate da ASP.NET Core possono essere personalizzate usando un trasformatore di parametro. Un trasformatore di parametri implementa `IOutboundParameterTransformer` e trasforma il valore dei parametri. Ad esempio, un trasformatore di parametri `SlugifyParameterTransformer` personalizzato cambia il valore di route `SubscriptionManagement` in `subscription-management`.
 
 Il `PageRouteTransformerConvention` convenzione del modello di route pagina un trasformatore parametro si applica ai segmenti di nome file e cartelle delle route di pagina generata automaticamente in un'app. Ad esempio, le pagine Razor file alla */Pages/SubscriptionManagement/ViewAll.cshtml* avrebbe relativa route riscrivere `/SubscriptionManagement/ViewAll` a `/subscription-management/view-all`.
 

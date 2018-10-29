@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/13/2018
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: 2eddfa03b28564fcca7cc098e353b05e23b7c6f6
-ms.sourcegitcommit: a669c4e3f42e387e214a354ac4143555602e6f66
+ms.openlocfilehash: a06c2da04c1631f5811a535c891ca5190b0d8864
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336258"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207563"
 ---
 # <a name="enhance-an-app-from-an-external-assembly-in-aspnet-core-with-ihostingstartup"></a>Migliorare un'app da un assembly esterno in ASP.NET Core con IHostingStartup
 
@@ -20,7 +20,7 @@ Di [Luke Latham](https://github.com/guardrex)
 
 Un'implementazione [IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup) (avvio dell'hosting) consente l'aggiunta di miglioramenti a un'app all'avvio da un assembly esterno. Una libreria esterna può ad esempio usare un'implementazione di avvio dell'hosting per offrire servizi o provider di configurazione aggiuntivi a un'app. `IHostingStartup`  *è disponibile in ASP.NET Core 2.0 o versioni successive.*
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/platform-specific-configuration/samples/) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/platform-specific-configuration/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="hostingstartup-attribute"></a>Attributo HostingStartup
 
@@ -381,7 +381,7 @@ Per altre informazioni su pacchetti NuGet e l'archivio di runtime, vedere gli ar
 
 ## <a name="sample-code"></a>Codice di esempio
 
-Il [codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/platform-specific-configuration/samples/) ([come eseguire il download](xref:tutorials/index#how-to-download-a-sample)) illustra gli scenari di implementazione dell'avvio dell'hosting:
+Il [codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/platform-specific-configuration/samples/) ([come eseguire il download](xref:index#how-to-download-a-sample)) illustra gli scenari di implementazione dell'avvio dell'hosting:
 
 * Due assembly di avvio dell'hosting (librerie di classi) impostano ognuno una coppia chiave-valore di configurazione in memoria:
   * Pacchetto NuGet (*HostingStartupPackage*)

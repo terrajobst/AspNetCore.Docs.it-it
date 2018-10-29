@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/29/2018
 uid: security/gdpr
-ms.openlocfilehash: 3394eb167d925451947114ea410ef7cb117dd1e2
-ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
+ms.openlocfilehash: 8fba3016de5460fd61574887501f7c453d5e5c30
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46482931"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207927"
 ---
 # <a name="eu-general-data-protection-regulation-gdpr-support-in-aspnet-core"></a>Supporto dell'Unione europea protezione il regolamento GDPR (General Data) in ASP.NET Core
 
@@ -28,7 +28,7 @@ ASP.NET Core offre API e i modelli per soddisfare alcune delle [EU protezione il
 
 Il [app di esempio](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample) consente testare la maggior parte dei punti di estensione al GDPR e aggiunte le API per i modelli ASP.NET Core 2.1. Vedere le [Leggimi](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample) file per testare le istruzioni.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="aspnet-core-gdpr-support-in-template-generated-code"></a>Supporto per GDPR ASP.NET Core nel codice del modello generato
 

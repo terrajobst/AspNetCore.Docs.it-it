@@ -3,14 +3,15 @@ title: ASP.NET Core MVC con EF Core - Modello di dati - 5 di 10
 author: rick-anderson
 description: In questa esercitazione si aggiungono altre entità e relazioni e si personalizza il modello di dati specificando regole di formattazione, convalida e mapping.
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 3714cf7ce705a52653394319fef1728a6ddcc3ee
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 87212edbfe34af6de938cf95314501e56e64a8be
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011769"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091041"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---data-model---5-of-10"></a>ASP.NET Core MVC con EF Core - Modello di dati - 5 di 10
 
@@ -232,7 +233,7 @@ In *Models/Course.cs* sostituire il codice aggiunto in precedenza con il codice 
 
 L'entità Course ha una proprietà di chiave esterna `DepartmentID` che fa riferimento all'entità Department correlata e include una proprietà di navigazione `Department`.
 
-In Entity Framework non è necessario aggiungere una proprietà di chiave esterna al modello di dati se è disponibile una proprietà di navigazione per un'entità correlata.  EF crea automaticamente chiavi esterne nel database ogni volta che sono necessarie e crea [proprietà nascoste](https://docs.microsoft.com/ef/core/modeling/shadow-properties) per tali chiavi. Tuttavia il fatto di avere la chiave esterna nel modello di dati può rendere più semplici ed efficienti gli aggiornamenti. Quando ad esempio si recupera un'entità Course per la modifica, l'entità Department è null se non viene caricata, pertanto prima di aggiornare l'entità Course è necessario recuperare l'entità Department. Quando la proprietà di chiave esterna `DepartmentID` viene inclusa nel modello di dati, non è necessario recuperare l'entità Department prima di eseguire l'aggiornamento.
+In Entity Framework non è necessario aggiungere una proprietà di chiave esterna al modello di dati se è disponibile una proprietà di navigazione per un'entità correlata.  EF crea automaticamente chiavi esterne nel database ogni volta che sono necessarie e crea [proprietà nascoste](/ef/core/modeling/shadow-properties) per tali chiavi. Tuttavia il fatto di avere la chiave esterna nel modello di dati può rendere più semplici ed efficienti gli aggiornamenti. Quando ad esempio si recupera un'entità Course per la modifica, l'entità Department è null se non viene caricata, pertanto prima di aggiornare l'entità Course è necessario recuperare l'entità Department. Quando la proprietà di chiave esterna `DepartmentID` viene inclusa nel modello di dati, non è necessario recuperare l'entità Department prima di eseguire l'aggiornamento.
 
 ### <a name="the-databasegenerated-attribute"></a>Attributo DatabaseGenerated
 
@@ -246,7 +247,7 @@ public int CourseID { get; set; }
 
 Per impostazione predefinita, Entity Framework presuppone che i valori di chiave primaria vengano generati dal database. Questa è la condizione ottimale nella maggior parte degli scenari. Tuttavia per le entità Course si userà un numero di corso specificato dall'utente, ad esempio il numero di serie 1000 per un reparto, il numero di serie 2000 per un altro reparto e così via.
 
-Anche l'attributo `DatabaseGenerated` può essere usato anche per generare valori predefiniti, come nel caso delle colonne di database usate per registrare la data di creazione o aggiornamento di una riga.  Per altre informazioni, vedere [Generated Properties](https://docs.microsoft.com/ef/core/modeling/generated-properties) (Proprietà generate).
+Anche l'attributo `DatabaseGenerated` può essere usato anche per generare valori predefiniti, come nel caso delle colonne di database usate per registrare la data di creazione o aggiornamento di una riga.  Per altre informazioni, vedere [Generated Properties](/ef/core/modeling/generated-properties) (Proprietà generate).
 
 ### <a name="foreign-key-and-navigation-properties"></a>Proprietà chiave esterna e di navigazione
 
@@ -373,7 +374,7 @@ Creare *Models/CourseAssignment.cs* con il codice seguente:
 
 Dato che le chiavi esterne non sono nullable e insieme identificano in modo univoco ogni riga della tabella, non è necessario avere una chiave primaria separata. Le proprietà *InstructorID* e *CourseID* funzionano come una chiave primaria composta. L'unico modo per identificare le chiavi primarie composte in Entity Framework è l'uso di *API Fluent* (l'operazione non può essere eseguita con gli attributi). Nella sezione successiva si vedrà come configurare la chiave primaria composta.
 
-La chiave composta garantisce che anche se è possibile avere più righe per un corso e più righe per un insegnante, non è possibile avere più righe per lo stesso insegnante e lo stesso corso. L'entità di join `Enrollment` definisce la propria chiave primaria, pertanto sono possibili i duplicati di questo tipo. Per evitare tali duplicati è possibile aggiungere un indice univoco ai campi chiave esterna o configurare `Enrollment` con una chiave primaria composta simile a `CourseAssignment`. Per altre informazioni, vedere [Indexes](https://docs.microsoft.com/ef/core/modeling/indexes) (Indici).
+La chiave composta garantisce che anche se è possibile avere più righe per un corso e più righe per un insegnante, non è possibile avere più righe per lo stesso insegnante e lo stesso corso. L'entità di join `Enrollment` definisce la propria chiave primaria, pertanto sono possibili i duplicati di questo tipo. Per evitare tali duplicati è possibile aggiungere un indice univoco ai campi chiave esterna o configurare `Enrollment` con una chiave primaria composta simile a `CourseAssignment`. Per altre informazioni, vedere [Indexes](/ef/core/modeling/indexes) (Indici).
 
 ## <a name="update-the-database-context"></a>Aggiornare il contesto di database
 
@@ -385,7 +386,7 @@ Questo codice aggiunge le nuove entità e configura la chiave primaria composta 
 
 ## <a name="fluent-api-alternative-to-attributes"></a>Alternativa API Fluent agli attributi
 
-Il codice nel metodo `OnModelCreating` della classe `DbContext` usa l'*API Fluent* per configurare il comportamento di Entity Framework. L'API è denominata "API Fluent" perché viene spesso usata unendo una serie di chiamate di metodi in un'unica istruzione, come in questo esempio tratto dalla [documentazione di EF Core](https://docs.microsoft.com/ef/core/modeling/#methods-of-configuration):
+Il codice nel metodo `OnModelCreating` della classe `DbContext` usa l'*API Fluent* per configurare il comportamento di Entity Framework. L'API è denominata "API Fluent" perché viene spesso usata unendo una serie di chiamate di metodi in un'unica istruzione, come in questo esempio tratto dalla [documentazione di EF Core](/ef/core/modeling/#methods-of-configuration):
 
 ```csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -400,7 +401,7 @@ In questa esercitazione si usa l'API Fluent solo per operazioni di mapping del d
 
 Alcuni sviluppatori preferiscono usare solo l'API Fluent, per dare un aspetto "ordinato" alle classi di entità. È possibile usare un misto di attributi e API Fluent e alcune personalizzazioni sono eseguibili solo mediante l'API Fluent, ma in generale è consigliabile scegliere uno dei due approcci e usarlo in modo il più possibile coerente. Se si usano entrambi gli approcci, tenere presente che ogni volta che si verifica un conflitto l'API Fluent esegue l'override degli attributi.
 
-Per altre informazioni sul confronto tra attributi e API Fluent, vedere [Metodi di configurazione](https://docs.microsoft.com/ef/core/modeling/#methods-of-configuration).
+Per altre informazioni sul confronto tra attributi e API Fluent, vedere [Metodi di configurazione](/ef/core/modeling/#methods-of-configuration).
 
 ## <a name="entity-diagram-showing-relationships"></a>Diagramma dell'entità che visualizza le relazioni
 

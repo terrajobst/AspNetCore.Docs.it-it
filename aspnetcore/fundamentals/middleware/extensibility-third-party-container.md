@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/02/2018
 uid: fundamentals/middleware/extensibility-third-party-container
-ms.openlocfilehash: 81d52aafd4e4d964aaec1c5fe61e585b023ff915
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 6af775c66a1de7f1a4f06a4a639ade20c6493b2a
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36279506"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206809"
 ---
 # <a name="middleware-activation-with-a-third-party-container-in-aspnet-core"></a>Attivazione del middleware con un contenitore di terze parti in ASP.NET Core
 
@@ -19,7 +19,7 @@ Di [Luke Latham](https://github.com/guardrex)
 
 In questo articolo viene illustrato come utilizzare [IMiddlewareFactory](/dotnet/api/microsoft.aspnetcore.http.imiddlewarefactory) e [IMiddleware](/dotnet/api/microsoft.aspnetcore.http.imiddleware) come punto di estendibilità per l'attivazione del [middleware](xref:fundamentals/middleware/index) con un contenitore di terze parti. Per informazioni introduttive su `IMiddlewareFactory` e `IMiddleware`, vedere l'argomento [Attivazione del middleware basata su factory](xref:fundamentals/middleware/extensibility).
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/extensibility-third-party-container/sample) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/extensibility-third-party-container/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 L'app di esempio illustra l'attivazione del middleware da parte di un'implementazione `IMiddlewareFactory`, `SimpleInjectorMiddlewareFactory`. Nell'esempio viene utilizzato il contenitore di inserimento delle dipendenze [Simple Injector](https://simpleinjector.org).
 

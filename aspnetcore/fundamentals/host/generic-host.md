@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/16/2018
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: 0924e2764958911dc1711d5427f6dd58e8873739
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: e5f91ed64b7f8402dfe938f0fa8a0d94755d15c6
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477605"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207719"
 ---
 # <a name="net-generic-host"></a>Host generico .NET
 
@@ -24,7 +24,7 @@ L'obiettivo dell'host generico è separare la pipeline HTTP dall'API dell'host W
 
 L'host generico è una nuova funzionalità introdotta in ASP.NET Core 2.1 e non è adatto agli scenari di hosting Web. Per gli scenari di hosting Web usare l'[host Web](xref:fundamentals/host/web-host). L'host generico è in fase di sviluppo e sostituirà l'host Web in una versione futura, funzionando come API host principale negli scenari sia HTTP che non HTTP.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/generic-host/samples/) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/generic-host/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 Quando si esegue l'app di esempio in [Visual Studio Code](https://code.visualstudio.com/), usare un *terminale esterno o integrato*. Non eseguire l'esempio in un ambiente `internalConsole`.
 

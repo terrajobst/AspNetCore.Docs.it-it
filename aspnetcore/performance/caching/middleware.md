@@ -7,22 +7,22 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/26/2017
 uid: performance/caching/middleware
-ms.openlocfilehash: b5eef012356236d600d026e5161a2df5a7954e3b
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 4b2c71aad4b5bcfee14a271303df5874ccfedb90
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090485"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207329"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Middleware di ASP.NET Core della memorizzazione nella cache
 
 Dal [Luke Latham](https://github.com/guardrex) e [John Luo](https://github.com/JunTaoLuo)
 
-[Visualizzare o scaricare codice di esempio ASP.NET Core 2.1](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/middleware/samples) ([come scaricare](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/middleware/samples) ([procedura per il download](xref:index#how-to-download-a-sample)).
 
 Questo articolo illustra come configurare Middleware di memorizzazione nella cache delle risposte in un'app ASP.NET Core. Il middleware determina quando le risposte sono inseribili nella cache, archivi di risposte e funge da risposta dalla cache. Per un'introduzione alla memorizzazione nella cache HTTP e il `ResponseCache` dell'attributo, vedere [risposte nella cache](xref:performance/caching/response).
 
-## <a name="package"></a>Package
+## <a name="package"></a>Pacchetto
 
 ::: moniker range=">= aspnetcore-2.1"
 
