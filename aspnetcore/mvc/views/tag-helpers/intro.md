@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2018
 uid: mvc/views/tag-helpers/intro
-ms.openlocfilehash: c2af9099fe439e1cdbf9ba86ffae3b2b0f67391e
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 4b9bceb3ce0153af2d9a30c402febe09707145b7
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41751715"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477306"
 ---
 # <a name="tag-helpers-in-aspnet-core"></a>Helper tag in ASP.NET Core
 
@@ -68,7 +68,7 @@ Se si crea una nuova app Web ASP.NET Core denominata *AuthoringTagHelpers*, al p
 
 [!code-cshtml[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=2&range=2-3)]
 
-La direttiva `@addTagHelper` rende gli helper tag disponibili per la visualizzazione. In questo caso, il file di visualizzazione è *Pages/_ViewImports.cshtml* che per impostazione predefinita viene ereditato da tutti i file nella cartella *Pages* e nelle sottocartelle, rendendo disponibili gli helper tag. Il codice riportato sopra usa la sintassi con caratteri jolly ("\*") per specificare che tutti gli helper tag nell'assembly specificato (*Microsoft.AspNetCore.Mvc.TagHelpers*) saranno disponibili per tutti i file di visualizzazione nella directory *Views* o nelle sottodirectory. Il primo parametro dopo `@addTagHelper` specifica gli helper tag da caricare (viene usato "\*" per tutti gli helper tag) e il secondo parametro "Microsoft.AspNetCore.Mvc.TagHelpers" specifica l'assembly contenente gli helper tag. *Microsoft.AspNetCore.Mvc.TagHelpers* è l'assembly per gli helper tag predefiniti di ASP.NET Core.
+La direttiva `@addTagHelper` rende gli helper tag disponibili per la visualizzazione. In questo caso, il file della visualizzazione è *Pages/_ViewImports.cshtml* che per impostazione predefinita viene ereditato da tutti i file nella cartella *Pages* e nelle sottocartelle, rendendo disponibili gli helper tag. Il codice riportato sopra usa la sintassi con caratteri jolly ("\*") per specificare che tutti gli helper tag nell'assembly specificato (*Microsoft.AspNetCore.Mvc.TagHelpers*) saranno disponibili per tutti i file di visualizzazione nella directory *Views* o nelle sottodirectory. Il primo parametro dopo `@addTagHelper` specifica gli helper tag da caricare (viene usato "\*" per tutti gli helper tag) e il secondo parametro "Microsoft.AspNetCore.Mvc.TagHelpers" specifica l'assembly contenente gli helper tag. *Microsoft.AspNetCore.Mvc.TagHelpers* è l'assembly per gli helper tag predefiniti di ASP.NET Core.
 
 Per esporre tutti gli helper tag di questo progetto, che crea un assembly denominato *AuthoringTagHelpers*, usare il codice seguente:
 
@@ -127,6 +127,10 @@ Nell'immagine di codice seguente, il prefisso dell'helper tag è impostato su `t
 ![immagine](intro/_static/thp.png)
 
 Le stesse regole di gerarchia che si applicano a `@addTagHelper` sono valide anche per `@tagHelperPrefix`.
+
+## <a name="self-closing-tag-helpers"></a>Helper tag di chiusura automatico
+
+Molti helper tag non possono essere usati come tag di chiusura automatici. Alcuni helper tag sono progettati per essere tag di chiusura automatici. Se si usa un helper tag non progettato per la chiusura automatica, l'output sottoposto a rendering viene eliminato. La chiusura automatica di un helper tag genera un tag di chiusura automatico nell'output sottoposto a rendering. Per altre informazioni, vedere [questa nota](xref:mvc/views/tag-helpers/authoring#self-closing) in [Creare helper tag in ASP.NET Core](xref:mvc/views/tag-helpers/authoring).
 
 ## <a name="intellisense-support-for-tag-helpers"></a>Supporto IntelliSense per gli helper tag
 

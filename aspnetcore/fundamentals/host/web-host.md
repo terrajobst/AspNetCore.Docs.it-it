@@ -4,14 +4,14 @@ author: guardrex
 description: Informazioni sull'host Web in ASP.NET Core, responsabile della gestione dell'avvio e della durata delle app.
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/19/2018
+ms.date: 10/18/2018
 uid: fundamentals/host/web-host
-ms.openlocfilehash: abb687c864ebe863c2bba265131c29939961cac0
-ms.sourcegitcommit: a669c4e3f42e387e214a354ac4143555602e6f66
+ms.openlocfilehash: e19f12f69dfdd5653aea9c6be2b05f24009b875e
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336066"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477449"
 ---
 # <a name="aspnet-core-web-host"></a>Host Web ASP.NET Core
 
@@ -46,10 +46,10 @@ public class Program
 * Carica la [configurazione dell'host](#host-configuration-values) da:
   * Le variabili di ambiente con prefisso `ASPNETCORE_` (ad esempio, `ASPNETCORE_ENVIRONMENT`).
   * Argomenti della riga di comando.
-* Carica la configurazione dell'app da:
+* Carica la configurazione dell'app nell'ordine seguente da:
   * *appsettings.json*.
   * *appsettings.{Environment}.json*.
-  * [Segreti dell'utente](xref:security/app-secrets) quando l'app viene eseguita nell'ambiente `Development` usando l'assembly di ingresso.
+  * [Strumento di gestione dei segreti](xref:security/app-secrets) quando l'app viene eseguita nell'ambiente `Development` usando l'assembly di ingresso.
   * Variabili di ambiente.
   * Argomenti della riga di comando.
 * Configura la [registrazione](xref:fundamentals/logging/index) per l'output della console e del debug. La registrazione include le regole di [filtro dei log](xref:fundamentals/logging/index#log-filtering) specificate nella sezione di configurazione della registrazione di un file *appsettings.json* o *appsettings.{Environment}.json*.
@@ -80,6 +80,25 @@ La configurazione definita da `CreateDefaultBuilder` può essere sottoposta a ov
         ...
     ```
 
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+* La chiamata a `ConfigureKestrel` seguente sostituisce il valore predefinito [Limits.MaxRequestBodySize](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits.maxrequestbodysize) di 30.000.000 di byte stabilito durante la configurazione del Kestrel da `CreateDefaultBuilder`:
+
+    ```csharp
+    WebHost.CreateDefaultBuilder(args)
+        .ConfigureKestrel((context, options) =>
+        {
+            options.Limits.MaxRequestBodySize = 20000000;
+        });
+        ...
+    ```
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0 || aspnetcore-2.1"
+
 * La chiamata a [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel) seguente sostituisce il valore predefinito [Limits.MaxRequestBodySize](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits.maxrequestbodysize) di 30.000.000 di byte stabilito durante la configurazione del Kestrel da `CreateDefaultBuilder`:
 
     ```csharp
@@ -90,6 +109,10 @@ La configurazione definita da `CreateDefaultBuilder` può essere sottoposta a ov
         });
         ...
     ```
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.0"
 
 La *radice del contenuto* determina la posizione in cui l'host cerca i file dei contenuti, ad esempio i file di visualizzazione MVC. Quando l'app viene avviata dalla cartella radice del progetto, la cartella radice del progetto viene usata come radice del contenuto. Si tratta dell'impostazione predefinita usata in [Visual Studio](https://www.visualstudio.com/) e nei [nuovi modelli dotnet](/dotnet/core/tools/dotnet-new).
 
@@ -161,7 +184,7 @@ La proprietà [IHostingEnvironment.ApplicationName](/dotnet/api/microsoft.extens
 **Tipo**: *string*  
 **Impostazione predefinita**: il nome dell'assembly contenente il punto di ingresso dell'app.  
 **Impostare usando**: `UseSetting`  
-**Variabile di ambiente**: `ASPNETCORE_APPLICATIONKEY`
+**Variabile di ambiente**: `ASPNETCORE_APPLICATIONNAME`
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -342,15 +365,13 @@ WebHost.CreateDefaultBuilder(args)
 
 ### <a name="hosting-startup-exclude-assemblies"></a>Assembly di avvio dell'hosting da escludere
 
-DESCRIPTION
+Una stringa delimitata da punto e virgola di assembly di avvio dell'hosting da escludere all'avvio.
 
 **Chiave**: hostingStartupExcludeAssemblies  
 **Tipo**: *string*  
 **Impostazione predefinita**: stringa vuota  
 **Impostare usando**: `UseSetting`  
 **Variabile di ambiente**: `ASPNETCORE_HOSTINGSTARTUPEXCLUDEASSEMBLIES`
-
-Una stringa delimitata da punto e virgola di assembly di avvio dell'hosting da escludere all'avvio.
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)

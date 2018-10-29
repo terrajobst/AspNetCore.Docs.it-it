@@ -1,58 +1,62 @@
 ---
 title: Helper tag di immagine in ASP.NET Core
 author: pkellner
-description: Informazioni sull'uso dell'helper tag di immagine
+description: Informazioni sull'uso dell'helper tag di immagine.
 ms.author: riande
-ms.date: 02/14/2017
+ms.custom: mvc
+ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/image-tag-helper
-ms.openlocfilehash: 7ed160354b25aa0183ac49db93307b1f1b4d0666
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 5eb74a6698911a1c594d11573192cb1b9ed53b49
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276643"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325835"
 ---
 # <a name="image-tag-helper-in-aspnet-core"></a>Helper tag di immagine in ASP.NET Core
 
-Di [Peter Kellner](http://peterkellner.net) 
+Di [Peter Kellner](http://peterkellner.net)
 
-L'helper tag di immagine migliora il tag `img` (`<img>`). Richiede un tag `src` e l'attributo `boolean` `asp-append-version`.
+L'helper tag di immagine migliora il tag `<img>` per rendere disponibile il comportamento di cache-busting per i file di immagine statici.
 
-Se l'origine dell'immagine (`src`) è un file statico nel server Web host, una stringa di cache busting univoca viene accodata come parametro di query all'origine dell'immagine. Questo garantisce che se il file nel server Web host cambia viene generato un URL di richiesta univoco, che include il parametro di richiesta di aggiornamento. La stringa di cache busting è un valore univoco che rappresenta l'hash del file immagine statico.
+Una stringa di cache-busting è un valore univoco che rappresenta l'hash del file di immagine statico aggiunto all'URL dell'asset. La stringa univoca richiede ai client (e ad alcuni proxy) di ricaricare l'immagine dal server Web host e non dalla cache del client.
 
-Se l'origine dell'immagine (`src`) non è un file statico (ad esempio se è un URL remoto o se il file non esiste nel server), l'attributo `src` del tag `<img>` viene generato senza il parametro di query con stringa di cache busting.
+Se l'origine dell'immagine (`src`) è un file statico nel server Web host:
+
+* Una stringa di cache-busting univoca viene aggiunta come parametro di query all'origine dell'immagine.
+* Se il file nel server Web host cambia, viene generato un URL di richiesta univoco, che include il parametro di richiesta aggiornato.
+
+Per una panoramica degli helper tag, vedere <xref:mvc/views/tag-helpers/intro>.
 
 ## <a name="image-tag-helper-attributes"></a>Attributi dell'helper tag di immagine
 
+### <a name="src"></a>src
+
+Per attivare l'helper tag di immagine, è richiesto l'attributo `src` per l'elemento `<img>`.
+
+L'origine dell'immagine (`src`) deve puntare a un file fisico statico nel server. Se `src` è un URI remoto, il parametro di stringa di query di cache-busting non viene generato.
 
 ### <a name="asp-append-version"></a>asp-append-version
 
-Quando viene specificato insieme a un attributo `src`, viene chiamato l'helper tag di immagine.
+Quando si specifica `asp-append-version` con un valore `true` insieme a un attributo `src`, viene chiamato l'helper tag di immagine.
 
-Un esempio di helper tag `img` valido è il seguente:
+L'esempio seguente usa un helper tag di immagine:
 
 ```cshtml
-<img src="~/images/asplogo.png" 
-    asp-append-version="true"  />
+<img src="~/images/asplogo.png" asp-append-version="true" />
 ```
 
-Se il file statico esiste nella directory *..wwwroot/images/asplogo.png* il codice HTML generato è simile al seguente (il codice hash è diverso):
+Se il file statico esiste nella directory */wwwroot/images/* il codice HTML generato è simile al seguente (l'hash sarà diverso):
 
 ```html
-<img 
-    src="/images/asplogo.png?v=Kl_dqr9NVtnMdsM2MUg4qthUnWZm5T1fCEimBPWDNgM"/>
+<img src="/images/asplogo.png?v=Kl_dqr9NVtnMdsM2MUg4qthUnWZm5T1fCEimBPWDNgM" />
 ```
 
-Il valore assegnato al parametro `v` è il valore hash dei file su disco. Se il server Web non è in grado di ottenere l'accesso in lettura al file statico di riferimento, non viene aggiunto nessun parametro `v` all'attributo `src`.
+Il valore assegnato al parametro `v` è il valore dell'hash del file *asplogo.png* su disco. Se il server Web non è in grado di ottenere l'accesso in lettura al file statico, non viene aggiunto alcun parametro `v` all'attributo `src` nel markup di cui viene eseguito il rendering.
 
-- - -
+## <a name="hash-caching-behavior"></a>Comportamento di memorizzazione nella cache dell'hash
 
-### <a name="src"></a>src
-
-Per attivare l'helper tag di immagine l'attributo src è obbligatorio nell'elemento `<img>`. 
-
-> [!NOTE]
-> L'helper tag di immagine usa il provider `Cache` nel server Web locale per archiviare l'elemento `Sha512` calcolato di un file dato. Se il file viene richiesto di nuovo, non è necessario ricalcolare `Sha512`. La cache viene invalidata da un watcher di file che viene associato al file quando si calcola l'elemento `Sha512` del file stesso.
+L'helper tag di immagine usa il provider di cache nel server Web locale per archiviare l'hash `Sha512` calcolato di un determinato file. Se il file è richiesto più volte, l'hash non viene ricalcolato. La cache viene invalidata da un watcher di file che viene associato al file quando viene calcolato l'hash `Sha512` del file. Quando il file cambia su disco, viene calcolato e memorizzato nella cache un nuovo hash.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

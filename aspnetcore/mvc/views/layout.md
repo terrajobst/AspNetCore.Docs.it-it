@@ -3,20 +3,29 @@ title: Layout in ASP.NET Core
 author: ardalis
 description: Informazioni su come usare layout comuni, condividere direttive ed eseguire codice comune prima di eseguire il rendering delle visualizzazioni in un'applicazione ASP.NET Core.
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 10/18/2018
 uid: mvc/views/layout
-ms.openlocfilehash: ad0b339572f387be8a636204015ffc361947acb8
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: b23fd4e0b1d91a4dd5aae548aa2b2081aa37a561
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41751744"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391297"
 ---
 # <a name="layout-in-aspnet-core"></a>Layout in ASP.NET Core
 
-Di [Steve Smith](https://ardalis.com/)
+Di [Steve Smith](https://ardalis.com/) e [Dave Brock](https://twitter.com/daveabrock)
 
-Le visualizzazioni condividono spesso elementi visivi e a livello di codice. In questo articolo verrà spiegato come usare layout comuni, condividere direttive ed eseguire codice comune prima di eseguire il rendering delle visualizzazioni nell'app ASP.NET Core.
+Le pagine e le visualizzazioni condividono spesso elementi visivi e programmatici. Questo articolo illustra come:
+
+* Usare layout comuni.
+* Condividere direttive.
+* Eseguire codice comune prima del rendering di pagine o visualizzazioni.
+
+Questo documento illustra i layout per i due diversi approcci per ASP.NET Core MVC: Razor Pages e controller con visualizzazioni. Per questo argomento le differenze siano minime:
+
+* Le pagine Razor Pages sono disponibili nella cartella *Pages*.
+* I controller con visualizzazioni usano una cartella *Views* per le visualizzazioni.
 
 ## <a name="what-is-a-layout"></a>Che cos'è il layout?
 
@@ -26,15 +35,21 @@ La maggior parte delle applicazioni web presenta un layout comune che fornisce a
 
 Molte pagine all'interno di un'app utilizzano anche strutture HTML comuni, come script e fogli di stile. Tutti questi elementi condivisi possono essere definiti in un file di *layout*, cui è possibile fare riferimento da qualsiasi visualizzazione utilizzata all'interno dell'app. I layout riducono il codice duplicato nelle visualizzazioni, consentendo di seguire il [principio Don't Repeat Yourself (DRY)](http://deviq.com/don-t-repeat-yourself/).
 
-Per convenzione, il layout predefinito per un'app ASP.NET Core è denominato `_Layout.cshtml`. Il modello di progetto di Visual Studio ASP.NET Core MVC include questo file di layout nella cartella `Views/Shared`:
+Per convenzione, il layout predefinito per un'app ASP.NET Core è denominato *_Layout.cshtml*. File di layout per i nuovi progetti ASP.NET Core creati con i modelli:
 
-![cartella visualizzazioni in Esplora soluzioni](layout/_static/web-project-views.png)
+* Razor Pages: *Pages/Shared/_Layout.cshtml*
 
-Questo layout definisce un modello di livello superiore per le visualizzazioni incluse nell'app. Le app non richiedono un layout e possono definire più di un layout, con diverse visualizzazioni che specificano layout diversi.
+  ![Cartella Pages in Esplora soluzioni](layout/_static/rp-web-project-views.png)
 
-Esempio di `_Layout.cshtml`:
+* Controller con visualizzazioni: *Views/Shared/_Layout.cshtml*
 
-[!code-html[](../../common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=42,66)]
+ ![cartella visualizzazioni in Esplora soluzioni](layout/_static/mvc-web-project-views.png)
+
+Il layout definisce un modello di primo livello per le visualizzazioni nell'app. Le app non richiedono un layout. Le app possono definire più di un layout, con visualizzazioni diverse che specificano layout differenti.
+
+Il codice seguente mostra il file di layout per un progetto creato da modello con un controller e visualizzazioni:
+
+[!code-html[](~/common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=44,72)]
 
 ## <a name="specifying-a-layout"></a>Definizione di un layout
 
@@ -42,7 +57,7 @@ Le visualizzazioni Razor hanno una proprietà `Layout`. Le visualizzazioni singo
 
 [!code-html[](../../common/samples/WebApplication1/Views/_ViewStart.cshtml?highlight=2)]
 
-Il layout specificato può utilizzare un percorso completo (esempio: `/Views/Shared/_Layout.cshtml`) o un nome parziale (esempio: `_Layout`). Quando viene fornito un nome parziale, il motore di visualizzazione Razor cerca il file di layout tramite il processo di individuazione standard. Viene innanzitutto cercata la cartella associata al controller, seguita dalla cartella `Shared`. Questo processo di individuazione è identico a quello utilizzato per individuare le [visualizzazioni parziali](partial.md).
+Il layout specificato può usare un percorso completo (ad esempio, */Pages/Shared/_Layout.cshtml* o */Views/Shared/_Layout.cshtml*) oppure un nome parziale (ad esempio: `_Layout`). Quando viene fornito un nome parziale, il motore di visualizzazione Razor cerca il file di layout tramite il processo di individuazione standard. La ricerca viene eseguita prima nella cartella in cui è presente il metodo gestore (o controller) e poi nella cartella *Shared*. Questo processo di individuazione è identico a quello utilizzato per individuare le [visualizzazioni parziali](partial.md).
 
 Per impostazione predefinita, ogni layout deve chiamare `RenderBody`. Quando viene eseguita la chiamata a `RenderBody`, viene eseguito il rendering del contenuto della visualizzazione.
 
@@ -50,19 +65,37 @@ Per impostazione predefinita, ogni layout deve chiamare `RenderBody`. Quando vie
 
 ### <a name="sections"></a>Sezioni
 
-Un layout può facoltativamente fare riferimento a una o più *sezioni*, chiamando `RenderSection`. Le sezioni forniscono un modo per organizzare la posizione in cui devono essere inseriti determinati elementi di pagina. Ogni chiamata a `RenderSection` può specificare se tale sezione è obbligatoria o facoltativa. Se una sezione richiesta non viene trovata, verrà generata un'eccezione. Le viste singole specificano il contenuto da sottoporre a rendering all'interno di una sezione tramite la sintassi Razor `@section`. Se una visualizzazione definisce una sezione, è necessario eseguirne il rendering (o si verifica un errore).
+Un layout può facoltativamente fare riferimento a una o più *sezioni*, chiamando `RenderSection`. Le sezioni forniscono un modo per organizzare la posizione in cui devono essere inseriti determinati elementi di pagina. Ogni chiamata a `RenderSection` può specificare se tale sezione è obbligatoria o facoltativa:
 
-Esempio di definizione `@section` in una visualizzazione:
+```html
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}
+```
+
+Se una sezione richiesta non viene trovata, viene generata un'eccezione. Le viste singole specificano il contenuto da sottoporre a rendering all'interno di una sezione tramite la sintassi Razor `@section`. Se una pagina o una visualizzazione definisce una sezione, è necessario eseguirne il rendering (o si verifica un errore).
+
+Definizione `@section` di esempio nella visualizzazione Razor Pages:
 
 ```html
 @section Scripts {
      <script type="text/javascript" src="/scripts/main.js"></script>
-   }
-   ```
+}
+```
 
-Nel codice precedente vengono aggiunti script di convalida alla sezione `scripts` in una visualizzazione che include un modulo. Altre visualizzazioni nella stessa applicazione potrebbero non richiedere altri script, pertanto non sarà necessario definire una sezione di script.
+Nel codice precedente, *scripts/main.js* viene aggiunto alla sezione `scripts` in una pagina o visualizzazione. Altre pagine o visualizzazioni nella stessa app potrebbero non richiedere questo script e non definire una sezione scripts.
 
-Le sezioni definite in una visualizzazione sono disponibili solo nella relativa pagina di layout immediato. Non è possibile farvi riferimento da righe parzialmente eseguite, componenti di visualizzazione o altre parti del sistema di visualizzazione.
+Il markup seguente usa l'[helper tag parziale](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper) per eseguire il rendering di *_ValidationScriptsPartial.cshtml*:
+
+```html
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+```
+
+Il markup precedente è stato generato tramite [scaffolding di Identity](xref:security/authentication/scaffold-identity).
+
+Le sezioni definite in una pagina o in una visualizzazione sono disponibili solo nella relativa pagina di layout immediato. Non è possibile farvi riferimento da righe parzialmente eseguite, componenti di visualizzazione o altre parti del sistema di visualizzazione.
 
 ### <a name="ignoring-sections"></a>Esclusione di sezioni
 
@@ -76,20 +109,14 @@ Deve essere eseguito il rendering della parte principale e di tutte le sezioni d
 
 ## <a name="importing-shared-directives"></a>Importazione delle direttive condivise
 
-Le visualizzazioni possono utilizzare le direttive Razor per eseguire molte operazioni, ad esempio l'importazione di spazi dei nomi o l'esecuzione dell'[inserimento di dipendenze](dependency-injection.md). Le direttive condivise da numerose visualizzazioni possono essere specificate in un file `_ViewImports.cshtml` comune. Il file `_ViewImports` supporta le direttive seguenti:
+Le visualizzazioni e le pagine possono usare direttive Razor per l'importazione di spazi dei nomi e usare l'[inserimento delle dipendenze](dependency-injection.md). Le direttive condivise da numerose visualizzazioni possono essere specificate in un file *_ViewImports.cshtml* comune. Il file `_ViewImports` supporta le direttive seguenti:
 
 * `@addTagHelper`
-
 * `@removeTagHelper`
-
 * `@tagHelperPrefix`
-
 * `@using`
-
 * `@model`
-
 * `@inherits`
-
 * `@inject`
 
 Il file non supporta altre funzionalità di Razor, come le funzioni e le definizioni di sezione.
@@ -98,35 +125,34 @@ Esempio di file `_ViewImports.cshtml`:
 
 [!code-html[](../../common/samples/WebApplication1/Views/_ViewImports.cshtml)]
 
-Il file `_ViewImports.cshtml` per un'applicazione ASP.NET Core MVC viene generalmente posizionato nella cartella `Views`. È possibile collocare un file `_ViewImports.cshtml` in qualsiasi cartella, nel qual caso verrà applicato unicamente alle visualizzazioni all'interno di tale cartella e nelle relative sottocartelle. I file `_ViewImports` vengono elaborati a partire dal livello radice e successivamente per ogni cartella collegata al percorso della visualizzazione stessa, pertanto le impostazioni specificate al livello radice possono essere sottoposte a override a livello di cartella.
+Il file *_ViewImports.cshtml* per un'app ASP.NET Core MVC viene generalmente posizionato nella cartella *Pages* (o *Views*). È possibile posizionare un file *_ViewImports.cshtml* in qualsiasi cartella, nel qual caso verrà applicato unicamente alle pagine o alle visualizzazioni all'interno di tale cartella e nelle relative sottocartelle. I file `_ViewImports` vengono elaborati a partire dal livello radice e quindi per ogni cartella fino alla posizione della pagina o della visualizzazione stessa. Le impostazioni `_ViewImports` specificate al livello radice possono essere sottoposto a override a livello di cartella.
 
-Ad esempio, se un file `_ViewImports.cshtml` a livello radice specifica `@model` e `@addTagHelper`, e un altro file `_ViewImports.cshtml` nella cartella associata al controller della visualizzazione specifica un file `@model` diverso e aggiunge un altro `@addTagHelper`, la visualizzazione avrà accesso a entrambi gli helper di tag e userà il secondo `@model`.
+Si supponga ad esempio che:
 
-Se vengono eseguiti più file `_ViewImports.cshtml` per una visualizzazione, il comportamento combinato delle direttive incluse nei file `ViewImports.cshtml` sarà:
+* Il file *_ViewImports.cshtml* al livello radice includa `@model MyModel1` e `@addTagHelper *, MyTagHelper1`.
+* Un file *_ViewImports.cshtml* in una sottocartella includa `@model MyModel2` e `@addTagHelper *, MyTagHelper2`.
+
+Le pagine e le visualizzazioni nella sottocartella avranno accesso sia agli helper tag che al modello `MyModel2`.
+
+Se vengono trovati più file *_ViewImports.cshtml* nella gerarchia di file, il comportamento combinato delle direttive è il seguente:
 
 * `@addTagHelper`, `@removeTagHelper`: eseguiti nell'ordine
-
 * `@tagHelperPrefix`: il file più vicino alla visualizzazione esegue l'override di tutti gli altri
-
 * `@model`: il file più vicino alla visualizzazione esegue l'override di tutti gli altri
-
 * `@inherits`: il file più vicino alla visualizzazione esegue l'override di tutti gli altri
-
 * `@using`: vengono inclusi tutti; i duplicati vengono esclusi
-
 * `@inject`: per ogni proprietà, quella più vicina alla visualizzazione esegue l'override di tutte le altre con lo stesso nome di proprietà
 
 <a name="viewstart"></a>
 
 ## <a name="running-code-before-each-view"></a>Esecuzione di codice prima di ogni visualizzazione
 
-Se si dispone di un codice che è necessario eseguire prima di ogni visualizzazione, è necessario inserirlo nel file `_ViewStart.cshtml`. Per convenzione, il file `_ViewStart.cshtml` si trova nella cartella `Views`. Le istruzioni elencate in `_ViewStart.cshtml` vengono eseguite prima di ogni visualizzazione completa (non dei layout e delle visualizzazioni parziali). Come [ViewImports.cshtml](xref:mvc/views/layout#viewimports), `_ViewStart.cshtml` è di tipo gerarchico. Se un file `_ViewStart.cshtml` è definito nella cartella di visualizzazione associata al controller, verrà eseguito dopo quello definito nella radice della cartella `Views` (se presente).
+Il codice che deve essere eseguito prima di ogni visualizzazione o pagina deve essere posizionato nel file *_ViewStart.cshtml*. Per convenzione, il file *_ViewStart.cshtml* si trova nella cartella *Pages* (o *Views*). Le istruzioni elencate in *_ViewStart.cshtml* vengono eseguite prima di ogni visualizzazione completa (non dei layout e delle visualizzazioni parziali). Come [ViewImports.cshtml](xref:mvc/views/layout#viewimports), *_ViewStart.cshtml* è gerarchico. Se un file *_ViewStart.cshtml* viene definito nella cartella delle visualizzazioni o delle pagine, verrà eseguito dopo quello definito nella radice della cartella *Pages* (o *Views*) (se presente).
 
-Esempio di file `_ViewStart.cshtml`:
+File *_ViewStart.cshtml* di esempio:
 
 [!code-html[](../../common/samples/WebApplication1/Views/_ViewStart.cshtml)]
 
-Il file precedente specifica che tutte le visualizzazioni useranno il layout `_Layout.cshtml`.
+Il file precedente specifica che tutte le visualizzazioni useranno il layout *_Layout.cshtml*.
 
-> [!NOTE]
-> Né `_ViewStart.cshtml` né `_ViewImports.cshtml` vengono generalmente posizionati nella cartella `/Views/Shared`. Le versioni a livello di app di questi file devono essere inserite direttamente nella cartella `/Views`.
+*_ViewStart.cshtml* e *_ViewImports.cshtml* **non** vengono in genere posizionati nella cartella */Pages/Shared* (o */Views/Shared*). Le versioni a livello di app di questi file devono essere posizionate direttamente nella cartella */Pages* (o */Views*).

@@ -5,12 +5,12 @@ description: In questa esercitazione verranno letti e visualizzati dati correlat
 ms.author: riande
 ms.date: 11/05/2017
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: e23b8bb870b329bd705fbc9548df62524303893e
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: e8b59c19eac2c2adc1f13cf1e44f750576686c87
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912325"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348494"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Leggere dati correlati - 6 di 8
 
@@ -55,7 +55,7 @@ Esistono diversi modi con cui EF Core può caricare i dati correlati nelle propr
 
 * L'operatore `Select` carica solo i dati correlati necessari.
 
-## <a name="create-a-courses-page-that-displays-department-name"></a>Creare una pagina Courses (Corsi) che visualizza il nome dei dipartimenti
+## <a name="create-a-course-page-that-displays-department-name"></a>Creare una pagina Course che visualizza il nome dei dipartimenti
 
 L'entità Course include una proprietà di navigazione che contiene l'entità `Department`. L'entità `Department` contiene il dipartimento a cui il corso è assegnato.
 

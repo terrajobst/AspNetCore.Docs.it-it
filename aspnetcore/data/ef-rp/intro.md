@@ -5,12 +5,12 @@ description: Viene illustrato come creare un'app Razor Pages con Entity Framewor
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/intro
-ms.openlocfilehash: 89002f7b4a5af17a9404b14822086c7a9a6ec265
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: f714934a2ef804813290ae0c04432470a2ba5816
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011458"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477566"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>Razor Pages con Entity Framework Core in ASP.NET Core: esercitazione 1 di 8
 
@@ -187,9 +187,9 @@ Il processo di scaffolding ha creato e modificato i file seguenti:
 * Pagine Create (Crea), Delete (Elimina), Details (Dettagli), Edit (Modifica) e Index (Indice) di *Pages/Students*.
 * *Data/SchoolContext.cs*
 
-### <a name="files-updates"></a>Aggiornamenti di file
+### <a name="file-updates"></a>Aggiornamenti dei file
 
-* *Startup.cs*: le modifiche a questo file vengono descritte in dettaglio nella sezione successiva.
+* *Startup.cs*: le modifiche a questo file sono descritte in dettaglio nella sezione successiva.
 * *appsettings.json*: è stata aggiunta la stringa di connessione usata per connettersi a un database locale.
 
 ## <a name="examine-the-context-registered-with-dependency-injection"></a>Esaminare il contesto registrato con l'inserimento di dipendenze

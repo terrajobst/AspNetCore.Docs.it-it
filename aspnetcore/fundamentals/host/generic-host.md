@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/16/2018
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: de9044875c8ebc62c80a129d721e7d37be5d846d
-ms.sourcegitcommit: 25150f4398de83132965a89f12d3a030f6cce48d
+ms.openlocfilehash: 0924e2764958911dc1711d5427f6dd58e8873739
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2018
-ms.locfileid: "42927809"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477605"
 ---
 # <a name="net-generic-host"></a>Host generico .NET
 
@@ -44,6 +44,19 @@ La libreria host generico è disponibile nello [spazio dei nomi Microsoft.Extens
 [IHostBuilder](/dotnet/api/microsoft.extensions.hosting.ihostbuilder) è il componente principale che le librerie e le app usano per inizializzare, compilare ed eseguire l'host:
 
 [!code-csharp[](generic-host/samples-snapshot/2.x/GenericHostSample/Program.cs?name=snippet_HostBuilder)]
+
+## <a name="default-services"></a>Servizi predefiniti
+
+I servizi seguenti vengono registrati durante l'inizializzazione dell'host:
+
+* [Ambiente](xref:fundamentals/environments) (<xref:Microsoft.Extensions.Hosting.IHostingEnvironment>)
+* <xref:Microsoft.Extensions.Hosting.HostBuilderContext>
+* [Configurazione](xref:fundamentals/configuration/index) (<xref:Microsoft.Extensions.Configuration.IConfiguration>)
+* <xref:Microsoft.Extensions.Hosting.IApplicationLifetime> (<xref:Microsoft.Extensions.Hosting.Internal.ApplicationLifetime>)
+* <xref:Microsoft.Extensions.Hosting.IHostLifetime> (<xref:Microsoft.Extensions.Hosting.Internal.ConsoleLifetime>)
+* <xref:Microsoft.Extensions.Hosting.IHost>
+* [Opzioni](xref:fundamentals/configuration/options) (<xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.AddOptions*>)
+* [Registrazione](xref:fundamentals/logging/index) (<xref:Microsoft.Extensions.DependencyInjection.LoggingServiceCollectionExtensions.AddLogging*>)
 
 ## <a name="host-configuration"></a>Configurazione dell'host
 
@@ -85,7 +98,7 @@ La proprietà [IHostingEnvironment.ApplicationName](/dotnet/api/microsoft.extens
 **Tipo**: *string*  
 **Impostazione predefinita**: il nome dell'assembly contenente il punto di ingresso dell'app.  
 **Impostare usando**: `HostBuilderContext.HostingEnvironment.ApplicationName`  
-**Variabile di ambiente**: `<PREFIX_>APPLICATIONKEY` (`<PREFIX_>` è [facoltativo e definito dall'utente](#configuration-builder))
+**Variabile di ambiente**: `<PREFIX_>APPLICATIONNAME` (`<PREFIX_>` è [facoltativo e definito dall'utente](#configuration-builder))
 
 ```csharp
 var host = new HostBuilder()
@@ -196,16 +209,32 @@ Usare la factory e configurare il contenitore di servizi personalizzato per l'ap
 
 ## <a name="extensibility"></a>Estendibilità
 
-L'estensibilità host viene eseguita con i metodi di estensione su `IHostBuilder`. L'esempio seguente illustra come un metodo di estensione estende un'implementazione `IHostBuilder` con [RabbitMQ](https://www.rabbitmq.com/). Il metodo di estensione (altrove nell'app) registra un `IHostedService` di RabbitMQ:
+L'estensibilità host viene eseguita con i metodi di estensione su `IHostBuilder`. L'esempio seguente illustra come un metodo di estensione estende un'implementazione `IHostBuilder` con l'esempio [TimedHostedService](xref:fundamentals/host/hosted-services#timed-background-tasks) dimostrato in <xref:fundamentals/host/hosted-services>.
 
 ```csharp
-// UseRabbitMq is an extension method that sets up RabbitMQ to handle incoming
-// messages.
 var host = new HostBuilder()
-    .UseRabbitMq<MyMessageHandler>()
+    .UseHostedService<TimedHostedService>()
     .Build();
 
 await host.StartAsync();
+```
+
+Un'app stabilisce il metodo di estensione `UseHostedService` per registrare il servizio ospitato passato in `T`:
+
+```csharp
+using System;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+
+public static class Extensions
+{
+    public static IHostBuilder UseHostedService<T>(this IHostBuilder hostBuilder)
+        where T : class, IHostedService, IDisposable
+    {
+        return hostBuilder.ConfigureServices(services =>
+            services.AddHostedService<T>());
+    }
+}
 ```
 
 ## <a name="manage-the-host"></a>Gestire l'host

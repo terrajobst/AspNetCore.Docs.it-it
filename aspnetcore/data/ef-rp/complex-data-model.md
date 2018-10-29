@@ -5,12 +5,12 @@ description: In questa esercitazione si aggiungono altre entità e relazioni e s
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 88d727b0545f1dacb56ea889e45b02f947867b19
-ms.sourcegitcommit: 6425baa92cec4537368705f8d27f3d0e958e43cd
+ms.openlocfilehash: b81918cbd74200f0672f3002f916523fb4a9a914
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39220599"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477657"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Modello di dati - 5 di 8
 
@@ -432,7 +432,7 @@ public Student Student { get; set; }
 
 Esiste una relazione molti-a-molti tra le entità `Student` e `Course`. L'entità `Enrollment` funziona come una tabella di join molti-a-molti *con payload* nel database. "Con payload" significa che la tabella `Enrollment` contiene dati aggiuntivi oltre alle chiavi esterne delle tabelle di join (in questo caso la chiave primaria e `Grade`).
 
-La figura seguente illustra l'aspetto di queste relazioni in un diagramma di entità. Il diagramma è stato generato con EF Power Tools per EF 6.x. La creazione del diagramma non fa parte dell'esercitazione.
+La figura seguente illustra l'aspetto di queste relazioni in un diagramma di entità. Il diagramma è stato generato con [EF Power Tools](https://marketplace.visualstudio.com/items?itemName=ErikEJ.EntityFramework6PowerToolsCommunityEdition) per EF 6.x. La creazione del diagramma non fa parte dell'esercitazione.
 
 ![Relazione molti-a-molti Student-Course (Studente-Corso)](complex-data-model/_static/student-course.png)
 
@@ -574,9 +574,15 @@ The ALTER TABLE statement conflicted with the FOREIGN KEY constraint "FK_dbo.Cou
 database "ContosoUniversity", table "dbo.Department", column 'DepartmentID'.
 ```
 
-Quando le istruzioni migrations vengono eseguite con dati esistenti, possono essere presenti vincoli di chiave esterna che non vengono soddisfatti con i dati esistenti. Per questa esercitazione viene creato un nuovo database, pertanto non si verificano violazioni dei vincoli di chiave esterna. Per informazioni su come correggere le violazioni di chiave esterna nel database corrente, vedere [Fixing foreign key constraints with legacy data](#fk) (Correzione dei vincoli di chiave esterna con dati legacy).
+## <a name="apply-the-migration"></a>Applicare la migrazione
 
-### <a name="drop-and-update-the-database"></a>Rimuovere e aggiornare il database
+Ora che è disponibile un database esistente, è necessario preoccuparsi di come applicare eventuali modifiche future. Questa esercitazione illustra due approcci:
+* [Eliminare e ricreare il database](#drop)
+* [Applicare la migrazione al database esistente](#applyexisting). Anche se questo metodo è più complesso e richiede più tempo, è l'approccio consigliato per gli ambienti di produzione reali. **Nota**: questa è una sezione facoltativa dell'esercitazione. È possibile eseguire i passaggi di eliminazione e ricreazione e ignorare questa sezione. Se si vuole seguire la procedura descritta in questa sezione, non eseguire i passaggi di eliminazione e ricreazione. 
+
+<a name="drop"></a>
+
+### <a name="drop-and-re-create-the-database"></a>Eliminare e ricreare il database
 
 Il codice aggiornato in `DbInitializer` aggiunge dati di inizializzazione per le nuove entità. Per forzare la creazione di un nuovo database da parte di EF Core, rimuovere e aggiornare il database:
 
@@ -620,13 +626,13 @@ Esaminare la tabella **CourseAssignment**:
 
 ![Dati CourseAssignment in SSOX](complex-data-model/_static/ssox-ci-data.png)
 
-<a name="fk"></a>
+<a name="applyexisting"></a>
 
-## <a name="fixing-foreign-key-constraints-with-legacy-data"></a>Correzione di vincoli di chiave esterna con dati legacy
+### <a name="apply-the-migration-to-the-existing-database"></a>Applicare la migrazione al database esistente
 
-Questa sezione è facoltativa.
+Questa sezione è facoltativa. Questa procedura funziona solo se è stata ignorata la sezione [Eliminare e ricreare il database](#drop) precedente.
 
-Quando le istruzioni migrations vengono eseguite con dati esistenti, possono essere presenti vincoli di chiave esterna che non vengono soddisfatti con i dati esistenti. Con i dati di produzione, è necessario eseguire passaggi per la migrazione dei dati esistenti. Questa sezione visualizza un esempio di correzione delle violazioni dei vincoli di chiave esterna. Non apportare queste modifiche al codice senza un backup. Non apportare queste modifiche al codice se è stata completata la sezione precedente e il database è stato aggiornato.
+Quando le migrazioni vengono eseguite con dati esistenti, possono essere presenti vincoli di chiave esterna che non vengono soddisfatti con i dati esistenti. Con i dati di produzione, è necessario eseguire passaggi per la migrazione dei dati esistenti. Questa sezione visualizza un esempio di correzione delle violazioni dei vincoli di chiave esterna. Non apportare queste modifiche al codice senza un backup. Non apportare queste modifiche al codice se è stata completata la sezione precedente e il database è stato aggiornato.
 
 Il file *{timestamp}_ComplexDataModel.cs* contiene il codice seguente:
 
@@ -639,7 +645,7 @@ Per far sì che la migrazione `ComplexDataModel` funzioni con i dati esistenti:
 * Modificare il codice per assegnare un valore predefinito alla nuova colonna (`DepartmentID`).
 * Creare un reparto fittizio denominato "Temp" che assume il ruolo di reparto predefinito.
 
-### <a name="fix-the-foreign-key-constraints"></a>Risolvere i vincoli della chiave esterna
+#### <a name="fix-the-foreign-key-constraints"></a>Risolvere i vincoli della chiave esterna
 
 Aggiornare il metodo `Up` delle classi `ComplexDataModel`:
 

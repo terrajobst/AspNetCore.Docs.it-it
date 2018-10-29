@@ -32,8 +32,9 @@ Aggiungere la classe `MovieGenreViewModel` seguente alla cartella *Models*:
 Il modello di vista movie-genre conterrà:
 
    * Un elenco di film.
-   * `SelectList` contiene l'elenco dei generi. Consentirà all'utente di selezionare un genere dall'elenco.
-   * `movieGenre` che contiene il genere selezionato.
+   * `SelectList` contiene l'elenco dei generi. Consente all'utente di selezionare un genere dall'elenco.
+   * `MovieGenre` che contiene il genere selezionato.
+   * `SearchString`, che contiene il testo immesso dagli utenti nella casella di testo di ricerca.
 
 Sostituire il metodo `Index` in `MoviesController.cs` con il codice seguente:
 
@@ -45,9 +46,11 @@ Il codice seguente è una query `LINQ` che recupera tutti i generi dal database.
 
 L'elenco `SelectList` di generi viene creato presentando generi distinti per evitare che l'elenco di selezione includa generi duplicati.
 
+Quando l'utente cerca l'elemento, viene mantenuto il valore di ricerca nella casella di ricerca. Per mantenere il valore di ricerca, popolare la proprietà `SearchString` con il valore di ricerca. Il valore di ricerca è il parametro `searchString` per l'azione del controller `Index`.
+
 ```csharp
 movieGenreVM.genres = new SelectList(await genreQuery.Distinct().ToListAsync())
-   ```
+```
 
 ## <a name="adding-search-by-genre-to-the-index-view"></a>Aggiunta della funzionalità di ricerca in base al genere alla vista Index
 
@@ -57,8 +60,8 @@ Aggiornare `Index.cshtml` come indicato di seguito:
 
 Esaminare l'espressione lambda usata nell'helper HTML seguente:
 
-`@Html.DisplayNameFor(model => model.movies[0].Title)`
+`@Html.DisplayNameFor(model => model.Movies[0].Title)`
  
-Nel codice precedente, l'helper HTML `DisplayNameFor` controlla la proprietà `Title` a cui si fa riferimento nell'espressione lambda per determinare il nome visualizzato. Poiché l'espressione lambda viene controllata e anziché essere valutata, non viene generata una violazione di accesso quando `model`, `model.movies` o `model.movies[0]` sono `null` o vuoti. Quando invece l'espressione lambda viene valutata, ad esempio `@Html.DisplayFor(modelItem => item.Title)`, vengono valutati i valori delle proprietà del modello.
+Nel codice precedente, l'helper HTML `DisplayNameFor` controlla la proprietà `Title` a cui si fa riferimento nell'espressione lambda per determinare il nome visualizzato. Poiché l'espressione lambda viene controllata e anziché essere valutata, non viene generata una violazione di accesso quando `model`, `model.Movies` o `model.Movies[0]` sono `null` o vuoti. Quando invece l'espressione lambda viene valutata, ad esempio `@Html.DisplayFor(modelItem => item.Title)`, vengono valutati i valori delle proprietà del modello.
 
 Eseguire il test dell'app effettuando una ricerca per genere, titolo del film e usando entrambi i filtri.

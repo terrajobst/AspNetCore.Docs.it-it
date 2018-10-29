@@ -4,22 +4,24 @@ author: pkellner
 description: Informazioni sugli attributi dell'helper tag di ancoraggio ASP.NET Core e sul ruolo di ogni attributo per l'estensione del comportamento del tag di ancoraggio HTML.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 01/31/2018
+ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: 6bdf71eaf38f134cb15b5950d2cae6ab67f861a4
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 13508729c1e3b64a8b0e6965da57880738ab85c3
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273884"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325549"
 ---
 # <a name="anchor-tag-helper-in-aspnet-core"></a>Helper tag di ancoraggio in ASP.NET Core
 
 Di [Peter Kellner](http://peterkellner.net) e [Scott Addie](https://github.com/scottaddie)
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/built-in/samples) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
-
 L'[helper tag](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortaghelper) di ancoraggio migliora il tag di ancoraggio HTML standard (`<a ... ></a>`) con l'aggiunta di nuovi attributi. Per convenzione, i nomi di attributo hanno il prefisso `asp-`. Il valore dell'attributo `href` dell'elemento di ancoraggio visualizzato dipende dai valori degli attributi `asp-`.
+
+Per una panoramica degli helper tag, vedere <xref:mvc/views/tag-helpers/intro>.
+
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/built-in/samples) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
 
 *SpeakerController* viene usato negli esempi in tutto il documento:
 
@@ -171,7 +173,7 @@ I tag hash sono utili per la compilazione di app sul lato client. Ad esempio pos
 
 L'attributo [asp-area](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortaghelper.area) imposta il nome dell'area usato per impostare la route appropriata. L'esempio seguente illustra come l'attributo di area determina la modifica del mapping delle route. Se si imposta `asp-area` su "Blogs", la directory *Areas/Blogs* viene aggiunta come prefisso alle route dei controller e delle visualizzazioni associati per questo tag di ancoraggio.
 
-* **<Nome progetto\>**
+* **{Nome progetto}**
   * **wwwroot**
   * **Aree**
     * **Blog**
@@ -181,7 +183,7 @@ L'attributo [asp-area](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortag
         * **Home**
           * *AboutBlog.cshtml*
           * *Index.cshtml*
-        * *_ViewStart.cshtml*
+        * *\_ViewStart.cshtml*
   * **Controller**
 
 Data la gerarchia di directory precedente, il markup per fare riferimento al file *AboutBlog.cshtml* è:
@@ -195,7 +197,9 @@ Codice HTML generato:
 ```
 
 > [!TIP]
-> Per garantire il funzionamento delle aree in un'app MVC, il modello di route deve includere un riferimento all'area, se esistente. Tale modello è rappresentato dal secondo parametro della chiamata del metodo `routes.MapRoute` in *Startup.Configure*:[!code-csharp[](samples/TagHelpersBuiltIn/Startup.cs?name=snippet_UseMvc&highlight=5)]
+> Per garantire il funzionamento delle aree in un'app MVC, il modello di route deve includere un riferimento all'area, se esistente. Tale modello è rappresentato dal secondo parametro della chiamata del metodo `routes.MapRoute` in *Startup.Configure*:
+>
+> [!code-csharp[](samples/TagHelpersBuiltIn/Startup.cs?name=snippet_UseMvc&highlight=5)]
 
 ## <a name="asp-protocol"></a>asp-protocol
 
@@ -267,5 +271,5 @@ Codice HTML generato:
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Aree](xref:mvc/controllers/areas)
-* [Introduzione a Razor Pages](xref:razor-pages/index)
+* <xref:mvc/controllers/areas>
+* <xref:razor-pages/index>

@@ -5,12 +5,12 @@ description: Illustra come creare, leggere, aggiornare ed eliminare con EF Core
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/crud
-ms.openlocfilehash: 25493f93daf3fe5e874ad1d06b918196cd1f074d
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 4af16bdf3928609214c1255cdd411312c8b7d3f3
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912813"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477436"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>Razor Pages con EF Core in ASP.NET Core - CRUD - 2 di 8
 
@@ -24,7 +24,7 @@ Di [Tom Dykstra](https://github.com/tdykstra), [Jon P Smith](https://twitter.com
 
 In questa esercitazione viene esaminato e personalizzato il codice CRUD (Create, Read, Update, Delete) con scaffolding.
 
-Per ridurre la complessità e mantenere queste esercitazioni incentrate su EF Core, viene usato il codice EF Core nei modelli di pagina. Alcuni sviluppatori usano un livello di servizio o uno [schema di repository](xref:fundamentals/repository-pattern) per creare un livello di astrazione tra l'interfaccia utente (Razor Pages) e il livello di accesso ai dati.
+Per ridurre la complessità e mantenere queste esercitazioni incentrate su EF Core, viene usato il codice EF Core nei modelli di pagina. Alcuni sviluppatori usano un modello di servizio o di repository per creare un livello di astrazione tra l'interfaccia utente (Razor Pages) e il livello di accesso ai dati.
 
 In questa esercitazione vengono esaminate le pagine Razor Create (Crea), Edit (Modifica), Delete (Elimina) e Details (Dettagli) nella cartella *Students*.
 

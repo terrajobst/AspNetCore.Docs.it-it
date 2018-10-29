@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 09/20/2018
 uid: fundamentals/metapackage
-ms.openlocfilehash: 1942426dbd5c15ae4a5fa5fbb931b94f50aa6043
-ms.sourcegitcommit: 32f5ee0690604d451f61e9a5c28881c9fcf85738
+ms.openlocfilehash: b1924e07acd2b4feb25c69b8c4674002e6ba0464
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47454739"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325679"
 ---
 # <a name="microsoftaspnetcoreall-metapackage-for-aspnet-core-20"></a>Metapacchetto Microsoft.AspNetCore.All per ASP.NET Core 2.0
 
@@ -68,7 +68,7 @@ Tutte le dipendenze dei pacchetti precedenti che non sono in altro modo dipenden
 
 ## <a name="update-aspnet-core-21"></a>Aggiornare ASP.NET Core 2.1
 
-È consigliabile eseguire la migrazione al metapacchetto `Microsoft.AspNetCore.App` per la versione 2.1 e successive. Per continuare a usare il metapacchetto `Microsoft.AspNetCore.All` e assicurarsi che venga distribuita la versione della patch più recente:
+È consigliabile eseguire la migrazione al metapacchetto `Microsoft.AspNetCore.App` per la versione 2.1 e versioni successive. Per continuare a usare il metapacchetto `Microsoft.AspNetCore.All` e assicurarsi che venga distribuita la versione della patch più recente:
 
 * Nei computer di sviluppo e nei server di compilazione: installare il [.NET Core SDK](https://www.microsoft.com/net/download) più recente.
 * Nei server di distribuzione: installare il [runtime di .NET Core](https://www.microsoft.com/net/download) più recente.

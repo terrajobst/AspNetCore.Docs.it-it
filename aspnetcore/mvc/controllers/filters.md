@@ -3,14 +3,15 @@ title: Filtri in ASP.NET Core
 author: ardalis
 description: Informazioni su come funzionano i filtri e su come usarli in ASP.NET Core MVC.
 ms.author: riande
-ms.date: 08/15/2018
+ms.custom: mvc
+ms.date: 10/15/2018
 uid: mvc/controllers/filters
-ms.openlocfilehash: e20d934a17337d404249220d703ac4bb7164dfa6
-ms.sourcegitcommit: 9bdba90b2c97a4016188434657194b2d7027d6e3
+ms.openlocfilehash: 6803e8e3a285716792427e9fb059c204f5a88ecb
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47402159"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391310"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtri in ASP.NET Core
 
@@ -159,7 +160,7 @@ In altre parole, se si è all'interno di un metodo On*fase*ExecutionAsync di un 
 
 Se si hanno gli stessi tre filtri azione illustrati nell'esempio precedente ma la proprietà `Order` del controllo e dei filtri globali impostata rispettivamente su 1 e 2, l'ordine di esecuzione viene rovesciato.
 
-| Sequence | Ambito del filtro | Proprietà `Order` | Metodo del filtro |
+| Sequence | Ambito del filtro | Proprietà`Order`  | Metodo del filtro |
 |:--------:|:------------:|:-----------------:|:-------------:|
 | 1 | Metodo | 0 | `OnActionExecuting` |
 | 2 | Controller | 1  | `OnActionExecuting` |
@@ -204,13 +205,15 @@ Se i filtri hanno dipendenze cui è necessario accedere dall'inserimento di dipe
 
 ### <a name="servicefilterattribute"></a>ServiceFilterAttribute
 
-`ServiceFilter` recupera un'istanza del filtro dall'inserimento di dipendenze. Il filtro viene aggiunto al contenitore in `ConfigureServices` e il relativo riferimento viene aggiunto a un attributo `ServiceFilter`
+I tipi di implementazione del filtro per i servizi sono registrati nell'inserimento di dipendenze. `ServiceFilterAttribute` recupera un'istanza del filtro dall'inserimento di dipendenze. Aggiungere `ServiceFilterAttribute` al contenitore in `Startup.ConfigureServices` e farvi riferimento in un attributo `[ServiceFilter]`:
 
 [!code-csharp[](./filters/sample/src/FiltersSample/Startup.cs?name=snippet_ConfigureServices&highlight=11)]
 
 [!code-csharp[](../../mvc/controllers/filters/sample/src/FiltersSample/Controllers/HomeController.cs?name=snippet_ServiceFilter&highlight=1)]
 
-Se si usa `ServiceFilter` senza registrare il tipo di filtro, viene generata un'eccezione:
+Quando si usa `ServiceFilterAttribute`, l'impostazione di `IsReusable` indica che l'istanza del filtro *potrebbe* essere riutilizzata all'esterno dell'ambito della richiesta in cui è stata creata. Il framework non offre alcuna garanzia che venga creata una singola istanza del filtro o che il filtro non venga richiesto di nuovo dal contenitore di inserimento delle dipendenze in un momento successivo. Evitare di usare `IsReusable` quando si usa un filtro che dipende da servizi con una durata diversa da singleton.
+
+Se si usa `ServiceFilterAttribute` senza registrare il tipo di filtro, viene generata un'eccezione:
 
 ```
 System.InvalidOperationException: No service for type
@@ -226,7 +229,9 @@ System.InvalidOperationException: No service for type
 A causa di questa differenza:
 
 * Non è necessario che i tipi a cui viene fatto riferimento tramite `TypeFilterAttribute` siano già registrati nel contenitore.  Le loro dipendenze vengono evase dal contenitore. 
-* In via facoltativa, `TypeFilterAttribute` può anche accettare gli argomenti del costruttore per il tipo. 
+* In via facoltativa, `TypeFilterAttribute` può anche accettare gli argomenti del costruttore per il tipo.
+
+Quando si usa `TypeFilterAttribute`, l'impostazione di `IsReusable` indica che l'istanza del filtro *potrebbe* essere riutilizzata all'esterno dell'ambito della richiesta in cui è stata creata. Il framework non fornisce alcuna garanzia che venga creata una singola istanza del filtro. Evitare di usare `IsReusable` quando si usa un filtro che dipende da servizi con una durata diversa da singleton.
 
 Nell'esempio riportato di seguito viene illustrato come passare argomenti a un tipo usando `TypeFilterAttribute`:
 

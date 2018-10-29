@@ -5,12 +5,12 @@ description: Informazioni sull'uso dei componenti di visualizzazione in ASP.NET 
 ms.author: riande
 ms.date: 02/14/2017
 uid: mvc/views/view-components
-ms.openlocfilehash: cf2cfcdb07271503b844e31940e90b7376db0a6f
-ms.sourcegitcommit: 599ebae5c2d6fcb22dfa6ae7d1f4bdfcacb79af4
+ms.openlocfilehash: 49c8be655f151e219c8fa0854dbcf510d7bbd158
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47211065"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325588"
 ---
 # <a name="view-components-in-aspnet-core"></a>Componenti di visualizzazione in ASP.NET Core
 
@@ -75,20 +75,20 @@ Un componente di visualizzazione definisce la propria logica in un metodo `Invok
 
 Il runtime esegue la ricerca della visualizzazione nei percorsi seguenti:
 
-* /Pages/Components/\<nome_componente_visualizzazione>/\<nome_visualizzazione>
-* Views/\<nome_controller>/Components/\<nome_componente_visualizzazione>/\<nome_visualizzazione>
-* Views/Shared/Components/\<nome_componente_visualizzazione>/\<nome_visualizzazione>
+* /Pages/Components/{Nome componente visualizzazione}/{Nome visualizzazione}
+* /Views/{Nome controller}/Components/{Nome componente visualizzazione}/{Nome visualizzazione}
+* /Views/Shared/Components/{Nome componente visualizzazione}/{Nome visualizzazione}
 
 Il nome di visualizzazione predefinito per un componente di visualizzazione è *Default*, quindi il file della visualizzazione viene solitamente denominato *Default.cshtml*. È possibile specificare un nome di visualizzazione diverso quando si crea il risultato del componente di visualizzazione o quando si chiama il metodo `View`.
 
-Si consiglia di denominare il file di visualizzazione *Default.cshtml* e usare il percorso *Views/Shared/Components/\<nome_ccomponente_visualizzazione>/\<nome_visualizzazione>*. Il componente di visualizzazione `PriorityList` in questo esempio usa *Views/Shared/Components/PriorityList/Default.cshtml* per la visualizzazione del componente di visualizzazione.
+Si consiglia di denominare il file della visualizzazione *Default.cshtml* e usare il percorso *Views/Shared/Components/{Nome componente visualizzazione}/{Nome visualizzazione}*. Il componente di visualizzazione `PriorityList` in questo esempio usa *Views/Shared/Components/PriorityList/Default.cshtml* per la visualizzazione del componente di visualizzazione.
 
 ## <a name="invoking-a-view-component"></a>Chiamata di un componente di visualizzazione
 
 Per usare il componente di visualizzazione, chiamare il codice seguente all'interno di una visualizzazione:
 
 ```cshtml
-@Component.InvokeAsync("Name of view component", <anonymous type containing parameters>)
+@Component.InvokeAsync("Name of view component", {Anonymous Type Containing Parameters})
 ```
 
 I parametri saranno passati al metodo `InvokeAsync`. Il componente di visualizzazione `PriorityList` sviluppato nell'articolo viene richiamato dal file di visualizzazione *Views/Todo/Index.cshtml*. Nell'esempio seguente il metodo `InvokeAsync` viene chiamato con due parametri:
