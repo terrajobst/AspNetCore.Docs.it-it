@@ -3,23 +3,24 @@ title: Helper per tag predefiniti di ASP.NET Core
 author: pkellner
 description: Informazioni su come gli helper per i tag predefiniti di ASP.NET Core sono utili per incrementare la produttività.
 ms.author: riande
-ms.date: 09/18/2018
+ms.custom: mvc
+ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/Index
-ms.openlocfilehash: 5d9425e0b68578c86a6f9a691322e0bb63a860fb
-ms.sourcegitcommit: c684eb6c0999d11d19e15e65939e5c7f99ba47df
+ms.openlocfilehash: 58840d6ecd09bd2ae7f96c046a0cb93c018f9645
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46292310"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325484"
 ---
 # <a name="aspnet-core-built-in-tag-helpers"></a>Helper per tag predefiniti di ASP.NET Core
 
 Di [Peter Kellner](http://peterkellner.net)
 
-ASP.NET Core include molti helper di tag predefiniti per incrementare la produttività. Questa sezione include una panoramica degli helper di tag predefiniti.
+Per una panoramica degli helper per tag, vedere <xref:mvc/views/tag-helpers/intro>.
 
 > [!NOTE]
-> Esistono helper di tag predefiniti che non vengono trattati, in quanto vengono usati internamente dal motore di visualizzazione di [Razor](xref:mvc/views/razor). Ciò include un helper di tag per il carattere ~ che si espande nel percorso radice del sito Web.
+> Esistono helper per tag predefiniti che non sono descritti nella documentazione. Questi helper per tag vengono usati internamente dal motore di visualizzazione [Razor](xref:mvc/views/razor). È incluso anche un helper per tag per il carattere `~` (tilde), che si espande nel percorso radice del sito Web.
 
 ## <a name="built-in-aspnet-core-tag-helpers"></a>Helper per tag incorporati di ASP.NET Core
 

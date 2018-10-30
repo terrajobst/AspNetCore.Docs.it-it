@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/12/2018
 uid: razor-pages/index
-ms.openlocfilehash: f55d0e534dafb0709f1411bad9b038a87abde7ab
-ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
+ms.openlocfilehash: 7bd597acedade65f2be53f4f50a436981e576b1f
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523311"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326121"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introduzione a Razor Pages in ASP.NET Core
 
@@ -246,7 +246,9 @@ Per altre informazioni, vedere [Convalida del modello](xref:mvc/models/validatio
 
 ## <a name="manage-head-requests-with-the-onget-handler"></a>Gestire le richieste HEAD con il gestore OnGet
 
-In genere, per le richieste HEAD viene creato e chiamato un gestore HEAD:
+Le richieste HEAD consentono di recuperare le intestazioni di una risorsa specifica. A differenza delle richieste GET, le richieste HEAD non restituiscono un corpo della risposta. 
+
+In genere, per le richieste HEAD viene creato e chiamato un gestore HEAD: 
 
 ```csharp
 public void OnHead()
@@ -255,12 +257,14 @@ public void OnHead()
 }
 ```
 
-In assenza di un gestore HEAD (`OnHead`) definito, Razor Pages ricorre alla chiamata del gestore di pagine GET (`OnGet`) come fallback in ASP.NET Core 2.1 o versioni successive. È possibile acconsentire esplicitamente a questo comportamento con il [metodo SetCompatibilityVersion](xref:mvc/compatibility-version) in `Startup.Configure` per ASP.NET Core 2.1-2.x:
+In assenza di un gestore HEAD (`OnHead`) definito, Razor Pages ricorre alla chiamata del gestore di pagine GET (`OnGet`) come fallback in ASP.NET Core 2.1 o versioni successive. In ASP.NET Core 2.1 e 2.2, questo comportamento si verifica con il metodo [SetCompatibilityVersion](xref:mvc/compatibility-version) in `Startup.Configure`:
 
 ```csharp
 services.AddMvc()
     .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
 ```
+
+I modelli predefiniti generano la chiamata `SetCompatibilityVersion` in ASP.NET Core 2.1 e 2.2.
 
 `SetCompatibilityVersion` imposta effettivamente l'opzione di Razor Pages `AllowMappingHeadRequestsToGetHandler` su `true`.
 
