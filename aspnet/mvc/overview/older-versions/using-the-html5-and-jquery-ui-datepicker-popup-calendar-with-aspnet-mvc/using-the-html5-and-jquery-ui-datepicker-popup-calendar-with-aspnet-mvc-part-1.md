@@ -8,12 +8,12 @@ ms.date: 08/29/2011
 ms.assetid: c23d27f7-b0cf-44f2-8445-fb69e045c674
 msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: a9a373a54458faa21199019a4adbe69c0b94cb60
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: a4cd6e9adfcd85503b9843232903a243bc07c959
+ms.sourcegitcommit: 392a36ed269b88899d6bb652aa7f4dfb72e43e7f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48577346"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50220661"
 ---
 <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-1"></a>Uso di HTML5 e jQuery UI Datepicker Popup Calendar con ASP.NET MVC - parte 1
 ====================
@@ -54,7 +54,7 @@ Ecco cosa si apprenderà:
 
 ### <a name="getting-started"></a>Introduzione
 
-Se si ha già l'applicazione dall'elenco dei filmati dal progetto di partenza, scaricarlo usando il collegamento seguente: [scaricare](https://code.msdn.microsoft.com/Project/Download/FileDownload.aspx? https://archive.msdn.microsoft.com/Project/Download/FileDownload.aspx?ProjectName=aspnetmvcsamples&amp;DownloadId=15800). Quindi, in Windows Explorer, fare doppio clic il *MvcMovie.zip* del file e selezionare **proprietà**. Nel **proprietà MvcMovie.zip** finestra di dialogo **Unblock**. (Lo sblocco impedisce a un avviso di sicurezza che si verifica quando si prova a usare una *zip* file scaricato dal web.)
+Se si ha già l'applicazione dall'elenco dei filmati dal progetto di partenza, scaricarlo usando il collegamento seguente: [scaricare](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098). Quindi, in Windows Explorer, fare doppio clic il *MvcMovie.zip* del file e selezionare **proprietà**. Nel **proprietà MvcMovie.zip** finestra di dialogo **Unblock**. (Lo sblocco impedisce a un avviso di sicurezza che si verifica quando si prova a usare una *zip* file scaricato dal web.)
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1/_static/image2.png)
 
