@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/20/2018
 uid: fundamentals/index
-ms.openlocfilehash: 68760f179c4d6e806510b727e2284f8c2c4a4ff6
-ms.sourcegitcommit: d27317c16f113e7c111583042ec7e4c5a26adf6f
+ms.openlocfilehash: 83dfb5707700da01c45bae3c0c00e67ca397d402
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41751245"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325471"
 ---
 # <a name="aspnet-core-fundamentals"></a>Nozioni fondamentali su ASP.NET Core
 
@@ -81,7 +81,7 @@ La radice Web di un'app è la directory del progetto contenente risorse statiche
 
 ## <a name="dependency-injection-services"></a>Iniezione di dipendenze (servizi)
 
-Un *servizio* è un componente destinato a un utilizzo comune in un'app. I servizi sono resi disponibili tramite l'[iniezione delle dipendenze](xref:fundamentals/dependency-injection). ASP.NET Core include un contenitore IoC (Inversion of Control) nativo che supporta l'[iniezione nel costruttore](xref:mvc/controllers/dependency-injection#constructor-injection) per impostazione predefinita. Se si vuole, è possibile sostituire il contenitore predefinito. Oltre al vantaggio dell'[accoppiamento debole](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#encapsulation), l'iniezione delle dipendenze rende disponibili i servizi in tutta l'app, ad esempio la [registrazione](xref:fundamentals/logging/index).
+Un *servizio* è un componente destinato a un utilizzo comune in un'app. I servizi sono resi disponibili tramite l'[inserimento delle dipendenze](xref:fundamentals/dependency-injection). ASP.NET Core include un'inversione nativa del contenitore del controllo (IoC) che supporta l'[inserimento del costruttore](xref:mvc/controllers/dependency-injection#constructor-injection) per impostazione predefinita. Se si vuole, è possibile sostituire il contenitore predefinito. Oltre al vantaggio dell'[accoppiamento debole](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#encapsulation), l'iniezione delle dipendenze rende disponibili i servizi in tutta l'app, ad esempio la [registrazione](xref:fundamentals/logging/index).
 
 Per ulteriori informazioni, vedere <xref:fundamentals/dependency-injection>.
 
@@ -119,7 +119,7 @@ Per ulteriori informazioni, vedere <xref:fundamentals/host/index>.
 
 ## <a name="servers"></a>Server
 
-Il modello di hosting di ASP.NET Core non è direttamente in ascolto delle richieste. Il modello di hosting si basa su un'implementazione del server HTTP per inoltrare la richiesta all'app. La richiesta inoltrata viene inclusa come un set di oggetti di funzionalità cui è possibile accedere tramite le interfacce. ASP.NET Core include un server Web gestito, multipiattaforma, denominato [Kestrel](xref:fundamentals/servers/kestrel). Kestrel viene eseguito di solito con un server Web di produzione, ad esempio [IIS](https://www.iis.net/) oppure [Nginx](http://nginx.org) in una configurazione con proxy inverso. Kestrel può essere eseguito anche come server perimetrale esposto direttamente a Internet in ASP.NET Core 2.0 o versione successiva.
+Il modello di hosting di ASP.NET Core non è direttamente in ascolto delle richieste. Il modello di hosting si basa su un'implementazione del server HTTP per inoltrare la richiesta all'app. La richiesta inoltrata viene inclusa come un set di oggetti di funzionalità cui è possibile accedere tramite le interfacce. ASP.NET Core include un server Web gestito, multipiattaforma, denominato [Kestrel](xref:fundamentals/servers/kestrel). Kestrel viene eseguito di solito con un server Web di produzione, ad esempio [IIS](https://www.iis.net/) oppure [Nginx](http://nginx.org) in una configurazione con proxy inverso. Kestrel può essere eseguito anche come server perimetrale pubblico esposto direttamente a Internet in ASP.NET Core 2.0 o versione successiva.
 
 Per ulteriori informazioni, vedere <xref:fundamentals/servers/index>.
 
