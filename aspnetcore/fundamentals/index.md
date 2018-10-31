@@ -4,22 +4,27 @@ author: rick-anderson
 description: Scoprire i concetti fondamentali per la compilazione di app ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/20/2018
+ms.date: 10/25/2018
 uid: fundamentals/index
-ms.openlocfilehash: 83dfb5707700da01c45bae3c0c00e67ca397d402
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: ab140051648c1640b3c4f382bfd8201c5c0c2039
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325471"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207472"
 ---
 # <a name="aspnet-core-fundamentals"></a>Nozioni fondamentali su ASP.NET Core
 
-Un'app ASP.NET Core è un'app console che crea un server Web nel suo metodo `Main`:
+Un'app ASP.NET Core è un'app console che crea un server Web nel suo metodo `Program.Main`. Il metodo `Main` è il *punto di ingresso gestito* nell'app:
 
 ::: moniker range=">= aspnetcore-2.0"
 
 [!code-csharp[](index/snapshots/2.x/Program.cs)]
+
+Host .NET Core:
+
+* Carica il [runtime di .NET Core](https://github.com/dotnet/coreclr).
+* Usa il primo argomento della riga di comando come percorso del file binario gestito che contiene il punto di ingresso (`Main`) e inizia l'esecuzione del codice.
 
 Il metodo `Main` richiama [WebHost.CreateDefaultBuilder](xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*), che segue il [modello di generatore](https://wikipedia.org/wiki/Builder_pattern) per creare un host Web. Il generatore dispone di metodi che definiscono il server Web (ad esempio, <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions.UseKestrel*>) e la classe di avvio (<xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*>). Nell'esempio precedente il server Web [Kestrel](xref:fundamentals/servers/kestrel) viene allocato automaticamente. L'host Web di ASP.NET Core tenta l'esecuzione in IIS, se disponibile. Altri server Web, come [HTTP.sys](xref:fundamentals/servers/httpsys), possono essere usati richiamando il metodo di estensione appropriato. `UseStartup` viene spiegato dettagliatamente nella sezione successiva.
 
@@ -30,6 +35,11 @@ Il metodo `Main` richiama [WebHost.CreateDefaultBuilder](xref:Microsoft.AspNetCo
 ::: moniker range="< aspnetcore-2.0"
 
 [!code-csharp[](index/snapshots/1.x/Program.cs)]
+
+Host .NET Core:
+
+* Carica il [runtime di .NET Core](https://github.com/dotnet/coreclr).
+* Usa il primo argomento della riga di comando come percorso del file binario gestito che contiene il punto di ingresso (`Main`) e inizia l'esecuzione del codice.
 
 Il metodo `Main` usa <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder>, che segue il [modello di generatore](https://wikipedia.org/wiki/Builder_pattern) per creare un host app Web. Il generatore dispone di metodi che definiscono il server Web (ad esempio, <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions.UseKestrel*>) e la classe di avvio (<xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*>). Nell'esempio precedente viene usato il server Web [Kestrel](xref:fundamentals/servers/kestrel). Altri server Web, come [WebListener](xref:fundamentals/servers/weblistener), possono essere usati richiamando il metodo di estensione appropriato. `UseStartup` viene spiegato dettagliatamente nella sezione successiva.
 
@@ -75,9 +85,11 @@ Per ulteriori informazioni, vedere <xref:fundamentals/startup>.
 
 La radice del contenuto è il percorso di base per i contenuti usati dall'app, ad esempio [Razor Pages](xref:razor-pages/index), visualizzazioni MVC e asset statici. Per impostazione predefinita, la posizione della radice del contenuto è uguale al percorso di base dell'app per il file eseguibile che ospita l'app.
 
-## <a name="web-root"></a>Radice Web
+## <a name="web-root-webroot"></a>Radice Web (webroot)
 
-La radice Web di un'app è la directory del progetto contenente risorse statiche pubbliche, come ad esempio CSS, JavaScript e i file di immagine.
+La radice Web di un'app è la directory del progetto contenente risorse statiche pubbliche, come ad esempio CSS, JavaScript e i file di immagine. Per impostazione predefinita *wwwroot* è la radice Web.
+
+Per i file Razor (*. cshtml*), il carattere tilde `~/` punta alla radice Web. I percorsi che iniziano con `~/` sono indicati come percorsi virtuali.
 
 ## <a name="dependency-injection-services"></a>Iniezione di dipendenze (servizi)
 
@@ -147,36 +159,6 @@ ASP.NET Core offre scenari per il routing delle richieste di app ai gestori di r
 
 Per ulteriori informazioni, vedere <xref:fundamentals/routing>.
 
-## <a name="file-providers"></a>Provider di file
-
-ASP.NET Core astrae l'accesso al file system tramite l'uso di provider di file, che offrono un'interfaccia comune per l'uso di file tra le piattaforme.
-
-Per ulteriori informazioni, vedere <xref:fundamentals/file-providers>.
-
-## <a name="static-files"></a>File statici
-
-Il middleware dei file statici viene usato per i file statici, come ad esempio HTML, CSS, file di immagine e JavaScript.
-
-Per ulteriori informazioni, vedere <xref:fundamentals/static-files>.
-
-## <a name="session-and-app-state"></a>Stato di sessioni e app
-
-ASP.NET Core offre diversi approcci per mantenere lo stato di sessioni e app mentre un utente usa un'app Web.
-
-Per ulteriori informazioni, vedere <xref:fundamentals/app-state>.
-
-## <a name="globalization-and-localization"></a>Globalizzazione e localizzazione
-
-La creazione di un sito Web multilingue con ASP.NET Core consente al sito di raggiungere un gruppo di destinatari più ampio. ASP.NET Core offre servizi e middleware per la localizzazione di contenuti in diverse lingue e impostazioni cultura.
-
-Per ulteriori informazioni, vedere <xref:fundamentals/localization>.
-
-## <a name="request-features"></a>Funzionalità di richiesta
-
-I dettagli dell'implementazione di server Web relativi alle richieste e alle risposte HTTP vengono definiti nelle interfacce. Le interfacce vengono usate dalle implementazioni del server e dal middleware per creare e modificare la pipeline di hosting dell'app.
-
-Per ulteriori informazioni, vedere <xref:fundamentals/request-features>.
-
 ## <a name="background-tasks"></a>Attività in background
 
 Le attività in background vengono implementate come *servizi ospitati*. Un servizio ospitato è una classe con logica di attività in background che implementa l'interfaccia <xref:Microsoft.Extensions.Hosting.IHostedService>.
@@ -188,43 +170,3 @@ Per ulteriori informazioni, vedere <xref:fundamentals/host/hosted-services>.
 `HttpContext` è disponibile automaticamente durante l'elaborazione delle richieste con Razor Pages e MVC. In circostanze in cui `HttpContext` non è immediatamente disponibile, è possibile accedere a `HttpContext` tramite l'interfaccia <xref:Microsoft.AspNetCore.Http.IHttpContextAccessor> e la relativa implementazione predefinita, <xref:Microsoft.AspNetCore.Http.HttpContextAccessor>.
 
 Per ulteriori informazioni, vedere <xref:fundamentals/httpcontext>.
-
-## <a name="websockets"></a>Oggetti WebSocket
-
-[WebSocket](https://wikipedia.org/wiki/WebSocket) è un protocollo che consente canali di comunicazione persistente bidirezionale su connessioni TCP. Viene usato per app come chat, teleborsa, giochi e per qualsiasi funzionalità in tempo reale in un'app Web. ASP.NET Core supporta scenari per socket Web.
-
-Per ulteriori informazioni, vedere <xref:fundamentals/websockets>.
-
-::: moniker range=">= aspnetcore-2.1"
-
-## <a name="microsoftaspnetcoreapp-metapackage"></a>Metapacchetto Microsoft.AspNetCore.App
-
-Il metapacchetto [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App/) semplifica la gestione dei pacchetti.
-
-Per ulteriori informazioni, vedere <xref:fundamentals/metapackage-app>.
-
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.0"
-
-## <a name="microsoftaspnetcoreall-metapackage"></a>Metapacchetto Microsoft.AspNetCore.All
-
-Il metapacchetto [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) per ASP.NET include:
-
-* Tutti i pacchetti supportati dal team ASP.NET Core.
-* Tutti i pacchetti supportati da Entity Framework Core.
-* Le dipendenze interne e di terze parti usate da ASP.NET Core e da Entity Framework Core.
-
-Per ulteriori informazioni, vedere <xref:fundamentals/metapackage>.
-
-::: moniker-end
-
-## <a name="net-core-vs-net-framework-runtime"></a>Runtime .NET core e .NET Framework
-
-Un'app di ASP.NET Core può avere come destinazione il runtime di .NET Core o di .NET Framework.
-
-Per altre informazioni, vedere [Scelta di .NET Core o .NET Framework](/dotnet/articles/standard/choosing-core-framework-server).
-
-## <a name="choose-between-aspnet-core-and-aspnet"></a>Scegliere tra ASP.NET Core e ASP.NET
-
-Per altre informazioni sulla scelta tra ASP.NET Core e ASP.NET, vedere <xref:fundamentals/choose-between-aspnet-and-aspnetcore>.

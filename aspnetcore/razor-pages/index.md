@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/12/2018
 uid: razor-pages/index
-ms.openlocfilehash: 7bd597acedade65f2be53f4f50a436981e576b1f
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 7fc048e427fd49e2142160615a12989fd4f40303
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326121"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207615"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introduzione a Razor Pages in ASP.NET Core
 
@@ -236,7 +236,7 @@ Il metodo `OnPostDeleteAsync`:
 
 ::: moniker range=">= aspnetcore-2.1"
 
-## <a name="mark-page-properties-required"></a>Contrassegnare le proprietà della pagina con Required
+## <a name="mark-page-properties-as-required"></a>Contrassegnare le proprietà della pagina in base alle esigenze
 
 Le proprietà di `PageModel` possono essere decorate con l'attributo con [Required](/dotnet/api/system.componentmodel.dataannotations.requiredattribute):
 

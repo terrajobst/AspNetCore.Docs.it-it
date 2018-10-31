@@ -4,14 +4,14 @@ author: guardrex
 description: Questo articolo contiene collegamenti a risorse di hosting e distribuzione di Azure.
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/29/2018
+ms.date: 10/24/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 315261c4d20970fc399cc2a879dd452bdf3be93f
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: b238630d6f762e2b9fad1060f8150185bcf413fe
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326056"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090228"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Distribuire le app ASP.NET Core in Servizio app di Azure
 
@@ -29,10 +29,10 @@ Usare la riga di comando per creare e distribuire un'app Web ASP.NET Core nel se
 
 Gli articoli seguenti sono disponibili nella documentazione di ASP.NET Core:
 
-[Pubblicare in Azure con Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs)  
+<xref:tutorials/publish-to-azure-webapp-using-vs>  
 Informazioni su come pubblicare un'app ASP.NET Core in Servizio app di Azure con Visual Studio.
 
-[Distribuzione continua in Azure con Visual Studio e Git](xref:host-and-deploy/azure-apps/azure-continuous-deployment)  
+<xref:host-and-deploy/azure-apps/azure-continuous-deployment>  
 Informazioni su come creare un'app Web ASP.NET Core tramite Visual Studio e distribuirla nel Servizio app di Azure usando Git per la distribuzione continua.
 
 [Creare la prima pipeline con Azure Pipelines](/azure/devops/pipelines/get-started-yaml)  
@@ -45,13 +45,13 @@ Individuare le limitazioni di esecuzione di runtime di Servizio app di Azure app
 
 ## <a name="application-configuration"></a>Configurazione dell'applicazione
 
-In ASP.NET Core 2.0 o versioni successive, i pacchetti NuGet seguenti offrono funzionalità di registrazione automatica per le app distribuite nel Servizio app di Azure:
+I pacchetti NuGet seguenti offrono funzionalità di registrazione automatica per le app distribuite nel Servizio app di Azure:
 
 * [Microsoft.AspNetCore.AzureAppServices.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServices.HostingStartup/) usa [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration) per fornire l'integrazione di ASP.NET Core con il Servizio app di Azure. La funzionalità di registrazione aggiunte vengono fornite dal pacchetto `Microsoft.AspNetCore.AzureAppServicesIntegration`.
 * [Microsoft.AspNetCore.AzureAppServicesIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServicesIntegration/) esegue [AddAzureWebAppDiagnostics](/dotnet/api/microsoft.extensions.logging.azureappservicesloggerfactoryextensions.addazurewebappdiagnostics) per aggiungere i provider di registrazione diagnostica del servizio app di Azure nel pacchetto `Microsoft.Extensions.Logging.AzureAppServices`.
 * [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices/) offre implementazioni di logger per il supporto dei registri di diagnostica del servizio app di Azure e delle funzionalità del flusso di registrazione.
 
-Se destinati a .NET Core e aventi come riferimento il [metapacchetto Microsoft.AspNetCore.All](xref:fundamentals/metapackage), i pacchetti sono già inclusi. I pacchetti non sono presenti nel nuovo [metapacchetto Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app). Se destinati a .NET Framework o aventi come riferimento il metapacchetto `Microsoft.AspNetCore.App`, fare riferimento ai singoli pacchetti di registrazione.
+Se destinati a .NET Core e aventi come riferimento il [metapacchetto Microsoft.AspNetCore.All](xref:fundamentals/metapackage), i pacchetti precedenti sono inclusi. I pacchetti non sono presenti nel [metapacchetto Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app). Se destinati a .NET Framework o aventi come riferimento il metapacchetto `Microsoft.AspNetCore.App`, fare riferimento ai singoli pacchetti di registrazione.
 
 ::: moniker-end
 
@@ -79,13 +79,13 @@ Informazioni su come esaminare le quote e le metriche per le app e i piani del s
 [Abilitare la registrazione diagnostica per le app Web nel servizio app di Azure](/azure/app-service/web-sites-enable-diagnostic-log)  
 Informazioni su come abilitare e accedere alla registrazione diagnostica per i codici di stato HTTP, le richieste non riuscite e l'attività del server Web.
 
-[Introduzione alla gestione degli errori in ASP.NET Core](xref:fundamentals/error-handling)  
+<xref:fundamentals/error-handling>  
 Riconoscimento degli approcci comuni di gestione degli errori nelle app ASP.NET Core.
 
-[Risolvere i problemi di ASP.NET Core in Servizio app di Azure](xref:host-and-deploy/azure-apps/troubleshoot)  
+<xref:host-and-deploy/azure-apps/troubleshoot>  
 Informazioni su come diagnosticare i problemi delle distribuzioni del servizio app di Azure con le app ASP.NET Core.
 
-[Errori comuni di Azure App Service e IIS con ASP.NET Core](xref:host-and-deploy/azure-iis-errors-reference)  
+<xref:host-and-deploy/azure-iis-errors-reference>  
 Informazioni sugli errori comuni di configurazione della distribuzione per le app ospitate dal servizio app di Azure o da IIS con suggerimenti per la risoluzione.
 
 ## <a name="data-protection-key-ring-and-deployment-slots"></a>KeyRing di protezione dati e slot di distribuzione
@@ -99,7 +99,7 @@ Nel passaggio da uno slot di distribuzione all'altro, tutti i sistemi che usano 
 * Archivio SQL
 * Cache Redis
 
-Per altre informazioni, vedere [Provider di archiviazione chiavi](xref:security/data-protection/implementation/key-storage-providers).
+Per ulteriori informazioni, vedere <xref:security/data-protection/implementation/key-storage-providers>.
 
 ## <a name="deploy-aspnet-core-preview-release-to-azure-app-service"></a>Distribuire la versione di anteprima di ASP.NET Core in Servizio app di Azure
 

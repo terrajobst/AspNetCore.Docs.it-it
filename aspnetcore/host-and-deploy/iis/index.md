@@ -6,16 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/21/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 12075f68dd828680f6bfbd46ea22ebd7bbe52dc7
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 6b2cf853575b02de76d44bf79849fe11bb458fbd
+ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326017"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50244944"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host ASP.NET Core in Windows con IIS
 
 Di [Luke Latham](https://github.com/guardrex)
+
+[Installare il bundle di hosting .NET Core](#install-the-net-core-hosting-bundle)
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
 
@@ -85,13 +87,19 @@ public static IWebHost BuildWebHost(string[] args) =>
         ...
 ```
 
-Il modulo ASP.NET Core genera una porta dinamica da assegnare al processo back-end. `CreateDefaultBuilder` chiama il metodo <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*>, che rileva la porta dinamica e configura Kestrel per l'ascolto su `http://localhost:{dynamicPort}/`. Questa operazione sostituisce le altre configurazioni URL, come chiamate a `UseUrls` o [API Listen di Kestrel](xref:fundamentals/servers/kestrel#endpoint-configuration). Pertanto, le chiamate a `UseUrls` o all'API `Listen` di Kestrel non sono necessarie quando si usa il modulo. In caso di chiamata di `UseUrls` o `Listen`, Kestrel resta in ascolto solo sulla porta specificata quando si esegue l'app senza IIS.
+Il modulo ASP.NET Core genera una porta dinamica da assegnare al processo back-end. `CreateDefaultBuilder` chiama il metodo <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*>. `UseIISIntegration` configura Kestrel per l'ascolto sulla porta dinamica all'indirizzo IP localhost (`127.0.0.1`). Se la porta dinamica è 1234, Kestrel è in ascolto su `127.0.0.1:1234`. Questa configurazione sostituisce le altre configurazioni URL fornite da:
+
+* `UseUrls`
+* [API Listen di Kestrel](xref:fundamentals/servers/kestrel#endpoint-configuration)
+* [Configurazione](xref:fundamentals/configuration/index) (o [opzione URL della riga di comando](xref:fundamentals/host/web-host#override-configuration))
+
+Le chiamate a `UseUrls` o all'API `Listen` di Kestrel non sono necessarie quando si usa il modulo. In caso di chiamata di `UseUrls` o `Listen`, Kestrel resta in ascolto sulla porta specificata solo quando si esegue l'app senza IIS.
 
 Per altre informazioni sui modelli di hosting in-process e out-of-process, vedere l'argomento <xref:fundamentals/servers/aspnet-core-module> e <xref:host-and-deploy/aspnet-core-module>.
 
 ::: moniker-end
 
-::: moniker range="= aspnetcore-2.0 || aspnetcore-2.1"
+::: moniker range="= aspnetcore-2.1"
 
 Un file *Program.cs* tipico chiama <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> per avviare la configurazione di un host. `CreateDefaultBuilder` configura [Kestrel](xref:fundamentals/servers/kestrel) come server Web e abilita l'integrazione IIS configurando il percorso base e la porta per il [modulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module):
 
@@ -101,7 +109,33 @@ public static IWebHost BuildWebHost(string[] args) =>
         ...
 ```
 
-Il modulo ASP.NET Core genera una porta dinamica da assegnare al processo back-end. `CreateDefaultBuilder` chiama il metodo [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration), il quale rileva la porta dinamica e configura Kestrel per l'ascolto su `http://localhost:{dynamicPort}/`. Questa operazione sostituisce le altre configurazioni URL, come chiamate a `UseUrls` o [API Listen di Kestrel](xref:fundamentals/servers/kestrel#endpoint-configuration). Pertanto, le chiamate a `UseUrls` o all'API `Listen` di Kestrel non sono necessarie quando si usa il modulo. In caso di chiamata di `UseUrls` o `Listen`, Kestrel resta in ascolto sulla porta specificata quando si esegue l'app senza IIS.
+Il modulo ASP.NET Core genera una porta dinamica da assegnare al processo back-end. `CreateDefaultBuilder` chiama il metodo [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration). `UseIISIntegration` configura Kestrel per l'ascolto sulla porta dinamica all'indirizzo IP localhost (`127.0.0.1`). Se la porta dinamica è 1234, Kestrel è in ascolto su `127.0.0.1:1234`. Questa configurazione sostituisce le altre configurazioni URL fornite da:
+
+* `UseUrls`
+* [API Listen di Kestrel](xref:fundamentals/servers/kestrel#endpoint-configuration)
+* [Configurazione](xref:fundamentals/configuration/index) (o [opzione URL della riga di comando](xref:fundamentals/host/web-host#override-configuration))
+
+Le chiamate a `UseUrls` o all'API `Listen` di Kestrel non sono necessarie quando si usa il modulo. In caso di chiamata di `UseUrls` o `Listen`, Kestrel resta in ascolto sulla porta specificata solo quando si esegue l'app senza IIS.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+Un file *Program.cs* tipico chiama <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> per avviare la configurazione di un host. `CreateDefaultBuilder` configura [Kestrel](xref:fundamentals/servers/kestrel) come server Web e abilita l'integrazione IIS configurando il percorso base e la porta per il [modulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module):
+
+```csharp
+public static IWebHost BuildWebHost(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        ...
+```
+
+Il modulo ASP.NET Core genera una porta dinamica da assegnare al processo back-end. `CreateDefaultBuilder` chiama il metodo [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration). `UseIISIntegration` configura Kestrel per l'ascolto sulla porta dinamica all'indirizzo IP localhost (`localhost`). Se la porta dinamica è 1234, Kestrel è in ascolto su `localhost:1234`. Questa configurazione sostituisce le altre configurazioni URL fornite da:
+
+* `UseUrls`
+* [API Listen di Kestrel](xref:fundamentals/servers/kestrel#endpoint-configuration)
+* [Configurazione](xref:fundamentals/configuration/index) (o [opzione URL della riga di comando](xref:fundamentals/host/web-host#override-configuration))
+
+Le chiamate a `UseUrls` o all'API `Listen` di Kestrel non sono necessarie quando si usa il modulo. In caso di chiamata di `UseUrls` o `Listen`, Kestrel resta in ascolto sulla porta specificata solo quando si esegue l'app senza IIS.
 
 ::: moniker-end
 
@@ -118,7 +152,12 @@ var host = new WebHostBuilder()
 
 [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel) e [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration) sono entrambi obbligatori. Il fatto che il codice chiami `UseIISIntegration` non influisce sulla portabilità del codice stesso. Se l'app non viene eseguita dietro IIS (ad esempio se viene eseguita direttamente in Kestrel), `UseIISIntegration` non esegue alcuna operazione.
 
-Il modulo ASP.NET Core genera una porta dinamica da assegnare al processo back-end. Il metodo `UseIISIntegration` preleva la porta dinamica e configura Kestrel per l'ascolto su `http://locahost:{dynamicPort}/`. Questa operazione sostituisce le altre configurazioni URL, come chiamate a `UseUrls`. Non è quindi necessaria una chiamata a `UseUrls` quando si usa il modulo. In caso di chiamata di `UseUrls`, Kestrel resta in ascolto sulla porta specificata quando si esegue l'app senza IIS.
+Il modulo ASP.NET Core genera una porta dinamica da assegnare al processo back-end. `UseIISIntegration` configura Kestrel per l'ascolto sulla porta dinamica all'indirizzo IP localhost (`localhost`). Se la porta dinamica è 1234, Kestrel è in ascolto su `localhost:1234`. Questa configurazione sostituisce le altre configurazioni URL fornite da:
+
+* `UseUrls`
+* [Configurazione](xref:fundamentals/configuration/index) (o [opzione URL della riga di comando](xref:fundamentals/host/web-host#override-configuration))
+
+Non è necessaria una chiamata a `UseUrls` quando si usa il modulo. In caso di chiamata di `UseUrls`, Kestrel resta in ascolto sulla porta specificata solo quando si esegue l'app senza IIS.
 
 Se `UseUrls` viene chiamato in un'app ASP.NET Core 1.0, chiamarlo **prima** della chiamata di `UseIISIntegration` in modo che la porta configurata del modulo non venga sovrascritta. Questo ordine di chiamata non è obbligatorio con ASP.NET 1.1 Core perché l'impostazione del modulo ha la precedenza su `UseUrls`.
 
@@ -225,28 +264,42 @@ Abilitare **Console di gestione IIS** e **Servizi Web**.
 
 ![La console di gestione IIS e servizi World Wide Web sono selezionati nelle funzionalità di Windows.](index/_static/windows-features-win10.png)
 
----
-
 ## <a name="install-the-net-core-hosting-bundle"></a>Installare il bundle di hosting .NET Core
 
-1. Installare il *bundle di hosting .NET Core* nel sistema di hosting. L'aggregazione installa il runtime di .NET Core, la libreria di .NET Core e il [modulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module). Il modulo crea il proxy inverso tra IIS e il server Kestrel. Se il sistema non ha una connessione Internet, ottenere e installare [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840) prima di installare il bundle di hosting .NET Core.
+Installare il *bundle di hosting .NET Core* nel sistema di hosting. L'aggregazione installa il runtime di .NET Core, la libreria di .NET Core e il [modulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module). Il modulo crea il proxy inverso tra IIS e il server Kestrel. Se il sistema non ha una connessione Internet, ottenere e installare [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840) prima di installare il bundle di hosting .NET Core.
 
-   1. Passare alla [pagina dei download .NET](https://www.microsoft.com/net/download/windows).
-   1. In **.NET Core** selezionare il pulsante **Download .NET Core Runtime** (Scarica runtime di .NET Core) accanto all'etichetta **Run Apps** (Esegui app). Il file eseguibile del programma di installazione contiene la parola "hosting" nel nome del file (ad esempio, *dotnet-hosting-2.1.2-win.exe*).
-   1. Eseguire il programma di installazione nel server.
+> [!IMPORTANT]
+> Se il bundle di hosting viene installato prima di IIS, è necessario riparare l'installazione del bundle. Eseguire di nuovo il programma di installazione del bundle di hosting dopo l'installazione di IIS.
 
-   **Importante**: Se il bundle di hosting viene installato prima di IIS, è necessario riparare l'installazione del bundle. Eseguire di nuovo il programma di installazione del bundle di hosting dopo l'installazione di IIS.
+### <a name="direct-download-current-version"></a>Download diretto (versione corrente)
 
-   Eseguire il programma di installazione da un prompt dei comandi dell'amministratore con una o più opzioni per controllare il comportamento del programma:
+Scaricare il programma di installazione mediante il collegamento seguente:
+
+[Programma di installazione del bundle di hosting .NET Core corrente (download diretto)](https://www.microsoft.com/net/permalink/dotnetcore-current-windows-runtime-bundle-installer)
+
+### <a name="earlier-versions-of-the-installer"></a>Versioni precedenti del programma di installazione
+
+Per ottenere una versione precedente del programma di installazione:
+
+1. Passare agli [archivi dei download per .NET](https://www.microsoft.com/net/download/archives).
+1. In **.NET Core**, selezionare la versione di .NET Core.
+1. Nella colonna **Run apps - Runtime** (App di esecuzione - Runtime), trovare la riga della versione di runtime di .NET Core desiderata.
+1. Scaricare il programma di installazione tramite il collegamento **Runtime & Hosting Bundle** (Runtime e bundle di hosting).
+
+> [!WARNING]
+> Alcuni programmi di installazione contengono versioni che hanno terminato il loro ciclo di vita e non sono più supportate da Microsoft. Per altre informazioni, vedere i [criteri di supporto](https://www.microsoft.com/net/download/dotnet-core/2.0).
+
+### <a name="install-the-hosting-bundle"></a>Installare il bundle di hosting
+
+1. Eseguire il programma di installazione nel server. Quando si esegue il programma di installazione da un prompt dei comandi di amministratore sono disponibili le opzioni seguenti:
 
    * `OPT_NO_ANCM=1` &ndash; Ignora l'installazione del modulo ASP.NET Core.
    * `OPT_NO_RUNTIME=1` &ndash; Ignora l'installazione del runtime .NET Core.
    * `OPT_NO_SHAREDFX=1` &ndash; Ignora l'installazione del framework condiviso di ASP.NET (runtime ASP.NET).
    * `OPT_NO_X86=1` &ndash; Ignora l'installazione dei runtime x86. Usare questa opzione se si è certi che non verrà eseguito l'hosting di app a 32 bit. Se non esiste alcuna possibilità che in futuro venga eseguito l'hosting di app sia a 32 che a 64 bit, non usare questa opzione e installare entrambi i runtime.
-
 1. Riavviare il sistema o eseguire **net stop was /y** seguito da **net start w3svc** da un prompt dei comandi. Il riavvio di IIS rileva una modifica alla variabile di ambiente di sistema PATH apportata dal programma di installazione.
 
-   Se il programma di installazione del bundle di hosting Windows rileva che è necessario reimpostare IIS per poter completare l'installazione, procede con la reimpostazione. Se il programma di installazione attiva una reimpostazione di IIS, tutti i siti Web e i pool di app IIS vengono riavviati.
+Se il programma di installazione del bundle di hosting Windows rileva che è necessario reimpostare IIS per poter completare l'installazione, procede con la reimpostazione. Se il programma di installazione attiva una reimpostazione di IIS, tutti i siti Web e i pool di app IIS vengono riavviati.
 
 > [!NOTE]
 > Per informazioni sulla configurazione condivisa di IIS, vedere [Modulo di ASP.NET Core con configurazione condivisa di IIS](xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration).
@@ -362,7 +415,7 @@ Per configurare la protezione dati in IIS in modo da rendere permanente il grupp
 
   Le chiavi di protezione dati usate dalle app ASP.NET Core vengono archiviate nel Registro di sistema esterno alle app. Per mantenere le chiavi per una determinata app, creare chiavi del Registro di sistema per il pool di applicazioni.
 
-  Per le installazioni IIS autonome non Web farm è possibile usare lo [script PowerShell Data Protection Provision-AutoGenKeys.ps1 (ASP.NET Core 2.2)](https://github.com/aspnet/DataProtection/blob/release/2.2/Provision-AutoGenKeys.ps1) per ogni pool di app usato con un'app ASP.NET Core. Questo script crea una chiave del Registro di sistema nel registro HKLM accessibile solo all'account del processo di lavoro del pool di applicazioni dell'app. Le chiavi vengono crittografate a riposo tramite DPAPI con una chiave a livello del computer.
+  Per le installazioni IIS autonome non web farm è possibile usare lo [script PowerShell Data Protection Provision-AutoGenKeys.ps1 (Provisioning di protezione dati-AutoGenKeys.ps1)](https://github.com/aspnet/AspNetCore/blob/master/src/DataProtection/Provision-AutoGenKeys.ps1) per ogni pool di app usato con un'app ASP.NET Core. Questo script crea una chiave del Registro di sistema nel registro HKLM accessibile solo all'account del processo di lavoro del pool di applicazioni dell'app. Le chiavi vengono crittografate a riposo tramite DPAPI con una chiave a livello del computer.
 
   In scenari di web farm un'app può essere configurata in modo da usare un percorso UNC in cui archiviare il proprio gruppo di chiavi di protezione dati. Per impostazione predefinita, le chiavi di protezione dati non vengono crittografate. Assicurarsi che le autorizzazioni file per la condivisione di rete siano limitate all'account di Windows in cui viene eseguita l'app. È possibile usare un certificato X509 per la protezione delle chiavi inattive. Considerare l'implementazione di un meccanismo per consentire agli utenti di caricare i certificati: inserire i certificati nell'archivio certificati attendibili dell'utente e assicurarsi che siano disponibili in tutti i computer in cui viene eseguita l'app dell'utente. Vedere [Configurare la protezione dati di ASP.NET Core](xref:security/data-protection/configuration/overview) per altri dettagli.
 
