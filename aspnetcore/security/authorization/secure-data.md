@@ -5,12 +5,12 @@ description: Informazioni su come creare un'app Razor Pages con i dati utente pr
 ms.author: riande
 ms.date: 7/24/2018
 uid: security/authorization/secure-data
-ms.openlocfilehash: 786e83eb28722e83eea46def962593f58ad524e2
-ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
+ms.openlocfilehash: 185628d4e06c9b5ae7f2685c10ea9e46dd5abe92
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/30/2018
-ms.locfileid: "50244840"
+ms.locfileid: "50253221"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Creare un'app ASP.NET Core con i dati utente protetti da autorizzazione
 
@@ -71,16 +71,16 @@ L'esempio contiene i gestori di autorizzazione seguenti:
 Questa esercitazione viene fatto avanzare. È necessario avere familiarità con:
 
 * [ASP.NET Core](xref:tutorials/first-mvc-app/start-mvc)
-* [Autenticazione](xref:security/authentication/index)
+* [Autenticazione](xref:security/authentication/identity)
 * [Conferma account e recupero password](xref:security/authentication/accconfirm)
-* [Autorizzazione](xref:security/authorization/index)
+* [Autorizzazione](xref:security/authorization/introduction)
 * [Entity Framework Core](xref:data/ef-mvc/intro)
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.1"
 
-In ASP.NET Core 2.1 `User.IsInRole` ha esito negativo quando si usa `AddDefaultIdentity`. Questa esercitazione Usa `AddDefaultIdentity` e pertanto richiede ASP.NET Core 2.2 preview 1 o versione successiva. Visualizzare [questo problema su GitHub](https://github.com/aspnet/Identity/issues/1813#issuecomment-394543909) per una soluzione alternativa.
+In ASP.NET Core 2.1 `User.IsInRole` ha esito negativo quando si usa `AddDefaultIdentity`. Questa esercitazione Usa `AddDefaultIdentity` e pertanto richiede ASP.NET Core 2.2 o versioni successive. Visualizzare [questo problema su GitHub](https://github.com/aspnet/Identity/issues/1813#issuecomment-394543909) per una soluzione alternativa.
 
 ::: moniker-end
 
@@ -352,7 +352,7 @@ Verificare che l'app effettuato il seeding del database. Se sono presenti tutte 
 
 * [Creare un'app web .NET Core e Database SQL di Azure App Service](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
 * [ASP.NET Core autorizzazione Lab](https://github.com/blowdart/AspNetAuthorizationWorkshop). Questa esercitazione descrive in dettaglio più le funzionalità di sicurezza introdotte in questa esercitazione.
-* [Autorizzazione in ASP.NET Core: semplice, ruolo, basata sulle attestazioni e personalizzato](xref:security/authorization/index)
+* <xref:security/authorization/introduction>
 * [Autorizzazione personalizzata basata su criteri](xref:security/authorization/policies)
 
 ::: moniker-end
