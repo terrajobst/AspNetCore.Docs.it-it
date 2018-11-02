@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/04/2018
 uid: signalr/groups
-ms.openlocfilehash: d3e580dfc42a36762358899892831c8b68f544b0
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 02db46f090c487a03171de244ff7ad0d5e9de0fa
+ms.sourcegitcommit: fc2486ddbeb15ab4969168d99b3fe0fbe91e8661
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207160"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50758167"
 ---
 # <a name="manage-users-and-groups-in-signalr"></a>Gestire utenti e gruppi in SignalR
 
@@ -54,6 +54,8 @@ Un gruppo è una raccolta di connessioni associate a un nome. I messaggi possono
 [!code-csharp[Hub methods](groups/sample/hubs/chathub.cs?range=15-27)]
 
 L'appartenenza al gruppo non viene mantenuta quando si riconnette una connessione. Per partecipare di nuovo il gruppo quando viene ristabilita la connessione. Non è possibile contare i membri di un gruppo, poiché queste informazioni non sono disponibile se l'applicazione viene ridimensionata a più server.
+
+Per proteggere l'accesso alle risorse durante l'uso di gruppi, usare [autenticazione e autorizzazione](xref:signalr/authn-and-authz) funzionalità in ASP.NET Core. Se si aggiungono solo gli utenti a un gruppo quando le credenziali sono valide per il gruppo, i messaggi inviati a tale gruppo passerà solo agli utenti autorizzati. Tuttavia, i gruppi non sono una funzionalità di sicurezza. Le attestazioni di autenticazione hanno funzionalità che i gruppi non lo consentono, ad esempio la scadenza e revoca. Se viene revocata l'autorizzazione di un utente per accedere al gruppo, è necessario rilevare che manualmente e rimuoverli dal gruppo.
 
 > [!NOTE]
 > I nomi dei gruppi sono tra maiuscole e minuscole.

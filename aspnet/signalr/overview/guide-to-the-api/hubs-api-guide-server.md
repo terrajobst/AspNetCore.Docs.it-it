@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: b19913e5-cd8a-4e4b-a872-5ac7a858a934
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-server
 msc.type: authoredcontent
-ms.openlocfilehash: 03dd8a73141330348f2877760a5978a8a0b95122
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 6545491cfa36bb9fee555eb0348ec0a319bff470
+ms.sourcegitcommit: fc2486ddbeb15ab4969168d99b3fe0fbe91e8661
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41837388"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50758245"
 ---
 <a name="aspnet-signalr-hubs-api-guide---server-c"></a>Guida all'API di ASP.NET SignalR Hubs - Server (c#)
 ====================
@@ -304,6 +304,11 @@ Per chiamare i metodi di client dal server, usare il `Clients` proprietà in un 
 
 [!code-csharp[Main](hubs-api-guide-server/samples/sample23.cs?highlight=5)]
 
+Richiama un metodo client è un'operazione asincrona e restituisce un `Task`. Usare `await`:
+
+* Per verificare che il messaggio viene inviato senza errori. 
+* Per abilitare l'intercettazione e gestione degli errori in un blocco try-catch.
+
 **Client JavaScript tramite proxy generato**
 
 [!code-html[Main](hubs-api-guide-server/samples/sample24.html?highlight=1)]
@@ -572,7 +577,7 @@ In Visual Basic.NET o in un hub fortemente tipizzato, l'oggetto di stato del chi
 
 ## <a name="how-to-handle-errors-in-the-hub-class"></a>Come gestire gli errori nella classe Hub
 
-Per gestire gli errori che si verificano nei metodi di classe dell'Hub, usare uno o più dei metodi seguenti:
+Per gestire gli errori che si verificano nei metodi di classe dell'Hub, prima di tutto assicurarsi "osservare" tutte le eccezioni dalle operazioni asincrone (ad esempio, richiamando metodi di client) tramite `await`. Usare quindi uno o più dei metodi seguenti:
 
 - Eseguire il wrapping del codice del metodo in blocchi try-catch e accedere all'oggetto eccezione. A scopo di debug è possibile inviare l'eccezione al client, ma per la sicurezza non sono consigliabile motivi l'invio di informazioni dettagliate per i client nell'ambiente di produzione.
 - Creare un modulo di hub della pipeline che gestisce il [OnIncomingError](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubpipelinemodule.onincomingerror(v=vs.111).aspx) (metodo). Nell'esempio seguente mostra un modulo di pipeline che registra gli errori, seguiti dal codice nel file Startup.cs che inserisce il modulo nella pipeline di hub.

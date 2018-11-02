@@ -5,14 +5,14 @@ description: Informazioni su come usare il servizio ASP.NET Core SignalR HubCont
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 06/13/2018
+ms.date: 11/01/2018
 uid: signalr/hubcontext
-ms.openlocfilehash: 8be888e1f7b16d65ebbaa24b618e84fca029d80b
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: af125791a75a2dd68c236dd8c5b51eecff244ce4
+ms.sourcegitcommit: fc2486ddbeb15ab4969168d99b3fe0fbe91e8661
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207953"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50758154"
 ---
 # <a name="send-messages-from-outside-a-hub"></a>Invio di messaggi provenienti dall'esterno di un hub
 
@@ -55,6 +55,27 @@ app.Use(next => async (context) =>
 
 > [!NOTE]
 > Quando i metodi dell'hub vengono chiamati all'esterno del `Hub` classe, non vi è alcun chiamante associati con la chiamata. Pertanto, non è possibile accedere per il `ConnectionId`, `Caller`, e `Others` proprietà.
+
+### <a name="inject-a-strongly-typed-hubcontext"></a>Inserire un HubContext fortemente tipizzati
+
+Per inserire un HubContext fortemente tipizzato, assicurarsi che l'Hub eredita da `Hub<T>`. Inserire usando il `IHubContext<THub, T>` interfaccia anziché `IHubContext<THub>`.
+
+```csharp
+public class ChatController : Controller
+{
+    public IHubContext<ChatHub, IChatClient> _strongChatHubContext { get; }
+
+    public SampleDataController(IHubContext<ChatHub, IChatClient> chatHubContext)
+    {
+        _strongChatHubContext = chatHubContext;
+    }
+
+    public async Task SendMessage(string message)
+    {
+        await _strongChatHubContext.Clients.All.ReceiveMessage(message);
+    }
+}
+```
 
 ## <a name="related-resources"></a>Risorse correlate
 
