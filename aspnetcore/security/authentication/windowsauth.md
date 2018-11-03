@@ -1,16 +1,17 @@
 ---
 title: Configurare l'autenticazione di Windows in ASP.NET Core
-author: ardalis
-description: Questo articolo descrive come configurare l'autenticazione di Windows in ASP.NET Core, tramite IIS Express, IIS, HTTP. sys e WebListener.
+author: scottaddie
+description: Informazioni su come configurare l'autenticazione di Windows in ASP.NET Core, tramite IIS Express, IIS, HTTP. sys e WebListener.
 ms.author: riande
-ms.date: 08/18/2018
+ms.custom: mvc
+ms.date: 11/01/2018
 uid: security/authentication/windowsauth
-ms.openlocfilehash: a8066d248c0d4db1d1f61b2a14bdb4656a2f4265
-ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
+ms.openlocfilehash: 87fcab75555c1dae0b2815c30d79fd4615df9660
+ms.sourcegitcommit: 85f2939af7a167b9694e1d2093277ffc9a741b23
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43312412"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50968293"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>Configurare l'autenticazione di Windows in ASP.NET Core
 
@@ -97,7 +98,10 @@ Anche se Kestrel non supporta l'autenticazione di Windows, è possibile usare [H
 [!code-csharp[](windowsauth/sample/Program2x.cs?highlight=9-14)]
 
 > [!NOTE]
-> Delegati di HTTP. sys per l'autenticazione in modalità kernel con il protocollo di autenticazione Kerberos. Con Kerberos e HTTP. sys non è supportata l'autenticazione in modalità utente. L'account del computer deve essere utilizzata per decrittografare i token/ticket Kerberos ottenuto da Active Directory e inoltrato dal client al server per autenticare l'utente. Registrare il nome dell'entità servizio (SPN) per l'host, non dell'utente dell'app.
+> Per la delega all'autenticazione in modalità kernel, HTTP.sys usa il protocollo di autenticazione Kerberos. L'autenticazione in modalità utente non è supportata con Kerberos e HTTP.sys. È necessario usare l'account del computer per decrittografare il token/ticket Kerberos ottenuto da Active Directory e inoltrato dal client al server per autenticare l'utente. Registrare il nome dell'entità servizio per l'host, non l'utente dell'app.
+
+> [!NOTE]
+> Http. sys non è supportata in Nano Server versione 1709 o successiva. Per usare l'autenticazione di Windows e HTTP. sys con Nano Server, usare una [contenitore di Server Core (microsoft/windowsservercore)](https://hub.docker.com/r/microsoft/windowsservercore/). Per altre informazioni su Server Core, vedere [qual è l'opzione di installazione Server Core in Windows Server?](/windows-server/administration/server-core/what-is-server-core).
 
 ::: moniker-end
 
@@ -110,7 +114,7 @@ Anche se Kestrel non supporta l'autenticazione di Windows, è possibile usare [W
 [!code-csharp[](windowsauth/sample/Program1x.cs?highlight=6-11)]
 
 > [!NOTE]
-> Delegati di WebListener all'autenticazione in modalità kernel con il protocollo di autenticazione Kerberos. L'autenticazione in modalità utente non è supportata con Kerberos e WebListener. L'account del computer deve essere utilizzata per decrittografare i token/ticket Kerberos ottenuto da Active Directory e inoltrato dal client al server per autenticare l'utente. Registrare il nome dell'entità servizio (SPN) per l'host, non dell'utente dell'app.
+> Per la delega all'autenticazione in modalità kernel, WebListener usa il protocollo di autenticazione Kerberos. L'autenticazione in modalità utente non è supportata con Kerberos e WebListener. È necessario usare l'account del computer per decrittografare il token/ticket Kerberos ottenuto da Active Directory e inoltrato dal client al server per autenticare l'utente. Registrare il nome dell'entità servizio per l'host, non l'utente dell'app.
 
 ::: moniker-end
 
