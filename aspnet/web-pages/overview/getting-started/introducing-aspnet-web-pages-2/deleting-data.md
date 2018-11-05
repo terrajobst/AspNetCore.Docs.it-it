@@ -1,19 +1,19 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/deleting-data
 title: "Introduzione a ASP.NET Web Pages: l'eliminazione dei dati di Database | Microsoft Docs"
-author: tfitzmac
+author: Rick-Anderson
 description: Questa esercitazione illustra come eliminare una voce di singoli database. Si presuppone di che aver completato la serie tramite l'aggiornamento di dati del Database nell'indirizzo PA Web di ASP.NET....
 ms.author: riande
 ms.date: 01/02/2018
 ms.assetid: 75b5c1cf-84bd-434f-8a86-85c568eb5b09
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/deleting-data
 msc.type: authoredcontent
-ms.openlocfilehash: 3b759a5c88b066640005c823ce0cc3cc3ac89bc2
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: b2ef8fcc8cc534bd31fea83bf0b085b85995f417
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41831949"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51020442"
 ---
 <a name="introducing-aspnet-web-pages---deleting-database-data"></a>Introduzione a pagine Web ASP.NET: l'eliminazione dei dati di Database
 ====================

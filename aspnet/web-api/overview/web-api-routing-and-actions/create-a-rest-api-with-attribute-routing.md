@@ -8,12 +8,12 @@ ms.date: 06/26/2013
 ms.assetid: 23fc77da-2725-4434-99a0-ff872d96336b
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
 msc.type: authoredcontent
-ms.openlocfilehash: 3b66f02c9be6441ff7d6c38d6180cc8556c6b8b9
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 18a44c280e6df1603837938d24d7d639d8c87cc2
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912891"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021417"
 ---
 <a name="create-a-rest-api-with-attribute-routing-in-aspnet-web-api-2"></a>Creare un'API REST con Routing degli attributi nell'API Web ASP.NET 2
 ====================
@@ -39,7 +39,7 @@ Per il livello di dati, si userà Entity Framework. I record dei libri avrà i c
 - Genre
 - Data di pubblicazione
 - Prezzo
-- Description
+- Descrizione
 - AuthorID (chiave esterna per una tabella Authors)
 
 Per la maggior parte delle richieste, tuttavia, l'API restituirà un subset dei dati (titolo, autore e il genere). Per ottenere il record completo, il client richieste `/api/books/{id}/details`.
@@ -52,11 +52,11 @@ Per la maggior parte delle richieste, tuttavia, l'API restituirà un subset dei 
 
 Iniziare eseguendo Visual Studio. Dal **File** dal menu **New** e quindi selezionare **progetto**.
 
-Espandere la **Installed** > **Visual c#** categoria. Sotto **Visual c#**, selezionare **Web**. Nell'elenco dei modelli di progetto, selezionare **applicazione Web ASP.NET MVC 4**. Denominare il progetto &quot;BooksAPI&quot;.
+Espandere la **Installed** > **Visual c#** categoria. Sotto **Visual c#**, selezionare **Web**. Nell'elenco dei modelli di progetto, selezionare **applicazione Web ASP.NET (.NET Framework)**. Denominare il progetto &quot;BooksAPI&quot;.
 
 ![](create-a-rest-api-with-attribute-routing/_static/image1.png)
 
-Nel **nuovo progetto ASP.NET** finestra di dialogo, seleziona la **vuota** modello. In "Aggiungere cartelle e riferimenti per la funzionalità di base", selezionare la **API Web** casella di controllo. Fare clic su **Crea progetto**.
+Nel **nuova applicazione Web ASP.NET** finestra di dialogo, seleziona la **vuota** modello. In "Aggiungere cartelle e riferimenti per la funzionalità di base", selezionare la **API Web** casella di controllo. Fare clic su **OK**.
 
 ![](create-a-rest-api-with-attribute-routing/_static/image2.png)
 
@@ -86,7 +86,7 @@ In Esplora soluzioni fare clic sulla cartella Controllers. Selezionare **Add**, 
 
 ![](create-a-rest-api-with-attribute-routing/_static/image4.png)
 
-Nel **Add Scaffold** finestra di dialogo, seleziona "Web API 2 Controller con azioni di lettura/scrittura, che usa Entity Framework."
+Nel **Add Scaffold** finestra di dialogo, seleziona **Controller Web API 2 con azioni, che usa Entity Framework**.
 
 [![](create-a-rest-api-with-attribute-routing/_static/image6.png)](create-a-rest-api-with-attribute-routing/_static/image5.png)
 

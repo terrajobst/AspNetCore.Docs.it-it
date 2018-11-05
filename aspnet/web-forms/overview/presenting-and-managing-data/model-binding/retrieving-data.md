@@ -1,19 +1,19 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/model-binding/retrieving-data
 title: Il recupero e visualizzazione dei dati con modello di associazione e web form | Microsoft Docs
-author: tfitzmac
+author: Rick-Anderson
 description: Questa serie di esercitazioni illustra aspetti di base dell'uso di associazione di modelli con un progetto di Web Form ASP.NET. Associazione di modelli consente l'interazione dei dati più linee rette-...
 ms.author: riande
 ms.date: 02/27/2014
 ms.assetid: 9f24fb82-c7ac-48da-b8e2-51b3da17e365
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/retrieving-data
 msc.type: authoredcontent
-ms.openlocfilehash: c04e4c94378c8143c919e83af90312dd003b8c84
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: b05f3780d7c4e4734b35c0d9377a89d6f3edb0f8
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41826250"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021339"
 ---
 <a name="retrieving-and-displaying-data-with-model-binding-and-web-forms"></a>Il recupero e visualizzazione dei dati con l'associazione di modelli e web form
 ====================

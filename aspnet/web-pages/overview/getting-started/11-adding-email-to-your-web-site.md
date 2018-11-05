@@ -1,19 +1,19 @@
 ---
 uid: web-pages/overview/getting-started/11-adding-email-to-your-web-site
 title: L'invio di posta elettronica da un Web ASP.NET le pagine del sito (Razor) | Microsoft Docs
-author: tfitzmac
+author: Rick-Anderson
 description: In questo capitolo illustra come inviare un messaggio di posta elettronica automatizzati da un sito Web.
 ms.author: riande
 ms.date: 02/20/2014
 ms.assetid: fc49bcb9-f1a9-4048-8c3f-b60951853200
 msc.legacyurl: /web-pages/overview/getting-started/11-adding-email-to-your-web-site
 msc.type: authoredcontent
-ms.openlocfilehash: 4429b9df0a6bc689eb3549c13aee598353c438af
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: f388ac1a97bde39cffe6b592b436d7af0d419a5f
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41823802"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021391"
 ---
 <a name="sending-email-from-an-aspnet-web-pages-razor-site"></a>L'invio di posta elettronica da un sito di ASP.NET Web Pages (Razor)
 ====================

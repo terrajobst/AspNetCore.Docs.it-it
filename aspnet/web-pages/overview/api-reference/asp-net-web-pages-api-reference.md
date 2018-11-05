@@ -1,19 +1,19 @@
 ---
 uid: web-pages/overview/api-reference/asp-net-web-pages-api-reference
 title: ASP.NET Web Pages (Razor) riferimento rapido sulle API | Microsoft Docs
-author: tfitzmac
+author: Rick-Anderson
 description: Questa pagina contiene un elenco con brevi esempi di oggetti più comunemente usati, proprietà e metodi per la programmazione di ASP.NET Web Pages con sintassi Razor.
 ms.author: riande
 ms.date: 02/10/2014
 ms.assetid: 4001cb9b-3bfd-4ace-8a89-1561d8421e2c
 msc.legacyurl: /web-pages/overview/api-reference/asp-net-web-pages-api-reference
 msc.type: authoredcontent
-ms.openlocfilehash: a10446eb621feb26c485384700ad9980cccf5d8b
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 656987f8a725f81dbca7a72594d7d03bc542fabe
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41832697"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021622"
 ---
 <a name="aspnet-web-pages-razor-api-quick-reference"></a>ASP.NET Web Pages (Razor) riferimento rapido sulle API
 ====================

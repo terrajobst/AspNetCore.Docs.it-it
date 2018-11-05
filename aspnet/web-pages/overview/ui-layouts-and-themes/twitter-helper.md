@@ -1,19 +1,19 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/twitter-helper
 title: Helper di Twitter con pagine Web ASP.NET | Microsoft Docs
-author: tfitzmac
+author: Rick-Anderson
 description: Questo argomento e l'applicazione illustrano come aggiungere un Helper di Twitter per WebMatrix 3 progetto. Contiene il codice Helper di Twitter e viene illustrato come chiamare il supporto...
 ms.author: riande
 ms.date: 02/07/2014
 ms.assetid: c1a1244e-b9c8-42e6-a00b-8456a4ec027c
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/twitter-helper
 msc.type: authoredcontent
-ms.openlocfilehash: 06223826c2682ffd62d5a1717f34242f39be5eda
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 89c8c520cd32ca2ee24e6cd90e11f7bdf39c7a80
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41831947"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51020573"
 ---
 <a name="twitter-helper-with-aspnet-web-pages"></a>Helper di Twitter con pagine Web ASP.NET
 ====================

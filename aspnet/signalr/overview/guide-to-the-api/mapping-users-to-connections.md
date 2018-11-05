@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/guide-to-the-api/mapping-users-to-connections
 title: Mapping degli utenti di SignalR alle connessioni | Microsoft Docs
-author: tfitzmac
+author: Rick-Anderson
 description: In questo argomento viene illustrato come mantenere le informazioni sugli utenti e le relative connessioni. Patrick Fletcher hanno contribuito alla scrittura di questo argomento. Versioni del software utilizzate in questo argomento...
 ms.author: riande
 ms.date: 12/30/2014
 ms.assetid: f80c08b1-3f1f-432c-980c-c7b6edeb31b1
 msc.legacyurl: /signalr/overview/guide-to-the-api/mapping-users-to-connections
 msc.type: authoredcontent
-ms.openlocfilehash: a3598eee30b29a95673cbc313adfb8f5b068ea24
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 5c7f710ec672d4f81ac0d1606640054e43fc5af8
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912579"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021235"
 ---
 <a name="mapping-signalr-users-to-connections"></a>Mapping degli utenti di SignalR alle connessioni
 ====================

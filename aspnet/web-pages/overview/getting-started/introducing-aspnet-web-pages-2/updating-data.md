@@ -1,19 +1,19 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/updating-data
 title: Introduzione a pagine Web ASP.NET - aggiornamento di dati del Database | Microsoft Docs
-author: tfitzmac
+author: Rick-Anderson
 description: Questa esercitazione illustra come aggiornare la voce (modifica) un database esistente quando si usa ASP.NET Web Pages (Razor). Si presuppone di aver completato la serie th...
 ms.author: riande
 ms.date: 01/02/2018
 ms.assetid: ac86ec9c-6b69-485b-b9e0-8b9127b13e6b
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/updating-data
 msc.type: authoredcontent
-ms.openlocfilehash: 9d0da2eed9964e56a01f3c811d6a14c9d1735e10
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 206d7e209857aceb3eb92c2405bb73f7ff7dbaeb
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41823967"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021430"
 ---
 <a name="introducing-aspnet-web-pages---updating-database-data"></a>Introduzione a pagine Web ASP.NET - aggiornamento di dati del Database
 ====================
@@ -35,7 +35,7 @@ da [Tom FitzMacken](https://github.com/tfitzmac)
 > 
 > - Il `WebGrid` helper.
 > - Il codice SQL `Update` comando.
-> - Metodo `Database.Execute`.
+> - Metodo `Database.Execute` .
 > - Campi nascosti (`<input type="hidden">`).
 
 
