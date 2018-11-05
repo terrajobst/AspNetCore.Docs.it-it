@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/15/2018
 uid: mvc/controllers/filters
-ms.openlocfilehash: 6803e8e3a285716792427e9fb059c204f5a88ecb
-ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
+ms.openlocfilehash: e5305852fad058961661373f9310d6dcaf30aa16
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49391310"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50253195"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtri in ASP.NET Core
 
@@ -261,7 +261,7 @@ Il filtro può essere applicato a classi o metodi usando la sintassi `[SampleAct
 
 Non generare eccezioni nei filtri autorizzazione perché l'eccezione non verrebbe gestita in quanto i filtri autorizzazione non gestiscono le eccezioni. È consigliabile emettere una richiesta di verifica quando si verifica un'eccezione.
 
-Altre informazioni sull'[autorizzazione](../../security/authorization/index.md).
+Altre informazioni sull'[autorizzazione](xref:security/authorization/introduction).
 
 ## <a name="resource-filters"></a>Filtri risorse
 
