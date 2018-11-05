@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
-ms.openlocfilehash: 7d64c500168166b0a7a29d5b92473726d5a9f49a
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 2590682755721a4bb14902b9fe7138a3bff56d31
+ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325341"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50148811"
 ---
 # <a name="cache-tag-helper-in-aspnet-core-mvc"></a>Helper tag di cache in ASP.NET Core MVC
 
@@ -119,7 +119,7 @@ L'esempio seguente esegue il monitoraggio del valore dell'intestazione `User-Age
 | -------------- | -------------------- |
 | Stringa         | `Make`, `Make,Model` |
 
-`vary-by-query` accetta un elenco delimitato da virgole di valori di intestazione che attivano un aggiornamento della cache quando cambia il valore dell'intestazione.
+`vary-by-query` accetta un elenco delimitato da virgole di <xref:Microsoft.AspNetCore.Http.IQueryCollection.Keys*> in una stringa di query (<xref:Microsoft.AspNetCore.Http.HttpRequest.Query*>) che attiva un aggiornamento della cache quando cambia il valore di qualsiasi chiave inclusa nell'elenco.
 
 L'esempio seguente esegue il monitoraggio dei valori di `Make` e `Model`. L'esempio memorizza nella cache il contenuto di ogni singolo valore `Make` e `Model` presentato al server Web:
 

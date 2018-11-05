@@ -2,9 +2,11 @@
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-L'oggetto `MovieContext` gestisce l'attività di connessione al database e di mapping degli oggetti `Movie` ai record di database. Il contesto del database viene registrato nel contenitore di [inserimento dipendenze](xref:fundamentals/dependency-injection) nel metodo `ConfigureServices` nel file *Startup.cs*:
+L'oggetto `MovieContext` gestisce l'attività di connessione al database e di mapping degli oggetti `Movie` ai record di database. Il contesto del database viene registrato nel contenitore [Inserimento dipendenze](xref:fundamentals/dependency-injection) (DI) del metodo `ConfigureServices` nel file *Startup.cs*:
 
 [!code-csharp[](code/Startup.cs?name=snippet2&highlight=6-8)]
+
+Per altre informazioni sull'uso di `DbContext` con Inserimento dipendenze, vedere [Using DbContext with DI](/ef/core/miscellaneous/configuring-dbcontext#using-dbcontext-with-dependency-injection) (Uso di DbContext con Inserimento dipendenze).
 
 ## <a name="sqlite"></a>SQLite
 

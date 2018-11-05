@@ -3,14 +3,15 @@ title: ASP.NET Core MVC con EF Core - CRUD - 2 di 10
 author: rick-anderson
 description: ''
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-mvc/crud
-ms.openlocfilehash: de9b0bd1e0346d4c12f256e6226353f1ab47ed11
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: 34927415beadaa3f5c9035a9101e3c99f7cbc395
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477579"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090823"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---crud---2-of-10"></a>ASP.NET Core MVC con EF Core - CRUD - 2 di 10
 
@@ -91,7 +92,7 @@ Quando `item.ID` è 6, viene generato il codice HTML seguente:
 <a href="/Students/Edit?studentID=6">Edit</a>
 ```
 
-Per altre informazioni sugli helper tag, vedere [Helper tag in ASP.NET Core](xref:mvc/views/tag-helpers/intro).
+Per altre informazioni sugli helper tag, vedere <xref:mvc/views/tag-helpers/intro>.
 
 ### <a name="add-enrollments-to-the-details-view"></a>Aggiungere le registrazioni alla visualizzazione Details
 
@@ -121,7 +122,7 @@ Questo codice aggiunge l'entità Student creata dallo strumento di associazione 
 
 `ID` è stato rimosso dall'attributo `Bind` poiché l'ID è il valore di chiave primaria che SQL Server imposta automaticamente quando viene inserita la riga. L'input dell'utente non imposta il valore ID.
 
-A differenza dell'attributo `Bind`, il blocco Try-Catch rappresenta l'unica modifica apportata al codice con scaffolding. Se viene rilevata un'eccezione che deriva da `DbUpdateException` durante il salvataggio delle modifiche, viene visualizzato un messaggio di errore generico. Poiché le eccezioni `DbUpdateException` sono a volte causate da elementi esterni all'applicazione e non da un errore di programmazione, viene consigliato all'utente di riprovare. Sebbene non sia implementata in questo esempio, un'applicazione di controllo della qualità di produzione potrebbe registrare l'eccezione. Per altre informazioni, vedere la sezione **Log for insight** (Registrare informazioni dettagliate) in [Monitoring and Telemetry (Building Real-World Cloud Apps with Azure)](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry) (Monitoraggio e telemetria (creazione di app cloud realistiche con Azure)).
+A differenza dell'attributo `Bind`, il blocco Try-Catch rappresenta l'unica modifica apportata al codice con scaffolding. Se viene rilevata un'eccezione che deriva da `DbUpdateException` durante il salvataggio delle modifiche, viene visualizzato un messaggio di errore generico. Poiché le eccezioni `DbUpdateException` sono a volte causate da elementi esterni all'applicazione e non da un errore di programmazione, viene consigliato all'utente di riprovare. Sebbene non sia implementata in questo esempio, un'applicazione di controllo della qualità di produzione potrebbe registrare l'eccezione. Per altre informazioni, vedere la sezione **Log for insight** (Registrare informazioni dettagliate) in [Monitoring and Telemetry (Building Real-World Cloud Apps with Azure)](/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry) (Monitoraggio e telemetria (creazione di app cloud realistiche con Azure)).
 
 L'attributo `ValidateAntiForgeryToken` è utile per prevenire attacchi tramite richieste intersito false (CSRF). Il token viene inserito automaticamente nella visualizzazione da [FormTagHelper](xref:mvc/views/working-with-forms#the-form-tag-helper) e viene incluso quando il modulo viene inviato dall'utente. Il token è convalidato dall'attributo `ValidateAntiForgeryToken`. Per altre informazioni sulle richieste intersito false, vedere [Richiesta intersito falsa](../../security/anti-request-forgery.md).
 
@@ -277,7 +278,7 @@ In *Startup.cs* chiamare il [metodo di estensione AddDbContext](https://github.c
 
 ## <a name="handling-transactions"></a>Gestione delle transazioni
 
-Per impostazione predefinita Entity Framework implementa in modo implicito le transazioni. Negli scenari in cui vengono apportate modifiche a più righe o tabelle e viene quindi chiamato `SaveChanges`, Entity Framework verifica automaticamente che tutte le modifiche siano state apportate o che tutte le modifiche abbiano avuto esito negativo. Se sono state apportate alcune modifiche e successivamente si verifica un errore, viene automaticamente eseguito il rollback di tali verifiche. Per gli scenari in cui è necessario un maggior controllo, ad esempio per includere le operazioni eseguite all'esterno di Entity Framework in una transazione, vedere [Transazioni](https://docs.microsoft.com/ef/core/saving/transactions).
+Per impostazione predefinita Entity Framework implementa in modo implicito le transazioni. Negli scenari in cui vengono apportate modifiche a più righe o tabelle e viene quindi chiamato `SaveChanges`, Entity Framework verifica automaticamente che tutte le modifiche siano state apportate o che tutte le modifiche abbiano avuto esito negativo. Se sono state apportate alcune modifiche e successivamente si verifica un errore, viene automaticamente eseguito il rollback di tali verifiche. Per gli scenari in cui è necessario un maggior controllo, ad esempio per includere le operazioni eseguite all'esterno di Entity Framework in una transazione, vedere [Transazioni](/ef/core/saving/transactions).
 
 ## <a name="no-tracking-queries"></a>Query senza registrazione
 
@@ -291,7 +292,7 @@ Quando un contesto di database recupera righe di tabella e crea oggetti entità 
 
 * Si vuole collegare un'entità per aggiornarla, ma la stessa entità è stata recuperata in precedenza per uno scopo diverso. Poiché l'entità viene già registrata dal contesto di database, non è possibile collegare l'entità che si vuole modificare. Un modo per gestire questa situazione consiste nel chiamare `AsNoTracking` nella query precedente.
 
-Per altre informazioni, vedere [Tracking vs. No-Tracking](https://docs.microsoft.com/ef/core/querying/tracking) (Abilitazione e disabilitazione della registrazione).
+Per altre informazioni, vedere [Tracking vs. No-Tracking](/ef/core/querying/tracking) (Abilitazione e disabilitazione della registrazione).
 
 ## <a name="summary"></a>Riepilogo
 

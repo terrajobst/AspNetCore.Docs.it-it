@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/30/2018
 uid: tutorials/web-api-vsc
-ms.openlocfilehash: b8e5c8b7d3dc04513997997d903295853dd1ff46
-ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
+ms.openlocfilehash: 740110908358a382f20bc1e54e98056296278acf
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49348429"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50089664"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-code"></a>Creare un'API Web con ASP.NET Core e Visual Studio Code
 
@@ -65,7 +65,7 @@ Premere **Debug** (F5) per compilare ed eseguire il programma. In un browser pas
 
 :::moniker range=">= aspnetcore-2.1"
 
-La creazione di un nuovo progetto in ASP.NET Core 2.1 o versioni successive aggiunge il riferimento al pacchetto [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App) nel file *TodoApi.csproj*:
+La creazione di un nuovo progetto in ASP.NET Core 2.1 o versioni successive aggiunge il riferimento al [metapacchetto Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) al file di progetto:
 
 [!code-xml[](first-web-api/samples/2.1/TodoApi/TodoApi.csproj?name=snippet_Metapackage&highlight=2)]
 
@@ -73,7 +73,7 @@ La creazione di un nuovo progetto in ASP.NET Core 2.1 o versioni successive aggi
 
 :::moniker range="<= aspnetcore-2.0"
 
-La creazione di un nuovo progetto in ASP.NET Core 2.0 aggiunge il riferimento al pacchetto [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) nel file *TodoApi.csproj*:
+La creazione di un nuovo progetto in ASP.NET Core 2.0 aggiunge il riferimento al [metapacchetto Microsoft.AspNetCore.All](xref:fundamentals/metapackage) al file di progetto:
 
 [!code-xml[](first-web-api/samples/2.0/TodoApi/TodoApi.csproj?name=snippet_Metapackage&highlight=2)]
 

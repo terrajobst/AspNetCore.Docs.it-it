@@ -3,14 +3,15 @@ title: Convalida del modello in ASP.NET Core MVC
 author: tdykstra
 description: Informazioni sulla convalida del modello in ASP.NET Core MVC.
 ms.author: riande
-ms.date: 07/31/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: mvc/models/validation
-ms.openlocfilehash: fe036f261b80f6134078835080409720d149374d
-ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
+ms.openlocfilehash: 73d41b4718071d00a6f80b33de182da2ad90f331
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43312154"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090950"
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>Convalida del modello in ASP.NET Core MVC
 
@@ -27,6 +28,13 @@ Fortunatamente, in .NET la convalida viene astratta in attributi di convalida, c
 ## <a name="validation-attributes"></a>Attributi di convalida
 
 Gli attributi di convalida consentono di configurare la convalida. Concettualmente assomigliano alla convalida nei campi delle tabelle del database. Esistono vincoli, ad esempio l'assegnazione di tipi di dati o campi obbligatori. Altri tipi di convalida includono l'uso di modelli di dati per applicare le regole di business, ad esempio una carta di credito, il numero di telefono o un indirizzo di posta elettronica. Grazie agli attributi di convalida l'applicazione di questi requisiti si rivela più semplice e facile.
+
+Gli attributi di convalida sono specificati a livello di proprietà: 
+
+```csharp 
+[Required] 
+public string MyProperty { get; set; } 
+``` 
 
 Di seguito è riportato un modello `Movie` con annotazioni relativo a un'app che archivia informazioni su film e programmi televisivi. È necessaria la maggior parte delle proprietà e alcune proprietà stringa devono essere conformi a requisiti di lunghezza. Esiste anche una limitazione per l'intervallo numerico che si applica alla proprietà `Price` da 0 a 999.99 dollari insieme a un attributo di convalida personalizzato.
 
@@ -62,7 +70,7 @@ I [tipi valore](/dotnet/csharp/language-reference/keywords/value-types) non null
 
 L'associazione di modelli MVC, che non si occupa di convalida e di attributi di convalida, rifiuta l'invio di campi modulo che contengono un valore mancante o uno spazio vuoto per un tipo non nullable. In assenza di un attributo `BindRequired` nella proprietà di destinazione, l'associazione di modelli ignora i dati mancanti per i tipi non nullable dove il campo modulo manca nei dati modulo in ingresso.
 
-L'[attributo BindRequired](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.bindrequiredattribute) consente anche di verificare che i dati del modulo siano completi. Vedere anche [Personalizzare il comportamento dell'associazione di modelli con gli attributi](xref:mvc/models/model-binding#customize-model-binding-behavior-with-attributes). Se è applicato a una proprietà, il sistema di associazione di modelli richiede un valore per tale proprietà. Quando è applicato a un tipo, il sistema di associazione di modelli richiede i valori per tutte le proprietà di quel tipo.
+L'[attributo BindRequired](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.bindrequiredattribute) (vedere anche <xref:mvc/models/model-binding#customize-model-binding-behavior-with-attributes>) è utile per verificare che i dati del modulo siano completi. Se è applicato a una proprietà, il sistema di associazione di modelli richiede un valore per tale proprietà. Quando è applicato a un tipo, il sistema di associazione di modelli richiede i valori per tutte le proprietà di quel tipo.
 
 Quando si usa un [tipo Nullable\<T >](/dotnet/csharp/programming-guide/nullable-types/) (ad esempio, `decimal?` o `System.Nullable<decimal>`) e lo si contrassegna con `Required`, viene eseguito un controllo di convalida lato server come se la proprietà fosse un tipo nullable standard, ad esempio `string`.
 
@@ -256,4 +264,4 @@ Se si vuole convalidare due o più campi aggiuntivi con l'attributo `[Remote]`,s
 public string MiddleName { get; set; }
 ```
 
-`AdditionalFields`, come tutti gli argomenti dell'attributo, deve essere un'espressione costante. Non è quindi necessario usare una [stringa interpolata](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/interpolated-strings) oppure chiamare [`string.Join()`](https://msdn.microsoft.com/library/system.string.join(v=vs.110).aspx) per inizializzare `AdditionalFields`. Per ogni altro campo aggiunto all'attributo `[Remote]`, è necessario aggiungere un altro argomento al metodo di azione del controller corrispondente.
+`AdditionalFields`, come tutti gli argomenti dell'attributo, deve essere un'espressione costante. Non è quindi necessario usare una [stringa interpolata](/dotnet/csharp/language-reference/keywords/interpolated-strings) oppure chiamare [`string.Join()`](https://msdn.microsoft.com/library/system.string.join(v=vs.110).aspx) per inizializzare `AdditionalFields`. Per ogni altro campo aggiunto all'attributo `[Remote]`, è necessario aggiungere un altro argomento al metodo di azione del controller corrispondente.

@@ -5,18 +5,18 @@ description: Informazioni sulla riscrittura e il reindirizzamento di URL con il 
 ms.author: riande
 ms.date: 08/17/2017
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: d9f33f34f75fe7bf534146c5a426335e74635018
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 5a1891c838436467fb49ff6288587fab08201179
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326069"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207186"
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Middleware Riscrittura URL in ASP.NET Core
 
 Di [Luke Latham](https://github.com/guardrex) e [Mikael Mengistu](https://github.com/mikaelm12)
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/sample/) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/sample/) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 La riscrittura URL è l'azione di modificare gli URL di richiesta in base a una o più regole predefinite. Il processo di riscrittura URL crea un'astrazione tra i percorsi delle risorse e i relativi indirizzi, in modo che i percorsi e gli indirizzi non risultino strettamente collegati. La riscrittura URL risulta utile in diversi scenari:
 
@@ -399,9 +399,9 @@ Il middleware supporta le seguenti variabili server di IIS URL Rewrite Module:
 
 ### <a name="method-based-rule"></a>Regola basata su metodo
 
-Usare `Add(Action<RewriteContext> applyRule)` per implementare logica della regola personalizzata in un metodo. `RewriteContext` espone `HttpContext` per l'uso nel metodo. `context.Result` determina la modalità di gestione dell'elaborazione pipeline aggiuntiva.
+Usare `Add(Action<RewriteContext> applyRule)` per implementare logica della regola personalizzata in un metodo. `RewriteContext` espone `HttpContext` per l'uso nel metodo. `RewriteContext.Result` determina la modalità di gestione dell'elaborazione pipeline aggiuntiva.
 
-| context.Result                       | Operazione                                                          |
+| `RewriteContext.Result`              | Operazione                                                          |
 | ------------------------------------ | --------------------------------------------------------------- |
 | `RuleResult.ContinueRules` (impostazione predefinita) | Continuare ad applicare le regole                                         |
 | `RuleResult.EndResponse`             | Interrompere l'applicazione delle regole e inviare la risposta                       |
@@ -437,7 +437,7 @@ Richiesta originale: `/file.xml`
 
 ### <a name="irule-based-rule"></a>Regola basata su IRule
 
-Usare `Add(IRule)` per implementare logica della regola personalizzata in una classe derivata da `IRule`. L'uso di un elemento `IRule` garantisce maggiore flessibilità rispetto all'approccio con una regola basata su un metodo. La classe derivata può includere un costruttore, in cui è possibile passare parametri per il metodo `ApplyRule`.
+Usare `Add(IRule)` per incapsulare la logica della propria regola in una classe che implementa l'interfaccia `IRule`. L'uso di un elemento `IRule` garantisce maggiore flessibilità rispetto all'approccio con una regola basata su un metodo. La classe di implementazione può includere un costruttore, in cui è possibile passare parametri per il metodo `ApplyRule`.
 
 ::: moniker range=">= aspnetcore-2.0"
 

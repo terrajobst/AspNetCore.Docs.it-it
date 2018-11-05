@@ -6,18 +6,38 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/search
-ms.openlocfilehash: c88441b39d8c96ec817c58fc56ebd51a0887b077
-ms.sourcegitcommit: 317f9be24db600499e79d25872d743af74bd86c0
+ms.openlocfilehash: 80292f8cfecd5363fb8acc8578f9bb0ca9ee5969
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48045562"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090163"
 ---
 # <a name="add-search-to-aspnet-core-razor-pages"></a>Aggiungere la funzionalità di ricerca a pagine Razor in ASP.NET Core
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 In questo documento viene aggiunta una funzionalità di ricerca alla pagina di indice che consente di ricercare i film in base al *genere* o al *nome*.
+
+Aggiungere le proprietà evidenziate seguenti in *Pages/Movies/Index.cshtml.cs*:
+
+::: moniker range="= aspnetcore-2.0"
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-999)]
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-999)]
+
+::: moniker-end
+
+* `SearchString`: contiene il testo immesso dagli utenti nella casella di testo di ricerca.
+* `Genres` contiene l'elenco dei generi. Consente all'utente di selezionare un genere dall'elenco.
+* `MovieGenre`: contiene il genere specificato selezionato dall'utente, ad esempio "Western".
+
+Le proprietà `Genres` e `MovieGenre` verranno usate più avanti in questo documento.
 
 Aggiornare il metodo `OnGetAsync` della pagina di indice con il codice seguente:
 
@@ -40,6 +60,8 @@ Se il parametro `searchString` contiene una stringa, la query dei film viene mod
 Il codice `s => s.Title.Contains()` è un'[espressione lambda](/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions). Le espressioni lambda vengono usate nelle query [LINQ](/dotnet/csharp/programming-guide/concepts/linq/) basate sul metodo come argomenti dei metodi di operatore query standard, ad esempio il metodo [Where](/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq) o `Contains` (usato nel codice precedente). Le query LINQ non vengono eseguite al momento della definizione o della modifica chiamando un metodo, ad esempio `Where`, `Contains` o `OrderBy`. L'esecuzione della query viene invece posticipata. Per esecuzione posticipata si intende che la valutazione di un'espressione viene ritardata finché non viene eseguita l'iterazione del valore ottenuto o non viene chiamato il metodo `ToListAsync`. Per altre informazioni, vedere [Esecuzione di query](/dotnet/framework/data/adonet/ef/language-reference/query-execution).
 
 **Nota:** il metodo [Contains](/dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) viene eseguito sul database, non nel codice C#. La distinzione tra maiuscole/minuscole nella query dipende dal database e dalle regole di confronto. In SQL Server `Contains` esegue il mapping a [SQL LIKE](/sql/t-sql/language-elements/like-transact-sql) che fa distinzione tra maiuscole e minuscole. In SQLite, con le regole di confronto predefinite si fa distinzione tra maiuscole e minuscole.
+
+Infine l'ultima riga del metodo `OnGetAsync` popola la proprietà `SearchString` con il valore di ricerca dell'utente. Con la proprietà `SearchString` popolata, il valore di ricerca viene mantenuto nella casella di ricerca dopo l'esecuzione la ricerca.
 
 Passare alla pagina Movies e aggiungere una stringa di query, ad esempio `?searchString=Ghost` all'URL, ad esempio `http://localhost:5000/Movies?searchString=Ghost`. Vengono visualizzati i film filtrati.
 
@@ -66,25 +88,6 @@ Il tag HTML `<form>` usa l'[helper tag del modulo](xref:mvc/views/working-with-f
 ![Vista Index con la parola ghost digitata nella casella di testo del filtro del titolo](search/_static/filter.png)
 
 ## <a name="search-by-genre"></a>Ricerca in base al genere
-
-Aggiungere le proprietà evidenziate seguenti in *Pages/Movies/Index.cshtml.cs*:
-
-::: moniker range="= aspnetcore-2.0"
-
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-999)]
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1"
-
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-999)]
-
-::: moniker-end
-
-
-La proprietà `Genres` contiene l'elenco dei generi. Consente all'utente di selezionare un genere dall'elenco.
-
-La proprietà `MovieGenre` contiene il genere specificato selezionate dall'utente, ad esempio, "Western".
 
 Aggiornare il metodo `OnGetAsync` con il codice seguente:
 

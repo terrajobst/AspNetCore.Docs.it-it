@@ -6,23 +6,23 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/01/2018
 uid: fundamentals/routing
-ms.openlocfilehash: 500cefbc7caee2054b4afda7c1277685862f5ad4
-ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
+ms.openlocfilehash: 06059d720bd4444b1ec12e42d466ee54d1658203
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49348559"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207756"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing in ASP.NET Core
 
 Di [Ryan Nowak](https://github.com/rynowak), [Steve Smith](https://ardalis.com/) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-La funzionalità di routing è responsabile dell'esecuzione del mapping di una richiesta in ingresso a un gestore di route. Le route sono definite nell'app e vengono configurate all'avvio dell'app. Una route può facoltativamente estrarre valori dall'URL contenuto nella richiesta e questi valori possono quindi essere usati per l'elaborazione della richiesta. Usando le informazioni sulla route dell'app, la funzionalità di routing è anche in grado di generare URL che eseguono il mapping ai gestori di route. Di conseguenza, il routing è in grado di trovare un gestore di route in base a un URL oppure l'URL corrispondente a un gestore di route specifico in base alle informazioni del gestore di route.
+La funzionalità di routing è responsabile dell'esecuzione del mapping di una richiesta in ingresso a un gestore di route. Le route sono definite nell'app e vengono configurate all'avvio dell'app. Una route può facoltativamente estrarre valori dall'URL contenuto nella richiesta e questi valori possono quindi essere usati per l'elaborazione della richiesta. Usando le informazioni sulla route dell'app, la funzionalità di routing è anche in grado di generare URL che eseguono il mapping ai gestori di route. Di conseguenza, il routing è in grado di trovare un gestore di route in base a un URL oppure di trovare l'URL corrispondente a un gestore di route specifico in base alle informazioni del gestore di route.
 
 > [!IMPORTANT]
 > Questo documento descrive il routing di basso livello di ASP.NET Core. Per informazioni sul routing di ASP.NET Core MVC, vedere <xref:mvc/controllers/routing>.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([procedura per il download](xref:tutorials/index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="routing-basics"></a>Nozioni fondamentali sul routing
 
@@ -47,7 +47,7 @@ Una corrispondenza durante `RouteAsync` imposta anche le proprietà di `RouteCon
 
 [RouteData.Values](xref:Microsoft.AspNetCore.Routing.RouteData.Values*) è un dizionario di *valori di route* prodotti dalla route. Questi valori in genere sono determinati dalla suddivisione in token dell'URL e possono essere usati per accettare l'input dell'utente o per prendere ulteriori decisioni riguardo all'invio all'interno dell'app.
 
-[RouteData.DataTokens](xref:Microsoft.AspNetCore.Routing.RouteData.DataTokens*) è un elenco proprietà dei dati aggiuntivi correlati alla route corrispondente. Grazie agli elementi `DataTokens` è possibile supportare l'associazione dei dati sullo stato con ogni route in modo che in un secondo momento l'app sia in grado di prendere decisioni in base alla route corrispondente. Questi valori sono definiti dallo sviluppatore e **non** influiscono sul comportamento del routing in alcun modo. Inoltre, i valori accantonati nei token di dati possono essere di qualsiasi tipo, a differenza dei valori di route, che devono essere facilmente convertibili in e da stringhe.
+[RouteData.DataTokens](xref:Microsoft.AspNetCore.Routing.RouteData.DataTokens*) è un elenco proprietà dei dati aggiuntivi correlati alla route corrispondente. Grazie agli elementi `DataTokens` è possibile supportare l'associazione dei dati sullo stato con ogni route in modo che in un secondo momento l'app sia in grado di prendere decisioni in base alla route corrispondente. Questi valori sono definiti dallo sviluppatore e **non** influiscono sul comportamento del routing in alcun modo. Inoltre i valori accantonati in `RouteData.DataTokens` possono essere di qualsiasi tipo, a differenza dei valori `RouteData.Values`, che devono essere facilmente convertibili a e da stringhe.
 
 [RouteData.Routers](xref:Microsoft.AspNetCore.Routing.RouteData.Routers*) è un elenco delle route che hanno preso parte alla corrispondenza corretta della richiesta. Le route possono essere annidate l'una nell'altra. La proprietà `Routers` rispecchia il percorso tramite l'albero logico di route che hanno prodotto una corrispondenza. In genere il primo elemento in `Routers` è la raccolta di route e deve essere usato per la generazione di URL. L'ultimo elemento in `Routers` è il gestore di route corrispondente.
 
@@ -63,7 +63,7 @@ Gli input primari per `GetVirtualPath` sono:
 * [VirtualPathContext.Values](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.Values*)
 * [VirtualPathContext.AmbientValues](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.AmbientValues*)
 
-Le route usano principalmente i valori di route specificati da `Values` e `AmbientValues` per decidere dove è possibile generare un URL e quali valori includere. Gli elementi `AmbientValues` sono il set di valori di route prodotti dalla corrispondenza della richiesta corrente con il sistema di routing. Al contrario, gli elementi `Values` sono i valori di route che specificano in che modo viene generato l'URL per l'operazione corrente. `HttpContext` viene specificato nel caso in cui una route richieda la disponibilità di servizi o dati aggiuntivi associati al contesto corrente.
+Le route usano principalmente i valori di route specificati da `Values` e `AmbientValues` per decidere se è possibile generare un URL e quali valori includere. Gli elementi `AmbientValues` sono il set di valori di route prodotti dalla corrispondenza della richiesta corrente con il sistema di routing. Al contrario, gli elementi `Values` sono i valori di route che specificano in che modo viene generato l'URL per l'operazione corrente. `HttpContext` viene specificato nel caso in cui una route richieda la disponibilità di servizi o dati aggiuntivi associati al contesto corrente.
 
 > [!TIP]
 > Considerare [VirtualPathContext.Values](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.Values*) come un set di override per [VirtualPathContext.AmbientValues](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.AmbientValues*). La generazione di URL prova a usare nuovamente i valori di route della richiesta corrente per semplificare la generazione di URL per i collegamenti che usano la stessa route o gli stessi valori di route.

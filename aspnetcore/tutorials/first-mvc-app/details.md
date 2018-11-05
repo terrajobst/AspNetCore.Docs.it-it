@@ -5,12 +5,12 @@ description: Informazioni sul metodo e sulla vista del controller Details in un'
 ms.author: riande
 ms.date: 03/07/2017
 uid: tutorials/first-mvc-app/details
-ms.openlocfilehash: ce5b2af148ddba9bc718345c0b8074da8724308d
-ms.sourcegitcommit: 32f5ee0690604d451f61e9a5c28881c9fcf85738
+ms.openlocfilehash: c5d21bc70aae4c1a1d10bb333871eeef25a1879c
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47454804"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50208005"
 ---
 # <a name="examine-the-details-and-delete-methods-of-an-aspnet-core-app"></a>Esaminare i metodi Details e Delete di un'app ASP.NET Core
 
@@ -73,7 +73,7 @@ public async Task<IActionResult> Delete(int id, bool notUsed)
 
 ### <a name="publish-to-azure"></a>Pubblicare in Azure
 
-Per informazioni sulla distribuzione in Azure, vedere [Esercitazione: Creare un'app ASP.NET in Azure con un database SQL](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase). Le istruzioni sono relative a un'app ASP.NET, non a un'app ASP.NET Core, ma i passaggi sono identici.
+Per informazioni sulla distribuzione in Azure, vedere [Tutorial: Build a .NET Core and SQL Database web app in Azure App Service](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb) (Esercitazione: Creare un'app Web .NET Core e database SQL nel Servizio app di Azure).
 
 > [!div class="step-by-step"]
 > [Precedente](validation.md)

@@ -3,14 +3,15 @@ title: Pubblicare un'app ASP.NET Core in Azure con Visual Studio
 author: rick-anderson
 description: Informazioni su come pubblicare un'app ASP.NET Core in Servizio app di Azure con Visual Studio.
 ms.author: riande
-ms.date: 12/16/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: 7211da268c1c52e7b859e6f98ce433fd19b218ff
-ms.sourcegitcommit: 516d0645c35ea784a3ae807be087ae70446a46ee
+ms.openlocfilehash: a5a02112d87563a47d5e2dab355359fa39da9a89
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39320726"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090355"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio"></a>Pubblicare un'app ASP.NET Core in Azure con Visual Studio
 
@@ -20,7 +21,7 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT), [Cesar Blum Silveira](https
 
 Se si lavora in macOS, vedere [Publish to Azure from Visual Studio for Mac](https://blog.xamarin.com/publish-azure-visual-studio-mac/) (Pubblicare in Azure da Visual Studio per Mac).
 
-Per risolvere un problema di distribuzione del Servizio app, vedere [Risolvere i problemi di ASP.NET Core in Servizio app di Azure](xref:host-and-deploy/azure-apps/troubleshoot).
+Per risolvere un problema di distribuzione del Servizio app di Azure, vedere <xref:host-and-deploy/azure-apps/troubleshoot>.
 
 ## <a name="set-up"></a>Impostare
 
@@ -179,11 +180,11 @@ Al termine del test dell'app accedere al [portale di Azure](https://portal.azure
 
 ### <a name="next-steps"></a>Passaggi successivi
 
-* [Distribuzione continua in Azure con Visual Studio e Git](xref:host-and-deploy/azure-apps/azure-continuous-deployment)
+* <xref:host-and-deploy/azure-apps/azure-continuous-deployment>
 
 ## <a name="additonal-resources"></a>Risorse aggiuntive
 
-* [Servizio app di Azure](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
-* [Gruppi di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)
-* [Database SQL di Azure](https://docs.microsoft.com/azure/sql-database/)
-* [Risolvere i problemi di ASP.NET Core in Servizio app di Azure](xref:host-and-deploy/azure-apps/troubleshoot)
+* [Servizio app di Azure](/azure/app-service/app-service-web-overview)
+* [Gruppi di risorse di Azure](/azure/azure-resource-manager/resource-group-overview#resource-groups)
+* [Database SQL di Azure](/azure/sql-database/)
+* <xref:host-and-deploy/azure-apps/troubleshoot>

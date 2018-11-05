@@ -1,23 +1,25 @@
 ---
-title: Avvio dell'applicazione in ASP.NET Core
+title: Avvio dell'app in ASP.NET Core
 author: ardalis
 description: Informazioni su come la classe Startup in ASP.NET Core configura i servizi e la pipeline delle richieste dell'app.
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 4/13/2018
 uid: fundamentals/startup
-ms.openlocfilehash: 392dc83666bc6b9012adc6c32169ae7bdc7ed8d7
-ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
+ms.openlocfilehash: 2212344cb3c651714e8c520b096ab0c4eaf5a180
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49391115"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206456"
 ---
-# <a name="application-startup-in-aspnet-core"></a>Avvio dell'applicazione in ASP.NET Core
+# <a name="app-startup-in-aspnet-core"></a>Avvio dell'app in ASP.NET Core
 
 [Steve Smith](https://ardalis.com), [Tom Dykstra](https://github.com/tdykstra) e [Luke Latham](https://github.com/guardrex)
 
 La classe `Startup` configura i servizi e la pipeline delle richieste dell'app.
+
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/startup/sample/) ([procedura per il download](xref:index#how-to-download-a-sample)).
 
 ## <a name="the-startup-class"></a>Classe Startup
 
@@ -44,7 +46,7 @@ Un uso comune dell'[inserimento di dipendenze](xref:fundamentals/dependency-inje
 
 [!code-csharp[](startup/snapshot_sample/Startup2.cs)]
 
-Un'alternativa all'inserimento di `IHostingEnvironment` è l'uso di un approccio basato sulle convenzioni. L'app può definire classi `Startup` separate per i diversi ambienti (ad esempio, `StartupDevelopment`) e la classe `Startup` appropriata viene selezionata durante il runtime. La classe il cui suffisso di nome corrisponde all'ambiente corrente ha la priorità. Se l'app viene eseguita nell'ambiente di sviluppo e include sia una classe `Startup` che una classe `StartupDevelopment`, viene usata la classe `StartupDevelopment`. Per altre informazioni, vedere [Usare più ambienti](xref:fundamentals/environments#environment-based-startup-class-and-methods).
+Un'alternativa all'inserimento di `IHostingEnvironment` è l'uso di un approccio basato sulle convenzioni. Quando l'app definisce classi `Startup` separate per i diversi ambienti (ad esempio `StartupDevelopment`), la classe `Startup` appropriata viene selezionata durante il runtime. La classe il cui suffisso di nome corrisponde all'ambiente corrente ha la priorità. Se l'app viene eseguita nell'ambiente di sviluppo e include sia una classe `Startup` che una classe `StartupDevelopment`, viene usata la classe `StartupDevelopment`. Per altre informazioni, vedere [Usare più ambienti](xref:fundamentals/environments#environment-based-startup-class-and-methods).
 
 Per altre informazioni su `WebHostBuilder`, vedere l'argomento [Hosting](xref:fundamentals/host/index). Per informazioni sulla gestione degli errori durante l'avvio, vedere [Gestione delle eccezioni durante l'avvio](xref:fundamentals/error-handling#startup-exception-handling).
 
@@ -96,7 +98,7 @@ Usare [IStartupFilter](/dotnet/api/microsoft.aspnetcore.hosting.istartupfilter) 
 
 Ogni `IStartupFilter` implementa uno o più middleware nella pipeline delle richieste. I filtri vengono richiamati nell'ordine in cui sono stati aggiunti al contenitore di servizi. Poiché i filtri possono aggiungere il middleware prima o dopo il passaggio del controllo al filtro successivo, i filtri vengono aggiunti all'inizio o alla fine della pipeline dell'app.
 
-L'[app di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/startup/sample/) ([come eseguire il download](xref:tutorials/index#how-to-download-a-sample)) illustra come registrare un middleware con `IStartupFilter`. L'app di esempio include un middleware che imposta un valore di opzioni da un parametro di stringa di query:
+L'app di esempio illustra come registrare un middleware con `IStartupFilter`. L'app di esempio include un middleware che imposta un valore di opzioni da un parametro di stringa di query:
 
 [!code-csharp[](startup/sample/RequestSetOptionsMiddleware.cs?name=snippet1)]
 

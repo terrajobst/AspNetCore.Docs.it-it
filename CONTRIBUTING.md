@@ -56,6 +56,13 @@ Per altre informazioni, vedere [DocFX Cross Reference](https://dotnet.github.io/
 
 ## <a name="images-and-screenshots"></a>Immagini e screenshot
 
+Non includere immagini negli articoli, ad eccezione dei seguenti casi:
+
+* Nelle esercitazioni di onboarding (per principianti).
+* Quando un'immagine è necessaria per garantire maggior chiarezza.
+
+Queste limitazioni consentono di ridurre le dimensioni del repository.
+
 Come passaggio facoltativo, assicurarsi che eventuali immagini e screenshot usati nella documentazione siano compressi, perché ciò serve per le dimensioni dei file e le prestazioni di caricamento delle pagine. Alcuni strumenti noti sono TinyPNG (usando il [sito Web TinyPNG](https://tinypng.com/) o l'[API TinyPNG](https://tinypng.com/developers)) o l'estensione di Visual Studio [Image Optimizer](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.ImageOptimizer). 
 
 ## <a name="code-snippets"></a>Frammenti di codice
