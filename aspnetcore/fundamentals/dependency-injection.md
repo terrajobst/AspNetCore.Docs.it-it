@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: d9eb6a01e096c7e8cbcb0979e24331a8d5316a14
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 3626ce834b904db64c1976aefc77dc60a7bfdf1c
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207654"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50253169"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Inserimento delle dipendenze in ASP.NET Core
 
@@ -427,7 +427,7 @@ I servizi disponibili all'interno di una richiesta ASP.NET Core da `HttpContext`
 
 I servizi di richiesta rappresentano i servizi configurati e richiesti come parte dell'app. Quando gli oggetti specificano dipendenze, le dipendenze sono soddisfatte dai tipi individuati in `RequestServices`, non in `ApplicationServices`.
 
-In generale, l'app non deve usare queste proprietà direttamente. Richiedere invece i tipi richiesti dalle classi tramite i costruttori di classi e consentire al framework di inserire le dipendenze. In questo modo si ottengono classi più facili da testare (vedere gli argomenti dedicati a [Test e debug](xref:test/index)).
+In generale, l'app non deve usare queste proprietà direttamente. Richiedere invece i tipi richiesti dalle classi tramite i costruttori di classi e consentire al framework di inserire le dipendenze. Si ottengono classi più facili da testare.
 
 > [!NOTE]
 > È consigliabile richiedere le dipendenze come parametri del costruttore per l'accesso alla raccolta `RequestServices`.
@@ -558,7 +558,6 @@ L'inserimento di dipendenze è un'*alternativa* ai modelli di accesso agli ogget
 * <xref:mvc/controllers/dependency-injection>
 * <xref:security/authorization/dependencyinjection>
 * <xref:fundamentals/startup>
-* <xref:test/index>
 * <xref:fundamentals/middleware/extensibility>
 * [Scrittura di codice pulito in ASP.NET Core con inserimento delle dipendenze (MSDN)](https://msdn.microsoft.com/magazine/mt703433.aspx)
 * [Container-Managed Application Design, Prelude: Where does the Container Belong?](https://blogs.msdn.microsoft.com/nblumhardt/2008/12/26/container-managed-application-design-prelude-where-does-the-container-belong/) (Progettazione di applicazioni gestite da contenitori. Prologo: qual è la posizione del contenitore?)

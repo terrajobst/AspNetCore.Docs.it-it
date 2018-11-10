@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 08/31/2018
 uid: tutorials/signalr
-ms.openlocfilehash: fcfe2fa6cc88b9eee1389e171fa5eb7711b4f14f
-ms.sourcegitcommit: fc2486ddbeb15ab4969168d99b3fe0fbe91e8661
+ms.openlocfilehash: 7d9f3a3f8aa7a5e47169da66e6fa2d6a28de3853
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50758128"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021248"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Esercitazione: Introduzione ad ASP.NET Core SignalR
 
@@ -69,12 +69,13 @@ Al termine, si disporrà di un'app di chat funzionante:
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 
-* Aprire una cartella che è possibile usare per un nuovo progetto.
+* Aprire il [terminale integrato](https://code.visualstudio.com/docs/editor/integrated-terminal) alla cartella in cui verrà creata la nuova cartella del progetto.
 
-* In [Terminale integrato](https://code.visualstudio.com/docs/editor/integrated-terminal) eseguire il comando seguente:
+* Eseguire i comandi seguenti:
 
    ```console
    dotnet new webapp -o SignalRChat
+   code -r SignalRChat
    ```
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
@@ -113,13 +114,11 @@ La libreria server di SignalR è inclusa nel metapacchetto `Microsoft.AspNetCore
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 
-* In **Terminale integrato** eseguire il comando seguente per installare LibMan.
+* Eseguire il comando seguente nel terminale integrato per installare LibMan.
 
   ```console
   dotnet tool install -g Microsoft.Web.LibraryManager.Cli
   ```
-
-* Passare alla cartella del progetto, ovvero quella che contiene il file *SignalRChat.csproj*.
 
 * Eseguire il comando seguente per ottenere la libreria client di SignalR con LibMan. Potrebbe essere necessario attendere alcuni secondi prima di visualizzare l'output.
 
@@ -225,8 +224,12 @@ Un *hub* è una classe usata come pipeline di alto livello che gestisce le comun
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-* Premere **CTRL+F5** per eseguire l'app senza debug.
+* Eseguire il comando seguente nel terminale integrato:
 
+  ```console
+  dotnet run -p SignalRChat
+  ```
+  
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 * Nel menu selezionare **Esegui > Avvia senza eseguire debug**.

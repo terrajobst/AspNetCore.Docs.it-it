@@ -6,18 +6,29 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/01/2018
 uid: fundamentals/routing
-ms.openlocfilehash: 06059d720bd4444b1ec12e42d466ee54d1658203
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: a014782ba503bc8bd0fdefb4cb4f382aa8fde4cd
+ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207756"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50244970"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing in ASP.NET Core
 
 Di [Ryan Nowak](https://github.com/rynowak), [Steve Smith](https://ardalis.com/) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 La funzionalità di routing è responsabile dell'esecuzione del mapping di una richiesta in ingresso a un gestore di route. Le route sono definite nell'app e vengono configurate all'avvio dell'app. Una route può facoltativamente estrarre valori dall'URL contenuto nella richiesta e questi valori possono quindi essere usati per l'elaborazione della richiesta. Usando le informazioni sulla route dell'app, la funzionalità di routing è anche in grado di generare URL che eseguono il mapping ai gestori di route. Di conseguenza, il routing è in grado di trovare un gestore di route in base a un URL oppure di trovare l'URL corrispondente a un gestore di route specifico in base alle informazioni del gestore di route.
+
+La maggior parte delle app dovrebbe scegliere uno schema di routing semplice e descrittivo in modo che gli URL siano leggibili e significativi. La route convenzionale predefinita `{controller=Home}/{action=Index}/{id?}`:
+
+* Supporta uno schema di routing semplice e descrittivo:
+* È un buon punto di partenza per le app Web destinate all'uso dai browser.
+
+È pratica comune aggiungere ulteriori route brevi in aree a traffico elevato dell'app in situazioni specifiche (ad esempio, blog, e-commerce) usando il [routing degli attributi](xref:mvc/controllers/routing#attribute-routing) o route convenzionali dedicate.
+
+Le API Web devono usare il routing degli attributi per modellare le funzionalità dell'app come set di risorse in cui le operazioni sono rappresentate da verbi HTTP. Questo significa che molte operazioni (ad esempio, GET, POST) sulla stessa risorsa logica useranno lo stesso URL. Il routing degli attributi offre un livello di controllo necessario per progettare con attenzione lo spazio URL di un'API.
+
+Il supporto della generazione di URL di MVC consente di sviluppare l'app senza URL hardcoded per collegare l'app. Questo consente di partire con una configurazione di routing di base e di modificare le route dopo aver determinato la forma dell'app.
 
 > [!IMPORTANT]
 > Questo documento descrive il routing di basso livello di ASP.NET Core. Per informazioni sul routing di ASP.NET Core MVC, vedere <xref:mvc/controllers/routing>.

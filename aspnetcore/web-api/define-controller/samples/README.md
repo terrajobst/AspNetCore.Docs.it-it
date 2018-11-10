@@ -2,7 +2,8 @@
 
 L'app di esempio è costituita dai progetti seguenti:
 
-- **WebApiSample.Api**: un progetto ASP.NET Core 2.1 destinato a .NET Core 2.1.
+- **WebApiSample.Api22*: un progetto ASP.NET Core 2.2 destinato a .NET Core 2.2.
+- **WebApiSample.Api21**: un progetto ASP.NET Core 2.1 destinato a .NET Core 2.1.
 - **WebApiSample.Api.Pre21**: un progetto ASP.NET Core 2.0 destinato a .NET Core 2.0.
 - **WebApiSample.DataAccess**: una libreria di classi .NET Standard 2.0 che funge da livello di accesso ai dati per i 2 progetti API Web.
 

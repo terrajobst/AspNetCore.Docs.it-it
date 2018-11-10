@@ -1,4 +1,4 @@
-Nella tabella seguente sono specificati i parametri dei generatori di codice ASP.NET Core:
+Nella tabella seguente sono specificati i parametri del generatore di codice ASP.NET Core:
 
 | Parametro               | Descrizione|
 | ----------------- | ------------ |
@@ -13,10 +13,12 @@ Utilizzare il commutatore `h` per ottenere assistenza sul comando `aspnet-codege
 ```console
 dotnet aspnet-codegenerator razorpage -h
 ```
+
 <a name="test"></a>
+
 ### <a name="test-the-app"></a>Eseguire il test dell'applicazione
 
-* Eseguire l'app e accodare `/Movies` all'URL nel browser (`http://localhost:port/movies`).
+* Eseguire l'app e accodare `/Movies` all'URL nel browser (`http://localhost:port/Movies`).
 * Eseguire il test del collegamento **Crea**.
 
   ![Pagina Crea](../../tutorials/razor-pages/model/_static/conan.png)
@@ -27,7 +29,4 @@ dotnet aspnet-codegenerator razorpage -h
 
 Se viene visualizzato un errore simile al seguente, verificare di avere eseguito le migrazioni e di avere aggiornato il database:
 
-```
-An unhandled exception occurred while processing the request.
-'no such table: Movie'.
-```
+`An unhandled exception occurred while processing the request. 'no such table: Movie'.`

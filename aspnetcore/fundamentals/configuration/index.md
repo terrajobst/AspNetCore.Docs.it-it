@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/09/2018
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 2af66c0f35109dc1de954bf501f33ad61ddef4db
-ms.sourcegitcommit: 85f2939af7a167b9694e1d2093277ffc9a741b23
+ms.openlocfilehash: 6dd478770d4eae4d497da576c17fbe7d2c133b89
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50968371"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021742"
 ---
 # <a name="configuration-in-aspnet-core"></a>Configurazione in ASP.NET Core
 
@@ -1151,6 +1151,7 @@ public class Program
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 config.SetBasePath(Directory.GetCurrentDirectory());
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "path/to/files");
                 config.AddKeyPerFile(directoryPath: path, optional: true);
             })
             .UseStartup<Startup>();
@@ -1509,13 +1510,13 @@ Il <xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> supporta 
 
 Prendere in considerazione le chiavi di configurazione e i valori indicati nella tabella seguente.
 
-| Chiave     | Valore  |
-| :-----: | :----: |
-| array:0 | value0 |
-| array:1 | value1 |
-| array:2 | value2 |
-| array:4 | value4 |
-| array:5 | value5 |
+| Chiave             | Valore  |
+| :-------------: | :----: |
+| array:entries:0 | value0 |
+| array:entries:1 | value1 |
+| array:entries:2 | value2 |
+| array:entries:4 | value4 |
+| array:entries:5 | value5 |
 
 Queste chiavi e i valori vengono caricati nell'app di esempio usando il provider di configurazione della memoria:
 
@@ -1574,17 +1575,17 @@ _config.GetSection("array").Bind(arrayExample);
 
 L'oggetto associato, un'istanza di `ArrayExample`, riceve i dati di matrice dalla configurazione.
 
-| Indice di `ArrayExamples.Entries` | Valore di `ArrayExamples.Entries` |
-| :---------------------------: | :---------------------------: |
-| 0                             | value0                        |
-| 1                             | value1                        |
-| 2                             | value2                        |
-| 3                             | value4                        |
-| 4                             | value5                        |
+| Indice di `ArrayExample.Entries` | Valore di `ArrayExample.Entries` |
+| :--------------------------: | :--------------------------: |
+| 0                            | value0                       |
+| 1                            | value1                       |
+| 2                            | value2                       |
+| 3                            | value4                       |
+| 4                            | value5                       |
 
 L'indice &num;3 nell'oggetto associato contiene i dati di configurazione per la chiave di configurazione `array:4` e il relativo valore `value4`. Quando i dati di configurazione contenenti una matrice vengono associati, gli indici di matrice nelle chiavi di configurazione vengono usati semplicemente per scorrere i dati di configurazione quando si crea l'oggetto. Un valore null non può essere mantenuto nei dati di configurazione e una voce con valore null non viene creata in un oggetto associato quando una matrice nelle chiavi di configurazione ignora uno o più indici.
 
-L'elemento di configurazione mancante per l'indice &num;3 può essere fornito prima dell'associazione all'istanza `ArrayExamples` da qualsiasi provider di configurazione che produce la coppia chiave-valore corretta nella configurazione. Se il codice di esempio include un provider di configurazione JSON aggiuntivo con la coppia chiave-valore mancante, `ArrayExamples.Entries` corrisponde alla matrice di configurazione completa:
+L'elemento di configurazione mancante per l'indice &num;3 può essere fornito prima dell'associazione all'istanza `ArrayExample` da qualsiasi provider di configurazione che produce la coppia chiave-valore corretta nella configurazione. Se il codice di esempio include un provider di configurazione JSON aggiuntivo con la coppia chiave-valore mancante, `ArrayExample.Entries` corrisponde alla matrice di configurazione completa:
 
 *missing_value.json*:
 
@@ -1620,16 +1621,16 @@ La coppia chiave-valore mostrata nella tabella viene caricata nella configurazio
 | :-------------: | :----: |
 | array:entries:3 | value3 |
 
-Se l'istanza della classe `ArrayExamples` viene associata dopo che il provider di configurazione JSON include la voce per l'indice &num;3, la matrice `ArrayExamples.Entries` include il valore.
+Se l'istanza della classe `ArrayExample` viene associata dopo che il provider di configurazione JSON include la voce per l'indice &num;3, la matrice `ArrayExample.Entries` include il valore.
 
-| Indice di `ArrayExamples.Entries` | Valore di `ArrayExamples.Entries` |
-| :---------------------------: | :---------------------------: |
-| 0                             | value0                        |
-| 1                             | value1                        |
-| 2                             | value2                        |
-| 3                             | value3                        |
-| 4                             | value4                        |
-| 5                             | value5                        |
+| Indice di `ArrayExample.Entries` | Valore di `ArrayExample.Entries` |
+| :--------------------------: | :--------------------------: |
+| 0                            | value0                       |
+| 1                            | value1                       |
+| 2                            | value2                       |
+| 3                            | value3                       |
+| 4                            | value4                       |
+| 5                            | value5                       |
 
 **Elaborazione di matrice JSON**
 

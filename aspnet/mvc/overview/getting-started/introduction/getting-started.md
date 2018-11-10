@@ -7,12 +7,12 @@ ms.date: 10/04/2018
 ms.assetid: f3d8adbe-55e7-4fd4-84a8-7155bc45c676
 msc.legacyurl: /mvc/overview/getting-started/introduction/getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: 2cc9364b815cae0207fc59784303c6a0906f1b94
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 462583a42f20126ef8f8b5927268c20ec1ceab89
+ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578445"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51505803"
 ---
 <a name="getting-started-with-aspnet-mvc-5"></a>Introduzione a ASP.NET MVC 5
 ====================
@@ -55,7 +55,7 @@ Premere **F5** per avviare il debug. Quando si preme **F5**, Visual Studio avvia
 
 ![](getting-started/_static/image5.png)
 
-Impostazione predefinita questo modello predefinito include `Home`, `Contact`, e `About` pagine. L'immagine precedente non viene visualizzato il **Home**, **sulle**, e **contatto** collegamenti. A seconda delle dimensioni della finestra del browser, potrebbe essere necessario fare clic sull'icona di spostamento per visualizzare i collegamenti seguenti.
+Impostazione predefinita questo modello predefinito include `Home`, `Contact`, e `About` pagine. Non viene visualizzata l'immagine seguente il **Home**, **sulle**, e **contatto** collegamenti. A seconda delle dimensioni della finestra del browser, potrebbe essere necessario fare clic sull'icona di spostamento per visualizzare i collegamenti seguenti.
 
 ![](getting-started/_static/image6.png)
 

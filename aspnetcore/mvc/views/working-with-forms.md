@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: efc71cc8d072769cde07e129b6d9bb933fc2f7af
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
-ms.translationtype: MT
+ms.openlocfilehash: 7319fbbfe3e78e61526f9042b2b6004a351c2186
+ms.sourcegitcommit: 2ef32676c16f76282f7c23154d13affce8c8bf35
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090215"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50234618"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>Helper tag nei moduli in ASP.NET Core
 
@@ -245,8 +245,7 @@ Modello *Views/Shared/EditorTemplates/ToDoItem.cshtml*:
 
 [!code-HTML[](working-with-forms/sample/final/Views/Shared/EditorTemplates/ToDoItem.cshtml)]
 
->[!NOTE]
->Usare sempre `for` (e *non* `foreach`) per eseguire l'iterazione in un elenco. La valutazione di un indicizzatore in un'espressione LINQ può essere dispendiosa e deve essere ridotta a al minimo.
+`foreach` deve essere usato se possibile, quando il valore verrà usato in un contesto `asp-for` o in un contesto equivalente `Html.DisplayFor`. In genere `for` è preferibile a `foreach` (se lo scenario lo consente) perché non è necessario allocare un enumeratore. Tuttavia, la valutazione di un indicizzatore in un'espressione LINQ può essere dispendiosa e deve essere ridotta al minimo.
 
 &nbsp;
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: 01e6af13c3a16de368528b1650543d36ef910571
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 78e5281d109977e8f41fe1f207254d3016f9c569
+ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207836"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50244866"
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>Creare helper tag in ASP.NET Core
 
@@ -80,7 +80,7 @@ the following snippet uses TagHelpers3 and should use TagHelpers (not the 3)
     [!code-html[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImports.cshtml?highlight=3&range=1-3)]
 -->
 
-Per aggiungere un helper tag a una visualizzazione usando un nome completo, aggiungere prima il nome completo (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`) e quindi il nome dell'assembly (*AuthoringTagHelpers*). La maggior parte degli sviluppatori preferisce usare la sintassi con caratteri jolly. [Introduzione agli helper tag](intro.md) descrive in dettaglio la sintassi di aggiunta, rimozione, gerarchia degli helper tag, nonché la sintassi con caratteri jolly.
+Per aggiungere un helper tag a una visualizzazione usando un nome completo, aggiungere prima il nome completo (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`) e quindi il **nome dell'assembly** (*AuthoringTagHelpers*, non necessariamente `namespace`). La maggior parte degli sviluppatori preferisce usare la sintassi con caratteri jolly. [Introduzione agli helper tag](intro.md) descrive in dettaglio la sintassi di aggiunta, rimozione, gerarchia degli helper tag, nonché la sintassi con caratteri jolly.
 
 1. Aggiornare il markup nel file *Views/Home/Contact.cshtml* con queste modifiche:
 

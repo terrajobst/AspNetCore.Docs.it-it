@@ -1,17 +1,17 @@
 ---
 title: Gestire gli errori in ASP.NET Core
-author: ardalis
+author: tdykstra
 description: Informazioni su come gestire gli errori nelle app ASP.NET Core.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 07/05/2018
+ms.date: 11/01/2018
 uid: fundamentals/error-handling
-ms.openlocfilehash: d1e94fdc89fbebc264dc001bbf35666af16f4799
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 89117d78486493747d649c3bb0d9cce9f97ef419
+ms.sourcegitcommit: 85f2939af7a167b9694e1d2093277ffc9a741b23
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50208031"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50968319"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Gestire gli errori in ASP.NET Core
 
@@ -119,17 +119,28 @@ Il middleware supporta vari metodi di estensione. Un metodo accetta un'espressio
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePages)]
 
-Un altro metodo accetta un tipo di contenuto e una stringa di formato:
+Un overload di `UseStatusCodePages` accetta un tipo di contenuto e una stringa di formato:
 
 ```csharp
 app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
 ```
+### <a name="redirect-re-execute-extension-methods"></a>Reindirizzare i metodi di estensione di riesecuzione
 
-Sono disponibili anche metodi di estensione di reindirizzamento e ripetizione dell'esecuzione. Il metodo di reindirizzamento invia un codice di stato *302 - Trovato* al client e reindirizza il client al modello di URL di posizione specificato. Il modello può includere un segnaposto `{0}` per il codice di stato. Gli URL che iniziano con `~` vengono fatti precedere dal percorso di base. Un URL che non inizia con `~` viene usato così com'è.
+<xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithRedirects*>:
+
+* Invia un codice di stato *302 - Trovato* al client.
+* Reindirizza il client al percorso specificato nel modello di URL. 
+
+Il modello può includere un segnaposto `{0}` per il codice di stato. Il modello deve iniziare con una barra rovesciata (`/`).
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePagesWithRedirect)]
 
-Il metodo di riesecuzione restituisce il codice di stato originale al client e specifica che il corpo della risposta deve essere generato rieseguendo la pipeline della richiesta e usando un percorso alternativo. Questo percorso può contenere un segnaposto `{0}` per il codice di stato:
+<xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithReExecute*>:
+
+* Restituisce il codice di stato originale al client.
+* Specifica che il corpo della risposta deve essere generato eseguendo nuovamente la pipeline delle richieste con un percorso alternativo. 
+
+Il modello può includere un segnaposto `{0}` per il codice di stato. Il modello deve iniziare con una barra rovesciata (`/`).
 
 ```csharp
 app.UseStatusCodePagesWithReExecute("/error/{0}");
@@ -146,7 +157,7 @@ if (statusCodePagesFeature != null)
 }
 ```
 
-Se si usa un overload `UseStatusCodePages*` che punta a un endpoint all'interno dell'app, creare una visualizzazione MVC o una pagina Razor per l'endpoint. Ad esempio, il modello [dotnet new](/dotnet/core/tools/dotnet-new) per un'app Razor Pages produce la pagina e la classe di modelli di pagina seguenti:
+Per usare un overload `UseStatusCodePages*` che punta a un endpoint all'interno dell'app, creare una visualizzazione MVC o una pagina Razor per l'endpoint. Ad esempio, il modello [dotnet new](/dotnet/core/tools/dotnet-new) per un'app Razor Pages produce la pagina e la classe di modelli di pagina seguenti:
 
 *Error.cshtml*:
 

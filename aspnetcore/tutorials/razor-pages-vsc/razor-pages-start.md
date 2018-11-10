@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: tutorials/razor-pages-vsc/razor-pages-start
-ms.openlocfilehash: 9ea66134c524a6a1a670d55bae4e66cf38a45274
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: f18d0a8b3ce24c9844b02f8a0b6360f7e1b1bdb7
+ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50089852"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50244853"
 ---
 # <a name="get-started-with-aspnet-core-razor-pages-in-visual-studio-code"></a>Introduzione a pagine Razor ASP.NET Core in Visual Studio Code
 
@@ -65,7 +65,7 @@ Da Visual Studio Code (VS Code), selezionare **File > Apri cartella**, quindi se
 
 ### <a name="launch-the-app"></a>Avviare l'app
 
-Premere CTRL+F5 per avviare l'app senza debug. In alternativa, scegliere **Avvia senza eseguire debug** dal menu **Debug**.
+Scegliere **Avvia senza eseguire debug** dal menu **Debug**. In alternativa, è possibile premere il tasto di scelta rapida visualizzato accanto all'opzione di menu. Il tasto di scelta rapida varia a seconda del sistema operativo.
 
 Nella prossima esercitazione viene aggiunto un modello al progetto. 
 

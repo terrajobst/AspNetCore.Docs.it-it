@@ -1,19 +1,19 @@
 ---
 uid: mvc/overview/older-versions/using-oauth-providers-with-mvc
 title: Uso di provider OAuth con MVC 4 | Microsoft Docs
-author: tfitzmac
+author: Rick-Anderson
 description: Questa esercitazione illustra come compilare un'applicazione web ASP.NET MVC 4 che consente agli utenti di accedere con le credenziali da un provider esterno, ad esempio Facebo...
 ms.author: riande
 ms.date: 06/19/2013
 ms.assetid: 7a87f16f-0e19-4f15-a88a-094ae866c4a2
 msc.legacyurl: /mvc/overview/older-versions/using-oauth-providers-with-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 9b0db2775db5c74762bdc55328ad44ef7ebe75ce
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: d0203b62c911056fc56ed103c1c42f67816cbbf0
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41826345"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021755"
 ---
 <a name="using-oauth-providers-with-mvc-4"></a>Uso di provider OAuth con MVC 4
 ====================
@@ -83,7 +83,7 @@ Questa esercitazione non include tutti i passaggi da eseguire per registrare con
 - [Microsoft](http://manage.dev.live.com/)
 - [Twitter](https://dev.twitter.com/)
 
-Quando si registra il sito con Facebook, è possibile fornire &quot;localhost&quot; per il dominio del sito e `&quot;http://localhost/&quot;` per l'URL, come illustrato nell'immagine seguente. Tramite localhost funziona con la maggior parte dei provider, ma attualmente non funziona con provider Microsoft. Per il provider di Microsoft, è necessario includere un URL del sito web valido.
+Quando si registra il sito con Facebook, è possibile fornire &quot;localhost&quot; per il dominio del sito e `&quot; http://localhost/&quot;` per l'URL, come illustrato nell'immagine seguente. Tramite localhost funziona con la maggior parte dei provider, ma attualmente non funziona con provider Microsoft. Per il provider di Microsoft, è necessario includere un URL del sito web valido.
 
 ![registrazione del sito](using-oauth-providers-with-mvc/_static/image4.png)
 
