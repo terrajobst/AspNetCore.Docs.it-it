@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 09/12/2018
 uid: signalr/hubs
-ms.openlocfilehash: be42314afad4ff43d2fcf1abbc96c5b78c773977
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 27aedc5b2f2060d961070fbd1ff5304eaa3956d1
+ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206016"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51225356"
 ---
 # <a name="use-hubs-in-signalr-for-aspnet-core"></a>Usare hub di SignalR per ASP.NET Core
 
@@ -41,6 +41,11 @@ Creare un hub, dichiarazione di una classe che eredita da `Hub`e aggiungervi i m
 [!code-csharp[Create and use hubs](hubs/sample/hubs/chathub.cs?range=8-37)]
 
 È possibile specificare un tipo restituito e parametri, compresi i tipi complessi e le matrici, come si farebbe in qualsiasi metodo c#. SignalR gestisce la serializzazione e deserializzazione di oggetti complessi e le matrici di parametri e valori restituiti.
+
+> [!NOTE]
+> Gli hub sono temporanei:
+> * Non archiviare lo stato in una proprietà nella classe dell'hub. Ogni chiamata al metodo dell'hub viene eseguito in una nuova istanza di hub.  
+> * Usare `await` quando si chiamano i metodi asincroni che dipendono da hub di rimanere attivo. Ad esempio, un metodo, ad esempio `Clients.All.SendAsync(...)` può avere esito negativo se viene chiamato senza `await` e il metodo dell'hub viene completato prima `SendAsync` termina.
 
 ## <a name="the-context-object"></a>L'oggetto di contesto
 
