@@ -4,14 +4,14 @@ author: guardrex
 description: Informazioni su come caricare i file in una pagina Razor.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 07/11/2018
+ms.date: 11/10/2018
 uid: razor-pages/upload-files
-ms.openlocfilehash: 92e72869967b6e3202c97b92e341ea22adc69651
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 8d86a84bcd31cc1e1e6fbe0693c7ec179e589f3d
+ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912501"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51570009"
 ---
 # <a name="upload-files-to-a-razor-page-in-aspnet-core"></a>Caricare file in una pagina Razor in ASP.NET Core
 
@@ -22,6 +22,8 @@ Questo argomento si basa il [app di esempio](https://github.com/aspnet/Docs/tree
 Questo argomento illustra come usare l'associazione di modelli semplice per caricare i file, che funziona bene per il caricamento di file di piccole dimensioni. Per informazioni sulla trasmissione di file di grandi dimensioni, vedere [Caricamento di file di grandi dimensioni con il flusso](xref:mvc/models/file-uploads#uploading-large-files-with-streaming).
 
 Nella procedura descritta di seguito viene aggiunta una funzionalità di caricamento di file di pianificazione di film all'app di esempio. Ogni pianificazione di film è rappresentata da una classe `Schedule`. La classe include due versioni della pianificazione. La versione `PublicSchedule` viene messa a disposizione dei clienti. L'altra versione, `PrivateSchedule`, viene usata per i dipendenti della società. Le versioni vengono caricate come file separati. Nell'esercitazione viene illustrato come eseguire il caricamento di due file da una pagina con un solo invio al server.
+
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-pages/upload-files/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="security-considerations"></a>Considerazioni sulla sicurezza
 
