@@ -19,7 +19,7 @@ ms.locfileid: "41833366"
 ====================
 da [Jon Galloway](https://github.com/jongalloway)
 
-> Music Store MVC è un'applicazione di esercitazione che introduce e spiega passo per passo come usare ASP.NET MVC e Visual Studio per lo sviluppo web.  
+> Music Store MVC è un'applicazione di esercitazione che introduce e spiega passo passo come usare ASP.NET MVC e Visual Studio per lo sviluppo Web.  
 >   
 > Music Store MVC è un semplice esempio di implementazione di un archivio per un negozio che vende album musicali online e implementa l'amministrazione di base del sito, l'accesso dell'utente e la funzionalità del carrello acquisti.  
 >   
