@@ -19,11 +19,11 @@ ms.locfileid: "41833366"
 ====================
 da [Jon Galloway](https://github.com/jongalloway)
 
-> Store la musica MVC è un'applicazione di esercitazione introduce e dettagliata spiega come usare ASP.NET MVC e Visual Studio per lo sviluppo web.  
+> Music Store MVC è un'applicazione di esercitazione che introduce e spiega passo passo come usare ASP.NET MVC e Visual Studio per lo sviluppo Web.  
 >   
-> La Store musica MVC è un'implementazione di archivio di esempio leggero che vende gli album musicali online e ne implementa amministrazione sito di base, accesso dell'utente e la funzionalità di carrello acquisti.  
+> Music Store MVC è un semplice esempio di implementazione di un archivio per un negozio che vende album musicali online e implementa l'amministrazione di base del sito, l'accesso dell'utente e la funzionalità del carrello acquisti.  
 >   
-> Questa serie di esercitazioni illustra tutti i passaggi necessari per compilare l'applicazione di esempio ASP.NET MVC Music Store. Parte 6 viene illustrato l'utilizzo di annotazioni dei dati per la convalida del modello.
+> Questa serie di esercitazioni illustra tutti i passaggi necessari per compilare l'applicazione di esempio ASP.NET MVC Music Store. Nella Parte 6 viene illustrato l'utilizzo di annotazioni dei dati per la convalida del modello.
 
 
 È presente un problema principale con la creazione e modifica di moduli: non dovranno più svolgere alcuna operazione di convalida. È possibile, ad esempio, lasciare vuoti i campi obbligatori o lettere tipo nel campo di prezzo ed è il primo errore che vedremo dal database.
@@ -32,7 +32,7 @@ Convalida possiamo aggiungere con facilità all'applicazione tramite l'aggiunta 
 
 ## <a name="adding-validation-to-our-album-forms"></a>Aggiunta della convalida per il form Album
 
-Si userà gli attributi di annotazione dei dati seguenti:
+Si useranno gli attributi di annotazione dei dati seguenti:
 
 - **Obbligatorio** – indica che la proprietà è un campo obbligatorio
 - **DisplayName** : definisce il testo che si desidera utilizzare i campi del form e i messaggi di convalida
