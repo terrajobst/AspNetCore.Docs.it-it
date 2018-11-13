@@ -5,14 +5,14 @@ description: Informazioni su come usare l'autenticazione e autorizzazione in ASP
 monikerRange: '>= aspnetcore-2.1'
 ms.author: anurse
 ms.custom: mvc
-ms.date: 11/06/2018
+ms.date: 10/17/2018
 uid: signalr/security
-ms.openlocfilehash: f646d319cf3030fd4d769e882514da14b230bbdd
-ms.sourcegitcommit: c3fa5aded0bf76a7414047d50b8a2311d27ee1ef
-ms.translationtype: MT
+ms.openlocfilehash: be1dd24c40327d9a0d8f91bf75300128d3d52725
+ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51276145"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51225369"
 ---
 # <a name="security-considerations-in-aspnet-core-signalr"></a>Considerazioni sulla sicurezza in ASP.NET Core SignalR
 
@@ -35,7 +35,7 @@ Per altre informazioni sulla configurazione di CORS, vedere [abilita la richiest
 * Metodi HTTP `GET` e `POST` devono essere consentiti.
 * Anche quando non viene utilizzata l'autenticazione, è necessario abilitare le credenziali.
 
-Ad esempio, il seguente criterio CORS consente a un client di browser SignalR ospitato in `https://example.com` per accedere all'app di SignalR ospitato su `https://signalr.example.com`:
+Ad esempio, il seguente criterio CORS consente a un client di browser SignalR ospitato in `http://example.com` per accedere all'app di SignalR ospitato su `http://signalr.example.com`:
 
 [!code-csharp[Main](security/sample/Startup.cs?name=snippet1)]
 
@@ -70,14 +70,7 @@ In ASP.NET Core 2.1 e versioni successive, è possibile ottenere la convalida de
 
 ## <a name="access-token-logging"></a>Registrazione di token di accesso
 
-Quando si usa WebSocket o Server-Sent eventi, il browser client invia il token di accesso nella stringa di query. Ricevere il token di accesso tramite la stringa di query è in genere sicuro quanto lo standard `Authorization` intestazione. È consigliabile usare sempre HTTPS per garantire una connessione end-to-end sicura tra il client e il server. L'URL per ogni richiesta, tra cui la stringa di query di log di molti server web. Gli URL di registrazione può accedere il token di accesso. ASP.NET Core registra l'URL per ogni richiesta per impostazione predefinita, che include la stringa di query. Ad esempio:
-
-```
-info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
-      Request starting HTTP/1.1 GET http://localhost:5000/myhub?access_token=1234
-```
-
-Se si hanno dubbi sulla registrazione di questi dati con i log di server, è possibile disabilitare questa registrazione interamente configurando il `Microsoft.AspNetCore.Hosting` logger per il `Warning` a livello di o versione successiva (questi messaggi vengono scritti in `Info` a livello di). Vedere la documentazione sul [filtro dei Log](xref:fundamentals/logging/index#log-filtering) per altre informazioni. Se vuoi ancora alcune informazioni sulla richiesta di log, è possibile [scrivere un middleware](xref:fundamentals/middleware/index#write-middleware) per registrare i dati è richiesta e filtrare il `access_token` valore di stringa di query (se presente).
+Quando si usa WebSocket o Server-Sent eventi, il browser client invia il token di accesso nella stringa di query. Ricevere il token di accesso tramite la stringa di query è in genere sicuro quanto lo standard `Authorization` intestazione. Tuttavia, molti server web registrare l'URL per ogni richiesta, tra cui la stringa di query. Gli URL di registrazione può accedere il token di accesso. Una procedura consigliata consiste nell'impostare le impostazioni di registrazione del server per evitare che i token di accesso di registrazione web.
 
 ## <a name="exceptions"></a>Eccezioni
 

@@ -40,8 +40,7 @@ Toccare il collegamento **Crea nuovo** per aggiungere un nuovo film. Completare 
 
 ![Modulo di vista del film con diversi errori di convalida sul lato client jQuery](~/tutorials/first-mvc-app/validation/_static/val.png)
 
-> [!NOTE]
-> Potrebbe non essere possibile immettere virgole decimali nel campo `Price`. Per supportare la [convalida jQuery](https://jqueryvalidation.org/) per impostazioni locali diverse dall'inglese che usano la virgola (",") come separatore decimale e per formati di data diversi da quello dell'inglese degli Stati Uniti, è necessario eseguire alcuni passaggi per globalizzare l'app. [Problema 4076 su GitHub](https://github.com/aspnet/Docs/issues/4076#issuecomment-326590420) per istruzioni sull'aggiunta della virgola decimale. 
+[!INCLUDE[](~/includes/currency.md)]
 
 Si noti come il modulo ha eseguito automaticamente il rendering di un messaggio di errore di convalida appropriato in ogni campo contenente un valore non valido. Gli errori vengono applicati sia sul lato client (utilizzo di JavaScript e jQuery) sia sul lato server (nel caso di un utente con JavaScript disabilitato).
 

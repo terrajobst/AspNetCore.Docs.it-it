@@ -4,14 +4,14 @@ author: zuckerthoben
 description: Informazioni su come aggiungere Swashbuckle al progetto dell'API Web ASP.NET Core per integrare l'interfaccia utente di Swagger.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 08/20/2018
+ms.date: 11/05/2018
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: 564c94063d85489a495fe0dfeefabf92f52d3d2c
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 945a2ebe138ba6a1f6029f9e867887b1ce8d628f
+ms.sourcegitcommit: 09affee3d234cb27ea6fe33bc113b79e68900d22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207745"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51191282"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Introduzione a Swashbuckle e ad ASP.NET Core
 
@@ -126,7 +126,7 @@ L'interfaccia utente di Swagger visualizza le informazioni sulla versione:
 
 I commenti XML possono essere abilitati con gli approcci seguenti:
 
-# <a name="visual-studiotabvisual-studio-xml"></a>[Visual Studio](#tab/visual-studio-xml/)
+#### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -144,7 +144,7 @@ I commenti XML possono essere abilitati con gli approcci seguenti:
 
 ::: moniker-end
 
-# <a name="visual-studio-for-mactabvisual-studio-mac-xml"></a>[Visual Studio per Mac](#tab/visual-studio-mac-xml/)
+#### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -162,7 +162,23 @@ I commenti XML possono essere abilitati con gli approcci seguenti:
 
 ::: moniker-end
 
-# <a name="visual-studio-codetabvisual-studio-code-xml"></a>[Visual Studio Code](#tab/visual-studio-code-xml/)
+#### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+Aggiungere manualmente le righe evidenziate al file con estensione *csproj*:
+
+::: moniker range=">= aspnetcore-2.0"
+
+[!code-xml[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle/TodoApi.csproj?name=snippet_SuppressWarnings&highlight=1-2,4)]
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-1.1"
+
+[!code-xml[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/TodoApi.csproj?name=snippet_SuppressWarnings&highlight=1-2,4)]
+
+::: moniker-end
+
+#### <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 
 Aggiungere manualmente le righe evidenziate al file con estensione *csproj*:
 

@@ -1,17 +1,17 @@
 ---
 title: Implementazioni di server Web in ASP.NET Core
-author: rick-anderson
+author: guardrex
 description: Individuare i server Web Kestrel e HTTP.sys per ASP.NET Core. Informazioni su come scegliere un server e quando usare un server proxy inverso.
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 09/21/2018
 uid: fundamentals/servers/index
-ms.openlocfilehash: 6b6ebbe9d31d571ea470fba0989d622dcf6e68af
-ms.sourcegitcommit: fc2486ddbeb15ab4969168d99b3fe0fbe91e8661
+ms.openlocfilehash: 06d4bf09b07fc70a10b3e260e78c29fe189486c5
+ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50758206"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51505726"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Implementazioni di server Web in ASP.NET Core
 
@@ -144,7 +144,7 @@ All'avvio di un'app dal prompt dei comandi nella cartella del progetto, [dotnet 
 
 * [Kestrel](xref:fundamentals/servers/kestrel#http2-support)
   * Sistema operativo
-    * Windows Server 2012 R2/Windows 8.1 o versioni successive
+    * Windows Server 2016/Windows 10 o versioni successive&dagger;
     * Linux con OpenSSL 1.0.2 o versioni successive (ad esempio, Ubuntu 16.04 o versioni successive)
     * HTTP/2 verrà supportato in macOS in una versione futura.
   * Framework di destinazione: .NET Core 2.2 o versioni successive
@@ -158,6 +158,8 @@ All'avvio di un'app dal prompt dei comandi nella cartella del progetto, [dotnet 
   * Windows Server 2016/Windows 10 o versioni successive; IIS 10 o versioni successive
   * Le connessioni server perimetrali pubbliche usano HTTP/2, mentre la connessione con proxy inverso a Kestrel usa HTTP/1.1.
   * Framework di destinazione: non applicabile alle distribuzioni IIS out-of-process.
+
+&dagger;Kestrel ha un supporto limitato per HTTP/2 in Windows Server 2012 R2 e Windows 8.1. Il supporto è limitato perché l'elenco di suite di crittografia TLS supportate disponibili in questi sistemi operativi è limitato. Un certificato generato con un algoritmo ECDSA potrebbe essere necessario per proteggere le connessioni TLS.
 
 ::: moniker-end
 

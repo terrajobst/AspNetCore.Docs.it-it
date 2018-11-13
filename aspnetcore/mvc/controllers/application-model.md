@@ -5,12 +5,12 @@ description: Informazioni su come leggere e modificare il modello applicativo pe
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/controllers/application-model
-ms.openlocfilehash: 7a03f5eaa561557f3abe9c8dd8f4e46a57413a55
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: f3e0aafa3e6a352c632e4abbf3943be61f11ea81
+ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277592"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51225499"
 ---
 # <a name="work-with-the-application-model-in-aspnet-core"></a>Usare il modello applicativo in ASP.NET Core
 
@@ -169,7 +169,7 @@ ASP.NET Core MVC usa un set di convenzioni diverso rispetto all'API Web ASP.NET 
 
 Per usare lo shim Web API Compatibility è necessario aggiungere il pacchetto al progetto e quindi aggiungere le convenzioni a MVC chiamando `AddWebApiConventions` in `Startup`:
 
-```c#
+```csharp
 services.AddMvc().AddWebApiConventions();
 ```
 

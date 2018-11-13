@@ -5,12 +5,12 @@ description: Informazioni su come ASP.NET Core offre servizi e middleware per la
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 5014d697603d802929b417e6439d4cc6983184d2
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: af11906f86fe4ea91ed520584daedc094ab2dc0b
+ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207589"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51505830"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalizzazione e localizzazione in ASP.NET Core
 
@@ -338,6 +338,8 @@ Termini:
 * Impostazioni cultura specifiche: cultura con una lingua e un'area specificate. (ad esempio "en-US", "en-GB", "es-CL")
 * Impostazioni padre: impostazioni cultura neutre con impostazioni cultura specifiche. (ad esempio, "en" rappresenta le impostazioni cultura padre di "en-US" e "en-GB")
 * Impostazioni locali: le impostazioni locali corrispondono alle impostazioni cultura.
+
+[!INCLUDE[](~/includes/currency.md)]
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

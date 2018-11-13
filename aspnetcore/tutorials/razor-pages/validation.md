@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 2518b9911f13da79c76c84e530cf53fc2df474e5
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: d4cc0ab9de314c0c5a1a9016efd1e566ff1c47d2
+ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090446"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51505778"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Aggiungere la convalida a una pagina Razor ASP.NET Core
 
@@ -61,8 +61,7 @@ Selezionare il collegamento **Crea nuovo**. Completare il modulo con alcuni valo
 
 ![Il modulo di vista del film con più errori di convalida del lato client jQuery](validation/_static/val.png)
 
-> [!NOTE]
-> Potrebbe non essere possibile immettere separatori decimali o virgole nel campo `Price`. Per supportare la [convalida jQuery](https://jqueryvalidation.org/) in impostazioni locali diverse dall'inglese che usano la virgola (",") come separatore decimale e per formati di data diversi da quello dell'inglese degli Stati Uniti, è necessario eseguire alcuni passaggi per globalizzare l'app. Per altre informazioni, vedere [Risorse aggiuntive](#additional-resources). Per il momento, immettere solo numeri interi come 10.
+[!INCLUDE[](~/includes/currency.md)]
 
 Si noti come il modulo ha eseguito automaticamente il rendering di un messaggio di errore di convalida in ogni campo che contiene un valore non valido. Gli errori vengono applicati sia sul lato client (uso di JavaScript e jQuery) sia sul lato server (quando un utente ha JavaScript disabilitato).
 
