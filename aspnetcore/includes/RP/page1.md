@@ -4,7 +4,7 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 In questa esercitazione vengono esaminate le pagine Razor create tramite scaffolding nell'esercitazione precedente. 
 
-[Visualizzare o scaricare](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie) l'esempio.
+[Visualizzare o scaricare](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie21) l'esempio.
 
 ## <a name="the-create-delete-details-and-edit-pages"></a>Pagine di creazione, eliminazione, dettagli e modifica.
 
@@ -30,7 +30,7 @@ Quando `OnGet` restituisce `void` o `OnGetAsync` restituisce`Task`, non viene us
 
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie21/Pages/Movies/Create.cshtml.cs?name=snippet)]
 
-Esaminare la pagina Razor *Pages/Movies/Index.cshtml*:
+<a name="index"></a> Esaminare la pagina Razor *Pages/Movies/Index.cshtml*:
 
 [!code-cshtml[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml)]
 
@@ -51,7 +51,7 @@ L'helper HTML `DisplayNameFor` controlla la proprietà `Title` a cui fa riferime
 
 [!code-cshtml[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-2&highlight=2)]
 
-La direttiva `@model` specifica il tipo di modello passato alla pagina Razor. Nell'esempio precedente la riga `@model` rende disponibile la classe derivata `PageModel` alla pagina Razor. Il modello viene usato negli [helper HTML](/aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs#understanding-html-helpers) `@Html.DisplayNameFor` e `@Html.DisplayName` nella pagina.
+La direttiva `@model` specifica il tipo di modello passato alla pagina Razor. Nell'esempio precedente la riga `@model` rende disponibile la classe derivata `PageModel` alla pagina Razor. Il modello viene usato negli [helper HTML](/aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs#understanding-html-helpers) `@Html.DisplayNameFor` e `@Html.DisplayFor` nella pagina.
 
 <!-- why don't xref links work?
 [HTML Helpers 2](xref:aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs)
@@ -101,7 +101,7 @@ Modificare l'elemento `<title>` nel file *Pages/Shared/_Layout.cshtml* per usare
 
 [!code-cshtml[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_Layout.cshtml?range=1-6&highlight=6)]
 
-Trovare l'elemento di ancoraggio seguente nel file *Pages/_Layout.cshtml*.
+Trovare l'elemento di ancoraggio seguente nel file *Pages/Shared/_Layout.cshtml*.
 
 ```cshtml
 <a asp-page="/Index" class="navbar-brand">RazorPagesMovie</a>
@@ -114,7 +114,7 @@ Sostituire l'elemento precedente con il markup seguente.
 
 L'elemento di ancoraggio precedente è un [helper tag](xref:mvc/views/tag-helpers/intro). In questo caso, si tratta dell'[helper tag di ancoraggio](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper). L'attributo e il valore dell'helper tag `asp-page="/Movies/Index"` creano un collegamento alla pagina Razor `/Movies/Index`.
 
-Salvare le modifiche e testare l'app selezionando il collegamento **RpMovie**. Visualizzare il file [_Layout.cshtml](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_Layout.cshtml) in GitHub.
+Salvare le modifiche e testare l'app selezionando il collegamento **RpMovie**. Visualizzare il file [_Layout.cshtml](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/Shared/_Layout.cshtml) in GitHub.
 
 ### <a name="the-create-page-model"></a>Modello di pagina di creazione
 

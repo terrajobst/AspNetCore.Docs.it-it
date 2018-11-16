@@ -5,14 +5,14 @@ description: Panoramica di ASP.NET Core SignalR JavaScript client.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 08/14/2018
+ms.date: 11/14/2018
 uid: signalr/javascript-client
-ms.openlocfilehash: 02844c35d1933d36576c25ff335a572fb65eff5c
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 7de7abd7176e160154a458a3b90f662ba8f47f8c
+ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50208018"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51708387"
 ---
 # <a name="aspnet-core-signalr-javascript-client"></a>ASP.NET Core SignalR JavaScript client
 
@@ -98,6 +98,17 @@ Analisi di log lato client installazione passando un logger e il tipo di evento 
 Usare la [configureLogging](/javascript/api/%40aspnet/signalr/hubconnectionbuilder#configurelogging) metodo sul [HubConnectionBuilder](/javascript/api/%40aspnet/signalr/hubconnectionbuilder) per configurare il livello di registrazione. I messaggi vengono registrati nella console del browser.
 
 [!code-javascript[Logging levels](javascript-client/sample/wwwroot/js/chat.js?range=9-12)]
+
+## <a name="reconnect-clients"></a>Riconnettere i client
+
+Non riconnessione automaticamente il client JavaScript per SignalR. È necessario scrivere codice che si riconnetterà manualmente il client. Il codice seguente illustra un approccio tipico di riconnessione:
+
+1. Una funzione (in questo caso, il `start` (funzione)) viene creato per avviare la connessione.
+1. Chiamare il `start` funzione della connessione `onclose` gestore dell'evento.
+
+[!code-javascript[Reconnect the JavaScript client](javascript-client/sample/wwwroot/js/chat.js?range=30-42)]
+
+Un'implementazione reale potrebbe usare un backoff esponenziale o ripetere un numero specificato di volte prima di rinunciare. 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

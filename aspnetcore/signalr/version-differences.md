@@ -4,14 +4,14 @@ author: tdykstra
 description: Differenze tra SignalR e ASP.NET Core SignalR
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
-ms.date: 09/10/2018
+ms.date: 11/14/2018
 uid: signalr/version-differences
-ms.openlocfilehash: 8f07647959b6ef815eed599703bdb1bfb446572f
-ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
+ms.openlocfilehash: c9302f1c9e7cd4e62eaeaef871feb54ef26aa3ca
+ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51505752"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51708413"
 ---
 # <a name="differences-between-aspnet-signalr-and-aspnet-core-signalr"></a>Differenze tra ASP.NET SignalR e ASP.NET Core SignalR
 
@@ -72,9 +72,13 @@ In ASP.NET Core SignalR, il modello di connessione è stato semplificato. Le con
 
 ASP.NET Core SignalR ora supporta [dati in streaming](xref:signalr/streaming) dall'hub al client.
 
-### <a name="state"></a>Stato
+### <a name="state"></a>State
 
 La possibilità di passare informazioni sullo stato arbitrarie tra client e l'hub (spesso chiamati HubState) è stato rimosso, nonché il supporto per i messaggi di stato. Nel momento in cui non vi è alcun equivalente di proxy dell'hub.
+
+### <a name="persistentconnection-removal"></a>Rimozione PersistentConnection
+
+In ASP.NET Core SignalR, il [PersistentConnection](https://docs.microsoft.com/previous-versions/aspnet/jj919047(v%3dvs.118)) classe è stata rimossa. 
 
 ### <a name="globalhost"></a>GlobalHost
 

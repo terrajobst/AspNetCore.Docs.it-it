@@ -332,7 +332,7 @@
 #### [Autenticazione Twitter](xref:security/authentication/twitter-logins)
 #### [Autenticazione Google](xref:security/authentication/google-logins)
 #### [Autenticazione Microsoft](xref:security/authentication/microsoft-logins)
-#### [Altri provider di autenticazione](xref:security/authentication/otherlogins)
+#### [Provider di autenticazione esterni](xref:security/authentication/otherlogins)
 #### [Attestazioni aggiuntive](xref:security/authentication/social/additional-claims)
 ### [Autenticazione WS-Federation](xref:security/authentication/ws-federation)
 ### [Conferma account e recupero password](xref:security/authentication/accconfirm)

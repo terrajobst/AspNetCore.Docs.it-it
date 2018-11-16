@@ -4,14 +4,14 @@ author: tdykstra
 description: Informazioni sulla convalida del modello in ASP.NET Core MVC.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 11/06/2018
 uid: mvc/models/validation
-ms.openlocfilehash: 73d41b4718071d00a6f80b33de182da2ad90f331
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: f1757f807e50019e5071abc42ec3129935ab77aa
+ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090950"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51225460"
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>Convalida del modello in ASP.NET Core MVC
 
@@ -23,6 +23,8 @@ Prima di essere archiviati in un database, i dati devono essere convalidati dall
 
 Fortunatamente, in .NET la convalida viene astratta in attributi di convalida, che contengono codice di convalida, riducendo così la quantità di codice da scrivere.
 
+In ASP.NET Core 2.2 e versioni successive, il runtime di ASP.NET Core blocca (ignora) la convalida se può determinare che un determinato grafo del modello non richiede la convalida. Ignorare la convalida può consentire miglioramenti significativi delle prestazioni durante la convalida di modelli che non possono avere o non hanno controlli server di convalida associati. La convalida ignorata include oggetti quali raccolte di primitive (`byte[]`, `string[]`, `Dictionary<string, string>` e così via) o grafi di oggetti complessi senza controllo server di convalida.
+
 [Visualizzare o scaricare un esempio da GitHub](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/models/validation/sample).
 
 ## <a name="validation-attributes"></a>Attributi di convalida
@@ -31,10 +33,10 @@ Gli attributi di convalida consentono di configurare la convalida. Concettualmen
 
 Gli attributi di convalida sono specificati a livello di proprietà: 
 
-```csharp 
-[Required] 
+```csharp
+[Required]
 public string MyProperty { get; set; } 
-``` 
+```
 
 Di seguito è riportato un modello `Movie` con annotazioni relativo a un'app che archivia informazioni su film e programmi televisivi. È necessaria la maggior parte delle proprietà e alcune proprietà stringa devono essere conformi a requisiti di lunghezza. Esiste anche una limitazione per l'intervallo numerico che si applica alla proprietà `Price` da 0 a 999.99 dollari insieme a un attributo di convalida personalizzato.
 
@@ -80,13 +82,19 @@ La convalida lato client richiede un valore per un campo modulo corrispondente a
 
 Lo stato del modello rappresenta gli errori di convalida nei valori del modulo HTML inviati.
 
-MVC continua a eseguire la convalida dei campi fino al raggiungimento del numero massimo di errori (200 per impostazione predefinita). È possibile configurare questo numero inserendo il codice seguente nel metodo `ConfigureServices` nel file *Startup.cs*:
+MVC continua a eseguire la convalida dei campi fino al raggiungimento del numero massimo di errori (200 per impostazione predefinita). È possibile configurare questo numero con il codice seguente in `Startup.ConfigureServices`:
 
 [!code-csharp[](validation/sample/Startup.cs?range=27)]
 
-## <a name="handling-model-state-errors"></a>Gestione degli errori dello stato del modello
+## <a name="handle-model-state-errors"></a>Gestire gli errori dello stato del modello
 
-La convalida del modello avviene prima di richiamare le azioni del controller ed è responsabilità del metodo di azione controllare `ModelState.IsValid` e rispondere in modo appropriato. In molti casi, la reazione appropriata consiste nel restituire una risposta di errore, specificando nel dettaglio il motivo per cui è la convalida del modello non è riuscita.
+La convalida del modello avviene prima dell'esecuzione di un'azione del controller. È responsabilità dell'azione esaminare `ModelState.IsValid` e rispondere nel modo appropriato. In molti casi, la reazione appropriata consiste nel restituire una risposta di errore, specificando nel dettaglio il motivo per cui è la convalida del modello non è riuscita.
+
+::: moniker range=">= aspnetcore-2.1"
+
+Quando `ModelState.IsValid` restituisce `false` nei controller dell'API Web usando l'attributo `[ApiController]`, viene restituita una risposta HTTP 400 automatica contenente i dettagli del problema. Per altre informazioni, vedere [Risposte HTTP 400 automatiche](xref:web-api/index#automatic-http-400-responses).
+
+::: moniker-end
 
 Alcune app scelgono di seguire una convenzione standard per gestire gli errori di convalida del modello. Nel tal caso il filtro può essere l'elemento adatto in cui implementare tali criteri. È consigliabile testare il comportamento delle azioni in caso di stati del modello validi e non validi.
 

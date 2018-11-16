@@ -15,7 +15,7 @@ Il codice precedente:
 * Definisce una classe controller API senza metodi.
 * Crea un nuovo TodoItem quando `TodoItems` è vuoto. Non sarà possibile eliminare tutti i TodoItem perché il costruttore ne crea uno nuovo se `TodoItems` è vuoto.
 
-Nelle sezioni successive vengono aggiunti i metodi per implementare l'API. La classe è annotata con un attributo `[ApiController]` per abilitare alcune funzionalità utili. Per informazioni sulle funzionalità abilitate dall'attributo, vedere [Annotare una classe con l'attributo ApiController](xref:web-api/index#annotate-class-with-apicontrollerattribute).
+Nelle sezioni successive vengono aggiunti i metodi per implementare l'API. La classe è annotata con un attributo `[ApiController]` per abilitare alcune funzionalità utili. Per informazioni sulle funzionalità abilitate dall'attributo, vedere [Annotazione con l'attributo ApiController](xref:web-api/index#annotation-with-apicontrollerattribute).
 
 ::: moniker-end
 
@@ -74,7 +74,7 @@ L'attributo `[HttpGet]` indica un metodo che risponde a una richiesta HTTP GET. 
 
 ::: moniker-end
 
-* Sostituire `[controller]` con il nome del controller, ovvero il nome della classe controller meno il suffisso "Controller". In questo esempio, il nome della classe controller è **Todo**Controller e il nome della radice è "todo". Il [routing](xref:mvc/controllers/routing) ASP.NET Core non fa distinzione tra maiuscole e minuscole.
+* Sostituire `[controller]` con il nome del controller, ovvero, per convenzione, il nome della classe controller meno il suffisso "Controller". In questo esempio, il nome della classe controller è **Todo**Controller e il nome della radice è "todo". Il [routing](xref:mvc/controllers/routing) ASP.NET Core non fa distinzione tra maiuscole e minuscole.
 * Se l'attributo `[HttpGet]` ha un modello di route, ad esempio `[HttpGet("/products")]`, aggiungerlo al percorso. In questo esempio non si usa un modello. Per altre informazioni, vedere [Routing con attributi Http[verb]](xref:mvc/controllers/routing#attribute-routing-with-httpverb-attributes).
 
 Nel metodo `GetById` seguente, `"{id}"` è una variabile segnaposto per l'identificatore univoco dell'elemento attività. Quando viene chiamato, `GetById` assegna il valore di `"{id}"` nell'URL al parametro `id` del metodo.

@@ -5,14 +5,14 @@ description: Introduzione all'uso di oggetti WebSocket in ASP.NET Core.
 monikerRange: '>= aspnetcore-1.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 06/28/2018
+ms.date: 11/06/2018
 uid: fundamentals/websockets
-ms.openlocfilehash: b0f1aeff6c7a5777993459274293ba23f2d9dc12
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 3a649f88699d61636d9aa7fbfe4468ca67b3b018
+ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206740"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51225408"
 ---
 # <a name="websockets-support-in-aspnet-core"></a>Supporto di WebSocket in ASP.NET Core
 
@@ -72,10 +72,24 @@ Aggiungere il middleware degli oggetti WebSocket nel metodo `Configure` della cl
 
 ::: moniker-end
 
+::: moniker range="< aspnetcore-2.2"
+
 È possibile configurare le impostazioni seguenti:
 
-* `KeepAliveInterval`: la frequenza di invio di frame "ping" al client per garantire che i proxy tengano aperta la connessione.
-* `ReceiveBufferSize`: le dimensioni del buffer usato per ricevere dati. Gli utenti avanzati possono avere l'esigenza di modificare questa impostazione per ottimizzare le prestazioni in base alle dimensioni dei dati.
+* `KeepAliveInterval`: la frequenza di invio di frame "ping" al client per garantire che i proxy tengano aperta la connessione. Il valore predefinito è due minuti.
+* `ReceiveBufferSize`: le dimensioni del buffer usato per ricevere dati. Gli utenti avanzati possono avere l'esigenza di modificare questa impostazione per ottimizzare le prestazioni in base alle dimensioni dei dati. L'impostazione predefinita è 4 KB.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+È possibile configurare le impostazioni seguenti:
+
+* `KeepAliveInterval`: la frequenza di invio di frame "ping" al client per garantire che i proxy tengano aperta la connessione. Il valore predefinito è due minuti.
+* `ReceiveBufferSize`: le dimensioni del buffer usato per ricevere dati. Gli utenti avanzati possono avere l'esigenza di modificare questa impostazione per ottimizzare le prestazioni in base alle dimensioni dei dati. L'impostazione predefinita è 4 KB.
+* `AllowedOrigins`: elenco di valori dell'intestazione Origin consentiti per le richieste WebSocket. Per impostazione predefinita, tutte le origini sono consentite. Per informazioni dettagliate, vedere più avanti "Restrizione per le origini WebSocket".
+
+::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -128,6 +142,32 @@ Il codice illustrato in precedenza che accetta la richiesta WebSocket passa l'og
 ::: moniker-end
 
 Quando si accetta la connessione WebSocket prima che inizi il ciclo, la pipeline del middleware termina. Dopo la chiusura del socket, la pipeline si arresta, In altri termini, quando viene accettato il WebSocket, lo spostamento in avanti della richiesta nella pipeline si interrompe. Quando il ciclo viene completato e il socket viene chiuso, la richiesta torna ad avanzare nella pipeline.
+
+::: moniker range=">= aspnetcore-2.2"
+
+### <a name="websocket-origin-restriction"></a>Restrizione per le origini WebSocket
+
+La protezione fornita da CORS non si applica agli oggetti WebSocket. I browser **non**:
+
+* Eseguono richieste CORS preventive.
+* Rispettano le restrizioni specificate nelle intestazioni `Access-Control` quando eseguono richieste WebSocket.
+
+I browser, tuttavia, inviano l'intestazione `Origin` quando rilasciano richieste WebSocket. Le applicazioni devono essere configurate per la convalida di queste intestazioni per assicurarsi che siano consentiti solo WebSocket provenienti dalle origini previste.
+
+Se si ospita il server in "https://server.com" e il client in "https://client.com", aggiungere "https://client.com" all'elenco `AllowedOrigins` per consentire la verifica dei WebSocket.
+
+```csharp
+app.UseWebSockets(new WebSocketOptions()
+{
+    AllowedOrigins.Add("https://client.com");
+    AllowedOrigins.Add("https://www.client.com");
+});
+```
+
+> [!NOTE]
+> L'intestazione `Origin` viene controllata dal client e, come l'intestazione `Referer`, può essere falsificata. **Non** usare queste intestazioni come meccanismo di autenticazione.
+
+::: moniker-end
 
 ## <a name="iisiis-express-support"></a>Supporto di IIS/IIS Express
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: 6a53c1ba5badd741afc3321ce21b047965c611db
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 2b23bf8230f7a1c207ef7870da098ffb0c597fd5
+ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090602"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51225447"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>Risolvere i problemi di ASP.NET Core in IIS
 
@@ -19,7 +19,17 @@ Di [Luke Latham](https://github.com/guardrex)
 
 In questo articolo vengono fornite istruzioni su come diagnosticare un problema di avvio di un'app ASP.NET Core durante l'hosting con [Internet Information Services (IIS)](/iis). Le informazioni in questo articolo si applicano all'hosting in IIS su Windows Server e Windows Desktop.
 
+::: moniker range=">= aspnetcore-2.2"
+
+In Visual Studio, per impostazione predefinita un progetto ASP.NET Core usa l'hosting in [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) durante il debug. È possibile risolvere un codice *502.5 - Errore del processo* o *500.30 - Errore di avvio* che si verifica nel corso del debug in locale usando le indicazioni riportate in questo argomento.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
 In Visual Studio, per impostazione predefinita un progetto ASP.NET Core usa l'hosting in [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) durante il debug. È possibile risolvere un codice *502.5 Errore del processo* che si verifica nel corso del debug in locale usando le indicazioni riportate in questo argomento.
+
+::: moniker-end
 
 Altri argomenti sulla risoluzione dei problemi:
 
@@ -40,11 +50,40 @@ Informazioni sul supporto del debug incorporato in Visual Studio Code.
 **502.5 Errore del processo**  
 Il processo di lavoro ha esito negativo. L'app non viene avviata.
 
-Il modulo ASP.NET Core tenta di avviare il processo di lavoro, ma l'avvio non riesce. In genere è possibile determinare la causa di un errore di avvio del processo dalle voci nel [log eventi dell'applicazione](#application-event-log) e nel [log stdout del modulo ASP.NET Core](#aspnet-core-module-stdout-log).
+Il modulo ASP.NET Core prova ad avviare il processo dotnet back-end, ma l'avvio non riesce. In genere è possibile determinare la causa di un errore di avvio del processo dalle voci nel [log eventi dell'applicazione](#application-event-log) e nel [log stdout del modulo ASP.NET Core](#aspnet-core-module-stdout-log). 
+
+Una condizione di errore comune è dovuta alla configurazione non corretta dell'app perché come destinazione viene specificata una versione del framework condiviso ASP.NET Core, che non è presente. Controllare le versioni del framework condiviso ASP.NET Core installate nel computer di destinazione.
 
 La pagina di errore *502.5 Errore del processo* viene restituita quando il processo di lavoro ha esito negativo a causa di un errore di configurazione dell'hosting o dell'app:
 
 ![Finestra del browser con la pagina 502.5 Errore del processo](troubleshoot/_static/process-failure-page.png)
+
+::: moniker range=">= aspnetcore-2.2"
+
+**500.30 Errore di avvio In-Process**
+
+Il processo di lavoro ha esito negativo. L'app non viene avviata.
+
+Il modulo ASP.NET Core prova ad avviare .NET Core CLR In-Process, ma l'avvio non riesce. In genere è possibile determinare la causa di un errore di avvio del processo dalle voci nel [log eventi dell'applicazione](#application-event-log) e nel [log stdout del modulo ASP.NET Core](#aspnet-core-module-stdout-log). 
+
+Una condizione di errore comune è dovuta alla configurazione non corretta dell'app perché come destinazione viene specificata una versione del framework condiviso ASP.NET Core, che non è presente. Controllare le versioni del framework condiviso ASP.NET Core installate nel computer di destinazione.
+
+**500.0 Errore di caricamento del gestore In-Process**
+
+Il processo di lavoro ha esito negativo. L'app non viene avviata.
+
+Il modulo ASP.NET Core non riesce a trovare .NET Core CLR e trova il gestore richieste In-Process (*aspnetcorev2_inprocess.dll*). Controllare che:
+
+* L'app specifichi come destinazione il pacchetto NuGet [Microsoft.AspNetCore.Server.IIS](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IIS) o il [metapacchetto Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
+* Le versione del framework condiviso ASP.NET Core specificata come destinazione dall'app sia installata nel computer di destinazione.
+
+**500.0 Errore di caricamento del gestore out-of-process**
+
+Il processo di lavoro ha esito negativo. L'app non viene avviata.
+
+Il modulo ASP.NET Core non riesce a trovare il gestore richieste di hosting out-of-process. Verificare che *aspnetcorev2_outofprocess.dll* sia presente in una sottocartella accanto ad *aspnetcorev2.dll*. 
+
+::: moniker-end
 
 **500 Errore interno del server**  
 L'app viene avviata, ma un errore impedisce al server di soddisfare la richiesta.

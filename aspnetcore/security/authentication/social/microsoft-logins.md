@@ -1,82 +1,83 @@
 ---
-title: Configurazione dell'account di accesso esterno Account Microsoft con ASP.NET Core
+title: Configurazione accesso esterno dell'Account Microsoft con ASP.NET Core
 author: rick-anderson
-description: Questa esercitazione illustra l'integrazione dell'autenticazione di Microsoft account utente in un'applicazione ASP.NET di base esistente.
+description: Questa esercitazione illustra l'integrazione dell'autenticazione di Microsoft account utente in un'app ASP.NET Core esistente.
 ms.author: riande
-ms.date: 08/24/2017
+ms.custom: mvc
+ms.date: 11/11/2018
 uid: security/authentication/microsoft-logins
-ms.openlocfilehash: cc4fe8c71b97d29cc6697e2aebf04694afb753ec
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 89969370cea66b7b6632f1b0be59e135767c831e
+ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272776"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51708400"
 ---
-# <a name="microsoft-account-external-login-setup-with-aspnet-core"></a>Configurazione dell'account di accesso esterno Account Microsoft con ASP.NET Core
+# <a name="microsoft-account-external-login-setup-with-aspnet-core"></a>Configurazione accesso esterno dell'Account Microsoft con ASP.NET Core
 
 Da [Valeriy Novytskyy](https://github.com/01binary) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-In questa esercitazione viene illustrato come consentire agli utenti di accedere con l'account di Microsoft tramite un progetto ASP.NET Core 2.0 di esempio creato nel [pagina precedente](xref:security/authentication/social/index).
+Questa esercitazione illustra come consentire agli utenti di accedere con il proprio account Microsoft usando un progetto ASP.NET Core 2.0 di esempio creato nel [pagina precedente](xref:security/authentication/social/index).
 
-## <a name="create-the-app-in-microsoft-developer-portal"></a>Creare l'app nel portale per sviluppatori di Microsoft
+## <a name="create-the-app-in-microsoft-developer-portal"></a>Creare l'app nel portale per sviluppatori Microsoft
 
 * Passare a [ https://apps.dev.microsoft.com ](https://apps.dev.microsoft.com) e creare o accedere a un account Microsoft:
 
-![Accedere alla finestra di dialogo](index/_static/MicrosoftDevLogin.png)
+![L'accesso nella finestra di dialogo](index/_static/MicrosoftDevLogin.png)
 
-Se non si dispone già di un account Microsoft, tocca  **[crearne uno.](https://signup.live.com/signup?wa=wsignin1.0&rpsnv=13&ct=1478151035&rver=6.7.6643.0&wp=SAPI_LONG&wreply=https%3a%2f%2fapps.dev.microsoft.com%2fLoginPostBack&id=293053&aadredir=1&contextid=D70D4F21246BAB50&bk=1478151036&uiflavor=web&uaid=f0c3de863a914c358b8dc01b1ff49e85&mkt=EN-US&lc=1033&lic=1)** Dopo l'accesso, si verrà reindirizzati a **applicazioni personali** pagina:
+Se non si ha già un account Microsoft, toccare  **[crearne uno.](https://signup.live.com/signup?wa=wsignin1.0&rpsnv=13&ct=1478151035&rver=6.7.6643.0&wp=SAPI_LONG&wreply=https%3a%2f%2fapps.dev.microsoft.com%2fLoginPostBack&id=293053&aadredir=1&contextid=D70D4F21246BAB50&bk=1478151036&uiflavor=web&uaid=f0c3de863a914c358b8dc01b1ff49e85&mkt=EN-US&lc=1033&lic=1)** Dopo l'accesso si verrà reindirizzati alla **mie applicazioni** pagina:
 
-![Portale per sviluppatori Microsoft aperto in Microsoft Edge](index/_static/MicrosoftDev.png)
+![Portale per sviluppatori Microsoft Apri in Microsoft Edge](index/_static/MicrosoftDev.png)
 
-* Toccare **aggiungere un'app** in alto a destra angolo e immettere il **nome applicazione** e **Contact Email**:
+* Toccare **aggiungere un'app** in alto a destra nell'angolo e immettere il **nome applicazione** e **Contact Email**:
 
 ![Finestra di dialogo Nuova registrazione dell'applicazione](index/_static/MicrosoftDevAppCreate.png)
 
-* Ai fini di questa esercitazione, cancellare il **impostazione guidata** casella di controllo.
+* Ai fini di questa esercitazione, cancellare il **installazione guidata** casella di controllo.
 
-* Toccare **crea** per continuare al **registrazione** pagina. Fornire un **nome** e prendere nota del valore del **Id applicazione**, utilizzabile come `ClientId` più avanti nell'esercitazione:
+* Toccare **Create** per continuare al **registrazione** pagina. Fornire un **nome** e prendere nota del valore della **Id applicazione**, che è usato come `ClientId` più avanti nell'esercitazione:
 
 ![Pagina di registrazione](index/_static/MicrosoftDevAppReg.png)
 
-* Toccare **aggiungere piattaforma** nel **piattaforme** sezione e selezionare il **Web** piattaforma:
+* Toccare **Aggiungi piattaforma** nel **piattaforme** sezione e selezionare il **Web** piattaforma:
 
-![Finestra di dialogo piattaforma Aggiungi](index/_static/MicrosoftDevAppPlatform.png)
+![Aggiungi finestra di dialogo piattaforma](index/_static/MicrosoftDevAppPlatform.png)
 
-* Nel nuovo **Web** piattaforma sezione, immettere l'URL di sviluppo con `/signin-microsoft` aggiunto nel **URL di reindirizzamento** campo (ad esempio: `https://localhost:44320/signin-microsoft`). Lo schema di autenticazione Microsoft configurato più avanti in questa esercitazione consente di gestire automaticamente le richieste nel `/signin-microsoft` route per implementare il flusso di OAuth:
+* Nel nuovo **Web** piattaforma, quindi immettere l'URL di sviluppo con `/signin-microsoft` aggiunto nel **URL di reindirizzamento** campo (ad esempio: `https://localhost:44320/signin-microsoft`). Lo schema di autenticazione Microsoft configurato più avanti in questa esercitazione consente di gestire automaticamente le richieste a `/signin-microsoft` route per implementare il flusso di OAuth:
 
 ![Sezione relativa alla piattaforma Web](index/_static/MicrosoftRedirectUri.png)
 
 > [!NOTE]
-> Il segmento URI `/signin-microsoft` viene impostato come callback predefinito del provider di autenticazione Microsoft. È possibile modificare l'URI di callback predefinito durante la configurazione il middleware di autenticazione Microsoft tramite ereditato [RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) proprietà del [MicrosoftAccountOptions](/dotnet/api/microsoft.aspnetcore.authentication.microsoftaccount.microsoftaccountoptions) classe.
+> Il segmento URI `/signin-microsoft` viene impostato come il callback predefinito del provider di autenticazione Microsoft. È possibile modificare l'URI di callback predefinito durante la configurazione del middleware di autenticazione Microsoft tramite ereditato [RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) proprietà del [MicrosoftAccountOptions](/dotnet/api/microsoft.aspnetcore.authentication.microsoftaccount.microsoftaccountoptions) classe.
 
-* Toccare **Aggiungi URL** per verificare l'URL è stato aggiunto.
+* Toccare **Aggiungi URL** per assicurarsi che l'URL è stato aggiunto.
 
-* Compilare tutte le altre impostazioni applicazione, se necessario e toccare **salvare** nella parte inferiore della pagina per salvare le modifiche alla configurazione di app.
+* Compilare le altre impostazioni dell'applicazione se necessario e toccare **salvare** nella parte inferiore della pagina per salvare le modifiche alla configurazione delle app.
 
-* Quando si distribuisce il sito è necessario rivedere il **registrazione** pagina e impostare un nuovo URL pubblico.
+* Quando si distribuisce il sito è necessario rivedere le **registrazione** pagina e impostare un nuovo URL pubblico.
 
-## <a name="store-microsoft-application-id-and-password"></a>Id applicazione di Microsoft e la Password archiviati
+## <a name="store-microsoft-application-id-and-password"></a>Store Id applicazione di Microsoft e la Password
 
-* Nota il `Application Id` visualizzata sul **registrazione** pagina.
+* Si noti il `Application Id` visualizzato nella **registrazione** pagina.
 
-* Toccare **generare una nuova Password** nel **applicazione segreti** sezione. Verrà visualizzata una casella in cui è possibile copiare la password dell'applicazione:
+* Toccare **Genera nuova Password** nel **i segreti dell'applicazione** sezione. Verrà visualizzata una finestra in cui è possibile copiare la password dell'applicazione:
 
 ![Finestra di dialogo nuova password generata](index/_static/MicrosoftDevPassword.png)
 
-Collegare le impostazioni sensibili come Microsoft `Application ID` e `Password` all'applicazione mediante configurazione di [Manager segreto](xref:security/app-secrets). Ai fini di questa esercitazione, denominare il token `Authentication:Microsoft:ApplicationId` e `Authentication:Microsoft:Password`.
+Collegare le impostazioni sensibili, ad esempio Microsoft `Application ID` e `Password` alla configurazione dell'applicazione usando la [Secret Manager](xref:security/app-secrets). Ai fini di questa esercitazione, denominare il token `Authentication:Microsoft:ApplicationId` e `Authentication:Microsoft:Password`.
 
-## <a name="configure-microsoft-account-authentication"></a>Configurare l'autenticazione di Account Microsoft
+## <a name="configure-microsoft-account-authentication"></a>Configurare l'autenticazione Account Microsoft
 
-Il modello di progetto utilizzato in questa esercitazione assicura che [Microsoft.AspNetCore.Authentication.MicrosoftAccount](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.MicrosoftAccount) pacchetto è già installato.
+Il modello di progetto usato in questa esercitazione assicura che [Microsoft.AspNetCore.Authentication.MicrosoftAccount](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.MicrosoftAccount) pacchetto è già installato.
 
-* Per installare il pacchetto con Visual Studio 2017, fare clic sul progetto e scegliere **Gestisci pacchetti NuGet**.
-* Per installare con .NET Core CLI, eseguire le operazioni seguenti nella directory del progetto:
+* Per installare questo pacchetto con Visual Studio 2017, pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**.
+* Per installare con CLI di .NET Core, eseguire il codice seguente nella directory del progetto:
 
    `dotnet add package Microsoft.AspNetCore.Authentication.MicrosoftAccount`
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
-Aggiungere il servizio Account Microsoft nel `ConfigureServices` metodo *Startup.cs* file:
+Aggiungere il servizio Account Microsoft nel `ConfigureServices` nel metodo *Startup.cs* file:
 
 ```csharp
 services.AddIdentity<ApplicationUser, IdentityRole>()
@@ -92,11 +93,13 @@ services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
 
 [!INCLUDE [default settings configuration](includes/default-settings.md)]
 
-[!INCLUDE[](~/includes/chain-auth-providers.md)]
+[!INCLUDE[](includes/chain-auth-providers.md)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
 
-Aggiungere il middleware di Account Microsoft nel `Configure` metodo *Startup.cs* file:
+::: moniker range="< aspnetcore-2.0"
+
+Aggiungere il middleware di Account Microsoft nel `Configure` nel metodo *Startup.cs* file:
 
 ```csharp
 app.UseMicrosoftAccountAuthentication(new MicrosoftAccountOptions()
@@ -106,40 +109,42 @@ app.UseMicrosoftAccountAuthentication(new MicrosoftAccountOptions()
 });
 ```
 
----
+::: moniker-end
 
-Sebbene la terminologia utilizzata nel portale per sviluppatori Microsoft nomi questi token `ApplicationId` e `Password`, è esposto come `ClientId` e `ClientSecret` nell'API di configurazione.
+Sebbene la terminologia utilizzata nel portale per sviluppatori Microsoft assegna questi token `ApplicationId` e `Password`, è esposta come `ClientId` e `ClientSecret` nell'API di configurazione.
 
-Vedere il [MicrosoftAccountOptions](/dotnet/api/microsoft.aspnetcore.builder.microsoftaccountoptions) riferimento API per altre informazioni sulle opzioni di configurazione supportati dall'autenticazione di Account Microsoft. Questo può essere usato per richiedere informazioni diverse relative all'utente.
+Vedere le [MicrosoftAccountOptions](/dotnet/api/microsoft.aspnetcore.builder.microsoftaccountoptions) riferimento API per altre informazioni sulle opzioni di configurazione supportati dall'autenticazione di Account Microsoft. Ciò può essere usato per richiedere informazioni diverse sull'utente.
 
 ## <a name="sign-in-with-microsoft-account"></a>Accedi con Account Microsoft
 
-Eseguire l'applicazione e fare clic su **Accedi**. Viene visualizzata un'opzione per eseguire l'accesso con Microsoft:
+Eseguire l'applicazione e fare clic su **Accedi**. Viene visualizzata un'opzione per accedere con Microsoft:
 
-![Log di applicazione nella pagina Web: utente non autenticato](index/_static/DoneMicrosoft.png)
+![Applicazione del Log nella pagina Web: utente non autenticato](index/_static/DoneMicrosoft.png)
 
-Quando si fa clic su Microsoft, si viene reindirizzati a Microsoft per l'autenticazione. Dopo l'accesso con l'Account Microsoft (se non è già stato effettuato l'accesso) verrà richiesto per consentire all'app di accedere alle tue info:
+Quando fa clic su Microsoft, si verrà reindirizzati a Microsoft per l'autenticazione. Dopo l'accesso con l'Account Microsoft (se non è già stato effettuato l'accesso) verrà richiesto per consentire all'app di accedere alle tue info:
 
 ![Finestra di dialogo autenticazione Microsoft](index/_static/MicrosoftLogin.png)
 
-Toccare **Sì** e si verrà reindirizzati al sito web in cui è possibile impostare la posta elettronica.
+Toccare **Sì** e si verrà reindirizzati al sito web in cui è possibile impostare l'indirizzo di posta elettronica.
 
-A questo punto si è connessi utilizzando le credenziali di Microsoft:
+A questo punto si è connessi con le credenziali di Microsoft:
 
 ![Applicazione Web: utente autenticato](index/_static/Done.png)
 
+[!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
+
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-* Se il provider dell'Account di Microsoft si viene reindirizzati a una pagina di errore di accesso, tenere presente l'errore titolo e descrizione parametri stringa di query direttamente dopo il `#` (hashtag) nell'Uri.
+* Se il provider dell'Account di Microsoft si viene reindirizzati a una pagina di errore di accesso, si noti l'errore title e description parametri stringa di query che seguono direttamente il `#` (hashtag) nell'Uri.
 
-  Anche se sembra che il messaggio di errore indicano un problema con l'autenticazione di Microsoft, la causa più comune è l'Uri non corrisponde a nessuna delle applicazione il **Redirect URIs** specificato per il **Web** piattaforma .
-* **ASP.NET Core 2.x solo:** identità se non è configurata tramite la chiamata `services.AddIdentity` in `ConfigureServices`, il tentativo di eseguire l'autenticazione comporterà *ArgumentException: è necessario specificare l'opzione 'SignInScheme'*. Il modello di progetto utilizzato in questa esercitazione garantisce che questa operazione viene eseguita.
-* Se il database del sito non è stato creato applicando la migrazione iniziale, si otterranno *un'operazione di database non riuscita durante l'elaborazione della richiesta* errore. Toccare **applicare le migrazioni** per creare il database e dell'aggiornamento per ignorare l'errore.
+  Anche se sembra che il messaggio di errore per indicare un problema con l'autenticazione di Microsoft, la causa più comune è l'Uri non corrisponda a uno di applicazione la **Redirect URIs** specificato per il **Web** piattaforma .
+* **ASP.NET Core 2.x solo:** Identity se non è configurato tramite la chiamata `services.AddIdentity` nel `ConfigureServices`, tentativo di autenticazione comporterà *ArgumentException: è necessario specificare l'opzione 'SignInScheme'*. Il modello di progetto usato in questa esercitazione garantisce che questa operazione viene eseguita.
+* Se il database del sito non è stato creato applicando la migrazione iniziale, si otterrà *un'operazione di database non riuscita durante l'elaborazione della richiesta* errore. Toccare **applicare le migrazioni** per creare il database e di aggiornamento per continuare oltre l'errore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* In questo articolo è stato illustrato come è possibile eseguire l'autenticazione con Microsoft. È possibile seguire un approccio simile per l'autenticazione con altri provider elencati nella [pagina precedente](xref:security/authentication/social/index).
+* Questo articolo ha illustrato come è possibile eseguire l'autenticazione con Microsoft. È possibile seguire un approccio simile per l'autenticazione con altri provider di servizi elencati nella [pagina precedente](xref:security/authentication/social/index).
 
-* Quando si pubblica il sito web all'app web di Azure, è necessario creare un nuovo `Password` nel portale per sviluppatori di Microsoft.
+* Dopo aver pubblicato il sito web all'app web di Azure, è necessario creare un nuovo `Password` del portale per sviluppatori Microsoft.
 
-* Impostare il `Authentication:Microsoft:ApplicationId` e `Authentication:Microsoft:Password` come impostazioni dell'applicazione nel portale di Azure. Il sistema di configurazione è impostare lettura delle chiavi dalle variabili di ambiente.
+* Impostare il `Authentication:Microsoft:ApplicationId` e `Authentication:Microsoft:Password` come impostazioni dell'applicazione nel portale di Azure. Il sistema di configurazione è configurato per leggere le chiavi da variabili di ambiente.
