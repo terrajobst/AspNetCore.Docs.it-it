@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/30/2018
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: 9943c9dd2d6dd67a79186ee880b181a5915d06be
-ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
+ms.openlocfilehash: cac5ccdea7838d26b7468f9bf1ab8d317b444b46
+ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51505713"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51708517"
 ---
 # <a name="net-generic-host"></a>Host generico .NET
 
@@ -75,7 +75,7 @@ La proprietà [IHostingEnvironment.ApplicationName](xref:Microsoft.Extensions.Ho
 **Tipo**: *string*  
 **Impostazione predefinita**: il nome dell'assembly contenente il punto di ingresso dell'app.  
 **Impostare usando**: `HostBuilderContext.HostingEnvironment.ApplicationName`  
-**Variabile di ambiente**: `<PREFIX_>APPLICATIONNAME` (`<PREFIX_>` è [facoltativo e definito dall'utente](#configuration-builder))
+**Variabile di ambiente**: `<PREFIX_>APPLICATIONNAME` (`<PREFIX_>` è [facoltativo e definito dall'utente](#configurehostconfiguration))
 
 ### <a name="content-root"></a>Radice del contenuto
 
@@ -85,7 +85,7 @@ Questa impostazione determina la posizione da cui l'host inizia la ricerca dei f
 **Tipo**: *string*  
 **Impostazione predefinita**: il valore predefinito corrisponde alla cartella contenente l'assembly dell'app.  
 **Impostare usando**: `UseContentRoot`  
-**Variabile di ambiente**: `<PREFIX_>CONTENTROOT` (`<PREFIX_>` è [facoltativo e definito dall'utente](#configuration-builder))
+**Variabile di ambiente**: `<PREFIX_>CONTENTROOT` (`<PREFIX_>` è [facoltativo e definito dall'utente](#configurehostconfiguration))
 
 Se il percorso non esiste, l'host non verrà avviato.
 
@@ -99,7 +99,7 @@ Imposta l'[ambiente](xref:fundamentals/environments) per l'app.
 **Tipo**: *string*  
 **Impostazione predefinita**: Production  
 **Impostare usando**: `UseEnvironment`  
-**Variabile di ambiente**: `<PREFIX_>ENVIRONMENT` (`<PREFIX_>` è [facoltativo e definito dall'utente](#configuration-builder))
+**Variabile di ambiente**: `<PREFIX_>ENVIRONMENT` (`<PREFIX_>` è [facoltativo e definito dall'utente](#configurehostconfiguration))
 
 L'ambiente può essere impostato su qualsiasi valore. I valori definiti dal framework includono `Development`, `Staging` e `Production`. Nei valori non viene fatta distinzione tra maiuscole e minuscole.
 
