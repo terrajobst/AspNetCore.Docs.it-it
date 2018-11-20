@@ -5,14 +5,14 @@ description: In questa esercitazione viene creata un'app di chat che usa ASP.NET
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 08/31/2018
+ms.date: 11/13/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 7d9f3a3f8aa7a5e47169da66e6fa2d6a28de3853
-ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
+ms.openlocfilehash: 8916b3659250c1bcbbc2dc9b3d466586f98bcc7e
+ms.sourcegitcommit: d3392f688cfebc1f25616da7489664d69c6ee330
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51021248"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51818382"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Esercitazione: Introduzione ad ASP.NET Core SignalR
 
@@ -238,7 +238,7 @@ Un *hub* è una classe usata come pipeline di alto livello che gestisce le comun
 
 * Copiare l'URL dalla barra degli indirizzi, aprire un'altra istanza o scheda del browser e incollare l'URL nella barra degli indirizzi.
 
-* Scegliere un browser, immettere un nome e un messaggio e fare clic sul pulsante **Invia**.
+* Scegliere un browser, immettere un nome e un messaggio e fare clic sul pulsante **Invia messaggio**.
 
   Nome e messaggio vengono visualizzati immediatamente in entrambe le pagine.
 

@@ -3,14 +3,14 @@ title: Associazione di modelli personalizzata in ASP.NET Core
 author: ardalis
 description: Informazioni su come l'associazione di modelli consente alle azioni del controller di funzionare direttamente con i tipi di modello in ASP.NET Core.
 ms.author: riande
-ms.date: 04/10/2017
+ms.date: 11/13/2018
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: dc901aea3c20e7f2e955f39d923216de70ef015b
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 1da42829270e8ff4a626a45aec4d4e825062bd4f
+ms.sourcegitcommit: f202864efca81a72ea7120c0692940c40d9d0630
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090407"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51635290"
 ---
 # <a name="custom-model-binding-in-aspnet-core"></a>Associazione di modelli personalizzata in ASP.NET Core
 
@@ -87,11 +87,14 @@ L'esempio seguente usa l'attributo `ModelBinder` nel modello `Author`:
 
 [!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Data/Author.cs?highlight=10)]
 
-Nel codice precedente l'attributo `ModelBinder` specifica il tipo di `IModelBinder` da usare per associare i parametri di azione `Author`. 
+Nel codice precedente l'attributo `ModelBinder` specifica il tipo di `IModelBinder` da usare per associare i parametri di azione `Author`.
 
-`AuthorEntityBinder` viene usato per associare un parametro `Author` recuperando l'entità da un'origine dati tramite Entity Framework Core e un `authorId`:
+La classe `AuthorEntityBinder` seguente associa un parametro `Author` recuperando l'entità da un'origine dati tramite Entity Framework Core e un `authorId`:
 
 [!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Binders/AuthorEntityBinder.cs?name=demo)]
+
+> [!NOTE]
+> La classe `AuthorEntityBinder` precedente è destinata a illustrare uno strumento di associazione di modelli personalizzato. La classe non ha lo scopo di illustrare procedure consigliate per uno scenario di ricerca. Per la ricerca, associare l'elemento `authorId` ed eseguire query nel database in un metodo di azione. Questo approccio separa gli errori di associazione di modelli dai casi `NotFound`.
 
 L'esempio di codice seguente indica come usare `AuthorEntityBinder` in un metodo di azione:
 
@@ -107,7 +110,7 @@ In questo esempio, dato che il nome dell'argomento non è il valore `authorId` p
 
 ### <a name="implementing-a-modelbinderprovider"></a>Implementazione di un elemento ModelBinderProvider
 
-Anziché applicare un attributo, è possibile implementare `IModelBinderProvider`. Gli strumenti di associazione del framework incorporati vengono implementati in questo modo. Quando si specifica il tipo sul quale opera lo strumento di associazione, si indica il tipo di argomento prodotto dallo strumento, **non** l'input accettato dallo strumento. Il provider strumento di associazione seguente funziona con l'elemento `AuthorEntityBinder`. Quando viene aggiunto alla raccolta di provider di MVC non è necessario usare l'attributo `ModelBinder` sui parametri tipizzati `Author` o `Author`.
+Anziché applicare un attributo, è possibile implementare `IModelBinderProvider`. Gli strumenti di associazione del framework incorporati vengono implementati in questo modo. Quando si specifica il tipo sul quale opera lo strumento di associazione, si indica il tipo di argomento prodotto dallo strumento, **non** l'input accettato dallo strumento. Il provider strumento di associazione seguente funziona con l'elemento `AuthorEntityBinder`. Quando viene aggiunto alla raccolta di provider di MVC, non è necessario usare l'attributo `ModelBinder` sui parametri tipizzati `Author` o `Author`.
 
 [!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Binders/AuthorEntityBinderProvider.cs?highlight=17-20)]
 
@@ -130,6 +133,7 @@ Se il provider personalizzato viene aggiunto alla fine della raccolta, è possib
 ## <a name="recommendations-and-best-practices"></a>Suggerimenti e procedure ottimali
 
 Gli strumenti di associazione di modelli personalizzati:
+
 - Non devono provare a impostare codici di stato o restituire risultati (ad esempio 404 Non trovato). Se si verifica un errore nell'associazione di modelli, l'errore deve essere gestito da un [filtro azioni](xref:mvc/controllers/filters) o da logica inclusa nel metodo di azione.
 - Sono particolarmente utili per eliminare codice ripetitivo e problemi di montaggio incrociato dai metodi di azione.
 - In genere non devono essere usati per convertire una stringa in un tipo personalizzato. Un elemento [`TypeConverter`](/dotnet/api/system.componentmodel.typeconverter) rappresenta solitamente una scelta migliore.

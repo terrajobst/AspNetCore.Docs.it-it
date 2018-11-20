@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/18/2018
 uid: fundamentals/static-files
-ms.openlocfilehash: 5d00e6ba57053d17b45a24a1c57a446cb3db22ca
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: fb92141b1864574242b29ecc386024ce72a6be87
+ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207134"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51570126"
 ---
 # <a name="static-files-in-aspnet-core"></a>File statici in ASP.NET Core
 
@@ -96,7 +96,7 @@ Considerare una gerarchia di directory in cui si trovano i file statici da usare
   * **images**
       * *banner1.svg*
 
-Una richiesta può accedere al file *banner1.svg* configurando il middleware del file statico come indicato di seguito:
+Una richiesta può accedere al file *banner1.svg* configurando il middleware dei file statici come indicato di seguito:
 
 [!code-csharp[](static-files/samples/1x/StartupTwoStaticFiles.cs?name=snippet_ConfigureMethod&highlight=5-10)]
 
@@ -122,10 +122,10 @@ I file sono stati resi pubblicamente inseribili nella cache per 10 minuti (600 s
 
 Il middleware dei file statici non offre controlli di autorizzazione. I file usati dal middleware, inclusi i file in *wwwroot*, sono disponibili pubblicamente. Per usare i file in base alle autorizzazioni:
 
-* Archiviare i file all'esterno di *wwwroot* e di qualsiasi directory alla quale il middleware dei file statici può accedere **e**
+* Archiviare i file all'esterno di *wwwroot* e di qualsiasi directory alla quale può accedere il middleware dei file statici.
 * Usarli tramite un metodo di azione al quale è applicata l'autorizzazione. Restituire un oggetto [FileResult](/dotnet/api/microsoft.aspnetcore.mvc.fileresult):
 
-[!code-csharp[](static-files/samples/1x/Controllers/HomeController.cs?name=snippet_BannerImageAction)]
+  [!code-csharp[](static-files/samples/1x/Controllers/HomeController.cs?name=snippet_BannerImageAction)]
 
 ## <a name="enable-directory-browsing"></a>Abilitare l'esplorazione directory
 

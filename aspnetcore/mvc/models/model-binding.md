@@ -4,14 +4,14 @@ author: tdykstra
 description: Informazioni su come l'associazione di modelli in ASP.NET Core MVC esegue il mapping dei dati dalle richieste HTTP ai parametri dei metodi di azione.
 ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: tdykstra
-ms.date: 08/14/2018
+ms.date: 11/13/2018
 uid: mvc/models/model-binding
-ms.openlocfilehash: 0ce20a8040c6b19da1f57e1c053a7ef81d8bcb23
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 1dc9b41328ed78440622acc1865b6f088d394403
+ms.sourcegitcommit: 1d6ab43eed9cb3df6211c22b97bb3a9351ec4419
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41751527"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51597784"
 ---
 # <a name="model-binding-in-aspnet-core"></a>Associazione di modelli in ASP.NET Core
 
@@ -55,7 +55,7 @@ Poiché l'associazione di modelli ha richiesto una chiave denominata `id` e nei 
 
 Finora l'esempio ha usato tipi semplici. In MVC sono considerati tipi semplici tutti i tipi primitivi .NET o i tipi con un convertitore di tipo stringa. Se il parametro del metodo di azione fosse una classe, ad esempio il tipo `Movie`, contenente sia tipi semplici che tipi complessi come proprietà, l'associazione di modelli di MVC sarebbe comunque in grado di gestirlo correttamente, usando la reflection e la ricorsione per cercare corrispondenze attraverso le proprietà corrispondenti ai tipi complessi. Per associare i valori alle proprietà, l'associazione di modelli cerca il modello *nome_parametro.nome_proprietà*. Se non trova valori corrispondenti nel form, tenta di eseguire l'associazione usando solo il nome della proprietà. Per i tipi quali `Collection`, l'associazione di modelli cerca le corrispondenze in base a *nome_parametro[indice]* o semplicemente *[indice]*. L'associazione di modelli considera i tipi `Dictionary` in modo analogo, richiedendo *nome_parametro[chiave]* o semplicemente *[chiave]*, purché le chiavi siano di tipo semplice. Le chiavi supportate corrispondono ai nomi di campo HTML e agli helper tag generati per lo stesso tipo di modello. Ciò consente l'uso di valori di andata e ritorno, in modo che i campi modulo rimangano compilati con l'input dell'utente per praticità, ad esempio quando i dati associati provenienti da un'istruzione di creazione o modifica non superano la convalida.
 
-Perché l'associazione possa verificarsi, la classe deve avere un costruttore predefinito pubblico e i membri da associare devono essere proprietà scrivibili pubbliche. Quando si verifica l'associazione di modelli, sarà possibile creare istanze della classe solo usando il costruttore predefinito pubblico. Sarà quindi possibile impostare le proprietà.
+Per consentire l'associazione di modelli, la classe deve avere un costruttore predefinito pubblico e proprietà scrivibili pubbliche da associare. Quando si verifica l'associazione di modelli, vengono create istanze della classe usando il costruttore predefinito pubblico. Quindi è possibile impostare le proprietà.
 
 Quando un parametro viene associato, l'associazione di modelli interrompe la ricerca di valori con quel nome e passa ad associare il parametro successivo. In caso contrario, il comportamento predefinito dell'associazione di modelli imposta i parametri sui valori predefiniti di questi a seconda del loro tipo:
 
@@ -65,7 +65,7 @@ Quando un parametro viene associato, l'associazione di modelli interrompe la ric
 
 * Tipi nullable: i tipi nullable vengono impostati su `null`. Nell'esempio precedente, l'associazione di modelli imposta `id` su `null`, perché è di tipo `int?`.
 
-* Tipi: valore: i tipi valore non-nullable di tipo `T` vengono impostati su `default(T)`. L'associazione di modelli, ad esempio, imposta un parametro `int id` su 0. Invece di basarsi sui valori predefiniti, è consigliabile usare la convalida del modello o tipi nullable.
+* Tipi: valore: i tipi valore non-nullable di tipo `T` vengono impostati su `default(T)`. L'associazione di modelli, ad esempio, imposta un parametro `int id` su 0. Anziché basarsi sui valori predefiniti, è consigliabile usare la convalida del modello o tipi nullable.
 
 Se l'associazione non riesce, MVC non genera un errore. Tutte le azioni che accettano input utente devono controllare la proprietà `ModelState.IsValid`.
 

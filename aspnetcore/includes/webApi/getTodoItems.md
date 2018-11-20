@@ -15,7 +15,7 @@ Il codice precedente:
 * Definisce una classe controller API senza metodi.
 * Crea un nuovo TodoItem quando `TodoItems` è vuoto. Non sarà possibile eliminare tutti i TodoItem perché il costruttore ne crea uno nuovo se `TodoItems` è vuoto.
 
-Nelle sezioni successive vengono aggiunti i metodi per implementare l'API. La classe è annotata con un attributo `[ApiController]` per abilitare alcune funzionalità utili. Per informazioni sulle funzionalità abilitate dall'attributo, vedere [Annotazione con l'attributo ApiController](xref:web-api/index#annotation-with-apicontrollerattribute).
+Nelle sezioni successive vengono aggiunti i metodi per implementare l'API. La classe è annotata con un attributo `[ApiController]` per abilitare alcune funzionalità utili. Per informazioni sulle funzionalità abilitate dall'attributo, vedere [Annotazione con l'attributo ApiController](xref:web-api/index#annotation-with-apicontroller-attribute).
 
 ::: moniker-end
 
