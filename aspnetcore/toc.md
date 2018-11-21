@@ -34,7 +34,7 @@
 ## [Avvio dell'app](xref:fundamentals/startup)
 ## [Inserimento di dipendenze (servizi)](xref:fundamentals/dependency-injection)
 ## [Routing](xref:fundamentals/routing)
-## [Più ambienti](xref:fundamentals/environments)
+## [Ambienti (sviluppo, gestione temporanea, produzione)](xref:fundamentals/environments)
 ## [Configurazione](xref:fundamentals/configuration/index)
 ## [Opzioni](xref:fundamentals/configuration/options)
 ## [Registrazione](xref:fundamentals/logging/index)
@@ -432,6 +432,7 @@
 ## [Compressione delle risposte](xref:performance/response-compression)
 
 # Migrazione
+## [Da 2.1 a 2.2](xref:migration/21-to-22)
 ## [Da 2.0 a 2.1](xref:migration/20_21)
 ## Da 1.x a 2.0
 ### [Panoramica](xref:migration/1x-to-2x/index)
