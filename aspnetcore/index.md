@@ -4,14 +4,14 @@ author: rick-anderson
 description: Introduzione ad ASP.NET Core, un framework multipiattaforma, ad alte prestazioni, open source per la compilazione di applicazioni moderne basate sul cloud, connesse a Internet.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/10/2018
+ms.date: 11/16/2018
 uid: index
-ms.openlocfilehash: 1699acc0086dfd50c573afc239bc8f37eb9e7af9
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: ccf00316218c0787136193a7acaf55b8687c6ede
+ms.sourcegitcommit: 04b55a5ce9d649ff2df926157ec28ae47afe79e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569988"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52156945"
 ---
 # <a name="introduction-to-aspnet-core"></a>Introduzione a ASP.NET Core
 
@@ -77,7 +77,9 @@ Molti articoli ed esercitazioni includono collegamenti al codice di esempio.
 1. Decomprimere il file *Docs-master.zip*.
 1. Usare l'URL nel collegamento di esempio per passare alla directory di esempio.
 
-Per illustrare più scenari, le app di esempio usano le istruzioni `#define` e `#if-#else/#elif-#endif` C# per compilare in modo selettivo ed eseguire sezioni diverse del codice di esempio. Per gli esempi che usano questo approccio, impostare l'istruzione `#define` nella parte superiore dei file C# sul simbolo associato allo scenario che si vuole eseguire. Un esempio può richiedere l'impostazione del simbolo nella parte superiore di più file per eseguire uno scenario.
+### <a name="preprocessor-directives-in-sample-code"></a>Direttive per il preprocessore nel codice di esempio
+
+Per illustrare più scenari, le app di esempio usano le istruzioni C# `#define` e `#if-#else/#elif-#endif` per compilare in modo selettivo ed eseguire sezioni diverse del codice di esempio. Per gli esempi che usano questo approccio, impostare l'istruzione `#define` nella parte superiore dei file C# sul simbolo associato allo scenario che si vuole eseguire. Alcuni esempi richiedono l'impostazione del simbolo nella parte superiore di più file per eseguire uno scenario.
 
 Ad esempio, l'elenco di simboli `#define` seguente indica che sono disponibili quattro scenari, ovvero uno scenario per simbolo. La configurazione di esempio corrente esegue lo scenario `TemplateCode`:
 
@@ -92,6 +94,33 @@ Per modificare l'esempio in modo che venga eseguito lo scenario `ExpandDefault`,
 ```
 
 Per altre informazioni sull'uso delle [direttive del preprocessore C#](/dotnet/csharp/language-reference/preprocessor-directives/) per compilare in modo selettivo le sezioni di codice, vedere [#define (Riferimenti per C#)](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-define) e [#if (Riferimenti per C#)](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-if).
+
+### <a name="regions-in-sample-code"></a>Aree del codice di esempio
+
+Alcune app di esempio contengono sezioni di codice racchiuse tra le istruzioni C# [#region](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-region) e [#end-region](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-endregion). Il sistema di compilazione della documentazione inserisce queste aree negli argomenti della documentazione visualizzabile.  
+
+I nomi delle aree in genere contengono la parola "frammento". L'esempio seguente mostra un'area denominata `snippet_FilterInCode`:
+
+```csharp
+#region snippet_FilterInCode
+WebHost.CreateDefaultBuilder(args)
+    .UseStartup<Startup>()
+    .ConfigureLogging(logging =>
+        logging.AddFilter("System", LogLevel.Debug)
+            .AddFilter<DebugLoggerProvider>("Microsoft", LogLevel.Trace))
+            .Build();
+#endregion
+```
+
+Il file markdown dell'argomento fa riferimento al frammento di codice C# precedente con la riga seguente:
+
+```
+[!code-csharp[](sample/SampleApp/Program.cs?name=snippet_FilterInCode)]
+```
+
+È possibile ignorare o rimuovere le istruzioni `#region` e `#end-region` che racchiudono il codice. Non modificare il codice all'interno di queste istruzioni se si prevede di eseguire gli scenari di esempio descritti nell'argomento. È possibile modificare il codice durante la sperimentazione con altri scenari.
+
+Per altre informazioni, vedere [Contribuire alla documentazione ASP.NET: Frammenti di codice](https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md#code-snippets).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
