@@ -4,14 +4,14 @@ author: scottaddie
 description: Informazioni su come ottimizzare le risorse statiche in un'applicazione web ASP.NET Core applicando tecniche di creazione di bundle e minimizzazione.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 10/04/2018
+ms.date: 11/20/2018
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: 152f3c810b587d734c1b1076a09ea38d13872e2d
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: 5d5f0aadb7740c9b2b959d12a585cd8c91758ce8
+ms.sourcegitcommit: 4225e2c49a0081e6ac15acff673587201f54b4aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795405"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282141"
 ---
 # <a name="bundle-and-minify-static-assets-in-aspnet-core"></a>Aggregare e minimizzare asset statici in ASP.NET Core
 
@@ -27,7 +27,7 @@ Creazione di bundle e minimizzazione principalmente migliorare il tempo di caric
 
 ### <a name="bundling"></a>Creazione di bundle
 
-Creazione di bundle di combinare più file in un unico file. Creazione di bundle consente di ridurre il numero di richieste di server che sono necessari per eseguire il rendering di un asset web, ad esempio una pagina web. È possibile creare un numero qualsiasi di singoli pacchetti in modo specifico per CSS, JavaScript e così via. Minor numero di file significa meno le richieste HTTP dal browser al server o dal servizio che fornisce all'applicazione. Il risultato è migliorate le prestazioni di carico prima pagina.
+Creazione di bundle di combinare più file in un unico file. Creazione di bundle consente di ridurre il numero di richieste di server necessari eseguire il rendering di un asset web, ad esempio una pagina web. È possibile creare un numero qualsiasi di singoli pacchetti in modo specifico per CSS, JavaScript e così via. Minor numero di file significa meno le richieste HTTP dal browser al server o dal servizio che fornisce all'applicazione. Il risultato è migliorate le prestazioni di carico prima pagina.
 
 ### <a name="minification"></a>Minimizzazione
 
@@ -67,9 +67,21 @@ I modelli di progetto MVC e Razor Pages forniscono una soluzione di out-of-the-b
 
 ## <a name="configure-bundling-and-minification"></a>Configurare la creazione di bundle e minimizzazione
 
-I modelli di progetto MVC e Razor Pages forniscono un *bundleconfig.json* file di configurazione che definisce le opzioni per ogni aggregazione. Per impostazione predefinita, una configurazione singola aggregazione è definita per il codice JavaScript personalizzato (*wwwroot/js/site.js*) e fogli di stile (*wwwroot/css/site.css*) i file:
+::: moniker range="<= aspnetcore-2.0"
+
+In ASP.NET Core 2.0 o versioni precedenti, i modelli di progetto MVC e Razor Pages forniscono un *bundleconfig.json* file di configurazione che definisce le opzioni per ogni aggregazione:
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+
+In ASP.NET Core 2.1 o versione successiva, aggiungere un nuovo file JSON, denominato *bundleconfig.json*, alla radice del progetto MVC o le pagine Razor. Includere il codice JSON seguente nel file come punto di partenza:
+
+::: moniker-end
 
 [!code-json[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/bundleconfig.json)]
+
+Il *bundleconfig.json* file definisce le opzioni per ogni aggregazione. Nell'esempio precedente, una configurazione singola aggregazione è definita per il codice JavaScript personalizzato (*wwwroot/js/site.js*) e fogli di stile (*wwwroot/css/site.css*) file.
 
 Opzioni di configurazione includono:
 
@@ -216,27 +228,31 @@ Specificare i file da includere nelle pagine usando il [Helper Tag di ambiente](
 
 Quanto segue `environment` tag esegue il rendering i file non elaborati di CSS quando si esegue il `Development` ambiente:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=21-24)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="<= aspnetcore-1.1"
 
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=9-12)]
 
----
+::: moniker-end
 
 Quanto segue `environment` tag esegue il rendering di file CSS in bundle e minimizzati durante l'esecuzione in un ambiente diverso da `Development`. Ad esempio, in esecuzione in `Production` o `Staging` attiva il rendering di tali fogli di stile:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=5&range=25-30)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="<= aspnetcore-1.1"
 
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=13-18)]
 
----
+::: moniker-end
 
 ## <a name="consume-bundleconfigjson-from-gulp"></a>Utilizzare bundleconfig.json da Gulp
 
