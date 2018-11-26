@@ -283,7 +283,7 @@
 ## Host nel Servizio app di Azure
 ### [Panoramica](xref:host-and-deploy/azure-apps/index)
 ### [Pubblicare con Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs)
-### [Pubblicare con gli strumenti CLI](/azure/app-service/app-service-web-get-started-dotnet)
+### [Pubblicare con gli strumenti CLI](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
 ### [Pubblicare con Visual Studio e Git](xref:host-and-deploy/azure-apps/azure-continuous-deployment)
 ### [Distribuzione continua con Azure Pipelines](/azure/devops/pipelines/get-started-yaml)
 ### [Risolvere gli errori di avvio](xref:host-and-deploy/azure-apps/troubleshoot)
@@ -313,7 +313,6 @@
 ## [Profili di pubblicazione di Visual Studio](xref:host-and-deploy/visual-studio-publish-profiles)
 ## [Struttura di directory](xref:host-and-deploy/directory-structure)
 ## [Riferimento per gli errori del Servizio app di Azure e di IIS](xref:host-and-deploy/azure-iis-errors-reference)
-
 
 # Sicurezza e Identity
 ## [Panoramica](xref:security/index)
