@@ -4,20 +4,23 @@ author: guardrex
 description: Informazioni su come ospitare app ASP.NET Core in Windows Server Internet Information Services (IIS).
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/10/2018
+ms.date: 11/26/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 1b34195dc51ca8dab5e8eda10f05ff6678fbc78c
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: 77fa6e1ef6a7fc707c2665826d3c1f4c2691979c
+ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51570165"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450801"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host ASP.NET Core in Windows con IIS
 
 Di [Luke Latham](https://github.com/guardrex)
 
 [Installare il bundle di hosting .NET Core](#install-the-net-core-hosting-bundle)
+
+> [!NOTE]
+> È in corso un test di usabilità di una nuova proposta di struttura del sommario di ASP.NET Core.  Se si dispone di alcuni minuti per provare a cercare 7 argomenti diversi nel sommario corrente o proposto, [fare clic qui per partecipare al test](https://dpk4xbh5.optimalworkshop.com/treejack/rps16hd5).
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
 
@@ -416,31 +419,19 @@ Per configurare la protezione dati in IIS in modo da rendere permanente il grupp
 
   Il sistema di protezione dei dati ha un supporto limitato per l'impostazione di [criteri a livello di computer](xref:security/data-protection/configuration/machine-wide-policy) predefiniti per tutte le app che usano le API di protezione dei dati. Per ulteriori informazioni, vedere <xref:security/data-protection/introduction>.
 
-## <a name="sub-application-configuration"></a>Configurazione delle applicazioni secondarie
+## <a name="virtual-directories"></a>Directory virtuali
 
-Le sotto-app aggiunte sotto l'app radice non devono includere il modulo ASP.NET Core come gestore. Se il modulo viene aggiunto come gestore nel file *web.config* di un'app secondaria, quando si prova a esplorare l'app secondaria si riceve un messaggio 500.19 *(errore interno del server)* che segnala errori nel file di configurazione.
+Le [directory virtuali IIS](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#virtual-directories) non sono supportate con le app ASP.NET Core. Un'app può essere ospitata come [applicazione secondaria](#sub-applications).
 
-L'esempio seguente illustra un file *web.config* pubblicato per un'app secondaria di ASP.NET Core:
+## <a name="sub-applications"></a>Applicazioni secondarie
 
-::: moniker range=">= aspnetcore-2.2"
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<configuration>
-  <location path="." inheritInChildApplications="false">
-    <system.webServer>
-      <aspNetCore processPath="dotnet" 
-        arguments=".\MyApp.dll" 
-        stdoutLogEnabled="false" 
-        stdoutLogFile=".\logs\stdout" />
-    </system.webServer>
-  </location>
-</configuration>
-```
-
-::: moniker-end
+Un'app ASP.NET Core può essere ospitata come [applicazione secondaria di IIS (app secondaria)](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#applications). Il percorso dell'app secondaria diventa parte dell'URL dell'app radice.
 
 ::: moniker range="< aspnetcore-2.2"
+
+Un'app secondaria non deve includere il modulo ASP.NET Core come gestore. Se il modulo viene aggiunto come gestore nel file *web.config* di un'app secondaria, quando si prova a esplorare l'app secondaria si riceve un messaggio 500.19 *(errore interno del server)* che segnala errori nel file di configurazione.
+
+L'esempio seguente illustra un file *web.config* pubblicato per un'app secondaria di ASP.NET Core:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -454,7 +445,7 @@ L'esempio seguente illustra un file *web.config* pubblicato per un'app secondari
 </configuration>
 ```
 
-Se si ospita una sotto-app non ASP.NET Core in un'app ASP.NET Core, è necessario rimuovere in modo esplicito il gestore ereditato nel file *web.config* della sotto-app:
+Quando si ospita un'app secondaria non ASP.NET Core in un'app ASP.NET Core, è necessario rimuovere in modo esplicito il gestore ereditato nel file *web.config* dell'app secondaria:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -473,7 +464,23 @@ Se si ospita una sotto-app non ASP.NET Core in un'app ASP.NET Core, è necessari
 
 ::: moniker-end
 
-Per altre informazioni sulla configurazione del modulo di ASP.NET Core, vedere l'argomento [Introduzione al modulo di ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) e la [Guida di riferimento per la configurazione del modulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module).
+I collegamenti ad asset statici all'interno dell'app secondaria devono usare la notazione con tilde-barra (`~/`). La notazione con tilde-barra attiva un [helper tag](xref:mvc/views/tag-helpers/intro) per anteporre la base del percorso dell'app secondaria al collegamento relativo sottoposto a rendering. Per un'app secondaria in `/subapp_path`, il rendering di un'immagine collegata con `src="~/image.png"` viene eseguito come `src="/subapp_path/image.png"`. Il middleware dei file statici dell'app radice non elabora la richiesta di file statici. La richiesta viene elaborata dal middleware dei file statici dell'app secondaria.
+
+Se l'attributo `src` di un asset statico viene impostato su un percorso assoluto (ad esempio, `src="/image.png"`), il rendering del collegamento viene eseguito senza la base del percorso dell'app secondaria. Il middleware dei file statici dell'app radice prova a servire l'asset da [webroot](xref:fundamentals/index#web-root-webroot) dell'app radice con conseguente risposta *404 - Non trovato*, a meno che l'asset statico non sia disponibile dal'app radice.
+
+Per ospitare un'app ASP.NET Core come app secondaria in un'altra app ASP.NET Core:
+
+1. Definire un pool di app per l'app secondaria. Impostare la **versione di CLR.NET** su **No Managed Code** (Nessun codice gestito).
+
+1. Aggiungere il sito radice in Gestione IIS con l'applicazione secondaria in una cartella all'interno del sito principale.
+
+1. Fare clic con il pulsante destro del mouse sulla cartella dell'applicazione secondaria in Gestione IIS e scegliere **Converti in applicazione**.
+
+1. Nella finestra di dialogo **Aggiungi applicazione** usare il pulsante **Seleziona** per **Pool di applicazioni** per assegnare il pool di app creato per l'app secondaria. Scegliere **OK**.
+
+L'assegnazione di un pool di app separato all'app secondaria è un requisito quando si usa il modello di hosting in-process.
+
+Per altre informazioni sul modello di hosting in-process e sulla configurazione del modulo ASP.NET Core, vedere <xref:fundamentals/servers/aspnet-core-module> e <xref:host-and-deploy/aspnet-core-module>.
 
 ## <a name="configuration-of-iis-with-webconfig"></a>Configurazione di IIS con web.config
 
@@ -610,6 +617,7 @@ Riconoscere errori comuni dell'hosting di app ASP.NET Core in IIS.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
+* <xref:test/troubleshoot>
 * [Introduzione a ASP.NET Core](xref:index)
 * [Il sito IIS ufficiale di Microsoft](https://www.iis.net/)
 * [Libreria di contenuti tecnici di Windows Server](/windows-server/windows-server)
