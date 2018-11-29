@@ -5,12 +5,12 @@ description: Informazioni sulla sintassi di markup Razor per l'incorporamento di
 ms.author: riande
 ms.date: 10/26/2018
 uid: mvc/views/razor
-ms.openlocfilehash: 10f0db168b36fed82def8227b3c3edcf5b57f6d7
-ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
+ms.openlocfilehash: ab9fb3f55399764c5fe985811d92c504ed210767
+ms.sourcegitcommit: ad28d1bc6657a743d5c2fa8902f82740689733bb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50148889"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52256580"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Guida di riferimento della sintassi Razor per ASP.NET Core
 
@@ -525,6 +525,105 @@ Il codice seguente è la classe C# Razor generata:
 ### <a name="section"></a>@section
 
 La direttiva `@section` viene usata in combinazione con il [layout](xref:mvc/views/layout) per abilitare le visualizzazioni per il rendering del contenuto in diverse parti della pagina HTML. Per altre informazioni, vedere [Sezioni](xref:mvc/views/layout#layout-sections-label).
+
+## <a name="templated-razor-delegates"></a>Delegati Razor basati su modelli
+
+I modelli Razor consentono di definire un frammento di codice dell'interfaccia utente con il formato seguente:
+
+```cshtml
+@<tag>...</tag>
+```
+
+L'esempio seguente illustra come specificare un delegato Razor basato su modelli come <xref:System.Func`2>. Per il parametro del metodo incapsulato dal delegato viene specificato il [tipo dinamico](/dotnet/csharp/programming-guide/types/using-type-dynamic). Come valore restituito del delegato viene specificato un [tipo di oggetto](/dotnet/csharp/language-reference/keywords/object). Il modello viene usato con un oggetto <xref:System.Collections.Generic.List`1> di `Pet` dotato della proprietà `Name`.
+
+```csharp
+public class Pet
+{
+    public string Name { get; set; }
+}
+```
+
+```cshtml
+@{
+    Func<dynamic, object> petTemplate = @<p>You have a pet named @item.Name.</p>;
+
+    var pets = new List<Pet>
+    {
+        new Pet { Name = "Rin Tin Tin" },
+        new Pet { Name = "Mr. Bigglesworth" },
+        new Pet { Name = "K-9" }
+    };
+}
+```
+
+Il rendering del modello viene eseguito con `pets` in un'istruzione `foreach`:
+
+```cshtml
+@foreach (var pet in pets)
+{
+    @petTemplate2(pet)
+}
+```
+
+Output sottoposto a rendering:
+
+```html
+<p>You have a pet named <strong>Rin Tin Tin</strong>.</p>
+<p>You have a pet named <strong>Mr. Bigglesworth</strong>.</p>
+<p>You have a pet named <strong>K-9</strong>.</p>
+```
+
+È anche possibile specificare un modello Razor inline come argomento di un metodo. Nell'esempio seguente, il metodo `Repeat` riceve un modello Razor. Il metodo usa il modello per generare contenuto HTML tramite ripetizioni di elementi (item) ricavati da un elenco:
+
+```cshtml
+@using Microsoft.AspNetCore.Html
+
+@functions {
+    public static IHtmlContent Repeat(IEnumerable<dynamic> items, int times, 
+        Func<dynamic, IHtmlContent> template)
+    {
+        var html = new HtmlContentBuilder();
+
+        foreach (var item in items)
+        {
+            for (var i = 0; i < times; i++)
+            {
+                html.AppendHtml(template(item));
+            }
+        }
+
+        return html;
+    }
+}
+```
+
+Usando l'elenco di animali domestici (pets) dell'esempio precedente, il metodo `Repeat` viene chiamato con:
+
+* <xref:System.Collections.Generic.List`1> di `Pet`.
+* Numero di ripetizioni di ogni animale domestico.
+* Modello inline da usare per gli elementi elenco di un elenco non ordinato.
+
+```cshtml
+<ul>
+    @Repeat(pets, 3, @<li>@item.Name</li>)
+</ul>
+```
+
+Output sottoposto a rendering:
+
+```html
+<ul>
+    <li>Rin Tin Tin</li>
+    <li>Rin Tin Tin</li>
+    <li>Rin Tin Tin</li>
+    <li>Mr. Bigglesworth</li>
+    <li>Mr. Bigglesworth</li>
+    <li>Mr. Bigglesworth</li>
+    <li>K-9</li>
+    <li>K-9</li>
+    <li>K-9</li>
+</ul>
+```
 
 ## <a name="tag-helpers"></a>Helper tag
 
