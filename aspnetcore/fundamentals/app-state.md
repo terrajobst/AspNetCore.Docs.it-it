@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2018
 uid: fundamentals/app-state
-ms.openlocfilehash: 5ca909681ca9da3fae0391991902da97581852be
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: ccaaa6fafd611c3cf35a9171d5bfd6100535eeb9
+ms.sourcegitcommit: 0fc89b80bb1952852ecbcf3c5c156459b02a6ceb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253182"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52618129"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>Stato di sessioni e app in ASP.NET Core
 
@@ -374,7 +374,7 @@ La memorizzazione nella cache è un modo efficiente per archiviare e recuperare 
 
 I dati memorizzati nella cache non sono associati a una richiesta, un utente o una sessione specifici. **Prestare attenzione a non memorizzare nella cache i dati specifici dell'utente che possono essere recuperati dalle richieste di altri utenti.**
 
-Per altre informazioni, vedere l'argomento relativo alla [memorizzazione delle risposte nella cache](xref:performance/caching/index).
+Per ulteriori informazioni, vedere <xref:performance/caching/response>.
 
 ## <a name="dependency-injection"></a>Inserimento di dipendenze
 

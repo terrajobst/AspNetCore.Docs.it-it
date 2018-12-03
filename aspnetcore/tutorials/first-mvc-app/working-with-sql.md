@@ -5,12 +5,12 @@ description: Informazioni sull'uso di SQL Server Local DB in una semplice app AS
 ms.author: riande
 ms.date: 03/07/2017
 uid: tutorials/first-mvc-app/working-with-sql
-ms.openlocfilehash: fadd7be793b1ff6e863b549271acd5b6b2cc9305
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 49615c25d51cfa671157c2e56b8e0753719c678a
+ms.sourcegitcommit: c4572be5ebb301013a5698caf9b5572b76cb2e34
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011849"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52710101"
 ---
 # <a name="work-with-sql-server-localdb-in-aspnet-core"></a>Utilizzare SQL Server Local DB in ASP.NET Core
 
@@ -86,19 +86,9 @@ Sostituire il contenuto di *Program.cs* con il codice seguente:
 
 ::: moniker range="<= aspnetcore-2.0"
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
-
 Aggiungere l'inizializzatore del valore di inizializzazione al metodo `Main` nel file *Program.cs*:
 
 [!code-csharp[](start-mvc/sample/MvcMovie/Program.cs?highlight=6,14-32)]
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
-
-Aggiungere l'inizializzatore del valore di inizializzazione alla fine del metodo `Configure` nel file *Startup.cs*.
-
-[!code-csharp[](start-mvc/sample/MvcMovie/Startup.cs?highlight=9&name=snippet_seed)]
-
----
 
 ::: moniker-end
 
