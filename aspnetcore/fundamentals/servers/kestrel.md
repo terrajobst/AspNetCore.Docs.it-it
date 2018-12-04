@@ -4,14 +4,14 @@ author: guardrex
 description: Informazioni su Kestrel, il server Web multipiattaforma per ASP.NET Core.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 11/12/2018
+ms.date: 11/26/2018
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 793aa6e190da0170a395292ea661f7c828f817c1
-ms.sourcegitcommit: 1d6ab43eed9cb3df6211c22b97bb3a9351ec4419
+ms.openlocfilehash: 1ef9491ebbc31fd8aa3752b53123eb6c9cf31b42
+ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51597810"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450838"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementazione del server Web Kestrel in ASP.NET Core
 
@@ -468,7 +468,7 @@ Specificare gli URL usando gli elementi seguenti:
 
 Per altre informazioni, vedere [URL del server](xref:fundamentals/host/web-host#server-urls) e [Override della configurazione](xref:fundamentals/host/web-host#override-configuration).
 
-Il valore specificato usando i metodi seguenti può essere uno o più endpoint HTTP e HTTPS (HTTPS se è disponibile un certificato predefinito). Configurare il valore come un elenco delimitato da punto e virgola (ad esempio, `"Urls": "http://localhost:8000;http://localhost:8001"`).
+Il valore specificato usando i metodi seguenti può essere uno o più endpoint HTTP e HTTPS (HTTPS se è disponibile un certificato predefinito). Configurare il valore come un elenco delimitato da punto e virgola (ad esempio, `"Urls": "http://localhost:8000; http://localhost:8001"`).
 
 *Sostituire il certificato predefinito della configurazione*
 
@@ -1027,7 +1027,8 @@ Per impostazione predefinita, il middleware di filtro host è disabilitato per i
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Imporre HTTPS](xref:security/enforcing-ssl)
+* <xref:test/troubleshoot>
+* <xref:security/enforcing-ssl>
+* <xref:host-and-deploy/proxy-load-balancer>
 * [Codice sorgente di Kestrel](https://github.com/aspnet/KestrelHttpServer)
 * [RFC 7230: Message Syntax and Routing (Section 5.4: Host)](https://tools.ietf.org/html/rfc7230#section-5.4) (RFC 7230: Sintassi e routing dei messaggi (sezione 5.4: Host))
-* [Configurare ASP.NET Core per l'utilizzo di server proxy e servizi di bilanciamento del carico](xref:host-and-deploy/proxy-load-balancer)
