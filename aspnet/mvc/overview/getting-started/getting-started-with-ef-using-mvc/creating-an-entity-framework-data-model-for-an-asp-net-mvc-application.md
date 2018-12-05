@@ -3,16 +3,16 @@ uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-
 title: Introduzione a Entity Framework 6 Code First con MVC 5 | Microsoft Docs
 author: tdykstra
 ms.author: riande
-ms.date: 10/04/2018
+ms.date: 12/04/2018
 ms.assetid: 00bc8b51-32ed-4fd3-9745-be4c2a9c1eaf
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 5dd9a5a24d8c67c5190c98e3240d132eaa27661c
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: c7ab9458f83e05af84f72d9a2519a8c1c39b84b5
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912410"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861433"
 ---
 # <a name="get-started-with-entity-framework-6-code-first-using-mvc-5"></a>Introduzione a Entity Framework 6 Code First con MVC 5
 
@@ -21,7 +21,7 @@ da [Tom Dykstra](https://github.com/tdykstra)
 [Download progetto completato](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
 > [!NOTE]
-> Oggetto [versione più recente di questa serie di esercitazioni](/aspnet/core/tutorials/razor-pages/razor-pages-start?view=aspnetcore-2.1) è disponibile che usa [Razor Pages](/aspnet/core/razor-pages). Razor Pages è un modello di programmazione basato su pagine che rende la creazione di un'interfaccia utente Web più semplice ed efficace. È consigliabile l'esercitazione sulle pagine Razor rispetto alla versione MVC. L'esercitazione sulle pagine Razor:
+> Per i nuovi sviluppi, è consigliabile [pagine Razor di ASP.NET Core](/aspnet/core/razor-pages) su ASP.NET MVC controller e visualizzazioni. Una serie di esercitazioni simile alla seguente è disponibile per le pagine Razor, il [esercitazione sulle pagine Razor](/aspnet/core/tutorials/razor-pages/razor-pages-start):
 >
 > * È più semplice da seguire.
 > * Offre un maggior numero di procedure consigliate per EF Core.
@@ -303,7 +303,7 @@ Quando si esegue la pagina di studenti e l'applicazione ha tentato di accedere a
     ![Tabella Student](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/table-data.png)
 4. Chiudi il **Esplora Server** connessione.
 
-Il *ContosoUniversity1.mdf* e *. ldf* sono file di database di *% USERPROFILE %* cartella.
+Il *ContosoUniversity1.mdf* e *ldf* file di database si trovano nel *% USERPROFILE %* cartella.
 
 Perché si sta usando il `DropCreateDatabaseIfModelChanges` inizializzatore, ora è possibile apportare una modifica al `Student` classe, eseguire nuovamente l'applicazione e il database sarà automaticamente ricreato e rispecchierà la modifica. Ad esempio, se si aggiunge un `EmailAddress` proprietà per il `Student` classe, eseguire nuovamente la pagina di studenti e quindi di cercare la tabella nuovamente, verrà visualizzato un nuovo `EmailAddress` colonna.
 

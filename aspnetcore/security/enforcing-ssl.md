@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni su come richiedere HTTPS/TLS in un'app web ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/18/2018
+ms.date: 12/01/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: d287d30203fbf367203afe65e05478806fafab34
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: b15c6b5ac77f047c40704c9e164165c55b6ae93b
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51570048"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861524"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Imporre HTTPS in ASP.NET Core
 
@@ -76,12 +76,12 @@ Specificare la porta HTTPS usando uno degli approcci seguenti:
   Quando si configura un <xref:Microsoft.AspNetCore.Hosting.IWebHostBuilder> in `Program`:
 
   [!code-csharp[](enforcing-ssl/sample-snapshot/Program.cs?name=snippet_Program&highlight=10)]
-* Indicare una porta con lo schema sicuro usando la `ASPNETCORE_URLS` variabile di ambiente. La variabile di ambiente consente di configurare il server. Il middleware indirettamente individua la porta HTTPS tramite <xref:Microsoft.AspNetCore.Hosting.Server.Features.IServerAddressesFeature>. (Viene **non** funzionano nelle distribuzioni di proxy inverso.)
+* Indicare una porta con lo schema sicuro usando la `ASPNETCORE_URLS` variabile di ambiente. La variabile di ambiente consente di configurare il server. Il middleware indirettamente individua la porta HTTPS tramite <xref:Microsoft.AspNetCore.Hosting.Server.Features.IServerAddressesFeature>. Questo approccio non funziona nelle distribuzioni di proxy inverso.
 * In fase di sviluppo, impostare un URL HTTPS *launchsettings. JSON*. Abilitare HTTPS quando si usa IIS Express.
-* Configurare un endpoint di URL HTTPS per una distribuzione edge rivolte al pubblico di [Kestrel](xref:fundamentals/servers/kestrel) oppure [HTTP. sys](xref:fundamentals/servers/httpsys). Solo **una sola porta HTTPS** viene usata dall'app. Il middleware consente di individuare la porta tramite <xref:Microsoft.AspNetCore.Hosting.Server.Features.IServerAddressesFeature>.
+* Configurare un endpoint di URL HTTPS per una distribuzione edge rivolte al pubblico di [Kestrel](xref:fundamentals/servers/kestrel) server oppure [HTTP. sys](xref:fundamentals/servers/httpsys) server. Solo **una sola porta HTTPS** viene usata dall'app. Il middleware consente di individuare la porta tramite <xref:Microsoft.AspNetCore.Hosting.Server.Features.IServerAddressesFeature>.
 
 > [!NOTE]
-> Quando un'app viene eseguita dietro un proxy inverso (ad esempio, IIS, IIS Express), `IServerAddressesFeature` non è disponibile. La porta deve essere configurata manualmente. Quando la porta non è impostata, le richieste non vengono reindirizzate.
+> Quando un'app viene eseguita in una configurazione proxy inverso, <xref:Microsoft.AspNetCore.Hosting.Server.Features.IServerAddressesFeature> non è disponibile. Impostare la porta usando uno degli altri approcci descritti in questa sezione.
 
 Se Kestrel o HTTP. sys è utilizzato come un server perimetrale rivolte al pubblico, Kestrel o HTTP. sys deve essere configurato per l'ascolto su entrambi:
 
