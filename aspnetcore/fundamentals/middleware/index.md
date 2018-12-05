@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni sul middelware di ASP.NET Core e la pipeline delle richieste.
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/21/2018
+ms.date: 10/10/2018
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 6daf201654d68de978141f3dd42d48732c1161f7
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: 4e5da1036b77e876899ccdea48bdec69454e1657
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51570035"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861485"
 ---
 # <a name="aspnet-core-middleware"></a>Middleware di ASP.NET Core
 
@@ -237,6 +237,7 @@ ASP.NET Core include i componenti middleware seguenti. Nella colonna *Ordinament
 | [CORS](xref:security/cors) | Configura la condivisione di risorse tra le origini (CORS). | Prima dei componenti che usano CORS. |
 | [Diagnostica](xref:fundamentals/error-handling) | Configura la diagnostica. | Prima dei componenti che generano errori. |
 | [Intestazioni inoltrate](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions) | Inoltra le intestazioni proxy nella richiesta corrente. | Prima dei componenti che usano i campi aggiornati. Esempi: schema, host, IP client, metodo. |
+| [Controllo integrità](xref:host-and-deploy/health-checks) | Controlla l'integrità di un'app ASP.NET Core e le relative dipendenze, come il controllo della disponibilità del database. | Terminale se una richiesta corrisponde a un endpoint di controllo di integrità. |
 | [Override del metodo HTTP](/dotnet/api/microsoft.aspnetcore.builder.httpmethodoverrideextensions) | Consente a una richiesta POST in arrivo di eseguire l'override del metodo. | Prima dei componenti che usano il metodo aggiornato. |
 | [Reindirizzamento HTTPS](xref:security/enforcing-ssl#require-https) | Reindirizzare tutte le richieste HTTP a HTTPS (ASP.NET Core 2.1 o versioni successive). | Prima dei componenti che usano l'URL. |
 | [Protocollo HTTP Strict Transport Security (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts) | Middleware di ottimizzazione della sicurezza che aggiunge un'intestazione della risposta speciale (ASP.NET Core 2.1 o versioni successive). | Prima dell'invio delle risposte e dopo i componenti che modificano le richieste. Esempi: intestazioni inoltrate, riscrittura dell'URL. |

@@ -4,14 +4,14 @@ author: rick-anderson
 description: Scoprire i concetti fondamentali per la compilazione di app ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/25/2018
+ms.date: 12/01/2018
 uid: fundamentals/index
-ms.openlocfilehash: ab140051648c1640b3c4f382bfd8201c5c0c2039
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 8bd447632f915cadcc5199ec50b292ad27f6c3ba
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207472"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861589"
 ---
 # <a name="aspnet-core-fundamentals"></a>Nozioni fondamentali su ASP.NET Core
 
@@ -26,7 +26,7 @@ Host .NET Core:
 * Carica il [runtime di .NET Core](https://github.com/dotnet/coreclr).
 * Usa il primo argomento della riga di comando come percorso del file binario gestito che contiene il punto di ingresso (`Main`) e inizia l'esecuzione del codice.
 
-Il metodo `Main` richiama [WebHost.CreateDefaultBuilder](xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*), che segue il [modello di generatore](https://wikipedia.org/wiki/Builder_pattern) per creare un host Web. Il generatore dispone di metodi che definiscono il server Web (ad esempio, <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions.UseKestrel*>) e la classe di avvio (<xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*>). Nell'esempio precedente il server Web [Kestrel](xref:fundamentals/servers/kestrel) viene allocato automaticamente. L'host Web di ASP.NET Core tenta l'esecuzione in IIS, se disponibile. Altri server Web, come [HTTP.sys](xref:fundamentals/servers/httpsys), possono essere usati richiamando il metodo di estensione appropriato. `UseStartup` viene spiegato dettagliatamente nella sezione successiva.
+Il metodo `Main` richiama [WebHost.CreateDefaultBuilder](xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*), che segue il [modello di generatore](https://wikipedia.org/wiki/Builder_pattern) per creare un host Web. Il generatore dispone di metodi che definiscono un server Web (ad esempio, <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions.UseKestrel*>) e la classe di avvio (<xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*>). Nell'esempio precedente il server Web [Kestrel](xref:fundamentals/servers/kestrel) viene allocato automaticamente. L'host Web di ASP.NET Core tenta l'esecuzione su [Internet Information Services (IIS)](https://www.iis.net/), se disponibile. Altri server Web, come [HTTP.sys](xref:fundamentals/servers/httpsys), possono essere usati richiamando il metodo di estensione appropriato. `UseStartup` viene spiegato dettagliatamente nella sezione [Avvio](#startup).
 
 <xref:Microsoft.AspNetCore.Hosting.IWebHostBuilder>, il tipo restituito della chiamata `WebHost.CreateDefaultBuilder`, offre molti metodi facoltativi. Alcuni di questi metodi includono `UseHttpSys` per ospitare l'app in HTTP.sys e <xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.UseContentRoot*> per specificare la directory del contenuto radice. I metodi <xref:Microsoft.AspNetCore.Hosting.IWebHostBuilder.Build*> e <xref:Microsoft.AspNetCore.Hosting.WebHostExtensions.Run*> compilano l'oggetto <xref:Microsoft.AspNetCore.Hosting.IWebHost> che ospita l'app e inizia l'ascolto delle richieste HTTP.
 
@@ -131,7 +131,50 @@ Per ulteriori informazioni, vedere <xref:fundamentals/host/index>.
 
 ## <a name="servers"></a>Server
 
-Il modello di hosting di ASP.NET Core non è direttamente in ascolto delle richieste. Il modello di hosting si basa su un'implementazione del server HTTP per inoltrare la richiesta all'app. La richiesta inoltrata viene inclusa come un set di oggetti di funzionalità cui è possibile accedere tramite le interfacce. ASP.NET Core include un server Web gestito, multipiattaforma, denominato [Kestrel](xref:fundamentals/servers/kestrel). Kestrel viene eseguito di solito con un server Web di produzione, ad esempio [IIS](https://www.iis.net/) oppure [Nginx](http://nginx.org) in una configurazione con proxy inverso. Kestrel può essere eseguito anche come server perimetrale pubblico esposto direttamente a Internet in ASP.NET Core 2.0 o versione successiva.
+Il modello di hosting di ASP.NET Core non è direttamente in ascolto delle richieste. Il modello di hosting si basa su un'implementazione del server HTTP per inoltrare la richiesta all'app.
+
+::: moniker range=">= aspnetcore-2.2"
+
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+ASP.NET Core include le implementazioni server seguenti:
+
+* Il server [Kestrel](xref:fundamentals/servers/kestrel) è un server Web multipiattaforma gestito. Kestrel viene spesso eseguito in una configurazione con proxy inverso tramite [IIS](https://www.iis.net/). Kestrel può essere eseguito anche come server perimetrale pubblico esposto direttamente a Internet in ASP.NET Core 2.0 o versione successiva.
+* Il server HTTP IIS (`IISHttpServer`) è un [server IIS in-process](xref:fundamentals/servers/aspnet-core-module#in-process-hosting-model).
+* Il server [HTTP.sys](xref:fundamentals/servers/httpsys) è un server Web per ASP.NET Core in Windows.
+
+# <a name="macostabmacos"></a>[macOS](#tab/macos)
+
+ASP.NET Core usa l'implementazione del server [Kestrel](xref:fundamentals/servers/kestrel). Kestrel è un server Web multipiattaforma gestito. Kestrel può essere eseguito anche come server perimetrale pubblico esposto direttamente a Internet in ASP.NET Core 2.0 o versione successiva.
+
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+ASP.NET Core usa l'implementazione del server [Kestrel](xref:fundamentals/servers/kestrel). Kestrel è un server Web multipiattaforma gestito. Kestrel viene spesso eseguito in una configurazione con proxy inverso con [Nginx](http://nginx.org) o [Apache](https://httpd.apache.org/). Kestrel può essere eseguito anche come server perimetrale pubblico esposto direttamente a Internet in ASP.NET Core 2.0 o versione successiva.
+
+---
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+ASP.NET Core include le implementazioni server seguenti:
+
+* Il server [Kestrel](xref:fundamentals/servers/kestrel) è un server Web multipiattaforma gestito. Kestrel viene spesso eseguito in una configurazione con proxy inverso tramite [IIS](https://www.iis.net/). Kestrel può essere eseguito anche come server perimetrale pubblico esposto direttamente a Internet in ASP.NET Core 2.0 o versione successiva.
+* Il server [HTTP.sys](xref:fundamentals/servers/httpsys) è un server Web per ASP.NET Core in Windows.
+
+# <a name="macostabmacos"></a>[macOS](#tab/macos)
+
+ASP.NET Core usa l'implementazione del server [Kestrel](xref:fundamentals/servers/kestrel). Kestrel è un server Web multipiattaforma gestito. Kestrel può essere eseguito anche come server perimetrale pubblico esposto direttamente a Internet in ASP.NET Core 2.0 o versione successiva.
+
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+ASP.NET Core usa l'implementazione del server [Kestrel](xref:fundamentals/servers/kestrel). Kestrel è un server Web multipiattaforma gestito. Kestrel viene spesso eseguito in una configurazione con proxy inverso con [Nginx](http://nginx.org) o [Apache](https://httpd.apache.org/). Kestrel può essere eseguito anche come server perimetrale pubblico esposto direttamente a Internet in ASP.NET Core 2.0 o versione successiva.
+
+---
+
+::: moniker-end
 
 Per ulteriori informazioni, vedere <xref:fundamentals/servers/index>.
 
