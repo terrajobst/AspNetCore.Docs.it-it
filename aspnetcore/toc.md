@@ -6,24 +6,31 @@
 # [Introduzione](xref:getting-started)
 
 # Esercitazioni
+## [Creare un'API Web](xref:tutorials/first-web-api)
 ## App Web
 ### Razor Pages
-#### [Con Visual Studio](xref:tutorials/razor-pages/index)
-#### [Con Visual Studio Code](xref:tutorials/razor-pages-vsc/index)
-#### [Con Visual Studio per Mac](xref:tutorials/razor-pages-mac/index)
+#### [Introduzione a Razor Pages in ASP.NET Core](xref:razor-pages/index)
+
+#### [Esercitazione su Razor Pages](xref:tutorials/razor-pages/index)
+##### [Introduzione](xref:tutorials/razor-pages/razor-pages-start)
+##### [Aggiungere un modello](xref:tutorials/razor-pages/model)
+##### [Scaffolding](xref:tutorials/razor-pages/page)
+##### [Usare un database](xref:tutorials/razor-pages/sql)
+##### [Aggiornare le pagine](xref:tutorials/razor-pages/da1)
+##### [Aggiungere la ricerca](xref:tutorials/razor-pages/search)
+##### [Aggiungere un nuovo campo](xref:tutorials/razor-pages/new-field)
+##### [Aggiungere la convalida](xref:tutorials/razor-pages/validation)
+
 ### MVC
 #### [Con Visual Studio](xref:tutorials/first-mvc-app/index)
 #### [Con Visual Studio Code](xref:tutorials/first-mvc-app-xplat/index)
 #### [Con Visual Studio per Mac](xref:tutorials/first-mvc-app-mac/index)
-## API Web
-### [Con Visual Studio](xref:tutorials/first-web-api)
-### [Con Visual Studio Code](xref:tutorials/web-api-vsc)
-### [Con Visual Studio per Mac](xref:tutorials/first-web-api-mac)
-### [Per app per dispositivi mobili native](xref:mobile/native-mobile-backend)
-### [Con MongoDB](xref:tutorials/first-mongo-app)
+
 ## App Web in tempo reale
 ### [SignalR con JavaScript](xref:tutorials/signalr)
 ### [SignalR con TypeScript](xref:tutorials/signalr-typescript-webpack)
+## [Creare servizi back-end per app native per dispositivi mobili](xref:mobile/native-mobile-backend)
+
 ## Accesso ai dati
 ### [EF Core con Razor Pages](xref:data/ef-rp/index)
 ### [EF Core con MVC, database esistente](/ef/core/get-started/aspnetcore/existing-db)
@@ -58,33 +65,16 @@
 # App Web
 ## Razor Pages
 ### [Panoramica](xref:razor-pages/index)
-### Esercitazioni
-#### Razor Pages con Visual Studio
-##### [Panoramica](xref:tutorials/razor-pages/index)
-##### [Introduzione](xref:tutorials/razor-pages/razor-pages-start)
-##### [Aggiungere un modello](xref:tutorials/razor-pages/model)
-##### [Scaffolding](xref:tutorials/razor-pages/page)
-##### [SQL Server](xref:tutorials/razor-pages/sql)
-##### [Aggiornare le pagine](xref:tutorials/razor-pages/da1)
-##### [Aggiungere la ricerca](xref:tutorials/razor-pages/search)
-##### [Aggiungere un nuovo campo](xref:tutorials/razor-pages/new-field)
-##### [Aggiungere la convalida](xref:tutorials/razor-pages/validation)
-#### Razor Pages con Visual Studio Code
-##### [Panoramica](xref:tutorials/razor-pages-vsc/index)
-##### [Introduzione a Razor Pages](xref:tutorials/razor-pages-vsc/razor-pages-start)
-##### [Aggiungere un modello](xref:tutorials/razor-pages-vsc/model)
-##### [Pagine Razor create tramite scaffolding](xref:tutorials/razor-pages-vsc/page)
-##### [Utilizzare SQLite](xref:tutorials/razor-pages-vsc/sql)
-##### [Aggiornare le pagine](xref:tutorials/razor-pages-vsc/da1)
-##### [Aggiungere la ricerca](xref:tutorials/razor-pages-vsc/search)
-#### Razor Pages con Visual Studio per Mac
-##### [Panoramica](xref:tutorials/razor-pages-mac/index)
-##### [Introduzione a Razor Pages](xref:tutorials/razor-pages-mac/razor-pages-start)
-##### [Aggiungere un modello](xref:tutorials/razor-pages-mac/model)
-##### [Pagine Razor create tramite scaffolding](xref:tutorials/razor-pages-mac/page)
-##### [Utilizzare SQLite](xref:tutorials/razor-pages-mac/sql)
-##### [Aggiornare le pagine](xref:tutorials/razor-pages-mac/da1)
-##### [Aggiungere la ricerca](xref:tutorials/razor-pages-mac/search)
+### [Esercitazione su Razor Pages](xref:tutorials/razor-pages/index)
+#### [Introduzione](xref:tutorials/razor-pages/razor-pages-start)
+#### [Aggiungere un modello](xref:tutorials/razor-pages/model)
+#### [Scaffolding](xref:tutorials/razor-pages/page)
+#### [Usare un database](xref:tutorials/razor-pages/sql)
+#### [Aggiornare le pagine](xref:tutorials/razor-pages/da1)
+#### [Aggiungere la ricerca](xref:tutorials/razor-pages/search)
+#### [Aggiungere un nuovo campo](xref:tutorials/razor-pages/new-field)
+#### [Aggiungere la convalida](xref:tutorials/razor-pages/validation)
+
 ### [Filtri](xref:razor-pages/filter)
 ### [Librerie di classi Razor](xref:razor-pages/ui-class)
 ### [Convenzioni di route e app](xref:razor-pages/razor-pages-conventions)
@@ -99,7 +89,7 @@
 ##### [Aggiungere un controller](xref:tutorials/first-mvc-app/adding-controller)
 ##### [Aggiungere una visualizzazione](xref:tutorials/first-mvc-app/adding-view)
 ##### [Aggiungere un modello](xref:tutorials/first-mvc-app/adding-model)
-##### [Usare SQL Server](xref:tutorials/first-mvc-app/working-with-sql)
+##### [Usare un database](xref:tutorials/first-mvc-app/working-with-sql)
 ##### [Azioni e viste del controller](xref:tutorials/first-mvc-app/controller-methods-views)
 ##### [Aggiungere la ricerca](xref:tutorials/first-mvc-app/search)
 ##### [Aggiungere un nuovo campo](xref:tutorials/first-mvc-app/new-field)
@@ -174,12 +164,9 @@
 
 # API Web
 ## [Panoramica](xref:web-api/index)
-## Esercitazioni
-### [API Web con Visual Studio](xref:tutorials/first-web-api)
-### [API Web con Visual Studio Code](xref:tutorials/web-api-vsc)
-### [API Web con Visual Studio per Mac](xref:tutorials/first-web-api-mac)
-### [API Web per app per dispositivi mobili native](xref:mobile/native-mobile-backend)
-### [API Web con MongoDB](xref:tutorials/first-mongo-app)
+
+## [Creare un'API Web](xref:tutorials/first-web-api)
+
 ## Swagger/OpenAPI
 ### [Panoramica](xref:tutorials/web-api-help-pages-using-swagger)
 ### [Introduzione a Swashbuckle](xref:tutorials/get-started-with-swashbuckle)
@@ -187,6 +174,7 @@
 ## [Tipi restituiti per le azioni](xref:web-api/action-return-types)
 ## [Formattare i dati di risposta](xref:web-api/advanced/formatting)
 ## [Formattatori personalizzati](xref:web-api/advanced/custom-formatters)
+
 ## [Analizzatori](xref:web-api/advanced/analyzers)
 ## [Convenzioni](xref:web-api/advanced/conventions)
 
@@ -209,7 +197,6 @@
 ### [Informazioni di riferimento sulle API Java](/java/api/com.microsoft.signalr?view=aspnet-signalr-java)
 ### [Client JavaScript](xref:signalr/javascript-client)
 ### [Informazioni di riferimento sulle API JavaScript](/javascript/api/?view=signalr-js-latest)
-### [WebPack e TypeScript](xref:tutorials/signalr-typescript-webpack)
 ## Hosting e ridimensionamento
 ### [Panoramica](xref:signalr/scale)
 ### [Servizio Azure SignalR](/azure/azure-signalr/signalr-overview)
@@ -319,6 +306,7 @@
 ## [Profili di pubblicazione di Visual Studio](xref:host-and-deploy/visual-studio-publish-profiles)
 ## [Struttura di directory](xref:host-and-deploy/directory-structure)
 ## [Riferimento per gli errori del Servizio app di Azure e di IIS](xref:host-and-deploy/azure-iis-errors-reference)
+## [Controlli di integrità](xref:host-and-deploy/health-checks)
 
 # Sicurezza e Identity
 ## [Panoramica](xref:security/index)
@@ -455,6 +443,7 @@
 ### [Moduli HTTP in middleware](xref:migration/http-modules)
 
 # Novità
+## [Novità in 2.2](xref:aspnetcore-2.2)
 ## [Novità in 2.1](xref:aspnetcore-2.1)
 ## [Novità in 2.0](xref:aspnetcore-2.0)
 ## [Novità in 1.1](xref:aspnetcore-1.1)
