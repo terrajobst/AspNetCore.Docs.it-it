@@ -8,12 +8,12 @@ ms.date: 05/28/2015
 ms.assetid: 7e85c70e-1a88-4408-8b3d-29611c7713ed
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/publishing
 msc.type: authoredcontent
-ms.openlocfilehash: fe196e5db8fd1cecbe84b2eb970939303f9313d1
-ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
+ms.openlocfilehash: bd6611a03ee4940f5d4176ce23464f313b9ec884
+ms.sourcegitcommit: eef99d14d96dc8c3c1bb0e2c4cb14da152f8a952
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51021456"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53022505"
 ---
 <a name="introducing-aspnet-web-pages---publishing-a-site-by-using-webmatrix"></a>Introduzione a pagine Web ASP.NET - pubblicazione di un sito tramite WebMatrix
 ====================
@@ -50,7 +50,7 @@ Questa esercitazione contiene quattro sezioni:
 <a id="defaultpage"></a>
 ## <a name="setting-up-the-default-page"></a>Configurare la pagina predefinita
 
-Quando un utente passa all'indirizzo di base per il sito web, la pagina predefinita per il sito viene visualizzata all'utente. Ad esempio, quando default. htm è impostato come pagina predefinita per il sito in www.contoso.com, quindi passando alla <strong>www.contoso.com</strong> equivale a passare a <strong>www.contoso.com/Default.htm</strong>.
+Quando un utente passa all'indirizzo di base per il sito web, la pagina predefinita per il sito viene visualizzata all'utente. Ad esempio, quando *default. htm* viene impostato come pagina predefinita per il sito all'indirizzo `www.contoso.com`, quindi passando alla `www.contoso.com` equivale a passare a `www.contoso.com/Default.htm`.
 
 Attualmente, i siti che utilizzano **cshtml** della pagina predefinita. Questa pagina è adeguata per la pagina predefinita, ma in questa esercitazione non è stato aggiunto alcun contenuto in tale pagina, in modo verrebbe visualizzata una pagina vuota. Aprire Default. cshtml e sostituire il contenuto con il codice seguente.
 
