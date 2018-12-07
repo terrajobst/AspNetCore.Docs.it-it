@@ -7,12 +7,12 @@ ms.author: pranavkm
 ms.custom: mvc
 ms.date: 11/13/2018
 uid: web-api/advanced/conventions
-ms.openlocfilehash: 023b8d09511aa42966e2a7d1c85e407bb6e79b0f
-ms.sourcegitcommit: f202864efca81a72ea7120c0692940c40d9d0630
+ms.openlocfilehash: ede9a46c160cf6a49aa93da710af0bf0b8f59acc
+ms.sourcegitcommit: c4572be5ebb301013a5698caf9b5572b76cb2e34
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635394"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52710075"
 ---
 # <a name="use-web-api-conventions"></a>Usare le convenzioni dell'API Web
 
@@ -26,7 +26,7 @@ In fase di runtime, <xref:Microsoft.AspNetCore.Mvc.ApiExplorer> riconosce le con
 
 ## <a name="apply-web-api-conventions"></a>Applicare le convenzioni dell'API Web
 
-Esistono tre modi per applicare una convenzione. Le convenzioni non sono componibili: ogni azione può essere associata a una sola convenzione. Le convenzioni più specifiche (illustrate di seguito) hanno la precedenza su quelle meno specifiche. Quando si applicano a un'azione due o più convenzioni con la stessa priorità, la selezione è non deterministica. Per applicare una convenzione a un'azione sono disponibili le opzioni seguenti, dalla più specifica alla meno specifica:
+Esistono tre modi per applicare una convenzione. Non sono supportate convenzioni composte. Ogni azione può essere associata a una sola convenzione. Le convenzioni più specifiche (illustrate di seguito) hanno la precedenza su quelle meno specifiche. Quando si applicano a un'azione due o più convenzioni con la stessa priorità, la selezione è non deterministica. Per applicare una convenzione a un'azione sono disponibili le opzioni seguenti, dalla più specifica alla meno specifica:
 
 1. `Microsoft.AspNetCore.Mvc.ApiConventionMethodAttribute` &mdash; È valida per azioni singole, specifica il tipo di convenzione e il metodo della convenzione applicato. Nell'esempio seguente, il metodo della convenzione `Microsoft.AspNetCore.Mvc.DefaultApiConventions.Put` viene applicato all'azione `Update`:
 

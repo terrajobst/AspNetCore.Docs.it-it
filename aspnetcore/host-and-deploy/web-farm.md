@@ -4,14 +4,14 @@ author: guardrex
 description: Informazioni su come ospitare più istanze di un'app ASP.NET Core con risorse condivise in un ambiente Web farm.
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/16/2018
+ms.date: 11/26/2018
 uid: host-and-deploy/web-farm
-ms.openlocfilehash: 2435c24bc205486331c828337ca81c43e6e60448
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 4873665e6174a6acf885e1ebb41fb005d646bd1f
+ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39096089"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450671"
 ---
 # <a name="host-aspnet-core-in-a-web-farm"></a>Ospitare ASP.NET Core in una Web farm
 
@@ -67,6 +67,8 @@ Gli scenari seguenti non richiedono configurazioni aggiuntive, ma dipendono da t
 
 ## <a name="troubleshoot"></a>Risolvere i problemi
 
+### <a name="data-protection-and-caching"></a>Protezione dei dati e memorizzazione nella cache
+
 Quando la protezione dei dati o la memorizzazione nella cache non è configurata per un ambiente Web farm, si verificano errori intermittenti durante l'elaborazione delle richieste. Ciò si verifica perché i nodi non condividono le stesse risorse e le richieste degli utenti non vengono sempre indirizzate allo stesso nodo.
 
 Si consideri, ad esempio, un utente che accede all'app usando l'autenticazione basata su cookie. L'utente acceda all'app in un nodo della Web farm. Se la richiesta successiva dell'utente arriva nello stesso nodo in cui ha eseguito l'accesso, l'app è in grado di decrittografare il cookie di autenticazione e consente l'accesso alla risorsa dell'app. Se la richiesta successiva arriva a un nodo diverso, l'app non può decrittografare il cookie di autenticazione dal nodo in cui l'utente ha eseguito l'accesso e l'autorizzazione per la risorsa richiesta ha esito negativo.
@@ -81,3 +83,7 @@ Quando si verifica uno dei sintomi seguenti **in modo intermittente**, il proble
 * Errori POST &ndash; Il controllo antifalsificazione non riesce.
 
 Per altre informazioni sulla configurazione della protezione dei dati per le distribuzioni di Web farm, vedere <xref:security/data-protection/configuration/overview>. Per altre informazioni sulla configurazione della memorizzazione nella cache per le distribuzioni di Web farm, vedere <xref:performance/caching/distributed>.
+
+## <a name="obtain-data-from-apps"></a>Ottenere dati dalle app
+
+Se le app della Web farm sono in grado di rispondere alle richieste, è possibile ottenere dati sulle richieste, le connessioni e altri dati dalle app tramite middleware inline di terminale. Per altre informazioni e codice di esempio, vedere <xref:test/troubleshoot#obtain-data-from-an-app>.

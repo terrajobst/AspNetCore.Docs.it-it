@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/12/2018
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: 32fbf2b19da2d088847279f447f9a72cedcf8085
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: 5a3fd9c3453c07ee550c7de0333c9a49d5d5d1af
+ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51570178"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450658"
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>Guida di riferimento per la configurazione del modulo ASP.NET Core
 
@@ -157,7 +157,7 @@ La proprietà <xref:System.Configuration.SectionInformation.InheritInChildApplic
 
 Quando un'app viene distribuita in [Servizio app di Azure](https://azure.microsoft.com/services/app-service/), il percorso `stdoutLogFile` è impostato su `\\?\%home%\LogFiles\stdout`. Il percorso salva i log stdout nella cartella *LogFiles*, ovvero una posizione creata automaticamente dal servizio.
 
-Vedere [Configurazione delle applicazioni secondarie](xref:host-and-deploy/iis/index#sub-application-configuration) per una nota importante relativa alla configurazione di *web.config* file nelle app secondarie.
+Per informazioni sulla configurazione delle applicazioni secondarie IIS, vedere <xref:host-and-deploy/iis/index#sub-applications>.
 
 ### <a name="attributes-of-the-aspnetcore-element"></a>Attributi dell'elemento aspNetCore
 

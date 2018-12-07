@@ -4,14 +4,14 @@ author: shirhatti
 description: Informazioni sul supporto del debug di app ASP.NET Core durante l'esecuzione dietro IIS in Windows Server.
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/14/2018
+ms.date: 11/26/2018
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: eb8b4369d6d5434adbac187f59b18d7a2b80055c
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 65dbe690a33d82a4edddf315803dc4c656db27a0
+ms.sourcegitcommit: e8d80ff566bfe505b43389d7bc4551edb1c0c872
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277654"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52549101"
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Supporto di IIS in fase di sviluppo in Visual Studio per ASP.NET Core
 
@@ -129,13 +129,19 @@ In alternativa, aggiungere manualmente un profilo di avvio al file [launchSettin
 
 ## <a name="run-the-project"></a>Eseguire il progetto
 
-Nell'interfaccia utente di Visual Studio impostare il pulsante Esegui sul profilo **IIS** e selezionare il pulsante per avviare l'app:
+In Visual Studio:
 
-![Pulsante Esegui sulla barra degli strumenti di Visual Studio impostato sul profilo "IIS".](development-time-iis-support/_static/toolbar.png)
+* Verificare che l'elenco di riepilogo a discesa della configurazione della build sia impostato su **Debug**.
+* Impostare il pulsante Esegui sul profilo **IIS** e selezionare il pulsante per avviare l'app.
+
+![Il pulsante Esegui sulla barra degli strumenti di Visual Studio viene impostato sul profilo IIS con l'elenco di riepilogo a discesa della configurazione della build impostato su Versione.](development-time-iis-support/_static/toolbar.png)
 
 Visual Studio potrebbe richiedere un riavvio, se non si è in modalità amministratore. In tal caso riavviare Visual Studio.
 
 Se viene usato un certificato di sviluppo non attendibile, il browser potrebbe richiedere di creare un'eccezione per il certificato non attendibile.
+
+> [!NOTE]
+> Il debug della configurazione della build Versione con [Just My Code](/visualstudio/debugger/just-my-code) e le ottimizzazioni del compilatore genera un'esperienza con funzionalità ridotta. Ad esempio, i punti di interruzione non vengono raggiunti.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
