@@ -167,7 +167,7 @@ Vorrei ringraziare i seguenti persone che hanno apportato contributi significati
 - [Microsoft, sayed Hashimi](http://sedodream.com/default.aspx)(twitter: [ @sayedihashimi ](http://twitter.com/sayedihashimi))
 - [Scott Hanselman](http://www.hanselman.com/blog/) (twitter: [ @shanselman ](http://twitter.com/shanselman))
 - [Microsoft, Scott Hunter](https://blogs.msdn.com/b/scothu/) (twitter: [ @coolcsh ](http://twitter.com/coolcsh))
-- [Srđan Božović, Serbia e Montenegro](http://msforge.net/blogs/zmajcek/)
+- [Srđan Božović, (ex) Serbia e Montenegro](http://msforge.net/blogs/zmajcek/)
 - [Vishal Joshi, Microsoft](http://vishaljoshi.blogspot.com/) (twitter: [ @vishalrjoshi ](http://twitter.com/vishalrjoshi))
 
 > [!div class="step-by-step"]
