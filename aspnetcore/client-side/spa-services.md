@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: H1Hack27Feb2017
 ms.date: 08/02/2017
 uid: client-side/spa-services
-ms.openlocfilehash: b0fc6be29e3ecedd9706238f439f229377bb5a63
-ms.sourcegitcommit: ad28d1bc6657a743d5c2fa8902f82740689733bb
+ms.openlocfilehash: ee772e67ef14608bcc6e3498ade00424ff6090e5
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52256550"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121376"
 ---
 # <a name="use-javascriptservices-to-create-single-page-applications-in-aspnet-core"></a>Usare JavaScriptServices per creare applicazioni a pagina singola in ASP.NET Core
 
@@ -157,7 +157,7 @@ Installare gli elementi seguenti:
 
 Webpack Dev Middleware è registrato nella pipeline delle richieste HTTP tramite il codice seguente nel *Startup.cs* del file `Configure` metodo:
 
-[!code-csharp[](../client-side/spa-services/sample/SpaServicesSampleApp/Startup.cs?name=webpack-middleware-registration&highlight=4)]
+[!code-csharp[](../client-side/spa-services/sample/SpaServicesSampleApp/Startup.cs?name=snippet_WebpackMiddlewareRegistration&highlight=4)]
 
 Il `UseWebpackDevMiddleware` metodo di estensione deve essere chiamato prima [la registrazione dei file statici che ospita](xref:fundamentals/static-files) tramite il `UseStaticFiles` metodo di estensione. Per motivi di sicurezza, registrare il middleware solo quando l'app viene eseguita in modalità di sviluppo.
 
@@ -223,7 +223,7 @@ Installare gli elementi seguenti:
 
 Un metodo di estensione denominato `MapSpaFallbackRoute` viene utilizzata la `Configure` metodo:
 
-[!code-csharp[](../client-side/spa-services/sample/SpaServicesSampleApp/Startup.cs?name=mvc-routing-table&highlight=7-9)]
+[!code-csharp[](../client-side/spa-services/sample/SpaServicesSampleApp/Startup.cs?name=snippet_MvcRoutingTable&highlight=7-9)]
 
 Suggerimento: Le route vengono valutate nell'ordine in cui vengono configurate. Di conseguenza, il `default` route nell'esempio di codice precedente prima viene utilizzata per criteri di ricerca.
 

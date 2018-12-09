@@ -3,14 +3,15 @@ title: Creare un'app ASP.NET Core con i dati utente protetti da autorizzazione
 author: rick-anderson
 description: Informazioni su come creare un'app Razor Pages con i dati utente protetti da autorizzazione. Include HTTPS, l'autenticazione, sicurezza, ASP.NET Core Identity.
 ms.author: riande
-ms.date: 7/24/2018
+ms.date: 12/07/2018
+ms.custom: seodec18
 uid: security/authorization/secure-data
-ms.openlocfilehash: 185628d4e06c9b5ae7f2685c10ea9e46dd5abe92
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: d49ee7779b425d625b81c8a65694121c616bfba6
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253221"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121635"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Creare un'app ASP.NET Core con i dati utente protetti da autorizzazione
 
@@ -38,21 +39,21 @@ Questa esercitazione illustra come creare un'app web ASP.NET Core con i dati ute
 
 Nell'immagine seguente, l'utente Rick (`rick@example.com`) ha effettuato l'accesso. Rick possono visualizzare solo i contatti approvati e **Edit**/**eliminare**/**Crea nuovo** collegamenti per il suo i contatti. Solo l'ultimo record, creato da Rick, consente di visualizzare **Edit** e **eliminare** collegamenti. Gli altri utenti non vedono l'ultimo record fino a quando un responsabile o l'amministratore assume lo stato "Approvato".
 
-![immagine descritto precedente](secure-data/_static/rick.png)
+![Screenshot che mostra Rick effettuato l'accesso](secure-data/_static/rick.png)
 
 Nell'immagine seguente, `manager@contoso.com` viene effettuato l'accesso e nel ruolo managers:
 
-![immagine descritto precedente](secure-data/_static/manager1.png)
+![Screenshot che mostra manager@contoso.com effettuato l'accesso](secure-data/_static/manager1.png)
 
 L'immagine seguente mostra i gestori visualizzazione dettagli di un contatto:
 
-![immagine descritto precedente](secure-data/_static/manager.png)
+![Visualizzazione di gestione di un contatto](secure-data/_static/manager.png)
 
 Il **Approve** e **rifiutare** pulsanti vengono visualizzati solo per i gestori e amministratori.
 
 Nell'immagine seguente, `admin@contoso.com` viene effettuato l'accesso e al ruolo administrators:
 
-![immagine descritto precedente](secure-data/_static/admin.png)
+![Screenshot che mostra admin@contoso.com effettuato l'accesso](secure-data/_static/admin.png)
 
 L'amministratore ha tutti i privilegi. Può leggere, modificare ed eliminare un contatto e modificare lo stato dei contatti.
 
@@ -281,25 +282,32 @@ Visualizzare [questo problema](https://github.com/aspnet/Docs/issues/8502) per i
 
 ## <a name="test-the-completed-app"></a>Testare l'app completata
 
+Se è già stata impostata una password per gli account utente di seeding, usare il [strumento Secret Manager](xref:security/app-secrets#secret-manager) per impostare una password:
+
+* Scegliere una password complessa: usare otto o più caratteri e contenere almeno un carattere maiuscolo, numero e simboli. Ad esempio, `Passw0rd!` soddisfi i requisiti di password complesse.
+* Eseguire il comando seguente dalla cartella del progetto, in cui `<PW>` è la password:
+
+  ```console
+  dotnet user-secrets set SeedUserPW <PW>
+  ```
+
 Se l'app ha contatti:
 
-* Eliminare tutti i record di `Contact` tabella.
+* Eliminare tutti i record nel `Contact` tabella.
 * Riavviare l'app per l'inizializzazione del database.
 
-Registrazione di un utente per l'esplorazione di contatti.
-
-Un modo semplice per testare l'app completata consiste nell'avviare tre diversi browser (o in incognito o InPrivate versioni). In un browser, registrare un nuovo utente (ad esempio, `test@example.com`). Accedere a ogni browser con un altro utente. Verificare che le operazioni seguenti:
+Un modo semplice per testare l'app completata consiste nell'avviare tre diversi browser (o in incognito o InPrivate sessioni). In un browser, registrare un nuovo utente (ad esempio, `test@example.com`). Accedere a ogni browser con un altro utente. Verificare che le operazioni seguenti:
 
 * Gli utenti registrati possono visualizzare tutti i dati di contatto approvati.
 * Gli utenti registrati possono modificare/eliminare i propri dati.
 * I responsabili possono approvare o rifiutare i dati di contatto. Il `Details` viene mostrata **Approva** e **rifiutare** pulsanti.
 * Gli amministratori possono approvare o rifiutare e modificare/eliminare tutti i dati.
 
-| Utente| Opzioni |
-| ------------ | ---------|
-| test@example.com | Può modificare/eliminare i dati personalizzati |
-| manager@contoso.com | Può approvare o rifiutare e modificare/eliminare proprietario dei dati |
-| admin@contoso.com | Può modificare/eliminare e approvare o rifiutare tutti i dati|
+| Utente                | Esegue il seeding dell'app | Opzioni                                  |
+| ------------------- | :---------------: | ---------------------------------------- |
+| test@example.com    | No                | Modificare/eliminare i propri dati.                |
+| manager@contoso.com | Yes               | Approvare o rifiutare e modificare/eliminare i dati personalizzati. |
+| admin@contoso.com   | Yes               | Approvare o rifiutare e modificare/eliminare tutti i dati. |
 
 Creare un contatto nel browser dell'amministratore. Copiare l'URL per l'eliminazione e modifica di contattare l'amministratore. Incollare questi collegamenti nel browser dell'utente test per verificare che l'utente di test non è possibile eseguire queste operazioni.
 

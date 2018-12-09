@@ -1,17 +1,17 @@
 ---
-title: DevOps con ASP.NET Core e Azure | Monitoraggio e debug
+title: 'Monitorare ed eseguire il debug: DevOps con ASP.NET Core e Azure'
 author: CamSoper
-description: Questa guida include informazioni complete sulla creazione di una pipeline DevOps per un'app ASP.NET Core ospitata in Azure.
+description: Monitoraggio e debug del codice come parte di una soluzione DevOps con ASP.NET Core e Azure
 ms.author: casoper
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: azure/devops/monitor
-ms.openlocfilehash: c4013de574fdf34114f2ae6c6a2150d72f807578
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: e005b951aec578b396fc19dec5d2f55cbce4f664
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090191"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121609"
 ---
 # <a name="monitor-and-debug"></a>Monitoraggio e debug
 
@@ -35,7 +35,7 @@ App web del servizio App sono facilità di monitoraggio in tempo reale. Il porta
 
 1. Il **Panoramica** scheda vengono visualizzate informazioni utili di "in Panoramica", inclusi grafici di visualizzazione delle metriche di recente.
 
-    ![Riquadro della panoramica](./media/monitoring/overview.png)
+    ![Screenshot che Mostra pannello della panoramica](./media/monitoring/overview.png)
 
     * **Http 5xx**: numero di errori sul lato server, in genere eccezioni nel codice ASP.NET Core.
     * **I dati In**: ingresso dei dati in arrivo nella tua app web.
@@ -45,7 +45,7 @@ App web del servizio App sono facilità di monitoraggio in tempo reale. Il porta
 
     Alcuni strumenti self-service per la risoluzione dei problemi e ottimizzazione sono disponibili anche in questa pagina.
 
-    ![Strumenti self-service](./media/monitoring/wizards.png)
+    ![Screenshot che Mostra strumenti di self-servizi](./media/monitoring/wizards.png)
 
     * **Diagnosticare e risolvere i problemi** è una risoluzione dei problemi self-service.
     * **Application Insights** è per la profilatura delle prestazioni e comportamento dell'app e viene illustrato più avanti in questa sezione.
@@ -103,7 +103,7 @@ I log del server web e dell'App possono essere trasmessi in tempo reale tramite 
 1. Aprire il [portale di Azure](https://portal.azure.com)e passare alle *mywebapp\<unique_number\>*  servizio App.
 1. Nel menu a sinistra, scorrere verso il basso il **Monitoring** della sezione e selezionare **flusso di registrazione**.
 
-    ![Collegamento log di flusso](./media/monitoring/log-stream.png)
+    ![Screenshot che mostra il collegamento flusso log](./media/monitoring/log-stream.png)
 
 I log possono rivelarsi [trasmessi tramite la CLI di Azure o Azure PowerShell](/azure/app-service/web-sites-enable-diagnostic-log#streamlogs), tra cui tramite il Cloud Shell.
 

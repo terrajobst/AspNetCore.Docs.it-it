@@ -1,19 +1,19 @@
 ---
-title: Autenticazione cloud nell'API web con Azure Active Directory B2C in ASP.NET Core
+title: Autenticazione nell'API web con Azure Active Directory B2C in ASP.NET Core
 author: camsoper
 description: Informazioni su come configurare l'autenticazione di Azure Active Directory B2C con l'API Web ASP.NET Core. Testare l'API con Postman web autenticato.
 ms.author: casoper
 ms.date: 09/21/2018
-ms.custom: mvc
+ms.custom: mvc, seodec18
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: a7a109909d66b1016e78eedc8b802068143c65e3
-ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
+ms.openlocfilehash: e8ac1e33819dd369460139df25597e1aa0979c91
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49348546"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121713"
 ---
-# <a name="cloud-authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Autenticazione cloud nell'API web con Azure Active Directory B2C in ASP.NET Core
+# <a name="authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Autenticazione nell'API web con Azure Active Directory B2C in ASP.NET Core
 
 Di [Cam Soper](https://twitter.com/camsoper)
 
@@ -54,7 +54,7 @@ Nel tenant di Azure AD B2C appena creato, registrare l'API usando [i passaggi ne
 
 Usare i valori seguenti:
 
-| Impostazione                       | Valore               | Note                                                                                  |
+| Impostazione                       | Value               | Note                                                                                  |
 |-------------------------------|---------------------|----------------------------------------------------------------------------------------|
 | **Name**                      | *{Nome API}*        | Immettere un **nome** per le app che descrive l'app agli utenti.                     |
 | **Includi app web / API web** | Yes                 |                                                                                        |
@@ -83,7 +83,7 @@ In Visual Studio:
 
 5. Compilare il modulo con i valori seguenti:
 
-    | Impostazione                       | Valore                                                 |
+    | Impostazione                       | Value                                                 |
     |-------------------------------|-------------------------------------------------------|
     | **Nome di dominio**               | *{nome di dominio del tenant di B2C}*                |
     | **ID dell'applicazione**            | *{incollare l'ID dell'applicazione dagli Appunti}*       |
@@ -110,7 +110,7 @@ Poiché Postman Simula un'app web che consente di ottenere i token dal tenant Az
 
 Usare i valori seguenti:
 
-| Impostazione                       | Valore                            | Note                           |
+| Impostazione                       | Value                            | Note                           |
 |-------------------------------|----------------------------------|---------------------------------|
 | **Name**                      | Postman                          |                                 |
 | **Includi app web / API web** | Yes                              |                                 |
@@ -170,7 +170,7 @@ Per eseguire una richiesta autenticata all'API web, è necessario un token di co
 2. Completare la **OTTIENI nuovo TOKEN di accesso** finestra di dialogo come indicato di seguito:
 
 
-   |                Impostazione                 |                                             Valore                                             |                                                                                                                                    Note                                                                                                                                     |
+   |                Impostazione                 |                                             Value                                             |                                                                                                                                    Note                                                                                                                                     |
    |----------------------------------------|-----------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
    |      <strong>Nome del token</strong>       |                                          *{nome del token}*                                       |                                                                                                                   Immettere un nome descrittivo per il token.                                                                                                                    |
    |      <strong>Tipo di concessione</strong>       |                                           implicito                                            |                                                                                                                                                                                                                                                                              |

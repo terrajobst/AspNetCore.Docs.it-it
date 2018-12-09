@@ -1,17 +1,17 @@
 ---
-title: DevOps con ASP.NET Core e Azure | Distribuire un'app in servizio App
+title: Distribuire un'app nel servizio App - DevOps con ASP.NET Core e Azure
 author: CamSoper
-description: Questa guida include informazioni complete sulla creazione di una pipeline DevOps per un'app ASP.NET Core ospitata in Azure.
+description: Distribuire un'app ASP.NET Core in servizio App di Azure, il primo passaggio per DevOps con ASP.NET Core e Azure.
 ms.author: casoper
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: azure/devops/deploy-to-app-service
-ms.openlocfilehash: 33026ed510aae63a9e580aa5d708f94aad778fca
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 4424d3d15cbd234357c8265fa276834cb9abf352
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090937"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121220"
 ---
 # <a name="deploy-an-app-to-app-service"></a>Distribuire un'app in servizio App
 
@@ -150,12 +150,12 @@ L'app è già stata distribuita dalla shell dei comandi. Utilizziamo gli strumen
 3. Premere **Ctrl**+**MAIUSC**+**B** per compilare l'app.
 4. In Esplora soluzioni fare doppio clic sul progetto e fare clic su **pubblica**.
 
-    ![Fare clic su, pubblicare](./media/deploying-to-app-service/publish.png)
+    ![Screenshot che Mostra pulsante destro del mouse, pubblicazione](./media/deploying-to-app-service/publish.png)
 5. Visual Studio possa creare una nuova risorsa di servizio App, ma questo aggiornamento verrà pubblicato tramite la distribuzione esistente. Nel **selezionare una destinazione di pubblicazione** finestra di dialogo, seleziona **servizio App** dall'elenco a sinistra e quindi selezionare **seleziona esistente**. Fare clic su **Pubblica**.
 6. Nel **servizio App** finestra di dialogo, verificare che l'account Microsoft o aziendale utilizzato per creare la sottoscrizione di Azure venga visualizzato in alto a destra. In caso contrario, fare clic sul menu a discesa e aggiungerlo.
 7. Verificare che Azure corretto **sottoscrizione** sia selezionata. Per la **View**, selezionare **gruppo di risorse**. Espandere la **AzureTutorial** gruppo di risorse e quindi selezionare l'app web esistente. Fare clic su **OK**.
 
-    ![Finestra di dialogo servizio App pubblica](./media/deploying-to-app-service/publish-dialog.png)
+    ![Finestra di dialogo di screenshot che illustra la pubblicazione del servizio App](./media/deploying-to-app-service/publish-dialog.png)
 
 Visual Studio compila e distribuisce l'app in Azure. Passare all'URL dell'app web. Verificare che il `<h2>` Modifica elemento è in tempo reale.
 
@@ -211,7 +211,7 @@ Gli slot di distribuzione supportano la gestione temporanea delle modifiche senz
 
 6. Per verificare che sia stato distribuito V3 allo slot di staging, aprire due finestre del browser. In una finestra, passare all'URL dell'app web originale. In altra finestra, passare all'URL di app web di staging. L'URL di produzione serve V2 dell'app. L'URL di gestione temporanea serve V3 dell'app.
 
-    ![Confronto tra le finestre del browser](./media/deploying-to-app-service/ready-to-swap.png)
+    ![Schermata di confronto tra le finestre del browser](./media/deploying-to-app-service/ready-to-swap.png)
 
 7. In Cloud Shell, trasferire lo slot di gestione temporanea verificata/preparata-up nell'ambiente di produzione.
 

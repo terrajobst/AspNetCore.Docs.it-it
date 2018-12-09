@@ -3,15 +3,15 @@ title: Configurare l'autenticazione di Windows in ASP.NET Core
 author: scottaddie
 description: Informazioni su come configurare l'autenticazione di Windows in ASP.NET Core, tramite IIS Express, IIS, HTTP. sys e WebListener.
 ms.author: riande
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.date: 11/01/2018
 uid: security/authentication/windowsauth
-ms.openlocfilehash: 87fcab75555c1dae0b2815c30d79fd4615df9660
-ms.sourcegitcommit: 85f2939af7a167b9694e1d2093277ffc9a741b23
+ms.openlocfilehash: 342759a6ff4b5679e0d54c979188ae66d339562d
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50968293"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121297"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>Configurare l'autenticazione di Windows in ASP.NET Core
 
@@ -47,7 +47,7 @@ Per progetti di sviluppo tramite IIS Express, il modello fornisce tutta la confi
 
 Il progetto di Visual Studio **delle proprietà** della pagina **Debug** scheda fornisce caselle di controllo per l'autenticazione di Windows e l'autenticazione anonima.
 
-![Schermata di Browser l'autenticazione di Windows](windowsauth/_static/vs-auth-property-menu.png)
+![Schermata del Browser l'autenticazione di Windows con le opzioni di autenticazione evidenziate](windowsauth/_static/vs-auth-property-menu.png)
 
 In alternativa, è possibile configurare queste due proprietà nel *launchsettings. JSON* file:
 

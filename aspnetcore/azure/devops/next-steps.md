@@ -1,17 +1,17 @@
 ---
-title: DevOps con ASP.NET Core e Azure | Passaggi successivi
+title: Passaggi successivi - DevOps con ASP.NET Core e Azure
 author: CamSoper
-description: Questa guida include informazioni complete sulla creazione di una pipeline DevOps per un'app ASP.NET Core ospitata in Azure.
+description: Altri percorsi di apprendimento per DevOps con ASP.NET Core e Azure.
 ms.author: casoper
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: azure/devops/next-steps
-ms.openlocfilehash: b82e7251b507f8d141930673d50722cfaa576db5
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 7c3b1c701b13b2a2052c72f5f84bba33d4995ad7
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50089879"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121324"
 ---
 # <a name="next-steps"></a>Passaggi successivi
 
@@ -29,7 +29,7 @@ Oltre a DevOps e hosting web, Azure offre un'ampia gamma di servizi di Platform-
 
 [COSMOS DB](/azure/cosmos-db/) servizio di database NoSQL multimodello, distribuito a livello globale. Più API sono disponibili, tra cui MongoDB, Cassandra e API SQL (in precedenza denominato DocumentDB).
 
-## <a name="identity"></a>Identità
+## <a name="identity"></a>identità
 
 [Azure Active Directory](/azure/active-directory/) e [Azure Active Directory B2C](/azure/active-directory-b2c/) sono entrambi servizi di identità. Azure Active Directory è progettato per gli scenari aziendali e consente di collaborazione di Azure AD B2B (business-to-business), mentre Azure Active Directory B2C è previsti scenari business to consumer, tra cui accedi social network.
 

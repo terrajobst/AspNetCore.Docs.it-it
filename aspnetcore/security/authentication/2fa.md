@@ -5,13 +5,14 @@ description: Informazioni su come configurare l'autenticazione a due fattori (2F
 monikerRange: < aspnetcore-2.0
 ms.author: riande
 ms.date: 09/22/2018
+ms.custom: seodec18
 uid: security/authentication/2fa
-ms.openlocfilehash: 5b0866ecf15381b040e3646eecc22374b6b0c9e2
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 6f20928b0dec9b235fa17c1b44c81a48d031e9e0
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50205886"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121661"
 ---
 # <a name="two-factor-authentication-with-sms-in-aspnet-core"></a>Autenticazione a due fattori con SMS in ASP.NET Core
 
@@ -97,7 +98,7 @@ Aprire il *Views/Manage/Index.cshtml* file di visualizzazione Razor e rimuovere 
 
 * Toccare il nome utente, che attiva il `Index` metodo di azione nel controller di gestione. Toccare il numero di telefono **Add** collegamento.
 
-![Gestione visualizzazione](2fa/_static/login2fa2.png)
+![Gestione visualizzazione - toccare il collegamento "Aggiungi"](2fa/_static/login2fa2.png)
 
 * Aggiungere un numero di telefono che verrà visualizzato il codice di verifica e toccare **Invia codice di verifica**.
 
@@ -111,11 +112,11 @@ Se non si riceve un messaggio di testo, vedere pagina log twilio.
 
 * La visualizzazione di gestione mostra che il numero di telefono è stato aggiunto correttamente.
 
-![Gestione visualizzazione](2fa/_static/login2fa5.png)
+![Gestione visualizzazione: numero di telefono è stato aggiunto](2fa/_static/login2fa5.png)
 
 * Toccare **abilitare** per abilitare l'autenticazione a due fattori.
 
-![Gestione visualizzazione](2fa/_static/login2fa6.png)
+![Gestione visualizzazione - abilitare l'autenticazione a due fattori](2fa/_static/login2fa6.png)
 
 ### <a name="test-two-factor-authentication"></a>Test di autenticazione a due fattori
 

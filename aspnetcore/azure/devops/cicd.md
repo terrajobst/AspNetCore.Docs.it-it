@@ -1,16 +1,17 @@
 ---
-title: DevOps con ASP.NET Core e Azure | Integrazione continua e distribuzione
+title: 'Integrazione continua e distribuzione: DevOps con ASP.NET Core e Azure'
 author: CamSoper
-description: Questa guida include informazioni complete sulla creazione di una pipeline DevOps per un'app ASP.NET Core ospitata in Azure.
+description: Integrazione continua e distribuzione in DevOps con ASP.NET Core e Azure
 ms.author: scaddie
 ms.date: 10/24/2018
+ms.custom: seodec18
 uid: azure/devops/cicd
-ms.openlocfilehash: edaf2c2e1428e5e82104786d94584a4ef08f9ee3
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: e5bddde41291c9573f58d749bbf830de9ea9319d
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51570087"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121590"
 ---
 # <a name="continuous-integration-and-deployment"></a>Integrazione continua e distribuzione
 
@@ -235,15 +236,15 @@ La definizione di compilazione **attività** scheda vengono elencati i singoli p
 
 Fare clic sulla definizione di compilazione **riepilogo** collegamento per visualizzare una cronologia delle compilazioni con la definizione di:
 
-![cronologia della definizione di compilazione](media/cicd/build-definition-summary.png)
+![Cronologia della definizione di compilazione di schermata che mostra](media/cicd/build-definition-summary.png)
 
 Nella pagina risulta, fare clic sul collegamento corrispondente al numero di build univoco:
 
-![pagina Riepilogo definizione di compilazione](media/cicd/build-definition-completed.png)
+![Screenshot che Mostra definizione pagina di riepilogo compilazione](media/cicd/build-definition-completed.png)
 
 Viene visualizzato un riepilogo di questa compilazione specifica. Fare clic sui **artefatti** scheda e notare il *drop* prodotto dalla compilazione cartella verrà elencata:
 
-![creare elementi di definizione - cartella di ricezione](media/cicd/build-definition-artifacts.png)
+![Screenshot che mostra gli elementi di definizione di compilazione - cartella di ricezione](media/cicd/build-definition-artifacts.png)
 
 Usare la **scaricare** e **Explore** collegamenti per controllare gli elementi pubblicati.
 
@@ -251,25 +252,25 @@ Usare la **scaricare** e **Explore** collegamenti per controllare gli elementi p
 
 Una pipeline di rilascio è stata creata con il nome *MyFirstProject-ASP.NET Core-CD*:
 
-![Panoramica della pipeline di rilascio](media/cicd/release-definition-overview.png)
+![Panoramica della pipeline di versione di schermata che mostra](media/cicd/release-definition-overview.png)
 
 I due componenti principali della pipeline di rilascio sono le **artefatti** e il **ambienti**. Facendo clic sulla casella nella **artefatti** sezione mostra il pannello seguente:
 
-![elementi della pipeline di rilascio](media/cicd/release-definition-artifacts.png)
+![Elementi di schermata che mostra rilascio pipeline](media/cicd/release-definition-artifacts.png)
 
 Il **origine (definizione di compilazione)** valore rappresenta la definizione di compilazione a cui è collegata questa pipeline di rilascio. Il *zip* file prodotto da un'esecuzione riuscita della definizione di compilazione viene fornito per il *produzione* ambiente per la distribuzione in Azure. Fare clic sui *1 fase, 2 attività* clic sul collegamento nella *produzione* ambiente (environment) per visualizzare le attività della pipeline di rilascio:
 
-![attività della pipeline di rilascio](media/cicd/release-definition-tasks.png)
+![Attività della pipeline di rilascio di schermata che mostra](media/cicd/release-definition-tasks.png)
 
 La pipeline di rilascio è costituito da due attività: *distribuzione servizio App di Azure per lo Slot* e *gestire servizio App di Azure - di scambio Slot*. Facendo clic la prima attività, vengono visualizzate la configurazione delle operazioni seguenti:
 
-![pipeline di rilascio delle attività di distribuzione](media/cicd/release-definition-task1.png)
+![Pipeline di rilascio di schermata che illustra attività di distribuzione](media/cicd/release-definition-task1.png)
 
 La sottoscrizione di Azure, tipo di servizio, nome dell'app web, gruppo di risorse e lo slot di distribuzione sono definiti nell'attività di distribuzione. Il **pacchetto o cartella** nella casella di testo contiene il *zip* percorso del file da estrarre e distribuita nel *staging* slot del *mywebapp\<univoco numero\>*  app web.
 
 Fare clic sull'attività di scambio di slot rivela la configurazione delle operazioni seguenti:
 
-![attività di scambio dello slot di pipeline di rilascio](media/cicd/release-definition-task2.png)
+![Attività di schermata che mostra release pipeline slot swap](media/cicd/release-definition-task2.png)
 
 La sottoscrizione, gruppo di risorse, tipo di servizio, nome dell'app web e i dettagli di uno slot di distribuzione vengono forniti. Il **scambia con produzione** casella di controllo è selezionata. Di conseguenza, i bit distribuiti per la *staging* slot vengono scambiate nell'ambiente di produzione.
 
