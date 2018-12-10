@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: fundamentals/servers/weblistener
-ms.openlocfilehash: eaf76a44bc7750aef94319042e61aa294c6cba35
-ms.sourcegitcommit: 09affee3d234cb27ea6fe33bc113b79e68900d22
+ms.openlocfilehash: 92a2e567e968cce59ba7b6f374ebd4bc189b81ee
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51191269"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52862122"
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>Implementazione del server Web WebListener in ASP.NET Core
 
@@ -87,7 +87,7 @@ Sono anche disponibili le [Impostazioni del Registro di sistema HTTP. sys](https
 
 * Configurare gli URL e le porte su cui eseguire l'ascolto 
 
-  Per impostazione predefinita, ASP.NET Core è associato a `http://localhost:5000`. Per configurare le porte e i prefissi URL, è possibile usare il metodo di estensione `UseURLs`, l'argomento della riga di comando `urls` o il sistema di configurazione di ASP.NET Core. Per altre informazioni, vedere [Hosting in ASP.NET Core(xref:fundamentals/host/index).
+  Per impostazione predefinita, ASP.NET Core è associato a `http://localhost:5000`. Per configurare le porte e i prefissi URL, è possibile usare il metodo di estensione `UseURLs`, l'argomento della riga di comando `urls` o il sistema di configurazione di ASP.NET Core. Per altre informazioni, vedere [Hosting in ASP.NET Core](xref:fundamentals/host/index).
 
   WebListener usa i [formati di stringa di prefisso di Http.Sys](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx). WebListener non richiede un formato specifico per le stringhe di prefisso.
 

@@ -5,12 +5,12 @@ description: Informazioni sulla sintassi di markup Razor per l'incorporamento di
 ms.author: riande
 ms.date: 10/26/2018
 uid: mvc/views/razor
-ms.openlocfilehash: ab9fb3f55399764c5fe985811d92c504ed210767
-ms.sourcegitcommit: ad28d1bc6657a743d5c2fa8902f82740689733bb
+ms.openlocfilehash: 2ec86c774e0fd26c4455829680a2b1db687b8090
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52256580"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121587"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Guida di riferimento della sintassi Razor per ASP.NET Core
 
@@ -741,7 +741,7 @@ Il motore di visualizzazione Razor esegue ricerche con distinzione tra maiuscole
 
 Gli sviluppatori sono invitati a far corrispondere le maiuscole e minuscole dei nomi di file e directory per quanto riguarda le maiuscole e minuscole di:
 
-    * Nomi di area, controller e azione.
-    * Pagine Razor.
+* Nomi di area, controller e azione.
+* Pagine Razor.
 
 La distinzione tra maiuscole e minuscole assicura che le distribuzioni trovino le proprie visualizzazioni indipendentemente dal file system sottostante.

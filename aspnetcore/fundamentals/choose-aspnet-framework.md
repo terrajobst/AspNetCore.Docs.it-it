@@ -3,14 +3,15 @@ title: Scegliere tra ASP.NET 4.x e ASP.NET Core
 author: rick-anderson
 description: Vengono illustrati ASP.NET Core e ASP.NET 4.x e si spiega come scegliere tra le due soluzioni.
 ms.author: riande
+ms.custom: seodec18
 ms.date: 09/11/2018
 uid: fundamentals/choose-between-aspnet-and-aspnetcore
-ms.openlocfilehash: fa281a068dfdcd8a7c45dd5d0a0c3084c4bc8dbc
-ms.sourcegitcommit: e8d80ff566bfe505b43389d7bc4551edb1c0c872
+ms.openlocfilehash: b75fbea330e48075c4a2789454e973d4c56ffa53
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52549072"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121180"
 ---
 # <a name="choose-between-aspnet-4x-and-aspnet-core"></a>Scegliere tra ASP.NET 4.x e ASP.NET Core
 
@@ -37,7 +38,7 @@ La tabella seguente mette a confronto ASP.NET Core e ASP.NET 4.x.
 |Più versioni per computer|Una versione per computer|
 |Sviluppare con Visual Studio, [Visual Studio per Mac](https://www.visualstudio.com/vs/visual-studio-mac/), o [Visual Studio Code](https://code.visualstudio.com/) tramite C# o F#|Sviluppare con Visual Studio tramite C#, VB o F#|
 |Prestazioni più elevate rispetto ad ASP.NET 4.x|Buone prestazioni|
-|[Scegliere .NET Framework o Runtime di .NET Core](/dotnet/articles/standard/choosing-core-framework-server)|Usare runtime .NET Framework|
+|[Scegliere .NET Framework o Runtime di .NET Core](/dotnet/standard/choosing-core-framework-server)|Usare runtime .NET Framework|
 
 Vedere [ASP.NET Core per .NET Framework](xref:index#target-framework) per informazioni sul supporto per ASP.NET Core 2.x in .NET Framework.
 
@@ -63,4 +64,4 @@ Vedere [ASP.NET Core per .NET Framework](xref:index#target-framework) per inform
 * <xref:host-and-deploy/azure-apps/index>
 
 > [!NOTE]
-> È in corso un test di usabilità di una nuova proposta di struttura del sommario di ASP.NET Core.  Se si dispone di alcuni minuti per provare a cercare 7 argomenti diversi nel sommario corrente o proposto, [fare clic qui per partecipare al test](https://dpk4xbh5.optimalworkshop.com/treejack/rps16hd5).
+> È in corso un test di usabilità di una nuova proposta di struttura del sommario di ASP.NET Core.  Se si dispone di alcuni minuti per provare a cercare 7 argomenti diversi nel sommario corrente o proposto, [fare clic qui per partecipare al test](https://dpk4xbh5.optimalworkshop.com/treejack/aa11wn82).

@@ -1,19 +1,19 @@
 ---
-title: Hosting in ASP.NET Core
+title: Host Web e host generico in ASP.NET Core
 author: guardrex
 description: Informazioni sull'host Web ASP.NET Core e sull'host generico .NET, responsabili della gestione dell'avvio e della durata delle app.
 ms.author: riande
-ms.custom: mvc
+ms.custom: mvc,seodec18
 ms.date: 08/28/2018
 uid: fundamentals/host/index
-ms.openlocfilehash: 9927722b5080beb94e5628d9e7b54e6d50a5bff8
-ms.sourcegitcommit: a669c4e3f42e387e214a354ac4143555602e6f66
+ms.openlocfilehash: 3e67d8338aa7ac1b1530d0498ee0126d36a8d72b
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336050"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121518"
 ---
-# <a name="host-in-aspnet-core"></a>Hosting in ASP.NET Core
+# <a name="web-host-and-generic-host-in-aspnet-core"></a>Host Web e host generico in ASP.NET Core
 
 Le app .NET configurano e avviano un *host*. L'host è responsabile della gestione dell'avvio e della durata delle app. Sono disponibili per l'uso due host API:
 
