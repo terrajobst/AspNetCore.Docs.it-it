@@ -3,14 +3,14 @@ title: Eseguire la migrazione da ASP.NET ad ASP.NET Core
 author: isaac2004
 description: Indicazioni sulla migrazione di app ASP.NET MVC o Web API esistenti ad ASP.NET Core.web
 ms.author: scaddie
-ms.date: 08/27/2017
+ms.date: 12/10/2018
 uid: migration/proper-to-2x/index
-ms.openlocfilehash: 1a3e3f0b514c262cfe13ea8391ab97b95aa4384e
-ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
+ms.openlocfilehash: 6808fefb890dcdec6abdd0604ab61dfd2573d910
+ms.sourcegitcommit: 1872d2e6f299093c78a6795a486929ffb0bbffff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50148798"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53216794"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core"></a>Eseguire la migrazione da ASP.NET ad ASP.NET Core
 
@@ -66,7 +66,7 @@ ASP.NET Core usa un approccio simile, ma non si basa su OWIN per gestire la voce
 
 `Startup` deve includere un metodo `Configure`. In `Configure` aggiungere il middleware necessario alla pipeline. Nell'esempio seguente, estratto dal modello di sito Web predefinito, vengono usati vari metodi di estensione per configurare la pipeline con il supporto per:
 
-* [BrowserLink](http://vswebessentials.com/features/browserlink)
+* [Browser Link](xref:client-side/using-browserlink)
 * Pagine di errore
 * File statici
 * ASP.NET Core MVC
