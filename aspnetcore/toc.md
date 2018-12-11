@@ -441,6 +441,6 @@
 ## [Novità in 2.0](xref:aspnetcore-2.0)
 ## [Novità in 1.1](xref:aspnetcore-1.1)
 
-# [Riferimento API](/dotnet/api/?view=aspnetcore-2.0)
+# [Riferimento API](/dotnet/api/?view=aspnetcore-2.2)
 
 # [Collaborare](https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md)
