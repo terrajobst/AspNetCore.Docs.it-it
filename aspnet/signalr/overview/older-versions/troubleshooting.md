@@ -8,16 +8,18 @@ ms.date: 06/05/2013
 ms.assetid: 347210ba-c452-4feb-886f-b51d89f58971
 msc.legacyurl: /signalr/overview/older-versions/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: df949347cecd9ac617a52ad798f37bebdb8524fa
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 6c2a8e72959c9370ff46084ca135c2b2977f4f42
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41826286"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287683"
 ---
 <a name="signalr-troubleshooting-signalr-1x"></a>Risoluzione dei problemi di SignalR (SignalR 1.x)
 ====================
 da [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Questo documento descrive problemi comuni di risoluzione dei problemi di SignalR.
 
@@ -53,7 +55,7 @@ SignalR è necessario un parser JSON deve essere presente per serializzare le ch
 
 ### <a name="mixing-hub-and-persistentconnection-syntax"></a>Combinare la sintassi dell'Hub e PersistentConnection
 
-SignalR utilizza i due modelli di comunicazione: hub e PersistentConnections. La sintassi per la chiamata di questi modelli di due comunicazione è diversa nel codice client. Se è stato aggiunto un hub nel codice del server, verificare che tutto il codice client usa la sintassi appropriata dell'hub.
+SignalR utilizza i due modelli di comunicazione: Hub e PersistentConnections. La sintassi per la chiamata di questi modelli di due comunicazione è diversa nel codice client. Se è stato aggiunto un hub nel codice del server, verificare che tutto il codice client usa la sintassi appropriata dell'hub.
 
 **Codice client JavaScript che crea un PersistentConnection in un client JavaScript**
 
@@ -157,8 +159,8 @@ Questo errore può verificarsi in ambienti tra domini in cui la comunicazione tr
 
 Esistono diverse cause di questo problema. Verificare che tutti gli elementi seguenti:
 
-- **Riferimento di indirizzo proxy dell'hub non è formattato correttamente:** questo errore si verifica in genere se il riferimento per l'indirizzo del proxy dell'hub generato non è formattato correttamente. Verificare che il riferimento all'indirizzo hub viene effettuato correttamente. Visualizzare [fanno riferimento al proxy generato dinamicamente come](../guide-to-the-api/hubs-api-guide-javascript-client.md#dynamicproxy) per informazioni dettagliate.
-- **Aggiunta di cicli di applicazione prima di aggiungere la route dell'hub:** se l'applicazione usa altre route, verificare che la prima route aggiunta sia la chiamata a `MapHubs`.
+- **Riferimento di indirizzo proxy dell'hub non è formattato correttamente:** Questo errore si verifica in genere se il riferimento per l'indirizzo del proxy dell'hub generato non è formattato correttamente. Verificare che il riferimento all'indirizzo hub viene effettuato correttamente. Visualizzare [fanno riferimento al proxy generato dinamicamente come](../guide-to-the-api/hubs-api-guide-javascript-client.md#dynamicproxy) per informazioni dettagliate.
+- **Aggiunta di route per l'applicazione prima di aggiungere la route dell'hub:** Se l'applicazione usa altre route, verificare che la prima route aggiunta sia la chiamata a `MapHubs`.
 
 ### <a name="500-internal-server-error"></a>"Errore interno 500 del Server"
 
@@ -172,7 +174,7 @@ Verrà generato questo errore se la chiamata a `MapHubs` non viene eseguita corr
 
 Verificare che i parametri inviati ai metodi non includono i tipi non serializzabili (ad esempio gli handle di file o le connessioni di database). Se è necessario usare i membri in un oggetto sul lato server che non si vuole essere inviato al client, perché per la sicurezza o per motivi di serializzazione, utilizzare il `JSONIgnore` attributo.
 
-### <a name="protocol-error-unknown-transport-error"></a>"Errore di protocollo: trasporto sconosciuto" errore
+### <a name="protocol-error-unknown-transport-error"></a>"Errore di protocollo: Errore di trasporto sconosciuto"
 
 Questo errore può verificarsi se il client non supporta i trasporti che usa SignalR. Visualizzare [trasporti e i fallback](../getting-started/introduction-to-signalr.md#transports) per informazioni su quali browser può essere usato con SignalR.
 
@@ -184,11 +186,11 @@ Questo errore si verifica se `DisableJavaScriptProxies` viene impostato quando s
 
 Questo errore può verificarsi se viene utilizzata l'autenticazione e il client viene disconnesso prima che venga interrotta la connessione. La soluzione consiste nell'interrompere la connessione SignalR prima della disconnessione del client.
 
-### <a name="uncaught-error-signalr-jquery-not-found-please-ensure-jquery-is-referenced-before-the-signalrjs-file-error"></a>"Errore di non rilevate: SignalR: jQuery non trovato. Assicurarsi prima di file SignalR.js cui viene fatto riferimento jQuery"errore
+### <a name="uncaught-error-signalr-jquery-not-found-please-ensure-jquery-is-referenced-before-the-signalrjs-file-error"></a>"Errore di non rilevate: SignalR: jQuery non è stato trovato. Assicurarsi prima di file SignalR.js cui viene fatto riferimento jQuery"errore
 
 Il client SignalR JavaScript richiede jQuery per l'esecuzione. Verificare che il riferimento jQuery è corretto, che il percorso usato sia valido e che il riferimento a jQuery è prima di riferimento per SignalR.
 
-### <a name="uncaught-typeerror-cannot-read-property-ltpropertygt-of-undefined-error"></a>"Non rilevate TypeError: non è in grado di leggere proprietà '&lt;proprietà&gt;' non definito" errore
+### <a name="uncaught-typeerror-cannot-read-property-ltpropertygt-of-undefined-error"></a>"Non rilevate TypeError: Non è in grado di leggere proprietà '&lt;proprietà&gt;' non definito "errore
 
 Questo errore si verifica dall'assenza di jQuery o il proxy di hub fa in modo corretto. Verificare che sia corretto, che il percorso usato sia valido e che il riferimento a jQuery sia prima del riferimento al proxy di hub di riferimento per jQuery e il proxy di hub. Il riferimento al proxy di hub predefinito dovrebbe essere simile al seguente:
 

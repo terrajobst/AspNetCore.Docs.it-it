@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: 03960de2-8d95-4444-9169-4426dcc64913
 msc.legacyurl: /signalr/overview/guide-to-the-api/handling-connection-lifetime-events
 msc.type: authoredcontent
-ms.openlocfilehash: 1783a3ab292a5460d5cc1b7ad78073071d65d379
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 6a354179a82eba1d4a64184bfdeb302472fabf5f
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911952"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287981"
 ---
 <a name="understanding-and-handling-connection-lifetime-events-in-signalr"></a>Comprensione e gestione degli eventi di durata connessione in SignalR
 ====================
 dal [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://github.com/tdykstra)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Questo articolo offre una panoramica degli eventi di connessione e riconnessione disconnessione SignalR che è possibile gestire e le impostazioni di timeout e keepalive che è possibile configurare.
 >
@@ -43,7 +45,6 @@ dal [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://gith
 > ## <a name="questions-and-comments"></a>Domande e commenti
 >
 > Inviaci un feedback sul modo in cui è stato apprezzato questa esercitazione e cosa possiamo migliorare nei commenti nella parte inferiore della pagina. Se hai domande che non sono direttamente correlate con l'esercitazione, è possibile pubblicarli per i [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) oppure [StackOverflow.com](http://stackoverflow.com/).
-
 
 ## <a name="overview"></a>Panoramica
 
@@ -81,7 +82,7 @@ Il `OnReconnected` gestore dell'evento in un SignalR Hub può eseguire direttame
 Questo articolo verrà distinguere *le connessioni SignalR*, *connessioni di trasporto*, e *connessioni fisiche*:
 
 - **Connessione SignalR** fa riferimento a una relazione logica tra un client e un URL del server, gestita dall'API SignalR e identificata da un ID di connessione. I dati relativi a questa relazione viene manutenuti da SignalR e viene usati per stabilire una connessione di trasporto. Le entità finali della relazione e SignalR Elimina i dati quando il client chiama il `Stop` metodo o un limite di timeout viene raggiunta mentre SignalR sta tentando di ristabilire una connessione di trasporto persi.
-- **Connessione di trasporto** fa riferimento a una relazione logica tra un client e un server, gestito da uno dei quattro trasporto API: WebSockets, gli eventi inviati al server, forever frame o long polling. SignalR utilizza il trasporto API per creare una connessione di trasporto e l'API di trasporto dipende dalla presenza di una connessione di rete fisica per creare la connessione di trasporto. La connessione di trasporto termina quando SignalR termina o quando il trasporto API rileva che la connessione fisica viene interrotta.
+- **Connessione di trasporto** fa riferimento a una relazione logica tra un client e un server, gestito da uno dei quattro trasporto API: WebSockets, gli eventi inviati al server, forever frame o polling di lunga durata. SignalR utilizza il trasporto API per creare una connessione di trasporto e l'API di trasporto dipende dalla presenza di una connessione di rete fisica per creare la connessione di trasporto. La connessione di trasporto termina quando SignalR termina o quando il trasporto API rileva che la connessione fisica viene interrotta.
 - **Connessione fisica** fa riferimento per i collegamenti di rete fisica, dei cavi, segnali wireless, i router e così via, che facilitano la comunicazione tra un computer client e un computer server. La connessione fisica deve essere presente per stabilire una connessione di trasporto e deve essere stabilita una connessione di trasporto per stabilire una connessione SignalR. Tuttavia, la connessione fisica di rilievo non sempre immediatamente termina la connessione di trasporto o la connessione SignalR, come verrà spiegato più avanti in questo argomento.
 
 Nel diagramma seguente, la connessione SignalR è rappresentata dall'API di hub e livello PersistentConnection API SignalR, la connessione di trasporto è rappresentata dal livello di trasporto e la connessione fisica è rappresentata dalle linee tra i server e i client.
@@ -146,7 +147,7 @@ Alcuni ambienti di rete deliberatamente chiudono le connessioni inattive e un'al
 
 > [!NOTE]
 >
-> **Importante**: la sequenza di eventi descritte di seguito non è garantita. SignalR esegue ogni tentativo di generare eventi di durata connessione in modo prevedibile in base a questo schema, ma esistono molte varianti degli eventi di rete e molti modi in cui Framework di comunicazione sottostante, ad esempio trasporto API gestirle. Ad esempio, il `Reconnected` evento potrebbe non essere generato quando il client si riconnette, o `OnConnected` gestore nel server è possibile eseguire quando il tentativo di stabilire una connessione ha esito negativo. In questo argomento descrive solo gli effetti che può essere prodotto generalmente da determinate circostanze tipiche.
+> **Importante**: Non è garantita la sequenza di eventi descritte di seguito. SignalR esegue ogni tentativo di generare eventi di durata connessione in modo prevedibile in base a questo schema, ma esistono molte varianti degli eventi di rete e molti modi in cui Framework di comunicazione sottostante, ad esempio trasporto API gestirle. Ad esempio, il `Reconnected` evento potrebbe non essere generato quando il client si riconnette, o `OnConnected` gestore nel server è possibile eseguire quando il tentativo di stabilire una connessione ha esito negativo. In questo argomento descrive solo gli effetti che può essere prodotto generalmente da determinate circostanze tipiche.
 
 
 <a id="clientdisconnect"></a>

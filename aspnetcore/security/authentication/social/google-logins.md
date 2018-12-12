@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 11/11/2018
 uid: security/authentication/google-logins
-ms.openlocfilehash: e5deda5d521643e3155be00f4630a86c6a82575c
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 372504eb4f6fea412b5b160e0d5e9251dafe0d56
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121531"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284487"
 ---
 # <a name="google-external-login-setup-in-aspnet-core"></a>Configurazione dell'accesso esterno Google in ASP.NET Core
 
@@ -50,11 +50,11 @@ Questa esercitazione illustra come consentire agli utenti di accedere con il pro
   * **Server Web (ad esempio Node. js, Tomcat)**, e
   * **I dati utente**:
 
-![Pagina delle credenziali di gestione API: informazioni su quali tipi di credenziali è necessario pannello](index/_static/GoogleConsoleChooseCred.png)
+![Pagina delle credenziali di gestione API: Scopri quali tipo di credenziali è necessario pannello](index/_static/GoogleConsoleChooseCred.png)
 
 * Toccare **quali credenziali è necessario?** che consente di visualizzare il secondo passaggio della configurazione dell'app, **creare un ID client OAuth 2.0**:
 
-![Pagina delle credenziali di gestione API: creazione di un ID client OAuth 2.0](index/_static/GoogleConsoleCreateClient.png)
+![Pagina delle credenziali di gestione API: Creare un ID client OAuth 2.0](index/_static/GoogleConsoleCreateClient.png)
 
 * Perché si sta creando un progetto Google + con una sola funzionalità (Accedi), è possibile immettere lo stesso **nome** per l'ID client OAuth 2.0 come quella utilizzate per il progetto.
 
@@ -67,13 +67,13 @@ Questa esercitazione illustra come consentire agli utenti di accedere con il pro
 
 * Toccare **creare ID client**, che consente di visualizzare il terzo passaggio **configurare la schermata di consenso di OAuth 2.0**:
 
-![Pagina delle credenziali di gestione API: configurare la schermata di consenso di OAuth 2.0](index/_static/GoogleConsoleAddCred.png)
+![Pagina delle credenziali di gestione API: Configurare la schermata di consenso di OAuth 2.0](index/_static/GoogleConsoleAddCred.png)
 
 * Immettere il pubblico **indirizzo di posta elettronica** e il **il nome del prodotto** visualizzato per l'app quando Google + richiede all'utente di accedere. Sono disponibili con opzioni aggiuntive **altre opzioni di personalizzazione**.
 
 * Toccare **continuazione** per procedere all'ultimo passaggio **scaricare le credenziali**:
 
-![Pagina delle credenziali di gestione API: scaricare le credenziali](index/_static/GoogleConsoleFinish.png)
+![Pagina delle credenziali di gestione API: Scaricare le credenziali](index/_static/GoogleConsoleFinish.png)
 
 * Toccare **scaricare** per salvare un file JSON con i segreti dell'applicazione, e **eseguita** per completare la creazione della nuova app.
 
@@ -136,7 +136,7 @@ Vedere le [GoogleOptions](/dotnet/api/microsoft.aspnetcore.builder.googleoptions
 
 Eseguire l'applicazione e fare clic su **Accedi**. Viene visualizzata un'opzione per accedere con Google:
 
-![Applicazione Web in esecuzione in Microsoft Edge: utente non autenticato](index/_static/DoneGoogle.png)
+![Applicazione Web in esecuzione in Microsoft Edge: Utente non autenticato](index/_static/DoneGoogle.png)
 
 Quando fa clic su Google, si verrà reindirizzati a Google per l'autenticazione:
 
@@ -146,14 +146,14 @@ Dopo aver immesso le credenziali di Google, quindi si verrà reindirizzati al si
 
 A questo punto si è connessi con le credenziali di Google:
 
-![Applicazione Web in esecuzione in Microsoft Edge: utente autenticato](index/_static/Done.png)
+![Applicazione Web in esecuzione in Microsoft Edge: Autenticata utente](index/_static/Done.png)
 
 [!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 * Se si riceve un `403 (Forbidden)` pagina di errore dalla propria app quando è in esecuzione in modalità di sviluppo o inserire un'interruzione nel debugger con lo stesso errore, verificare che **Google + API** è stata abilitata nel **libreriadigestioneAPI** seguendo i passaggi elencati [precedenti in questa pagina](#create-the-app-in-google-api-console). Se non sono presenti eventuali errori di accesso non funziona, passare alla modalità di sviluppo per rendere più semplice eseguire il debug del problema.
-* **ASP.NET Core 2.x solo:** Identity se non è configurato tramite la chiamata `services.AddIdentity` nel `ConfigureServices`, tentativo di autenticazione comporterà *ArgumentException: è necessario specificare l'opzione 'SignInScheme'*. Il modello di progetto usato in questa esercitazione garantisce che questa operazione viene eseguita.
+* **ASP.NET Core 2.x solo:** Se Identity non è configurato tramite la chiamata `services.AddIdentity` nel `ConfigureServices`, il tentativo di eseguire l'autenticazione comporterà *ArgumentException: È necessario specificare l'opzione 'SignInScheme'*. Il modello di progetto usato in questa esercitazione garantisce che questa operazione viene eseguita.
 * Se il database del sito non è stato creato applicando la migrazione iniziale, si otterrà *un'operazione di database non riuscita durante l'elaborazione della richiesta* errore. Toccare **applicare le migrazioni** per creare il database e di aggiornamento per continuare oltre l'errore.
 
 ## <a name="next-steps"></a>Passaggi successivi

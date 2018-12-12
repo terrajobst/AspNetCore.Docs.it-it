@@ -6,12 +6,12 @@ ms.author: casoper
 ms.date: 09/21/2018
 ms.custom: mvc, seodec18
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: e8ac1e33819dd369460139df25597e1aa0979c91
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 9c541644d276bbdc990bb01f8bd80c92862cd6f0
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121713"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284617"
 ---
 # <a name="authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Autenticazione nell'API web con Azure Active Directory B2C in ASP.NET Core
 
@@ -19,7 +19,7 @@ Di [Cam Soper](https://twitter.com/camsoper)
 
 [Azure Active B2C di Directory](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) è una soluzione di gestione identità cloud per le App per dispositivi mobili e web. Il servizio fornisce l'autenticazione per le app ospitate nel cloud e locali. Tipi di autenticazione includono account individuali, gli account di social network e account aziendali federati. Azure AD B2C offre anche l'autenticazione a più fattori con la configurazione minima.
 
-Azure Active Directory (Azure AD) e Azure AD B2C vengono offerti come prodotti separati. Un tenant di Azure AD rappresenta un'organizzazione, mentre un tenant di Azure AD B2C rappresenta una raccolta di identità da usare con le applicazioni relying party. Per altre informazioni, vedere [Azure Active Directory B2C: domande frequenti (FAQ)](/azure/active-directory-b2c/active-directory-b2c-faqs).
+Azure Active Directory (Azure AD) e Azure AD B2C vengono offerti come prodotti separati. Un tenant di Azure AD rappresenta un'organizzazione, mentre un tenant di Azure AD B2C rappresenta una raccolta di identità da usare con le applicazioni relying party. Per altre informazioni, vedere [Azure AD B2C: Domande frequenti (FAQ)](/azure/active-directory-b2c/active-directory-b2c-faqs).
 
 Poiché le API web non dispone di alcuna interfaccia utente, risultano non è possibile reindirizzare l'utente a un servizio token di sicurezza, ad esempio Azure AD B2C. Al contrario, l'API viene passato un token di connessione da app chiamante, che ha già autenticato l'utente con Azure AD B2C. L'API viene quindi convalidato il token senza interazione diretta dell'utente.
 
@@ -175,14 +175,14 @@ Per eseguire una richiesta autenticata all'API web, è necessario un token di co
    |      <strong>Nome del token</strong>       |                                          *{nome del token}*                                       |                                                                                                                   Immettere un nome descrittivo per il token.                                                                                                                    |
    |      <strong>Tipo di concessione</strong>       |                                           implicito                                            |                                                                                                                                                                                                                                                                              |
    |     <strong>URL di callback</strong>      |                                 `https://getpostman.com/postman`                              |                                                                                                                                                                                                                                                                              |
-   |       <strong>URL autenticazione</strong>        | `https://login.microsoftonline.com/{tenant domain name}/oauth2/v2.0/authorize?p=B2C_1_SiUpIn` |  Sostituire *{nome dominio tenant}* con il nome di dominio del tenant. **IMPORTANTI**: questo URL deve avere lo stesso nome di dominio di ciò che si trova `AzureAdB2C.Instance` dell'API web *appSettings. JSON* file. Vedere la nota&dagger;.                                                  |
+   |       <strong>URL autenticazione</strong>        | `https://login.microsoftonline.com/{tenant domain name}/oauth2/v2.0/authorize?p=B2C_1_SiUpIn` |  Sostituire *{nome dominio tenant}* con il nome di dominio del tenant. **IMPORTANTE**: Questo URL deve avere lo stesso nome di dominio di ciò che è disponibile nel `AzureAdB2C.Instance` dell'API web *appSettings. JSON* file. Vedere la nota&dagger;.                                                  |
    |       <strong>ID client</strong>       |                *{Immettere l'app Postman <b>ID applicazione</b>}*                              |                                                                                                                                                                                                                                                                              |
    |         <strong>Ambito</strong>         |         `https://{tenant domain name}/{api}/user_impersonation openid offline_access`       | Sostituire *{nome dominio tenant}* con il nome di dominio del tenant. Sostituire *{api}* con l'URI ID App assegnato all'API web al momento della prima registrazione (in questo caso, `api`). Il modello per l'URL è: `https://{tenant}.onmicrosoft.com/{api-id-uri}/{scope name}`.         |
    |         <strong>Stato</strong>         |                                      *{omette}*                                          |                                                                                                                                                                                                                                                                              |
    | <strong>Autenticazione client</strong> |                                Inviare le credenziali del client nel corpo                                |                                                                                                                                                                                                                                                                              |
 
     > [!NOTE]
-    > &dagger; Finestra di dialogo di impostazioni dei criteri nel portale di Azure Active Directory B2C consente di visualizzare due URL possibili: uno nel formato `https://login.microsoftonline.com/`{nome dominio tenant} / {informazioni aggiuntive sul percorso} e l'altro nel formato `https://{tenant name}.b2clogin.com/`{nome dominio tenant} / {aggiuntive informazioni sul percorso}. Dispone **critici** presenti nel dominio `AzureAdB2C.Instance` dell'API web *appSettings. JSON* file corrisponde a quella usata dell'app web *appSettings. JSON* file. Si tratta del dominio stesso utilizzato per il campo URL di autenticazione in Postman. Si noti che Visual Studio Usa un formato di URL leggermente diverso rispetto a quello visualizzato nel portale. Purché i domini corrispondono, l'URL funziona.
+    > &dagger; Finestra di dialogo di impostazioni dei criteri nel portale di Azure Active Directory B2C consente di visualizzare due URL possibili: Uno nel formato `https://login.microsoftonline.com/`{nome dominio tenant} / {informazioni aggiuntive sul percorso} e l'altro nel formato `https://{tenant name}.b2clogin.com/`{nome dominio tenant} / {informazioni aggiuntive sul percorso}. Dispone **critici** presenti nel dominio `AzureAdB2C.Instance` dell'API web *appSettings. JSON* file corrisponde a quella usata dell'app web *appSettings. JSON* file. Si tratta del dominio stesso utilizzato per il campo URL di autenticazione in Postman. Si noti che Visual Studio Usa un formato di URL leggermente diverso rispetto a quello visualizzato nel portale. Purché i domini corrispondono, l'URL funziona.
 
 3. Selezionare il **richiedere Token** pulsante.
 

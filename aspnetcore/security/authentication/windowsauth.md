@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 11/01/2018
 uid: security/authentication/windowsauth
-ms.openlocfilehash: 342759a6ff4b5679e0d54c979188ae66d339562d
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 15e388433cc9b01e9db3e2fb56aca1ebb5ba5ba4
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121297"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284415"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>Configurare l'autenticazione di Windows in ASP.NET Core
 
@@ -61,9 +61,9 @@ IIS Usa il [modulo di ASP.NET Core](xref:fundamentals/servers/aspnet-core-module
 
 Abilitare il servizio ruolo IIS per l'autenticazione di Windows. Per altre informazioni, vedere [abilitare l'autenticazione di Windows nei servizi di ruolo IIS (vedere il passaggio 2)](xref:host-and-deploy/iis/index#iis-configuration).
 
-Per impostazione predefinita, il Middleware di integrazione IIS è configurato per autenticare automaticamente le richieste. Per altre informazioni, vedere [Host ASP.NET Core in Windows con IIS: le opzioni di IIS (AutomaticAuthentication)](xref:host-and-deploy/iis/index#iis-options).
+Per impostazione predefinita, il Middleware di integrazione IIS è configurato per autenticare automaticamente le richieste. Per altre informazioni, vedere [Host ASP.NET Core in Windows con IIS: Le opzioni di IIS (AutomaticAuthentication)](xref:host-and-deploy/iis/index#iis-options).
 
-Per impostazione predefinita, il modulo ASP.NET Core è configurato per inoltrare il token di autenticazione di Windows per l'app. Per altre informazioni, vedere [riferimento configurazione modulo ASP.NET Core: attributi dell'elemento aspNetCore](xref:host-and-deploy/aspnet-core-module#attributes-of-the-aspnetcore-element).
+Per impostazione predefinita, il modulo ASP.NET Core è configurato per inoltrare il token di autenticazione di Windows per l'app. Per altre informazioni, vedere [riferimento configurazione modulo ASP.NET Core: Attributi dell'elemento aspNetCore](xref:host-and-deploy/aspnet-core-module#attributes-of-the-aspnetcore-element).
 
 ### <a name="create-a-new-iis-site"></a>Creare un nuovo sito IIS
 

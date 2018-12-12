@@ -8,26 +8,26 @@ ms.date: 06/10/2014
 ms.assetid: 0fab5e35-8c1f-43d4-8635-b8aba8766a71
 msc.legacyurl: /signalr/overview/getting-started/introduction-to-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 0b7e223b6b793d1860797157be6021ffb7f1bc12
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: c865078c14b8615faa278819f86a9dd623a42f36
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090293"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287572"
 ---
 <a name="introduction-to-signalr"></a>Introduzione a SignalR
 ====================
 
-Visualizzare [Introduzione ad ASP.NET Core SignalR](/aspnet/core/signalr/introduction) per una versione aggiornata di questa esercitazione che usa la versione più recente di Visual Studio. Usa la nuova esercitazione [ASP.NET Core](/aspnet/core/), che offre numerosi miglioramenti in questa esercitazione.
-
 da [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
+
 
 > Questo articolo descrive che cos'è SignalR e alcune delle soluzioni che è stato progettato per creare. 
 > 
 > ## <a name="questions-and-comments"></a>Domande e commenti
 > 
 > Inviaci un feedback sul modo in cui è stato apprezzato questa esercitazione e cosa possiamo migliorare nei commenti nella parte inferiore della pagina. Se hai domande che non sono direttamente correlate con l'esercitazione, è possibile pubblicarli per i [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) oppure [StackOverflow.com](https://stackoverflow.com/questions/tagged/signalr).
-
 
 ## <a name="what-is-signalr"></a>Che cos'è SignalR?
 
@@ -57,7 +57,7 @@ SignalR utilizza il trasporto WebSocket nuova in cui è disponibile e il fallbac
 
 ## <a name="transports-and-fallbacks"></a>Trasporti e i fallback
 
-SignalR è un'astrazione su alcuni dei trasporti che sono necessari per svolgere il lavoro in tempo reale tra client e server. Una connessione SignalR inizia come HTTP e viene quindi promossa a una connessione WebSocket, se disponibile. WebSocket è il trasporto ideale per SignalR, poiché consente di ottimizzare l'uso della memoria del server, con la latenza più bassa e presenta le funzionalità più sottostante (ad esempio comunicazione full duplex tra client e server), ma include anche i più rigorosi requisiti: WebSocket richiede che il server di usare Windows Server 2012 o Windows 8 e .NET Framework 4.5. Se questi requisiti non vengono soddisfatti, verrà effettuato un tentativo di utilizzare altri tipi di trasporto per rendere le connessioni SignalR.
+SignalR è un'astrazione su alcuni dei trasporti che sono necessari per svolgere il lavoro in tempo reale tra client e server. Una connessione SignalR inizia come HTTP e viene quindi promossa a una connessione WebSocket, se disponibile. WebSocket è il trasporto ideale per SignalR, poiché consente di ottimizzare l'uso della memoria del server, con la latenza più bassa e presenta le funzionalità più sottostante (ad esempio comunicazione full duplex tra client e server), ma include anche i più rigorosi requisiti: WebSocket richiede il server di usare Windows Server 2012 o Windows 8 e .NET Framework 4.5. Se questi requisiti non vengono soddisfatti, verrà effettuato un tentativo di utilizzare altri tipi di trasporto per rendere le connessioni SignalR.
 
 ### <a name="html-5-transports"></a>HTML 5 trasporta
 
@@ -132,7 +132,7 @@ Le costanti stringa che specificano i trasporti sono definite come segue:
 
 ## <a name="connections-and-hubs"></a>Le connessioni e hub
 
-L'API SignalR contiene due modelli per la comunicazione tra client e server: le connessioni persistenti e gli hub.
+L'API SignalR contiene due modelli per la comunicazione tra client e server: Le connessioni persistenti e gli hub.
 
 Una connessione rappresenta un endpoint semplice per l'invio di messaggi raggruppato, trasmissione o singolo destinatario. Consente di API di connessione permanente (rappresentato nel codice .NET dalla classe PersistentConnection) accedere al protocollo di comunicazione di basso livello che SignalR espone direttamente allo sviluppatore. Usando il modello di comunicazione connessioni saranno nota agli sviluppatori che hanno usato le API basate su connessione, ad esempio Windows Communication Foundation.
 

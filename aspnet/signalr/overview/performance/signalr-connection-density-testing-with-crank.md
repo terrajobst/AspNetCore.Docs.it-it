@@ -8,21 +8,23 @@ ms.date: 02/22/2015
 ms.assetid: 148d9ca7-1af1-44b6-a9fb-91e261b9b463
 msc.legacyurl: /signalr/overview/performance/signalr-connection-density-testing-with-crank
 msc.type: authoredcontent
-ms.openlocfilehash: 556accb1bcc18e9e4d1f813a87fc6f4b67bda088
-ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
+ms.openlocfilehash: 308fed51953b085506488c5e0dda1ced9f4d09fb
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51021482"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287573"
 ---
 <a name="signalr-connection-density-testing-with-crank"></a>Densità di connessione di SignalR con Crank di test
 ====================
 da [Tom FitzMacken](https://github.com/tfitzmac)
 
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
+
 > Questo articolo descrive come usare lo strumento manovella per testare un'applicazione con più client simulato.
 
 
-L'applicazione è in esecuzione nel relativo ambiente di hosting (un Azure ruolo, IIS, web o reso indipendente utilizzando Owin), è possibile testare la risposta dell'applicazione a un elevato livello di densità di connessione mediante lo strumento di perno. L'ambiente di hosting può essere un server Internet Information Services (IIS), un host Owin o un ruolo web di Azure. (Nota: i contatori delle prestazioni non sono disponibili in App Web di servizio App di Azure, in modo non sarà in grado di ottenere i dati sulle prestazioni da un test di densità di connessione.)
+L'applicazione è in esecuzione nel relativo ambiente di hosting (un Azure ruolo, IIS, web o reso indipendente utilizzando Owin), è possibile testare la risposta dell'applicazione a un elevato livello di densità di connessione mediante lo strumento di perno. L'ambiente di hosting può essere un server Internet Information Services (IIS), un host Owin o un ruolo web di Azure. (Nota: I contatori delle prestazioni non sono disponibili in App Web di servizio App di Azure, in modo non sarà in grado di ottenere i dati sulle prestazioni da un test di densità di connessione.)
 
 Densità di connessione fa riferimento al numero di connessioni TCP simultanee che possono essere stabilite in un server. Ogni connessione TCP comporta il proprio sovraccarico e apertura di un numero elevato di connessioni inattive consentono di creare un collo di bottiglia della memoria.
 
@@ -45,21 +47,21 @@ Dopo aver scaricato e compilato la codebase e installato i contatori delle prest
 Le opzioni disponibili per lo strumento Crank includono:
 
 - **/?** : Mostra la schermata della Guida. Le opzioni disponibili vengono visualizzate anche se il **Url** parametro viene omesso.
-- **/ Url**: l'URL per le connessioni SignalR. Questo parametro è obbligatorio. Per un'applicazione di SignalR con il mapping predefinito, il percorso termina "/ signalr".
-- **/ Trasporto**: il nome del trasporto utilizzato. Il valore predefinito è `auto`, che verrà selezionato il protocollo ottimale. Le opzioni includono `WebSockets`, `ServerSentEvents`, e `LongPolling` (`ForeverFrame` non è un'opzione per manovella, poiché il client .NET invece viene utilizzato Internet Explorer). Per altre informazioni su come SignalR seleziona trasporti, vedere [trasporti e i fallback](../getting-started/introduction-to-signalr.md#transports).
-- **/ BatchSize**: il numero di client aggiunti in ogni batch. Il valore predefinito è 50.
-- **/ ConnectInterval**: l'intervallo in millisecondi tra l'aggiunta di connessioni. Il valore predefinito è 500.
-- **/ Connessioni**: il numero di connessioni utilizzato per l'applicazione di test di carico. Il valore predefinito è 100.000.
-- **/ ConnectTimeout**: il timeout in secondi prima di interrompere il test. Il valore predefinito è 300.
+- **/ Url**: L'URL per le connessioni SignalR. Questo parametro è obbligatorio. Per un'applicazione di SignalR con il mapping predefinito, il percorso termina "/ signalr".
+- **/ Trasporto**: Il nome del trasporto utilizzato. Il valore predefinito è `auto`, che verrà selezionato il protocollo ottimale. Le opzioni includono `WebSockets`, `ServerSentEvents`, e `LongPolling` (`ForeverFrame` non è un'opzione per manovella, poiché il client .NET invece viene utilizzato Internet Explorer). Per altre informazioni su come SignalR seleziona trasporti, vedere [trasporti e i fallback](../getting-started/introduction-to-signalr.md#transports).
+- **/ BatchSize**: Il numero di client aggiunti in ogni batch. Il valore predefinito è 50.
+- **/ ConnectInterval**: L'intervallo in millisecondi tra l'aggiunta di connessioni. Il valore predefinito è 500.
+- **/ Connessioni**: Il numero di connessioni utilizzato per l'applicazione di test di carico. Il valore predefinito è 100.000.
+- **/ ConnectTimeout**: Il timeout in secondi prima di interrompere il test. Il valore predefinito è 300.
 - **MinServerMBytes**: I megabyte minima per il server di raggiungere. Il valore predefinito è 500.
-- **SendBytes**: le dimensioni del payload inviato al server in byte. Il valore predefinito è 0.
-- **SendInterval**: il ritardo in millisecondi tra i messaggi al server. Il valore predefinito è 500.
-- **SendTimeout**: il timeout in millisecondi per i messaggi al server. Il valore predefinito è 300.
-- **ControllerUrl**: l'Url in cui un client ospiterà un hub di controller. Il valore predefinito è null (Nessun hub controller). L'hub di controller viene avviato all'avvio della sessione Crank; alcuna ulteriore contatto tra l'hub di controller e Crank viene usato.
-- **NumClients**: il numero di client simulato per connettersi all'applicazione. Il valore predefinito è uno.
-- **File di log**: il nome del file per il file di log per l'esecuzione dei test. Il valore predefinito è `crank.csv`.
-- **SampleInterval**: il tempo in millisecondi tra i campioni di contatore delle prestazioni. Il valore predefinito è 1000.
-- **SignalRInstance**: il nome dell'istanza per i contatori delle prestazioni nel server. L'impostazione predefinita consiste nell'usare lo stato della connessione client.
+- **SendBytes**: Le dimensioni del payload inviato al server in byte. Il valore predefinito è 0.
+- **SendInterval**: Il ritardo in millisecondi tra i messaggi al server. Il valore predefinito è 500.
+- **SendTimeout**: Il timeout in millisecondi per i messaggi al server. Il valore predefinito è 300.
+- **ControllerUrl**: L'Url in cui un client ospiterà un hub di controller. Il valore predefinito è null (Nessun hub controller). L'hub di controller viene avviato all'avvio della sessione Crank; alcuna ulteriore contatto tra l'hub di controller e Crank viene usato.
+- **NumClients**: Il numero di client simulato per connettersi all'applicazione. Il valore predefinito è uno.
+- **File di log**: Il nome del file per il file di log per l'esecuzione dei test. Il valore predefinito è `crank.csv`.
+- **SampleInterval**: Il tempo in millisecondi tra i campioni di contatore delle prestazioni. Il valore predefinito è 1000.
+- **SignalRInstance**: Il nome dell'istanza per i contatori delle prestazioni nel server. L'impostazione predefinita consiste nell'usare lo stato della connessione client.
 
 ### <a name="example"></a>Esempio
 

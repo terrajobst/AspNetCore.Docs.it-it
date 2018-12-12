@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: b19913e5-cd8a-4e4b-a872-5ac7a858a934
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-server
 msc.type: authoredcontent
-ms.openlocfilehash: 6545491cfa36bb9fee555eb0348ec0a319bff470
-ms.sourcegitcommit: fc2486ddbeb15ab4969168d99b3fe0fbe91e8661
+ms.openlocfilehash: 4730c4d9f601f561cfc884e0a9c2c2d12785ae0f
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50758245"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53288105"
 ---
 <a name="aspnet-signalr-hubs-api-guide---server-c"></a>Guida all'API di ASP.NET SignalR Hubs - Server (c#)
 ====================
 dal [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://github.com/tdykstra)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Questo documento fornisce un'introduzione alla programmazione sul lato server dell'API di hub SignalR ASP.NET per SignalR versione 2, con esempi di codice che illustrano le opzioni comuni.
 > 
@@ -41,7 +43,6 @@ dal [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://gith
 > ## <a name="questions-and-comments"></a>Domande e commenti
 > 
 > Inviaci un feedback sul modo in cui è stato apprezzato questa esercitazione e cosa possiamo migliorare nei commenti nella parte inferiore della pagina. Se hai domande che non sono direttamente correlate con l'esercitazione, è possibile pubblicarli per i [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) oppure [StackOverflow.com](http://stackoverflow.com/).
-
 
 ## <a name="overview"></a>Panoramica
 

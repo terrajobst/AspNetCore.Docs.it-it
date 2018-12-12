@@ -8,16 +8,18 @@ ms.date: 04/17/2013
 ms.assetid: c334adc3-d6dc-44f3-9f06-f7634475aad3
 msc.legacyurl: /signalr/overview/older-versions/signalr-1x-hubs-api-guide-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 5889429645ea1c682ea43c4b17afb3745318e32d
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 34356338f24788226351e8e22b47eaaf7ea03e61
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41837119"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287982"
 ---
 <a name="aspnet-signalr-hubs-api-guide---net-client-signalr-1x"></a>Guida all'API di ASP.NET SignalR Hubs - Client .NET (SignalR 1.x)
 ====================
 dal [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://github.com/tdykstra)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Questo documento fornisce un'introduzione all'uso dell'API di hub per SignalR versione 2 nel client .NET, ad esempio applicazioni console, WPF, Silverlight e Windows Store (WinRT).
 > 
@@ -314,7 +316,7 @@ Il `Invoke` metodo viene eseguito in modo asincrono e restituisce un `Task` ogge
 
 SignalR fornisce il collegamento seguente gli eventi di durata che è possibile gestire:
 
-- `Received`: Generato quando vengono ricevuti dati sulla connessione. Fornisce i dati ricevuti.
+- `Received`: Generato quando vengono ricevuti tutti i dati nella connessione. Fornisce i dati ricevuti.
 - `ConnectionSlow`: Generato quando il client rileva una connessione lenta o frequentemente eliminazione.
 - `Reconnecting`: Generato quando il trasporto sottostante inizia la riconnessione.
 - `Reconnected`: Generato quando il trasporto sottostante è stata riconnessa.

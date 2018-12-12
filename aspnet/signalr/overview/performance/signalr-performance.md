@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: 3751f5e7-59db-4be0-a290-50abc24e5c84
 msc.legacyurl: /signalr/overview/performance/signalr-performance
 msc.type: authoredcontent
-ms.openlocfilehash: 269c10d7a73f181eaceac1c43ad51f3933d6711c
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 9346f0ff9720361f07afe196f59305f0f38ffe8a
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911860"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287773"
 ---
 <a name="signalr-performance"></a>Prestazioni di SignalR
 ====================
 da [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > In questo argomento viene descritto come progettare per misurare e migliorare le prestazioni in un'applicazione di SignalR.
 >
@@ -88,7 +90,7 @@ Le impostazioni di configurazione seguente sono utilizzabile per ottimizzare il 
 
 **Impostazioni di configurazione di SignalR**
 
-- **DefaultMessageBufferSize**: per impostazione predefinita, SignalR mantiene i 1000 messaggi in memoria per ogni hub per ogni connessione. Se vengono utilizzati messaggi di grandi dimensioni, ciò può creare problemi di memoria che possono essere mitigati mediante la riduzione di questo valore. Questa impostazione può essere impostata `Application_Start` gestore dell'evento in un'applicazione ASP.NET o nel `Configuration` metodo di una classe di avvio OWIN in un'applicazione self-hosted. L'esempio seguente viene illustrato come ridurre questo valore per ridurre il footprint di memoria dell'applicazione per ridurre la quantità di memoria del server usata:
+- **DefaultMessageBufferSize**: Per impostazione predefinita, SignalR mantiene 1000 messaggi in memoria per ogni hub per ogni connessione. Se vengono utilizzati messaggi di grandi dimensioni, ciò può creare problemi di memoria che possono essere mitigati mediante la riduzione di questo valore. Questa impostazione può essere impostata `Application_Start` gestore dell'evento in un'applicazione ASP.NET o nel `Configuration` metodo di una classe di avvio OWIN in un'applicazione self-hosted. L'esempio seguente viene illustrato come ridurre questo valore per ridurre il footprint di memoria dell'applicazione per ridurre la quantità di memoria del server usata:
 
     **Codice server .NET nel file Startup.cs per la riduzione delle dimensioni del buffer di messaggio predefinita**
 
@@ -96,10 +98,10 @@ Le impostazioni di configurazione seguente sono utilizzabile per ottimizzare il 
 
 **Impostazioni di configurazione di IIS**
 
-- **Numero massimo di richieste simultanee per ogni applicazione**: aumento del numero di IIS simultanee richieste aumenterà le risorse server disponibili per soddisfare le richieste. Il valore predefinito è 5000; Per aumentare questa impostazione, eseguire i comandi seguenti in un prompt dei comandi con privilegi elevati:
+- **Numero massimo di richieste simultanee per ogni applicazione**: L'aumento del numero di IIS simultanee richieste aumenterà le risorse server disponibili per soddisfare le richieste. Il valore predefinito è 5000; Per aumentare questa impostazione, eseguire i comandi seguenti in un prompt dei comandi con privilegi elevati:
 
     [!code-console[Main](signalr-performance/samples/sample4.cmd)]
-- **ApplicationPool QueueLength**: questo è il numero massimo di richieste che mette in coda HTTP. sys per il pool di applicazioni. Quando la coda è piena, le nuove richieste ricevono una risposta 503 "Servizio non disponibile". Il valore predefinito è 1000.
+- **ApplicationPool QueueLength**: Questo è il numero massimo di richieste che mette in coda HTTP. sys per il pool di applicazioni. Quando la coda è piena, le nuove richieste ricevono una risposta 503 "Servizio non disponibile". Il valore predefinito è 1000.
 
     Ridurre la lunghezza della coda per il processo di lavoro nel pool di applicazioni che ospitano l'applicazione verrà conservare le risorse di memoria. Per altre informazioni, vedere [gestione dell'ottimizzazione e la configurazione di pool di applicazioni](https://technet.microsoft.com/library/cc745955.aspx).
 
@@ -112,10 +114,10 @@ In questa sezione include le impostazioni di configurazione che possono essere i
 
 Impostazioni di ASP.NET che possono migliorare le prestazioni di SignalR includono quanto segue:
 
-- **Numero massimo di richieste simultaneo per CPU**: aumentare questa impostazione può ridurre i colli di bottiglia delle prestazioni. Per aumentare questa impostazione, aggiungere la seguente impostazione di configurazione per il `aspnet.config` file:
+- **Numero massimo di richieste simultaneo per CPU**: Aumentare questa impostazione può ridurre i colli di bottiglia delle prestazioni. Per aumentare questa impostazione, aggiungere la seguente impostazione di configurazione per il `aspnet.config` file:
 
     [!code-xml[Main](signalr-performance/samples/sample5.xml?highlight=4)]
-- **Limite coda richieste**: quando il numero totale di connessioni supera le `maxConcurrentRequestsPerCPU` impostazione, ASP.NET inizierà a limitazione delle richieste tramite una coda. Per aumentare le dimensioni della coda, è possibile aumentare il `requestQueueLimit` impostazione. A tale scopo, aggiungere la seguente impostazione di configurazione per il `processModel` nodo `config/machine.config` (anziché `aspnet.config`):
+- **Limite coda richieste**: Quando il numero totale di connessioni supera le `maxConcurrentRequestsPerCPU` impostazione, ASP.NET inizierà a limitazione delle richieste tramite una coda. Per aumentare le dimensioni della coda, è possibile aumentare il `requestQueueLimit` impostazione. A tale scopo, aggiungere la seguente impostazione di configurazione per il `processModel` nodo `config/machine.config` (anziché `aspnet.config`):
 
     [!code-xml[Main](signalr-performance/samples/sample6.xml)]
 
@@ -197,13 +199,13 @@ Le seguenti metriche misurano il traffico attraverso il bus di messaggi SignalR 
 
 Le metriche seguenti misurano gli errori generati dal traffico di messaggi SignalR. **Risoluzione dell'hub** si verificano errori quando un hub o un metodo dell'hub non può essere risolto. **Chiamata dell'hub** gli errori sono le eccezioni generate durante la chiamata di un metodo dell'hub. **Trasporto** gli errori di connessione generata un'eccezione durante una richiesta o risposta HTTP.
 
-- **Gli errori: Totale di tutti**
+- **Errori: Tutti i totali**
 - **Errori: All/Sec**
-- **Errori: Totale risoluzione di Hub**
-- **Errori: Risoluzione dell'Hub al secondo**
-- **Errori: Totale chiamata di Hub**
-- **Errori: Chiamata dell'Hub al secondo**
-- **: Errori Totale di trasporto**
+- **Errori: Totale di risoluzione dell'hub**
+- **Errori: Risoluzione dell'hub al secondo**
+- **Errori: Totale di chiamata dell'hub**
+- **Errori: Chiamata dell'hub al secondo**
+- **Errori: Totale trasporto**
 - **Errori: Messaggi trasporto/Sec**
 
 <a id="scaleout_metrics"></a>

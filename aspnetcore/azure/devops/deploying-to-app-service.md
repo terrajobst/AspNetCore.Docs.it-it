@@ -6,12 +6,12 @@ ms.author: casoper
 ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: azure/devops/deploy-to-app-service
-ms.openlocfilehash: 4424d3d15cbd234357c8265fa276834cb9abf352
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 9fe17c9e210d4dda9b74818104fc52a60d4f0077
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121220"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284539"
 ---
 # <a name="deploy-an-app-to-app-service"></a>Distribuire un'app in servizio App
 
@@ -141,7 +141,7 @@ Per distribuire l'app, è necessario creare un servizio App [App Web](/azure/app
 
 ## <a name="deployment-with-visual-studio"></a>Distribuzione con Visual Studio
 
-> *Nota: In questa sezione si applica a Windows solo. Gli utenti di Linux e macOS è necessario apportare la modifica descritta nel passaggio 2 di seguito. Salvare il file ed eseguire il commit della modifica nel repository locale con `git commit`. Infine, il push della modifica con `git push`, come nella prima sezione.*
+> *Nota: In questa sezione si applica solo a Windows. Gli utenti di Linux e macOS è necessario apportare la modifica descritta nel passaggio 2 di seguito. Salvare il file ed eseguire il commit della modifica nel repository locale con `git commit`. Infine, il push della modifica con `git push`, come nella prima sezione.*
 
 L'app è già stata distribuita dalla shell dei comandi. Utilizziamo gli strumenti integrati di Visual Studio per distribuire un aggiornamento all'app. Dietro le quinte, Visual Studio esegue la stessa operazione come la riga di comando degli strumenti, ma all'interno dell'interfaccia utente familiare di Visual Studio.
 

@@ -1,6 +1,6 @@
 ---
 uid: signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
-title: 'Esercitazione: Trasmissione Server con SignalR 2 | Microsoft Docs'
+title: 'Esercitazione: Trasmissione server con SignalR 2 | Microsoft Docs'
 author: tdykstra
 description: Questa esercitazione illustra come creare un'applicazione web che usa ASP.NET SignalR 2 per fornire funzionalità di trasmissione di server. Trasmissione del server indica che tale comune d'...
 ms.author: riande
@@ -8,16 +8,18 @@ ms.date: 10/13/2014
 ms.assetid: 1568247f-60b5-4eca-96e0-e661fbb2b273
 msc.legacyurl: /signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 7a85a704dc5d830ec793540fbc44a3ce7ec8c934
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: ad2eee8742d5bc45dc2bdc90f76736b4dc94d14b
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911542"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53288008"
 ---
-<a name="tutorial-server-broadcast-with-signalr-2"></a>Esercitazione: Trasmissione Server con SignalR 2
+<a name="tutorial-server-broadcast-with-signalr-2"></a>Esercitazione: Trasmissione server con SignalR 2
 ====================
 dal [Tom Dykstra](https://github.com/tdykstra), [Tom FitzMacken](https://github.com/tfitzmac)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Questa esercitazione illustra come creare un'applicazione web che usa ASP.NET SignalR 2 per fornire funzionalità di trasmissione di server. Trasmissione del server significa che le comunicazioni inviate ai client avviate tramite il server. Questo scenario richiede un approccio di programmazione diverso rispetto agli scenari peer-to-peer, ad esempio applicazioni chat, in cui vengono avviate le comunicazioni inviate ai client da una o più dei client.
 >
@@ -52,7 +54,6 @@ dal [Tom Dykstra](https://github.com/tdykstra), [Tom FitzMacken](https://github.
 > ## <a name="questions-and-comments"></a>Domande e commenti
 >
 > Inviaci un feedback sul modo in cui è stato apprezzato questa esercitazione e cosa possiamo migliorare nei commenti nella parte inferiore della pagina. Se hai domande che non sono direttamente correlate con l'esercitazione, è possibile pubblicarli per i [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) oppure [StackOverflow.com](http://stackoverflow.com/).
-
 
 ## <a name="overview"></a>Panoramica
 

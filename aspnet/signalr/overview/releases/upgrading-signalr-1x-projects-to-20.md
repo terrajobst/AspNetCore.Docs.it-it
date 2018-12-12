@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: adcfef99-9bc5-489d-a91b-9b7c2bc35e04
 msc.legacyurl: /signalr/overview/releases/upgrading-signalr-1x-projects-to-20
 msc.type: authoredcontent
-ms.openlocfilehash: 450ddedb520035cc05a0dbcca1a2666dd1ba24c7
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 23ea23585b15395cf86bdad13885af32d1b64e79
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910551"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53286844"
 ---
 <a name="upgrading-signalr-1x-projects-to-version-2"></a>L'aggiornamento di progetti SignalR 1.x alla versione 2
 ====================
 da [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > In questo argomento descrive come aggiornare un progetto 1.x SignalR esistente a SignalR 2.x e come risolvere i problemi che potrebbero verificarsi durante il processo di aggiornamento.
 >
@@ -50,7 +52,7 @@ SignalR 2 offre un'esperienza di sviluppo coerente nelle diverse piattaforme ser
 
 Anche se è consigliabile aggiornare le applicazioni a SignalR 2, SignalR 1.x verrà comunque essere supportato.
 
-Questa esercitazione descrive come aggiornare un'applicazione ospitata sul web a SignalR 2. Le applicazioni self-hosted (quelli che ospitano un server in un'applicazione console, il servizio di Windows o altri processi) sono ora supportate in SignalR 2. Per informazioni su come iniziare a creare un'applicazione indipendente con SignalR 2, vedere [esercitazione: hosting indipendente di SignalR](../deployment/tutorial-signalr-self-host.md).
+Questa esercitazione descrive come aggiornare un'applicazione ospitata sul web a SignalR 2. Le applicazioni self-hosted (quelli che ospitano un server in un'applicazione console, il servizio di Windows o altri processi) sono ora supportate in SignalR 2. Per informazioni su come iniziare a creare un'applicazione indipendente con SignalR 2, vedere [esercitazione: Hosting indipendente di SignalR](../deployment/tutorial-signalr-self-host.md).
 
 ## <a name="contents"></a>Sommario
 
@@ -61,7 +63,7 @@ Le sezioni seguenti descrivono le attività coinvolte relativi all'aggiornamento
 
 <a id="example"></a>
 
-## <a name="example-upgrading-the-getting-started-tutorial-application-to-signalr-2"></a>Esempio: Aggiornamento dell'applicazione di esercitazione Introduzione a SignalR 2
+## <a name="example-upgrading-the-getting-started-tutorial-application-to-signalr-2"></a>Esempio: L'aggiornamento dell'applicazione di esercitazione Introduzione a SignalR 2
 
 In questa sezione, si aggiornerà l'applicazione creata nel [versione di SignalR 1.x dell'esercitazione introduttiva](../older-versions/index.md) usare SignalR 2.
 

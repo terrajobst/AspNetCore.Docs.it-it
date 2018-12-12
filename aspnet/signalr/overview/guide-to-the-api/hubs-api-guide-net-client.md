@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: 6d02d9f7-94e5-4140-9f51-5a6040f274f6
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 2d7dd1480694eacffc0cfa60ac0179b16348488d
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 0a2b24039259ef90579a7f215bb9e35ebef7b9b9
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912995"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53288041"
 ---
 <a name="aspnet-signalr-hubs-api-guide---net-client-c"></a>Guida all'API di ASP.NET SignalR Hubs - Client .NET (c#)
 ====================
 dal [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://github.com/tdykstra)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Questo documento fornisce un'introduzione all'uso dell'API di hub per SignalR versione 2 nel client .NET, ad esempio applicazioni console, WPF, Silverlight e Windows Store (WinRT).
 >
@@ -41,7 +43,6 @@ dal [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://gith
 > ## <a name="questions-and-comments"></a>Domande e commenti
 >
 > Inviaci un feedback sul modo in cui è stato apprezzato questa esercitazione e cosa possiamo migliorare nei commenti nella parte inferiore della pagina. Se hai domande che non sono direttamente correlate con l'esercitazione, è possibile pubblicarli per i [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) oppure [StackOverflow.com](http://stackoverflow.com/).
-
 
 ## <a name="overview"></a>Panoramica
 
@@ -329,7 +330,7 @@ Il `Invoke` metodo viene eseguito in modo asincrono e restituisce un `Task` ogge
 
 SignalR fornisce il collegamento seguente gli eventi di durata che è possibile gestire:
 
-- `Received`: Generato quando vengono ricevuti dati sulla connessione. Fornisce i dati ricevuti.
+- `Received`: Generato quando vengono ricevuti tutti i dati nella connessione. Fornisce i dati ricevuti.
 - `ConnectionSlow`: Generato quando il client rileva una connessione lenta o frequentemente eliminazione.
 - `Reconnecting`: Generato quando il trasporto sottostante inizia la riconnessione.
 - `Reconnected`: Generato quando il trasporto sottostante è stata riconnessa.

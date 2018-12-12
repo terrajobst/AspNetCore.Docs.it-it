@@ -8,16 +8,18 @@ ms.date: 05/01/2013
 ms.assetid: 501db899-e68c-49ff-81b2-1dc561bfe908
 msc.legacyurl: /signalr/overview/older-versions/scaleout-with-windows-azure-service-bus
 msc.type: authoredcontent
-ms.openlocfilehash: d597eebc958815b1b1b9fdffc256c4453efce6b3
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 687d3d7787baa69410ee35d651a029c69d28c70b
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910954"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287000"
 ---
 <a name="signalr-scaleout-with-azure-service-bus-signalr-1x"></a>Scalabilità orizzontale di SignalR con il Bus di servizio di Azure (SignalR 1.x)
 ====================
 dal [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 In questa esercitazione si distribuirà un'applicazione di SignalR per un ruolo Web di Azure di Windows, utilizzando il backplane del Bus di servizio per distribuire i messaggi per ogni istanza del ruolo.
 
@@ -53,7 +55,7 @@ Per ogni applicazione, selezionare un valore diverso per "YourAppName". Non util
 
 ## <a name="create-the-azure-services"></a>Creare i servizi di Azure
 
-Creare un servizio Cloud, come descritto in [come creare e distribuire un servizio Cloud](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy). Seguire i passaggi nella sezione "procedura: creare un servizio cloud con creazione rapida". Per questa esercitazione, non occorre caricare un certificato.
+Creare un servizio Cloud, come descritto in [come creare e distribuire un servizio Cloud](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy). Seguire i passaggi nella sezione "procedura: Creare un servizio cloud con creazione rapida". Per questa esercitazione, non occorre caricare un certificato.
 
 ![](scaleout-with-windows-azure-service-bus/_static/image2.png)
 

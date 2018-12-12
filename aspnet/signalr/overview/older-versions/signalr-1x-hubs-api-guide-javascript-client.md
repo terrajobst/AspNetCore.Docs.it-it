@@ -8,16 +8,18 @@ ms.date: 04/17/2013
 ms.assetid: dcd4593b-1118-418a-af71-d12ff33fb36d
 msc.legacyurl: /signalr/overview/older-versions/signalr-1x-hubs-api-guide-javascript-client
 msc.type: authoredcontent
-ms.openlocfilehash: 993ad7924d8335f79aa2c3e41c00ddfa8bc26874
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 2d50a92cff96be5c5c60105bba6682d38f9666b6
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41837725"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53288092"
 ---
 <a name="signalr-1x-hubs-api-guide---javascript-client"></a>SignalR 1.x Guida all'API Hubs - Client JavaScript
 ====================
 dal [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://github.com/tdykstra)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Questo documento fornisce un'introduzione all'uso dell'API di hub per SignalR versione 1.1 nel client JavaScript, ad esempio browser e applicazioni Windows Store (WinJS).
 > 
@@ -444,7 +446,7 @@ Negli esempi precedenti viene illustrato come chiamare un metodo del server che 
 SignalR fornisce il collegamento seguente gli eventi di durata che è possibile gestire:
 
 - `starting`: Generato prima che tutti i dati vengono inviati tramite la connessione.
-- `received`: Generato quando vengono ricevuti dati sulla connessione. Fornisce i dati ricevuti.
+- `received`: Generato quando vengono ricevuti tutti i dati nella connessione. Fornisce i dati ricevuti.
 - `connectionSlow`: Generato quando il client rileva una connessione lenta o frequentemente eliminazione.
 - `reconnecting`: Generato quando il trasporto sottostante inizia la riconnessione.
 - `reconnected`: Generato quando il trasporto sottostante è stata riconnessa.

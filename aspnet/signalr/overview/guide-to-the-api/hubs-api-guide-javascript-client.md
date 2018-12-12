@@ -8,16 +8,18 @@ ms.date: 09/28/2015
 ms.assetid: a9fd4dc0-1b96-4443-82ca-932a5b4a8ea4
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-javascript-client
 msc.type: authoredcontent
-ms.openlocfilehash: 9edb7fd100a3f4c5331454045ac206d2f7a81961
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 8e493eda256351904da49e1222773f188e6a2058
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912449"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53288066"
 ---
 <a name="aspnet-signalr-hubs-api-guide---javascript-client"></a>Guida all'API di ASP.NET SignalR Hubs - Client JavaScript
 ====================
 dal [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://github.com/tdykstra)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Questo documento fornisce un'introduzione all'uso dell'API di hub per SignalR versione 2 nel client JavaScript, ad esempio i browser e applicazioni Windows Store (WinJS).
 >
@@ -41,7 +43,6 @@ dal [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://gith
 > ## <a name="questions-and-comments"></a>Domande e commenti
 >
 > Inviaci un feedback sul modo in cui è stato apprezzato questa esercitazione e cosa possiamo migliorare nei commenti nella parte inferiore della pagina. Se hai domande che non sono direttamente correlate con l'esercitazione, è possibile pubblicarli per i [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) oppure [StackOverflow.com](http://stackoverflow.com/).
-
 
 ## <a name="overview"></a>Panoramica
 
@@ -226,7 +227,7 @@ In SignalR 1.x, richieste tra domini sono state controllate da un singolo flag E
 
 Se JSONP è obbligatorio per il client (per supportare le richieste tra domini in browser meno recenti), dovrà essere abilitata in modo esplicito impostando `EnableJSONP` nella `HubConfiguration` oggetto `true`, come illustrato di seguito. JSONP è disabilitata per impostazione predefinita, perché è meno sicuro rispetto a CORS.
 
-**Aggiunta di owin al progetto:** per installare questa libreria, eseguire il comando seguente nella Console di gestione pacchetti:
+**Aggiunta di owin al progetto:** Per installare questa libreria, eseguire il comando seguente nella Console di gestione pacchetti:
 
 `Install-Package Microsoft.Owin.Cors`
 
@@ -465,7 +466,7 @@ Negli esempi precedenti viene illustrato come chiamare un metodo del server che 
 SignalR fornisce il collegamento seguente gli eventi di durata che è possibile gestire:
 
 - `starting`: Generato prima che tutti i dati vengono inviati tramite la connessione.
-- `received`: Generato quando vengono ricevuti dati sulla connessione. Fornisce i dati ricevuti.
+- `received`: Generato quando vengono ricevuti tutti i dati nella connessione. Fornisce i dati ricevuti.
 - `connectionSlow`: Generato quando il client rileva una connessione lenta o frequentemente eliminazione.
 - `reconnecting`: Generato quando il trasporto sottostante inizia la riconnessione.
 - `reconnected`: Generato quando il trasporto sottostante è stata riconnessa.

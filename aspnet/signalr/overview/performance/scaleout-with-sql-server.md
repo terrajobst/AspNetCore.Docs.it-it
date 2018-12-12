@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: 98358b6e-9139-4239-ba3a-2d7dd74dd664
 msc.legacyurl: /signalr/overview/performance/scaleout-with-sql-server
 msc.type: authoredcontent
-ms.openlocfilehash: 7d9acfc8ed2dd692f36528a8a9700d92d86a4203
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 73b16ecf141732f0adc362dc5167073491cc2dea
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910447"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287013"
 ---
 <a name="signalr-scaleout-with-sql-server"></a>Scalabilità orizzontale di SignalR con SQL Server
 ====================
 dal [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > ## <a name="software-versions-used-in-this-topic"></a>Versioni del software utilizzate in questo argomento
 >
@@ -59,7 +61,7 @@ Prima di passare all'esercitazione dettagliata, ecco una rapida panoramica delle
 
     [!code-csharp[Main](scaleout-with-sql-server/samples/sample1.cs)]
 
-   Questo codice consente di configurare con i valori predefiniti per il backplane [TableCount](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.sqlscaleoutconfiguration.tablecount(v=vs.118).aspx) e [MaxQueueLength](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx). Per informazioni sulla modifica di questi valori, vedere [prestazioni di SignalR: la metrica di scalabilità orizzontale](signalr-performance.md#scaleout_metrics).
+   Questo codice consente di configurare con i valori predefiniti per il backplane [TableCount](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.sqlscaleoutconfiguration.tablecount(v=vs.118).aspx) e [MaxQueueLength](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx). Per informazioni sulla modifica di questi valori, vedere [prestazioni di SignalR: La metrica di scalabilità orizzontale](signalr-performance.md#scaleout_metrics).
 
 ## <a name="configure-the-database"></a>Configurare il Database
 

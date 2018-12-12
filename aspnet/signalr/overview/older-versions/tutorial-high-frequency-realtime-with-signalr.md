@@ -8,16 +8,18 @@ ms.date: 04/16/2013
 ms.assetid: ad2a5da5-2e79-40ea-bc84-028d327f5982
 msc.legacyurl: /signalr/overview/older-versions/tutorial-high-frequency-realtime-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: c677bcbc78eac6056c035c2b34fe659caac9c6fa
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: a679a7c66a94fa440a1ead64225eb86f7de90c9e
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912280"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287960"
 ---
 <a name="high-frequency-realtime-with-signalr-1x"></a>Messaggistica ad alta frequenza con SignalR 1.x
 ====================
 da [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Questa esercitazione illustra come creare un'applicazione web che usa ASP.NET SignalR per fornire funzionalità di messaggistica ad alta frequenza. In questo caso la messaggistica ad alta frequenza indica gli aggiornamenti che vengono inviati a una tariffa fissa; nel caso di questa applicazione, fino a 10 messaggi al secondo.
 > 

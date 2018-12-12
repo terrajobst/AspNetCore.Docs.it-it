@@ -1,6 +1,6 @@
 ---
 uid: signalr/overview/older-versions/tutorial-server-broadcast-with-aspnet-signalr
-title: 'Esercitazione: Trasmissione Server con ASP.NET SignalR 1.x | Microsoft Docs'
+title: 'Esercitazione: Trasmissione server con ASP.NET SignalR 1.x | Microsoft Docs'
 author: pfletcher
 description: Questa esercitazione illustra come creare un'applicazione web che usa ASP.NET SignalR per fornire funzionalità di trasmissione di server. Trasmissione server significa che communic...
 ms.author: riande
@@ -8,16 +8,18 @@ ms.date: 04/10/2013
 ms.assetid: ab7b2554-956a-4f6d-b2a0-4ae0c62e8580
 msc.legacyurl: /signalr/overview/older-versions/tutorial-server-broadcast-with-aspnet-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 7d604af11ade848358e291d1df25f2f8df850132
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: d5c09f6493c4dedb4fc2ecbf9055dd014ede71f2
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911981"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53288049"
 ---
-<a name="tutorial-server-broadcast-with-aspnet-signalr-1x"></a>Esercitazione: Trasmissione Server con ASP.NET SignalR 1.x
+<a name="tutorial-server-broadcast-with-aspnet-signalr-1x"></a>Esercitazione: Trasmissione server con ASP.NET SignalR 1.x
 ====================
 dal [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://github.com/tdykstra)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Questa esercitazione illustra come creare un'applicazione web che usa ASP.NET SignalR per fornire funzionalità di trasmissione di server. Trasmissione del server significa che le comunicazioni inviate ai client avviate tramite il server. Questo scenario richiede un approccio di programmazione diverso rispetto agli scenari peer-to-peer, ad esempio applicazioni chat, in cui vengono avviate le comunicazioni inviate ai client da una o più dei client.
 > 

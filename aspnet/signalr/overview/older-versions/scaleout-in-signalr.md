@@ -8,16 +8,18 @@ ms.date: 04/29/2013
 ms.assetid: 3fd9f11c-799b-4001-bd60-1e70cfc61c19
 msc.legacyurl: /signalr/overview/older-versions/scaleout-in-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 0cd1e64af031fea8078c8c1ca4c64b1e2e69d7e9
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: fffa424ea4b62a54b9df48aaa409541ab5d1608f
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41837787"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287598"
 ---
 <a name="introduction-to-scaleout-in-signalr-1x"></a>Introduzione alla scalabilità orizzontale in SignalR 1.x
 ====================
 dal [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 In generale, esistono due modi per scalare un'applicazione web: *aumentare* e *scalare in orizzontale*.
 
@@ -60,9 +62,9 @@ Il funzionamento del meccanismo cursore anche se un client viene indirizzato a u
 
 Usa un backplane, la velocità effettiva massima dei messaggi è inferiore rispetto a quando i client comunicano direttamente con un singolo nodo server. Ciò avviene perché il backplane inoltra tutti i messaggi per ogni nodo, in modo backplane può diventare un collo di bottiglia. Se questa limitazione è un problema dipende dall'applicazione. Ad esempio, ecco alcuni scenari tipici di SignalR:
 
-- [Trasmissione del server](tutorial-server-broadcast-with-aspnet-signalr.md) (ad esempio, le quotazioni di borsa): i ripiani posteriori delle funziona bene per questo scenario, perché il server controlla la frequenza con cui vengono inviati i messaggi.
-- [Da client a](tutorial-getting-started-with-signalr.md) (ad esempio, avvia una chat): In questo scenario, il backplane potrebbe essere un collo di bottiglia se il numero di messaggi viene ridimensionato con il numero di client; vale a dire, se la frequenza dei messaggi aumenta in modo i client in modo proporzionale man mano join.
-- [In tempo reale ad alta frequenza](tutorial-high-frequency-realtime-with-signalr.md) (ad esempio i giochi in tempo reale): un backplane non è consigliato per questo scenario.
+- [Trasmissione del server](tutorial-server-broadcast-with-aspnet-signalr.md) (ad esempio, le quotazioni di borsa): I ripiani posteriori delle funziona bene per questo scenario, perché il server controlla la frequenza con cui vengono inviati i messaggi.
+- [Da client a](tutorial-getting-started-with-signalr.md) (ad esempio, avvia una chat): In questo scenario, il backplane potrebbe essere un collo di bottiglia se il numero di messaggi viene ridimensionato con il numero di client. vale a dire, se la frequenza dei messaggi aumenta in modo i client in modo proporzionale man mano join.
+- [In tempo reale ad alta frequenza](tutorial-high-frequency-realtime-with-signalr.md) (ad esempio i giochi in tempo reale): Backplane non è consigliato per questo scenario.
 
 ## <a name="enabling-tracing-for-signalr-scaleout"></a>Abilitazione della traccia per la scalabilità orizzontale di SignalR
 

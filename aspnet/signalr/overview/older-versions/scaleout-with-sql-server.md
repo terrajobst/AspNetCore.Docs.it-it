@@ -8,16 +8,18 @@ ms.date: 05/01/2013
 ms.assetid: 1dca7967-8296-444a-9533-837eb284e78c
 msc.legacyurl: /signalr/overview/older-versions/scaleout-with-sql-server
 msc.type: authoredcontent
-ms.openlocfilehash: d68196aa8e4d0c60570a0e36ccc75a2a080d57bc
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 682aa837ed991cbf5d78dcb304e2c1bce905c52c
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912748"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287533"
 ---
 <a name="signalr-scaleout-with-sql-server-signalr-1x"></a>Scalabilità orizzontale di SignalR con SQL Server (SignalR 1.x)
 ====================
 dal [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 In questa esercitazione si userà SQL Server per distribuire i messaggi tra un'applicazione di SignalR distribuito in due istanze separate di IIS. È anche possibile eseguire questa esercitazione in un computer singolo test, ma per ottenere l'effetto completo, è necessario distribuire l'applicazione di SignalR in due o più server. È anche necessario installare SQL Server in uno dei server o in un server dedicato distinto. Un'altra opzione consiste nell'eseguire l'esercitazione usando le macchine virtuali in Azure.
 

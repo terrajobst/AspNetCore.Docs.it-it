@@ -1,6 +1,6 @@
 ---
 uid: signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr
-title: 'Esercitazione: Messaggistica di ad alta frequenza con SignalR 2 | Microsoft Docs'
+title: 'Esercitazione: Messaggistica ad alta frequenza con SignalR 2 | Microsoft Docs'
 author: pfletcher
 description: Questa esercitazione illustra come creare un'applicazione web che usa ASP.NET SignalR per fornire funzionalità di messaggistica ad alta frequenza. Ad alta frequenza messaggistica in...
 ms.author: riande
@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: 9f969dda-78ea-4329-b1e3-e51c02210a2b
 msc.legacyurl: /signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 23dc9cc7fd469e934ed9915922a3baa772d9e1ab
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 04ce650509268ee63daafe24bc8dcc9725aea16b
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912032"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287717"
 ---
-<a name="tutorial-high-frequency-realtime-with-signalr-2"></a>Esercitazione: Messaggistica di ad alta frequenza con SignalR 2
+<a name="tutorial-high-frequency-realtime-with-signalr-2"></a>Esercitazione: Messaggistica ad alta frequenza con SignalR 2
 ====================
 da [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 [Download progetto completato](http://code.msdn.microsoft.com/SignalR-20-MoveShape-Demo-6285b83a)
 
