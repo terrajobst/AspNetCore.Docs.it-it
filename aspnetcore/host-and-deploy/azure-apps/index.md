@@ -2,16 +2,17 @@
 title: Distribuire le app ASP.NET Core in Servizio app di Azure
 author: guardrex
 description: Questo articolo contiene collegamenti a risorse di hosting e distribuzione di Azure.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 12/04/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: c55a5202643bb947b3f38f67aec55ee5cf7b1496
-ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
+ms.openlocfilehash: b32dd3cb84a86d12c61e391b88355ab0411c2815
+ms.sourcegitcommit: a3a15d3ad4d6e160a69614a29c03bbd50db110a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50244749"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52951966"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Distribuire le app ASP.NET Core in Servizio app di Azure
 
@@ -41,23 +42,35 @@ Impostare una build CI per un'app ASP.NET Core e quindi creare una versione di d
 [Azure Web App sandbox](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) (Sandbox per app Web di Azure)  
 Individuare le limitazioni di esecuzione di runtime di Servizio app di Azure applicate dalla piattaforma per le app Azure.
 
-::: moniker range=">= aspnetcore-2.0"
-
 ## <a name="application-configuration"></a>Configurazione dell'applicazione
 
-I pacchetti NuGet seguenti offrono funzionalità di registrazione automatica per le app distribuite nel Servizio app di Azure:
+### <a name="platform"></a>Piattaforma
+
+::: moniker range=">= aspnetcore-2.2"
+
+I runtime per le app a 64 bit (x64) e a 32 bit (x86) sono disponibili in Servizio app di Azure. La versione di [.NET Core SDK](/dotnet/core/sdk) disponibile nel servizio app è a 32 bit, ma è possibile distribuire app a 64 bit usando la console [Kudu](https://github.com/projectkudu/kudu/wiki) o tramite [MSDeploy con un profilo di pubblicazione di Visual Studio o un comando dell'interfaccia della riga di comando](xref:host-and-deploy/visual-studio-publish-profiles).
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+Per le app con dipendenze native, i runtime per le app a 32 bit (x86) sono disponibili in Servizio app di Azure. La versione di [.NET Core SDK](/dotnet/core/sdk) disponibile nel servizio app è a 32 bit.
+
+::: moniker-end
+
+### <a name="packages"></a>Pacchetti
+
+Includere i pacchetti NuGet seguenti per offrire funzionalità di registrazione automatica per le app distribuite in Servizio app di Azure:
 
 * [Microsoft.AspNetCore.AzureAppServices.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServices.HostingStartup/) usa [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration) per fornire l'integrazione di ASP.NET Core con il Servizio app di Azure. La funzionalità di registrazione aggiunte vengono fornite dal pacchetto `Microsoft.AspNetCore.AzureAppServicesIntegration`.
 * [Microsoft.AspNetCore.AzureAppServicesIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServicesIntegration/) esegue [AddAzureWebAppDiagnostics](/dotnet/api/microsoft.extensions.logging.azureappservicesloggerfactoryextensions.addazurewebappdiagnostics) per aggiungere i provider di registrazione diagnostica del servizio app di Azure nel pacchetto `Microsoft.Extensions.Logging.AzureAppServices`.
 * [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices/) offre implementazioni di logger per il supporto dei registri di diagnostica del servizio app di Azure e delle funzionalità del flusso di registrazione.
 
-Se destinati a .NET Core e aventi come riferimento il [metapacchetto Microsoft.AspNetCore.All](xref:fundamentals/metapackage), i pacchetti precedenti sono inclusi. I pacchetti non sono presenti nel [metapacchetto Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app). Se destinati a .NET Framework o aventi come riferimento il metapacchetto `Microsoft.AspNetCore.App`, fare riferimento ai singoli pacchetti di registrazione.
-
-::: moniker-end
+I pacchetti precedenti non sono disponibili dal [metapacchetto Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app). Le app destinate a .NET Framework o che fanno riferimento al metapacchetto `Microsoft.AspNetCore.App` in modo esplicito deve fare riferimento ai singoli pacchetti nel file di progetto dell'app.
 
 ## <a name="override-app-configuration-using-the-azure-portal"></a>Eseguire l'override della configurazione delle app usando il portale di Azure
 
-L'area **Impostazioni app** del pannello **Impostazioni applicazione** consente di impostare le variabili di ambiente per l'app. Le variabili di ambiente possono essere utilizzate dal [provider di configurazione delle variabili di ambiente](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
+Le impostazioni dell'app nel portale di Azure consentono di impostare le variabili di ambiente per l'app. Le variabili di ambiente possono essere utilizzate dal [provider di configurazione delle variabili di ambiente](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
 
 Quando nel portale di Azure viene creata o modificata un'impostazione dell'app e viene selezionato il pulsante **Salva**, l'app Azure viene riavviata. La variabile di ambiente risulterà disponibile per l'app dopo il riavvio del servizio.
 
@@ -113,48 +126,36 @@ Adottare uno degli approcci seguenti:
 
 Se si verifica un problema con l'estensione del sito di anteprima, aprire un problema in [GitHub](https://github.com/aspnet/azureintegration/issues/new).
 
-1. Dal portale di Azure passare al pannello Servizi App.
+1. Dal portale di Azure passare al servizio app.
 1. Selezionare l'app Web.
-1. Digitare "ex" nella casella di ricerca o scorrere verso il basso l'elenco dei riquadri di gestione fino a **STRUMENTI DI LAVORO**.
-1. Selezionare **STRUMENTI DI LAVORO** > **Extensions** (Estensioni).
+1. Digitare "es" nella casella di ricerca per filtrare per "Estensioni" o scorrere l'elenco degli strumenti di gestione.
+1. Selezionare **Estensioni**.
 1. Selezionare **Aggiungi**.
-1. Selezionare l'estensione **ASP.NET Core &lt;x.y&gt; (x86) Runtime** dall'elenco, dove `<x.y>` è la versione di anteprima di ASP.NET Core (ad esempio, **ASP.NET Core 2.2 (x86) Runtime**). Il runtime x86 è consigliato per le [distribuzioni dipendenti dal framework](/dotnet/core/deploying/#framework-dependent-deployments-fdd) che si basano sull'hosting out-of-process dal modulo ASP.NET Core.
+1. Selezionare l'estensione **ASP.NET Core {X.Y} ({x64|x86}) Runtime** nell'elenco, dove `{X.Y}` è la versione di anteprima di ASP.NET Core e `{x64|x86}` specifica la piattaforma.
 1. Selezionare **OK** per accettare le condizioni legali.
 1. Per installare l'estensione, selezionare **OK**.
 
 Al termine dell'operazione, viene installata l'anteprima più recente di .NET Core. Verificare l'installazione:
 
-1. Selezionare **Strumenti avanzati** in **STRUMENTI DI LAVORO**.
-1. Selezionare **Vai** nel pannello **Strumenti avanzati**.
+1. Selezionare **Strumenti avanzati**.
+1. Selezionare **Vai** in **Strumenti avanzati**.
 1. Selezionare l'elemento di menu **Console di debug** > **PowerShell**.
-1. Eseguire il comando seguente dal prompt di PowerShell. Sostituire la versione di runtime di ASP.NET Core per `<x.y>` nel comando:
+1. Eseguire il comando seguente dal prompt di PowerShell. Sostituire la versione di runtime di ASP.NET Core in `{X.Y}` e la piattaforma in `{PLATFORM}` nel comando:
 
    ```powershell
-   Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.<x.y>.x86\
-   ```
-   Se il runtime dell'anteprima installata si applica ad ASP.NET Core 2.2, il comando è:
-   ```powershell
-   Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.2.2.x86\
+   Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.{X.Y}.{PLATFORM}\
    ```
    Il comando restituisce `True` quando è installato il runtime di anteprima x64.
 
-::: moniker range=">= aspnetcore-2.2"
-
 > [!NOTE]
-> L'architettura della piattaforma (x86 o x64) di un'app di Servizi app è impostata nel pannello **Impostazioni applicazione** in **Impostazioni generali** per le app ospitate in un livello di hosting con calcolo di serie A o migliore. Se l'app viene eseguita in modalità in-process e l'architettura della piattaforma è configurata per 64 bit (x64), il modulo ASP.NET Core usa il runtime dell'anteprima a 64 bit, se presente. Installare l'estensione **ASP.NET Core &lt;x.y&gt; (x64) Runtime** (ad esempio, **ASP.NET Core 2.2 (x64) Runtime**).
+> L'architettura della piattaforma (x86 o x64) di un'app di Servizi app viene impostata nelle impostazioni dell'app nel portale di Azure per le app ospitate in un livello di hosting con calcolo di serie A o migliore. Se l'app viene eseguita in modalità in-process e l'architettura della piattaforma è configurata per 64 bit (x64), il modulo ASP.NET Core usa il runtime dell'anteprima a 64 bit, se presente. Installare l'estensione **ASP.NET Core {X.Y} (x64) Runtime**.
 >
-> Dopo aver installato il runtime di anteprima x64, eseguire il comando seguente nella finestra di comando di PowerShell di Kudu per verificare l'installazione. Sostituire la versione di runtime di ASP.NET Core per `<x.y>` nel comando:
+> Dopo aver installato il runtime di anteprima x64, eseguire il comando seguente nella finestra di comando di PowerShell di Kudu per verificare l'installazione. Sostituire la versione di runtime di ASP.NET Core per `{X.Y}` nel comando:
 >
 > ```powershell
-> Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.<x.y>.x64\
-> ```
-> Se il runtime dell'anteprima installata si applica ad ASP.NET Core 2.2, il comando è:
-> ```powershell
-> Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.2.2.x64\
+> Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.{X.Y}.x64\
 > ```
 > Il comando restituisce `True` quando è installato il runtime di anteprima x64.
-
-::: moniker-end
 
 > [!NOTE]
 > Le **estensioni di ASP.NET Core** abilitano funzionalità aggiuntive per ASP.NET Core nei Servizi app di Azure, ad esempio la registrazione di Azure. L'estensione viene installata automaticamente durante la distribuzione da Visual Studio. Se l'estensione non è installata, installarla per l'app.

@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/12/2018
 uid: razor-pages/index
-ms.openlocfilehash: 7fc048e427fd49e2142160615a12989fd4f40303
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: cc881ff42d57ab1654f492a70006a995939e4844
+ms.sourcegitcommit: 8a65f6c2cbe290fb2418eed58f60fb74c95392c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207615"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52892120"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introduzione a Razor Pages in ASP.NET Core
 
@@ -25,15 +25,15 @@ Questo documento offre un'introduzione a Razor Pages. Non è un'esercitazione de
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[!INCLUDE [](~/includes/net-core-prereqs.md)]
+[!INCLUDE[](~/includes/net-core-prereqs-all-2.2.md)]
 
 <a name="rpvs17"></a>
 
-## <a name="creating-a-razor-pages-project"></a>Creazione di un progetto Razor Pages
+## <a name="create-a-razor-pages-project"></a>Creare un progetto Razor Pages
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Per istruzioni dettagliate su come creare un progetto Razor Pages con Visual Studio, vedere [Introduzione a Razor Pages](xref:tutorials/razor-pages/razor-pages-start).
+Per istruzioni dettagliate su come creare un progetto Razor Pages, vedere [Introduzione a Razor Pages](xref:tutorials/razor-pages/razor-pages-start).
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
@@ -52,20 +52,6 @@ Eseguire `dotnet new razor` dalla riga di comando.
 Aprire il file *CSPROJ* generato da Visual Studio per Mac.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
-
-::: moniker range=">= aspnetcore-2.1"
-
-Eseguire `dotnet new webapp` dalla riga di comando.
-
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.0"
-
-Eseguire `dotnet new razor` dalla riga di comando.
-
-::: moniker-end
-
-# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -117,7 +103,7 @@ Note:
 * Il runtime cerca i file delle pagine Razor nella cartella *Pages* per impostazione predefinita.
 * `Index` è la pagina predefinita quando un URL non include una pagina.
 
-## <a name="writing-a-basic-form"></a>Scrittura di un form di base
+## <a name="write-a-basic-form"></a>Scrivere un form di base
 
 Razor Pages semplifica l'implementazione dei modelli normalmente usati con i Web browser durante la creazione di un'app. L'[associazione di modelli](xref:mvc/models/model-binding), gli [helper tag](xref:mvc/views/tag-helpers/intro) e gli helper HTML *funzionano* tutti con le proprietà definite in una classe di pagina Razor. Si consideri una pagina che implementa un form "contact us" di base per il modello `Contact`:
 
@@ -173,10 +159,7 @@ La proprietà `Customer` usa l'attributo `[BindProperty]` optare per consentire 
 
 Per impostazione predefinita Razor Pages associa le proprietà solo ai verbi non GET. Il binding alle proprietà può ridurre la quantità di codice da scrivere. Riduce il codice usando la stessa proprietà per il eseguire il rendering dei campi del form (`<input asp-for="Customer.Name" />`) e accettare l'input.
 
-> [!NOTE]
-> Per motivi di sicurezza, è necessario acconsentire esplicitamente all'associazione dei dati della richiesta GET alle proprietà del modello di pagina. Verificare l'input dell'utente prima di eseguirne il mapping alle proprietà. Acconsentire esplicitamente a questo comportamento è utile quando si lavora in scenari basati su valori route o stringa di query.
->
-> Per associare una proprietà nelle richieste GET, impostare la proprietà `SupportsGet` dell'attributo `[BindProperty]` su `true`: `[BindProperty(SupportsGet = true)]`
+[!INCLUDE[](~/includes/bind-get.md)]
 
 La home page (*Index.cshtml*):
 
@@ -246,7 +229,7 @@ Per altre informazioni, vedere [Convalida del modello](xref:mvc/models/validatio
 
 ## <a name="manage-head-requests-with-the-onget-handler"></a>Gestire le richieste HEAD con il gestore OnGet
 
-Le richieste HEAD consentono di recuperare le intestazioni di una risorsa specifica. A differenza delle richieste GET, le richieste HEAD non restituiscono un corpo della risposta. 
+Le richieste HEAD consentono di recuperare le intestazioni di una risorsa specifica. A differenza delle richieste GET, le richieste HEAD non restituiscono un corpo della risposta.
 
 In genere, per le richieste HEAD viene creato e chiamato un gestore HEAD: 
 
