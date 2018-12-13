@@ -4,14 +4,14 @@ author: guardrex
 description: Informazioni sulla configurazione degli ambienti host e sulla distribuzione delle app ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 12/06/2018
 uid: host-and-deploy/index
-ms.openlocfilehash: 86022c33a3c5a8b82b14ae51b98c44497f39bd16
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: f443a8ee28a859b5075a8bb03016407af9a3ddb1
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862447"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284526"
 ---
 # <a name="host-and-deploy-aspnet-core"></a>Hosting e distribuzione di ASP.NET Core
 
@@ -72,7 +72,11 @@ Mediante la [funzionalità Pubblica sito Web](xref:tutorials/publish-to-azure-we
 
 ## <a name="publish-to-azure"></a>Pubblicare in Azure
 
-Vedere <xref:tutorials/publish-to-azure-webapp-using-vs> per istruzioni su come pubblicare un'app in Azure usando Visual Studio. L'app può essere pubblicata in Azure anche dalla [riga di comando](/azure/app-service/app-service-web-get-started-dotnet).
+Vedere <xref:tutorials/publish-to-azure-webapp-using-vs> per istruzioni su come pubblicare un'app in Azure usando Visual Studio. Un altro esempio è disponibile in [Creare un'app Web ASP.NET Core in Azure](/azure/app-service/app-service-web-get-started-dotnet).
+
+## <a name="publish-with-msdeploy-on-windows"></a>Pubblicare con MSDeploy in Windows
+
+Vedere <xref:host-and-deploy/visual-studio-publish-profiles> per istruzioni su come pubblicare un'app con un profilo di pubblicazione di Visual Studio, ad esempio da un prompt dei comandi di Windows usando il comando [dotnet msbuild](/dotnet/core/tools/dotnet-msbuild).
 
 ## <a name="host-in-a-web-farm"></a>Hosting in una Web farm
 

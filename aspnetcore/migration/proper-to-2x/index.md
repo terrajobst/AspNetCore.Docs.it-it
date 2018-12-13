@@ -3,14 +3,14 @@ title: Eseguire la migrazione da ASP.NET ad ASP.NET Core
 author: isaac2004
 description: Indicazioni sulla migrazione di app ASP.NET MVC o Web API esistenti ad ASP.NET Core.web
 ms.author: scaddie
-ms.date: 12/10/2018
+ms.date: 12/11/2018
 uid: migration/proper-to-2x/index
-ms.openlocfilehash: 6808fefb890dcdec6abdd0604ab61dfd2573d910
-ms.sourcegitcommit: 1872d2e6f299093c78a6795a486929ffb0bbffff
+ms.openlocfilehash: a9eef832a68afa1a73e3c7c545378da190602ce2
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53216794"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284396"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core"></a>Eseguire la migrazione da ASP.NET ad ASP.NET Core
 
@@ -20,7 +20,7 @@ Questo articolo offre una guida di riferimento per la migrazione delle app ASP.N
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
+[.NET Core SDK 2.2 o versione successiva](https://www.microsoft.com/net/download)
 
 ## <a name="target-frameworks"></a>Framework di destinazione
 
@@ -28,15 +28,15 @@ I progetti di ASP.NET Core offrono agli sviluppatori la flessibilità necessaria
 
 Quando la destinazione è .NET Framework, i progetti devono fare riferimento a singoli pacchetti NuGet.
 
-La scelta di .NET Core come destinazione consente di eliminare numerosi riferimenti espliciti ai pacchetti, grazie al [metapacchetto](xref:fundamentals/metapackage) di ASP.NET Core. Installare il metapacchetto `Microsoft.AspNetCore.All` nel progetto:
+La scelta di .NET Core come destinazione consente di eliminare numerosi riferimenti espliciti ai pacchetti, grazie al [metapacchetto](xref:fundamentals/metapackage-app) di ASP.NET Core. Installare il metapacchetto `Microsoft.AspNetCore.App` nel progetto:
 
 ```xml
 <ItemGroup>
-  <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.9" />
+   <PackageReference Include="Microsoft.AspNetCore.App" />
 </ItemGroup>
 ```
 
-Quando si usa il metapacchetto, con l'app non viene distribuito alcun pacchetto a cui si fa riferimento nel metapacchetto. L'archivio di runtime di .NET Core include questi asset, che vengono precompilati per migliorare le prestazioni. Vedere le informazioni sul [metapacchetto Microsoft.AspNetCore.All per ASP.NET Core 2. x](xref:fundamentals/metapackage) per maggiori dettagli.
+Quando si usa il metapacchetto, con l'app non viene distribuito alcun pacchetto a cui si fa riferimento nel metapacchetto. L'archivio di runtime di .NET Core include questi asset, che vengono precompilati per migliorare le prestazioni. Per altri dettagli, vedere [Metapacchetto Microsoft.AspNetCore.All per ASP.NET Core](xref:fundamentals/metapackage-app).
 
 ## <a name="project-structure-differences"></a>Differenze di struttura del progetto
 
@@ -64,15 +64,14 @@ ASP.NET Core usa un approccio simile, ma non si basa su OWIN per gestire la voce
 
 [!code-csharp[](samples/program.cs)]
 
-`Startup` deve includere un metodo `Configure`. In `Configure` aggiungere il middleware necessario alla pipeline. Nell'esempio seguente, estratto dal modello di sito Web predefinito, vengono usati vari metodi di estensione per configurare la pipeline con il supporto per:
+`Startup` deve includere un metodo `Configure`. In `Configure` aggiungere il middleware necessario alla pipeline. Nell'esempio seguente, estratto dal modello di sito Web predefinito, i metodi di estensione configurano la pipeline con il supporto per:
 
-* [Browser Link](xref:client-side/using-browserlink)
 * Pagine di errore
-* File statici
+* Protocollo HTTP Strict Transport Security (HSTS)
+* Reindirizzamento HTTP a HTTPS
 * ASP.NET Core MVC
-* identità
 
-[!code-csharp[](../../common/samples/WebApplication1/Startup.cs?highlight=8,9,10,14,17,19,21&start=58&end=84)]
+[!code-csharp[](samples/startup.cs)]
 
 L'host e applicazione sono stati disaccoppiati e questo offre la possibilità di passare a una piattaforma diversa in futuro.
 

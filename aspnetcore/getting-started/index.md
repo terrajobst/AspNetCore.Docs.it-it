@@ -4,14 +4,14 @@ author: rick-anderson
 description: Un'esercitazione rapida per creare ed eseguire una semplice app Hello World usando ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 12/11/2018
 uid: getting-started
-ms.openlocfilehash: 29a328b610b0a6e1616cd6ebc70a8fa3e515eb92
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: cf9e731f7638687b3f40b42864ef7ee8f5522b39
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861706"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284351"
 ---
 # <a name="tutorial-get-started-with-aspnet-core"></a>Esercitazione: Introduzione ad ASP.NET Core
 
@@ -31,7 +31,7 @@ Al termine, si avrà un'app Web funzionante che viene eseguita nel computer loca
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Installare [!INCLUDE [](~/includes/2.1-SDK.md)].
+* [.NET Core 2.2 SDK](https://www.microsoft.com/net/download/all)
 
 ## <a name="create-a-web-app-project"></a>Creare un progetto di app Web
 
@@ -91,11 +91,11 @@ Passare a [https://localhost:5001](https://localhost:5001). Fare clic su **Accep
 
 ## <a name="edit-a-razor-page"></a>Modificare una pagina Razor
 
-Aprire *Pages/About.cshtml* e modificare la pagina con il markup evidenziato seguente:
+Aprire *Pages/Index.cshtml* e modificare la pagina con il markup evidenziato seguente:
 
-[!code-cshtml[](sample/getting-started/about.cshtml?highlight=9)]
+[!code-cshtml[](sample/index.cshtml?highlight=9)]
 
-Passare a [https://localhost:5001/About](https://localhost:5001/About) e verificare che le modifiche siano visualizzate.
+Passare a [https://localhost:5001](https://localhost:5001) e verificare che le modifiche siano visualizzate.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -5,14 +5,14 @@ description: Questo articolo contiene collegamenti a risorse di hosting e distri
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/04/2018
+ms.date: 12/10/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: b32dd3cb84a86d12c61e391b88355ab0411c2815
-ms.sourcegitcommit: a3a15d3ad4d6e160a69614a29c03bbd50db110a2
+ms.openlocfilehash: b6ff2124aac7e866f630cf359cbd188e88906844
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52951966"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284695"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Distribuire le app ASP.NET Core in Servizio app di Azure
 
@@ -22,10 +22,10 @@ Il [servizio app di Azure](https://azure.microsoft.com/services/app-service/) è
 
 [Documentazione di App Web](/azure/app-service/) di Azure è la home page della documentazione, delle esercitazioni, degli esempi, delle guide introduttive e di altre risorse per le app di Azure. Due importanti esercitazioni relative all'hosting di app ASP.NET Core sono:
 
-[Guida introduttiva: Creare un'app Web ASP.NET Core in Azure](/azure/app-service/app-service-web-get-started-dotnet)  
+[Avvio rapido: Creare un'app Web ASP.NET Core in Azure](/azure/app-service/app-service-web-get-started-dotnet)  
 Usare Visual Studio per creare e distribuire un'app Web ASP.NET Core nel servizio app di Azure in Windows.
 
-[Guida introduttiva: Creare un'app Web .NET Core nel Servizio app in Linux](/azure/app-service/containers/quickstart-dotnetcore)  
+[Avvio rapido: Creare un'app Web .NET Core nel Servizio app in Linux](/azure/app-service/containers/quickstart-dotnetcore)  
 Usare la riga di comando per creare e distribuire un'app Web ASP.NET Core nel servizio app di Azure in Linux.
 
 Gli articoli seguenti sono disponibili nella documentazione di ASP.NET Core:
@@ -84,9 +84,11 @@ Il middleware di integrazione di IIS, che consente di configurare il middleware 
 
 ## <a name="monitoring-and-logging"></a>Monitoraggio e registrazione
 
+Le app ASP.NET Core distribuite in Servizio app ricevono automaticamente un'estensione di Servizio app, ovvero le **estensioni di registrazione di ASP.NET Core**. L'estensione abilita la registrazione di Azure.
+
 Per informazioni sul monitoraggio, la registrazione e la risoluzione dei problemi, vedere gli articoli seguenti:
 
-[Procedura: Eseguire il monitoraggio delle app nel servizio app di Azure](/azure/app-service/web-sites-monitor)  
+[Procedura: Monitorare le app in Servizio app di Azure](/azure/app-service/web-sites-monitor)  
 Informazioni su come esaminare le quote e le metriche per le app e i piani del servizio app.
 
 [Abilitare la registrazione diagnostica per le app Web nel servizio app di Azure](/azure/app-service/web-sites-enable-diagnostic-log)  
@@ -211,7 +213,7 @@ L'[hub Docker](https://hub.docker.com/r/microsoft/aspnetcore/) contiene le immag
 
 ## <a name="protocol-settings-https"></a>Impostazioni del protocollo (HTTPS)
 
-Le associazioni di protocollo protette consentono di specificare un certificato da usare per rispondere alle richieste su HTTPS. L'associazione richiede un certificato privato valido (*PFX*) rilasciato per il nome host specifico. Per altre informazioni, vedere [Esercitazione: Associare un certificato SSL personalizzato esistente ad app Web di Azure](/azure/app-service/app-service-web-tutorial-custom-ssl).
+Le associazioni di protocollo protette consentono di specificare un certificato da usare per rispondere alle richieste su HTTPS. L'associazione richiede un certificato privato valido (*PFX*) rilasciato per il nome host specifico. Per altre informazioni, vedere [Esercitazione: Associare un certificato SSL personalizzato esistente ad App Web di Azure](/azure/app-service/app-service-web-tutorial-custom-ssl).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
@@ -227,4 +229,4 @@ Il servizio app di Azure in Windows Server usa [Internet Information Services (I
 * <xref:fundamentals/servers/aspnet-core-module>
 * <xref:host-and-deploy/aspnet-core-module>
 * <xref:host-and-deploy/iis/modules>
-* [Libreria di Microsoft TechNet: Windows Server](/windows-server/windows-server-versions)
+* [Libreria Microsoft TechNet: Windows Server](/windows-server/windows-server-versions)
