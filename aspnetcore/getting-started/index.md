@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/11/2018
 uid: getting-started
-ms.openlocfilehash: cf9e731f7638687b3f40b42864ef7ee8f5522b39
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: dc85fe9189c93476859a6c00d60ec24d6eeec3fa
+ms.sourcegitcommit: a16352c1c88a71770ab3922200a8cd148fb278a6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284351"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53335312"
 ---
 # <a name="tutorial-get-started-with-aspnet-core"></a>Esercitazione: Introduzione ad ASP.NET Core
 
@@ -111,6 +111,3 @@ Per altre informazioni su ASP.NET Core, vedere l'introduzione:
 
 > [!div class="nextstepaction"]
 > <xref:index>
-
-> [!NOTE]
-> È in corso un test di usabilità di una nuova proposta di struttura del sommario di ASP.NET Core. Se si dispone di alcuni minuti per provare a cercare sette argomenti diversi nel sommario corrente o proposto, [fare clic qui per partecipare al test](https://dpk4xbh5.optimalworkshop.com/treejack/aa11wn82).
