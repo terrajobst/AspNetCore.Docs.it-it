@@ -8,16 +8,18 @@ ms.date: 05/15/2013
 ms.assetid: eaa206c4-edb3-487e-8fcb-54a3261fed36
 msc.legacyurl: /signalr/overview/older-versions/dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 905dea4918be731673c39e788069ce2dc78e1649
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 2035b3feebfa32dd7ec4d6adf715a7fee5e7b74f
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910694"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287365"
 ---
 <a name="dependency-injection-in-signalr-1x"></a>Inserimento delle dipendenze in SignalR 1.x
 ====================
 dal [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 Inserimento di dipendenze è un modo per rimuovere le dipendenze hardcoded tra gli oggetti, rendendo più semplice per sostituire le dipendenze di un oggetto, uno per i test (tramite oggetti fittizi) o per modificare il comportamento in fase di esecuzione. Questa esercitazione illustra come eseguire l'inserimento di dipendenze sugli hub SignalR. Viene inoltre illustrato come usare contenitori IoC con SignalR. Un contenitore IoC è un framework generale per l'inserimento di dipendenze.
 
@@ -102,7 +104,7 @@ Visual Studio rende questo tipo di refactoring semplice. Aprire il file StockTic
 
 ![](dependency-injection/_static/image1.png)
 
-Nel **Estrai interfaccia** finestra di dialogo, fare clic su **Seleziona tutto**. Lasciare le altre impostazioni predefinite. Scegliere **OK**.
+Nel **Estrai interfaccia** finestra di dialogo, fare clic su **Seleziona tutto**. Lasciare le altre impostazioni predefinite. Fare clic su **OK**.
 
 ![](dependency-injection/_static/image2.png)
 
