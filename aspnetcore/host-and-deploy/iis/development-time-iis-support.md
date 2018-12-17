@@ -4,14 +4,14 @@ author: shirhatti
 description: Informazioni sul supporto del debug di app ASP.NET Core durante l'esecuzione dietro IIS in Windows Server.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/26/2018
+ms.date: 11/30/2018
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: 65dbe690a33d82a4edddf315803dc4c656db27a0
-ms.sourcegitcommit: e8d80ff566bfe505b43389d7bc4551edb1c0c872
+ms.openlocfilehash: 51375e6a6bb25a469d467ca97a151abd305c1ece
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52549101"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52862382"
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Supporto di IIS in fase di sviluppo in Visual Studio per ASP.NET Core
 
@@ -54,7 +54,7 @@ Se l'installazione di IIS dispone già di un **sito Web predefinito** con un nom
 ## <a name="enable-development-time-iis-support-in-visual-studio"></a>Abilitare il supporto di IIS in fase di sviluppo in Visual Studio
 
 1. Avviare il programma di installazione di Visual Studio.
-1. Selezionare il componente **Supporto IIS in fase di sviluppo**. Il componente è elencato come facoltativo nel pannello **Riepilogo** del carico di lavoro **Sviluppo ASP.NET e Web**. Il componente installa il [modulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module), un modulo IIS nativo necessario per l'esecuzione delle app ASP.NET Core dietro a IIS in una configurazione di proxy inverso.
+1. Selezionare il componente **Supporto IIS in fase di sviluppo**. Il componente è elencato come facoltativo nel pannello **Riepilogo** del carico di lavoro **Sviluppo ASP.NET e Web**. Il componente installa il [modulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module), un modulo IIS nativo necessario per l'esecuzione delle applicazioni ASP.NET Core con IIS.
 
 ![Modifica delle funzionalità di Visual Studio: la scheda Carichi di lavoro è selezionata. Nella sezione Web e Cloud è selezionato il pannello Sviluppo ASP.NET e Web. A destra, nell'area Facoltativi del pannello Riepilogo è presente la casella di controllo Supporto IIS in fase di sviluppo.](development-time-iis-support/_static/development_time_support.png)
 

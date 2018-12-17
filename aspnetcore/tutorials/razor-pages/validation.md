@@ -2,17 +2,17 @@
 title: Aggiungere la convalida a una pagina Razor ASP.NET Core
 author: rick-anderson
 description: Informazioni su come aggiungere la convalida a una pagina Razor in ASP.NET Core.
-monikerRange: '>= aspnetcore-2.0'
+monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 12/5/2018
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: d4cc0ab9de314c0c5a1a9016efd1e566ff1c47d2
-ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
+ms.openlocfilehash: 87171beb7c214b1370d4d4144a79cb6d2c56098f
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51505778"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52862369"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Aggiungere la convalida a una pagina Razor ASP.NET Core
 
@@ -22,27 +22,20 @@ In questa sezione la logica di convalida viene aggiunta al modello `Movie`. Le r
 
 ## <a name="validation"></a>Convalida
 
-Un concetto di base dello sviluppo del software si chiama [DRY](https://wikipedia.org/wiki/Don%27t_repeat_yourself) ("**D**on't **R**epeat **Y**ourself", Non ripeterti). Le pagine Razor promuovono lo sviluppo in cui la funzionalità è stata specificata una volta e questa modifica è riflessa sull'intera app. DRY consente di ridurre la quantità di codice in un'app. DRY rende il codice meno soggetto ad errori ed è più facile da testare e gestire.
+Un concetto di base dello sviluppo del software si chiama [DRY](https://wikipedia.org/wiki/Don%27t_repeat_yourself) ("**D**on't **R**epeat **Y**ourself", Non ripeterti). Le pagine Razor promuovono lo sviluppo in cui la funzionalità è stata specificata una volta e questa modifica è riflessa sull'intera app. DRY contribuisce a:
+
+* Ridurre la quantità di codice in un'app.
+* Rendere il codice meno soggetto ad errori e più facile da testare e gestire.
 
 Il supporto della convalida fornito dalle pagine di Razor e da Entity Framework è un buon esempio del principio di DRY. Le regole di convalida vengono specificate in modo dichiarativo in un'unica posizione (nella classe del modello) e le regole vengono applicate ovunque nell'app.
 
 ### <a name="adding-validation-rules-to-the-movie-model"></a>Aggiunta di regole di convalida al modello movie
 
-Aprire il file *Models/Movie.cs*. [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) fornisce un set incorporato di attributi di convalida che si applicano in modo dichiarativo a una classe o proprietà. DataAnnotations contiene anche gli attributi di formattazione come ad esempio `DataType` che guidano nella formattazione e non forniscono la convalida.
+Aprire il file *Models/Movie.cs*. [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) fornisce un set incorporato di attributi di convalida che si applicano in modo dichiarativo a una classe o proprietà. DataAnnotations contiene anche gli attributi di formattazione, come `DataType`, che guidano nella formattazione e non forniscono la convalida.
 
 Aggiornamento della classe `Movie` per poter sfruttare gli attributi di convalida `Required`, `StringLength`, `RegularExpression`, e `Range`.
 
-::: moniker range="= aspnetcore-2.0"
-
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1"
-
-[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie21/Models/MovieDateRatingDA.cs?name=snippet1)]
-
-::: moniker-end
+[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Models/MovieDateRatingDA.cs?name=snippet1)]
 
 Gli attributi di convalida specificano il comportamento che viene applicato alle proprietà del modello:
 
@@ -113,11 +106,8 @@ L'enumerazione `DataType` fornisce per molti tipi di dati, ad esempio Data, Ora,
 
 `DataType.Date` non specifica il formato della data visualizzata. Per impostazione predefinita, il campo dei dati viene visualizzato in base ai formati predefiniti per il valore `CultureInfo` del server.
 
-::: moniker range=">= aspnetcore-2.1"
 
 L'annotazione dei dati `[Column(TypeName = "decimal(18, 2)")]` è necessaria per consentire a Entity Framework Core di eseguire correttamente il mapping di `Price` nella valuta del database. Per altre informazioni, vedere [Tipi di dati](/ef/core/modeling/relational/data-types).
-
-::: moniker-end
 
 L'attributo `DisplayFormat` viene usato per specificare in modo esplicito il formato della data:
 
@@ -144,17 +134,7 @@ In genere non è consigliabile compilare date reali nei modelli, quindi l'uso de
 
 Il codice seguente illustra la combinazione di attributi in una sola riga:
 
-::: moniker range="= aspnetcore-2.0"
-
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1"
-
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Models/MovieDateRatingDAmult.cs?name=snippet1)]
-
-::: moniker-end
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Models/MovieDateRatingDAmult.cs?name=snippet1)]
 
 [Introduzione a Razor Pages ed Entity Framework Core](xref:data/ef-rp/intro) include operazioni avanzate di Entity Framework Core con Razor Pages.
 

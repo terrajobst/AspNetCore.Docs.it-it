@@ -3,14 +3,14 @@ title: Componenti di visualizzazione in ASP.NET Core
 author: rick-anderson
 description: Informazioni sull'uso dei componenti di visualizzazione in ASP.NET Core e su come aggiungere tali componenti alle app.
 ms.author: riande
-ms.date: 02/14/2017
+ms.date: 12/03/2018
 uid: mvc/views/view-components
-ms.openlocfilehash: 91399acafb36f1f8759ed1783e70e59b631e3bf0
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: 5812abad80cd906d6b9a7175bd7cdefd03a99eb3
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253132"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861329"
 ---
 # <a name="view-components-in-aspnet-core"></a>Componenti di visualizzazione in ASP.NET Core
 
@@ -63,13 +63,13 @@ Una classe del componente di visualizzazione:
 
 ### <a name="view-component-methods"></a>Metodi del componente di visualizzazione
 
-Un componente di visualizzazione definisce la propria logica in un metodo `InvokeAsync` che restituisce `IViewComponentResult`. I parametri vengono rilevati direttamente dalla chiamata del componente di visualizzazione e non dall'associazione di modelli. Un componente di visualizzazione non gestisce mai direttamente una richiesta. In genere, inizializza un modello e lo passa a una visualizzazione chiamando il metodo `View`. Riepilogando, i metodi del componente di visualizzazione:
+Un componente di visualizzazione definisce la propria logica in un metodo `InvokeAsync` che restituisce `Task<IViewComponentResult>` o in un metodo asincrono `Invoke` che restituisce `IViewComponentResult`. I parametri vengono rilevati direttamente dalla chiamata del componente di visualizzazione e non dall'associazione di modelli. Un componente di visualizzazione non gestisce mai direttamente una richiesta. In genere, inizializza un modello e lo passa a una visualizzazione chiamando il metodo `View`. Riepilogando, i metodi del componente di visualizzazione:
 
-* Definiscono un metodo `InvokeAsync` che restituisce `IViewComponentResult`
-* In genere, inizializzano un modello e lo passano a una visualizzazione chiamando il metodo `ViewComponent` `View`
-* I parametri vengono rilevati dal metodo di chiamata, non da HTTP e non esiste un'associazione di modelli
-* Non sono raggiungibili direttamente come endpoint HTTP. Sono richiamati dal codice, solitamente in una visualizzazione. Un componente di visualizzazione non gestisce mai una richiesta
-* Sono sottoposti a overload sulla firma e non sui dettagli dalla richiesta HHTP corrente
+* Definiscono un metodo `InvokeAsync` che restituisce `Task<IViewComponentResult>` o un metodo sincrono `Invoke` che restituisce `IViewComponentResult`.
+* In genere, inizializzano un modello e lo passano a una visualizzazione chiamando il metodo `ViewComponent` `View`.
+* I parametri vengono rilevati dal metodo di chiamata, non da HTTP, e non vi è alcuna associazione di modelli.
+* Non sono raggiungibili direttamente come un endpoint HTTP. Vengono richiamati dal codice (in genere in una vista). Un componente di visualizzazione non gestisce mai una richiesta.
+* Sono sottoposti a overload sulla firma e non sui dettagli dalla richiesta HHTP corrente.
 
 ### <a name="view-search-path"></a>Percorso di ricerca della visualizzazione
 

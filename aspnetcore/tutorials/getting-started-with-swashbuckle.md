@@ -4,14 +4,14 @@ author: zuckerthoben
 description: Informazioni su come aggiungere Swashbuckle al progetto dell'API Web ASP.NET Core per integrare l'interfaccia utente di Swagger.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 11/14/2018
+ms.date: 11/30/2018
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: 9832e1ea2b59085b6680820469b16d549f4b0582
-ms.sourcegitcommit: f202864efca81a72ea7120c0692940c40d9d0630
+ms.openlocfilehash: 9229b4536c3d5090e640de71357c728ddbd5dcc3
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635342"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52862343"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Introduzione a Swashbuckle e ad ASP.NET Core
 
@@ -108,7 +108,7 @@ L'interfaccia utente di Swagger è disponibile in `http://localhost:<port>/swagg
 >
 > [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup3.cs?name=snippet_UseSwaggerUI&highlight=4)]
 
-Se si usano le directory virtuali (ad esempio con IIS o un proxy inverso), impostare l'endpoint Swagger su un percorso relativo tramite il prefisso `./`. Ad esempio `./swagger/v1/swagger.json`. L'uso di `/swagger/v1/swagger.json` indica all'app di cercare il file JSON nella vera radice dell'URL (con il prefisso della route, se usato). Ad esempio, `http://localhost:<port>/<route_prefix>/swagger/v1/swagger.json` anziché `http://localhost:<port>/<virtual_directory>/<route_prefix>/swagger/v1/swagger.json`.
+Se si usano le directory con ISS o il proxy inverso, impostare l'endpoint Swagger su un percorso relativo tramite il prefisso `./`. Ad esempio `./swagger/v1/swagger.json`. L'uso di `/swagger/v1/swagger.json` indica all'app di cercare il file JSON nella vera radice dell'URL (con il prefisso della route, se usato). Ad esempio, usare `http://localhost:<port>/<route_prefix>/swagger/v1/swagger.json` invece di `http://localhost:<port>/<virtual_directory>/<route_prefix>/swagger/v1/swagger.json`.
 
 ## <a name="customize-and-extend"></a>Personalizzare ed estendere
 

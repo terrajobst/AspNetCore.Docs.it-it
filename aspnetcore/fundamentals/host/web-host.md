@@ -4,14 +4,14 @@ author: guardrex
 description: Informazioni sull'host Web in ASP.NET Core, responsabile della gestione dell'avvio e della durata delle app.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/12/2018
+ms.date: 12/01/2018
 uid: fundamentals/host/web-host
-ms.openlocfilehash: 5af09ad715768d51ce8ef2c8425cc51ebada6859
-ms.sourcegitcommit: 1d6ab43eed9cb3df6211c22b97bb3a9351ec4419
+ms.openlocfilehash: bc77413127273aba207e68e7fbcb8ad916267e8e
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51597823"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52862278"
 ---
 # <a name="aspnet-core-web-host"></a>Host Web ASP.NET Core
 
@@ -45,7 +45,7 @@ public class Program
 
 `CreateDefaultBuilder` esegue le attività seguenti:
 
-* Configura [Kestrel](xref:fundamentals/servers/kestrel) come server Web e configura il server usando i provider di configurazione dell'host dell'app. Per le opzioni predefinite di Kestrel, vedere <xref:fundamentals/servers/kestrel#kestrel-options>.
+* Configura il server [Kestrel](xref:fundamentals/servers/kestrel) come server Web usando i provider di configurazione dell'host dell'app. Per le opzioni predefinite del server Kestrel, vedere <xref:fundamentals/servers/kestrel#kestrel-options>.
 * Imposta la radice del contenuto sul percorso restituito da [Directory.GetCurrentDirectory](/dotnet/api/system.io.directory.getcurrentdirectory).
 * Carica la [configurazione dell'host](#host-configuration-values) da:
   * Le variabili di ambiente con prefisso `ASPNETCORE_` (ad esempio, `ASPNETCORE_ENVIRONMENT`).
@@ -57,7 +57,7 @@ public class Program
   * Variabili di ambiente.
   * Argomenti della riga di comando.
 * Configura la [registrazione](xref:fundamentals/logging/index) per l'output della console e del debug. La registrazione include le regole di [filtro dei log](xref:fundamentals/logging/index#log-filtering) specificate nella sezione di configurazione della registrazione di un file *appsettings.json* o *appsettings.{Environment}.json*.
-* Se eseguito in IIS, abilita l'[integrazione di IIS](xref:host-and-deploy/iis/index). Configura il percorso di base e la porta su cui il server esegue l'ascolto quando viene usato il [modulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module). Il modulo crea un proxy inverso tra IIS e Kestrel. Configura inoltre l'app per l'[acquisizione degli errori di avvio](#capture-startup-errors). Per le opzioni predefinite di IIS, vedere <xref:host-and-deploy/iis/index#iis-options>.
+* Se eseguito in IIS con il [Modulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module), `CreateDefaultBuilder` abilita l'[integrazione di IIS](xref:host-and-deploy/iis/index), che configura l'indirizzo di base e la porta dell'app. L'integrazione di IIS configura inoltre l'app per l'[acquisizione degli errori di avvio](#capture-startup-errors). Per le opzioni predefinite di IIS, vedere <xref:host-and-deploy/iis/index#iis-options>.
 * Imposta [ServiceProviderOptions.ValidateScopes](/dotnet/api/microsoft.extensions.dependencyinjection.serviceprovideroptions.validatescopes) to `true` se l'ambiente dell'app è lo sviluppo. Per ulteriori informazioni, vedere [Convalida dell'ambito](#scope-validation).
 
 La configurazione definita da `CreateDefaultBuilder` può essere sottoposta a override e aumentata tramite [ConfigureAppConfiguration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configureappconfiguration), [ConfigureLogging](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configurelogging) e altri metodi e metodi di estensione di [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder). Di seguito sono riportati alcuni esempi:

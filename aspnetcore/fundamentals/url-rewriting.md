@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/19/2018
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 98787891a97e49081d72107484f030d216d82f45
-ms.sourcegitcommit: ad28d1bc6657a743d5c2fa8902f82740689733bb
+ms.openlocfilehash: 84052789717738a48c346d35d1a2642017a9ab93
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52256567"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861914"
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Middleware Riscrittura URL in ASP.NET Core
 
@@ -193,7 +193,7 @@ Nell'esempio precedente della regola di reindirizzamento `redirect-rule/(.*)`, n
 
 | Path                               | Corrispondenza con |
 | ---------------------------------- | :---: |
-| `/redirect-rule/1234/5678`         | Yes   |
+| `/redirect-rule/1234/5678`         | Sì   |
 | `/my-cool-redirect-rule/1234/5678` | Yes   |
 | `/anotherredirect-rule/1234/5678`  | Yes   |
 
@@ -201,7 +201,7 @@ La regola di riscrittura, `^rewrite-rule/(\d+)/(\d+)`, rileva la corrispondenza 
 
 | Path                              | Corrispondenza con |
 | --------------------------------- | :---: |
-| `/rewrite-rule/1234/5678`         | Yes   |
+| `/rewrite-rule/1234/5678`         | Sì   |
 | `/my-cool-rewrite-rule/1234/5678` | No    |
 | `/anotherrewrite-rule/1234/5678`  | No    |
 
@@ -210,7 +210,7 @@ Dopo la parte `^rewrite-rule/` dell'espressione sono presenti due gruppi Capture
 Non viene eseguito alcun round trip al server per ottenere la risorsa. Se la risorsa esiste, viene recuperata e restituita al client con il codice di stato *200 - OK*. Poiché il client non è reindirizzato, l'URL nella barra degli indirizzi del browser non cambia. I client non sono in grado di rilevare che si è verificata un'operazione di riscrittura URL nel server.
 
 > [!NOTE]
-> Se possibile, usare sempre `skipRemainingRules: true`, perché la corrispondenza tra le regole è onerosa dal punto di vista del calcolo e rallenta il tempo di risposta dell'app. Per velocizzare il tempo di risposta dell'app:
+> Se possibile, usare sempre `skipRemainingRules: true`, perché la corrispondenza tra le regole è onerosa dal punto di vista del calcolo e aumenta il tempo di risposta dell'app. Per velocizzare il tempo di risposta dell'app:
 >
 > * Ordinare le regole di riscrittura dalla regola che origina più corrispondenze a quella che origina meno corrispondenze.
 > * Quando viene rilevata una corrispondenza e non sono necessarie altre operazioni di elaborazione delle regole, ignorare l'elaborazione delle regole rimanenti.

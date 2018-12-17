@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: 78e5281d109977e8f41fe1f207254d3016f9c569
-ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
+ms.openlocfilehash: 16f3a435af267a5a17a24ee9fbda2b1c7c8818fd
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50244866"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121622"
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>Creare helper tag in ASP.NET Core
 
@@ -49,7 +49,7 @@ In altre parole, un tag di ancoraggio che dà come risultato un collegamento di 
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1EmailTagHelperCopy.cs)]
 
-   * Gli helper tag usano una convenzione di denominazione che interessa gli elementi del nome della classe di base (meno la parte *TagHelper* del nome della classe). In questo esempio, il nome radice di **Email**TagHelper è *email*, pertanto viene considerato come destinazione il tag `<email>`. Questa convenzione di denominazione dovrebbe funzionare per la maggior parte degli helper tag. Più avanti verrà illustrato come eseguirne l'override.
+   * Gli helper tag usano una convenzione di denominazione che interessa gli elementi del nome della classe di base (meno la parte *TagHelper* del nome della classe). In questo esempio il nome radice di **EmailTagHelper** è *email*, pertanto il tag `<email>` viene considerato come destinazione. Questa convenzione di denominazione dovrebbe funzionare per la maggior parte degli helper tag. Più avanti verrà illustrato come eseguirne l'override.
 
    * La classe `EmailTagHelper` deriva da `TagHelper`. La classe `TagHelper` mette a disposizione metodi e proprietà per la scrittura di helper tag.
 

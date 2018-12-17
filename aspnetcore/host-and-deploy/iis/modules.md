@@ -4,14 +4,14 @@ author: guardrex
 description: Individuare i moduli IIS attivi e inattivi per le app ASP.NET Core e come gestire i moduli IIS.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/12/2018
+ms.date: 11/30/2018
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: b417d479d0c3f8b3e739d4c72b52247de0e88e56
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: c6a6cc9b6b3410267c6f5034f824648a1ebbe10f
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325952"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52862239"
 ---
 # <a name="iis-modules-with-aspnet-core"></a>Moduli IIS con ASP.NET Core
 
@@ -21,40 +21,40 @@ Alcuni dei moduli nativi e tutti i moduli gestiti di IIS non sono disponibili pe
 
 ## <a name="native-modules"></a>Moduli nativi
 
-La tabella indica i moduli di IIS nativi che funzionano con le richieste del proxy inverso per le app ASP.NET Core.
+La tabella indica i moduli di IIS nativi che funzionano con le app ASP.NET Core e il modulo ASP.NET Core.
 
 | Modulo | Funzionante con le app ASP.NET Core | Opzione di ASP.NET Core |
 | --- | :---: | --- |
-| **Autenticazione anonima**<br>`AnonymousAuthenticationModule`                                  | Yes | |
-| **Autenticazione base**<br>`BasicAuthenticationModule`                                          | Yes | |
-| **Autenticazione mapping certificazione client**<br>`CertificateMappingAuthenticationModule`      | Yes | |
+| **Autenticazione anonima**<br>`AnonymousAuthenticationModule`                                  | Sì | |
+| **Autenticazione base**<br>`BasicAuthenticationModule`                                          | Sì | |
+| **Autenticazione mapping certificazione client**<br>`CertificateMappingAuthenticationModule`      | Sì | |
 | **CGI**<br>`CgiModule`                                                                           | No  | |
-| **Convalida della configurazione**<br>`ConfigurationValidationModule`                                  | Yes | |
+| **Convalida della configurazione**<br>`ConfigurationValidationModule`                                  | Sì | |
 | **Errori HTTP**<br>`CustomErrorModule`                                                           | No  | [Middleware delle tabelle codici di stato](xref:fundamentals/error-handling#configure-status-code-pages) |
 | **Registrazione personalizzata**<br>`CustomLoggingModule`                                                      | Yes | |
 | **Documento predefinito**<br>`DefaultDocumentModule`                                                  | No  | [Middleware dei file predefiniti](xref:fundamentals/static-files#serve-a-default-document) |
-| **Autenticazione digest**<br>`DigestAuthenticationModule`                                        | Yes | |
+| **Autenticazione digest**<br>`DigestAuthenticationModule`                                        | Sì | |
 | **Esplorazione directory**<br>`DirectoryListingModule`                                               | No  | [Middleware di esplorazione directory](xref:fundamentals/static-files#enable-directory-browsing) |
-| **Compressione dinamica**<br>`DynamicCompressionModule`                                            | Yes | [Middleware di compressione delle risposte](xref:performance/response-compression) |
+| **Compressione dinamica**<br>`DynamicCompressionModule`                                            | Sì | [Middleware di compressione delle risposte](xref:performance/response-compression) |
 | **Traccia**<br>`FailedRequestsTracingModule`                                                     | Yes | [Registrazione di ASP.NET Core](xref:fundamentals/logging/index#tracesource-provider) |
 | **Memorizzazione nella cache dei file**<br>`FileCacheModule`                                                            | No  | [Middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware) |
 | **Memorizzazione nella cache HTTP**<br>`HttpCacheModule`                                                            | No  | [Middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware) |
 | **Registrazione HTTP**<br>`HttpLoggingModule`                                                          | Yes | [Registrazione di ASP.NET Core](xref:fundamentals/logging/index) |
-| **Reindirizzamento HTTP**<br>`HttpRedirectionModule`                                                  | Yes | [Middleware di riscrittura URL](xref:fundamentals/url-rewriting) |
-| **Autenticazione mapping certificati client IIS**<br>`IISCertificateMappingAuthenticationModule` | Yes | |
-| **Restrizioni per IP e domini**<br>`IpRestrictionModule`                                          | Yes | |
+| **Reindirizzamento HTTP**<br>`HttpRedirectionModule`                                                  | Sì | [Middleware di riscrittura URL](xref:fundamentals/url-rewriting) |
+| **Autenticazione mapping certificati client IIS**<br>`IISCertificateMappingAuthenticationModule` | Sì | |
+| **Restrizioni per IP e domini**<br>`IpRestrictionModule`                                          | Sì | |
 | **Filtri ISAPI**<br>`IsapiFilterModule`                                                         | Yes | [Middleware](xref:fundamentals/middleware/index) |
-| **ISAPI**<br>`IsapiModule`                                                                       | Yes | [Middleware](xref:fundamentals/middleware/index) |
-| **Supporto del protocollo**<br>`ProtocolSupportModule`                                                  | Yes | |
-| **Filtro richieste**<br>`RequestFilteringModule`                                                | Yes | [Middleware di riscrittura URL `IRule`](xref:fundamentals/url-rewriting#irule-based-rule) |
+| **ISAPI**<br>`IsapiModule`                                                                       | Sì | [Middleware](xref:fundamentals/middleware/index) |
+| **Supporto del protocollo**<br>`ProtocolSupportModule`                                                  | Sì | |
+| **Filtro richieste**<br>`RequestFilteringModule`                                                | Sì | [Middleware di riscrittura URL `IRule`](xref:fundamentals/url-rewriting#irule-based-rule) |
 | **Monitoraggio richieste**<br>`RequestMonitorModule`                                                    | Yes | |
 | **Riscrittura degli URL**&#8224;<br>`RewriteModule`                                                      | Yes | [Middleware di riscrittura URL](xref:fundamentals/url-rewriting) |
 | **Server-Side Include**<br>`ServerSideIncludeModule`                                            | No  | |
 | **Compressione statica**<br>`StaticCompressionModule`                                              | No  | [Middleware di compressione delle risposte](xref:performance/response-compression) |
 | **Contenuto statico**<br>`StaticFileModule`                                                         | No  | [Middleware dei file statici](xref:fundamentals/static-files) |
-| **Memorizzazione nella cache dei token**<br>`TokenCacheModule`                                                          | Yes | |
-| **Memorizzazione nella cache degli URI**<br>`UriCacheModule`                                                              | Yes | |
-| **Autorizzazione URL**<br>`UrlAuthorizationModule`                                                | Yes | [Identità di ASP.NET Core](xref:security/authentication/identity) |
+| **Memorizzazione nella cache dei token**<br>`TokenCacheModule`                                                          | Sì | |
+| **Memorizzazione nella cache degli URI**<br>`UriCacheModule`                                                              | Sì | |
+| **Autorizzazione URL**<br>`UrlAuthorizationModule`                                                | Sì | [Identità di ASP.NET Core](xref:security/authentication/identity) |
 | **Autenticazione di Windows**<br>`WindowsAuthenticationModule`                                      | Yes | |
 
 &#8224;I tipi corrispondenti `isFile` e `isDirectory` di URL Rewrite Module non funzionano con le app ASP.NET Core a causa delle modifiche apportate alla [struttura di directory](xref:host-and-deploy/directory-structure).

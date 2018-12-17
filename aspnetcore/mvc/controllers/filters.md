@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/15/2018
 uid: mvc/controllers/filters
-ms.openlocfilehash: e5305852fad058961661373f9310d6dcaf30aa16
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: d25976af860ed8733c0548a4102e0095969b2ba6
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253195"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861849"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtri in ASP.NET Core
 
@@ -252,7 +252,8 @@ Il filtro può essere applicato a classi o metodi usando la sintassi `[SampleAct
 
 ## <a name="authorization-filters"></a>Filtri autorizzazione
 
-*Filtri autorizzazione:
+*Filtri autorizzazione*:
+
 * Controllano l'accesso ai metodi di azione.
 * Sono i primi filtri ad essere eseguiti all'interno della pipeline filtro. 
 * Dispongono di un metodo precedente, ma non di un metodo successivo. 

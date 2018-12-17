@@ -5,14 +5,14 @@ description: In questa esercitazione viene creata un'app di chat che usa ASP.NET
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 11/13/2018
+ms.date: 11/30/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 190717dc6e6f9f2766ba92aa7472f4cdea9b6827
-ms.sourcegitcommit: e7fafb153b9de7595c2558a0133f8d1c33a3bddb
+ms.openlocfilehash: c52041b34d6c9d1d8f06f980c900b805a0933293
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52458530"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861982"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Esercitazione: Introduzione ad ASP.NET Core SignalR
 
@@ -32,27 +32,10 @@ Al termine, si disporrà di un'app di chat funzionante:
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/signalr/sample) ([procedura per il download](xref:index#how-to-download-a-sample)).
 
 > [!NOTE]
-> È in corso un test di usabilità di una nuova proposta di struttura del sommario di ASP.NET Core.  Se si dispone di alcuni minuti per provare a cercare 7 argomenti diversi nel sommario corrente o proposto, [fare clic qui per partecipare al test](https://dpk4xbh5.optimalworkshop.com/treejack/rps16hd5).
+> È in corso un test di usabilità di una nuova proposta di struttura del sommario di ASP.NET Core.  Se si dispone di alcuni minuti per provare a cercare 7 argomenti diversi nel sommario corrente o proposto, [fare clic qui per partecipare al test](https://dpk4xbh5.optimalworkshop.com/treejack/aa11wn82).
 
-## <a name="prerequisites"></a>Prerequisiti
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/) versione 15.8 o successive con il carico di lavoro **Sviluppo ASP.NET e Web**
-* [.NET Core SDK 2.1 o versione successiva](https://www.microsoft.com/net/download/all)
-
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
-
-* [Visual Studio Code](https://code.visualstudio.com/download)
-* [.NET Core SDK 2.1 o versione successiva](https://www.microsoft.com/net/download/all)
-* [C# per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
-
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
-
-* [Visual Studio per Mac versione 7.5.4 o successiva](https://www.visualstudio.com/downloads/)
-* [.NET Core SDK 2.1 o versione successiva](https://www.microsoft.com/net/download/all) (incluso nell'installazione di Visual Studio)
-
----
+[!INCLUDE [|Prerequisites](~/includes/net-core-prereqs-all-2.2.md)]
 
 ## <a name="create-a-web-project"></a>Creare un progetto Web
 
@@ -66,7 +49,7 @@ Al termine, si disporrà di un'app di chat funzionante:
 
 * Selezionare **Applicazione Web** per creare un progetto che usa Razor Pages.
 
-* Selezionare un framework di destinazione di **.NET Core**, selezionare **ASP.NET Core 2.1** e fare clic su **OK**.
+* Selezionare un framework di destinazione di **.NET Core**, selezionare **ASP.NET Core 2.2** e fare clic su **OK**.
 
   ![Finestra di dialogo Nuovo progetto di Visual Studio](signalr/_static/signalr-new-project-choose-type.png)
 

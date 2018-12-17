@@ -4,14 +4,14 @@ author: guardrex
 description: Informazioni su come configurare il modulo di ASP.NET Core per l'hosting di app ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/12/2018
+ms.date: 12/06/2018
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: 5a3fd9c3453c07ee550c7de0333c9a49d5d5d1af
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.openlocfilehash: 0ad73d89ffa3a8a3625c6e248efaad821e1b4d0a
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52450658"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121557"
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>Guida di riferimento per la configurazione del modulo ASP.NET Core
 
@@ -27,17 +27,17 @@ Per le app che vengono eseguite in .NET Core 2.2 o versione successiva, il modul
 
 L'hosting in-process acconsente esplicitamente le app esistenti, mentre i modelli [dotnet new](/dotnet/core/tools/dotnet-new) usano per impostazione predefinita il modello di hosting in-process per tutti gli scenari IIS e IIS Express.
 
-Per configurare un'app per l'hosting In-Process, aggiungere la proprietà `<AspNetCoreHostingModel>` al file di progetto dell'app (ad esempio, *MyApp.csproj*), usando il valore `inprocess` (l'hosting out-of-process viene impostato con `outofprocess`):
+Per configurare un'app per l'hosting In-Process, aggiungere la proprietà `<AspNetCoreHostingModel>` al file di progetto dell'app (ad esempio, *MyApp.csproj*), usando il valore `InProcess` (l'hosting out-of-process viene impostato con `outofprocess`):
 
 ```xml
 <PropertyGroup>
-  <AspNetCoreHostingModel>inprocess</AspNetCoreHostingModel>
+  <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
 </PropertyGroup>
 ```
 
 In caso di hosting in-process, vengono applicate le caratteristiche seguenti:
 
-* Non viene usato il [server Kestrel](xref:fundamentals/servers/kestrel). Un'implementazione <xref:Microsoft.AspNetCore.Hosting.Server.IServer> personalizzata, `IISHttpServer` funge da server dell'app.
+* Un server HTTP di IIS (`IISHttpServer`) viene utilizzato al posto del server [Kestrel](xref:fundamentals/servers/kestrel). Il server HTTP di IIS (`IISHttpServer`) è un'altra implementazione <xref:Microsoft.AspNetCore.Hosting.Server.IServer> che converte le richieste native di IIS in richieste gestite di ASP.NET Core da sottoporre all'app per l'elaborazione.
 
 * L'[attributo requestTimeout ](#attributes-of-the-aspnetcore-element) non viene applicato all'hosting in-process.
 
@@ -51,7 +51,9 @@ In caso di hosting in-process, vengono applicate le caratteristiche seguenti:
 
 * Le disconnessioni del client vengono rilevate. Il token di annullamento [HttpContext.RequestAborted](xref:Microsoft.AspNetCore.Http.HttpContext.RequestAborted*) viene cancellato quando il client si disconnette.
 
-* `Directory.GetCurrentDirectory()` restituisce la directory di lavoro del processo avviato da IIS invece che la directory dell'applicazione (ad esempio, *C:\Windows\System32\inetsrv* per *w3wp.exe*).
+* <xref:System.IO.Directory.GetCurrentDirectory*> restituisce la directory di lavoro del processo avviato da IIS invece che la directory dell'app (ad esempio, *C:\Windows\System32\inetsrv* per *w3wp.exe*).
+
+  Per vedere il codice di esempio che imposta la directory corrente dell'app, vedere la [classe CurrentDirectoryHelpers](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/aspnet-core-module/samples_snapshot/2.x/CurrentDirectoryHelpers.cs). Chiamare il metodo `SetCurrentDirectory`. Le chiamate successive a <xref:System.IO.Directory.GetCurrentDirectory*> specificano la directory dell'app.
 
 ### <a name="hosting-model-changes"></a>Modifiche del modello di hosting
 
@@ -85,7 +87,7 @@ Il file *web.config* seguente viene pubblicato per una [distribuzione dipendente
                   arguments=".\MyApp.dll" 
                   stdoutLogEnabled="false" 
                   stdoutLogFile=".\logs\stdout" 
-                  hostingModel="inprocess" />
+                  hostingModel="InProcess" />
     </system.webServer>
   </location>
 </configuration>
@@ -127,7 +129,7 @@ Il file *web.config* seguente viene pubblicato per una [distribuzione autonoma](
       <aspNetCore processPath=".\MyApp.exe" 
                   stdoutLogEnabled="false" 
                   stdoutLogFile=".\logs\stdout" 
-                  hostingModel="inprocess" />
+                  hostingModel="InProcess" />
     </system.webServer>
   </location>
 </configuration>
@@ -163,12 +165,12 @@ Per informazioni sulla configurazione delle applicazioni secondarie IIS, vedere 
 
 ::: moniker range=">= aspnetcore-2.2"
 
-| Attributo | Descrizione | Impostazione predefinita |
+| Attributo | Description | Impostazione predefinita |
 | --------- | ----------- | :-----: |
 | `arguments` | <p>Attributo stringa facoltativo.</p><p>Argomenti per l'eseguibile specificato in **processPath**.</p> | |
 | `disableStartUpErrorPage` | <p>Attributo booleano facoltativo.</p><p>Se true, la pagina **502.5 - Errore del processo** non viene visualizzata e la tabella codici di stato 502 configurata in *web.config* ha la precedenza.</p> | `false` |
 | `forwardWindowsAuthToken` | <p>Attributo booleano facoltativo.</p><p>Se true, il token viene inoltrato al processo figlio in ascolto su %ASPNETCORE_PORT% come un'intestazione 'MS-ASPNETCORE-WINAUTHTOKEN' per ogni richiesta. È responsabilità del processo chiamare CloseHandle su questo token per ogni richiesta.</p> | `true` |
-| `hostingModel` | <p>Attributo stringa facoltativo.</p><p>Specifica il modello di hosting in-process (`inprocess`) o out-of-process (`outofprocess`).</p> | `outofprocess` |
+| `hostingModel` | <p>Attributo stringa facoltativo.</p><p>Specifica il modello di hosting in-process (`InProcess`) o out-of-process (`OutOfProcess`).</p> | `OutOfProcess` |
 | `processesPerApplication` | <p>Attributo Integer facoltativo.</p><p>Specifica il numero di istanze del processo specificato nell'impostazione **processPath** che può essere riattivato per ogni app.</p><p>&dagger;Per l'hosting in-process, il valore è limitato a `1`.</p> | Valore predefinito: `1`<br>Min: `1`<br>Max: `100`&dagger; |
 | `processPath` | <p>Attributo stringa obbligatorio.</p><p>Percorso del file eseguibile che avvia un processo in ascolto delle richieste HTTP. I percorsi relativi sono supportati. Se il percorso inizia con `.`, viene considerato relativo alla radice del sito.</p> | |
 | `rapidFailsPerMinute` | <p>Attributo Integer facoltativo.</p><p>Specifica il numero di arresti anomali al minuto per il processo specificato in **processPath**. Se questo limite viene superato, il modulo smette di avviare il processo per la parte restante del minuto.</p><p>Non supportato con l'hosting in-process.</p> | Valore predefinito: `10`<br>Min: `0`<br>Max: `100` |
@@ -182,7 +184,7 @@ Per informazioni sulla configurazione delle applicazioni secondarie IIS, vedere 
 
 ::: moniker range="= aspnetcore-2.1"
 
-| Attributo | Descrizione | Impostazione predefinita |
+| Attributo | Description | Impostazione predefinita |
 | --------- | ----------- | :-----: |
 | `arguments` | <p>Attributo stringa facoltativo.</p><p>Argomenti per l'eseguibile specificato in **processPath**.</p>| |
 | `disableStartUpErrorPage` | <p>Attributo booleano facoltativo.</p><p>Se true, la pagina **502.5 - Errore del processo** non viene visualizzata e la tabella codici di stato 502 configurata in *web.config* ha la precedenza.</p> | `false` |
@@ -200,7 +202,7 @@ Per informazioni sulla configurazione delle applicazioni secondarie IIS, vedere 
 
 ::: moniker range="<= aspnetcore-2.0"
 
-| Attributo | Descrizione | Impostazione predefinita |
+| Attributo | Description | Impostazione predefinita |
 | --------- | ----------- | :-----: |
 | `arguments` | <p>Attributo stringa facoltativo.</p><p>Argomenti per l'eseguibile specificato in **processPath**.</p>| |
 | `disableStartUpErrorPage` | <p>Attributo booleano facoltativo.</p><p>Se true, la pagina **502.5 - Errore del processo** non viene visualizzata e la tabella codici di stato 502 configurata in *web.config* ha la precedenza.</p> | `false` |
@@ -229,7 +231,7 @@ Nell'esempio seguente vengono impostate due variabili di ambiente. `ASPNETCORE_E
       arguments=".\MyApp.dll"
       stdoutLogEnabled="false"
       stdoutLogFile="\\?\%home%\LogFiles\stdout"
-      hostingModel="inprocess">
+      hostingModel="InProcess">
   <environmentVariables>
     <environmentVariable name="ASPNETCORE_ENVIRONMENT" value="Development" />
     <environmentVariable name="CONFIG_DIR" value="f:\application_config" />
@@ -319,7 +321,7 @@ L'elemento di esempio `aspNetCore` seguente configura la registrazione stdout pe
     arguments=".\MyApp.dll"
     stdoutLogEnabled="true"
     stdoutLogFile="\\?\%home%\LogFiles\stdout"
-    hostingModel="inprocess">
+    hostingModel="InProcess">
 </aspNetCore>
 ```
 
@@ -348,7 +350,7 @@ Il modulo ASP.NET Core può essere configurato per restituire log di diagnostica
     arguments=".\MyApp.dll"
     stdoutLogEnabled="false"
     stdoutLogFile="\\?\%home%\LogFiles\stdout"
-    hostingModel="inprocess">
+    hostingModel="InProcess">
   <handlerSettings>
     <handlerSetting name="debugFile" value="aspnetcore-debug.log" />
     <handlerSetting name="debugLevel" value="FILE,TRACE" />
