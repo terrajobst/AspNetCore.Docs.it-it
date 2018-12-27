@@ -4,16 +4,16 @@ title: Routing e selezione dell'azione nell'API Web ASP.NET | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: riande
-ms.date: 07/27/2012
+ms.date: 12/14/2018
 ms.assetid: bcf2d223-cb7f-411e-be05-f43e96a14015
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/routing-and-action-selection
 msc.type: authoredcontent
-ms.openlocfilehash: b4912d3ee1e13651f2a63d54d7dbfd92e00f85f8
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: ce54181996376cb5dde3b91c10c16f33b3c6a570
+ms.sourcegitcommit: 6548c19f345850ee22b50f7ef9fca732895d9e08
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41837444"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53425172"
 ---
 <a name="routing-and-action-selection-in-aspnet-web-api"></a>Routing e selezione dell'azione nell'API Web ASP.NET
 ====================
@@ -62,7 +62,7 @@ Se si specificano le impostazioni predefinite, route corrisponderà a un URI pri
 
 [!code-csharp[Main](routing-and-action-selection/samples/sample4.cs)]
 
-L'URI "`http://localhost/api/products`" corrisponde a questa route. Il segmento "{category}" è assegnato il valore predefinito "all".
+Gli URI `http://localhost/api/products/all` e `http://localhost/api/products` corrispondono alla route precedente. Nell'URI, quest'ultimo parametro mancante `{category}` segmento viene assegnato il valore predefinito `all`.
 
 ### <a name="route-dictionary"></a>Dizionario della route
 
@@ -83,7 +83,7 @@ Per "api/prodotti/toys/123", tuttavia, il dizionario della route conterrà:
 
 - controller: "prodotti"
 - category: "toys"
-- id: "123"
+- ID: "123"
 
 I valori predefiniti possono anche includere un valore che non viene visualizzato in un punto qualsiasi nel modello di route. Se la route corrisponde, tale valore viene archiviato nel dizionario. Ad esempio:
 
@@ -92,7 +92,7 @@ I valori predefiniti possono anche includere un valore che non viene visualizzat
 Se il percorso dell'URI è "root/api/8", il dizionario contiene due valori:
 
 - controller: "customers"
-- id: "8"
+- ID: "8"
 
 ## <a name="selecting-a-controller"></a>Quando si seleziona un Controller
 
@@ -122,7 +122,7 @@ Prima di esaminare l'algoritmo di selezione, è necessario comprendere alcuni as
 
 **Metodi HTTP.** Il framework sceglie solo le azioni che corrispondono al metodo HTTP della richiesta, determinata come segue:
 
-1. È possibile specificare il metodo HTTP con un attributo: **AcceptVerbs**, **HttpDelete**, **HttpGet**, **HttpHead**,  **HttpOptions**, **HttpPatch**, **HttpPost**, oppure **HttpPut**.
+1. È possibile specificare il metodo HTTP con un attributo: **AcceptVerbs**, **HttpDelete**, **HttpGet**, **HttpHead**, **HttpOptions**, **HttpPatch**, **HttpPost**, o **HttpPut**.
 2. In caso contrario, se il nome del metodo del controller inizia con "Get", "Post", "Put", "Delete", "Head", "Opzioni" o "Patch", quindi per convenzione l'azione supporta tale metodo HTTP.
 3. Se nessuna delle precedenti, il metodo supporta POST.
 
@@ -189,7 +189,7 @@ Richiesta HTTP:
 L'URI corrisponde alla route denominata "DefaultApi". Il dizionario della route contiene le voci seguenti:
 
 - controller: "prodotti"
-- id: "1"
+- ID: "1"
 
 Il dizionario della route non contiene i parametri della stringa di query, "version" e "Dettagli", ma questi continueranno ad essere considerati durante la selezione di azione.
 

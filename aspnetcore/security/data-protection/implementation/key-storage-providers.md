@@ -3,14 +3,14 @@ title: Provider di archiviazione chiavi in ASP.NET Core
 author: rick-anderson
 description: Informazioni sui provider di archiviazione chiavi in ASP.NET Core e su come configurare i percorsi di archiviazione delle chiavi.
 ms.author: riande
-ms.date: 12/06/2018
+ms.date: 12/19/2018
 uid: security/data-protection/implementation/key-storage-providers
-ms.openlocfilehash: e10271d5979b503a8a842f8866a0e2a3fa040656
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: d6dabc9e4581e0891d1dd14f73e086d50b45bba4
+ms.sourcegitcommit: 3e94d192b2ed9409fe72e3735e158b333354964c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121453"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735739"
 ---
 # <a name="key-storage-providers-in-aspnet-core"></a>Provider di archiviazione chiavi in ASP.NET Core
 
@@ -125,6 +125,38 @@ Per configurare il provider di Entity Framework Core, chiamare il [ `PersistKeys
 Il parametro generico `TContext`, è necessario ereditare [DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext) e [IDataProtectionKeyContext](/dotnet/api/microsoft.aspnetcore.dataprotection.entityframeworkcore.idataprotectionkeycontext):
 
 [!code-csharp[Main](key-storage-providers/sample/MyKeysContext.cs)]
+
+Creare il `DataProtectionKeys` tabella. 
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+Eseguire i comandi seguenti nel **Console di gestione pacchetti** finestra:
+
+```PowerShell
+Add-Migration AddDataProtectionKeys -Context MyKeysContext
+Update-Database -Context MyKeysContext
+```
+
+# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
+
+Eseguire i comandi seguenti in una shell dei comandi:
+
+```console
+dotnet ef migrations add AddDataProtectionKeys --context MyKeysContext
+dotnet ef database update --context MyKeysContext
+```
+
+---
+
+`MyKeysContext` è il `DbContext` definito nell'esempio di codice precedente. Se si usa un' `DbContext` con un nome diverso, sostituire il `DbContext` nome `MyKeysContext`.
+
+Il `DataProtectionKeys` classe/entità adotta la struttura illustrata nella tabella riportata di seguito.
+
+| Proprietà/campo | Tipo CLR | Tipo SQL              |
+| -------------- | -------- | --------------------- |
+| `Id`           | `int`    | `int`, Utilizzando la chiave primaria non è null   |
+| `FriendlyName` | `string` | `nvarchar(MAX)`, null |
+| `Xml`          | `string` | `nvarchar(MAX)`, null |
 
 ::: moniker-end
 

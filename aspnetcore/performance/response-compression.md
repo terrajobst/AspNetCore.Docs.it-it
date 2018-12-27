@@ -5,14 +5,14 @@ description: Informazioni sulla compressione delle risposte e su come usare il r
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 12/18/2018
 uid: performance/response-compression
-ms.openlocfilehash: 2516fbb30e55990dc4ad0d92069853bc26874bc9
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 51ab51652a7b3f9b4ef97b3abbffe2e398c0bfb5
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861888"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637755"
 ---
 # <a name="response-compression-in-aspnet-core"></a>Compressione delle risposte in ASP.NET Core
 
@@ -33,8 +33,8 @@ Usare il Middleware di compressione delle risposte quando si è:
   * [Modulo Apache mod_deflate](http://httpd.apache.org/docs/current/mod/mod_deflate.html)
   * [La decompressione e la compressione di Nginx](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)
 * Hosting direttamente in:
-  * [Http. sys](xref:fundamentals/servers/httpsys) server (in precedenza denominati [WebListener](xref:fundamentals/servers/weblistener))
-  * [Kestrel](xref:fundamentals/servers/kestrel) server
+  * [Server HTTP. sys](xref:fundamentals/servers/httpsys) (precedentemente denominato WebListener)
+  * [Server kestrel](xref:fundamentals/servers/kestrel)
 
 ## <a name="response-compression"></a>Compressione delle risposte
 
@@ -50,7 +50,7 @@ Quando un client riesce a elaborare il contenuto compresso, il client deve infor
 | `deflate`                       | No                   | [Formato di dati compressi DEFLATE](https://tools.ietf.org/html/rfc1951) |
 | `exi`                           | No                   | [W3C XML efficiente interscambio](https://tools.ietf.org/id/draft-varga-netconf-exi-capability-00.html) |
 | `gzip`                          | Yes                  | [Formato del file gzip](https://tools.ietf.org/html/rfc1952) |
-| `identity`                      | Yes                  | Identificatore "Alcuna codifica": la risposta non deve essere codificata. |
+| `identity`                      | Yes                  | Identificatore "Alcuna codifica": La risposta non deve essere codificata. |
 | `pack200-gzip`                  | No                   | [Formato di trasferimento di rete per gli archivi Java](https://jcp.org/aboutJava/communityprocess/review/jsr200/index.html) |
 | `*`                             | Yes                  | Qualsiasi contenuto disponibile la codifica non è richiesto in modo esplicito |
 
@@ -64,7 +64,7 @@ Quando un client riesce a elaborare il contenuto compresso, il client deve infor
 | `deflate`                       | No                   | [Formato di dati compressi DEFLATE](https://tools.ietf.org/html/rfc1951) |
 | `exi`                           | No                   | [W3C XML efficiente interscambio](https://tools.ietf.org/id/draft-varga-netconf-exi-capability-00.html) |
 | `gzip`                          | Sì (impostazione predefinita)        | [Formato del file gzip](https://tools.ietf.org/html/rfc1952) |
-| `identity`                      | Yes                  | Identificatore "Alcuna codifica": la risposta non deve essere codificata. |
+| `identity`                      | Yes                  | Identificatore "Alcuna codifica": La risposta non deve essere codificata. |
 | `pack200-gzip`                  | No                   | [Formato di trasferimento di rete per gli archivi Java](https://jcp.org/aboutJava/communityprocess/review/jsr200/index.html) |
 | `*`                             | Yes                  | Qualsiasi contenuto disponibile la codifica non è richiesto in modo esplicito |
 
@@ -74,7 +74,7 @@ Per altre informazioni, vedere la [IANA contenuto codifica elenco ufficiale](htt
 
 Il middleware consente di aggiungere i provider di compressione aggiuntiva per l'installazione personalizzata `Accept-Encoding` i valori di intestazione. Per altre informazioni, vedere [provider personalizzati](#custom-providers) sotto.
 
-Il middleware è in grado di reagire al valore di qualità (qvalue, `q`) ponderazione quando inviato dal client per definire le priorità di schemi di compressione. Per altre informazioni, vedere [RFC 7231: codifica](https://tools.ietf.org/html/rfc7231#section-5.3.4).
+Il middleware è in grado di reagire al valore di qualità (qvalue, `q`) ponderazione quando inviato dal client per definire le priorità di schemi di compressione. Per altre informazioni, vedere [RFC 7231: Codifica](https://tools.ietf.org/html/rfc7231#section-5.3.4).
 
 Algoritmi di compressione sono soggetti a raggiungere un compromesso tra velocità di compressione e l'efficacia della compressione. *L'efficacia* in questo contesto si riferisce alle dimensioni dell'output dopo la compressione. La dimensione più piccola avviene tramite più *ottimali* la compressione.
 
@@ -432,7 +432,7 @@ Quando la compressione delle risposte in base il `Accept-Encoding` intestazione,
 
 ## <a name="middleware-issue-when-behind-an-nginx-reverse-proxy"></a>Problema di middleware quando dietro un proxy inverso di Nginx
 
-Quando una richiesta viene trasmessa tramite proxy da Nginx, il `Accept-Encoding` intestazione viene rimosso. Rimozione del `Accept-Encoding` intestazione impedisce che il middleware di compressione della risposta. Per altre informazioni, vedere [NGINX: compressione e decompressione](https://www.nginx.com/resources/admin-guide/compression-and-decompression/). Questo problema viene rilevato da [capire la compressione di tipo pass-through per Nginx (aspnet/BasicMiddleware \#123)](https://github.com/aspnet/BasicMiddleware/issues/123).
+Quando una richiesta viene trasmessa tramite proxy da Nginx, il `Accept-Encoding` intestazione viene rimosso. Rimozione del `Accept-Encoding` intestazione impedisce che il middleware di compressione della risposta. Per altre informazioni, vedere [NGINX: La compressione e decompressione](https://www.nginx.com/resources/admin-guide/compression-and-decompression/). Questo problema viene rilevato da [capire la compressione di tipo pass-through per Nginx (aspnet/BasicMiddleware \#123)](https://github.com/aspnet/BasicMiddleware/issues/123).
 
 ## <a name="working-with-iis-dynamic-compression"></a>Utilizzo con la compressione dinamica di IIS
 
@@ -465,6 +465,6 @@ Usare uno strumento come [Fiddler](https://www.telerik.com/fiddler), [Firebug](h
 * <xref:fundamentals/startup>
 * <xref:fundamentals/middleware/index>
 * [Mozilla Developer Network: Codifica](https://developer.mozilla.org/docs/Web/HTTP/Headers/Accept-Encoding)
-* [RFC 7231 sezione 3.1.2.1: Chiaramente tutti i codici contenuti](https://tools.ietf.org/html/rfc7231#section-3.1.2.1)
-* [RFC 7230 sezione 4.2.3: Codifica Gzip](https://tools.ietf.org/html/rfc7230#section-4.2.3)
+* [RFC 7231 sezione 3.1.2.1: Chiaramente tutti i codici del contenuto](https://tools.ietf.org/html/rfc7231#section-3.1.2.1)
+* [RFC 7230 sezione 4.2.3: Codifica gzip](https://tools.ietf.org/html/rfc7230#section-4.2.3)
 * [Versione specifica del formato file GZIP 4.3](http://www.ietf.org/rfc/rfc1952.txt)

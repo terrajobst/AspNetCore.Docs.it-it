@@ -3,15 +3,15 @@ title: Creare un'app ASP.NET Core con i dati utente protetti da autorizzazione
 author: rick-anderson
 description: Informazioni su come creare un'app Razor Pages con i dati utente protetti da autorizzazione. Include HTTPS, l'autenticazione, sicurezza, ASP.NET Core Identity.
 ms.author: riande
-ms.date: 12/07/2018
+ms.date: 12/18/2018
 ms.custom: seodec18
 uid: security/authorization/secure-data
-ms.openlocfilehash: d49ee7779b425d625b81c8a65694121c616bfba6
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: fa82d3d99f4e4b7ad17ed385fb7c029745797e8d
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121635"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637833"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Creare un'app ASP.NET Core con i dati utente protetti da autorizzazione
 
@@ -57,7 +57,7 @@ Nell'immagine seguente, `admin@contoso.com` viene effettuato l'accesso e al ruol
 
 L'amministratore ha tutti i privilegi. Può leggere, modificare ed eliminare un contatto e modificare lo stato dei contatti.
 
-L'app è stato creato da [scaffolding](xref:tutorials/first-mvc-app-xplat/adding-model#scaffold-the-moviecontroller) seguenti `Contact` modello:
+L'app è stato creato da [scaffolding](xref:tutorials/first-mvc-app/adding-model#scaffold-the-movie-model) seguenti `Contact` modello:
 
 [!code-csharp[](secure-data/samples/starter2.1/Models/Contact.cs?name=snippet)]
 
@@ -284,7 +284,7 @@ Visualizzare [questo problema](https://github.com/aspnet/Docs/issues/8502) per i
 
 Se è già stata impostata una password per gli account utente di seeding, usare il [strumento Secret Manager](xref:security/app-secrets#secret-manager) per impostare una password:
 
-* Scegliere una password complessa: usare otto o più caratteri e contenere almeno un carattere maiuscolo, numero e simboli. Ad esempio, `Passw0rd!` soddisfi i requisiti di password complesse.
+* Scegliere una password complessa: Usare otto o più caratteri e contenere almeno un carattere maiuscolo, numeri e simboli. Ad esempio, `Passw0rd!` soddisfi i requisiti di password complesse.
 * Eseguire il comando seguente dalla cartella del progetto, in cui `<PW>` è la password:
 
   ```console
