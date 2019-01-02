@@ -5,22 +5,16 @@ description: Vedere il sommario per un'introduzione ad ASP.NET Core MVC con Visu
 ms.author: riande
 ms.date: 10/26/2017
 uid: tutorials/first-mvc-app/index
-ms.openlocfilehash: bd6bc5ba77da506527ddc024f73b4eb195401e46
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.openlocfilehash: 3a679e31c6eda4c86edbd0ada27b4973204c467b
+ms.sourcegitcommit: 4e87712029de2aceb1cf2c52e9e3dda8195a5b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37938121"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53382085"
 ---
 # <a name="create-a-web-app-with-aspnet-core-mvc-on-windows-with-visual-studio"></a>Creare un'app Web con ASP.NET Core MVC in Windows con Visual Studio
 
 [!INCLUDE [consider RP](~/includes/razor.md)]
-
-Sono disponibili 3 versioni dell'esercitazione:
-
-* Windows: questa serie
-* macOS: [Creare un'app ASP.NET Core MVC con Visual Studio per Mac](xref:tutorials/first-mvc-app-mac/start-mvc)
-* macOS, Linux e Windows: [Creare un'app ASP.NET Core MVC con Visual Studio Code](xref:tutorials/first-mvc-app-xplat/start-mvc)
 
 La serie di esercitazioni include gli argomenti seguenti:
 
