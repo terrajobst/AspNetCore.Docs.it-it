@@ -1,29 +1,31 @@
 ---
-title: Creare un'app web Razor Pages con ASP.NET Core
+title: "Esercitazione: Creare un'app web Razor Pages con ASP.NET Core"
 author: rick-anderson
 description: Creare un'app Web Razor Pages in Windows con Visual Studio, ASP.NET Core ed EF Core.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 09/08/2017
 uid: tutorials/razor-pages/index
-ms.openlocfilehash: f5cc07b8dbf1f226f377a948be0d958c842bb24e
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 981460e63be611f8b9b5ceda73c2d6b8f2e4962e
+ms.sourcegitcommit: 6548c19f345850ee22b50f7ef9fca732895d9e08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861836"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53425068"
 ---
-# <a name="create-a-razor-pages-web-app-with-aspnet-core"></a>Creare un'app web Razor Pages con ASP.NET Core
+# <a name="tutorial-create-a-razor-pages-web-app-with-aspnet-core"></a>Esercitazione: Creare un'app web Razor Pages con ASP.NET Core
 
-Questa serie illustra le nozioni di base della creazione di un'app Web Razor Pages.
+Questa serie di esercitazioni illustra i passaggi di base della creazione di un'app Web Razor Pages. La serie include le esercitazioni seguenti:
 
-1. [Introduzione a Razor Pages](xref:tutorials/razor-pages/razor-pages-start)
+1. [Creare un'app Web di Razor Pages](xref:tutorials/razor-pages/razor-pages-start)
 1. [Aggiungere un modello a un'app Razor Pages](xref:tutorials/razor-pages/model)
-1. [Pagine Razor create tramite scaffolding](xref:tutorials/razor-pages/page)
-1. [Usare SQL Server Local DB](xref:tutorials/razor-pages/sql)
-1. [Aggiornamento delle pagine](xref:tutorials/razor-pages/da1)
+1. [Scaffolding (generazione) delle pagine Razor](xref:tutorials/razor-pages/page)
+1. [Usare un database](xref:tutorials/razor-pages/sql)
+1. [Aggiornare le pagine Razor](xref:tutorials/razor-pages/da1)
 1. [Aggiungere la ricerca](xref:tutorials/razor-pages/search)
 1. [Aggiungere un nuovo campo](xref:tutorials/razor-pages/new-field)
 1. [Aggiungere la convalida](xref:tutorials/razor-pages/validation)
 
-Dopo l'esercitazione per aggiungere una funzionalità di caricamento file per l'app di esempio, vedere <xref:razor-pages/upload-files>.
+Al termine, si otterrà un'app che consente di visualizzare e gestire un database di film.
+
+![Pagina di esempio dell'app di esempio](index/_static/sample-page.png)

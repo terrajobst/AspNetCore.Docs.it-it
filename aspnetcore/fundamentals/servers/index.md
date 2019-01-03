@@ -4,20 +4,20 @@ author: guardrex
 description: Individuare i server Web Kestrel e HTTP.sys per ASP.NET Core. Informazioni su come scegliere un server e quando usare un server proxy inverso.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 12/18/2018
 uid: fundamentals/servers/index
-ms.openlocfilehash: 965d69dd071ec71d283284d58e6e1a6e78604f90
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 2c209942ed219b6d6ca309d8aba94b264d421158
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861356"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637742"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Implementazioni di server Web in ASP.NET Core
 
 Di [Tom Dykstra](https://github.com/tdykstra), [Steve Smith](https://ardalis.com/), [Stephen Halter](https://twitter.com/halter73) e [Chris Ross](https://github.com/Tratcher)
 
-Un'app ASP.NET Core viene eseguita con un'implementazione del server HTTP in-process. L'implementazione del server attende le richieste HTTP e le rende visibili all'app come set di [funzionalità di richiesta](xref:fundamentals/request-features) combinate in un <xref:Microsoft.AspNetCore.Http.HttpContext>.
+Un'app ASP.NET Core viene eseguita con un'implementazione del server HTTP in-process. L'implementazione del server attende le richieste HTTP e le rende visibili all'app come un set di [funzionalità di richiesta](xref:fundamentals/request-features) combinate in un <xref:Microsoft.AspNetCore.Http.HttpContext>.
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -25,9 +25,58 @@ Un'app ASP.NET Core viene eseguita con un'implementazione del server HTTP in-pro
 
 ASP.NET Core include quanto segue:
 
-* Il [server kestrel](xref:fundamentals/servers/kestrel) è il server HTTP multipiattaforma predefinito.
-* Il server HTTP IIS (`IISHttpServer`) è un'implementazione del [server in-process IIS](xref:fundamentals/servers/aspnet-core-module#in-process-hosting-model) usata con il [modulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module).
-* Il [server HTTP.sys](xref:fundamentals/servers/httpsys) è un server HTTP solo per Windows basato sul [driver del kernel HTTP.sys e l'API HTTP Server](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx). HTTP.sys è noto come [WebListener](xref:fundamentals/servers/weblistener) in ASP.NET Core 1.x.
+* Il [server Kestrel](xref:fundamentals/servers/kestrel) è l'implementazione di server HTTP multipiattaforma predefinita.
+* Il server HTTP IIS è un [server in-process](#in-process-hosting-model) per IIS.
+* Il [server HTTP.sys](xref:fundamentals/servers/httpsys) è un server HTTP solo per Windows basato sul [driver del kernel HTTP.sys e l'API HTTP Server](/windows/desktop/Http/http-api-start-page).
+
+Quando si usa [IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture) oppure [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview), l'app viene eseguita:
+
+* Nello stesso processo del processo di lavoro IIS ([modello di hosting in-process](#in-process-hosting-model)) con il [server HTTP IIS](#iis-http-server). *In-process* è la configurazione consigliata.
+* In un processo separato dal processo di lavoro IIS ([modello di hosting out-of-process](#out-of-process-hosting-model)) con il [server Kestrel](#kestrel).
+
+Il [modulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module) è un modulo IIS nativo che gestisce le richieste IIS native tra IIS e il server HTTP IIS in-process o il server Kestrel. Per ulteriori informazioni, vedere <xref:host-and-deploy/aspnet-core-module>.
+
+## <a name="hosting-models"></a>Modelli di hosting
+
+### <a name="in-process-hosting-model"></a>Modello di hosting in-process
+
+Se si usa l'hosting in-process, un'app ASP.NET Core esegue lo stesso processo del processo di lavoro IIS. Questa operazione rimuove gli effetti negativi a livello di prestazioni out-of-process dell'inoltro delle richieste sulla scheda di loopback, un'interfaccia di rete che restituisce il traffico di rete in uscita allo stesso computer. Per gestire il processo, IIS usa il [servizio Attivazione processo Windows (WAS)](/iis/manage/provisioning-and-managing-iis/features-of-the-windows-process-activation-service-was).
+
+Il modulo ASP.NET Core:
+
+* Esegue l'inizializzazione dell'app.
+  * Carica [CoreCLR](/dotnet/standard/glossary#coreclr).
+  * Chiama `Program.Main`.
+* Gestisce la durata della richiesta nativa di IIS.
+
+Il diagramma seguente illustra la relazione tra IIS, il modulo ASP.NET Core e un'app ospitata in-process:
+
+![Modulo ASP.NET Core](_static/ancm-inprocess.png)
+
+Una richiesta arriva dal Web al driver HTTP.sys in modalità kernel. Il driver instrada la richiesta nativa IIS sulla porta configurata per il sito Web, in genere 80 (HTTP) o 443 (HTTPS). Il modulo riceve la richiesta nativa e la trasmette al server HTTP di IIS (`IISHttpServer`). Il server HTTP di IIS è un'implementazione di server in-process per IIS che converte la richiesta da nativa a gestita.
+
+Dopo che la richiesta è stata elaborata dal server HTTP di IIS, viene eseguito il push della richiesta nella pipeline middleware ASP.NET Core. La pipeline middleware gestisce la richiesta e la passa come istanza di `HttpContext` alla logica dell'app. La risposta dell'app viene quindi restituita a IIS, che ne esegue di nuovo il push al client che ha avviato la richiesta.
+
+L'hosting in-process è una funzionalità che richiede il consenso esplicito per le app esistenti, mentre i modelli [dotnet new](/dotnet/core/tools/dotnet-new) usano per impostazione predefinita il modello di hosting in-process per tutti gli scenari IIS e IIS Express.
+
+### <a name="out-of-process-hosting-model"></a>Modello di hosting out-of-process
+
+Poiché le app ASP.NET Core vengono eseguite in un processo distinto dal processo di lavoro IIS, il modulo esegue la gestione dei processi. Il modulo avvia il processo per l'app ASP.NET Core quando arriva la prima richiesta e riavvia l'app se viene arrestata o si arresta in modo anomalo. Si tratta essenzialmente dello stesso comportamento delle app eseguite in-process e gestite dal [servizio Attivazione processo Windows](/iis/manage/provisioning-and-managing-iis/features-of-the-windows-process-activation-service-was).
+
+Il diagramma seguente illustra la relazione tra IIS, il modulo ASP.NET Core e un'app ospitata out-of-process:
+
+![Modulo ASP.NET Core](_static/ancm-outofprocess.png)
+
+Le richieste arrivano dal Web al driver HTTP.sys in modalità kernel. Il driver instrada le richieste a IIS sulla porta configurata per il sito Web, in genere 80 (HTTP) o 443 (HTTPS). Il modulo inoltra le richieste a Kestrel su una porta casuale per l'app non corrispondente alla porta 80 o 443.
+
+Il modulo specifica la porta tramite una variabile di ambiente all'avvio e il middleware di integrazione di IIS configura il server per l'ascolto su `http://localhost:{PORT}`. Vengono eseguiti controlli aggiuntivi e le richieste che non provengono dal modulo vengono rifiutate. Il modulo non supporta l'inoltro HTTPS, pertanto le richieste vengono inoltrate tramite HTTP anche se sono state ricevute da IIS tramite HTTPS.
+
+Dopo che Kestrel ha prelevato la richiesta dal modulo, viene eseguito il push della richiesta nella pipeline middleware ASP.NET Core. La pipeline middleware gestisce la richiesta e la passa come istanza di `HttpContext` alla logica dell'app. Il middleware aggiunto dall'integrazione di IIS aggiorna lo schema, l'IP remoto e il percorso di base all'account per l'inoltro della richiesta a Kestrel. La risposta dell'app viene quindi passata a IIS, che ne esegue di nuovo il push al client HTTP che ha avviato la richiesta.
+
+Per indicazioni sulla configurazione di IIS e del modulo ASP.NET Core, vedere gli argomenti seguenti:
+
+* <xref:host-and-deploy/iis/index>
+* <xref:host-and-deploy/aspnet-core-module>
 
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
@@ -48,7 +97,26 @@ ASP.NET Core viene fornito con il [server Kestrel](xref:fundamentals/servers/kes
 ASP.NET Core include quanto segue:
 
 * Il [server kestrel](xref:fundamentals/servers/kestrel) è il server HTTP multipiattaforma predefinito.
-* Il [server HTTP.sys](xref:fundamentals/servers/httpsys) è un server HTTP solo per Windows basato sul [driver del kernel HTTP.sys e l'API HTTP Server](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx). HTTP.sys è noto come [WebListener](xref:fundamentals/servers/weblistener) in ASP.NET Core 1.x.
+* Il [server HTTP.sys](xref:fundamentals/servers/httpsys) è un server HTTP solo per Windows basato sul [driver del kernel HTTP.sys e l'API HTTP Server](/windows/desktop/Http/http-api-start-page).
+
+Quando si usa [IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture) o [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview), l'app viene eseguita in un processo separato dal processo di lavoro IIS (*out-of-process*) con il [server Kestrel](#kestrel).
+
+Poiché le app ASP.NET Core vengono eseguite in un processo distinto dal processo di lavoro IIS, il modulo esegue la gestione dei processi. Il modulo avvia il processo per l'app ASP.NET Core quando arriva la prima richiesta e riavvia l'app se viene arrestata o si arresta in modo anomalo. Si tratta essenzialmente dello stesso comportamento delle app eseguite in-process e gestite dal [servizio Attivazione processo Windows](/iis/manage/provisioning-and-managing-iis/features-of-the-windows-process-activation-service-was).
+
+Il diagramma seguente illustra la relazione tra IIS, il modulo ASP.NET Core e un'app ospitata out-of-process:
+
+![Modulo ASP.NET Core](_static/ancm-outofprocess.png)
+
+Le richieste arrivano dal Web al driver HTTP.sys in modalità kernel. Il driver instrada le richieste a IIS sulla porta configurata per il sito Web, in genere 80 (HTTP) o 443 (HTTPS). Il modulo inoltra le richieste a Kestrel su una porta casuale per l'app non corrispondente alla porta 80 o 443.
+
+Il modulo specifica la porta tramite una variabile di ambiente all'avvio e il middleware di integrazione di IIS configura il server per l'ascolto su `http://localhost:{port}`. Vengono eseguiti controlli aggiuntivi e le richieste che non provengono dal modulo vengono rifiutate. Il modulo non supporta l'inoltro HTTPS, pertanto le richieste vengono inoltrate tramite HTTP anche se sono state ricevute da IIS tramite HTTPS.
+
+Dopo che Kestrel ha prelevato la richiesta dal modulo, viene eseguito il push della richiesta nella pipeline middleware ASP.NET Core. La pipeline middleware gestisce la richiesta e la passa come istanza di `HttpContext` alla logica dell'app. Il middleware aggiunto dall'integrazione di IIS aggiorna lo schema, l'IP remoto e il percorso di base all'account per l'inoltro della richiesta a Kestrel. La risposta dell'app viene quindi passata a IIS, che ne esegue di nuovo il push al client HTTP che ha avviato la richiesta.
+
+Per indicazioni sulla configurazione di IIS e del modulo ASP.NET Core, vedere gli argomenti seguenti:
+
+* <xref:host-and-deploy/iis/index>
+* <xref:host-and-deploy/aspnet-core-module>
 
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
@@ -71,13 +139,14 @@ Kestrel è il server Web predefinito incluso nei modelli di progetto di ASP.NET 
 Kestrel può essere usato:
 
 * Da solo come server perimetrale che elabora le richieste direttamente da una rete, inclusa Internet.
+
+  ![Kestrel comunica direttamente con Internet senza un server proxy inverso](kestrel/_static/kestrel-to-internet2.png)
+
 * Con un *server proxy inverso*, ad esempio [Internet Information Services (IIS)](https://www.iis.net/), [Nginx](http://nginx.org) o [Apache](https://httpd.apache.org/). Il server proxy inverso riceve le richieste HTTP da Internet e le inoltra a Kestrel.
 
-![Kestrel comunica direttamente con Internet senza un server proxy inverso](kestrel/_static/kestrel-to-internet2.png)
+  ![Kestrel comunica indirettamente con Internet attraverso un server proxy inverso, ad esempio IIS, Nginx o Apache](kestrel/_static/kestrel-to-internet.png)
 
-![Kestrel comunica indirettamente con Internet attraverso un server proxy inverso, ad esempio IIS, Nginx o Apache](kestrel/_static/kestrel-to-internet.png)
-
-Entrambe le configurazioni (con o senza un server proxy inverso) sono configurazioni di hosting valide e supportate per le app ASP.NET Core 2.0 o versioni successive. Per altre informazioni, vedere [When to use Kestrel with a reverse proxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy) (Quando usare Kestrel con un proxy inverso).
+Entrambe le configurazioni di hosting, con o senza un server proxy inverso, sono supportate per le app ASP.NET Core 2.1 o versioni successive.
 
 ::: moniker-end
 
@@ -93,25 +162,9 @@ Se l'app è esposta a Internet, Kestrel deve usare un *server proxy inverso*, co
 
 Il motivo principale per cui si usa un proxy inverso per le distribuzioni server perimetrali pubbliche, esposte direttamente a Internet, è la sicurezza. Le versioni 1.x di Kestrel non includono funzionalità di sicurezza importanti per difendersi da attacchi da Internet, ad esempio timeout appropriati, limiti delle dimensioni delle richieste e limiti delle connessioni simultanee.
 
-Per altre informazioni, vedere [When to use Kestrel with a reverse proxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy) (Quando usare Kestrel con un proxy inverso).
-
 ::: moniker-end
 
-### <a name="iis-with-kestrel"></a>IIS con Kestrel
-
-::: moniker range=">= aspnetcore-2.2"
-
-Se si usa [IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture) o [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview), l'app ASP.NET Core può essere eseguita nello stesso processo del processo di lavoro IIS (modello di hosting *in-process*) o in un processo separato dal processo di lavoro IIS (modello di hosting *out-of-process*).
-
-Il [modulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) è un modulo IIS nativo che gestisce le richieste IIS native con il server HTTP IIS in-process o il server Kestrel out-of-process. Per ulteriori informazioni, vedere <xref:fundamentals/servers/aspnet-core-module>.
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.2"
-
-Quando si usa [IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture) o [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) come proxy inverso per ASP.NET Core, l'app ASP.NET Core viene eseguita in un processo separato dal processo di lavoro di IIS. Nel processo di IIS, il [modulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) coordina la relazione di proxy inverso. Le funzioni principali del modulo ASP.NET Core sono l'avvio dell'app, il riavvio dell'app in caso di arresto anomalo e l'inoltro del traffico HTTP all'app. Per ulteriori informazioni, vedere <xref:fundamentals/servers/aspnet-core-module>.
-
-::: moniker-end
+Per indicazioni per la configurazione di Kestrel e per informazioni su quando usare Kestrel in una configurazione con proxy inverso, vedere <xref:fundamentals/servers/kestrel>.
 
 ### <a name="nginx-with-kestrel"></a>Nginx con Kestrel
 
@@ -121,9 +174,15 @@ Per informazioni su come usare Nginx in Linux come server proxy inverso per Kest
 
 Per informazioni su come usare Apache in Linux come server proxy inverso per Kestrel, vedere <xref:host-and-deploy/linux-apache>.
 
-## <a name="httpsys"></a>HTTP.sys
+::: moniker range=">= aspnetcore-2.2"
 
-::: moniker range=">= aspnetcore-2.0"
+## <a name="iis-http-server"></a>Server HTTP IIS
+
+Server HTTP IIS è un [server in-process](#in-process-hosting-model) per IIS ed è richiesto per le distribuzioni in-process. Il [modulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module) gestisce le richieste IIS native tra IIS e Server HTTP IIS. Per ulteriori informazioni, vedere <xref:host-and-deploy/aspnet-core-module>.
+
+::: moniker-end
+
+## <a name="httpsys"></a>HTTP.sys
 
 Se si eseguono app ASP.NET Core in Windows, HTTP.sys è un'alternativa a Kestrel. Kestrel è in genere consigliato per ottenere prestazioni ottimali. HTTP.sys è utilizzabile negli scenari in cui l'app viene esposta a Internet e le funzionalità necessarie sono supportate da HTTP.sys, ma non da Kestrel. Per ulteriori informazioni, vedere <xref:fundamentals/servers/httpsys>.
 
@@ -133,23 +192,11 @@ HTTP.sys può essere usato anche per le app che vengono esposte solo a una rete 
 
 ![HTTP.sys comunica direttamente con la rete interna](httpsys/_static/httpsys-to-internal.png)
 
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-HTTP.sys è denominato [WebListener](xref:fundamentals/servers/weblistener) in ASP.NET Core 1.x. Se le app ASP.NET Core vengono eseguite in Windows, WebListener rappresenta un'alternativa per gli scenari in cui IIS non è disponibile per l'hosting delle app.
-
-![WebListener comunica direttamente con Internet](weblistener/_static/weblistener-to-internet.png)
-
-WebListener può essere usato anche al posto di Kestrel per le app che vengono esposte solo a una rete interna, se le funzionalità necessarie sono supportate da WebListener ma non da Kestrel. Per informazioni su WebListener, vedere [WebListener](xref:fundamentals/servers/weblistener).
-
-![Weblistener comunica direttamente con la rete interna](weblistener/_static/weblistener-to-internal.png)
-
-::: moniker-end
+Per indicazioni per la configurazione di HTTP.sys, vedere <xref:fundamentals/servers/httpsys>.
 
 ## <a name="aspnet-core-server-infrastructure"></a>Infrastruttura del server ASP.NET Core
 
-[IApplicationBuilder](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder), disponibile nel metodo `Startup.Configure`, espone la proprietà [ServerFeatures](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder.serverfeatures) di tipo [IFeatureCollection](/dotnet/api/microsoft.aspnetcore.http.features.ifeaturecollection). Kestrel e HTTP. sys (WebListener in ASP.NET Core 1.x) espongono solo una singola funzionalità ognuno, [IServerAddressesFeature](/dotnet/api/microsoft.aspnetcore.hosting.server.features.iserveraddressesfeature), ma implementazioni server diverse potrebbero esporre funzionalità aggiuntive.
+[IApplicationBuilder](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder), disponibile nel metodo `Startup.Configure`, espone la proprietà [ServerFeatures](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder.serverfeatures) di tipo [IFeatureCollection](/dotnet/api/microsoft.aspnetcore.http.features.ifeaturecollection). Kestrel e HTTP.sys espongono una singola funzionalità ognuno, [IServerAddressesFeature](/dotnet/api/microsoft.aspnetcore.hosting.server.features.iserveraddressesfeature), ma implementazioni server diverse potrebbero esporre funzionalità aggiuntive.
 
 È possibile usare `IServerAddressesFeature` per individuare la porta a cui è associata l'implementazione server in fase di esecuzione.
 
@@ -159,9 +206,13 @@ Se i server predefiniti non soddisfano i requisiti dell'app, è possibile creare
 
 ## <a name="server-startup"></a>Avvio del server
 
-Quando si usa [Visual Studio](https://www.visualstudio.com/vs/), [Visual Studio per Mac](https://www.visualstudio.com/vs/mac/) o [Visual Studio Code](https://code.visualstudio.com/), il server viene avviato all'avvio dell'app dall'ambiente di sviluppo integrato (IDE). In Visual Studio in Windows, è possibile usare i profili di avvio per avviare l'app e il server con [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview)/[Modulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) o la console. In Visual Studio Code, l'app e il server vengono avviati da [Omnisharp](https://github.com/OmniSharp/omnisharp-vscode), che attiva il debugger CoreCLR. In Visual Studio per Mac, l'app e il server vengono avviati mediante il [debugger in modalità Mono Soft](http://www.mono-project.com/docs/advanced/runtime/docs/soft-debugger/).
+Il server viene avviato quando l'editor o l'ambiente di sviluppo integrato (IDE) avvia l'app:
 
-All'avvio di un'app dal prompt dei comandi nella cartella del progetto, [dotnet run](/dotnet/core/tools/dotnet-run) avvia l'app e il server (solo Kestrel e HTTP.sys). La configurazione viene specificata dall'opzione `-c|--configuration`, impostata su `Debug` (valore predefinito) o su `Release`. Se sono presenti profili di avvio in un file *launchSettings.json*, usare l'opzione `--launch-profile <NAME>` per impostare il profilo di avvio (ad esempio, `Development` o `Production`). Per altre informazioni, vedere gli argomenti [dotnet run](/dotnet/core/tools/dotnet-run) e [Creazione di pacchetti di distribuzione di .NET Core](/dotnet/core/build/distribution-packaging).
+* [Visual Studio](https://www.visualstudio.com/vs/) &ndash; È possibile usare i profili di avvio per avviare l'app e il server con [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview)/[Modulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module) o la console.
+* [Visual Studio Code](https://code.visualstudio.com/) &ndash; L'app e il server vengono avviati da [Omnisharp](https://github.com/OmniSharp/omnisharp-vscode), che attiva il debugger CoreCLR.
+* [Visual Studio per Mac](https://www.visualstudio.com/vs/mac/) &ndash; L'app e il server vengono avviati dal [debugger in modalità Mono Soft](http://www.mono-project.com/docs/advanced/runtime/docs/soft-debugger/).
+
+All'avvio dell'app dal prompt dei comandi nella cartella del progetto, [dotnet run](/dotnet/core/tools/dotnet-run) avvia l'app e il server (solo Kestrel e HTTP.sys). La configurazione viene specificata dall'opzione `-c|--configuration`, impostata su `Debug` (valore predefinito) o su `Release`. Se sono presenti profili di avvio in un file *launchSettings.json*, usare l'opzione `--launch-profile <NAME>` per impostare il profilo di avvio (ad esempio, `Development` o `Production`). Per altre informazioni, vedere [dotnet run](/dotnet/core/tools/dotnet-run) e [Creazione di pacchetti di distribuzione di .NET Core](/dotnet/core/build/distribution-packaging).
 
 ## <a name="http2-support"></a>Supporto per HTTP/2
 
@@ -207,9 +258,9 @@ Una connessione HTTP/2 deve usare [ALPN (Application-Layer Protocol Negotiation)
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * <xref:fundamentals/servers/kestrel>
-* <xref:fundamentals/servers/aspnet-core-module>
+* <xref:host-and-deploy/aspnet-core-module>
 * <xref:host-and-deploy/iis/index>
 * <xref:host-and-deploy/azure-apps/index>
 * <xref:host-and-deploy/linux-nginx>
 * <xref:host-and-deploy/linux-apache>
-* <xref:fundamentals/servers/httpsys> (per ASP.NET Core 1.x, vedere <xref:fundamentals/servers/weblistener>)
+* <xref:fundamentals/servers/httpsys>
