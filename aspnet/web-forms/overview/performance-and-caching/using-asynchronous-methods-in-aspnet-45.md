@@ -4,16 +4,16 @@ title: Uso di metodi asincroni in ASP.NET 4.5 | Microsoft Docs
 author: Rick-Anderson
 description: Questa esercitazione insegnerà le nozioni di base della creazione di un'applicazione Web Form ASP.NET asincrona usando Visual Studio Express 2012 per Web, che è disponibile gratuitamente come...
 ms.author: riande
-ms.date: 06/06/2012
+ms.date: 01/02/2019
 ms.assetid: a585c9a2-7c8e-478b-9706-90f3739c50d1
 msc.legacyurl: /web-forms/overview/performance-and-caching/using-asynchronous-methods-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: 9a3c9fab4932c3bc85733a912cf1d1eaaecc1ab7
-ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
+ms.openlocfilehash: c36749f82051ee8965035eca9c2e4e57a5dbd616
+ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51225486"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53997344"
 ---
 <a name="using-asynchronous-methods-in-aspnet-45"></a>Uso di metodi asincroni in ASP.NET 4.5
 ====================
@@ -68,7 +68,7 @@ In generale, usare i metodi asincroni per le condizioni seguenti:
 - Le operazioni sono associate alla rete o i/O associate ai anziché basate sulla CPU.
 - Il parallelismo è più importante della semplicità del codice.
 - Si desidera fornire un meccanismo che consente agli utenti di annullare una richiesta a esecuzione prolungata.
-- Il vantaggio del cambio di thread out pondera quando il costo del cambio di contesto. In generale, è necessario rendere un metodo asincrono se il metodo sincrono blocca il thread di richiesta ASP.NET durante l'esecuzione di alcuna operazione. Eseguendo la chiamata asincrona, il thread di richiesta ASP.NET non è bloccato durante l'attesa di completamento della richiesta del servizio web non esegue alcuna operazione.
+- Quando il vantaggio del cambio di thread supera il costo del cambio di contesto. In generale, è necessario rendere un metodo asincrono se il metodo sincrono blocca il thread di richiesta ASP.NET durante l'esecuzione di alcuna operazione. Eseguendo la chiamata asincrona, il thread di richiesta ASP.NET non è bloccato durante l'attesa di completamento della richiesta del servizio web non esegue alcuna operazione.
 - Test indica che le operazioni di blocco sono un collo di bottiglia delle prestazioni del sito e che IIS può soddisfare più richieste tramite i metodi asincroni per queste chiamate di blocco.
 
   L'esempio scaricabile mostra come usare i metodi asincroni in modo efficace. L'esempio fornito è stato progettato per fornire una semplice dimostrazione della programmazione asincrona in ASP.NET 4.5. L'esempio non deve essere un'architettura di riferimento per la programmazione asincrona in ASP.NET. Il programma di esempio chiama [API Web ASP.NET](../../../web-api/index.md) metodi che a sua volta chiamano [Task.Delay](https://msdn.microsoft.com/library/hh139096(VS.110).aspx) per simulare le chiamate del servizio web con esecuzione prolungata. La maggior parte delle applicazioni di produzione non mostreranno tali vantaggi evidenti per l'uso di metodi asincroni.   
@@ -79,9 +79,9 @@ Poche applicazioni richiedono che tutti i metodi siano asincroni. Spesso, la con
 
 È possibile scaricare l'applicazione di esempio dal [ https://github.com/RickAndMSFT/Async-ASP.NET ](https://github.com/RickAndMSFT/Async-ASP.NET) sul [GitHub](https://github.com/) sito. Il repository è costituito da tre progetti:
 
-- *WebAppAsync*: progetto di Web Form ASP.NET che utilizza l'API Web **WebAPIpwg** servizio. La maggior parte del codice per questa esercitazione è da questo progetto.
-- *WebAPIpgw*: progetto di API Web ASP.NET MVC 4 che implementa il `Products, Gizmos and Widgets` controller. Fornisce i dati per il *WebAppAsync* progetti e i *Mvc4Async* progetto.
-- *Mvc4Async*: progetto di ASP.NET MVC 4 che contiene il codice usato in un'altra esercitazione. Effettua chiamate all'API Web per il **WebAPIpwg** servizio.
+- *WebAppAsync*: Progetto Web Form ASP.NET che usa l'API Web **WebAPIpwg** servizio. La maggior parte del codice per questa esercitazione è da questo progetto.
+- *WebAPIpgw*: Il progetto API Web ASP.NET MVC 4 che implementa il `Products, Gizmos and Widgets` controller. Fornisce i dati per il *WebAppAsync* progetti e i *Mvc4Async* progetto.
+- *Mvc4Async*: Il progetto ASP.NET MVC 4 che contiene il codice usato in un'altra esercitazione. Effettua chiamate all'API Web per il **WebAPIpwg** servizio.
 
 ## <a id="GizmosSynch"></a>  La pagina sincrona Gizmo
 
