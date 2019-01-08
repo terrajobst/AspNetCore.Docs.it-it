@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 11/14/2018
 uid: signalr/streaming
-ms.openlocfilehash: 6d5f707bd2a37e1999c6e87e3cfc369aa0301207
-ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
+ms.openlocfilehash: e0d201a7ffebbbe387a874c6d788994faa2be7a5
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708439"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098805"
 ---
 # <a name="use-streaming-in-aspnet-core-signalr"></a>Usare lo streaming in ASP.NET Core SignalR
 
@@ -27,20 +27,20 @@ ASP.NET Core SignalR supporta streaming valori restituiti dei metodi del server.
 Un metodo dell'hub diventa automaticamente un metodo dell'hub sul flusso quando viene restituito un `ChannelReader<T>` o un `Task<ChannelReader<T>>`. Di seguito è un esempio che illustra le nozioni di base del flusso di dati al client. Ogni volta che un oggetto viene scritto il `ChannelReader` quell'oggetto viene inviato immediatamente al client. Al termine, il `ChannelReader` sia completata per indicare al client il flusso è chiuso.
 
 > [!NOTE]
-> Scrivere il `ChannelReader` su un thread in background e restituire il `ChannelReader` appena possibile. Altre chiamate dell'hub verranno bloccate fino a un `ChannelReader` viene restituito.
+> * Scrivere il `ChannelReader` su un thread in background e restituire il `ChannelReader` appena possibile. Altre chiamate dell'hub verranno bloccate fino a un `ChannelReader` viene restituito.
+> * Eseguire il wrapping la logica in una `try ... catch` e completare il `Channel` nel catch e all'esterno di catch in modo da assicurarsi che l'hub di chiamata al metodo viene completata correttamente.
 
 ::: moniker range="= aspnetcore-2.1"
 
-[!code-csharp[Streaming hub method](streaming/sample/Hubs/StreamHub.aspnetcore21.cs?range=12-36)]
+[!code-csharp[Streaming hub method](streaming/sample/Hubs/StreamHub.aspnetcore21.cs?name=snippet1)]
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.2"
 
-[!code-csharp[Streaming hub method](streaming/sample/Hubs/StreamHub.cs?range=11-35)]
+[!code-csharp[Streaming hub method](streaming/sample/Hubs/StreamHub.cs?name=snippet1)]
 
-> [!NOTE]
-> In ASP.NET Core 2.2 o versioni successive, i metodi dell'Hub di streaming può accettare un `CancellationToken` parametro che verrà attivato quando il client annulla la sottoscrizione dal flusso. Usare questo token per l'operazione del server di arrestare e rilasciare le risorse se il client si disconnette prima della fine del flusso.
+In ASP.NET Core 2.2 o versioni successive, i metodi dell'Hub di streaming può accettare un `CancellationToken` parametro che verrà attivato quando il client annulla la sottoscrizione dal flusso. Usare questo token per l'operazione del server di arrestare e rilasciare le risorse se il client si disconnette prima della fine del flusso.
 
 ::: moniker-end
 

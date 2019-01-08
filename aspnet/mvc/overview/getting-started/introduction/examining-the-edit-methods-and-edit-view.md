@@ -4,16 +4,16 @@ title: Esaminare i metodi di modifica e visualizzazione di modifica | Microsoft 
 author: Rick-Anderson
 description: ''
 ms.author: riande
-ms.date: 05/22/2015
+ms.date: 01/06/2019
 ms.assetid: 52a4d5fe-aa31-4471-b3cb-a064f82cb791
 msc.legacyurl: /mvc/overview/getting-started/introduction/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: 29ece7754bc6e25ea968c25a99a2f48ab837e12c
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 75fd3a7dd55107cbdb9095d5b54b616133b4f65e
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911544"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099396"
 ---
 <a name="examining-the-edit-methods-and-edit-view"></a>Esaminare i metodi di modifica e visualizzazione di modifica
 ====================
@@ -83,15 +83,19 @@ Nell'elenco seguente viene indicata la versione `HttpPost` del metodo di azione 
 
 Il [ValidateAntiForgeryToken](https://msdn.microsoft.com/library/system.web.mvc.validateantiforgerytokenattribute(v=vs.108).aspx) attributo convalida il [XSRF](../../security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages.md) token generati dal `@Html.AntiForgeryToken()` chiamare nella visualizzazione.
 
-Il [Raccoglitore di modelli ASP.NET MVC](https://msdn.microsoft.com/library/dd410405.aspx) accetta i valori di modulo e consente di creare un `Movie` che viene passato come il `movie` parametro. Il metodo `ModelState.IsValid` verifica che i dati inviati nel formato possano essere usati per cambiare (modificare o aggiornare) un oggetto `Movie`. Se i dati sono validi, i dati dei film viene salvati per il `Movies` raccolta del `db(MovieDBContext` istanza). I nuovi dati del film viene salvati nel database chiamando il `SaveChanges` metodo `MovieDBContext`. Dopo avere salvato i dati, il codice reindirizza l'utente al metodo di azione `Index` della classe `MoviesController`, che visualizza la raccolta di film, incluse le modifiche appena apportate.
+Il [Raccoglitore di modelli ASP.NET MVC](https://msdn.microsoft.com/library/dd410405.aspx) accetta i valori di modulo e consente di creare un `Movie` che viene passato come il `movie` parametro. Il `ModelState.IsValid` verifica che i dati inviati nel formato possono essere utilizzati per cambiare (modificare o aggiornare) un `Movie` oggetto. Se i dati sono validi, i dati dei film viene salvati per il `Movies` raccolta del `db`(`MovieDBContext` istanza). I nuovi dati del film viene salvati nel database chiamando il `SaveChanges` metodo `MovieDBContext`. Dopo avere salvato i dati, il codice reindirizza l'utente al metodo di azione `Index` della classe `MoviesController`, che visualizza la raccolta di film, incluse le modifiche appena apportate.
 
-Non appena la convalida lato client determina che i valori di un campo non vengono, viene visualizzato un messaggio di errore. Se si disabilita JavaScript, si avrà la convalida lato client, ma il server rileverà i valori inviati non sono validi e i valori del modulo verranno visualizzati nuovamente con messaggi di errore. Più avanti nell'esercitazione verranno esaminati convalida in modo più dettagliato.
+Non appena la convalida lato client determina che il valore di un campo non è valido, viene visualizzato un messaggio di errore. Se JavaScript è disabilitato, viene disabilitata la convalida lato client. Tuttavia, il server rileva i valori inviati non sono validi e i valori del form vengono visualizzati nuovamente con messaggi di errore.
+
+La convalida viene esaminata in dettaglio più avanti nell'esercitazione.
 
 Il `Html.ValidationMessageFor` helper nel *Edit. cshtml* vista modello ci occupiamo della visualizzazione dei messaggi di errore appropriato.
 
 ![abcNotValid](examining-the-edit-methods-and-edit-view/_static/image4.png)
 
 Tutti i `HttpGet` metodi seguono un modello simile. Ricevono un oggetto film (o un elenco di oggetti, nel caso di `Index`) e passare il modello alla visualizzazione. Il `Create` metodo passa un oggetto vuoto per la visualizzazione di creazione. Tutti i metodi che creano, modificano, eliminano o cambiano in altro modo i dati, eseguono questa operazione nell'overload `HttpPost` del metodo. Modifica dei dati in un metodo HTTP GET è un rischio per la sicurezza, come descritto nella voce del post di blog [ASP.NET MVC suggerimento & 46: non usare i collegamenti di eliminazione poiché creano le falle](http://stephenwalther.com/blog/archive/2009/01/21/asp.net-mvc-tip-46-ndash-donrsquot-use-delete-links-because.aspx). Modifica dei dati in un metodo GET viola anche le procedure consigliate HTTP e l'architettura [REST](http://en.wikipedia.org/wiki/Representational_State_Transfer) modello, che consente di specificare che le richieste GET non devono modificherà lo stato dell'applicazione. In altre parole, l'esecuzione di un'operazione GET deve essere sicura, senza effetti collaterali e non modificare dati persistenti.
+
+## <a name="jquery-validation-for-non-english-locales"></a>convalida di jQuery per inglesi
 
 Se si utilizza un computer in lingua inglese Stati Uniti, è possibile ignorare questa sezione e passare all'esercitazione successiva. È possibile scaricare la versione Globalize di questa esercitazione [qui](https://archive.msdn.microsoft.com/Project/Download/FileDownload.aspx?ProjectName=aspnetmvcsamples&amp;DownloadId=16475). Per un'esercitazione di due parti eccellente di internazionalizzazione, vedere [ASP.NET MVC 5 internazionalizzazione di Nadeem](http://afana.me/post/aspnet-mvc-internationalization.aspx).
 

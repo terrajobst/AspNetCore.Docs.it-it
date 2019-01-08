@@ -3,14 +3,14 @@ title: La memorizzazione nella cache di risposta in ASP.NET Core
 author: rick-anderson
 description: Informazioni su come usare la memorizzazione nella cache delle risposte per ridurre i requisiti di larghezza di banda e migliorare le prestazioni delle app ASP.NET Core.
 ms.author: riande
-ms.date: 09/20/2017
+ms.date: 01/07/2018
 uid: performance/caching/response
-ms.openlocfilehash: 99093cd281ffa8dddc574dc27254c0175e2651b3
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 5fbcaddff6e53d01a19ba8a7455c719feb614326
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207368"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098948"
 ---
 # <a name="response-caching-in-aspnet-core"></a>La memorizzazione nella cache di risposta in ASP.NET Core
 
@@ -23,7 +23,7 @@ Dal [John Luo](https://github.com/JunTaoLuo), [Rick Anderson](https://twitter.co
 
 Risposta di memorizzazione nella cache riduce il numero di richieste di che un client o un proxy effettua a un server web. Risposta di memorizzazione nella cache riduce anche la quantità di lavoro esegue il server web per generare una risposta. La memorizzazione nella cache di risposta viene controllato dalle intestazioni che specificano la modalità client, proxy e middleware per memorizzare le risposte.
 
-Il server web può memorizzare nella cache le risposte quando si aggiungono [Middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware).
+Il [attributo ResponseCache](#responsecache-attribute) fa parte di impostazione delle intestazioni, i client che possono rispettare durante la memorizzazione nella cache le risposte della memorizzazione nella cache. [Middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware) può essere utilizzato per memorizzare le risposte sul server. Può usare il middleware `ResponseCache` attributo delle proprietà per influenzare il comportamento di memorizzazione nella cache sul lato server.
 
 ## <a name="http-based-response-caching"></a>La memorizzazione nella cache di risposta basato su HTTP
 
@@ -36,8 +36,8 @@ Common `Cache-Control` direttive vengono visualizzate nella tabella seguente.
 | [public](https://tools.ietf.org/html/rfc7234#section-5.2.2.5)   | Una cache può archiviare la risposta. |
 | [private](https://tools.ietf.org/html/rfc7234#section-5.2.2.6)  | La risposta non deve essere archiviata da una cache condivisa. Una cache privata può archiviare e riutilizzare la risposta. |
 | [max-age](https://tools.ietf.org/html/rfc7234#section-5.2.1.1)  | Il client non accetta una risposta cui età è maggiore del numero specificato di secondi. Esempi: `max-age=60` (60 secondi), `max-age=2592000` (mese) |
-| [no-cache](https://tools.ietf.org/html/rfc7234#section-5.2.1.4) | **Nelle richieste**: una cache non deve utilizzare una risposta memorizzata per soddisfare la richiesta. Nota: Il server di origine genera nuovamente la risposta per il client e il middleware Aggiorna la risposta memorizzata nella cache.<br><br>**Nelle risposte**: la risposta non deve essere usata per una richiesta successiva senza convalida nel server di origine. |
-| [no-store](https://tools.ietf.org/html/rfc7234#section-5.2.1.5) | **Nelle richieste**: una cache non deve memorizzare la richiesta.<br><br>**Nelle risposte**: una cache non deve memorizzare qualsiasi parte della risposta. |
+| [no-cache](https://tools.ietf.org/html/rfc7234#section-5.2.1.4) | **Nelle richieste**: Una cache non deve utilizzare una risposta memorizzata per soddisfare la richiesta. Nota: Il server di origine genera nuovamente la risposta per il client e il middleware Aggiorna la risposta memorizzata nella cache.<br><br>**Nelle risposte**: La risposta non deve essere usata per una richiesta successiva senza convalida nel server di origine. |
+| [no-store](https://tools.ietf.org/html/rfc7234#section-5.2.1.5) | **Nelle richieste**: Una cache non deve memorizzare la richiesta.<br><br>**Nelle risposte**: Una cache non deve memorizzare qualsiasi parte della risposta. |
 
 Nella tabella seguente vengono visualizzate altre intestazioni di cache che svolgono un ruolo di memorizzazione nella cache.
 
@@ -54,7 +54,7 @@ Il [specifica la memorizzazione nella cache di HTTP 1.1 per l'intestazione Cache
 
 Rispetta sempre client `Cache-Control` intestazioni della richiesta ha senso se si prende in considerazione l'obiettivo della memorizzazione nella cache HTTP. Con la specifica ufficiale, la memorizzazione nella cache è progettata per ridurre il sovraccarico di latenza e la rete di soddisfare le richieste attraverso una rete di client, proxy e server. Non è necessariamente un modo per controllare il carico su un server di origine.
 
-Non vi è alcun controllo per gli sviluppatori corrente su questo comportamento di memorizzazione nella cache quando si usa la [Middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware) poiché il middleware è conforme a ufficiale la memorizzazione nella cache specifica. [I miglioramenti futuri al middleware](https://github.com/aspnet/ResponseCaching/issues/96) permetterà di configurare il middleware per ignorare una richiesta `Cache-Control` intestazione quando si decide di gestire una risposta memorizzata nella cache. Ciò offrirà un'opportunità per controllare meglio il carico sul server quando si usa il middleware.
+Non vi è alcun controllo per gli sviluppatori su questo comportamento di memorizzazione nella cache quando si usa la [Middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware) poiché il middleware è conforme a ufficiale la memorizzazione nella cache specifica. [Miglioramenti al middleware pianificato](https://github.com/aspnet/AspNetCore/issues/2612) rappresentano un'ottima opportunità per configurare il middleware per ignorare una richiesta `Cache-Control` intestazione quando si decide di gestire una risposta memorizzata nella cache. Miglioramenti pianificati offrono l'opportunità di bilanciare meglio il server di controllo.
 
 ## <a name="other-caching-technology-in-aspnet-core"></a>Altre tecnologie di memorizzazione nella cache in ASP.NET Core
 
@@ -91,7 +91,7 @@ Il [ResponseCacheAttribute](/dotnet/api/Microsoft.AspNetCore.Mvc.ResponseCacheAt
 
 [VaryByQueryKeys](/dotnet/api/microsoft.aspnetcore.mvc.responsecacheattribute.varybyquerykeys) varia in base alla risposta stored dai valori di elenco specificato di chiavi di query. Quando un singolo valore di `*` è specificato, il middleware varia le risposte da tutti i parametri della stringa di query di richiesta. `VaryByQueryKeys` richiede ASP.NET Core 1.1 o versione successiva.
 
-È necessario abilitare il Middleware di memorizzazione nella cache della risposta per impostare il `VaryByQueryKeys` proprietà; in caso contrario, viene generata un'eccezione di runtime. Non c'è un'intestazione HTTP corrispondente per il `VaryByQueryKeys` proprietà. La proprietà è una funzionalità HTTP gestita dal Middleware di memorizzazione nella cache delle risposte. Per il middleware servire una risposta memorizzata nella cache, la stringa di query e il valore di stringa di query deve corrispondere una richiesta precedente. Si consideri, ad esempio, la sequenza di richieste e i risultati mostrati nella tabella seguente.
+[Middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware) deve essere abilitato per impostare il `VaryByQueryKeys` proprietà; in caso contrario, viene generata un'eccezione di runtime. Non c'è un'intestazione HTTP corrispondente per il `VaryByQueryKeys` proprietà. La proprietà è una funzionalità HTTP gestita dal Middleware di memorizzazione nella cache delle risposte. Per il middleware servire una risposta memorizzata nella cache, la stringa di query e il valore di stringa di query deve corrispondere una richiesta precedente. Si consideri, ad esempio, la sequenza di richieste e i risultati mostrati nella tabella seguente.
 
 | Richiesta                          | Risultato                   |
 | -------------------------------- | ------------------------ |

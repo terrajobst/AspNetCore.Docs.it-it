@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 11/28/2018
 uid: signalr/redis-backplane
-ms.openlocfilehash: 343cb5b2c7ed7162bae7865553a783fea45f0cfb
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: fde7f08ae2310b0b9bf9b7fe25a1dfc4a568adb6
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284468"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099355"
 ---
 # <a name="set-up-a-redis-backplane-for-aspnet-core-signalr-scale-out"></a>Configurare un backplane di Redis per ASP.NET Core SignalR. scale-out
 
@@ -24,7 +24,10 @@ Questo articolo descrive aspetti di SignalR specifiche della configurazione di u
 
 * Distribuire un server Redis.
 
-  Per la produzione backplane di Redis è consigliato solo per l'infrastruttura locale. Per ridurre al minimo la latenza, il server Redis deve essere nello stesso data center dell'App per SignalR. Se l'app di SignalR è in esecuzione nel cloud di Azure, servizio Azure SignalR è consigliabile invece un backplane di Redis. È possibile usare il servizio Cache Redis di Azure per lo sviluppo e ambienti di test. Per altre informazioni, vedere le seguenti risorse:
+  > [!IMPORTANT] 
+  > Per la produzione backplane di Redis è consigliabile solo quando viene eseguita nello stesso data center dell'App per SignalR. In caso contrario, la latenza di rete comporta una riduzione delle prestazioni. Se l'app di SignalR è in esecuzione nel cloud di Azure, servizio Azure SignalR è consigliabile invece un backplane di Redis. È possibile usare il servizio Cache Redis di Azure per lo sviluppo e ambienti di test.
+
+  Per altre informazioni, vedere le seguenti risorse:
 
   * <xref:signalr/scale>
   * [Documentazione di redis](https://redis.io/)

@@ -4,14 +4,14 @@ author: mjrousos
 description: Suggerimenti per migliorare le prestazioni nelle App ASP.NET Core ed evitare problemi comuni di prestazioni.
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
-ms.date: 11/29/2018
+ms.date: 1/9/2019
 uid: performance/performance-best-practices
-ms.openlocfilehash: 9f3ed97bf4d4eb371ff5ae3874234b44745cc4ca
-ms.sourcegitcommit: 0fc89b80bb1952852ecbcf3c5c156459b02a6ceb
+ms.openlocfilehash: 25aa4c1e22ead7db4775c6e5e81b6fd627c6d7a6
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52618116"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099065"
 ---
 # <a name="aspnet-core-performance-best-practices"></a>Procedure consigliate ASP.NET Core le prestazioni
 
@@ -19,8 +19,7 @@ Da [Mike Rousos](https://github.com/mjrousos)
 
 In questo argomento vengono fornite linee guida per le prestazioni le procedure consigliate con ASP.NET Core.
 
-<a name="hot"></a>
-<!-- TODO review hot code paths is jargon that won't MT (machine translate) and is not well defined for native speakers. --> In questo documento, un percorso di codice attivo è definito come un percorso di codice che viene chiamato frequentemente e in cui si è gran parte del tempo di esecuzione. I percorsi del codice critico limitano in genere app scalabilità e prestazioni.
+<a name="hot"></a> In questo documento, un percorso di codice attivo è definito come un percorso di codice che viene chiamato frequentemente e in cui si è gran parte del tempo di esecuzione. I percorsi del codice critico limitano in genere app scalabilità e prestazioni.
 
 ## <a name="cache-aggressively"></a>Memorizzare nella cache in modo aggressivo
 
@@ -129,6 +128,10 @@ Indicazioni:
 
 * **Effettuare** usare ASP.NET Core [supporto integrato](xref:client-side/bundling-and-minification) per la creazione di bundle e minimizzazione di risorse di client.
 * **Effettuare** prendere in considerazione altri strumenti di terze parti come [Gulp](uid:client-side/bundling-and-minification#consume-bundleconfigjson-from-gulp) oppure [Webpack](https://webpack.js.org/) per la gestione di asset client più complessa.
+
+## <a name="compress-responses"></a>Compressione delle risposte
+
+ Riduzione delle dimensioni della risposta in genere aumenta la velocità di risposta di un'app, spesso notevolmente. Un modo per ridurre le dimensioni dei payload è per la compressione delle risposte di un'app. Per altre informazioni, vedere [compressione delle risposte](xref:performance/response-compression).
 
 ## <a name="use-the-latest-aspnet-core-release"></a>Usare la versione più recente di ASP.NET Core
 

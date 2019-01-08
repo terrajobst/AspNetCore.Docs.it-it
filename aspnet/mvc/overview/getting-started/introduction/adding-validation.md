@@ -4,16 +4,16 @@ title: Aggiunta della convalida | Microsoft Docs
 author: Rick-Anderson
 description: ''
 ms.author: riande
-ms.date: 10/17/2013
+ms.date: 01/06/2019
 ms.assetid: 9f35ca15-e216-4db6-9ebf-24380b0f31b4
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 22e59a99a179a7a414447036b973e3ad3b462515
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 6831259ce19c3747c179d6fc1b7e2095051a603b
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48577951"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099026"
 ---
 <a name="adding-validation"></a>Aggiunta della convalida
 ====================
@@ -97,7 +97,7 @@ Ci si potrebbe chiedere come la convalida dell'interfaccia utente sia stata gene
 
 [!code-csharp[Main](adding-validation/samples/sample5.cs)]
 
-Il primo metodo di azione (HTTP GET) `Create` visualizza il modulo di creazione iniziale. La seconda versione (`[HttpPost]`) gestisce l'invio del modulo. Il secondo metodo `Create` (la versione `HttpPost`) chiama `ModelState.IsValid` per verificare se esistono errori di convalida per il film. La chiamata a questo metodo valuta tutti gli attributi di convalida applicati all'oggetto. Se l'oggetto presenta errori di convalida, il metodo `Create` visualizza di nuovo il modulo. Se non sono presenti errori, il metodo salva il nuovo film nel database. Nell'esempio movie **il modulo non viene inviato al server quando sono presenti errori di convalida rilevati sul lato client; il secondo** `Create` **metodo non viene mai chiamato**. Se si disabilita JavaScript nel browser, la convalida del client è disabilitata e la richiesta HTTP POST `Create` chiamate al metodo `ModelState.IsValid` per verificare se il film è errori di convalida.
+Il primo metodo di azione (HTTP GET) `Create` visualizza il modulo di creazione iniziale. La seconda versione (`[HttpPost]`) gestisce l'invio del modulo. La seconda `Create` metodo (il `HttpPost` versione) controlla `ModelState.IsValid` per verificare se il film dispone di eventuali errori di convalida. Ottiene questa proprietà restituisce tutti gli attributi di convalida che sono stati applicati all'oggetto. Se l'oggetto presenta errori di convalida, il `Create` metodo rivisualizza il form. Se non sono presenti errori, il metodo salva il nuovo film nel database. Nell'esempio movie **il modulo non viene inviato al server quando sono presenti errori di convalida rilevati sul lato client; il secondo** `Create` **metodo non viene mai chiamato**. Se si disabilita JavaScript nel browser, la convalida del client è disabilitata e la richiesta HTTP POST `Create` metodo ottiene `ModelState.IsValid` per verificare se il film è errori di convalida.
 
 È possibile impostare un punto di interruzione nel metodo `HttpPost Create` e verificare che il metodo non venga mai chiamato, la convalida sul lato client non invierà i dati del modulo in caso di rilevamento di errori di convalida. Se si disabilita JavaScript nel browser, quindi si invia il modulo con errori, verrà raggiunto il punto di interruzione. Si ottiene comunque la convalida completa senza JavaScript. La figura seguente viene illustrato come disabilitare JavaScript in Internet Explorer.
 
@@ -159,7 +159,7 @@ Se si usa la `DataType` attributo con un campo Data, è necessario specificare i
 
 Il codice seguente illustra la combinazione di attributi in una sola riga:
 
-[!code-csharp[Main](adding-validation/samples/sample10.cs?highlight=6,10)]
+[!code-csharp[Main](adding-validation/samples/sample10.cs?highlight=4,6,10,12)]
 
 Nella parte successiva della serie verrà esaminata l'applicazione e verranno apportati alcuni miglioramenti ai metodi `Details` e `Delete` generati automaticamente.
 

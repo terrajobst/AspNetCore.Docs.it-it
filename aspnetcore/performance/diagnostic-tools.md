@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.date: 12/07/2018
 uid: performance/diagnostic-tools
-ms.openlocfilehash: 3093b7d646e4fa943334c7b1e70ddc007ab18780
-ms.sourcegitcommit: 1ea1b4fc58055c62728143388562689f1ef96cb2
+ms.openlocfilehash: 0b1de069e7892fff451617f2c6570fa789808c4f
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53329200"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099052"
 ---
 # <a name="performance-diagnostic-tools"></a>Strumenti di diagnostica delle prestazioni
 
@@ -21,13 +21,25 @@ Questo articolo elenca gli strumenti per la diagnosi dei problemi di prestazioni
 
 ## <a name="visual-studio-diagnostic-tools"></a>Strumenti di diagnostica di Visual Studio
 
-Il [strumenti di profilatura e diagnostica](/visualstudio/profiling) incorporato in Visual Studio sono un buon punto di partenza analisi dei problemi di prestazioni. Questi strumenti sono potenti e facilmente utilizzabili dall'ambiente di sviluppo Visual Studio. Gli strumenti consente l'analisi dell'utilizzo della CPU, utilizzo della memoria e gli eventi di prestazioni nelle App ASP.NET Core.
+Il [strumenti di profilatura e diagnostica](/visualstudio/profiling) incorporato in Visual Studio sono un buon punto di partenza analisi dei problemi di prestazioni. Questi strumenti sono potenti e facilmente utilizzabili dall'ambiente di sviluppo Visual Studio. Gli strumenti consente l'analisi dell'utilizzo della CPU, utilizzo della memoria e gli eventi di prestazioni nelle App ASP.NET Core. Incorporato in corso rende facile profilatura in fase di sviluppo.
 
 Altre informazioni sono disponibili nel [documentazione di Visual Studio](/visualstudio/profiling/profiling-overview).
 
 ## <a name="application-insights"></a>Application Insights
 
 [Application Insights](/azure/application-insights/app-insights-overview) fornisce i dati sulle prestazioni approfonditi per l'app. Application Insights raccoglie automaticamente dati su velocità di risposta, frequenze di errori, tempi di risposta delle dipendenze e altro ancora. Application Insights supporta la registrazione di eventi personalizzati e metriche specifiche per l'app.
+
+Azure Application Insights offre diversi modi per fornire informazioni sulle App monitorata:
+
+- [Mappa delle applicazioni](/azure/application-insights/app-insights-app-map) – aiuta i colli di bottiglia delle prestazioni spot o hot spot di errore in tutti i componenti delle App distribuite.
+- [Pannello metriche nel portale di Application Insights](/azure/application-insights/app-insights-metrics-explorer?toc=/azure/azure-monitor/toc.json) Mostra misurati i valori e conteggi di eventi.
+- [Pannello delle prestazioni nel portale di Application Insights](/azure/application-insights/app-insights-tutorial-performance):
+
+  - Mostra i dettagli sulle prestazioni per diverse operazioni nell'app monitorata.
+  - Consente di eseguire il drill-in un'unica operazione da controllare tutte le parti o le dipendenze che contribuiscono a un lungo periodo di tempo.
+  - Profiler possono essere richiamate da qui per raccogliere le tracce delle prestazioni su richiesta.
+
+- [Azure Application Insights Profiler](/azure/azure-monitor/app/profiler) consente di regolare e on demand la profilatura delle app .NET.  Mostra portale di Azure acquisito le analisi delle prestazioni con gli stack di chiamate e i percorsi critici. I file di traccia possono essere scaricati anche per un'analisi più approfondita con PerfView.
 
 Application Insights può essere usato in un ambienti diversi:
 
@@ -43,6 +55,10 @@ Per altre informazioni, vedere [Application Insights per ASP.NET Core](/azure/ap
 
 Altre informazioni su PerfView e su come iniziare a usare [esercitazioni video relative a PerfView](http://channel9.msdn.com/Series/PerfView-Tutorial) o, vedere il manuale dell'utente disponibile nello strumento oppure [su GitHub](https://github.com/Microsoft/perfview).
 
+## <a name="windows-performance-toolkit"></a>Windows Performance Toolkit
+
+[Windows Performance Toolkit](/windows-hardware/test/wpt/) (WPT) è costituito da due componenti: Windows Performance Recorder (WPR) e Windows Performance Analyzer (WPA). Gli strumenti realizzati i profili approfondite ad alte prestazioni di App e sistemi operativi Windows. WPT ha modi più avanzati di visualizzazione dei dati, ma sono meno potenti del PerfView relativo la raccolta di dati.
+
 ## <a name="perfcollect"></a>PerfCollect
 
 PerfView è uno strumento di analisi delle prestazioni utili per gli scenari di .NET, eseguito solo su Windows in modo che non può essere utilizzato per raccogliere le tracce dalle App ASP.NET Core in esecuzione negli ambienti Linux.
@@ -50,3 +66,11 @@ PerfView è uno strumento di analisi delle prestazioni utili per gli scenari di 
 [PerfCollect](https://github.com/dotnet/coreclr/blob/master/Documentation/project-docs/linux-performance-tracing.md) è uno script bash che usa Linux nativo gli strumenti di profilatura ([Perf](https://perf.wiki.kernel.org/index.php/Main_Page) e [LTTng](https://lttng.org/)) per raccogliere tracce su Linux che possa essere analizzato dalla PerfView. PerfCollect è utile quando i problemi di prestazioni visualizzati negli ambienti Linux in cui PerfView non può essere utilizzata direttamente. Al contrario, PerfCollect può raccogliere tracce dalle app .NET Core che vengono quindi analizzate in un computer Windows tramite PerfView.
 
 Sono disponibili altre informazioni su come installare e iniziare a usare PerfCollect [su GitHub](https://github.com/dotnet/coreclr/blob/master/Documentation/project-docs/linux-performance-tracing.md).
+
+## <a name="other-third-party-performance-tools"></a>Altri strumenti per le prestazioni di terze parti
+
+Di seguito sono elencati alcuni strumenti per le prestazioni di terze parti che sono utili nelle analisi delle prestazioni delle applicazioni .NET Core.
+
+- [MiniProfiler](https://miniprofiler.com/)
+- dotTrace e dotMemory di JetBrains
+- VTune da Intel

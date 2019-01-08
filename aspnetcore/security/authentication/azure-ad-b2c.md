@@ -5,12 +5,12 @@ description: Informazioni su come configurare l'autenticazione di Azure Active D
 ms.date: 01/25/2018
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c
-ms.openlocfilehash: 73a66cea1533cc835796f673021bfa45c35f5935
-ms.sourcegitcommit: 4cd8dce371d63a66d780e4af1baab2bcf9d61b24
+ms.openlocfilehash: 2c544475ccd3eb76f2737fec1cf269ac86add372
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43893194"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098987"
 ---
 # <a name="cloud-authentication-with-azure-active-directory-b2c-in-aspnet-core"></a>Autenticazione cloud con Azure Active Directory B2C in ASP.NET Core
 
@@ -19,7 +19,7 @@ Di [Cam Soper](https://twitter.com/camsoper)
 [Azure Active B2C di Directory](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) è una soluzione di gestione identità cloud per le App per dispositivi mobili e web. Il servizio fornisce l'autenticazione per le app ospitate nel cloud e locali. Tipi di autenticazione includono account individuali, gli account di social network e account aziendali federati. Inoltre, Azure AD B2C fornisce l'autenticazione a più fattori con la configurazione minima.
 
 > [!TIP]
-> Azure Active Directory (Azure AD) e Azure AD B2C vengono offerti come prodotti separati. Un tenant di Azure AD rappresenta un'organizzazione, mentre un tenant di Azure AD B2C rappresenta una raccolta di identità da usare con le applicazioni relying party. Per altre informazioni, vedere [Azure Active Directory B2C: domande frequenti (FAQ)](/azure/active-directory-b2c/active-directory-b2c-faqs).
+> Azure Active Directory (Azure AD) e Azure AD B2C vengono offerti come prodotti separati. Un tenant di Azure AD rappresenta un'organizzazione, mentre un tenant di Azure AD B2C rappresenta una raccolta di identità da usare con le applicazioni relying party. Per altre informazioni, vedere [Azure AD B2C: Domande frequenti (FAQ)](/azure/active-directory-b2c/active-directory-b2c-faqs).
 
 In questa esercitazione si apprenderà come:
 
@@ -46,7 +46,7 @@ Nel tenant di Azure AD B2C appena creato, registrare l'app usando [i passaggi ne
 
 Usare i valori seguenti:
 
-| Impostazione                       | Valore                     | Note                                                                                                                                                                                              |
+| Impostazione                       | Value                     | Note                                                                                                                                                                                              |
 |-------------------------------|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Name**                      | *&lt;Nome dell'App&gt;*        | Immettere un **nome** per le app che descrive l'app agli utenti.                                                                                                                                 |
 | **Includi app web / API web** | Yes                       |                                                                                                                                                                                                    |
@@ -80,7 +80,7 @@ In Visual Studio:
 
 5. Compilare il modulo con i valori seguenti:
     
-    | Impostazione                       | Valore                                                 |
+    | Impostazione                       | Value                                                 |
     |-------------------------------|-------------------------------------------------------|
     | **Nome di dominio**               | *&lt;il nome di dominio del tenant di B2C&gt;*          |
     | **ID dell'applicazione**            | *&lt;incollare l'ID dell'applicazione dagli Appunti&gt;* |
@@ -96,7 +96,7 @@ In Visual Studio:
 Tornare alla finestra del browser con le proprietà dell'app B2C ancora aperta. Modificare il file temporaneo **URL di risposta** specificato in precedenza per il valore copiato da Visual Studio. Selezionare **salvare** nella parte superiore della finestra.
 
 > [!TIP]
-> Se si non copia l'URL di risposta, usare l'indirizzo SSL dalla scheda Debug nelle proprietà del progetto web e aggiungere il **CallbackPath** valore dal *appSettings. JSON*.
+> Se si non copia l'URL di risposta, usare l'indirizzo HTTPS dalla scheda Debug nelle proprietà del progetto web e aggiungere il **CallbackPath** valore dal *appSettings. JSON*.
 
 ## <a name="configure-policies"></a>Configurare i criteri
 

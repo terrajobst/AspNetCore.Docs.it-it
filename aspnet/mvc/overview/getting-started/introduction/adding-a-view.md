@@ -5,12 +5,12 @@ description: Aggiunta di una vista a un'app MVC
 ms.author: riande
 ms.date: 09/1721/2017
 uid: mvc/overview/getting-started/introduction/adding-a-view
-ms.openlocfilehash: 56c00d5992a95971f48bb6e1ec30d63706948997
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 47447c82506cc0eb4dafabe272b3204f76a2edd7
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578237"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098662"
 ---
 <a name="adding-a-view"></a>Aggiunta di una vista
 ====================
@@ -22,7 +22,7 @@ In questa sezione si intende modificare il `HelloWorldController` classe utilizz
 
 Si creerà un file modello di visualizzazione usando la [motore di visualizzazione Razor](../../../../web-pages/overview/getting-started/introducing-razor-syntax-c.md). I modelli di vista basati su Razor hanno una *cshtml* estensione di file e fornire un modo elegante per creare HTML di output usando c#. Riduce al minimo il numero di caratteri e sequenze di tasti richieste durante la scrittura di un modello di vista Razor e consente a un veloce, fluido codifica del flusso di lavoro.
 
-Attualmente il metodo `Index` restituisce una stringa con un messaggio hardcoded nella classe controller. Modifica il `Index` per restituire un `View` dell'oggetto, come illustrato nel codice seguente:
+Attualmente il metodo `Index` restituisce una stringa con un messaggio hardcoded nella classe controller. Modifica il `Index` metodo da chiamare i controller [visualizzazione](/dotnet/api/microsoft.aspnetcore.mvc.controller.view#Microsoft_AspNetCore_Mvc_Controller_View) metodo, come illustrato nel codice seguente:
 
 [!code-csharp[Main](adding-a-view/samples/sample1.cs?highlight=1,3)]
 
@@ -112,7 +112,7 @@ La minima &quot;dati&quot; (in questo caso il &quot;Hello from our View Template
 
 Prima di passare a un database e comunicare con informazioni sui modelli, tuttavia, esaminiamo innanzitutto il passaggio di informazioni dal controller a una visualizzazione. Le classi controller vengono richiamate in risposta a una richiesta URL in ingresso. Una classe controller è in cui viene scritto il codice che gestisce il browser in ingresso richieste, recupera i dati da un database e in definitiva determina il tipo di risposta da inviare al browser. I modelli di visualizzazione sono quindi utilizzabile per generare e formattare una risposta HTML al browser da un controller.
 
-I controller sono responsabili di fornire i dati o oggetti sono necessari affinché un modello di vista eseguire il rendering di una risposta nel browser. Una procedura consigliata: **un modello di vista non deve mai eseguire logica di business o interagire direttamente con un database**. Al contrario, un modello di vista dovrebbe lavorare solo con i dati forniti dal controller. Mantenendo ciò &quot;la separazione dei compiti&quot; consente inoltre di mantenere il codice pulito, testabile e gestibile.
+I controller sono responsabili di fornire i dati o oggetti sono necessari affinché un modello di vista eseguire il rendering di una risposta nel browser. Una procedura consigliata: **Un modello di vista non deve mai eseguire logica di business o interagire direttamente con un database**. Al contrario, un modello di vista dovrebbe lavorare solo con i dati forniti dal controller. Mantenendo ciò &quot;la separazione dei compiti&quot; consente inoltre di mantenere il codice pulito, testabile e gestibile.
 
 Attualmente, il `Welcome` metodo di azione il `HelloWorldController` classe accetta un `name` e un `numTimes` parametro e quindi genera i valori direttamente al browser. Anziché ottenere il rendering di questa risposta come stringa, cambiare il controller per usare invece un modello di vista. Il modello di vista genererà una risposta dinamica, il che significa che è necessario passare i bit di dati appropriati dal controller alla vista per generare la risposta. È possibile farlo facendo in modo che il controller inserisca i dati dinamici (parametri) che il modello di vista necessita in un `ViewBag` oggetto che può quindi accedere il modello di visualizzazione.
 

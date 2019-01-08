@@ -8,12 +8,12 @@ ms.date: 03/28/2008
 ms.assetid: 54d9df99-1161-4899-b4e8-2679c85915e7
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-partial-page-updates-with-asp-net-ajax
 msc.type: authoredcontent
-ms.openlocfilehash: 2e0b1e1d4cbb282e7fd4b27e0a93ba1b9702edea
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 4883046aa16d5e67b7f0c92e15c897ef1a933b67
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41835845"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098935"
 ---
 <a name="understanding-partial-page-updates-with-aspnet-ajax"></a>Aggiornamenti di conoscenza parziali di pagine con ASP.NET AJAX
 ====================
@@ -46,7 +46,7 @@ Probabilmente la caratteristica più visibile di ASP.NET AJAX Extensions è la p
 
 La capacità di rendering parziale della pagina di integrazione è integrata in ASP.NET con modifiche minime all'interno del progetto.
 
-## <a name="walkthrough-integrating-partial-rendering-into-an-existing-project"></a>Procedura dettagliata: Integrare il Rendering parziale in un progetto esistente
+## <a name="walkthrough-integrating-partial-rendering-into-an-existing-project"></a>Procedura dettagliata: L'integrazione di Rendering parziale in un progetto esistente
 
 
 1. In Microsoft Visual Studio 2008, creare un nuovo progetto di sito Web ASP.NET visitando <em>File</em>  <em>- &gt; New</em>  <em>- &gt; sito Web</em> e selezionando la finestra di dialogo sito Web ASP.NET. È possibile specificare un nome qualsiasi, e può installarla nel file System o in Internet Information Services (IIS).
@@ -57,7 +57,7 @@ La capacità di rendering parziale della pagina di integrazione è integrata in 
 
 [!code-aspx[Main](understanding-partial-page-updates-with-asp-net-ajax/samples/sample1.aspx)]
 
-**Listato 2: Codebehind (tagliati) in default.aspx.cs**
+**Listato 2: CodeBehind (tagliati) in default.aspx.cs**
 
 [!code-csharp[Main](understanding-partial-page-updates-with-asp-net-ajax/samples/sample2.cs)]
 
@@ -91,7 +91,7 @@ La capacità di rendering parziale della pagina di integrazione è integrata in 
 
 1. Aprire il file Web. config. Si noti che Visual Studio ha aggiunto automaticamente un riferimento di compilazione a System.Web.Extensions.dll.
 
-1. What ' s New in Visual Studio 2008: il file Web. config che viene fornito automaticamente con i modelli di progetto sito Web ASP.NET include tutti i riferimenti necessari per ASP.NET AJAX Extensions e impostata come commento le sezioni di informazioni di configurazione che può essere non è commentato per abilitare funzionalità aggiuntive. Visual Studio 2005 era modelli simili quando ASP.NET 2.0 AJAX Extensions sono stati installati. In Visual Studio 2008, tuttavia, le estensioni AJAX sono opt-out per impostazione predefinita (vale a dire viene fatto riferimento per impostazione predefinita, ma può essere rimossa come riferimenti).
+1. Quali sono le novità in Visual Studio 2008: Il file Web. config che viene fornito con il sito Web ASP.NET modelli di progetto automaticamente include tutti i riferimenti necessari per ASP.NET AJAX Extensions e impostata come commento le sezioni di informazioni di configurazione che può essere annullata impostata come commento per abilitare ulteriori funzionalità. Visual Studio 2005 era modelli simili quando ASP.NET 2.0 AJAX Extensions sono stati installati. In Visual Studio 2008, tuttavia, le estensioni AJAX sono opt-out per impostazione predefinita (vale a dire viene fatto riferimento per impostazione predefinita, ma può essere rimossa come riferimenti).
 
 
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image8.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image7.png)
@@ -111,7 +111,7 @@ Visual Studio 2008 non è dotata di un modello predefinito per un sito web ASP.N
 
 Proprietà del markup abilitati:
 
-| **Nome della proprietà** | **Type** | **Descrizione** |
+| **Nome proprietà** | **Type** | **Descrizione** |
 | --- | --- | --- |
 | AllowCustomErrors-Redirect | Bool | Specifica se usare la sezione degli errori personalizzati del file Web. config per la gestione degli errori. |
 | AsyncPostBackError-Message | Stringa | Ottiene o imposta il messaggio di errore inviato al client se viene generato un errore. |
@@ -124,7 +124,7 @@ Proprietà del markup abilitati:
 
 Proprietà di solo codice:
 
-| **Nome della proprietà** | **Type** | **Descrizione** |
+| **Nome proprietà** | **Type** | **Descrizione** |
 | --- | --- | --- |
 | AuthenticationService | AuthenticationService-Manager | Ottiene informazioni dettagliate su proxy del servizio di autenticazione ASP.NET che verrà inviato al client. |
 | IsDebuggingEnabled | Bool | Ottiene se creare script e il debug del codice è abilitata. |
@@ -153,7 +153,7 @@ Discendenti di markup:
 
 Il controllo ScriptManager è la base essenziale per ASP.NET AJAX Extensions. Fornisce l'accesso alla libreria di script (incluso il sistema di tipo completo dello script lato client), supporta il rendering parziale e fornisce supporto completo per i servizi ASP.NET aggiuntivi (ad esempio, l'autenticazione e di profilatura, ma anche altri servizi Web). Il controllo ScriptManager fornisce anche il supporto di globalizzazione e localizzazione per gli script client.
 
-## <a name="providing-alterative-and-supplemental-scripts"></a>Funzionalità offre script alternative e supplementare
+## <a name="providing-alternative-and-supplemental-scripts"></a>Funzionalità offre script alternativi e supplementare
 
 Mentre Microsoft ASP.NET 2.0 AJAX Extensions è incluso il codice intero script in entrambe le modalità di debug e rilascio edizioni come risorse incorporate nell'assembly di riferimento, gli sviluppatori sono liberi di reindirizzare ScriptManager in file di script personalizzati, nonché registrare script aggiuntivi necessari.
 
@@ -169,7 +169,7 @@ Utilizzando l'evento AsyncPostBackError, è possibile specificare il `AsyncPostB
 
 Personalizzazione lato client è anche possibile invece di usare la finestra di avviso predefinito; ad esempio, è possibile visualizzare un oggetto personalizzato `<div>` elemento anziché il dialogo modale browser predefinito. In questo caso, è possibile gestire l'errore nello script client:
 
-**Listato 5: Script del lato Client per visualizzare gli errori personalizzati**
+**Listato 5: Script sul lato client per visualizzare gli errori personalizzati**
 
 [!code-html[Main](understanding-partial-page-updates-with-asp-net-ajax/samples/sample4.html)]
 
@@ -185,7 +185,7 @@ Il controllo ScriptManager offre ampio supporto per la localizzazione di stringh
 
 Proprietà del markup abilitati:
 
-| **Nome della proprietà** | **Type** | **Descrizione** |
+| **Nome proprietà** | **Type** | **Descrizione** |
 | --- | --- | --- |
 | ChildrenAsTriggers | bool | Specifica se i controlli figlio richiamano automaticamente l'aggiornamento nel postback. |
 | RenderMode | enum (blocco, in linea) | Specifica che il modo il contenuto verrà visualizzato in modo visivo. |
@@ -193,7 +193,7 @@ Proprietà del markup abilitati:
 
 Proprietà di solo codice:
 
-| **Nome della proprietà** | **Type** | **Descrizione** |
+| **Nome proprietà** | **Type** | **Descrizione** |
 | --- | --- | --- |
 | IsInPartialRendering | bool | Determina se UpdatePanel è il supporto per il rendering parziale per la richiesta corrente. |
 | Elemento ContentTemplate | ITemplate | Ottiene il modello di markup per la richiesta di aggiornamento. |
@@ -280,7 +280,7 @@ Infine, se un'applicazione richiede che vengano utilizzati gli UpdatePanel, le l
 
 Proprietà del markup abilitati:
 
-| **Nome della proprietà** | **Type** | **Descrizione** |
+| **Nome proprietà** | **Type** | **Descrizione** |
 | --- | --- | --- |
 | AssociatedUpdate-PanelID | Stringa | Specifica l'ID del controllo UpdatePanel che devono comunicare questa UpdateProgress in. |
 | DisplayAfter | Int | Specifica il timeout in millisecondi prima che questo controllo viene visualizzato dopo l'inizio della richiesta asincrona. |

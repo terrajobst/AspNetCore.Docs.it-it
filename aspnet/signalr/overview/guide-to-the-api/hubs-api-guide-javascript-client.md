@@ -8,12 +8,12 @@ ms.date: 09/28/2015
 ms.assetid: a9fd4dc0-1b96-4443-82ca-932a5b4a8ea4
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-javascript-client
 msc.type: authoredcontent
-ms.openlocfilehash: 8e493eda256351904da49e1222773f188e6a2058
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: a8352045d99b77713c94ab809417c5dc4675557f
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53288066"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099273"
 ---
 <a name="aspnet-signalr-hubs-api-guide---javascript-client"></a>Guida all'API di ASP.NET SignalR Hubs - Client JavaScript
 ====================
@@ -531,4 +531,4 @@ Per abilitare la registrazione lato client in una connessione, impostare il `log
 
 [!code-javascript[Main](hubs-api-guide-javascript-client/samples/sample54.js?highlight=2)]
 
-Per visualizzare i log, aprire Strumenti di sviluppo del browser e passare alla scheda della Console. Per un'esercitazione che illustra le istruzioni dettagliate e schermata schermate che illustrano come eseguire questa operazione, vedere [trasmissione Server con ASP.NET Signalr - abilitare la registrazione](../getting-started/tutorial-server-broadcast-with-signalr.md#enablelogging).
+Per visualizzare i log, aprire Strumenti di sviluppo del browser e passare alla scheda della Console. Per un'esercitazione che illustra le istruzioni dettagliate e schermata schermate che illustrano come eseguire questa operazione, vedere [trasmissione Server con ASP.NET Signalr - abilitare la registrazione](../getting-started/tutorial-server-broadcast-with-signalr.md#enable-logging).
