@@ -1,215 +1,186 @@
 ---
 uid: signalr/overview/getting-started/tutorial-getting-started-with-signalr
-title: 'Esercitazione: Introduzione a SignalR 2 | Microsoft Docs'
+title: 'Esercitazione: Chat in tempo reale con SignalR 2 | Microsoft Docs'
 author: pfletcher
-description: In questa esercitazione viene illustrato come usare SignalR per creare un'applicazione di chat in tempo reale. Verrà aggiunta SignalR a un'applicazione web ASP.NET vuota e verrà creato un indirizzo pa HTML...
+description: In questa esercitazione viene illustrato come usare SignalR per creare un'applicazione di chat in tempo reale. SignalR è aggiungere a un'applicazione web ASP.NET vuota.
 ms.author: riande
-ms.date: 06/10/2014
+ms.date: 01/02/2019
 ms.assetid: a8b3b778-f009-4369-85c7-e90f9878d8b4
 msc.legacyurl: /signalr/overview/getting-started/tutorial-getting-started-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 3b06e7d0a602e061112adbceba92276f836f6311
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.topic: tutorial
+ms.openlocfilehash: aa015abc47bb2450e04e167c0404aaa1d119ba2c
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287338"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098624"
 ---
-<a name="tutorial-getting-started-with-signalr-2"></a><span data-ttu-id="33b51-104">Esercitazione: Introduzione a SignalR 2</span><span class="sxs-lookup"><span data-stu-id="33b51-104">Tutorial: Getting Started with SignalR 2</span></span>
-====================
-<span data-ttu-id="33b51-105">da [Patrick Fletcher](https://github.com/pfletcher)</span><span class="sxs-lookup"><span data-stu-id="33b51-105">by [Patrick Fletcher](https://github.com/pfletcher)</span></span>
+# <a name="tutorial-real-time-chat-with-signalr-2"></a><span data-ttu-id="112be-104">Esercitazione: Chat in tempo reale con SignalR 2</span><span class="sxs-lookup"><span data-stu-id="112be-104">Tutorial: Real-time chat with SignalR 2</span></span>
+
+<span data-ttu-id="112be-105">Questa esercitazione illustra come usare SignalR per creare un'applicazione di chat in tempo reale.</span><span class="sxs-lookup"><span data-stu-id="112be-105">This tutorial shows you how to use SignalR to create a real-time chat application.</span></span> <span data-ttu-id="112be-106">Aggiungere SignalR a un'applicazione web ASP.NET vuota e creare una pagina HTML per l'invio e visualizzare i messaggi.</span><span class="sxs-lookup"><span data-stu-id="112be-106">You add SignalR to an empty ASP.NET web application and create an HTML page to send and display messages.</span></span>
+
+<span data-ttu-id="112be-107">In questa esercitazione è:</span><span class="sxs-lookup"><span data-stu-id="112be-107">In this tutorial, you:</span></span>
+
+> [!div class="checklist"]
+> * <span data-ttu-id="112be-108">Configurare il progetto</span><span class="sxs-lookup"><span data-stu-id="112be-108">Set up the project</span></span>
+> * <span data-ttu-id="112be-109">Eseguire l'esempio</span><span class="sxs-lookup"><span data-stu-id="112be-109">Run the sample</span></span>
+> * <span data-ttu-id="112be-110">Esaminare il codice</span><span class="sxs-lookup"><span data-stu-id="112be-110">Examine the code</span></span>
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-[<span data-ttu-id="33b51-106">Download progetto completato</span><span class="sxs-lookup"><span data-stu-id="33b51-106">Download Completed Project</span></span>](http://code.msdn.microsoft.com/SignalR-Getting-Started-b9d18aa9)
+## <a name="prerequisites"></a><span data-ttu-id="112be-111">Prerequisiti</span><span class="sxs-lookup"><span data-stu-id="112be-111">Prerequisites</span></span>
 
-> <span data-ttu-id="33b51-107">In questa esercitazione viene illustrato come usare SignalR per creare un'applicazione di chat in tempo reale.</span><span class="sxs-lookup"><span data-stu-id="33b51-107">This tutorial shows how to use SignalR to create a real-time chat application.</span></span> <span data-ttu-id="33b51-108">Verrà aggiunta SignalR a un'applicazione web ASP.NET vuota e creare una pagina HTML per l'invio e visualizzare i messaggi.</span><span class="sxs-lookup"><span data-stu-id="33b51-108">You will add SignalR to an empty ASP.NET web application and create an HTML page to send and display messages.</span></span> 
-> 
-> ## <a name="software-versions-used-in-the-tutorial"></a><span data-ttu-id="33b51-109">Versioni del software utilizzate nell'esercitazione</span><span class="sxs-lookup"><span data-stu-id="33b51-109">Software versions used in the tutorial</span></span>
-> 
-> 
-> - [<span data-ttu-id="33b51-110">Visual Studio 2013</span><span class="sxs-lookup"><span data-stu-id="33b51-110">Visual Studio 2013</span></span>](https://www.microsoft.com/visualstudio/eng/2013-downloads)
-> - <span data-ttu-id="33b51-111">.NET 4.5</span><span class="sxs-lookup"><span data-stu-id="33b51-111">.NET 4.5</span></span>
-> - <span data-ttu-id="33b51-112">SignalR versione 2</span><span class="sxs-lookup"><span data-stu-id="33b51-112">SignalR version 2</span></span>
->   
-> 
-> 
-> ## <a name="using-visual-studio-2012-with-this-tutorial"></a><span data-ttu-id="33b51-113">Uso di Visual Studio 2012 con questa esercitazione</span><span class="sxs-lookup"><span data-stu-id="33b51-113">Using Visual Studio 2012 with this tutorial</span></span>
-> 
-> 
-> <span data-ttu-id="33b51-114">Per usare Visual Studio 2012 con questa esercitazione, eseguire le operazioni seguenti:</span><span class="sxs-lookup"><span data-stu-id="33b51-114">To use Visual Studio 2012 with this tutorial, do the following:</span></span>
-> 
-> - <span data-ttu-id="33b51-115">Aggiornamento di [Package Manager](http://docs.nuget.org/docs/start-here/installing-nuget) alla versione più recente.</span><span class="sxs-lookup"><span data-stu-id="33b51-115">Update your [Package Manager](http://docs.nuget.org/docs/start-here/installing-nuget) to the latest version.</span></span>
-> - <span data-ttu-id="33b51-116">Installare il [installazione guidata piattaforma Web](https://www.microsoft.com/web/downloads/platform.aspx).</span><span class="sxs-lookup"><span data-stu-id="33b51-116">Install the [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx).</span></span>
-> - <span data-ttu-id="33b51-117">L'installazione guidata piattaforma Web, cercare e installare **ASP.NET e Web Tools 2013.1 per Visual Studio 2012**.</span><span class="sxs-lookup"><span data-stu-id="33b51-117">In the Web Platform Installer, search for and install **ASP.NET and Web Tools 2013.1 for Visual Studio 2012**.</span></span> <span data-ttu-id="33b51-118">Verrà installato, ad esempio modelli di Visual Studio per le classi di SignalR **Hub**.</span><span class="sxs-lookup"><span data-stu-id="33b51-118">This will install Visual Studio templates for SignalR classes such as **Hub**.</span></span>
-> - <span data-ttu-id="33b51-119">Alcuni modelli (ad esempio **classe di avvio OWIN**) non è disponibile; per questo motivo, usare invece un file di classe.</span><span class="sxs-lookup"><span data-stu-id="33b51-119">Some templates (such as **OWIN Startup Class**) will not be available; for these, use a Class file instead.</span></span>
-> 
-> 
-> ## <a name="tutorial-versions"></a><span data-ttu-id="33b51-120">Versioni dell'esercitazione</span><span class="sxs-lookup"><span data-stu-id="33b51-120">Tutorial versions</span></span>
-> 
-> <span data-ttu-id="33b51-121">Per informazioni sulle versioni precedenti di SignalR, vedere [le versioni precedenti di SignalR](../older-versions/index.md).</span><span class="sxs-lookup"><span data-stu-id="33b51-121">For information about earlier versions of SignalR, see [SignalR Older Versions](../older-versions/index.md).</span></span>
-> 
-> ## <a name="questions-and-comments"></a><span data-ttu-id="33b51-122">Domande e commenti</span><span class="sxs-lookup"><span data-stu-id="33b51-122">Questions and comments</span></span>
-> 
-> <span data-ttu-id="33b51-123">Inviaci un feedback sul modo in cui è stato apprezzato questa esercitazione e cosa possiamo migliorare nei commenti nella parte inferiore della pagina.</span><span class="sxs-lookup"><span data-stu-id="33b51-123">Please leave feedback on how you liked this tutorial and what we could improve in the comments at the bottom of the page.</span></span> <span data-ttu-id="33b51-124">Se hai domande che non sono direttamente correlate con l'esercitazione, è possibile pubblicarli per i [forum ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) oppure [StackOverflow.com](http://stackoverflow.com/).</span><span class="sxs-lookup"><span data-stu-id="33b51-124">If you have questions that are not directly related to the tutorial, you can post them to the [ASP.NET SignalR forum](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) or [StackOverflow.com](http://stackoverflow.com/).</span></span>
+* <span data-ttu-id="112be-112">[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) con il **sviluppo ASP.NET e web** carico di lavoro.</span><span class="sxs-lookup"><span data-stu-id="112be-112">[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) with the **ASP.NET and web development** workload.</span></span>
 
+## <a name="set-up-the-project"></a><span data-ttu-id="112be-113">Configurare il progetto</span><span class="sxs-lookup"><span data-stu-id="112be-113">Set up the Project</span></span>
 
-## <a name="overview"></a><span data-ttu-id="33b51-125">Panoramica</span><span class="sxs-lookup"><span data-stu-id="33b51-125">Overview</span></span>
+<span data-ttu-id="112be-114">Questa sezione illustra come usare SignalR 2 e Visual Studio 2017 per creare un'applicazione web ASP.NET vuota, aggiungere SignalR e creare l'applicazione di chat.</span><span class="sxs-lookup"><span data-stu-id="112be-114">This section shows how to use Visual Studio 2017 and SignalR 2 to create an empty ASP.NET web application, add SignalR, and create the chat application.</span></span>
 
-<span data-ttu-id="33b51-126">Questa esercitazione introduce lo sviluppo di SignalR, che illustrano come creare un'applicazione di chat basata su browser semplice.</span><span class="sxs-lookup"><span data-stu-id="33b51-126">This tutorial introduces SignalR development by showing how to build a simple browser-based chat application.</span></span> <span data-ttu-id="33b51-127">Si verrà aggiungere la libreria di SignalR a un'applicazione web ASP.NET vuota, creare una classe di hub per l'invio di messaggi per i client e creare una pagina HTML che consente agli utenti di inviare e ricevere i messaggi di chat.</span><span class="sxs-lookup"><span data-stu-id="33b51-127">You will add the SignalR library to an empty ASP.NET web application, create a hub class for sending messages to clients, and create an HTML page that lets users send and receive chat messages.</span></span> <span data-ttu-id="33b51-128">Per un'esercitazione simile che mostra come creare un'applicazione di chat in MVC 5 con una visualizzazione MVC, vedere [Introduzione a SignalR 2 e MVC 5](tutorial-getting-started-with-signalr-and-mvc.md).</span><span class="sxs-lookup"><span data-stu-id="33b51-128">For a similar tutorial that shows how to create a chat application in MVC 5 using an MVC view, see [Getting Started with SignalR 2 and MVC 5](tutorial-getting-started-with-signalr-and-mvc.md).</span></span>
-
-> [!NOTE]
-> <span data-ttu-id="33b51-129">Questa esercitazione illustra come creare applicazioni SignalR in versione 2.</span><span class="sxs-lookup"><span data-stu-id="33b51-129">This tutorial demonstrates how to create SignalR applications in version 2.</span></span> <span data-ttu-id="33b51-130">Per informazioni dettagliate sulle modifiche apportate tra SignalR 1.x e 2, vedere [i progetti di aggiornamento SignalR 1.x](../releases/upgrading-signalr-1x-projects-to-20.md) e [note sulla versione di Visual Studio 2013](../../../visual-studio/overview/2013/release-notes.md#TOC13).</span><span class="sxs-lookup"><span data-stu-id="33b51-130">For details on changes between SignalR 1.x and 2, see [Upgrading SignalR 1.x Projects](../releases/upgrading-signalr-1x-projects-to-20.md) and [Visual Studio 2013 Release Notes](../../../visual-studio/overview/2013/release-notes.md#TOC13).</span></span>
-
-<span data-ttu-id="33b51-131">SignalR è una libreria .NET open source per la compilazione di applicazioni web che richiedono l'interazione dell'utente in tempo reale o gli aggiornamenti dei dati in tempo reale.</span><span class="sxs-lookup"><span data-stu-id="33b51-131">SignalR is an open-source .NET library for building web applications that require live user interaction or real-time data updates.</span></span> <span data-ttu-id="33b51-132">Ad esempio le applicazioni basati su social network, giochi multiutente, meteo, collaborazione e nelle novità, business o finanziari aggiornare le applicazioni.</span><span class="sxs-lookup"><span data-stu-id="33b51-132">Examples include social applications, multiuser games, business collaboration, and news, weather, or financial update applications.</span></span> <span data-ttu-id="33b51-133">Spesso si tratta di applicazioni in tempo reale.</span><span class="sxs-lookup"><span data-stu-id="33b51-133">These are often called real-time applications.</span></span>
-
-<span data-ttu-id="33b51-134">SignalR semplifica il processo di compilazione di applicazioni in tempo reale.</span><span class="sxs-lookup"><span data-stu-id="33b51-134">SignalR simplifies the process of building real-time applications.</span></span> <span data-ttu-id="33b51-135">Include una raccolta di server ASP.NET e una libreria client JavaScript per renderne più semplice gestire le connessioni client a server e il push degli aggiornamenti del contenuto ai client.</span><span class="sxs-lookup"><span data-stu-id="33b51-135">It includes an ASP.NET server library and a JavaScript client library to make it easier to manage client-server connections and push content updates to clients.</span></span> <span data-ttu-id="33b51-136">È possibile aggiungere la libreria di SignalR a un'applicazione ASP.NET esistente per ottenere funzionalità in tempo reale.</span><span class="sxs-lookup"><span data-stu-id="33b51-136">You can add the SignalR library to an existing ASP.NET application to gain real-time functionality.</span></span>
-
-<span data-ttu-id="33b51-137">L'esercitazione illustra le attività di sviluppo SignalR seguenti:</span><span class="sxs-lookup"><span data-stu-id="33b51-137">The tutorial demonstrates the following SignalR development tasks:</span></span>
-
-- <span data-ttu-id="33b51-138">Aggiunta della libreria di SignalR a un'applicazione web ASP.NET.</span><span class="sxs-lookup"><span data-stu-id="33b51-138">Adding the SignalR library to an ASP.NET web application.</span></span>
-- <span data-ttu-id="33b51-139">Creazione di una classe di hub per eseguire il push del contenuto ai client.</span><span class="sxs-lookup"><span data-stu-id="33b51-139">Creating a hub class to push content to clients.</span></span>
-- <span data-ttu-id="33b51-140">Creazione di una classe di avvio OWIN per configurare l'applicazione.</span><span class="sxs-lookup"><span data-stu-id="33b51-140">Creating an OWIN startup class to configure the application.</span></span>
-- <span data-ttu-id="33b51-141">Usa la libreria jQuery SignalR in una pagina web per inviare messaggi e visualizzare gli aggiornamenti dall'hub.</span><span class="sxs-lookup"><span data-stu-id="33b51-141">Using the SignalR jQuery library in a web page to send messages and display updates from the hub.</span></span>
-
-<span data-ttu-id="33b51-142">Lo screenshot seguente mostra l'applicazione di chat in esecuzione in un browser.</span><span class="sxs-lookup"><span data-stu-id="33b51-142">The following screen shot shows the chat application running in a browser.</span></span> <span data-ttu-id="33b51-143">Ogni nuovo utente è possibile inviare commenti e vedere i commenti aggiunti dopo che l'utente viene aggiunto alla chat.</span><span class="sxs-lookup"><span data-stu-id="33b51-143">Each new user can post comments and see comments added after the user joins the chat.</span></span>
-
-![Istanze di chat](tutorial-getting-started-with-signalr/_static/image1.png)
-
-<span data-ttu-id="33b51-145">Nelle sezioni:</span><span class="sxs-lookup"><span data-stu-id="33b51-145">Sections:</span></span>
-
-- [<span data-ttu-id="33b51-146">Configurare il progetto</span><span class="sxs-lookup"><span data-stu-id="33b51-146">Set up the Project</span></span>](#setup)
-- [<span data-ttu-id="33b51-147">Eseguire l'esempio</span><span class="sxs-lookup"><span data-stu-id="33b51-147">Run the Sample</span></span>](#run)
-- [<span data-ttu-id="33b51-148">Esaminare il codice</span><span class="sxs-lookup"><span data-stu-id="33b51-148">Examine the Code</span></span>](#code)
-- [<span data-ttu-id="33b51-149">Passaggi successivi</span><span class="sxs-lookup"><span data-stu-id="33b51-149">Next Steps</span></span>](#next)
-
-<a id="setup"></a>
-
-## <a name="set-up-the-project"></a><span data-ttu-id="33b51-150">Configurare il progetto</span><span class="sxs-lookup"><span data-stu-id="33b51-150">Set up the Project</span></span>
-
-<span data-ttu-id="33b51-151">Questa sezione illustra come usare Visual Studio 2013 e versione 2 di SignalR per creare un'applicazione web ASP.NET vuota, aggiungere SignalR e creare l'applicazione di chat.</span><span class="sxs-lookup"><span data-stu-id="33b51-151">This section shows how to use Visual Studio 2013 and SignalR version 2 to create an empty ASP.NET web application, add SignalR, and create the chat application.</span></span>
-
-<span data-ttu-id="33b51-152">Prerequisiti:</span><span class="sxs-lookup"><span data-stu-id="33b51-152">Prerequisites:</span></span>
-
-- <span data-ttu-id="33b51-153">Visual Studio 2013.</span><span class="sxs-lookup"><span data-stu-id="33b51-153">Visual Studio 2013.</span></span> <span data-ttu-id="33b51-154">Se non hai Visual Studio, vedere [download ASP.NET](https://www.asp.net/downloads) per ottenere il Visual Studio 2013 Express strumento di sviluppo gratuito.</span><span class="sxs-lookup"><span data-stu-id="33b51-154">If you do not have Visual Studio, see [ASP.NET Downloads](https://www.asp.net/downloads) to get the free Visual Studio 2013 Express Development Tool.</span></span>
-
-<span data-ttu-id="33b51-155">La procedura seguente Usa Visual Studio 2013 per creare un'applicazione Web ASP.NET vuota e aggiungere la libreria di SignalR:</span><span class="sxs-lookup"><span data-stu-id="33b51-155">The following steps use Visual Studio 2013 to create an ASP.NET Empty Web Application and add the SignalR library:</span></span>
-
-1. <span data-ttu-id="33b51-156">In Visual Studio, creare un'applicazione Web ASP.NET.</span><span class="sxs-lookup"><span data-stu-id="33b51-156">In Visual Studio, create an ASP.NET Web Application.</span></span>
+1. <span data-ttu-id="112be-115">In Visual Studio, creare un'applicazione Web ASP.NET.</span><span class="sxs-lookup"><span data-stu-id="112be-115">In Visual Studio, create an ASP.NET Web Application.</span></span>
 
     ![Creazione di web](tutorial-getting-started-with-signalr/_static/image2.png)
-2. <span data-ttu-id="33b51-158">Nel **nuovo progetto ASP.NET** finestra, lasciare **vuota** selezionata e fare clic su **Crea progetto**.</span><span class="sxs-lookup"><span data-stu-id="33b51-158">In the **New ASP.NET Project** window, leave **Empty** selected and click **Create Project**.</span></span>
 
-    ![Creazione di web vuoto](tutorial-getting-started-with-signalr/_static/image3.png)
-3. <span data-ttu-id="33b51-160">Nelle **Esplora soluzioni**, fare clic sul progetto, selezionare **Add | Classe SignalR Hub (v2)**.</span><span class="sxs-lookup"><span data-stu-id="33b51-160">In **Solution Explorer**, right-click the project, select **Add | SignalR Hub Class (v2)**.</span></span> <span data-ttu-id="33b51-161">Denominare la classe **ChatHub.cs** e aggiungerlo al progetto.</span><span class="sxs-lookup"><span data-stu-id="33b51-161">Name the class **ChatHub.cs** and add it to the project.</span></span> <span data-ttu-id="33b51-162">Questo passaggio Crea il **ChatHub** classe e viene aggiunto al progetto un set di file di script e i riferimenti ad assembly che supportano SignalR.</span><span class="sxs-lookup"><span data-stu-id="33b51-162">This step creates the **ChatHub** class and adds to the project a set of script files and assembly references that support SignalR.</span></span>
+1. <span data-ttu-id="112be-117">Nel **nuovo progetto ASP.NET - SignalRChat** finestra, lasciare **vuota** selezionato e selezionare **OK**.</span><span class="sxs-lookup"><span data-stu-id="112be-117">In the **New ASP.NET Project - SignalRChat** window, leave **Empty** selected and select **OK**.</span></span>
 
-    > [!NOTE]
-    > <span data-ttu-id="33b51-163">È inoltre possibile aggiungere SignalR a un progetto aprendo il **strumenti > Gestione pacchetti NuGet > Console di Gestione pacchetti** ed eseguire un comando:</span><span class="sxs-lookup"><span data-stu-id="33b51-163">You can also add SignalR to a project by opening the **Tools > NuGet Package Manager > Package Manager Console** and running a command:</span></span>
+1. <span data-ttu-id="112be-118">Nelle **Esplora soluzioni**, fare clic sul progetto e selezionare **Add** > **nuovo elemento**.</span><span class="sxs-lookup"><span data-stu-id="112be-118">In **Solution Explorer**, right-click the project and select **Add** > **New Item**.</span></span>
 
-    `install-package Microsoft.AspNet.SignalR`
+1. <span data-ttu-id="112be-119">Nelle **Aggiungi nuovo elemento - SignalRChat**, selezionare **installati** > **Visual C#**   >  **Web**  >  **SignalR** e quindi selezionare **classe tramite SignalR Hub (v2)**.</span><span class="sxs-lookup"><span data-stu-id="112be-119">In **Add New Item - SignalRChat**, select **Installed** > **Visual C#** > **Web** > **SignalR**  and then select **SignalR Hub Class (v2)**.</span></span>
 
-    <span data-ttu-id="33b51-164">Se si utilizza la console per aggiungere SignalR, creare la classe hub SignalR come passaggio distinto dopo l'aggiunta di SignalR.</span><span class="sxs-lookup"><span data-stu-id="33b51-164">If you use the console to add SignalR, create the SignalR hub class as a separate step after you add SignalR.</span></span>
+1. <span data-ttu-id="112be-120">Denominare la classe *ChatHub* e aggiungerlo al progetto.</span><span class="sxs-lookup"><span data-stu-id="112be-120">Name the class *ChatHub* and add it to the project.</span></span>
 
-    > [!NOTE]
-    > <span data-ttu-id="33b51-165">Se si usa Visual Studio 2012, il **classe tramite SignalR Hub (v2)** modello non saranno disponibile.</span><span class="sxs-lookup"><span data-stu-id="33b51-165">If you are using Visual Studio 2012, the **SignalR Hub Class (v2)** template will not be available.</span></span> <span data-ttu-id="33b51-166">È possibile aggiungere un normale **classe** chiamato `ChatHub` invece.</span><span class="sxs-lookup"><span data-stu-id="33b51-166">You can add a plain **Class** called `ChatHub` instead.</span></span>
-4. <span data-ttu-id="33b51-167">Nelle **Esplora soluzioni**, espandere il nodo di script.</span><span class="sxs-lookup"><span data-stu-id="33b51-167">In **Solution Explorer**, expand the Scripts node.</span></span> <span data-ttu-id="33b51-168">Librerie di script per jQuery e SignalR sono visibili nel progetto.</span><span class="sxs-lookup"><span data-stu-id="33b51-168">Script libraries for jQuery and SignalR are visible in the project.</span></span>
-5. <span data-ttu-id="33b51-169">Sostituire il codice nella nuova **ChatHub** classe con il codice seguente.</span><span class="sxs-lookup"><span data-stu-id="33b51-169">Replace the code in the new **ChatHub** class with the following code.</span></span>
+    <span data-ttu-id="112be-121">Questo passaggio Crea il *ChatHub.cs* file di classe e aggiunge un set di file di script e i riferimenti ad assembly che supportano SignalR al progetto.</span><span class="sxs-lookup"><span data-stu-id="112be-121">This step creates the *ChatHub.cs* class file and adds a set of script files and assembly references that support SignalR to the project.</span></span>
+
+1. <span data-ttu-id="112be-122">Sostituire il codice nella nuova *ChatHub.cs* file di classe con il seguente codice:</span><span class="sxs-lookup"><span data-stu-id="112be-122">Replace the code in the new *ChatHub.cs* class file with this code:</span></span>
 
     [!code-csharp[Main](tutorial-getting-started-with-signalr/samples/sample1.cs)]
-6. <span data-ttu-id="33b51-170">Nelle **Esplora soluzioni**, fare clic sul progetto, quindi fare clic su **Add | Classe di avvio OWIN**.</span><span class="sxs-lookup"><span data-stu-id="33b51-170">In **Solution Explorer**, right-click the project, then click **Add | OWIN Startup Class**.</span></span> <span data-ttu-id="33b51-171">Denominare la nuova classe `Startup` e fare clic su OK.</span><span class="sxs-lookup"><span data-stu-id="33b51-171">Name the new class `Startup` and click OK.</span></span>
 
-    > [!NOTE]
-    > <span data-ttu-id="33b51-172">Se si usa Visual Studio 2012, il **classe di avvio OWIN** modello non saranno disponibile.</span><span class="sxs-lookup"><span data-stu-id="33b51-172">If you are using Visual Studio 2012, the **OWIN Startup Class** template will not be available.</span></span> <span data-ttu-id="33b51-173">È possibile aggiungere un normale **classe** chiamato `Startup` invece.</span><span class="sxs-lookup"><span data-stu-id="33b51-173">You can add a plain **Class** called `Startup` instead.</span></span>
-7. <span data-ttu-id="33b51-174">Modificare il contenuto della nuova classe di avvio come segue.</span><span class="sxs-lookup"><span data-stu-id="33b51-174">Change the contents of the new Startup class to the following.</span></span>
+1. <span data-ttu-id="112be-123">Nelle **Esplora soluzioni**, fare clic sul progetto e selezionare **Add** > **nuovo elemento**.</span><span class="sxs-lookup"><span data-stu-id="112be-123">In **Solution Explorer**, right-click the project and select **Add** > **New Item**.</span></span>
 
-    [!code-csharp[Main](tutorial-getting-started-with-signalr/samples/sample2.cs)]
-8. <span data-ttu-id="33b51-175">Nelle **Esplora soluzioni**, fare clic sul progetto, quindi fare clic su **Add | Pagina HTML**.</span><span class="sxs-lookup"><span data-stu-id="33b51-175">In **Solution Explorer**, right-click the project, then click **Add | HTML Page**.</span></span> <span data-ttu-id="33b51-176">Denominare la nuova pagina `index.html`.</span><span class="sxs-lookup"><span data-stu-id="33b51-176">Name the new page `index.html`.</span></span>
-    >[!NOTE]
-    ><span data-ttu-id="33b51-177">Potrebbe essere necessario modificare i numeri di versione per i riferimenti alle librerie JQuery e SignalR</span><span class="sxs-lookup"><span data-stu-id="33b51-177">You might need to change the version numbers for the references to JQuery and SignalR libraries</span></span>
-9. <span data-ttu-id="33b51-178">Nelle **Esplora soluzioni**, fare doppio clic su pagina HTML appena creato e fare clic su **imposta come pagina iniziale**.</span><span class="sxs-lookup"><span data-stu-id="33b51-178">In **Solution Explorer**, right-click the HTML page you just created and click **Set as Start Page**.</span></span>
-10. <span data-ttu-id="33b51-179">Sostituire il codice predefinito nella pagina HTML con il codice seguente.</span><span class="sxs-lookup"><span data-stu-id="33b51-179">Replace the default code in the HTML page with the following code.</span></span>
+1. <span data-ttu-id="112be-124">Nelle **Aggiungi nuovo elemento - SignalRChat** selezionate **installati** > **Visual C#**   >  **Web** e quindi Selezionare **classe di avvio OWIN**.</span><span class="sxs-lookup"><span data-stu-id="112be-124">In **Add New Item - SignalRChat** select **Installed** > **Visual C#** > **Web**  and then select **OWIN Startup Class**.</span></span>
 
-    > [!NOTE]
-    > <span data-ttu-id="33b51-180">Per la gestione dei pacchetti può essere installata una versione successiva degli script di SignalR.</span><span class="sxs-lookup"><span data-stu-id="33b51-180">A later version of the SignalR scripts may be installed by the package manager.</span></span> <span data-ttu-id="33b51-181">Verificare che i riferimenti allo script riportato di seguito corrispondono alle versioni dei file di script nel progetto (che sarà diversi se è stato aggiunto mediante NuGet anziché aggiungendo un hub di SignalR.)</span><span class="sxs-lookup"><span data-stu-id="33b51-181">Verify that the script references below correspond to the versions of the script files in the project (they will be different if you added SignalR using NuGet rather than adding a hub.)</span></span>
+1. <span data-ttu-id="112be-125">Denominare la classe *avvio* e aggiungerlo al progetto.</span><span class="sxs-lookup"><span data-stu-id="112be-125">Name the class *Startup* and add it to the project.</span></span>
+
+1. <span data-ttu-id="112be-126">Nelle **Esplora soluzioni**, fare clic sul progetto e selezionare **Add** > **pagina HTML**.</span><span class="sxs-lookup"><span data-stu-id="112be-126">In **Solution Explorer**, right-click the project and select **Add** > **HTML Page**.</span></span>
+
+1. <span data-ttu-id="112be-127">Denominare la nuova pagina *indice* e selezionare **OK**.</span><span class="sxs-lookup"><span data-stu-id="112be-127">Name the new page *index* and select **OK**.</span></span>
+
+1. <span data-ttu-id="112be-128">Nelle **Esplora soluzioni**, la pagina HTML creata e scegliere **imposta come pagina iniziale**.</span><span class="sxs-lookup"><span data-stu-id="112be-128">In **Solution Explorer**, right-click the HTML page you created and select **Set as Start Page**.</span></span>
+
+1. <span data-ttu-id="112be-129">Sostituire il codice predefinito nella pagina HTML con il seguente codice:</span><span class="sxs-lookup"><span data-stu-id="112be-129">Replace the default code in the HTML page with this code:</span></span>
 
     [!code-html[Main](tutorial-getting-started-with-signalr/samples/sample3.html)]
-11. <span data-ttu-id="33b51-182">**Salva tutto** per il progetto.</span><span class="sxs-lookup"><span data-stu-id="33b51-182">**Save All** for the project.</span></span>
 
-<a id="run"></a>
+1. <span data-ttu-id="112be-130">Nelle **Esplora soluzioni**, espandere **script**.</span><span class="sxs-lookup"><span data-stu-id="112be-130">In **Solution Explorer**, expand **Scripts**.</span></span>
 
-## <a name="run-the-sample"></a><span data-ttu-id="33b51-183">Eseguire l'esempio</span><span class="sxs-lookup"><span data-stu-id="33b51-183">Run the Sample</span></span>
+    <span data-ttu-id="112be-131">Librerie di script per jQuery e SignalR sono visibili nel progetto.</span><span class="sxs-lookup"><span data-stu-id="112be-131">Script libraries for jQuery and SignalR are visible in the project.</span></span>
 
-1. <span data-ttu-id="33b51-184">Premere F5 per eseguire il progetto in modalità di debug.</span><span class="sxs-lookup"><span data-stu-id="33b51-184">Press F5 to run the project in debug mode.</span></span> <span data-ttu-id="33b51-185">La pagina HTML viene caricata in un'istanza del browser e richiede un nome utente.</span><span class="sxs-lookup"><span data-stu-id="33b51-185">The HTML page loads in a browser instance and prompts for a user name.</span></span>
+    > [!IMPORTANT]
+    > <span data-ttu-id="112be-132">La gestione dei pacchetti potrebbe avere installato una versione successiva degli script di SignalR.</span><span class="sxs-lookup"><span data-stu-id="112be-132">The package manager may have installed a later version of the SignalR scripts.</span></span>
 
-    ![Immettere il nome utente](tutorial-getting-started-with-signalr/_static/image4.png)
-2. <span data-ttu-id="33b51-187">Immettere un nome utente.</span><span class="sxs-lookup"><span data-stu-id="33b51-187">Enter a user name.</span></span>
-3. <span data-ttu-id="33b51-188">Copiare l'URL dalla riga dell'indirizzo del browser e usarlo per aprire due altre istanze del browser.</span><span class="sxs-lookup"><span data-stu-id="33b51-188">Copy the URL from the address line of the browser and use it to open two more browser instances.</span></span> <span data-ttu-id="33b51-189">In ogni istanza del browser immettere un nome utente univoco.</span><span class="sxs-lookup"><span data-stu-id="33b51-189">In each browser instance, enter a unique user name.</span></span>
-4. <span data-ttu-id="33b51-190">In ogni istanza del browser, aggiungere un commento e fare clic su **inviare**.</span><span class="sxs-lookup"><span data-stu-id="33b51-190">In each browser instance, add a comment and click **Send**.</span></span> <span data-ttu-id="33b51-191">I commenti deve essere visualizzato in tutte le istanze del browser.</span><span class="sxs-lookup"><span data-stu-id="33b51-191">The comments should display in all browser instances.</span></span>
+1. <span data-ttu-id="112be-133">Verificare che i riferimenti a script nel blocco di codice corrispondono alle versioni dei file di script nel progetto.</span><span class="sxs-lookup"><span data-stu-id="112be-133">Check that the script references in the code block correspond to the versions of the script files in the project.</span></span>
+
+    <span data-ttu-id="112be-134">Riferimenti a script dal blocco di codice originale:</span><span class="sxs-lookup"><span data-stu-id="112be-134">Script references from the original code block:</span></span>
+    ```html
+    <!--Script references. -->
+    <!--Reference the jQuery library. -->
+    <script src="Scripts/jquery-3.1.1.min.js" ></script>
+    <!--Reference the SignalR library. -->
+    <script src="Scripts/jquery.signalR-2.2.1.min.js"></script>
+    ```
+
+1. <span data-ttu-id="112be-135">Se non corrispondono, aggiornare il *HTML* file.</span><span class="sxs-lookup"><span data-stu-id="112be-135">If they don't match, update the *.html* file.</span></span>
+
+1. <span data-ttu-id="112be-136">Dalla barra dei menu, selezionare **File** > **Salva tutto**.</span><span class="sxs-lookup"><span data-stu-id="112be-136">From the menu bar, select **File** > **Save All**.</span></span>
+
+## <a name="run-the-sample"></a><span data-ttu-id="112be-137">Eseguire l'esempio</span><span class="sxs-lookup"><span data-stu-id="112be-137">Run the Sample</span></span>
+
+1. <span data-ttu-id="112be-138">Nella barra degli strumenti, attivare **debug degli Script** e quindi selezionare il pulsante play per eseguire l'esempio in modalità di Debug.</span><span class="sxs-lookup"><span data-stu-id="112be-138">In the toolbar, turn on **Script Debugging** and then select the play button to run the sample in Debug mode.</span></span>
+
+    ![Immettere il nome utente](tutorial-getting-started-with-signalr/_static/image3.png)
+
+1. <span data-ttu-id="112be-140">Quando si apre il browser, immettere un nome per l'identità di chat.</span><span class="sxs-lookup"><span data-stu-id="112be-140">When the browser opens, enter a name for your chat identity.</span></span>
+
+1. <span data-ttu-id="112be-141">Copiare l'URL dal browser, aprire due altri browser e incollare l'URL nella barra degli indirizzi.</span><span class="sxs-lookup"><span data-stu-id="112be-141">Copy the URL from the browser, open two other browsers, and paste the URLs into the address bars.</span></span>
+
+1. <span data-ttu-id="112be-142">In ogni browser e immettere un nome univoco.</span><span class="sxs-lookup"><span data-stu-id="112be-142">In each browser, enter a unique name.</span></span>
+
+1. <span data-ttu-id="112be-143">A questo punto, aggiungere un commento e selezionare **inviare**.</span><span class="sxs-lookup"><span data-stu-id="112be-143">Now, add a comment and select **Send**.</span></span> <span data-ttu-id="112be-144">Ripetere che in altri browser.</span><span class="sxs-lookup"><span data-stu-id="112be-144">Repeat that in the other browsers.</span></span> <span data-ttu-id="112be-145">I commenti vengono visualizzati in tempo reale.</span><span class="sxs-lookup"><span data-stu-id="112be-145">The comments appear in real-time.</span></span>
 
     > [!NOTE]
-    > <span data-ttu-id="33b51-192">Questa applicazione di chat semplice non gestisce il contesto di discussione sul server.</span><span class="sxs-lookup"><span data-stu-id="33b51-192">This simple chat application does not maintain the discussion context on the server.</span></span> <span data-ttu-id="33b51-193">L'hub trasmette i commenti per tutti gli utenti correnti.</span><span class="sxs-lookup"><span data-stu-id="33b51-193">The hub broadcasts comments to all current users.</span></span> <span data-ttu-id="33b51-194">Gli utenti che partecipano alla chat in un secondo momento visualizzeranno messaggi aggiunti dal momento in cui che questi vengono aggiunti.</span><span class="sxs-lookup"><span data-stu-id="33b51-194">Users who join the chat later will see messages added from the time they join.</span></span>
+    > <span data-ttu-id="112be-146">Questa applicazione di chat semplice non gestisce il contesto di discussione sul server.</span><span class="sxs-lookup"><span data-stu-id="112be-146">This simple chat application does not maintain the discussion context on the server.</span></span> <span data-ttu-id="112be-147">L'hub trasmette i commenti per tutti gli utenti correnti.</span><span class="sxs-lookup"><span data-stu-id="112be-147">The hub broadcasts comments to all current users.</span></span> <span data-ttu-id="112be-148">Gli utenti che partecipano alla chat in un secondo momento visualizzeranno messaggi aggiunti dal momento in cui che questi vengono aggiunti.</span><span class="sxs-lookup"><span data-stu-id="112be-148">Users who join the chat later will see messages added from the time they join.</span></span>
 
-    <span data-ttu-id="33b51-195">Lo screenshot seguente mostra l'applicazione di chat in esecuzione in tre istanze del browser, ognuno dei quali vengono aggiornate quando un'istanza di invia un messaggio:</span><span class="sxs-lookup"><span data-stu-id="33b51-195">The following screen shot shows the chat application running in three browser instances, all of which are updated when one instance sends a message:</span></span>
+    <span data-ttu-id="112be-149">Vedere come l'applicazione di chat viene eseguita in tre diversi browser.</span><span class="sxs-lookup"><span data-stu-id="112be-149">See how the chat application runs in three different browsers.</span></span> <span data-ttu-id="112be-150">Per Susan, Anand e Tom invio di messaggi, aggiornare tutti i browser in tempo reale:</span><span class="sxs-lookup"><span data-stu-id="112be-150">When Tom, Anand, and Susan send messages, all browsers update in real time:</span></span>
 
-    ![Browser di chat](tutorial-getting-started-with-signalr/_static/image5.png)
-5. <span data-ttu-id="33b51-197">Nelle **Esplora soluzioni**, esaminare le **documenti Script** nodo per l'applicazione in esecuzione.</span><span class="sxs-lookup"><span data-stu-id="33b51-197">In **Solution Explorer**, inspect the **Script Documents** node for the running application.</span></span> <span data-ttu-id="33b51-198">È presente un file di script denominato **hub** che la libreria di SignalR genera in modo dinamico in fase di esecuzione.</span><span class="sxs-lookup"><span data-stu-id="33b51-198">There is a script file named **hubs** that the SignalR library dynamically generates at runtime.</span></span> <span data-ttu-id="33b51-199">Questo file consente di gestire la comunicazione tra script jQuery e codice lato server.</span><span class="sxs-lookup"><span data-stu-id="33b51-199">This file manages the communication between jQuery script and server-side code.</span></span>
+    ![Tutti i tre browser visualizzano alla stessa cronologia di chat](tutorial-getting-started-with-signalr/_static/image4.png)
 
-    ![](tutorial-getting-started-with-signalr/_static/image6.png)
+1. <span data-ttu-id="112be-152">Nelle **Esplora soluzioni**, esaminare le **documenti Script** nodo per l'applicazione in esecuzione.</span><span class="sxs-lookup"><span data-stu-id="112be-152">In **Solution Explorer**, inspect the **Script Documents** node for the running application.</span></span> <span data-ttu-id="112be-153">È presente un file di script denominato *hub* che genera la libreria di SignalR in fase di esecuzione.</span><span class="sxs-lookup"><span data-stu-id="112be-153">There's a script file named *hubs* that the SignalR library generates at runtime.</span></span> <span data-ttu-id="112be-154">Questo file consente di gestire la comunicazione tra script jQuery e codice lato server.</span><span class="sxs-lookup"><span data-stu-id="112be-154">This file manages the communication between jQuery script and server-side code.</span></span>
 
-<a id="code"></a>
+    ![script hub generato automaticamente nel nodo documenti Script](tutorial-getting-started-with-signalr/_static/image5.png)
 
-## <a name="examine-the-code"></a><span data-ttu-id="33b51-200">Esaminare il codice</span><span class="sxs-lookup"><span data-stu-id="33b51-200">Examine the Code</span></span>
+## <a name="examine-the-code"></a><span data-ttu-id="112be-156">Esaminare il codice</span><span class="sxs-lookup"><span data-stu-id="112be-156">Examine the Code</span></span>
 
-<span data-ttu-id="33b51-201">L'applicazione di chat SignalR illustra due attività di sviluppo di SignalR base: creazione di un hub come oggetto di coordinamento principale nel server e usando la libreria jQuery SignalR per inviare e ricevere messaggi.</span><span class="sxs-lookup"><span data-stu-id="33b51-201">The SignalR chat application demonstrates two basic SignalR development tasks: creating a hub as the main coordination object on the server, and using the SignalR jQuery library to send and receive messages.</span></span>
+<span data-ttu-id="112be-157">L'applicazione SignalRChat illustra due attività di sviluppo di SignalR base.</span><span class="sxs-lookup"><span data-stu-id="112be-157">The SignalRChat application demonstrates two basic SignalR development tasks.</span></span> <span data-ttu-id="112be-158">Viene illustrato come creare un hub.</span><span class="sxs-lookup"><span data-stu-id="112be-158">It shows you how to create a hub.</span></span> <span data-ttu-id="112be-159">Il server utilizza tale hub dell'oggetto principale coordinamento.</span><span class="sxs-lookup"><span data-stu-id="112be-159">The server uses that hub as the main coordination object.</span></span> <span data-ttu-id="112be-160">L'hub Usa la libreria jQuery SignalR per inviare e ricevere messaggi.</span><span class="sxs-lookup"><span data-stu-id="112be-160">The hub uses the SignalR jQuery library to send and receive messages.</span></span>
 
-### <a name="signalr-hubs"></a><span data-ttu-id="33b51-202">Hub SignalR</span><span class="sxs-lookup"><span data-stu-id="33b51-202">SignalR Hubs</span></span>
+### <a name="signalr-hubs-in-the-chathubcs"></a><span data-ttu-id="112be-161">Hub SignalR nel ChatHub.cs</span><span class="sxs-lookup"><span data-stu-id="112be-161">SignalR Hubs in the ChatHub.cs</span></span>
 
-<span data-ttu-id="33b51-203">Nell'esempio di codice le **ChatHub** deriva dalla classe la **Microsoft.AspNet.SignalR.Hub** classe.</span><span class="sxs-lookup"><span data-stu-id="33b51-203">In the code sample the **ChatHub** class derives from the **Microsoft.AspNet.SignalR.Hub** class.</span></span> <span data-ttu-id="33b51-204">Derivazione dal **Hub** classe è un modo utile per compilare un'applicazione di SignalR.</span><span class="sxs-lookup"><span data-stu-id="33b51-204">Deriving from the **Hub** class is a useful way to build a SignalR application.</span></span> <span data-ttu-id="33b51-205">È possibile creare metodi pubblici nella classe dell'hub e quindi accedere a tali metodi chiamandole dagli script in una pagina web.</span><span class="sxs-lookup"><span data-stu-id="33b51-205">You can create public methods on your hub class and then access those methods by calling them from scripts in a web page.</span></span>
+<span data-ttu-id="112be-162">Nell'esempio di codice precedente, il `ChatHub` deriva dalla classe di `Microsoft.AspNet.SignalR.Hub` classe.</span><span class="sxs-lookup"><span data-stu-id="112be-162">In the code sample above, the `ChatHub` class derives from the `Microsoft.AspNet.SignalR.Hub` class.</span></span> <span data-ttu-id="112be-163">Derivazione da di `Hub` classe è un modo utile per compilare un'applicazione di SignalR.</span><span class="sxs-lookup"><span data-stu-id="112be-163">Deriving from the `Hub` class is a useful way to build a SignalR application.</span></span> <span data-ttu-id="112be-164">È possibile creare metodi pubblici nella classe dell'hub e quindi usare tali metodi chiamandole dagli script in una pagina web.</span><span class="sxs-lookup"><span data-stu-id="112be-164">You can create public methods on your hub class and then use those methods by calling them from scripts in a web page.</span></span>
 
-<span data-ttu-id="33b51-206">Nel codice di chat, i client chiamano il **ChatHub.Send** metodo per inviare un nuovo messaggio.</span><span class="sxs-lookup"><span data-stu-id="33b51-206">In the chat code, clients call the **ChatHub.Send** method to send a new message.</span></span> <span data-ttu-id="33b51-207">L'hub, a sua volta invia il messaggio a tutti i client chiamando **Clients.All.broadcastMessage**.</span><span class="sxs-lookup"><span data-stu-id="33b51-207">The hub in turn sends the message to all clients by calling **Clients.All.broadcastMessage**.</span></span>
+<span data-ttu-id="112be-165">Nel codice di chat, i client chiamano il `ChatHub.Send` metodo per inviare un nuovo messaggio.</span><span class="sxs-lookup"><span data-stu-id="112be-165">In the chat code, clients call the `ChatHub.Send` method to send a new message.</span></span> <span data-ttu-id="112be-166">L'hub invia quindi il messaggio a tutti i client chiamando `Clients.All.broadcastMessage`.</span><span class="sxs-lookup"><span data-stu-id="112be-166">The hub then sends the message to all clients by calling `Clients.All.broadcastMessage`.</span></span>
 
-<span data-ttu-id="33b51-208">Il **inviare** metodo illustra alcuni concetti di hub:</span><span class="sxs-lookup"><span data-stu-id="33b51-208">The **Send** method demonstrates several hub concepts :</span></span>
+<span data-ttu-id="112be-167">Il `Send` metodo illustra alcuni concetti di hub:</span><span class="sxs-lookup"><span data-stu-id="112be-167">The `Send` method demonstrates several hub concepts:</span></span>
 
-- <span data-ttu-id="33b51-209">Dichiarare i metodi pubblici in un hub in modo che i client possono chiamare li.</span><span class="sxs-lookup"><span data-stu-id="33b51-209">Declare public methods on a hub so that clients can call them.</span></span>
-- <span data-ttu-id="33b51-210">Usare la **Microsoft.AspNet.SignalR.Hub.Clients** proprietà dinamiche per accedere a tutti i client connessi a questo hub.</span><span class="sxs-lookup"><span data-stu-id="33b51-210">Use the **Microsoft.AspNet.SignalR.Hub.Clients** dynamic property to access all clients connected to this hub.</span></span>
-- <span data-ttu-id="33b51-211">Chiamare una funzione nel client (ad esempio il `broadcastMessage` (funzione)) per aggiornare i client.</span><span class="sxs-lookup"><span data-stu-id="33b51-211">Call a function on the client (such as the `broadcastMessage` function) to update clients.</span></span>
+* <span data-ttu-id="112be-168">Dichiarare i metodi pubblici in un hub in modo che i client possono chiamare li.</span><span class="sxs-lookup"><span data-stu-id="112be-168">Declare public methods on a hub so that clients can call them.</span></span>
+
+* <span data-ttu-id="112be-169">Usare il `Microsoft.AspNet.SignalR.Hub.Clients` proprietà dinamica per comunicare con tutti i client connessi a questo hub.</span><span class="sxs-lookup"><span data-stu-id="112be-169">Use the `Microsoft.AspNet.SignalR.Hub.Clients` dynamic property to communicate with all clients connected to this hub.</span></span>
+
+* <span data-ttu-id="112be-170">Chiamare una funzione nel client (ad esempio il `broadcastMessage` (funzione)) per aggiornare i client.</span><span class="sxs-lookup"><span data-stu-id="112be-170">Call a function on the client (like the `broadcastMessage` function) to update clients.</span></span>
 
     [!code-csharp[Main](tutorial-getting-started-with-signalr/samples/sample4.cs)]
 
-### <a name="signalr-and-jquery"></a><span data-ttu-id="33b51-212">SignalR e jQuery</span><span class="sxs-lookup"><span data-stu-id="33b51-212">SignalR and jQuery</span></span>
+### <a name="signalr-and-jquery-in-the-indexhtml"></a><span data-ttu-id="112be-171">SignalR e jQuery in Index. HTML</span><span class="sxs-lookup"><span data-stu-id="112be-171">SignalR and jQuery in the index.html</span></span>
 
-<span data-ttu-id="33b51-213">La pagina HTML nel codice di esempio mostra come usare la libreria jQuery SignalR per comunicare con un hub SignalR.</span><span class="sxs-lookup"><span data-stu-id="33b51-213">The HTML page in the code sample shows how to use the SignalR jQuery library to communicate with a SignalR hub.</span></span> <span data-ttu-id="33b51-214">Le attività di base nel codice siano dichiarando un proxy per l'hub, dichiara una funzione che il server può chiamare per contenuto push ai client e l'avvio di una connessione per inviare messaggi all'hub di riferimento.</span><span class="sxs-lookup"><span data-stu-id="33b51-214">The essential tasks in the code are declaring a proxy to reference the hub, declaring a function that the server can call to push content to clients, and starting a connection to send messages to the hub.</span></span>
-
-<span data-ttu-id="33b51-215">Il codice seguente dichiara un riferimento a un proxy di hub.</span><span class="sxs-lookup"><span data-stu-id="33b51-215">The following code declares a reference to a hub proxy.</span></span>
+<span data-ttu-id="112be-172">Il *index. HTML* pagina nell'esempio di codice illustra come usare la libreria jQuery SignalR per comunicare con un hub SignalR.</span><span class="sxs-lookup"><span data-stu-id="112be-172">The *index.html* page in the code sample shows how to use the SignalR jQuery library to communicate with a SignalR hub.</span></span> <span data-ttu-id="112be-173">Il codice esegue molte attività importanti.</span><span class="sxs-lookup"><span data-stu-id="112be-173">The code carries out many important tasks.</span></span> <span data-ttu-id="112be-174">Dichiara un proxy per l'hub di riferimento, si dichiara una funzione che il server può chiamare per contenuto push ai client e avvia una connessione per inviare messaggi all'hub.</span><span class="sxs-lookup"><span data-stu-id="112be-174">It declares a proxy to reference the hub, declares a function that the server can call to push content to clients, and it starts a connection to send messages to the hub.</span></span>
 
 [!code-javascript[Main](tutorial-getting-started-with-signalr/samples/sample5.js)]
 
 > [!NOTE]
-> <span data-ttu-id="33b51-216">In JavaScript il riferimento alla classe server e i relativi membri è in maiuscole/minuscole camel.</span><span class="sxs-lookup"><span data-stu-id="33b51-216">In JavaScript the reference to the server class and its members is in camel case.</span></span> <span data-ttu-id="33b51-217">Nell'esempio di codice fa riferimento il codice c# **ChatHub** classi in JavaScript come **chatHub**.</span><span class="sxs-lookup"><span data-stu-id="33b51-217">The code sample references the C# **ChatHub** class in JavaScript as **chatHub**.</span></span>
+> <span data-ttu-id="112be-175">In JavaScript deve essere camelCase il riferimento alla classe server e i relativi membri.</span><span class="sxs-lookup"><span data-stu-id="112be-175">In JavaScript the reference to the server class and its members has to be camelCase.</span></span> <span data-ttu-id="112be-176">I riferimenti di esempio di codice di C# *ChatHub* classi in JavaScript come `chatHub`.</span><span class="sxs-lookup"><span data-stu-id="112be-176">The code sample references the C# *ChatHub* class in JavaScript as `chatHub`.</span></span>
 
-
-<span data-ttu-id="33b51-218">Il codice seguente è come si crea una funzione di callback nello script.</span><span class="sxs-lookup"><span data-stu-id="33b51-218">The following code is how you create a callback function in the script.</span></span> <span data-ttu-id="33b51-219">La classe dell'hub sul server chiama questa funzione per eseguire il push degli aggiornamenti di contenuto a ogni client.</span><span class="sxs-lookup"><span data-stu-id="33b51-219">The hub class on the server calls this function to push content updates to each client.</span></span> <span data-ttu-id="33b51-220">Le due righe che HTML codificare il contenuto prima di visualizzarla sono facoltative e mostrano un modo semplice per impedire attacchi script injection.</span><span class="sxs-lookup"><span data-stu-id="33b51-220">The two lines that HTML encode the content before displaying it are optional and show a simple way to prevent script injection.</span></span>
+<span data-ttu-id="112be-177">In questo blocco di codice, si crea una funzione di callback nello script.</span><span class="sxs-lookup"><span data-stu-id="112be-177">In this code block, you create a callback function in the script.</span></span>
 
 [!code-html[Main](tutorial-getting-started-with-signalr/samples/sample6.html)]
 
-<span data-ttu-id="33b51-221">Il codice seguente viene illustrato come aprire una connessione con l'hub.</span><span class="sxs-lookup"><span data-stu-id="33b51-221">The following code shows how to open a connection with the hub.</span></span> <span data-ttu-id="33b51-222">Il codice avvia la connessione e quindi lo si passa una funzione per gestire l'evento click sulle **inviare** pulsante nella pagina HTML.</span><span class="sxs-lookup"><span data-stu-id="33b51-222">The code starts the connection and then passes it a function to handle the click event on the **Send** button in the HTML page.</span></span>
+<span data-ttu-id="112be-178">La classe dell'hub sul server chiama questa funzione per eseguire il push degli aggiornamenti di contenuto a ogni client.</span><span class="sxs-lookup"><span data-stu-id="112be-178">The hub class on the server calls this function to push content updates to each client.</span></span> <span data-ttu-id="112be-179">Le due righe di tale codifica HTML il contenuto prima di visualizzarla sono facoltativi e Mostra un buon metodo per impedire l'inserimento di script.</span><span class="sxs-lookup"><span data-stu-id="112be-179">The two lines that HTML-encode the content before displaying it are optional and show a good way to prevent script injection.</span></span>
 
-> [!NOTE]
-> <span data-ttu-id="33b51-223">Questo approccio assicura che la connessione viene stabilita prima esecuzione del gestore dell'evento.</span><span class="sxs-lookup"><span data-stu-id="33b51-223">This approach ensures that the connection is established before the event handler executes.</span></span>
-
+<span data-ttu-id="112be-180">Questo codice consente di aprire una connessione con l'hub.</span><span class="sxs-lookup"><span data-stu-id="112be-180">This code opens a connection with the hub.</span></span>
 
 [!code-javascript[Main](tutorial-getting-started-with-signalr/samples/sample7.js)]
 
-<a id="next"></a>
+> [!NOTE]
+> <span data-ttu-id="112be-181">Questo approccio assicura che il codice stabilisce una connessione prima dell'esecuzione il gestore dell'evento.</span><span class="sxs-lookup"><span data-stu-id="112be-181">This approach ensures that the code establishes a connection before the event handler executes.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="33b51-224">Passaggi successivi</span><span class="sxs-lookup"><span data-stu-id="33b51-224">Next Steps</span></span>
+<span data-ttu-id="112be-182">Il codice avvia la connessione e quindi lo si passa una funzione per gestire l'evento click sulle **inviare** pulsante nella pagina HTML.</span><span class="sxs-lookup"><span data-stu-id="112be-182">The code starts the connection and then passes it a function to handle the click event on the **Send** button in the HTML page.</span></span>
 
-<span data-ttu-id="33b51-225">Si è appreso che SignalR è un framework per la creazione di applicazioni web in tempo reale.</span><span class="sxs-lookup"><span data-stu-id="33b51-225">You learned that SignalR is a framework for building real-time web applications.</span></span> <span data-ttu-id="33b51-226">Si è appreso anche diverse attività di sviluppo di SignalR: come aggiungere SignalR a un'applicazione ASP.NET, come creare una classe di hub e come inviare e ricevere messaggi dall'hub.</span><span class="sxs-lookup"><span data-stu-id="33b51-226">You also learned several SignalR development tasks: how to add SignalR to an ASP.NET application, how to create a hub class, and how to send and receive messages from the hub.</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="112be-183">Risorse aggiuntive</span><span class="sxs-lookup"><span data-stu-id="112be-183">Additional resources</span></span>
 
-<span data-ttu-id="33b51-227">Per una procedura dettagliata su come distribuire l'applicazione di esempio SignalR in Azure, vedere [uso di SignalR con App Web nel servizio App di Azure](../deployment/using-signalr-with-azure-web-sites.md).</span><span class="sxs-lookup"><span data-stu-id="33b51-227">For a walkthrough on how to deploy the sample SignalR application to Azure, see [Using SignalR with Web Apps in Azure App Service](../deployment/using-signalr-with-azure-web-sites.md).</span></span> <span data-ttu-id="33b51-228">Per informazioni dettagliate su come distribuire un progetto web Visual Studio per un sito Web di Microsoft Azure, vedere [creare un'app web ASP.NET in servizio App di Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/).</span><span class="sxs-lookup"><span data-stu-id="33b51-228">For detailed information about how to deploy a Visual Studio web project to a Windows Azure Web Site, see [Create an ASP.NET web app in Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/).</span></span>
+<span data-ttu-id="112be-184">Per altre informazioni su SignalR, vedere le risorse seguenti:</span><span class="sxs-lookup"><span data-stu-id="112be-184">For more about SignalR, see the following resources:</span></span>
 
-<span data-ttu-id="33b51-229">Per informazioni su concetti più avanzati sviluppi in materia di SignalR, visitare i siti seguenti per il codice sorgente SignalR e risorse:</span><span class="sxs-lookup"><span data-stu-id="33b51-229">To learn more advanced SignalR developments concepts, visit the following sites for SignalR source code and resources:</span></span>
+* [<span data-ttu-id="112be-185">Progetto di SignalR</span><span class="sxs-lookup"><span data-stu-id="112be-185">SignalR Project</span></span>](http://signalr.net)
 
-- [<span data-ttu-id="33b51-230">Progetto di SignalR</span><span class="sxs-lookup"><span data-stu-id="33b51-230">SignalR Project</span></span>](http://signalr.net)
-- [<span data-ttu-id="33b51-231">SignalR Github ed esempi</span><span class="sxs-lookup"><span data-stu-id="33b51-231">SignalR Github and Samples</span></span>](https://github.com/SignalR/SignalR)
-- [<span data-ttu-id="33b51-232">Wiki di SignalR</span><span class="sxs-lookup"><span data-stu-id="33b51-232">SignalR Wiki</span></span>](https://github.com/SignalR/SignalR/wiki)
+* [<span data-ttu-id="112be-186">SignalR Github ed esempi</span><span class="sxs-lookup"><span data-stu-id="112be-186">SignalR Github and Samples</span></span>](https://github.com/SignalR/SignalR)
+
+* [<span data-ttu-id="112be-187">Wiki di SignalR</span><span class="sxs-lookup"><span data-stu-id="112be-187">SignalR Wiki</span></span>](https://github.com/SignalR/SignalR/wiki)
+
+## <a name="next-steps"></a><span data-ttu-id="112be-188">Passaggi successivi</span><span class="sxs-lookup"><span data-stu-id="112be-188">Next steps</span></span>
+
+<span data-ttu-id="112be-189">In questa esercitazione è:</span><span class="sxs-lookup"><span data-stu-id="112be-189">In this tutorial you:</span></span>
+
+> [!div class="checklist"]
+> * <span data-ttu-id="112be-190">Configurare il progetto</span><span class="sxs-lookup"><span data-stu-id="112be-190">Set up the project</span></span>
+> * <span data-ttu-id="112be-191">È stato eseguito il codice di esempio</span><span class="sxs-lookup"><span data-stu-id="112be-191">Ran the sample</span></span>
+> * <span data-ttu-id="112be-192">Esaminare il codice</span><span class="sxs-lookup"><span data-stu-id="112be-192">Examined the code</span></span>
+
+<span data-ttu-id="112be-193">Passare all'articolo successivo per informazioni su come usare SignalR e MVC 5.</span><span class="sxs-lookup"><span data-stu-id="112be-193">Advance to the next article to learn how to use SignalR and MVC 5.</span></span>
+> [!div class="nextstepaction"]
+> [<span data-ttu-id="112be-194">SignalR 2 e MVC 5</span><span class="sxs-lookup"><span data-stu-id="112be-194">SignalR 2 and MVC 5</span></span>](tutorial-getting-started-with-signalr-and-mvc.md)
