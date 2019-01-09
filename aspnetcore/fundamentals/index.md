@@ -4,14 +4,14 @@ author: rick-anderson
 description: Scoprire i concetti fondamentali per la compilazione di app ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 01/06/2019
 uid: fundamentals/index
-ms.openlocfilehash: 11dc6336ae7667038983c967f28232bef325f5bb
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: a56beebd796448705c7b84f47699e9739f451419
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637770"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099234"
 ---
 # <a name="aspnet-core-fundamentals"></a>Nozioni fondamentali su ASP.NET Core
 
@@ -63,7 +63,7 @@ Il metodo `UseStartup` su `WebHostBuilder` specifica la classe `Startup` per l'a
 
 ::: moniker-end
 
-Nella classe `Startup` viene definita la pipeline di gestione delle richieste e vengono configurati tutti i servizi necessari per l'app. La classe `Startup` deve essere pubblica e deve contenere i metodi seguenti:
+La classe `Startup` è la posizione in cui vengono configurati eventuali servizi richiesti dall'app e viene definita la pipeline di gestione delle richieste. La classe `Startup` deve essere pubblica e contiene in genere i metodi seguenti. `Startup.ConfigureServices` è facoltativo.
 
 ::: moniker range=">= aspnetcore-2.0"
 
