@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/29/2018
 uid: security/gdpr
-ms.openlocfilehash: 8fba3016de5460fd61574887501f7c453d5e5c30
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 7688ac6264b089ebd3544494c967684cb291a547
+ms.sourcegitcommit: cec77d5ad8a0cedb1ecbec32834111492afd0cd2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207927"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54207515"
 ---
 # <a name="eu-general-data-protection-regulation-gdpr-support-in-aspnet-core"></a>Supporto dell'Unione europea protezione il regolamento GDPR (General Data) in ASP.NET Core
 
@@ -90,7 +90,7 @@ Selezionare il nome utente e quindi selezionare **i dati personali**:
 Note:
 
 * Per generare il `Account/Manage` il codice, vedere [Scaffold identità](xref:security/authentication/scaffold-identity).
-* Eliminare e scaricare solo l'impatto dei dati di identità predefiniti. Le app che creano i dati utente personalizzato devono essere esteso per eliminare e scaricare i dati utente personalizzati. Per altre informazioni, vedere [Add, scaricare ed elimina i dati utente personalizzati per Identity](xref:security/authentication/add-user-data).
+* Il **eliminare** e **scaricare** collegamenti solo agiscono sui dati di identità predefinito. Le app che creano i dati utente personalizzato devono essere esteso per eliminare e scaricare i dati utente personalizzati. Per altre informazioni, vedere [Add, scaricare ed elimina i dati utente personalizzati per Identity](xref:security/authentication/add-user-data).
 * Salvare i token per l'utente che vengono archiviati nella tabella di database di identità `AspNetUserTokens` vengono eliminati quando l'utente viene eliminato tramite il comportamento di eliminazione a catena a causa dell'errore il [chiave esterna](https://github.com/aspnet/Identity/blob/release/2.1/src/EF/IdentityUserContext.cs#L152).
 
 ## <a name="encryption-at-rest"></a>Crittografia dei dati inattivi

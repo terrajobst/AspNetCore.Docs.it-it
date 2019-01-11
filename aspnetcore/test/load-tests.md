@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/04/2019
 uid: test/loadtests
-ms.openlocfilehash: 0a53405cba19435a74b398ba42a05456c50bdc72
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: d989bc841a372bed7ebf2c84c6abe1a57762ad04
+ms.sourcegitcommit: cec77d5ad8a0cedb1ecbec32834111492afd0cd2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54099481"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54207356"
 ---
 # <a name="load-and-stress-testing-aspnet-core"></a>Caricare e di stress di test ASP.NET Core
 
@@ -24,7 +24,7 @@ Test di stress e test di carico sono importanti per garantire che un'app web sia
 * Carico elevato di utenti: i picchi o aumentare gradualmente.
 * Risorse di elaborazione limitate.  
 
-In condizioni di stress, può recuperare da un errore dell'app e normalmente tornare al comportamento previsto? L'app viene eseguita in condizioni normali.
+In condizioni di stress, può recuperare da un errore dell'app e normalmente tornare al comportamento previsto? In condizioni di stress, l'app si trova *non* eseguiti in condizioni normali.
 
 ## <a name="visual-studio-tools"></a>Strumenti di Visual Studio
 
