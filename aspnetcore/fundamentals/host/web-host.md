@@ -4,14 +4,14 @@ author: guardrex
 description: Informazioni sull'host Web in ASP.NET Core, responsabile della gestione dell'avvio e della durata delle app.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 12/18/2018
 uid: fundamentals/host/web-host
-ms.openlocfilehash: bc77413127273aba207e68e7fbcb8ad916267e8e
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 7215027a083c0ed0bc3b15196e390a31c5dcfc14
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862278"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637846"
 ---
 # <a name="aspnet-core-web-host"></a>Host Web ASP.NET Core
 
@@ -57,7 +57,7 @@ public class Program
   * Variabili di ambiente.
   * Argomenti della riga di comando.
 * Configura la [registrazione](xref:fundamentals/logging/index) per l'output della console e del debug. La registrazione include le regole di [filtro dei log](xref:fundamentals/logging/index#log-filtering) specificate nella sezione di configurazione della registrazione di un file *appsettings.json* o *appsettings.{Environment}.json*.
-* Se eseguito in IIS con il [Modulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module), `CreateDefaultBuilder` abilita l'[integrazione di IIS](xref:host-and-deploy/iis/index), che configura l'indirizzo di base e la porta dell'app. L'integrazione di IIS configura inoltre l'app per l'[acquisizione degli errori di avvio](#capture-startup-errors). Per le opzioni predefinite di IIS, vedere <xref:host-and-deploy/iis/index#iis-options>.
+* Se eseguito in IIS con il [Modulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module), `CreateDefaultBuilder` abilita l'[integrazione di IIS](xref:host-and-deploy/iis/index), che configura l'indirizzo di base e la porta dell'app. L'integrazione di IIS configura inoltre l'app per l'[acquisizione degli errori di avvio](#capture-startup-errors). Per le opzioni predefinite di IIS, vedere <xref:host-and-deploy/iis/index#iis-options>.
 * Imposta [ServiceProviderOptions.ValidateScopes](/dotnet/api/microsoft.extensions.dependencyinjection.serviceprovideroptions.validatescopes) to `true` se l'ambiente dell'app è lo sviluppo. Per ulteriori informazioni, vedere [Convalida dell'ambito](#scope-validation).
 
 La configurazione definita da `CreateDefaultBuilder` può essere sottoposta a override e aumentata tramite [ConfigureAppConfiguration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configureappconfiguration), [ConfigureLogging](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configurelogging) e altri metodi e metodi di estensione di [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder). Di seguito sono riportati alcuni esempi:
@@ -137,7 +137,7 @@ La proprietà [IHostingEnvironment.ApplicationName](/dotnet/api/microsoft.extens
 
 **Chiave**: applicationName  
 **Tipo**: *string*  
-**Impostazione predefinita**: il nome dell'assembly contenente il punto di ingresso dell'app.  
+**Impostazione predefinita**: nome dell'assembly contenente il punto di ingresso dell'app.  
 **Impostare usando**: `UseSetting`  
 **Variabile di ambiente**: `ASPNETCORE_APPLICATIONNAME`
 
@@ -152,7 +152,7 @@ Questa impostazione controlla l'acquisizione degli errori di avvio.
 
 **Chiave**: captureStartupErrors  
 **Tipo**: *bool* (`true` o `1`)  
-**Impostazione predefinita**: il valore predefinito è `false` a meno che l'app non venga eseguita con Kestrel in IIS, in tal caso il valore predefinito è `true`.  
+**Impostazione predefinita**: il valore predefinito è `false`, a meno che l'app non venga eseguita con Kestrel in IIS; in tal caso il valore predefinito è `true`.  
 **Impostare usando**: `CaptureStartupErrors`  
 **Variabile di ambiente**: `ASPNETCORE_CAPTURESTARTUPERRORS`
 
@@ -203,7 +203,7 @@ Imposta l'ambiente dell'app.
 
 **Chiave**: environment  
 **Tipo**: *string*  
-**Impostazione predefinita**: Production  
+**Impostazione predefinita**: Produzione  
 **Impostare usando**: `UseEnvironment`  
 **Variabile di ambiente**: `ASPNETCORE_ENVIRONMENT`
 
@@ -220,7 +220,7 @@ Imposta gli assembly di avvio dell'hosting dell'app.
 
 **Chiave**: hostingStartupAssemblies  
 **Tipo**: *string*  
-**Impostazione predefinita**: stringa vuota  
+**Impostazione predefinita**: Stringa vuota  
 **Impostare usando**: `UseSetting`  
 **Variabile di ambiente**: `ASPNETCORE_HOSTINGSTARTUPASSEMBLIES`
 
@@ -238,8 +238,8 @@ WebHost.CreateDefaultBuilder(args)
 Impostare la porta di reindirizzamento HTTPS. Usata per [imporre HTTPS](xref:security/enforcing-ssl).
 
 **Chiave**: https_port **Tipo**: *string*
-**Valore predefinito**: non è impostato un valore predefinito.
-**Impostazione con**: `UseSetting`
+**Impostazione predefinita**: non è impostato nessun valore predefinito.
+**Impostare usando**: `UseSetting`
 **Variabile di ambiente**: `ASPNETCORE_HTTPS_PORT`
 
 ```csharp
@@ -253,7 +253,7 @@ Una stringa delimitata da punto e virgola di assembly di avvio dell'hosting da e
 
 **Chiave**: hostingStartupExcludeAssemblies  
 **Tipo**: *string*  
-**Impostazione predefinita**: stringa vuota  
+**Impostazione predefinita**: Stringa vuota  
 **Impostare usando**: `UseSetting`  
 **Variabile di ambiente**: `ASPNETCORE_HOSTINGSTARTUPEXCLUDEASSEMBLIES`
 

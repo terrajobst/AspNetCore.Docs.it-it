@@ -1,47 +1,47 @@
 ---
-title: Introduzione all'uso di pagine Razor in ASP.NET Core
+title: "Esercitazione: Introduzione all'uso di pagine Razor in ASP.NET Core"
 author: rick-anderson
-monikerRange: '>= aspnetcore-2.2'
 description: Questa serie di esercitazioni illustra come usare Razor Pages in ASP.NET Core. Offre informazioni su come creare un modello, generare codice per Razor Pages, usare Entity Framework Core e SQL Server per l'accesso ai dati, aggiungere funzionalità di ricerca, aggiungere la convalida dell'input e usare le migrazioni per aggiornare il modello.
 ms.author: riande
 ms.date: 12/5/2018
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 1152ebfcee48a46ecd28c941fce32d3fc1e05c41
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 929bc72b16e302a5018038bc449704b7078dd33a
+ms.sourcegitcommit: 6548c19f345850ee22b50f7ef9fca732895d9e08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861628"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53425081"
 ---
-# <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Esercitazione: Introduzione all'uso di Razor Pages in ASP.NET Core
+# <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Esercitazione: Introduzione all'uso di pagine Razor in ASP.NET Core
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Questa esercitazione illustra le nozioni di base della creazione di un'app Web pagine Razor di ASP.NET Core.
+Questa è la prima esercitazione di una serie. [La serie](xref:tutorials/razor-pages/index) illustra le nozioni di base della creazione di un'app Web ASP.NET Core Razor Pages. Al termine della serie si otterrà un'app che gestisce un database di film.  
 
-L'app gestisce un database di titoli di film. Vengono illustrate le seguenti procedure:
+[!INCLUDE[View or download sample code](~/includes/rp/download.md)]
+
+Le attività di questa esercitazione sono le seguenti:
 
 > [!div class="checklist"]
 > * Creare un'app Web di Razor Pages.
-> * Aggiungere un modello ed eseguirne lo scaffolding.
-> * Usare un database.
-> * Aggiungere ricerca e convalida.
+> * Eseguire l'app.
+> * Esaminare i file di progetto.
 
-Al termine di queste operazioni si ottiene un'app che può gestire e visualizzare gli elementi costituiti da titoli di film.
+Alla fine di questa esercitazione si avrà un'app Web Razor Pages, che verrà compilata in esercitazioni successive.
 
-[!INCLUDE[](~/includes/rp/download.md)]
-
-## <a name="prerequisites"></a>Prerequisiti
+[Pagina Home o di indice](razor-pages-start/_static/home2.2.png)
 
 [!INCLUDE[](~/includes/net-core-prereqs-all-2.2.md)]
 
-## <a name="create-a-razor-web-app"></a>Creare un'app Web Razor
+## <a name="create-a-razor-pages-web-app"></a>Creare un'app Web di Razor Pages
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Dal menu **File** di Visual Studio selezionare **Nuovo** > **Progetto**.
-* Creare una nuova applicazione Web ASP.NET Core. Denominare il progetto **RazorPagesMovie**. È importante denominare il progetto *RazorPagesMovie* in modo che gli spazi dei nomi corrispondano nell'operazione di copia/incolla del codice.
- ![nuova applicazione Web ASP.NET Core](razor-pages-start/_static/np_2.1.png)
+
+* Creare una nuova applicazione Web ASP.NET Core. Denominare il progetto **RazorPagesMovie**. È importante denominare il progetto *RazorPagesMovie* in modo che gli spazi dei nomi corrispondano nell'operazione copia/incolla del codice.
+
+  ![nuova applicazione Web ASP.NET Core](razor-pages-start/_static/np_2.1.png)
 
 * Selezionare **ASP.NET Core 2.2** nell'elenco a discesa e quindi selezionare **Applicazione Web**.
 
@@ -51,35 +51,25 @@ Al termine di queste operazioni si ottiene un'app che può gestire e visualizzar
 
   ![Esplora soluzioni](razor-pages-start/_static/se2.2.png)
 
-* Premere **CTRL+F5** per l'esecuzione senza il debugger.
-
-  Visual Studio avvia [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) ed esegue l'app. La barra degli indirizzi visualizza `localhost:port#` e non `example.com` o simili. Ciò accade perché `localhost` è il nome host standard per il computer locale. Localhost viene usato solo per le richieste web del computer locale. Quando Visual Studio crea un progetto Web, per il server Web viene usata una porta casuale. Nell'immagine precedente, il numero di porta è 5001. Quando si esegue l'app verrà visualizzato un numero di porta diverso.
-
-  Se si avvia l'app con **CTRL+F5** (modalità non di debug) sarà possibile apportare modifiche al codice, salvare il file, aggiornare il browser e visualizzare le modifiche del codice. Molti sviluppatori preferiscono usare la modalità non di debug per aggiornare la pagina e visualizzare le modifiche.
-
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * Aprire il [terminale integrato](https://code.visualstudio.com/docs/editor/integrated-terminal).
+
 * Cambiare directory (`cd`) e passare alla cartella che conterrà il progetto.
-* Eseguire il comando seguente:
 
-   ```console
-   dotnet new webapp -o RazorPagesMovie
-   code -r RazorPagesMovie
-   ```
+* Eseguire i comandi seguenti:
 
-  * Viene visualizzata una finestra di dialogo con **Required assets to build and debug are missing from 'RazorPagesMovie'. Add them?** (Risorse di compilazione e debug mancanti da "RazorPagesMovie". Aggiungerle?)  Selezionare **Sì**.
+  ```console
+  dotnet new webapp -o RazorPagesMovie
+  code -r RazorPagesMovie
+  ```
 
-  * `dotnet new webapp -o RazorPagesMovie`: crea un nuovo progetto Razor Pages nella cartella *RazorPagesMovie*.
-  * `code -r RazorPagesMovie`: carica il file di progetto *RazorPagesMovie.csproj* in Visual Studio Code.
+  * Il comando `dotnet new` crea un nuovo progetto Razor Pages nella cartella *RazorPagesMovie*.
+  * Il comando `code` visualizza la cartella *RazorPagesMovie* in una nuova istanza di Visual Studio Code.
 
-### <a name="launch-the-app"></a>Avviare l'app
+  Viene visualizzata una finestra di dialogo con **Required assets to build and debug are missing from 'RazorPagesMovie'. Add them?** (Risorse di compilazione e debug mancanti da "RazorPagesMovie". Aggiungerle?)
 
-* Premere **CTRL+F5** per l'esecuzione senza il debugger.
-
-  Visual Studio Code avvia [Kestrel](xref:fundamentals/servers/kestrel), avvia un browser e passa a `http://localhost:5001`. La barra degli indirizzi visualizza `localhost:port:5001` e non `example.com` o simili. Ciò accade perché `localhost` è il nome host standard per il computer locale. Localhost viene usato solo per le richieste web del computer locale.
-
-  Se si avvia l'app con **CTRL+F5** (modalità non di debug) sarà possibile apportare modifiche al codice, salvare il file, aggiornare il browser e visualizzare le modifiche del codice. Molti sviluppatori preferiscono usare la modalità non di debug per aggiornare la pagina e visualizzare le modifiche.
+* Selezionare **Sì**.
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
@@ -90,18 +80,33 @@ Da un terminale eseguire i comandi seguenti:
 ```console
 dotnet new webapp -o RazorPagesMovie
 cd RazorPagesMovie
-dotnet run
 ```
 
-I comandi precedenti usano [.NET Core CLI](/dotnet/core/tools/dotnet) per creare ed eseguire un progetto di pagine Razor. Aprire un browser all'indirizzo http://localhost:5000 per visualizzare l'applicazione.
+I comandi precedenti usano l'[interfaccia della riga di comando di .NET Core](/dotnet/core/tools/dotnet) per creare un progetto Razor Pages.
 
 ## <a name="open-the-project"></a>Aprire il progetto
 
-Premere Ctrl + C per arrestare l'applicazione.
-
 Da Visual Studio, selezionare **File > Apri**, quindi selezionare il file *RazorPagesMovie.csproj*.
 
-### <a name="launch-the-app"></a>Avviare l'app
+<!-- End of VS tabs -->
+
+---
+
+## <a name="run-the-web-app"></a>Eseguire l'applicazione Web
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+* Premere CTRL+F5 per l'esecuzione senza il debugger.
+
+  Visual Studio avvia [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) ed esegue l'app. La barra degli indirizzi visualizza `localhost:port#` e non `example.com` o simili. Ciò accade perché `localhost` è il nome host standard per il computer locale. Localhost viene usato solo per le richieste web del computer locale. Quando Visual Studio crea un progetto Web, per il server Web viene usata una porta casuale. Nell'immagine precedente, il numero di porta è 5001. Quando si esegue l'app verrà visualizzato un numero di porta diverso.
+  
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+* Premere **CTRL+F5** per l'esecuzione senza il debugger.
+
+  Visual Studio Code avvia [Kestrel](xref:fundamentals/servers/kestrel), avvia un browser e passa a `http://localhost:5001`. La barra degli indirizzi visualizza `localhost:port#` e non `example.com` o simili. Ciò accade perché `localhost` è il nome host standard per il computer locale. Localhost viene usato solo per le richieste web del computer locale.
+  
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 Per avviare l'app, selezionare **Esegui > Avvia senza eseguire debug**. Visual Studio avvia [Kestrel](xref:fundamentals/servers/kestrel), avvia un browser e passa a `http://localhost:5001`.
 
@@ -109,62 +114,56 @@ Per avviare l'app, selezionare **Esegui > Avvia senza eseguire debug**. Visual S
 
 ---
 
-* Selezionare **Accept** (Accetto) per autorizzare il rilevamento. Questa app non rileva informazioni personali. Il codice generato del modello include asset che consentono di soddisfare il [Regolamento generale sulla protezione dei dati (GDPR)](xref:security/gdpr).
+* Nella home page dell'app selezionare **Accetto** per autorizzare il rilevamento.
+
+  Questa app non tiene traccia delle informazioni personali, ma il modello di progetto include la funzionalità di consenso nel caso in cui risulti necessaria la conformità al [Regolamento generale sulla protezione dei dati (GDPR) dell'Unione Europea](xref:security/gdpr).
 
   ![Pagina Home o di indice](razor-pages-start/_static/homeGDPR2.2.png)
 
-  La figura seguente illustra l'app dopo aver accettato il rilevamento:
+  La figura seguente visualizza l'app dopo che è stato impostato il consenso al rilevamento:
 
   ![Pagina Home o di indice](razor-pages-start/_static/home2.2.png)
 
-## <a name="project-files-and-folders"></a>File e cartelle di progetto
+## <a name="examine-the-project-files"></a>Esaminare i file di progetto
 
-La tabella seguente elenca i file e le cartelle nel progetto. A questo punto dell'esercitazione, il file più importante da comprendere è *Startup.cs*. Non è necessario rivedere ogni collegamento indicato di seguito. I collegamenti sono forniti come riferimento quando sono necessarie altre informazioni su un file o una cartella nel progetto.
+Di seguito viene visualizzata una panoramica delle cartelle e dei file principali del progetto, che verranno usati in esercitazioni successive.
 
-| File o cartella              | Scopo |
-| ----------------- | ------------ |
-| *wwwroot* | Contiene file statici. Vedere [File statici](xref:fundamentals/static-files). |
-| *Pagine* | Cartella per [Pagine Razor](xref:razor-pages/index). |
-| *appsettings.json* | [Configurazione](xref:fundamentals/configuration/index) |
-| *Program.cs* | [Ospita](xref:fundamentals/host/index) l'app ASP.NET Core.|
-| *Startup.cs* | Configura i servizi e la pipeline della richiesta. Vedere [Avvio](xref:fundamentals/startup).|
+### <a name="pages-folder"></a>Cartella Pages
 
-### <a name="the-pages-folder"></a>Cartella delle pagine
+Contiene le pagine Razor e i file di supporto. Ogni pagina Razor è una coppia di file:
 
-Il file *_Layout.cshtml* contiene elementi HTML comuni (script e fogli di stile) e imposta il layout per l'applicazione. Ad esempio, facendo clic su **RazorPagesMovie**, **Home**, o **Privacy**, vengono visualizzati gli stessi elementi. Gli elementi comuni includono il menu di navigazione nella parte superiore e l'intestazione nella parte inferiore della finestra. Vedere [Layout](xref:mvc/views/layout) per altre informazioni.
+* Un file con estensione *cshtml* contenente il markup HTML con codice C# che usa la sintassi Razor.
+* Un file con estensione *cshtml.cs* contenente il codice C# per la gestione degli eventi della pagina.
 
-Il file *_ViewImports.cshtml* contiene le direttive Razor che vengono importate in ogni pagina Razor. Per altre informazioni, vedere [Importazione di direttive condivise](xref:mvc/views/layout#importing-shared-directives).
+I nomi dei file di supporto iniziano con un carattere di sottolineatura. Ad esempio, il file *_Layout.cshtml* configura elementi dell'interfaccia utente comuni a tutte le pagine. Questo file imposta il menu di navigazione nella parte superiore della pagina e le informazioni sul copyright in fondo alla pagina. Per ulteriori informazioni, vedere <xref:mvc/views/layout>.
 
-*_ViewStart.cshtml* imposta la proprietà pagine Razor `Layout` per l'uso del file *_Layout.cshtml*. Vedere [Layout](xref:mvc/views/layout) per altre informazioni.
 
-Il file *_ValidationScriptsPartial.cshtml* fornisce un riferimento agli script di convalida [jQuery](https://jquery.com/). Quando si aggiungono le pagine `Create` e `Edit` in un secondo momento nell'esercitazione, viene usato il file *_ValidationScriptsPartial.cshtml*.
+### <a name="wwwroot-folder"></a>Cartella wwwroot
 
-Le pagine `Index`, `Error`, e `Privacy` vengono specificate per le operazioni seguenti:
+Contiene i file statici, ad esempio i file HTML, i file JavaScript e i file CSS. Per ulteriori informazioni, vedere <xref:fundamentals/static-files>.
 
-* `Index`: avvia un'app.
-* `Error`: visualizza informazioni sull'errore.
-* `Privacy`: specifica i dettagli dell'informativa sulla privacy del sito.
+### <a name="appsettingsjson"></a>appSettings.json
 
-Per questa esercitazione, queste pagine non vengono usate.
+Contiene i dati di configurazione, ad esempio le stringhe di connessione. Per ulteriori informazioni, vedere <xref:fundamentals/configuration/index>.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+### <a name="programcs"></a>Program.cs
 
-<a name="f7"></a>
-### <a name="use-f7-to-toggle-between-a-razor-page-and-the-pagemodel"></a>Premere F7 per spostarsi tra una pagina Razor Pages e il PageModel
+Contiene il punto di ingresso per il programma. Per ulteriori informazioni, vedere <xref:fundamentals/host/web-host>.
 
-Per passare da una pagina Razor (file con estensione *\*cshtml*) al file C# (con estensione *\*cshtml.cs*), premere F7.
+### <a name="startupcs"></a>Startup.cs
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+Contiene codice che configura il comportamento dell'app, ad esempio se richiede il consenso per i cookie. Per ulteriori informazioni, vedere <xref:fundamentals/startup>.
 
-<!-- TODO review  Need something in these tabs -->
+## <a name="next-steps"></a>Passaggi successivi
 
-Per convenzione, la pagina Razor (file con estensione *\*cshtml*) e l'elemento `PageModel` associato hanno lo stesso nome file radice.
+Le attività di questa esercitazione sono le seguenti:
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
+> [!div class="checklist"]
+> * Creazione di un'app Web di Razor Pages.
+> * Esecuzione dell'app.
+> * Esame dei file di progetto.
 
-Per convenzione, la pagina Razor (file con estensione *\*cshtml*) e l'elemento `PageModel` associato hanno lo stesso nome file radice.
-
----
+Passare all'esercitazione successiva della serie:
 
 > [!div class="step-by-step"]
-> [Avanti: Aggiunta di un modello](xref:tutorials/razor-pages/model)
+> [Aggiungere un modello](xref:tutorials/razor-pages/model)

@@ -4,14 +4,14 @@ author: guardrex
 description: Informazioni sulla riscrittura e il reindirizzamento di URL con il middleware Riscrittura URL nelle applicazioni ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/19/2018
+ms.date: 12/18/2018
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 84052789717738a48c346d35d1a2642017a9ab93
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: d2dd5e9b7f196bcbd1940f7ef58331dabd2367a1
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861914"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637807"
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Middleware Riscrittura URL in ASP.NET Core
 
@@ -56,7 +56,7 @@ Quando si reindirizzano le richieste a un URL diverso, indicare se il reindirizz
 
 * Il codice di stato *302 - Trovato* viene usato quando il reindirizzamento è temporaneo o comunque soggetto a modifiche. Il codice di stato 302 indica che il client non dovrà archiviare e riusare l'URL di reindirizzamento in futuro.
 
-Per altre informazioni sui codici di stato, vedere [RFC 2616: Status Code Definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) (RFC 2616: Definizioni dei codici di stato).
+Per altre informazioni sui codici di stato, vedere [RFC 2616: Status Code Definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) (RFC: Definizioni dei codici di stato).
 
 La *riscrittura URL* è un'operazione lato server che rende disponibile una risorsa da un indirizzo diverso da quello richiesto dal client. La riscrittura URL non richiede un round trip al server. L'URL riscritto non viene restituito al client e non viene visualizzato nella barra degli indirizzi del browser.
 
@@ -78,7 +78,7 @@ Usare il middleware Riscrittura URL quando non è possibile usare gli approcci s
 * [Modulo Apache mod_rewrite in Apache Server](https://httpd.apache.org/docs/2.4/rewrite/)
 * [Riscrittura URL in Nginx](https://www.nginx.com/blog/creating-nginx-rewrite-rules/)
 
-Usare il middleware anche se l'app è ospitata in un [server HTTP.sys](xref:fundamentals/servers/httpsys) (in precedenza denominato [WebListener](xref:fundamentals/servers/weblistener)).
+Usare il middleware anche se l'app è ospitata in un [server HTTP.sys](xref:fundamentals/servers/httpsys) (in precedenza denominato WebListener).
 
 I motivi principali per usare tecnologie di riscrittura URL basate su server in IIS, Apache e Nginx sono:
 
@@ -195,7 +195,7 @@ Nell'esempio precedente della regola di reindirizzamento `redirect-rule/(.*)`, n
 | ---------------------------------- | :---: |
 | `/redirect-rule/1234/5678`         | Sì   |
 | `/my-cool-redirect-rule/1234/5678` | Yes   |
-| `/anotherredirect-rule/1234/5678`  | Yes   |
+| `/anotherredirect-rule/1234/5678`  | Sì   |
 
 La regola di riscrittura, `^rewrite-rule/(\d+)/(\d+)`, rileva la corrispondenza dei percorsi solo se iniziano con `rewrite-rule/`. Nella tabella seguente, si noti la differenza nella corrispondenza.
 

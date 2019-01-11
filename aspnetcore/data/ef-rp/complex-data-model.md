@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 9a0d5a8e722487ccf7e08aadb39f838a0963451d
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 930a6f2b860c71b6f499cff53e0d909a130f7948
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090975"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637898"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Modello di dati - 5 di 8
 
@@ -444,7 +444,7 @@ Se la tabella `Enrollment` non include informazioni sul livello, è sufficiente 
 
 Le entità `Instructor` e `Course` hanno una relazione molti-a-molti con una tabella di join pura.
 
-Nota: le tabelle di join implicite per le relazioni molti-a-molti sono supportate in EF 6.x ma non in EF Core. Per altre informazioni, vedere [Many-to-many relationships in EF Core 2.0](https://blog.oneunicorn.com/2017/09/25/many-to-many-relationships-in-ef-core-2-0-part-1-the-basics/) (Relazioni molti-a-molti in EF Core 2.0).
+Nota: Le tabelle di join implicite per le relazioni molti-a-molti sono supportate in EF 6.x, ma non in EF Core. Per altre informazioni, vedere [Many-to-many relationships in EF Core 2.0](https://blog.oneunicorn.com/2017/09/25/many-to-many-relationships-in-ef-core-2-0-part-1-the-basics/) (Relazioni molti-a-molti in EF Core 2.0).
 
 ## <a name="the-courseassignment-entity"></a>Entità CourseAssignment
 
@@ -538,10 +538,7 @@ Aggiornare il codice in *Data/DbInitializer.cs*:
 
 [!code-csharp[](intro/samples/cu21/Data/DbInitializer.cs?name=snippet_Final)]
 
-Il codice precedente offre i dati di inizializzazione per le nuove entità. La maggior parte di questo codice crea nuovi oggetti entità e carica dati di esempio. I dati di esempio vengono usati per i test. Il codice precedente crea le relazioni molti-a-molti seguenti:
-
-* `Enrollments`
-* `CourseAssignment`
+Il codice precedente offre i dati di inizializzazione per le nuove entità. La maggior parte di questo codice crea nuovi oggetti entità e carica dati di esempio. I dati di esempio vengono usati per i test. Visualizzare `Enrollments` e `CourseAssignments` per alcuni esempi del modo in cui può essere impostato il valore di inizializzazione per le tabelle join molti-a-molti.
 
 ## <a name="add-a-migration"></a>Aggiungere una migrazione
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: seodec18
 ms.date: 11/22/2018
 uid: data/ef-rp/intro
-ms.openlocfilehash: 34c7238b689993245e033625dcd0e728b7c45163
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: b66d20a46b29b6975512026fa940f7f9e50deeb5
+ms.sourcegitcommit: 6548c19f345850ee22b50f7ef9fca732895d9e08
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121700"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53425133"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>Razor Pages con Entity Framework Core in ASP.NET Core: esercitazione 1 di 8
 
@@ -65,7 +65,7 @@ Lo stile dell'interfaccia utente del sito è simile a quanto è stato generato t
 * Creare una nuova applicazione Web ASP.NET Core. Denominare il progetto **ContosoUniversity**. È importante denominare il progetto *ContosoUniversity* in modo che gli spazi dei nomi corrispondano quando il codice viene copiato/incollato.
 * Selezionare **ASP.NET Core 2.1** nell'elenco a discesa, quindi selezionare **Applicazione Web**.
 
-Per le immagini dei passaggi precedenti, vedere [Creare un'app Web Razor](xref:tutorials/razor-pages/razor-pages-start#create-a-razor-web-app).
+Per le immagini dei passaggi precedenti, vedere [Creare un'app Web Razor](xref:tutorials/razor-pages/razor-pages-start#create-a-razor-pages-web-app).
 Eseguire l'app.
 
 # <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
@@ -190,8 +190,8 @@ Il processo di scaffolding ha creato e modificato i file seguenti:
 
 ### <a name="file-updates"></a>Aggiornamenti dei file
 
-* *Startup.cs*: le modifiche a questo file sono descritte in dettaglio nella sezione successiva.
-* *appsettings.json*: è stata aggiunta la stringa di connessione usata per connettersi a un database locale.
+* *Startup.cs* : le modifiche a questo file sono descritte in dettaglio nella sezione successiva.
+* *appsettings.json* : è stata aggiunta la stringa di connessione usata per connettersi a un database locale.
 
 ## <a name="examine-the-context-registered-with-dependency-injection"></a>Esaminare il contesto registrato con l'inserimento di dipendenze
 

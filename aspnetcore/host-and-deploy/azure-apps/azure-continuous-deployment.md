@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni su come creare un'app Web ASP.NET Core tramite Visual Studio e distribuirla nel Servizio app di Azure usando Git per la distribuzione continua.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/14/2016
+ms.date: 12/06/2018
 uid: host-and-deploy/azure-apps/azure-continuous-deployment
-ms.openlocfilehash: 5ae8ce01610828417fc76ed6626e518c8493bd0f
-ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
+ms.openlocfilehash: e12c2ee0b78db105b431770e8644e7d19d915765
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44340199"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284433"
 ---
 # <a name="continuous-deployment-to-azure-with-visual-studio-and-git-with-aspnet-core"></a>Distribuzione continua in Azure con Visual Studio e Git con ASP.NET Core
 
@@ -71,7 +71,7 @@ Eseguire i passaggi seguenti per creare un'app Web nel portale di Azure:
 
 1. Selezionare **Web e dispositivi mobili** > **App Web**.
 
-   ![Portale di Microsoft Azure: pulsante Nuovo: Web + Dispositivi mobili in Marketplace: pulsante Web App in App in primo piano](azure-continuous-deployment/_static/05-azure-newwebapp.png)
+   ![Portale di Microsoft Azure: Pulsante Nuovo: Web e dispositivi mobili in Marketplace: Pulsante App Web in App in primo piano](azure-continuous-deployment/_static/05-azure-newwebapp.png)
 
 1. Nel pannello **App Web** immettere un valore univoco per il **Nome del servizio App**.
 
@@ -84,7 +84,7 @@ Eseguire i passaggi seguenti per creare un'app Web nel portale di Azure:
 
 1. Scegliere **Crea**. Azure eseguirà il provisioning e avvierà l'app Web.
 
-   ![Portale di Azure: campione di pannello di Essentials Demo 01 di App Web](azure-continuous-deployment/_static/07-azure-webappblade.png)
+   ![Portale di Azure: pannello Essentials di Sample Web App Demo 01](azure-continuous-deployment/_static/07-azure-webappblade.png)
 
 ## <a name="enable-git-publishing-for-the-new-web-app"></a>Abilitare la pubblicazione di Git per la nuova app web
 
@@ -98,7 +98,7 @@ Git è un sistema di controllo della versione distribuito che è possibile usare
 
 1. Nel pannello **Distribuzione** selezionare **Opzioni di distribuzione** > **Scegli origine** > **Repository Git locale**.
 
-   ![Pannello delle impostazioni: pannello di origine della distribuzione: scegliere Pannello di origine](azure-continuous-deployment/_static/deployment-options.png)
+   ![Pannello Impostazioni: pannello Origine distribuzione: pannello Scegli origine](azure-continuous-deployment/_static/deployment-options.png)
 
 1. Scegliere **OK**.
 
@@ -184,7 +184,7 @@ Verificare che il trasferimento dell'app Web dall'ambiente locale in Azure abbia
 
 Nel [portale di Azure](https://portal.azure.com) selezionare l'app Web. Selezionare **Distribuzione** > **Opzioni di distribuzione**.
 
-![Portale di Azure: pannello impostazioni: pannello di distribuzione che mostra la distribuzione con esito positivo](azure-continuous-deployment/_static/13-verify-deployment.png)
+![Portale di Azure: Pannello Impostazioni: pannello di distribuzione che visualizza la distribuzione completata](azure-continuous-deployment/_static/13-verify-deployment.png)
 
 ## <a name="run-the-app-in-azure"></a>Eseguire l'app in Azure
 
@@ -230,3 +230,4 @@ Visualizzare l'app Web aggiornata selezionando **Sfoglia** dal pannello dell'app
 
 * [Creare la prima pipeline con Azure Pipelines](/azure/devops/pipelines/get-started-yaml)
 * [Kudu del progetto](https://github.com/projectkudu/kudu/wiki)
+* <xref:host-and-deploy/visual-studio-publish-profiles>

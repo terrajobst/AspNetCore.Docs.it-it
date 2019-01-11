@@ -1,0 +1,1 @@
+L'esempio completato è nella cartella *2.2-completato*. Il campione *MvcMovie22* viene usato per la documentazione ed è difficile da utilizzare.

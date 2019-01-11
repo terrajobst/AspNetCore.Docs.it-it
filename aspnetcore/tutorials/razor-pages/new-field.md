@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/5/2018
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: e280bc9553113982a1f1a77eabab32575c905237
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 9b3ad5f6c4b1c9b5f016f5591127c8d1b213948d
+ms.sourcegitcommit: 1ea1b4fc58055c62728143388562689f1ef96cb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862291"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53329133"
 ---
 # <a name="add-a-new-field-to-a-razor-page-in-aspnet-core"></a>Aggiungere un nuovo campo a una pagina Razor in ASP.NET Core
 
@@ -96,9 +96,13 @@ Il comando `Add-Migration` indica al framework di:
 
 Il nome "Rating" è arbitrario e viene usato per denominare il file di migrazione. È consigliabile usare un nome significativo per il file di migrazione.
 
+Il comando `Update-Database` indica al framework di applicare le modifiche dello schema al database.
+
 <a name="ssox"></a>
 
-Se si eliminano tutti i record nel database, il database viene inizializzato e viene incluso il campo `Rating`. È possibile eseguire questa operazione con i collegamenti di eliminazione nel browser o da [Sql Server Object Explorer](xref:tutorials/razor-pages/sql#ssox) (SSOX). Per eliminare il database da SSOX:
+Se si eliminano tutti i record nel database, il database viene inizializzato e viene incluso il campo `Rating`. È possibile eseguire questa operazione con i collegamenti di eliminazione nel browser o da [Sql Server Object Explorer](xref:tutorials/razor-pages/sql#ssox) (SSOX).
+
+Un'altra opzione è quella di eliminare il database e usare le migrazioni per ricreare il database. Per eliminare il database da SSOX:
 
 * Selezionare il database in SSOX.
 * Fare clic con il pulsante destro del mouse sul database e selezionare *Elimina*.
@@ -111,12 +115,9 @@ Se si eliminano tutti i record nel database, il database viene inizializzato e v
   ```
 
 <!-- Code -------------------------->
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio per Mac](#tab/visual-studio-code+visual-studio-mac)
 
-<!-- copy/paste this tab to the next. Not worth an include  --> SQLite non supporta le migrazioni.
-
-* Eliminare il database o modificarne il nome nel file *appsettings.json*.
-* Eliminare la cartella *Migrations* e tutti i file al suo interno.
+<!-- copy/paste this tab to the next. Not worth an include  -->
 
 Eseguire i seguenti comandi dell'interfaccia della riga di comando di .NET Core:
 
@@ -125,20 +126,28 @@ dotnet ef migrations add Rating
 dotnet ef database update
 ```
 
-<!-- Mac -------------------------->
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
+Il comando `ef migrations add` indica al framework di:
 
-SQLite non supporta le migrazioni.
+* Confrontare il modello `Movie` con lo schema di database `Movie`.
+* Creare codice per migrare lo schema del database nel nuovo modello.
 
-* Eliminare il database o modificarne il nome nel file *appsettings.json*.
-* Eliminare la cartella *Migrations* e tutti i file al suo interno.
+Il nome "Rating" è arbitrario e viene usato per denominare il file di migrazione. È consigliabile usare un nome significativo per il file di migrazione.
 
-Eseguire i seguenti comandi dell'interfaccia della riga di comando di .NET Core:
+Il comando `ef database update` indica al framework di applicare le modifiche dello schema al database.
+
+Se si eliminano tutti i record nel database, il database viene inizializzato e viene incluso il campo `Rating`. È possibile eseguire questa operazione con i collegamenti di eliminazione nel browser o mediante uno strumento SQLite.
+
+Un'altra opzione è quella di eliminare il database e usare le migrazioni per ricreare il database. Per eliminare il database, eliminare il file di database (*MvcMovie.db*). Quindi eseguire il comando `ef database update`: 
 
 ```console
-dotnet ef migrations add Rating
 dotnet ef database update
 ```
+
+> [!NOTE]
+> Molte operazioni di modifica dello schema non sono supportate dal provider EF Core SQLite. Ad esempio l'aggiunta di una colonna è supportata, ma la rimozione di una colonna non è supportata. Se si aggiunge una migrazione per rimuovere una colonna, il comando `ef migrations add` ha esito positivo, ma il comando `ef database update` ha esito negativo. È possibile risolvere alcune limitazioni creando manualmente codice di migrazione per eseguire una ricompilazione della tabella. Una ricompilazione della tabella comporta la ridenominazione della tabella esistente, la creazione di una nuova tabella, la copia di dati nella nuova tabella e l'eliminazione della tabella precedente. Per altre informazioni, vedere le seguenti risorse:
+> * [Limitazioni del provider di database SQLite per EF Core](/ef/core/providers/sqlite/limitations)
+> * [Personalizzare il codice di migrazione](/ef/core/managing-schemas/migrations/#customize-migration-code)
+> * [Seeding dei dati](/ef/core/modeling/data-seeding)
 
 ---  
 <!-- End of VS tabs -->
@@ -147,4 +156,4 @@ Eseguire l'app e verificare che sia possibile creare/modificare/visualizzare i f
 
 > [!div class="step-by-step"]
 > [Precedente: Aggiunta della funzionalità di ricerca](xref:tutorials/razor-pages/search)
-> [Successivo: Aggiunta della funzionalità di convalida](xref:tutorials/razor-pages/validation)
+> [Successivo: Aggiunta della convalida](xref:tutorials/razor-pages/validation)

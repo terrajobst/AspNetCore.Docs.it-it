@@ -4,14 +4,14 @@ author: tdykstra
 description: Informazioni sulle nuove funzionalità di ASP.NET Core 2.2.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 12/03/2018
+ms.date: 12/18/2018
 uid: aspnetcore-2.2
-ms.openlocfilehash: d0bb0698526e2f7af8f0e99b0393f3ce48657b34
-ms.sourcegitcommit: a3a15d3ad4d6e160a69614a29c03bbd50db110a2
+ms.openlocfilehash: 13d7dec834a5661b445b4fc0c0be8be9b7b41b9e
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52952057"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637729"
 ---
 # <a name="whats-new-in-aspnet-core-22"></a>Novità di ASP.NET Core 2.2
 
@@ -25,7 +25,7 @@ Per altre informazioni, vedere le seguenti risorse:
 
 * <xref:web-api/advanced/analyzers>
 * <xref:web-api/advanced/conventions>
-* [ASP.NET Core 2.2.0-preview1: Convenzioni e analizzatori di OpenAPI](https://blogs.msdn.microsoft.com/webdev/2018/08/23/asp-net-core-2-20-preview1-open-api-analyzers-conventions/)
+* [ASP.NET Core 2.2.0-preview1: convenzioni e analizzatori di OpenAPI](https://blogs.msdn.microsoft.com/webdev/2018/08/23/asp-net-core-2-20-preview1-open-api-analyzers-conventions/)
 
 ## <a name="problem-details-support"></a>Assistenza per i dettagli del problema
 
@@ -72,7 +72,7 @@ Nelle versioni precedenti di ASP.NET Core, le opzioni di Kestrel venivano config
 
 Nelle versioni precedenti di ASP.NET Core, IIS funge da proxy inverso. Nella versione 2.2, il modulo ASP.NET Core può avviare CoreCLR e ospitare un'app all'interno del processo di lavoro IIS (*w3wp.exe*). Durante l'esecuzione con IIS, l'hosting in-process offre prestazioni e risultati di diagnostica migliori.
 
-Per altre informazioni, vedere [Hosting in-process IIS](xref:fundamentals/servers/aspnet-core-module?view=aspnetcore-2.2#in-process-hosting-model).
+Per altre informazioni, vedere [Hosting in-process per IIS](xref:host-and-deploy/aspnet-core-module?view=aspnetcore-2.2#in-process-hosting-model).
 
 ## <a name="signalr-java-client"></a>Client Java per SignalR
 

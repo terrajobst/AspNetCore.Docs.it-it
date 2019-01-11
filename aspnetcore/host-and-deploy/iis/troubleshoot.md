@@ -4,14 +4,14 @@ author: guardrex
 description: Informazioni su come diagnosticare i problemi delle distribuzioni Internet Information Services (IIS) di app ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/06/2018
+ms.date: 12/18/2018
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: 6d43057639ea88bb21ac66f2799062e06fffc530
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 68fcd578c051ae9ba6234cad0465a7ef42f1ed14
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121687"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637690"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>Risolvere i problemi di ASP.NET Core in IIS
 
@@ -34,7 +34,7 @@ In Visual Studio, per impostazione predefinita un progetto ASP.NET Core usa l'ho
 Altri argomenti sulla risoluzione dei problemi:
 
 <xref:host-and-deploy/azure-apps/troubleshoot>  
-Anche se Servizio app usa il [modulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) e IIS per ospitare le app, vedere l'argomento dedicato per istruzioni specifiche su Servizio app.
+Anche se Servizio app usa il [modulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module) e IIS per ospitare le app, vedere l'argomento dedicato per istruzioni specifiche su Servizio app.
 
 <xref:fundamentals/error-handling>  
 Informazioni su come gestire gli errori nelle app ASP.NET Core durante lo sviluppo in un sistema locale.

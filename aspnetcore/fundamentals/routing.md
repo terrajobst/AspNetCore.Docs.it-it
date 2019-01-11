@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni su come il routing di ASP.NET Core è responsabile del mapping degli URI delle richieste nei selettori degli endpoint e dell'invio delle richieste agli endpoint.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/15/2018
+ms.date: 12/29/2018
 uid: fundamentals/routing
-ms.openlocfilehash: f18ec1da2affbf67b7ada570b68f98a42c7256a5
-ms.sourcegitcommit: ad28d1bc6657a743d5c2fa8902f82740689733bb
+ms.openlocfilehash: c57b309e4474f9aff5c0594a3d9d1c796990d31e
+ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52256593"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53997357"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing in ASP.NET Core
 
@@ -193,7 +193,7 @@ I metodi `GetPath*` sono più simili a `Url.Action` e `Url.Page` poiché generan
 
 I metodi forniti da `LinkGenerator` supportano le funzionalità di generazione di collegamenti standard per tutti i tipi di indirizzi. È consigliabile usare il generatore di collegamenti tramite i metodi di estensione che eseguono le operazioni per un tipo di indirizzo specifico.
 
-| Metodo di estensione   | Descrizione                                                         |
+| Metodo di estensione   | Description                                                         |
 | ------------------ | ------------------------------------------------------------------- |
 | `GetPathByAddress` | Genera un URI con un percorso assoluto in base ai valori specificati. |
 | `GetUriByAddress`  | Genera un URI assoluto in base ai valori specificati.             |
@@ -292,6 +292,8 @@ Tra il routing di endpoint in ASP.NET Core 2.2 o versioni successive e le versio
 Nell'esempio seguente un middleware usa l'API `LinkGenerator` per creare il collegamento a un metodo di azione che elenca i prodotti del punto vendita. L'uso del generatore di collegamenti tramite l'inserimento in una classe e la chiamata a `GenerateLink` è possibile in tutte le classi di un'app.
 
 ```csharp
+using Microsoft.AspNetCore.Routing;
+
 public class ProductsLinkMiddleware
 {
     private readonly LinkGenerator _linkGenerator;
@@ -303,8 +305,7 @@ public class ProductsLinkMiddleware
 
     public async Task InvokeAsync(HttpContext httpContext)
     {
-        var url = _linkGenerator.GenerateLink(new { controller = "Store",
-                                                    action = "ListProducts" });
+        var url = _linkGenerator.GetPathByAction("ListProducts", "Store");
 
         httpContext.Response.ContentType = "text/plain";
 
@@ -654,10 +655,10 @@ Le espressioni regolari usate nel routing spesso iniziano con l'accento circonfl
 
 | Espressione   | Stringa    | Corrispondenza con | Commento               |
 | ------------ | --------- | :---: |  -------------------- |
-| `[a-z]{2}`   | hello     | Yes   | Corrispondenze di sottostringhe     |
-| `[a-z]{2}`   | 123abc456 | Yes   | Corrispondenze di sottostringhe     |
-| `[a-z]{2}`   | mz        | Yes   | Corrisponde all'espressione    |
-| `[a-z]{2}`   | MZ        | Yes   | Senza distinzione maiuscole/minuscole    |
+| `[a-z]{2}`   | hello     | Sì   | Corrispondenze di sottostringhe     |
+| `[a-z]{2}`   | 123abc456 | Sì   | Corrispondenze di sottostringhe     |
+| `[a-z]{2}`   | mz        | Sì   | Corrisponde all'espressione    |
+| `[a-z]{2}`   | MZ        | Sì   | Senza distinzione maiuscole/minuscole    |
 | `^[a-z]{2}$` | hello     | No    | Vedere `^` e `$` sopra |
 | `^[a-z]{2}$` | 123abc456 | No    | Vedere `^` e `$` sopra |
 
@@ -679,12 +680,23 @@ I trasformatori di parametro:
 
 Ad esempio, un trasformatore di parametro `slugify` personalizzato nel modello di route `blog\{article:slugify}` con `Url.Action(new { article = "MyTestArticle" })` genera `blog\my-test-article`.
 
+Per usare un trasformatore di parametro in un modello di route, configurarlo prima usando <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> in `Startup.ConfigureServices`:
+
+```csharp
+services.AddRouting(options =>
+{
+    // Replace the type and the name used to refer to it with your own
+    // IOutboundParameterTransformer implementation
+    options.ConstraintMap["slugify"] = typeof(SlugifyParameterTransformer);
+});
+```
+
 I trasformatori di parametro sono usati dai framework per trasformare l'URI in cui viene risolto un endpoint. Ad esempio, ASP.NET Core MVC usa i trasformatori di parametro per trasformare il valore di route usato per abbinare `area`, `controller`, `action` e `page`.
 
 ```csharp
 routes.MapRoute(
     name: "default",
-    template: "{controller=Home:slugify}/{action=Index:slugify}/{id?}");
+    template: "{controller:slugify=Home}/{action:slugify=Index}/{id?}");
 ```
 
 Con la route precedente, l'azione `SubscriptionManagementController.GetAll()` viene abbinata all'URI `/subscription-management/get-all`. Un trasformatore di parametro non modifica i valori della route usati per generare un collegamento. Ad esempio, `Url.Action("GetAll", "SubscriptionManagement")` restituisce `/subscription-management/get-all`.

@@ -4,14 +4,14 @@ description: Informazioni su come configurare Apache come server proxy inverso i
 author: spboyer
 ms.author: spboyer
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 12/20/2018
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: 46cdb764b872e86f0fd7d19133aae14891bdd452
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 8c590743328885336498ca2446c618b13a7d2ce2
+ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862460"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53997227"
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Hosting di ASP.NET Core in Linux con Apache
 
@@ -160,7 +160,7 @@ Creare un file di configurazione denominato *helloapp.conf*, per l'app:
 </VirtualHost>
 ```
 
-Il blocco `VirtualHost` può comparire più volte, in uno o più file su un server. Nel file di configurazione precedente Apache accetta il traffico pubblico sulla porta 80. Il dominio `www.example.com` viene gestito e l'alias `*.example.com` viene risolto nello stesso sito. Per altre informazioni, vedere [Name-based virtual host support](https://httpd.apache.org/docs/current/vhosts/name-based.html) (Supporto degli host virtuali basati sul nome). Le richieste vengono trasmesse tramite proxy alla radice sulla porta 5000 del server all'indirizzo 127.0.0.1. Per la comunicazione bidirezionale, sono necessari `ProxyPass` e `ProxyPassReverse`. Per cambiare porta/IP di Kestrel, vedere [Kestrel: Configurazione dell'endpoint](xref:fundamentals/servers/kestrel#endpoint-configuration).
+Il blocco `VirtualHost` può comparire più volte, in uno o più file su un server. Nel file di configurazione precedente Apache accetta il traffico pubblico sulla porta 80. Il dominio `www.example.com` viene gestito e l'alias `*.example.com` viene risolto nello stesso sito. Per altre informazioni, vedere [Name-based virtual host support](https://httpd.apache.org/docs/current/vhosts/name-based.html) (Supporto degli host virtuali basati sul nome). Le richieste vengono trasmesse tramite proxy alla radice sulla porta 5000 del server all'indirizzo 127.0.0.1. Per la comunicazione bidirezionale, sono necessari `ProxyPass` e `ProxyPassReverse`. Per cambiare la porta o l'IP di Kestrel, vedere [Kestrel: configurazione dell'endpoint](xref:fundamentals/servers/kestrel#endpoint-configuration).
 
 > [!WARNING]
 > Se non si specifica una [direttiva ServerName](https://httpd.apache.org/docs/current/mod/core.html#servername) corretta nel blocco **VirtualHost**, l'app può risultare esposta a vulnerabilità di sicurezza. L'associazione con caratteri jolly del sottodominio (ad esempio, `*.example.com`) non costituisce un rischio per la sicurezza se viene controllato l'intero dominio padre (a differenza di `*.com`, che è vulnerabile). Vedere la [sezione 5.4 di RFC7230](https://tools.ietf.org/html/rfc7230#section-5.4) per altre informazioni.
@@ -471,6 +471,7 @@ Usando *mod_ratelimit*, incluso nel modulo *httpd*, è possibile limitare la lar
 ```bash
 sudo nano /etc/httpd/conf.d/ratelimit.conf
 ```
+
 Il file di esempio limita la larghezza di banda a 600 KB al secondo nel percorso radice:
 
 ```
@@ -481,6 +482,13 @@ Il file di esempio limita la larghezza di banda a 600 KB al secondo nel percorso
     </Location>
 </IfModule>
 ```
+
+### <a name="long-request-header-fields"></a>Campi di intestazione della richiesta di grandi dimensioni
+
+Se l'app richiede campi di intestazione della richiesta con dimensioni maggiori rispetto a quanto consentito dall'impostazione predefinita del server proxy (in genere 8.190 byte), modificare il valore della direttiva [LimitRequestFieldSize](https://httpd.apache.org/docs/2.4/mod/core.html#LimitRequestFieldSize). Il valore da applicare dipende dallo scenario. Per altre informazioni, vedere la documentazione del server.
+
+> [!WARNING]
+> Aumentare il valore predefinito di `LimitRequestFieldSize` solo se necessario. Se si aumenta il valore, si aumenta il rischio di sovraccarico del buffer (overflow) e di attacchi Denial of Service (DoS) da parte di utenti malintenzionati.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

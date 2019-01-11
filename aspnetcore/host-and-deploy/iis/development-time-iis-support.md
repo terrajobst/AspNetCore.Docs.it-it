@@ -4,14 +4,14 @@ author: shirhatti
 description: Informazioni sul supporto del debug di app ASP.NET Core durante l'esecuzione dietro IIS in Windows Server.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/30/2018
+ms.date: 12/18/2018
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: 51375e6a6bb25a469d467ca97a151abd305c1ece
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 44570bb28451ce4c5fde12ec77e3856fb5bd3062
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862382"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637664"
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Supporto di IIS in fase di sviluppo in Visual Studio per ASP.NET Core
 
@@ -54,7 +54,7 @@ Se l'installazione di IIS dispone già di un **sito Web predefinito** con un nom
 ## <a name="enable-development-time-iis-support-in-visual-studio"></a>Abilitare il supporto di IIS in fase di sviluppo in Visual Studio
 
 1. Avviare il programma di installazione di Visual Studio.
-1. Selezionare il componente **Supporto IIS in fase di sviluppo**. Il componente è elencato come facoltativo nel pannello **Riepilogo** del carico di lavoro **Sviluppo ASP.NET e Web**. Il componente installa il [modulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module), un modulo IIS nativo necessario per l'esecuzione delle applicazioni ASP.NET Core con IIS.
+1. Selezionare il componente **Supporto IIS in fase di sviluppo**. Il componente è elencato come facoltativo nel pannello **Riepilogo** del carico di lavoro **Sviluppo ASP.NET e Web**. Il componente installa il [modulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module), un modulo IIS nativo necessario per l'esecuzione delle applicazioni ASP.NET Core con IIS.
 
 ![Modifica delle funzionalità di Visual Studio: la scheda Carichi di lavoro è selezionata. Nella sezione Web e Cloud è selezionato il pannello Sviluppo ASP.NET e Web. A destra, nell'area Facoltativi del pannello Riepilogo è presente la casella di controllo Supporto IIS in fase di sviluppo.](development-time-iis-support/_static/development_time_support.png)
 
@@ -146,6 +146,6 @@ Se viene usato un certificato di sviluppo non attendibile, il browser potrebbe r
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Host ASP.NET Core in Windows con IIS](xref:host-and-deploy/iis/index)
-* [Introduzione al modulo di ASP.NET Core](xref:fundamentals/servers/aspnet-core-module)
+* [Introduzione al modulo di ASP.NET Core](xref:host-and-deploy/aspnet-core-module)
 * [Guida di riferimento per la configurazione del modulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module)
 * [Imporre HTTPS](xref:security/enforcing-ssl)
