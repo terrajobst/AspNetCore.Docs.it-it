@@ -1,3 +1,5 @@
+# [Documentazione di ASP.NET Core](/aspnet/#pivot=core)
+
 # Panoramica
 ## [Informazioni su ASP.NET Core](xref:index)
 ## [Confronto tra ASP.NET Core e ASP.NET](xref:fundamentals/choose-between-aspnet-and-aspnetcore)
@@ -5,8 +7,14 @@
 
 # [Introduzione](xref:getting-started)
 
+# Novità
+## [Novità in 2.2](xref:aspnetcore-2.2)
+## [Novità in 2.1](xref:aspnetcore-2.1)
+## [Novità in 2.0](xref:aspnetcore-2.0)
+## [Novità in 1.1](xref:aspnetcore-1.1)
+
 # Esercitazioni
-## API Web
+## App per le API Web
 ### [Creare un'API Web](xref:tutorials/first-web-api)
 ### [API Web con MongoDB](xref:tutorials/first-mongo-app)
 ## App Web
@@ -121,7 +129,7 @@
 ### [Associazione di modelli personalizzati](xref:mvc/advanced/custom-model-binding)
 ### [Versione di compatibilità](xref:mvc/compatibility-version)
 
-# API Web
+# App per le API Web
 ## [Panoramica](xref:web-api/index)
 
 ## Esercitazioni
@@ -376,6 +384,7 @@
 ### [Middleware di memorizzazione nella cache di risposta](xref:performance/caching/middleware)
 ## [Compressione delle risposte](xref:performance/response-compression)
 ## [Strumenti di diagnostica](xref:performance/diagnostic-tools)
+## [Test di carico e di stress](xref:test/loadtests)
 
 # Altri argomenti
 ## [Globalizzazione e localizzazione](xref:fundamentals/localization)
@@ -410,12 +419,6 @@
 ### [Dall'appartenenza all'identità](xref:migration/proper-to-2x/membership-to-core-identity)
 ### [Moduli HTTP in middleware](xref:migration/http-modules)
 ## [Registrazione (non ASP.NET Core)](xref:migration/logging-nonaspnetcore)
-
-# Novità
-## [Novità in 2.2](xref:aspnetcore-2.2)
-## [Novità in 2.1](xref:aspnetcore-2.1)
-## [Novità in 2.0](xref:aspnetcore-2.0)
-## [Novità in 1.1](xref:aspnetcore-1.1)
 
 # [Riferimento API](/dotnet/api/?view=aspnetcore-2.2)
 
