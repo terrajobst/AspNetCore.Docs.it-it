@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/02/2018
 uid: security/authorization/iauthorizationpolicyprovider
-ms.openlocfilehash: fdd8f9232c4332aa8307b9dbdfba6af48dfafa72
-ms.sourcegitcommit: 317f9be24db600499e79d25872d743af74bd86c0
+ms.openlocfilehash: ef3e81da6fb9e2e332b553607be35fcd79e9362d
+ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48045497"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54249373"
 ---
 # <a name="custom-authorization-policy-providers-using-iauthorizationpolicyprovider-in-aspnet-core"></a>Provider di criteri di autorizzazione personalizzati utilizzando IAuthorizationPolicyProvider in ASP.NET Core 
 
@@ -25,7 +25,7 @@ Esempi di scenari in cui una classe personalizzata [IAuthorizationPolicyProvider
 * Usando un'ampia gamma di criteri (per i numeri di chat room diverso o età, ad esempio), pertanto non ha senso aggiungere ciascun criterio di autorizzazione singoli con un `AuthorizationOptions.AddPolicy` chiamare.
 * Creazione di criteri in fase di esecuzione basato sulle informazioni contenute in un'origine dati esterna (ad esempio, un database) o determinare i requisiti di autorizzazione in modo dinamico tramite un altro meccanismo.
 
-[Visualizzare o scaricare codice di esempio](https://github.com/aspnet/AuthSamples/tree/master/samples/CustomPolicyProvider) dal [repository di GitHub aspnet/AuthSamples](https://github.com/aspnet/AuthSamples). Scaricare il file ZIP del repository aspnet/AuthSamples.
+[Visualizzare o scaricare codice di esempio](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/AuthSamples/) dal [repository GitHub di AspNetCore](https://github.com/aspnet/AspNetCore). Scaricare il file ZIP del repository aspnet/AuthSamples.
 Decomprimere il *AuthSamples-master. zip* file. Passare il *campioni/CustomPolicyProvider* cartella del progetto.
 
 ## <a name="customize-policy-retrieval"></a>Personalizzare il recupero dei criteri
