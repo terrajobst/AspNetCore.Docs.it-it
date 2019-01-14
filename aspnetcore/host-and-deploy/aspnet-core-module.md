@@ -4,14 +4,14 @@ author: guardrex
 description: Informazioni su come configurare il modulo di ASP.NET Core per l'hosting di app ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 01/11/2019
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: dee4fe7a498d211cb8ef6a3c49017c3cc8a56847
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: f97d6f188bfcba6285cbd1fa91ce530e96395929
+ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637859"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54249568"
 ---
 # <a name="aspnet-core-module"></a>Modulo ASP.NET Core
 
@@ -44,6 +44,8 @@ Per configurare un'app per l'hosting in-process, aggiungere la proprietà `<AspN
   <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
 </PropertyGroup>
 ```
+
+Il modello di hosting In-Process non è supportato per le app ASP.NET Core destinate a .NET Framework.
 
 Se la proprietà `<AspNetCoreHostingModel>` non è presente nel file, il valore predefinito è `OutOfProcess`.
 
