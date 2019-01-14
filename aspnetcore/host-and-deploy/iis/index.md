@@ -4,14 +4,14 @@ author: guardrex
 description: Informazioni su come ospitare app ASP.NET Core in Windows Server Internet Information Services (IIS).
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 01/11/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 4356d986731f915c2e76a4c4863f951572820de0
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: 3239b4652d739ed2ac205c9daae7754dbd8e918c
+ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637878"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54249557"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host ASP.NET Core in Windows con IIS
 
@@ -71,6 +71,8 @@ public static IWebHost BuildWebHost(string[] args) =>
 **Modello di hosting in-process**
 
 `CreateDefaultBuilder` chiama il metodo `UseIIS` per avviare [CoreCLR](/dotnet/standard/glossary#coreclr) ed eseguire l'hosting dell'app nel processo di lavoro IIS (*w3wp.exe* o *iisexpress.exe*). I test delle prestazioni indicano che l'hosting di un'app .NET Core in-process offre una velocità effettiva delle richieste significativamente superiore rispetto all'hosting dell'app out-of-process o all'inoltro delle richieste al server [Kestrel](xref:fundamentals/servers/kestrel).
+
+Il modello di hosting In-Process non è supportato per le app ASP.NET Core destinate a .NET Framework.
 
 **Modello di hosting out-of-process**
 

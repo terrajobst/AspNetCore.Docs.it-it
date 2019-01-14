@@ -4,14 +4,14 @@ author: guardrex
 description: Informazioni su Kestrel, il server Web multipiattaforma per ASP.NET Core.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 12/18/2018
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 2a6a3786aa3a78bb83f497db22acac873512f939
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: af1f330f2afa340ef98a6b4bd5008859f4b0f914
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861927"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637911"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementazione del server Web Kestrel in ASP.NET Core
 
@@ -25,7 +25,7 @@ Per la versione 1.1 di questo argomento, scaricare [Kestrel web server implement
 
 Kestrel è un [server Web per ASP.NET Core](xref:fundamentals/servers/index) multipiattaforma. Kestrel è il server Web incluso per impostazione predefinita nei modelli di progetto di ASP.NET Core.
 
-Kestrel supporta le funzionalità seguenti:
+Kestrel supporta gli scenari seguenti:
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -76,7 +76,11 @@ HTTP/2 è disabilitato per impostazione predefinita. Per altre informazioni sull
 
 È possibile usare Kestrel da solo o in combinazione con un *server proxy inverso*, ad esempio [Internet Information Services (IIS)](https://www.iis.net/), [Nginx](http://nginx.org) o [Apache](https://httpd.apache.org/). Il server proxy inverso riceve le richieste HTTP dalla rete e le inoltra a Kestrel.
 
+Kestrel usato come server Web perimetrale (esposto a Internet):
+
 ![Kestrel comunica direttamente con Internet senza un server proxy inverso](kestrel/_static/kestrel-to-internet2.png)
+
+Kestrel usato in una configurazione proxy inverso:
 
 ![Kestrel comunica indirettamente con Internet attraverso un server proxy inverso, ad esempio IIS, Nginx o Apache](kestrel/_static/kestrel-to-internet.png)
 
@@ -790,7 +794,7 @@ Questi metodi sono utili se si vuole che il codice funzioni con server diversi d
 
 ### <a name="iis-endpoint-configuration"></a>Configurazione dell'endpoint IIS
 
-Quando si usa IIS, le associazioni di URL per le associazioni di override di IIS vengono impostate mediante `Listen` o `UseUrls`. Per altre informazioni, vedere l'articolo [Introduzione al modulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module).
+Quando si usa IIS, le associazioni di URL per le associazioni di override di IIS vengono impostate mediante `Listen` o `UseUrls`. Per altre informazioni, vedere l'articolo [Introduzione al modulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module).
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -1033,4 +1037,4 @@ Per impostazione predefinita, il middleware di filtro host è disabilitato per i
 * <xref:security/enforcing-ssl>
 * <xref:host-and-deploy/proxy-load-balancer>
 * [Codice sorgente di Kestrel](https://github.com/aspnet/KestrelHttpServer)
-* [RFC 7230: Message Syntax and Routing (Section 5.4: Host)](https://tools.ietf.org/html/rfc7230#section-5.4) (RFC 7230: Sintassi e routing dei messaggi (sezione 5.4: Host))
+* [RFC 7230: Message Syntax and Routing (Section 5.4: Host)](https://tools.ietf.org/html/rfc7230#section-5.4)
