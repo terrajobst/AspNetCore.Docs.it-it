@@ -1,40 +1,49 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application
-title: Implementazione della funzionalità CRUD di base con Entity Framework nell'applicazione ASP.NET MVC | Microsoft Docs
+title: 'Esercitazione: Implementare la funzionalità CRUD con Entity Framework in ASP.NET MVC | Microsoft Docs'
+description: Esaminare e personalizzare la creazione, leggere, aggiornare ed eliminare code (CRUD) che lo scaffolding di MVC crea automaticamente nel controller e visualizzazioni.
 author: tdykstra
-description: L'applicazione web di esempio Contoso University illustra come creare applicazioni ASP.NET MVC 5 con Entity Framework 6 Code First e Visual Studio...
 ms.author: riande
-ms.date: 10/05/2015
+ms.date: 01/11/2019
+ms.topic: tutorial
 ms.assetid: a2f70ba4-83d1-4002-9255-24732726c4f2
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 08b5d38b38d3323e347f0f849ccc0c25fe49efb9
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 9c6f8f3a2ffc0a9c5e15111ae47c331dab24ff43
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912665"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341724"
 ---
-<a name="implementing-basic-crud-functionality-with-the-entity-framework-in-aspnet-mvc-application"></a>Implementazione della funzionalità CRUD di base con Entity Framework nell'applicazione ASP.NET MVC
-====================
-da [Tom Dykstra](https://github.com/tdykstra)
+# <a name="tutorial-implement-crud-functionality-with-the-entity-framework-in-aspnet-mvc"></a>Esercitazione: Implementare la funzionalità CRUD con Entity Framework in ASP.NET MVC
 
-[Download progetto completato](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
-
-> L'applicazione web di esempio Contoso University illustra come creare applicazioni ASP.NET MVC 5 con Entity Framework 6 Code First e Visual Studio. Per informazioni sulla serie di esercitazioni, vedere la [prima esercitazione della serie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
-
-Nell'esercitazione precedente è stata creata un'applicazione MVC che memorizza e visualizza i dati usando Entity Framework e SQL Server LocalDB. In questa esercitazione, si verrà esaminare e personalizzare la creazione, leggere, aggiornare, eliminare il codice (CRUD) che lo scaffolding di MVC crea automaticamente per l'utente nel controller e visualizzazioni.
+Nel [esercitazione precedente](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md), è stata creata un'applicazione MVC che memorizza e visualizza i dati utilizzando Entity Framework (EF) 6 e LocalDB di SQL Server. In questa esercitazione esaminare e personalizzare la creazione, leggere, aggiornare, eliminare il codice (CRUD) che lo scaffolding di MVC crea automaticamente per l'utente nel controller e visualizzazioni.
 
 > [!NOTE]
-> È pratica comune implementare il modello di repository per creare un livello di astrazione tra il controller e il livello di accesso ai dati. Per mantenere le esercitazioni semplici e incentrate sulla descrizione dell'uso di Entity Framework, non vengono usati i repository. Per informazioni su come implementare i repository, vedere la [ASP.NET Data Access Content Map](../../../../whitepapers/aspnet-data-access-content-map.md).
+> È pratica comune implementare il modello di repository per creare un livello di astrazione tra il controller e il livello di accesso ai dati. Per mantenere queste esercitazioni semplici e incentrate sulla descrizione di come usare Entity Framework 6 stesso, non usano i repository. Per informazioni su come implementare i repository, vedere la [ASP.NET Data Access Content Map](../../../../whitepapers/aspnet-data-access-content-map.md).
 
-In questa esercitazione si creerà le pagine web seguenti:
+Ecco alcuni esempi delle pagine web create:
 
-![Student_Details_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image1.png)
+![Screenshot della pagina dei dettagli degli studenti.](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image1.png)
 
-![Student_Edit_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image2.png)
+![Screenshot dello studente è creare una pagina.](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image2.png)
 
-![Student_delete_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image3.png)
+![Screenshot dello studente ot Elimina pagina.](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image3.png)
+
+Le attività di questa esercitazione sono le seguenti:
+
+> [!div class="checklist"]
+> * Creare una pagina di dettagli
+> * Aggiornare la pagina Create
+> * Aggiornare il metodo di modifica HttpPost
+> * Aggiornare la pagina Delete (Elimina)
+> * Connessioni al database Chiudi
+> * Gestione delle transazioni
+
+## <a name="prerequisites"></a>Prerequisiti
+
+* [Creare il modello di dati di Entity Framework](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)
 
 ## <a name="create-a-details-page"></a>Creare una pagina di dettagli
 
@@ -46,7 +55,7 @@ Nelle *Controllers\StudentController.cs*, il metodo di azione per il `Details` v
 
 Il valore della chiave viene passato al metodo come la `id` parametro e deriva da *instradare i dati* nel **dettagli** collegamento ipertestuale nella pagina di indice.
 
-### <a name="tip-route-data"></a>Suggerimento: **instradare i dati**
+### <a name="tip-route-data"></a>Suggerimento: **Dati della route**
 
 I dati di route sono che il gestore di associazione di modelli disponibili in un segmento di URL specificato nella tabella di routing. Ad esempio, la route predefinita specifica `controller`, `action`, e `id` segmenti:
 
@@ -86,9 +95,7 @@ Nel codice seguente, `courseID` non corrisponde a un parametro della route prede
 
 3. Aprire la pagina dei dettagli avviando il programma (**Ctrl**+**F5**), se si seleziona il **studenti** scheda e quindi scegliendo il **dettagli** collegamento per Alexander Carson. (Se si preme **Ctrl**+**F5** mentre il *Details. cshtml* file è aperto, si verifica un errore HTTP 400. Questo avviene perché Visual Studio tenta di eseguire la pagina dei dettagli, ma non è stato raggiunto da un collegamento che specifica lo studente da visualizzare. Se in tal caso, rimuovere "Student/dettagli" dall'URL e ripetere l'operazione, in alternativa, chiudere il browser, fare clic sul progetto e fare clic su **View** > **Visualizza nel Browser**.)
 
-    Viene visualizzato l'elenco dei corsi e dei voti dello studente selezionato:
-
-    ![Student_Details_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image4.png)
+    Viene visualizzato l'elenco dei corsi e dei voti dello studente selezionato.
 
 4. Chiudere il browser.
 
@@ -136,19 +143,15 @@ Nel codice seguente, `courseID` non corrisponde a un parametro della route prede
 
 3. Immettere i nomi e una data non valida e fare clic su **Create** per visualizzare il messaggio di errore.
 
-    ![Students_Create_page_error_message](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image6.png)
-
     Si tratta di convalida sul lato server che si ottiene per impostazione predefinita. In un'esercitazione successiva, verrà illustrato come aggiungere gli attributi che generano codice per la convalida lato client. Il codice evidenziato seguente illustra il controllo di convalida del modello nel **Create** (metodo).
 
     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample10.cs?highlight=1)]
 
 4. Modificare la data impostando un valore valido e fare clic su **Crea** per visualizzare il nuovo studente nella pagina **Index**.
 
-    ![Students_Index_page_with_new_student](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image7.png)
-
 5. Chiudere il browser.
 
-## <a name="update-the-edit-httppost-method"></a>Aggiornare il metodo di modifica HttpPost
+## <a name="update-httppost-edit-method"></a>Aggiornare il metodo di modifica HttpPost
 
 1. Sostituire il <xref:System.Web.Mvc.HttpPostAttribute> `Edit` metodo di azione con il codice seguente:
 
@@ -189,15 +192,11 @@ Nel codice seguente, `courseID` non corrisponde a un parametro della route prede
 
 2. Eseguire la pagina avviando il programma, selezionando il **studenti** scheda e quindi facendo clic su un **modificare** collegamento ipertestuale.
 
-   ![Student_Edit_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image8.png)
-
 3. Modificare alcuni dati e fare clic su **Salva**. Noterete che i dati modificati nella pagina di indice.
-
-   ![Students_Index_page_after_edit](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image9.png)
 
 4. Chiudere il browser.
 
-## <a name="update-the-delete-page"></a>Aggiornare la pagina Delete
+## <a name="update-the-delete-page"></a>Aggiornare la pagina Delete (Elimina)
 
 In *Controllers\StudentController.cs*, il codice del modello per il <xref:System.Web.Mvc.HttpGetAttribute> `Delete` metodo Usa il `Find` metodo per recuperare l'oggetto selezionato `Student` entità, come illustrato nella `Details` e `Edit` metodi. Tuttavia, per implementare un messaggio di errore personalizzato quando la chiamata di `SaveChanges` ha esito negativo, verrà aggiunta una funzionalità al metodo e alla visualizzazione corrispondente.
 
@@ -229,9 +228,7 @@ Si aggiungerà un `try-catch` bloccare per il <xref:System.Web.Mvc.HttpPostAttri
 
     [!code-cshtml[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample15.cshtml?highlight=2)]
 
-4. Eseguire la pagina avviando il programma, selezionando il **studenti** scheda e quindi facendo clic su un **eliminare** collegamento ipertestuale:
-
-    ![Student_Delete_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image10.png)
+4. Eseguire la pagina avviando il programma, selezionando il **studenti** scheda e quindi facendo clic su un **eliminare** collegamento ipertestuale.
 
 5. Scegli **eliminare** nella pagina con la dicitura **si è sicuri di voler eliminare questo?**.
 
@@ -249,16 +246,24 @@ La base `Controller` classe già implementa le `IDisposable` interfaccia, in mod
 
 Per impostazione predefinita Entity Framework implementa in modo implicito le transazioni. Negli scenari in cui si apportano modifiche a più righe o le tabelle e quindi chiamare `SaveChanges`, Entity Framework verifica automaticamente che che tutte le modifiche abbia esito positivo o non è nessuna. Se sono state apportate alcune modifiche e successivamente si verifica un errore, viene automaticamente eseguito il rollback di tali verifiche. Per gli scenari in cui è necessario un maggior controllo&mdash;ad esempio, se si desidera includere le operazioni eseguite all'esterno di Entity Framework in una transazione&mdash;vedere [utilizzo di transazioni](/ef/ef6/saving/transactions).
 
-## <a name="summary"></a>Riepilogo
+## <a name="additional-resources"></a>Risorse aggiuntive
 
 Ora è un set completo di pagine che eseguono operazioni CRUD semplici per `Student` entità. Helper di MVC è utilizzato per generare gli elementi dell'interfaccia utente per i campi dati. Per altre informazioni sull'helper di MVC, vedere [il Rendering di un helper HTML usando Form](/previous-versions/aspnet/dd410596(v=vs.98)) (l'articolo è per MVC 3, ma sono ancora rilevanti per MVC 5).
 
-Nella prossima esercitazione, si verrà estesa la funzionalità della pagina dell'indice mediante l'aggiunta di ordinamento e paging.
+Collegamenti ad altre risorse di Entity Framework 6 sono reperibile nel [l'accesso ai dati ASP.NET - risorse consigliate](../../../../whitepapers/aspnet-data-access-content-map.md).
 
-Inviaci un feedback sul modo in cui è stato apprezzato questa esercitazione e cosa possiamo migliorare.
+## <a name="next-steps"></a>Passaggi successivi
 
-Collegamenti ad altre risorse di Entity Framework sono disponibili nel [l'accesso ai dati ASP.NET - risorse consigliate](../../../../whitepapers/aspnet-data-access-content-map.md).
+Le attività di questa esercitazione sono le seguenti:
 
-> [!div class="step-by-step"]
-> [Precedente](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)
-> [Successivo](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [!div class="checklist"]
+> * Creazione di una pagina di dettagli
+> * Aggiornata la pagina Create
+> * Aggiornato il metodo di modifica HttpPost
+> * Aggiornata la pagina Delete
+> * Connessioni al database chiusa
+> * Transazioni gestite
+
+Passare all'articolo successivo per informazioni su come aggiungere l'ordinamento, filtro e paging per il progetto.
+> [!div class="nextstepaction"]
+> [Ordinamento, filtro e paging](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)
