@@ -4,14 +4,14 @@ author: guardrex
 description: Informazioni su Kestrel, il server Web multipiattaforma per ASP.NET Core.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 01/11/2019
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: af1f330f2afa340ef98a6b4bd5008859f4b0f914
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: a85403468d64b35ac5b6754139f78a12ad3fc386
+ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637911"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54249529"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementazione del server Web Kestrel in ASP.NET Core
 
@@ -120,6 +120,26 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         {
             // Set properties and call methods on options
         });
+```
+
+Se l'app non chiama `CreateDefaultBuilder` per configurare l'host, chiamare <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions.UseKestrel*> **prima** di chiamare `ConfigureKestrel`:
+
+```csharp
+public static void Main(string[] args)
+{
+    var host = new WebHostBuilder()
+        .UseContentRoot(Directory.GetCurrentDirectory())
+        .UseKestrel()
+        .UseIISIntegration()
+        .UseStartup<Startup>()
+        .ConfigureKestrel((context, options) =>
+        {
+            // Set properties and call methods on options
+        })
+        .Build();
+
+    host.Run();
+}
 ```
 
 ::: moniker-end
@@ -474,7 +494,7 @@ Specificare gli URL usando gli elementi seguenti:
 
 Per altre informazioni, vedere [URL del server](xref:fundamentals/host/web-host#server-urls) e [Override della configurazione](xref:fundamentals/host/web-host#override-configuration).
 
-Il valore specificato usando i metodi seguenti può essere uno o più endpoint HTTP e HTTPS (HTTPS se è disponibile un certificato predefinito). Configurare il valore come un elenco delimitato da punto e virgola (ad esempio, `"Urls": "http://localhost:8000; http://localhost:8001"`).
+Il valore specificato usando i metodi seguenti può essere uno o più endpoint HTTP e HTTPS (HTTPS se è disponibile un certificato predefinito). Configurare il valore come un elenco delimitato da punto e virgola (ad esempio, `"Urls": "http://localhost:8000;http://localhost:8001"`).
 
 *Sostituire il certificato predefinito della configurazione*
 
@@ -684,7 +704,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 
 ### <a name="bind-to-a-tcp-socket"></a>Associazione a un socket TCP
 
-Il metodo [Listen](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.listen) esegue l'associazione a un socket TCP. Un'espressione lambda per le opzioni consente di configurare un certificato SSL:
+Il metodo [Listen](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.listen) esegue l'associazione a un socket TCP. Un'espressione lambda per le opzioni consente di configurare un certificato X.509:
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -734,7 +754,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 
 ::: moniker-end
 
-L'esempio configura SSL per un endpoint con [ListenOptions](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.listenoptions). Usare la stessa API per configurare altre impostazioni di Kestrel per endpoint specifici.
+L'esempio configura HTTPS per un endpoint con [ListenOptions](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.listenoptions). Usare la stessa API per configurare altre impostazioni di Kestrel per endpoint specifici.
 
 [!INCLUDE [How to make an X.509 cert](~/includes/make-x509-cert.md)]
 
@@ -789,7 +809,7 @@ Configurare gli endpoint con i metodi seguenti:
 
 Questi metodi sono utili se si vuole che il codice funzioni con server diversi da Kestrel. Tenere presenti, tuttavia, le limitazioni seguenti:
 
-* SSL non può essere usato con questi approcci, a meno che non venga specificato un certificato predefinito nella configurazione dell'endpoint HTTPS (ad esempio, usando la configurazione `KestrelServerOptions` o un file di configurazione come illustrato in precedenza in questo argomento).
+* HTTPS non può essere usato con questi approcci, a meno che non venga specificato un certificato predefinito nella configurazione dell'endpoint HTTPS (ad esempio, usando la configurazione `KestrelServerOptions` o un file di configurazione come illustrato in precedenza in questo argomento).
 * Quando sia l'approccio `Listen` che l'approccio `UseUrls` vengono usati contemporaneamente, gli endpoint `Listen` eseguono l'override degli endpoint `UseUrls`.
 
 ### <a name="iis-endpoint-configuration"></a>Configurazione dell'endpoint IIS
@@ -968,7 +988,7 @@ Per i progetti ASP.NET Core 2.1 o versioni successive che usano il [metapacchett
 
 Se si usa `UseUrls`, l'argomento della riga di comando `--urls`, la chiave di configurazione dell'host `urls` o la variabile di ambiente `ASPNETCORE_URLS`, i prefissi URL possono avere uno dei formati seguenti.
 
-Sono validi solo i prefissi URL HTTP. Kestrel non supporta SSL quando la configurazione delle associazioni URL viene eseguita con `UseUrls`.
+Sono validi solo i prefissi URL HTTP. Kestrel non supporta HTTPS quando la configurazione delle associazioni URL viene eseguita con `UseUrls`.
 
 * Indirizzo IPv4 con numero di porta
 
