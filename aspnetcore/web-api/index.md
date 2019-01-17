@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 01/11/2019
 uid: web-api/index
-ms.openlocfilehash: a826bdecdd3a25eb23597123166695c169ba4229
-ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
+ms.openlocfilehash: 8ba20c51f38a43adca4133a402c6d741379a4c54
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249438"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341628"
 ---
 # <a name="build-web-apis-with-aspnet-core"></a>Creare API Web con ASP.NET Core
 
@@ -133,7 +133,9 @@ Un attributo di origine di associazione definisce la posizione in cui viene trov
 > [!WARNING]
 > Non usare `[FromRoute]` quando i valori potrebbero contenere `%2f` (vale a dire `/`). `%2f` non sarà convertito in `/` rimuovendo i caratteri di escape. Usare `[FromQuery]` se il valore potrebbe contenere `%2f`.
 
-Senza l'attributo `[ApiController]`, gli attributi di origine di associazione vengono definiti in modo esplicito. Nell'esempio seguente, l'attributo `[FromQuery]` indica che il valore del parametro `discontinuedOnly` è specificato nella stringa di query dell'URL della richiesta:
+Senza l'attributo `[ApiController]`, gli attributi di origine di associazione vengono definiti in modo esplicito. Senza `[ApiController]` o altri attributi di origine di associazione, ad esempio `[FromQuery]`, il runtime di ASP.NET Core tenta di usare lo strumento di associazione di modelli a oggetto complesso. Lo strumento di associazione di modelli a oggetto complesso estrae i dati dal provider di valori (che hanno un ordine definito). Ad esempio, lo 'strumento di associazione di modelli corpo' prevede sempre il consenso esplicito.
+
+Nell'esempio seguente, l'attributo `[FromQuery]` indica che il valore del parametro `discontinuedOnly` è specificato nella stringa di query dell'URL della richiesta:
 
 [!code-csharp[](define-controller/samples/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_BindingSourceAttributes&highlight=3)]
 
@@ -245,3 +247,4 @@ Usare la proprietà `ClientErrorMapping` per configurare il contenuto della risp
 * <xref:web-api/advanced/formatting>
 * <xref:tutorials/web-api-help-pages-using-swagger>
 * <xref:mvc/controllers/routing>
+****

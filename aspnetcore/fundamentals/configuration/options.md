@@ -4,14 +4,14 @@ author: guardrex
 description: Informazioni su come usare il modello di opzioni per rappresentare gruppi di opzioni correlate nelle app ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/28/2018
+ms.date: 12/29/2018
 uid: fundamentals/configuration/options
-ms.openlocfilehash: 0e3784de18be16e3217a015dd94f1b43b6621c1c
-ms.sourcegitcommit: 68a3081dd175d6518d1bfa31b4712bd8a2dd3864
+ms.openlocfilehash: 20365a078327d76693a40fa79a4a594e29e0901c
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53577890"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099247"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>Modello di opzioni in ASP.NET Core
 
@@ -217,7 +217,7 @@ snapshot option1 = value1_from_json UPDATED, snapshot option2 = 200
 
 Il supporto delle opzioni denominate con <xref:Microsoft.Extensions.Options.IConfigureNamedOptions`1> è illustrato nell'Esempio &num;6 nell'app di esempio.
 
-Il supporto delle *opzioni denominate* consente all'app di distinguere le configurazioni delle opzioni denominate. Nell'app di esempio, le opzioni denominate vengono dichiarate con <xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.Configure*>. `Configure` chiama il metodo <xref:Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure*> del metodo di estensione:
+Il supporto delle *opzioni denominate* consente all'app di distinguere le configurazioni delle opzioni denominate. Nell'app di esempio le opzioni denominate vengono dichiarate con [OptionsServiceCollectionExtensions.Configure](xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.Configure*), che chiama il metodo di estensione [ConfigureNamedOptions\<TOptions>.Configure](xref:Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure*):
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Startup.cs?name=snippet_Example6)]
 

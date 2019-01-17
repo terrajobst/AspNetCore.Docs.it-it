@@ -4,14 +4,14 @@ author: scottaddie
 description: Informazioni sull'uso dei vari tipi restituiti dal metodo per le azioni del controller nell'API Web di ASP.NET Core.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 07/23/2018
+ms.date: 01/04/2019
 uid: web-api/action-return-types
-ms.openlocfilehash: 84300eae4271c3ee4387be022c3576dc83e144eb
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 98d70e0379d353cff98a6d7a13f2dd00eb4da206
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207524"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098740"
 ---
 # <a name="controller-action-return-types-in-aspnet-core-web-api"></a>Tipi restituiti per le azioni del controller nell'API Web di ASP.NET Core
 
@@ -68,13 +68,18 @@ Si consideri la seguente azione asincrona che prevede due possibili tipi restitu
 
 [!code-csharp[](../web-api/action-return-types/samples/WebApiSample.Api.Pre21/Controllers/ProductsController.cs?name=snippet_CreateAsync&highlight=8,13)]
 
-Nell'azione precedente, viene restituito un codice di stato 400 quando si verifica un errore di convalida del modello e il metodo helper [BadRequest](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.badrequest) viene richiamato. Ad esempio, il modello seguente indica che le richieste devono fornire la proprietà `Name` e un valore. Pertanto, se nella richiesta non viene fornito un `Name` corretto, la convalida del modello dà esito negativo.
+Nel codice precedente:
 
-[!code-csharp[](../web-api/action-return-types/samples/WebApiSample.DataAccess/Models/Product.cs?name=snippet_ProductClass&highlight=5-6)]
+* Un codice di stato 400 ([BadRequest](xref:Microsoft.AspNetCore.Mvc.ControllerBase.BadRequest*)) viene restituito dal runtime di ASP.NET Core quando la descrizione del prodotto contiene "XYZ Widget".
+* Un codice di stato 201 viene generato dal metodo [CreatedAtAction](xref:Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction*) quando viene creato un prodotto. In questo percorso del codice viene restituito l'oggetto `Product`.
 
-L'altro codice restituito conosciuto dall'azione precedente è 201, che viene generato dal metodo helper [CreatedAtAction](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.createdataction). In questo percorso, viene restituito l'oggetto `Product`.
+Ad esempio, il modello seguente indica che le richieste devono includere le proprietà `Name` e `Description`. Pertanto, se nella richiesta non vengono forniti `Name` e `Description`, la convalida del modello avrà esito negativo.
+
+[!code-csharp[](../web-api/action-return-types/samples/WebApiSample.DataAccess/Models/Product.cs?name=snippet_ProductClass&highlight=5-6,8-9)]
 
 ::: moniker range=">= aspnetcore-2.1"
+
+Se viene applicato l'attributo [[ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) in ASP.NET Core 2.1 o versioni successive, gli errori di convalida del modello generano un codice di stato 400. Per altre informazioni, vedere [Risposte HTTP 400 automatiche](xref:web-api/index#automatic-http-400-responses).
 
 ## <a name="actionresultt-type"></a>Tipo ActionResult\<T>
 
@@ -114,7 +119,12 @@ Si consideri un'azione asincrona che prevede due possibili tipi restituiti:
 
 [!code-csharp[](../web-api/action-return-types/samples/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_CreateAsync&highlight=8,13)]
 
-Se si verifica un errore di convalida del modello, viene richiamato il metodo [BadRequest](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.badrequest#Microsoft_AspNetCore_Mvc_ControllerBase_BadRequest_Microsoft_AspNetCore_Mvc_ModelBinding_ModelStateDictionary_) per restituire un codice di stato 400. La proprietà [ModelState](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.modelstate) che contiene gli errori di convalida specifici viene passata al codice. Se la convalida del modello ha esito positivo, il prodotto viene creato nel database. Viene restituito il codice di stato 201.
+Nel codice precedente:
+
+* Un codice di stato 400 ([BadRequest](xref:Microsoft.AspNetCore.Mvc.ControllerBase.BadRequest*)) viene restituito dal runtime di ASP.NET Core quando:
+  * È stato applicato l'attributo [[ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) e la convalida del modello ha esito negativo.
+  * La descrizione del prodotto contiene "XYZ Widget".
+* Un codice di stato 201 viene generato dal metodo [CreatedAtAction](xref:Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction*) quando viene creato un prodotto. In questo percorso del codice viene restituito l'oggetto `Product`.
 
 > [!TIP]
 > A partire da ASP.NET Core 2.1, è attiva l'inferenza per l'origine di associazione del parametro di azione quando una classe controller è decorata con l'attributo`[ApiController]`. I parametri di tipo complesso vengono associati automaticamente tramite il corpo della richiesta. Di conseguenza, il parametro `product` dell'azione precedente non è annotato in modo esplicito con l'attributo [[FromBody]](/dotnet/api/microsoft.aspnetcore.mvc.frombodyattribute).

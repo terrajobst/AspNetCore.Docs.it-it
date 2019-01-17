@@ -4,14 +4,14 @@ author: rick-anderson
 description: Introduzione ad ASP.NET Core, un framework multipiattaforma, ad alte prestazioni, open source per la compilazione di applicazioni moderne basate sul cloud, connesse a Internet.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/16/2018
+ms.date: 01/15/2019
 uid: index
-ms.openlocfilehash: fed81090f123084f3f33e75f86d09f55ac7fb481
-ms.sourcegitcommit: a16352c1c88a71770ab3922200a8cd148fb278a6
+ms.openlocfilehash: e7c81ff82e5206a5aca217417f6cb1c339d72e89
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53335299"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341407"
 ---
 # <a name="introduction-to-aspnet-core"></a>Introduzione a ASP.NET Core
 
@@ -97,7 +97,7 @@ Per altre informazioni sull'uso delle [direttive del preprocessore C#](/dotnet/c
 
 ### <a name="regions-in-sample-code"></a>Aree del codice di esempio
 
-Alcune app di esempio contengono sezioni di codice racchiuse tra le istruzioni C# [#region](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-region) e [#end-region](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-endregion). Il sistema di compilazione della documentazione inserisce queste aree negli argomenti della documentazione visualizzabile.  
+Alcune app di esempio contengono sezioni di codice racchiuse tra le istruzioni C# [#region](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-region) e [#endregion](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-endregion). Il sistema di compilazione della documentazione inserisce queste aree negli argomenti della documentazione visualizzabile.  
 
 I nomi delle aree in genere contengono la parola "frammento". L'esempio seguente mostra un'area denominata `snippet_FilterInCode`:
 
@@ -118,7 +118,7 @@ Il file markdown dell'argomento fa riferimento al frammento di codice C# precede
 [!code-csharp[](sample/SampleApp/Program.cs?name=snippet_FilterInCode)]
 ```
 
-È possibile ignorare o rimuovere le istruzioni `#region` e `#end-region` che racchiudono il codice. Non modificare il codice all'interno di queste istruzioni se si prevede di eseguire gli scenari di esempio descritti nell'argomento. È possibile modificare il codice durante la sperimentazione con altri scenari.
+È possibile ignorare o rimuovere le istruzioni `#region` e `#endregion` che racchiudono il codice. Non modificare il codice all'interno di queste istruzioni se si prevede di eseguire gli scenari di esempio descritti nell'argomento. È possibile modificare il codice durante la sperimentazione con altri scenari.
 
 Per altre informazioni, vedere [Contribuire alla documentazione ASP.NET: Frammenti di codice](https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md#code-snippets).
 

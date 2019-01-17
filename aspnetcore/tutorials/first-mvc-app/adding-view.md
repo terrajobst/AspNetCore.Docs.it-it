@@ -5,12 +5,12 @@ description: Aggiunta di una vista a una semplice app ASP.NET Core MVC
 ms.author: riande
 ms.date: 03/04/2017
 uid: tutorials/first-mvc-app/adding-view
-ms.openlocfilehash: 5267e5a49bb6ecdd4cef671989f111eae7a64ec4
-ms.sourcegitcommit: 4e87712029de2aceb1cf2c52e9e3dda8195a5b8e
+ms.openlocfilehash: 321ffd6b0168d4befc950a58035d19561e879491
+ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53381816"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54249451"
 ---
 # <a name="add-a-view-to-an-aspnet-core-mvc-app"></a>Aggiungere una vista a un'app ASP.NET Core MVC
 
@@ -24,7 +24,7 @@ Attualmente il metodo `Index` restituisce una stringa con un messaggio hardcoded
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_4)]
 
-Il codice precedente restituisce un oggetto `View`. Usa un modello di vista per generare una risposta HTML al browser. I metodi controller, noti anche come metodi di azione, ad esempio il metodo `Index` descritto in precedenza, restituiscono in genere un [IActionResult](/dotnet/api/microsoft.aspnetcore.mvc.iactionresult) (o una classe derivata da `ActionResult`) e non un tipo come una stringa.
+Il codice precedente chiama il metodo <xref:Microsoft.AspNetCore.Mvc.Controller.View*> del controller. Usa un modello di visualizzazione per generare una risposta HTML. I metodi del controller, noti anche come *metodi di azione*, ad esempio il metodo `Index` descritto in precedenza, restituiscono in genere un <xref:Microsoft.AspNetCore.Mvc.IActionResult> (o una classe derivata da <xref:Microsoft.AspNetCore.Mvc.ActionResult>) e non un tipo come `string`.
 
 ## <a name="add-a-view"></a>Aggiungere una vista
 
@@ -86,9 +86,9 @@ Selezionare i collegamenti di menu: **MvcMovie**, **Home** e **Privacy**. Ogni p
 
 I modelli di [layout](xref:mvc/views/layout) consentono di specificare il layout del contenitore HTML del sito in un'unica posizione e quindi di applicarlo in più pagine del sito. Trovare la riga `@RenderBody()`. `RenderBody` è un segnaposto dove tutte le pagine specifiche della vista vengono presentate, *incapsulate* nella pagina di layout. Ad esempio, se si seleziona il collegamento **Privacy**, il rendering della vista **Views/Home/Privacy.cshtml** viene eseguito all'interno del metodo `RenderBody`.
 
-## <a name="change-the-title-and-menu-link-in-the-layout-file"></a>Modificare il titolo e il collegamento di menu nel file di layout
+## <a name="change-the-title-footer-and-menu-link-in-the-layout-file"></a>Modificare il titolo, il piè di pagina e il collegamento di menu nel file di layout
 
-* Nell'elemento del titolo cambiare `MvcMovie` in `Movie App`.
+* Negli elementi del titolo e del piè di pagina modificare `MvcMovie` in `Movie App`.
 * Modificare l'elemento ancora `<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MvcMovie</a>` in `<a class="navbar-brand" asp-controller="Movies" asp-action="Index">Movie App</a>`.
 
 Il markup seguente visualizza le modifiche evidenziate:

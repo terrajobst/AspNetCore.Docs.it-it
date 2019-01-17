@@ -4,14 +4,14 @@ author: rick-anderson
 description: Un'esercitazione rapida per creare ed eseguire una semplice app Hello World usando ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/11/2018
+ms.date: 01/15/2019
 uid: getting-started
-ms.openlocfilehash: dc85fe9189c93476859a6c00d60ec24d6eeec3fa
-ms.sourcegitcommit: a16352c1c88a71770ab3922200a8cd148fb278a6
+ms.openlocfilehash: eee927f4306fa7757f3f361e6c6f367658512897
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53335312"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341810"
 ---
 # <a name="tutorial-get-started-with-aspnet-core"></a>Esercitazione: Introduzione ad ASP.NET Core
 
@@ -87,7 +87,7 @@ cd aspnetcoreapp
 dotnet run
 ```
 
-Passare a [https://localhost:5001](https://localhost:5001). Fare clic su **Accept** (Accetto) per accettare l'informativa sulla privacy e la policy per i cookie. Questa app non memorizza informazioni personali.
+Dopo che la shell dei comandi indica che l'app è stata avviata, passare a [https://localhost:5001](https://localhost:5001). Fare clic su **Accept** (Accetto) per accettare l'informativa sulla privacy e la policy per i cookie. Questa app non memorizza informazioni personali.
 
 ## <a name="edit-a-razor-page"></a>Modificare una pagina Razor
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/20/2018
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: 534c62c127e685af9c6076932943def25bd3ac06
-ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
+ms.openlocfilehash: 24973e7bedcb219ac411948db8aa27d7219eac31
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53997331"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099286"
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Hosting di ASP.NET Core in Linux con Nginx
 
@@ -68,7 +68,7 @@ Un proxy inverso è una configurazione comune per la gestione delle app Web dina
 
 ### <a name="use-a-reverse-proxy-server"></a>Usare un server proxy inverso
 
-Kestrel funziona perfettamente per la gestione del contenuto dinamico da ASP.NET Core. Tuttavia, le funzionalità di gestione Web sono meno avanzate rispetto a quelle offerte da server come IIS, Apache o Nginx. Un server proxy inverso è in grado di eseguire l'offload di attività come la gestione del contenuto statico, la memorizzazione nella cache delle richieste, la compressione delle richieste e la terminazione SSL dal server HTTP. Un server proxy inverso può risiedere in un computer dedicato o essere distribuito insieme a un server HTTP.
+Kestrel funziona perfettamente per la gestione del contenuto dinamico da ASP.NET Core. Tuttavia, le funzionalità di gestione Web sono meno avanzate rispetto a quelle offerte da server come IIS, Apache o Nginx. Un server proxy inverso è in grado di eseguire l'offload di attività come la gestione del contenuto statico, la memorizzazione nella cache delle richieste, la compressione delle richieste e la terminazione HTTPS dal server HTTP. Un server proxy inverso può risiedere in un computer dedicato o essere distribuito insieme a un server HTTP.
 
 Ai fini di questa guida viene usata una singola istanza di Nginx. Viene eseguito sullo stesso server, insieme al server HTTP. In base ai requisiti, è possibile scegliere una configurazione diversa.
 
@@ -349,7 +349,7 @@ static char ngx_http_server_full_string[] = "Server: Web Server" CRLF;
 
 Configurare il server con moduli aggiuntivi obbligatori. Può essere utile usare un firewall per app Web, ad esempio [ModSecurity](https://www.modsecurity.org/), per la protezione avanzata dell'app.
 
-#### <a name="configure-ssl"></a>Configurare SSL
+#### <a name="https-configuration"></a>Configurazione HTTPS
 
 * Configurare il server in modo che sia in ascolto del traffico HTTPS sulla porta `443` specificando un certificato valido emesso da un'autorità di certificazione attendibile.
 
@@ -357,7 +357,7 @@ Configurare il server con moduli aggiuntivi obbligatori. Può essere utile usare
 
 * L'aggiunta di un'intestazione `HTTP Strict-Transport-Security` (HSTS) garantisce che tutte le richieste successive vengano effettuate dal client via HTTPS.
 
-* Non aggiungere l'intestazione HSTS o scegliere un elemento `max-age` appropriato se si prevede di disabilitare SSL in futuro.
+* Non aggiungere l'intestazione HSTS o scegliere un elemento `max-age` appropriato se si prevede di disabilitare HTTPS in futuro.
 
 Aggiungere il file di configurazione */etc/nginx/proxy.conf*:
 

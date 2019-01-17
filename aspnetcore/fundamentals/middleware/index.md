@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/10/2018
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 4e5da1036b77e876899ccdea48bdec69454e1657
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: c55dbd5a9ac31f55daf1cb3146fb18b91b016919
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861485"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341589"
 ---
 # <a name="aspnet-core-middleware"></a>Middleware di ASP.NET Core
 
@@ -20,7 +20,7 @@ ms.locfileid: "52861485"
 Il middleware è un software che viene assemblato in una pipeline dell'app per gestire richieste e risposte. Ogni componente:
 
 * Sceglie se passare la richiesta al componente successivo nella pipeline.
-* Può eseguire le operazioni prima e dopo aver chiamato il componente successivo nella pipeline.
+* Può eseguire le operazioni prima e dopo il componente successivo nella pipeline.
 
 Per compilare la pipeline delle richieste vengono usati i delegati di richiesta. I delegati di richiesta gestiscono ogni richiesta HTTP.
 
@@ -230,7 +230,7 @@ app.Map("/level1", level1App => {
 
 ASP.NET Core include i componenti middleware seguenti. Nella colonna *Ordinamento* sono disponibili note sul posizionamento del middleware nella pipeline delle richieste e indicazioni sulle condizioni nelle quali il middleware può terminare la richiesta e impedire l'elaborazione di una richiesta da altro middleware.
 
-| Middleware | Descrizione | Ordinamento |
+| Middleware | Description | Ordinamento |
 | ---------- | ----------- | ----- |
 | [Autenticazione](xref:security/authentication/identity) | Offre il supporto dell'autenticazione. | Prima di `HttpContext.User`. Terminale per i callback OAuth. |
 | [Criteri per i cookie](xref:security/gdpr) | Registra il consenso degli utenti per l'archiviazione delle informazioni personali e applica gli standard minimi per i campi dei cookie, come `secure` e `SameSite`. | Prima del middleware che emette i cookie. Esempi: Autenticazione, Sessione, MVC (TempData). |
