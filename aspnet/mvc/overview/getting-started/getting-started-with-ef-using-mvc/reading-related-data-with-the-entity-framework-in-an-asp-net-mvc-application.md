@@ -1,28 +1,22 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
-title: Lettura dei dati correlati con Entity Framework in un'applicazione ASP.NET MVC | Microsoft Docs
+title: "Esercitazione: Leggere i dati correlati in un'app ASP.NET MVC con Entity Framework"
+description: In questa esercitazione verrà letto e visualizzare dati correlati, ovvero i dati che Entity Framework carica all'interno di proprietà di navigazione.
 author: tdykstra
-description: /ajax/tutorials/using-ajax-control-toolkit-controls-and-control-extenders-vb
 ms.author: riande
-ms.date: 11/07/2014
+ms.date: 01/17/2019
+ms.topic: tutorial
 ms.assetid: 18cdd896-8ed9-4547-b143-114711e3eafb
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 18d3720f891e2356af42b58389776f2d04eee39d
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 8660a75655b801364cce7c4b59847c5c00562a27
+ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913203"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396207"
 ---
-<a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Lettura di dati con Entity Framework in un'applicazione ASP.NET MVC correlati
-====================
-da [Tom Dykstra](https://github.com/tdykstra)
-
-[Download progetto completato](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
-
-> L'applicazione web di esempio Contoso University illustra come creare applicazioni ASP.NET MVC 5 con Entity Framework 6 Code First e Visual Studio. Per informazioni sulla serie di esercitazioni, vedere la [prima esercitazione della serie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
-
+# <a name="tutorial-read-related-data-with-ef-in-an-aspnet-mvc-app"></a>Esercitazione: Leggere i dati correlati in un'app ASP.NET MVC con Entity Framework
 
 Nell'esercitazione precedente è stato completato il modello di dati dell'istituto di istruzione. In questa esercitazione verrà letto e visualizzare dati correlati, ovvero i dati che Entity Framework carica all'interno di proprietà di navigazione.
 
@@ -32,7 +26,18 @@ Le figure seguenti illustrano le pagine che verranno usate.
 
 ![Instructors_index_page_with_instructor_and_course_selected](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image2.png)
 
-## <a name="lazy-eager-and-explicit-loading-of-related-data"></a>Caricamento esplicito, Eager e lazy dei dati correlati
+Le attività di questa esercitazione sono le seguenti:
+
+> [!div class="checklist"]
+> * Informazioni su come caricare i dati correlati
+> * Creare una pagina di corsi
+> * Creare una pagina instructors (insegnanti)
+
+## <a name="prerequisites"></a>Prerequisiti
+
+* [Creare un modello di dati più complesso](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)
+
+## <a name="learn-how-to-load-related-data"></a>Informazioni su come caricare i dati correlati
 
 Esistono diversi modi che Entity Framework può caricare i dati correlati nelle proprietà di navigazione di un'entità:
 
@@ -54,7 +59,7 @@ Se si sa di aver bisogno di dati correlati per tutte le entità recuperate, il c
 
 D'altra parte, in alcuni scenari il caricamento lazy è più efficiente. Il caricamento eager potrebbe causare un join molto complesso da generare, quale SQL Server non è possibile elaborare in modo efficiente. Oppure, se si desidera accedere alle proprietà di navigazione di un'entità solo per un subset di un set di entità l'elaborazione, il caricamento lazy potrebbe offrire prestazioni migliori perché il caricamento eager recupererebbe più dati superflui. Se le prestazioni rappresentano un aspetto essenziale, per avere la certezza di scegliere il metodo più efficiente è consigliabile testare le prestazioni di entrambi i tipi di caricamento.
 
-Il caricamento lazy può nascondere il codice che causa problemi di prestazioni. Codice che non è specificato il caricamento eager o esplicito, ma elabora un'elevata quantità di entità e Usa diverse proprietà di navigazione in ogni iterazione, ad esempio, potrebbe essere molto inefficiente (a causa di molti round trip al database). Un'applicazione che esegue anche in fase di sviluppo tramite un server SQL locale potrebbe avere problemi di prestazioni quando si è spostato in Database SQL di Azure a causa di un aumento della latenza e il caricamento lazy. La profilatura delle query di database con un carico realistico test consente di determinare se il caricamento lazy è appropriato. Per altre informazioni, vedere [Demistificazione delle strategie di Entity Framework: il caricamento di dati correlati](https://msdn.microsoft.com/magazine/hh205756.aspx) e [usando Entity Framework per ridurre la latenza di rete verso SQL Azure](https://msdn.microsoft.com/magazine/gg309181.aspx).
+Il caricamento lazy può nascondere il codice che causa problemi di prestazioni. Codice che non è specificato il caricamento eager o esplicito, ma elabora un'elevata quantità di entità e Usa diverse proprietà di navigazione in ogni iterazione, ad esempio, potrebbe essere molto inefficiente (a causa di molti round trip al database). Un'applicazione che esegue anche in fase di sviluppo tramite un server SQL locale potrebbe avere problemi di prestazioni quando si è spostato in Database SQL di Azure a causa di un aumento della latenza e il caricamento lazy. La profilatura delle query di database con un carico realistico test consente di determinare se il caricamento lazy è appropriato. Per altre informazioni vedere [Demistificazione delle strategie di Entity Framework: Caricamento dei dati correlati](https://msdn.microsoft.com/magazine/hh205756.aspx) e [mediante Entity Framework per ridurre la latenza di rete verso SQL Azure](https://msdn.microsoft.com/magazine/gg309181.aspx).
 
 ### <a name="disable-lazy-loading-before-serialization"></a>Disabilitare il caricamento lazy prima della serializzazione
 
@@ -73,13 +78,19 @@ Ecco un altro [modi per disabilitare il caricamento lazy](https://msdn.microsoft
 
     [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
-## <a name="create-a-courses-page-that-displays-department-name"></a>Creare il nome del reparto consente di visualizzare una pagina di corsi
+## <a name="create-a-courses-page"></a>Creare una pagina di corsi
 
 Il `Course` entità include una proprietà di navigazione che contiene il `Department` entità del dipartimento assegnato al corso. Per visualizzare il nome del dipartimento assegnato in un elenco dei corsi, è necessario ottenere il `Name` proprietà dal `Department` entità a cui è nel `Course.Department` proprietà di navigazione.
 
-Creare un controller denominato `CourseController` (non CoursesController) per il `Course` tipo di entità, utilizzando le stesse opzioni per il **Controller MVC 5 con visualizzazioni, mediante Entity Framework** utilità di scaffolding che è stato fatto in precedenza per il `Student` controller, come illustrato nella figura seguente:
+Creare un controller denominato `CourseController` (non CoursesController) per il `Course` tipo di entità, utilizzando le stesse opzioni per il **Controller MVC 5 con visualizzazioni, mediante Entity Framework** utilità di scaffolding che è stato fatto in precedenza per il `Student` controller:
 
-![Add_Controller_dialog_box_for_Course_controller](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
+| Impostazione | Value |
+| ------- | ----- |
+| Classe di modello | Selezionare **corso (ContosoUniversity.Models)**. |
+| Classe del contesto dati | Select **SchoolContext (ContosoUniversity.DAL)**. |
+| Nome del controller | Immettere *CourseController*. Anche in questo caso, non *CoursesController* con un *s*. Se è selezionata **corso (ContosoUniversity.Models)**, il **nome del Controller** valore automaticamente popolato. È necessario modificare il valore. |
+
+Lasciare gli altri valori predefiniti e aggiungere il controller.
 
 Aprire *Controllers\CourseController.cs* ed esaminare il `Index` metodo:
 
@@ -103,15 +114,9 @@ Si noti che per la colonna di reparto, il codice con scaffolding Visualizza il `
 
 Esecuzione della pagina (selezionare il **corsi** scheda nella home page di Contoso University) per visualizzare l'elenco con i nomi dei reparti.
 
-![Courses_index_page_with_department_names](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
+## <a name="create-an-instructors-page"></a>Creare una pagina instructors (insegnanti)
 
-## <a name="create-an-instructors-page-that-shows-courses-and-enrollments"></a>Creare una pagina instructors (insegnanti) che mostri i corsi e le registrazioni
-
-In questa sezione viene creata un controller e visualizzare per il `Instructor` entità per visualizzare la pagina instructors (insegnanti):
-
-![Instructors_index_page_with_instructor_and_course_selected](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image5.png)
-
-Questa pagina legge e visualizza dati correlati nei modi seguenti:
+In questa sezione viene creata un controller e visualizzare per il `Instructor` entità per visualizzare la pagina instructors (insegnanti). Questa pagina legge e visualizza dati correlati nei modi seguenti:
 
 - L'elenco di insegnanti Visualizza dati correlati tratti dal `OfficeAssignment` entità. Tra le entità `Instructor` e `OfficeAssignment` c'è una relazione uno-a-zero-o-uno. Si userà il caricamento eager per la `OfficeAssignment` entità. Come spiegato in precedenza, il caricamento eager è in genere più efficiente quando sono necessari i dati correlati per tutte le righe recuperate della tabella primaria. In questo caso, si vogliono visualizzare le assegnazioni di ufficio per tutti gli insegnanti visualizzati.
 - Quando l'utente seleziona un insegnante, correlato `Course` vengono visualizzate le entità. Tra le entità `Instructor` e `Course` esiste una relazione molti-a-molti. Si userà il caricamento eager per la `Course` le entità e le relative `Department` entità. In questo caso, il caricamento lazy può essere più efficiente perché i corsi sono necessari solo per l'insegnante selezionato. Questo esempio, tuttavia, illustra come usare il caricamento eager per le proprietà di navigazione con entità esse stesse all'interno di proprietà di navigazione.
@@ -127,9 +132,15 @@ Nel *ViewModel* cartella, creare *InstructorIndexData.cs* e sostituire il codice
 
 ### <a name="create-the-instructor-controller-and-views"></a>Creare le visualizzazioni e Controller Instructor
 
-Creare un `InstructorController` (non InstructorsController) controller con azioni di lettura/scrittura EF come illustrato nella figura seguente:
+Creare un `InstructorController` (non InstructorsController) controller con azioni di lettura/scrittura EF:
 
-![Add_Controller_dialog_box_for_Instructor_controller](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
+| Impostazione | Value |
+| ------- | ----- |
+| Classe di modello | Selezionare **Instructor (ContosoUniversity.Models)**. |
+| Classe del contesto dati | Select **SchoolContext (ContosoUniversity.DAL)**. |
+| Nome del controller | Immettere *InstructorController*. Anche in questo caso, non *InstructorsController* con un *s*. Se è selezionata **corso (ContosoUniversity.Models)**, il **nome del Controller** valore automaticamente popolato. È necessario modificare il valore. |
+
+Lasciare gli altri valori predefiniti e aggiungere il controller.
 
 Aprire *Controllers\InstructorController.cs* e aggiungere un `using` istruzione per il `ViewModels` dello spazio dei nomi:
 
@@ -193,8 +204,6 @@ Al codice esistente sono state apportate le modifiche seguenti:
 
 Eseguire l'applicazione e selezionare il **instructors (insegnanti)** scheda. Nella pagina viene visualizzato il `Location` proprietà correlate `OfficeAssignment` entità e una tabella vuota cella quando è presente no correlato `OfficeAssignment` entità.
 
-![Instructors_index_page_with_nothing_selected](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image7.png)
-
 Nel *Views\Instructor\Index.cshtml* file, dopo la chiusura `table` elemento (alla fine del file), aggiungere il codice seguente. Quando è selezionato un insegnante, Questo codice visualizza un elenco dei corsi correlati all'insegnante stesso.
 
 [!code-cshtml[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample18.cshtml)]
@@ -203,8 +212,6 @@ Questo codice legge la proprietà `Courses` del modello di visualizzazione per v
 
 Eseguire la pagina e selezionare un insegnante. È ora possibile vedere una griglia con i corsi assegnati all'insegnante selezionato. Per ogni corso è possibile vedere il nome del dipartimento assegnato.
 
-![Instructors_index_page_with_instructor_selected](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image8.png)
-
 Dopo il blocco di codice appena aggiunto, aggiungere il codice seguente. Quando è selezionato un corso, questo codice visualizza l'elenco degli studenti iscritti al corso selezionato.
 
 [!code-cshtml[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample19.cshtml)]
@@ -212,8 +219,6 @@ Dopo il blocco di codice appena aggiunto, aggiungere il codice seguente. Quando 
 Questo codice legge la `Enrollments` proprietà del modello di visualizzazione per visualizzare un elenco di studenti iscritti al corso.
 
 Eseguire la pagina e selezionare un insegnante. Selezionare quindi un corso per visualizzare l'elenco degli studenti iscritti e i voti corrispondenti.
-
-![Instructors_index_page_with_instructor_and_course_selected](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image9.png)
 
 ### <a name="adding-explicit-loading"></a>Aggiunta di caricamento esplicito
 
@@ -239,14 +244,20 @@ Si noti che si utilizzano il `Collection` per caricare una proprietà di raccolt
 
 Eseguire ora la pagina di indice degli insegnanti e non si vedrà alcuna differenza in ciò che viene visualizzata nella pagina, anche se è stata modificata la modalità di recupero dei dati.
 
-## <a name="summary"></a>Riepilogo
-
-È stato usato tutti i tre modi (lazy, eager ed espliciti) per caricare i dati correlati nelle proprietà di navigazione. Nella prossima esercitazione si apprenderà come aggiornare i dati correlati.
-
-Inviaci un feedback sul modo in cui è stato apprezzato questa esercitazione e cosa possiamo migliorare.
+## <a name="additional-resources"></a>Risorse aggiuntive
 
 Sono disponibili collegamenti ad altre risorse di Entity Framework nel [l'accesso ai dati ASP.NET - risorse consigliate](../../../../whitepapers/aspnet-data-access-content-map.md).
 
-> [!div class="step-by-step"]
-> [Precedente](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)
-> [Successivo](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+## <a name="next-steps"></a>Passaggi successivi
+
+Le attività di questa esercitazione sono le seguenti:
+
+> [!div class="checklist"]
+> * Appreso come caricare i dati correlati
+> * Creazione di una pagina di corsi
+> * Creazione di una pagina instructors (insegnanti)
+
+Passare all'articolo successivo per informazioni su come aggiornare i dati correlati.
+
+> [!div class="nextstepaction"]
+> [Aggiornare dati correlati](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
