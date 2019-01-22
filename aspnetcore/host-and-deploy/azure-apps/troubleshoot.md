@@ -1,17 +1,17 @@
 ---
-title: Risolvere i problemi di avvio ASP.NET Core nel Servizio app di Azure
+title: Risolvere i problemi di ASP.NET Core in Servizio app di Azure
 author: guardrex
 description: Informazioni su come diagnosticare i problemi delle distribuzioni di ASP.NET Core in Servizio App di Azure.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 01/11/2019
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: b36c321c6ba6801a32b5187651063337b4533fd1
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: 65a5e355bc15db6de9060331395c441160c8b62d
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637652"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341641"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Risolvere i problemi di ASP.NET Core in Servizio app di Azure
 
@@ -51,15 +51,15 @@ Il modulo ASP.NET Core è configurato con un valore predefinito *startupTimeLimi
 
 Per accedere al log eventi dell'applicazione, usare il pannello **Diagnostica e risolvi i problemi** nel portale di Azure:
 
-1. Nel portale di Azure aprire il pannello dell'app nel pannello **Servizi app**.
-1. Selezionare il pannello **Diagnostica e risolvi i problemi**.
-1. In **SELECT PROBLEM CATEGORY** (SELEZIONARE LA CATEGORIA DEL PROBLEMA) selezionare il pulsante **Web App Down** (App Web inattiva).
-1. In **Suggested Solutions** (Soluzioni consigliate) aprire il riquadro **Open Application Event Logs** (Apri log eventi dell'applicazione). Selezionare il pulsante **Open Application Event Logs** (Apri log eventi dell'applicazione).
-1. Esaminare l'errore più recente fornito da *IIS AspNetCoreModule* nella colonna **Origine**.
+1. Nel portale di Azure aprire l'app in **Servizi app**.
+1. Selezionare **Diagnostica e risolvi i problemi**.
+1. Selezionare l'intestazione **Strumenti di diagnostica**.
+1. In **Strumenti di supporto** selezionare il pulsante **Eventi dell'applicazione**.
+1. Esaminare l'errore più recente dalla voce *IIS AspNetCoreModule* o *IIS AspNetCoreModule V2* nella colonna **Origine**.
 
 Un'alternativa all'uso del pannello **Diagnostica e risolvi i problemi** consiste nell'esaminare direttamente il file del log eventi dell'applicazione usando [Kudu](https://github.com/projectkudu/kudu/wiki):
 
-1. Selezionare il pannello **Strumenti avanzati** nell'area **STRUMENTI DI SVILUPPO**. Selezionare il pulsante **Vai&rarr;**. Verrà aperta la console Kudu in una nuova scheda o finestra del browser.
+1. Aprire **Strumenti avanzati** nell'area **Strumenti di sviluppo**. Selezionare il pulsante **Vai&rarr;**. Verrà aperta la console Kudu in una nuova scheda o finestra del browser.
 1. Usando la barra di spostamento nella parte superiore della pagina, aprire **Console di debug** e selezionare **CMD**.
 1. Aprire la cartella **LogFiles**.
 1. Selezionare l'icona della matita accanto al file *eventlog.xml*.
@@ -69,7 +69,7 @@ Un'alternativa all'uso del pannello **Diagnostica e risolvi i problemi** consist
 
 Molti errori di avvio non producono informazioni utili nel log eventi dell'applicazione. È possibile eseguire l'app nella console di esecuzione remota [Kudu](https://github.com/projectkudu/kudu/wiki) per individuare l'errore:
 
-1. Selezionare il pannello **Strumenti avanzati** nell'area **STRUMENTI DI SVILUPPO**. Selezionare il pulsante **Vai&rarr;**. Verrà aperta la console Kudu in una nuova scheda o finestra del browser.
+1. Aprire **Strumenti avanzati** nell'area **Strumenti di sviluppo**. Selezionare il pulsante **Vai&rarr;**. Verrà aperta la console Kudu in una nuova scheda o finestra del browser.
 1. Usando la barra di spostamento nella parte superiore della pagina, aprire **Console di debug** e selezionare **CMD**.
 1. Aprire le cartelle nel percorso **site** > **wwwroot**.
 1. Nella console avviare l'app eseguendo il relativo assembly.
@@ -95,7 +95,7 @@ Il log stdout del modulo ASP.NET Core spesso registra utili messaggi di errore n
 1. Controllare la colonna **Data modifica** e selezionare l'icona della matita per modificare il log stdout con la data di modifica più recente.
 1. Quando si apre il file di log, verrà visualizzato l'errore.
 
-**Importante**: Al termine della risoluzione dei problemi, disabilitare la registrazione stdout.
+Al termine della risoluzione dei problemi, disabilitare la registrazione stdout:
 
 1. Nella **console diagnostica** Kudu tornare al percorso **site** > **wwwroot** per visualizzare il file *web.config*. Aprire nuovamente il file **web.config** selezionando l'icona della matita.
 1. Impostare **stdoutLogEnabled** su `false`.
@@ -106,7 +106,37 @@ Il log stdout del modulo ASP.NET Core spesso registra utili messaggi di errore n
 >
 > Per la registrazione generale in un'app ASP.NET Core dopo l'avvio, usare una libreria di registrazione che limita le dimensioni dei file di log e ne esegue la rotazione. Per altre informazioni, vedere [Provider di registrazione di terze parti](xref:fundamentals/logging/index#third-party-logging-providers).
 
-## <a name="common-startup-errors"></a>Errori di avvio comuni 
+::: moniker range=">= aspnetcore-2.2"
+
+### <a name="aspnet-core-module-debug-log"></a>Log di debug del modulo ASP.NET Core
+
+Il log di debug del modulo ASP.NET Core fornisce dati di registrazione aggiuntivi e più approfonditi dal modulo ASP.NET Core. Per abilitare e visualizzare i log stdout:
+
+1. Per abilitare il log di diagnostica avanzato, eseguire le operazioni seguenti:
+   * Seguire le istruzioni in [Log di diagnostica avanzati](xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs) per configurare l'app per la registrazione di diagnostica avanzata. Ridistribuire l'app.
+   * Aggiungere le impostazioni `<handlerSettings>` indicate in [Log di diagnostica avanzati](xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs) al file *web.config* dell'app distribuita, usando la console Kudu:
+     1. Aprire **Strumenti avanzati** nell'area **Strumenti di sviluppo**. Selezionare il pulsante **Vai&rarr;**. Verrà aperta la console Kudu in una nuova scheda o finestra del browser.
+     1. Usando la barra di spostamento nella parte superiore della pagina, aprire **Console di debug** e selezionare **CMD**.
+     1. Aprire le cartelle nel percorso **site** > **wwwroot**. Modificare il file *web.config* selezionando il pulsante a forma di matita. Aggiungere la sezione `<handlerSettings>` come illustrato in [Log di diagnostica avanzati](xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs). Selezionare il pulsante **Salva**.
+1. Aprire **Strumenti avanzati** nell'area **Strumenti di sviluppo**. Selezionare il pulsante **Vai&rarr;**. Verrà aperta la console Kudu in una nuova scheda o finestra del browser.
+1. Usando la barra di spostamento nella parte superiore della pagina, aprire **Console di debug** e selezionare **CMD**.
+1. Aprire le cartelle nel percorso **site** > **wwwroot**. Se non è stato specificato un percorso per il file *aspnetcore-debug.log*, il file viene visualizzato nell'elenco. Se è stato specificato un percorso, passare al percorso del file di log.
+1. Aprire il file di log con il pulsante a forma di matita accanto al nome del file.
+
+Al termine della risoluzione dei problemi, disabilitare la registrazione di debug:
+
+1. Per disabilitare il log di debug avanzato, seguire questa procedura:
+   * Rimuovere `<handlerSettings>` dal file *web.config* in locale e ridistribuire l'app.
+   * Usare la console Kudu per modificare il file *web.config* e rimuovere la sezione `<handlerSettings>`. Salvare il file.
+
+> [!WARNING]
+> La mancata disabilitazione del log di debug può causare un errore dell'app o del server. Non è previsto alcun limite per le dimensioni del file di log. Usare solo la registrazione di debug per la risoluzione dei problemi di avvio delle app.
+>
+> Per la registrazione generale in un'app ASP.NET Core dopo l'avvio, usare una libreria di registrazione che limita le dimensioni dei file di log e ne esegue la rotazione. Per altre informazioni, vedere [Provider di registrazione di terze parti](xref:fundamentals/logging/index#third-party-logging-providers).
+
+::: moniker-end
+
+## <a name="common-startup-errors"></a>Errori di avvio comuni
 
 Vedere <xref:host-and-deploy/azure-iis-errors-reference>. Nell'argomento di riferimento è descritta la maggior parte dei problemi comuni che impediscono l'avvio dell'app.
 
@@ -157,7 +187,7 @@ Passare all'attivazione della registrazione diagnostica:
 1. Effettuare una richiesta all'app.
 1. Nei dati del flusso di registrazione viene indicata la causa dell'errore.
 
-**Importante**: Al termine della risoluzione dei problemi, assicurarsi di disabilitare la registrazione stdout. Vedere le istruzioni nella sezione [Log stdout del modulo ASP.NET Core](#aspnet-core-module-stdout-log).
+Al termine della risoluzione dei problemi, assicurarsi di disabilitare la registrazione stdout. Vedere le istruzioni nella sezione [Log stdout del modulo ASP.NET Core](#aspnet-core-module-stdout-log).
 
 Per visualizzare i log di traccia delle richieste non riuscite (log FREB):
 

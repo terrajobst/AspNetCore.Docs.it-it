@@ -3,14 +3,15 @@ title: ASP.NET Core MVC con EF Core - Argomenti avanzati - 10 di 10
 author: rick-anderson
 description: Questa esercitazione presenta argomenti utili dopo aver appreso le nozioni di base sullo sviluppo di applicazioni Web ASP.NET Core che usano Entity Framework Core.
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: 5cdba79c0b8edd9b865bda8328c86356cbe6a0a2
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: ba3834b29e78972bf914a5cba1a2cae3cc19a315
+ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46010923"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "50090784"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---advanced---10-of-10"></a>ASP.NET Core MVC con EF Core - Argomenti avanzati - 10 di 10
 
@@ -100,7 +101,7 @@ Fare clic su **Torna all'elenco** per visualizzare l'elenco dei corsi con il num
 
 Tenere presente che il codice di produzione assicurerà che gli aggiornamenti restituiscano sempre dati validi. Il codice semplificato illustrato potrebbe moltiplicare il numero di crediti e restituire numeri maggiori di 5. (La proprietà `Credits` ha un attributo `[Range(0, 5)]`). La query di aggiornamento funzionerebbe ma i dati non validi potrebbero causare risultati non previsti in altre parti del sistema che presuppongono che il numero di crediti sia 5 o un numero minore.
 
-Per altre informazioni sulle query SQL non elaborate, vedere [Query SQL non elaborate](https://docs.microsoft.com/ef/core/querying/raw-sql).
+Per altre informazioni sulle query SQL non elaborate, vedere [Query SQL non elaborate](/ef/core/querying/raw-sql).
 
 ## <a name="examine-sql-sent-to-the-database"></a>Esaminare il codice SQL inviato al database
 
@@ -176,7 +177,7 @@ Sebbene il codice sorgente sia disponibile, Entity Framework Core è completamen
 
 ## <a name="reverse-engineer-from-existing-database"></a>Eseguire il reverse engineering dal database esistente
 
-Per eseguire il reverse engineering di un modello di dati contenente classi di entità da un database esistente, usare il comando [scaffold-dbcontext](https://docs.microsoft.com/ef/core/miscellaneous/cli/powershell#scaffold-dbcontext). Vedere l'[esercitazione introduttiva](https://docs.microsoft.com/ef/core/get-started/aspnetcore/existing-db).
+Per eseguire il reverse engineering di un modello di dati contenente classi di entità da un database esistente, usare il comando [scaffold-dbcontext](/ef/core/miscellaneous/cli/powershell#scaffold-dbcontext). Vedere l'[esercitazione introduttiva](/ef/core/get-started/aspnetcore/existing-db).
 
 <a id="dynamic-linq"></a>
 ## <a name="use-dynamic-linq-to-simplify-sort-selection-code"></a>Usare LINQ dinamico per semplificare il codice di selezione dell'ordinamento
@@ -189,11 +190,11 @@ La [terza esercitazione di questa serie](sort-filter-page.md) descrive come scri
 
 Questa esercitazione completa la serie di esercitazioni sull'uso di Entity Framework Core in un'applicazione ASP.NET Core MVC.
 
-Per altre informazioni su EF Core, vedere la [documentazione di Entity Framework Core](https://docs.microsoft.com/ef/core). È disponibile anche il libro [Entity Framework Core in Action](https://www.manning.com/books/entity-framework-core-in-action).
+Per altre informazioni su EF Core, vedere la [documentazione di Entity Framework Core](/ef/core). È disponibile anche un libro: [Entity Framework Core in Action](https://www.manning.com/books/entity-framework-core-in-action).
 
-Per informazioni su come distribuire un'app Web, vedere [Hosting e distribuzione](xref:host-and-deploy/index).
+Per informazioni su come distribuire un'app Web, vedere <xref:host-and-deploy/index>.
 
-Per informazioni su altri argomenti correlati ad ASP.NET Core MVC, ad esempio sull'autenticazione e l'autorizzazione, vedere la [documentazione di ASP.NET Core](xref:index).
+Per informazioni su altri argomenti correlati ad ASP.NET Core MVC, ad esempio sull'autenticazione e l'autorizzazione, vedere <xref:index>.
 
 ## <a name="acknowledgments"></a>Ringraziamenti
 
@@ -239,7 +240,7 @@ dotnet ef database drop
 
 Messaggio di errore:
 
-> Si è verificato un errore di rete o specifico dell'istanza mentre si cercava di stabilire una connessione con SQL Server. Il server non è stato trovato o non è accessibile. Verificare che il nome dell'istanza sia corretto e che SQL Server sia configurato in modo da consentire connessioni remote. (provider: interfacce di rete SQL, errore: 26 - Errore nell'individuazione del server/dell'istanza specificata)
+> Si è verificato un errore di rete o specifico dell'istanza mentre si cercava di stabilire una connessione con SQL Server. Il server non è stato trovato o non è accessibile. Verificare che il nome dell'istanza sia corretto e che SQL Server sia configurato in modo da consentire connessioni remote. (provider: Interfacce di rete SQL, errore: 26 - Errore nell'individuazione del server/dell'istanza specificati)
 
 Soluzione:
 

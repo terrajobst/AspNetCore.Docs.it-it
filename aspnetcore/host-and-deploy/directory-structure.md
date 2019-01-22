@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/11/2018
 uid: host-and-deploy/directory-structure
-ms.openlocfilehash: ee0bebb8b5c688f8471d6420d1641b87ac271f6c
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: 4bc5ead8e24c4bb7fe6cd2f52fd2aa622187180c
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284565"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341394"
 ---
 # <a name="aspnet-core-directory-structure"></a>Struttura di directory di ASP.NET Core
 
@@ -37,7 +37,7 @@ La directory *publish* rappresenta il *percorso radice del contenuto*, anche den
 
 La directory *wwwroot*, se presente, contiene solo gli asset statici.
 
-La directory *Logs* di stdout può essere creata per la distribuzione usando uno dei due approcci seguenti:
+È possibile creare una directory *Logs* per la distribuzione usando uno dei due approcci seguenti:
 
 * Aggiungere l'elemento `<Target>` seguente al file di progetto:
 
@@ -57,6 +57,8 @@ La directory *Logs* di stdout può essere creata per la distribuzione usando uno
 * Creare fisicamente la directory *Logs* sul server nella distribuzione.
 
 La directory di distribuzione richiede autorizzazioni di lettura/esecuzione. La directory *Logs* richiede autorizzazioni di lettura/scrittura. Le directory aggiuntive in cui vengono scritti i file richiedono autorizzazioni di lettura/scrittura.
+
+Per la [registrazione stdout del modulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection) non è richiesta una cartella *Logs* nella distribuzione. Il modulo è in grado di creare eventuali cartelle nel percorso `stdoutLogFile` quando viene creato il file di log. La creazione di una cartella *Logs* è utile per la [registrazione di debug avanzata del modulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs). Le cartelle nel percorso specificato per il valore `<handlerSetting>` non vengono create automaticamente dal modulo e devono essere già presenti nella distribuzione per consentire al modulo di scrivere il log di debug.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
