@@ -5,12 +5,12 @@ description: Informazioni su come creare un'app ASP.NET Core con messaggio di po
 ms.author: riande
 ms.date: 7/11/2018
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 4c2e62335bc7dd004829dbc2a8c1f62ea91f334f
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: 0dc9907f9f54c8a0daf2e05a3769897e5145935f
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253039"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444142"
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Conferma account e recupero della password in ASP.NET Core
 
@@ -253,6 +253,6 @@ I due account sono stati combinati. Si è in grado di accedere con uno di questi
 Abilitare la conferma dell'account in un sito con gli utenti per bloccare tutti gli utenti esistenti. Gli utenti esistenti sono bloccati perché i propri account non confermato. Per evitare il blocco degli utente esistente, usare uno degli approcci seguenti:
 
 * Aggiornare il database per contrassegnare tutti gli utenti esistenti come viene confermata.
-* Verificare che gli utenti in fase di chiusura. Ad esempio, batch-trasmissione messaggi di posta elettronica con collegamenti di conferma.
+* Verificare che gli utenti esistenti. Ad esempio, batch-trasmissione messaggi di posta elettronica con collegamenti di conferma.
 
 ::: moniker-end

@@ -1,34 +1,28 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application
-title: Async e Stored procedure con Entity Framework in un'applicazione ASP.NET MVC | Microsoft Docs
+title: "Esercitazione: Utilizzare async e stored procedure con Entity Framework in un'App MVC ASP.NET"
+description: In questa esercitazione viene illustrato come implementare il modello di programmazione asincrono e informazioni su come usare stored procedure.
 author: tdykstra
-description: L'applicazione web di esempio Contoso University illustra come creare applicazioni ASP.NET MVC 5 con Entity Framework 6 Code First e Visual Studio...
 ms.author: riande
-ms.date: 11/07/2014
+ms.date: 01/18/2019
+ms.topic: tutorial
 ms.assetid: 27d110fc-d1b7-4628-a763-26f1e6087549
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 84be966c1e1a4357125c1a53b8065676c8f073f6
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 0896664174bc2fee65b73ecf256d994f2abacc0a
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910733"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444363"
 ---
-<a name="async-and-stored-procedures-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Async e Stored procedure con Entity Framework in un'applicazione ASP.NET MVC
-====================
-da [Tom Dykstra](https://github.com/tdykstra)
-
-[Download progetto completato](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
-
-> L'applicazione web di esempio Contoso University illustra come creare applicazioni ASP.NET MVC 5 con Entity Framework 6 Code First e Visual Studio. Per informazioni sulla serie di esercitazioni, vedere la [prima esercitazione della serie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
-
+# <a name="tutorial-use-async-and-stored-procedures-with-ef-in-an-aspnet-mvc-app"></a>Esercitazione: Utilizzare async e stored procedure con Entity Framework in un'App MVC ASP.NET
 
 Nelle esercitazioni precedenti è stato descritto come leggere e aggiornare i dati usando il modello di programmazione sincrona. In questa esercitazione viene illustrato come implementare il modello di programmazione asincrono. Codice asincrono consente a un'applicazione di offrono prestazioni migliori perché rende un migliore utilizzo delle risorse del server.
 
-In questa esercitazione verrà anche illustrato come utilizzare stored procedure di inserimento, aggiornamento e le operazioni di eliminazione su un'entità.
+In questa esercitazione inoltre illustrato come utilizzare le stored procedure di inserimento, aggiornamento e le operazioni di eliminazione su un'entità.
 
-Infine, si sarà ridistribuire l'applicazione in Azure, insieme a tutte le modifiche del database che sono stati implementati dopo la prima volta che è stato distribuito.
+Infine, si ridistribuisce l'applicazione in Azure, insieme a tutte le modifiche del database che sono stati implementati dopo la prima volta che è stato distribuito.
 
 Le figure seguenti illustrano alcune delle pagine che verranno usate.
 
@@ -36,7 +30,19 @@ Le figure seguenti illustrano alcune delle pagine che verranno usate.
 
 ![Creare reparto](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image2.png)
 
-## <a name="why-bother-with-asynchronous-code"></a>Perché è necessario eseguire codice asincrono
+Le attività di questa esercitazione sono le seguenti:
+
+> [!div class="checklist"]
+> * Informazioni su codice asincrono
+> * Creare un controller di reparto
+> * Utilizzare le stored procedure
+> * Distribuire in Azure
+
+## <a name="prerequisites"></a>Prerequisiti
+
+* [Aggiornamento di dati correlati](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+
+## <a name="why-use-asynchronous-code"></a>Perché usare codice asincrono
 
 Per un server Web è disponibile un numero limitato di thread e in situazioni di carico elevato tutti i thread disponibili potrebbero essere in uso. In queste circostanze il server non può elaborare nuove richieste finché i thread non saranno liberi. Con il codice sincrono, può succedere che molti thread siano vincolati nonostante in quel momento non stiano eseguendo alcuna operazione. Rimangono tuttavia in attesa che l'operazione I/O sia completata. Con il codice asincrono, se un processo è in attesa del completamento dell'operazione I/O, il thread viene liberato e il server lo può usare per l'elaborazione di altre richieste. Di conseguenza, codice asincrono consente alle risorse di server da usare in modo più efficiente e il server è abilitato per gestire più traffico senza ritardi.
 
@@ -44,11 +50,9 @@ Nelle versioni precedenti di .NET, la scrittura e test del codice asincrono era 
 
 Per altre informazioni sulla programmazione asincrona, vedere [supporto di usare .NET 4.5 asincrono per evitare di bloccare le chiamate](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices.md#async).
 
-## <a name="create-the-department-controller"></a>Creare il controller di reparto
+## <a name="create-department-controller"></a>Creare controller Department
 
-Creare un controller Department allo stesso modo è stato eseguito il precedente controller, ma questa volta selezionare il **controller asincrono Usa** casella di controllo di azioni.
-
-![Scaffolding di controller Department](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
+Creare un controller Department allo stesso modo è stato eseguito il precedente controller, ma questa volta selezionare il **usare le azioni del controller asincrono** casella di controllo.
 
 Le caratteristiche principali seguenti illustrano ciò che è stato aggiunto al codice sincrono per il `Index` metodo per renderla asincrona:
 
@@ -89,8 +93,6 @@ Nelle visualizzazioni Delete e dettagli usare il codice seguente:
 
 Eseguire l'applicazione e scegliere il **reparti** scheda.
 
-![Pagina Departments](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
-
 Tutto funziona esattamente come in altri controller, ma in questo controller di tutte le query SQL sono in esecuzione in modo asincrono.
 
 Alcuni aspetti da tenere presenti quando si usa la programmazione asincrona con Entity Framework:
@@ -98,7 +100,7 @@ Alcuni aspetti da tenere presenti quando si usa la programmazione asincrona con 
 - Il codice asincrono non è thread-safe. In altre parole, in altre parole, non tentare di eseguire più operazioni in parallelo usando la stessa istanza di contesto.
 - Se si vogliono sfruttare i vantaggi del codice asincrono in termini di prestazioni, verificare che i pacchetti della libreria impiegati, ad esempio per il paging, usino la modalità asincrona per chiamare i metodi di Entity Framework che generano query da inviare al database.
 
-## <a name="use-stored-procedures-for-inserting-updating-and-deleting"></a>Utilizzare le stored procedure di inserimento, aggiornamento ed eliminazione
+## <a name="use-stored-procedures"></a>Utilizzare le stored procedure
 
 Alcuni sviluppatori e amministratori di database preferiscono usare stored procedure per l'accesso al database. Nelle versioni precedenti di Entity Framework è possibile recuperare i dati utilizzando una stored procedure dal [l'esecuzione di una query SQL non elaborata](advanced-entity-framework-scenarios-for-an-mvc-web-application.md), ma è non è possibile indicare a Entity Framework per utilizzare le stored procedure per le operazioni di aggiornamento. In EF 6 è semplice da configurare Code First per utilizzare le stored procedure.
 
@@ -120,7 +122,6 @@ Alcuni sviluppatori e amministratori di database preferiscono usare stored proce
 4. Esegue l'applicazione in modalità di debug, scegliere il **reparti** scheda e quindi fare clic su **Crea nuovo**.
 5. Immettere i dati per un nuovo reparto e quindi fare clic su **Create**.
 
-     ![Creare reparto](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image5.png)
 6. Esaminare i log in Visual Studio, il **Output** finestra per verificare che una stored procedure è stata usata per inserire la nuova riga di reparto.
 
      ![Reparto Insert SP](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
@@ -143,12 +144,24 @@ In questa sezione è necessario aver completato l'opzione facoltativa **la distr
 
     Alla prima esecuzione di una pagina che accede al database, Entity Framework esegue tutte le migrazioni `Up` metodi necessari per portare il database aggiornato con il modello di dati corrente. È ora possibile usare tutte le pagine web che è stato aggiunto dopo l'ultima che è stata distribuita, incluse le pagine di reparto che è stato aggiunto in questa esercitazione.
 
-## <a name="summary"></a>Riepilogo
+## <a name="get-the-code"></a>Ottenere il codice
 
-In questa esercitazione è stato illustrato come migliorare l'efficienza di server scrivendo codice che esegue in modo asincrono e su come usare stored procedure per inserire, aggiornare ed eliminare le operazioni. Nella prossima esercitazione, si noterà come impedire la perdita di dati quando più utenti tentano di modificare lo stesso record nello stesso momento.
+[Scaricare il progetto completato](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
+
+## <a name="additional-resources"></a>Risorse aggiuntive
 
 Sono disponibili collegamenti ad altre risorse di Entity Framework nel [l'accesso ai dati ASP.NET - risorse consigliate](../../../../whitepapers/aspnet-data-access-content-map.md).
 
-> [!div class="step-by-step"]
-> [Precedente](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-> [Successivo](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+## <a name="next-steps"></a>Passaggi successivi
+
+Le attività di questa esercitazione sono le seguenti:
+
+> [!div class="checklist"]
+> * Imparato a codice asincrono
+> * Creazione di un controller di reparto
+> * Utilizzare le stored procedure
+> * Distribuito in Azure
+
+Passare all'articolo successivo per informazioni su come gestire i conflitti quando più utenti aggiornano la stessa entità contemporaneamente.
+> [!div class="nextstepaction"]
+> [Gestione della concorrenza](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)

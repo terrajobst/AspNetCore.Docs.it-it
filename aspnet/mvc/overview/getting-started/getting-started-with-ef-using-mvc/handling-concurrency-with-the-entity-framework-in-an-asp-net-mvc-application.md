@@ -1,36 +1,41 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
-title: Gestione della concorrenza con Entity Framework 6 in un'applicazione ASP.NET MVC 5 (10 pari a 12) | Microsoft Docs
+title: "Esercitazione: Gestire la concorrenza con Entity Framework in un'app ASP.NET MVC 5"
+description: Questa esercitazione illustra come usare la concorrenza ottimistica per gestire i conflitti quando più utenti aggiornano la stessa entità contemporaneamente.
 author: tdykstra
-description: L'applicazione web di esempio Contoso University illustra come creare applicazioni ASP.NET MVC 5 con Entity Framework 6 Code First e Visual Studio...
 ms.author: riande
-ms.date: 12/08/2014
+ms.date: 01/21/2019
+ms.topic: tutorial
 ms.assetid: be0c098a-1fb2-457e-b815-ddca601afc65
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 22fd6bc92aa0d516e1bfeb5aa6a67d7246d977ac
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: b77b8d6f952472f4d3030f54665f970b8ace2caf
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913255"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444181"
 ---
-<a name="handling-concurrency-with-the-entity-framework-6-in-an-aspnet-mvc-5-application-10-of-12"></a>Gestione della concorrenza con Entity Framework 6 in un'applicazione ASP.NET MVC 5 (10 pari a 12)
-====================
-da [Tom Dykstra](https://github.com/tdykstra)
+# <a name="tutorial-handle-concurrency-with-ef-in-an-aspnet-mvc-5-app"></a>Esercitazione: Gestire la concorrenza con Entity Framework in un'app ASP.NET MVC 5
 
-[Download progetto completato](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
+Nelle esercitazioni precedenti è stato illustrato come aggiornare i dati. Questa esercitazione illustra come usare la concorrenza ottimistica per gestire i conflitti quando più utenti aggiornano la stessa entità contemporaneamente. Modificare le pagine web che funzionano con la `Department` entità in modo che consentono di gestire gli errori di concorrenza. Le illustrazioni seguenti visualizzano le pagine Edit (Modifica) e Delete (Elimina) e includono alcuni messaggi che vengono visualizzati se si verifica un conflitto di concorrenza.
 
-> L'applicazione web di esempio Contoso University illustra come creare applicazioni ASP.NET MVC 5 con Entity Framework 6 Code First e Visual Studio. Per informazioni sulla serie di esercitazioni, vedere la [prima esercitazione della serie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+![Department_Edit_page_2_after_clicking_Save](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image10.png)
 
+![Department_Edit_page_2_after_clicking_Save](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image15.png)
 
-Nelle esercitazioni precedenti è stato illustrato come aggiornare i dati. Questa esercitazione descrive la gestione dei conflitti quando più utenti aggiornano la stessa entità contemporaneamente.
+Le attività di questa esercitazione sono le seguenti:
 
-Sarà necessario modificare le pagine web che funzionano con la `Department` entità in modo che consentono di gestire gli errori di concorrenza. Le illustrazioni seguenti mostrano le pagine di indice e Delete, inclusi alcuni messaggi che vengono visualizzati se si verifica un conflitto di concorrenza.
+> [!div class="checklist"]
+> * Informazioni sui conflitti di concorrenza
+> * Aggiungere la concorrenza ottimistica
+> * Modificare il controller di reparto
+> * Gestione della concorrenza test
+> * Aggiornare la pagina Delete (Elimina)
 
-![Department_Index_page_before_edits](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image1.png)
+## <a name="prerequisites"></a>Prerequisiti
 
-![Department_Edit_page_2_after_clicking_Save](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image2.png)
+* [Codice asincrono e stored procedure](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application.md)
 
 ## <a name="concurrency-conflicts"></a>Conflitti di concorrenza
 
@@ -46,11 +51,7 @@ La gestione dei blocchi presenta svantaggi. La sua programmazione può risultare
 
 È l'alternativa alla concorrenza pessimistica *la concorrenza ottimistica*. Nella concorrenza ottimistica si consente che i conflitti di concorrenza si verifichino, quindi si reagisce con le modalità appropriate. Ad esempio, Giorgio esegue la pagina di modifica di reparti, le modifiche il **Budget** quantità per il reparto English da $350.000,00 a $0,00.
 
-![Changing_English_dept_budget_to_100000](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
-
 Prima di John fa clic su **salvare**, Jane esegue la stessa pagina e le modifiche le **Start Date** 9/1/2007 campo a 8 o 8/2013.
-
-![Changing_English_dept_start_date_to_1999](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
 
 John fa clic su **salvare** prima e vede sua modifica quando il browser torna alla pagina di indice, Jane quindi fa clic su **salvare**. Le operazioni successive dipendono da come si decide di gestire i conflitti di concorrenza. Di seguito sono elencate alcune opzioni:
 
@@ -75,7 +76,7 @@ John fa clic su **salvare** prima e vede sua modifica quando il browser torna al
 
 Nella parte restante di questa esercitazione si aggiungerà un [rowversion](https://msdn.microsoft.com/library/ms182776(v=sql.110).aspx) proprietà di rilevamento di `Department` entità, creare un controller e visualizzazioni e di test per verificare che tutto funzioni correttamente.
 
-## <a name="add-an-optimistic-concurrency-property-to-the-department-entity"></a>Aggiungere una proprietà di concorrenza ottimistica per l'entità Department
+## <a name="add-optimistic-concurrency"></a>Aggiungere la concorrenza ottimistica
 
 Nelle *Models\Department.cs*, aggiungere una proprietà di rilevamento denominata `RowVersion`:
 
@@ -91,7 +92,7 @@ In seguito all'aggiunta di una proprietà il modello di database è stato modifi
 
 [!code-console[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample3.cmd)]
 
-## <a name="modify-the-department-controller"></a>Modificare il Controller Department
+## <a name="modify-department-controller"></a>Modificare il controller di reparto
 
 Nelle *Controllers\DepartmentController.cs*, aggiungere un `using` istruzione:
 
@@ -135,37 +136,23 @@ Nelle *Views\Department\Edit.cshtml*, aggiungere un campo nascosto per salvare l
 
 [!code-cshtml[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample12.cshtml?highlight=18)]
 
-## <a name="testing-optimistic-concurrency-handling"></a>La gestione della concorrenza ottimistica di test
+## <a name="test-concurrency-handling"></a>Gestione della concorrenza test
 
-Esecuzione del sito e fare clic su **reparti**:
-
-![Department_Index_page_before_edits](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image5.png)
+Esecuzione del sito e fare clic su **reparti**.
 
 Fare clic il **modifica** collegamento ipertestuale per il reparto English e selezionare **aperto in una nuova scheda,** quindi fare clic sui **modifica** collegamento ipertestuale per il reparto English. Le due schede visualizzano le stesse informazioni.
 
-![Department_Edit_page_before_changes](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
-
 Modificare un campo nella prima scheda del browser e fare clic su **Salva**.
-
-![Department_Edit_page_1_after_change](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image7.png)
 
 Il browser visualizza la pagina Index con il valore modificato.
 
-![Departments_Index_page_after_first_budget_edit](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image8.png)
-
-Modificare un campo nella seconda scheda del browser e fare clic su **salvare**.
-
-![Department_Edit_page_2_after_change](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image9.png)
-
-Fare clic su **salvare** nella seconda scheda del browser. Viene visualizzato un messaggio di errore:
+Modificare un campo nella seconda scheda del browser e fare clic su **salvare**. Viene visualizzato un messaggio di errore:
 
 ![Department_Edit_page_2_after_clicking_Save](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image10.png)
 
 Fare di nuovo clic su **Salva**. Il valore che immesso nella seconda scheda del browser viene salvato insieme al valore originale dei dati che è stato modificato nel browser prima. I valori salvati vengono visualizzati nella pagina Index.
 
-![Department_Index_page_with_change_from_second_browser](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image11.png)
-
-## <a name="updating-the-delete-page"></a>Aggiornare la pagina Delete
+## <a name="update-the-delete-page"></a>Aggiornare la pagina Delete (Elimina)
 
 Per la pagina Delete (Elimina), Entity Framework rileva conflitti di concorrenza causati da un altro utente che ha modificato il reparto con modalità simili. Quando la `HttpGet` `Delete` metodo visualizza la conferma, la visualizzazione include originale `RowVersion` valore in un campo nascosto. Questo valore viene quindi disponibile per il `HttpPost` `Delete` metodo chiamato quando l'utente conferma l'eliminazione. Quando Entity Framework crea il codice SQL `DELETE` comando, include un `WHERE` clausola con l'originale `RowVersion` valore. Se i risultati del comando nessuna riga interessata (ovvero la riga è stata modificata dopo che è stata visualizzata la pagina di conferma Delete), viene generata un'eccezione di concorrenza e il `HttpGet Delete` metodo viene chiamato con un flag di errore impostato su `true` per poter visualizzare nuovamente il pagina di conferma con un messaggio di errore. È anche possibile che siano stati interessati zero righe, perché la riga è stata eliminata da un altro utente, in modo che in questo caso viene visualizzato un messaggio di errore diversi.
 
@@ -191,7 +178,7 @@ Anche il nome del metodo di azione è stato modificato da `DeleteConfirmed` a `D
 
 Se viene rilevato un errore di concorrenza, il codice visualizza nuovamente la pagina di conferma Delete (Elimina) e visualizza un flag indicante che è necessario visualizzare un messaggio di errore di concorrenza.
 
-Nelle *Views\Department\Delete.cshtml*, sostituire il codice con scaffolding con il codice seguente che aggiunge un campo di messaggio di errore e i campi nascosti per le proprietà DepartmentID e RowVersion. Le modifiche sono evidenziate.
+Nelle *Views\Department\Delete.cshtml*, sostituire il codice con scaffolding con il codice seguente che aggiunge un campo di messaggio di errore e i campi nascosti per le proprietà DepartmentID e RowVersion. Le modifiche vengono evidenziate.
 
 [!code-cshtml[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample17.cshtml?highlight=9-10,21,52-54)]
 
@@ -209,17 +196,11 @@ Infine, aggiunge i campi nascosti per i `DepartmentID` e `RowVersion` proprietà
 
 Eseguire la pagina Departments Index. Fare clic il **eliminare** collegamento ipertestuale per il reparto English e selezionare **aperto in una nuova scheda,** quindi nella prima scheda fare clic sui **modifica** collegamento ipertestuale per il reparto English.
 
-Nella prima finestra modificare uno dei valori e fare clic su **salvare** :
-
-![Department_Edit_page_after_change_before_delete](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image12.png)
+Nella prima finestra modificare uno dei valori e fare clic su **salvare**.
 
 La pagina di indice viene confermata la modifica.
 
-![Departments_Index_page_after_budget_edit_before_delete](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image13.png)
-
 Nella seconda scheda fare clic su **Delete** (Elimina).
-
-![Department_Delete_confirmation_page_before_concurrency_error](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image14.png)
 
 Viene visualizzato il messaggio di errore di concorrenza e i valori di Department (Reparto) vengono aggiornati con i dati attualmente presenti nel database.
 
@@ -227,12 +208,27 @@ Viene visualizzato il messaggio di errore di concorrenza e i valori di Departmen
 
 Se si fa di nuovo clic su **Delete** (Elimina) viene visualizzata la pagina Index che indica che il reparto è stato eliminato.
 
-## <a name="summary"></a>Riepilogo
+## <a name="get-the-code"></a>Ottenere il codice
 
-Questo argomento completa l'introduzione alla gestione dei conflitti di concorrenza. Per informazioni su altri modi per gestire diversi scenari di concorrenza, vedere [modelli di concorrenza ottimistica](https://msdn.microsoft.com/data/jj592904) e [utilizzano i valori di proprietà](https://msdn.microsoft.com/data/jj592677) su MSDN. L'esercitazione successiva illustra come implementare l'ereditarietà tabella per gerarchia per il `Instructor` e `Student` entità.
+[Download progetto completato](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
+
+## <a name="additional-resources"></a>Risorse aggiuntive
 
 Sono disponibili collegamenti ad altre risorse di Entity Framework nel [l'accesso ai dati ASP.NET - risorse consigliate](../../../../whitepapers/aspnet-data-access-content-map.md).
 
-> [!div class="step-by-step"]
-> [Precedente](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-> [Successivo](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+Per informazioni su altri modi per gestire diversi scenari di concorrenza, vedere [modelli di concorrenza ottimistica](https://msdn.microsoft.com/data/jj592904) e [utilizzano i valori di proprietà](https://msdn.microsoft.com/data/jj592677) su MSDN. L'esercitazione successiva illustra come implementare l'ereditarietà tabella per gerarchia per il `Instructor` e `Student` entità.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Le attività di questa esercitazione sono le seguenti:
+
+> [!div class="checklist"]
+> * Imparato a conflitti di concorrenza
+> * Aggiunta della concorrenza ottimistica
+> * Controller Department modificato
+> * Gestione della concorrenza testati
+> * Aggiornata la pagina Delete
+
+Passare all'articolo successivo per informazioni su come implementare l'ereditarietà nel modello di dati.
+> [!div class="nextstepaction"]
+> [Implementare l'ereditarietà nel modello di dati](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)

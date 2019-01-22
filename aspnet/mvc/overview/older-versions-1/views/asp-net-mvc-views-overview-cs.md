@@ -8,12 +8,12 @@ ms.date: 02/16/2008
 ms.assetid: 152ab1e5-aec2-4ea7-b8cc-27a24dd9acb8
 msc.legacyurl: /mvc/overview/older-versions-1/views/asp-net-mvc-views-overview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ac47caa46d93c6157926f1c9b5112555fae4f8f5
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: a8e64a99549584f150d64d909ac97210257b1147
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41826536"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444129"
 ---
 <a name="aspnet-mvc-views-overview-c"></a>Panoramica (c#) delle visualizzazioni ASP.NET MVC
 ====================
@@ -28,7 +28,7 @@ Lo scopo di questa esercitazione è fornire una breve introduzione a visualizzaz
 
 Per ASP.NET o pagine ASP, ASP.NET MVC non include tutto ciò che corrisponde direttamente a una pagina. In un'applicazione ASP.NET MVC, non esiste una pagina su disco che corrisponde al percorso nell'URL digitato nella barra degli indirizzi del browser. L'elemento più simile a una pagina in un'applicazione ASP.NET MVC è un elemento chiamato un' *vista*.
 
-Le richieste del browser di applicazione, in ingresso vengono mappate alle azioni del controller MVC di ASP.NET. Un'azione del controller potrebbe restituire una visualizzazione. Tuttavia, un'azione del controller potrebbe eseguire un altro tipo di azione, ad esempio è il reindirizzamento a un'altra azione del controller.
+In un'applicazione ASP.NET MVC, le richieste in ingresso browser vengono mappate alle azioni del controller. Un'azione del controller potrebbe restituire una visualizzazione. Tuttavia, un'azione del controller potrebbe eseguire un altro tipo di azione, ad esempio è il reindirizzamento a un'altra azione del controller.
 
 L'elenco 1 contiene un controller semplice denominato HomeController. La classe HomeController espone due azioni del controller denominate Details() e Index ().
 
@@ -38,7 +38,7 @@ L'elenco 1 contiene un controller semplice denominato HomeController. La classe 
 
 È possibile richiamare la prima azione, l'azione Index (), digitare l'URL seguente nella barra degli indirizzi del browser:
 
-/ Home/Index
+/Home/Index
 
 È possibile richiamare la seconda azione, l'azione Details(), immettendo questo indirizzo nel browser:
 
@@ -87,11 +87,11 @@ Si usano i delimitatori di script &lt;% e %&gt; per contrassegnare l'inizio e al
 
 Poiché si chiama spesso Response, Microsoft fornisce un collegamento è per chiamare il metodo Response. La visualizzazione nel listato 3 Usa i delimitatori &lt;% = % e&gt; come collegamento per la chiamata a Response.
 
-**Listato 3 - Views\Home\Index2.aspx**
+**Listing 3 - Views\Home\Index2.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-cs/samples/sample3.aspx)]
 
-È possibile usare qualsiasi linguaggio .NET per generare il contenuto dinamico in una vista. In genere, si userà Visual Basic .NET o c# per scrivere il controller e visualizzazioni.
+È possibile usare qualsiasi linguaggio .NET per generare il contenuto dinamico in una vista. In genere, si userà Visual Basic .NET o C# per scrivere il controller e visualizzazioni.
 
 ## <a name="using-html-helpers-to-generate-view-content"></a>Utilizzo di helper HTML per generare Visualizza contenuto
 
@@ -106,7 +106,7 @@ Ad esempio, la visualizzazione nel listato 4 sfrutta le tre gli helper HTML, gli
 
 [![La finestra di dialogo Nuovo progetto](asp-net-mvc-views-overview-cs/_static/image1.jpg)](asp-net-mvc-views-overview-cs/_static/image1.png)
 
-**Figura 01**: un modulo di accesso standard ([fare clic per visualizzare l'immagine con dimensioni normali](asp-net-mvc-views-overview-cs/_static/image2.png))
+**Figura 01**: Un modulo di accesso standard ([fare clic per visualizzare l'immagine con dimensioni normali](asp-net-mvc-views-overview-cs/_static/image2.png))
 
 
 Tutti i metodi helper HTML vengono chiamati nella proprietà Html della visualizzazione. Ad esempio, si esegue il rendering una casella di testo chiamando il metodo Html.TextBox().
@@ -133,13 +133,13 @@ Il controller di proprietà ViewData rappresenta una raccolta di coppie nome / v
 
 La visualizzazione nel listato 7 recupera il messaggio da visualizzare i dati ed esegue il rendering il messaggio al browser.
 
-**Listato 7 - \Views\Product\Index.aspx**
+**Listing 7 -- \Views\Product\Index.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-cs/samples/sample7.aspx)]
 
 Si noti che la vista si avvale del metodo Helper HTML Html.Encode() durante il rendering del messaggio. L'Helper HTML Html.Encode() codifica i caratteri speciali, ad esempio &lt; e &gt; in caratteri che possono essere visualizzati in una pagina web. Ogni volta che si esegue il rendering del contenuto per l'invio di un utente a un sito Web, è consigliabile codificare il contenuto per impedire attacchi injection JavaScript.
 
-(Perché è stato creato il messaggio di noi nel ProductController, non abbiamo t realmente necessario codificare il messaggio. Tuttavia, è un'operazione consigliabile chiamare sempre il metodo Html.Encode() quando visualizzare il contenuto recuperato da visualizzare i dati all'interno di una vista).
+(Perché è stato creato il messaggio di che noi stessi nel ProductController, abbiamo bisogno codificare il messaggio. Tuttavia, è un'operazione consigliabile chiamare sempre il metodo Html.Encode() quando visualizzare il contenuto recuperato da visualizzare i dati all'interno di una vista).
 
 Nel listato 7, abbiamo sfruttato visualizzare i dati di passare un messaggio stringa semplice da un controller a una visualizzazione. È anche possibile usare Visualizza dati per trasmettere altri tipi di dati, ad esempio una raccolta di record del database, da un controller a una visualizzazione. Ad esempio, se si desidera visualizzare il contenuto della tabella Products del database in una vista, quindi si passa la raccolta di database i record nella visualizzazione dei dati.
 
