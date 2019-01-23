@@ -1,18 +1,12 @@
 ---
-title: Creare un'app Web con ASP.NET Core MVC in Windows con Visual Studio
+title: Creare un'app Web con ASP.NET Core MVC
 author: rick-anderson
-description: Vedere il sommario per un'introduzione ad ASP.NET Core MVC con Visual Studio su Windows.
+description: Vedere il sommario per un'introduzione ad ASP.NET Core MVC.
 ms.author: riande
 ms.date: 10/26/2017
 uid: tutorials/first-mvc-app/index
-ms.openlocfilehash: 3a679e31c6eda4c86edbd0ada27b4973204c467b
-ms.sourcegitcommit: 4e87712029de2aceb1cf2c52e9e3dda8195a5b8e
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53382085"
 ---
-# <a name="create-a-web-app-with-aspnet-core-mvc-on-windows-with-visual-studio"></a>Creare un'app Web con ASP.NET Core MVC in Windows con Visual Studio
+# <a name="create-a-web-app-with-aspnet-core-mvc"></a>Creare un'app Web con ASP.NET Core MVC
 
 [!INCLUDE [consider RP](~/includes/razor.md)]
 
