@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/deployment/tutorial-signalr-self-host
 title: 'Esercitazione: Hosting indipendente di SignalR | Microsoft Docs'
-author: pfletcher
+author: bradygaster
 description: Questa esercitazione illustra come creare un server di SignalR 2 self-hosted e come connettersi a esso con un client JavaScript. Versioni del software utilizzate nell'esercitazione V...
-ms.author: riande
+ms.author: bradyg
 ms.date: 06/10/2014
 ms.assetid: 400db427-27af-4f2f-abf0-5486d5e024b5
 msc.legacyurl: /signalr/overview/deployment/tutorial-signalr-self-host
 msc.type: authoredcontent
-ms.openlocfilehash: 48cb3d4d71c33ac3382b2b35b5a19fa1c4958874
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: 6a6359d59a4b715e13fe2bbcef57da6d6d6294b5
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287403"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54835752"
 ---
 <a name="tutorial-signalr-self-host"></a>Esercitazione: Hosting indipendente di SignalR
 ====================
@@ -93,7 +93,7 @@ In questa esercitazione si creerà un server in cui è ospitato in un'applicazio
 
     Il codice riportato sopra include le tre classi seguenti:
 
-    - **Programma**, tra cui la **Main** metodo che definisce il percorso principale di esecuzione. In questo metodo, un'applicazione web di tipo **avvio** viene avviato all'URL specificato (`http://localhost:8080`). Se sicurezza è obbligatorio per l'endpoint, è possibile implementare SSL. Vedere [come: Configurare una porta con un certificato SSL](https://msdn.microsoft.com/library/ms733791.aspx) per altre informazioni.
+    - **Programma**, tra cui la **Main** metodo che definisce il percorso principale di esecuzione. In questo metodo, un'applicazione web di tipo **avvio** viene avviato all'URL specificato (`http://localhost:8080`). Se sicurezza è obbligatorio per l'endpoint, è possibile implementare SSL. Vedere [Procedura: Configurare una porta con un certificato SSL](https://msdn.microsoft.com/library/ms733791.aspx) per altre informazioni.
     - **Avvio**, la classe che contiene la configurazione per il server di SignalR (l'unica configurazione di questa esercitazione viene usato è la chiamata a `UseCors`) e la chiamata a `MapSignalR`, che consente di creare le route per gli oggetti dell'Hub nel progetto.
     - **MyHub**, la classe SignalR Hub che l'applicazione dovrà fornire ai client. Questa classe ha un solo metodo, **inviare**, che i client chiameranno per trasmettere un messaggio a tutti gli altri client connessi.
 6. Compilare l'applicazione ed eseguirla. Nella finestra della console dovrebbe visualizzare l'indirizzo a cui il server è in esecuzione.

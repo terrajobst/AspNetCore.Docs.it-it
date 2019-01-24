@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/older-versions/tutorial-getting-started-with-signalr-and-mvc-4
 title: 'Esercitazione: Introduzione a SignalR 1.x e MVC 4 | Microsoft Docs'
-author: pfletcher
+author: bradygaster
 description: Usare SignalR ASP.NET e ASP.NET MVC 4 per creare un'applicazione di chat in tempo reale.
-ms.author: riande
+ms.author: bradyg
 ms.date: 03/29/2013
 ms.assetid: eeef9f73-6de3-49f9-b50b-9af22108f2ce
 msc.legacyurl: /signalr/overview/older-versions/tutorial-getting-started-with-signalr-and-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: a67d05288252c17d84b1d7df5f7bcddde3c887f5
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: dd55ca22004b7e3899f6a8789494c842b984787f
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287713"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837793"
 ---
 <a name="tutorial-getting-started-with-signalr-1x-and-mvc-4"></a>Esercitazione: Introduzione a SignalR 1.x e MVC 4
 ====================
@@ -174,4 +174,4 @@ Per informazioni su concetti più avanzati sviluppi in materia di SignalR, visit
 
 - [Progetto di SignalR](http://signalr.net)
 - [SignalR Github ed esempi](https://github.com/SignalR/SignalR)
-- [Wiki di SignalR](https://github.com/SignalR/SignalR/wiki)
+- [SignalR Wiki](https://github.com/SignalR/SignalR/wiki)

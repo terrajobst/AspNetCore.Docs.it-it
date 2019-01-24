@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/older-versions/tutorial-server-broadcast-with-aspnet-signalr
 title: 'Esercitazione: Trasmissione server con ASP.NET SignalR 1.x | Microsoft Docs'
-author: pfletcher
+author: bradygaster
 description: Questa esercitazione illustra come creare un'applicazione web che usa ASP.NET SignalR per fornire funzionalità di trasmissione di server. Trasmissione server significa che communic...
-ms.author: riande
+ms.author: bradyg
 ms.date: 04/10/2013
 ms.assetid: ab7b2554-956a-4f6d-b2a0-4ae0c62e8580
 msc.legacyurl: /signalr/overview/older-versions/tutorial-server-broadcast-with-aspnet-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: d5c09f6493c4dedb4fc2ecbf9055dd014ede71f2
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: 258a55bf72c4b3425d001f478620fa9651952b3f
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53288049"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837468"
 ---
 <a name="tutorial-server-broadcast-with-aspnet-signalr-1x"></a>Esercitazione: Trasmissione server con ASP.NET SignalR 1.x
 ====================
@@ -297,7 +297,7 @@ Per una connessione specifica, SignalR sceglie il metodo migliore di trasporto c
 
     Se si esegue Internet Explorer 10 in Windows 7 (IIS 7.5), il metodo di trasporto è iframe.
 
-    ![Internet Explorer 10 Console, IIS 7.5](tutorial-server-broadcast-with-aspnet-signalr/_static/image11.png)
+    ![IE 10 Console, IIS 7.5](tutorial-server-broadcast-with-aspnet-signalr/_static/image11.png)
 
     In Firefox, installare il componente aggiuntivo Firebug per ottenere una finestra della Console. Se si esegue il 19 di Firefox in Windows 8 (IIS 8), il metodo di trasporto è WebSocket.
 
@@ -415,4 +415,4 @@ Per informazioni sui concetti di sviluppo più avanzati SignalR, visitare i siti
 - [ASP.NET SignalR](https://asp.net/signalr/)
 - [Progetto di SignalR](http://signalr.net/)
 - [SignalR Github ed esempi](https://github.com/SignalR/SignalR)
-- [Wiki di SignalR](https://github.com/SignalR/SignalR/wiki)
+- [SignalR Wiki](https://github.com/SignalR/SignalR/wiki)

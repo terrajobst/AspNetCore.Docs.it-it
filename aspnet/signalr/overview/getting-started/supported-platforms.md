@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/getting-started/supported-platforms
 title: Piattaforme supportate | Microsoft Docs
-author: pfletcher
+author: bradygaster
 description: Questo articolo descrive quali i client e server sono supportati da SignalR.
-ms.author: riande
+ms.author: bradyg
 ms.date: 04/18/2018
 ms.assetid: eac31beb-0f46-4afa-9def-e80904dea4f0
 msc.legacyurl: /signalr/overview/getting-started/supported-platforms
 msc.type: authoredcontent
-ms.openlocfilehash: e270f9a328f36854fdfb3e23b78e0b40cdda6411
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: 60fa74b54797efbe14ba525160b2f750a4f5a451
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287364"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836051"
 ---
 <a name="supported-platforms"></a>Piattaforme supportate
 ====================
@@ -87,10 +87,10 @@ Oltre a richiedere determinati browser, i vari trasporti che usa SignalR hanno r
 
 | Trasporto | Internet Explorer | Chrome (Windows o iOS) | Firefox | Safari (OSX o iOS) | Android |
 | --- | --- | --- | --- | --- | --- |
-| Oggetti WebSocket | 10+ | Current - 1 | Current - 1 | Current - 1 | N/D |
-| Eventi inviati al server | N/D | Current - 1 | Current - 1 | Current - 1 | N/D |
+| Oggetti WebSocket | 10+ | current - 1 | current - 1 | current - 1 | N/D |
+| Eventi inviati al server | N/D | current - 1 | current - 1 | current - 1 | N/D |
 | ForeverFrame | 8+ | N/D | N/D | N/D | 4.1 |
-| Polling di lunga durata | 8+ | Current - 1 | Current - 1 | Current - 1 | 4.1 |
+| Polling di lunga durata | 8+ | current - 1 | current - 1 | current - 1 | 4.1 |
 
 \*: 6 + richiesto per la funzionalità completa.
 

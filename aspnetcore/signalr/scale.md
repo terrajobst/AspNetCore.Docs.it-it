@@ -1,18 +1,18 @@
 ---
 title: Hosting di ASP.NET Core SignalR produzione e la scalabilità
-author: tdykstra
+author: bradygaster
 description: Informazioni su come evitare le prestazioni e scalabilità problemi nelle App che usano ASP.NET Core SignalR.
 monikerRange: '>= aspnetcore-2.1'
-ms.author: tdykstra
+ms.author: bradyg
 ms.custom: mvc
 ms.date: 11/28/2018
 uid: signalr/scale
-ms.openlocfilehash: 94791ffb73b58a9026942d632bce59773e3fda5b
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.openlocfilehash: 4ac4509acc89d0091a3757c7cfbc9981614f29ad
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52452949"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836922"
 ---
 # <a name="aspnet-core-signalr-hosting-and-scaling"></a>ASP.NET Core SignalR hosting e scalabilità
 
@@ -46,7 +46,7 @@ Un'app che usa SignalR deve tenere traccia di tutte le connessioni, che crea pro
 
 Le opzioni per risolvere questo problema sono le [servizio Azure SignalR](#azure-signalr-service) e [Redis backplane](#redis-backplane).
 
-## <a name="azure-signalr-service"></a>Servizio Azure SignalR
+## <a name="azure-signalr-service"></a>Azure SignalR Service
 
 Il servizio Azure SignalR è un proxy anziché un backplane. Ogni volta che un client avvia una connessione al server, viene reindirizzato il client per connettersi al servizio. Tale processo è illustrato nel diagramma seguente:
 

@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/guide-to-the-api/hubs-api-guide-server
 title: Guida all'API di ASP.NET SignalR Hubs - Server (c#) | Microsoft Docs
-author: pfletcher
+author: bradygaster
 description: Questo documento viene fornita un'introduzione alla programmazione sul lato server dell'API di hub SignalR ASP.NET per SignalR versione 2, con esempi di codice...
-ms.author: riande
+ms.author: bradyg
 ms.date: 06/10/2014
 ms.assetid: b19913e5-cd8a-4e4b-a872-5ac7a858a934
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-server
 msc.type: authoredcontent
-ms.openlocfilehash: 4730c4d9f601f561cfc884e0a9c2c2d12785ae0f
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: a28663c8d5c679f85e863e7d0b4523a6f4dd4a1f
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53288105"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837455"
 ---
 <a name="aspnet-signalr-hubs-api-guide---server-c"></a>Guida all'API di ASP.NET SignalR Hubs - Server (c#)
 ====================
@@ -104,7 +104,7 @@ Per definire le route che i client useranno per connettersi all'hub, chiamare il
 
 [!code-csharp[Main](hubs-api-guide-server/samples/sample1.cs)]
 
-Se si aggiunge una funzionalità SignalR a un'applicazione ASP.NET MVC, assicurarsi che prima di altre route viene aggiunta la route di SignalR. Per altre informazioni, vedere [esercitazione: Introduzione a SignalR 2 e MVC 5](../getting-started/tutorial-getting-started-with-signalr-and-mvc.md).
+Se si aggiunge una funzionalità SignalR a un'applicazione ASP.NET MVC, assicurarsi che prima di altre route viene aggiunta la route di SignalR. Per altre informazioni, vedere [Esercitazione: Introduzione a SignalR 2 e MVC 5](../getting-started/tutorial-getting-started-with-signalr-and-mvc.md).
 
 <a id="signalrurl"></a>
 

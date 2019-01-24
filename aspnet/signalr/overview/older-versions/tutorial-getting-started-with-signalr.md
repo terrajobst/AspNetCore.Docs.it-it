@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/older-versions/tutorial-getting-started-with-signalr
 title: 'Esercitazione: Introduzione a SignalR 1.x | Microsoft Docs'
-author: pfletcher
+author: bradygaster
 description: Usare SignalR ASP.NET per compilare un'applicazione di chat in tempo reale in una pagina HTML.
-ms.author: riande
+ms.author: bradyg
 ms.date: 02/18/2013
 ms.assetid: fdc3599a-5217-44c1-951f-0eec9812dce7
 msc.legacyurl: /signalr/overview/older-versions/tutorial-getting-started-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 720a4879f5fbe3c0c2b4c7809cb94c22547329c3
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: b4b632a84e40aa0b73dfc7a30da0cf28249cc5b4
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287363"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836632"
 ---
 <a name="tutorial-getting-started-with-signalr-1x"></a>Esercitazione: Introduzione a SignalR 1.x
 ====================
@@ -60,7 +60,7 @@ In questa sezione viene illustrato come creare un'applicazione web ASP.NET vuota
 
 Prerequisiti:
 
-- Visual Studio 2010 SP1 o 2012. Se non hai Visual Studio, vedere [download ASP.NET](https://www.asp.net/downloads) per ottenere il Visual Studio 2012 Express strumento di sviluppo gratuito.
+- Visual Studio 2010 SP1 or 2012. Se non hai Visual Studio, vedere [download ASP.NET](https://www.asp.net/downloads) per ottenere il Visual Studio 2012 Express strumento di sviluppo gratuito.
 - [Microsoft ASP.NET e Web Tools 2012.2](https://go.microsoft.com/fwlink/?LinkId=279941). Per Visual Studio 2012, il programma di installazione aggiunge nuove funzionalità ASP.NET, inclusi i modelli di SignalR per Visual Studio. Per Visual Studio 2010 SP1, non è disponibile un programma di installazione, ma è possibile completare l'esercitazione installando il pacchetto NuGet di SignalR, come descritto nei passaggi di configurazione.
 
 La procedura seguente Usa Visual Studio 2012 per creare un'applicazione Web ASP.NET vuota e aggiungere la libreria di SignalR:
@@ -173,4 +173,4 @@ Per informazioni su concetti più avanzati sviluppi in materia di SignalR, visit
 
 - [Progetto di SignalR](http://signalr.net)
 - [SignalR Github ed esempi](https://github.com/SignalR/SignalR)
-- [Wiki di SignalR](https://github.com/SignalR/SignalR/wiki)
+- [SignalR Wiki](https://github.com/SignalR/SignalR/wiki)

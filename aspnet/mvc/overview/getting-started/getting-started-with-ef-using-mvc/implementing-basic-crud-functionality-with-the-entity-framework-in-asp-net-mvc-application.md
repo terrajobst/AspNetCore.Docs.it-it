@@ -4,17 +4,17 @@ title: 'Esercitazione: Implementare la funzionalità CRUD con Entity Framework i
 description: Esaminare e personalizzare la creazione, leggere, aggiornare ed eliminare code (CRUD) che lo scaffolding di MVC crea automaticamente nel controller e visualizzazioni.
 author: tdykstra
 ms.author: riande
-ms.date: 01/11/2019
+ms.date: 01/22/2019
 ms.topic: tutorial
 ms.assetid: a2f70ba4-83d1-4002-9255-24732726c4f2
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 9c6f8f3a2ffc0a9c5e15111ae47c331dab24ff43
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.openlocfilehash: 42971b4e15c4aaf85d0ea50bf63934ba4a78ed91
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341724"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836234"
 ---
 # <a name="tutorial-implement-crud-functionality-with-the-entity-framework-in-aspnet-mvc"></a>Esercitazione: Implementare la funzionalità CRUD con Entity Framework in ASP.NET MVC
 
@@ -245,6 +245,10 @@ La base `Controller` classe già implementa le `IDisposable` interfaccia, in mod
 ## <a name="handle-transactions"></a>Gestione delle transazioni
 
 Per impostazione predefinita Entity Framework implementa in modo implicito le transazioni. Negli scenari in cui si apportano modifiche a più righe o le tabelle e quindi chiamare `SaveChanges`, Entity Framework verifica automaticamente che che tutte le modifiche abbia esito positivo o non è nessuna. Se sono state apportate alcune modifiche e successivamente si verifica un errore, viene automaticamente eseguito il rollback di tali verifiche. Per gli scenari in cui è necessario un maggior controllo&mdash;ad esempio, se si desidera includere le operazioni eseguite all'esterno di Entity Framework in una transazione&mdash;vedere [utilizzo di transazioni](/ef/ef6/saving/transactions).
+
+## <a name="get-the-code"></a>Ottenere il codice
+
+[Download progetto completato](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

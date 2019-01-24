@@ -1,20 +1,20 @@
 ---
 uid: signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr
 title: 'Esercitazione: Creare app in tempo reale ad alta frequenza con SignalR 2 | Microsoft Docs'
-author: pfletcher
+author: bradygaster
 description: Questa esercitazione illustra come creare un'applicazione web che usa ASP.NET SignalR per fornire funzionalità di messaggistica ad alta frequenza.
-ms.author: riande
-ms.date: 01/02/2019
+ms.author: bradyg
+ms.date: 01/22/2019
 ms.assetid: 9f969dda-78ea-4329-b1e3-e51c02210a2b
 msc.legacyurl: /signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr
 msc.type: authoredcontent
 ms.topic: tutorial
-ms.openlocfilehash: 85503db0b41be6f87136627667d6dd71f0d4f609
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 44aaa2b0c059de310e963f642fa56c2f00a7e443
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54098590"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836727"
 ---
 # <a name="tutorial-create-high-frequency-real-time-app-with-signalr-2"></a>Esercitazione: Creare app in tempo reale ad alta frequenza con SignalR 2
 
@@ -24,7 +24,7 @@ L'applicazione creata consente di visualizzare una forma che gli utenti potranno
 
 I concetti introdotti in questa esercitazione sono le applicazioni in modalità di gioco in tempo reale e altre applicazioni di simulazione.
 
-In questa esercitazione è:
+Le attività di questa esercitazione sono le seguenti:
 
 > [!div class="checklist"]
 > * Configurare il progetto
@@ -224,6 +224,10 @@ Lo spostamento della forma in altra finestra meno fluido. L'app crea un'interpol
 
 Questo codice consente di spostare la forma dalla posizione precedente a quello nuovo. Il server indica la posizione della forma nel corso dell'intervallo di animazione. In questo caso, che è 100 millisecondi. L'app consente di cancellare qualsiasi animazione precedente in esecuzione in una forma prima che inizi la nuova animazione.
 
+## <a name="get-the-code"></a>Ottenere il codice
+
+[Download progetto completato](http://code.msdn.microsoft.com/SignalR-20-MoveShape-Demo-6285b83a)
+
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 È utile per lo sviluppo di giochi online e altre simulazioni, ad esempio si è appena appreso come il paradigma comune della comunicazione [gioco ShootR creato con SignalR](https://shootr.azurewebsites.net/).
@@ -234,11 +238,11 @@ Per altre informazioni su SignalR, vedere le risorse seguenti:
 
 * [SignalR GitHub ed esempi](https://github.com/SignalR/SignalR)
 
-* [Wiki di SignalR](https://github.com/SignalR/SignalR/wiki)
+* [SignalR Wiki](https://github.com/SignalR/SignalR/wiki)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è:
+Le attività di questa esercitazione sono le seguenti:
 
 > [!div class="checklist"]
 > * Configurare il progetto

@@ -1,26 +1,26 @@
 ---
 uid: signalr/overview/getting-started/tutorial-getting-started-with-signalr-and-mvc
 title: 'Esercitazione: Chat in tempo reale con SignalR 2 e MVC 5 | Microsoft Docs'
-author: pfletcher
+author: bradygaster
 description: Questa esercitazione illustra come usare ASP.NET SignalR 2 per creare un'applicazione di chat in tempo reale. SignalR è aggiungere a un'applicazione MVC 5.
-ms.author: riande
-ms.date: 01/02/2019
+ms.author: bradyg
+ms.date: 01/22/2019
 ms.assetid: 80bfe5fb-bdfc-41fe-ac43-2132e5d69fac
 msc.legacyurl: /signalr/overview/getting-started/tutorial-getting-started-with-signalr-and-mvc
 msc.type: authoredcontent
 ms.topic: tutorial
-ms.openlocfilehash: eb4b7e1403f4070d65702b756bf98c5294c7fb17
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 1b02aecc68a93dbd6373ca5304530e76c9d0b6b5
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54098604"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837001"
 ---
 # <a name="tutorial-real-time-chat-with-signalr-2-and-mvc-5"></a>Esercitazione: Chat in tempo reale con SignalR 2 e MVC 5
 
 Questa esercitazione illustra come usare ASP.NET SignalR 2 per creare un'applicazione di chat in tempo reale. Aggiungere SignalR a un'applicazione MVC 5 e creare una vista di chat per inviare e visualizzare i messaggi.
 
-In questa esercitazione è:
+Le attività di questa esercitazione sono le seguenti:
 
 > [!div class="checklist"]
 > * Configurare il progetto
@@ -176,6 +176,10 @@ Questo codice consente di aprire una connessione con l'hub.
 
 Il codice avvia la connessione e quindi lo si passa una funzione per gestire l'evento click sulle **inviare** pulsante nella pagina della Chat.
 
+## <a name="get-the-code"></a>Ottenere il codice
+
+[Download progetto completato](http://code.msdn.microsoft.com/Getting-Started-with-c366b2f3)
+
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 Per altre informazioni su SignalR, vedere le risorse seguenti:
@@ -184,11 +188,11 @@ Per altre informazioni su SignalR, vedere le risorse seguenti:
 
 * [SignalR GitHub ed esempi](https://github.com/SignalR/SignalR)
 
-* [Wiki di SignalR](https://github.com/SignalR/SignalR/wiki)
+* [SignalR Wiki](https://github.com/SignalR/SignalR/wiki)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è:
+Le attività di questa esercitazione sono le seguenti:
 
 > [!div class="checklist"]
 > * Configurare il progetto

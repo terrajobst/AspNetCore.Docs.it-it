@@ -1,18 +1,18 @@
 ---
 title: Redis backplane per ASP.NET Core SignalR. scale-out
-author: tdykstra
+author: bradygaster
 description: Informazioni su come configurare un backplane di Redis per abilitare la scalabilità orizzontale per un'app ASP.NET Core SignalR.
 monikerRange: '>= aspnetcore-2.1'
-ms.author: tdykstra
+ms.author: bradyg
 ms.custom: mvc
 ms.date: 11/28/2018
 uid: signalr/redis-backplane
-ms.openlocfilehash: fde7f08ae2310b0b9bf9b7fe25a1dfc4a568adb6
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: c02d8cd5fb3b6edbb21be4889da2e880099b731b
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54099355"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837442"
 ---
 # <a name="set-up-a-redis-backplane-for-aspnet-core-signalr-scale-out"></a>Configurare un backplane di Redis per ASP.NET Core SignalR. scale-out
 
@@ -64,8 +64,8 @@ Questo articolo descrive aspetti di SignalR specifiche della configurazione di u
 
 * Nell'app SignalR, installare uno dei pacchetti NuGet seguenti:
 
-  * `Microsoft.AspNetCore.SignalR.StackExchangeRedis` -Dipende 2.X.X stackexchange. Redis. Questo è il pacchetto consigliato per ASP.NET Core 2.2 e versioni successive.
-  * `Microsoft.AspNetCore.SignalR.Redis` -Dipende 1.X.X stackexchange. Redis. Questo pacchetto non spediranno in ASP.NET Core 3.0.
+  * `Microsoft.AspNetCore.SignalR.StackExchangeRedis` - Depends on StackExchange.Redis 2.X.X. Questo è il pacchetto consigliato per ASP.NET Core 2.2 e versioni successive.
+  * `Microsoft.AspNetCore.SignalR.Redis` - Depends on StackExchange.Redis 1.X.X. Questo pacchetto non spediranno in ASP.NET Core 3.0.
 
 * Nel `Startup.ConfigureServices` metodo, chiamare `AddStackExchangeRedis` dopo `AddSignalR`:
 

@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/performance/signalr-connection-density-testing-with-crank
 title: Densità di connessione di SignalR con Crank di test | Microsoft Docs
-author: Rick-Anderson
+author: bradygaster
 description: Densità di connessione di SignalR con Crank di test
-ms.author: riande
+ms.author: bradyg
 ms.date: 02/22/2015
 ms.assetid: 148d9ca7-1af1-44b6-a9fb-91e261b9b463
 msc.legacyurl: /signalr/overview/performance/signalr-connection-density-testing-with-crank
 msc.type: authoredcontent
-ms.openlocfilehash: 308fed51953b085506488c5e0dda1ced9f4d09fb
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: 40c9764f0c47b83df8300553b4b290429937345c
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287573"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836545"
 ---
 <a name="signalr-connection-density-testing-with-crank"></a>Densità di connessione di SignalR con Crank di test
 ====================
@@ -46,13 +46,13 @@ Dopo aver scaricato e compilato la codebase e installato i contatori delle prest
 
 Le opzioni disponibili per lo strumento Crank includono:
 
-- **/?** : Mostra la schermata della Guida. Le opzioni disponibili vengono visualizzate anche se il **Url** parametro viene omesso.
-- **/ Url**: L'URL per le connessioni SignalR. Questo parametro è obbligatorio. Per un'applicazione di SignalR con il mapping predefinito, il percorso termina "/ signalr".
+- **/?**: Mostra la schermata della Guida. Le opzioni disponibili vengono visualizzate anche se il **Url** parametro viene omesso.
+- **/Url**: L'URL per le connessioni SignalR. Questo parametro è obbligatorio. Per un'applicazione di SignalR con il mapping predefinito, il percorso termina "/ signalr".
 - **/ Trasporto**: Il nome del trasporto utilizzato. Il valore predefinito è `auto`, che verrà selezionato il protocollo ottimale. Le opzioni includono `WebSockets`, `ServerSentEvents`, e `LongPolling` (`ForeverFrame` non è un'opzione per manovella, poiché il client .NET invece viene utilizzato Internet Explorer). Per altre informazioni su come SignalR seleziona trasporti, vedere [trasporti e i fallback](../getting-started/introduction-to-signalr.md#transports).
-- **/ BatchSize**: Il numero di client aggiunti in ogni batch. Il valore predefinito è 50.
-- **/ ConnectInterval**: L'intervallo in millisecondi tra l'aggiunta di connessioni. Il valore predefinito è 500.
+- **/BatchSize**: Il numero di client aggiunti in ogni batch. Il valore predefinito è 50.
+- **/ConnectInterval**: L'intervallo in millisecondi tra l'aggiunta di connessioni. Il valore predefinito è 500.
 - **/ Connessioni**: Il numero di connessioni utilizzato per l'applicazione di test di carico. Il valore predefinito è 100.000.
-- **/ ConnectTimeout**: Il timeout in secondi prima di interrompere il test. Il valore predefinito è 300.
+- **/ConnectTimeout**: Il timeout in secondi prima di interrompere il test. Il valore predefinito è 300.
 - **MinServerMBytes**: I megabyte minima per il server di raggiungere. Il valore predefinito è 500.
 - **SendBytes**: Le dimensioni del payload inviato al server in byte. Il valore predefinito è 0.
 - **SendInterval**: Il ritardo in millisecondi tra i messaggi al server. Il valore predefinito è 500.

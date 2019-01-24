@@ -1,19 +1,19 @@
 ---
 uid: signalr/index
 title: SignalR | Microsoft Docs
-author: rick-anderson
+author: bradygaster
 description: Microsoft ASP.NET SignalR è una libreria per sviluppatori ASP.NET che semplifica il processo di aggiunta di funzionalità web in tempo reale alle applicazioni.
-ms.author: riande
+ms.author: bradyg
 ms.date: 10/24/2012
 ms.assetid: 282a521f-2b86-4fac-bcf6-b6d5e0fe969c
 msc.legacyurl: /signalr
 msc.type: categoryindex
-ms.openlocfilehash: 75978763451b3cb88146fde3c8dfd5d4b327dc5d
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 52a36a2790de31e82d7ec7bae9f4c24439749009
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "48254751"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837611"
 ---
 <a name="signalr"></a>SignalR
 ====================
@@ -27,7 +27,7 @@ ms.locfileid: "48254751"
         - [Esercitazione: Introduzione a SignalR 2 e MVC 5](overview/getting-started/tutorial-getting-started-with-signalr-and-mvc.md)
         - [Esercitazione: Messaggistica ad alta frequenza con SignalR 2](overview/getting-started/tutorial-high-frequency-realtime-with-signalr.md)
         - [Esercitazione: Trasmissione server con SignalR 2](overview/getting-started/tutorial-server-broadcast-with-signalr.md)
-        - [Laboratorio pratico: applicazioni Web in tempo reale con SignalR](overview/getting-started/real-time-web-applications-with-signalr.md)
+        - [Laboratorio pratico: Applicazioni Web in tempo reale con SignalR](overview/getting-started/real-time-web-applications-with-signalr.md)
     - [Guida all'API](overview/guide-to-the-api/index.md)
 
         - [Guida all'API Hubs - Server (C#)](overview/guide-to-the-api/hubs-api-guide-server.md)

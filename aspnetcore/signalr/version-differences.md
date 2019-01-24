@@ -1,17 +1,17 @@
 ---
 title: Differenze tra SignalR e ASP.NET Core SignalR
-author: tdykstra
+author: bradygaster
 description: Differenze tra SignalR e ASP.NET Core SignalR
 monikerRange: '>= aspnetcore-2.1'
-ms.author: tdykstra
+ms.author: bradyg
 ms.date: 11/14/2018
 uid: signalr/version-differences
-ms.openlocfilehash: fb10d6e62ff28128e6e9e5dcef55e44f25de8ad0
-ms.sourcegitcommit: 6548c19f345850ee22b50f7ef9fca732895d9e08
+ms.openlocfilehash: 091fc44fccf820a394e7c6f775700c85bebc9101
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53425120"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836662"
 ---
 # <a name="differences-between-aspnet-signalr-and-aspnet-core-signalr"></a>Differenze tra ASP.NET SignalR e ASP.NET Core SignalR
 
@@ -22,9 +22,9 @@ ASP.NET Core SignalR non è compatibile con client o server per ASP.NET SignalR.
 |                      | ASP.NET SignalR | ASP.NET Core SignalR |
 | -------------------- | --------------- | -------------------- |
 | Pacchetto NuGet server | [Microsoft.AspNet.SignalR](https://www.nuget.org/packages/Microsoft.AspNet.SignalR/) | [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App/) (.NET Core)<br>[Microsoft.AspNetCore.SignalR](https://www.nuget.org/packages/Microsoft.AspNetCore.SignalR/) (.NET Framework) |
-| Pacchetti NuGet del client | [ASPNET](https://www.nuget.org/packages/Microsoft.AspNet.SignalR.Client/)<br>[Microsoft.AspNet.SignalR.JS](https://www.nuget.org/packages/Microsoft.AspNet.SignalR.JS/) | [Microsoft.AspNetCore.SignalR.Client](https://www.nuget.org/packages/Microsoft.AspNetCore.SignalR.Client/) |
-| Client npm, pacchetti | [SignalR](https://www.npmjs.com/package/signalr) | [@aspnet/signalr](https://www.npmjs.com/package/@aspnet/signalr) |
-| Client Java | [GitHub Repository](https://github.com/SignalR/java-client) (deprecata)  | Pacchetto Maven [com.microsoft.signalr](https://search.maven.org/artifact/com.microsoft.signalr/signalr) |
+| Pacchetti NuGet del client | [Microsoft.AspNet.SignalR.Client](https://www.nuget.org/packages/Microsoft.AspNet.SignalR.Client/)<br>[Microsoft.AspNet.SignalR.JS](https://www.nuget.org/packages/Microsoft.AspNet.SignalR.JS/) | [Microsoft.AspNetCore.SignalR.Client](https://www.nuget.org/packages/Microsoft.AspNetCore.SignalR.Client/) |
+| Client npm, pacchetti | [signalr](https://www.npmjs.com/package/signalr) | [@aspnet/signalr](https://www.npmjs.com/package/@aspnet/signalr) |
+| Java Client | [GitHub Repository](https://github.com/SignalR/java-client) (deprecata)  | Pacchetto Maven [com.microsoft.signalr](https://search.maven.org/artifact/com.microsoft.signalr/signalr) |
 | Tipo di App server | ASP.NET (System. Web) o Self-hosting OWIN | ASP.NET Core |
 | Nelle piattaforme Server supportati | .NET framework 4.5 o versione successiva | .NET Framework 4.6.1 o versioni successive<br>.NET core 2.1 o versioni successive |
 
@@ -85,7 +85,7 @@ In ASP.NET Core SignalR, il [PersistentConnection](https://docs.microsoft.com/pr
 
 ASP.NET Core con inserimento di dipendenze () incorporato in framework. I servizi possono utilizzare l'inserimento delle dipendenze per accedere la [HubContext](xref:signalr/hubcontext). Il `GlobalHost` oggetto che viene utilizzato in ASP.NET SignalR per ottenere un `HubContext` non esiste in ASP.NET Core SignalR.
 
-### <a name="hubpipeline"></a>A HubPipeline
+### <a name="hubpipeline"></a>HubPipeline
 
 ASP.NET Core SignalR non dispone di supporto per `HubPipeline` moduli.
 

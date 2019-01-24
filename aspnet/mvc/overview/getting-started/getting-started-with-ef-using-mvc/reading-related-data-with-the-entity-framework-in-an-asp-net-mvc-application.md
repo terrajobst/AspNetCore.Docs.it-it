@@ -4,17 +4,17 @@ title: "Esercitazione: Leggere i dati correlati in un'app ASP.NET MVC con Entity
 description: In questa esercitazione verrà letto e visualizzare dati correlati, ovvero i dati che Entity Framework carica all'interno di proprietà di navigazione.
 author: tdykstra
 ms.author: riande
-ms.date: 01/17/2019
+ms.date: 01/22/2019
 ms.topic: tutorial
 ms.assetid: 18cdd896-8ed9-4547-b143-114711e3eafb
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 8660a75655b801364cce7c4b59847c5c00562a27
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
+ms.openlocfilehash: 5f45820cd7abd60e69c19368cee50e91e31a75a0
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396207"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836831"
 ---
 # <a name="tutorial-read-related-data-with-ef-in-an-aspnet-mvc-app"></a>Esercitazione: Leggere i dati correlati in un'app ASP.NET MVC con Entity Framework
 
@@ -84,7 +84,7 @@ Il `Course` entità include una proprietà di navigazione che contiene il `Depar
 
 Creare un controller denominato `CourseController` (non CoursesController) per il `Course` tipo di entità, utilizzando le stesse opzioni per il **Controller MVC 5 con visualizzazioni, mediante Entity Framework** utilità di scaffolding che è stato fatto in precedenza per il `Student` controller:
 
-| Impostazione | Value |
+| Impostazione | Valore |
 | ------- | ----- |
 | Classe di modello | Selezionare **corso (ContosoUniversity.Models)**. |
 | Classe del contesto dati | Select **SchoolContext (ContosoUniversity.DAL)**. |
@@ -243,6 +243,10 @@ Successivamente viene caricata in modo esplicito ognuno `Enrollment` entità rel
 Si noti che si utilizzano il `Collection` per caricare una proprietà di raccolta, ma per una proprietà che contiene una sola entità, si utilizza il `Reference` (metodo).
 
 Eseguire ora la pagina di indice degli insegnanti e non si vedrà alcuna differenza in ciò che viene visualizzata nella pagina, anche se è stata modificata la modalità di recupero dei dati.
+
+## <a name="get-the-code"></a>Ottenere il codice
+
+[Download progetto completato](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

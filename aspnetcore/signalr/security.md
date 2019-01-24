@@ -1,18 +1,18 @@
 ---
 title: Considerazioni sulla sicurezza in ASP.NET Core SignalR
-author: tdykstra
+author: bradygaster
 description: Informazioni su come usare l'autenticazione e autorizzazione in ASP.NET Core SignalR.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: anurse
 ms.custom: mvc
 ms.date: 11/06/2018
 uid: signalr/security
-ms.openlocfilehash: f646d319cf3030fd4d769e882514da14b230bbdd
-ms.sourcegitcommit: c3fa5aded0bf76a7414047d50b8a2311d27ee1ef
+ms.openlocfilehash: 52cfac6be8e61572acdf0b19dab574b607314d97
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51276145"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836064"
 ---
 # <a name="security-considerations-in-aspnet-core-signalr"></a>Considerazioni sulla sicurezza in ASP.NET Core SignalR
 
@@ -46,25 +46,25 @@ Ad esempio, il seguente criterio CORS consente a un client di browser SignalR os
 
 ::: moniker range=">= aspnetcore-2.2"
 
-La protezione fornita dalle CORS non si applicano agli oggetti WebSocket. Per la restrizione di origine su WebSockets, leggere [restrizione di origine di WebSockets](xref:fundamentals/websockets#websocket-origin-restriction).
+La protezione fornita da CORS non si applica agli oggetti WebSocket. Per la restrizione di origine su WebSockets, leggere [restrizione di origine di WebSockets](xref:fundamentals/websockets#websocket-origin-restriction).
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.2"
 
-La protezione fornita dalle CORS non si applicano agli oggetti WebSocket. Browser **non**:
+La protezione fornita da CORS non si applica agli oggetti WebSocket. I browser **non**:
 
-* Eseguire richieste preliminari CORS.
-* Rispettare le restrizioni specificate in `Access-Control` intestazioni quando si effettuano le richieste WebSocket.
+* Eseguono richieste CORS preventive.
+* Rispettano le restrizioni specificate nelle intestazioni `Access-Control` quando eseguono richieste WebSocket.
 
-Tuttavia, i browser inviano il `Origin` intestazione quando si inviano richieste WebSocket. Le applicazioni devono essere configurate per convalidare le intestazioni per assicurarsi che siano consentite solo WebSockets provenienti da origini previsto.
+I browser, tuttavia, inviano l'intestazione `Origin` quando rilasciano richieste WebSocket. Le applicazioni devono essere configurate per la convalida di queste intestazioni per assicurarsi che siano consentiti solo WebSocket provenienti dalle origini previste.
 
 In ASP.NET Core 2.1 e versioni successive, è possibile ottenere la convalida delle intestazioni utilizzando un middleware personalizzato inserito **prima `UseSignalR`e middleware di autenticazione** in `Configure`:
 
 [!code-csharp[Main](security/sample/Startup.cs?name=snippet2)]
 
 > [!NOTE]
-> Il `Origin` intestazione è controllata dal client e, come il `Referer` intestazione, possono essere falsificati. Queste intestazioni devono **non** utilizzabile come un meccanismo di autenticazione.
+> L'intestazione `Origin` viene controllata dal client e, come l'intestazione `Referer`, può essere falsificata. Queste intestazioni devono **non** utilizzabile come un meccanismo di autenticazione.
 
 ::: moniker-end
 

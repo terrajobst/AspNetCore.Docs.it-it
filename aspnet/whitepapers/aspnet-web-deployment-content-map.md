@@ -8,18 +8,18 @@ ms.date: 03/14/2014
 ms.assetid: 58b583cd-c4ab-47a3-8527-8c92c298c91f
 msc.legacyurl: /whitepapers/aspnet-web-deployment-content-map
 msc.type: content
-ms.openlocfilehash: c970d929c4e6b581bedd2947982926ac448facfa
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 6df0c9d2f38ad1d39abd62787c600ef80da8e8e0
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41828947"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836221"
 ---
 <a name="aspnet-web-deployment---recommended-resources"></a>Distribuzione Web ASP.NET - risorse consigliate
 ====================
 > In questo argomento vengono forniti collegamenti alla documentazione di risorse su come distribuire, pubblicare, ASP.NET web alle applicazioni di IIS utilizzando Visual Studio 2010, Visual Web Developer 2010 e versioni successive.
 > 
-> Se si conosce un grande blog post [stackoverflow](http://stackoverflow.com) thread o qualsiasi altro tipo di collegamento che può essere utile, [inviarci un messaggio di posta elettronica](mailto:aspnetue@microsoft.com?subject=Deployment Content Map) con il collegamento.
+> Se si conosce un grande blog post [stackoverflow](http://stackoverflow.com) thread o qualsiasi altro tipo di collegamento che può essere utile, [inviarci un messaggio di posta elettronica](mailto:aspnetue@microsoft.com?subject=Deployment%20Content%20Map) con il collegamento.
 > 
 > > [!NOTE] 
 > > 
@@ -65,7 +65,7 @@ Di seguito sono elencate le diverse sezioni di questo argomento:
 
 ## <a name="finding-hosting-providers-for-an-aspnet-application"></a>Individuazione provider per un'applicazione ASP.NET di hosting
 
-- [Hosting di ASP.NET](https://asp.net/hosting)
+- [ASP.NET Hosting](https://asp.net/hosting)
 
 
 <a id="fromvs"></a>
@@ -75,7 +75,7 @@ Di seguito sono elencate le diverse sezioni di questo argomento:
 
 - [Come distribuire un sito Web di Azure Windows](https://docs.microsoft.com/azure/app-service-web/web-sites-deploy). Illustra le opzioni e vengono forniti collegamenti alle risorse per la distribuzione di progetti web per siti Web di Azure. Include una sezione sulla distribuzione da Visual Studio.
 - [Distribuzione Web ASP.NET tramite Visual Studio](../web-forms/overview/deployment/visual-studio-web-deployment/introduction.md). serie di esercitazioni 12 parti illustra come distribuire applicazioni web con database di SQL Server. Per database di distribuzione utilizza il provider dbDacFx e migrazioni di Entity Framework Code First. Include anche informazioni sulle [trasformazioni del file Web. config](../web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations.md), [distribuzione di file singoli](../web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update.md#specificfiles), [distribuzione da riga di comando](../web-forms/overview/deployment/visual-studio-web-deployment/command-line-deployment.md), e [come personalizzare il web di Visual Studio pipeline di pubblicazione modificando i file con estensione pubxml](../web-forms/overview/deployment/visual-studio-web-deployment/deploying-extra-files.md). Si applica a tutti i progetti web ASP.NET, tra cui Web Form, MVC e API Web).
-- [Procedura: distribuire un Web progetto tramite un solo clic la pubblicazione in Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx) (informazioni di riferimento per la procedura guidata di pubblicazione di Visual Studio Web.)
+- [Procedura: Distribuire un Web progetto tramite un solo clic la pubblicazione in Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx) (informazioni di riferimento per la procedura guidata di pubblicazione di Visual Studio Web.)
 - [Distribuzione di un'applicazione Web ASP.NET con SQL Server Compact tramite Visual Studio](../web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12.md). Si tratta di una versione precedente di **distribuzione Web ASP.NET tramite Visual Studio** elencati nella parte superiore di questa sezione. Ora principalmente utile per informazioni su come distribuire i database di SQL Server Compact e come eseguire la migrazione da SQL Server Compact a una versione completa di SQL Server.
 - [Applicazione multilivello .NET usando archiviazione tabelle, code e blob](https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36) (sito Web Microsoft Azure). serie di esercitazioni 5 parti, viene illustrato come creare un progetto MVC e distribuirla in un servizio Cloud di Azure.
 
@@ -83,8 +83,8 @@ Di seguito sono elencate le diverse sezioni di questo argomento:
 <a id="package"></a>
 ## <a name="deploying-a-web-application-by-creating-and-installing-a-web-deployment-package"></a>Distribuzione di un'applicazione web creando e installando un pacchetto di distribuzione web
 
-- [Procedura: creare un pacchetto di distribuzione Web in Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx) (MSDN).
-- [Procedura: installare un pacchetto di distribuzione usando il File deploy. cmd creato da Visual Studio](https://msdn.microsoft.com/library/ff356104.aspx) (MSDN).
+- [Procedura: Creare un pacchetto di distribuzione Web in Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx) (MSDN).
+- [Procedura: Installare un pacchetto di distribuzione usando il File deploy. cmd creato da Visual Studio](https://msdn.microsoft.com/library/ff356104.aspx) (MSDN).
 - [Uso di un pacchetto di distribuzione Web per distribuire IIS nella finestra di sviluppo e a un host di terze parti](http://sedodream.com/2011/11/08/UsingAWebDeployPackageToDeployToIISOnTheDevBoxAndToAThirdPartyHost.aspx) (blog di Sayed Hashimi). Come usare Gestione IIS per installare un pacchetto di distribuzione in IIS nel computer locale e in un tipo di hosting della società che supporta la gestione IIS per amministrazione remota.
 - [Creazione di una Web distribuire pacchetti da Visual Studio 2010](https://www.iis.net/learn/publish/using-web-deploy/building-a-web-deploy-package-from-visual-studio-2010) (sito web IIS.NET). Sono incluse istruzioni per la creazione del pacchetto dalla riga di comando e l'installazione.
 - [Creare un pacchetto una volta pubblica ovunque](http://sedodream.com/2012/03/14/PackageWebUpdatedAndVideoBelow.aspx) (blog di Sayed Hashimi). Introduce un pacchetto NuGet che consente di automatizzare il processo di trasformazione del file Web. config per più ambienti di destinazione, in modo che è possibile distribuire un pacchetto in più server. Vedere anche il [PackageWeb video](https://www.youtube.com/watch?v=-LvUJFI8CzM) da Sayed Hashimi.
@@ -100,7 +100,7 @@ Vedere anche la sezione seguente.
 - [Integrazione continua e recapito continuo (creazione di App Cloud reali con Windows Azure).](../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery.md) Capitolo di eBook che introduce l'integrazione continua e recapito continuo.
 - [Come distribuire un sito Web di Azure Windows](https://docs.microsoft.com/azure/app-service-web/web-sites-deploy). Illustra le opzioni e i collegamenti alle risorse per la distribuzione di progetti web per siti Web di Azure. Include una sezione sull'automazione della distribuzione dal controllo del codice sorgente.
 - [Distribuzione di applicazioni Web in scenari aziendali](../web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md). serie di esercitazioni 40 parti illustra come automatizzare la distribuzione in un processo di integrazione continua usando Visual Studio 2010 e Team Foundation Server 2010.
-- [All'interno del motore di Microsoft Build: utilizzo di MSBuild e Team Foundation Build, Sayed Hashimi, William Bartholomew](http://msbuildbook.com). Si tratta di un libro, non è una risorsa web, ma è una Guida essenziale per imparare a configurare MSBuild per scenari di integrazione continua.
+- [All'interno di Microsoft Build Engine: Utilizzo di MSBuild e Team Foundation Build, Sayed Hashimi, William Bartholomew](http://msbuildbook.com). Si tratta di un libro, non è una risorsa web, ma è una Guida essenziale per imparare a configurare MSBuild per scenari di integrazione continua.
 - [Pacchetto di estensioni di MSBuild](https://github.com/mikefourie/MSBuildExtensionPack). Include attività di distribuzione.
 - [Team Foundation Build Customization Guide](https://aka.ms/vsarsolutions). Documentazione da ALM Rangers sulla configurazione di Team Foundation Server include informazioni sulla distribuzione web e include le esercitazioni e video.
 - [Le trasformazioni SlowCheetah XML da un server CI](http://sedodream.com/2011/12/12/SlowCheetahXMLTransformsFromACIServer.aspx) (blog di Sayed Hashimi). Illustra come usare SlowCheetah, componente aggiuntivo di Visual Studio per la trasformazione di App. config e altri file XML.
@@ -127,7 +127,7 @@ Vedere anche [assicurandosi di un'applicazione non in linea durante la distribuz
 
 ## <a name="using-web-deploy-parameters-to-change-settings-in-the-destination-web-application-during-deployment"></a>Utilizzo di parametri di distribuzione Web per modificare le impostazioni dell'applicazione web di destinazione durante la distribuzione
 
-- [Procedura: i parametri in un pacchetto di distribuzione Web di distribuzione Web usare](https://msdn.microsoft.com/library/ff398068.aspx) (MSDN).
+- [Procedura: I parametri in un pacchetto di distribuzione Web di distribuzione Web usare](https://msdn.microsoft.com/library/ff398068.aspx) (MSDN).
 - [MSDeploy: Come aggiornare le impostazioni dell'app nella pubblicazione basato sul profilo di pubblicazione](http://sedodream.com/2013/03/02/MSDeployHowToUpdateAppSettingsOnPublishBasedOnThePublishProfile.aspx) (blog di Sayed Hashimi). Viene illustrato come integrare Web i parametri di distribuzione in Visual Studio i profili di pubblicazione.
 - [Distribuire la parametrizzazione di Web](https://www.iis.net/learn/publish/using-web-deploy/web-deploy-parameterization) (sito web IIS.NET).
 - [Distribuire la parametrizzazione in azione Web](http://vishaljoshi.blogspot.com/2010/07/web-deploy-parameterization-in-action.html) (blog di Vishal Joshi).
@@ -140,7 +140,7 @@ Vedere anche [assicurandosi di un'applicazione non in linea durante la distribuz
 
 ## <a name="making-sure-an-application-is-off-line-during-deployment"></a>Assicurarsi di un'applicazione è offline durante la distribuzione
 
-- [Distribuzione Web ASP.NET tramite Visual Studio: distribuzione di un aggiornamento del codice](../web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update.md). Vedere la sezione **portare offline l'applicazione durante la distribuzione.**
+- [Distribuzione Web ASP.NET tramite Visual Studio: Distribuzione di un aggiornamento del codice](../web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update.md). Vedere la sezione **portare offline l'applicazione durante la distribuzione.**
 - [Disconnettere un'applicazione prima della pubblicazione](https://www.iis.net/learn/publish/deploying-application-packages/taking-an-application-offline-before-publishing) (IIS.net sito). Viene illustrata una funzionalità integrate di Web Deploy 3.0 che consente di automatizzare la gestione di un'app\_offline.htm file. Questa funzionalità non funziona con un'app personalizzata\_offline.htm file.
 - [Come eseguire l'app web in modalità offline durante la pubblicazione](http://sedodream.com/2012/01/08/HowToTakeYourWebAppOfflineDuringPublishing.aspx) (blog di Sayed Hashimi). Come automatizzare il processo d'uso di un'app personalizzata\_offline.htm file.
 - [Web pubblicazione degli aggiornamenti per l'app non in linea e usechecksum](https://blogs.msdn.com/b/webdev/archive/2013/10/30/web-publishing-updates-for-app-offline-and-usechecksum.aspx) (blog di sviluppo Web Microsoft). Un'altra opzione per l'uso dell'app automazione\_offline.htm file.
@@ -154,7 +154,7 @@ Vedere anche [assicurandosi di un'applicazione non in linea durante la distribuz
 
 - [Configura la distribuzione del Database in Visual Studio](https://msdn.microsoft.com/library/dd394698.aspx#dbdeployment) (MSDN). Panoramica delle opzioni per la distribuzione di un database con un progetto web.
 - [Distribuzione Web ASP.NET tramite Visual Studio](../web-forms/overview/deployment/visual-studio-web-deployment/introduction.md). serie esercitazioni in 12 parti, illustra la distribuzione del database tramite provider dbDacFx e migrazioni di Entity Framework Code First.
-- [Procedura: distribuire un sito Web pubblica progetto usando un solo clic in Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx) (MSDN).
+- [Procedura: Distribuire un sito Web pubblica progetto usando un solo clic in Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx) (MSDN).
 - [Distribuire un'app ASP.NET MVC 5 sicura con appartenenza, OAuth e Database SQL in un sito Web di Azure Windows](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). Un'esercitazione lunga che compila e distribuisce un'applicazione che usa un singolo SQL Server database sia per i dati di appartenenza e l'applicazione.
 - [Distribuzione di un'applicazione Web ASP.NET con SQL Server Compact tramite Visual Studio](../web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12.md). serie esercitazioni in 12 parti, viene illustrato come distribuire i database di SQL Server Compact e come eseguire la migrazione da SQL Server Compact a una versione completa di SQL Server.
 
@@ -211,7 +211,7 @@ Vedere anche la distribuzione di un'applicazione web creando e installando un pa
 
 ## <a name="automating-common-deployment-tasks-that-are-not-automated-out-of-the-box"></a>Automazione delle attività di distribuzione comuni che vengono automatizzate non predefiniti
 
-- [Distribuzione Web ASP.NET tramite Visual Studio: distribuzione di file aggiuntivi](../web-forms/overview/deployment/visual-studio-web-deployment/deploying-extra-files.md).
+- [Distribuzione Web ASP.NET tramite Visual Studio: Distribuzione di file aggiuntivi](../web-forms/overview/deployment/visual-studio-web-deployment/deploying-extra-files.md).
 - [Impostazione delle autorizzazioni di cartella nel sito Web-pubblicazione](http://sedodream.com/2011/11/08/SettingFolderPermissionsOnWebPublish.aspx) (blog di Sayed Hashimi).
 - [Come estendere il file di destinazioni per includere le impostazioni del Registro di sistema per un pacchetto del progetto web](https://blogs.msdn.com/webdevtools/archive/2010/02/09/how-to-extend-target-file-to-include-registry-settings-for-web-project-package.aspx) (blog di strumenti di sviluppo Web).
 - [Estensione di trasformazione XML (Web. config)](http://sedodream.com/2010/09/09/ExtendingXMLWebconfigConfigTransformation.aspx) (blog di Sayed Hashimi). Viene illustrato come creare trasformazioni XDT personalizzate.
@@ -244,7 +244,7 @@ Vedere anche la distribuzione di un'applicazione web creando e installando un pa
 ## <a name="troubleshooting-deployment-problems"></a>Risoluzione dei problemi di distribuzione
 
 - [Risoluzione dei problemi di siti Web di Azure in Visual Studio](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio) (sito Web Microsoft Azure).
-- [Distribuzione Web ASP.NET tramite Visual Studio: risoluzione dei problemi](../web-forms/overview/deployment/visual-studio-web-deployment/troubleshooting.md).
+- [Distribuzione Web ASP.NET tramite Visual Studio: Risoluzione dei problemi](../web-forms/overview/deployment/visual-studio-web-deployment/troubleshooting.md).
 - [Risoluzione dei problemi comuni con Web distribuire](https://www.iis.net/learn/publish/troubleshooting-web-deploy/troubleshooting-common-problems-with-web-deploy).
 - [Codici di errore di distribuzione Web](https://www.iis.net/learn/publish/troubleshooting-web-deploy/web-deploy-error-codes) (IIS.net sito).
 - [Domande frequenti sulla distribuzione per Visual Studio e ASP.NET Web](https://msdn.microsoft.com/library/ee942158.aspx) (MSDN).

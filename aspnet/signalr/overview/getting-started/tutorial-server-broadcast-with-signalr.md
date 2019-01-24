@@ -3,18 +3,18 @@ uid: signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 title: 'Esercitazione: Trasmissione server con SignalR 2 | Microsoft Docs'
 author: tdykstra
 description: Questa esercitazione illustra come creare un'applicazione web che usa ASP.NET SignalR 2 per fornire funzionalità di trasmissione di server.
-ms.author: riande
+ms.author: bradyg
 ms.date: 01/02/2019
 ms.topic: tutorial
 ms.assetid: 1568247f-60b5-4eca-96e0-e661fbb2b273
 msc.legacyurl: /signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: a6014e604613492db91b2dc6f846c3c73d938d99
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: a243c78c7d552f1c82a88c6083871fcd16538618
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54099299"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837429"
 ---
 # <a name="tutorial-server-broadcast-with-signalr-2"></a>Esercitazione: Server di trasmissione con SignalR 2
 
@@ -26,7 +26,7 @@ L'applicazione che verrà creata in questa esercitazione simula le quotazioni di
 
 ![Creazione di web](tutorial-server-broadcast-with-signalr/_static/image1.png)
 
-In questa esercitazione è:
+Le attività di questa esercitazione sono le seguenti:
 
 > [!div class="checklist"]
 > * Creare il progetto
@@ -483,11 +483,11 @@ Per altre informazioni su SignalR, vedere le risorse seguenti:
 * [ASP.NET SignalR](../../index.md)
 * [Progetto di SignalR](http://signalr.net/)
 * [SignalR GitHub ed esempi](https://github.com/SignalR/SignalR)
-* [Wiki di SignalR](https://github.com/SignalR/SignalR/wiki)
+* [SignalR Wiki](https://github.com/SignalR/SignalR/wiki)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è:
+Le attività di questa esercitazione sono le seguenti:
 
 > [!div class="checklist"]
 > * Creazione del progetto

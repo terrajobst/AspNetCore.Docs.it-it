@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/performance/scaleout-with-redis
 title: Scalabilità orizzontale di SignalR con Redis | Microsoft Docs
-author: MikeWasson
+author: bradygaster
 description: Le versioni del software utilizzato in questo argomento di Visual Studio 2013 .NET 4.5 SignalR le versioni precedenti la versione 2 di questo argomento per informazioni sulle versioni precedenti di...
-ms.author: riande
+ms.author: bradyg
 ms.date: 06/10/2014
 ms.assetid: 6ecd08c1-e364-4cd7-ad4c-806521911585
 msc.legacyurl: /signalr/overview/performance/scaleout-with-redis
 msc.type: authoredcontent
-ms.openlocfilehash: 5151c718c82408fdcb75de16211b55488ca513d2
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: 22b8379fd2d97aeb85137e1cc128fe5d053f44ed
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287741"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837026"
 ---
 <a name="signalr-scaleout-with-redis"></a>Scalabilità orizzontale di SignalR con Redis
 ====================

@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/older-versions/tutorial-high-frequency-realtime-with-signalr
 title: Messaggistica ad alta frequenza con SignalR 1.x | Microsoft Docs
-author: pfletcher
+author: bradygaster
 description: Questa esercitazione illustra come creare un'applicazione web che usa ASP.NET SignalR per fornire funzionalità di messaggistica ad alta frequenza. Ad alta frequenza messaggistica in...
-ms.author: riande
+ms.author: bradyg
 ms.date: 04/16/2013
 ms.assetid: ad2a5da5-2e79-40ea-bc84-028d327f5982
 msc.legacyurl: /signalr/overview/older-versions/tutorial-high-frequency-realtime-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: a679a7c66a94fa440a1ead64225eb86f7de90c9e
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: 6df35a420a0733003808a12d065b03f08ef56dd9
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287960"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837923"
 ---
 <a name="high-frequency-realtime-with-signalr-1x"></a>Messaggistica ad alta frequenza con SignalR 1.x
 ====================
@@ -195,4 +195,4 @@ Per altre informazioni sui concetti di sviluppo SignalR, visitare i siti per il 
 
 - [Progetto di SignalR](http://signalr.net)
 - [SignalR Github ed esempi](https://github.com/SignalR/SignalR)
-- [Wiki di SignalR](https://github.com/SignalR/SignalR/wiki)
+- [SignalR Wiki](https://github.com/SignalR/SignalR/wiki)

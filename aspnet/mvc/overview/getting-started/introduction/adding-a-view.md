@@ -3,14 +3,14 @@ title: Aggiunta di una vista a un'app MVC
 author: Rick-Anderson
 description: Aggiunta di una vista a un'app MVC
 ms.author: riande
-ms.date: 09/1721/2017
+ms.date: 01/23/2019
 uid: mvc/overview/getting-started/introduction/adding-a-view
-ms.openlocfilehash: 47447c82506cc0eb4dafabe272b3204f76a2edd7
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: afa7584529566ebe82a0eb3849de89bd0df064bd
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54098662"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837754"
 ---
 <a name="adding-a-view"></a>Aggiunta di una vista
 ====================
@@ -60,7 +60,7 @@ In alternativa, eseguire l'applicazione e selezionare il `HelloWorld` controller
 
 ![](adding-a-view/_static/image6.png)
 
-Sembra abbastanza positivo. Si noti tuttavia che barra del titolo del browser mostra &quot;indice - My Appli ASP.NET "e il collegamento grande nella parte superiore della pagina indica"Application name". A seconda di come piccolo rendere la finestra del browser, potrebbe essere necessario fare clic sulle tre barre in alto a destra per visualizzare il per il **Home**, **sulle**, **contatto**, **Register** e **Accedi** collegamenti.
+Sembra abbastanza positivo. Si noti tuttavia che barra del titolo del browser Mostra "Indice – My ASP.NET Application," e il collegamento grande nella parte superiore della pagina indica "Application name". A seconda di come piccolo rendere la finestra del browser, potrebbe essere necessario fare clic sulle tre barre in alto a destra per visualizzare il per il **Home**, **sulle**, **contatto**, **Register** e **Accedi** collegamenti.
 
 ## <a name="changing-views-and-layout-pages"></a>Modifica delle viste e le pagine di Layout
 
@@ -112,7 +112,7 @@ La minima &quot;dati&quot; (in questo caso il &quot;Hello from our View Template
 
 Prima di passare a un database e comunicare con informazioni sui modelli, tuttavia, esaminiamo innanzitutto il passaggio di informazioni dal controller a una visualizzazione. Le classi controller vengono richiamate in risposta a una richiesta URL in ingresso. Una classe controller è in cui viene scritto il codice che gestisce il browser in ingresso richieste, recupera i dati da un database e in definitiva determina il tipo di risposta da inviare al browser. I modelli di visualizzazione sono quindi utilizzabile per generare e formattare una risposta HTML al browser da un controller.
 
-I controller sono responsabili di fornire i dati o oggetti sono necessari affinché un modello di vista eseguire il rendering di una risposta nel browser. Una procedura consigliata: **Un modello di vista non deve mai eseguire logica di business o interagire direttamente con un database**. Al contrario, un modello di vista dovrebbe lavorare solo con i dati forniti dal controller. Mantenendo ciò &quot;la separazione dei compiti&quot; consente inoltre di mantenere il codice pulito, testabile e gestibile.
+I controller sono responsabili di fornire i dati o oggetti sono necessari affinché un modello di vista eseguire il rendering di una risposta nel browser. Procedura consigliata: **Un modello di vista non deve mai eseguire logica di business o interagire direttamente con un database**. Al contrario, un modello di vista dovrebbe lavorare solo con i dati forniti dal controller. Mantenendo ciò &quot;la separazione dei compiti&quot; consente inoltre di mantenere il codice pulito, testabile e gestibile.
 
 Attualmente, il `Welcome` metodo di azione il `HelloWorldController` classe accetta un `name` e un `numTimes` parametro e quindi genera i valori direttamente al browser. Anziché ottenere il rendering di questa risposta come stringa, cambiare il controller per usare invece un modello di vista. Il modello di vista genererà una risposta dinamica, il che significa che è necessario passare i bit di dati appropriati dal controller alla vista per generare la risposta. È possibile farlo facendo in modo che il controller inserisca i dati dinamici (parametri) che il modello di vista necessita in un `ViewBag` oggetto che può quindi accedere il modello di visualizzazione.
 
