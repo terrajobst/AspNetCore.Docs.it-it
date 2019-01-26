@@ -5,12 +5,12 @@ description: Informazioni su come abilitare la generazione di codice a matrice p
 ms.author: riande
 ms.date: 08/14/2018
 uid: security/authentication/identity-enable-qrcodes
-ms.openlocfilehash: 437f354f71128a98bae9abdced291e04efc9f48e
-ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
+ms.openlocfilehash: cf99cc21a7a1bb4d01c7cc092106d23375a1a76f
+ms.sourcegitcommit: ca5f03210bedc61c6639a734ae5674bfe095dee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51225382"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55073127"
 ---
 # <a name="enable-qr-code-generation-for-totp-authenticator-apps-in-aspnet-core"></a>Abilitare la generazione di codice a matrice per le app di autenticazione TOTP in ASP.NET Core
 
@@ -25,6 +25,8 @@ I codici a matrice richiede ASP.NET Core 2.0 o versione successiva.
 ASP.NET Core viene fornito con supporto per le applicazioni di authenticator per la singola autenticazione. Due factor authentication (2FA) le app di autenticazione, usando un basati sul tempo monouso Password algoritmo (TOTP), sono il settore approccio autenticazione 2fa consigliato. 2FA usando TOTP è preferibile a SMS 2FA. Un'app di autenticazione fornisce un codice di 6-8 cifre che gli utenti devono immettere dopo avere verificato il nome utente e password. In genere un'app di autenticazione viene installata in uno Smartphone.
 
 I modelli di app web ASP.NET Core supportano gli autenticatori, ma non offrono supporto per la generazione di QRCode. I generatori di QRCode facilitano l'installazione di 2FA. Questo documento illustra l'aggiunta [codice a matrice](https://wikipedia.org/wiki/QR_code) generazione alla pagina di configurazione 2FA.
+
+Autenticazione a due fattori non viene eseguita tramite un provider di autenticazione esterni, ad esempio [Google](xref:security/authentication/google-logins) oppure [Facebook](xref:security/authentication/facebook-logins). Account di accesso esterni sono protetti da qualsiasi meccanismo fornisce il provider di accesso esterno. Si consideri, ad esempio, il [Microsoft](xref:security/authentication/microsoft-logins) provider di autenticazione richiede una chiave hardware o un altro approccio 2FA. Se i modelli predefiniti applicati 2FA "locale" agli utenti verranno richiesto per soddisfare due approcci 2FA, che non è uno scenario di uso comune.
 
 ## <a name="adding-qr-codes-to-the-2fa-configuration-page"></a>Aggiunta di codici a matrice per la pagina di configurazione 2FA
 

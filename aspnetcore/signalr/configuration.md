@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 09/06/2018
 uid: signalr/configuration
-ms.openlocfilehash: bb18ba242584afa7181dcc19a5295f86996aeaa3
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: 06e86921c65297e93dcd8954ba4983d1577bb615
+ms.sourcegitcommit: ca5f03210bedc61c6639a734ae5674bfe095dee8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54837520"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55073153"
 ---
 # <a name="aspnet-core-signalr-configuration"></a>Configurazione di ASP.NET Core SignalR
 
@@ -63,6 +63,7 @@ La tabella seguente descrive le opzioni per la configurazione degli hub SignalR:
 
 | Opzione | Valore predefinito | Descrizione |
 | ------ | ------------- | ----------- |
+| `ClientTimeoutInterval` | 30 secondi | Il server considererà il client disconnesso se non è stato ricevuto un messaggio (incluso keep-alive) in questo intervallo. È possibile che richiederà più tempo rispetto a questo intervallo di timeout per il client deve essere contrassegnato effettivamente disconnessi, a causa di questa modalità di implementazione. Il valore consigliato è double il `KeepAliveInterval` valore.|
 | `HandshakeTimeout` | 15 secondi | Se il client non invia un messaggio di handshake iniziale all'interno di questo intervallo di tempo, la connessione viene chiusa. Si tratta di un'impostazione avanzata che deve essere modificata solo se si verificano a causa della latenza di rete gravi errori di timeout di handshake. Per informazioni dettagliate sul processo di handshake, vedere la [specifica del protocollo dell'Hub SignalR](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md). |
 | `KeepAliveInterval` | 15 secondi | Se il server non ha inviato un messaggio all'interno di questo intervallo, un messaggio ping viene inviato automaticamente a mantenere aperta la connessione. Quando si modificano `KeepAliveInterval`, modificare il `ServerTimeout` / `serverTimeoutInMilliseconds` impostazione sul client. L'elemento consigliato `ServerTimeout` / `serverTimeoutInMilliseconds` valore è double il `KeepAliveInterval` valore.  |
 | `SupportedProtocols` | Tutti i protocolli installati | Protocolli supportati da questo hub. Per impostazione predefinita, sono consentiti tutti i protocolli registrati nel server, ma i protocolli possono essere rimossi da questo elenco per disabilitare i protocolli specifici per singoli hub. |

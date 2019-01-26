@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/29/2018
 uid: security/gdpr
-ms.openlocfilehash: 7688ac6264b089ebd3544494c967684cb291a547
-ms.sourcegitcommit: cec77d5ad8a0cedb1ecbec32834111492afd0cd2
+ms.openlocfilehash: 5f5ed96354b0b71961c122506602e60b95b809fa
+ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54207515"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54889743"
 ---
 # <a name="eu-general-data-protection-regulation-gdpr-support-in-aspnet-core"></a>Supporto dell'Unione europea protezione il regolamento GDPR (General Data) in ASP.NET Core
 
@@ -92,6 +92,7 @@ Note:
 * Per generare il `Account/Manage` il codice, vedere [Scaffold identità](xref:security/authentication/scaffold-identity).
 * Il **eliminare** e **scaricare** collegamenti solo agiscono sui dati di identità predefinito. Le app che creano i dati utente personalizzato devono essere esteso per eliminare e scaricare i dati utente personalizzati. Per altre informazioni, vedere [Add, scaricare ed elimina i dati utente personalizzati per Identity](xref:security/authentication/add-user-data).
 * Salvare i token per l'utente che vengono archiviati nella tabella di database di identità `AspNetUserTokens` vengono eliminati quando l'utente viene eliminato tramite il comportamento di eliminazione a catena a causa dell'errore il [chiave esterna](https://github.com/aspnet/Identity/blob/release/2.1/src/EF/IdentityUserContext.cs#L152).
+* [Autenticazione basata su provider esterni](xref:security/authentication/social/index), ad esempio Facebook e Google, non è disponibile, prima che venga accettato i criteri per i cookie.
 
 ## <a name="encryption-at-rest"></a>Crittografia dei dati inattivi
 
