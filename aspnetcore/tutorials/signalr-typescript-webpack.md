@@ -2,16 +2,16 @@
 title: Usare ASP.NET Core SignalR con TypeScript e Webpack
 author: ssougnez
 description: In questa esercitazione verrà configurato Webpack per creare un bundle e compilare un'app Web ASP.NET Core SignalR il cui client è scritto in TypeScript.
-ms.author: scaddie
+ms.author: bradyg
 ms.custom: mvc
 ms.date: 11/30/2018
 uid: tutorials/signalr-typescript-webpack
-ms.openlocfilehash: 92709beb7a99289b8639135aab9d821937825103
-ms.sourcegitcommit: a16352c1c88a71770ab3922200a8cd148fb278a6
+ms.openlocfilehash: 8292ab2e0ad1f5c67ac7f15c280b49700f6717ad
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53335286"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836324"
 ---
 # <a name="use-aspnet-core-signalr-with-typescript-and-webpack"></a>Usare ASP.NET Core SignalR con TypeScript e Webpack
 
