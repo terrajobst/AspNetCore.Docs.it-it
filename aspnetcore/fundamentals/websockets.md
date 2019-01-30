@@ -5,14 +5,14 @@ description: Introduzione all'uso di oggetti WebSocket in ASP.NET Core.
 monikerRange: '>= aspnetcore-1.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 11/06/2018
+ms.date: 01/17/2019
 uid: fundamentals/websockets
-ms.openlocfilehash: 6c32269181ea3311c4aea99c08a1c043e7833b05
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.openlocfilehash: 76acb9c96ed5e8bbbaf39eeb6cb23307bb44fb8d
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341452"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836858"
 ---
 # <a name="websockets-support-in-aspnet-core"></a>Supporto di WebSocket in ASP.NET Core
 
@@ -144,6 +144,12 @@ Il codice illustrato in precedenza che accetta la richiesta WebSocket passa l'og
 Quando si accetta la connessione WebSocket prima che inizi il ciclo, la pipeline del middleware termina. Dopo la chiusura del socket, la pipeline si arresta, In altri termini, quando viene accettato il WebSocket, lo spostamento in avanti della richiesta nella pipeline si interrompe. Quando il ciclo viene completato e il socket viene chiuso, la richiesta torna ad avanzare nella pipeline.
 
 ::: moniker range=">= aspnetcore-2.2"
+
+### <a name="handle-client-disconnects"></a>Gestire le disconnessioni del client
+
+Il server non viene informato automaticamente quando il client si disconnette a causa della perdita di connettività. Il server riceve un messaggio di disconnessione solo se inviato dal client, ma questo non è possibile in caso di interruzione della connessione Internet. Se si vuole intervenire quando si verifica una situazione di questo tipo, impostare un timeout per segnalare che non sono stati ricevuti messaggi dal client entro un determinato intervallo di tempo.
+
+Se il client non invia messaggi con una certa frequenza e non si vuole impostare un timeout solo perché la connessione diventa inattiva, configurare un timer nel client in modo da inviare un messaggio ping ogni X secondi. Nel server, se un messaggio non è arrivato entro 2\*X secondi dal precedente, terminare la connessione e segnalare che il client si è disconnesso. Attendere il doppio del tempo previsto per tenere conto di eventuali ritardi della rete che potrebbero trattenere il messaggio ping.
 
 ### <a name="websocket-origin-restriction"></a>Restrizione per le origini WebSocket
 

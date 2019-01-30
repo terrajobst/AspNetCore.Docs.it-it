@@ -5,12 +5,12 @@ description: Aggiunta di una vista a una semplice app ASP.NET Core MVC
 ms.author: riande
 ms.date: 03/04/2017
 uid: tutorials/first-mvc-app/adding-view
-ms.openlocfilehash: 321ffd6b0168d4befc950a58035d19561e879491
-ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
+ms.openlocfilehash: f241a19c8821019f327fb160f01fe01eca53c5d0
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249451"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836905"
 ---
 # <a name="add-a-view-to-an-aspnet-core-mvc-app"></a>Aggiungere una vista a un'app ASP.NET Core MVC
 
@@ -104,7 +104,7 @@ Nel markup precedente, l'attributo `asp-area` [Helper Tag di ancoraggio](xref:mv
 
 **Nota**: Il controller `Movies` non è stato implementato. A questo punto, il collegamento `Movie App` non è funzionale.
 
-Salvare le modifiche e selezionare il collegamento **Privacy**. Si noti come il titolo sulla scheda del browser visualizzi **Privacy - Movie App** anziché **Privacy - Mvc Movie**:
+Salvare le modifiche e selezionare il collegamento **Privacy**. Si noti come il titolo sulla scheda del browser visualizzi **Privacy Policy - Movie App** anziché **Privacy Policy - Mvc Movie**:
 
 ![Scheda Privacy](~/tutorials/first-mvc-app/adding-view/_static/about2.png)
 

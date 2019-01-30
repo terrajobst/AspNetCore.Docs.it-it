@@ -3,20 +3,20 @@ title: Routing ad azioni del controller in ASP.NET Core
 author: rick-anderson
 description: Informazioni su come ASP.NET Core MVC usa middleware di routing per verificare la corrispondenza degli URL delle richieste in ingresso ed eseguirne il mapping alle azioni.
 ms.author: riande
-ms.date: 09/17/2018
+ms.date: 01/24/2019
 uid: mvc/controllers/routing
-ms.openlocfilehash: 2f6328a5efaa96fd8e4f0cafdbde77dd63a1548f
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: f5104bc53581a41fa8c25d8c67e08e038c275391
+ms.sourcegitcommit: c6db8b14521814f1f7e528d7aa06e474e4c04a1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477644"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "55065009"
 ---
 # <a name="routing-to-controller-actions-in-aspnet-core"></a>Routing ad azioni del controller in ASP.NET Core
 
 Di [Ryan Nowak](https://github.com/rynowak) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-ASP.NET Core MVC usa [middleware](xref:fundamentals/middleware/index) di routing per verificare la corrispondenza degli URL delle richieste in ingresso ed eseguirne il mapping alle azioni. Le route sono definite nel codice di avvio o negli attributi. Le route descrivono il modo in cui i percorsi URL devono corrispondere alle azioni. Vengono usate anche per generare gli URL (per i collegamenti) inviati nelle risposte. 
+ASP.NET Core MVC usa [middleware](xref:fundamentals/middleware/index) di routing per verificare la corrispondenza degli URL delle richieste in ingresso ed eseguirne il mapping alle azioni. Le route sono definite nel codice di avvio o negli attributi. Le route descrivono il modo in cui i percorsi URL devono corrispondere alle azioni. Vengono usate anche per generare gli URL (per i collegamenti) inviati nelle risposte.
 
 Le azioni vengono indirizzate in modo convenzionale o con attributi. Se una route viene inserita nel controller o nell'azione, viene indirizzata con attributi. Per altre informazioni, vedere [Routing misto](#routing-mixed-ref-label).
 
@@ -191,7 +191,6 @@ Se vi sono più route corrispondenti e MVC non è in grado di trovare la route m
 
 Le stringhe `"blog"` e `"default"` degli esempi seguenti sono nomi di route:
 
-
 ```csharp
 app.UseMvc(routes =>
 {
@@ -339,7 +338,7 @@ public class ProductsApiController : Controller
 
 In questo esempio il percorso URL `/products` può corrispondere a `ProductsApi.ListProducts` e il percorso URL `/products/5` può corrispondere a `ProductsApi.GetProduct(int)`. Entrambe le azioni corrispondono solo a HTTP `GET` poiché sono contrassegnate con `HttpGetAttribute`.
 
-I modelli di route applicati a un'azione che iniziano con `/` non vengono combinati con i modelli di route applicati al controller. Questo esempio illustra la corrispondenza di un set di percorsi URL simile alla *route predefinita*.
+I modelli di route applicati a un'azione che iniziano con `/` o `~/` non vengono combinati con i modelli di route applicati al controller. Questo esempio illustra la corrispondenza di un set di percorsi URL simile alla *route predefinita*.
 
 ```csharp
 [Route("Home")]
@@ -377,7 +376,7 @@ Nelle route con attributi si può configurare un ordine usando la proprietà `Or
 > [!TIP]
 > Evitare la dipendenza da `Order`. Se lo spazio URL richiede i valori in un ordine esplicito per indirizzare correttamente i dati, si può probabilmente creare confusione anche per i client. In genere il routing con attributi seleziona la route corretta con la corrispondenza di URL. Se l'ordine predefinito usato per la generazione di URL non funziona, usare il nome della route come override è in genere più semplice che applicare la proprietà `Order`.
 
-Il routing di Razor Pages e il routing del controller MVC condividono un'implementazione. Per informazioni sull'ordine di routing negli argomenti di Razor Pages, vedere [Convenzioni di route e app per Razor Pages in ASP.NET Core: Ordine della route](xref:razor-pages/razor-pages-conventions#route-order).
+Il routing di Razor Pages e il routing del controller MVC condividono un'implementazione. Per informazioni sull'ordine delle route negli argomenti di Razor Pages, vedere [Convenzioni di route e app per Razor Pages: Ordine delle route](xref:razor-pages/razor-pages-conventions#route-order).
 
 <a name="routing-token-replacement-templates-ref-label"></a>
 

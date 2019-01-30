@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/14/2019
 uid: fundamentals/routing
-ms.openlocfilehash: 96d098115f2f9b150f796e08cf14e60611f59e17
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.openlocfilehash: c5303ad418660fa31fe9094f0e61ee31f5d988f7
+ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341758"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54890016"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing in ASP.NET Core
 
@@ -644,7 +644,7 @@ public User GetUserById(int id) { }
 
 Il framework di ASP.NET Core aggiunge `RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant` al costruttore di espressioni regolari. Per una descrizione di questi membri, vedere <xref:System.Text.RegularExpressions.RegexOptions>.
 
-Le espressioni regolari usano delimitatori e token simili a quelli usati dal routing e dal linguaggio C#. Per i token di espressione è necessario aggiungere caratteri di escape. Per usare l'espressione regolare `^\d{3}-\d{2}-\d{4}$` nel routing, l'espressione deve includere i caratteri `\` (barra rovesciata singola) specificati nella stringa come caratteri `\\` (barra rovesciata doppia) nel file di origine C# per eseguire l'escape del carattere di escape della stringa `\`, a meno che non si usino [valori letterali di stringa verbatim](/dotnet/csharp/language-reference/keywords/string). Per eseguire l'escape dii caratteri delimitatori dei parametri di routing (`{`, `}`, `[`, `]`), raddoppiare i caratteri nell'espressione (`{{`, `}`, `[[`, `]]`). La tabella seguente mostra un'espressione regolare e la versione dopo l'escape.
+Le espressioni regolari usano delimitatori e token simili a quelli usati dal routing e dal linguaggio C#. Per i token di espressione è necessario aggiungere caratteri di escape. Per usare l'espressione regolare `^\d{3}-\d{2}-\d{4}$` nel routing, l'espressione deve includere i caratteri `\` (barra rovesciata singola) specificati nella stringa come caratteri `\\` (barra rovesciata doppia) nel file di origine C# per eseguire l'escape del carattere di escape della stringa `\`, a meno che non si usino [valori letterali di stringa verbatim](/dotnet/csharp/language-reference/keywords/string). Per far precedere da caratteri di escape i caratteri delimitatori dei parametri di routing (`{`, `}`, `[`, `]`), raddoppiare i caratteri nell'espressione (`{{`, `}`, `[[`, `]]`). La tabella seguente mostra un'espressione regolare e la versione dopo l'escape.
 
 | Espressione regolare    | Espressione regolare con caratteri di escape     |
 | --------------------- | ------------------------------ |
@@ -665,6 +665,26 @@ Le espressioni regolari usate nel routing spesso iniziano con l'accento circonfl
 Per altre informazioni sulla sintassi delle espressioni regolari, vedere [Espressioni regolari di .NET Framework](/dotnet/standard/base-types/regular-expression-language-quick-reference).
 
 Per limitare un parametro a un set noto di valori possibili, usare un'espressione regolare. Ad esempio, `{action:regex(^(list|get|create)$)}` verifica la corrispondenza del valore di route `action` solo con `list`, `get` o `create`. Se viene passata nel dizionario di vincoli, la stringa `^(list|get|create)$` è equivalente. Anche i vincoli passati nel dizionario di vincoli (non inline all'interno di un modello) che non corrispondono a uno dei vincoli noti vengono considerati espressioni regolari.
+
+## <a name="custom-route-constraints"></a>Vincoli di route personalizzati
+
+Oltre ai vincoli di route predefiniti, è possibile creare vincoli di route personalizzati implementando l'interfaccia <xref:Microsoft.AspNetCore.Routing.IRouteConstraint>. L'interfaccia `IRouteConstraint` contiene un singolo metodo, `Match`, che restituisce `true` se il vincolo viene soddisfatto e `false` in caso contrario.
+
+Per usare un'interfaccia `IRouteConstraint` personalizzata, il tipo di vincolo di route deve essere registrato con la proprietà `RouteOptions.ConstraintMap` dell'app nel contenitore di servizi dell'app. <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> è un dizionario che esegue il mapping delle chiavi dei vincoli di route alle implementazioni di `IRouteConstraint` che convalidano tali vincoli. La proprietà `RouteOptions.ConstraintMap` di un'app può essere aggiornata in `Startup.ConfigureServices` come parte di una chiamata `services.AddRouting` o configurando `RouteOptions` direttamente con `services.Configure<RouteOptions>`. Ad esempio:
+
+```csharp
+services.AddRouting(options =>
+{
+    options.ConstraintMap.Add("customName", typeof(MyCustomConstraint));
+});
+```
+
+Il vincolo può quindi essere applicato alle route nel modo consueto, usando il nome specificato al momento della registrazione del tipo di vincolo. Ad esempio:
+
+```csharp
+[HttpGet("{id:customName}")]
+public ActionResult<string> Get(string id)
+```
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -737,3 +757,9 @@ routes.MapRoute("blog_route", "blog/{*slug}",
 ```
 
 La generazione dei collegamenti genera un collegamento per questa route quando vengono specificati i valori corrispondenti per `controller` e `action`.
+
+## <a name="complex-segments"></a>Segmenti complessi
+
+I segmenti complessi (ad esempio, `[Route("/x{token}y")]`), vengono elaborati individuando corrispondenze per i valori letterali da destra a sinistra in modalità non-greedy. Vedere [questo codice](https://github.com/aspnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293) per una spiegazione dettagliata di come vengono confrontati i segmenti complessi. L'[esempio di codice](https://github.com/aspnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293) non viene usato da ASP.NET Core, ma offre una spiegazione esauriente dei segmenti complessi.
+<!-- While that code is no longer used by ASP.NET Core for complex segment matching, it provides a good match to the current algorithm. The [current code](https://github.com/aspnet/AspNetCore/blob/91514c9af7e0f4c44029b51f05a01c6fe4c96e4c/src/Http/Routing/src/Matching/DfaMatcherBuilder.cs#L227-L244) is too abstracted from matching to be useful for understanding complex segment matching.
+-->

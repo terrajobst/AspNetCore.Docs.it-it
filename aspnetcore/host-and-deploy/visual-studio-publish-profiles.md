@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni su come creare profili di pubblicazione in Visual Studio e usarli per la gestione delle distribuzioni di app ASP.NET Core in varie destinazioni.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/06/2018
+ms.date: 01/22/2019
 uid: host-and-deploy/visual-studio-publish-profiles
-ms.openlocfilehash: 3d24cd2cd4697e8e7cf7e4bdf4d076a09b6a6a23
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: 03acaa73fc2ebdc62522a1e081ca6ed72515483f
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284708"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836489"
 ---
 # <a name="visual-studio-publish-profiles-for-aspnet-core-app-deployment"></a>Profili di pubblicazione di Visual Studio per la distribuzione di app ASP.NET Core
 
@@ -336,6 +336,16 @@ dotnet msbuild "AzureWebApp.csproj"
 
 > [!NOTE]
 > Il comando [dotnet msbuild](/dotnet/core/tools/dotnet-msbuild) è multipiattaforma e consente di compilare app ASP.NET Core in macOS e Linux. Tuttavia, MSBuild in macOS e Linux non è in grado di distribuire un'app in Azure o in un altro endpoint MSDeploy. MSDeploy è disponibile solo in Windows.
+
+## <a name="set-the-environment"></a>Impostare l'ambiente
+
+Includere la proprietà `<EnvironmentName>` nel profilo di pubblicazione (*.pubxml*) o nel file di progetto per impostare l'[ambiente](xref:fundamentals/environments) dell'app:
+
+```xml
+<PropertyGroup>
+  <EnvironmentName>Development</EnvironmentName>
+</PropertyGroup>
+```
 
 ## <a name="exclude-files"></a>Escludere file
 

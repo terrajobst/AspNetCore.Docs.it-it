@@ -5,14 +5,14 @@ description: Informazioni su come ospitare un'app ASP.NET Core in un servizio Wi
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 01/22/2019
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: bdb29c318c66ac884b9225ba8c2a0dfc1f364255
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: eedaf64710506f2a2aac65c178a9888d2ab33d38
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637703"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837481"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Ospitare ASP.NET Core in un servizio Windows
 
@@ -44,7 +44,9 @@ In base al [tipo di distribuzione](#deployment-type) scelto, aggiornare il file 
 
 #### <a name="framework-dependent-deployment-fdd"></a>Distribuzione dipendente dal framework
 
-Aggiungere un [RID (Runtime Identifier)](/dotnet/core/rid-catalog) Windows al `<PropertyGroup>` che contiene il framework di destinazione. Aggiungere la proprietà `<SelfContained>` impostata su `false`. Disabilitare la creazione di un file *web.config* aggiungendo la proprietà `<IsTransformWebConfigDisabled>` impostata su `true`.
+Aggiungere un [RID (Runtime Identifier)](/dotnet/core/rid-catalog) Windows al `<PropertyGroup>` che contiene il framework di destinazione. Nell'esempio seguente il RID è impostato su `win7-x64`. Aggiungere la proprietà `<SelfContained>` impostata su `false`. Queste proprietà indicano all'SDK di generare un file eseguibile (*.exe*) per Windows.
+
+Un file *web.config*, che viene normalmente generato quando si pubblica un'app ASP.NET Core, non è necessario per un'app di servizi Windows. Per disabilitare la creazione del file *web.config*, aggiungere la proprietà `<IsTransformWebConfigDisabled>` impostata su `true`.
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -60,6 +62,8 @@ Aggiungere un [RID (Runtime Identifier)](/dotnet/core/rid-catalog) Windows al `<
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.1"
+
+Aggiungere la proprietà `<UseAppHost>` impostata su `true`. Questa proprietà fornisce il servizio con un percorso di attivazione (un file eseguibile, *.exe*) per una distribuzione dipendente dal framework.
 
 ```xml
 <PropertyGroup>

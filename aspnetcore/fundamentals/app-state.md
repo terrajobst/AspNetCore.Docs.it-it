@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2018
 uid: fundamentals/app-state
-ms.openlocfilehash: 23bbb3063d696f588abecb1fe05ea3381ab2346d
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.openlocfilehash: a510e4f49e158203dd7c5e1e0bd28472541f7925
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341693"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836337"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>Stato di sessioni e app in ASP.NET Core
 
@@ -48,7 +48,7 @@ Tenere presente il [Regolamento generale sulla protezione dei dati dell'Unione E
 
 ## <a name="session-state"></a>Stato sessione
 
-Lo stato della sessione è uno scenario di ASP.NET Core per l'archiviazione dei dati utente mentre l'utente visualizza un'app Web. Lo stato della sessione usa un archivio gestito dall'app per rendere persistenti i dati tra le richieste provenienti da un client. I dati della sessione sono supportati da una cache e considerati dati temporanei: il sito deve continuare a funzionare senza i dati della sessione.
+Lo stato della sessione è uno scenario di ASP.NET Core per l'archiviazione dei dati utente mentre l'utente visualizza un'app Web. Lo stato della sessione usa un archivio gestito dall'app per rendere persistenti i dati tra le richieste provenienti da un client. I dati della sessione sono supportati da una cache e considerati dati temporanei: il sito deve continuare a funzionare senza i dati della sessione. I dati critici dell'applicazione devono essere archiviati nel database utente e memorizzati nella cache della sessione solo al fine di ottimizzare le prestazioni.
 
 > [!NOTE]
 > La sessione non è supportata nelle app [SignalR](xref:signalr/index) poiché un [hub SignalR](xref:signalr/hubs) può essere eseguito indipendentemente da un contesto HTTP. Ad esempio, ciò può verificarsi quando una lunga richiesta di polling viene mantenuta aperta da un hub oltre la durata del contesto HTTP della richiesta.

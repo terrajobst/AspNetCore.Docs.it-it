@@ -5,12 +5,12 @@ description: Informazioni sull'uso dei componenti di visualizzazione in ASP.NET 
 ms.author: riande
 ms.date: 12/03/2018
 uid: mvc/views/view-components
-ms.openlocfilehash: 5812abad80cd906d6b9a7175bd7cdefd03a99eb3
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 156db610d99eaf8a8042a4c7c85267d521a20fd4
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861329"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836701"
 ---
 # <a name="view-components-in-aspnet-core"></a>Componenti di visualizzazione in ASP.NET Core
 
@@ -20,7 +20,7 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ## <a name="view-components"></a>Componenti di visualizzazione
 
-I componenti di visualizzazione hanno aspetti comuni con le visualizzazioni parziali, ma sono molto più efficienti. I componenti di visualizzazione non usano l'associazione di modelli. Dipendono soltanto dai dati specificati in fase di chiamata. Questo articolo è stato scritto usando ASP.NET Core MVC. I componenti di visualizzazione funzionano comunque anche con Razor Pages.
+I componenti di visualizzazione hanno aspetti comuni con le visualizzazioni parziali, ma sono molto più efficienti. I componenti di visualizzazione non usano l'associazione di modelli. Dipendono soltanto dai dati specificati in fase di chiamata. Questo articolo è stato scritto usando controller e visualizzazioni, ma i componenti di visualizzazione funzionano anche con Razor Pages.
 
 Un componente di visualizzazione:
 
@@ -140,7 +140,7 @@ In questo esempio il componente di visualizzazione viene chiamato direttamente d
 
 [!code-csharp[](view-components/sample/ViewCompFinal/Controllers/ToDoController.cs?name=snippet_IndexVC)]
 
-## <a name="walkthrough-creating-a-simple-view-component"></a>Procedura dettagliata: creazione di un componente di visualizzazione semplice
+## <a name="walkthrough-creating-a-simple-view-component"></a>Procedura dettagliata: Creazione di un componente di visualizzazione semplice
 
 [Scaricare](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample), compilare e testare il codice di avvio. Si tratta di un progetto semplice con un controller `Todo` che visualizza un elenco di elementi *Todo*.
 

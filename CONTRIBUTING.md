@@ -124,22 +124,20 @@ DocFX richiede:
 
 ### <a name="mono-instructions"></a>Istruzioni per Mono
 
-* Installare Mono tramite Homebrew: `brew install mono`.
-* Scarica la [versione più recente di DocFX](https://github.com/dotnet/docfx/releases).
-* Estrarre in `\bin\docfx`.
-* Creare un alias per **docfx**:
+* Installare Mono tramite Homebrew:
 
   ```
-  function docfx {
-    mono $HOME/bin/docfx/docfx.exe
-  }
-    
-  function docfx-serve {
-    mono $HOME/bin/docfx/docfx.exe serve _site
-  }
+  brew install mono
   ```
+* Scaricare la [versione più recente di DocFX](https://github.com/dotnet/docfx/releases).
+* Estrarre l'archivio in *$HOME/bin/docfx*.
+* Creare una coppia di alias per **docfx** in una shell Bash. Il primo alias viene usato per creare la documentazione. Il secondo alias viene usato per creare e gestire la documentazione.
 
-* Eseguire `docfx` nella directory *Docs\aspnet* oppure *Docs\aspnetcore* per compilare il sito. Eseguire `docfx-serve` per visualizzare il sito all'indirizzo `http://localhost:8080`.
+  ```
+  alias docfx='mono $HOME/bin/docfx/docfx.exe'
+  alias docfx-serve='mono $HOME/bin/docfx/docfx.exe --serve'
+  ```
+* Eseguire `docfx` dalla radice del repository per creare il sito. Eseguire `docfx-serve` per visualizzare il sito all'indirizzo `http://localhost:8080`.
 
 ## <a name="voice-and-tone"></a>Voce e tono
 

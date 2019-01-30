@@ -4,14 +4,14 @@ author: guardrex
 description: Informazioni su come configurare il modulo di ASP.NET Core per l'hosting di app ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/11/2019
+ms.date: 01/22/2019
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: 192e4bf8e970083cc05babcd7fb3cf52985e35bf
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
+ms.openlocfilehash: 4eea360d08c79b889db00132109cf49492f84de6
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396324"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837780"
 ---
 # <a name="aspnet-core-module"></a>Modulo ASP.NET Core
 
@@ -286,7 +286,20 @@ Per informazioni sulla configurazione delle applicazioni secondarie IIS, vedere 
 
 ### <a name="setting-environment-variables"></a>Impostazione delle variabili di ambiente
 
-È possibile specificare le variabili di ambiente per il processo nell'attributo `processPath`. Specificare una variabile di ambiente con l'elemento figlio `environmentVariable` di un elemento della raccolta `environmentVariables`. Le variabili di ambiente impostate in questa sezione hanno la precedenza sulle variabili di ambiente di sistema.
+::: moniker range=">= aspnetcore-3.0"
+
+È possibile specificare le variabili di ambiente per il processo nell'attributo `processPath`. Specificare una variabile di ambiente con l'elemento figlio `<environmentVariable>` di un elemento della raccolta `<environmentVariables>`. Le variabili di ambiente impostate in questa sezione hanno la precedenza sulle variabili di ambiente di sistema.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+È possibile specificare le variabili di ambiente per il processo nell'attributo `processPath`. Specificare una variabile di ambiente con l'elemento figlio `<environmentVariable>` di un elemento della raccolta `<environmentVariables>`.
+
+> [!WARNING]
+> Le variabili di ambiente impostate in questa sezione sono in conflitto con le variabili di ambiente di sistema impostate con lo stesso nome. Se una variabile di ambiente è impostata sia nel file *web.config* sia a livello di sistema in Windows, il valore del file *web.config* viene aggiunto al valore della variabile di ambiente di sistema, ad esempio `ASPNETCORE_ENVIRONMENT: Development;Development`, e ciò impedisce l'avvio dell'app.
+
+::: moniker-end
 
 Nell'esempio seguente vengono impostate due variabili di ambiente. `ASPNETCORE_ENVIRONMENT` configura l'ambiente dell'app su `Development`. Uno sviluppatore può impostare temporaneamente questo valore nel file *web.config* per forzare il caricamento della [pagina delle eccezioni per gli sviluppatori](xref:fundamentals/error-handling) durante il debug di un'eccezione dell'app. `CONFIG_DIR` è un esempio di variabile di ambiente definita dall'utente, in cui lo sviluppatore ha scritto il codice che legge il valore all'avvio in modo da formare un percorso per il caricamento del file di configurazione dell'app.
 
@@ -320,6 +333,19 @@ Nell'esempio seguente vengono impostate due variabili di ambiente. `ASPNETCORE_E
   </environmentVariables>
 </aspNetCore>
 ```
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+> [!NOTE]
+> Un'alternativa all'impostazione dell'ambiente direttamente in *web.config* è quella di includere la proprietà `<EnvironmentName>` nel profilo di pubblicazione (*.pubxml*) o nel file di progetto. Questo approccio imposta l'ambiente in *web.config* quando viene pubblicato il progetto:
+>
+> ```xml
+> <PropertyGroup>
+>   <EnvironmentName>Development</EnvironmentName>
+> </PropertyGroup>
+> ```
 
 ::: moniker-end
 

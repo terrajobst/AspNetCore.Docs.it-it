@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: 16f3a435af267a5a17a24ee9fbda2b1c7c8818fd
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: c21decd39b7855cf2eefb2bb482e5e91b9487863
+ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121622"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54889938"
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>Creare helper tag in ASP.NET Core
 
@@ -96,7 +96,7 @@ Aggiornare la classe `EmailTagHelper` con il codice seguente:
 
 [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/EmailTagHelperMailTo.cs?range=6-22)]
 
-* I nomi della classe e delle proprietà per gli helper tag, scritti secondo la convenzione Pascal, vengono convertiti nel formato [kebab case minuscolo](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101) corrispondente. Per usare l'attributo `MailTo`, pertanto, si userà l'equivalente `<email mail-to="value"/>`.
+* I nomi della classe e delle proprietà per gli helper tag, scritti secondo la convenzione Pascal, vengono convertiti nel formato [kebab case](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101) corrispondente. Per usare l'attributo `MailTo`, pertanto, si userà l'equivalente `<email mail-to="value"/>`.
 
 * L'ultima riga imposta il contenuto completato per l'helper tag dalle minime funzioni.
 
@@ -189,7 +189,7 @@ Se si aggiungono più attributi alla stessa istruzione, il runtime li gestisce c
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/WebsiteInformationTagHelper.cs)]
 
-   * Come affermato in precedenza, gli helper tag convertono i nomi delle classi e delle proprietà C#, definiti secondo la convenzione Pascal, per gli helper tag in formato [case kebab minuscolo](http://wiki.c2.com/?KebabCase). Per usare `WebsiteInformationTagHelper` in Razor, quindi, è necessario scrivere `<website-information />`.
+   * Come affermato in precedenza, gli helper tag convertono i nomi delle relative classi e proprietà C#, definiti secondo la convenzione Pascal, in formato [kebab case](http://wiki.c2.com/?KebabCase). Per usare `WebsiteInformationTagHelper` in Razor, quindi, è necessario scrivere `<website-information />`.
 
    * Non si sta identificando in modo esplicito l'elemento di destinazione con l'attributo `[HtmlTargetElement]` e quindi verrà considerato come destinazione il valore predefinito di `website-information`. Se è stato applicato l'attributo seguente (si noti che non è nel formato kebab case ma corrisponde al nome della classe):
 
@@ -197,7 +197,7 @@ Se si aggiungono più attributi alla stessa istruzione, il runtime li gestisce c
    [HtmlTargetElement("WebsiteInformation")]
    ```
 
-   Il tag nel formato kebab case minuscolo `<website-information />` non corrisponde. Se si vuole usare l'attributo `[HtmlTargetElement]`, è necessario usare il formato kebab case come illustrato di seguito:
+   Il tag nel formato kebab case `<website-information />` non corrisponde. Se si vuole usare l'attributo `[HtmlTargetElement]`, è necessario usare il formato kebab case come illustrato di seguito:
 
    ```csharp
    [HtmlTargetElement("Website-Information")]
