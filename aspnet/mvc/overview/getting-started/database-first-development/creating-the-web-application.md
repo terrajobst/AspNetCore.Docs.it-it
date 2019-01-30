@@ -1,26 +1,26 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/creating-the-web-application
 title: "Esercitazione: Creare il l'applicazione Web e i modelli di dati per Entity Framework Database First con ASP.NET MVC"
-description: Questo articolo è incentrato sulla creazione dell'applicazione web e la generazione di modelli di data basati delle tabelle di database.
+description: Questa esercitazione è incentrata sulla creazione dell'applicazione web e la generazione di modelli di dati basati su tabelle di database.
 author: Rick-Anderson
 ms.author: riande
-ms.date: 01/23/2019
+ms.date: 01/28/2019
 ms.topic: tutorial
 ms.assetid: bc8f2bd5-ff57-4dcd-8418-a5bd517d8953
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/creating-the-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 095d355866c9ab8fba3759f3e05e2a521992f3d6
-ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
+ms.openlocfilehash: dced55386c3f810e406c5c2b3f0071b45e3b2dbd
+ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54889769"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236367"
 ---
 # <a name="tutorial-create-the-the-web-application-and-data-models-for-ef-database-first-with-aspnet-mvc"></a>Esercitazione: Creare il l'applicazione Web e i modelli di dati per Entity Framework Database First con ASP.NET MVC
 
  Usa MVC, Entity Framework e lo Scaffolding di ASP.NET, è possibile creare un'applicazione web che fornisce un'interfaccia a un database esistente. Questa serie di esercitazioni illustra come generare il codice che consente agli utenti di visualizzare, modificare, creare automaticamente ed eliminare dati che si trovano in una tabella di database. Il codice generato corrispondente alle colonne nella tabella di database.
 
-Questo articolo è incentrato sulla creazione dell'applicazione web e la generazione di modelli di data basati delle tabelle di database.
+Questa esercitazione è incentrata sulla creazione dell'applicazione web e la generazione di modelli di dati basati su tabelle di database.
 
 Le attività di questa esercitazione sono le seguenti:
 
@@ -102,6 +102,6 @@ Le attività di questa esercitazione sono le seguenti:
 > * Creazione di un'app web ASP.NET
 > * I modelli generati
 
-Passare all'articolo successivo per informazioni su come creare generano codice basato sui modelli di dati.
+Passare all'esercitazione successiva per imparare a creare generano codice basato sui modelli di dati.
 > [!div class="nextstepaction"]
 > [La generazione di visualizzazioni](generating-views.md)

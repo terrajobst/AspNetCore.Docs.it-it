@@ -4,32 +4,31 @@ title: Using Web API 2 con Entity Framework 6 | Microsoft Docs
 author: MikeWasson
 description: Questa esercitazione insegnerà le nozioni di base di creazione di un'applicazione web con un'API Web ASP.NET di back-end. L'esercitazione Usa Entity Framework 6 per il layout dei dati...
 ms.author: riande
-ms.date: 05/28/2015
+ms.date: 01/17/2019
 ms.assetid: e879487e-dbcd-4b33-b092-d67c37ae768c
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-1
 msc.type: authoredcontent
-ms.openlocfilehash: d65c0ea35ec766ef9d9093c6502230f9de72a3f3
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: 266c808e3525787181038d2de473194989039e02
+ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795214"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236523"
 ---
 <a name="using-web-api-2-with-entity-framework-6"></a>Using Web API 2 con Entity Framework 6
 ====================
-da [Mike Wasson](https://github.com/MikeWasson)
 
 [Download progetto completato](https://github.com/MikeWasson/BookService)
 
-> Questa esercitazione insegnerà le nozioni di base di creazione di un'applicazione web con un'API Web ASP.NET di back-end. L'esercitazione Usa Entity Framework 6 per il livello di dati e Knockout. js per l'applicazione JavaScript lato client. L'esercitazione illustra anche come distribuire l'app in App Web di servizio App di Azure.
+> Questa esercitazione illustra le nozioni di base di creazione di un'applicazione web con un'API Web ASP.NET di back-end. L'esercitazione Usa Entity Framework 6 per il livello di dati e Knockout. js per l'applicazione JavaScript lato client. L'esercitazione illustra anche come distribuire l'app in App Web di servizio App di Azure.
 >
 > ## <a name="software-versions-used-in-the-tutorial"></a>Versioni del software utilizzate nell'esercitazione
 >
 > - API Web 2.1
-> - Visual Studio 2013 (download di Visual Studio 2017 [qui](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017))
+> - Visual Studio 2017 (download di Visual Studio 2017 [qui](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017))
 > - Entity Framework 6
-> - .NET 4.5
-> - [Knockout. js](http://knockoutjs.com/) 3.1
+> - .NET 4.7
+> - [Knockout.js](http://knockoutjs.com/) 3.1
 
 Questa esercitazione Usa l'API Web ASP.NET 2 con Entity Framework 6 per creare un'applicazione web che consente di modificare un database back-end. Di seguito è riportata una schermata dell'applicazione che verrà creato.
 
@@ -46,9 +45,9 @@ Ecco gli elementi fondamentali per questa app:
 - Knockout. js Associa dati gli elementi HTML per i dati JSON.
 - Entity Framework comunica con il database.
 
-## <a name="see-this-app-running-on-azure"></a>Vedere questa App in esecuzione in Azure
+## <a name="see-this-app-running-on-azure"></a>Vedere questa app in esecuzione in Azure
 
-Si desidera vedere il sito completo in esecuzione come un'app web in tempo reale? È possibile distribuire una versione completa dell'app al tuo account Azure, facendo semplicemente clic sul pulsante seguente.
+Si desidera vedere il sito completo in esecuzione come un'app web in tempo reale? È possibile distribuire una versione completa dell'app all'account di Azure selezionando il pulsante seguente.
 
 [![](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/?WT.mc_id=deploy_azure_aspnet&repository=https://github.com/tfitzmac/BookService)
 
@@ -59,29 +58,47 @@ Si desidera vedere il sito completo in esecuzione come un'app web in tempo reale
 
 ## <a name="create-the-project"></a>Creare il progetto
 
-Aprire Visual Studio. Dal **File** dal menu **New**, quindi selezionare **progetto**. (Oppure fare clic su **nuovo progetto** nella paginainiziale.)
+Aprire Visual Studio. Dal **File** dal menu **New**, quindi selezionare **progetto**. (O selezionare **nuovo progetto** nella paginainiziale.)
 
-Nel **nuovo progetto** finestra di dialogo, fare clic su **Web** nel riquadro sinistro e **applicazione Web ASP.NET** nel riquadro centrale. Denominare il progetto BookService e fare clic su **OK**.
+Nel **nuovo progetto** finestra di dialogo, seleziona **Web** nel riquadro sinistro e **applicazione Web ASP.NET (.NET Framework)** nel riquadro centrale. Denominare il progetto **BookService** e selezionare **OK**.
 
-[![](part-1/_static/image4.png)](part-1/_static/image3.png)
+[![](part-1/_static/image11.png)](part-1/_static/image11.png)
 
 Nel **nuovo progetto ASP.NET** finestra di dialogo, seleziona la **API Web** modello.
 
-[![](part-1/_static/image6.png)](part-1/_static/image5.png)
+[![](part-1/_static/image12.png)](part-1/_static/image12.png)
 
-Se si vuole ospitare il progetto in un servizio App di Azure, lasciare il **ospita nel cloud** casella selezionata.
 
-Fare clic su **OK** per creare il progetto.
+Selezionare **OK** per creare il progetto.
 
 ## <a name="configure-azure-settings-optional"></a>Configurare le impostazioni di Azure (facoltative)
 
-Se si lascia il **ospita nel Cloud** opzione selezionata, Visual Studio verrà richiesto di accedere a Microsoft Azure
+Dopo aver creato il progetto, è possibile distribuire in App Web di servizio App di Azure in qualsiasi momento. 
 
-[![](part-1/_static/image8.png)](part-1/_static/image7.png)
+1. In Esplora soluzioni fare doppio clic sul progetto, quindi scegliere **pubblica**.
 
-Dopo l'accesso ad Azure, Visual Studio viene richiesto di configurare l'app web. Immettere un nome per il sito, selezionare la sottoscrizione di Azure e selezionare un'area geografica. Sotto **passava**, selezionare **Crea nuovo server**. Immettere un nome utente dell'amministratore e una password.
+2. Nella finestra visualizzata, selezionare **avviare**. Il **selezionare una destinazione di pubblicazione** verrà visualizzata la finestra di dialogo.
 
-[![](part-1/_static/image10.png)](part-1/_static/image9.png)
+   [![](part-1/_static/image14.png)](part-1/_static/image14.png)
+
+3. Selezionare **Crea profilo**. Viene visualizzata la finestra di dialogo **Crea servizio app**.
+
+   [![](part-1/_static/image15.png)](part-1/_static/image15.png)
+
+   Accettare le impostazioni predefinite oppure immettere valori diversi per il nome dell'applicazione, gruppo di risorse, area geografica, sottoscrizione di Azure e piano di hosting. 
+
+4. Selezionare **creare un database SQL**. Il **configurare SQL Server** verrà visualizzata la finestra di dialogo. 
+
+   [![](part-1/_static/image16.png)](part-1/_static/image16.png)
+
+   Accettare i valori predefiniti o immettere valori diversi. Immettere un **Adminstrator Username** e **Password dell'amministratore** per il nuovo database. Selezionare **OK** dopo aver completato. Il **Crea servizio App** pagina viene visualizzata di nuovo.
+
+5. Selezionare **Create** per creare il profilo. Viene visualizzato un messaggio nell'angolo in basso a destra che indica che la distribuzione è in corso. Dopo un breve periodo di tempo, il **pubblica** viene visualizzata la finestra.
+
+    [![](part-1/_static/image17.png)](part-1/_static/image17.png)
+   
+    Il profilo creato per distribuire l'app è ora disponibile. 
+
 
 > [!div class="step-by-step"]
 > [avanti](part-2.md)

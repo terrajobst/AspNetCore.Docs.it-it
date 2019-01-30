@@ -1,26 +1,26 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/generating-views
 title: 'Esercitazione: Generare viste per Entity Framework Database First con app ASP.NET MVC'
-description: Questo articolo è incentrato sull'uso di Scaffolding di ASP.NET per generare il controller e visualizzazioni.
+description: Questa esercitazione è incentrata sull'uso di Scaffolding di ASP.NET per generare il controller e visualizzazioni.
 author: Rick-Anderson
 ms.author: riande
-ms.date: 01/23/2019
+ms.date: 01/28/2019
 ms.topic: tutorial
 ms.assetid: 669367cf-8e30-4eb6-821d-10a7d9bb906c
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/generating-views
 msc.type: authoredcontent
-ms.openlocfilehash: e1f6646cdf10d293268b92f44b018709e70c0f86
-ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
+ms.openlocfilehash: 7a56c0f9197a99427bcde6103ebc69d245e8ce63
+ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54889782"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236419"
 ---
 # <a name="tutorial-generate-views-for-ef-database-first-with-aspnet-mvc-app"></a>Esercitazione: Generare viste per Entity Framework Database First con app ASP.NET MVC
 
 Usa MVC, Entity Framework e lo Scaffolding di ASP.NET, è possibile creare un'applicazione web che fornisce un'interfaccia a un database esistente. Questa serie di esercitazioni illustra come generare il codice che consente agli utenti di visualizzare, modificare, creare automaticamente ed eliminare dati che si trovano in una tabella di database. Il codice generato corrispondente alle colonne nella tabella di database.
 
-Questo articolo è incentrato sull'uso di Scaffolding di ASP.NET per generare il controller e visualizzazioni.
+Questa esercitazione è incentrata sull'uso di Scaffolding di ASP.NET per generare il controller e visualizzazioni.
 
 Le attività di questa esercitazione sono le seguenti:
 
@@ -101,6 +101,6 @@ Le attività di questa esercitazione sono le seguenti:
 > * Viste visualizzate per studenti
 > * Viste di registrazione visualizzata
 
-Passare all'articolo successivo per informazioni su come modificare il database.
+Passare all'esercitazione successiva per informazioni su come modificare il database.
 > [!div class="nextstepaction"]
 > [Modificare il database](changing-the-database.md)

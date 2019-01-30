@@ -8,12 +8,12 @@ ms.date: 08/15/2012
 ms.assetid: c7e4e1ab-4932-4614-9f53-aaf7c706d498
 msc.legacyurl: /mvc/overview/views/using-page-inspector-in-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: c465b0bac9af90a892d6e62a327ba36977d08d4a
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 0dea8b077878139a3f513cb51447b86a93fe55b8
+ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41827833"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236536"
 ---
 <a name="using-page-inspector-in-aspnet-mvc"></a>Utilizzo di Controllo pagina in ASP.NET MVC
 ====================
@@ -81,7 +81,7 @@ Nelle **Esplora soluzioni**, espandere il **viste** cartella e quindi il **Home*
 
 ![Visualizzazione index. cshtml in controllo pagina](using-page-inspector-in-aspnet-mvc/_static/image8.png)
 
-Per impostazione predefinita, controllo pagina è ancorato come finestra sul lato sinistro dell'ambiente di Visual Studio. Se si preferisce, è possibile ancorarlo altrove o disancorare la finestra. Visualizzare [procedura: disporre e ancorare Windows](https://msdn.microsoft.com/library/z4y0hsax.aspx).
+Per impostazione predefinita, controllo pagina è ancorato come finestra sul lato sinistro dell'ambiente di Visual Studio. Se si preferisce, è possibile ancorarlo altrove o disancorare la finestra. Vedere [Procedura: Disporre e ancorare le finestre](https://msdn.microsoft.com/library/z4y0hsax.aspx).
 
 Il riquadro superiore della finestra di controllo pagina Mostra la pagina corrente in una finestra del browser. Nel riquadro inferiore mostra la pagina nel markup HTML con alcune schede che consentono di controllare diversi aspetti della pagina. Il riquadro inferiore è simile al [strumenti di sviluppo F12](https://msdn.microsoft.com/ie/aa740478) in Internet Explorer.
 

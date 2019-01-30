@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.assetid: a2f70ba4-83d1-4002-9255-24732726c4f2
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: da94329cc2e6dbe01cf6af8b5851b4c30a508975
-ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
+ms.openlocfilehash: 9ed388543dd54d209ff2a0b92df4f7659962582c
+ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54889889"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236471"
 ---
 # <a name="tutorial-implement-crud-functionality-with-the-entity-framework-in-aspnet-mvc"></a>Esercitazione: Implementare la funzionalità CRUD con Entity Framework in ASP.NET MVC
 
@@ -135,7 +135,7 @@ Nel codice seguente, `courseID` non corrisponde a un parametro della route prede
 
     [!code-cshtml[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample9.cshtml)]
 
-    *Create.chstml* include inoltre `@Html.AntiForgeryToken()`, che funziona con i `ValidateAntiForgeryToken` attributo nel controller al fine di evitare [intersito richiesta intersito falsa](../../security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages.md) attacchi.
+    *Create. cshtml* include inoltre `@Html.AntiForgeryToken()`, che funziona con i `ValidateAntiForgeryToken` attributo nel controller al fine di evitare [intersito richiesta intersito falsa](../../security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages.md) attacchi.
 
     Non sono necessarie modifiche nel *create. cshtml*.
 

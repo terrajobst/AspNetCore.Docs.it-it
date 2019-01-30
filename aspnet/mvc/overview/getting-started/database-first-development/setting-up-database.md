@@ -1,26 +1,26 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/setting-up-database
 title: 'Esercitazione: Introduzione a Entity Framework Database First con MVC 5'
-description: Questo articolo illustra come iniziare con un oggetto esistente del database e creare rapidamente un'applicazione web che consente agli utenti di interagire con i dati.
+description: Questa esercitazione illustra come iniziare con un oggetto esistente del database e creare rapidamente un'applicazione web che consente agli utenti di interagire con i dati.
 author: Rick-Anderson
 ms.author: riande
-ms.date: 01/23/2019
+ms.date: 01/28/2019
 ms.topic: tutorial
 ms.assetid: 095abad4-3bfe-4f06-b092-ae6a735b7e49
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/setting-up-database
 msc.type: authoredcontent
-ms.openlocfilehash: 8b094b7c334eaad510c46b55a99ec727b9c381c2
-ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
+ms.openlocfilehash: a503e3db63c873249178fd4783d322f4067c3208
+ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54889925"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236380"
 ---
 # <a name="tutorial-get-started-with-ef-database-first-using-mvc-5"></a>Esercitazione: Introduzione a Entity Framework Database First con MVC 5
 
 Usa MVC, Entity Framework e lo Scaffolding di ASP.NET, è possibile creare un'applicazione web che fornisce un'interfaccia a un database esistente. Questa serie di esercitazioni illustra come generare il codice che consente agli utenti di visualizzare, modificare, creare automaticamente ed eliminare dati che si trovano in una tabella di database. Il codice generato corrispondente alle colonne nella tabella di database. Nell'ultima parte della serie, si distribuirà il sito e il database di Azure.
 
-Questo articolo illustra come iniziare con un oggetto esistente del database e creare rapidamente un'applicazione web che consente agli utenti di interagire con i dati. Per compilare l'applicazione web Usa l'Entity Framework 6 e MVC 5. La funzionalità di Scaffolding di ASP.NET consente di generare automaticamente codice per la visualizzazione, l'aggiornamento, la creazione e l'eliminazione dei dati. Usa gli strumenti di pubblicazione all'interno di Visual Studio, è possibile distribuire facilmente il sito e il database in Azure.
+Questa esercitazione illustra come iniziare con un oggetto esistente del database e creare rapidamente un'applicazione web che consente agli utenti di interagire con i dati. Per compilare l'applicazione web Usa l'Entity Framework 6 e MVC 5. La funzionalità di Scaffolding di ASP.NET consente di generare automaticamente codice per la visualizzazione, l'aggiornamento, la creazione e l'eliminazione dei dati. Usa gli strumenti di pubblicazione all'interno di Visual Studio, è possibile distribuire facilmente il sito e il database in Azure.
 
 Questa parte della serie è incentrato sulla creazione di un database e popolarlo con i dati.
 
@@ -37,7 +37,7 @@ Le attività di questa esercitazione sono le seguenti:
 
 ## <a name="introduction"></a>Introduzione
 
-Questo articolo illustra la situazione in cui si dispone di un database e si desidera generare il codice per un'applicazione web in base ai campi di tale database. Questo approccio è definito lo sviluppo di Database First. Se si dispone già di un database esistente, è possibile usare invece un approccio definito lo sviluppo Code First che prevede la definizione delle classi di dati e generazione del database dalle proprietà della classe.
+Questa esercitazione consente di risolvere la situazione in cui si dispone di un database e si desidera generare il codice per un'applicazione web in base ai campi di tale database. Questo approccio è definito lo sviluppo di Database First. Se si dispone già di un database esistente, è possibile usare invece un approccio definito lo sviluppo Code First che prevede la definizione delle classi di dati e generazione del database dalle proprietà della classe.
 
 ## <a name="set-up-the-database"></a>Configurare il database
 
@@ -102,6 +102,6 @@ Le attività di questa esercitazione sono le seguenti:
 > [!div class="checklist"]
 > * Configurare il database
 
-Passare all'articolo successivo per informazioni su come creare modelli di dati e applicazioni web.
+Passare all'esercitazione successiva per informazioni su come creare modelli di dati e applicazioni web.
 > [!div class="nextstepaction"]
 > [Creare modelli di dati e applicazioni web](creating-the-web-application.md)
