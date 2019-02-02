@@ -4,20 +4,18 @@ title: Che cosa è necessario eseguire operazioni in ASP.NET e come procedere in
 author: Rick-Anderson
 description: Questo argomento descrive i diversi errori comuni che gli utenti apportano all'interno dei progetti web ASP.NET. Fornisce indicazioni per cosa è necessario fare per evitare questi comu...
 ms.author: riande
-ms.date: 05/08/2014
+ms.date: 01/28/2019
 ms.assetid: c39b9965-545c-4b04-8f55-21be7f28a9e5
 msc.legacyurl: /aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead
 msc.type: authoredcontent
-ms.openlocfilehash: 69040ca6a1ddeaf029062da45475dd2171b1afa6
-ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
+ms.openlocfilehash: 512d2e2b39467635390fa175546f79d8c9f89f4a
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51021443"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667713"
 ---
-<a name="what-not-to-do-in-aspnet-and-what-to-do-instead"></a>Che cosa è necessario eseguire operazioni in ASP.NET e come procedere invece
-====================
-da [Tom FitzMacken](https://github.com/tfitzmac)
+# <a name="what-not-to-do-in-aspnet-and-what-to-do-instead"></a>Operazioni da eseguire e da evitare in ASP.NET
 
 > Questo argomento descrive i diversi errori comuni che gli utenti apportano all'interno dei progetti web ASP.NET. Fornisce indicazioni per cosa è necessario fare per evitare questi errori comuni. Si basa su un [presentation](http://vimeo.com/68390507) dal **Damian Edwards** presso Norwegian Developers Conference.
 
@@ -67,7 +65,7 @@ Raccomandazione: Interrompere l'uso di adattatori di controllo per il rendering 
 
 Gli adattatori di controlli sono stati introdotti in .NET 2.0 per il rendering di codice di presentazione che è stato personalizzato per gli ambienti e dispositivi diversi. A questo punto, il rendering adattivo può essere eseguito con HTML e CSS. È necessario interrompere l'uso di adattatori di controllo e convertire tutti gli adapter esistenti CSS e HTML.
 
-Per altre informazioni, vedere [query sui supporti](http://www.w3.org/TR/css3-mediaqueries/) e [procedura: aggiungere pagine per dispositivi mobili per il Web Form ASP.NET / MVC Application](../../../whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application.md).
+Per altre informazioni, vedere [query sui supporti](http://www.w3.org/TR/css3-mediaqueries/) e [How To: Aggiungere pagine Mobile Web Form ASP.NET / MVC Application](../../../whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application.md).
 
 <a id="styleprop"></a>
 
@@ -87,9 +85,9 @@ L'esempio seguente viene illustrato come applicare in modo dinamico la classe CS
 
 <a id="callback"></a>
 
-### <a name="page-and-control-callbacks"></a>Pagina e i callback di controllo
+### <a name="page-and-control-callbacks"></a>Callback di pagina e controllo
 
-Raccomandazione: Interrompere l'uso di callback di pagina e controllo e usare invece le seguenti operazioni: AJAX, UpdatePanel, i metodi di azione MVC, API Web o SignalR.
+Raccomandazione: Interrompere l'uso di callback di pagina e controllo e usare invece gli elementi seguenti: AJAX, UpdatePanel, MVC i metodi di azione, API Web o SignalR.
 
 Nelle versioni precedenti di ASP.NET, i metodi di callback di pagina e il controllo consentono di aggiornare una parte della pagina web senza l'aggiornamento di un'intera pagina. È ora possibile eseguire aggiornamenti parziali della pagina tramite [AJAX](../../../ajax/index.md), [UpdatePanel](https://msdn.microsoft.com/library/bb386454.aspx), [MVC](../../../mvc/index.md), [API Web](../../../web-api/index.md) o [SignalR](../../../signalr/index.md). È consigliabile arrestare usando i metodi di callback perché possono causare problemi con gli URL brevi e routing. Per impostazione predefinita, i controlli non abilitare i metodi di callback, ma se è abilitata questa funzionalità in un controllo, è consigliabile disabilitarla.
 
@@ -109,7 +107,7 @@ Nelle versioni precedenti di ASP.NET, le funzionalità supportate per ogni brows
 
 ### <a name="request-validation"></a>Convalida delle richieste
 
-Raccomandazione: Convalida dell'input utente e la codifica dell'output dagli utenti.
+Raccomandazione: Convalidare l'input dell'utente e la codifica dell'output dagli utenti.
 
 Convalida della richiesta è una funzionalità di ASP.NET che esamina ogni richiesta e interrompe la richiesta se viene rilevata una minaccia percepita. Non basarsi sul convalida delle richieste per la protezione dell'applicazione da attacchi di scripting intersito. Al contrario, convalidare tutti gli input dagli utenti e codificare l'output. In alcuni casi, è possibile usare espressioni regolari per convalidare l'input, ma nei casi più complessi, che è necessario convalidare i valori consentiti di input dell'utente tramite le classi .NET che determinano se il valore corrisponde.
 
@@ -151,7 +149,7 @@ Nell'esempio seguente viene illustrato come specificare il file Web. config che 
 
 ### <a name="enableviewstatemac"></a>EnableViewStateMac
 
-Raccomandazione: Mai impostata su false.
+Raccomandazione: Evitare di impostare su false.
 
 Per impostazione predefinita, EnbableViewStateMac è impostato su true. Anche se l'applicazione non usa lo stato di visualizzazione, non impostare EnableViewStateMac su false. Impostando questo valore su false verrà rendere l'applicazione vulnerabile a XSS.
 
@@ -165,7 +163,7 @@ Nell'esempio seguente viene illustrato come impostare EnableViewStateMac su true
 
 ### <a name="medium-trust"></a>Livello di attendibilità medio
 
-Raccomandazione: Non dipendono attendibilità media (o qualsiasi altro livello di attendibilità) come limite di sicurezza.
+Raccomandazione: Non basarsi su attendibilità media (o qualsiasi altro livello di attendibilità) come limite di sicurezza.
 
 Attendibilità parziale non protegge in modo adeguato l'applicazione e non deve essere utilizzata. In alternativa, usare l'attendibilità e isolare le applicazioni non attendibili nel pool di applicazioni separati. Inoltre, eseguire ogni pool di applicazioni in un'identità univoca. Per altre informazioni, vedere [ASP.NET parzialmente attendibile non garantisce l'isolamento applicazione](https://support.microsoft.com/kb/2698981).
 
@@ -173,7 +171,7 @@ Attendibilità parziale non protegge in modo adeguato l'applicazione e non deve 
 
 ### <a name="ltappsettingsgt"></a>&lt;appSettings&gt;
 
-Raccomandazione: Non disattivare le impostazioni di sicurezza &lt;appSettings&gt; elemento.
+Raccomandazione: Non disattivare le impostazioni di sicurezza in &lt;appSettings&gt; elemento.
 
 L'elemento appSettings contiene molti valori necessari per gli aggiornamenti della sicurezza. Non devi modificare o disabilitare tali valori. Se è necessario disabilitare questi valori quando si distribuisce un aggiornamento, immediatamente abilitare di nuovo dopo il completamento della distribuzione.
 
@@ -183,7 +181,7 @@ Per informazioni dettagliate, vedere [elemento appSettings ASP.NET](https://msdn
 
 ### <a name="urlpathencode"></a>UrlPathEncode
 
-Consiglio: Usare [UrlEncode](https://msdn.microsoft.com/library/zttxte6w.aspx) invece.
+Raccomandazione: Uso [UrlEncode](https://msdn.microsoft.com/library/zttxte6w.aspx) invece.
 
 Il metodo UrlPathEncode è stato aggiunto a .NET Framework per risolvere un problema di compatibilità browser molto specifico. Può non codificare in modo adeguato un URL e non protegge l'applicazione di scripting intersito. Non deve mai utilizzato nell'applicazione. Usare invece [UrlEncode](https://msdn.microsoft.com/library/zttxte6w.aspx).
 
@@ -207,9 +205,9 @@ Raccomandazione: Non usare questi eventi con moduli gestiti. Invece di scrivere 
 
 <a id="asyncevents"></a>
 
-### <a name="asynchronous-page-events-with-web-forms"></a>Eventi di pagina asincrona con i Web Form
+### <a name="asynchronous-page-events-with-web-forms"></a>Eventi di pagina asincrona con i web form
 
-Raccomandazione: In Web Form, evitare di scrivere async void metodi per gli eventi del ciclo di vita di pagina e usare invece [Page.RegisterAsyncTask](https://msdn.microsoft.com/library/system.web.ui.page.registerasynctask.aspx) per il codice asincrono.
+Raccomandazione: Si consiglia di evitare la scrittura di async void metodi per gli eventi del ciclo di vita di pagina in Web Form e usare invece [Page.RegisterAsyncTask](https://msdn.microsoft.com/library/system.web.ui.page.registerasynctask.aspx) per il codice asincrono.
 
 Quando si contrassegna un evento di pagina con **async** e **void**, non è possibile determinare quando ha terminato il codice asincrono. Usare invece Page.RegisterAsyncTask per eseguire il codice asincrono in modo che consente di tenere traccia del relativo completamento.
 
@@ -217,13 +215,13 @@ L'esempio seguente mostra un pulsante di fare clic sul gestore che contiene il c
 
 [!code-csharp[Main](what-not-to-do-in-aspnet-and-what-to-do-instead/samples/sample11.cs)]
 
-Se si usa le attività asincrone, impostare il framework di destinazione di runtime Http alla versione 4.5 nel file Web. config. Impostazione del framework di destinazione a 4.5 turns nel nuovo contesto di sincronizzazione che è stata aggiunta in .NET 4.5. Questo valore è impostato per impostazione predefinita nei nuovi progetti in Visual Studio 2012, ma è non possibile impostare se si lavora con un progetto esistente.
+Se si usa le attività asincrone, impostare il framework di destinazione di runtime Http per 4.5 (o versione successiva) nel file Web. config. Impostazione del framework di destinazione a 4.5 turns nel nuovo contesto di sincronizzazione che è stata aggiunta in .NET 4.5. Questo valore è impostato per impostazione predefinita nei nuovi progetti in Visual Studio, ma è non possibile impostare se si lavora con un progetto esistente.
 
 [!code-xml[Main](what-not-to-do-in-aspnet-and-what-to-do-instead/samples/sample12.xml)]
 
 <a id="fire"></a>
 
-### <a name="fire-and-forget-work"></a>Lavoro Fire-and-Forget
+### <a name="fire-and-forget-work"></a>Lavoro Fire-and-forget
 
 Raccomandazione: Quando si gestisce una richiesta all'interno di ASP.NET, evitare l'avvio di lavoro fire-and-forget (tale chiamata al metodo ThreadPool. QueueUserWorkItem o la creazione di un timer che chiama ripetutamente un delegato).
 
@@ -247,7 +245,7 @@ Se è necessario leggere il corpo di entità di richiesta prima dell'evento exec
 
 ### <a name="responseredirect-and-responseend"></a>Response. Redirect e Response
 
-Raccomandazione: Essere consapevoli delle differenze nella modalità di gestione di thread dopo la chiamata [Response.Redirect(String)](https://msdn.microsoft.com/library/t9dwyts4.aspx).
+Raccomandazione: Tenere presente le differenze nella modalità di gestione di thread dopo la chiamata [Response.Redirect(String)](https://msdn.microsoft.com/library/t9dwyts4.aspx).
 
 Il [Response.Redirect(String)](https://msdn.microsoft.com/library/t9dwyts4.aspx) metodo chiama il metodo Response. In un processo sincrono, chiamare Request.Redirect fa sì che il thread corrente viene interrotta immediatamente. Tuttavia, in un processo asincrono, la chiamata a Response. Redirect non interrompe il thread corrente, quindi continua l'esecuzione di codice per la richiesta. In un processo asincrono, è necessario restituire l'attività dal metodo che deve interrompere l'esecuzione del codice.
 
@@ -257,7 +255,7 @@ In un progetto MVC, è necessario chiamare non Response. Redirect. Al contrario,
 
 ### <a name="enableviewstate-and-viewstatemode"></a>EnableViewState e ViewStateMode
 
-Consiglio: Usare ViewStateMode, anziché EnableViewState, per fornire un controllo granulare su quali controlli utilizzano lo stato di visualizzazione.
+Raccomandazione: Usare ViewStateMode, anziché EnableViewState, per fornire un controllo granulare su quali controlli utilizzano lo stato di visualizzazione.
 
 Quando si imposta EnableViewState su false nella direttiva di pagina, lo stato di visualizzazione è disabilitato per tutti i controlli all'interno della pagina e non può essere abilitato. Se si vuole attivare lo stato di visualizzazione per solo determinati controlli nella pagina, impostato su disabilitato ViewStateMode per la pagina.
 
@@ -273,7 +271,7 @@ Abilitando lo stato di visualizzazione per solo i controlli che ne hanno necessi
 
 ### <a name="sqlmembershipprovider"></a>SqlMembershipProvider
 
-Consiglio: Usare i provider universali.
+Raccomandazione: Usare i provider universali.
 
 Nei modelli di progetto corrente, SqlMembershipProvider è stato sostituito da [ASP.NET Universal Providers](http://www.nuget.org/packages/Microsoft.AspNet.Providers), disponibile come pacchetto NuGet. Se si usa SqlMembershipProvider in un progetto che è stato compilato con una versione precedente dei modelli, è necessario passare a Universal Providers. I provider universali funziona con tutti i database che sono supportati da Entity Framework.
 
@@ -283,7 +281,7 @@ Per altre informazioni, vedere [Introducing ASP.NET Universal Providers](http://
 
 ### <a name="long-running-requests-110-seconds"></a>Le richieste a esecuzione prolungata (> 110 secondi)
 
-Consiglio: Usare [WebSockets](https://msdn.microsoft.com/library/system.net.websockets.websocket.aspx) oppure [SignalR](../../../signalr/index.md) per i client connessi e utilizzare le operazioni dei / o asincrone.
+Raccomandazione: Usare [WebSockets](https://msdn.microsoft.com/library/system.net.websockets.websocket.aspx) oppure [SignalR](../../../signalr/index.md) per i client connessi e utilizzare le operazioni dei / o asincrone.
 
 Le richieste a esecuzione prolungata possono causare risultati imprevedibili e una riduzione delle prestazioni nell'applicazione web. L'impostazione di timeout predefinito per una richiesta è 110 secondi. Se si usa lo stato della sessione con una richiesta a esecuzione prolungata, ASP.NET rilascerà il blocco sull'oggetto sessione dopo 110 secondi. Tuttavia, l'applicazione potrebbe essere un'operazione sull'oggetto sessione in corso quando viene rilasciato il blocco e l'operazione potrebbe non essere completata correttamente. Se una seconda richiesta da parte dell'utente viene bloccata durante la prima richiesta è in esecuzione, la seconda richiesta può accedere all'oggetto di sessione in uno stato incoerente.
 

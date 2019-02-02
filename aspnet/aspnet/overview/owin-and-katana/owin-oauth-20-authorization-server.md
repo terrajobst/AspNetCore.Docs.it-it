@@ -4,20 +4,18 @@ title: Server di autorizzazione OAuth 2.0 OWIN | Microsoft Docs
 author: hongyes
 description: Questa esercitazione illustra come implementare un Server di autorizzazione OAuth 2.0 usa il middleware OWIN OAuth. Questa è un'esercitazione avanzata tale raggruppamento solo...
 ms.author: riande
-ms.date: 03/20/2014
+ms.date: 01/28/2019
 ms.assetid: 20acee16-c70c-41e9-b38f-92bfcf9a4c1c
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
 msc.type: authoredcontent
-ms.openlocfilehash: 095dad49a8e9f963d941a84398afe9da0f46ce0b
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: b8451d2d9e346bd5e2f51ba45e48030a5221b549
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912267"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667648"
 ---
-<a name="owin-oauth-20-authorization-server"></a>Server di autorizzazione OAuth 2.0 OWIN
-====================
-dal [Hongye Sun](https://github.com/hongyes), [Praburaj Thiagarajan](https://github.com/Praburaj), [Rick Anderson]((https://twitter.com/RickAndMSFT))
+# <a name="owin-oauth-20-authorization-server"></a>Server di autorizzazione OAuth 2.0 OWIN
 
 > Questa esercitazione illustra come implementare un Server di autorizzazione OAuth 2.0 usa il middleware OWIN OAuth. Si tratta di un'esercitazione avanzata che illustra solo i passaggi per creare un Server di autorizzazione di OWIN OAuth 2.0. Questo non è un'esercitazione dettagliata. [Scaricare il codice di esempio](https://code.msdn.microsoft.com/OWIN-OAuth-20-Authorization-ba2b8783/file/114932/1/AuthorizationServer.zip).
 >
@@ -29,9 +27,9 @@ dal [Hongye Sun](https://github.com/hongyes), [Praburaj Thiagarajan](https://git
 >
 > | **Illustrato nell'esercitazione** | **Si integra inoltre con** |
 > | --- | --- |
-> | Windows 8,1 | Windows 8, Windows 7 |
-> | [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013) | [Visual Studio 2013 Express per Desktop](https://my.visualstudio.com/Downloads?q=visual%20studio%202013#d-2013-express). Visual Studio 2012 con l'aggiornamento più recente dovrebbe funzionare correttamente, ma l'esercitazione non è stata testata con esso e alcune selezioni di menu e finestre di dialogo sono diverse. |
-> | .NET 4.5 |  |
+> | Windows 8,1 | Windows 10, Windows 8, Windows 7 |
+> | [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+> | .NET 4.7.2 |  |
 >
 > ## <a name="questions-and-comments"></a>Domande e commenti
 >
@@ -53,7 +51,7 @@ Questa esercitazione illustrerà quanto segue:
 <a id="prerequisites"></a>
 ## <a name="prerequisites"></a>Prerequisiti
 
-- [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/downloads#d-2013-editions) o la versione gratuita [Visual Studio Express 2013](https://www.microsoft.com/visualstudio/eng/downloads#d-2013-express), come indicato in **versioni Software** nella parte superiore della pagina.
+- [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) come indicato nella **le versioni del Software** nella parte superiore della pagina.
 - Familiarità con OWIN. Visualizzare [Introduzione al Katana Project](https://msdn.microsoft.com/magazine/dn451439.aspx) e [novità OWIN e Katana](index.md).
 - Conoscenza [OAuth](http://tools.ietf.org/html/rfc6749) terminologia, tra cui [ruoli](http://tools.ietf.org/html/rfc6749#section-1.1), [Protocol Flow](http://tools.ietf.org/html/rfc6749#section-1.2), e [concessione di autorizzazione](http://tools.ietf.org/html/rfc6749#section-1.3). [Introduzione a OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-1) offre una buona introduzione.
 
@@ -81,7 +79,7 @@ Il `UseOAuthAuthorizationServer` metodo di estensione è quella di configurare i
 
 - `AuthorizeEndpointPath`: Il percorso della richiesta in cui le applicazioni client reindirizzeranno l'agente utente per ottenere gli utenti di fornire il consenso per emettere un token o codice. Deve iniziare con una barra iniziale, ad esempio, "`/Authorize`".
 - `TokenEndpointPath`: Le applicazioni client del percorso richiesta comunicano direttamente per ottenere il token di accesso. Deve iniziare con una barra iniziale, come "/token". Se il client viene emesso un [client\_segreto](http://tools.ietf.org/html/rfc6749#appendix-A.2), ma deve essere fornita a questo endpoint.
-- `ApplicationCanDisplayErrors`: Impostare `true` se l'applicazione web desidera generare una pagina di errore personalizzato per gli errori di convalida client su `/Authorize` endpoint. È necessario solo per casi in cui non viene reindirizzato il browser all'applicazione client, ad esempio, quando la `client_id` o `redirect_uri` non sono corrette. Il `/Authorize` endpoint prevede che il "oauth. Errore","oauth. ErrorDescription"e"oauth. Proprietà ErrorUri"vengono aggiunte all'ambiente OWIN.
+- `ApplicationCanDisplayErrors`: Impostare su `true` se l'applicazione web desidera generare una pagina di errore personalizzato per gli errori di convalida client su `/Authorize` endpoint. È necessario solo per casi in cui non viene reindirizzato il browser all'applicazione client, ad esempio, quando la `client_id` o `redirect_uri` non sono corrette. Il `/Authorize` endpoint prevede che il "oauth. Errore","oauth. ErrorDescription"e"oauth. Proprietà ErrorUri"vengono aggiunte all'ambiente OWIN.
 
     > [!NOTE]
     > In caso contrario true, il server di autorizzazione restituirà una pagina di errore predefinita con i dettagli dell'errore.
@@ -89,9 +87,9 @@ Il `UseOAuthAuthorizationServer` metodo di estensione è quella di configurare i
 
     > [!WARNING]
     > Security - si tratta solo per lo sviluppo.
-- `Provider`: L'oggetto fornito dall'applicazione per elaborare gli eventi generati dal middleware del Server di autorizzazione. L'applicazione deve implementare l'interfaccia completamente o è possibile creare un'istanza di `OAuthAuthorizationServerProvider` e assegnare delegati necessari per questo server supporta i flussi di OAuth.
-- `AuthorizationCodeProvider`: Genera un codice di autorizzazione monouso da restituire all'applicazione client. Proteggere l'applicazione per il server OAuth **devono** fornire un'istanza di `AuthorizationCodeProvider` in cui il token prodotto dal `OnCreate/OnCreateAsync` evento viene considerato valido solo per una chiamata a `OnReceive/OnReceiveAsync`.
-- `RefreshTokenProvider`: Genera un token di aggiornamento che può essere utilizzato per produrre un nuovo token di accesso quando necessario. Se non specificato il server di autorizzazione non restituirà i token di aggiornamento dal `/Token` endpoint.
+- `Provider`: Oggetto fornito dall'applicazione per elaborare gli eventi generati dal middleware del Server di autorizzazione. L'applicazione deve implementare l'interfaccia completamente o è possibile creare un'istanza di `OAuthAuthorizationServerProvider` e assegnare delegati necessari per questo server supporta i flussi di OAuth.
+- `AuthorizationCodeProvider`: Produce un codice di autorizzazione monouso da restituire all'applicazione client. Proteggere l'applicazione per il server OAuth **devono** fornire un'istanza di `AuthorizationCodeProvider` in cui il token prodotto dal `OnCreate/OnCreateAsync` evento viene considerato valido solo per una chiamata a `OnReceive/OnReceiveAsync`.
+- `RefreshTokenProvider`: Produce un token di aggiornamento che può essere utilizzato per produrre un nuovo token di accesso quando necessario. Se non specificato il server di autorizzazione non restituirà i token di aggiornamento dal `/Token` endpoint.
 
 ## <a name="account-management"></a>Gestione degli account
 
@@ -116,7 +114,7 @@ Esaminare la IETF OAuth 2 [concessione del codice di autorizzazione](http://tool
 |  |  |
 | (A) il client avvia il flusso indirizzando l'agente utente del proprietario della risorsa per l'endpoint di autorizzazione. Il client include il relativo identificatore client, ambito richiesto, lo stato locale e un URI di reindirizzamento a cui il server di autorizzazione Invia l'agente utente dopo l'accesso viene concesso (o negato). | Provider.MatchEndpoint Provider.ValidateClientRedirectUri Provider.ValidateAuthorizeRequest Provider.AuthorizeEndpoint |
 |  |  |
-| (B) il server di autorizzazione autentica il proprietario della risorsa (tramite l'agente utente) e stabilisce se il proprietario della risorsa concede o Nega la richiesta di accesso del client. | **&lt;Se l'utente concede l'accesso&gt;**  Provider.MatchEndpoint Provider.ValidateClientRedirectUri Provider.ValidateAuthorizeRequest Provider.AuthorizeEndpoint AuthorizationCodeProvider.CreateAsync |
+| (B) il server di autorizzazione autentica il proprietario della risorsa (tramite l'agente utente) e stabilisce se il proprietario della risorsa concede o Nega la richiesta di accesso del client. | **&lt;If user grants access&gt;** Provider.MatchEndpoint Provider.ValidateClientRedirectUri Provider.ValidateAuthorizeRequest Provider.AuthorizeEndpoint AuthorizationCodeProvider.CreateAsync |
 |  |  |
 | (C) supponendo che il proprietario della risorsa concede l'accesso, il server di autorizzazione reindirizza l'agente utente al client usando l'URI fornito il reindirizzamento delle versioni precedenti (nella richiesta o durante la registrazione del client). ... |  |
 |  |  |
@@ -147,7 +145,7 @@ Fare riferimento OAuth 2 di IETF [concessione implicita](http://tools.ietf.org/h
 |  |  |
 | (A) il client avvia il flusso indirizzando l'agente utente del proprietario della risorsa per l'endpoint di autorizzazione. Il client include il relativo identificatore client, ambito richiesto, lo stato locale e un URI di reindirizzamento a cui il server di autorizzazione Invia l'agente utente dopo l'accesso viene concesso (o negato). | Provider.MatchEndpoint Provider.ValidateClientRedirectUri Provider.ValidateAuthorizeRequest Provider.AuthorizeEndpoint |
 |  |  |
-| (B) il server di autorizzazione autentica il proprietario della risorsa (tramite l'agente utente) e stabilisce se il proprietario della risorsa concede o Nega la richiesta di accesso del client. | **&lt;Se l'utente concede l'accesso&gt;**  Provider.MatchEndpoint Provider.ValidateClientRedirectUri Provider.ValidateAuthorizeRequest Provider.AuthorizeEndpoint AuthorizationCodeProvider.CreateAsync |
+| (B) il server di autorizzazione autentica il proprietario della risorsa (tramite l'agente utente) e stabilisce se il proprietario della risorsa concede o Nega la richiesta di accesso del client. | **&lt;If user grants access&gt;** Provider.MatchEndpoint Provider.ValidateClientRedirectUri Provider.ValidateAuthorizeRequest Provider.AuthorizeEndpoint AuthorizationCodeProvider.CreateAsync |
 |  |  |
 | (C) supponendo che il proprietario della risorsa concede l'accesso, il server di autorizzazione reindirizza l'agente utente al client usando l'URI fornito il reindirizzamento delle versioni precedenti (nella richiesta o durante la registrazione del client). ... |  |
 |  |  |

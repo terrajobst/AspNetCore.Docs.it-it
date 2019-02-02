@@ -1,36 +1,34 @@
 ---
 uid: web-api/overview/testing-and-debugging/troubleshooting-http-405-errors-after-publishing-web-api-applications
-title: Risoluzione dei problemi relativi a HTTP 405 errori dopo la pubblicazione Web API 2 applicazioni | Microsoft Docs
+title: Risoluzione dei problemi relativi a HTTP 405 errori dopo la pubblicazione Web applicazioni API | Microsoft Docs
 author: rmcmurray
 description: Questa esercitazione descrive come risolvere gli errori HTTP 405 dopo la pubblicazione di un'applicazione API Web a un server web di produzione.
 ms.author: riande
-ms.date: 05/01/2014
+ms.date: 01/23/2019
 ms.assetid: 07ec7d37-023f-43ea-b471-60b08ce338f7
 msc.legacyurl: /web-api/overview/testing-and-debugging/troubleshooting-http-405-errors-after-publishing-web-api-applications
 msc.type: authoredcontent
-ms.openlocfilehash: 735b8ceeafa63e0546529ef17f103070dc760794
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: ce5b617cc1032d190cc2450aa554b462ea6f6156
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41833307"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667414"
 ---
-<a name="troubleshooting-http-405-errors-after-publishing-web-api-2-applications"></a>Risoluzione dei problemi relativi a HTTP 405 errori dopo la pubblicazione Web API 2 applicazioni
-====================
-da [Robert McMurray](https://github.com/rmcmurray)
+# <a name="troubleshooting-http-405-errors-after-publishing-web-api-applications"></a>Risoluzione degli errori HTTP 405 dopo la pubblicazione di applicazioni Web API
 
 > Questa esercitazione descrive come risolvere gli errori HTTP 405 dopo la pubblicazione di un'applicazione API Web a un server web di produzione.
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Versioni del software utilizzate nell'esercitazione
+> ## <a name="software-used-in-this-tutorial"></a>Software utilizzato in questa esercitazione
 > 
 > 
 > - [Internet Information Services (IIS)](https://www.iis.net/) (versione 7 o versioni successive)
-> - [API Web](../../index.md) (versione 1 o 2)
+> - [API Web](../../index.md) 
 
 
-Le applicazioni Web API usano in genere alcuni verbi HTTP comuni: GET, POST, PUT, DELETE e talvolta di PATCH. Premesso questo, gli sviluppatori possono essere eseguite in situazioni in cui tali verbi sono implementate da un altro modulo IIS sul server di produzione, che conduce a una situazione in cui verrà restituito un controller Web API che funziona correttamente in Visual Studio o in un server di sviluppo un HTTP 405 errore quando viene distribuita in un server di produzione. Fortunatamente è semplice risolto questo problema, ma la soluzione richiede una spiegazione del motivo per cui si è verificato il problema.
+Le applicazioni API Web usano in genere alcuni verbi HTTP comuni: GET, POST, PUT, DELETE e talvolta di PATCH. Premesso questo, gli sviluppatori possono essere eseguite in situazioni in cui tali verbi sono implementate da un altro modulo IIS sul server di produzione, che conduce a una situazione in cui verrà restituito un controller Web API che funziona correttamente in Visual Studio o in un server di sviluppo un HTTP 405 errore quando viene distribuita in un server di produzione. Fortunatamente è semplice risolto questo problema, ma la soluzione richiede una spiegazione del motivo per cui si è verificato il problema.
 
-## <a name="what-causes-http-405-errors"></a>Qual è la causa HTTP 405 da parte degli errori
+## <a name="what-causes-http-405-errors"></a>Qual è la causa degli errori HTTP 405
 
 Il primo passo per imparare a problemi degli errori HTTP 405 consiste nel comprendere ciò che effettivamente indica un errore HTTP 405. L'oggetto principale del documento per HTTP è [RFC 2616](http://www.ietf.org/rfc/rfc2616.txt), che definisce il codice di stato HTTP 405 quando ***metodo non consentito***e descrivono ulteriormente questo codice di stato come una situazione in cui &quot;il metodo specificato nella riga della richiesta non è consentita per la risorsa identificata dall'URI della richiesta.&quot; In altre parole, il verbo HTTP non è consentito per l'URL specifico che ha richiesto un client HTTP.
 
@@ -38,12 +36,12 @@ Come una breve revisione, ecco alcuni dei metodi HTTP utilizzati più di base a 
 
 | Metodo HTTP | Descrizione |
 | --- | --- |
-| **OTTIENI** | Questo metodo viene utilizzato per recuperare dati da un URI che probabilmente il metodo HTTP usato nella maggior parte. |
+| **GET** | Questo metodo viene utilizzato per recuperare dati da un URI che probabilmente il metodo HTTP usato nella maggior parte. |
 | **HEAD** | Questo metodo è molto simile al metodo GET, ad eccezione del fatto che è effettivamente non recuperare i dati dall'URI della richiesta: recupera semplicemente lo stato HTTP. |
-| **INSERISCI** | Questo metodo viene in genere utilizzato per inviare nuovi dati per l'URI; POST viene spesso utilizzato per inviare i dati. |
+| **POST** | Questo metodo viene in genere utilizzato per inviare nuovi dati per l'URI; POST viene spesso utilizzato per inviare i dati. |
 | **PUT** | Questo metodo viene in genere utilizzato per inviare i dati non elaborati all'URI; PUT viene spesso utilizzato per inviare dati JSON o XML alle applicazioni API Web. |
 | **DELETE** | Questo metodo viene utilizzato per rimuovere i dati da un URI. |
-| **OPZIONI** | Questo metodo viene in genere usato per recuperare l'elenco di metodi HTTP supportati per un URI. |
+| **OPTIONS** | Questo metodo viene in genere usato per recuperare l'elenco di metodi HTTP supportati per un URI. |
 | **COPIA LO SPOSTAMENTO** | Questi due metodi vengono usati con WebDAV e il loro scopo è facilmente comprensibile. |
 | **MKCOL** | Questo metodo viene utilizzato con WebDAV e viene utilizzato per creare una raccolta (ad esempio, una directory) nell'URI specificato. |
 | **PROPFIND PROPPATCH** | Questi due metodi vengono usati con WebDAV e vengono utilizzati per eseguire una query o impostare le proprietà per un URI. |
@@ -56,7 +54,7 @@ Se il metodo HTTP non è configurato per l'uso nel server, il server risponde co
 
 Tuttavia, quando un metodo HTTP è configurato per l'uso nel server, ma è stata disabilitata per un URI specificato, il server risponde con un HTTP 405 ***metodo non consentito*** errore.
 
-## <a name="example-http-405-error"></a>HTTP 405 da parte di esempio errore
+## <a name="example-http-405-error"></a>Errore HTTP 405 da parte di esempio
 
 La seguente richiesta HTTP di esempio e la risposta illustrano una situazione in cui un client HTTP sta tentando di inserire un valore a un'applicazione API Web in un server web e il server restituisce un errore HTTP che gli Stati che il metodo PUT non è consentiti:
 
@@ -75,7 +73,7 @@ Risposta HTTP:
 
 In questo esempio, il client HTTP ha inviato una richiesta JSON valida all'URL di un'applicazione API Web in un server web, ma il server ha restituito un messaggio di errore HTTP 405 che indica che il metodo PUT non è consentito per l'URL. Al contrario, se l'URI della richiesta non corrisponde una route per l'applicazione API Web, il server restituirà un errore HTTP 404 ***trovata*** errore.
 
-## <a name="resolving-http-405-errors"></a>Risoluzione HTTP 405 da parte degli errori
+## <a name="resolve-http-405-errors"></a>Risolvere gli errori HTTP 405
 
 Esistono diversi motivi per cui un verbo HTTP specifico potrebbe non essere consentito, ma è uno scenario principale prevede che è la causa principale di questo errore in IIS: più gestori definiti per lo stesso verbo/metodo, e uno dei gestori sta bloccando il gestore previsto da l'elaborazione della richiesta. Tramite spiegazioni, IIS elabora i gestori da primo a ultimo basato sulle voci gestore ordine nei file ApplicationHost. config e Web. config, dove verrà utilizzata la combinazione di corrispondenza prima del percorso, verbo, risorse e così via, per gestire la richiesta.
 
@@ -93,7 +91,7 @@ In questo estratto, il gestore di URL senza estensione di ASP.NET viene ridefini
 
 [!code-xml[Main](troubleshooting-http-405-errors-after-publishing-web-api-applications/samples/sample5.xml)]
 
-Questo scenario viene rilevato spesso dopo che un'applicazione viene pubblicata da un ambiente di sviluppo in un ambiente di produzione, e ciò si verifica perché l'elenco di gestori/moduli è diverso tra gli ambienti di sviluppo e produzione. Ad esempio, se si usa Visual Studio 2012 o 2013 per lo sviluppo di un'applicazione API Web, IIS Express 8 è il server web predefinito per il test. Questo server web di sviluppo è una versione ridotta di tutte le funzionalità IIS fornito con un prodotto server, e il server web di sviluppo contiene alcune modifiche che sono state aggiunte per scenari di sviluppo. Ad esempio, il modulo WebDAV è spesso installato in un server web di produzione che esegue la versione completa di IIS, anche se potrebbe non essere in uso effettivo. La versione di sviluppo di IIS (IIS Express), viene installato il modulo WebDAV, ma le voci per il modulo WebDAV intenzionalmente impostare come commento, in modo che il modulo WebDAV non è mai caricato in IIS Express a meno che non si modifica in modo specifico la configurazione di IIS Express impostazioni per aggiungere funzionalità WebDAV all'installazione di IIS Express. Di conseguenza, l'applicazione web potrebbe funzionare correttamente nel computer di sviluppo, ma si potrebbero verificare errori HTTP 405 quando si pubblica l'applicazione API Web nel server web di produzione.
+Questo scenario viene rilevato spesso dopo che un'applicazione viene pubblicata da un ambiente di sviluppo in un ambiente di produzione, e ciò si verifica perché l'elenco di gestori/moduli è diverso tra gli ambienti di sviluppo e produzione. Ad esempio, se si usa Visual Studio 2012 o versione successiva per sviluppare un'applicazione API Web, IIS Express è il server web predefinito per il test. Questo server web di sviluppo è una versione ridotta di tutte le funzionalità IIS fornito con un prodotto server, e il server web di sviluppo contiene alcune modifiche che sono state aggiunte per scenari di sviluppo. Ad esempio, il modulo WebDAV è spesso installato in un server web di produzione che esegue la versione completa di IIS, anche se potrebbe non essere in uso effettivo. La versione di sviluppo di IIS (IIS Express), viene installato il modulo WebDAV, ma le voci per il modulo WebDAV intenzionalmente impostare come commento, in modo che il modulo WebDAV non è mai caricato in IIS Express a meno che non si modifica in modo specifico la configurazione di IIS Express impostazioni per aggiungere funzionalità WebDAV all'installazione di IIS Express. Di conseguenza, l'applicazione web potrebbe funzionare correttamente nel computer di sviluppo, ma si potrebbero verificare errori HTTP 405 quando si pubblica l'applicazione API Web nel server web di produzione.
 
 ## <a name="summary"></a>Riepilogo
 

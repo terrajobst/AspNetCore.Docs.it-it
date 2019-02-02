@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 06/04/2018
 uid: signalr/groups
-ms.openlocfilehash: 0a4836cfa3cf79136b56da1ff05ce8533b4df16c
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: 45f2bb44e03a586b7fc186525fdd3a2645c820d5
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54837884"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667752"
 ---
 # <a name="manage-users-and-groups-in-signalr"></a>Gestire utenti e gruppi in SignalR
 
@@ -31,21 +31,7 @@ Inviare un messaggio a un utente specifico passando l'identificatore utente per 
 > [!NOTE]
 > L'identificatore utente è tra maiuscole e minuscole.
 
-```csharp
-public Task SendPrivateMessage(string user, string message)
-{
-    return Clients.User(user).SendAsync("ReceiveMessage", message);
-}
-```
-
-L'identificatore utente può essere personalizzato tramite la creazione di un' `IUserIdProvider`e la relativa registrazione nel `ConfigureServices`.
-
-[!code-csharp[UserIdProvider](groups/sample/customuseridprovider.cs?range=4-10)]
-
-[!code-csharp[Configure service](groups/sample/startup.cs?range=21-22,39-42)]
-
-> [!NOTE]
-> AddSignalR deve essere chiamato prima di registrare i servizi SignalR personalizzati.
+[!code-csharp[Configure service](groups/sample/hubs/chathub.cs?range=29-32)]
 
 ## <a name="groups-in-signalr"></a>Gruppi in SignalR
 

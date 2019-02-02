@@ -8,12 +8,12 @@ ms.date: 08/31/2011
 ms.assetid: d916dbe0-1895-491b-8bb6-93f4594ce757
 msc.legacyurl: /mvc/overview/getting-started
 msc.type: chapter
-ms.openlocfilehash: c815a98c536159df44b775fd5130029446e1ad73
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: a2b96388cb7408d3c5fa548d0f43cfb2287661bf
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "48254295"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667284"
 ---
 <a name="aspnet-mvc-getting-started"></a>Introduzione a ASP.NET MVC
 ====================
@@ -55,7 +55,6 @@ ms.locfileid: "48254295"
     - [Modifica del database](database-first-development/changing-the-database.md)
     - [Personalizzazione di una schermata](database-first-development/customizing-a-view.md)
     - [Miglioramento della convalida dei dati](database-first-development/enhancing-data-validation.md)
-    - [Pubblicare in Azure](database-first-development/publish-to-azure.md)
 - [Ciclo di vita di un'applicazione ASP.NET MVC 5](lifecycle-of-an-aspnet-mvc-5-application.md)
 - [Risorse consigliate su MVC](recommended-resources-for-mvc.md)
 - [Esercitazioni e articoli consigliati su MVC](mvc-learning-sequence.md)

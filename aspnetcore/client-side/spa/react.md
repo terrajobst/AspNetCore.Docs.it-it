@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 02/21/2018
 uid: spa/react
-ms.openlocfilehash: c83b119e81d7d0abfd727cb8c72abb09763d9448
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: d83bff8abcd5b59d8bc4a51a101510755394f0c4
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011429"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667687"
 ---
 # <a name="use-the-react-project-template-with-aspnet-core"></a>Usare il modello di progetto per React con ASP.NET Core
 
@@ -97,14 +97,22 @@ Il progetto è configurato in modo da avviare la propria istanza del server di s
 
 Questa configurazione predefinita presenta tuttavia uno svantaggio. Ogni volta che si modifica il codice C# ed è necessario riavviare l'app ASP.NET Core, il server CRA viene riavviato. Per avviare il backup sono necessari alcuni secondi. Se si apportano frequentemente modifiche al codice C# e non si vuole attendere il riavvio del server CRA, eseguire il server CRA esternamente, in modo indipendente dal processo ASP.NET Core. A tale scopo:
 
-1. In un prompt dei comandi passare alla sottodirectory *ClientApp* e avviare il server di sviluppo CRA:
+1. Aggiungere un *env* del file per il *ClientApp* sottodirectory con l'impostazione seguente:
+
+    ```
+    BROWSER=none
+    ```
+    
+    Ciò impedirà il web browser di apertura, all'avvio del server CRA esternamente.
+
+2. In un prompt dei comandi passare alla sottodirectory *ClientApp* e avviare il server di sviluppo CRA:
 
     ```console
     cd ClientApp
     npm start
     ```
 
-2. Modificare l'app ASP.NET Core in modo da usare l'istanza del server CRA esterno anziché avviarne una autonomamente. Nella classe *Startup* sostituire la chiamata `spa.UseReactDevelopmentServer` con quanto segue:
+3. Modificare l'app ASP.NET Core in modo da usare l'istanza del server CRA esterno anziché avviarne una autonomamente. Nella classe *Startup* sostituire la chiamata `spa.UseReactDevelopmentServer` con quanto segue:
 
     ```csharp
     spa.UseProxyToSpaDevelopmentServer("http://localhost:3000");

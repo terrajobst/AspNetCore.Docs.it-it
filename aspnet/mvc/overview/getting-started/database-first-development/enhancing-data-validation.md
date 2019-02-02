@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.assetid: 0ed5e67a-34c0-4b57-84a6-802b0fb3cd00
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/enhancing-data-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 85299d70c6cba52c1d40a42edfd429c96318134a
-ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
+ms.openlocfilehash: 897cd7c6a40445e2a4abede50d81e101372d3233
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55236484"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667622"
 ---
 # <a name="tutorial-enhance-data-validation-for-ef-database-first-with-aspnet-mvc-app"></a>Esercitazione: Migliorare la convalida dei dati per Entity Framework Database First con app ASP.NET MVC
 
@@ -84,6 +84,14 @@ Salvare il *ContosoModel.edmx* file per applicare le modifiche.
 
 Aprire il *Student.cs* file o la *Enrollment.cs* file e notare che gli attributi di convalida dei dati è stato applicato in precedenza non sono più nel file. Tuttavia, eseguire l'applicazione e si noti che le regole di convalida vengono comunque applicate quando si immettono dati.
 
+## <a name="conclusion"></a>Conclusione
+
+Questa serie è fornito un semplice esempio di come generare codice da un database esistente che consente agli utenti di modificare, aggiornare, creare ed eliminare dati. ASP.NET MVC 5, Entity Framework e lo Scaffolding di ASP.NET utilizzato per creare il progetto. 
+
+Per un esempio introduttivo di sviluppo con Code First, vedere [Introduzione a ASP.NET MVC 5](../introduction/getting-started.md). 
+
+Per un esempio più avanzato, vedere [creazione di un modello di dati di Entity Framework per un'App ASP.NET MVC 4](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Si noti che l'API DbContext che usano per lavorare con i dati in Database First è quello utilizzato per l'API usata per l'utilizzo di dati di Code First. Anche se si prevede di usare Database First, è possibile imparare a gestire scenari più complessi, ad esempio la lettura e aggiornamento di dati correlati, la gestione dei conflitti di concorrenza, e così via da un'esercitazione Code First. L'unica differenza è in modalità di creazione di database, classe del contesto e le classi di entità.
+
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 Per un elenco completo delle annotazioni di convalida dei dati è possibile applicare alle proprietà e classi, vedere [System.ComponentModel.DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx).
@@ -96,6 +104,6 @@ Le attività di questa esercitazione sono le seguenti:
 > * Annotazioni di dati aggiunti
 > * Classi di metadati aggiunti
 
-Passare all'esercitazione successiva per informazioni su come pubblicare l'app web e database in Azure.
+Per informazioni su come distribuire un'app web e database SQL nel servizio App di Azure, vedere l'esercitazione:
 > [!div class="nextstepaction"]
-> [Pubblicare in Azure](publish-to-azure.md)
+> [Distribuire un'app .NET in servizio App di Azure](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase/)

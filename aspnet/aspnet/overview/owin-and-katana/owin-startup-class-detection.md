@@ -4,39 +4,38 @@ title: Rilevamento della classe di avvio OWIN | Microsoft Docs
 author: Praburaj
 description: Questa esercitazione illustra come configurare la classe di avvio OWIN viene caricata. Per altre informazioni su OWIN, vedere una panoramica del progetto Katana. Questa esercitazione è stata...
 ms.author: riande
-ms.date: 10/17/2013
+ms.date: 01/28/2019
 ms.assetid: 08257f55-36f4-4e39-9c88-2a5602838c79
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-startup-class-detection
 msc.type: authoredcontent
-ms.openlocfilehash: 4e753187f1caae646402712c2abc28856ae71a79
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 0b34cca8b48383dbb028106651758dff889ed614
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910707"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667297"
 ---
 <a name="owin-startup-class-detection"></a>Rilevamento della classe di avvio OWIN
 ====================
-dal [Praburaj Thiagarajan](https://github.com/Praburaj), [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Questa esercitazione illustra come configurare la classe di avvio OWIN viene caricata. Per altre informazioni su OWIN, vedere [una panoramica del progetto Katana](an-overview-of-project-katana.md). Questa esercitazione è stato scritto da Rick Anderson ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) ), Praburaj Thiagarajan così Howard Dierking ( [ @howard \_dierking](https://twitter.com/howard_dierking) ).
 >
 > ## <a name="prerequisites"></a>Prerequisiti
 >
-> [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
+> [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
 
 
 ## <a name="owin-startup-class-detection"></a>Rilevamento della classe di avvio OWIN
 
  Ogni applicazione OWIN dispone di una classe di avvio in cui è specificare i componenti della pipeline dell'applicazione. Esistono diversi modi, è possibile connettere la classe di avvio con il runtime, a seconda del modello di hosting scelto (OwinHost, IIS e IIS Express). La classe di avvio illustrata in questa esercitazione può essere utilizzata in ogni applicazione di hosting. La classe startup è connettersi con il runtime hosting usando uno di questi approcci:
 
-1. **Convenzione di denominazione**: esegue la ricerca di una classe denominata Katana `Startup` nello spazio dei nomi corrispondenti al nome dell'assembly o lo spazio dei nomi globale.
-2. **Attributo OwinStartup**: si tratta dell'approccio richiederà maggior parte degli sviluppatori per specificare la classe di avvio. L'attributo seguente imposterà classe di avvio il `TestStartup` classe la `StartupDemo` dello spazio dei nomi.
+1. **Convenzione di denominazione**: Esegue la ricerca di una classe denominata Katana `Startup` nello spazio dei nomi corrispondenti al nome dell'assembly o lo spazio dei nomi globale.
+2. **Attributo OwinStartup**: Questo è l'approccio che richiederà maggior parte degli sviluppatori per specificare la classe di avvio. L'attributo seguente imposterà classe di avvio il `TestStartup` classe la `StartupDemo` dello spazio dei nomi.
 
     [!code-csharp[Main](owin-startup-class-detection/samples/sample1.cs)]
 
    Il `OwinStartup` attributo sostituisce la convenzione di denominazione. È anche possibile specificare un nome descrittivo con questo attributo, tuttavia, utilizzando un nome descrittivo richiede che venga utilizzato anche il `appSetting` elemento nel file di configurazione.
-3. **L'elemento appSetting nel file di configurazione**: il `appSetting` esegue l'override di elemento di `OwinStartup` attributo e la convenzione di denominazione. È possibile avere più classi di avvio (ogni usando un `OwinStartup` attributo) e configurare la classe di avvio verrà caricata in un file di configurazione tramite markup simile al seguente:
+3. **L'elemento appSetting nel file di configurazione**: Il `appSetting` esegue l'override di elemento di `OwinStartup` attributo e la convenzione di denominazione. È possibile avere più classi di avvio (ogni usando un `OwinStartup` attributo) e configurare la classe di avvio verrà caricata in un file di configurazione tramite markup simile al seguente:
 
     [!code-xml[Main](owin-startup-class-detection/samples/sample2.xml)]
 
@@ -60,7 +59,7 @@ dal [Praburaj Thiagarajan](https://github.com/Praburaj), [Rick Anderson]((https:
 1. Creare un'applicazione web Asp.Net vuota e denominarla **StartupDemo**. -Installare `Microsoft.Owin.Host.SystemWeb` usando Gestione pacchetti NuGet. Dal **strumenti** dal menu **Gestione pacchetti NuGet**, quindi **la Console di Gestione pacchetti**. Immettere il comando seguente:
 
     [!code-powershell[Main](owin-startup-class-detection/samples/sample7.ps1)]
-2. Aggiungere una classe di avvio OWIN. In Visual Studio 2013 con il pulsante destro fare clic con il progetto e selezionare **Aggiungi classe**. - nel **Aggiungi nuovo elemento** finestra di dialogo immettere *OWIN* nel campo di ricerca e modificare il nome in Startup.cs, e quindi fare clic su **Add**.
+2. Aggiungere una classe di avvio OWIN. In Visual Studio 2017 fare clic sul progetto e scegliere **Aggiungi classe**. - nel **Aggiungi nuovo elemento** finestra di dialogo immettere *OWIN* nel campo di ricerca e modificare il nome in Startup.cs, e quindi selezionare **Add**.
 
      ![](owin-startup-class-detection/_static/image1.png)
 
@@ -68,7 +67,7 @@ dal [Praburaj Thiagarajan](https://github.com/Praburaj), [Rick Anderson]((https:
 
      ![](owin-startup-class-detection/_static/image2.png)
 
-   In alternativa, è possibile fare clic con il pulsante destro del progetto e selezionare **Add**, quindi selezionare **nuovo elemento**, quindi selezionare il **Owin Startup class**.
+   In alternativa, è possibile fare clic sul progetto e selezionare **Add**, quindi selezionare **nuovo elemento**, quindi selezionare il **Owin Startup class**.
 
      ![](owin-startup-class-detection/_static/image3.png)
 
@@ -158,6 +157,7 @@ In questa sezione si aggiungerà un'altra classe di avvio. È possibile aggiunge
 
    La classe di avvio di produzione viene caricata.
     ![](owin-startup-class-detection/_static/image9.png)
+
    L'applicazione dispone di più classi di avvio e in questo esempio sono stati posticipato quale classe di avvio per caricare fino al runtime.
 8. Testare le opzioni di avvio di runtime seguenti:
 

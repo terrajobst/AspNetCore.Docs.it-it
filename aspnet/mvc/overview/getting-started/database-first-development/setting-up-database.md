@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.assetid: 095abad4-3bfe-4f06-b092-ae6a735b7e49
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/setting-up-database
 msc.type: authoredcontent
-ms.openlocfilehash: a503e3db63c873249178fd4783d322f4067c3208
-ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
+ms.openlocfilehash: dfc6c7a7083524a1e7049fdc879fe679f951084d
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55236380"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667739"
 ---
 # <a name="tutorial-get-started-with-ef-database-first-using-mvc-5"></a>Esercitazione: Introduzione a Entity Framework Database First con MVC 5
 
-Usa MVC, Entity Framework e lo Scaffolding di ASP.NET, è possibile creare un'applicazione web che fornisce un'interfaccia a un database esistente. Questa serie di esercitazioni illustra come generare il codice che consente agli utenti di visualizzare, modificare, creare automaticamente ed eliminare dati che si trovano in una tabella di database. Il codice generato corrispondente alle colonne nella tabella di database. Nell'ultima parte della serie, si distribuirà il sito e il database di Azure.
+Usa MVC, Entity Framework e lo Scaffolding di ASP.NET, è possibile creare un'applicazione web che fornisce un'interfaccia a un database esistente. Questa serie di esercitazioni illustra come generare il codice che consente agli utenti di visualizzare, modificare, creare automaticamente ed eliminare dati che si trovano in una tabella di database. Il codice generato corrispondente alle colonne nella tabella di database. L'ultima parte della serie, illustra come aggiungere le annotazioni dei dati al modello di dati per specificare i requisiti della convalida e formattazione di visualizzazione. Al termine, è possibile passare a un articolo di Azure per informazioni su come distribuire un'app .NET e il database SQL nel servizio App di Azure.
 
 Questa esercitazione illustra come iniziare con un oggetto esistente del database e creare rapidamente un'applicazione web che consente agli utenti di interagire con i dati. Per compilare l'applicazione web Usa l'Entity Framework 6 e MVC 5. La funzionalità di Scaffolding di ASP.NET consente di generare automaticamente codice per la visualizzazione, l'aggiornamento, la creazione e l'eliminazione dei dati. Usa gli strumenti di pubblicazione all'interno di Visual Studio, è possibile distribuire facilmente il sito e il database in Azure.
 
@@ -51,7 +51,7 @@ Avviare Visual Studio e creare un **progetto di Database di SQL Server**. Denomi
 
 ![creare il progetto di database](setting-up-database/_static/image1.png)
 
-È ora disponibile un progetto di database vuoto. Si distribuirà questo database di Azure più avanti in questa esercitazione, quindi è necessario impostare il Database SQL di Azure come piattaforma di destinazione per il progetto. Impostare la piattaforma di destinazione non distribuisce effettivamente il database. Ciò significa semplicemente che il progetto di database verrà verificato che la progettazione del database è compatibile con la piattaforma di destinazione. Per impostare la piattaforma di destinazione, aprire il **delle proprietà** per il progetto e selezionare **Database SQL di Microsoft Azure** per la piattaforma di destinazione.
+È ora disponibile un progetto di database vuoto. Per assicurarsi che è possibile distribuire questo database in Azure, si imposteranno Database SQL di Azure come piattaforma di destinazione per il progetto. Impostare la piattaforma di destinazione non distribuisce effettivamente il database. Ciò significa semplicemente che il progetto di database verrà verificato che la progettazione del database è compatibile con la piattaforma di destinazione. Per impostare la piattaforma di destinazione, aprire il **delle proprietà** per il progetto e selezionare **Database SQL di Microsoft Azure** per la piattaforma di destinazione.
 
 È possibile creare le tabelle necessarie per questa esercitazione aggiungendo gli script SQL che definiscono le tabelle. Mouse sul progetto e aggiungere un nuovo elemento. Selezionare **tabelle e viste** > **tabella** e denominarlo *studente*.
 
