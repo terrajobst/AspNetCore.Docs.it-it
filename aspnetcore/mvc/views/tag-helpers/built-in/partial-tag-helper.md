@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 07/25/2018
 uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
-ms.openlocfilehash: bcaeb3ba286feb55c0755c5baee4b7608710e647
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: d56df549d845b1f83ec4a5ec97ce6b44438f725a
+ms.sourcegitcommit: d22b3c23c45a076c4f394a70b1c8df2fbcdf656d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207784"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55428434"
 ---
 # <a name="partial-tag-helper-in-aspnet-core"></a>Helper tag Partial in ASP.NET Core
 
@@ -53,7 +53,7 @@ Il markup seguente usa un percorso esplicito, che indica che *_ProductPartial.cs
 
 ## <a name="for"></a>for
 
-L'attributo `for` assegna una [ModelExpression](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.modelexpression) da valutare rispetto al modello corrente. Un elemento `ModelExpression` deduce la sintassi `@Model.`. Ad esempio `for="Product"` può essere usato invece di `for="@Model.Product"`. Questo comportamento di inferenza predefinito può essere ignorato se si usa il simbolo `@` per definire un'espressione inline. L'attributo `for` non può essere usato con l'attributo [model](#model).
+L'attributo `for` assegna una [ModelExpression](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.modelexpression) da valutare rispetto al modello corrente. Un elemento `ModelExpression` deduce la sintassi `@Model.`. Ad esempio `for="Product"` può essere usato invece di `for="@Model.Product"`. Questo comportamento di inferenza predefinito può essere ignorato se si usa il simbolo `@` per definire un'espressione inline.
 
 Il markup seguente carica *_ProductPartial.cshtml*:
 
