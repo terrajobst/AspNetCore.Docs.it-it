@@ -114,30 +114,34 @@ DocFX richiede:
 
 * Scaricare e decomprimere *docfx.zip* da [DocFX releases](https://github.com/dotnet/docfx/releases) (Versioni di DocFX).
 * Aggiungere DocFX a PATH.
-* In una finestra della riga di comando, passare alla cartella appropriata che contiene il file *docfx* (*aspnet* per il contenuto ASP.NET o *aspnetcore* per il contenuto ASP.NET Core) ed eseguire il comando seguente:
+* In una shell di comando, passare alla cartella che contiene il file *docfx.json* (*aspnet* per il contenuto ASP.NET o *aspnetcore* per il contenuto ASP.NET Core) ed eseguire il comando seguente:
 
-  ```
+  ```console
   docfx --serve
   ```
-    
-* In un browser passare a `http://localhost:8080`.
+* In un browser passare a `http://localhost:8080/group1-dest/`.
 
 ### <a name="mono-instructions"></a>Istruzioni per Mono
 
 * Installare Mono tramite Homebrew:
 
-  ```
+  ```console
   brew install mono
   ```
 * Scaricare la [versione più recente di DocFX](https://github.com/dotnet/docfx/releases).
 * Estrarre l'archivio in *$HOME/bin/docfx*.
 * Creare una coppia di alias per **docfx** in una shell Bash. Il primo alias viene usato per creare la documentazione. Il secondo alias viene usato per creare e gestire la documentazione.
 
-  ```
+  ```console
   alias docfx='mono $HOME/bin/docfx/docfx.exe'
   alias docfx-serve='mono $HOME/bin/docfx/docfx.exe --serve'
   ```
-* Eseguire `docfx` dalla radice del repository per creare il sito. Eseguire `docfx-serve` per visualizzare il sito all'indirizzo `http://localhost:8080`.
+* In una shell di comando, passare alla cartella che contiene il file *docfx.json* (*aspnet* per il contenuto ASP.NET o *aspnetcore* per il contenuto ASP.NET Core) ed eseguire il comando seguente per compilare e fornire la documentazione tramite il relativo alias:
+
+  ```console
+  docfx-serve
+  ```
+* In un browser passare a `http://localhost:8080/group1-dest/`.
 
 ## <a name="voice-and-tone"></a>Voce e tono
 

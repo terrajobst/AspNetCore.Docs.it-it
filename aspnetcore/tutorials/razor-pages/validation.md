@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/5/2018
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 87171beb7c214b1370d4d4144a79cb6d2c56098f
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 99b1073fe025ee8693d9fe833402d245f78a603d
+ms.sourcegitcommit: e7276930515216338a33c4a03c0d7a87fc718ffe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862369"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55293507"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Aggiungere la convalida a una pagina Razor ASP.NET Core
 
@@ -140,9 +140,9 @@ Il codice seguente illustra la combinazione di attributi in una sola riga:
 
 ### <a name="publish-to-azure"></a>Pubblicare in Azure
 
-Per informazioni sulla distribuzione in Azure, vedere [Esercitazione: Creare un'app ASP.NET in Azure con un database SQL](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase). Le istruzioni sono relative a un'app ASP.NET, non a un'app ASP.NET Core, ma i passaggi sono identici.
+Per informazioni sulla distribuzione in Azure, vedere [Esercitazione: Creare un'app ASP.NET in Azure con il database SQL](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase). Le istruzioni sono relative a un'app ASP.NET, non a un'app ASP.NET Core, ma i passaggi sono identici.
 
-Grazie aver completato questa introduzione alle pagine Razor. I suggerimenti degli utenti sono importanti. [Get started with Razor Pages and EF Core](xref:data/ef-rp/intro) (Introduzione a Razor Pages ed Entity Framework Core) è un complemento ideale per questa esercitazione.
+Grazie aver completato questa introduzione alle pagine Razor. [Get started with Razor Pages and EF Core](xref:data/ef-rp/intro) (Introduzione a Razor Pages ed Entity Framework Core) è un complemento ideale per questa esercitazione.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
