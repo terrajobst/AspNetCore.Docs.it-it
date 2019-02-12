@@ -5,14 +5,14 @@ description: Informazioni su come usare il Provider di configurazione dell'insie
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/28/2019
+ms.date: 02/08/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: d255321f6083747ce9b452e1efd4da5bc015bf64
-ms.sourcegitcommit: 3c2ba9a0d833d2a096d9d800ba67a1a7f9491af0
+ms.openlocfilehash: f70389c86420d81e284ecc863ac8386f726ed2cf
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55854432"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103111"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Azure Key Vault Configuration Provider in ASP.NET Core
 
@@ -271,8 +271,8 @@ var cert = store.Certificates
         config["CertificateThumbprint"], false);
 
 config.AddAzureKeyVault(
-    builtConfig["Vault"],
-    builtConfig["ClientId"],
+    builtConfig["KeyVaultName"],
+    builtConfig["AzureADApplicationId"],
     cert.OfType<X509Certificate2>().Single(),
     new EnvironmentSecretManager(context.HostingEnvironment.ApplicationName));
 
@@ -342,8 +342,8 @@ L'app non riesce a caricare la configurazione utilizzando il provider, viene scr
 * L'app non è autorizzato ad accedere l'insieme di credenziali delle chiavi.
 * I criteri di accesso non includano `Get` e `List` autorizzazioni.
 * Nell'insieme di credenziali chiave, i dati di configurazione (coppia nome-valore) in modo non corretto denominati, mancante, disabilitato o scaduto.
-* L'app con il nome dell'insieme di credenziali chiave errata (`Vault`), Id di App di Azure AD (`ClientId`), o la chiave di Azure AD (`ClientSecret`).
-* La chiave di Azure AD (`ClientSecret`) è scaduto.
+* L'app con il nome dell'insieme di credenziali chiave errata (`KeyVaultName`), Id di applicazione Azure AD (`AzureADApplicationId`), o Password di Azure AD (segreto Client) (`AzureADPassword`).
+* La Password di Azure AD (segreto Client) (`AzureADPassword`) è scaduto.
 * Non è corretta nell'app per il valore che si sta provando a caricare la chiave di configurazione (nome).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
