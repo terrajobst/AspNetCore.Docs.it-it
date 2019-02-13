@@ -5,12 +5,12 @@ description: Informazioni sulla gestione delle chiavi la protezione dei dati e l
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/configuration/default-settings
-ms.openlocfilehash: beff17dd81143db02a0cbc79fa7cb3a6a4deeda6
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 2f022a4c7519485fe629ce47c27d214c8c27d5bc
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095099"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56159211"
 ---
 # <a name="data-protection-key-management-and-lifetime-in-aspnet-core"></a>Gestione delle chiavi protezione dati e la durata in ASP.NET Core
 
@@ -26,6 +26,13 @@ L'app prova a rilevare proprio ambiente operativo e gestire configurazione della
    * Gli slot di distribuzione separati, ad esempio gli slot di gestione temporanea e di produzione, non condividono un KeyRing. Durante lo scambio tra gli slot di distribuzione, ad esempio lo scambio alla produzione oppure usando un test / B, qualsiasi app usando la protezione dei dati sarà in grado di decrittografare i dati archiviati usando il Keyring all'interno di slot precedente. Di conseguenza gli utenti registrati da un'app che usa l'autenticazione dei cookie ASP.NET Core standard, in quanto utilizza la protezione dei dati per proteggere i cookie. Se lo si desiderano anelli chiave indipendente dallo slot, usare un provider di Keyring esterno, ad esempio archiviazione di Blob di Azure, Azure Key Vault, un archivio, SQL o della cache Redis.
 
 1. Se il profilo utente è disponibile, le chiavi vengono rese persistenti per il *%LOCALAPPDATA%\ASP.NET\DataProtection-Keys* cartella. Se il sistema operativo è Windows, le chiavi vengono crittografate a riposo tramite DPAPI.
+
+   Il pool di applicazioni [setProfileEnvironment attributo](/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration) deve anche essere abilitato. Il valore predefinito di `setProfileEnvironment` è `true`. In alcuni scenari (ad esempio, Windows del sistema operativo), `setProfileEnvironment` è impostata su `false`. Se le chiavi non vengono archiviate nella directory del profilo utente come previsto:
+
+   1. Passare il *%windir%/system32/inetsrv/config* cartella.
+   1. Aprire il *applicationHost. config* file.
+   1. Individuare l'elemento `<system.applicationHost><applicationPools><applicationPoolDefaults><processModel>` .
+   1. Verificare che il `setProfileEnvironment` attributo non è presente, che per impostazione predefinita il valore per `true`, o impostare in modo esplicito il valore dell'attributo `true`.
 
 1. Se l'app è ospitata in IIS, le chiavi vengono mantenute nel Registro di sistema HKLM in una chiave del Registro di sistema speciale che acled solo per l'account di processo di lavoro. Le chiavi vengono crittografate a riposo tramite la DPAPI.
 
