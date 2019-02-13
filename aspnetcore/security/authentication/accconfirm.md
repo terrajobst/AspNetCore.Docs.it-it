@@ -3,14 +3,14 @@ title: Conferma account e recupero della password in ASP.NET Core
 author: rick-anderson
 description: Informazioni su come creare un'app ASP.NET Core con messaggio di posta elettronica conferma e reimpostazione della password.
 ms.author: riande
-ms.date: 7/11/2018
+ms.date: 2/11/2019
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 0dc9907f9f54c8a0daf2e05a3769897e5145935f
-ms.sourcegitcommit: e418cb9cddeb3de06fa0cb4fdb5529da03ff6d63
+ms.openlocfilehash: 77d7b209d57f9ee44f158798ff780ce85c87aaf2
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "54444142"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56159408"
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Conferma account e recupero della password in ASP.NET Core
 
@@ -76,7 +76,7 @@ Seguire le istruzioni in [abilitare l'autenticazione](xref:security/authenticati
 
 ## <a name="test-new-user-registration"></a>Registrazione di nuovi utenti di test
 
-Eseguire l'app, selezionare la **registrare** collegare e registrare un utente. A questo punto, l'unica convalida il messaggio di posta elettronica è con il [[EmailAddress]](/dotnet/api/system.componentmodel.dataannotations.emailaddressattribute) attributo. Dopo aver inviato la registrazione, si è connessi all'app. Più avanti nell'esercitazione, il codice venga aggiornato in modo che i nuovi utenti non possono accedere fino a quando non viene convalidata la posta elettronica.
+Eseguire l'app, selezionare la **registrare** collegare e registrare un utente. A questo punto, l'unica convalida il messaggio di posta elettronica è con il [[EmailAddress]](/dotnet/api/system.componentmodel.dataannotations.emailaddressattribute) attributo. Dopo aver inviato la registrazione, si è connessi all'app. Più avanti nell'esercitazione, il codice venga aggiornato in modo che i nuovi utenti non riesci ad accedere fino a quando non viene convalidata la posta elettronica.
 
 [!INCLUDE[](~/includes/view-identity-db.md)]
 
@@ -166,7 +166,7 @@ L'implementazione `IEmailSender`, creare *Services/EmailSender.cs* con codice si
 
 Aggiungere il codice seguente per il `ConfigureServices` metodo nella *Startup.cs* file:
 
-* Aggiungere `EmailSender` come un servizio singleton.
+* Aggiungere `EmailSender` come un temporaneo del servizio.
 * Registrare il `AuthMessageSenderOptions` istanza di configurazione.
 
 [!code-csharp[](accconfirm/sample/WebPWrecover21/Startup.cs?name=snippet2&highlight=12-99)]
@@ -196,7 +196,7 @@ Eseguire l'app web e testare la conferma dell'account e il flusso di ripristino 
 * Controllare la posta elettronica per il collegamento di conferma di account. Visualizzare [eseguire il Debug tramite posta elettronica](#debug) se non si riceve il messaggio di posta elettronica.
 * Fare clic sul collegamento per confermare l'indirizzo di posta elettronica.
 * Accedere con l'indirizzo di posta elettronica e la password.
-* Esegue la disconnessione.
+* Disconnettersi.
 
 ### <a name="view-the-manage-page"></a>Visualizzare la pagina di gestione
 
