@@ -5,14 +5,14 @@ description: Informazioni sui vantaggi della precompilazione dei file Razor e su
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/23/2019
+ms.date: 02/13/2019
 uid: mvc/views/view-compilation
-ms.openlocfilehash: 2720708f8e58fdc55b82bfb56665005170e79934
-ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
+ms.openlocfilehash: c4e8f722fdf3d3f64807cc35ff9f349af7f32abd
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54889756"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248186"
 ---
 # <a name="razor-file-compilation-in-aspnet-core"></a>Compilazione del file Razor in ASP.NET Core
 
@@ -98,7 +98,7 @@ Al termine della compilazione, viene prodotto un file *<nome_progetto>.Precompil
 
 ## <a name="recompile-razor-files-on-change"></a>Ricompilare i file Razor in caso di modifica
 
-La proprietà `AllowRecompilingViewsOnFileChange` di <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions> ottiene o imposta un valore che determina se i file Razor (visualizzazioni Razor e Razor Pages) vengono ricompilati e aggiornati in caso di modifica dei file nel disco.
+La proprietà <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions.AllowRecompilingViewsOnFileChange> di <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions> ottiene o imposta un valore che determina se i file Razor (visualizzazioni Razor e Razor Pages) vengono ricompilati e aggiornati in caso di modifica dei file nel disco.
 
 Se impostato su `true`, [IFileProvider.Watch](xref:Microsoft.Extensions.FileProviders.IFileProvider.Watch*) controlla le modifiche apportate ai file Razor nelle istanze di <xref:Microsoft.Extensions.FileProviders.IFileProvider> configurate.
 
@@ -107,11 +107,11 @@ Il valore predefinito è `true` per:
 * App ASP.NET Core 2.1 o versioni precedenti.
 * App ASP.NET Core 2.2 o versioni precedenti nell'ambiente di sviluppo.
 
-La proprietà `AllowRecompilingViewsOnFileChange` è associata a un'opzione di compatibilità e può presentare un comportamento diverso a seconda della versione di compatibilità configurata per l'app. La configurazione dell'app tramite l'impostazione di `AllowRecompilingViewsOnFileChange` ha priorità rispetto al valore implicito della versione di compatibilità dell'app.
+La proprietà <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions.AllowRecompilingViewsOnFileChange> è associata a un'opzione di compatibilità e può presentare un comportamento diverso a seconda della versione di compatibilità configurata per l'app. La configurazione dell'app tramite l'impostazione di <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions.AllowRecompilingViewsOnFileChange> ha priorità rispetto al valore implicito della versione di compatibilità dell'app.
 
-Se la versione di compatibilità dell'app è impostata su <xref:Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1> o versioni precedenti, `AllowRecompilingViewsOnFileChange` è impostata su `true` a meno che il valore non sia configurato in modo esplicito.
+Se la versione di compatibilità dell'app è impostata su <xref:Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1> o versioni precedenti, <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions.AllowRecompilingViewsOnFileChange> è impostata su `true` a meno che il valore non sia configurato in modo esplicito.
 
-Se la versione di compatibilità dell'app è impostata su `CompatibilityVersion.Version_2_2` o versioni successive, `AllowRecompilingViewsOnFileChange` è impostata su `false` a meno che l'ambiente non sia quello di sviluppo o il valore non sia configurato in modo esplicito.
+Se la versione di compatibilità dell'app è impostata su <xref:Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_2> o versioni successive, <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions.AllowRecompilingViewsOnFileChange> è impostata su `false` a meno che l'ambiente non sia quello di sviluppo o il valore non sia configurato in modo esplicito.
 
 Per indicazioni ed esempi di impostazione della versione di compatibilità dell'app, vedere <xref:mvc/compatibility-version>.
 
