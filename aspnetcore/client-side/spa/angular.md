@@ -2,26 +2,19 @@
 title: Usare il modello di progetto per Angular con ASP.NET Core
 author: SteveSandersonMS
 description: Informazioni su come iniziare a usare il modello di progetto per applicazioni a pagina singola di ASP.NET Core per Angular e l'interfaccia della riga di comando di Angular.
-monikerRange: '>= aspnetcore-2.0'
-ms.author: scaddie
+monikerRange: '>= aspnetcore-2.1'
+ms.author: stevesa
 ms.custom: mvc
-ms.date: 02/21/2018
+ms.date: 02/13/2019
 uid: spa/angular
-ms.openlocfilehash: 8283fe9e96acb57942040dd4c90fabd204a19663
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 35a839e31369e8dbf00f5dbfb3751a2985335755
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326043"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248121"
 ---
 # <a name="use-the-angular-project-template-with-aspnet-core"></a>Usare il modello di progetto per Angular con ASP.NET Core
-
-::: moniker range="= aspnetcore-2.0"
-
-> [!NOTE]
-> Questa documentazione non riguarda il modello di progetto per Angular incluso in ASP.NET 2.0 Core. È relativa al modello per Angular più recente, a cui è possibile eseguire l'aggiornamento manualmente. Il modello è incluso in ASP.NET Core 2.1 per impostazione predefinita.
-
-::: moniker-end
 
 Il modello di progetto aggiornato per Angular fornisce un ottimo punto di partenza per le app ASP.NET Core che usano Angular e l'interfaccia della riga di comando di Angular per implementare un'interfaccia utente avanzata sul lato client.
 
@@ -29,17 +22,7 @@ Il modello è equivalente alla creazione di un progetto ASP.NET Core che opera c
 
 ## <a name="create-a-new-app"></a>Creare una nuova app
 
-::: moniker range="= aspnetcore-2.0"
-
-Se si usa ASP.NET Core 2.0, assicurarsi di avere [installato il modello di progetto Angular aggiornato](xref:spa/index#installation).
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1"
-
 Se ASP.NET Core 2.1 è installato, non è necessario installare il modello di progetto Angular.
-
-::: moniker-end
 
 Creare un nuovo progetto da un prompt dei comandi usando il comando `dotnet new angular` in una directory vuota. Ad esempio, i comandi seguenti creano l'app in una directory *my-new-app* e passano a tale directory:
 
@@ -70,7 +53,7 @@ Now listening on: http://localhost:<port>
 
 Passare a questo URL in un browser.
 
-L'app avvia in background un'istanza del server dell'interfaccia della riga di comando di Angular. Verrà registrato un messaggio simile al seguente: *NG Live Development Server is listening on localhost:&lt;otherport&gt;, open your browser on http://localhost:&lt;otherport&gt;/*. Ignorare questo messaggio: **non** si tratta dell'URL per l'app combinata per ASP.NET Core e l'interfaccia della riga di comando di Angular.
+L'app avvia in background un'istanza del server dell'interfaccia della riga di comando di Angular. Verrà registrato un messaggio simile al seguente: *NG Live Development Server è in ascolto su localhost:&lt;otherport&gt;, aprire il browser sul http://localhost:&lt; otherport&gt;/*. Ignorare questo messaggio: **non** si tratta dell'URL per l'app combinata per ASP.NET Core e l'interfaccia della riga di comando di Angular.
 
 ---
 

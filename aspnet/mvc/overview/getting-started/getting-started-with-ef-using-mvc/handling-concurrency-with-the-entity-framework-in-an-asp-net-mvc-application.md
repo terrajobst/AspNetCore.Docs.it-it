@@ -4,18 +4,21 @@ title: "Esercitazione: Gestire la concorrenza con Entity Framework in un'app ASP
 description: Questa esercitazione illustra come usare la concorrenza ottimistica per gestire i conflitti quando più utenti aggiornano la stessa entità contemporaneamente.
 author: tdykstra
 ms.author: riande
-ms.date: 01/21/2019
 ms.topic: tutorial
+ms.date: 01/15/2019
 ms.assetid: be0c098a-1fb2-457e-b815-ddca601afc65
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 2b41b51de5fd6d87b9905ba2bb3ddf7cedb47e69
-ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
+ms.openlocfilehash: b513d7d86d382068bc1a8f1bcc61289ee946d38b
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54889834"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248303"
 ---
+<a name="handling-concurrency-with-the-entity-framework-6-in-an-aspnet-mvc-5-application-10-of-12"></a>Gestione della concorrenza con Entity Framework 6 in un'applicazione ASP.NET MVC 5 (10 pari a 12)
+====================
+
 # <a name="tutorial-handle-concurrency-with-ef-in-an-aspnet-mvc-5-app"></a>Esercitazione: Gestire la concorrenza con Entity Framework in un'app ASP.NET MVC 5
 
 Nelle esercitazioni precedenti è stato illustrato come aggiornare i dati. Questa esercitazione illustra come usare la concorrenza ottimistica per gestire i conflitti quando più utenti aggiornano la stessa entità contemporaneamente. Modificare le pagine web che funzionano con la `Department` entità in modo che consentono di gestire gli errori di concorrenza. Le illustrazioni seguenti visualizzano le pagine Edit (Modifica) e Delete (Elimina) e includono alcuni messaggi che vengono visualizzati se si verifica un conflitto di concorrenza.
@@ -26,12 +29,14 @@ Nelle esercitazioni precedenti è stato illustrato come aggiornare i dati. Quest
 
 Le attività di questa esercitazione sono le seguenti:
 
+
 > [!div class="checklist"]
 > * Informazioni sui conflitti di concorrenza
 > * Aggiungere la concorrenza ottimistica
 > * Modificare il controller di reparto
 > * Gestione della concorrenza test
 > * Aggiornare la pagina Delete (Elimina)
+
 
 ## <a name="prerequisites"></a>Prerequisiti
 

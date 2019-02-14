@@ -4,17 +4,17 @@ title: 'Esercitazione: Introduzione a Entity Framework Database First con MVC 5'
 description: Questa esercitazione illustra come iniziare con un oggetto esistente del database e creare rapidamente un'applicazione web che consente agli utenti di interagire con i dati.
 author: Rick-Anderson
 ms.author: riande
-ms.date: 01/28/2019
+ms.date: 01/15/2019
 ms.topic: tutorial
 ms.assetid: 095abad4-3bfe-4f06-b092-ae6a735b7e49
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/setting-up-database
 msc.type: authoredcontent
-ms.openlocfilehash: dfc6c7a7083524a1e7049fdc879fe679f951084d
-ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
+ms.openlocfilehash: d99fdb5382037038d4428ff1946f39aee380fb75
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55667739"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248225"
 ---
 # <a name="tutorial-get-started-with-ef-database-first-using-mvc-5"></a>Esercitazione: Introduzione a Entity Framework Database First con MVC 5
 
@@ -33,17 +33,16 @@ Le attività di questa esercitazione sono le seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)
+[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
 
-## <a name="introduction"></a>Introduzione
-
-Questa esercitazione consente di risolvere la situazione in cui si dispone di un database e si desidera generare il codice per un'applicazione web in base ai campi di tale database. Questo approccio è definito lo sviluppo di Database First. Se si dispone già di un database esistente, è possibile usare invece un approccio definito lo sviluppo Code First che prevede la definizione delle classi di dati e generazione del database dalle proprietà della classe.
 
 ## <a name="set-up-the-database"></a>Configurare il database
 
 Per simulare l'ambiente di disporre di un database esistente, è prima di tutto creare un database con alcuni dati pre-popolata e quindi creare l'applicazione web che si connette al database.
 
-Questa esercitazione è stata sviluppata utilizzando LocalDB. È possibile usare un server di database esistente anziché LocalDB, ma a seconda della versione di Visual Studio e il tipo di database, tutti gli strumenti dati in Visual Studio potrebbe non essere supportati. Se gli strumenti non sono disponibili per il database, si potrebbe essere necessario eseguire alcuni passaggi specifici del database all'interno della suite di gestione per il database.
+
+Questa esercitazione è stata sviluppata l'utilizzo di LocalDB con Visual Studio 2017. È possibile usare un server di database esistente anziché LocalDB, ma a seconda della versione di Visual Studio e il tipo di database, tutti gli strumenti dati in Visual Studio potrebbe non essere supportati. Se gli strumenti non sono disponibili per il database, si potrebbe essere necessario eseguire alcuni passaggi specifici del database all'interno della suite di gestione per il database.
+
 
 Se si dispone di un problema con gli strumenti di database nella versione di Visual Studio, assicurarsi che sia installata la versione più recente degli strumenti di database. Per informazioni sull'aggiornamento o installazione degli strumenti di database, vedere [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/hh297027).
 

@@ -4,26 +4,36 @@ title: Ricerca | Microsoft Docs
 author: Rick-Anderson
 description: ''
 ms.author: riande
-ms.date: 05/22/2015
+ms.date: 01/17/2019
 ms.assetid: df001954-18bf-4550-b03d-43911a0ea186
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-search
 msc.type: authoredcontent
-ms.openlocfilehash: 31fd35ac63f3eb31d824e1710833ad83a0852ac9
-ms.sourcegitcommit: a91e8dd2f4b788114c8bc834507277f4b5e8d6c5
+ms.openlocfilehash: ada125c917656f3a83524ff39e53b4cfc041a497
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55712263"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248381"
 ---
 <a name="search"></a>Cerca
 ====================
-da [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 [!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 ## <a name="adding-a-search-method-and-search-view"></a>Aggiunta di un metodo di ricerca e visualizzazione di ricerca
 
 In questa sezione si aggiungerà la funzionalità di ricerca per il `Index` metodo di azione che consente di ricercare i film per genere o un nome.
+
+## <a name="prerequisites"></a>Prerequisiti
+
+Per trovare gli screenshot della sezione, è necessario eseguire l'applicazione (F5) e aggiungere i seguenti film nel database.
+
+| Titolo | Data di rilascio | Genre | Prezzo |
+| ----- | ------------ | ----- | ----- |
+| Ghostbusters | 6/8/1984 | Commedie | 6.99 |
+| Ghostbusters II | 6/16/1989 | Commedie | 6.99 |
+| Con copertura globale degli scimmie | 3/27/1986 | Operazione | 5.99 |
+
 
 ## <a name="updating-the-index-form"></a>Aggiornamenti del modulo di indice
 
@@ -68,7 +78,7 @@ Modificato `Index` metodo sarà simile alla seguente:
 
 ![](adding-search/_static/image2.png)
 
-Tuttavia, non è possibile supporre che gli utenti modifichino l'URL ogni volta che desiderano cercare un film. Quindi, ora si aggiungerai dell'interfaccia utente per consentire loro filtrare i film. Se è stata modificata la firma del `Index` metodo da testare come passare il parametro ID associato alla route, modificarlo in modo che i `Index` metodo accetta un parametro di stringa denominato `searchString`:
+Tuttavia, non è possibile supporre che gli utenti modifichino l'URL ogni volta che desiderano cercare un film. A questo punto si aggiungerà l'interfaccia utente per filtrare i film. Se è stata modificata la firma del `Index` metodo da testare come passare il parametro ID associato alla route, modificarlo in modo che i `Index` metodo accetta un parametro di stringa denominato `searchString`:
 
 [!code-csharp[Main](adding-search/samples/sample7.cs)]
 
@@ -120,7 +130,7 @@ Il codice seguente è una query LINQ che recupera tutti i generi dal database.
 
 [!code-csharp[Main](adding-search/samples/sample12.cs)]
 
-Il codice Usa il `AddRange` metodo del tipo generico `List` raccolta a cui aggiungere tutti i generi distinti all'elenco. (Senza il `Distinct` modificatore, verrebbero aggiunti generi duplicati, ad esempio, commedie verrebbero aggiunto due volte nel nostro esempio). Il codice quindi archivia l'elenco dei generi nel `ViewBag.MovieGenre` oggetto. L'archiviazione dei dati della categoria (del tali un film genre) come un [SelectList](https://msdn.microsoft.cus/library/system.web.mvc.selectlist(v=vs.108).aspx) dell'oggetto un `ViewBag`, quindi l'accesso ai dati in una casella di riepilogo a discesa categoria è un approccio tipico per le applicazioni MVC.
+Il codice Usa il `AddRange` metodo del tipo generico `List` raccolta a cui aggiungere tutti i generi distinti all'elenco. (Senza il `Distinct` modificatore, verrebbero aggiunti generi duplicati, ad esempio, commedie verrebbero aggiunto due volte nel nostro esempio). Il codice quindi archivia l'elenco dei generi nel `ViewBag.MovieGenre` oggetto. L'archiviazione dei dati della categoria (tali un film generi) come un [SelectList](https://msdn.microsoft.cus/library/system.web.mvc.selectlist(v=vs.108).aspx) dell'oggetto un `ViewBag`, quindi l'accesso ai dati in una casella di riepilogo a discesa categoria è un approccio tipico per le applicazioni MVC.
 
 Il codice seguente viene illustrato come controllare il `movieGenre` parametro. Se non è vuota, il codice ulteriormente vincola la query dei film per limitare il film selezionato per il genere specificato.
 

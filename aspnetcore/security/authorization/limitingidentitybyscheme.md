@@ -5,12 +5,12 @@ description: Questo articolo illustra come limitare l'identità per uno schema s
 ms.author: riande
 ms.date: 10/22/2018
 uid: security/authorization/limitingidentitybyscheme
-ms.openlocfilehash: fbe9f32e01a214f41b5a6e9f43e8fdee5fc612df
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 778bb61f472ab2e76f85da5999d3c79238188f19
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50089396"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248199"
 ---
 # <a name="authorize-with-a-specific-scheme-in-aspnet-core"></a>Autorizzare con uno schema specifico in ASP.NET Core
 
@@ -201,6 +201,6 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-I criteri di autorizzazione predefinito vengano eseguito l'override, è possibile usare un semplice `[Authorize]` attributo nel controller. Quindi, il controller accetta le richieste con token JWT rilasciato dall'autorità emittente primo o secondo.
+Come i criteri di autorizzazione predefinita sono sottoposto a override, è possibile usare il `[Authorize]` attributo nel controller. Quindi, il controller accetta le richieste con token JWT rilasciato dall'autorità emittente primo o secondo.
 
 ::: moniker-end

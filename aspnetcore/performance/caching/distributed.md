@@ -4,14 +4,14 @@ author: guardrex
 description: Informazioni su come usare un'istanza di cache distribuita di ASP.NET Core per migliorare le prestazioni delle app e la scalabilità, soprattutto in un ambiente di farm di server o cloud.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/19/2018
+ms.date: 02/13/2019
 uid: performance/caching/distributed
-ms.openlocfilehash: d80cde372535aa04604ce0cd5a731a1448515093
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: a157eb075874d2118e3e34b51410b539a1ec37df
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253008"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248588"
 ---
 # <a name="distributed-caching-in-aspnet-core"></a>Memorizzazione nella cache in ASP.NET Core distribuita
 
@@ -76,7 +76,7 @@ Registrare un'implementazione di <xref:Microsoft.Extensions.Caching.Distributed.
 
 ### <a name="distributed-memory-cache"></a>Cache distribuita in memoria
 
-La Cache di memoria distribuita (<xref:Microsoft.Extensions.DependencyInjection.MemoryCacheServiceCollectionExtensions.AddDistributedMemoryCache*>) è un'implementazione fornita dal framework di `IDistributedCache` che archivia gli elementi in memoria. La Cache di memoria distribuita non è un'istanza di cache distribuita effettivo. Gli elementi memorizzati nella cache vengono archiviati per l'istanza dell'app nel server in cui viene eseguita l'app.
+La Cache di memoria distribuita (<xref:Microsoft.Extensions.DependencyInjection.MemoryCacheServiceCollectionExtensions.AddDistributedMemoryCache*>) è un'implementazione fornita dal framework di <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> che archivia gli elementi in memoria. La Cache di memoria distribuita non è un'istanza di cache distribuita effettivo. Gli elementi memorizzati nella cache vengono archiviati per l'istanza dell'app nel server in cui viene eseguita l'app.
 
 La Cache distribuita di memoria è un'implementazione utile:
 
@@ -149,13 +149,13 @@ Per installare Redis in locale:
 
 ## <a name="use-the-distributed-cache"></a>Usare la cache distribuita
 
-Usare la <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> l'interfaccia, richiedere un'istanza di `IDistributedCache` da qualsiasi altro costruttore nell'app. L'istanza viene fornita dalla [inserimento delle dipendenze (dipendenze)](xref:fundamentals/dependency-injection).
+Usare la <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> l'interfaccia, richiedere un'istanza di <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> da qualsiasi altro costruttore nell'app. L'istanza viene fornita dalla [inserimento delle dipendenze (dipendenze)](xref:fundamentals/dependency-injection).
 
-All'avvio dell'app, `IDistributedCache` viene inserito nelle `Startup.Configure`. L'ora corrente viene memorizzato nella cache usando <xref:Microsoft.AspNetCore.Hosting.IApplicationLifetime> (per altre informazioni, vedere [Host Web: interfaccia IApplicationLifetime](xref:fundamentals/host/web-host#iapplicationlifetime-interface)):
+All'avvio dell'app, <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> viene inserito nelle `Startup.Configure`. L'ora corrente viene memorizzato nella cache usando <xref:Microsoft.AspNetCore.Hosting.IApplicationLifetime> (per altre informazioni, vedere [Host Web: Interfaccia IApplicationLifetime](xref:fundamentals/host/web-host#iapplicationlifetime-interface)):
 
 [!code-csharp[](distributed/samples/2.x/DistCacheSample/Startup.cs?name=snippet_Configure&highlight=10)]
 
-L'app di esempio inserisce `IDistributedCache` nella `IndexModel` da utilizzare per la pagina di indice.
+L'app di esempio inserisce <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> nella `IndexModel` da utilizzare per la pagina di indice.
 
 Ogni volta che viene caricata la pagina di indice, la cache è selezionata per la volta memorizzati nella cache in `OnGetAsync`. Se l'ora memorizzati nella cache non è ancora scaduto, viene visualizzata l'ora. Se sono trascorsi 20 secondi dall'ultima volta l'ora memorizzati nella cache è stato eseguito (l'ultima è stata caricata in questa pagina), la pagina viene visualizzata *tempo scaduto memorizzato nella cache*.
 
@@ -164,13 +164,13 @@ Aggiornare immediatamente il tempo memorizzato nella cache all'ora corrente sele
 [!code-csharp[](distributed/samples/2.x/DistCacheSample/Pages/Index.cshtml.cs?name=snippet_IndexModel&highlight=7,14-20,25-29)]
 
 > [!NOTE]
-> Non è necessario usare una durata Singleton o con ambito per `IDistributedCache` istanze (almeno per le implementazioni predefinite).
+> Non è necessario usare una durata Singleton o con ambito per <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> istanze (almeno per le implementazioni predefinite).
 >
-> È anche possibile creare un `IDistributedCache` ogni volta che si potrebbe essere necessario uno invece di usare l'inserimento delle dipendenze, ma la creazione di un'istanza nel codice possono rendere più difficile da testare il codice dell'istanza e viola il [principio delle dipendenze esplicite](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies).
+> È anche possibile creare un <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> ogni volta che si potrebbe essere necessario uno invece di usare l'inserimento delle dipendenze, ma la creazione di un'istanza nel codice possono rendere più difficile da testare il codice dell'istanza e viola il [principio delle dipendenze esplicite](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies).
 
 ## <a name="recommendations"></a>Suggerimenti
 
-Quando si decide quale implementazione di `IDistributedCache` è ideale per l'app, tenere presente quanto segue:
+Quando si decide quale implementazione di <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> è ideale per l'app, tenere presente quanto segue:
 
 * Infrastruttura esistente
 * Requisiti relativi alle prestazioni

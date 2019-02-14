@@ -9,13 +9,17 @@ ms.topic: tutorial
 ms.assetid: 18cdd896-8ed9-4547-b143-114711e3eafb
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: e4f23dbdb604dd513e42b7b8ff7b727245b9b637
-ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
+ms.openlocfilehash: 61bd7cd9be2fbf83f72382c8e94505222295bdbb
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54889964"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248290"
 ---
+[Download progetto completato](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
+
+> L'applicazione web di esempio Contoso University illustra come creare applicazioni ASP.NET MVC 5 con Entity Framework 6 Code First e Visual Studio. Per informazioni sulla serie di esercitazioni, vedere la [prima esercitazione della serie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+
 # <a name="tutorial-read-related-data-with-ef-in-an-aspnet-mvc-app"></a>Esercitazione: Leggere i dati correlati in un'app ASP.NET MVC con Entity Framework
 
 Nell'esercitazione precedente è stato completato il modello di dati dell'istituto di istruzione. In questa esercitazione verrà letto e visualizzare dati correlati, ovvero i dati che Entity Framework carica all'interno di proprietà di navigazione.
@@ -84,7 +88,7 @@ Il `Course` entità include una proprietà di navigazione che contiene il `Depar
 
 Creare un controller denominato `CourseController` (non CoursesController) per il `Course` tipo di entità, utilizzando le stesse opzioni per il **Controller MVC 5 con visualizzazioni, mediante Entity Framework** utilità di scaffolding che è stato fatto in precedenza per il `Student` controller:
 
-| Impostazione | Valore |
+| Impostazione | Value |
 | ------- | ----- |
 | Classe di modello | Selezionare **corso (ContosoUniversity.Models)**. |
 | Classe del contesto dati | Select **SchoolContext (ContosoUniversity.DAL)**. |
@@ -134,7 +138,7 @@ Nel *ViewModel* cartella, creare *InstructorIndexData.cs* e sostituire il codice
 
 Creare un `InstructorController` (non InstructorsController) controller con azioni di lettura/scrittura EF:
 
-| Impostazione | Value |
+| Impostazione | Valore |
 | ------- | ----- |
 | Classe di modello | Selezionare **Instructor (ContosoUniversity.Models)**. |
 | Classe del contesto dati | Select **SchoolContext (ContosoUniversity.DAL)**. |

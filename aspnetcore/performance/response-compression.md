@@ -5,14 +5,14 @@ description: Informazioni sulla compressione delle risposte e su come usare il r
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 02/13/2019
 uid: performance/response-compression
-ms.openlocfilehash: a9f72a6816298b11e7b7d30b2b4bd44083baab3a
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: e87480ebb81791ed233f3e2308e35e21e081824f
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54099039"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248368"
 ---
 # <a name="response-compression-in-aspnet-core"></a>Compressione delle risposte in ASP.NET Core
 
@@ -143,7 +143,7 @@ public class Startup
 }
 ```
 
-Note: 
+Note:
 
 * `app.UseResponseCompression` deve essere chiamato prima `app.UseMvc`.
 * Usare uno strumento, ad esempio [Fiddler](http://www.telerik.com/fiddler), [Firebug](http://getfirebug.com/), o [Postman](https://www.getpostman.com/) impostare il `Accept-Encoding` intestazione della richiesta e studiare le intestazioni di risposta, dimensioni e corpo.
@@ -174,7 +174,7 @@ Inviare una richiesta all'app di esempio con il `Accept-Encoding: gzip` intestaz
 
 ### <a name="brotli-compression-provider"></a>Provider di compressione Brotli
 
-Usare la `BrotliCompressionProvider` per comprimere le risposte con i [formato di dati compressi Brotli](https://tools.ietf.org/html/rfc7932).
+Usare la <xref:Microsoft.AspNetCore.ResponseCompression.BrotliCompressionProvider> per comprimere le risposte con i [formato di dati compressi Brotli](https://tools.ietf.org/html/rfc7932).
 
 Se non vengono aggiunti in modo esplicito alcun provider di compressione di <xref:Microsoft.AspNetCore.ResponseCompression.CompressionProviderCollection>:
 
@@ -190,22 +190,9 @@ public void ConfigureServices(IServiceCollection services)
 
 Il Provider di compressione Brotoli deve essere aggiunto quando vengono aggiunti esplicitamente tutti i provider di compressione:
 
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddResponseCompression(options =>
-    {
-        options.Providers.Add<BrotliCompressionProvider>();
-        options.Providers.Add<GzipCompressionProvider>();
-        options.Providers.Add<CustomCompressionProvider>();
-        options.MimeTypes = 
-            ResponseCompressionDefaults.MimeTypes.Concat(
-                new[] { "image/svg+xml" });
-    });
-}
-```
+[!code-csharp[](response-compression/samples/2.x/Startup.cs?name=snippet1&highlight=5)]
 
-Impostare il livello con la compressione `BrotliCompressionProviderOptions`. Il Provider di compressione Brotli per impostazione predefinita il livello di compressione più veloce ([CompressionLevel.Fastest](xref:System.IO.Compression.CompressionLevel)), che potrebbe non produrre la compressione più efficiente. Se si desidera usare la compressione più efficiente, configurare il middleware di compressione non ottimale.
+Impostare il livello con la compressione <xref:Microsoft.AspNetCore.ResponseCompression.BrotliCompressionProviderOptions>. Il Provider di compressione Brotli per impostazione predefinita il livello di compressione più veloce ([CompressionLevel.Fastest](xref:System.IO.Compression.CompressionLevel)), che potrebbe non produrre la compressione più efficiente. Se si desidera usare la compressione più efficiente, configurare il middleware di compressione non ottimale.
 
 | Livello di compressione | Descrizione |
 | ----------------- | ----------- |
@@ -258,30 +245,11 @@ Il Provider di compressione Gzip deve essere aggiunto quando vengono aggiunti es
 
 ::: moniker range=">= aspnetcore-2.2"
 
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddResponseCompression(options =>
-    {
-        options.Providers.Add<BrotliCompressionProvider>();
-        options.Providers.Add<GzipCompressionProvider>();
-        options.Providers.Add<CustomCompressionProvider>();
-        options.MimeTypes = 
-            ResponseCompressionDefaults.MimeTypes.Concat(
-                new[] { "image/svg+xml" });
-    });
-}
-```
+[!code-csharp[](response-compression/samples/2.x/Startup.cs?name=snippet1&highlight=6)]
 
 ::: moniker-end
 
-::: moniker range="= aspnetcore-2.0 || aspnetcore-2.1"
-
-[!code-csharp[](response-compression/samples/2.x/Startup.cs?name=snippet1&highlight=5)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
+::: moniker range="< aspnetcore-2.2"
 
 [!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=5)]
 
@@ -315,48 +283,15 @@ Usa l'app di esempio, il client invia una richiesta con il `Accept-Encoding: myc
 
 ::: moniker range=">= aspnetcore-2.2"
 
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddResponseCompression(options =>
-    {
-        options.Providers.Add<BrotliCompressionProvider>();
-        options.Providers.Add<GzipCompressionProvider>();
-        options.Providers.Add<CustomCompressionProvider>();
-        options.MimeTypes = 
-            ResponseCompressionDefaults.MimeTypes.Concat(
-                new[] { "image/svg+xml" });
-    });
-}
-```
-
-```csharp
-public class CustomCompressionProvider : ICompressionProvider
-{
-    public string EncodingName => "mycustomcompression";
-    public bool SupportsFlush => true;
-
-    public Stream CreateStream(Stream outputStream)
-    {
-        // Create a custom compression stream wrapper here
-        return outputStream;
-    }
-}
-```
-
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.0 || aspnetcore-2.1"
-
-[!code-csharp[](response-compression/samples/2.x/Startup.cs?name=snippet1&highlight=6,12-15)]
+[!code-csharp[](response-compression/samples/2.x/Startup.cs?name=snippet1&highlight=7)]
 
 [!code-csharp[](response-compression/samples/2.x/CustomCompressionProvider.cs?name=snippet1)]
 
 ::: moniker-end
 
-::: moniker range="< aspnetcore-2.0"
+::: moniker range="< aspnetcore-2.2"
 
-[!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=6,12-15)]
+[!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=6)]
 
 [!code-csharp[](response-compression/samples/1.x/CustomCompressionProvider.cs?name=snippet1)]
 
@@ -383,30 +318,11 @@ Sostituire o appendere gli tipi MIME con le opzioni di Middleware di compression
 
 ::: moniker range=">= aspnetcore-2.2"
 
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddResponseCompression(options =>
-    {
-        options.Providers.Add<BrotliCompressionProvider>();
-        options.Providers.Add<GzipCompressionProvider>();
-        options.Providers.Add<CustomCompressionProvider>();
-        options.MimeTypes = 
-            ResponseCompressionDefaults.MimeTypes.Concat(
-                new[] { "image/svg+xml" });
-    });
-}
-```
+[!code-csharp[](response-compression/samples/2.x/Startup.cs?name=snippet1&highlight=8-10)]
 
 ::: moniker-end
 
-::: moniker range="= aspnetcore-2.0 || aspnetcore-2.1"
-
-[!code-csharp[](response-compression/samples/2.x/Startup.cs?name=snippet1&highlight=7-9)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
+::: moniker range="< aspnetcore-2.2"
 
 [!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=7-9)]
 
@@ -466,7 +382,7 @@ Usare uno strumento come [Fiddler](https://www.telerik.com/fiddler), [Firebug](h
 
 * <xref:fundamentals/startup>
 * <xref:fundamentals/middleware/index>
-* [Mozilla Developer Network: Codifica](https://developer.mozilla.org/docs/Web/HTTP/Headers/Accept-Encoding)
-* [RFC 7231 sezione 3.1.2.1: Chiaramente tutti i codici del contenuto](https://tools.ietf.org/html/rfc7231#section-3.1.2.1)
+* [Mozilla Developer Network: Accept-Encoding](https://developer.mozilla.org/docs/Web/HTTP/Headers/Accept-Encoding)
+* [RFC 7231 Section 3.1.2.1: Chiaramente tutti i codici del contenuto](https://tools.ietf.org/html/rfc7231#section-3.1.2.1)
 * [RFC 7230 sezione 4.2.3: Codifica gzip](https://tools.ietf.org/html/rfc7230#section-4.2.3)
 * [Versione specifica del formato file GZIP 4.3](http://www.ietf.org/rfc/rfc1952.txt)
