@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/29/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 9392da14e589736b24790676c1c07c9964882737
-ms.sourcegitcommit: d22b3c23c45a076c4f394a70b1c8df2fbcdf656d
+ms.openlocfilehash: 9f7fc5571f8d1a6e5e2d84779082abb02d2fb292
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55428460"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56159395"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host ASP.NET Core in Windows con IIS
 
@@ -313,7 +313,7 @@ Quando si distribuiscono app ai server con [Distribuzione Web](/iis/publish/usin
 
 1. Nel sistema host creare una cartella per contenere le cartelle e i file pubblicati dell'app. Un layout di distribuzione di un'app è descritto nell'argomento [Struttura della directory](xref:host-and-deploy/directory-structure).
 
-1. In **Gestione IIS** aprire il nodo del server nel pannello **Connessioni**. Fare clic con il pulsante destro del mouse sulla cartella **Siti**. Scegliere **Aggiungi sito Web** dal menu di scelta rapida.
+1. In Gestione IIS aprire il nodo del server nel pannello **Connessioni**. Fare clic con il pulsante destro del mouse sulla cartella **Siti**. Scegliere **Aggiungi sito Web** dal menu di scelta rapida.
 
 1. Specificare un **Nome del sito** e impostare il **Percorso fisico** per la cartella di distribuzione dell'app. Specificare la configurazione in **Binding** e creare il sito Web scegliendo **OK**:
 
@@ -334,7 +334,7 @@ Quando si distribuiscono app ai server con [Distribuzione Web](/iis/publish/usin
 
 1. *ASP.NET Core 2.2 o versione successiva*: per una [distribuzione autonoma](/dotnet/core/deploying/#self-contained-deployments-scd) a 64 bit (x64) che usa il [modello di hosting in-process](xref:fundamentals/servers/index#in-process-hosting-model), disabilitare il pool di app per i processi a 32 bit (x86).
 
-   Nella barra laterale **Azioni** del **pool di applicazioni** di Gestione IIS selezionare **Impostazioni predefinite pool di applicazioni** o **Impostazioni avanzate**. Individuare **Attiva applicazioni a 32 bit** e impostare il valore su `False`. Questa impostazione non viene applicata alle app distribuite per l'[hosting out-of-process](xref:host-and-deploy/aspnet-core-module#out-of-process-hosting-model).
+   Nella barra laterale **Azioni** in Gestione IIS > **Pool di applicazioni** selezionare **Impostazioni predefinite pool di applicazioni** o **Impostazioni avanzate**. Individuare **Attiva applicazioni a 32 bit** e impostare il valore su `False`. Questa impostazione non viene applicata alle app distribuite per l'[hosting out-of-process](xref:host-and-deploy/aspnet-core-module#out-of-process-hosting-model).
 
 1. Confermare che l'identità del modello del processo disponga delle autorizzazioni appropriate.
 
@@ -410,7 +410,14 @@ Per configurare la protezione dati in IIS in modo da rendere permanente il grupp
 
 * **Configurare il pool di applicazioni IIS per caricare il profilo utente**
 
-  Questa impostazione si trova nella sezione **Modello del processo** in **Impostazioni avanzate** per il pool di app. Impostare Carica profilo utente su `True`. Questa operazione archivia le chiavi nella directory del profilo utente e le mantiene protette tramite DPAPI con una chiave specifica dell'account utente usato dal pool di applicazioni.
+  Questa impostazione si trova nella sezione **Modello del processo** in **Impostazioni avanzate** per il pool di app. Impostare **Caricamento del profilo utente** su `True`. Con l'impostazione `True` le chiavi vengono archiviate nella directory del profilo utente e protette tramite DPAPI con una chiave specifica per l'account utente. Le chiavi vengono salvate in modo permanente nella cartella *%LOCALAPPDATA%/ASP.NET/DataProtection-Keys*.
+
+  Deve essere abilitato anche l'[attributo setProfileEnvironment](/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration) del pool di app. Il valore predefinito di `setProfileEnvironment` è `true`. In alcuni scenari (ad esempio, per il sistema operativo Windows), `setProfileEnvironment` è impostato su `false`. Se le chiavi non vengono archiviate nella directory del profilo utente come previsto:
+
+  1. Passare alla cartella *%windir%/system32/inetsrv/config*.
+  1. Aprire il file *applicationHost.config*.
+  1. Individuare l'elemento `<system.applicationHost><applicationPools><applicationPoolDefaults><processModel>` .
+  1. Verificare che l'attributo `setProfileEnvironment` non sia presente, condizione che corrisponde all'impostazione predefinita `true`, o impostare in modo esplicito il valore dell'attributo su `true`.
 
 * **Usare il file system come archivio del gruppo di chiavi**
 
