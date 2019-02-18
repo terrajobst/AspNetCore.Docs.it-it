@@ -1,42 +1,38 @@
 ---
-title: ASP.NET Core MVC con EF Core - CRUD - 2 di 10
+title: 'Esercitazione: Implementare la funzionalità CRUD - ASP.NET MVC con EF Core'
+description: In questa esercitazione verrà esaminato e personalizzato il codice CRUD (Create, Read, Update, Delete) che lo scaffolding di MVC crea automaticamente nei controller e nelle visualizzazioni.
 author: rick-anderson
-description: ''
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 02/04/2019
+ms.topic: tutorial
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 34927415beadaa3f5c9035a9101e3c99f7cbc395
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 368b1774ba977ec8020a02d48705200fd54c3bbd
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090823"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56102981"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---crud---2-of-10"></a>ASP.NET Core MVC con EF Core - CRUD - 2 di 10
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-Di [Tom Dykstra](https://github.com/tdykstra) e [Rick Anderson](https://twitter.com/RickAndMSFT)
-
-L'applicazione Web di esempio Contoso University illustra come creare applicazioni Web ASP.NET Core MVC con Entity Framework Core e Visual Studio. Per informazioni sulla serie di esercitazioni, vedere la [prima esercitazione della serie](intro.md).
+# <a name="tutorial-implement-crud-functionality---aspnet-mvc-with-ef-core"></a>Esercitazione: Implementare la funzionalità CRUD - ASP.NET MVC con EF Core
 
 Nell'esercitazione precedente è stata creata un'applicazione MVC che memorizza e visualizza i dati usando Entity Framework e SQL Server LocalDB. In questa esercitazione verrà esaminato e personalizzato il codice CRUD (Create, Read, Update, Delete) che lo scaffolding di MVC crea automaticamente nei controller e nelle visualizzazioni.
 
 > [!NOTE]
 > È pratica comune implementare il modello di repository per creare un livello di astrazione tra il controller e il livello di accesso ai dati. Per mantenere le esercitazioni semplici e incentrate sulla descrizione dell'uso di Entity Framework, non vengono usati i repository. Per informazioni sui repository con EF, vedere l'[ultima esercitazione della serie](advanced.md).
 
-In questa esercitazione vengono usate le pagine Web seguenti:
+Le attività di questa esercitazione sono le seguenti:
 
-![Pagina Details (Student)](crud/_static/student-details.png)
+> [!div class="checklist"]
+> * Personalizzare la pagina Details
+> * Aggiornare la pagina Create
+> * Aggiornare la pagina Edit (Modifica)
+> * Aggiornare la pagina Delete (Elimina)
+> * Chiudere le connessioni di database
 
-![Pagina Create (Student)](crud/_static/student-create.png)
+## <a name="prerequisites"></a>Prerequisiti
 
-![Pagina Edit (Student)](crud/_static/student-edit.png)
-
-![Pagina Delete (Student)](crud/_static/student-delete.png)
+* [Introduzione a EF Core in un'app Web ASP.NET Core MVC](intro.md)
 
 ## <a name="customize-the-details-page"></a>Personalizzare la pagina Details
 
@@ -186,7 +182,7 @@ Per evitare l'overposting, è consigliabile che i campi che devono essere aggior
 
 In seguito a queste modifiche, la firma del metodo HttpPost `Edit` corrisponde al metodo HttpGet `Edit`. Di conseguenza, il metodo `EditPost` è stato rinominato.
 
-### <a name="alternative-httppost-edit-code-create-and-attach"></a>Codice di modifica HttpPost alternativo: creazione e collegamento
+### <a name="alternative-httppost-edit-code-create-and-attach"></a>Codice di modifica HttpPost alternativo: Crea e collega
 
 Il codice di modifica HttpPost garantisce che vengano aggiornate soltanto le colonne modificate e mantiene i dati nelle proprietà che non si vuole includere per l'associazione di modelli. Tuttavia, l'approccio con lettura iniziale richiede una lettura del database aggiuntiva e può generare un codice più complesso per la gestione dei conflitti di concorrenza. In alternativa, è possibile collegare un'entità creata dallo strumento di associazione di modelli al contesto EF e contrassegnarla come modificata. (Non aggiornare il progetto con questo codice. Il codice ha il solo scopo di descrivere un approccio facoltativo).
 
@@ -270,13 +266,13 @@ Eseguire l'app, selezionare la scheda **Students** e fare clic sul collegamento 
 
 Fare clic su **Elimina**. Viene visualizzata la pagina Index senza lo studente eliminato. (L'esercitazione sulla concorrenza include un esempio di codice per la gestione degli errori).
 
-## <a name="closing-database-connections"></a>Chiusura delle connessioni di database
+## <a name="close-database-connections"></a>Chiudere le connessioni di database
 
 Per liberare le risorse di una connessione di database, è necessario eliminare l'istanza del contesto il prima possibile dopo averla usata. L'[inserimento delle dipendenze](../../fundamentals/dependency-injection.md) incorporato di ASP.NET Core esegue automaticamente questa attività.
 
 In *Startup.cs* chiamare il [metodo di estensione AddDbContext](https://github.com/aspnet/EntityFrameworkCore/blob/03bcb5122e3f577a84498545fcf130ba79a3d987/src/Microsoft.EntityFrameworkCore/EntityFrameworkServiceCollectionExtensions.cs) per effettuare il provisioning della classe `DbContext` nel contenitore di inserimento delle dipendenze di ASP.NET Core. Il metodo imposta la durata del servizio su `Scoped` per impostazione predefinita. `Scoped` indica che la durata dell'oggetto del contesto corrisponde alla durata della richiesta Web e il metodo `Dispose` viene chiamato automaticamente alla fine della richiesta Web.
 
-## <a name="handling-transactions"></a>Gestione delle transazioni
+## <a name="handle-transactions"></a>Gestire le transazioni
 
 Per impostazione predefinita Entity Framework implementa in modo implicito le transazioni. Negli scenari in cui vengono apportate modifiche a più righe o tabelle e viene quindi chiamato `SaveChanges`, Entity Framework verifica automaticamente che tutte le modifiche siano state apportate o che tutte le modifiche abbiano avuto esito negativo. Se sono state apportate alcune modifiche e successivamente si verifica un errore, viene automaticamente eseguito il rollback di tali verifiche. Per gli scenari in cui è necessario un maggior controllo, ad esempio per includere le operazioni eseguite all'esterno di Entity Framework in una transazione, vedere [Transazioni](/ef/core/saving/transactions).
 
@@ -294,12 +290,21 @@ Quando un contesto di database recupera righe di tabella e crea oggetti entità 
 
 Per altre informazioni, vedere [Tracking vs. No-Tracking](/ef/core/querying/tracking) (Abilitazione e disabilitazione della registrazione).
 
-## <a name="summary"></a>Riepilogo
+## <a name="get-the-code"></a>Ottenere il codice
 
-Si ha ora a disposizione un set completo di pagine che eseguono operazioni CRUD semplici per le entità Student. Nell'esercitazione successiva verrà estesa la funzionalità della pagina **Index** aggiungendo ordinamento, filtro e paging.
+[Scaricare o visualizzare l'applicazione completata.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-::: moniker-end
+## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="step-by-step"]
-> [Precedente](intro.md)
-> [Successivo](sort-filter-page.md)
+Le attività di questa esercitazione sono le seguenti:
+
+> [!div class="checklist"]
+> * Personalizzazione della pagina Details
+> * Aggiornamento della pagina Create
+> * Aggiornamento della pagina Edit
+> * Aggiornamento della pagina Delete
+> * Chiusura delle connessioni di database
+
+Passare all'articolo successivo per informazioni su come estendere la funzionalità della pagina **Index** aggiungendo ordinamento, filtro e suddivisione in pagine.
+> [!div class="nextstepaction"]
+> [Ordinamento, filtro e suddivisione in pagine](sort-filter-page.md)

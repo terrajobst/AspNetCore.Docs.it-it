@@ -1,27 +1,20 @@
 ---
-title: ASP.NET Core MVC con EF Core - Aggiornare dati correlati - 7 di 10
-author: rick-anderson
+title: 'Esercitazione: Aggiornare i dati correlati - ASP.NET MVC con EF Core'
 description: In questa esercitazione verrà effettuato l'aggiornamento di dati correlati tramite l'aggiornamento di campi di chiave esterna e proprietà di navigazione.
+author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 02/05/2019
+ms.topic: tutorial
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: 37985c945f2e4b15cfcefb0c126c3209e0bdeac4
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: ac94f2e2876c2d8d571a451e4641787ffe37b3d2
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090732"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103033"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---update-related-data---7-of-10"></a>ASP.NET Core MVC con EF Core - Aggiornare dati correlati - 7 di 10
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-Di [Tom Dykstra](https://github.com/tdykstra) e [Rick Anderson](https://twitter.com/RickAndMSFT)
-
-L'applicazione Web di esempio Contoso University illustra come creare applicazioni Web ASP.NET Core MVC con Entity Framework Core e Visual Studio. Per informazioni sulla serie di esercitazioni, vedere la [prima esercitazione della serie](intro.md).
+# <a name="tutorial-update-related-data---aspnet-mvc-with-ef-core"></a>Esercitazione: Aggiornare i dati correlati - ASP.NET MVC con EF Core
 
 Nell'esercitazione precedente sono stati visualizzati dati correlati. In questa esercitazione i dati correlati verranno aggiornati tramite l'aggiornamento di campi di chiave esterna e proprietà di navigazione.
 
@@ -31,7 +24,20 @@ Le figure seguenti illustrano alcune delle pagine che verranno usate.
 
 ![Pagina di modifica dell'insegnante](update-related-data/_static/instructor-edit-courses.png)
 
-## <a name="customize-the-create-and-edit-pages-for-courses"></a>Personalizzare le pagine di creazione e di modifica per i corsi
+Le attività di questa esercitazione sono le seguenti:
+
+> [!div class="checklist"]
+> * Personalizzare le pagine dei corsi
+> * Aggiungere la pagina Edit per gli insegnanti
+> * Aggiungere corsi alla pagina Edit
+> * Aggiornare la pagina Delete
+> * Aggiungere posizione dell'ufficio e corsi alla pagina Create
+
+## <a name="prerequisites"></a>Prerequisiti
+
+* [Leggere i dati correlati con EF Core per un'app Web ASP.NET Core MVC](read-related-data.md)
+
+## <a name="customize-courses-pages"></a>Personalizzare le pagine dei corsi
 
 Quando viene creata, una nuova entità corso deve essere in relazione con un dipartimento esistente. Per semplificare il raggiungimento di questo obiettivo, il codice con scaffolding include i metodi del controller e le visualizzazioni di creazione e modifica includono un elenco a discesa per la selezione del dipartimento. L'elenco a discesa imposta la proprietà di chiave esterna `Course.DepartmentID`. Questo è tutto ciò che serve a Entity Framework per caricare la proprietà di navigazione `Department` con l'entità Department appropriata. Verrà usato il codice con scaffolding, che però verrà modificato leggermente per aggiungere la gestione degli errori e l'ordinamento dell'elenco a discesa.
 
@@ -103,7 +109,7 @@ Fare clic su **Edit** (Modifica) per un corso nella pagina di indice dei corsi.
 
 Modificare i dati nella pagina e fare clic su **Save** (Salva). La pagina di indice dei corsi verrà visualizzata con i dati del corso aggiornati.
 
-## <a name="add-an-edit-page-for-instructors"></a>Aggiungere una pagina di modifica per gli insegnanti
+## <a name="add-instructors-edit-page"></a>Aggiungere la pagina Edit per gli insegnanti
 
 Quando si modifica il record di un insegnante, è necessario essere in grado di aggiornare l'assegnazione dell'ufficio. L'entità Instructor ha una relazione uno-a-zero-o-uno con l'entità OfficeAssignment. Ciò significa che il codice deve gestire le situazioni seguenti:
 
@@ -163,7 +169,7 @@ Eseguire l'app, selezionare la scheda **Instructors** (Insegnanti) e quindi fare
 
 ![Pagina di modifica dell'insegnante](update-related-data/_static/instructor-edit-office.png)
 
-## <a name="add-course-assignments-to-the-instructor-edit-page"></a>Aggiungere assegnazioni di corso nella pagina di modifica dell'insegnante
+## <a name="add-courses-to-edit-page"></a>Aggiungere corsi alla pagina Edit
 
 Gli insegnanti possono tenere un numero qualsiasi di corsi. A questo punto la pagina di modifica dell'insegnante verrà migliorata aggiungendo la possibilità di modificare le assegnazioni di corso tramite un gruppo di caselle di controllo, come illustrato nello screenshot seguente:
 
@@ -236,7 +242,7 @@ Modificare alcune assegnazioni di corsi e fare clic su Save (Salva). Le modifich
 > [!NOTE]
 > L'approccio qui adottato per la modifica dei dati dei corsi degli insegnanti funziona bene quando è presente un numero limitato di corsi. Per raccolte molto più grandi, sarebbero necessari un'interfaccia utente diversa e un altro metodo di aggiornamento.
 
-## <a name="update-the-delete-page"></a>Aggiornare la pagina Delete (Elimina)
+## <a name="update-delete-page"></a>Aggiornare la pagina Delete
 
 In *InstructorsController.cs* eliminare il metodo `DeleteConfirmed` e sostituirlo con il codice seguente.
 
@@ -248,7 +254,7 @@ Questo codice determina le modifiche seguenti:
 
 * Se l'insegnante da eliminare è assegnato come responsabile di un dipartimento, tale assegnazione viene rimossa dal dipartimento.
 
-## <a name="add-office-location-and-courses-to-the-create-page"></a>Aggiungere posizione dell'ufficio e corsi alla pagina Create (Crea)
+## <a name="add-office-location-and-courses-to-create-page"></a>Aggiungere posizione dell'ufficio e corsi alla pagina Create
 
 In *InstructorsController.cs*, eliminare i metodi `Create` HttpGet e HttpPost e quindi sostituirli con il codice seguente:
 
@@ -293,12 +299,21 @@ Eseguire il test eseguendo l'app e creando un insegnante.
 
 Come spiegato nell' [esercitazione su CRUD](crud.md), per impostazione predefinita Entity Framework implementa in modo implicito le transazioni. Per gli scenari in cui è necessario un maggior controllo, ad esempio per includere le operazioni eseguite all'esterno di Entity Framework in una transazione, vedere [Transazioni](/ef/core/saving/transactions).
 
-## <a name="summary"></a>Riepilogo
+## <a name="get-the-code"></a>Ottenere il codice
 
-L'esercitazione di introduzione all'uso di dati correlati è stata completata. Nella prossima esercitazione verrà illustrato come gestire i conflitti di concorrenza.
+[Scaricare o visualizzare l'applicazione completata.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-::: moniker-end
+## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="step-by-step"]
-> [Precedente](read-related-data.md)
-> [Successivo](concurrency.md)
+Le attività di questa esercitazione sono le seguenti:
+
+> [!div class="checklist"]
+> * Personalizzare le pagine dei corsi
+> * Aggiungere la pagina Edit per gli insegnanti
+> * Aggiungere corsi alla pagina Edit
+> * Aggiornare la pagina Delete
+> * Aggiungere posizione dell'ufficio e corsi alla pagina Create
+
+Passare all'articolo successivo per informazioni su come gestire i conflitti di concorrenza.
+> [!div class="nextstepaction"]
+> [Gestire i conflitti di concorrenza](concurrency.md)

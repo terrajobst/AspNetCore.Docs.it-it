@@ -1,27 +1,20 @@
 ---
-title: ASP.NET Core MVC con EF Core - Modello di dati - 5 di 10
-author: rick-anderson
+title: 'Esercitazione: Creare un modello di dati complesso - ASP.NET MVC con EF Core'
 description: In questa esercitazione si aggiungono altre entità e relazioni e si personalizza il modello di dati specificando regole di formattazione, convalida e mapping.
+author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 02/05/2019
+ms.topic: tutorial
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 87212edbfe34af6de938cf95314501e56e64a8be
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: c08fd6ff7c19c63161135b4c87609f6edd3edb80
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091041"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103124"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---data-model---5-of-10"></a>ASP.NET Core MVC con EF Core - Modello di dati - 5 di 10
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-Di [Tom Dykstra](https://github.com/tdykstra) e [Rick Anderson](https://twitter.com/RickAndMSFT)
-
-L'applicazione Web di esempio Contoso University illustra come creare applicazioni Web ASP.NET Core MVC con Entity Framework Core e Visual Studio. Per informazioni sulla serie di esercitazioni, vedere la [prima esercitazione della serie](intro.md).
+# <a name="tutorial-create-a-complex-data-model---aspnet-mvc-with-ef-core"></a>Esercitazione: Creare un modello di dati complesso - ASP.NET MVC con EF Core
 
 Nelle esercitazioni precedenti è stato usato un modello di dati semplice costituito da tre entità. In questa esercitazione si aggiungeranno altre entità e relazioni e si personalizzerà il modello di dati specificando regole di formattazione, convalida e mapping del database.
 
@@ -29,7 +22,27 @@ Al termine dell'operazione le classi di entità verranno incluse nel modello di 
 
 ![Diagramma dell'entità](complex-data-model/_static/diagram.png)
 
-## <a name="customize-the-data-model-by-using-attributes"></a>Personalizzare il modello di dati usando gli attributi
+Le attività di questa esercitazione sono le seguenti:
+
+> [!div class="checklist"]
+> * Personalizzare il modello di dati
+> * Apportare modifiche all'entità Student
+> * Creare l'entità Instructor
+> * Creare l'entità OfficeAssignment
+> * Modificare l'entità Course
+> * Creare l'entità Department
+> * Modificare l'entità Enrollment
+> * Aggiornare il contesto di database
+> * Eseguire il seeding del database con dati di test
+> * Aggiungere una migrazione
+> * Modificare la stringa di connessione
+> * Aggiornare il database
+
+## <a name="prerequisites"></a>Prerequisiti
+
+* [Uso della funzionalità delle migrazioni EF Core per ASP.NET Core in un'app web MVC](migrations.md)
+
+## <a name="customize-the-data-model"></a>Personalizzare il modello di dati
 
 In questa sezione si apprenderà come personalizzare il modello di dati usando attributi che specificano regole di formattazione, convalida e mapping del database. Quindi nelle sezioni seguenti si creerà il modello di dati School (Istituto scolastico) completo, aggiungendo attributi alle classi già create e creando nuove classi per i tipi di entità rimanenti nel modello.
 
@@ -97,9 +110,7 @@ Il comando `migrations add` segnala che può verificarsi la perdita di dati, per
 
 Il timestamp che precede il nome del file delle migrazioni viene usato da Entity Framework per ordinare le migrazioni. È possibile creare più migrazioni prima di eseguire il comando update-database, dopodiché tutte le migrazioni vengono applicate nell'ordine in cui sono state create.
 
-Eseguire l'app, selezionare la scheda **Students** (Studenti), fare clic su **Crea nuovo** e immettere un nome con più di 50 caratteri. Quando si fa clic su **Crea** la convalida lato client visualizza un messaggio di errore.
-
-![Pagina Students Index (Indice studenti) con errori di lunghezza stringa](complex-data-model/_static/string-length-errors.png)
+Eseguire l'app, selezionare la scheda **Students** (Studenti), fare clic su **Crea nuovo** e provare a immettere un nome con più di 50 caratteri. L'applicazione dovrebbe impedire questa operazione. 
 
 ### <a name="the-column-attribute"></a>Attributo Column
 
@@ -132,7 +143,7 @@ Prima dell'applicazione delle prime due migrazioni, le colonne del nome erano di
 > [!Note]
 > Se si prova a compilare prima di aver creato tutte le classi di entità delle sezioni seguenti, possono verificarsi errori di compilazione.
 
-## <a name="final-changes-to-the-student-entity"></a>Modifiche finali all'entità Student
+## <a name="changes-to-student-entity"></a>Modifiche all'entità Student
 
 ![Entità Student](complex-data-model/_static/student-entity.png)
 
@@ -160,7 +171,7 @@ L'attributo `Display` specifica che la didascalia delle caselle di testo deve es
 
 `FullName` è una proprietà calcolata che restituisce un valore creato concatenando altre due proprietà. Di conseguenza ha una sola funzione di accesso get e nel database non viene generata nessuna colonna `FullName`.
 
-## <a name="create-the-instructor-entity"></a>Creare l'entità Instructor
+## <a name="create-instructor-entity"></a>Creare l'entità Instructor
 
 ![Entità Instructor](complex-data-model/_static/instructor-entity.png)
 
@@ -196,7 +207,7 @@ Le regole business di Contoso University specificano che un insegnante non può 
 public OfficeAssignment OfficeAssignment { get; set; }
 ```
 
-## <a name="create-the-officeassignment-entity"></a>Creare l'entità OfficeAssignment
+## <a name="create-officeassignment-entity"></a>Creare l'entità OfficeAssignment
 
 ![Entità OfficeAssignment](complex-data-model/_static/officeassignment-entity.png)
 
@@ -223,7 +234,7 @@ L'entità Instructor dispone di una proprietà di navigazione `OfficeAssignment`
 
 È possibile inserire un attributo `[Required]` nella proprietà di navigazione Instructor per specificare che deve essere presente un insegnante correlato, ma questa operazione non è necessaria perché la chiave esterna `InstructorID` (che è anche la chiave per questa tabella) è di tipo non nullable.
 
-## <a name="modify-the-course-entity"></a>Modificare l'entità Course
+## <a name="modify-course-entity"></a>Modificare l'entità Course
 
 ![Entità Course](complex-data-model/_static/course-entity.png)
 
@@ -272,7 +283,7 @@ Un corso può essere impartito da più insegnanti, pertanto la proprietà di nav
 public ICollection<CourseAssignment> CourseAssignments { get; set; }
 ```
 
-## <a name="create-the-department-entity"></a>Creare l'entità Department
+## <a name="create-department-entity"></a>Creare l'entità Department
 
 ![Entità Department](complex-data-model/_static/department-entity.png)
 
@@ -318,7 +329,7 @@ public ICollection<Course> Courses { get; set; }
 >    .OnDelete(DeleteBehavior.Restrict)
 > ```
 
-## <a name="modify-the-enrollment-entity"></a>Modificare l'entità Enrollment
+## <a name="modify-enrollment-entity"></a>Modificare l'entità Enrollment
 
 ![Entità Enrollment](complex-data-model/_static/enrollment-entity.png)
 
@@ -384,7 +395,7 @@ Aggiungere il codice evidenziato di seguito al file *Data/SchoolContext.cs*:
 
 Questo codice aggiunge le nuove entità e configura la chiave primaria composta dell'entità CourseAssignment.
 
-## <a name="fluent-api-alternative-to-attributes"></a>Alternativa API Fluent agli attributi
+## <a name="about-a-fluent-api-alternative"></a>Informazioni su un'alternativa API Fluent
 
 Il codice nel metodo `OnModelCreating` della classe `DbContext` usa l'*API Fluent* per configurare il comportamento di Entity Framework. L'API è denominata "API Fluent" perché viene spesso usata unendo una serie di chiamate di metodi in un'unica istruzione, come in questo esempio tratto dalla [documentazione di EF Core](/ef/core/modeling/#methods-of-configuration):
 
@@ -411,7 +422,7 @@ La figura seguente visualizza il diagramma creato da Entity Framework Power Tool
 
 Oltre alle linee delle relazioni uno-a-molti (da 1 a \*) è possibile visualizzare la linea della relazione uno-a-zero-o-uno (da 1 a 0..1) tra le entità Instructor e OfficeAssignment e la linea della relazione zero-o-uno-a-molti (da 0..1 a *) tra le entità Instructor e Department.
 
-## <a name="seed-the-database-with-test-data"></a>Assegnare valori di inizializzazione al database con dati di test
+## <a name="seed-database-with-test-data"></a>Eseguire il seeding del database con dati di test
 
 Sostituire il codice nel file *Data/DbInitializer.cs* con il codice seguente per includere dati di inizializzazione per le nuove entità create.
 
@@ -456,7 +467,7 @@ In un'applicazione di produzione è necessario creare codice o script per aggiun
 
 Salvare le modifiche e compilare il progetto.
 
-## <a name="change-the-connection-string-and-update-the-database"></a>Modificare la stringa di connessione e aggiornare il database
+## <a name="change-the-connection-string"></a>Modificare la stringa di connessione
 
 Ora la classe `DbInitializer` include nuovo codice che aggiunge dati di inizializzazione per le nuove entità a un database vuoto. Per fare in modo che EF crei un nuovo database vuoto, cambiare il nome del database nella stringa di connessione *appsettings.json* digitando ContosoUniversity3 o un altro nome non ancora adottato nel computer in uso.
 
@@ -470,10 +481,12 @@ Ora la classe `DbInitializer` include nuovo codice che aggiunge dati di iniziali
 Salvare le modifiche apportate ad *appsettings.json*.
 
 > [!NOTE]
-> In alternativa alla modifica del nome del database, è possibile eliminare il database. Usare **Esplora oggetti di SQL Server** (SSOX) o il comando CLI `database drop`:
+> In alternativa alla modifica del nome del database, è possibile eliminare il database. Usare **Esplora oggetti di SQL Server** o il comando della CLI `database drop`:
 > ```console
 > dotnet ef database drop
 > ```
+
+## <a name="update-the-database"></a>Aggiornare il database
 
 Dopo aver modificato il nome del database o eliminato il database, eseguire il comando `database update` nella finestra di comando per eseguire le migrazioni.
 
@@ -493,12 +506,28 @@ Fare clic con il pulsante destro del mouse sulla tabella **CourseAssignment** e 
 
 ![Dati CourseAssignment in SSOX](complex-data-model/_static/ssox-ci-data.png)
 
-## <a name="summary"></a>Riepilogo
+## <a name="get-the-code"></a>Ottenere il codice
 
-Ora sono presenti un modello di dati più complesso e il database corrispondente. Nell'esercitazione seguente si apprenderanno tecniche per l'accesso ai dati correlati.
+[Scaricare o visualizzare l'applicazione completata.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-::: moniker-end
+## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="step-by-step"]
-> [Precedente](migrations.md)
-> [Successivo](read-related-data.md)
+Le attività di questa esercitazione sono le seguenti:
+
+> [!div class="checklist"]
+> * Personalizzazione del modello di dati
+> * Modifica dell'entità Student
+> * Creazione dell'entità Instructor
+> * Creazione dell'entità OfficeAssignment
+> * Modifica dell'entità Course
+> * Creazione dell'entità Department
+> * Modifica dell'entità Enrollment
+> * Aggiornamento del contesto di database
+> * Seeding del database con dati di test
+> * Aggiunta di una migrazione
+> * Modifica della stringa di connessione
+> * Aggiornamento del database
+
+Passare all'articolo successivo per altre informazioni su come accedere ai dati correlati.
+> [!div class="nextstepaction"]
+> [Accedere ai dati correlati](read-related-data.md)

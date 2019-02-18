@@ -4,14 +4,14 @@ author: rick-anderson
 description: Creare un'API Web con ASP.NET Core MVC
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/24/2019
+ms.date: 02/4/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 65af70be2cec68d30dd712b80312ebcd40ea0624
-ms.sourcegitcommit: c6db8b14521814f1f7e528d7aa06e474e4c04a1f
+ms.openlocfilehash: 5d72cb214a3d5565452b3b95f364818a71be44b7
+ms.sourcegitcommit: 98e9c7187772d4ddefe6d8e85d0d206749dbd2ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "55065048"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55737642"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core-mvc"></a>Esercitazione: Creare un'API Web con ASP.NET Core MVC
 
@@ -39,7 +39,7 @@ Al termine si dispone di un'API web che può gestire gli elementi di tipo "attiv
 
 Questa esercitazione consente di creare l'API seguente:
 
-|API | Description | Corpo della richiesta | Corpo della risposta |
+|API | Descrizione | Corpo della richiesta | Corpo della risposta |
 |--- | ---- | ---- | ---- |
 |GET /api/todo | Ottiene tutti gli elementi attività | nessuno | Matrice di elementi attività|
 |GET /api/todo/{id} | Ottiene un elemento in base all'ID | nessuno | Elemento attività|
@@ -351,6 +351,8 @@ Aggiungere il metodo `PutTodoItem` seguente:
 `PutTodoItem` è simile a `PostTodoItem` ma usa la richiesta HTTP PUT. La risposta è [204 (No Content)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). In base alla specifica HTTP, una richiesta PUT richiede che il client invii l'intera entità aggiornata e non solo le modifiche. Per supportare gli aggiornamenti parziali, usare [HTTP PATCH](xref:Microsoft.AspNetCore.Mvc.HttpPatchAttribute).
 
 ### <a name="test-the-puttodoitem-method"></a>Testare il metodo PutTodoItem
+
+Questo esempio usa un database in memoria che deve essere inizializzato ogni volta che l'app viene avviata. Deve esistere un elemento nel database prima di eseguire una chiamata PUT. Chiamare GET per assicurarsi che sia presente un elemento nel database prima di eseguire una chiamata PUT.
 
 Aggiornare l'elemento attività con id = 1 e impostarne il nome su "feed fish":
 

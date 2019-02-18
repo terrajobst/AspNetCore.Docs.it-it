@@ -5,14 +5,14 @@ description: Informazioni su come ospitare un'app ASP.NET Core in un servizio Wi
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 01/22/2019
+ms.date: 02/13/2019
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: eedaf64710506f2a2aac65c178a9888d2ab33d38
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: 081a631c9c3e74c01e15f4b0b272d650c162bd20
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54837481"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248251"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Ospitare ASP.NET Core in un servizio Windows
 
@@ -112,7 +112,7 @@ Modificare `Program.Main` nel modo seguente:
 
   Se le condizioni sono false (l'app è eseguita come servizio):
 
-  * Chiamare <xref:System.IO.Directory.SetCurrentDirectory*> e usare un percorso per la posizione di pubblicazione dell'app. Non chiamare <xref:System.IO.Directory.GetCurrentDirectory*> per ottenere il percorso perché un'app servizio Windows restituisce la cartella *C:\\WINDOWS\\system32* quando viene chiamato `GetCurrentDirectory`. Per altre informazioni, vedere la sezione [Directory corrente e radice del contenuto](#current-directory-and-content-root).
+  * Chiamare <xref:System.IO.Directory.SetCurrentDirectory*> e usare un percorso per la posizione di pubblicazione dell'app. Non chiamare <xref:System.IO.Directory.GetCurrentDirectory*> per ottenere il percorso perché un'app servizio Windows restituisce la cartella *C:\\WINDOWS\\system32* quando viene chiamato <xref:System.IO.Directory.GetCurrentDirectory*>. Per altre informazioni, vedere la sezione [Directory corrente e radice del contenuto](#current-directory-and-content-root).
   * Chiamare <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostWindowsServiceExtensions.RunAsService*> per eseguire l'app come servizio.
 
   Dato che il [provider di configurazione della riga di comando](xref:fundamentals/configuration/index#command-line-configuration-provider) richiede coppie nome-valore per gli argomenti della riga di comando, l'opzione `--console` viene rimossa dagli argomenti prima che <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> li riceva.
@@ -147,11 +147,13 @@ dotnet publish --configuration Release --runtime win7-x64 --output c:\svc
 
 ### <a name="create-a-user-account"></a>Creare un account utente
 
-Creare un account utente per il servizio con il comando `net user`:
+Creare un account utente per il servizio usando il comando `net user` da una shell dei comandi amministrativa:
 
 ```console
 net user {USER ACCOUNT} {PASSWORD} /add
 ```
+
+La scadenza della password predefinita è di sei settimane.
 
 Per l'app di esempio, creare un account utente con il nome `ServiceUser` e una password. Nel comando seguente sostituire `{PASSWORD}` con una [password complessa](/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements).
 
@@ -167,9 +169,13 @@ net localgroup {GROUP} {USER ACCOUNT} /add
 
 Per altre informazioni, vedere [Service User Accounts](/windows/desktop/services/service-user-accounts) (Account utente di servizio).
 
+Un approccio alternativo per la gestione degli utenti quando si usa Active Directory consiste nell'usare account del servizio gestito. Per altre informazioni, vedere [Panoramica degli account del servizio gestito del gruppo](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview).
+
 ### <a name="set-permissions"></a>Impostare le autorizzazioni
 
-Concedere l'accesso per scrittura/lettura/esecuzione alla cartella dell'app usando il comando [icacls](/windows-server/administration/windows-commands/icacls):
+#### <a name="access-to-the-app-folder"></a>Accesso alla cartella dell'app
+
+Concedere l'accesso per scrittura/lettura/esecuzione alla cartella dell'app usando il comando [icacls](/windows-server/administration/windows-commands/icacls) da una shell dei comandi amministrativa:
 
 ```console
 icacls "{PATH}" /grant {USER ACCOUNT}:(OI)(CI){PERMISSION FLAGS} /t
@@ -195,11 +201,23 @@ icacls "c:\svc" /grant ServiceUser:(OI)(CI)WRX /t
 
 Per altre informazioni, vedere [icacls](/windows-server/administration/windows-commands/icacls).
 
+#### <a name="log-on-as-a-service"></a>Accedi come servizio
+
+Per concedere il privilegio [Accedi come servizio](/windows/security/threat-protection/security-policy-settings/log-on-as-a-service) all'account utente:
+
+1. Individuare i criteri **Assegnazione diritti utente** nella console Criteri di sicurezza locali o nella console Editor Criteri di gruppo locali. Per istruzioni, vedere: [Configurare le impostazioni dei criteri di sicurezza](/windows/security/threat-protection/security-policy-settings/how-to-configure-security-policy-settings).
+1. Individuare i criteri `Log on as a service`. Fare doppio clic sul criterio per aprirlo.
+1. Selezionare **Aggiungi utente o gruppo**.
+1. Selezionare **Avanzate** e selezionare **Trova ora**.
+1. Selezionare l'account utente creato nella sezione [Creare un account utente](#create-a-user-account) in precedenza. Selezionare **OK** per accettare la selezione.
+1. Selezionare **OK** dopo aver confermato che il nome dell'oggetto è corretto.
+1. Scegliere il pulsante **Applica**. Selezionare **OK** per chiudere la finestra dei criteri.
+
 ## <a name="manage-the-service"></a>Gestire il servizio
 
 ### <a name="create-the-service"></a>Creare il servizio
 
-Usare lo strumento da riga di comando [sc.exe](https://technet.microsoft.com/library/bb490995) per creare il servizio. Il valore `binPath` rappresenta il percorso dell'eseguibile dell'app, che include il nome del file eseguibile. **Lo spazio tra il segno di uguale e il carattere di virgoletta di ogni parametro e valore è obbligatorio.**
+Usare lo strumento da riga di comando [sc.exe](https://technet.microsoft.com/library/bb490995) per creare il servizio da una shell dei comandi amministrativa. Il valore `binPath` rappresenta il percorso dell'eseguibile dell'app, che include il nome del file eseguibile. **Lo spazio tra il segno di uguale e il carattere di virgoletta di ogni parametro e valore è obbligatorio.**
 
 ```console
 sc create {SERVICE NAME} binPath= "{PATH}" obj= "{DOMAIN}\{USER ACCOUNT}" password= "{PASSWORD}"
@@ -207,7 +225,7 @@ sc create {SERVICE NAME} binPath= "{PATH}" obj= "{DOMAIN}\{USER ACCOUNT}" passwo
 
 * `{SERVICE NAME}` &ndash; Nome da assegnare al servizio in [Gestione controllo servizi](/windows/desktop/services/service-control-manager).
 * `{PATH}` &ndash; Percorso dell'eseguibile del servizio.
-* `{DOMAIN}` &ndash; Dominio di un computer aggiunto a un dominio. Se il computer non è aggiunto a un dominio, il nome del computer locale.
+* `{DOMAIN}` &ndash; Dominio di un computer aggiunto a un dominio. Se il computer non è aggiunto a un dominio, usare il nome del computer locale.
 * `{USER ACCOUNT}` &ndash; Account utente con cui viene eseguito il servizio.
 * `{PASSWORD}` &ndash; Password dell'account utente.
 

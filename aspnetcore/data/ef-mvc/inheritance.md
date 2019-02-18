@@ -1,33 +1,40 @@
 ---
-title: ASP.NET Core MVC con EF Core - Ereditarietà - 9 di 10
-author: rick-anderson
+title: "Esercitazione: Implementare l'ereditarietà - ASP.NET MVC con EF Core"
 description: Questa esercitazione illustra come implementare l'ereditarietà nel modello di dati usando Entity Framework Core in un'applicazione ASP.NET Core.
+author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 02/05/2019
+ms.topic: tutorial
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: 60417040dd296311e1aecff8f224aadf8da82779
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 0a5eb1aba43bc2adf746202772c7f98eff49b4ff
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090758"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103007"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---inheritance---9-of-10"></a>ASP.NET Core MVC con EF Core - Ereditarietà - 9 di 10
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-Di [Tom Dykstra](https://github.com/tdykstra) e [Rick Anderson](https://twitter.com/RickAndMSFT)
-
-L'applicazione Web di esempio Contoso University illustra come creare applicazioni Web ASP.NET Core MVC con Entity Framework Core e Visual Studio. Per informazioni sulla serie di esercitazioni, vedere la [prima esercitazione della serie](intro.md).
+# <a name="tutorial-implement-inheritance---aspnet-mvc-with-ef-core"></a>Esercitazione: Implementare l'ereditarietà - ASP.NET MVC con EF Core
 
 Nell'esercitazione precedente sono state presentate le eccezioni di concorrenza. In questa esercitazione viene illustrato come implementare l'ereditarietà nel modello di dati.
 
 Nella programmazione orientata a oggetti è possibile usare l'ereditarietà per facilitare il riutilizzo del codice. In questa esercitazione verranno modificate le classi `Instructor` e `Student` in modo che derivino da una classe di base `Person` contenente proprietà quali `LastName` comuni a docenti e studenti. Non verranno aggiunte o modificate pagine Web, ma si modificherà parte del codice e le modifiche verranno automaticamente riflesse nel database.
 
-## <a name="options-for-mapping-inheritance-to-database-tables"></a>Opzioni per il mapping dell'ereditarietà alle tabelle di database
+Le attività di questa esercitazione sono le seguenti:
+
+> [!div class="checklist"]
+> * Eseguire il mapping dell'ereditarietà al database
+> * Creare la classe Person
+> * Aggiornare Student e Instructor
+> * Aggiungere Person al modello
+> * Creare e aggiornare le migrazioni
+> * Testare l'implementazione
+
+## <a name="prerequisites"></a>Prerequisiti
+
+* [Gestire la concorrenza con EF Core in un'app Web ASP.NET Core MVC](concurrency.md)
+
+## <a name="map-inheritance-to-database"></a>Eseguire il mapping dell'ereditarietà al database
 
 Le classi `Instructor` e `Student` nel modello di dati School presentano molte proprietà identiche:
 
@@ -64,7 +71,7 @@ Nella cartella Models creare Person.cs e sostituire il codice del modello con il
 
 [!code-csharp[](intro/samples/cu/Models/Person.cs)]
 
-## <a name="make-student-and-instructor-classes-inherit-from-person"></a>Modificare le classi Student e Instructor in modo da stabilire l'ereditarietà da Person
+## <a name="update-instructor-and-student"></a>Aggiornare Student e Instructor
 
 In *Instructor.cs* derivare la classe Instructor dalla classe Person e rimuovere i campi chiave e nome. Il codice sarà simile all'esempio seguente:
 
@@ -74,7 +81,7 @@ Apportare le stesse modifiche in *Student.cs*.
 
 [!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_AfterInheritance&highlight=8)]
 
-## <a name="add-the-person-entity-type-to-the-data-model"></a>Aggiungere il tipo di entità Person al modello di dati
+## <a name="add-person-to-the-model"></a>Aggiungere Person al modello
 
 Aggiungere il tipo di entità Person a *SchoolContext.cs*. Le nuove righe sono evidenziate.
 
@@ -82,7 +89,7 @@ Aggiungere il tipo di entità Person a *SchoolContext.cs*. Le nuove righe sono e
 
 L'ereditarietà tabella per gerarchia in Entity Framework è stata configurata. Come si vedrà, quando il database verrà aggiornato conterrà una tabella Person invece delle tabelle Student e Instructor.
 
-## <a name="create-and-customize-migration-code"></a>Creare e personalizzare il codice di migrazione
+## <a name="create-and-update-migrations"></a>Creare e aggiornare le migrazioni
 
 Salvare le modifiche e compilare il progetto. Quindi aprire la finestra di comando nella cartella del progetto e immettere il comando seguente:
 
@@ -129,7 +136,7 @@ In un sistema di produzione verrebbero apportate modifiche corrispondenti al met
 > [!NOTE]
 > Quando si apportano modifiche allo schema in un database con dati esistenti è possibile che si riscontrino altri errori. Se si verificano errori di migrazione che non si riesce a risolvere, è possibile modificare il nome del database nella stringa di connessione o eliminare il database. Un nuovo database non contiene dati di cui eseguire la migrazione e ci sono maggiori probabilità che il comando update-database venga completato senza errori. Per eliminare il database, usare SSOX o eseguire il comando dell’interfaccia della riga di comando `database drop`.
 
-## <a name="test-with-inheritance-implemented"></a>Eseguire il test con l'ereditarietà implementata
+## <a name="test-the-implementation"></a>Testare l'implementazione
 
 Eseguire l'app e provare diverse pagine. Tutto funziona come in precedenza.
 
@@ -141,12 +148,26 @@ Fare clic con il pulsante destro del mouse sulla tabella Person e quindi su **Mo
 
 ![Tabella Person in SSOX, dati della tabella](inheritance/_static/ssox-person-data.png)
 
-## <a name="summary"></a>Riepilogo
+## <a name="get-the-code"></a>Ottenere il codice
 
-È stata implementata l'ereditarietà tabella per gerarchia per le classi `Person`, `Student` e `Instructor`. Per altre informazioni sull'ereditarietà in Entity Framework Core, vedere [Ereditarietà](/ef/core/modeling/inheritance). Nella prossima esercitazione si apprenderà come gestire diversi scenari Entity Framework relativamente avanzati.
+[Scaricare o visualizzare l'applicazione completata.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-::: moniker-end
+## <a name="additional-resources"></a>Risorse aggiuntive
 
-> [!div class="step-by-step"]
-> [Precedente](concurrency.md)
-> [Successivo](advanced.md)
+Per altre informazioni sull'ereditarietà in Entity Framework Core, vedere [Ereditarietà](/ef/core/modeling/inheritance).
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Le attività di questa esercitazione sono le seguenti:
+
+> [!div class="checklist"]
+> * Eseguire il mapping dell'ereditarietà al database
+> * Creare la classe Person
+> * Aggiornare Student e Instructor
+> * Aggiungere Person al modello
+> * Creare e aggiornare le migrazioni
+> * Testare l'implementazione
+
+Nella prossima esercitazione si apprenderà come gestire diversi scenari Entity Framework relativamente avanzati.
+> [!div class="nextstepaction"]
+> [Argomenti avanzati](advanced.md)

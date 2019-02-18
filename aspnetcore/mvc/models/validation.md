@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/14/2019
 uid: mvc/models/validation
-ms.openlocfilehash: 7c8255097dfc72480794930ebe4d6cb568edbd7c
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
+ms.openlocfilehash: ca7ee54b8e6b6ae5091b0cb133e448ad9c04da8f
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396194"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248519"
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>Convalida del modello in ASP.NET Core MVC
 
@@ -151,9 +151,9 @@ La variabile `movie` specificata sopra rappresenta un oggetto `Movie` contenente
 
 Quando un utente modifica il campo `Genre` e invia il modulo, il metodo `IsValid` della classe `ClassicMovieAttribute` verifica se il film sia un classico. Come fosse un attributo predefinito, applicare la classe `ClassicMovieAttribute` a una proprietà, ad esempio `ReleaseDate`, per garantire che la convalida venga eseguita, come illustrato nell'esempio di codice precedente. Poiché l'esempio funziona solo con tipi `Movie`, è consigliabile usare `IValidatableObject` come illustrato nel paragrafo seguente.
 
-In alternativa, questo stesso codice può essere inserito nel modello implementando il metodo `Validate` nell'interfaccia `IValidatableObject`. Mentre gli attributi di convalida sono adatti per la convalida di singole proprietà, l'implementazione di `IValidatableObject` può essere usata per implementare la convalida a livello di classe, come illustrato di seguito.
+In alternativa, questo stesso codice può essere inserito nel modello implementando il metodo `Validate` nell'interfaccia `IValidatableObject`. Mentre gli attributi di convalida personalizzati sono adatti per la convalida di singole proprietà, l'implementazione di `IValidatableObject` può essere usata per implementare la convalida a livello di classe:
 
-[!code-csharp[](validation/sample/MovieIValidatable.cs?name=snippet_Validate)]
+[!code-csharp[](validation/sample/MovieIValidatable.cs?name=snippet&highlight=1,26-34)]
 
 ## <a name="client-side-validation"></a>Convalida lato client
 

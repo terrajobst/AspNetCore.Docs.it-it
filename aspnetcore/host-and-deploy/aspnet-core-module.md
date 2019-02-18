@@ -4,14 +4,14 @@ author: guardrex
 description: Informazioni su come configurare il modulo di ASP.NET Core per l'hosting di app ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/22/2019
+ms.date: 02/08/2019
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: 4eea360d08c79b889db00132109cf49492f84de6
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: 9270d7b462bbac1ae0ad896c0937ea6dd909b2cd
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54837780"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56159555"
 ---
 # <a name="aspnet-core-module"></a>Modulo ASP.NET Core
 
@@ -51,7 +51,11 @@ Se la proprietà `<AspNetCoreHostingModel>` non è presente nel file, il valore 
 
 In caso di hosting in-process, vengono applicate le caratteristiche seguenti:
 
-* Viene usato un server HTTP di IIS (`IISHttpServer`) al posto del server [Kestrel](xref:fundamentals/servers/kestrel).
+* Viene usato un server HTTP di IIS (`IISHttpServer`) al posto del server [Kestrel](xref:fundamentals/servers/kestrel). Per in-process, [CreateDefaultBuilder](xref:fundamentals/host/web-host#set-up-a-host) chiama <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIIS*> per:
+
+  * Registrare `IISHttpServer`.
+  * Configurare la porta e il percorso di base su cui il server deve eseguire l'ascolto in caso di esecuzione dietro il modulo ASP.NET Core.
+  * Configurare l'host per l'acquisizione degli errori di avvio.
 
 * L'[attributo requestTimeout ](#attributes-of-the-aspnetcore-element) non viene applicato all'hosting in-process.
 
@@ -83,6 +87,11 @@ Per configurare un'app per l'hosting out-of-process, usare uno dei due approcci 
 ```
 
 Viene usato il server [Kestrel](xref:fundamentals/servers/kestrel) al posto di un server HTTP di IIS (`IISHttpServer`).
+
+Per out-of-process, [CreateDefaultBuilder](xref:fundamentals/host/web-host#set-up-a-host) chiama <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> per:
+
+* Configurare la porta e il percorso di base su cui il server deve eseguire l'ascolto in caso di esecuzione dietro il modulo ASP.NET Core.
+* Configurare l'host per l'acquisizione degli errori di avvio.
 
 ### <a name="hosting-model-changes"></a>Modifiche del modello di hosting
 
@@ -231,7 +240,7 @@ Per informazioni sulla configurazione delle applicazioni secondarie IIS, vedere 
 
 ::: moniker range=">= aspnetcore-2.2"
 
-| Attributo | Description | Impostazione predefinita |
+| Attributo | Descrizione | Impostazione predefinita |
 | --------- | ----------- | :-----: |
 | `arguments` | <p>Attributo stringa facoltativo.</p><p>Argomenti per l'eseguibile specificato in **processPath**.</p> | |
 | `disableStartUpErrorPage` | <p>Attributo booleano facoltativo.</p><p>Se true, la pagina **502.5 - Errore del processo** non viene visualizzata e la tabella codici di stato 502 configurata in *web.config* ha la precedenza.</p> | `false` |
@@ -250,7 +259,7 @@ Per informazioni sulla configurazione delle applicazioni secondarie IIS, vedere 
 
 ::: moniker range="= aspnetcore-2.1"
 
-| Attributo | Description | Impostazione predefinita |
+| Attributo | Descrizione | Impostazione predefinita |
 | --------- | ----------- | :-----: |
 | `arguments` | <p>Attributo stringa facoltativo.</p><p>Argomenti per l'eseguibile specificato in **processPath**.</p>| |
 | `disableStartUpErrorPage` | <p>Attributo booleano facoltativo.</p><p>Se true, la pagina **502.5 - Errore del processo** non viene visualizzata e la tabella codici di stato 502 configurata in *web.config* ha la precedenza.</p> | `false` |
@@ -268,7 +277,7 @@ Per informazioni sulla configurazione delle applicazioni secondarie IIS, vedere 
 
 ::: moniker range="<= aspnetcore-2.0"
 
-| Attributo | Description | Impostazione predefinita |
+| Attributo | Descrizione | Impostazione predefinita |
 | --------- | ----------- | :-----: |
 | `arguments` | <p>Attributo stringa facoltativo.</p><p>Argomenti per l'eseguibile specificato in **processPath**.</p>| |
 | `disableStartUpErrorPage` | <p>Attributo booleano facoltativo.</p><p>Se true, la pagina **502.5 - Errore del processo** non viene visualizzata e la tabella codici di stato 502 configurata in *web.config* ha la precedenza.</p> | `false` |
@@ -497,6 +506,32 @@ Il programma di installazione del modulo ASP.NET Core viene eseguito con i privi
 1. Eseguire il programma di installazione.
 1. Esportare il file *applicationHost.config* aggiornato nella condivisione.
 1. Abilitare di nuovo la configurazione condivisa di IIS.
+
+::: moniker range=">= aspnetcore-2.2"
+
+## <a name="application-initialization"></a>Inizializzazione dell'applicazione
+
+[Inizializzazione applicazione di IIS](/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) è una funzionalità di IIS che invia una richiesta HTTP all'app quando il pool di app viene avviato o riciclato. La richiesta attiva l'avvio dell'app. La funzionalità Inizializzazione applicazione può essere usata sia dal [modello di hosting in-process](xref:fundamentals/servers/index#in-process-hosting-model) che dal e [modello di hosting out-of-process](xref:fundamentals/servers/index#out-of-process-hosting-model) con il modulo ASP.NET Core versione 2.
+
+Per abilitare Inizializzazione applicazione:
+
+1. Verificare che la funzionalità del ruolo Inizializzazione applicazione di IIS sia abilitata:
+   * In Windows 7 o versione successiva: Passare a **Pannello di controllo** > **Programmi** > **Programmi e funzionalità** > **Attiva o disattiva funzionalità di Windows** (sul lato sinistro dello schermo). Aprire **Internet Information Services** > **Servizi Web** > **Funzionalità per lo sviluppo di applicazioni**. Selezionare la casella di controllo **Inizializzazione applicazione**.
+   * In Windows Server 2008 R2 o versioni successive aprire **Aggiunta guidata ruoli e funzionalità**. Quando si raggiunge il pannello **Selezione servizi ruolo**, aprire il nodo **Sviluppo applicazioni** e selezionare la casella di controllo **Inizializzazione applicazione**.
+1. In Gestione IIS selezionare **Pool di applicazioni** nel pannello **Connessioni**.
+1. Selezionare il pool di app dell'app nell'elenco.
+1. Selezionare **Impostazioni avanzate** in **Modifica pool di applicazioni** nel pannello **Azioni**.
+1. Impostare **Modalità di avvio** su **AlwaysRunning**.
+1. Aprire il nodo **Siti** nel pannello **Connessioni**.
+1. Selezionare l'app.
+1. Selezionare **Impostazioni avanzate** in **Gestisci sito Web** nel pannello **Azioni**.
+1. Impostare **Precaricamento abilitato** su **True**.
+
+Per altre informazioni, vedere [IIS 8.0 Application Initialization](/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) (Inizializzazione applicazione IIS 8.0).
+
+Le app che usano il [modello di hosting out-of-process](xref:fundamentals/servers/index#out-of-process-hosting-model) devono usare un servizio esterno per eseguire periodicamente il ping dell'app per mantenerla in esecuzione.
+
+::: moniker-end
 
 ## <a name="module-version-and-hosting-bundle-installer-logs"></a>Versione del modulo e log del programma di installazione del bundle di hosting
 

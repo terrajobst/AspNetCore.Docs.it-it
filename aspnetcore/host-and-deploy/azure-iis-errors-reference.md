@@ -4,14 +4,14 @@ author: guardrex
 description: Ottenere suggerimenti per la risoluzione degli errori comuni dell'hosting di app ASP.NET Core in Servizio app di Azure e IIS.
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/11/2018
+ms.date: 02/05/2019
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: 887482d61ffa74bc8ffb39d0af8507fd10199eb8
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.openlocfilehash: 976f7e3fbeab9e81ba99e2dd7d09a892b854651b
+ms.sourcegitcommit: 3c2ba9a0d833d2a096d9d800ba67a1a7f9491af0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341498"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55854461"
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Errori comuni di Servizio app di Azure e IIS con ASP.NET Core
 
@@ -193,7 +193,7 @@ Risoluzione dei problemi:
 
 * Verificare che l'attributo *processPath* dell'elemento `<aspNetCore>` in *web.config* sia `dotnet` per una distribuzione dipendente da framework (FDD, Framework-Dependent Deployment) o `.\{ASSEMBLY}.exe` per una [distribuzione autonoma (SCD, Self-Contained Deployment)](/dotnet/core/deploying/#self-contained-deployments-scd).
 
-* Per una distribuzione dipendente dal framework, *dotnet.exe* potrebbe non essere accessibile tramite le impostazioni del percorso. Confermare che *C:\Program Files\dotnet\* esiste nelle impostazioni del percorso di sistema.
+* Per una distribuzione dipendente dal framework, *dotnet.exe* potrebbe non essere accessibile tramite le impostazioni del percorso. Confermare che *C:\Programmi\dotnet\\* esiste nelle impostazioni PATH di sistema.
 
 * Per una distribuzione dipendente da framework, *dotnet.exe* potrebbe non essere accessibile per l'identità utente del pool di app. Confermare che l'identità dell'utente del pool di app abbia accesso alla directory *C:\Programmi\dotnet*. Verificare che non siano presenti regole di negazione configurate per l'identità dell'utente del pool di app in *C:\Programmi\dotnet* e nelle directory dell'app.
 

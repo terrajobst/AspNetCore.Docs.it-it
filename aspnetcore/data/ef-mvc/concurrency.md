@@ -1,27 +1,20 @@
 ---
-title: ASP.NET Core MVC con EF Core - Concorrenza - 8 di 10
-author: rick-anderson
+title: 'Esercitazione: Gestire la concorrenza - ASP.NET MVC con EF Core'
 description: Questa esercitazione descrive la gestione dei conflitti quando più utenti aggiornano la stessa entità contemporaneamente.
+author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 02/05/2019
+ms.topic: tutorial
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: 0ae566a76a2ef656843452ed537b8fdfbddaed22
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 7b18927d5d528ec2951087502e26b2b30214f389
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090901"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103020"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---concurrency---8-of-10"></a>ASP.NET Core MVC con EF Core - Concorrenza - 8 di 10
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-Di [Tom Dykstra](https://github.com/tdykstra) e [Rick Anderson](https://twitter.com/RickAndMSFT)
-
-L'applicazione Web di esempio Contoso University illustra come creare applicazioni Web ASP.NET Core MVC con Entity Framework Core e Visual Studio. Per informazioni sulla serie di esercitazioni, vedere la [prima esercitazione della serie](intro.md).
+# <a name="tutorial-handle-concurrency---aspnet-mvc-with-ef-core"></a>Esercitazione: Gestire la concorrenza - ASP.NET MVC con EF Core
 
 Nelle esercitazioni precedenti è stato descritto come aggiornare i dati. Questa esercitazione descrive la gestione dei conflitti quando più utenti aggiornano la stessa entità contemporaneamente.
 
@@ -30,6 +23,23 @@ Si creano pagine Web che funzionano con l'entità Department (Reparto) e si gest
 ![Pagina Department Edit (Modifica - Reparto)](concurrency/_static/edit-error.png)
 
 ![Pagina Department Delete (Elimina - Reparto)](concurrency/_static/delete-error.png)
+
+Le attività di questa esercitazione sono le seguenti:
+
+> [!div class="checklist"]
+> * Scoprire di più sui conflitti di concorrenza
+> * Aggiungere una proprietà di rilevamento modifiche
+> * Creare un controller e visualizzazioni Departments
+> * Aggiornare la visualizzazione Index
+> * Aggiornare i metodi Edit
+> * Aggiornare la visualizzazione Edit
+> * Testare i conflitti di concorrenza
+> * Aggiornare la pagina Delete (Elimina)
+> * Aggiornare le visualizzazioni Details (Dettagli) e Create (Crea)
+
+## <a name="prerequisites"></a>Prerequisiti
+
+* [Aggiornare i dati correlati con EF Core in un'app Web ASP.NET Core MVC](update-related-data.md)
 
 ## <a name="concurrency-conflicts"></a>Conflitti di concorrenza
 
@@ -87,7 +97,7 @@ Di seguito sono elencate alcune opzioni:
 
 Nella parte restante di questa esercitazione si aggiunge una proprietà di rilevamento `rowversion` all'entità Department (Reparto), si crea un controller e delle visualizzazioni e si esegue un test per verificare che tutto funzioni correttamente.
 
-## <a name="add-a-tracking-property-to-the-department-entity"></a>Aggiungere una proprietà di rilevamento all'entità Department
+## <a name="add-a-tracking-property"></a>Aggiungere una proprietà di rilevamento modifiche
 
 In *Models/Department.cs* aggiungere una proprietà di rilevamento denominata RowVersion:
 
@@ -114,7 +124,7 @@ dotnet ef migrations add RowVersion
 dotnet ef database update
 ```
 
-## <a name="create-a-departments-controller-and-views"></a>Creare un controller Departments e le relative visualizzazioni
+## <a name="create-departments-controller-and-views"></a>Creare un controller e visualizzazioni Departments
 
 Eseguire lo scaffolding di un controller e di visualizzazioni Departments come già fatto in precedenza per Students, Courses e Instructors.
 
@@ -124,7 +134,7 @@ Nel file *DepartmentsController.cs*, convertire tutte e quattro le ricorrenze di
 
 [!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_Dropdown)]
 
-## <a name="update-the-departments-index-view"></a>Aggiornare la visualizzazione Departments Index (Indice reparti)
+## <a name="update-index-view"></a>Aggiornare la visualizzazione Index
 
 Il motore di scaffolding crea una colonna RowVersion nella vista Index, ma questo campo non deve essere visualizzato.
 
@@ -134,7 +144,7 @@ Sostituire il codice in *Views/Departments/Index.cshtml* con il codice seguente:
 
 Questo codice imposta come intestazione "Departments" (Reparti), elimina la colonna RowVersion e visualizza il nome completo anziché solo il cognome dell'amministratore.
 
-## <a name="update-the-edit-methods-in-the-departments-controller"></a>Aggiornare i metodi Edit nel controller Departments
+## <a name="update-edit-methods"></a>Aggiornare i metodi Edit
 
 Sia nel metodo HttpGet `Edit` che nel metodo `Details`, aggiungere `AsNoTracking`. Nel metodo HttpGet `Edit` aggiungere il caricamento eager per Administrator.
 
@@ -172,7 +182,7 @@ Infine il codice imposta il valore `RowVersion` di `departmentToUpdate` sul nuov
 
 L'istruzione `ModelState.Remove` è necessaria perché `ModelState` presenta il valore obsoleto `RowVersion`. Nella visualizzazione, il valore `ModelState` di un campo ha la precedenza sui valori di proprietà del modello quando entrambi gli elementi sono presenti.
 
-## <a name="update-the-department-edit-view"></a>Aggiornare la visualizzazione Department Edit (Modifica - Reparto)
+## <a name="update-edit-view"></a>Aggiornare la visualizzazione Edit
 
 In *Views/Departments/Edit.cshtml* apportare le modifiche seguenti:
 
@@ -182,7 +192,7 @@ In *Views/Departments/Edit.cshtml* apportare le modifiche seguenti:
 
 [!code-html[](intro/samples/cu/Views/Departments/Edit.cshtml?highlight=16,34-36)]
 
-## <a name="test-concurrency-conflicts-in-the-edit-page"></a>Eseguire il test dei conflitti di concorrenza presente nella pagina Edit
+## <a name="test-concurrency-conflicts"></a>Testare i conflitti di concorrenza
 
 Eseguire l'app e passare alla pagina Departments Index (Indice reparti). Fare clic con il pulsante destro del mouse sul collegamento ipertestuale **Edit**  (Modifica) per il reparto English (Inglese) e selezionare **Apri link in nuova scheda**, quindi fare clic sul collegamento ipertestuale **Edit** (Modifica) per il reparto English (Inglese). Le due schede del browser ora visualizzano le stesse informazioni.
 
@@ -276,12 +286,29 @@ Sostituire il codice in *Views/Departments/Create.cshtml* per aggiungere all'ele
 
 [!code-html[](intro/samples/cu/Views/Departments/Create.cshtml?highlight=32-34)]
 
-## <a name="summary"></a>Riepilogo
+## <a name="get-the-code"></a>Ottenere il codice
 
-Questo argomento completa l'introduzione alla gestione dei conflitti di concorrenza. Per altre informazioni su come gestire i conflitti di concorrenza in EF Core, vedere [Conflitti di concorrenza](/ef/core/saving/concurrency). L'esercitazione successiva illustra come implementare l'ereditarietà tabella per gerarchia per le entità Instructor (Insegnante) e Student (Studente).
+[Scaricare o visualizzare l'applicazione completata.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-::: moniker-end
+## <a name="additional-resources"></a>Risorse aggiuntive
 
-> [!div class="step-by-step"]
-> [Precedente](update-related-data.md)
-> [Successivo](inheritance.md)
+ Per altre informazioni su come gestire i conflitti di concorrenza in EF Core, vedere [Conflitti di concorrenza](/ef/core/saving/concurrency).
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Le attività di questa esercitazione sono le seguenti:
+
+> [!div class="checklist"]
+> * Scoprire di più sui conflitti di concorrenza
+> * Aggiungere una proprietà di rilevamento modifiche
+> * Creare un controller e visualizzazioni Departments
+> * Aggiornare la visualizzazione Index
+> * Aggiornare i metodi Edit
+> * Aggiornare la visualizzazione Edit
+> * Testare i conflitti di concorrenza
+> * Aggiornare la pagina Delete
+> * Aggiornare le visualizzazioni Details e Create
+
+L'esercitazione successiva illustra come implementare l'ereditarietà tabella per gerarchia per le entità Instructor e Student.
+> [!div class="nextstepaction"]
+> [Implementare l'ereditarietà tabella per gerarchia](inheritance.md)

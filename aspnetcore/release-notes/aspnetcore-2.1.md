@@ -4,14 +4,14 @@ author: isaac2004
 description: Informazioni sulle nuove funzionalità in ASP.NET Core 2.1.
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/30/2018
+ms.date: 02/13/2019
 uid: aspnetcore-2.1
-ms.openlocfilehash: e16bb874f317b922f3900b540596f6ff38debb2f
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 8299af819f86d3d2371650ce3d87deb817f0feb8
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206835"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248173"
 ---
 # <a name="whats-new-in-aspnet-core-21"></a>Novità di ASP.NET Core 2.1
 
@@ -70,7 +70,7 @@ HTTPS può essere ulteriormente rafforzato tramite il [protocollo di sicurezza H
 
 Nell'ambiente di produzione, HTTPS deve essere configurato in modo esplicito. Nella versione 2.1 è stato aggiunto lo schema di configurazione predefinito per la configurazione di HTTPS per Kestrel. È possibile configurare le app in modo che possano usare gli elementi seguenti:
 
-* Più endpoint, inclusi gli URL. Per altre informazioni, vedere [Implementazione del server Web Kestrel: Configurazione dell'endpoint](xref:fundamentals/servers/kestrel#endpoint-configuration).
+* Più endpoint, inclusi gli URL. Per altre informazioni, vedere [Implementazione del server Web Kestrel: configurazione dell'endpoint](xref:fundamentals/servers/kestrel#endpoint-configuration).
 * Il certificato da usare per HTTPS da un file su disco o da un archivio certificati.
 
 ## <a name="gdpr"></a>GDPR
@@ -144,7 +144,12 @@ Per altre informazioni, vedere [Host generico .NET](xref:fundamentals/host/gener
 Sono stati aggiornati i modelli di applicazione a pagina singola per Angular, React e React con Redux in modo da usare le strutture di progetto e i sistemi di compilazione standard per ogni framework.
 
 Il modello Angular si basa sulla riga di comando di Angular mentre i modelli React su create-react-app.
-Per altre informazioni, vedere [Usare i modelli di applicazione a pagina singola con ASP.NET Core](xref:spa/index).
+
+Per altre informazioni, vedere:
+
+* <xref:spa/angular>
+* <xref:spa/react>
+* <xref:spa/react-with-redux>
 
 ## <a name="razor-pages-search-for-razor-assets"></a>Ricerca di asset Razor con Razor Pages
 

@@ -4,14 +4,14 @@ author: rick-anderson
 description: Scoprire come aggiungere classi per la gestione dei film in un database tramite Entity Framework Core (EF Core).
 ms.author: riande
 monikerRange: '>= aspnetcore-2.2'
-ms.date: 12/3/2018
+ms.date: 02/12/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 5693fb833d19375ef53e0f367bc6064e239b01d3
-ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
+ms.openlocfilehash: ab2bf372b305672a95d34879ad2c13a620d93c7a
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54444104"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56159288"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Aggiungere un modello a un'app Razor Pages in ASP.NET Core
 
@@ -243,7 +243,7 @@ Il nome della stringa di connessione viene passato al contesto chiamando un meto
 
 ---
 
-Il comando `Add-Migration` genera un codice per creare lo schema del database iniziale. Lo schema è basato sul modello specificato in `RazorPagesMovieContext` (nel file *Data/RazorPagesMovieContext.cs*). L'argomento `Initial` viene usato per denominare le migrazioni. È possibile usare qualsiasi nome, ma per convenzione viene usato un nome che descrive la migrazione. Per altre informazioni vedere [Introduzione alle migrazioni](xref:data/ef-mvc/migrations#introduction-to-migrations).
+Il comando `Add-Migration` genera un codice per creare lo schema del database iniziale. Lo schema è basato sul modello specificato in `RazorPagesMovieContext` (nel file *Data/RazorPagesMovieContext.cs*). L'argomento `Initial` viene usato per denominare le migrazioni. È possibile usare qualsiasi nome, ma per convenzione viene usato un nome che descrive la migrazione. Per ulteriori informazioni, vedere <xref:data/ef-mvc/migrations>.
 
 Il comando `Update-Database` esegue il metodo `Up` nel file *Migrations/{time-stamp}_InitialCreate.cs*, che crea il database.
 

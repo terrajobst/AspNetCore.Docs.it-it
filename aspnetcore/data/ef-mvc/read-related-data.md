@@ -1,26 +1,19 @@
 ---
-title: ASP.NET Core MVC con EF Core - Leggere dati correlati - 6 di 10
-author: rick-anderson
+title: 'Esercitazione: Leggere dati correlati - ASP.NET MVC con EF Core'
 description: In questa esercitazione verranno letti e visualizzati dati correlati, ovvero dati che Entity Framework carica all'interno delle proprietà di navigazione.
+author: rick-anderson
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.date: 02/05/2019
+ms.topic: tutorial
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: a310c9e4b9cec6e2ab2477461f395c9bbd3fa364
-ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
+ms.openlocfilehash: 73e225c2cd6d9f88079c54115cccad48f43d7d0c
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2018
-ms.locfileid: "39063286"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103046"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---read-related-data---6-of-10"></a>ASP.NET Core MVC con EF Core - Leggere dati correlati - 6 di 10
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-Di [Tom Dykstra](https://github.com/tdykstra) e [Rick Anderson](https://twitter.com/RickAndMSFT)
-
-L'applicazione Web di esempio Contoso University illustra come creare applicazioni Web ASP.NET Core MVC con Entity Framework Core e Visual Studio. Per informazioni sulla serie di esercitazioni, vedere la [prima esercitazione della serie](intro.md).
+# <a name="tutorial-read-related-data---aspnet-mvc-with-ef-core"></a>Esercitazione: Leggere dati correlati - ASP.NET MVC con EF Core
 
 Nell'esercitazione precedente è stato completato il modello di dati School. In questa esercitazione verranno letti e visualizzati dati correlati, ovvero dati che Entity Framework carica all'interno delle proprietà di navigazione.
 
@@ -30,7 +23,19 @@ Le figure seguenti illustrano le pagine che verranno usate.
 
 ![Pagina di indice degli insegnanti](read-related-data/_static/instructors-index.png)
 
-## <a name="eager-explicit-and-lazy-loading-of-related-data"></a>Caricamento eager, esplicito e lazy dei dati correlati
+Le attività di questa esercitazione sono le seguenti:
+
+> [!div class="checklist"]
+> * Scoprire come caricare i dati correlati
+> * Creare una pagina Courses
+> * Creare una pagina Instructors
+> * Ottenere informazioni sul caricamento esplicito
+
+## <a name="prerequisites"></a>Prerequisiti
+
+* [Creare un modello di dati più complesso con EF Core per un'app Web ASP.NET Core MVC](complex-data-model.md)
+
+## <a name="learn-how-to-load-related-data"></a>Scoprire come caricare i dati correlati
 
 Il software ORM (Object-Relational Mapping), ad esempio Entity Framework, può caricare dati correlati nelle proprietà di navigazione di un'entità in diversi modi:
 
@@ -54,7 +59,7 @@ Se si sa di aver bisogno di dati correlati per tutte le entità recuperate, il c
 
 D'altra parte, in alcuni scenari query separate sono più efficienti. Il caricamento eager di tutti i dati correlati in una sola query può causare la generazione di un join molto complesso, che SQL Server non è in grado di elaborare in modo efficiente. Oppure se è necessario accedere alle proprietà di navigazione di un'entità solo per un subset di un set di entità in corso di elaborazione, query separate potrebbero offrire prestazioni migliori perché il caricamento immediato di tutti i dati recupererebbe più dati di quelli necessari. Se le prestazioni rappresentano un aspetto essenziale, per avere la certezza di scegliere il metodo più efficiente è consigliabile testare le prestazioni di entrambi i tipi di caricamento.
 
-## <a name="create-a-courses-page-that-displays-department-name"></a>Creare una pagina Courses (Corsi) che visualizza il nome dei dipartimenti
+## <a name="create-a-courses-page"></a>Creare una pagina Courses
 
 L'entità Course include una proprietà di navigazione contenente l'entità Department del corso assegnato al dipartimento. Per visualizzare il nome del dipartimento assegnato in un elenco di corsi, è necessario ottenere la proprietà Name dell'entità Department nella proprietà di navigazione `Course.Department`.
 
@@ -88,7 +93,7 @@ Eseguire l'app e selezionare la scheda **Courses** (Corsi) per visualizzare l'el
 
 ![Pagina di indice dei corsi](read-related-data/_static/courses-index.png)
 
-## <a name="create-an-instructors-page-that-shows-courses-and-enrollments"></a>Creare una pagina Instructors (Insegnanti) che mostri i corsi e le iscrizioni
+## <a name="create-an-instructors-page"></a>Creare una pagina Instructors
 
 In questa sezione verranno creati un controller e una visualizzazione per l'entità Instructor allo scopo di visualizzare la pagina Instructors:
 
@@ -226,7 +231,7 @@ Aggiornare di nuovo la pagina e selezionare un insegnante. Selezionare quindi un
 
 ![Pagina di indice degli insegnanti con un corso selezionato](read-related-data/_static/instructors-index.png)
 
-## <a name="explicit-loading"></a>Caricamento esplicito
+## <a name="about-explicit-loading"></a>Informazioni sul caricamento esplicito
 
 Quando è stato recuperato l'elenco degli insegnanti in *InstructorsController.cs*, per la proprietà di navigazione `CourseAssignments` è stato specificato il caricamento eager.
 
@@ -238,12 +243,20 @@ Il nuovo codice rilascia le chiamate al metodo *ThenInclude* per i dati delle is
 
 Eseguire l'app e passare alla pagina di indice degli insegnanti. Non si noterà alcuna differenza in ciò che viene visualizzato nella pagina, anche se è stata modificata la modalità di recupero dei dati.
 
-## <a name="summary"></a>Riepilogo
+## <a name="get-the-code"></a>Ottenere il codice
 
-È stato usato il caricamento eager con una sola query e con più query per leggere dati correlati in proprietà di navigazione. Nella prossima esercitazione si apprenderà come aggiornare i dati correlati.
+[Scaricare o visualizzare l'applicazione completata.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-::: moniker-end
+## <a name="next-steps"></a>Passaggi successivi
 
->[!div class="step-by-step"]
->[Precedente](complex-data-model.md)
->[Successivo](update-related-data.md)
+Le attività di questa esercitazione sono le seguenti:
+
+> [!div class="checklist"]
+> * Come caricare i dati correlati
+> * Creazione di una pagina Courses
+> * Creazione di una pagina Instructors
+> * Raccolta di informazioni sul caricamento esplicito
+
+Passare all'articolo successivo per informazioni su come aggiornare i dati correlati.
+> [!div class="nextstepaction"]
+> [Aggiornare dati correlati](update-related-data.md)

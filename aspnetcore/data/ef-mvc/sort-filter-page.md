@@ -1,26 +1,19 @@
 ---
-title: ASP.NET Core MVC con EF Core - Ordinamento, filtro, suddivisione in pagine - 3 di 10
+title: 'Esercitazione: Aggiungere funzionalità di ordinamento, filtro e suddivisione in pagine - ASP.NET MVC con EF Core'
+description: In questa esercitazione si aggiungeranno le funzionalità di ordinamento, filtro e suddivisione in pagine alla pagina Student Index (Indice degli studenti). Verrà anche creata una pagina che esegue il raggruppamento semplice.
 author: rick-anderson
-description: In questa esercitazione viene spiegato come aggiungere alla pagina le funzionalità di ordinamento, filtro e suddivisione in pagine tramite ASP.NET Core e Entity Framework.
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.date: 02/04/2019
+ms.topic: tutorial
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: 1f80faf0e36332c28e8337ddc331cc8b4c4970d7
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 51b6b08d2410652f93427371aec299eb4c8789f1
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38193949"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103059"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---sort-filter-paging---3-of-10"></a>ASP.NET Core MVC con EF Core - Ordinamento, filtro, suddivisione in pagine - 3 di 10
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-Di [Tom Dykstra](https://github.com/tdykstra) e [Rick Anderson](https://twitter.com/RickAndMSFT)
-
-L'applicazione Web di esempio Contoso University illustra come creare applicazioni Web ASP.NET Core MVC con Entity Framework Core e Visual Studio. Per informazioni sulla serie di esercitazioni, vedere la [prima esercitazione della serie](intro.md).
+# <a name="tutorial-add-sorting-filtering-and-paging---aspnet-mvc-with-ef-core"></a>Esercitazione: Aggiungere funzionalità di ordinamento, filtro e suddivisione in pagine - ASP.NET MVC con EF Core
 
 Nell'esercitazione precedente è stato implementato un set di pagine Web per operazioni CRUD di base per le entità Student. In questa esercitazione si aggiungeranno le funzionalità di ordinamento, filtro e suddivisione in pagine alla pagina Student Index (Indice degli studenti). Verrà anche creata una pagina che esegue il raggruppamento semplice.
 
@@ -28,7 +21,21 @@ La figura seguente illustra l'aspetto della pagina al termine dell'operazione. L
 
 ![Pagina Student Index (Indice degli studenti)](sort-filter-page/_static/paging.png)
 
-## <a name="add-column-sort-links-to-the-students-index-page"></a>Aggiungere collegamenti per l'ordinamento di colonna alla pagina Student Index (Indice degli studenti)
+Le attività di questa esercitazione sono le seguenti:
+
+> [!div class="checklist"]
+> * Aggiungere collegamenti per l'ordinamento delle colonne
+> * Aggiungere una casella di ricerca
+> * Aggiungere la suddivisione in pagine per Student Index
+> * Aggiungere la suddivisione in pagine al metodo Index
+> * Aggiungere collegamenti per la suddivisione in pagine
+> * Creare una pagina About
+
+## <a name="prerequisites"></a>Prerequisiti
+
+* [Implementare la funzionalità CRUD con EF Core in un'app Web ASP.NET Core MVC](crud.md)
+
+## <a name="add-column-sort-links"></a>Aggiungere collegamenti per l'ordinamento delle colonne
 
 Per aggiungere l'ordinamento alla pagina Student Index (Indice degli studenti), sarà necessario modificare il metodo `Index` del controller Students e aggiungere codice alla visualizzazione Student Index (Indice degli studenti).
 
@@ -71,7 +78,7 @@ Eseguire l'app, selezionare la scheda **Students** (Studenti) e fare clic sulle 
 
 ![Pagina Student Index (Indice degli studenti) in ordine di nome](sort-filter-page/_static/name-order.png)
 
-## <a name="add-a-search-box-to-the-students-index-page"></a>Aggiungere una casella di ricerca alla pagina Students Index (Indice degli studenti)
+## <a name="add-a-search-box"></a>Aggiungere una casella di ricerca
 
 Per aggiungere filtri alla pagina Student Index (Indice degli studenti), è necessario aggiungere alla visualizzazione una casella di testo e un pulsante di invio e apportare le modifiche corrispondenti nel metodo `Index`. La casella di testo consente di immettere una stringa per eseguire la ricerca nei campi di nome e cognome.
 
@@ -86,7 +93,7 @@ In *StudentsController.cs* sostituire il metodo `Index` con il codice seguente (
 > [!NOTE]
 > In questo esempio si chiama il metodo `Where` su un oggetto `IQueryable` e il filtro verrà elaborato nel server. In alcuni scenari potrebbe essere chiamato il metodo `Where` come metodo di estensione per una raccolta in memoria. Si supponga ad esempio di modificare il riferimento a `_context.Students` in modo che faccia riferimento a un metodo di repository che restituisce una raccolta `IEnumerable` anziché a un elemento `DbSet` EF. Il risultato sarebbe in genere lo stesso, ma in alcuni casi potrebbe essere diverso.
 >
->Ad esempio, l'implementazione di .NET Framework del metodo `Contains` esegue un confronto con la distinzione tra maiuscole e minuscole per impostazione predefinita, ma in SQL Server questo è determinato dall'impostazione delle regole di confronto dell'istanza di SQL Server. Questa impostazione usa come valore predefinito la non applicazione della distinzione tra maiuscole e minuscole. È possibile chiamare il metodo `ToUpper` per fare in modo che il test non applichi in modo esplicito la distinzione tra maiuscole e minuscole: *Where(s => s.LastName.ToUpper().Contains(searchString.ToUpper())*. Questo fa sì che i risultati rimangano invariati se si modifica il codice in un secondo momento per usare un repository che restituisce una raccolta `IEnumerable` invece di un oggetto `IQueryable`. Quando il metodo `Contains` viene chiamato su una raccolta `IEnumerable`, si ottiene l'implementazione di .NET Framework; quando viene chiamato su un oggetto `IQueryable`, si ottiene l'implementazione del provider di database. Con questa soluzione si verifica tuttavia una riduzione delle prestazioni. Il codice `ToUpper` dovrà inserire una funzione nella clausola WHERE dell'istruzione TSQL SELECT. In questo modo si evita che l'ottimizzazione usi un indice. Dato che SQL viene installato per lo più con l'impostazione senza distinzione tra maiuscole e minuscole, è consigliabile evitare il codice `ToUpper` fino a quando non si esegue la migrazione a un archivio con distinzione tra maiuscole e minuscole.
+>Ad esempio, l'implementazione di .NET Framework del metodo `Contains` esegue un confronto con la distinzione tra maiuscole e minuscole per impostazione predefinita, ma in SQL Server questo è determinato dall'impostazione delle regole di confronto dell'istanza di SQL Server. Questa impostazione usa come valore predefinito la non applicazione della distinzione tra maiuscole e minuscole. È possibile chiamare il metodo `ToUpper` per fare in modo che il test non applichi in modo esplicito la distinzione tra maiuscole e minuscole:  *Where(s => s.LastName.ToUpper().Contains(searchString.ToUpper())*. Questo fa sì che i risultati rimangano invariati se si modifica il codice in un secondo momento per usare un repository che restituisce una raccolta `IEnumerable` invece di un oggetto `IQueryable`. Quando il metodo `Contains` viene chiamato su una raccolta `IEnumerable`, si ottiene l'implementazione di .NET Framework; quando viene chiamato su un oggetto `IQueryable`, si ottiene l'implementazione del provider di database. Con questa soluzione si verifica tuttavia una riduzione delle prestazioni. Il codice `ToUpper` dovrà inserire una funzione nella clausola WHERE dell'istruzione TSQL SELECT. In questo modo si evita che l'ottimizzazione usi un indice. Dato che SQL viene installato per lo più con l'impostazione senza distinzione tra maiuscole e minuscole, è consigliabile evitare il codice `ToUpper` fino a quando non si esegue la migrazione a un archivio con distinzione tra maiuscole e minuscole.
 
 ### <a name="add-a-search-box-to-the-student-index-view"></a>Aggiungere una casella di ricerca alla visualizzazione Student Index (Indice degli studenti)
 
@@ -110,7 +117,7 @@ Se questa pagina viene inserita tra i segnalibri, quando si usa il segnalibro vi
 
 In questa fase, se si fa clic sul collegamento di ordinamento di un'intestazione di colonna si perderà il valore del filtro immesso nella casella **Search** (Ricerca). Nella sezione successiva verrà spiegato come correggere il problema.
 
-## <a name="add-paging-functionality-to-the-students-index-page"></a>Aggiungere la funzionalità di suddivisione in pagine alla pagina Student Index (Indice degli studenti)
+## <a name="add-paging-to-students-index"></a>Aggiungere la suddivisione in pagine per Student Index
 
 Per aggiungere la suddivisione in pagine alla pagina Student Index (Indice degli studenti), creare una classe `PaginatedList` che usa le istruzioni `Skip` e `Take` per filtrare i dati sul server invece di recuperare sempre tutte le righe della tabella. È quindi possibile apportare altre modifiche nel metodo `Index` e aggiungere i pulsanti di suddivisione in pagine alla visualizzazione `Index`. Nella figura seguente vengono illustrati i pulsanti di suddivisione in pagine.
 
@@ -124,7 +131,7 @@ Il metodo `CreateAsync` in questo codice accetta le dimensioni di pagina e il nu
 
 Viene usato un metodo `CreateAsync` invece di un costruttore per creare l'oggetto `PaginatedList<T>` poiché i costruttori non possono eseguire codice asincrono.
 
-## <a name="add-paging-functionality-to-the-index-method"></a>Aggiungere la funzionalità di suddivisione in pagine al metodo Index
+## <a name="add-paging-to-index-method"></a>Aggiungere la suddivisione in pagine al metodo Index
 
 In *StudentsController.cs* sostituire il metodo `Index` con il codice seguente.
 
@@ -167,7 +174,7 @@ return View(await PaginatedList<Student>.CreateAsync(students.AsNoTracking(), pa
 
 Il metodo `PaginatedList.CreateAsync` accetta un numero di pagina. I due punti interrogativi rappresentano l'operatore null-coalescing. L'operatore null-coalescing definisce un valore predefinito per un tipo nullable. L'espressione `(page ?? 1)` significa restituzione del valore di `page` se ha un valore oppure restituzione di 1 se `page` è Null.
 
-## <a name="add-paging-links-to-the-student-index-view"></a>Aggiungere collegamenti di suddivisione in pagine per la visualizzazione Student Index (Indice degli studenti)
+## <a name="add-paging-links"></a>Aggiungere collegamenti per la suddivisione in pagine
 
 In *Views/Students/Index.cshtml* sostituire il codice esistente con il codice seguente. Le modifiche sono evidenziate.
 
@@ -199,7 +206,7 @@ Eseguire l'app e passare alla pagina Students (Studenti).
 
 Fare clic sui collegamenti di suddivisione in pagine in diversi tipi di ordinamento per verificare che la suddivisione in pagine funzioni. Immettere quindi una stringa di ricerca e provare nuovamente la suddivisione in pagine per verificare che funzioni correttamente anche con l'ordinamento e il filtro.
 
-## <a name="create-an-about-page-that-shows-student-statistics"></a>Creare una pagina About (Informazioni) che visualizza le statistiche degli studenti
+## <a name="create-an-about-page"></a>Creare una pagina About
 
 Per la pagina **About** (Informazioni) del sito Web Contoso University verrà visualizzato il numero di studenti iscritti per ogni data di iscrizione. Questa operazione richiede calcoli di raggruppamento e semplici sui gruppi. Per completare questa procedura, è necessario eseguire le operazioni seguenti:
 
@@ -243,14 +250,22 @@ Sostituire il codice nel file *Views/Home/About.cshtml* con il codice seguente:
 
 Eseguire l'app e passare alla pagina About (Informazioni). Il numero di studenti per ogni data di registrazione viene visualizzato in una tabella.
 
-![Pagina About (Informazioni)](sort-filter-page/_static/about.png)
+## <a name="get-the-code"></a>Ottenere il codice
 
-## <a name="summary"></a>Riepilogo
+[Scaricare o visualizzare l'applicazione completata.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-In questa esercitazione è stato spiegato come eseguire ordinamento, filtro, suddivisione in pagine e raggruppamento. Nella prossima esercitazione, si apprenderà come gestire le modifiche al modello di dati tramite le migrazioni.
+## <a name="next-steps"></a>Passaggi successivi
 
-::: moniker-end
+Le attività di questa esercitazione sono le seguenti:
 
-> [!div class="step-by-step"]
-> [Precedente](crud.md)
-> [Successivo](migrations.md)
+> [!div class="checklist"]
+> * Aggiungere collegamenti per l'ordinamento delle colonne
+> * Aggiungere una casella di ricerca
+> * Aggiungere la suddivisione in pagine per Student Index
+> * Aggiungere la suddivisione in pagine al metodo Index
+> * Aggiungere collegamenti per la suddivisione in pagine
+> * Creare una pagina About
+
+Nella prossima esercitazione si apprenderà come gestire le modifiche al modello di dati tramite le migrazioni.
+> [!div class="nextstepaction"]
+> [Gestire le modifiche al modello di dati](migrations.md)

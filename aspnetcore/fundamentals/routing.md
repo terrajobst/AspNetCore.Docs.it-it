@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni su come il routing di ASP.NET Core è responsabile del mapping degli URI delle richieste nei selettori degli endpoint e dell'invio delle richieste agli endpoint.
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/14/2019
+ms.date: 02/13/2019
 uid: fundamentals/routing
-ms.openlocfilehash: c5303ad418660fa31fe9094f0e61ee31f5d988f7
-ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
+ms.openlocfilehash: 3dbb2d358ec9e3dcdd96c3771576911d906d796f
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54890016"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248433"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing in ASP.NET Core
 
@@ -38,7 +38,7 @@ services.AddMvc()
     .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 ```
 
-L'opzione `EnableEndpointRouting` determina se il routing deve usare internamente la logica basata sugli endpoint o la logica basata su <xref:Microsoft.AspNetCore.Routing.IRouter> di ASP.NET Core 2.1 o versioni precedenti. Quando la versione di compatibilità è impostata su 2.2 o versioni successive, il valore predefinito è `true`. Impostare il valore su `false` per usare la logica di routing precedente:
+L'opzione <xref:Microsoft.AspNetCore.Mvc.MvcOptions.EnableEndpointRouting> determina se il routing deve usare internamente la logica basata sugli endpoint o la logica basata su <xref:Microsoft.AspNetCore.Routing.IRouter> di ASP.NET Core 2.1 o versioni precedenti. Quando la versione di compatibilità è impostata su 2.2 o versioni successive, il valore predefinito è `true`. Impostare il valore su `false` per usare la logica di routing precedente:
 
 ```csharp
 // Use the routing logic of ASP.NET Core 2.1 or earlier:
@@ -97,7 +97,7 @@ Il sistema di routing ha le caratteristiche seguenti:
 
 * La sintassi del modello di route viene usata per definire le route con parametri di route in formato token.
 * La configurazione degli endpoint basata su convenzioni e attributi è consentita.
-* `IRouteConstraint` consente di determinare se un parametro URL contiene un valore valido per il vincolo di un endpoint specifico.
+* <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> consente di determinare se un parametro URL contiene un valore valido per il vincolo di un endpoint specifico.
 * I modelli di app, ad esempio MVC o Razor Pages, registrano tutti i relativi endpoint, che hanno un'implementazione stimabile degli scenari di routing.
 * L'implementazione del routing determina le decisioni relative al routing nel punto desiderato della pipeline del middleware.
 * Il middleware successivo a un middleware di routing può esaminare il risultato della decisione dell'endpoint del middleware di routing per un URI di richiesta specifico.
@@ -105,8 +105,8 @@ Il sistema di routing ha le caratteristiche seguenti:
 * Un'app può usare il routing per generare URL, ad esempio per il reindirizzamento o i collegamenti, in base alle informazioni degli endpoint. In questo modo si evita di impostare gli URL come hardcoded ottimizzando la manutenibilità.
 * La generazione degli URL è basata sugli indirizzi, che supportano l'estensibilità arbitraria:
 
-  * L'API del generatore di collegamenti (`LinkGenerator`) può essere risolta ovunque tramite l'[inserimento delle dipendenze](xref:fundamentals/dependency-injection) per generare gli URL.
-  * Se l'API del generatore di collegamenti non è disponibile tramite l'inserimento delle dipendenze, `IUrlHelper` offre metodi per la generazione degli URL.
+  * L'API del generatore di collegamenti (<xref:Microsoft.AspNetCore.Routing.LinkGenerator>) può essere risolta ovunque tramite l'[inserimento delle dipendenze](xref:fundamentals/dependency-injection) per generare gli URL.
+  * Se l'API del generatore di collegamenti non è disponibile tramite l'inserimento delle dipendenze, <xref:Microsoft.AspNetCore.Mvc.IUrlHelper> offre metodi per la generazione degli URL.
 
 > [!NOTE]
 > Con il rilascio del routing degli endpoint in ASP.NET Core 2.2, il collegamento degli endpoint è limitato alle azioni o alle pagine di MVC o Razor Pages. Le espansioni delle funzionalità di collegamento degli endpoint sono previste per le versioni future.
@@ -126,10 +126,10 @@ Il sistema di routing ha le caratteristiche seguenti:
 
 * La sintassi del modello di route viene usata per definire le route con parametri di route in formato token.
 * La configurazione degli endpoint basata su convenzioni e attributi è consentita.
-* `IRouteConstraint` consente di determinare se un parametro URL contiene un valore valido per il vincolo di un endpoint specifico.
+* <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> consente di determinare se un parametro URL contiene un valore valido per il vincolo di un endpoint specifico.
 * I modelli di app, ad esempio MVC o Razor Pages, registrano tutte le relative route, che hanno un'implementazione stimabile degli scenari di routing.
 * Una risposta può usare il routing per generare gli URL, ad esempio per il reindirizzamento o i collegamenti, in base alle informazioni delle route. In questo modo si evita di impostare gli URL come hardcoded ottimizzando la manutenibilità.
-* La generazione degli URL è basata sulle route, che supportano l'estensibilità arbitraria. `IUrlHelper` offre metodi per generare gli URL.
+* La generazione degli URL è basata sulle route, che supportano l'estensibilità arbitraria. <xref:Microsoft.AspNetCore.Mvc.IUrlHelper> offre metodi per generare gli URL.
 
 ::: moniker-end
 
@@ -143,7 +143,7 @@ La corrispondenza dell'URL è il processo con cui il routing invia una richiesta
 
 Il sistema di routing nell'endpoint di routing è responsabile di tutte le decisioni relative all'invio. Poiché il middleware applica i criteri in base all'endpoint selezionato, è importante che qualsiasi decisione che può influire sull'invio o l'applicazione dei criteri di sicurezza venga effettuata all'interno del sistema di routing.
 
-Quando viene eseguito il delegato dell'endpoint, le proprietà di `RouteContext.RouteData` vengono impostate sui valori appropriati in base all'elaborazione della richiesta eseguita fino a quel punto.
+Quando viene eseguito il delegato dell'endpoint, le proprietà di [RouteContext.RouteData](xref:Microsoft.AspNetCore.Routing.RouteContext.RouteData) vengono impostate sui valori appropriati in base all'elaborazione della richiesta eseguita fino a quel punto.
 
 ::: moniker-end
 
@@ -151,19 +151,19 @@ Quando viene eseguito il delegato dell'endpoint, le proprietà di `RouteContext.
 
 La corrispondenza dell'URL è il processo con cui il routing invia una richiesta in ingresso a un *gestore*. Questo processo si basa sui dati presenti nel percorso URL, ma può essere esteso in modo da prendere in considerazione tutti i dati della richiesta. La possibilità di inviare le richieste a gestori separati è fondamentale per ridurre le dimensioni e la complessità di un'app.
 
-Le richieste in ingresso immettono `RouterMiddleware`, che chiama il metodo <xref:Microsoft.AspNetCore.Routing.IRouter.RouteAsync*> per ogni route della sequenza. L'istanza di <xref:Microsoft.AspNetCore.Routing.IRouter> sceglie se *gestire* la richiesta impostando [RouteContext.Handler](xref:Microsoft.AspNetCore.Routing.RouteContext.Handler*) su un valore <xref:Microsoft.AspNetCore.Http.RequestDelegate> non Null. Se una route imposta un gestore per la richiesta, l'elaborazione della route si interrompe e viene richiamato il gestore per elaborare la richiesta. Se non viene individuato alcun gestore di route per elaborare la richiesta, il middleware passa la richiesta al middleware successivo nella pipeline delle richieste.
+Le richieste in ingresso immettono <xref:Microsoft.AspNetCore.Builder.RouterMiddleware>, che chiama il metodo <xref:Microsoft.AspNetCore.Routing.IRouter.RouteAsync*> per ogni route della sequenza. L'istanza di <xref:Microsoft.AspNetCore.Routing.IRouter> sceglie se *gestire* la richiesta impostando [RouteContext.Handler](xref:Microsoft.AspNetCore.Routing.RouteContext.Handler*) su un valore <xref:Microsoft.AspNetCore.Http.RequestDelegate> non Null. Se una route imposta un gestore per la richiesta, l'elaborazione della route si interrompe e viene richiamato il gestore per elaborare la richiesta. Se non viene individuato alcun gestore di route per elaborare la richiesta, il middleware passa la richiesta al middleware successivo nella pipeline delle richieste.
 
-L'input principale per `RouteAsync` è l'elemento [RouteContext.HttpContext](xref:Microsoft.AspNetCore.Routing.RouteContext.HttpContext*) associato alla richiesta corrente. `RouteContext.Handler` e [RouteContext.RouteData](xref:Microsoft.AspNetCore.Routing.RouteContext.RouteData*) sono gli output che vengono impostati quando una route corrisponde.
+L'input principale per <xref:Microsoft.AspNetCore.Routing.IRouter.RouteAsync*> è l'elemento [RouteContext.HttpContext](xref:Microsoft.AspNetCore.Routing.RouteContext.HttpContext*) associato alla richiesta corrente. [RouteContext.Handler](xref:Microsoft.AspNetCore.Routing.RouteContext.Handler) e [RouteContext.RouteData](xref:Microsoft.AspNetCore.Routing.RouteContext.RouteData*) sono gli output che vengono impostati quando una route corrisponde.
 
-Una corrispondenza che chiama `RouteAsync` imposta anche le proprietà di `RouteContext.RouteData` sui valori appropriati in base all'elaborazione della richiesta eseguita fino a quel punto.
+Una corrispondenza che chiama <xref:Microsoft.AspNetCore.Routing.IRouter.RouteAsync*> imposta anche le proprietà di [RouteContext.RouteData](xref:Microsoft.AspNetCore.Routing.RouteContext.RouteData) sui valori appropriati in base all'elaborazione della richiesta eseguita fino a quel punto.
 
 ::: moniker-end
 
 [RouteData.Values](xref:Microsoft.AspNetCore.Routing.RouteData.Values*) è un dizionario di *valori di route* prodotti dalla route. Questi valori in genere sono determinati dalla suddivisione in token dell'URL e possono essere usati per accettare l'input dell'utente o per prendere ulteriori decisioni riguardo all'invio all'interno dell'app.
 
-[RouteData.DataTokens](xref:Microsoft.AspNetCore.Routing.RouteData.DataTokens*) è un elenco proprietà dei dati aggiuntivi correlati alla route corrispondente. Gli elementi `DataTokens` vengono forniti per supportare l'associazione dei dati sullo stato con ogni route in modo che l'app sia in grado di prendere decisioni in base alla route corrispondente. Questi valori sono definiti dallo sviluppatore e **non** influiscono sul comportamento del routing in alcun modo. Inoltre, i valori accantonati in `RouteData.DataTokens` possono essere di qualsiasi tipo, a differenza dei valori `RouteData.Values`, che devono essere convertibili in stringhe e viceversa.
+[RouteData.DataTokens](xref:Microsoft.AspNetCore.Routing.RouteData.DataTokens*) è un elenco proprietà dei dati aggiuntivi correlati alla route corrispondente. Gli elementi <xref:Microsoft.AspNetCore.Routing.RouteData.DataTokens*> vengono forniti per supportare l'associazione dei dati sullo stato con ogni route in modo che l'app sia in grado di prendere decisioni in base alla route corrispondente. Questi valori sono definiti dallo sviluppatore e **non** influiscono sul comportamento del routing in alcun modo. Inoltre, i valori accantonati in [RouteData.DataTokens](xref:Microsoft.AspNetCore.Routing.RouteData.DataTokens*) possono essere di qualsiasi tipo, a differenza dei valori [RouteData.Values](xref:Microsoft.AspNetCore.Routing.RouteData.Values) che devono essere convertibili in e da stringhe.
 
-[RouteData.Routers](xref:Microsoft.AspNetCore.Routing.RouteData.Routers*) è un elenco delle route che hanno preso parte alla corrispondenza corretta della richiesta. Le route possono essere annidate l'una nell'altra. La proprietà `Routers` rispecchia il percorso tramite l'albero logico di route che hanno prodotto una corrispondenza. In genere il primo elemento in `Routers` è la raccolta di route e deve essere usato per la generazione di URL. L'ultimo elemento in `Routers` è il gestore di route corrispondente.
+[RouteData.Routers](xref:Microsoft.AspNetCore.Routing.RouteData.Routers) è un elenco delle route che hanno preso parte alla corrispondenza corretta della richiesta. Le route possono essere annidate l'una nell'altra. La proprietà <xref:Microsoft.AspNetCore.Routing.RouteData.Routers> rispecchia il percorso tramite l'albero logico di route che hanno prodotto una corrispondenza. In genere il primo elemento in <xref:Microsoft.AspNetCore.Routing.RouteData.Routers> è la raccolta di route e deve essere usato per la generazione di URL. L'ultimo elemento in <xref:Microsoft.AspNetCore.Routing.RouteData.Routers> è il gestore di route corrispondente.
 
 ### <a name="url-generation"></a>Generazione di URL
 
@@ -171,45 +171,45 @@ Una corrispondenza che chiama `RouteAsync` imposta anche le proprietà di `Route
 
 La generazione di URL è il processo con cui il routing crea un percorso URL basato su un set di valori di route. Questo consente di avere una separazione logica tra gli endpoint e gli URL che vi accedono.
 
-Il routing di endpoint include l'API del generatore di collegamenti (`LinkGenerator`). `LinkGenerator` è un servizio singleton che può essere recuperato dall'inserimento delle dipendenze. L'API può essere usata all'esterno del contesto di una richiesta in esecuzione. `IUrlHelper` e gli scenari di MVC basati su `IUrlHelper`, ad esempio [helper tag](xref:mvc/views/tag-helpers/intro), helper HTML e [risultati delle azioni](xref:mvc/controllers/actions), usano il generatore di collegamenti per offrire le funzionalità di generazione di collegamenti.
+Il routing di endpoint include l'API del generatore di collegamenti (<xref:Microsoft.AspNetCore.Routing.LinkGenerator>). <xref:Microsoft.AspNetCore.Routing.LinkGenerator> è un servizio singleton che può essere recuperato dall'inserimento delle dipendenze. L'API può essere usata all'esterno del contesto di una richiesta in esecuzione. <xref:Microsoft.AspNetCore.Mvc.IUrlHelper> e gli scenari di MVC basati su <xref:Microsoft.AspNetCore.Mvc.IUrlHelper>, ad esempio [helper tag](xref:mvc/views/tag-helpers/intro), helper HTML e [risultati delle azioni](xref:mvc/controllers/actions), usano il generatore di collegamenti per offrire le funzionalità di generazione di collegamenti.
 
 Il generatore di collegamenti si basa sui concetti di *indirizzo* e di *schemi di indirizzi*. Lo schema di indirizzi consente di determinare gli endpoint che devono essere considerati per la generazione dei collegamenti. Ad esempio, gli scenari di nome route e valori di route noti a numerosi utenti in MVC o Razor Pages vengono implementati come schema di indirizzi.
 
 Il generatore di collegamenti può collegarsi alle azioni e alle pagine MVC o Razor Pages tramite i metodi di estensione seguenti:
 
-* `GetPathByAction`
-* `GetUriByAction`
-* `GetPathByPage`
-* `GetUriByPage`
+* <xref:Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions.GetPathByAction*>
+* <xref:Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions.GetUriByAction*>
+* <xref:Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions.GetPathByPage*>
+* <xref:Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions.GetUriByPage*>
 
 Un overload di questi metodi accetta gli argomenti che includono `HttpContext`. Questi metodi sono funzionalmente equivalenti a `Url.Action` e `Url.Page` ma offrono una maggiore flessibilità e altre opzioni.
 
 I metodi `GetPath*` sono più simili a `Url.Action` e `Url.Page` poiché generano un URI che contiene un percorso assoluto. I metodi `GetUri*` generano sempre un URI assoluto contenente uno schema e un host. I metodi che accettano `HttpContext` generano un URI nel contesto della richiesta in esecuzione. Se non vengono sovrascritti, vengono usati i valori di route di ambiente, il percorso base dell'URL, lo schema e l'host dalla richiesta in esecuzione.
 
-`LinkGenerator` viene chiamato con un indirizzo. La generazione di un URI viene eseguita in due passaggi:
+<xref:Microsoft.AspNetCore.Routing.LinkGenerator> viene chiamato con un indirizzo. La generazione di un URI viene eseguita in due passaggi:
 
 1. Un indirizzo viene associato a un elenco di endpoint che corrispondono all'indirizzo.
 1. `RoutePattern` di ogni endpoint viene valutato fino a quando non viene individuato un formato di route che corrisponde ai valori specificati. L'output risultante viene unito alle altre parti dell'URI specificate nel generatore di collegamenti e restituito.
 
-I metodi forniti da `LinkGenerator` supportano le funzionalità di generazione di collegamenti standard per tutti i tipi di indirizzi. È consigliabile usare il generatore di collegamenti tramite i metodi di estensione che eseguono le operazioni per un tipo di indirizzo specifico.
+I metodi forniti da <xref:Microsoft.AspNetCore.Routing.LinkGenerator> supportano le funzionalità di generazione di collegamenti standard per tutti i tipi di indirizzi. È consigliabile usare il generatore di collegamenti tramite i metodi di estensione che eseguono le operazioni per un tipo di indirizzo specifico.
 
-| Metodo di estensione   | Description                                                         |
+| Metodo di estensione   | Descrizione                                                         |
 | ------------------ | ------------------------------------------------------------------- |
-| `GetPathByAddress` | Genera un URI con un percorso assoluto in base ai valori specificati. |
-| `GetUriByAddress`  | Genera un URI assoluto in base ai valori specificati.             |
+| <xref:Microsoft.AspNetCore.Routing.LinkGenerator.GetPathByAddress*> | Genera un URI con un percorso assoluto in base ai valori specificati. |
+| <xref:Microsoft.AspNetCore.Routing.LinkGenerator.GetUriByAddress*> | Genera un URI assoluto in base ai valori specificati.             |
 
 > [!WARNING]
-> Prestare attenzione alle implicazioni seguenti della chiamata ai metodi `LinkGenerator`:
+> Prestare attenzione alle implicazioni seguenti della chiamata ai metodi <xref:Microsoft.AspNetCore.Routing.LinkGenerator>:
 >
 > * Usare i metodi di estensione `GetUri*` con cautela in una configurazione di app che non convalida l'intestazione `Host` delle richieste in ingresso. Se l'intestazione `Host` delle richieste in ingresso non viene convalidata, l'input delle richieste non attendibili può essere inviato nuovamente al client negli URI di una visualizzazione o pagina. È consigliabile che in tutte le app di produzione il server sia configurato per la convalida dell'intestazione `Host` rispetto ai valori validi noti.
 >
-> * Usare `LinkGenerator` con cautela nel middleware in associazione a `Map` o `MapWhen`. `Map*` modifica il percorso di base della richiesta in esecuzione, che ha effetto sull'output della generazione di collegamenti. Tutte le API `LinkGenerator` consentono di specificare un percorso di base. Specificare sempre un percorso di base vuoto per annullare l'effetto di `Map*` sulla generazione di collegamenti.
+> * Usare <xref:Microsoft.AspNetCore.Routing.LinkGenerator> con cautela nel middleware in associazione a `Map` o `MapWhen`. `Map*` modifica il percorso di base della richiesta in esecuzione, che ha effetto sull'output della generazione di collegamenti. Tutte le API <xref:Microsoft.AspNetCore.Routing.LinkGenerator> consentono di specificare un percorso di base. Specificare sempre un percorso di base vuoto per annullare l'effetto di `Map*` sulla generazione di collegamenti.
 
 ## <a name="differences-from-earlier-versions-of-routing"></a>Differenze rispetto alle versioni precedenti del routing
 
 Tra il routing di endpoint in ASP.NET Core 2.2 o versioni successive e le versioni precedenti del routing in ASP.NET Core esistono alcune differenze:
 
-* Il sistema di routing di endpoint non supporta l'estensibilità basata su `IRouter`, inclusa l'eredità da `Route`.
+* Il sistema di routing di endpoint non supporta l'estensibilità basata su <xref:Microsoft.AspNetCore.Routing.IRouter>, inclusa l'eredità da <xref:Microsoft.AspNetCore.Routing.Route>.
 
 * Il routing di endpoint non supporta [WebApiCompatShim](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.WebApiCompatShim). Usare la [versione di compatibilità](xref:mvc/compatibility-version) 2.1 (`.SetCompatibilityVersion(CompatibilityVersion.Version_2_1)`) per continuare a usare lo shim per la compatibilità.
 
@@ -230,7 +230,7 @@ Tra il routing di endpoint in ASP.NET Core 2.2 o versioni successive e le versio
   var link = Url.Action("ReadPost", "blog", new { id = 17, });
   ```
 
-  Con il routing basato su `IRouter`, questo codice genera un URI di `/blog/ReadPost/17`, che rispetta le maiuscole e le minuscole del valore di route specificato. Il routing di endpoint in ASP.NET Core 2.2 o versioni successive produce `/Blog/ReadPost/17` ("Blog" viene convertita in lettere maiuscole). Il routing di endpoint offre l'interfaccia `IOutboundParameterTransformer` che può essere usata per personalizzare questo comportamento globalmente o per applicare convenzioni diverse per il mapping degli URL.
+  Con il routing basato su <xref:Microsoft.AspNetCore.Routing.IRouter>, questo codice genera un URI di `/blog/ReadPost/17`, che rispetta le maiuscole e le minuscole del valore di route specificato. Il routing di endpoint in ASP.NET Core 2.2 o versioni successive produce `/Blog/ReadPost/17` ("Blog" viene convertita in lettere maiuscole). Il routing di endpoint offre l'interfaccia `IOutboundParameterTransformer` che può essere usata per personalizzare questo comportamento globalmente o per applicare convenzioni diverse per il mapping degli URL.
 
   Per altre informazioni, vedere la sezione [Riferimento ai trasformatori di parametro](#parameter-transformer-reference).
 
@@ -289,7 +289,7 @@ Tra il routing di endpoint in ASP.NET Core 2.2 o versioni successive e le versio
 
 ### <a name="middleware-example"></a>Esempio di middleware
 
-Nell'esempio seguente un middleware usa l'API `LinkGenerator` per creare il collegamento a un metodo di azione che elenca i prodotti del punto vendita. L'uso del generatore di collegamenti tramite l'inserimento in una classe e la chiamata a `GenerateLink` è possibile in tutte le classi di un'app.
+Nell'esempio seguente un middleware usa l'API <xref:Microsoft.AspNetCore.Routing.LinkGenerator> per creare il collegamento a un metodo di azione che elenca i prodotti del punto vendita. L'uso del generatore di collegamenti tramite l'inserimento in una classe e la chiamata a `GenerateLink` è possibile in tutte le classi di un'app.
 
 ```csharp
 using Microsoft.AspNetCore.Routing;
@@ -320,20 +320,20 @@ public class ProductsLinkMiddleware
 
 La generazione di URL è il processo con cui il routing crea un percorso URL basato su un set di valori di route. Questo consente di avere una separazione logica tra i gestori di route e gli URL che vi accedono.
 
-La generazione di URL segue un processo iterativo simile, ma inizia con la chiamata del codice dell'utente o del framework nel metodo <xref:Microsoft.AspNetCore.Routing.IRouter.GetVirtualPath*> della raccolta di route. Per ogni *route* viene chiamato in sequenza il metodo `GetVirtualPath` finché non viene restituito un valore <xref:Microsoft.AspNetCore.Routing.VirtualPathData> non Null.
+La generazione di URL segue un processo iterativo simile, ma inizia con la chiamata del codice dell'utente o del framework nel metodo <xref:Microsoft.AspNetCore.Routing.IRouter.GetVirtualPath*> della raccolta di route. Per ogni *route* viene chiamato in sequenza il metodo <xref:Microsoft.AspNetCore.Routing.IRouter.GetVirtualPath*> finché non viene restituito un valore <xref:Microsoft.AspNetCore.Routing.VirtualPathData> non Null.
 
-Gli input primari per `GetVirtualPath` sono:
+Gli input primari per <xref:Microsoft.AspNetCore.Routing.IRouter.GetVirtualPath*> sono:
 
-* [VirtualPathContext.HttpContext](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.HttpContext*)
-* [VirtualPathContext.Values](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.Values*)
-* [VirtualPathContext.AmbientValues](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.AmbientValues*)
+* [VirtualPathContext.HttpContext](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.HttpContext)
+* [VirtualPathContext.Values](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.Values)
+* [VirtualPathContext.AmbientValues](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.AmbientValues)
 
-Le route usano principalmente i valori di route specificati da `Values` e `AmbientValues` per decidere se è possibile generare un URL e quali valori includere. Gli elementi `AmbientValues` sono il set di valori di route prodotti dalla corrispondenza della richiesta corrente. Al contrario, gli elementi `Values` sono i valori di route che specificano in che modo viene generato l'URL per l'operazione corrente. `HttpContext` viene specificato nel caso in cui una route ottenga servizi o dati aggiuntivi associati al contesto corrente.
+Le route usano principalmente i valori di route specificati da <xref:Microsoft.AspNetCore.Routing.VirtualPathContext.Values> e <xref:Microsoft.AspNetCore.Routing.VirtualPathContext.AmbientValues> per decidere se è possibile generare un URL e quali valori includere. Gli elementi <xref:Microsoft.AspNetCore.Routing.VirtualPathContext.AmbientValues> sono il set di valori di route prodotti dalla corrispondenza della richiesta corrente. Al contrario, gli elementi <xref:Microsoft.AspNetCore.Routing.VirtualPathContext.Values> sono i valori di route che specificano in che modo viene generato l'URL per l'operazione corrente. <xref:Microsoft.AspNetCore.Routing.VirtualPathContext.HttpContext> viene specificato nel caso in cui una route ottenga servizi o dati aggiuntivi associati al contesto corrente.
 
 > [!TIP]
 > Considerare [VirtualPathContext.Values](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.Values*) come un set di override per [VirtualPathContext.AmbientValues](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.AmbientValues*). La generazione di URL prova a usare nuovamente i valori di route della richiesta corrente per generare URL per i collegamenti che usano la stessa route o gli stessi valori di route.
 
-L'output di `GetVirtualPath` è un oggetto `VirtualPathData`. `VirtualPathData` è un elemento parallelo di `RouteData`. `VirtualPathData` contiene l'elemento `VirtualPath` per l'URL di output e alcune proprietà aggiuntive che devono essere impostate dalla route.
+L'output di <xref:Microsoft.AspNetCore.Routing.IRouter.GetVirtualPath*> è un oggetto <xref:Microsoft.AspNetCore.Routing.VirtualPathData>. <xref:Microsoft.AspNetCore.Routing.VirtualPathData> è un elemento parallelo di <xref:Microsoft.AspNetCore.Routing.RouteData>. <xref:Microsoft.AspNetCore.Routing.VirtualPathData> contiene l'elemento <xref:Microsoft.AspNetCore.Routing.VirtualPathData.VirtualPath> per l'URL di output e alcune proprietà aggiuntive che devono essere impostate dalla route.
 
 La proprietà [VirtualPathData.VirtualPath](xref:Microsoft.AspNetCore.Routing.VirtualPathData.VirtualPath*) contiene il *percorso virtuale* prodotto dalla route. In base alle esigenze specifiche, può essere necessario elaborare ulteriormente il percorso. Se si vuole eseguire il rendering in HTML dell'URL generato, anteporre il percorso di base dell'app.
 
@@ -347,25 +347,25 @@ La proprietà [VirtualPathData.VirtualPath](xref:Microsoft.AspNetCore.Routing.Vi
 
 ::: moniker range="< aspnetcore-2.2"
 
-Il routing specifica la classe <xref:Microsoft.AspNetCore.Routing.Route> come implementazione standard di <xref:Microsoft.AspNetCore.Routing.IRouter>. `Route` usa la sintassi del *modello di route* per definire i criteri in base ai quali confrontare il percorso URL quando si chiama <xref:Microsoft.AspNetCore.Routing.IRouter.RouteAsync*>. `Route` usa lo stesso modello di route per generare un URL quando si chiama `GetVirtualPath`.
+Il routing specifica la classe <xref:Microsoft.AspNetCore.Routing.Route> come implementazione standard di <xref:Microsoft.AspNetCore.Routing.IRouter>. <xref:Microsoft.AspNetCore.Routing.Route> usa la sintassi del *modello di route* per definire i criteri in base ai quali confrontare il percorso URL quando si chiama <xref:Microsoft.AspNetCore.Routing.IRouter.RouteAsync*>. <xref:Microsoft.AspNetCore.Routing.Route> usa lo stesso modello di route per generare un URL quando si chiama <xref:Microsoft.AspNetCore.Routing.IRouter.GetVirtualPath*>.
 
 ::: moniker-end
 
-La maggior parte delle app crea le route chiamando <xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> o uno dei metodi di estensione simili definiti per <xref:Microsoft.AspNetCore.Routing.IRouteBuilder>. Tutti i metodi di estensione `IRouteBuilder` creano un'istanza di <xref:Microsoft.AspNetCore.Routing.Route> e la aggiungono alla raccolta di route.
+La maggior parte delle app crea le route chiamando <xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> o uno dei metodi di estensione simili definiti per <xref:Microsoft.AspNetCore.Routing.IRouteBuilder>. Tutti i metodi di estensione <xref:Microsoft.AspNetCore.Routing.IRouteBuilder> creano un'istanza di <xref:Microsoft.AspNetCore.Routing.Route> e la aggiungono alla raccolta di route.
 
 ::: moniker range=">= aspnetcore-2.2"
 
-`MapRoute` non accetta alcun parametro del gestore di route. `MapRoute` aggiunge solo le route che sono gestite da <xref:Microsoft.AspNetCore.Routing.RouteBuilder.DefaultHandler*>. Per altre informazioni sul routing in MVC, vedere <xref:mvc/controllers/routing>.
+<xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> non accetta alcun parametro del gestore di route. <xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> aggiunge solo le route che sono gestite da <xref:Microsoft.AspNetCore.Routing.RouteBuilder.DefaultHandler*>. Per altre informazioni sul routing in MVC, vedere <xref:mvc/controllers/routing>.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.2"
 
-`MapRoute` non accetta alcun parametro del gestore di route. `MapRoute` aggiunge solo le route che sono gestite da <xref:Microsoft.AspNetCore.Routing.RouteBuilder.DefaultHandler*>. Il gestore predefinito è `IRouter` e il gestore potrebbe non gestire la richiesta. Ad esempio, ASP.NET Core MVC viene in genere configurato come un gestore predefinito che gestisce solo le richieste che corrispondono a un'azione e un controller disponibili. Per altre informazioni sul routing in MVC, vedere <xref:mvc/controllers/routing>.
+<xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> non accetta alcun parametro del gestore di route. <xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> aggiunge solo le route che sono gestite da <xref:Microsoft.AspNetCore.Routing.RouteBuilder.DefaultHandler*>. Il gestore predefinito è `IRouter` e il gestore potrebbe non gestire la richiesta. Ad esempio, ASP.NET Core MVC viene in genere configurato come un gestore predefinito che gestisce solo le richieste che corrispondono a un'azione e un controller disponibili. Per altre informazioni sul routing in MVC, vedere <xref:mvc/controllers/routing>.
 
 ::: moniker-end
 
-L'esempio di codice seguente si riferisce a una chiamata `MapRoute` usata da una tipica definizione di route di ASP.NET Core MVC:
+L'esempio di codice seguente si riferisce a una chiamata <xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> usata da una tipica definizione di route di ASP.NET Core MVC:
 
 ```csharp
 routes.MapRoute(
@@ -391,9 +391,9 @@ routes.MapRoute(
 
 Questo modello confronta un percorso URL come `/Products/Details/17`, ma non `/Products/Details/Apples`. I vincoli di route implementano <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> ed esaminano i valori di route per verificarli. In questo esempio il valore di route `id` deve poter essere convertito in un numero intero. Vedere [Riferimento per i vincoli di route](#route-constraint-reference) per una descrizione dei vincoli di route specificati dal framework.
 
-Altri overload di `MapRoute` accettano i valori per `constraints`, `dataTokens` e `defaults`. L'uso tipico di questi parametri è passare un oggetto tipizzato in modo anonimo, in cui i nomi di proprietà di tipo anonimo corrispondono ai nomi dei parametri di route.
+Altri overload di <xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> accettano i valori per `constraints`, `dataTokens` e `defaults`. L'uso tipico di questi parametri è passare un oggetto tipizzato in modo anonimo, in cui i nomi di proprietà di tipo anonimo corrispondono ai nomi dei parametri di route.
 
-Gli esempi `MapRoute` seguenti creano route equivalenti:
+Gli esempi <xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> seguenti creano route equivalenti:
 
 ```csharp
 routes.MapRoute(
@@ -454,10 +454,10 @@ Il modello precedente confronta un percorso URL come `/en-US/Products/5` ed estr
 
 ### <a name="route-class-url-generation"></a>Generazione di URL della classe di route
 
-La classe `Route` è inoltre in grado di eseguire la generazione di URL combinando un set di valori di route con il relativo modello di route. Questo è logicamente il processo inverso di corrispondenza del percorso URL.
+La classe <xref:Microsoft.AspNetCore.Routing.Route> è inoltre in grado di eseguire la generazione di URL combinando un set di valori di route con il relativo modello di route. Questo è logicamente il processo inverso di corrispondenza del percorso URL.
 
 > [!TIP]
-> Per comprendere meglio la generazione di URL, si pensi a quale URL si vuole generare e al modo in cui un modello di route deve corrispondere a tale URL. Quali valori devono essere prodotti? Questo equivale approssimativamente al funzionamento della generazione di URL nella classe `Route`.
+> Per comprendere meglio la generazione di URL, si pensi a quale URL si vuole generare e al modo in cui un modello di route deve corrispondere a tale URL. Quali valori devono essere prodotti? Questo equivale approssimativamente al funzionamento della generazione di URL nella classe <xref:Microsoft.AspNetCore.Routing.Route>.
 
 L'esempio seguente usa una route predefinita di ASP.NET Core MVC generale:
 
@@ -514,22 +514,22 @@ Se si sta configurando una singola route, chiamare <xref:Microsoft.AspNetCore.Bu
 
 Il framework offre un set di metodi di estensione per la creazione di route (<xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions>):
 
-* `MapDelete`
-* `MapGet`
-* `MapMiddlewareDelete`
-* `MapMiddlewareGet`
-* `MapMiddlewarePost`
-* `MapMiddlewarePut`
-* `MapMiddlewareRoute`
-* `MapMiddlewareVerb`
-* `MapPost`
-* `MapPut`
-* `MapRoute`
-* `MapVerb`
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapDelete*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapGet*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapMiddlewareDelete*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapMiddlewareGet*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapMiddlewarePost*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapMiddlewarePut*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapMiddlewareRoute*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapMiddlewareVerb*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapPost*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapPut*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapRoute*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapVerb*>
 
 ::: moniker range="< aspnetcore-2.2"
 
-Alcuni dei metodi elencati, ad esempio `MapGet`, richiedono `RequestDelegate`. `RequestDelegate` viene usato come *gestore di route* quando la route corrisponde. Altri metodi di questa famiglia consentono di configurare una pipeline middleware che verrà usata come gestore di route. Se il metodo `Map*` non accetta un gestore, ad esempio `MapRoute`, il metodo usa <xref:Microsoft.AspNetCore.Routing.RouteBuilder.DefaultHandler*>.
+Alcuni dei metodi elencati, ad esempio <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapGet*>, richiedono <xref:Microsoft.AspNetCore.Http.RequestDelegate>. <xref:Microsoft.AspNetCore.Http.RequestDelegate> viene usato come *gestore di route* quando la route corrisponde. Altri metodi di questa famiglia consentono di configurare una pipeline middleware che verrà usata come gestore di route. Se il metodo `Map*` non accetta un gestore, ad esempio <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapRoute*>, il metodo usa <xref:Microsoft.AspNetCore.Routing.RouteBuilder.DefaultHandler*>.
 
 ::: moniker-end
 
@@ -588,7 +588,7 @@ La tabella seguente illustra i modelli di route di esempio e il relativo comport
 L'uso di un modello è in genere l'approccio più semplice al routing. I vincoli e le impostazioni predefinite possono essere specificati anche all'esterno del modello di route.
 
 > [!TIP]
-> Abilitare la [registrazione](xref:fundamentals/logging/index) per verificare in che modo le implementazioni del routing predefinite, ad esempio `Route`, corrispondono alle richieste.
+> Abilitare la [registrazione](xref:fundamentals/logging/index) per verificare in che modo le implementazioni del routing predefinite, ad esempio <xref:Microsoft.AspNetCore.Routing.Route>, corrispondono alle richieste.
 
 ## <a name="reserved-routing-names"></a>Nomi riservati di routing
 
@@ -644,7 +644,7 @@ public User GetUserById(int id) { }
 
 Il framework di ASP.NET Core aggiunge `RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant` al costruttore di espressioni regolari. Per una descrizione di questi membri, vedere <xref:System.Text.RegularExpressions.RegexOptions>.
 
-Le espressioni regolari usano delimitatori e token simili a quelli usati dal routing e dal linguaggio C#. Per i token di espressione è necessario aggiungere caratteri di escape. Per usare l'espressione regolare `^\d{3}-\d{2}-\d{4}$` nel routing, l'espressione deve includere i caratteri `\` (barra rovesciata singola) specificati nella stringa come caratteri `\\` (barra rovesciata doppia) nel file di origine C# per eseguire l'escape del carattere di escape della stringa `\`, a meno che non si usino [valori letterali di stringa verbatim](/dotnet/csharp/language-reference/keywords/string). Per far precedere da caratteri di escape i caratteri delimitatori dei parametri di routing (`{`, `}`, `[`, `]`), raddoppiare i caratteri nell'espressione (`{{`, `}`, `[[`, `]]`). La tabella seguente mostra un'espressione regolare e la versione dopo l'escape.
+Le espressioni regolari usano delimitatori e token simili a quelli usati dal routing e dal linguaggio C#. Per i token di espressione è necessario aggiungere caratteri di escape. Per usare l'espressione regolare `^\d{3}-\d{2}-\d{4}$` nel routing, l'espressione deve includere i caratteri `\` (barra rovesciata singola) specificati nella stringa come caratteri `\\` (barra rovesciata doppia) nel file di origine C# per eseguire l'escape del carattere di escape della stringa `\`, a meno che non si usino [valori letterali di stringa verbatim](/dotnet/csharp/language-reference/keywords/string). Per eseguire l'escape dii caratteri delimitatori dei parametri di routing (`{`, `}`, `[`, `]`), raddoppiare i caratteri nell'espressione (`{{`, `}`, `[[`, `]]`). La tabella seguente mostra un'espressione regolare e la versione dopo l'escape.
 
 | Espressione regolare    | Espressione regolare con caratteri di escape     |
 | --------------------- | ------------------------------ |
@@ -668,9 +668,9 @@ Per limitare un parametro a un set noto di valori possibili, usare un'espression
 
 ## <a name="custom-route-constraints"></a>Vincoli di route personalizzati
 
-Oltre ai vincoli di route predefiniti, è possibile creare vincoli di route personalizzati implementando l'interfaccia <xref:Microsoft.AspNetCore.Routing.IRouteConstraint>. L'interfaccia `IRouteConstraint` contiene un singolo metodo, `Match`, che restituisce `true` se il vincolo viene soddisfatto e `false` in caso contrario.
+Oltre ai vincoli di route predefiniti, è possibile creare vincoli di route personalizzati implementando l'interfaccia <xref:Microsoft.AspNetCore.Routing.IRouteConstraint>. L'interfaccia <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> contiene un singolo metodo, `Match`, che restituisce `true` se il vincolo viene soddisfatto e `false` in caso contrario.
 
-Per usare un'interfaccia `IRouteConstraint` personalizzata, il tipo di vincolo di route deve essere registrato con la proprietà `RouteOptions.ConstraintMap` dell'app nel contenitore di servizi dell'app. <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> è un dizionario che esegue il mapping delle chiavi dei vincoli di route alle implementazioni di `IRouteConstraint` che convalidano tali vincoli. La proprietà `RouteOptions.ConstraintMap` di un'app può essere aggiornata in `Startup.ConfigureServices` come parte di una chiamata `services.AddRouting` o configurando `RouteOptions` direttamente con `services.Configure<RouteOptions>`. Ad esempio:
+Per usare un'interfaccia <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> personalizzata, il tipo di vincolo di route deve essere registrato con la proprietà <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> dell'app nel contenitore di servizi dell'app. <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> è un dizionario che esegue il mapping delle chiavi dei vincoli di route alle implementazioni di <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> che convalidano tali vincoli. La proprietà <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> di un'app può essere aggiornata in `Startup.ConfigureServices` come parte di una chiamata [services.AddRouting](xref:Microsoft.Extensions.DependencyInjection.RoutingServiceCollectionExtensions.AddRouting*) o configurando <xref:Microsoft.AspNetCore.Routing.RouteOptions> direttamente con `services.Configure<RouteOptions>`. Ad esempio:
 
 ```csharp
 services.AddRouting(options =>
@@ -692,7 +692,7 @@ public ActionResult<string> Get(string id)
 
 I trasformatori di parametro:
 
-* Vengono eseguiti quando si genera un collegamento per `Route`.
+* Vengono eseguiti quando si genera un collegamento per <xref:Microsoft.AspNetCore.Routing.Route>.
 * Implementare `Microsoft.AspNetCore.Routing.IOutboundParameterTransformer`.
 * Vengono configurati tramite <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap>.
 * Acquisire il valore della route del parametro e trasformarlo in un nuovo valore stringa.
@@ -734,9 +734,9 @@ L'esempio seguente mostra come generare un collegamento a una route usando un di
 
 [!code-csharp[](routing/samples/2.x/RoutingSample/Startup.cs?name=snippet_Dictionary)]
 
-L'elemento `VirtualPath` generato alla fine dell'esempio precedente è `/package/create/123`. Il dizionario fornisce i valori di route `operation` e `id` del modello "Track Package Route", `package/{operation}/{id}`. Per informazioni dettagliate, vedere il codice di esempio nella sezione [Usare il middleware di routing](#use-routing-middleware) oppure l'[app di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/samples).
+L'elemento <xref:Microsoft.AspNetCore.Routing.VirtualPathData.VirtualPath> generato alla fine dell'esempio precedente è `/package/create/123`. Il dizionario fornisce i valori di route `operation` e `id` del modello "Track Package Route", `package/{operation}/{id}`. Per informazioni dettagliate, vedere il codice di esempio nella sezione [Usare il middleware di routing](#use-routing-middleware) oppure l'[app di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/samples).
 
-Il secondo parametro per il costruttore `VirtualPathContext` è una raccolta di *valori di ambiente*. I valori di ambiente sono utili poiché limitano il numero di valori che uno sviluppatore deve specificare all'interno del contesto di una richiesta. I valori di route correnti della richiesta corrente sono considerati valori di ambiente per la generazione del collegamento. Nell'azione `About` di un'app ASP.NET Core MVC di `HomeController`, non è necessario specificare il valore di route del controller per collegarsi all'azione `Index`. Viene usato il valore di ambiente `Home`.
+Il secondo parametro per il costruttore <xref:Microsoft.AspNetCore.Routing.VirtualPathContext> è una raccolta di *valori di ambiente*. I valori di ambiente sono utili poiché limitano il numero di valori che uno sviluppatore deve specificare all'interno del contesto di una richiesta. I valori di route correnti della richiesta corrente sono considerati valori di ambiente per la generazione del collegamento. Nell'azione `About` di un'app ASP.NET Core MVC di `HomeController`, non è necessario specificare il valore di route del controller per collegarsi all'azione `Index`. Viene usato il valore di ambiente `Home`.
 
 I valori di ambiente che non corrispondono a un parametro vengono ignorati. I valori di ambiente vengono ignorati anche quando un valore specificato in modo esplicito esegue l'override del valore di ambiente. La corrispondenza si verifica da sinistra a destra nell'URL.
 
