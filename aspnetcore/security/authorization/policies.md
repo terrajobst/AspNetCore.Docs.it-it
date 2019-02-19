@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/21/2017
 uid: security/authorization/policies
-ms.openlocfilehash: 937c73c26cd3935c5069d4735e754d1a567f41f4
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: be4812487c92a16c44e3983b234bc9e31be65190
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248108"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410389"
 ---
 # <a name="policy-based-authorization-in-aspnet-core"></a>Autorizzazione basata su criteri in ASP.NET Core
 
@@ -120,7 +120,7 @@ Il `HandleRequirementAsync` metodo si implementa in un gestore di autorizzazione
 
 Ad esempio, MVC passa un'istanza di [AuthorizationFilterContext](/dotnet/api/?term=AuthorizationFilterContext) nel `Resource` proprietà. Questa proprietà consente di accedervi `HttpContext`, `RouteData`e tutto quello che altrimenti fornito da MVC e Razor Pages.
 
-L'uso del `Resource` proprietà è framework specifico. Utilizzando le informazioni nel `Resource` proprietà limita i criteri di autorizzazione al framework specifico. È necessario eseguire il cast di `Resource` proprietà usando la `as` (parola chiave) e quindi confermare il cast ha esito positivo per assicurarsi che il codice non di arresto anomalo con un `InvalidCastException` quando eseguono in altri Framework:
+L'uso del `Resource` proprietà è framework specifico. Utilizzando le informazioni nel `Resource` proprietà limita i criteri di autorizzazione al framework specifico. È necessario eseguire il cast di `Resource` proprietà usando la `is` (parola chiave) e quindi confermare il cast ha avuto esito positivo per assicurarsi che il codice non di arresto anomalo con un `InvalidCastException` quando eseguono in altri Framework:
 
 ```csharp
 // Requires the following import:

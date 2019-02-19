@@ -5,14 +5,14 @@ description: Informazioni su come configurare e usare il middleware di memorizza
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/26/2017
+ms.date: 02/16/2019
 uid: performance/caching/middleware
-ms.openlocfilehash: 4b2c71aad4b5bcfee14a271303df5874ccfedb90
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: bb265d04022ec2f8fdb3f2f3bc42f6b3f0b2b338
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207329"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410323"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Middleware di ASP.NET Core della memorizzazione nella cache
 
@@ -103,8 +103,8 @@ La memorizzazione nella cache dal middleware di risposta viene configurato usand
 | Intestazione | Dettagli |
 | ------ | ------- |
 | Autorizzazione | Se l'intestazione esiste, non è memorizzato nella cache la risposta. |
-| Cache-Control | Il middleware prende in considerazione esclusivamente la memorizzazione nella cache le risposte contrassegnate con il `public` direttiva della cache. Controllare la memorizzazione nella cache con i parametri seguenti:<ul><li>max-age</li><li>max-stale&#8224;</li><li>nuova sessione di Min</li><li>sulle istruzioni must-revalidate</li><li>no-cache</li><li>no-store</li><li>only-if-cached</li><li>private</li><li>public</li><li>s-maxage</li><li>proxy-revalidate&#8225;</li></ul>&#8224;Se non viene specificato alcun limite per `max-stale`, il middleware viene eseguita alcuna azione.<br>&#8225;`proxy-revalidate`ha lo stesso effetto `must-revalidate`.<br><br>Per altre informazioni, vedere [RFC 7231: richiesta delle direttive Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2.1). |
-| (Pragma) | Oggetto `Pragma: no-cache` intestazione nella richiesta produce lo stesso effetto `Cache-Control: no-cache`. Questa intestazione viene sottoposto a override dalle direttive rilevanti nel `Cache-Control` intestazione, se presente. Considerato per garantire la compatibilità con HTTP/1.0. |
+| Cache-Control | Il middleware prende in considerazione esclusivamente la memorizzazione nella cache le risposte contrassegnate con il `public` direttiva della cache. Controllare la memorizzazione nella cache con i parametri seguenti:<ul><li>max-age</li><li>max-stale&#8224;</li><li>nuova sessione di Min</li><li>must-revalidate</li><li>no-cache</li><li>no-store</li><li>only-if-cached</li><li>private</li><li>public</li><li>s-maxage</li><li>proxy-revalidate&#8225;</li></ul>&#8224;Se non viene specificato alcun limite per `max-stale`, il middleware viene eseguita alcuna azione.<br>&#8225;`proxy-revalidate`ha lo stesso effetto `must-revalidate`.<br><br>Per altre informazioni, vedere [RFC 7231: Richiesta delle direttive Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2.1). |
+| Pragma | Oggetto `Pragma: no-cache` intestazione nella richiesta produce lo stesso effetto `Cache-Control: no-cache`. Questa intestazione viene sottoposto a override dalle direttive rilevanti nel `Cache-Control` intestazione, se presente. Considerato per garantire la compatibilità con HTTP/1.0. |
 | Set-Cookie | Se l'intestazione esiste, non è memorizzato nella cache la risposta. Qualsiasi middleware nella pipeline di elaborazione della richiesta che consente di impostare uno o più cookie impedisce il Middleware di memorizzazione nella cache delle risposte di memorizzazione nella cache la risposta (ad esempio, il [provider TempData basato su cookie](xref:fundamentals/app-state#tempdata)).  |
 | Variare | Il `Vary` intestazione usata per variare la risposta memorizzata nella cache da un'altra intestazione. Ad esempio, risposte memorizzate nella cache dalla codifica includendo il `Vary: Accept-Encoding` intestazione, che memorizza nella cache le risposte per le richieste con le intestazioni `Accept-Encoding: gzip` e `Accept-Encoding: text/plain` separatamente. Una risposta con un valore di intestazione di `*` non viene mai archiviato. |
 | Alla scadenza | Una risposta considerata non aggiornata da questa intestazione non viene archiviata o recuperata a meno che non viene sottoposto a override da altri `Cache-Control` intestazioni. |
@@ -138,7 +138,7 @@ Durante il test e risoluzione dei problemi di comportamento di memorizzazione ne
 
 * La richiesta deve restituire una risposta del server con un codice di stato 200 (OK).
 * Il metodo di richiesta deve essere GET o HEAD.
-* Middleware terminal, ad esempio [Middleware dei File statici](xref:fundamentals/static-files), non deve elaborare la risposta prima il Middleware di memorizzazione nella cache delle risposte.
+* Middleware terminale non deve elaborare la risposta prima il Middleware di memorizzazione nella cache delle risposte.
 * Il `Authorization` intestazione non deve essere presente.
 * `Cache-Control` parametri dell'intestazione devono essere validi e la risposta deve essere contrassegnata `public` e non contrassegnati come `private`.
 * Il `Pragma: no-cache` intestazione non deve essere presente se la `Cache-Control` intestazione non è presente, come il `Cache-Control` esegue l'override dell'intestazione di `Pragma` intestazione quando è presente.
@@ -148,7 +148,7 @@ Durante il test e risoluzione dei problemi di comportamento di memorizzazione ne
 * Il [IHttpSendFileFeature](/dotnet/api/microsoft.aspnetcore.http.features.ihttpsendfilefeature) non viene usato.
 * La risposta non deve essere non aggiornata in base al `Expires` intestazione e il `max-age` e `s-maxage` memorizzare nella cache delle direttive.
 * Il buffer risposte deve essere completate correttamente e le dimensioni della risposta devono essere minore dell'applicazione configurata o default `SizeLimit`.
-* La risposta deve essere inseribili nella cache in base al [RFC 7234](https://tools.ietf.org/html/rfc7234) specifiche. Ad esempio, il `no-store` direttiva non deve essere presente nei campi di intestazione di richiesta o risposta. Visualizzare *sezione 3: archiviare le risposte nella cache* dei [RFC 7234](https://tools.ietf.org/html/rfc7234) per informazioni dettagliate.
+* La risposta deve essere inseribili nella cache in base al [RFC 7234](https://tools.ietf.org/html/rfc7234) specifiche. Ad esempio, il `no-store` direttiva non deve essere presente nei campi di intestazione di richiesta o risposta. Vedere *sezione 3: Memorizzazione delle risposte nella cache* dei [RFC 7234](https://tools.ietf.org/html/rfc7234) per informazioni dettagliate.
 
 > [!NOTE]
 > Il sistema antifalsificazione per generare i token di protezione per evitare Cross-Site Request Forgery (CSRF) attacks set il `Cache-Control` e `Pragma` intestazioni `no-cache` in modo che non vengono memorizzate nella cache le risposte. Per informazioni su come disabilitare i token antifalsificazione per elementi del form HTML, vedere [configurazione di ASP.NET Core anti falsificazione](xref:security/anti-request-forgery#aspnet-core-antiforgery-configuration).
