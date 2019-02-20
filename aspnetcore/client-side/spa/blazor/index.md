@@ -1,18 +1,12 @@
 ---
 title: Introduzione a Blazor
 author: guardrex
-description: Esplorare ASP.NET Core Blazor, un nuovo modo per creare app sul lato client interattive con .NET eseguite nel browser con WebAssembly.
+description: 'Esplorare ASP.NET Core Blazor, un nuovo modo per creare app sul lato client interattive con .NET eseguite nel browser con WebAssembly.'
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/11/2019
 uid: spa/blazor/index
-ms.openlocfilehash: 0d22365701a4fc1857582c13459280e50d59c858
-ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56159579"
 ---
 # <a name="introduction-to-blazor"></a>Introduzione a Blazor
 
@@ -27,7 +21,7 @@ L'uso di .NET nel browser per lo sviluppo Web sul lato client offre molti vantag
 * **Linguaggio C#**: scrivere codice in C# invece che in JavaScript.
 * **Ecosistema .NET**: sfruttare l'ecosistema esistente di librerie .NET.
 * **Sviluppo per lo stack completo**: condividere la logica sul lato client e server.
-* **Velocità e scalabilità**: NET è stato progettato per prestazioni, affidabilità e sicurezza.
+* **Velocità e scalabilità**: .NET è stato progettato per prestazioni, affidabilità e sicurezza.
 * **Strumenti leader nel settore**: produttività con Visual Studio in Windows, Linux e macOS.
 * **Stabilità e coerenza**:  basato su un set comune di linguaggi, framework e strumenti che sono stabili, ricchi di funzionalità e facili da usare.
 
@@ -62,7 +56,7 @@ Blazor è il modello di hosting sul lato client per Razor Components. Dato che R
 
 Un *componente Razor* è una parte dell'interfaccia utente, ad esempio una pagina, una finestra di dialogo o un modulo per l'immissione dei dati. I componenti gestiscono gli eventi utente e definiscono la logica di rendering dell'interfaccia utente flessibile. I componenti possono essere annidati e riutilizzati.
 
-I componenti sono classi .NET compilate in assembly .NET che possono essere condivisi e distribuiti come pacchetti NuGet. La classe può essere scrittsa sotto forma di una pagina di markup Razor (*.cshtml*) o come una classe C# (*.cs*).
+I componenti sono classi .NET compilate in assembly .NET che possono essere condivisi e distribuiti come pacchetti NuGet. La classe può essere scritta sotto forma di una pagina di markup Razor (*.cshtml*) o come una classe C# (*.cs*).
 
 [Razor](xref:mvc/views/razor) è una sintassi per la combinazione di markup HTML con codice C#. Razor è progettato per la produttività degli sviluppatori, consentendo loro di alternare markup e C# nello stesso file con il supporto di [IntelliSense](/visualstudio/ide/using-intellisense). Anche le pagine Razor e le viste MVC usano Razor. Diversamente dalle pagine Razor e dalle viste MVC, che sono basate su un modello di richiesta/risposta, i componenti vengono usati in modo specifico per la gestione della composizione dell'interfaccia utente. È possibile usare Razor Components in modo specifico per la composizione e la logica dell'interfaccia utente sul lato client.
 

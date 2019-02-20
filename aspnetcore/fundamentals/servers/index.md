@@ -4,14 +4,8 @@ author: guardrex
 description: Individuare i server Web Kestrel e HTTP.sys per ASP.NET Core. Informazioni su come scegliere un server e quando usare un server proxy inverso.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 02/14/2019
 uid: fundamentals/servers/index
-ms.openlocfilehash: 672fe2ce6fd0adae09c380fe508344a254f1a9fe
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248134"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Implementazioni di server Web in ASP.NET Core
 
@@ -57,7 +51,7 @@ Il diagramma seguente illustra la relazione tra IIS, il modulo ASP.NET Core e un
 
 Una richiesta arriva dal Web al driver HTTP.sys in modalità kernel. Il driver instrada la richiesta nativa IIS sulla porta configurata per il sito Web, in genere 80 (HTTP) o 443 (HTTPS). Il modulo riceve la richiesta nativa e la trasmette al server HTTP di IIS (`IISHttpServer`). Il server HTTP di IIS è un'implementazione di server in-process per IIS che converte la richiesta da nativa a gestita.
 
-Dopo che la richiesta è stata elaborata dal server HTTP di IIS, viene eseguito il push della richiesta nella pipeline middleware ASP.NET Core. La pipeline middleware gestisce la richiesta e la passa come istanza di `HttpContext` alla logica dell'app. La risposta dell'app viene quindi restituita a IIS, che ne esegue di nuovo il push al client che ha avviato la richiesta.
+Dopo che la richiesta è stata elaborata dal server HTTP di IIS, viene eseguito il push della richiesta nella pipeline middleware ASP.NET Core. La pipeline middleware gestisce la richiesta e la passa come istanza di `HttpContext` alla logica dell'app. La risposta dell'app viene restituita a IIS tramite il server HTTP di IIS. IIS invia la risposta al client che ha avviato la richiesta.
 
 L'hosting in-process è una funzionalità che richiede il consenso esplicito per le app esistenti, mentre i modelli [dotnet new](/dotnet/core/tools/dotnet-new) usano per impostazione predefinita il modello di hosting in-process per tutti gli scenari IIS e IIS Express.
 
