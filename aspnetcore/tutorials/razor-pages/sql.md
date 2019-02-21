@@ -2,16 +2,15 @@
 title: Usare un database e ASP.NET Core
 author: rick-anderson
 description: Questa sezione illustra l'utilizzo di un database e di ASP.NET Core.
-monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.date: 12/07/2017
 uid: tutorials/razor-pages/sql
-ms.openlocfilehash: 817102a7b89ef4f078d7d0a0bf03ba7cb2745a5d
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 3e05f5dbc73c35f1f938346b2eaab8c0fa7d8ab9
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861277"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410297"
 ---
 # <a name="work-with-a-database-and-aspnet-core"></a>Usare un database e ASP.NET Core
 
@@ -179,5 +178,5 @@ L'app visualizza i dati sottoposti a seed:
 L'esercitazione successiva consentirà di pulire la presentazione dei dati.
 
 > [!div class="step-by-step"]
-> [Articolo precedente: Pagine Razor di scaffolding](xref:tutorials/razor-pages/page)
-> [Articolo successivo: Aggiornamento delle pagine](xref:tutorials/razor-pages/da1)
+> [Precedente: Pagine Razor create tramite scaffolding](xref:tutorials/razor-pages/page)
+> [Successiva: Aggiornamento delle pagine](xref:tutorials/razor-pages/da1)

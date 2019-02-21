@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 12/18/2018
 uid: aspnetcore-2.2
-ms.openlocfilehash: b8279588e674e3ada486f61bac2c216f1359e86d
-ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
+ms.openlocfilehash: 6dcdf71ec5271690718dd1fe750a9a74d498a0f8
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54444389"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410336"
 ---
 # <a name="whats-new-in-aspnet-core-22"></a>Novità di ASP.NET Core 2.2
 
@@ -29,7 +29,7 @@ Per altre informazioni, vedere le seguenti risorse:
 
 ## <a name="problem-details-support"></a>Assistenza per i dettagli del problema
 
-Con ASP.NET Core 2.1 è stata introdotta la classe `ProblemDetails`, basata sulla specifica RFC 7807, il cui compito è trasmettere i dettagli di un errore con una risposta HTTP. Nella versione 2.2 `ProblemDetails` è la risposta standard per i codici di errore client nei controller a cui è stato attribuito `ApiControllerAttribute`. Un'interfaccia `IActionResult` che restituisce un codice di stato per l'errore client (4xx) ora restituisce un corpo `ProblemDetails`. Il risultato include anche un ID di correlazione che può essere utilizzato per correlare l'errore usando i log richieste. Per gli errori client, per impostazione predefinita `ProducesResponseType` utilizza `ProblemDetails` come tipo di risposta. Ciò è documentato nell'output generato in OpenAPI/Swagger usando NSwag o Swashbuckle.AspNetCore.
+Con ASP.NET Core 2.1 è stata introdotta la classe `ProblemDetails`, basata sulla specifica [RFC 7807](https://tools.ietf.org/html/rfc7807), il cui compito è trasmettere i dettagli di un errore con una risposta HTTP. Nella versione 2.2 `ProblemDetails` è la risposta standard per i codici di errore client nei controller a cui è stato attribuito `ApiControllerAttribute`. Un'interfaccia `IActionResult` che restituisce un codice di stato per l'errore client (4xx) ora restituisce un corpo `ProblemDetails`. Il risultato include anche un ID di correlazione che può essere utilizzato per correlare l'errore usando i log richieste. Per gli errori client, per impostazione predefinita `ProducesResponseType` utilizza `ProblemDetails` come tipo di risposta. Ciò è documentato nell'output generato in OpenAPI/Swagger usando NSwag o Swashbuckle.AspNetCore.
 
 ## <a name="endpoint-routing"></a>Routing di endpoint
 

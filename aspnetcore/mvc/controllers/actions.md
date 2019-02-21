@@ -5,12 +5,12 @@ description: ''
 ms.author: riande
 ms.date: 07/03/2017
 uid: mvc/controllers/actions
-ms.openlocfilehash: 3f3f565021d484b69401a3e03a2a966c92764a49
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 8289424b3cd3678bea18a25c7850e409795d1577
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275659"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410436"
 ---
 # <a name="handle-requests-with-controllers-in-aspnet-core-mvc"></a>Gestire le richieste con controller in ASP.NET Core MVC
 
@@ -33,7 +33,7 @@ Un controller è una classe istanziabile per cui almeno una delle condizioni seg
 
 A una classe controller non deve essere associato un attributo `[NonController]`.
 
-I controller devono seguire il [principio delle dipendenze esplicite](http://deviq.com/explicit-dependencies-principle/). Per l'implementazione di questo principio esistono due approcci. Se più azioni del controller richiedono lo stesso servizio, prendere in considerazione l'uso dell'[inserimento di costruttori](xref:mvc/controllers/dependency-injection#constructor-injection) per richiedere tali dipendenze. Se il servizio è richiesto da un solo metodo di azione, prendere in considerazione l'uso dell'[inserimento di azioni](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices) per richiedere la dipendenza.
+I controller devono seguire il [principio delle dipendenze esplicite](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies). Per l'implementazione di questo principio esistono due approcci. Se più azioni del controller richiedono lo stesso servizio, prendere in considerazione l'uso dell'[inserimento di costruttori](xref:mvc/controllers/dependency-injection#constructor-injection) per richiedere tali dipendenze. Se il servizio è richiesto da un solo metodo di azione, prendere in considerazione l'uso dell'[inserimento di azioni](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices) per richiedere la dipendenza.
 
 All'interno del modello **M**odel-**V**iew-**C**ontroller, un controller è responsabile dell'elaborazione iniziale della richiesta e della creazione di istanze del modello. In genere, per le decisioni aziendali è consigliabile seguire il modello.
 
@@ -57,7 +57,7 @@ I controller in genere ereditano dalla classe [Controller](/dotnet/api/microsoft
 
 Non è inclusa un'intestazione di risposta HTTP `Content-Type`, poiché il corpo della risposta non ha contenuto da descrivere.
 
-All'interno di questa categoria sono presenti due tipi di risultati: reindirizzamento e codice di stato HTTP.
+Esistono due tipi di risultato in questa categoria: reindirizzamento e codice di stato HTTP.
 
 * **Codice di stato HTTP**
 
@@ -73,7 +73,7 @@ All'interno di questa categoria sono presenti due tipi di risultati: reindirizza
 
 La maggior parte dei metodi helper di questa categoria includono una proprietà `ContentType`, che consente di impostare l'intestazione della risposta `Content-Type` in modo da descrivere il corpo della risposta.
 
-All'interno di questa categoria sono presenti due tipi di risultato: [visualizzazione](xref:mvc/views/overview) e [risposta formattata](xref:web-api/advanced/formatting).
+Esistono due tipi di risultato in questa categoria: [visualizzazione](xref:mvc/views/overview) e [risposta formattata](xref:web-api/advanced/formatting).
 
 * **Visualizza**
 
@@ -83,7 +83,7 @@ All'interno di questa categoria sono presenti due tipi di risultato: [visualizza
 
     Questo tipo restituisce il formato JSON o un formato di scambio di dati simile per rappresentare un oggetto in un modo specifico. `return Json(customer);`, ad esempio, serializza l'oggetto specificato in formato JSON.
     
-    Altri metodi comuni di questo tipo sono `File`, `PhysicalFile` e `VirtualFile`. `return PhysicalFile(customerFilePath, "text/xml");`, ad esempio, restituisce un file XML descritto da un valore dell'intestazione della risposta `Content-Type` corrispondente a "text/xml".
+    Altri metodi comuni di questo tipo sono `File` e `PhysicalFile`. Ad esempio, `return PhysicalFile(customerFilePath, "text/xml");` restituisce [PhysicalFileResult](/dotnet/api/microsoft.aspnetcore.mvc.physicalfileresult).
 
 #### <a name="3-methods-resulting-in-a-non-empty-response-body-formatted-in-a-content-type-negotiated-with-the-client"></a>3. Metodi risultanti in un corpo della risposta non vuoto formattato in un tipo di contenuto negoziato con il client
 
@@ -93,7 +93,7 @@ Alcuni metodi helper di questo tipo sono `BadRequest`, `CreatedAtRoute` e `Ok`. 
 
 ### <a name="cross-cutting-concerns"></a>Problemi di montaggio incrociato
 
-Le applicazioni condividono in genere parti del flusso di lavoro. Tra gli esempi possibili, un'app che richiede l'autenticazione per accedere al carrello o un'app che memorizza nella cache i dati di alcune pagine. Per eseguire della logica prima o dopo un metodo di azione, usare un *filtro*. L'uso di [filtri](xref:mvc/controllers/filters) con problemi di montaggio incrociato può ridurre i casi di duplicazione, consentendo di seguire il [principio Don't Repeat Yourself (DRY)](http://deviq.com/don-t-repeat-yourself/).
+Le applicazioni condividono in genere parti del flusso di lavoro. Tra gli esempi possibili, un'app che richiede l'autenticazione per accedere al carrello o un'app che memorizza nella cache i dati di alcune pagine. Per eseguire della logica prima o dopo un metodo di azione, usare un *filtro*. L'uso di [filtri](xref:mvc/controllers/filters) su problemi di montaggio incrociato può ridurre la duplicazione.
 
 La maggior parte degli attributi di filtro, ad esempio `[Authorize]`, può essere applicata a livello di controller o di azione, a seconda del livello di granularità desiderato.
 

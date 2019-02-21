@@ -5,12 +5,12 @@ description: Informazioni sul framework avanzato di ASP.NET Core MVC per la crea
 ms.author: riande
 ms.date: 01/08/2018
 uid: mvc/overview
-ms.openlocfilehash: d2a50e48c20fe69b1fe691bfc9c91a27d4219922
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: 205948cb45709b4eb6014aaf4960bf193a20dc30
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41902599"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410310"
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Panoramica di ASP.NET MVC
 
@@ -20,13 +20,13 @@ ASP.NET Core MVC è un framework avanzato per la creazione di app Web e API tram
 
 ## <a name="what-is-the-mvc-pattern"></a>Cos'è lo schema MVC?
 
-Nello schema architetturale MVC (Model-View-Controller) l'applicazione viene suddivisa in tre gruppi principali di componenti: modelli, visualizzazioni e controller. Questo schema consente di realizzare la [separazione delle competenze](http://deviq.com/separation-of-concerns/). Grazie all'uso di questo schema, le richieste dell'utente vengono indirizzate a un controller responsabile di interagire con il modello per eseguire le azioni dell'utente e/o recuperare i risultati delle query. Il controller sceglie la visualizzazione da mostrare all'utente e le fornisce i dati del modello necessari.
+Nello schema architetturale MVC (Model-View-Controller) l'applicazione viene suddivisa in tre gruppi principali di componenti: modelli, visualizzazioni e controller. Questo schema consente di realizzare la [separazione delle competenze](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns). Grazie all'uso di questo schema, le richieste dell'utente vengono indirizzate a un controller responsabile di interagire con il modello per eseguire le azioni dell'utente e/o recuperare i risultati delle query. Il controller sceglie la visualizzazione da mostrare all'utente e le fornisce i dati del modello necessari.
 
 Il diagramma seguente illustra i tre componenti principali e quali fanno riferimento agli altri:
 
 ![Schema MVC](overview/_static/mvc.png)
 
-Questa definizione delle responsabilità consente di scalare l'applicazione in termini di complessità perché è più facile scrivere codice, eseguire il debug e testare qualcosa (modello, visualizzazione o controller) che presenta un unico processo e che segue il principio [SRP (Single Responsibility Principle)](http://deviq.com/single-responsibility-principle/). È più difficile aggiornare, testare ed eseguire il debug di codice con dipendenze distribuite in due o più di queste tre aree. La logica dell'interfaccia utente, ad esempio, tende a cambiare più frequentemente rispetto alla logica di business. Se il codice di presentazione e la logica di business sono combinati in un singolo oggetto, l'oggetto che contiene la logica di business deve essere modificato ogni volta che l'interfaccia utente viene modificata. Ciò spesso introduce errori e rende necessaria la ripetizione dei test della logica di business dopo ogni minima modifica dell'interfaccia utente.
+Questa definizione delle responsabilità consente di ridimensionare l'applicazione in termini di complessità, perché è più facile scrivere codice, eseguire il debug e testare qualcosa (modello, visualizzazione o controller) che presenta un unico processo. È più difficile aggiornare, testare ed eseguire il debug di codice con dipendenze distribuite in due o più di queste tre aree. La logica dell'interfaccia utente, ad esempio, tende a cambiare più frequentemente rispetto alla logica di business. Se il codice di presentazione e la logica di business sono combinati in un singolo oggetto, l'oggetto che contiene la logica di business deve essere modificato ogni volta che l'interfaccia utente viene modificata. Ciò spesso introduce errori e rende necessaria la ripetizione dei test della logica di business dopo ogni minima modifica dell'interfaccia utente.
 
 > [!NOTE]
 > La visualizzazione e il controller dipendono dal modello. Il modello, tuttavia, non dipende né dalla visualizzazione né dal controller. Questo è uno dei principali vantaggi della separazione. La separazione consente di compilare e testare il modello in modo indipendente dalla presentazione visiva.
@@ -34,9 +34,6 @@ Questa definizione delle responsabilità consente di scalare l'applicazione in t
 ### <a name="model-responsibilities"></a>Responsabilità del modello
 
 In un'applicazione MVC il modello rappresenta lo stato dell'applicazione e la logica di business o le operazioni che essa deve eseguire. La logica di business deve essere incapsulata nel modello insieme alla logica di implementazione per rendere persistente lo stato dell'applicazione. Le visualizzazioni fortemente tipizzate usano in genere tipi ViewModel progettati per contenere i dati da visualizzare in una particolare visualizzazione. Il controller crea e popola queste istanze di ViewModel dal modello.
-
-> [!NOTE]
-> Esistono molti modi per organizzare il modello in un'app che usa lo schema architetturale MVC. Altre informazioni sui [diversi tipi di modello](http://deviq.com/kinds-of-models/).
 
 ### <a name="view-responsibilities"></a>Responsabilità della visualizzazione
 
@@ -47,10 +44,10 @@ Le visualizzazioni sono responsabili della presentazione del contenuto tramite l
 I controller sono i componenti che gestiscono l'interazione dell'utente, interagiscono con il modello e selezionano in definitiva la visualizzazione di cui verrà eseguito il rendering. In un'applicazione MVC la visualizzazione presenta solo le informazioni, mentre il controller gestisce e risponde all'input e all'interazione dell'utente. Nello schema MVC il controller è il punto di ingresso iniziale ed è responsabile della selezione dei tipi di modello con cui interagire e della visualizzazione di cui eseguire il rendering. Come suggerito dal nome, questo componente controlla il modo in cui l'app risponde a una determinata richiesta.
 
 > [!NOTE]
-> È consigliabile non sovraccaricare eccessivamente i controller con troppe responsabilità. Per evitare che la logica del controller diventi troppo complessa, usare il principio [SRP (Single Responsibility Principle)](http://deviq.com/single-responsibility-principle/) per escludere la logica di business dal controller e includerla nel modello di dominio.
+> È consigliabile non sovraccaricare eccessivamente i controller con troppe responsabilità. Per evitare che la logica del controller diventi troppo complessa, escludere la logica di business dal controller e includerla nel modello di dominio.
 
 >[!TIP]
-> Se si ritiene che il controller esegua di frequente lo stesso tipo di azione, è possibile seguire il [principio Don't Repeat Yourself (DRY)](http://deviq.com/don-t-repeat-yourself/) spostando queste azioni comuni nei [filtri](#filters).
+> Se si ritiene che le azioni del controller eseguano frequentemente gli stessi tipi di azioni, spostare queste azioni comuni nei [filtri](#filters).
 
 ## <a name="what-is-aspnet-core-mvc"></a>Cos'è ASP.NET Core MVC
 
@@ -146,7 +143,7 @@ Il framework gestisce la convalida dei dati della richiesta nel client e nel ser
 
 ### <a name="dependency-injection"></a>Inserimento di dipendenze
 
-ASP.NET Core include il supporto predefinito per l'[inserimento di dipendenze](../fundamentals/dependency-injection.md). In ASP.NET Core MVC i [controller](controllers/dependency-injection.md) possono richiedere i servizi necessari attraverso i propri costruttori. Ciò consente loro di seguire il [principio delle dipendenze esplicite](http://deviq.com/explicit-dependencies-principle/).
+ASP.NET Core include il supporto predefinito per l'[inserimento di dipendenze](../fundamentals/dependency-injection.md). In ASP.NET Core MVC i [controller](controllers/dependency-injection.md) possono richiedere i servizi necessari attraverso i propri costruttori. Ciò consente loro di seguire il [principio delle dipendenze esplicite](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies).
 
 L'app può inoltre usare l'[inserimento di dipendenze nei file di visualizzazione](views/dependency-injection.md) tramite la direttiva `@inject`:
 
@@ -256,4 +253,4 @@ I [componenti di visualizzazione](views/view-components.md) consentono di creare
 
 Il metodo <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> consente a un'app di acconsentire o rifiutare esplicitamente modifiche potenzialmente importanti del comportamento introdotte in ASP.NET Core MVC 2.1 o versioni successive.
 
-Per altre informazioni, vedere <xref:mvc/compatibility-version>.
+Per ulteriori informazioni, vedere <xref:mvc/compatibility-version>.

@@ -5,12 +5,12 @@ description: Informazioni su come le visualizzazioni gestiscono la presentazione
 ms.author: riande
 ms.date: 12/12/2017
 uid: mvc/views/overview
-ms.openlocfilehash: 276540a5d77b1d65119d1b2104508d77f45d5588
-ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
+ms.openlocfilehash: 6c5b4d7b89ac07a85b5aad626e37855de98064eb
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219368"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410437"
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Visualizzazioni in ASP.NET Core MVC
 
@@ -34,7 +34,7 @@ I [componenti di visualizzazione](xref:mvc/views/view-components) sono simili al
 
 ## <a name="benefits-of-using-views"></a>Vantaggi dell'uso delle visualizzazioni
 
-Le visualizzazioni consentono di stabilire una [separazione dei concetti](http://deviq.com/separation-of-concerns/) all'interno di un'app MVC separando il markup dell'interfaccia utente da altre parti dell'app. La progettazione SoC rende l'app modulare offrendo diversi vantaggi:
+Le visualizzazioni consentono di stabilire una [separazione dei concetti](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns) all'interno di un'app MVC separando il markup dell'interfaccia utente da altre parti dell'app. La progettazione SoC rende l'app modulare offrendo diversi vantaggi:
 
 * L'app risulta più facile da gestire perché è organizzata meglio. Le visualizzazioni sono in genere raggruppate per funzionalità dell'app. Individuare le visualizzazioni correlate quando si lavora su una funzionalità risulterà quindi più semplice.
 * Le parti dell'app sono a regime di controllo libero. È possibile compilare e aggiornare le visualizzazioni dell'app separatamente dai componenti di logica di business e accesso ai dati. È possibile modificare le visualizzazioni dell'app senza dover necessariamente aggiornare altre parti dell'app.

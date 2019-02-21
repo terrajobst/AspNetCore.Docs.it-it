@@ -5,12 +5,12 @@ description: Informazioni sulle aree, una funzionalità di ASP.NET MVC che conse
 ms.author: riande
 ms.date: 02/14/2017
 uid: mvc/controllers/areas
-ms.openlocfilehash: b78bb5146f1ab9039fa9ff015471654510718ed6
-ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
+ms.openlocfilehash: 19e818fa198936ea1bee0da8039e88a3c0abbf6b
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43312218"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410612"
 ---
 # <a name="areas-in-aspnet-core"></a>Aree in ASP.NET Core
 
@@ -41,37 +41,21 @@ Caratteristiche delle aree:
 Di seguito viene presentato un esempio di creazione e di uso delle aree. Si supponga di avere un'app di vendita con due raggruppamenti distinti di controller e visualizzazioni: Products e Services. Una struttura di cartelle tipica per questo tipo di uso delle MVC è la seguente:
 
 * Nome progetto
-
   * Aree
-
     * Prodotti
-
       * Controllers
-
         * HomeController.cs
-
         * ManageController.cs
-
       * Visualizzazioni
-
         * Home
-
           * Index.cshtml
-
         * Gestisci
-
           * Index.cshtml
-
     * Servizi
-
       * Controllers
-
         * HomeController.cs
-
       * Visualizzazioni
-
         * Home
-
           * Index.cshtml
 
 Quando MVC tenta di eseguire il rendering di una visualizzazione in un'area, per impostazione predefinita cerca nei percorsi seguenti:

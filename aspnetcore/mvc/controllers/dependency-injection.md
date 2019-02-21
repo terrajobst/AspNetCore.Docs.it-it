@@ -5,12 +5,12 @@ description: Informazioni su come i controller ASP.NET Core MVC richiedono le pr
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: 12247dbbbb6de3f8feb7bc37caec4ecf4bd21719
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 9d9d0a68927da62fad8df72c868eaf4b8ada440d
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206342"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410271"
 ---
 # <a name="dependency-injection-into-controllers-in-aspnet-core"></a>Inserimento di dipendenze in controller in ASP.NET Core
 
@@ -24,7 +24,7 @@ I controller ASP.NET Core MVC devono richiedere le proprie dipendenze in modo es
 
 ## <a name="dependency-injection"></a>Inserimento di dipendenze
 
-L'inserimento di dipendenze è una tecnica che segue il [principio di inversione delle dipendenze](http://deviq.com/dependency-inversion-principle/) e consente di comporre applicazioni con moduli poco accoppiati. ASP.NET Core dispone del supporto incorporato dell'[inserimento di dipendenze](../../fundamentals/dependency-injection.md), rendendo le applicazioni più facili da testare e gestire.
+ASP.NET Core dispone del supporto incorporato dell'[inserimento di dipendenze](../../fundamentals/dependency-injection.md), rendendo le applicazioni più facili da testare e gestire.
 
 ## <a name="constructor-injection"></a>Inserimento di costruttori
 
@@ -63,7 +63,7 @@ Dopo che il servizio è stato configurato, se si esegue l'applicazione e si pass
 ![Saluto del server](dependency-injection/_static/server-greeting.png)
 
 >[!TIP]
-> Vedere [Test della logica dei controller](testing.md) per informazioni su come la richiesta esplicita di dipendenze [http://deviq.com/explicit-dependencies-principle/](http://deviq.com/explicit-dependencies-principle/) nei controller semplifica il test del codice.
+> Vedere [Test della logica dei controller](testing.md) per informazioni su come semplificare il test del codice richiedendo in modo esplicito le dipendenze nei controller.
 
 L'inserimento di dipendenze predefinito in ASP.NET Core supporta un unico costruttore per la richiesta di servizi da parte delle classi. Se ci sono più costruttori, può essere visualizzata l'eccezione seguente:
 
@@ -101,4 +101,4 @@ Dopo aver specificato un oggetto di configurazione fortemente tipizzato (in ques
 
 [!code-csharp[](./dependency-injection/sample/src/ControllerDI/Controllers/SettingsController.cs?highlight=3,5,7&range=7-22)]
 
-Se si segue il modello di opzioni, è possibile disaccoppiare le impostazioni e la configurazione. Ciò garantisce che il controller segua il principio della [separazione delle competenze](http://deviq.com/separation-of-concerns/), poiché non deve sapere come o dove trovare le informazioni sulle impostazioni. È anche più facile eseguire unit test del controller (vedere [Test della logica dei controller](testing.md)), poiché non ci sono [vincoli statici](http://deviq.com/static-cling/) o creazione diretta di istanze all'interno della classe del controller.
+Se si segue il modello di opzioni, è possibile disaccoppiare le impostazioni e la configurazione. Ciò garantisce che il controller segua il principio della [separazione delle competenze](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns), poiché non deve sapere come o dove trovare le informazioni sulle impostazioni. È anche più facile eseguire [unit test](testing.md) del controller perché non è prevista la creazione diretta di istanze delle classi di impostazioni all'interno della classe del controller.
