@@ -5,14 +5,14 @@ description: Informazioni su come configurare e usare il middleware di memorizza
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/16/2019
+ms.date: 02/20/2019
 uid: performance/caching/middleware
-ms.openlocfilehash: bb265d04022ec2f8fdb3f2f3bc42f6b3f0b2b338
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: c7c3dbd0c9cf029fa6921d77450e780768c8aa6e
+ms.sourcegitcommit: 0945078a09c372f17e9b003758ed87e99c2449f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410323"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56647915"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Middleware di ASP.NET Core della memorizzazione nella cache
 
@@ -138,7 +138,7 @@ Durante il test e risoluzione dei problemi di comportamento di memorizzazione ne
 
 * La richiesta deve restituire una risposta del server con un codice di stato 200 (OK).
 * Il metodo di richiesta deve essere GET o HEAD.
-* Middleware terminale non deve elaborare la risposta prima il Middleware di memorizzazione nella cache delle risposte.
+* In `Startup.Configure`, Middleware di memorizzazione nella cache delle risposte deve essere posizionato prima del middleware che richiedono la compressione. Per altre informazioni, vedere <xref:fundamentals/middleware/index>.
 * Il `Authorization` intestazione non deve essere presente.
 * `Cache-Control` parametri dell'intestazione devono essere validi e la risposta deve essere contrassegnata `public` e non contrassegnati come `private`.
 * Il `Pragma: no-cache` intestazione non deve essere presente se la `Cache-Control` intestazione non è presente, come il `Cache-Control` esegue l'override dell'intestazione di `Pragma` intestazione quando è presente.
