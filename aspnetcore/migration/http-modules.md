@@ -5,12 +5,12 @@ description: ''
 ms.author: tdykstra
 ms.date: 12/07/2016
 uid: migration/http-modules
-ms.openlocfilehash: 9dd28b86966912cce87166feb37e65adf3dd6dcb
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: 601b93fb12ab5b37b7d8ad8fd9825accc6e314cd
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41902671"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56743855"
 ---
 # <a name="migrate-http-handlers-and-modules-to-aspnet-core-middleware"></a>Eseguire la migrazione di moduli e gestori HTTP in middleware di ASP.NET Core
 
@@ -46,7 +46,7 @@ Prima di procedere al middleware di ASP.NET Core, è opportuno innanzitutto riep
 
 **L'ordine in cui i moduli elaborino le richieste in ingresso è determinato da:**
 
-   1. Il [ciclo di vita dell'applicazione](https://msdn.microsoft.com/library/ms227673.aspx), ovvero un eventi della serie generato da ASP.NET: [BeginRequest](/dotnet/api/system.web.httpapplication.beginrequest), [AuthenticateRequest](/dotnet/api/system.web.httpapplication.authenticaterequest)e così via. Ogni modulo è possibile creare un gestore per uno o più eventi.
+   1. Il [ciclo di vita dell'applicazione](https://msdn.microsoft.com/library/ms227673.aspx), ovvero un eventi della serie generato da ASP.NET: [BeginRequest](/dotnet/api/system.web.httpapplication.beginrequest), [AuthenticateRequest](/dotnet/api/system.web.httpapplication.authenticaterequest), etc. Ogni modulo è possibile creare un gestore per uno o più eventi.
 
    2. Per lo stesso evento, l'ordine in cui configurarli nel *Web. config*.
 
@@ -96,7 +96,7 @@ Come illustrato nel [Middleware](xref:fundamentals/middleware/index) pagina, un 
 
 [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddleware.cs?highlight=9,13,20,24,28,30,32)]
 
-Il modello di middleware precedente è stato creato nella sezione [scrittura di middleware](xref:fundamentals/middleware/index#write-middleware).
+Il modello di middleware precedente è stato creato nella sezione [scrittura di middleware](xref:fundamentals/middleware/write).
 
 Il *MyMiddlewareExtensions* rende più semplice configurare il middleware nella classe helper di `Startup` classe. Il `UseMyMiddleware` metodo aggiunge una classe middleware alla pipeline delle richieste. I servizi richiesti dal middleware ottengano inseriti nel costruttore del middleware.
 
@@ -260,7 +260,7 @@ Fornisce un id univoco per ogni richiesta. Molto utili da includere nei log.
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Method)]
 
-**HttpContext.Request.QueryString** si traduce in:
+**HttpContext.Request.QueryString** translates to:
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Query)]
 
@@ -268,7 +268,7 @@ Fornisce un id univoco per ogni richiesta. Molto utili da includere nei log.
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Url)]
 
-**HttpContext.Request.IsSecureConnection** si traduce in:
+**HttpContext.Request.IsSecureConnection** translates to:
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Secure)]
 
@@ -292,11 +292,11 @@ Fornisce un id univoco per ogni richiesta. Molto utili da includere nei log.
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Agent)]
 
-**HttpContext.Request.UrlReferrer** si traduce in:
+**HttpContext.Request.UrlReferrer** translates to:
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Referrer)]
 
-**HttpContext.Request.ContentType** si traduce in:
+**HttpContext.Request.ContentType** translates to:
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Type)]
 
@@ -307,7 +307,7 @@ Fornisce un id univoco per ogni richiesta. Molto utili da includere nei log.
 > [!WARNING]
 > Leggere i valori del form solo se il tipo di contenuto sub *x-www-form-urlencoded* oppure *form-data*.
 
-**HttpContext.Request.InputStream** si traduce in:
+**HttpContext.Request.InputStream** translates to:
 
 [!code-csharp[](http-modules/sample/Asp.Net.Core/Middleware/HttpContextDemoMiddleware.cs?name=snippet_Input)]
 

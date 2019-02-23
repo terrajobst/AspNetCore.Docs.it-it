@@ -7,12 +7,12 @@ ms.author: anurse
 ms.custom: mvc
 ms.date: 11/06/2018
 uid: signalr/security
-ms.openlocfilehash: 52cfac6be8e61572acdf0b19dab574b607314d97
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: 6e9f849ed856cf1cbf989b8b16cab5209c465471
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54836064"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56743787"
 ---
 # <a name="security-considerations-in-aspnet-core-signalr"></a>Considerazioni sulla sicurezza in ASP.NET Core SignalR
 
@@ -77,7 +77,7 @@ info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
       Request starting HTTP/1.1 GET http://localhost:5000/myhub?access_token=1234
 ```
 
-Se si hanno dubbi sulla registrazione di questi dati con i log di server, è possibile disabilitare questa registrazione interamente configurando il `Microsoft.AspNetCore.Hosting` logger per il `Warning` a livello di o versione successiva (questi messaggi vengono scritti in `Info` a livello di). Vedere la documentazione sul [filtro dei Log](xref:fundamentals/logging/index#log-filtering) per altre informazioni. Se vuoi ancora alcune informazioni sulla richiesta di log, è possibile [scrivere un middleware](xref:fundamentals/middleware/index#write-middleware) per registrare i dati è richiesta e filtrare il `access_token` valore di stringa di query (se presente).
+Se si hanno dubbi sulla registrazione di questi dati con i log di server, è possibile disabilitare questa registrazione interamente configurando il `Microsoft.AspNetCore.Hosting` logger per il `Warning` a livello di o versione successiva (questi messaggi vengono scritti in `Info` a livello di). Vedere la documentazione sul [filtro dei Log](xref:fundamentals/logging/index#log-filtering) per altre informazioni. Se vuoi ancora alcune informazioni sulla richiesta di log, è possibile [scrivere un middleware](xref:fundamentals/middleware/write) per registrare i dati è richiesta e filtrare il `access_token` valore di stringa di query (se presente).
 
 ## <a name="exceptions"></a>Eccezioni
 

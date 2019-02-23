@@ -4,16 +4,16 @@ title: Uso di SSL in API Web | Microsoft Docs
 author: MikeWasson
 description: Viene illustrato come usare SSL con l'API Web ASP.NET, incluso l'uso di certificati client SSL.
 ms.author: riande
-ms.date: 12/12/2012
+ms.date: 02/22/2019
 ms.assetid: 97f6164f-59cf-45c0-b820-e4aa29b45396
 msc.legacyurl: /web-api/overview/security/working-with-ssl-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: b11b35f58a1f033423f5e6ea5f5373df0d1fcb5f
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 69c0d217f605096d968435c062ee9931f8dff75f
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41835143"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56744105"
 ---
 <a name="working-with-ssl-in-web-api"></a>Uso di SSL in API Web
 ====================
@@ -59,7 +59,7 @@ Per configurare IIS per accettare certificati client, aprire Gestione IIS e proc
 3. Sotto **certificati Client**, selezionare una delle opzioni seguenti: 
 
     - **Accettare**: IIS accetterà un certificato dal client, ma non ne richiede.
-    - **Richiedi**: è necessario un certificato client. (Per abilitare questa opzione, è necessario selezionare anche "Richiedi SSL")
+    - **Richiedi**: È necessario un certificato client. (Per abilitare questa opzione, è necessario selezionare anche "Richiedi SSL")
 
 È anche possibile impostare queste opzioni nel file ApplicationHost. config:
 
@@ -69,7 +69,7 @@ Il **SslNegotiateCert** flag significa IIS accetterà un certificato dal client,
 
 ### <a name="creating-a-client-certificate-for-testing"></a>Creazione di un certificato Client per i test
 
-A scopo di test, è possibile usare [MakeCert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx) per creare un certificato client. Creare innanzitutto un'autorità radice di test:
+A scopo di test, è possibile usare [MakeCert.exe](/windows/desktop/SecCrypto/makecert) per creare un certificato client. Creare innanzitutto un'autorità radice di test:
 
 [!code-console[Main](working-with-ssl-in-web-api/samples/sample4.cmd)]
 

@@ -5,14 +5,14 @@ description: Informazioni su come usare il Provider di configurazione dell'insie
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/08/2019
+ms.date: 02/22/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: f70389c86420d81e284ecc863ac8386f726ed2cf
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: 2188929d6f380327465e8ce0fd8ad659188416d3
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103111"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56743985"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Azure Key Vault Configuration Provider in ASP.NET Core
 
@@ -116,7 +116,7 @@ Le istruzioni fornite dal [Guida introduttiva: Impostare e recuperare un segreto
 Configurare Azure AD, Azure Key Vault e l'app per usare un ID applicazione e una Password (segreto Client) per eseguire l'autenticazione a un insieme di credenziali delle chiavi **quando l'app è ospitata all'esterno di Azure**.
 
 > [!NOTE]
-> Anche se con un ID applicazione e una Password (segreto Client) è supportato per le app ospitate in Azure, è consigliabile usare [gestite le identità per le risorse di Azure](#use-managed-identities-for-azure-resources) quando si ospita un'app in Azure. Identità gestite richiedono l'archiviazione delle credenziali nell'applicazione o la configurazione, in modo che viene considerato come un approccio più sicuro a livello generale.
+> Anche se con un ID applicazione e una Password (segreto Client) è supportato per le app ospitate in Azure, è consigliabile usare [gestite le identità per le risorse di Azure](#use-managed-identities-for-azure-resources) quando si ospita un'app in Azure. Le identità gestito non richiede l'archiviazione delle credenziali nell'applicazione o la configurazione, in modo che viene considerato come un approccio più sicuro a livello generale.
 
 L'app di esempio Usa un ID applicazione e la Password (segreto Client) quando il `#define` istruzione all'inizio del *Program.cs* file sia impostato su `Basic`.
 
@@ -312,7 +312,7 @@ Esaminare quanto segue [Serilog](https://serilog.net/) incluso in un file JSON d
 
 La configurazione illustrata nel file JSON precedente viene archiviata in Azure Key Vault con trattino doppio (`--`) segmenti notazione e numerici:
 
-| Chiave | Value |
+| Chiave | Valore |
 | --- | ----- |
 | `Serilog--WriteTo--0--Name` | `AzureTableStorage` |
 | `Serilog--WriteTo--0--Args--storageTableName` | `logs` |
