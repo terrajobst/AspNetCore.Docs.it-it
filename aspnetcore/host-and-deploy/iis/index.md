@@ -4,14 +4,8 @@ author: guardrex
 description: Informazioni su come ospitare app ASP.NET Core in Windows Server Internet Information Services (IIS).
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 02/19/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 5d6ba8b7ee6f09a7d00aa0285802cf0aad267a1d
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248420"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host ASP.NET Core in Windows con IIS
 
@@ -296,13 +290,14 @@ Per ottenere una versione precedente del programma di installazione:
 
 ### <a name="install-the-hosting-bundle"></a>Installare il bundle di hosting
 
-1. Eseguire il programma di installazione nel server. Quando si esegue il programma di installazione da un prompt dei comandi di amministratore sono disponibili le opzioni seguenti:
+1. Eseguire il programma di installazione nel server. Quando si esegue il programma di installazione da una shell dei comandi di amministratore sono disponibili i parametri seguenti:
 
    * `OPT_NO_ANCM=1` &ndash; Ignora l'installazione del modulo ASP.NET Core.
    * `OPT_NO_RUNTIME=1` &ndash; Ignora l'installazione del runtime .NET Core.
    * `OPT_NO_SHAREDFX=1` &ndash; Ignora l'installazione del framework condiviso di ASP.NET (runtime ASP.NET).
-   * `OPT_NO_X86=1` &ndash; Ignora l'installazione dei runtime x86. Usare questa opzione se si è certi che non verrà eseguito l'hosting di app a 32 bit. Se non esiste alcuna possibilità che in futuro venga eseguito l'hosting di app sia a 32 che a 64 bit, non usare questa opzione e installare entrambi i runtime.
-1. Riavviare il sistema o eseguire **net stop was /y** seguito da **net start w3svc** da un prompt dei comandi. Il riavvio di IIS rileva una modifica alla variabile di ambiente di sistema PATH apportata dal programma di installazione.
+   * `OPT_NO_X86=1` &ndash; Ignora l'installazione dei runtime x86. Usare questo parametro se si è certi che non verrà eseguito l'hosting di app a 32 bit. Se non esiste alcuna possibilità che in futuro venga eseguito l'hosting di app sia a 32 che a 64 bit, non usare questo parametro e installare entrambi i runtime.
+   * `OPT_NO_SHARED_CONFIG_CHECK=1` &ndash; Disabilitare il controllo dell'uso di una configurazione condivisa di IIS quando la configurazione condivisa (*applicationHost.config*) è nello stesso computer dell'installazione di IIS. *Disponibile solo per i programmi di installazione di bundler di hosting ASP.NET Core 2.2 o versioni successive.* Per ulteriori informazioni, vedere <xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration>.
+1. Riavviare il sistema o eseguire **net stop was /y** seguito da **net start w3svc** da una shell dei comandi. Il riavvio di IIS rileva una modifica alla variabile di ambiente di sistema PATH apportata dal programma di installazione.
 
 Se il programma di installazione del bundle di hosting Windows rileva che è necessario reimpostare IIS per poter completare l'installazione, procede con la reimpostazione. Se il programma di installazione attiva una reimpostazione di IIS, tutti i siti Web e i pool di app IIS vengono riavviati.
 
