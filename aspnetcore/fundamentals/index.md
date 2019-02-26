@@ -1,137 +1,143 @@
 ---
 title: Nozioni fondamentali su ASP.NET Core
 author: rick-anderson
-description: Scoprire i concetti fondamentali per la compilazione di app ASP.NET Core.
+description: Informazioni sui concetti fondamentali per la compilazione di app ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/06/2019
+ms.date: 02/14/2019
 uid: fundamentals/index
-ms.openlocfilehash: a56beebd796448705c7b84f47699e9739f451419
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54099234"
 ---
 # <a name="aspnet-core-fundamentals"></a>Nozioni fondamentali su ASP.NET Core
 
-Un'app ASP.NET Core è un'app console che crea un server Web nel suo metodo `Program.Main`. Il metodo `Main` è il *punto di ingresso gestito* nell'app:
+Questo articolo contiene una panoramica degli argomenti chiave necessari per comprendere come sviluppare app ASP.NET Core.
+
+## <a name="the-startup-class"></a>Classe Startup
+
+All'interno della classe `Startup`:
+
+* Viene eseguita la configurazione di tutti i servizi necessari per l'app.
+* Viene definita la pipeline di gestione delle richieste.
+
+* Il codice per configurare o *registrare* i servizi viene aggiunto al metodo `Startup.ConfigureServices`. I *servizi* sono componenti usati dall'app. Un oggetto di contesto Entity Framework Core, ad esempio, è un servizio.
+* Il codice per configurare la pipeline di gestione delle richieste viene aggiunto al metodo `Startup.Configure`. La pipeline è strutturata come una serie di componenti *middleware*. Un componente middleware, ad esempio, potrebbe gestire le richieste per i file statici o reindirizzare le richieste HTTP a HTTPS. Ogni componente middleware esegue operazioni asincrone su un `HttpContext`, quindi richiama il componente middleware successivo della pipeline oppure termina la richiesta.
 
 ::: moniker range=">= aspnetcore-2.0"
 
-[!code-csharp[](index/snapshots/2.x/Program.cs)]
+Ecco un esempio di classe `Startup`:
 
-Host .NET Core:
-
-* Carica il [runtime di .NET Core](https://github.com/dotnet/coreclr).
-* Usa il primo argomento della riga di comando come percorso del file binario gestito che contiene il punto di ingresso (`Main`) e inizia l'esecuzione del codice.
-
-Il metodo `Main` richiama [WebHost.CreateDefaultBuilder](xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*), che segue il [modello di generatore](https://wikipedia.org/wiki/Builder_pattern) per creare un host Web. Il generatore dispone di metodi che definiscono un server Web (ad esempio, <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions.UseKestrel*>) e la classe di avvio (<xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*>). Nell'esempio precedente il server Web [Kestrel](xref:fundamentals/servers/kestrel) viene allocato automaticamente. L'host Web di ASP.NET Core tenta l'esecuzione su [Internet Information Services (IIS)](https://www.iis.net/), se disponibile. Altri server Web, come [HTTP.sys](xref:fundamentals/servers/httpsys), possono essere usati richiamando il metodo di estensione appropriato. `UseStartup` viene spiegato dettagliatamente nella sezione [Avvio](#startup).
-
-<xref:Microsoft.AspNetCore.Hosting.IWebHostBuilder>, il tipo restituito della chiamata `WebHost.CreateDefaultBuilder`, offre molti metodi facoltativi. Alcuni di questi metodi includono `UseHttpSys` per ospitare l'app in HTTP.sys e <xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.UseContentRoot*> per specificare la directory del contenuto radice. I metodi <xref:Microsoft.AspNetCore.Hosting.IWebHostBuilder.Build*> e <xref:Microsoft.AspNetCore.Hosting.WebHostExtensions.Run*> compilano l'oggetto <xref:Microsoft.AspNetCore.Hosting.IWebHost> che ospita l'app e inizia l'ascolto delle richieste HTTP.
+[!code-csharp[](index/snapshots/2.x/Startup1.cs?highlight=3,12)]
 
 ::: moniker-end
 
-::: moniker range="< aspnetcore-2.0"
-
-[!code-csharp[](index/snapshots/1.x/Program.cs)]
-
-Host .NET Core:
-
-* Carica il [runtime di .NET Core](https://github.com/dotnet/coreclr).
-* Usa il primo argomento della riga di comando come percorso del file binario gestito che contiene il punto di ingresso (`Main`) e inizia l'esecuzione del codice.
-
-Il metodo `Main` usa <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder>, che segue il [modello di generatore](https://wikipedia.org/wiki/Builder_pattern) per creare un host app Web. Il generatore dispone di metodi che definiscono il server Web (ad esempio, <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions.UseKestrel*>) e la classe di avvio (<xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*>). Nell'esempio precedente viene usato il server Web [Kestrel](xref:fundamentals/servers/kestrel). Altri server Web, come [HTTP.sys](xref:fundamentals/servers/httpsys), possono essere usati richiamando il metodo di estensione appropriato. `UseStartup` viene spiegato dettagliatamente nella sezione [Avvio](#startup).
-
-`WebHostBuilder` offre molti metodi facoltativi, incluso <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> per l'hosting in IIS e IIS Express e <xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.UseContentRoot*> per specificare la directory del contenuto radice. I metodi <xref:Microsoft.AspNetCore.Hosting.IWebHostBuilder.Build*> e <xref:Microsoft.AspNetCore.Hosting.WebHostExtensions.Run*> compilano l'oggetto <xref:Microsoft.AspNetCore.Hosting.IWebHost> che ospita l'app e inizia l'ascolto delle richieste HTTP.
-
-::: moniker-end
-
-## <a name="startup"></a>Avvio
-
-Il metodo `UseStartup` su `WebHostBuilder` specifica la classe `Startup` per l'app:
-
-::: moniker range=">= aspnetcore-2.0"
-
-[!code-csharp[](index/snapshots/2.x/Program.cs?highlight=10)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-[!code-csharp[](index/snapshots/1.x/Program.cs?highlight=7)]
-
-::: moniker-end
-
-La classe `Startup` è la posizione in cui vengono configurati eventuali servizi richiesti dall'app e viene definita la pipeline di gestione delle richieste. La classe `Startup` deve essere pubblica e contiene in genere i metodi seguenti. `Startup.ConfigureServices` è facoltativo.
-
-::: moniker range=">= aspnetcore-2.0"
-
-[!code-csharp[](index/snapshots/2.x/Startup.cs)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-[!code-csharp[](index/snapshots/1.x/Startup.cs)]
-
-::: moniker-end
-
-<xref:Microsoft.AspNetCore.Hosting.IStartup.ConfigureServices*> definisce i [servizi](#dependency-injection-services) usati dall'app, come ad esempio ASP.NET Core MVC, Entity Framework Core, Identity. <xref:Microsoft.AspNetCore.Hosting.IStartup.Configure*> definisce il [middleware](xref:fundamentals/middleware/index) chiamato nella pipeline delle richieste.
-
-Per ulteriori informazioni, vedere <xref:fundamentals/startup>.
-
-## <a name="content-root"></a>Radice del contenuto
-
-La radice del contenuto è il percorso di base per i contenuti usati dall'app, ad esempio [Razor Pages](xref:razor-pages/index), visualizzazioni MVC e asset statici. Per impostazione predefinita, la posizione della radice del contenuto è uguale al percorso di base dell'app per il file eseguibile che ospita l'app.
-
-## <a name="web-root-webroot"></a>Radice Web (webroot)
-
-La radice Web di un'app è la directory del progetto contenente risorse statiche pubbliche, come ad esempio CSS, JavaScript e i file di immagine. Per impostazione predefinita *wwwroot* è la radice Web.
-
-Per i file Razor (*. cshtml*), il carattere tilde `~/` punta alla radice Web. I percorsi che iniziano con `~/` sono indicati come percorsi virtuali.
+Per altre informazioni, vedere [Avvio dell'app](xref:fundamentals/startup).
 
 ## <a name="dependency-injection-services"></a>Iniezione di dipendenze (servizi)
 
-Un *servizio* è un componente destinato a un utilizzo comune in un'app. I servizi sono resi disponibili tramite l'[inserimento delle dipendenze](xref:fundamentals/dependency-injection). ASP.NET Core include un'inversione nativa del contenitore del controllo (IoC) che supporta l'[inserimento del costruttore](xref:mvc/controllers/dependency-injection#constructor-injection) per impostazione predefinita. Se si vuole, è possibile sostituire il contenitore predefinito. Oltre al vantaggio dell'[accoppiamento debole](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#encapsulation), l'iniezione delle dipendenze rende disponibili i servizi in tutta l'app, ad esempio la [registrazione](xref:fundamentals/logging/index).
+ASP.NET Core include un framework di inserimento delle dipendenze predefinito che rende disponibili i servizi configurati per le classi di un'app. Un modo per inserire un'istanza di un servizio in una classe consiste nel creare un costruttore con un parametro del tipo richiesto. Il parametro può essere il tipo di servizio o un'interfaccia. Il sistema di inserimento delle dipendenze fornisce il servizio in runtime.
 
-Per ulteriori informazioni, vedere <xref:fundamentals/dependency-injection>.
+::: moniker range=">= aspnetcore-2.0"
 
-## <a name="middleware"></a>Middleware
+Di seguito viene proposto un esempio di classe che usa l'inserimento delle dipendenze per ottenere un oggetto di contesto Entity Framework Core. La riga evidenziata è un esempio di inserimento costruttore:
 
-In ASP.NET Core la pipeline della richiesta viene composta usando un [middleware](xref:fundamentals/middleware/index). Il middleware ASP.NET Core esegue le operazioni asincrone su un `HttpContext`, quindi richiama il middleware successivo nella pipeline oppure termina la richiesta.
-
-Per convenzione viene aggiunto un componente middleware denominato "XYZ" alla pipeline richiamando un metodo di estensione `UseXYZ` nel metodo `Configure`.
-
-ASP.NET Core include un ampio set di middleware predefinito ed è possibile scrivere middleware personalizzato. [Open Web Interface for .NET (OWIN)](xref:fundamentals/owin), che consente di disaccoppiare le app Web dai server Web, è supportato nelle app ASP.NET Core.
-
-Per altre informazioni, vedere <xref:fundamentals/middleware/index> e <xref:fundamentals/owin>.
-
-::: moniker range=">= aspnetcore-2.1"
-
-## <a name="initiate-http-requests"></a>Inizializzare richieste HTTP
-
-<xref:System.Net.Http.IHttpClientFactory> è disponibile per accedere alle istanze di <xref:System.Net.Http.HttpClient> per effettuare richieste HTTP.
-
-Per ulteriori informazioni, vedere <xref:fundamentals/http-requests>.
+[!code-csharp[](index/snapshots/2.x/Index.cshtml.cs?highlight=5)]
 
 ::: moniker-end
 
-## <a name="environments"></a>Ambienti
+Nonostante l'inserimento delle dipendenze sia predefinito, è progettato per consentire il collegamento di un contenitore di inversione del controllo (IoC) di terze parti, qualora lo si preferisse.
 
-Gli ambienti, come ad esempio *Sviluppo* e *Produzione*, sono un concetto fondamentale in ASP.NET Core e possono essere impostati usando una variabile di ambiente, un file di impostazioni e un argomento della riga di comando.
+Per altre informazioni, vedere [Dependency injection](xref:fundamentals/dependency-injection) (Inserimento delle dipendenze).
 
-Per ulteriori informazioni, vedere <xref:fundamentals/environments>.
+## <a name="middleware"></a>Middleware
 
-## <a name="hosting"></a>Hosting
+La pipeline di gestione delle richieste è strutturata come una serie di componenti middleware. Ogni componente esegue operazioni asincrone su un `HttpContext`, quindi richiama il componente middleware successivo nella pipeline oppure termina la richiesta.
 
-Le app ASP.NET Core configurano e avviano un *host*, che è responsabile della gestione dell'avvio e della durata delle app.
+Per convenzione viene aggiunto un componente middleware alla pipeline richiamando il relativo metodo di estensione `Use...` nel metodo `Startup.Configure`. Per abilitare il rendering dei file statici, ad esempio, chiamare `UseStaticFiles`.
 
-Per ulteriori informazioni, vedere <xref:fundamentals/host/index>.
+::: moniker range=">= aspnetcore-2.0"
+
+Il codice evidenziato nell'esempio seguente configura la pipeline di gestione delle richieste:
+
+[!code-csharp[](index/snapshots/2.x/Startup1.cs?highlight=14-16)]
+
+::: moniker-end
+
+ASP.NET Core include un ampio set di middleware predefiniti, ma consente anche di scrivere middleware personalizzati.
+
+Per altre informazioni, vedere [Middleware](xref:fundamentals/middleware/index).
+
+<a id="host"/>
+
+## <a name="the-host"></a>L'host
+
+Un'app ASP.NET Core crea un *host* all'avvio. L'host è un oggetto che incapsula tutte le risorse dell'app, ad esempio:
+
+* Un'implementazione del server HTTP
+* I componenti middleware
+* Registrazione
+* Inserimento delle dipendenze
+* Configurazione
+
+Il motivo principale per cui tutte le risorse interdipendenti dell'app sono incluse in un unico oggetto è la gestione del ciclo di vita, vale a dire il controllo sull'avvio dell'app e sull'arresto normale.
+
+Il codice usato per creare un host si trova in `Program.Main` e segue il pattern [Builder](https://wikipedia.org/wiki/Builder_pattern). Per configurare ogni risorsa che fa parte dell'host vengono chiamati dei metodi. Un metodo builder viene chiamato per combinare il tutto e creare un'istanza dell'oggetto host.
+
+::: moniker range="<= aspnetcore-2.2"
+
+ASP.NET Core 2.x usa un host Web (classe `WebHost`) per le app Web. Il framework offre i metodi di estensione `CreateDefaultBuilder` che consentono di configurare un host con le opzioni usate comunemente, ad esempio:
+
+* Usare [Kestrel](#servers) come server Web e abilitare l'integrazione IIS.
+* Caricare la configurazione da *appsettings.json*, variabili di ambiente, argomenti della riga di comando e altre origini.
+* Inviare l'output di registrazione alla console e ai provider di debug.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.0 <= aspnetcore-2.2"
+
+Ecco un esempio di codice per creare un host:
+
+[!code-csharp[](index/snapshots/2.x/Program1.cs?highlight=9)]
+
+Per altre informazioni, vedere [Host Web](xref:fundamentals/host/web-host).
+
+::: moniker-end
+
+::: moniker range="> aspnetcore-2.2"
+
+Nelle app Web in ASP.NET Core 3.0 è possibile usare un host Web (classe `WebHost`) o un host generico (classe `Host`). È consigliato l'uso di un host generico, mentre l'host Web è disponibile per garantire la compatibilità con le versioni precedenti.
+
+Il framework offre i metodi di estensione `CreateDefaultBuilder` e `ConfigureWebHostDefaults` che consentono di configurare un host con le opzioni usate comunemente, ad esempio:
+
+* Usare [Kestrel](#servers) come server Web e abilitare l'integrazione IIS.
+* Caricare la configurazione da *appsettings.json*, *appsettings.[EnvironmentName].json*, variabili di ambiente e argomenti della riga di comando.
+* Inviare l'output di registrazione alla console e ai provider di debug.
+
+Ecco un esempio di codice per creare un host. I metodi di estensione che configurano l'host con le opzioni usate comunemente sono evidenziati.
+
+[!code-csharp[](index/snapshots/3.x/Program1.cs?highlight=9-10)]
+
+Per altre informazioni, vedere [Host generico](xref:fundamentals/host/generic-host) e [Host Web](xref:fundamentals/host/web-host)
+
+::: moniker-end
+
+### <a name="advanced-host-scenarios"></a>Scenari host avanzati
+
+::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
+
+L'host Web è progettato per includere un'implementazione del server HTTP che non è necessaria per altri tipi di app .NET. A partire dalla versione 2.1, l'host generico (classe `Host`) è disponibile per qualsiasi app .NET Core, non solo per le app ASP.NET Core. L'host generico consente di usare funzionalità trasversali quali la registrazione, l'inserimento delle dipendenze, la configurazione e la gestione del ciclo di vita delle app in altri tipi di app. Per altre informazioni, vedere [Host generico](xref:fundamentals/host/generic-host).
+
+::: moniker-end
+
+::: moniker range="> aspnetcore-2.2"
+
+L'host generico è disponibile per qualsiasi app .NET Core, non solo per le app ASP.NET Core. L'host generico consente di usare funzionalità trasversali quali la registrazione, l'inserimento delle dipendenze, la configurazione e la gestione del ciclo di vita delle app in altri tipi di app. Per altre informazioni, vedere [Host generico](xref:fundamentals/host/generic-host).
+
+::: moniker-end
+
+È anche possibile usare l'host per eseguire attività in background. Per altre informazioni, vedere [Attività in background](xref:fundamentals/host/hosted-services).
 
 ## <a name="servers"></a>Server
 
-Il modello di hosting di ASP.NET Core non è direttamente in ascolto delle richieste. Il modello di hosting si basa su un'implementazione del server HTTP per inoltrare la richiesta all'app.
+Un'app ASP.NET Core usa un'implementazione del server HTTP per l'ascolto delle richieste HTTP. Il server espone le richieste all'app sotto forma di insieme di [funzionalità di richiesta](xref:fundamentals/request-features) strutturate in un `HttpContext`.
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -139,17 +145,17 @@ Il modello di hosting di ASP.NET Core non è direttamente in ascolto delle richi
 
 ASP.NET Core include le implementazioni server seguenti:
 
-* Il server [Kestrel](xref:fundamentals/servers/kestrel) è un server Web multipiattaforma gestito. Kestrel viene spesso eseguito in una configurazione con proxy inverso tramite [IIS](https://www.iis.net/). Kestrel può essere eseguito anche come server perimetrale pubblico esposto direttamente a Internet in ASP.NET Core 2.0 o versione successiva.
-* Il server HTTP IIS (`IISHttpServer`) è un [server in-process](xref:fundamentals/servers/index#in-process-hosting-model) per IIS.
-* Il server [HTTP.sys](xref:fundamentals/servers/httpsys) è un server Web per ASP.NET Core in Windows.
+* *Kestrel* è un server Web multipiattaforma. Kestrel viene spesso eseguito in una configurazione con proxy inverso tramite [IIS](https://www.iis.net/). In ASP.NET Core 2.0 o versione successiva Kestrel può essere eseguito come server perimetrale pubblico esposto direttamente a Internet.
+* *Server HTTP IIS* è un server per Windows che usa IIS. Con questo server l'app ASP.NET Core e IIS sono eseguiti nello stesso processo.
+* *HTTP.sys* è un server per Windows che non viene usato con IIS.
 
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
-ASP.NET Core usa l'implementazione del server [Kestrel](xref:fundamentals/servers/kestrel). Kestrel è un server Web multipiattaforma gestito. Kestrel può essere eseguito anche come server perimetrale pubblico esposto direttamente a Internet in ASP.NET Core 2.0 o versione successiva.
+ASP.NET Core fornisce l'implementazione del server multipiattaforma *Kestrel*. In ASP.NET Core 2.0 o versione successiva Kestrel può essere eseguito come server perimetrale pubblico esposto direttamente a Internet. Kestrel viene spesso eseguito in una configurazione con proxy inverso con [Nginx](https://nginx.org) o [Apache](https://httpd.apache.org/).
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-ASP.NET Core usa l'implementazione del server [Kestrel](xref:fundamentals/servers/kestrel). Kestrel è un server Web multipiattaforma gestito. Kestrel viene spesso eseguito in una configurazione con proxy inverso con [Nginx](http://nginx.org) o [Apache](https://httpd.apache.org/). Kestrel può essere eseguito anche come server perimetrale pubblico esposto direttamente a Internet in ASP.NET Core 2.0 o versione successiva.
+ASP.NET Core fornisce l'implementazione del server multipiattaforma *Kestrel*. In ASP.NET Core 2.0 o versione successiva Kestrel può essere eseguito come server perimetrale pubblico esposto direttamente a Internet. Kestrel viene spesso eseguito in una configurazione con proxy inverso con [Nginx](https://nginx.org) o [Apache](https://httpd.apache.org/).
 
 ---
 
@@ -161,55 +167,143 @@ ASP.NET Core usa l'implementazione del server [Kestrel](xref:fundamentals/server
 
 ASP.NET Core include le implementazioni server seguenti:
 
-* Il server [Kestrel](xref:fundamentals/servers/kestrel) è un server Web multipiattaforma gestito. Kestrel viene spesso eseguito in una configurazione con proxy inverso tramite [IIS](https://www.iis.net/). Kestrel può essere eseguito anche come server perimetrale pubblico esposto direttamente a Internet in ASP.NET Core 2.0 o versione successiva.
-* Il server [HTTP.sys](xref:fundamentals/servers/httpsys) è un server Web per ASP.NET Core in Windows.
+* *Kestrel* è un server Web multipiattaforma. Kestrel viene spesso eseguito in una configurazione con proxy inverso tramite [IIS](https://www.iis.net/). In ASP.NET Core 2.0 o versione successiva Kestrel può essere eseguito come server perimetrale pubblico esposto direttamente a Internet.
+* *HTTP.sys* è un server per Windows che non viene usato con IIS.
 
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
-ASP.NET Core usa l'implementazione del server [Kestrel](xref:fundamentals/servers/kestrel). Kestrel è un server Web multipiattaforma gestito. Kestrel può essere eseguito anche come server perimetrale pubblico esposto direttamente a Internet in ASP.NET Core 2.0 o versione successiva.
+ASP.NET Core fornisce l'implementazione del server multipiattaforma *Kestrel*. In ASP.NET Core 2.0 o versione successiva Kestrel può essere eseguito come server perimetrale pubblico esposto direttamente a Internet. Kestrel viene spesso eseguito in una configurazione con proxy inverso con [Nginx](https://nginx.org) o [Apache](https://httpd.apache.org/).
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-ASP.NET Core usa l'implementazione del server [Kestrel](xref:fundamentals/servers/kestrel). Kestrel è un server Web multipiattaforma gestito. Kestrel viene spesso eseguito in una configurazione con proxy inverso con [Nginx](http://nginx.org) o [Apache](https://httpd.apache.org/). Kestrel può essere eseguito anche come server perimetrale pubblico esposto direttamente a Internet in ASP.NET Core 2.0 o versione successiva.
+ASP.NET Core fornisce l'implementazione del server multipiattaforma *Kestrel*. In ASP.NET Core 2.0 o versione successiva Kestrel può essere eseguito come server perimetrale pubblico esposto direttamente a Internet. Kestrel viene spesso eseguito in una configurazione con proxy inverso con [Nginx](http://nginx.org) o [Apache](https://httpd.apache.org/).
 
 ---
 
 ::: moniker-end
 
-Per ulteriori informazioni, vedere <xref:fundamentals/servers/index>.
+Per altre informazioni, vedere [Server](xref:fundamentals/servers/index).
 
 ## <a name="configuration"></a>Configurazione
 
-ASP.NET Core usa un modello di configurazione basato sulle coppie nome-valore. Il modello di configurazione non è basato su <xref:System.Configuration> o su *web.config*. La configurazione ottiene le impostazioni da un set ordinato di provider di configurazione. I provider di configurazione predefiniti supportano un'ampia gamma di formati di file (XML, JSON, INI), di variabili di ambiente e di argomenti della riga di comando. È anche possibile scrivere i propri provider di configurazione personalizzata.
+ASP.NET Core offre un framework di configurazione che ottiene le impostazioni, ad esempio coppie nome-valore, da un set ordinato di provider di configurazione. Esistono provider di configurazione predefiniti per un'ampia gamma di origini, ad esempio file con estensione *JSON*, file con estensione *XML*, variabili di ambiente e argomenti della riga di comando. È anche possibile scrivere provider di configurazione personalizzati.
 
-Per ulteriori informazioni, vedere <xref:fundamentals/configuration/index>.
+Si potrebbe specificare, ad esempio, che la configurazione proviene da *appsettings.json* e da variabili di ambiente. Quindi, quando viene richiesto il valore di *ConnectionString*, il framework esaminerebbe per primo il file *appsettings.json*. Se il valore venisse trovato qui ma anche in una variabile di ambiente, il valore della variabile di ambiente avrebbe la precedenza.
+
+Per la gestione dei dati di configurazione riservati, ad esempio le password, ASP.NET Core offre uno [strumento Secret Manager](xref:security/app-secrets). Per i segreti di produzione, si consiglia di usare [Azure Key Vault](/aspnet/core/security/key-vault-configuration).
+
+Per altre informazioni, vedere [Configurazione](xref:fundamentals/configuration/index).
+
+## <a name="options"></a>Opzioni
+
+Ove possibile, ASP.NET Core segue il *modello di opzioni* per archiviare e recuperare i valori di configurazione. Il modello di opzioni usa le classi per rappresentare i gruppi di impostazioni correlate.
+
+Il codice seguente, ad esempio, imposta le opzioni WebSockets:
+
+```csharp
+var options = new WebSocketOptions  
+{  
+   KeepAliveInterval = TimeSpan.FromSeconds(120),  
+   ReceiveBufferSize = 4096
+};  
+app.UseWebSockets(options);
+```
+
+Per altre informazioni, vedere [Opzioni](xref:fundamentals/configuration/options).
+
+## <a name="environments"></a>Ambienti
+
+Gli ambienti di esecuzione, ad esempio *Sviluppo*, *Staging* e *Produzione*, sono un concetto fondamentale in ASP.NET Core. È possibile specificare l'ambiente in cui viene eseguita un'app impostando la variabile di ambiente `ASPNETCORE_ENVIRONMENT`. ASP.NET Core legge tale variabile di ambiente all'avvio dell'app e ne archivia il valore in un'implementazione `IHostingEnvironment`. L'oggetto ambiente è disponibile in un punto qualsiasi dell'app tramite l'inserimento delle dipendenze.
+
+::: moniker range=">= aspnetcore-2.0"
+
+Il seguente codice di esempio della classe `Startup` configura l'app in modo che fornisca informazioni dettagliate sull'errore solo quando viene eseguita nell'ambiente di sviluppo:
+
+[!code-csharp[](index/snapshots/2.x/Startup2.cs?highlight=3-6)]
+
+::: moniker-end
+
+Per altre informazioni, vedere [Ambienti](xref:fundamentals/environments).
 
 ## <a name="logging"></a>Registrazione
 
-ASP.NET Core supporta un'API di registrazione che funziona con un'ampia gamma di provider di registrazione. I provider predefiniti supportano l'invio dei registri a una o più destinazioni. È possibile usare framework di registrazione di terze parti.
+ASP.NET Core supporta un'API di registrazione che funziona con un'ampia gamma di provider di registrazione predefiniti e di terze parti. Tra i provider disponibili sono inclusi i seguenti:
 
-Per ulteriori informazioni, vedere <xref:fundamentals/logging/index>.
+* Console
+* Debug
+* Event Tracing for Windows
+* Registro eventi di Windows
+* TraceSource
+* Servizio app di Azure
+* Azure Application Insights
 
-## <a name="error-handling"></a>Gestione degli errori
+Scrivere i log da un punto qualsiasi del codice di un'app recuperando un oggetto `ILogger` dall'inserimento delle dipendenze e chiamando i metodi di registrazione.
 
-ASP.NET Core include scenari predefiniti per la gestione degli errori nelle app, tra cui una pagina di eccezioni per gli sviluppatori, pagine di errore personalizzate, pagine di codici di stato statici e la gestione delle eccezioni all'avvio.
+::: moniker range=">= aspnetcore-2.0"
 
-Per ulteriori informazioni, vedere <xref:fundamentals/error-handling>.
+Ecco un esempio di codice che usa un oggetto `ILogger` con inserimento costruttore e chiamate al metodo di registrazione evidenziati.
+
+[!code-csharp[](index/snapshots/2.x/TodoController.cs?highlight=5,13,17)]
+
+::: moniker-end
+
+L'interfaccia `ILogger` consente di passare qualsiasi numero di campi al provider di registrazione. I campi vengono usati comunemente per costruire una stringa di messaggio, ma il provider può anche inviarli come campi separati a un archivio dati. Questa funzionalità consente ai provider di registrazione di implementare la [registrazione semantica, nota anche come registrazione strutturata](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
+
+Per altre informazioni, vedere [Registrazione](xref:fundamentals/logging/index).
 
 ## <a name="routing"></a>Routing
 
-ASP.NET Core offre scenari per il routing delle richieste di app ai gestori di route.
+Una *route* è un modello URL di cui è stato eseguito il mapping su un gestore. Il gestore è in genere una pagina Razor, un metodo di azione in un controller MVC o un tipo di middleware. Il routing di ASP.NET Core consente di controllare gli URL usati dall'app.
 
-Per ulteriori informazioni, vedere <xref:fundamentals/routing>.
+Per altre informazioni, vedere [Routing](xref:fundamentals/routing).
 
-## <a name="background-tasks"></a>Attività in background
+## <a name="error-handling"></a>Gestione degli errori
 
-Le attività in background vengono implementate come *servizi ospitati*. Un servizio ospitato è una classe con logica di attività in background che implementa l'interfaccia <xref:Microsoft.Extensions.Hosting.IHostedService>.
+ASP.NET Core dispone di funzionalità predefinite per la gestione degli errori, ad esempio:
 
-Per ulteriori informazioni, vedere <xref:fundamentals/host/hosted-services>.
+* Una pagina delle eccezioni per gli sviluppatori
+* Pagine degli errori personalizzate
+* Pagine dei codici di stato statiche
+* Gestione delle eccezioni durante l'avvio
 
-## <a name="access-httpcontext"></a>Accedere a HttpContext
+Per altre informazioni, vedere [Gestione degli errori](xref:fundamentals/error-handling).
 
-`HttpContext` è disponibile automaticamente durante l'elaborazione delle richieste con Razor Pages e MVC. In circostanze in cui `HttpContext` non è immediatamente disponibile, è possibile accedere a `HttpContext` tramite l'interfaccia <xref:Microsoft.AspNetCore.Http.IHttpContextAccessor> e la relativa implementazione predefinita, <xref:Microsoft.AspNetCore.Http.HttpContextAccessor>.
+::: moniker range=">= aspnetcore-2.1"
 
-Per ulteriori informazioni, vedere <xref:fundamentals/httpcontext>.
+## <a name="make-http-requests"></a>Creare richieste HTTP
+
+Un'implementazione di `IHttpClientFactory` è disponibile per la creazione di istanze `HttpClient`. Il factory:
+
+* Offre una posizione centrale per la denominazione e la configurazione di istanze di `HttpClient` logiche. Ad esempio, è possibile registrare e configurare un client *github* per accedere a GitHub. È possibile registrare un client predefinito per altri scopi.
+* Supporta la registrazione e il concatenamento di più gestori di delega per creare una pipeline di middleware per le richieste in uscita. Questo modello è simile alla pipeline di middleware in ingresso in ASP.NET Core. Il modello offre un meccanismo per gestire le problematiche trasversali relative alle richieste HTTP, tra cui memorizzazione nella cache, gestione degli errori, serializzazione e registrazione.
+* Si integra con *Polly*, una famosa libreria di terze parti per la gestione degli errori temporanei.
+* Gestisce il pooling e la durata delle istanze di `HttpClientMessageHandler` sottostanti per evitare problemi DNS comuni che si verificano quando le durate di `HttpClient` vengono gestite manualmente.
+* Aggiunge un'esperienza di registrazione configurabile, tramite *ILogger*, per tutte le richieste inviate attraverso i client creati dalla factory.
+
+Per altre informazioni, vedere [Creare richieste HTTP](xref:fundamentals/http-requests).
+
+::: moniker-end
+
+## <a name="content-root"></a>Radice del contenuto
+
+La radice del contenuto è il percorso di base per i contenuti privati usati dall'app, ad esempio i relativi file Razor. Per impostazione predefinita, la radice del contenuto è il percorso di base per il file eseguibile che ospita l'app. È possibile specificare un percorso alternativo in fase di [creazione dell'host](#host).
+
+::: moniker range="<= aspnetcore-2.2"
+
+Per altre informazioni, vedere [Radice del contenuto](xref:fundamentals/host/web-host#content-root).
+
+::: moniker-end
+
+::: moniker range="> aspnetcore-2.2"
+
+Per altre informazioni, vedere [Radice del contenuto](xref:fundamentals/host/generic-host#content-root).
+
+::: moniker-end
+
+## <a name="web-root"></a>Radice Web
+
+La radice Web, nota anche come *webroot*, è il percorso di base per le risorse statiche pubbliche, ad esempio CSS, JavaScript e i file di immagine. Per impostazione predefinita, il middleware dei file statici verrà usato solo dai file della radice Web e dalle relative sottodirectory. Il percorso della radice Web è, per impostazione predefinita, *\<radice del contenuto >/wwwroot*, ma è possibile impostare un percorso diverso in fase di [creazione dell'host](#host).
+
+Per i file Razor (file con estensione  *CSHTML*), il carattere tilde-barra `~/` punta alla radice Web. I percorsi che iniziano con `~/` sono indicati come percorsi virtuali.
+
+Per altre informazioni, vedere [File statici](xref:fundamentals/static-files).
