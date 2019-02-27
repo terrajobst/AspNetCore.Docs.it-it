@@ -8,14 +8,14 @@ ms.date: 10/02/2014
 ms.assetid: 0a8d6044-5fab-4213-82d6-5618d5601358
 msc.legacyurl: /web-forms/overview/security/create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: b964257165f8a50bef5cb5d8cee4fb30a5e91cf0
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: acc13776840408756901e20589b9efacc83ff2a9
+ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41828324"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833683"
 ---
-<a name="create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset-c"></a>Creare un'app Web Form ASP.NET sicura con registrazione utente, inviare tramite posta elettronica di conferma e reimpostazione della password (c#)
+<a name="create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset-c"></a>Creare un'app Web Forms ASP.NET sicura con registrazione utente, messaggi di posta elettronica di conferma e reimpostazione della password (C#)
 ====================
 da [Erik Reitan](https://github.com/Erikre)
 
@@ -70,6 +70,8 @@ In genere si desidera impedire ai nuovi utenti dalla registrazione di tutti i da
 
 <a id="SG"></a>
 ## <a name="hook-up-sendgrid"></a>Associare SendGrid
+
+SendGrid è stato modificato del, API poiché questa esercitazione è stata scritta. Per istruzioni di SendGrid corrente, vedere [SendGrid](http://sendgrid.com/) oppure [abiliti il recupero di conferma e la password account](xref:security/authentication/accconfirm#enable-account-confirmation-and-password-recovery).
 
 Sebbene in questa esercitazione illustra solo come aggiungere notifica tramite posta elettronica tramite [SendGrid](http://sendgrid.com/), è possibile inviare tramite posta elettronica tramite SMTP e altri meccanismi (vedere [risorse aggiuntive](#addRes)).
 

@@ -5,14 +5,14 @@ description: Informazioni su come i test di integrazione garantiscono che i comp
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/11/2019
+ms.date: 02/25/2019
 uid: test/integration-tests
-ms.openlocfilehash: 0f919d7715a26f1efdb37d35b047a7050e46a272
-ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
+ms.openlocfilehash: 053713e148df70b0be6bb567b55b2381a78d6c3e
+ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249516"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833579"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Test di integrazione in ASP.NET Core
 
@@ -106,9 +106,13 @@ Il progetto di test deve:
 
 Questi prerequisiti possono essere visualizzati nel [app di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples/). Esaminare i *tests/RazorPagesProject.Tests/RazorPagesProject.Tests.csproj* file. L'app di esempio Usa la [xUnit](https://xunit.github.io/) framework di test e il [AngleSharp](https://anglesharp.github.io/) libreria parser, in modo che l'app di esempio fa anche riferimento:
 
-* [xUnit](https://www.nuget.org/packages/xunit/)
-* [xUnit](https://www.nuget.org/packages/xunit.runner.visualstudio/)
+* [xunit](https://www.nuget.org/packages/xunit/)
+* [xunit.runner.visualstudio](https://www.nuget.org/packages/xunit.runner.visualstudio/)
 * [AngleSharp](https://www.nuget.org/packages/AngleSharp/)
+
+## <a name="sut-environment"></a>Ambiente SUT
+
+Se il SUT [ambiente](xref:fundamentals/environments) non è impostato, le impostazioni di ambiente predefinite per lo sviluppo.
 
 ## <a name="basic-tests-with-the-default-webapplicationfactory"></a>Test di base con il valore predefinito WebApplicationFactory
 
