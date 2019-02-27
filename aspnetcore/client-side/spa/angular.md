@@ -7,12 +7,12 @@ ms.author: stevesa
 ms.custom: mvc
 ms.date: 02/13/2019
 uid: spa/angular
-ms.openlocfilehash: 35a839e31369e8dbf00f5dbfb3751a2985335755
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: f33f4b96faf71440c3e8878c0480f2908ace70d1
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248121"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899255"
 ---
 # <a name="use-the-angular-project-template-with-aspnet-core"></a>Usare il modello di progetto per Angular con ASP.NET Core
 
@@ -117,51 +117,6 @@ Questa configurazione predefinita presenta tuttavia uno svantaggio. Ogni volta c
     ```
 
 All'avvio dell'app ASP.NET Core, questa non avvierà un server dell'interfaccia della riga di comando di Angular. Verrà invece usata l'istanza che è stata avviata manualmente. Ciò consente di velocizzare l'avvio e il riavvio. Non è più necessario attendere che l'app client venga ricompilata ogni volta dall'interfaccia della riga di comando di Angular.
-
-## <a name="server-side-rendering"></a>Rendering lato server
-
-Come funzionalità per le prestazioni, è possibile scegliere di eseguire il pre-rendering dell'app Angular sul server, oltre a eseguirla sul client. In tal modo, i browser ricevono il markup HTML che rappresenta l'interfaccia utente iniziale dell'app, visualizzandola ancora prima di scaricare ed eseguire i bundle JavaScript. La maggior parte dell'implementazione di questa caratteristica deriva da una funzionalità di Angular denominata [Angular Universal](https://universal.angular.io/).
-
-> [!TIP]
-> L'abilitazione del rendering lato server introduce numerose complicazioni aggiuntive sia durante lo sviluppo che in fase di distribuzione. Consultare le informazioni sugli [svantaggi del rendering lato server](#drawbacks-of-ssr) per determinare se questa funzionalità è adatta per le proprie esigenze.
-
-Per abilitare il rendering lato server, è necessario apportare diverse aggiunte al progetto.
-
-Nella classe *Startup*, *dopo* la riga che configura `spa.Options.SourcePath` e *prima* della chiamata a `UseAngularCliServer` o `UseProxyToSpaDevelopmentServer`, aggiungere quanto segue:
-
-[!code-csharp[](sample/AngularServerSideRendering/Startup.cs?name=snippet_Call_UseSpa&highlight=5-12)]
-
-In modalità di sviluppo, questo codice tenta di compilare il bundle per il rendering lato server eseguendo lo script `build:ssr`, definito in *ClientApp\package.json*. Verrà compilata un'app Angular denominata `ssr`, che non è ancora definita.
-
-Alla fine della matrice `apps` in *ClientApp/.angular-cli.json*, definire un'app aggiuntiva con il nome `ssr`. Usare le opzioni seguenti:
-
-[!code-json[](sample/AngularServerSideRendering/ClientApp/.angular-cli.json?range=24-41)]
-
-La configurazione della nuova app abilitata per il rendering lato server richiede altri due file: *tsconfig.server.json* e *main.server.ts*. Il file *tsconfig.server.json* specifica le opzioni di compilazione TypeScript. Il file *main.server.ts* viene usato come punto di ingresso del codice durante il rendering lato server.
-
-Aggiungere un nuovo file denominato *tsconfig.server.json* in *ClientApp/src* (insieme al file *tsconfig.app.json* esistente), contenente quanto segue:
-
-[!code-json[](sample/AngularServerSideRendering/ClientApp/src/tsconfig.server.json)]
-
-Questo file configura il compilatore AoT di Angular per la ricerca di un modulo denominato `app.server.module`. Aggiungere questo elemento creando un nuovo file in *ClientApp/src/app/app.server.module.ts* (insieme al file *app.module.ts* esistente), contenente quanto segue:
-
-[!code-typescript[](sample/AngularServerSideRendering/ClientApp/src/app/app.server.module.ts)]
-
-Questo modulo eredita da `app.module` sul lato client e definisce i moduli Angular aggiuntivi disponibili durante il rendering lato server.
-
-Com'è stato accennato, la nuova voce `ssr` in *.angular-cli.json* fa riferimento a un file di punto di ingresso denominato *main.server.ts*. Tale file non è ancora stato aggiunto e a questo punto è necessario eseguire questa operazione. Creare un nuovo file in *ClientApp/src/main.server.ts* (insieme al file *main.ts* esistente), contenente quanto segue:
-
-[!code-typescript[](sample/AngularServerSideRendering/ClientApp/src/main.server.ts)]
-
-Il codice di questo file viene eseguito da ASP.NET Core per ogni richiesta durante l'esecuzione del middleware `UseSpaPrerendering` che è stato aggiunto per la classe *Startup*. Si occupa della ricezione di `params` dal codice .NET (ad esempio l'URL richiesto) e delle chiamate alle API per il rendering lato server di Angular, in modo da ottenere il codice HTML risultante.
-
-In senso stretto, questo è sufficiente per abilitare il rendering lato server in modalità di sviluppo. È essenziale apportare una modifica finale in modo da assicurare il corretto funzionamento dell'app una volta pubblicata. Nel file *.csproj* principale dell'app impostare il valore della proprietà `BuildServerSideRenderer` su `true`:
-
-[!code-xml[](sample/AngularServerSideRendering/AngularServerSideRendering.csproj?name=snippet_EnableBuildServerSideRenderer)]
-
-In questo modo, il processo di compilazione viene configurato per eseguire `build:ssr` durante la pubblicazione e la distribuzione dei file per il rendering lato server sul server. Se non si abilita questa funzionalità, il rendering lato server avrà esito negativo in produzione.
-
-Quando l'app viene eseguita in modalità di sviluppo o di produzione, il codice Angular esegue il pre-rendering in formato HTML sul server. Il codice sul lato client viene eseguito normalmente.
 
 ### <a name="pass-data-from-net-code-into-typescript-code"></a>Passare dati dal codice .NET nel codice TypeScript
 

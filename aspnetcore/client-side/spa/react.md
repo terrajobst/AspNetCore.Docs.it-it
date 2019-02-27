@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 02/13/2019
 uid: spa/react
-ms.openlocfilehash: aa08a9d8d06d8b52be564fabf904d4923684d4e4
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: 3b2b2e67b5d577872bafefef5624a13ca1a22449
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248030"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899177"
 ---
 # <a name="use-the-react-project-template-with-aspnet-core"></a>Usare il modello di progetto per React con ASP.NET Core
 
@@ -102,3 +102,6 @@ Questa configurazione predefinita presenta tuttavia uno svantaggio. Ogni volta c
     ```
 
 All'avvio dell'app ASP.NET Core, questa non avvierà un server CRA. Verrà invece usata l'istanza che è stata avviata manualmente. Ciò consente di velocizzare l'avvio e il riavvio. Non è più necessario attendere che l'app React venga ricompilata ogni volta.
+
+> [!IMPORTANT]
+> "Il rendering lato server" non è una funzionalità supportata di questo modello. Il nostro obiettivo con questo modello è per soddisfare la parità con "create-react-app". Di conseguenza, gli scenari e funzionalità non incluse in un progetto di "Creazione-react-app" (ad esempio SSR) non sono supportate e vengono lasciate come esercizio per l'utente.

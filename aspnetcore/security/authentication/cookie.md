@@ -5,12 +5,12 @@ description: Una spiegazione dell'uso l'autenticazione tramite cookie senza ASP.
 ms.author: riande
 ms.date: 02/25/2019
 uid: security/authentication/cookie
-ms.openlocfilehash: 7e975da3a276ffb6a3de7ee02f7cc5be67cbbebe
-ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
-ms.translationtype: HT
+ms.openlocfilehash: 29370a3ff25469b34edc2a71e00601cf6ecc00ca
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833618"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899287"
 ---
 # <a name="use-cookie-authentication-without-aspnet-core-identity"></a>Usare l'autenticazione tramite cookie senza ASP.NET Core Identity
 
@@ -404,7 +404,7 @@ Il [AuthenticationProperties](/dotnet/api/microsoft.aspnetcore.http.authenticati
 
 ## <a name="absolute-cookie-expiration"></a>Scadenza del cookie assoluto
 
-È possibile impostare un'ora di scadenza assoluto con `ExpiresUtc`. È necessario impostare anche `IsPersistent`; in caso contrario, `ExpiresUtc` viene ignorato e viene creato un cookie di sessione singola. Quando `ExpiresUtc` è nastavit `SignInAsync`, sostituisce il valore della `ExpireTimeSpan` opzione di `CookieAuthenticationOptions`, se impostata.
+È possibile impostare un'ora di scadenza assoluto con `ExpiresUtc`. Per creare un cookie permanente, è necessario impostare anche `IsPersistent`; in caso contrario, il cookie viene creato con un ciclo di vita basati su sessione e far scadere prima o dopo l'autenticazione del ticket che lo contiene. Quando `ExpiresUtc` è nastavit `SignInAsync`, sostituisce il valore della `ExpireTimeSpan` opzione di `CookieAuthenticationOptions`, se impostata.
 
 Il frammento di codice seguente crea un'identità e un corrispondente cookie che dura per 20 minuti. Ignora eventuali impostazioni di scadenza scorrevole configurati in precedenza.
 
