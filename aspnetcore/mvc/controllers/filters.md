@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/08/2019
 uid: mvc/controllers/filters
-ms.openlocfilehash: 3cd576b389a2a4384c0ba90b5740ac42140533cc
-ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
+ms.openlocfilehash: a9081a9938d56b7612bba13937eba384ff02455b
+ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56159314"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833735"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtri in ASP.NET Core
 
@@ -316,7 +316,7 @@ Il framework specifica una classe astratta `ActionFilterAttribute` che è possib
 Il metodo `OnActionExecuted` viene eseguito dopo il metodo di azione ed è quindi possibile visualizzare e modificare i risultati dell'azione mediante la proprietà `ActionExecutedContext.Result`. La proprietà `ActionExecutedContext.Canceled` viene impostata su true se l'esecuzione dell'azione è stata bloccata da un altro filtro. La proprietà `ActionExecutedContext.Exception` viene impostata su un valore non Null se l'azione o un filtro azione successivo ha generato un'eccezione. Impostazione di `ActionExecutedContext.Exception` su null:
 
 * Gestisce un'eccezione in modo efficace.
-* L'oggetto `ActionExectedContext.Result` viene eseguito come se fosse stato restituito normalmente dal metodo di azione.
+* L'oggetto `ActionExecutedContext.Result` viene eseguito come se fosse stato restituito normalmente dal metodo di azione.
 
 ## <a name="exception-filters"></a>Filtri eccezioni
 

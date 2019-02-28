@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/18/2018
 uid: fundamentals/static-files
-ms.openlocfilehash: 4c08d65cc1f658ef08a9b4b362ac7f8a3a243557
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: e6bda5dd60c62c7bdbfa81f34c14cfcd07e8d700
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637781"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56744053"
 ---
 # <a name="static-files-in-aspnet-core"></a>File statici in ASP.NET Core
 
@@ -23,7 +23,7 @@ I file statici, ad esempio HTML, CSS, immagini e JavaScript, sono asset che un'a
 
 ## <a name="serve-static-files"></a>Usare i file statici
 
-I file statici vengono archiviati nella directory radice Web del progetto. La directory predefinita è *\<radice_contenuto > / wwwroot*, ma può essere modificata tramite il metodo [UseWebRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usewebroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseWebRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_). Vedere [Radice del contenuto](xref:fundamentals/index#content-root) e [Radice Web](xref:fundamentals/index#web-root-webroot) per altre informazioni.
+I file statici vengono archiviati nella directory radice Web del progetto. La directory predefinita è *\<radice_contenuto > / wwwroot*, ma può essere modificata tramite il metodo [UseWebRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usewebroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseWebRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_). Vedere [Radice del contenuto](xref:fundamentals/index#content-root) e [Radice Web](xref:fundamentals/index#web-root) per altre informazioni.
 
 L'host Web dell'app deve conoscere la directory radice del contenuto.
 
@@ -82,7 +82,7 @@ L'overload del metodo `UseStaticFiles` senza parametri contrassegna i file nella
 
 [!code-cshtml[](static-files/samples/1x/Views/Home/Index.cshtml?name=snippet_static_file_wwwroot)]
 
-Nel codice precedente, il carattere tilde `~/` indica una radice Web. Per altre informazioni, vedere [Web root](xref:fundamentals/index#web-root-webroot) (Radice Web).
+Nel codice precedente, il carattere tilde `~/` indica una radice Web. Per altre informazioni, vedere [Web root](xref:fundamentals/index#web-root) (Radice Web).
 
 ### <a name="serve-files-outside-of-web-root"></a>Usare i file all'esterno della radice Web
 
