@@ -5,14 +5,8 @@ description: Questo articolo contiene collegamenti a risorse di hosting e distri
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 02/26/2019
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 4c7f2348b13207fb6f2ff830bbf67ffa30e5489c
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248238"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Distribuire le app ASP.NET Core in Servizio app di Azure
 
@@ -22,10 +16,10 @@ Il [servizio app di Azure](https://azure.microsoft.com/services/app-service/) è
 
 [Documentazione di App Web](/azure/app-service/) di Azure è la home page della documentazione, delle esercitazioni, degli esempi, delle guide introduttive e di altre risorse per le app di Azure. Due importanti esercitazioni relative all'hosting di app ASP.NET Core sono:
 
-[Avvio rapido: Creare un'app Web ASP.NET Core in Azure](/azure/app-service/app-service-web-get-started-dotnet)  
+[Creare un'app Web ASP.NET Core in Azure](/azure/app-service/app-service-web-get-started-dotnet)  
 Usare Visual Studio per creare e distribuire un'app Web ASP.NET Core nel servizio app di Azure in Windows.
 
-[Avvio rapido: Creare un'app Web .NET Core nel Servizio app in Linux](/azure/app-service/containers/quickstart-dotnetcore)  
+[Creare un'app ASP.NET Core nel Servizio app in Linux](/azure/app-service/containers/quickstart-dotnetcore)  
 Usare la riga di comando per creare e distribuire un'app Web ASP.NET Core nel servizio app di Azure in Linux.
 
 Gli articoli seguenti sono disponibili nella documentazione di ASP.NET Core:

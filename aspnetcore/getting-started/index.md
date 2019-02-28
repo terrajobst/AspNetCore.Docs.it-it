@@ -47,7 +47,7 @@ dotnet dev-certs https --trust
 
 Il comando precedente consente di visualizzare la finestra di dialogo seguente:
 
-![Finestra di dialogo Avviso di sicurezza](_static/cert.png)
+![Finestra di dialogo Avviso di sicurezza](~/getting-started/_static/cert.png)
 
 Selezionare **Sì** se si accetta di considerare attendibile il certificato di sviluppo.
 
@@ -59,18 +59,17 @@ dotnet dev-certs https --trust
 
 Il comando precedente consente di visualizzare il messaggio seguente:
 
-*Trusting the HTTPS development certificate was requested (È stato richiesto di considerare attendibile il certificato di sviluppo HTTPS). Se il certificato non è già stato considerato attendibile, il comando seguente non viene eseguito:* `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'`.  
-*Questo comando potrebbe richiedere la password per installare il certificato nella keychain di sistema.
-
-Password:*
-
-Inserire la password se si accetta di considerare attendibile il certificato di sviluppo.
+*Trusting the HTTPS development certificate was requested (È stato richiesto di considerare attendibile il certificato di sviluppo HTTPS). Se il certificato non è già stato considerato attendibile, il comando seguente non viene eseguito:* `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'`.
+ 
+Questo comando potrebbe richiedere la password per installare il certificato nella keychain di sistema. Inserire la password se si accetta di considerare attendibile il certificato di sviluppo.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 Vedere la documentazione della distribuzione di Linux su come rendere attendibile il certificato di sviluppo HTTPS.
 
 ---
+
+Per altre informazioni, vedere [Considerare attendibile il certificato di sviluppo di ASP.NET Core HTTPS](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos)
 
 ## <a name="run-the-app"></a>Eseguire l'app
 
