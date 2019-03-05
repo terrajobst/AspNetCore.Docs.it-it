@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 01/17/2019
 uid: fundamentals/startup
-ms.openlocfilehash: 685b496943642b349321a36a7200d6d51ecf4d6e
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
+ms.openlocfilehash: cfd0a57d5d0b60862b017a170b6d5cbddf56f15a
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396233"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56744183"
 ---
 # <a name="app-startup-in-aspnet-core"></a>Avvio dell'app in ASP.NET Core
 
@@ -31,7 +31,7 @@ Le app ASP.NET Core usano una classe `Startup` denominata `Startup` per convenzi
 
 [!code-csharp[](startup/sample_snapshot/Startup1.cs?highlight=4,10)]
 
-La classe `Startup` viene specificata per l'app al momento della compilazione dell'[host](xref:fundamentals/host/index) dell'app. L'host dell'app viene compilato quando si chiama `Build` per il generatore di host nella classe `Program`. La classe `Startup` viene in genere specificata chiamando il metodo [WebHostBuilderExtensions.UseStartup\<TStartup>](xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*) sul generatore di host:
+La classe `Startup` viene specificata per l'app al momento della compilazione dell'[host](xref:fundamentals/index#host) dell'app. L'host dell'app viene compilato quando si chiama `Build` per il generatore di host nella classe `Program`. La classe `Startup` viene in genere specificata chiamando il metodo [WebHostBuilderExtensions.UseStartup\<TStartup>](xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*) sul generatore di host:
 
 [!code-csharp[](startup/sample_snapshot/Program3.cs?name=snippet_Program&highlight=10)]
 
@@ -47,7 +47,7 @@ Un uso comune dell'[inserimento di dipendenze](xref:fundamentals/dependency-inje
 
 Un'alternativa all'inserimento di `IHostingEnvironment` è l'uso di un approccio basato sulle convenzioni. Quando l'app definisce classi `Startup` separate per i diversi ambienti (ad esempio `StartupDevelopment`), la classe `Startup` appropriata viene selezionata durante il runtime. La classe il cui suffisso di nome corrisponde all'ambiente corrente ha la priorità. Se l'app viene eseguita nell'ambiente di sviluppo e include sia una classe `Startup` che una classe `StartupDevelopment`, viene usata la classe `StartupDevelopment`. Per altre informazioni, vedere [Usare più ambienti](xref:fundamentals/environments#environment-based-startup-class-and-methods).
 
-Per altre informazioni sull'host, vedere <xref:fundamentals/host/index>. Per informazioni sulla gestione degli errori durante l'avvio, vedere [Gestione delle eccezioni durante l'avvio](xref:fundamentals/error-handling#startup-exception-handling).
+Per altre informazioni sull'host, vedere [L'host](xref:fundamentals/index#host). Per informazioni sulla gestione degli errori durante l'avvio, vedere [Gestione delle eccezioni durante l'avvio](xref:fundamentals/error-handling#startup-exception-handling).
 
 ## <a name="the-configureservices-method"></a>Metodo ConfigureServices
 
@@ -59,7 +59,7 @@ Il metodo <xref:Microsoft.AspNetCore.Hosting.StartupBase.ConfigureServices*> è:
 
 Il modello tipico consiste nel chiamare tutti i metodi `Add{Service}` e quindi chiamare tutti i metodi `services.Configure{Service}`. Per un esempio, vedere [Configurare i servizi di identità](xref:security/authentication/identity#pw).
 
-L'host può configurare alcuni servizi prima che vengano chiamati i metodi `Startup`. Per ulteriori informazioni, vedere <xref:fundamentals/host/index>.
+L'host può configurare alcuni servizi prima che vengano chiamati i metodi `Startup`. Per altre informazioni, vedere [L'host](xref:fundamentals/index#host).
 
 Per le funzionalità che richiedono l'installazione sostanziale, sono disponibili i metodi di estensione `Add{Service}` in <xref:Microsoft.Extensions.DependencyInjection.IServiceCollection>. Un'app ASP.NET Core tipica registra i servizi per Entity Framework, Identity e MVC:
 
@@ -134,7 +134,7 @@ Un'implementazione <xref:Microsoft.AspNetCore.Hosting.IHostingStartup> consente 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* <xref:fundamentals/host/index>
+* [L'host](xref:fundamentals/index#host)
 * <xref:fundamentals/environments>
 * <xref:fundamentals/middleware/index>
 * <xref:fundamentals/logging/index>

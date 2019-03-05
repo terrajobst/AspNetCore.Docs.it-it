@@ -5,20 +5,18 @@ description: Informazioni introduttive su ASP.NET Core MVC.
 ms.author: riande
 ms.date: 12/12/2018
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: f0c2351de017de7f4c62021b8f9478603055e9bc
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: c09c06f55c4179e9e2174f0063ab7387b7e4c31b
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410547"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899229"
 ---
 # <a name="get-started-with-aspnet-core-mvc"></a>Introduzione ad ASP.NET Core MVC
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [!INCLUDE [consider RP](~/includes/razor.md)]
-
-https://docs.microsoft.com/en-us/visualstudio/ide/visual-studio-ide?view=vs-2017
 
 Questa esercitazione illustra le nozioni di base della creazione di un'app Web ASP.NET Core MVC.
 
@@ -33,9 +31,6 @@ L'app gestisce un database di titoli di film. Vengono illustrate le seguenti pro
 Al termine di queste operazioni si ottiene un'app che può gestire e visualizzare dati relativi ai film.
 
 [!INCLUDE[](~/includes/mvc-intro/download.md)]
-
-> [!NOTE]
-> È in corso un test di usabilità di una nuova proposta di struttura del sommario di ASP.NET Core.  Se si dispone di alcuni minuti per provare a cercare 7 argomenti diversi nel sommario corrente o proposto, [fare clic qui per partecipare al test](https://dpk4xbh5.optimalworkshop.com/treejack/aa11wn82).
 
 [!INCLUDE[](~/includes/net-core-prereqs-all-2.2.md)]
 
@@ -67,18 +62,6 @@ Completare la finestra di dialogo **Nuova Applicazione Web ASP.NET Core (.NET Co
 
 Visual Studio ha usato un modello predefinito per il progetto MVC appena creato. Ora è possibile disporre di un'app funzionante immettendo un nome progetto e selezionando alcune opzioni. Si tratta di un progetto iniziale di base che rappresenta un ottimo punto di partenza.
 
-Selezionare **CTRL+F5** per eseguire l'app in modalità non di debug.
-
-* Visual Studio avvia [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) ed esegue l'app. Si noti che la barra degli indirizzi visualizza `localhost:port#` e non `example.com` o simili. Ciò accade perché `localhost` è il nome host standard per il computer locale. Quando Visual Studio crea un progetto Web, per il server Web viene usata una porta casuale. Nell'immagine precedente il numero di porta è 5000. Nell'URL nel browser viene visualizzato `localhost:5000`. Quando si esegue l'app verrà visualizzato un numero di porta diverso.
-* Se si avvia l'app con **CTRL+F5** (modalità non di debug) sarà possibile apportare modifiche al codice, salvare il file, aggiornare il browser e visualizzare le modifiche del codice. Molti sviluppatori preferiscono usare la modalità non di debug per avviare l'app rapidamente e visualizzare le modifiche.
-* È possibile scegliere se avviare l'app in modalità di debug o non di debug nella voce di menu **Debug**:
-
-![Menu Debug](start-mvc/_static/debug_menu.png)
-
-* È possibile eseguire il debug dell'app toccando il pulsante **IIS Express**.
-
-![IIS Express](start-mvc/_static/iis_express.png)
-
 <!-- Code -------------------------->
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -98,14 +81,6 @@ Nell'esercitazione si presuppone una familarità con Visual Studio Code. Vedere 
   * `dotnet new mvc -o MvcMovie`: crea un nuovo progetto ASP.NET Core MVC nella cartella *MvcMovie*.
   * `code -r MvcMovie`: carica il file di progetto *MvcMovie.csproj* in Visual Studio Code.
 
-### <a name="launch-the-app"></a>Avviare l'app
-
-* Premere **CTRL+F5** per l'esecuzione senza il debugger.
-
-  Visual Studio Code avvia [Kestrel](xref:fundamentals/servers/kestrel), avvia un browser e passa a `http://localhost:5001`. La barra degli indirizzi visualizza `localhost:port:5001` e non `example.com` o simili. Ciò accade perché `localhost` è il nome host standard per il computer locale. Localhost viene usato solo per le richieste web del computer locale.
-
-  Se si avvia l'app con **CTRL+F5** (modalità non di debug) sarà possibile apportare modifiche al codice, salvare il file, aggiornare il browser e visualizzare le modifiche del codice. Molti sviluppatori preferiscono usare la modalità non di debug per aggiornare la pagina e visualizzare le modifiche.
-
 <!-- Mac -------------------------->
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
@@ -121,15 +96,47 @@ Nell'esercitazione si presuppone una familarità con Visual Studio Code. Vedere 
 
 * Denominare il progetto **MvcMovie**, quindi selezionare **Crea**.
 
-### <a name="launch-the-app"></a>Avviare l'app
+---  
+<!-- End of VS tabs -->
+
+### <a name="run-the-app"></a>Eseguire l'app
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+
+Selezionare **CTRL+F5** per eseguire l'app in modalità non di debug.
+
+[!INCLUDE[](~/includes/trustCertVS.md)]
+
+* Visual Studio avvia [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) ed esegue l'app. Si noti che la barra degli indirizzi visualizza `localhost:port#` e non `example.com` o simili. Ciò accade perché `localhost` è il nome host standard per il computer locale. Quando Visual Studio crea un progetto Web, per il server Web viene usata una porta casuale.
+* Se si avvia l'app con CTRL+F5 (modalità non di debug) sarà possibile apportare modifiche al codice, salvare il file, aggiornare il browser e visualizzare le modifiche del codice. Molti sviluppatori preferiscono usare la modalità non di debug per avviare l'app rapidamente e visualizzare le modifiche.
+* È possibile scegliere se avviare l'app in modalità di debug o non di debug nella voce di menu **Debug**:
+
+  ![Menu Debug](start-mvc/_static/debug_menu.png)
+
+* È possibile eseguire il debug dell'app toccando il pulsante **IIS Express**.
+
+  ![IIS Express](start-mvc/_static/iis_express.png)
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code) 
+
+Premere CTRL+F5 per l'esecuzione senza il debugger.
+
+[!INCLUDE[](~/includes/trustCertVSC.md)]
+
+  Visual Studio Code avvia [Kestrel](xref:fundamentals/servers/kestrel), avvia un browser e passa a `https://localhost:5001`. La barra degli indirizzi visualizza `localhost:port:5001` e non `example.com` o simili. Ciò accade perché `localhost` è il nome host standard per il computer locale. Localhost viene usato solo per le richieste web del computer locale.
+
+  Se si avvia l'app con CTRL+F5 (modalità non di debug) sarà possibile apportare modifiche al codice, salvare il file, aggiornare il browser e visualizzare le modifiche del codice. Molti sviluppatori preferiscono usare la modalità non di debug per aggiornare la pagina e visualizzare le modifiche.
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 Per avviare l'app, selezionare **Esegui** > **Avvia senza eseguire debug**. Visual Studio per Mac avvia il server [Kestrel](xref:fundamentals/servers/index#kestrel), apre un browser e naviga all'indirizzo `http://localhost:port`, dove *port* è un numero di porta selezionato a caso.
+
+[!INCLUDE[](~/includes/trustCertMac.md)]
 
 * La barra degli indirizzi visualizza `localhost:port#` e non `example.com` o simili. Ciò accade perché `localhost` è il nome host standard per il computer locale. Quando Visual Studio crea un progetto Web, per il server Web viene usata una porta casuale. Quando si esegue l'app verrà visualizzato un numero di porta diverso.
 * È possibile scegliere se avviare l'app in modalità di debug o non di dal menu **Esegui**.
 
----  
-<!-- End of VS tabs -->
+------
 
 * Selezionare **Accept** (Accetto) per autorizzare il rilevamento. Questa app non rileva informazioni personali. Il codice generato del modello include asset che consentono di soddisfare il [Regolamento generale sulla protezione dei dati (GDPR)](xref:security/gdpr).
 

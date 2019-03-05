@@ -1,5 +1,5 @@
 ---
-title: Inizializzare richieste HTTP
+title: Effettuare richieste HTTP usando IHttpClientFactory in ASP.NET Core
 author: stevejgordon
 description: Informazioni sull'uso dell'interfaccia IHttpClientFactory per gestire le istanze di HttpClient logiche in ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
@@ -7,14 +7,14 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 01/25/2019
 uid: fundamentals/http-requests
-ms.openlocfilehash: 4fc4e602b809563ea78b6a3af5e5eb5c0ebeddea
-ms.sourcegitcommit: c6db8b14521814f1f7e528d7aa06e474e4c04a1f
+ms.openlocfilehash: a4026addaa55d463c41aadd0a7a39606c88fcb84
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "55065035"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56744209"
 ---
-# <a name="initiate-http-requests"></a>Inizializzare richieste HTTP
+# <a name="make-http-requests-using-ihttpclientfactory-in-aspnet-core"></a>Effettuare richieste HTTP usando IHttpClientFactory in ASP.NET Core
 
 Di [Glenn Condron](https://github.com/glennc), [Ryan Nowak](https://github.com/rynowak) e [Steve Gordon](https://github.com/stevejgordon)
 
@@ -274,3 +274,9 @@ Può essere necessario controllare la configurazione dell'elemento `HttpMessageH
 Quando si aggiungono client denominati o tipizzati viene restituito un elemento `IHttpClientBuilder`. È possibile usare il metodo di estensione <xref:Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions.ConfigurePrimaryHttpMessageHandler*> per definire un delegato. Il delegato viene usato per creare e configurare l'elemento `HttpMessageHandler` primario usato dal client:
 
 [!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet12)]
+
+## <a name="additional-resources"></a>Risorse aggiuntive
+
+* [Usare HttpClientFactory per l'implementazione di richieste HTTP resilienti](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests)
+* [Implementazione dei tentativi di chiamate HTTP con backoff esponenziale con i criteri di Polly e HttpClientFactory](/dotnet/standard/microservices-architecture/implement-resilient-applications/implement-http-call-retries-exponential-backoff-polly)
+* [Implementazione dello schema Circuit Breaker](/dotnet/standard/microservices-architecture/implement-resilient-applications/implement-circuit-breaker-pattern)

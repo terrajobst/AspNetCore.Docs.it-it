@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/27/2018
 uid: fundamentals/httpcontext
-ms.openlocfilehash: babc637cdec8590ac14f7924c17e862e5b2f6a81
-ms.sourcegitcommit: d22b3c23c45a076c4f394a70b1c8df2fbcdf656d
+ms.openlocfilehash: 446882297524af3cbaed3ba7f941935debf5e7f4
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55428486"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899198"
 ---
 # <a name="access-httpcontext-in-aspnet-core"></a>Accedere a HttpContext in ASP.NET Core
 
@@ -131,3 +131,36 @@ public class UserRepository : IUserRepository
     }
 }
 ```
+
+## <a name="httpcontext-access-from-a-background-thread"></a>Accesso a HttpContext da un thread in background
+
+`HttpContext` non è thread-safe. La lettura o scrittura delle proprietà `HttpContext` di fuori dell'elaborazione di una richiesta può provocare un'eccezione `NullReferenceException`.
+
+> [!NOTE]
+> L'uso di `HttpContext` al di fuori dell'elaborazione di una richiesta provoca spesso un'eccezione `NullReferenceException`. Se l'app genera sporadiche eccezioni `NullReferenceException`, esaminare le parti di codice che avviano l'elaborazione in background o che continuano l'elaborazione dopo il completamento di una richiesta. Cercare eventuali errori, ad esempio la definizione di un metodo del controller come `async void`.
+
+Per eseguire in modo sicuro operazioni in background con dati `HttpContext`:
+
+* Copiare i dati necessari durante l'elaborazione della richiesta.
+* Passare i dati copiati a un'attività in background.
+
+Per evitare codice non gestito, non passare mai `HttpContext` in un metodo che esegue operazioni in background, bensì passare i dati necessari.
+
+```csharp
+public class EmailController
+{
+    public ActionResult SendEmail(string email)
+    {
+        var correlationId = HttpContext.Request.Headers["x-correlation-id"].ToString();
+
+        // Starts sending an email, but doesn't wait for it to complete
+        _ = SendEmailCore(correlationId);
+        return View();
+    }
+
+    private async Task SendEmailCore(string correlationId)
+    {
+        // send the email
+    }
+}
+

@@ -3,42 +3,40 @@ title: Aree in ASP.NET Core
 author: rick-anderson
 description: Informazioni sulle aree, una funzionalità di ASP.NET MVC che consente di organizzare le funzioni correlate in un gruppo come spazio dei nomi separato (per il routing) e struttura di cartelle (per le visualizzazioni).
 ms.author: riande
-ms.date: 02/14/2017
+ms.date: 02/14/2019
 uid: mvc/controllers/areas
-ms.openlocfilehash: 19e818fa198936ea1bee0da8039e88a3c0abbf6b
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: c21eed04ea68512515da262b6b6895dc1a821039
+ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410612"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833527"
 ---
 # <a name="areas-in-aspnet-core"></a>Aree in ASP.NET Core
 
 Di [Dhananjay Kumar](https://twitter.com/debug_mode) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Le aree sono una funzionalità di ASP.NET MVC che consente di organizzare le funzioni correlate in un gruppo come spazio dei nomi separato (per il routing) e struttura di cartelle (per le visualizzazioni). Usando le aree si crea una gerarchia per il routing aggiungendo un altro parametro di route, `area`, a `controller` e `action`.
+Le aree sono una funzionalità di ASP.NET che consente di organizzare le funzioni correlate in un gruppo come spazio dei nomi separato (per il routing) e struttura di cartelle (per le visualizzazioni). Usando le aree si crea una gerarchia per il routing aggiungendo un altro parametro di route, `area`, a `controller` e `action` o a una pagina Razor `page`.
 
-Le aree consentono di suddividere un'app Web ASP.NET Core MVC di grandi dimensioni in raggruppamenti funzionali più piccoli. Un'area è in effetti una struttura MVC all'interno di un'applicazione. In un progetto MVC i componenti logici come modello, controller e visualizzazione si trovano in cartelle diverse e MVC crea una relazione tra questi componenti tramite convenzioni di denominazione. Per un'app di grandi dimensioni può risultare utile suddividere l'app in aree di funzionalità di alto livello distinte. È il caso, ad esempio, di un'app di e-commerce con più business unit, ad esempio per il completamento della transazione, la fatturazione, la ricerca e così via. Ognuna di queste business unit avrà le proprie visualizzazioni componenti, i propri controller e i propri modelli logici. In questo scenario, è possibile usare le aree per suddividere fisicamente i componenti business all'interno dello stesso progetto.
+Le aree consentono di suddividere un'app Web ASP.NET Core in gruppi funzionali più piccoli, ognuno con un proprio set di pagine Razor, controller, visualizzazioni e modelli. Un'area è in effetti una struttura all'interno di un'app. In un progetto Web ASP.NET Core i componenti logici come pagine, modello, controller e visualizzazione si trovano in cartelle diverse. Il runtime di ASP.NET Core crea una relazione tra questi componenti usando convenzioni di denominazione. Per un'app di grandi dimensioni può risultare utile suddividere l'app in aree di funzionalità di alto livello distinte. È il caso, ad esempio, di un'app di e-commerce con più business unit, ad esempio per il completamento della transazione, la fatturazione e la ricerca. Ognuna di queste business unit avrà la propria area in cui contenere visualizzazioni, controller, pagine Razor e modelli.
 
-Un'area può essere definita come un insieme di unità funzionali più piccole in un progetto ASP.NET Core MVC con un proprio set di controller, visualizzazioni e modelli.
+In un progetto è consigliabile usare le aree quando:
 
-In un progetto MVC è consigliabile usare le aree quando:
+* L'app è costituita da più componenti funzionali di alto livello che possono rimanere logicamente separati.
+* Si vuole suddividere l'app in modo da poter lavorare su ogni area funzionale in modo indipendente.
 
-* L'applicazione è costituita da più componenti funzionali di alto livello che devono rimanere logicamente separati
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/areas/samples) ([procedura per il download](xref:index#how-to-download-a-sample)). Il download di esempio fornisce un'app di base per testare le aree.
 
-* Si vuole suddividere il progetto MVC in modo da poter lavorare su ogni area funzionale in modo indipendente
+## <a name="areas-for-controllers-with-views"></a>Aree per i controller con visualizzazioni
 
-Caratteristiche delle aree:
+Una tipica app Web ASP.NET Core che usa aree, controller e visualizzazioni contiene quanto segue:
 
-* Un'app ASP.NET Core MVC può avere un numero qualsiasi di aree.
+* Una [struttura di cartelle dell'area](#area-folder-structure).
+* Controller decorati con l'attributo [&lbrack;Area&rbrack;](#attribute) per associare il controller all'area: [!code-csharp[](areas/samples/MVCareas/Areas/Products/Controllers/ManageController.cs?name=snippet2)]
+* La [route di area aggiunta all'avvio](#add-area-route): [!code-csharp[](areas/samples/MVCareas/Startup.cs?name=snippet2&highlight=3-6)]
 
-* Ogni area ha un proprio controller, nonché modelli e visualizzazioni propri.
-
-* Le aree consentono di organizzare i progetti MVC di grandi dimensioni in più componenti di alto livello che è possibile usare in modo indipendente.
-
-* Le aree supportano più controller con lo stesso nome, purché abbiano *aree* diverse.
-
-Di seguito viene presentato un esempio di creazione e di uso delle aree. Si supponga di avere un'app di vendita con due raggruppamenti distinti di controller e visualizzazioni: Products e Services. Una struttura di cartelle tipica per questo tipo di uso delle MVC è la seguente:
+## <a name="area-folder-structure"></a>Struttura di cartelle dell'area
+Si consideri un'applicazione che ha due gruppi logici, *Prodotti* e *Servizi*. Usando le aree, la struttura delle cartelle sarebbe simile alla seguente:
 
 * Nome progetto
   * Aree
@@ -51,6 +49,7 @@ Di seguito viene presentato un esempio di creazione e di uso delle aree. Si supp
           * Index.cshtml
         * Gestisci
           * Index.cshtml
+          * About.cshtml
     * Servizi
       * Controllers
         * HomeController.cs
@@ -58,112 +57,80 @@ Di seguito viene presentato un esempio di creazione e di uso delle aree. Si supp
         * Home
           * Index.cshtml
 
-Quando MVC tenta di eseguire il rendering di una visualizzazione in un'area, per impostazione predefinita cerca nei percorsi seguenti:
+Anche se il layout precedente è tipico quando si usano le aree, per usare questa struttura di cartelle sono necessari solo i file delle visualizzazioni. L'individuazione delle visualizzazioni cercherà un file di visualizzazione area corrispondente in quest'ordine:
 
 ```text
 /Areas/<Area-Name>/Views/<Controller-Name>/<Action-Name>.cshtml
-   /Areas/<Area-Name>/Views/Shared/<Action-Name>.cshtml
-   /Views/Shared/<Action-Name>.cshtml
+/Areas/<Area-Name>/Views/Shared/<Action-Name>.cshtml
+/Views/Shared/<Action-Name>.cshtml
+/Pages/Shared/<Action-Name>.cshtml
    ```
 
-Questi sono i percorsi predefiniti, che possono essere modificati tramite `AreaViewLocationFormats` in `Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions`.
+Il percorso delle cartelle non di visualizzazioni, come *Controller* e *Modelli* **non** è rilevante. Ad esempio, le cartelle *Controller* e *Modelli* non sono necessarie. Il contenuto di *Controller* e *Modelli* è codice che viene compilato in un file DLL. Il contenuto di *Visualizzazioni* non viene compilato finché non viene effettuata una richiesta a tale visualizzazione.
 
-Nel codice seguente, ad esempio, il nome della cartella 'Areas' è stato modificato in 'Categories'.
+<!-- TODO review:
+The content of the *Views* isn't compiled until a request to that view has been made.
 
-```csharp
-services.Configure<RazorViewEngineOptions>(options =>
-   {
-       options.AreaViewLocationFormats.Clear();
-       options.AreaViewLocationFormats.Add("/Categories/{2}/Views/{1}/{0}.cshtml");
-       options.AreaViewLocationFormats.Add("/Categories/{2}/Views/Shared/{0}.cshtml");
-       options.AreaViewLocationFormats.Add("/Views/Shared/{0}.cshtml");
-   });
-   ```
+What about precompiled views? 
+ -->
+<a name="attribute"></a>
 
-Si noti che in questo esempio la struttura della cartella *Views* è l'unica considerata importante. Il contenuto delle altre cartelle, ad esempio *Controllers* e *Models* **non** è rilevante. Non è assolutamente necessario, ad esempio, che esistano le cartelle *Controllers* e *Models*. Questo procedimento funziona perché il contenuto di *Controllers* e *Models* è solo codice che viene compilato in un file con estensione dll, mentre il contenuto di *Views* non lo è finché non viene effettuata una richiesta a una visualizzazione.
+### <a name="associate-the-controller-with-an-area"></a>Associare il controller a un'area
 
-Dopo aver definito la gerarchia di cartelle, è necessario informare MVC che ogni controller è associato a un'area. A tale scopo, si decora il nome del controller con l'attributo `[Area]`.
+I controller di area sono identificati dall'attributo [&lbrack;Area&rbrack;](xref:Microsoft.AspNetCore.Mvc.AreaAttribute):
 
-```csharp
-...
-   namespace MyStore.Areas.Products.Controllers
-   {
-       [Area("Products")]
-       public class HomeController : Controller
-       {
-           // GET: /Products/Home/Index
-           public IActionResult Index()
-           {
-               return View();
-           }
+[!code-csharp[](areas/samples/MVCareas/Areas/Products/Controllers/ManageController.cs?highlight=5&name=snippet)]
 
-           // GET: /Products/Home/Create
-           public IActionResult Create()
-           {
-               return View();
-           }
-       }
-   }
-   ```
+### <a name="add-area-route"></a>Aggiungere una route di area
 
-Impostare la definizione di una route che funzioni con le aree appena create. L'articolo [Route ad azioni del controller](routing.md) descrive in dettaglio come creare definizioni di route, nonché come usare route convenzionali rispetto a route di attributi. In questo esempio verrà usata una route convenzionale. A tale scopo, aprire il file *Startup.cs* e modificarlo aggiungendo la definizione di route denominata `areaRoute` riportata di seguito.
+Le route di area usano in genere il routing convenzionale anziché il routing con attributi. Il routing convenzionale dipende dall'ordinamento. In generale, le route con aree devono essere posizionate prima delle altre nella tabella di route poiché sono più specifiche rispetto alle route senza un'area.
 
-```csharp
-...
-   app.UseMvc(routes =>
-   {
-     routes.MapRoute(
-         name: "areaRoute",
-         template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+`{area:...}` può essere usato come token nei modelli di route se lo spazio URL è uniforme in tutte le aree:
 
-     routes.MapRoute(
-         name: "default",
-         template: "{controller=Home}/{action=Index}/{id?}");
-   });
-   ```
+[!code-csharp[](areas/samples/MVCareas/Startup.cs?name=snippet&highlight=18-21)]
 
-Se si passa a `http://<yourApp>/products`, viene richiamato il metodo di azione `Index` di `HomeController` nell'area `Products`.
+Nel codice precedente, `exists` applica il vincolo che la route deve corrispondere a un'area. L'uso di `{area:...}` è il meccanismo meno complesso per l'aggiunta del routing alle aree.
 
-## <a name="link-generation"></a>Generazione di collegamenti
+Il codice seguente usa <xref:Microsoft.AspNetCore.Builder.MvcAreaRouteBuilderExtensions.MapAreaRoute*> per creare due route di area denominate:
 
-* Generazione di collegamenti da un'azione all'interno di un controller basato su un'area a un'altra azione all'interno dello stesso controller.
+[!code-csharp[](areas/samples/MVCareas/StartupMapAreaRoute.cs?name=snippet&highlight=18-27)]
 
-  Si supponga che il percorso della richiesta corrente sia `/Products/Home/Create`
+Quando si usa `MapAreaRoute` con ASP.NET Core 2.2, vedere [questo problema su GitHub](https://github.com/aspnet/AspNetCore/issues/7772).
 
-  Sintassi di HtmlHelper: `@Html.ActionLink("Go to Product's Home Page", "Index")`
+Per altre informazioni, vedere [Aree](xref:mvc/controllers/routing#areas).
 
-  Sintassi di TagHelper: `<a asp-action="Index">Go to Product's Home Page</a>`
+### <a name="link-generation-with-areas"></a>Generazione di collegamenti con le aree
 
-  Si noti che non è necessario specificare qui i valori 'area' e 'controller', perché sono già disponibili nel contesto della richiesta corrente. Valori di questo tipo sono detti valori `ambient`.
+Il codice seguente dal [download di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/areas/samples) mostra la generazione di collegamenti con l'area specificata:
 
-* Generazione di collegamenti da un'azione all'interno di un controller basato su un'area a un'altra azione in un controller diverso
+[!code-cshtml[](areas/samples/MVCareas/Views/Shared/_testLinksPartial.cshtml?name=snippet)]
 
-  Si supponga che il percorso della richiesta corrente sia `/Products/Home/Create`
+I collegamenti generati con il codice precedente sono validi ovunque nell'app.
 
-  Sintassi di HtmlHelper: `@Html.ActionLink("Go to Manage Products Home Page", "Index", "Manage")`
+Il download di esempio include una [visualizzazione parziale](xref:mvc/views/partial) che contiene i collegamenti precedenti e gli stessi collegamenti senza specificare l'area. La visualizzazione parziale viene referenziata nel [file di layout](), in modo che ogni pagina nell'app mostri i collegamenti generati. I collegamenti generati senza specificare l'area sono validi solo quando sono referenziati da una pagina nella stessa area e controller.
 
-  Sintassi di TagHelper: `<a asp-controller="Manage" asp-action="Index">Go to Manage Products Home Page</a>`
+Quando l'area o il controller non sono specificati, il routing dipende dai valori di *ambiente*. I valori di route correnti della richiesta corrente sono considerati valori di ambiente per la generazione del collegamento. In molti casi per l'app di esempio, l'uso dei valori di ambiente genera collegamenti non corretti.
 
-  Si noti che qui è usato un valore ambient 'area', mentre il valore 'controller' è specificato in modo esplicito.
+Per altre informazioni, vedere [Routing ad azioni del controller](xref:mvc/controllers/routing).
 
-* Generazione di collegamenti da un'azione all'interno di un controller basato su un'area a un'altra azione in un altro controller e in un'altra area.
+### <a name="shared-layout-for-areas-using-the-viewstartcshtml-file"></a>Layout condiviso per le aree tramite il file _ViewStart.cshtml
 
-  Si supponga che il percorso della richiesta corrente sia `/Products/Home/Create`
+Per condividere un layout comune per l'intera app, spostare *_ViewStart.cshtml* nella cartella radice dell'applicazione.
 
-  Sintassi di HtmlHelper: `@Html.ActionLink("Go to Services Home Page", "Index", "Home", new { area = "Services" })`
+<!-- This section will be completed after https://github.com/aspnet/Docs/pull/10978 is merged.
+<a name="arp"></a>
 
-  Sintassi di TagHelper: `<a asp-area="Services" asp-controller="Home" asp-action="Index">Go to Services Home Page</a>`
+## Areas for Razor Pages
+-->
+<a name="rename"></a>
 
-  Si noti che in questo caso non vengono usati valori ambient.
+### <a name="change-default-area-folder-where-views-are-stored"></a>Modificare la cartella dell'area predefinita in cui sono archiviate le visualizzazioni
 
-* Generazione di collegamenti da un'azione all'interno di un controller basato su un'area a un'altra azione in un altro controller e **non** in un'area.
+Il codice seguente modifica la cartella dell'area predefinita da `"Areas"` a `"MyAreas"`:
 
-  Sintassi di HtmlHelper: `@Html.ActionLink("Go to Manage Products  Home Page", "Index", "Home", new { area = "" })`
+[!code-csharp[](areas/samples/MVCareas/Startup2.cs?name=snippet)]
 
-  Sintassi di TagHelper: `<a asp-area="" asp-controller="Manage" asp-action="Index">Go to Manage Products Home Page</a>`
-
-  Poiché si vogliono generare collegamenti a un'azione del controller non basato su un'area, in questo caso il valore ambient di 'area' viene svuotato.
-
-## <a name="publishing-areas"></a>Pubblicazione di aree
+<!-- TODO review - can we delete this. Areas doesn't change publishing - right? -->
+### <a name="publishing-areas"></a>Pubblicazione di aree
 
 Tutti i file `*.cshtml` e `wwwroot/**` vengono pubblicati per l'output quando `<Project Sdk="Microsoft.NET.Sdk.Web">` viene incluso nel file con estensione *csproj*.

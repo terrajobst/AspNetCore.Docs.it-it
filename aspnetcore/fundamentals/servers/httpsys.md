@@ -5,14 +5,14 @@ description: Informazioni su HTTP.sys, un server Web per ASP.NET Core in Windows
 monikerRange: '>= aspnetcore-2.0'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 02/21/2019
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 859e3daeba125ab1a9392c1bdbf2733de2f79a34
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: abb426b1a41226e52d9b9b5c00c41ff816890d36
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248342"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56744131"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>Implementazione del server Web HTTP.sys in ASP.NET Core
 
@@ -94,7 +94,7 @@ Per la delega all'autenticazione in modalità kernel, HTTP.sys usa il protocollo
 
    **Opzioni di HTTP.sys**
 
-   | Proprietà | Descrizione | Impostazione predefinita |
+   | Proprietà | Description | Impostazione predefinita |
    | -------- | ----------- | :-----: |
    | [AllowSynchronousIO](xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.AllowSynchronousIO) | Controllare se l'input e/o l'output sincroni sono consentiti per `HttpContext.Request.Body` e `HttpContext.Response.Body`. | `true` |
    | [Authentication.AllowAnonymous](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationManager.AllowAnonymous) | Consentire richieste anonime. | `true` |
@@ -135,7 +135,9 @@ Per la delega all'autenticazione in modalità kernel, HTTP.sys usa il protocollo
 
 ### <a name="configure-windows-server"></a>Configurare Windows Server
 
-1. Determinare le porte da aprire per l'app e usare Windows Firewall o i [cmdlet di PowerShell](https://technet.microsoft.com/library/jj554906) per aprire le porte del firewall per consentire al traffico di raggiungere HTTP.sys. Quando si distribuisce una macchina virtuale di Azure, aprire le porte nel [gruppo di sicurezza di rete](/azure/virtual-network/security-overview). Nei comandi seguenti e nella configurazione dell'app, viene usata la porta 443.
+1. Determinare le porte da aprire per l'app e usare [Windows Firewall](/windows/security/threat-protection/windows-firewall/create-an-inbound-port-rule) o il cmdlet di PowerShell [New-NetFirewallRule](/powershell/module/netsecurity/new-netfirewallrule) per aprire le porte del firewall per consentire al traffico di raggiungere HTTP.sys. Nei comandi seguenti e nella configurazione dell'app, viene usata la porta 443.
+
+1. Quando si distribuisce una macchina virtuale di Azure, aprire le porte nel [gruppo di sicurezza di rete](/azure/virtual-machines/windows/nsg-quickstart-portal). Nei comandi seguenti e nella configurazione dell'app, viene usata la porta 443.
 
 1. Ottenere e installare i certificati X.509, se necessario.
 
@@ -272,5 +274,5 @@ Per le app ospitate da HTTP.sys che interagiscono con richieste da Internet o da
 * [Abilitare l'autenticazione di Windows con HTTP. sys](xref:security/authentication/windowsauth#enable-windows-authentication-with-httpsys)
 * [API di HTTP Server](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx)
 * [Repository di GitHub aspnet/HttpSysServer (codice sorgente)](https://github.com/aspnet/HttpSysServer/)
-* <xref:fundamentals/host/index>
+* [L'host](xref:fundamentals/index#host)
 * <xref:test/troubleshoot>

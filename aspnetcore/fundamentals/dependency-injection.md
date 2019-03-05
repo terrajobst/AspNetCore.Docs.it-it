@@ -4,14 +4,14 @@ author: guardrex
 description: Informazioni su come ASP.NET Core implementa l'inserimento delle dipendenze e su come usare questa funzionalità.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 02/25/2019
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 5e5b9746da9bbc13a147b807aabfd3d9ab90a0ca
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 5e1522e0819d989a7029c2928c1c33624c1774c7
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410508"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899359"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Inserimento delle dipendenze in ASP.NET Core
 
@@ -179,7 +179,7 @@ Nell'app di esempio, viene richiesta l'istanza `IMyDependency` usata per chiamar
 
 ## <a name="framework-provided-services"></a>Servizi forniti dal framework
 
-Il metodo `Startup.ConfigureServices` è responsabile della definizione dei servizi usati dall'app, incluse le funzionalità di piattaforma come Entity Framework Core e ASP.NET Core MVC. Inizialmente, l'interfaccia `IServiceCollection` fornita a `ConfigureServices` ha i seguenti servizi definiti (in base alla [modalità di configurazione dell'host](xref:fundamentals/host/index)):
+Il metodo `Startup.ConfigureServices` è responsabile della definizione dei servizi usati dall'app, incluse le funzionalità di piattaforma come Entity Framework Core e ASP.NET Core MVC. Inizialmente, l'interfaccia `IServiceCollection` fornita a `ConfigureServices` ha i seguenti servizi definiti (in base alla [modalità di configurazione dell'host](xref:fundamentals/index#host)):
 
 | Tipo di servizio | Durata |
 | ------------ | -------- |
@@ -253,7 +253,7 @@ Quando i servizi vengono risolti da `ActivatorUtilities`, l'inserimento del cost
 
 ## <a name="entity-framework-contexts"></a>Contesti di Entity Framework
 
-I contesti di Entity Framework devono essere aggiunti al contenitore di servizi usando la durata con ambito. Questa operazione viene gestita automaticamente con una chiamata al metodo [AddDbContext](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext) quando si registra il contesto del database. Anche i servizi che usano il contesto del database devono usare la durata con ambito.
+I contesti di Entity Framework vengono in genere aggiunti al contenitore di servizi usando la [durata con ambito](#service-lifetimes), perché le operazioni di database delle app Web hanno di solito come ambito la richiesta. La durata predefinita è con ambito se non viene specificata una durata con un overload <xref:Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.AddDbContext*> quando si registra il contesto del database. I servizi con una durata specificata non devono usare un contesto di database con una durata più breve rispetto al servizio.
 
 ## <a name="lifetime-and-registration-options"></a>Opzioni di durata e di registrazione
 

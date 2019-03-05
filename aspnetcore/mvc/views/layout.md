@@ -3,14 +3,14 @@ title: Layout in ASP.NET Core
 author: ardalis
 description: Informazioni su come usare layout comuni, condividere direttive ed eseguire codice comune prima di eseguire il rendering delle visualizzazioni in un'applicazione ASP.NET Core.
 ms.author: riande
-ms.date: 10/18/2018
+ms.date: 02/26/2019
 uid: mvc/views/layout
-ms.openlocfilehash: 1bd225c804b333efea834a46b7d9ba46b1bb69d8
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 7a60ee15e688d6f0e531302457604fa759213758
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410573"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899242"
 ---
 # <a name="layout-in-aspnet-core"></a>Layout in ASP.NET Core
 
@@ -49,15 +49,15 @@ Il layout definisce un modello di primo livello per le visualizzazioni nell'app.
 
 Il codice seguente mostra il file di layout per un progetto creato da modello con un controller e visualizzazioni:
 
-[!code-html[](~/common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=44,72)]
+[!code-cshtml[](~/common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=44,72)]
 
 ## <a name="specifying-a-layout"></a>Definizione di un layout
 
 Le visualizzazioni Razor hanno una proprietà `Layout`. Le visualizzazioni singole specificano un layout impostando la seguente proprietà:
 
-[!code-html[](../../common/samples/WebApplication1/Views/_ViewStart.cshtml?highlight=2)]
+[!code-cshtml[](../../common/samples/WebApplication1/Views/_ViewStart.cshtml?highlight=2)]
 
-Il layout specificato può usare un percorso completo (ad esempio, */Pages/Shared/_Layout.cshtml* o */Views/Shared/_Layout.cshtml*) oppure un nome parziale (ad esempio: `_Layout`). Quando viene fornito un nome parziale, il motore di visualizzazione Razor cerca il file di layout tramite il processo di individuazione standard. La ricerca viene eseguita prima nella cartella in cui è presente il metodo gestore (o controller) e poi nella cartella *Shared*. Questo processo di individuazione è identico a quello utilizzato per individuare le [visualizzazioni parziali](partial.md).
+Il layout specificato può usare un percorso completo (ad esempio, */Pages/Shared/_Layout.cshtml* o */Views/Shared/_Layout.cshtml*) oppure un nome parziale (ad esempio: `_Layout`). Quando viene fornito un nome parziale, il motore di visualizzazione Razor cerca il file di layout tramite il processo di individuazione standard. La ricerca viene eseguita prima nella cartella in cui è presente il metodo gestore (o controller) e poi nella cartella *Shared*. Questo processo di individuazione è identico a quello usato per individuare le [visualizzazioni parziali](xref:mvc/views/partial#partial-view-discovery).
 
 Per impostazione predefinita, ogni layout deve chiamare `RenderBody`. Quando viene eseguita la chiamata a `RenderBody`, viene eseguito il rendering del contenuto della visualizzazione.
 
@@ -123,7 +123,7 @@ Il file non supporta altre funzionalità di Razor, come le funzioni e le definiz
 
 Esempio di file `_ViewImports.cshtml`:
 
-[!code-html[](../../common/samples/WebApplication1/Views/_ViewImports.cshtml)]
+[!code-cshtml[](../../common/samples/WebApplication1/Views/_ViewImports.cshtml)]
 
 Il file *_ViewImports.cshtml* per un'app ASP.NET Core MVC viene generalmente posizionato nella cartella *Pages* (o *Views*). È possibile posizionare un file *_ViewImports.cshtml* in qualsiasi cartella, nel qual caso verrà applicato unicamente alle pagine o alle visualizzazioni all'interno di tale cartella e nelle relative sottocartelle. I file `_ViewImports` vengono elaborati a partire dal livello radice e quindi per ogni cartella fino alla posizione della pagina o della visualizzazione stessa. Le impostazioni `_ViewImports` specificate al livello radice possono essere sottoposto a override a livello di cartella.
 
@@ -151,7 +151,7 @@ Il codice che deve essere eseguito prima di ogni visualizzazione o pagina deve e
 
 File *_ViewStart.cshtml* di esempio:
 
-[!code-html[](../../common/samples/WebApplication1/Views/_ViewStart.cshtml)]
+[!code-cshtml[](../../common/samples/WebApplication1/Views/_ViewStart.cshtml)]
 
 Il file precedente specifica che tutte le visualizzazioni useranno il layout *_Layout.cshtml*.
 

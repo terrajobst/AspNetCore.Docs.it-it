@@ -5,14 +5,14 @@ description: Informazioni su come implementare attività in background con servi
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/28/2018
+ms.date: 02/25/2019
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: de419357d4d96a6e348a77055e67c0fcd190ae42
-ms.sourcegitcommit: 0fc89b80bb1952852ecbcf3c5c156459b02a6ceb
+ms.openlocfilehash: d10a335429752c1a52c1b3619adecc41725a819a
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52618142"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899307"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>Attività in background con servizi ospitati in ASP.NET Core
 
@@ -21,7 +21,7 @@ Di [Luke Latham](https://github.com/guardrex)
 In ASP.NET Core le attività in background possono essere implementate come *servizi ospitati*. Un servizio ospitato è una classe con logica di attività in background che implementa l'interfaccia <xref:Microsoft.Extensions.Hosting.IHostedService>. In questo argomento vengono forniti tre esempi di servizio ospitato:
 
 * Attività in background eseguita su un timer.
-* Servizio ospitato che attiva un servizio con ambito. Il servizio con ambito può utilizzare l'inserimento di dipendenze.
+* Servizio ospitato che attiva un [servizio con ambito](xref:fundamentals/dependency-injection#service-lifetimes). Il servizio con ambito può utilizzare l'inserimento di dipendenze.
 * Attività in background in coda che vengono eseguite in sequenza.
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
@@ -71,7 +71,7 @@ Il servizio registrato in `Startup.ConfigureServices` con il metodo di estension
 
 ## <a name="consuming-a-scoped-service-in-a-background-task"></a>Utilizzo di un servizio con ambito in un'attività in background
 
-Per utilizzare i servizi con ambito all'interno di un `IHostedService`, creare un ambito. Non viene creato automaticamente alcun ambito per un servizio ospitato.
+Per usare i [servizi con ambito](xref:fundamentals/dependency-injection#service-lifetimes) all'interno di un `IHostedService`, creare un ambito. Non viene creato automaticamente alcun ambito per un servizio ospitato.
 
 Il servizio dell'attività in background con ambito contiene la logica dell'attività in background. Nell'esempio seguente, <xref:Microsoft.Extensions.Logging.ILogger> viene inserito nel servizio:
 
@@ -99,7 +99,10 @@ I servizi vengono registrati in `Startup.ConfigureServices`. L'implementazione d
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample-WebHost/Startup.cs?name=snippet3)]
 
-Nella classe modello della pagina di indice `IBackgroundTaskQueue` viene inserito nel costruttore e assegnato a `Queue`:
+Nella classe modello della pagina di indice:
+
+* `IBackgroundTaskQueue` viene inserito nel costruttore e assegnato a `Queue`.
+* Un'interfaccia <xref:Microsoft.Extensions.DependencyInjection.IServiceScopeFactory> viene inserita e assegnata a `_serviceScopeFactory`. La factory viene usata per creare istanze di <xref:Microsoft.Extensions.DependencyInjection.IServiceScope>, che consente di creare servizi all'interno di un ambito. Viene creato un ambito per usare la classe `AppDbContext` dell'app (un [servizio con ambito](xref:fundamentals/dependency-injection#service-lifetimes)) per scrivere record di database in `IBackgroundTaskQueue` (un servizio singleton).
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample-WebHost/Pages/Index.cshtml.cs?name=snippet1)]
 
@@ -110,4 +113,4 @@ Quando si seleziona il pulsante **Aggiungi attività** nella pagina di indice, v
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Implementare attività in background in microservizi con IHostedService e la classe BackgroundService](/dotnet/standard/microservices-architecture/multi-container-microservice-net-applications/background-tasks-with-ihostedservice)
-* [System.Threading.Timer](xref:System.Threading.Timer)
+* <xref:System.Threading.Timer>

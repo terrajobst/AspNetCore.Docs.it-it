@@ -1,28 +1,51 @@
 ---
 title: Host generico .NET
 author: guardrex
-description: Informazioni sull'host generico in .NET, che gestisce l'avvio e la durata delle app.
+description: Informazioni sull'host generico in ASP.NET Core, che gestisce l'avvio e la durata delle app.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 11/28/2018
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: 4d435984d8169b558ab026ef8541c90f7a2a96b9
-ms.sourcegitcommit: 0fc89b80bb1952852ecbcf3c5c156459b02a6ceb
+ms.openlocfilehash: a128b7c19d544d1dd28ab16f7a208ceef680ce81
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52618155"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56743842"
 ---
 # <a name="net-generic-host"></a>Host generico .NET
 
 Di [Luke Latham](https://github.com/guardrex)
 
-Le app .NET Core configurano e avviano un *host*. L'host è responsabile della gestione dell'avvio e della durata delle app. Questo argomento illustra l'host generico di ASP.NET Core (<xref:Microsoft.Extensions.Hosting.HostBuilder>), utile per l'hosting di app che non elaborano le richieste HTTP. Per informazioni sull'host Web (<xref:Microsoft.AspNetCore.Hosting.WebHostBuilder>), vedere <xref:fundamentals/host/web-host>.
+::: moniker range="<= aspnetcore-2.2"
 
-L'obiettivo dell'host generico è separare la pipeline HTTP dall'API dell'host Web, per abilitare una gamma più ampia di scenari host. La messaggistica, le attività in background e altri carichi di lavoro non HTTP basati sull'host generico traggono vantaggio dalle funzionalità a montaggio incrociato come la configurazione, l'inserimento di dipendenze (DI) e la registrazione.
+Le app ASP.NET Core configurano e avviano un host. L'host è responsabile della gestione dell'avvio e della durata delle app.
 
-L'host generico è una nuova funzionalità introdotta in ASP.NET Core 2.1 e non è adatto agli scenari di hosting Web. Per gli scenari di hosting Web usare l'[host Web](xref:fundamentals/host/web-host). L'host generico è in fase di sviluppo e sostituirà l'host Web in una versione futura, funzionando come API host principale negli scenari sia HTTP che non HTTP.
+Questo articolo illustra l'host generico di ASP.NET Core (<xref:Microsoft.Extensions.Hosting.HostBuilder>), che si usa per le app che non elaborano le richieste HTTP.
+
+Lo scopo dell'host generico è separare la pipeline HTTP dall'API dell'host Web, per abilitare una gamma più ampia di scenari host. La messaggistica, le attività in background e altri carichi di lavoro non HTTP basati sull'host generico traggono vantaggio dalle funzionalità a montaggio incrociato come la configurazione, l'inserimento di dipendenze (DI) e la registrazione.
+
+L'host generico è una nuova funzionalità introdotta in ASP.NET Core 2.1 e non è adatto agli scenari di hosting Web. Per gli scenari di hosting Web usare l'[host Web](xref:fundamentals/host/web-host). L'host generico sostituirà l'host Web in una versione futura, funzionando come API host principale negli scenari sia HTTP che non HTTP.
+
+::: moniker-end
+
+::: moniker range="> aspnetcore-2.2"
+
+Le app ASP.NET Core configurano e avviano un host. L'host è responsabile della gestione dell'avvio e della durata delle app.
+
+Questo articolo descrive l'host generico di .NET Core (<xref:Microsoft.Extensions.Hosting.HostBuilder>).
+
+L'host generico è diverso dall'host Web per il fatto che separa la pipeline HTTP dall'API dell'host Web, per abilitare una gamma più ampia di scenari host. La messaggistica, le attività in background e altri carichi di lavoro non HTTP possono usare l'host generico e trarre vantaggio dalle funzionalità a montaggio incrociato come la configurazione, l'inserimento di dipendenze (DI) e la registrazione.
+
+A partire da ASP.NET Core 3.0, è consigliabile usare l'host generico per i carichi di lavoro HTTP e non HTTP. Un'implementazione del server HTTP, se inclusa, viene eseguita come implementazione di <xref:Microsoft.Extensions.Hosting.IHostedService>. `IHostedService` è un'interfaccia che può essere usata anche per altri carichi di lavoro.
+
+L'host Web non è più consigliato per le app Web, ma resta disponibile per compatibilità con le versioni precedenti.
+
+> [!NOTE]
+> Il resto di questo articolo non è ancora stato aggiornato per la versione 3.0.
+
+::: moniker-end
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/generic-host/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
 
@@ -95,7 +118,7 @@ La proprietà [IHostingEnvironment.ApplicationName](xref:Microsoft.Extensions.Ho
 
 **Chiave**: applicationName  
 **Tipo**: *string*  
-**Impostazione predefinita**: il nome dell'assembly contenente il punto di ingresso dell'app.  
+**Impostazione predefinita**: nome dell'assembly contenente il punto di ingresso dell'app.  
 **Impostare usando**: `HostBuilderContext.HostingEnvironment.ApplicationName`  
 **Variabile di ambiente**: `<PREFIX_>APPLICATIONNAME` (`<PREFIX_>` è [facoltativo e definito dall'utente](#configurehostconfiguration))
 
@@ -119,7 +142,7 @@ Imposta l'[ambiente](xref:fundamentals/environments) per l'app.
 
 **Chiave**: environment  
 **Tipo**: *string*  
-**Impostazione predefinita**: Production  
+**Impostazione predefinita**: Produzione  
 **Impostare usando**: `UseEnvironment`  
 **Variabile di ambiente**: `<PREFIX_>ENVIRONMENT` (`<PREFIX_>` è [facoltativo e definito dall'utente](#configurehostconfiguration))
 

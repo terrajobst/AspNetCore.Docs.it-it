@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/15/2019
 uid: mvc/compatibility-version
-ms.openlocfilehash: 7c4189db435088e0803b35add82fa0eb9372e664
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: b360da105799a1dccb1902e167e50e78864b76a9
+ms.sourcegitcommit: 0945078a09c372f17e9b003758ed87e99c2449f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410145"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56647928"
 ---
 # <a name="compatibility-version-for-aspnet-core-mvc"></a>Versione di compatibilità per ASP.NET Core MVC
 
@@ -45,6 +45,6 @@ Per le app che riscontrano modifiche potenzialmente importanti del comportamento
 * Consente di usare la versione più recente e di rifiutare esplicitamente modifiche importanti del comportamento specifiche.
 * Garantisce il tempo necessario per l'aggiornamento dell'app, che in tal modo potrà funzionare con le modifiche più recenti.
 
-I commenti relativi alla classe di origine [MvcOptions](https://github.com/aspnet/AspNetCore/blob/release/2.2/src/Mvc/Mvc.Core/src/MvcOptions.cs) offrono una spiegazione chiara delle modifiche e dei motivi per cui queste rappresentano un miglioramento per la maggior parte degli utenti.
+La documentazione di <xref:Microsoft.AspNetCore.Mvc.MvcOptions> offre una spiegazione chiara delle modifiche e dei motivi per cui queste rappresentano un miglioramento per la maggior parte degli utenti.
 
 In una data futura verrà rilasciata la [versione ASP.NET Core 3.0](https://github.com/aspnet/Home/wiki/Roadmap). I comportamenti precedenti supportati dalle opzioni di compatibilità verranno rimossi nella versione 3.0. Queste modifiche positive andranno a vantaggio della maggior parte degli utenti. Se si introducono ora queste modifiche, la maggior parte delle app può trarne vantaggio da subito e sarà disponibile tempo sufficiente per aggiornare le altre applicazioni.

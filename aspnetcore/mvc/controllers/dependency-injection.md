@@ -3,102 +3,75 @@ title: Inserimento di dipendenze in controller in ASP.NET Core
 author: ardalis
 description: Informazioni su come i controller ASP.NET Core MVC richiedono le proprie dipendenze in modo esplicito tramite i rispettivi costruttori, usando l'inserimento delle dipendenze in ASP.NET Core.
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 02/24/2019
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: 9d9d0a68927da62fad8df72c868eaf4b8ada440d
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 898e98f4c5d472ca96c6a8ad07dddd1a4ef54fe9
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410271"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56743829"
 ---
 # <a name="dependency-injection-into-controllers-in-aspnet-core"></a>Inserimento di dipendenze in controller in ASP.NET Core
 
 <a name="dependency-injection-controllers"></a>
 
-Di [Steve Smith](https://ardalis.com/)
+Di [Shadi Namrouti](https://github.com/shadinamrouti), [Rick Anderson](https://twitter.com/RickAndMSFT) e [Steve Smith](https://github.com/ardalis)
 
-I controller ASP.NET Core MVC devono richiedere le proprie dipendenze in modo esplicito tramite i rispettivi costruttori. In alcune istanze, singole azioni di controller possono richiedere un servizio che potrebbe non avere senso richiedere a livello di controller. In questo caso, è anche possibile inserire un servizio come parametro nel metodo di azione.
+I controller ASP.NET Core MVC richiedono le proprie dipendenze in modo esplicito tramite costruttori. ASP.NET Core include il supporto predefinito per l'[inserimento di dipendenze](xref:fundamentals/dependency-injection). L'inserimento delle dipendenze rende più facile testare e gestire le app.
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/dependency-injection/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
 
-## <a name="dependency-injection"></a>Inserimento di dipendenze
-
-ASP.NET Core dispone del supporto incorporato dell'[inserimento di dipendenze](../../fundamentals/dependency-injection.md), rendendo le applicazioni più facili da testare e gestire.
-
 ## <a name="constructor-injection"></a>Inserimento di costruttori
 
-Il supporto incorporato di ASP.NET Core per l'inserimento di dipendenze basato sul costruttore si estende ai controller MVC. Aggiungendo semplicemente un tipo di servizio al controller come parametro del costruttore, ASP.NET Core tenta di risolvere il tipo corrispondente tramite il proprio contenitore di servizi incorporato. In genere, ma non sempre, i servizi vengono definiti tramite interfacce. Se, ad esempio, la logica di business dell'applicazione dipende dall'ora corrente, è possibile inserire un servizio che recuperi l'ora, anziché impostarlo come hardcoded. Ciò consente di superare i test nelle implementazioni che usano un'ora impostata.
+I servizi vengono aggiunti come parametri del costruttore e il runtime risolve il servizio dal contenitore di servizi. In genere i servizi vengono definiti tramite interfacce. Si consideri ad esempio un'app che richiede l'ora corrente. L'interfaccia seguente espone il servizio `IDateTime`:
 
-[!code-csharp[](dependency-injection/sample/src/ControllerDI/Interfaces/IDateTime.cs)]
+[!code-csharp[](dependency-injection/sample/ControllerDI/Interfaces/IDateTime.cs?name=snippet)]
 
+Il codice seguente implementa l'interfaccia `IDateTime`:
 
-L'implementazione di un'interfaccia come questa che usi l'orologio di sistema in fase di runtime è semplice:
+[!code-csharp[](dependency-injection/sample/ControllerDI/Services/SystemDateTime.cs?name=snippet)]
 
-[!code-csharp[](dependency-injection/sample/src/ControllerDI/Services/SystemDateTime.cs)]
+Aggiungere il servizio al contenitore di servizi:
 
+[!code-csharp[](dependency-injection/sample/ControllerDI/Startup1.cs?name=snippet&highlight=3)]
 
-A questo punto è possibile usare il servizio nel controller. In questo caso, è stata aggiunta al metodo `HomeController` `Index` la logica che consente di visualizzare un saluto a seconda dell'ora del giorno.
+Per altre informazioni su <xref:Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton*>, vedere le [durate dei servizi di inserimento delle dipendenze](xref:fundamentals/dependency-injection#service-lifetimes).
 
-[!code-csharp[](./dependency-injection/sample/src/ControllerDI/Controllers/HomeController.cs?highlight=8,10,12,17,18,19,20,21,22,23,24,25,26,27,28,29,30&range=1-31,51-52)]
+Il codice seguente visualizza un messaggio di saluto all'utente in base all'orario:
 
-Se si esegue l'applicazione ora, molto probabilmente si verifica un errore:
+[!code-csharp[](dependency-injection/sample/ControllerDI/Controllers/HomeController.cs?name=snippet)]
 
-```
-An unhandled exception occurred while processing the request.
-
-InvalidOperationException: Unable to resolve service for type 'ControllerDI.Interfaces.IDateTime' while attempting to activate 'ControllerDI.Controllers.HomeController'.
-Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
-```
-
-Questo errore si verifica se non è stato configurato alcun servizio nel metodo `ConfigureServices` della classe `Startup`. Per specificare che le richieste di `IDateTime` devono essere risolte tramite un'istanza di `SystemDateTime`, aggiungere la riga evidenziata nel codice seguente al metodo `ConfigureServices`:
-
-[!code-csharp[](./dependency-injection/sample/src/ControllerDI/Startup.cs?highlight=4&range=26-27,42-44)]
-
-> [!NOTE]
-> Questo servizio specifico può essere implementato usando una qualsiasi delle diverse opzioni di durata (`Transient`, `Scoped` o `Singleton`). Per comprendere in che modo ognuna di queste opzioni di ambito influisca sul comportamento del servizio, vedere [Inserimento di dipendenze](../../fundamentals/dependency-injection.md).
-
-Dopo che il servizio è stato configurato, se si esegue l'applicazione e si passa alla home page viene visualizzato il messaggio basato sull'ora, come previsto:
-
-![Saluto del server](dependency-injection/_static/server-greeting.png)
-
->[!TIP]
-> Vedere [Test della logica dei controller](testing.md) per informazioni su come semplificare il test del codice richiedendo in modo esplicito le dipendenze nei controller.
-
-L'inserimento di dipendenze predefinito in ASP.NET Core supporta un unico costruttore per la richiesta di servizi da parte delle classi. Se ci sono più costruttori, può essere visualizzata l'eccezione seguente:
-
-```
-An unhandled exception occurred while processing the request.
-
-InvalidOperationException: Multiple constructors accepting all given argument types have been found in type 'ControllerDI.Controllers.HomeController'. There should only be one applicable constructor.
-Microsoft.Extensions.DependencyInjection.ActivatorUtilities.FindApplicableConstructor(Type instanceType, Type[] argumentTypes, ConstructorInfo& matchingConstructor, Nullable`1[]& parameterMap)
-```
-
-Come indicato nel messaggio di errore, è possibile correggere questo problema usando un unico costruttore. È anche possibile [sostituire il contenitore di inserimento delle dipendenze predefinito con un'implementazione di terze parti](xref:fundamentals/dependency-injection#default-service-container-replacement). Molte di queste implementazioni supportano più costruttori.
+Eseguire l'app e verrà visualizzato un messaggio in base all'orario.
 
 ## <a name="action-injection-with-fromservices"></a>Inserimento di azioni con FromServices
 
-Talvolta un servizio è necessario per un sola azione all'interno del controller. In questo caso, può avere senso inserire il servizio come parametro nel metodo di azione. Per eseguire questa operazione, si contrassegna il parametro con l'attributo `[FromServices]`, come illustrato qui:
+<xref:Microsoft.AspNetCore.Mvc.FromServicesAttribute> consente di inserire un servizio direttamente in un metodo di azione senza usare l'inserimento del costruttore:
 
-[!code-csharp[](./dependency-injection/sample/src/ControllerDI/Controllers/HomeController.cs?highlight=1&range=33-38)]
+[!code-csharp[](dependency-injection/sample/ControllerDI/Controllers/HomeController.cs?name=snippet2)]
 
-## <a name="accessing-settings-from-a-controller"></a>Accesso alle impostazioni da un controller
+## <a name="access-settings-from-a-controller"></a>Accedere alle impostazioni da un controller
 
-L'accesso alle impostazioni di un'applicazione o alle impostazioni di configurazione da un controller è un tipo di azione comune. Questo tipo di accesso deve usare il modello di opzioni descritto in [Configurazione](xref:fundamentals/configuration/index). In genere non si devono richiedere impostazioni direttamente dal controller tramite l'inserimento di dipendenze. Un approccio migliore consiste nella richiesta di un'istanza di `IOptions<T>`, dove `T` è la classe di configurazione necessaria.
+L'accesso alle impostazioni di un'app o alle impostazioni di configurazione da un controller è un tipo di azione comune. Il *modello di opzioni* descritto in <xref:fundamentals/configuration/options> rappresenta l'approccio consigliato per gestire le impostazioni. In linea generale, non inserire direttamente <xref:Microsoft.Extensions.Configuration.IConfiguration> in un controller.
 
-Per usare il modello di opzioni, è necessario creare una classe che rappresenti le opzioni, ad esempio questa:
+Creare una classe che rappresenta le opzioni. Ad esempio:
 
-[!code-csharp[](dependency-injection/sample/src/ControllerDI/Model/SampleWebSettings.cs)]
+[!code-csharp[](dependency-injection/sample/ControllerDI/Models/SampleWebSettings.cs?name=snippet)]
 
-È quindi necessario configurare l'applicazione in modo che usi il modello di opzioni e aggiungere la classe di configurazione alla raccolta dei servizi in `ConfigureServices`:
+Aggiungere la classe di configurazione alla raccolta di servizi:
 
-[!code-csharp[](./dependency-injection/sample/src/ControllerDI/Startup.cs?highlight=3,4,5,6,9,16,19&range=14-44)]
+[!code-csharp[](dependency-injection/sample/ControllerDI/Startup.cs?highlight=4&name=snippet1)]
 
-> [!NOTE]
-> Il codice precedente configura l'applicazione in modo che legga le impostazioni da un file in formato JSON. È anche possibile configurare interamente le impostazioni nel codice, come illustrato nel codice commentato precedente. Per altre opzioni di configurazione, vedere [Configurazione](xref:fundamentals/configuration/index).
+Configurare l'app per leggere le impostazioni da un file in formato JSON:
 
-Dopo aver specificato un oggetto di configurazione fortemente tipizzato (in questo caso, `SampleWebSettings`) e dopo averlo aggiunto alla raccolta di servizi, è possibile richiederlo da qualsiasi controller o metodo di azione richiedendo un'istanza di `IOptions<T>` (in questo caso, `IOptions<SampleWebSettings>`). Il codice seguente illustra come richiedere le impostazioni da un controller:
+[!code-csharp[](dependency-injection/sample/ControllerDI/Program.cs?name=snippet&range=10-15)]
 
-[!code-csharp[](./dependency-injection/sample/src/ControllerDI/Controllers/SettingsController.cs?highlight=3,5,7&range=7-22)]
+Il codice seguente richiede le impostazioni `IOptions<SampleWebSettings>` dal contenitore dei servizi e le usa nel metodo `Index`:
 
-Se si segue il modello di opzioni, è possibile disaccoppiare le impostazioni e la configurazione. Ciò garantisce che il controller segua il principio della [separazione delle competenze](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns), poiché non deve sapere come o dove trovare le informazioni sulle impostazioni. È anche più facile eseguire [unit test](testing.md) del controller perché non è prevista la creazione diretta di istanze delle classi di impostazioni all'interno della classe del controller.
+[!code-csharp[](dependency-injection/sample/ControllerDI/Controllers/SettingsController.cs?name=snippet)]
+
+## <a name="additional-resources"></a>Risorse aggiuntive
+
+* Vedere <xref:mvc/controllers/testing> per informazioni su come semplificare il test del codice richiedendo in modo esplicito le dipendenze nei controller.
+
+* [Sostituire il contenitore di inserimento delle dipendenze predefinito con un'implementazione di terze parti](xref:fundamentals/dependency-injection#default-service-container-replacement).

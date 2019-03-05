@@ -6,16 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/18/2018
 uid: fundamentals/host/web-host
-ms.openlocfilehash: 7215027a083c0ed0bc3b15196e390a31c5dcfc14
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: 878fbaa1a61946dadf23ba8fefbf22021e547cc2
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637846"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56744092"
 ---
 # <a name="aspnet-core-web-host"></a>Host Web ASP.NET Core
 
 Di [Luke Latham](https://github.com/guardrex)
+
+Le app ASP.NET Core configurano e avviano un *host*. L'host è responsabile della gestione dell'avvio e della durata delle app. L'host configura almeno un server e una pipeline di elaborazione delle richieste. L'host può anche configurare la registrazione, l'inserimento delle dipendenze e la configurazione.
 
 ::: moniker range="<= aspnetcore-1.1"
 
@@ -23,7 +25,17 @@ Per la versione 1.1 di questo argomento, scaricare [ASP.NET Core Web Host (versi
 
 ::: moniker-end
 
-Le app ASP.NET Core configurano e avviano un *host*. L'host è responsabile della gestione dell'avvio e della durata delle app. L'host configura almeno un server e una pipeline di elaborazione delle richieste. Questo argomento tratta l'host Web ASP.NET Core ([IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder)), utile per l'hosting di app Web. Per informazioni sull'host generico .NET ([IHostBuilder](/dotnet/api/microsoft.extensions.hosting.ihostbuilder)), vedere <xref:fundamentals/host/generic-host>.
+::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
+
+Questo articolo descrive l'host Web ASP.NET Core (<xref:Microsoft.AspNetCore.Hosting.IWebHostBuilder>), che serve per l'hosting di app web. Per informazioni sull'host generico .NET ([IHostBuilder](/dotnet/api/microsoft.extensions.hosting.ihostbuilder)), vedere <xref:fundamentals/host/generic-host>.
+
+::: moniker-end
+
+::: moniker range="> aspnetcore-2.2"
+
+Questo articolo descrive l'host Web ASP.NET Core ([IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder)). In ASP.NET Core 3.0, l'host generico sostituisce l'host Web. Per altre informazioni, vedere [L'host](xref:fundamentals/index#host).
+
+::: moniker-end
 
 ## <a name="set-up-a-host"></a>Configurare un host
 
@@ -669,7 +681,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-`IHostingEnvironment` può essere inserito nel metodo `Invoke` durante la creazione di [middleware](xref:fundamentals/middleware/index#write-middleware) personalizzato:
+`IHostingEnvironment` può essere inserito nel metodo `Invoke` durante la creazione di [middleware](xref:fundamentals/middleware/write) personalizzato:
 
 ```csharp
 public async Task Invoke(HttpContext context, IHostingEnvironment env)

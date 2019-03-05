@@ -3,13 +3,14 @@ Nella tabella seguente sono specificati i parametri del generatore di codice ASP
 | Parametro               | Description|
 | ----------------- | ------------ |
 | -m  | Nome del modello. |
-| -dc  | Classe `DbContext` da usare. |
+| -dc  | Contesto dati. |
 | -udl | Uso del layout predefinito. |
-| -outDir | Percorso relativo della cartella di output per creare le viste. |
+| --relativeFolderPath | Percorso relativo della cartella di output per creare le viste. |
+| --useDefaultLayout | Per le viste deve essere usato il layout predefinito. |
 | --referenceScriptLibraries | Aggiunge `_ValidationScriptsPartial` per modificare e creare pagine |
 
-Utilizzare il commutatore `h` per ottenere assistenza sul comando `aspnet-codegenerator razorpage`:
+Utilizzare il commutatore `h` per ottenere assistenza sul comando `aspnet-codegenerator controller`:
 
 ```console
-dotnet aspnet-codegenerator razorpage -h
+dotnet aspnet-codegenerator controller -h
 ```
