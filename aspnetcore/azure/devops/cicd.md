@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.date: 10/24/2018
 ms.custom: seodec18
 uid: azure/devops/cicd
-ms.openlocfilehash: e5bddde41291c9573f58d749bbf830de9ea9319d
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 906aae3fd4b4abd0becc8847b0f54c372bda300a
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121590"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346307"
 ---
 # <a name="continuous-integration-and-deployment"></a>Integrazione continua e distribuzione
 
@@ -60,9 +60,9 @@ Rimuovere la distribuzione Git locale con i passaggi seguenti. Le pipeline di Az
 
     ![il termine di ricerca di App Web di gestione temporanea](media/cicd/portal-search-box.png)
 
-1. Fare clic su **opzioni di distribuzione**. Viene visualizzato un nuovo pannello. Fare clic su **Disconnect** per rimuovere la configurazione di controllo codice sorgente Git locale di che è stato aggiunto nel capitolo precedente. Confermare l'operazione di rimozione facendo il **Sì** pulsante.
+1. Fare clic su **Deployment Center**. Viene visualizzato un nuovo pannello. Fare clic su **Disconnect** per rimuovere la configurazione di controllo codice sorgente Git locale di che è stato aggiunto nel capitolo precedente. Confermare l'operazione di rimozione facendo il **Sì** pulsante.
 1. Passare il *mywebapp < unique_number >* servizio App. Come promemoria, finestra di ricerca del portale è utilizzabile per individuare rapidamente il servizio App.
-1. Fare clic su **opzioni di distribuzione**. Viene visualizzato un nuovo pannello. Fare clic su **Disconnect** per rimuovere la configurazione di controllo codice sorgente Git locale di che è stato aggiunto nel capitolo precedente. Confermare l'operazione di rimozione facendo il **Sì** pulsante.
+1. Fare clic su **Deployment Center**. Viene visualizzato un nuovo pannello. Fare clic su **Disconnect** per rimuovere la configurazione di controllo codice sorgente Git locale di che è stato aggiunto nel capitolo precedente. Confermare l'operazione di rimozione facendo il **Sì** pulsante.
 
 ## <a name="create-an-azure-devops-organization"></a>Creazione di un'organizzazione di Azure DevOps
 
@@ -262,7 +262,7 @@ Il **origine (definizione di compilazione)** valore rappresenta la definizione d
 
 ![Attività della pipeline di rilascio di schermata che mostra](media/cicd/release-definition-tasks.png)
 
-La pipeline di rilascio è costituito da due attività: *distribuzione servizio App di Azure per lo Slot* e *gestire servizio App di Azure - di scambio Slot*. Facendo clic la prima attività, vengono visualizzate la configurazione delle operazioni seguenti:
+La pipeline di rilascio è costituito da due attività: *Distribuzione servizio App di Azure in Slot* e *gestire lo scambio di Slot di servizio App di Azure -*. Facendo clic la prima attività, vengono visualizzate la configurazione delle operazioni seguenti:
 
 ![Pipeline di rilascio di schermata che illustra attività di distribuzione](media/cicd/release-definition-task1.png)
 

@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni su come condivisione CORS come standard per consentire o rifiutare le richieste multiorigine in un'app ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/08/2019
+ms.date: 02/27/2019
 uid: security/cors
-ms.openlocfilehash: bc3a0883043a4d6fa33c1ff76fcb7be457b6b840
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: eb8dd3b1c96d9060b0164dcd4d0fbe004ed4af84
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56899346"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346372"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>Abilitare le richieste Multiorigine (CORS) in ASP.NET Core
 
@@ -56,7 +56,7 @@ Middleware CORS gestisce le richieste multiorigine. Il codice seguente Abilita C
 
 Il codice precedente:
 
-* Imposta il nome dei criteri per "_myAllowSpecificOrigins". Il nome del criterio è arbitrario.
+* Imposta il nome del criterio "\_myAllowSpecificOrigins". Il nome del criterio è arbitrario.
 * Le chiamate di <xref:Microsoft.AspNetCore.Builder.CorsMiddlewareExtensions.UseCors*> metodo di estensione, che consente di core.
 * Le chiamate <xref:Microsoft.Extensions.DependencyInjection.CorsServiceCollectionExtensions.AddCors*> con un [espressione lambda](/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions). L'operatore lambda accetta un <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder> oggetto. [Opzioni di configurazione](#cors-policy-options), ad esempio `WithOrigins`, sono descritti più avanti in questo articolo.
 
@@ -70,9 +70,26 @@ Il <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder> metodo poss
 
 [!code-csharp[](cors/sample/Cors/WebAPI/Startup2.cs?name=snippet2)]
 
-Il codice evidenziato seguente applica i criteri CORS per tutti gli endpoint di App tramite [Middleware CORS](#enable-cors-with-cors-middleware):
+Il codice evidenziato seguente applica i criteri CORS per tutti gli endpoint di App tramite il Middleware CORS:
 
-[!code-csharp[](cors/sample/Cors/WebAPI/Startup.cs?name=snippet3&highlight=12)]
+```csharp
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+    if (env.IsDevelopment())
+    {
+        app.UseDeveloperExceptionPage();
+    }
+    else
+    {
+        app.UseHsts();
+    }
+
+    app.UseCors(); 
+
+    app.UseHttpsRedirection();
+    app.UseMvc();
+}
+```
 
 Visualizzare [abilitare CORS in Razor Pages, controller e metodi di azione](#ecors) per applicare i criteri CORS a livello di pagina/controller/azione.
 
