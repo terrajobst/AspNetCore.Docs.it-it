@@ -4,7 +4,7 @@ author: rick-anderson
 description: Informazioni sui concetti fondamentali per la compilazione di app ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/14/2019
+ms.date: 03/02/2019
 uid: fundamentals/index
 ---
 # <a name="aspnet-core-fundamentals"></a>Nozioni fondamentali su ASP.NET Core
@@ -83,7 +83,7 @@ Il codice usato per creare un host si trova in `Program.Main` e segue il pattern
 
 ::: moniker range="<= aspnetcore-2.2"
 
-ASP.NET Core 2.x usa un host Web (classe `WebHost`) per le app Web. Il framework offre i metodi di estensione `CreateDefaultBuilder` che consentono di configurare un host con le opzioni usate comunemente, ad esempio:
+ASP.NET Core 2.x usa un host Web (classe `WebHost`) per le app Web. Il framework offre `CreateDefaultBuilder` per configurare un host con le opzioni usate comunemente, ad esempio:
 
 * Usare [Kestrel](#servers) come server Web e abilitare l'integrazione IIS.
 * Caricare la configurazione da *appsettings.json*, variabili di ambiente, argomenti della riga di comando e altre origini.
@@ -105,13 +105,13 @@ Per altre informazioni, vedere [Host Web](xref:fundamentals/host/web-host).
 
 Nelle app Web in ASP.NET Core 3.0 è possibile usare un host Web (classe `WebHost`) o un host generico (classe `Host`). È consigliato l'uso di un host generico, mentre l'host Web è disponibile per garantire la compatibilità con le versioni precedenti.
 
-Il framework offre i metodi di estensione `CreateDefaultBuilder` e `ConfigureWebHostDefaults` che consentono di configurare un host con le opzioni usate comunemente, ad esempio:
+Il framework offre i metodi `CreateDefaultBuilder` e `ConfigureWebHostDefaults` per configurare un host con le opzioni usate comunemente, ad esempio:
 
 * Usare [Kestrel](#servers) come server Web e abilitare l'integrazione IIS.
 * Caricare la configurazione da *appsettings.json*, *appsettings.[EnvironmentName].json*, variabili di ambiente e argomenti della riga di comando.
 * Inviare l'output di registrazione alla console e ai provider di debug.
 
-Ecco un esempio di codice per creare un host. I metodi di estensione che configurano l'host con le opzioni usate comunemente sono evidenziati.
+Ecco un esempio di codice per creare un host. I metodi che configurano l'host con le opzioni usate comunemente sono evidenziati.
 
 [!code-csharp[](index/snapshots/3.x/Program1.cs?highlight=9-10)]
 

@@ -1,16 +1,10 @@
 ---
-title: "Esercitazione: Creare un'app web Razor Pages con ASP.NET Core"
+title: 'Esercitazione: Creare un''app web Razor Pages con ASP.NET Core'
 author: rick-anderson
-description: Creare un'app Web Razor Pages in Windows con Visual Studio, ASP.NET Core ed EF Core.
+description: 'Creare un''app Web Razor Pages in Windows con Visual Studio, ASP.NET Core ed EF Core.'
 ms.author: riande
 ms.date: 09/08/2017
 uid: tutorials/razor-pages/index
-ms.openlocfilehash: c543e86b58b37a120df22331043944757beeca3a
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410060"
 ---
 # <a name="tutorial-create-a-razor-pages-web-app-with-aspnet-core"></a>Esercitazione: Creare un'app web Razor Pages con ASP.NET Core
 
@@ -32,3 +26,7 @@ La serie include le esercitazioni seguenti:
 Al termine, si otterrà un'app che consente di visualizzare e gestire un database di film.
 
 ![Pagina di esempio dell'app di esempio](index/_static/sample-page.png)
+
+## <a name="additional-resources"></a>Risorse aggiuntive
+
+* [Versione YouTube dell'esercitazione](https://www.youtube.com/watch?v=F0SP7Ry4flQ&feature=youtu.be)
