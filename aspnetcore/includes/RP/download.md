@@ -1,0 +1,1 @@
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/2.2-stage-samples) ([procedura per il download](xref:index#how-to-download-a-sample)).

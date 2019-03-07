@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/13/2019
 uid: fundamentals/routing
-ms.openlocfilehash: 3dbb2d358ec9e3dcdd96c3771576911d906d796f
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: 622f28f3b4348820c8781e0ba14ae5137136e797
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248433"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346567"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing in ASP.NET Core
 
@@ -193,7 +193,7 @@ I metodi `GetPath*` sono più simili a `Url.Action` e `Url.Page` poiché generan
 
 I metodi forniti da <xref:Microsoft.AspNetCore.Routing.LinkGenerator> supportano le funzionalità di generazione di collegamenti standard per tutti i tipi di indirizzi. È consigliabile usare il generatore di collegamenti tramite i metodi di estensione che eseguono le operazioni per un tipo di indirizzo specifico.
 
-| Metodo di estensione   | Descrizione                                                         |
+| Metodo di estensione   | Description                                                         |
 | ------------------ | ------------------------------------------------------------------- |
 | <xref:Microsoft.AspNetCore.Routing.LinkGenerator.GetPathByAddress*> | Genera un URI con un percorso assoluto in base ai valori specificati. |
 | <xref:Microsoft.AspNetCore.Routing.LinkGenerator.GetUriByAddress*> | Genera un URI assoluto in base ai valori specificati.             |
@@ -583,7 +583,7 @@ La tabella seguente illustra i modelli di route di esempio e il relativo comport
 | `{Page=Home}`                            | `/Contact`              | Verifica la corrispondenza e imposta `Page` su `Contact`.                                      |
 | `{controller}/{action}/{id?}`            | `/Products/List`        | Esegue il mapping al controller `Products` e all'azione `List`.                       |
 | `{controller}/{action}/{id?}`            | `/Products/Details/123` | Esegue il mapping al controller `Products` e all'azione `Details` (`id` impostato su 123). |
-| `{controller=Home}/{action=Index}/{id?`} | `/`                     | Esegue il mapping al controller `Home` e al metodo `Index` (`id` viene ignorato).        |
+| `{controller=Home}/{action=Index}/{id?}` | `/`                     | Esegue il mapping al controller `Home` e al metodo `Index` (`id` viene ignorato).        |
 
 L'uso di un modello è in genere l'approccio più semplice al routing. I vincoli e le impostazioni predefinite possono essere specificati anche all'esterno del modello di route.
 
