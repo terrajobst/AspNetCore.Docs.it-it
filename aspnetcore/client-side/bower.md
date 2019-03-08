@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 08/09/2018
 uid: client-side/bower
-ms.openlocfilehash: 06edf7ee791aac0984ff71c2f243f61093f0d503
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: 08e6daa537c6c6f92a1cf80d70745e8ef606f580
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51570022"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665613"
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>Gestire i pacchetti lato client con Bower in ASP.NET Core
 
-Dal [Rick Anderson](https://twitter.com/RickAndMSFT), [Noel riso](https://blog.falafel.com/falafel-software-recognized-sitefinity-website-year/), e [Scott Addie](https://scottaddie.com)
+Dal [Rick Anderson](https://twitter.com/RickAndMSFT), [Noel riso](https://twitter.com/noelrice1), e [Scott Addie](https://scottaddie.com)
 
 > [!IMPORTANT]
 > Mentre viene mantenuta Bower, i relativi gestori consigliabile usare una soluzione diversa. [Gestione librerie](https://blogs.msdn.microsoft.com/webdev/2018/04/18/what-happened-to-bower/) (LibMan per brevità) è nuova libreria lato client acquisizione degli strumenti Visual Studio (Visual Studio 15,8 o versione successiva). Per altre informazioni, vedere <xref:client-side/libman/index>. Bower è supportata in Visual Studio fino alla versione 15.5.
@@ -91,7 +91,7 @@ Quando si elencano i pacchetti nel *bower. JSON* file, Visual Studio li scariche
 
 * Creare una nuova app Web ASP.NET Core con il **applicazione Web ASP.NET Core (.NET Core)** modello. Selezionare il **vuote** modello di progetto e fare clic su **OK**.
 
-* In Esplora soluzioni fare clic sul progetto > **Aggiungi nuovo elemento** e selezionare **File di configurazione Bower**. Nota: Una *. bowerrc* verrà inoltre aggiunto file.
+* In Esplora soluzioni fare clic sul progetto > **Aggiungi nuovo elemento** e selezionare **File di configurazione Bower**. Nota: Oggetto *. bowerrc* verrà inoltre aggiunto file.
 
 * Aprire *bower. JSON*, quindi aggiungere jquery e bootstrap per il `dependencies` sezione. L'oggetto risultante *bower. JSON* file avrà un aspetto simile all'esempio seguente. Le versioni cambieranno nel corso del tempo e potrebbero non corrispondere a quella riportata di seguito.
 

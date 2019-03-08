@@ -5,14 +5,14 @@ description: Informazioni su come iniziare a usare il modello di progetto per ap
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 03/07/2019
 uid: spa/react
-ms.openlocfilehash: 3b2b2e67b5d577872bafefef5624a13ca1a22449
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 7b07f696ae071531c88c9f8cf528fc6f0bf97b46
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56899177"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665561"
 ---
 # <a name="use-the-react-project-template-with-aspnet-core"></a>Usare il modello di progetto per React con ASP.NET Core
 
@@ -105,3 +105,7 @@ All'avvio dell'app ASP.NET Core, questa non avvierà un server CRA. Verrà invec
 
 > [!IMPORTANT]
 > "Il rendering lato server" non è una funzionalità supportata di questo modello. Il nostro obiettivo con questo modello è per soddisfare la parità con "create-react-app". Di conseguenza, gli scenari e funzionalità non incluse in un progetto di "Creazione-react-app" (ad esempio SSR) non sono supportate e vengono lasciate come esercizio per l'utente.
+
+## <a name="additional-resources"></a>Risorse aggiuntive
+
+* <xref:security/authentication/identity/spa>

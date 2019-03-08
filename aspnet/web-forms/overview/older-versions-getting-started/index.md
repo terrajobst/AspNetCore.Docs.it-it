@@ -2,31 +2,25 @@
 uid: web-forms/overview/older-versions-getting-started/index
 title: Versioni precedenti - Introduzione a Web Form | Microsoft Docs
 author: rick-anderson
-description: Documentazione su ASP.NET Web Forms 4 e versioni precedenti.
+description: Esercitazione su ASP.NET Web Forms 4 e versioni precedenti.
 ms.author: riande
 ms.date: 10/18/2014
 ms.assetid: e03585c2-80bf-4083-99ba-9fcbc883ccd8
 msc.legacyurl: /web-forms/overview/older-versions-getting-started
 msc.type: chapter
-ms.openlocfilehash: 93eed9c2560b8e5106b224114eb1109d3da95daf
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
-ms.translationtype: MT
-ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "48255895"
 ---
 <a name="older-versions---web-forms-getting-started"></a>Versioni precedenti - Introduzione a Web Form
 ====================
-> Documentazione su ASP.NET Web Forms 4 e versioni precedenti.
+> Esercitazione su ASP.NET Web Forms 4 e versioni precedenti.
 
 
 - [ASP.NET 4 - Tailspin Spyworks](tailspin-spyworks/index.md)
 
-    - [Parte 1: File -> Nuovo progetto](tailspin-spyworks/tailspin-spyworks-part-1.md)
-    - [Parte 2: Livello di accesso ai dati](tailspin-spyworks/tailspin-spyworks-part-2.md)
-    - [Parte 3: Layout e menu per la categoria](tailspin-spyworks/tailspin-spyworks-part-3.md)
+    - [Parte 1. File -> Nuovo progetto](tailspin-spyworks/tailspin-spyworks-part-1.md)
+    - [Parte 2. Livello di accesso ai dati](tailspin-spyworks/tailspin-spyworks-part-2.md)
+    - [Parte 3: Layout e Menu per la categoria](tailspin-spyworks/tailspin-spyworks-part-3.md)
     - [Parte 4: Elenco di prodotti](tailspin-spyworks/tailspin-spyworks-part-4.md)
-    - [Parte 5: Logica di business](tailspin-spyworks/tailspin-spyworks-part-5.md)
+    - [Parte 5: Logica di Business](tailspin-spyworks/tailspin-spyworks-part-5.md)
     - [Parte 6: Appartenenza ASP.NET](tailspin-spyworks/tailspin-spyworks-part-6.md)
     - [Parte 7: Aggiunta di funzionalità](tailspin-spyworks/tailspin-spyworks-part-7.md)
     - [Parte 8: Pagine finali, gestione delle eccezioni e conclusione](tailspin-spyworks/tailspin-spyworks-part-8.md)
@@ -42,8 +36,8 @@ ms.locfileid: "48255895"
     - [Introduzione a Database First di Entity Framework 4.0 - Parte 8](getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-8.md)
 - [ASP.NET 4 - Continuazione con Entity Framework 4 e Web Form](continuing-with-ef/index.md)
 
-    - [Entity Framework 4.0 e controllo ObjectDataSource, parte 1: Introduzione](continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md)
-    - [Entity Framework 4.0 e controllo ObjectDataSource, parte 2: Aggiunta di un livello di logica di business e unit test](continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)
+    - [Entity Framework 4.0 e controllo ObjectDataSource, parte 1: Guida introduttiva](continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md)
+    - [Entity Framework 4.0 e controllo ObjectDataSource, parte 2: Aggiunta di un livello di logica di Business e Unit test](continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)
     - [Entity Framework 4.0 e controllo ObjectDataSource, parte 3: Ordinamento e filtro](continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)
     - [Gestione della concorrenza con Entity Framework 4.0 in ASP.NET 4](continuing-with-ef/handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application.md)
     - [Massimizzazione delle prestazioni con Entity Framework 4.0 in ASP.NET 4](continuing-with-ef/maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application.md)

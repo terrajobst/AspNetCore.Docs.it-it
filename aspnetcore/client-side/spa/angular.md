@@ -5,14 +5,14 @@ description: Informazioni su come iniziare a usare il modello di progetto per ap
 monikerRange: '>= aspnetcore-2.1'
 ms.author: stevesa
 ms.custom: mvc
-ms.date: 02/27/2019
+ms.date: 03/07/2019
 uid: spa/angular
-ms.openlocfilehash: 41990be4910ad35cdc2826f268fcbb659be9de75
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 6d0107ef52d63a0f6f5713c518ddc54ac4230d53
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345720"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665600"
 ---
 # <a name="use-the-angular-project-template-with-aspnet-core"></a>Usare il modello di progetto per Angular con ASP.NET Core
 
@@ -147,3 +147,7 @@ Allo stesso tempo, l'abilitazione del rendering lato server presenta alcuni svan
         // Call browser-specific APIs here
     }
     ```
+
+## <a name="additional-resources"></a>Risorse aggiuntive
+
+* <xref:security/authentication/identity/spa>

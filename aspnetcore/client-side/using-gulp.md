@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 10/04/2018
 uid: client-side/using-gulp
-ms.openlocfilehash: e280eabecbd427f3e1418b3d7a60e0ea3df46a5a
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.openlocfilehash: 43277dc5910971374187f49031e74769c9e29e1f
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52450606"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665626"
 ---
 # <a name="use-gulp-in-aspnet-core"></a>Usare Gulp in ASP.NET Core
 
@@ -58,11 +58,11 @@ Il codice sopra riportato specifica che i moduli del nodo sono necessari. Il `re
 
 | Nome modulo | Descrizione |
 | ----------- | ----------- |
-| Gulp        | Il sistema di compilazione streaming Gulp. Per altre informazioni, vedere [gulp](https://www.npmjs.com/package/gulp). |
+| gulp        | Il sistema di compilazione streaming Gulp. Per altre informazioni, vedere [gulp](https://www.npmjs.com/package/gulp). |
 | rimraf      | Un modulo di eliminazione del nodo. Per altre informazioni, vedere [rimraf](https://www.npmjs.com/package/rimraf). |
-| gulp concat | Un modulo che concatena i file in base al carattere di nuova riga del sistema operativo. Per altre informazioni, vedere [gulp concat](https://www.npmjs.com/package/gulp-concat). |
-| gulp cssmin | Un modulo che minimizza file CSS. Per altre informazioni, vedere [gulp cssmin](https://www.npmjs.com/package/gulp-cssmin). |
-| uglify gulp | Un modulo che minimizza *js* file. Per altre informazioni, vedere [uglify gulp](https://www.npmjs.com/package/gulp-uglify). |
+| gulp-concat | Un modulo che concatena i file in base al carattere di nuova riga del sistema operativo. Per altre informazioni, vedere [gulp concat](https://www.npmjs.com/package/gulp-concat). |
+| gulp-cssmin | Un modulo che minimizza file CSS. Per altre informazioni, vedere [gulp cssmin](https://www.npmjs.com/package/gulp-cssmin). |
+| gulp-uglify | Un modulo che minimizza *js* file. Per altre informazioni, vedere [uglify gulp](https://www.npmjs.com/package/gulp-uglify). |
 
 Dopo aver importati i moduli richiesti, è possibile specificare le attività. Di seguito sono presenti sei attività registrate, rappresentata nel codice seguente:
 
@@ -337,7 +337,7 @@ Un'attività Gulp è registrata con un nome di funzione. È possibile specificar
 |src   |`gulp.src(globs[, options]) { }`|Il `src` funzione fornisce i file che corrispondono al valore/i glob. Il `glob` parametro è un `string` o `array` che determina quali file da leggere. Il `options` parametro fornisce opzioni aggiuntive del file.|
 |dest  |`gulp.dest(path[, options]) { }`|Il `dest` funzione definisce una posizione in cui è possono scrivere i file. Il `path` parametro è una stringa o una funzione che determina la cartella di destinazione. Il `options` parametro è un oggetto che specifica le opzioni cartella di output.|
 
-Per altre informazioni di riferimento API di Gulp, vedere [Gulp documentazione API](https://github.com/gulpjs/gulp/blob/master/docs/API.md).
+Per altre informazioni di riferimento API di Gulp, vedere [Gulp documentazione API](https://gulpjs.org/API.html).
 
 ## <a name="gulp-recipes"></a>Recipe di gulp
 
