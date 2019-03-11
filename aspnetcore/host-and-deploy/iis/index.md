@@ -286,7 +286,7 @@ Per ottenere una versione precedente del programma di installazione:
 1. Scaricare il programma di installazione tramite il collegamento **Runtime & Hosting Bundle** (Runtime e bundle di hosting).
 
 > [!WARNING]
-> Alcuni programmi di installazione contengono versioni che hanno terminato il loro ciclo di vita e non sono più supportate da Microsoft. Per altre informazioni, vedere i [criteri di supporto](https://www.microsoft.com/net/download/dotnet-core/2.0).
+> Alcuni programmi di installazione contengono versioni che hanno terminato il loro ciclo di vita e non sono più supportate da Microsoft. Per altre informazioni, vedere i [criteri di supporto](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 ### <a name="install-the-hosting-bundle"></a>Installare il bundle di hosting
 

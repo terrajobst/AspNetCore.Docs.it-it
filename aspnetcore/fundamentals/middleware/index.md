@@ -226,12 +226,12 @@ app.Map("/level1", level1App => {
 
 ASP.NET Core include i componenti middleware seguenti. Nella colonna *Ordinamento* sono disponibili note sul posizionamento del middleware nella pipeline di elaborazione delle richieste e indicazioni sulle condizioni nelle quali il middleware può terminare l'elaborazione delle richieste. Quando un middleware esegue un corto circuito della pipeline di elaborazione delle richieste e impedisce al middleware a valle di elaborare una richiesta, viene denominato *middleware terminale*. Per altre informazioni sul corto circuito, vedere la sezione [Creare una pipeline middleware con IApplicationBuilder](#create-a-middleware-pipeline-with-iapplicationbuilder).
 
-| Middleware | Descrizione | Ordinamento |
+| Middleware | Description | Ordinamento |
 | ---------- | ----------- | ----- |
 | [Autenticazione](xref:security/authentication/identity) | Offre il supporto dell'autenticazione. | Prima di `HttpContext.User`. Terminale per i callback OAuth. |
 | [Criteri per i cookie](xref:security/gdpr) | Registra il consenso degli utenti per l'archiviazione delle informazioni personali e applica gli standard minimi per i campi dei cookie, come `secure` e `SameSite`. | Prima del middleware che emette i cookie. Esempi: Autenticazione, Sessione, MVC (TempData). |
 | [CORS](xref:security/cors) | Configura la condivisione di risorse tra le origini (CORS). | Prima dei componenti che usano CORS. |
-| [Diagnostica](xref:fundamentals/error-handling) | Configura la diagnostica. | Prima dei componenti che generano errori. |
+| [Gestione delle eccezioni](xref:fundamentals/error-handling) | Gestisce le eccezioni. | Prima dei componenti che generano errori. |
 | [Intestazioni inoltrate](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions) | Inoltra le intestazioni proxy nella richiesta corrente. | Prima dei componenti che usano i campi aggiornati. Esempi: schema, host, IP client, metodo. |
 | [Controllo integrità](xref:host-and-deploy/health-checks) | Controlla l'integrità di un'app ASP.NET Core e le relative dipendenze, come il controllo della disponibilità del database. | Terminale se una richiesta corrisponde a un endpoint di controllo di integrità. |
 | [Override del metodo HTTP](/dotnet/api/microsoft.aspnetcore.builder.httpmethodoverrideextensions) | Consente a una richiesta POST in arrivo di eseguire l'override del metodo. | Prima dei componenti che usano il metodo aggiornato. |

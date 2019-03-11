@@ -120,7 +120,7 @@ Adottare uno degli approcci seguenti:
 
 ### <a name="install-the-preview-site-extension"></a>Installare l'estensione del sito di anteprima
 
-Se si verifica un problema con l'estensione del sito di anteprima, aprire un problema in [GitHub](https://github.com/aspnet/azureintegration/issues/new).
+Se si verifica un problema con l'estensione del sito di anteprima, aprire un [problema aspnet/AspNetCore](https://github.com/aspnet/AspNetCore/issues).
 
 1. Dal portale di Azure passare al servizio app.
 1. Selezionare l'app Web.

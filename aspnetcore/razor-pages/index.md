@@ -6,12 +6,6 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/12/2018
 uid: razor-pages/index
-ms.openlocfilehash: cc881ff42d57ab1654f492a70006a995939e4844
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53709548"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introduzione a Razor Pages in ASP.NET Core
 
@@ -173,7 +167,7 @@ Il file *Index.cshtml* contiene il markup seguente per creare un collegamento di
 
 [!code-cshtml[](index/sample/RazorPagesContacts/Pages/Index.cshtml?range=21)]
 
-[Anchor Tag Helper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) ha usato l'attributo `asp-route-{value}` per generare un collegamento alla pagina di modifica. Il collegamento contiene i dati della route con l'ID contatto. Ad esempio `http://localhost:5000/Edit/1`.
+[Anchor Tag Helper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) ha usato l'attributo `asp-route-{value}` per generare un collegamento alla pagina di modifica. Il collegamento contiene i dati della route con l'ID contatto. Ad esempio `http://localhost:5000/Edit/1`. Usare l'attributo `asp-area` per specificare un'area. Per ulteriori informazioni, vedere <xref:mvc/controllers/areas>.
 
 Il file *Pages/Edit.cshtml*:
 
@@ -401,6 +395,14 @@ Il collegamento dei nomi relativi è utile quando si compilano siti con una stru
 
 ::: moniker range=">= aspnetcore-2.1"
 
+Per reindirizzare la pagina a un'[Area](xref:mvc/controllers/areas) diversa, specificare l'area:
+
+```csharp
+RedirectToPage("/Index", new { area = "Services" });
+```
+
+Per ulteriori informazioni, vedere <xref:mvc/controllers/areas>.
+
 ## <a name="viewdata-attribute"></a>Attributo viewData
 
 È possibile passare i dati a una pagina tramite [ViewDataAttribute](/dotnet/api/microsoft.aspnetcore.mvc.viewdataattribute). I valori delle proprietà nei controller o nei modelli Razor Page decorate con `[ViewData]` vengono archiviati e caricati da [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary).
@@ -547,6 +549,7 @@ services.AddMvc()
 
 * <xref:index>
 * <xref:mvc/views/razor>
+* <xref:mvc/controllers/areas>
 * <xref:tutorials/razor-pages/razor-pages-start>
 * <xref:security/authorization/razor-pages-authorization>
 * <xref:razor-pages/razor-pages-conventions>
