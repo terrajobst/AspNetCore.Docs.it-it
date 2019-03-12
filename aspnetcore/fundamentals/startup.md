@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 01/17/2019
 uid: fundamentals/startup
-ms.openlocfilehash: cfd0a57d5d0b60862b017a170b6d5cbddf56f15a
-ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
+ms.openlocfilehash: d629c2f02f9021454d8f8539018f3e2ca4703a00
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56744183"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346398"
 ---
 # <a name="app-startup-in-aspnet-core"></a>Avvio dell'app in ASP.NET Core
 
@@ -40,7 +40,7 @@ L'host fornisce i servizi disponibili al costruttore della classe `Startup`. L'a
 Un uso comune dell'[inserimento di dipendenze](xref:fundamentals/dependency-injection) nella classe `Startup` consiste nell'inserire:
 
 * <xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment> per configurare i servizi in base all'ambiente.
-* <xref:Microsoft.Extensions.Configuration.IConfigurationBuilder> per leggere la configurazione.
+* <xref:Microsoft.Extensions.Configuration.IConfiguration> per leggere la configurazione.
 * <xref:Microsoft.Extensions.Logging.ILoggerFactory> per creare un logger in `Startup.ConfigureServices`.
 
 [!code-csharp[](startup/sample_snapshot/Startup2.cs?highlight=7-8)]
@@ -73,7 +73,7 @@ Il metodo <xref:Microsoft.AspNetCore.Hosting.StartupBase.Configure*> viene usato
 
 I [modelli ASP.NET Core](/dotnet/core/tools/dotnet-new) configurano la pipeline con il supporto per:
 
-* [Pagina delle eccezioni per gli sviluppatori](xref:fundamentals/error-handling#the-developer-exception-page)
+* [Pagina delle eccezioni per gli sviluppatori](xref:fundamentals/error-handling#developer-exception-page)
 * [Gestore di eccezioni](xref:fundamentals/error-handling#configure-a-custom-exception-handling-page)
 * [Protocollo HTTP Strict Transport Security (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts)
 * [Reindirizzamento HTTPS](xref:security/enforcing-ssl)

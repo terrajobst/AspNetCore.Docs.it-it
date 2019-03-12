@@ -5,12 +5,12 @@ description: Illustra come creare, leggere, aggiornare ed eliminare con EF Core
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/crud
-ms.openlocfilehash: 4af16bdf3928609214c1255cdd411312c8b7d3f3
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: adb281277599456356251c6ee30772a25f14ac58
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477436"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346054"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>Razor Pages con EF Core in ASP.NET Core - CRUD - 2 di 8
 
@@ -165,7 +165,7 @@ Se si usa `StudentVM` è necessario che [CreateVM.cshtml](https://github.com/asp
 
 In Razor Pages la classe derivata `PageModel` è il modello di visualizzazione.
 
-## <a name="update-the-edit-page"></a>Aggiornare la pagina Edit
+## <a name="update-the-edit-page"></a>Aggiornare la pagina Edit (Modifica)
 
 Aggiornare il modello di pagina per la pagina Edit. Le modifiche principali sono evidenziate:
 
@@ -191,9 +191,9 @@ Un'entità può essere in uno dei [seguenti stati](/dotnet/api/microsoft.entityf
 
 * `Unchanged`: non è necessario salvare alcuna modifica con questa entità. Un'entità ha questo stato quando viene letta dal database.
 
-* `Modified`: sono stati modificati alcuni o tutti i valori di proprietà dell'entità. Il metodo `SaveChanges` genera un'istruzione UPDATE.
+* `Modified`: Sono stati modificati alcuni o tutti i valori di proprietà dell'entità. Il metodo `SaveChanges` genera un'istruzione UPDATE.
 
-* `Deleted`: l'entità è stata contrassegnata per l'eliminazione. Il metodo `SaveChanges` genera un'istruzione DELETE.
+* `Deleted`: L'entità è stata contrassegnata per l'eliminazione. Il metodo `SaveChanges` genera un'istruzione DELETE.
 
 * `Detached`: l'entità non viene registrata dal contesto del database.
 
@@ -247,6 +247,10 @@ Verificare che la pagina Razor contenga la direttiva `@page` corretta. Ad esempi
 Ogni pagina Razor deve includere la direttiva `@page`.
 
 ::: moniker-end
+
+## <a name="additional-resources"></a>Risorse aggiuntive
+
+* [Versione YouTube dell'esercitazione](https://www.youtube.com/watch?v=F0SP7Ry4flQ&list=PLnVvOWNfuhGV45HnNgd0vuIIkoQ1UaVBf)
 
 > [!div class="step-by-step"]
 > [Precedente](xref:data/ef-rp/intro)

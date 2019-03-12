@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/5/2018
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: 98de39c63c992dce7d60563df316d848339b811a
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: f8661a48ddd6fc616c141435edc603117b4925fb
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410375"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57345891"
 ---
 # <a name="add-a-new-field-to-a-razor-page-in-aspnet-core"></a>Aggiungere un nuovo campo a una pagina Razor in ASP.NET Core
 
@@ -152,6 +152,10 @@ dotnet ef database update
 <!-- End of VS tabs -->
 
 Eseguire l'app e verificare che sia possibile creare/modificare/visualizzare i film con un campo `Rating`. Se il database non è inizializzato, impostare un punto di interruzione nel metodo `SeedData.Initialize`.
+
+## <a name="additional-resources"></a>Risorse aggiuntive
+
+* [Versione YouTube dell'esercitazione](https://youtu.be/3i7uMxiGGR8)
 
 > [!div class="step-by-step"]
 > [Precedente: Aggiunta della funzionalità di ricerca](xref:tutorials/razor-pages/search)

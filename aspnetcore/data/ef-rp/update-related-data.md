@@ -5,12 +5,12 @@ description: In questa esercitazione verrà effettuato l'aggiornamento di dati c
 ms.author: riande
 ms.date: 11/15/2017
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: 4306118240c052585a5c2eeb2053ce03534b547c
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: c3dbfe57a832ba63c5da2f89c0d29e443a1277a7
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207543"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57345762"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---update-related-data---7-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Aggiornare dati correlati - 7 di 8
 
@@ -197,7 +197,7 @@ Quando viene eseguito il rendering iniziale delle caselle di controllo, i corsi 
 
 Eseguire l'app e testare la pagina Edit (Modifica) dell'insegnante aggiornata. Modificare alcune assegnazioni di corsi. Le modifiche si riflettono nella pagina di indice.
 
-Nota: l'approccio qui adottato per la modifica dei dati dei corsi degli insegnanti funziona bene quando è presente un numero limitato di corsi. Per raccolte molto più grandi, un'interfaccia utente diversa e un altro metodo di aggiornamento sono più efficienti e pratici.
+Nota: L'approccio qui adottato per la modifica dei dati dei corsi degli insegnanti funziona bene quando è presente un numero limitato di corsi. Per raccolte molto più grandi, un'interfaccia utente diversa e un altro metodo di aggiornamento sono più efficienti e pratici.
 
 ### <a name="update-the-instructors-create-page"></a>Aggiornare la pagina di creazione dell'insegnante
 
@@ -224,6 +224,11 @@ Il codice precedente apporta le modifiche seguenti:
 * Usare il caricamento eager per la proprietà di navigazione `CourseAssignments`. È necessario includere `CourseAssignments`, in caso contrario le assegnazioni non vengono eliminate quando viene eliminato l'insegnante. Per evitare la necessità di leggerle, configurare l'eliminazione a catena nel database.
 
 * Se l'insegnante da eliminare è assegnato come responsabile di un dipartimento, tale assegnazione viene rimossa dal dipartimento.
+
+## <a name="additional-resources"></a>Risorse aggiuntive
+
+* [Versione YouTube dell'esercitazione (parte 1)](https://www.youtube.com/watch?v=Csh6gkmwc9E)
+* [Versione YouTube dell'esercitazione (parte 2)](https://www.youtube.com/watch?v=mOAankB_Zgc)
 
 > [!div class="step-by-step"]
 > [Precedente](xref:data/ef-rp/read-related-data)

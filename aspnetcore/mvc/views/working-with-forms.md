@@ -4,18 +4,18 @@ author: rick-anderson
 description: Descrive gli helper tag predefiniti usati con i moduli.
 ms.author: riande
 ms.custom: mvc
-ms.date: 1/11/2019
+ms.date: 02/27/2019
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: cd15c641fbf702071bd57510a1d51737f6ab8e19
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: a0fbeac51bd1bfbc50c4d369a479ce5f3091358b
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54099013"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346255"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>Helper tag nei moduli in ASP.NET Core
 
-Di [Rick Anderson](https://twitter.com/RickAndMSFT), [Dave Paquette](https://twitter.com/Dave_Paquette) e [Jerrie Pelser](https://github.com/jerriep)
+Di [Rick Anderson](https://twitter.com/RickAndMSFT), [N. Taylor Mullen](https://github.com/NTaylorMullen), [Dave Paquette](https://twitter.com/Dave_Paquette) e [Jerrie Pelser](https://github.com/jerriep)
 
 Questo documento illustra l'uso di helper tag Form e gli elementi HTML comunemente usati all'interno di questi. L'elemento [Form](https://www.w3.org/TR/html401/interact/forms.html) del linguaggio HTML rappresenta il meccanismo principale usato dalle app Web per eseguire il postback di dati nel server. La maggior parte di questo documento descrive gli [helper tag](tag-helpers/intro.md) e spiega come questi consentono di creare moduli HTML solidi in modo produttivo. Prima di leggere questo documento, è consigliabile leggere [Introduzione agli helper tag](tag-helpers/intro.md).
 
@@ -66,6 +66,98 @@ Molte delle visualizzazioni nella cartella *Views/Account* (generata quando si c
 
 >[!NOTE]
 >Con i modelli predefiniti, `returnUrl` viene popolato automaticamente solo quando si tenta di accedere a una risorsa autorizzata senza aver effettuato l'autenticazione o l'autorizzazione. Se l'utente tenta un accesso non autorizzato, il middleware di sicurezza lo reindirizza alla pagina di accesso con `returnUrl` impostato.
+
+## <a name="the-form-action-tag-helper"></a>Helper tag per l'azione modulo
+
+L'helper tag per l'azione modulo genera l'attributo `formaction` per l'elemento `<button ...>` o il tag `<input type="image" ...>` generato. L'attributo `formaction` controlla se un modulo invia i dati. Viene associato agli elementi [\<input>](https://www.w3.org/wiki/HTML/Elements/input) di tipo `image` e agli elementi [\<button>](https://www.w3.org/wiki/HTML/Elements/button). L'helper tag per l'azione modulo consente l'utilizzo di vari attributi `asp-` di [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) per controllare quale collegamento `formaction` viene generato per l'elemento corrispondente.
+
+Attributi di [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) supportati per controllare il valore di `formaction`:
+
+|Attributo|Description|
+|---|---|
+|[asp-controller](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-controller)|Nome del controller.|
+|[asp-action](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-action)|Nome del metodo di azione.|
+|[asp-area](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-area)|Nome dell'area.|
+|[asp-page](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-page)|Nome della pagina Razor.|
+|[asp-page-handler](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-page-handler)|Nome del gestore di pagina Razor.|
+|[asp-route](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route)|Nome della route.|
+|[asp-route-{value}](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route-value)|Singolo valore di route URL. Ad esempio `asp-route-id="1234"`.|
+|[asp-all-route-data](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-all-route-data)|Tutti i valori di route.|
+|[asp-fragment](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-fragment)|Frammento di URL.|
+
+### <a name="submit-to-controller-example"></a>Esempio di invio al controller
+
+Il markup seguente invia il modulo all'azione `Index` di `HomeController` quando viene selezionato l'input o un pulsante:
+
+```cshtml
+<form method="post">
+    <button asp-controller="Home" asp-action="Index">Click Me</button>
+    <input type="image" src="..." alt="Or Click Me" asp-controller="Home" 
+                                asp-action="Index" />
+</form>
+```
+
+Il markup precedente genera il codice HTML seguente:
+
+```html
+<form method="post">
+    <button formaction="/Home">Click Me</button>
+    <input type="image" src="..." alt="Or Click Me" formaction="/Home" />
+</form>
+```
+
+### <a name="submit-to-page-example"></a>Esempio di invio a una pagina
+
+Il markup seguente invia il modulo alla pagina Razor `About`:
+
+```cshtml
+<form method="post">
+    <button asp-page="About">Click Me</button>
+    <input type="image" src="..." alt="Or Click Me" asp-page="About" />
+</form>
+```
+
+Il markup precedente genera il codice HTML seguente:
+
+```html
+<form method="post">
+    <button formaction="/About">Click Me</button>
+    <input type="image" src="..." alt="Or Click Me" formaction="/About" />
+</form>
+```
+
+### <a name="submit-to-route-example"></a>Esempio di invio a una route
+
+Prendere in considerazione l'endpoint `/Home/Test`:
+
+```csharp
+public class HomeController : Controller
+{
+    [Route("/Home/Test", Name = "Custom")]
+    public string Test()
+    {
+        return "This is the test page";
+    }
+}
+```
+
+Il markup seguente invia il modulo all'endpoint `/Home/Test`.
+
+```cshtml
+<form method="post">
+    <button asp-route="Custom">Click Me</button>
+    <input type="image" src="..." alt="Or Click Me" asp-route="Custom" />
+</form>
+```
+
+Il markup precedente genera il codice HTML seguente:
+
+```html
+<form method="post">
+    <button formaction="/Home/Test">Click Me</button>
+    <input type="image" src="..." alt="Or Click Me" formaction="/Home/Test" />
+</form>
+```
 
 ## <a name="the-input-tag-helper"></a>Helper tag Input
 

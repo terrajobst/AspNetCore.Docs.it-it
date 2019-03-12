@@ -4,14 +4,14 @@ author: rick-anderson
 description: Individuare gli approcci per mantenere lo stato di sessioni e app tra le richieste.
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/14/2018
+ms.date: 03/04/2019
 uid: fundamentals/app-state
-ms.openlocfilehash: a510e4f49e158203dd7c5e1e0bd28472541f7925
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: 2e3591ac1d6b1670b27b1ed9e42f59ba2b956b37
+ms.sourcegitcommit: 6ddd8a7675c1c1d997c8ab2d4498538e44954cac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54836337"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57400710"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>Stato di sessioni e app in ASP.NET Core
 
@@ -64,7 +64,7 @@ Lo stato della sessione presenta i comportamenti seguenti:
 * L'app conserva una sessione per un periodo di tempo limitato dopo l'ultima richiesta. L'app imposta il timeout della sessione o usa il valore predefinito, pari a 20 minuti. Lo stato sessione è ideale per archiviare i dati utente specifici per una determinata sessione, ma nel caso in cui i dati non richiedano un'archiviazione permanente tra le sessioni.
 * I dati della sessione vengono eliminati quando viene chiamata l'implementazione [ISession.Clear](/dotnet/api/microsoft.aspnetcore.http.isession.clear) o alla scadenza della sessione.
 * Non esiste un meccanismo predefinito per indicare al codice app che un browser client è stato chiuso o che il cookie di sessione viene eliminato o è scaduto nel client.
-I modelli di pagina ASP.NET Core MVC e Razor includono il supporto del [Regolamento generale sulla protezione dei dati (GDPR)](xref:security/gdpr). [I cookie di stato sessione non sono indispensabili](xref:security/gdpr#tempdata-provider-and-session-state-cookies-are-not-essential), lo stato sessione non è attivo quando la verifica è disabilitata.
+I modelli di pagina ASP.NET Core MVC e Razor includono il supporto del Regolamento generale sulla protezione dei dati (GDPR). I cookie di stato della sessione non sono contrassegnati come fondamentali per impostazione predefinita, pertanto lo stato della sessione non è funzionale, a meno che il rilevamento non sia consentito dal visitatore del sito. Per ulteriori informazioni, vedere <xref:security/gdpr#tempdata-provider-and-session-state-cookies-are-not-essential>.
 
 > [!WARNING]
 > Evitare di archiviare dati sensibili nello stato della sessione. L'utente potrebbe non chiudere il browser e cancellare il cookie di sessione. Alcuni browser mantengono i cookie di sessione validi tra diverse finestre del browser. Una sessione può non essere limitata a un solo utente: in tal caso l'utente successivo potrebbe continuare a sfogliare l'app usando lo stesso cookie di sessione.
@@ -309,7 +309,7 @@ L'ordine del middleware è importante. Nell'esempio precedente si verifica un'ec
 
 È possibile passare una quantità limitata di dati da una richiesta a un'altra aggiungendo i dati alla stringa di query della nuova richiesta. Questo è utile per l'acquisizione dello stato con una modalità persistente, che consente la condivisione dei collegamenti con stato incorporato tramite posta elettronica o social network. Poiché le stringhe di query dell'URL sono pubbliche, non usare mai le stringhe di query per i dati sensibili.
 
-OItre alle condivisioni involontarie, i dati presenti nelle stringhe di query possono essere oggetto di attacchi di [falsificazione della richiesta tra siti (CSRF, Cross-Site Request Forgery)](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)), che ingannano gli utenti autenticati invitandoli a visitare siti pericolosi. Gli utenti malintenzionati possono quindi sottrarre dati utente dall'app o eseguire azioni dannose per conto dell'utente. Qualsiasi stato dell'app o della sessione mantenuto deve garantire la protezione dagli attacchi CSRF. Per altre informazioni, vedere [Prevenire attacchi tramite richieste intersito false (XSRF/CSRF)](xref:security/anti-request-forgery).
+Oltre alle condivisioni involontarie, i dati presenti nelle stringhe di query possono essere oggetto di attacchi di [falsificazione della richiesta tra siti (CSRF, Cross-Site Request Forgery)](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)), che ingannano gli utenti autenticati invitandoli a visitare siti pericolosi. Gli utenti malintenzionati possono quindi sottrarre dati utente dall'app o eseguire azioni dannose per conto dell'utente. Qualsiasi stato dell'app o della sessione mantenuto deve garantire la protezione dagli attacchi CSRF. Per altre informazioni, vedere [Prevenire attacchi tramite richieste intersito false (XSRF/CSRF)](xref:security/anti-request-forgery).
 
 ## <a name="hidden-fields"></a>Campi nascosti
 

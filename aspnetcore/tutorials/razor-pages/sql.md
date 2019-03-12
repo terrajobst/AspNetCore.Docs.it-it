@@ -5,12 +5,12 @@ description: Questa sezione illustra l'utilizzo di un database e di ASP.NET Core
 ms.author: riande
 ms.date: 12/07/2017
 uid: tutorials/razor-pages/sql
-ms.openlocfilehash: 3e05f5dbc73c35f1f938346b2eaab8c0fa7d8ab9
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 9f01f5c9fcf9c423ccc2af8ae6ca55c2f427c9c1
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410297"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346028"
 ---
 # <a name="work-with-a-database-and-aspnet-core"></a>Usare un database e ASP.NET Core
 
@@ -176,6 +176,10 @@ L'app visualizza i dati sottoposti a seed:
 ![App per i film aperta in Chrome con i dati sui film](sql/_static/m55.png)
 
 L'esercitazione successiva consentirà di pulire la presentazione dei dati.
+
+## <a name="additional-resources"></a>Risorse aggiuntive
+
+* [Versione YouTube dell'esercitazione](https://youtu.be/A_5ff11sDHY)
 
 > [!div class="step-by-step"]
 > [Precedente: Pagine Razor create tramite scaffolding](xref:tutorials/razor-pages/page)

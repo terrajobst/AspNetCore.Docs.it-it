@@ -5,12 +5,12 @@ description: Informazioni sulle aree, una funzionalità di ASP.NET MVC che conse
 ms.author: riande
 ms.date: 02/14/2019
 uid: mvc/controllers/areas
-ms.openlocfilehash: c21eed04ea68512515da262b6b6895dc1a821039
-ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
+ms.openlocfilehash: 8904d217a18fff65113ae3469efe60258d20d5f0
+ms.sourcegitcommit: 6ddd8a7675c1c1d997c8ab2d4498538e44954cac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833527"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57400645"
 ---
 # <a name="areas-in-aspnet-core"></a>Aree in ASP.NET Core
 
@@ -27,6 +27,8 @@ In un progetto è consigliabile usare le aree quando:
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/areas/samples) ([procedura per il download](xref:index#how-to-download-a-sample)). Il download di esempio fornisce un'app di base per testare le aree.
 
+Se si usa Razor Pages, vedere [Aree con pagine Razor](#areas-with-razor-pages) in questo documento.
+
 ## <a name="areas-for-controllers-with-views"></a>Aree per i controller con visualizzazioni
 
 Una tipica app Web ASP.NET Core che usa aree, controller e visualizzazioni contiene quanto segue:
@@ -35,7 +37,7 @@ Una tipica app Web ASP.NET Core che usa aree, controller e visualizzazioni conti
 * Controller decorati con l'attributo [&lbrack;Area&rbrack;](#attribute) per associare il controller all'area: [!code-csharp[](areas/samples/MVCareas/Areas/Products/Controllers/ManageController.cs?name=snippet2)]
 * La [route di area aggiunta all'avvio](#add-area-route): [!code-csharp[](areas/samples/MVCareas/Startup.cs?name=snippet2&highlight=3-6)]
 
-## <a name="area-folder-structure"></a>Struttura di cartelle dell'area
+### <a name="area-folder-structure"></a>Struttura di cartelle dell'area
 Si consideri un'applicazione che ha due gruppi logici, *Prodotti* e *Servizi*. Usando le aree, la struttura delle cartelle sarebbe simile alla seguente:
 
 * Nome progetto
@@ -68,11 +70,6 @@ Anche se il layout precedente è tipico quando si usano le aree, per usare quest
 
 Il percorso delle cartelle non di visualizzazioni, come *Controller* e *Modelli* **non** è rilevante. Ad esempio, le cartelle *Controller* e *Modelli* non sono necessarie. Il contenuto di *Controller* e *Modelli* è codice che viene compilato in un file DLL. Il contenuto di *Visualizzazioni* non viene compilato finché non viene effettuata una richiesta a tale visualizzazione.
 
-<!-- TODO review:
-The content of the *Views* isn't compiled until a request to that view has been made.
-
-What about precompiled views? 
- -->
 <a name="attribute"></a>
 
 ### <a name="associate-the-controller-with-an-area"></a>Associare il controller a un'area
@@ -99,7 +96,7 @@ Quando si usa `MapAreaRoute` con ASP.NET Core 2.2, vedere [questo problema su Gi
 
 Per altre informazioni, vedere [Aree](xref:mvc/controllers/routing#areas).
 
-### <a name="link-generation-with-areas"></a>Generazione di collegamenti con le aree
+### <a name="link-generation-with-mvc-areas"></a>Generazione di collegamenti con le aree MVC
 
 Il codice seguente dal [download di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/areas/samples) mostra la generazione di collegamenti con l'area specificata:
 
@@ -107,7 +104,7 @@ Il codice seguente dal [download di esempio](https://github.com/aspnet/Docs/tree
 
 I collegamenti generati con il codice precedente sono validi ovunque nell'app.
 
-Il download di esempio include una [visualizzazione parziale](xref:mvc/views/partial) che contiene i collegamenti precedenti e gli stessi collegamenti senza specificare l'area. La visualizzazione parziale viene referenziata nel [file di layout](), in modo che ogni pagina nell'app mostri i collegamenti generati. I collegamenti generati senza specificare l'area sono validi solo quando sono referenziati da una pagina nella stessa area e controller.
+Il download di esempio include una [visualizzazione parziale](xref:mvc/views/partial) che contiene i collegamenti precedenti e gli stessi collegamenti senza specificare l'area. La visualizzazione parziale viene referenziata nel [file di layout](xref:mvc/views/layout), in modo che ogni pagina nell'app mostri i collegamenti generati. I collegamenti generati senza specificare l'area sono validi solo quando sono referenziati da una pagina nella stessa area e controller.
 
 Quando l'area o il controller non sono specificati, il routing dipende dai valori di *ambiente*. I valori di route correnti della richiesta corrente sono considerati valori di ambiente per la generazione del collegamento. In molti casi per l'app di esempio, l'uso dei valori di ambiente genera collegamenti non corretti.
 
@@ -117,11 +114,6 @@ Per altre informazioni, vedere [Routing ad azioni del controller](xref:mvc/contr
 
 Per condividere un layout comune per l'intera app, spostare *_ViewStart.cshtml* nella cartella radice dell'applicazione.
 
-<!-- This section will be completed after https://github.com/aspnet/Docs/pull/10978 is merged.
-<a name="arp"></a>
-
-## Areas for Razor Pages
--->
 <a name="rename"></a>
 
 ### <a name="change-default-area-folder-where-views-are-stored"></a>Modificare la cartella dell'area predefinita in cui sono archiviate le visualizzazioni
@@ -130,7 +122,72 @@ Il codice seguente modifica la cartella dell'area predefinita da `"Areas"` a `"M
 
 [!code-csharp[](areas/samples/MVCareas/Startup2.cs?name=snippet)]
 
-<!-- TODO review - can we delete this. Areas doesn't change publishing - right? -->
+<a name="arp"></a>
+
+## <a name="areas-with-razor-pages"></a>Aree con pagine Razor
+
+Per le aree con pagine Razor è richiesta una cartella *Areas/&lt;nome area&gt;/Pages* nella radice dell'app. La struttura di cartelle seguente viene usata con il [download di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/areas/samples)
+
+* Nome progetto
+  * Aree
+    * Prodotti
+      * Pages
+        * _ViewImports
+        * Informazioni su
+        * Indice
+    * Servizi
+      * Pages
+        * Gestisci
+          * Informazioni su
+          * Indice
+
+### <a name="link-generation-with-razor-pages-and-areas"></a>Generazione del collegamento con pagine Razor e aree
+
+Il codice seguente dal [download di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/areas/samples/RPareas) mostra la generazione di collegamenti con l'area specificata (ad esempio, `asp-area="Products"`):
+
+[!code-cshtml[](areas/samples/RPareas/Pages/Shared/_testLinksPartial.cshtml?name=snippet)]
+
+I collegamenti generati con il codice precedente sono validi ovunque nell'app.
+
+Il download di esempio include una [visualizzazione parziale](xref:mvc/views/partial) che contiene i collegamenti precedenti e gli stessi collegamenti senza specificare l'area. La visualizzazione parziale viene referenziata nel [file di layout](xref:mvc/views/layout), in modo che ogni pagina nell'app mostri i collegamenti generati. I collegamenti generati senza specificare l'area sono validi solo in caso di riferimento da una pagina nella stessa area.
+
+Quando l'area non è specificata, il routing dipende dai valori di *ambiente*. I valori di route correnti della richiesta corrente sono considerati valori di ambiente per la generazione del collegamento. In molti casi per l'app di esempio, l'uso dei valori di ambiente genera collegamenti non corretti. Si considerino, ad esempio, i collegamenti generati dal codice seguente:
+
+[!code-cshtml[](areas/samples/RPareas/Pages/Shared/_testLinksPartial.cshtml?name=snippet2)]
+
+Per il codice precedente:
+
+* Il collegamento generato da `<a asp-page="/Manage/About">` è corretto solo quando l'ultima richiesta riguarda una pagina nell'area `Services`. Ad esempio, `/Services/Manage/`, `/Services/Manage/Index` o `/Services/Manage/About`.
+* Il collegamento generato da `<a asp-page="/About">` è corretto solo quando l'ultima richiesta riguarda una pagina in `/Home`.
+* Il codice deriva dal [download di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/areas/samples/RPareas).
+
+### <a name="import-namespace-and-tag-helpers-with-viewimports-file"></a>Importare lo spazio dei nomi e gli helper tag con il file _ViewImports
+
+È possibile aggiungere un file *_ViewImports* nella cartella *Pages* di ogni area per importare lo spazio dei nomi e gli helper tag in ogni pagina Razor nella cartella.
+
+Prendere in considerazione l'area *Services* del codice di esempio, che non contiene un file *_ViewImports*. Il markup seguente mostra la pagina Razor */Services/Manage/About*:
+
+[!code-cshtml[](areas/samples/RPareas/Areas/Services/Pages/Manage/About.cshtml)]
+
+Nel markup precedente:
+
+* Il nome di dominio completo deve essere usato per specificare il modello (`@model RPareas.Areas.Services.Pages.Manage.AboutModel`).
+* [Gli helper tag]() sono abilitati da `@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers`
+
+Nel download di esempio, l'area Products contiene il file *_ViewImports* seguente:
+
+[!code-cshtml[](areas/samples/RPareas/Areas/Products/Pages/_ViewImports.cshtml)]
+
+Il markup seguente mostra la pagina Razor */Products/About*: [!code-cshtml[](areas/samples/RPareas/Areas/Products/Pages/About.cshtml)]
+
+Nel file precedente, lo spazio dei nomi e la direttiva `@addTagHelper` vengono importati nel file dal file *Areas/Products/Pages/_ViewImports.cshtml*:
+
+Per altre informazioni, vedere [Gestione dell'ambito dell'helper tag](xref:mvc/views/tag-helpers/intro?view=aspnetcore-2.2#managing-tag-helper-scope) e [Importazione delle direttive condivise](xref:mvc/views/layout#importing-shared-directives).
+
+### <a name="shared-layout-for-razor-pages-areas"></a>Layout condiviso per le aree di pagine Razor
+
+Per condividere un layout comune per l'intera app, spostare *_ViewStart.cshtml* nella cartella radice dell'applicazione.
+
 ### <a name="publishing-areas"></a>Pubblicazione di aree
 
-Tutti i file `*.cshtml` e `wwwroot/**` vengono pubblicati per l'output quando `<Project Sdk="Microsoft.NET.Sdk.Web">` viene incluso nel file con estensione *csproj*.
+Tutti i file `*.cshtml` e `wwwroot/**` vengono pubblicati per l'output quando `<Project Sdk="Microsoft.NET.Sdk.Web">` viene incluso nel file con estensione csproj*.

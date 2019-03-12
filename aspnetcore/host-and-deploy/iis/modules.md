@@ -4,14 +4,14 @@ author: guardrex
 description: Individuare i moduli IIS attivi e inattivi per le app ASP.NET Core e come gestire i moduli IIS.
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/17/2019
+ms.date: 02/28/2019
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: 8c32a668b3945f0da0194162e19e965b4aed3934
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
+ms.openlocfilehash: e5bb1a86453bb945789cc1f4b56616551e316615
+ms.sourcegitcommit: 6ddd8a7675c1c1d997c8ab2d4498538e44954cac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396272"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57400684"
 ---
 # <a name="iis-modules-with-aspnet-core"></a>Moduli IIS con ASP.NET Core
 
@@ -36,11 +36,12 @@ La tabella indica i moduli di IIS nativi che funzionano con le app ASP.NET Core 
 | **Autenticazione digest**<br>`DigestAuthenticationModule`                                        | Sì | |
 | **Esplorazione directory**<br>`DirectoryListingModule`                                               | No  | [Middleware di esplorazione directory](xref:fundamentals/static-files#enable-directory-browsing) |
 | **Compressione dinamica**<br>`DynamicCompressionModule`                                            | Sì | [Middleware di compressione delle risposte](xref:performance/response-compression) |
-| **Traccia**<br>`FailedRequestsTracingModule`                                                     | Sì | [Registrazione di ASP.NET Core](xref:fundamentals/logging/index#tracesource-provider) |
+| **Traccia delle richieste non riuscite**<br>`FailedRequestsTracingModule`                                     | Sì | [Registrazione di ASP.NET Core](xref:fundamentals/logging/index#tracesource-provider) |
 | **Memorizzazione nella cache dei file**<br>`FileCacheModule`                                                            | No  | [Middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware) |
 | **Memorizzazione nella cache HTTP**<br>`HttpCacheModule`                                                            | No  | [Middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware) |
 | **Registrazione HTTP**<br>`HttpLoggingModule`                                                          | Sì | [Registrazione di ASP.NET Core](xref:fundamentals/logging/index) |
 | **Reindirizzamento HTTP**<br>`HttpRedirectionModule`                                                  | Sì | [Middleware di riscrittura URL](xref:fundamentals/url-rewriting) |
+| **Traccia HTTP**<br>`TracingModule`                                                              | Sì | |
 | **Autenticazione mapping certificati client IIS**<br>`IISCertificateMappingAuthenticationModule` | Sì | |
 | **Restrizioni per IP e domini**<br>`IpRestrictionModule`                                          | Sì | |
 | **Filtri ISAPI**<br>`IsapiFilterModule`                                                         | Sì | [Middleware](xref:fundamentals/middleware/index) |

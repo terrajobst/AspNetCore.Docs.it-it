@@ -5,14 +5,14 @@ description: Informazioni sulla compilazione dei file Razor in un'app ASP.NET Co
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 03/02/2019
 uid: mvc/views/view-compilation
-ms.openlocfilehash: 0b6173a7860f5f1d9d11219fbf3f57f76d703031
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0b3aea584de63cb8032e4ca112d2441349bdfbb3
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56899268"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57345487"
 ---
 # <a name="razor-file-compilation-in-aspnet-core"></a>Compilazione del file Razor in ASP.NET Core
 
@@ -38,7 +38,7 @@ Un file Razor viene compilato in fase di runtime, quando viene richiamata la pag
 
 ::: moniker range=">= aspnetcore-3.0"
 
-I file Razor vengono compilati sia in fase di compilazione che in fase di pubblicazione tramite [Razor SDK](xref:razor-pages/sdk). Facoltativamente, è possibile abilitare la compilazione in fase di runtime configurando l'applicazione
+I file Razor vengono compilati sia in fase di compilazione che in fase di pubblicazione tramite [Razor SDK](xref:razor-pages/sdk). Facoltativamente, è possibile abilitare la compilazione in fase di runtime configurando l'applicazione.
 
 ::: moniker-end
 
@@ -93,7 +93,7 @@ Preparare l'app per una [distribuzione dipendente dal framework](/dotnet/core/de
 dotnet publish -c Release
 ```
 
-Al termine della compilazione, viene prodotto un file *<nome_progetto>.PrecompiledViews.dll* contenente i file Razor compilati. Lo screenshot seguente, ad esempio, illustra il contenuto di *Index.cshtml* in *WebApplication1.PrecompiledViews.dll*:
+Al termine della compilazione, viene prodotto un file *\<nome_progetto>.PrecompiledViews.dll* contenente i file Razor compilati. Lo screenshot seguente, ad esempio, illustra il contenuto di *Index.cshtml* in *WebApplication1.PrecompiledViews.dll*:
 
 ![Visualizzazioni Razor in DLL](view-compilation/_static/razor-views-in-dll.png)
 
@@ -122,18 +122,19 @@ Per indicazioni ed esempi di impostazione della versione di compatibilità dell'
 
 ::: moniker range=">= aspnetcore-3.0"
 
-La compilazione in fase runtime si abilita usando il pacchetto `Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation`. Per abilitare la compilazione in fase di runtime, le app devono
+La compilazione in fase runtime si abilita usando il pacchetto `Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation`. Per abilitare la compilazione in fase di runtime, le app devono:
 
-* installare il pacchetto NuGet [Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation/).
+* Installare il pacchetto NuGet [Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation/).
 * Aggiornare `ConfigureServices` per l'applicazione in modo da includere una chiamata a `AddMvcRazorRuntimeCompilation`:
 
-```csharp
-services
-    .AddMvc()
-    .AddMvcRazorRuntimeCompilation()
-```
+  ```csharp
+  services
+      .AddMvc()
+      .AddMvcRazorRuntimeCompilation()
+  ```
 
 Per il corretto funzionamento della compilazione in fase di runtime durante la distribuzione, le app devono inoltre modificare i file di progetto per impostare `PreserveCompilationReferences` su `true`.
+
 [!code-xml[](view-compilation/sample/RuntimeCompilation.csproj?highlight=3)]
 
 ::: moniker-end
