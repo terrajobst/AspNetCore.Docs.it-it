@@ -866,6 +866,7 @@ Application Insights SDK è in grado di raccogliere e segnalare i log generati d
 * [Panoramica di Application Insights](/azure/application-insights/app-insights-overview)
 * [Application Insights per ASP.NET Core](/azure/application-insights/app-insights-asp-net-core)
 * [Adattatori di registrazione di Application Insights](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/blob/develop/README.md).
+* [Esempi di implementazione di ILogger per Application Insights](/azure/azure-monitor/app/ilogger)
 
 ::: moniker-end
 
