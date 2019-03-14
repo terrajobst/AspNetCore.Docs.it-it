@@ -5,12 +5,12 @@ description: Come aggiungere la convalida a un'app ASP.NET Core.
 ms.author: riande
 ms.date: 04/13/2017
 uid: tutorials/first-mvc-app/validation
-ms.openlocfilehash: 431715e7c584d3ee381cbafb42171a7c01dddb3a
-ms.sourcegitcommit: 4e87712029de2aceb1cf2c52e9e3dda8195a5b8e
+ms.openlocfilehash: 49db8d7c1d3e54f416c66685c19b3a2e3b14251c
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53382056"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665444"
 ---
 # <a name="add-validation-to-an-aspnet-core-mvc-app"></a>Aggiungere la funzionalità di convalida a un'app ASP.NET Core MVC
 
@@ -59,7 +59,7 @@ Si noti come il modulo ha eseguito automaticamente il rendering di un messaggio 
 
 Un vantaggio significativo è che non è necessario modificare una singola riga di codice nella classe `MoviesController` oppure nella vista *Create.cshtml* per abilitare l'interfaccia utente di convalida. Il controller e le viste creati in una fase precedente di questa esercitazione hanno selezionato automaticamente le regole di convalida specificate usando gli attributi di convalida delle proprietà della classe `Movie` del modello. Eseguire il test della convalida usando il metodo di azione `Edit` e viene applicata la stessa convalida.
 
-I dati del modulo non vengono inviati al server fino a quando non sono più presenti errori di convalida sul lato client. È possibile verificare questa condizione inserendo un punto di interruzione nel metodo `HTTP Post` usando lo [strumento Fiddler](http://www.telerik.com/fiddler) o gli [strumenti di sviluppo F12](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/).
+I dati del modulo non vengono inviati al server fino a quando non sono più presenti errori di convalida sul lato client. È possibile verificare questa condizione inserendo un punto di interruzione nel metodo `HTTP Post` usando lo [strumento Fiddler](http://www.telerik.com/fiddler) o gli [strumenti di sviluppo F12](/microsoft-edge/devtools-guide).
 
 ## <a name="how-validation-works"></a>Funzionamento della convalida
 
