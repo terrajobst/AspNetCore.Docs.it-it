@@ -5,14 +5,14 @@ description: Panoramica di ASP.NET Core SignalR JavaScript client.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 11/14/2018
+ms.date: 03/14/2019
 uid: signalr/javascript-client
-ms.openlocfilehash: db9a8bbc8f111728f0827e3639e40785149bf79e
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a0980dca2eb8d483a9d9f1c5667fb74ee06364f0
+ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56899216"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57978342"
 ---
 # <a name="aspnet-core-signalr-javascript-client"></a>ASP.NET Core SignalR JavaScript client
 
@@ -63,6 +63,9 @@ Client JavaScript chiamano metodi pubblici in hub tramite il [richiamare](/javas
 * Eventuali argomenti definiti nel metodo dell'hub. Nell'esempio seguente, è il nome dell'argomento `message`. Il codice di esempio Usa sintassi della funzione freccia è supportata nelle versioni correnti di tutti i principali browser, ad eccezione di Internet Explorer.
 
   [!code-javascript[Call hub methods](javascript-client/sample/wwwroot/js/chat.js?range=24)]
+
+> [!NOTE]
+> Se si usa il servizio Azure SignalR in *modalità senza server*, non è possibile chiamare i metodi dell'hub da un client. Per altre informazioni, vedere la [documentazione di SignalR Service](/azure/azure-signalr/signalr-concept-serverless-development-config).
 
 ## <a name="call-client-methods-from-hub"></a>Chiamare i metodi client hub
 
@@ -119,3 +122,4 @@ Un'implementazione reale potrebbe usare un backoff esponenziale o ripetere un nu
 * [Client .NET](xref:signalr/dotnet-client)
 * [Pubblicare in Azure](xref:signalr/publish-to-azure-web-app)
 * [Richieste Multiorigine (CORS)](xref:security/cors)
+* [Documentazione senza server di Azure SignalR Service](/azure/azure-signalr/signalr-concept-serverless-development-config)

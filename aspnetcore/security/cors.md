@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/27/2019
 uid: security/cors
-ms.openlocfilehash: eb8dd3b1c96d9060b0164dcd4d0fbe004ed4af84
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 6be8b4da1642a9eff021371c229a17071d6e9bfb
+ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346372"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57978471"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>Abilitare le richieste Multiorigine (CORS) in ASP.NET Core
 
@@ -446,11 +446,11 @@ Testare CORS:
 
   * Utilizzo di Microsoft Edge:
 
-    **SEC7120: [CORS] l'origine 'https://localhost:44375'non ha trovato'https://localhost:44375'nell'intestazione della risposta Access-Control-Allow-Origin per la risorsa cross-origin'https://webapi.azurewebsites.net/api/values/1'.**
+    **SEC7120: [CORS] origine `https://localhost:44375` non ha trovato `https://localhost:44375` nell'intestazione della risposta Access-Control-Allow-Origin per la risorsa cross-origin in `https://webapi.azurewebsites.net/api/values/1`**
 
   * Usa Chrome:
 
-    **Accesso a XMLHttpRequest in 'https://webapi.azurewebsites.net/api/values/1'dall'origine'https://localhost:44375' è stata bloccata dal criterio CORS: Nessuna intestazione 'Access-Control-Allow-Origin' è presente nella risorsa richiesta.**
+    **Accesso a XMLHttpRequest al `https://webapi.azurewebsites.net/api/values/1` dall'origine `https://localhost:44375` è stata bloccata dal criterio CORS: Nessuna intestazione 'Access-Control-Allow-Origin' è presente nella risorsa richiesta.**
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

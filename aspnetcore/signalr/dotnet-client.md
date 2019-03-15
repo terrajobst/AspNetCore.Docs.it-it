@@ -5,14 +5,14 @@ description: Informazioni relative al Client .NET di ASP.NET Core SignalR
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 09/10/2018
+ms.date: 03/14/2019
 uid: signalr/dotnet-client
-ms.openlocfilehash: 25b618f7a424b217c0fb55417754ea358280b95a
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: a03abef53aa44f0a1016b8f72d8e3a7af2f9bed1
+ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54836306"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57978304"
 ---
 # <a name="aspnet-core-signalr-net-client"></a>Client .NET di ASP.NET Core SignalR
 
@@ -64,6 +64,9 @@ In un `Closed` gestore che riavvia la connessione, è consigliabile attendere un
 
 [!code-csharp[InvokeAsync method](dotnet-client/sample/signalrchatclient/MainWindow.xaml.cs?name=snippet_InvokeAsync)]
 
+> [!NOTE]
+> Se si usa il servizio Azure SignalR in *modalità senza server*, non è possibile chiamare i metodi dell'hub da un client. Per altre informazioni, vedere la [documentazione di SignalR Service](/azure/azure-signalr/signalr-concept-serverless-development-config).
+
 ## <a name="call-client-methods-from-hub"></a>Chiamare i metodi client hub
 
 Definire i metodi dell'hub le chiamate effettuate tramite `connection.On` dopo la compilazione, ma prima di avviare la connessione.
@@ -85,3 +88,4 @@ Gestire gli errori con un'istruzione try-catch. Esaminare il `Exception` oggetto
 * [Hub](xref:signalr/hubs)
 * [Client JavaScript](xref:signalr/javascript-client)
 * [Pubblicare in Azure](xref:signalr/publish-to-azure-web-app)
+* [Documentazione senza server di Azure SignalR Service](/azure/azure-signalr/signalr-concept-serverless-development-config)
