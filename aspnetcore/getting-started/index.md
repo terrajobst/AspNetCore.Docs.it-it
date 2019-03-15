@@ -59,8 +59,8 @@ dotnet dev-certs https --trust
 
 Il comando precedente consente di visualizzare il messaggio seguente:
 
-*Trusting the HTTPS development certificate was requested (È stato richiesto di considerare attendibile il certificato di sviluppo HTTPS). Se il certificato non è già stato considerato attendibile, il comando seguente non viene eseguito:* `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'`.
- 
+*Trusting the HTTPS development certificate was requested (È stato richiesto di considerare attendibile il certificato di sviluppo HTTPS). Se il certificato non è già attendibile, verrà eseguito il comando seguente:* `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'`
+
 Questo comando potrebbe richiedere la password per installare il certificato nella keychain di sistema. Inserire la password se si accetta di considerare attendibile il certificato di sviluppo.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)

@@ -1,18 +1,12 @@
 ---
 title: Introduzione a Razor Components
 author: guardrex
-description: Esplorare ASP.NET Core Razor Components, un modo per creare un'interfaccia utente Web sul lato client interattiva con .NET in un'app ASP.NET Core.
+description: 'Esplorare ASP.NET Core Razor Components, un modo per creare un''interfaccia utente Web sul lato client interattiva con .NET in un''app ASP.NET Core.'
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/12/2019
+ms.date: 03/13/2019
 uid: razor-components/index
-ms.openlocfilehash: 04a73d33cee0deedaf3dc97395836a936b580fbd
-ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56159526"
 ---
 # <a name="introduction-to-razor-components"></a>Introduzione a Razor Components
 
@@ -54,11 +48,11 @@ Per ulteriori informazioni, vedere <xref:razor-components/hosting-models#server-
 
 Un *componente Razor* è una parte dell'interfaccia utente, ad esempio una pagina, una finestra di dialogo o un modulo per l'immissione dei dati. I componenti gestiscono gli eventi utente e definiscono la logica di rendering dell'interfaccia utente flessibile. I componenti possono essere annidati e riutilizzati.
 
-I componenti sono classi .NET compilate in assembly .NET che possono essere condivisi e distribuiti come pacchetti NuGet. La classe può essere scritta sotto forma di una pagina di markup Razor (*.cshtml*) o come una classe C# (*.cs*).
+I componenti sono classi .NET compilate in assembly .NET che possono essere condivisi e distribuiti come pacchetti NuGet. La classe viene in genere scritta sotto forma di pagina di markup Razor in un file con estensione *.razor*.
 
 [Razor](xref:mvc/views/razor) è una sintassi per la combinazione di markup HTML con codice C#. Razor è progettato per la produttività degli sviluppatori, consentendo loro di alternare markup e C# nello stesso file con il supporto di [IntelliSense](/visualstudio/ide/using-intellisense). Anche le pagine Razor e le viste MVC usano Razor. Diversamente dalle pagine Razor e dalle viste MVC, che sono basate su un modello di richiesta/risposta, i componenti vengono usati in modo specifico per la gestione della composizione dell'interfaccia utente. È possibile usare Razor Components in modo specifico per la composizione e la logica dell'interfaccia utente sul lato client.
 
-Il markup seguente è un esempio di un componente finestra di dialogo personalizzato in un file Razor (*DialogComponent.cshtml*):
+Il markup seguente è un esempio di un componente finestra di dialogo personalizzato in un file Razor (*DialogComponent.razor*):
 
 ```cshtml
 <div>
