@@ -5,14 +5,14 @@ description: Informazioni su come gestire gli errori nelle app ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 03/01/2019
+ms.date: 03/05/2019
 uid: fundamentals/error-handling
-ms.openlocfilehash: a2ae2cb25c8cc5048b189b4035abbfc32a29aaff
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: d809c70b3fae6b2d21d5ec0871298d905b873d5d
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345494"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665363"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Gestire gli errori in ASP.NET Core
 
@@ -24,9 +24,9 @@ Questo articolo descrive gli approcci comuni per la gestione degli errori nelle 
 
 ## <a name="developer-exception-page"></a>Pagina delle eccezioni per gli sviluppatori
 
-Per configurare un'app in modo che sia visualizzata una pagina contenente informazioni dettagliate sulle eccezioni, usare la *pagina delle eccezioni per gli sviluppatori*. La pagina è disponibile nel pacchetto [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) che si trova nel [metapacchetto Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app). Aggiungere una riga al metodo `Startup.Configure`:
+Per configurare un'app in modo da visualizzare una pagina contenente informazioni dettagliate sulle eccezioni delle richieste, usare la *pagina delle eccezioni per gli sviluppatori*. La pagina è disponibile nel pacchetto [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) che si trova nel [metapacchetto Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app). Aggiungere una riga al metodo `Startup.Configure` quando l'app è in esecuzione nell'[ambiente](xref:fundamentals/environments) di sviluppo:
 
-[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_DevExceptionPage&highlight=5)]
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_UseDeveloperExceptionPage)]
 
 Posizionare la chiamata a <xref:Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions.UseDeveloperExceptionPage*> davanti al middleware in cui si vogliono rilevare le eccezioni.
 
@@ -50,7 +50,7 @@ Quando l'app non è in esecuzione nell'ambiente di sviluppo, chiamare il metodo 
 
 Nell'esempio seguente dall'app di esempio, <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> aggiunge il middleware di gestione delle eccezioni in ambienti non di sviluppo. Il metodo di estensione specifica una pagina di errore o un controller nell'endpoint `/Error` per le richieste rieseguite dopo l'intercettazione e la registrazione delle eccezioni:
 
-[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_DevExceptionPage&highlight=9)]
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_UseExceptionHandler1)]
 
 Il modello di app Razor Pages fornisce una pagina di errore (*.cshtml*) e una classe <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> (`ErrorModel`) nella cartella Pages.
 
@@ -66,6 +66,36 @@ public IActionResult Error()
 ```
 
 Non decorare il metodo dell'azione di gestione degli errori con attributi di metodo HTTP, ad esempio `HttpGet`. I verbi espliciti impediscono ad alcune richieste di raggiungere il metodo. Consentire l'accesso anonimo al metodo in modo che gli utenti non autenticati possano ricevere la visualizzazione degli errori.
+
+## <a name="access-the-exception"></a>Accedere all'eccezione
+
+Usare <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> per accedere all'eccezione o al percorso della richiesta originale in un controller o in una pagina:
+
+* Il percorso è disponibile dalla proprietà <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature.Path>.
+* Leggere <xref:System.Exception?displayProperty=fullName> dalla proprietà [IExceptionHandlerFeature.Error](xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature.Error) ereditata.
+
+```csharp
+// using Microsoft.AspNetCore.Diagnostics;
+
+var exceptionHandlerPathFeature = 
+    HttpContext.Features.Get<IExceptionHandlerPathFeature>();
+var path = exceptionHandlerPathFeature?.Path;
+var error = exceptionHandlerPathFeature?.Error;
+```
+
+> [!WARNING]
+> **Non** fornire informazioni sugli errori sensibili da <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature> o <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> ai client. Fornire informazioni sugli errori rappresenta un rischio di sicurezza.
+
+## <a name="configure-custom-exception-handling-code"></a>Configurare codice di gestione delle eccezioni personalizzato
+
+Un'alternativa al fornire un endpoint per gli errori con una [pagina di gestione delle eccezioni personalizzata](#configure-a-custom-exception-handling-page) consiste nel fornire un funzione lambda a <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*>. L'uso di una funzione lambda con <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> consente l'accesso all'errore prima di restituire la risposta.
+
+L'app di esempio illustra il codice di gestione delle eccezioni personalizzato in `Startup.Configure`. Generare un'eccezione tramite il collegamento **Throw Exception** (Genera eccezione) nella pagina Index. Viene eseguita la funzione lambda seguente:
+
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_UseExceptionHandler2)]
+
+> [!WARNING]
+> **Non** fornire informazioni sugli errori sensibili da <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature> o <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> ai client. Fornire informazioni sugli errori rappresenta un rischio di sicurezza.
 
 ## <a name="configure-status-code-pages"></a>Configurare le tabelle codici di stato
 
@@ -265,7 +295,7 @@ Inoltre, tenere presente che dopo l'invio delle intestazioni di risposta:
 
 ## <a name="server-exception-handling"></a>Gestione delle eccezioni del server
 
-Oltre alla logica di gestione delle eccezioni nell'app, l'[implementazione del server](xref:fundamentals/servers/index) può gestire alcune eccezioni. Se rileva un'eccezione prima dell'invio delle intestazioni di risposta, il server invia una risposta *500 - Errore interno del server* senza corpo. Se il server rileva un'eccezione dopo l'invio delle intestazioni di risposta, il server chiude la connessione. Le richieste che non sono gestite dall'app vengono gestite dal server. Tutte le eccezioni vengono gestite dalla gestione delle eccezioni del server. Eventuali pagine di errore personalizzate, middleware di gestione delle eccezioni o filtri configurati non hanno effetto su questo comportamento.
+Oltre alla logica di gestione delle eccezioni nell'app, l'[implementazione del server](xref:fundamentals/servers/index) può gestire alcune eccezioni. Se rileva un'eccezione prima dell'invio delle intestazioni di risposta, il server invia una risposta *500 - Errore interno del server* senza corpo. Se il server rileva un'eccezione dopo l'invio delle intestazioni di risposta, il server chiude la connessione. Le richieste che non sono gestite dall'app vengono gestite dal server. Qualsiasi eccezione che si verifica quando il server sta gestendo la richiesta viene gestita dalla gestione delle eccezioni del server. Eventuali pagine di errore personalizzate dell'app, middleware di gestione delle eccezioni e filtri non hanno effetto su questo comportamento.
 
 ## <a name="startup-exception-handling"></a>Gestione delle eccezioni durante l'avvio
 
@@ -285,10 +315,10 @@ Le app [MVC](xref:mvc/overview) includono alcune opzioni aggiuntive per la gesti
 
 ### <a name="exception-filters"></a>Filtri eccezioni
 
-I filtri delle eccezioni possono essere configurati a livello globale o per singolo controller o azione in un'app MVC. Questi filtri gestiscono tutte le eccezioni non gestite che si verificano durante l'esecuzione di un'azione del controller o di un altro filtro e non vengono chiamati in altro modo. Per altre informazioni, vedere <xref:mvc/controllers/filters>.
+I filtri delle eccezioni possono essere configurati a livello globale o per singolo controller o azione in un'app MVC. Questi filtri gestiscono tutte le eccezioni non gestite che si verificano durante l'esecuzione di un'azione del controller o di un altro filtro e non vengono chiamati in altro modo. Per ulteriori informazioni, vedere <xref:mvc/controllers/filters#exception-filters>.
 
 > [!TIP]
-> I filtri delle eccezioni sono utili per intercettare le eccezioni che si verificano all'interno di azioni MVC, ma non sono flessibili come il middleware di gestione degli errori. È consigliabile l'uso del middleware. Usare i filtri solo quando è necessario eseguire la gestione degli errori *in modo diverso* in base all'azione MVC scelta.
+> I filtri delle eccezioni sono utili per intercettare le eccezioni che si verificano all'interno di azioni MVC, ma non sono flessibili come il middleware di gestione degli errori. È consigliabile usare il middleware. Usare i filtri solo quando è necessario eseguire la gestione degli errori *in modo diverso* in base all'azione MVC scelta.
 
 ### <a name="handle-model-state-errors"></a>Gestire gli errori di stato del modello
 
