@@ -4,14 +4,14 @@ author: guardrex
 description: Informazioni su come diagnosticare i problemi delle distribuzioni Internet Information Services (IIS) di app ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 03/06/2019
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: 68fcd578c051ae9ba6234cad0465a7ef42f1ed14
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: 2f36ae2bda8537e91a3bc925505986bdd6a22a47
+ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637690"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57841553"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>Risolvere i problemi di ASP.NET Core in IIS
 
@@ -236,13 +236,51 @@ Vedere <xref:host-and-deploy/azure-iis-errors-reference>. Nell'argomento di rife
 
 Se un'app è in grado di rispondere alle richieste, è possibile ottenere dati sulle richieste, le connessioni e altri dati dall'app tramite middleware inline di terminale. Per altre informazioni e codice di esempio, vedere <xref:test/troubleshoot#obtain-data-from-an-app>.
 
-## <a name="slow-or-hanging-app"></a>App lenta o bloccata
+## <a name="create-a-dump"></a>Creare un dump
 
-Quando un'app risponde lentamente o si blocca durante una richiesta, ottenere e analizzare un [file dump](/visualstudio/debugger/using-dump-files). I file dump possono essere ottenuti usando uno degli strumenti seguenti:
+Un *dump* è uno snapshot della memoria del sistema e può essere utile per determinare la causa di un arresto anomalo dell'app, un errore di avvio o un'app lenta.
 
-* [ProcDump](/sysinternals/downloads/procdump)
-* [DebugDiag](https://www.microsoft.com/download/details.aspx?id=49924)
-* WinDbg: [download degli strumenti di debug per Windows](https://developer.microsoft.com/windows/hardware/download-windbg), [debug tramite WinDbg](/windows-hardware/drivers/debugger/debugging-using-windbg)
+### <a name="app-crashes-or-encounters-an-exception"></a>Arresto anomalo o eccezione di un'app
+
+Ottenere e analizzare un dump da [Segnalazione errori Windows](/windows/desktop/wer/windows-error-reporting):
+
+1. Creare una cartella per i file dump di arresto anomalo del sistema in `c:\dumps`. Il pool di app deve avere accesso in scrittura alla cartella.
+1. Eseguire lo [script di PowerShell EnableDumps](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/troubleshoot/scripts/EnableDumps.ps1):
+   * Se l'app usa il [modello di hosting in-process](xref:fundamentals/servers/index#in-process-hosting-model), eseguire lo script per *w3wp.exe*:
+
+     ```console
+     .\EnableDumps w3wp.exe c:\dumps
+     ```
+   * Se l'app usa il [modello di hosting out-of-process](xref:fundamentals/servers/index#out-of-process-hosting-model), eseguire lo script per *dotnet.exe*:
+
+     ```console
+     .\EnableDumps dotnet.exe c:\dumps
+     ```
+1. Eseguire l'app nelle condizioni che causano l'arresto anomalo.
+1. Dopo che si è verificato l'arresto anomalo, eseguire lo [script di PowerShell DisableDumps](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/troubleshoot/scripts/DisableDumps.ps1):
+   * Se l'app usa il [modello di hosting in-process](xref:fundamentals/servers/index#in-process-hosting-model), eseguire lo script per *w3wp.exe*:
+
+     ```console
+     .\DisableDumps w3wp.exe
+     ```
+   * Se l'app usa il [modello di hosting out-of-process](xref:fundamentals/servers/index#out-of-process-hosting-model), eseguire lo script per *dotnet.exe*:
+
+     ```console
+     .\DisableDumps dotnet.exe
+     ```
+
+Dopo l'arresto anomalo di un'app e la raccolta dei dump, l'app può terminare normalmente. Lo script di PowerShell configura Segnalazione errori Windows per raccogliere fino a cinque dump per ogni app.
+
+> [!WARNING]
+> I dump di arresto anomalo del sistema potrebbero richiedere una grande quantità di spazio su disco (fino a diversi gigabyte ognuno).
+
+### <a name="app-hangs-fails-during-startup-or-runs-normally"></a>L'app si blocca, si verifica un errore durante l'avvio o viene eseguita normalmente
+
+Quando un'app si *blocca* (smette di rispondere ma senza arresto anomalo), si verifica un errore durante l'avvio o viene eseguita normalmente, vedere [User-Mode Dump Files: Choosing the Best Tool](/windows-hardware/drivers/debugger/user-mode-dump-files#choosing-the-best-tool) (File dump in modalità utente: scelta dello strumento migliore) per selezionare uno strumento appropriato per produrre il dump.
+
+### <a name="analyze-the-dump"></a>Analizzare il dump
+
+È possibile analizzare un dump usando diversi approcci. Per altre informazioni, vedere [Analyzing a User-Mode Dump File](/windows-hardware/drivers/debugger/analyzing-a-user-mode-dump-file) (Analisi di un file dump in modalità utente).
 
 ## <a name="remote-debugging"></a>Debug remoto
 

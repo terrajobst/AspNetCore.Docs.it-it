@@ -5,14 +5,14 @@ description: Informazioni su come ospitare un'app ASP.NET Core in un servizio Wi
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 03/08/2019
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 081a631c9c3e74c01e15f4b0b272d650c162bd20
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: ecc7f3a8cd813c2803d03294e38d726905eeb1b8
+ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248251"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57841423"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Ospitare ASP.NET Core in un servizio Windows
 
@@ -21,6 +21,10 @@ Di [Luke Latham](https://github.com/guardrex) e [Tom Dykstra](https://github.com
 È possibile ospitare un'app ASP.NET Core in Windows come [servizio Windows](/dotnet/framework/windows-services/introduction-to-windows-service-applications) senza usare IIS. Quando è ospitata come servizio Windows, l'app viene avviata automaticamente dopo ogni riavvio.
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/windows-service/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+
+## <a name="prerequisites"></a>Prerequisiti
+
+* [PowerShell 6](https://github.com/PowerShell/PowerShell)
 
 ## <a name="deployment-type"></a>Tipo di distribuzione
 
@@ -121,13 +125,13 @@ Modificare `Program.Main` nel modo seguente:
 
 [!code-csharp[](windows-service/samples/2.x/AspNetCoreService/Program.cs?name=snippet_Program)]
 
-### <a name="publish-the-app"></a>Pubblicare l'app
+## <a name="publish-the-app"></a>Pubblicare l'app
 
 Pubblicare l'app usando [dotnet publish](/dotnet/articles/core/tools/dotnet-publish), un [profilo di pubblicazione di Visual Studio](xref:host-and-deploy/visual-studio-publish-profiles) o Visual Studio Code. Quando si usa Visual Studio, selezionare **FolderProfile** e configurare il **Percorso di destinazione** prima di selezionare il pulsante **Pubblica**.
 
 Per pubblicare l'app di esempio con strumenti dell'interfaccia della riga di comando, eseguire il comando [dotnet publish](/dotnet/core/tools/dotnet-publish) da un prompt dei comandi dalla cartella del progetto passando una configurazione Versione all'opzione [-c|--configuration](/dotnet/core/tools/dotnet-publish#options). Usare l'opzione [-o|--output](/dotnet/core/tools/dotnet-publish#options) con un percorso per pubblicare in una cartella all'esterno dell'app.
 
-#### <a name="publish-a-framework-dependent-deployment-fdd"></a>Pubblicare una distribuzione dipendente dal framework
+### <a name="publish-a-framework-dependent-deployment-fdd"></a>Pubblicare una distribuzione dipendente dal framework
 
 Nell'esempio seguente l'app viene pubblicata nella cartella *c:\\svc*:
 
@@ -135,7 +139,7 @@ Nell'esempio seguente l'app viene pubblicata nella cartella *c:\\svc*:
 dotnet publish --configuration Release --output c:\svc
 ```
 
-#### <a name="publish-a-self-contained-deployment-scd"></a>Pubblicare una distribuzione autonoma
+### <a name="publish-a-self-contained-deployment-scd"></a>Pubblicare una distribuzione autonoma
 
 L'identificatore di runtime deve essere specificato nella proprietà `<RuntimeIdenfifier>` (o `<RuntimeIdentifiers>`) del file di progetto. Specificare il runtime per l'opzione [-r|--runtime](/dotnet/core/tools/dotnet-publish#options) del comando `dotnet publish`.
 
@@ -145,11 +149,11 @@ Nell'esempio seguente l'app viene pubblicata per il runtime `win7-x64` nella car
 dotnet publish --configuration Release --runtime win7-x64 --output c:\svc
 ```
 
-### <a name="create-a-user-account"></a>Creare un account utente
+## <a name="create-a-user-account"></a>Creare un account utente
 
-Creare un account utente per il servizio usando il comando `net user` da una shell dei comandi amministrativa:
+Creare un account utente per il servizio usando il comando `net user` da una shell dei comandi di PowerShell 6 amministrativa:
 
-```console
+```powershell
 net user {USER ACCOUNT} {PASSWORD} /add
 ```
 
@@ -157,13 +161,13 @@ La scadenza della password predefinita è di sei settimane.
 
 Per l'app di esempio, creare un account utente con il nome `ServiceUser` e una password. Nel comando seguente sostituire `{PASSWORD}` con una [password complessa](/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements).
 
-```console
+```powershell
 net user ServiceUser {PASSWORD} /add
 ```
 
 Se è necessario aggiungere l'utente a un gruppo, usare il comando `net localgroup`, dove `{GROUP}` è il nome del gruppo:
 
-```console
+```powershell
 net localgroup {GROUP} {USER ACCOUNT} /add
 ```
 
@@ -171,13 +175,11 @@ Per altre informazioni, vedere [Service User Accounts](/windows/desktop/services
 
 Un approccio alternativo per la gestione degli utenti quando si usa Active Directory consiste nell'usare account del servizio gestito. Per altre informazioni, vedere [Panoramica degli account del servizio gestito del gruppo](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview).
 
-### <a name="set-permissions"></a>Impostare le autorizzazioni
+## <a name="set-permission-log-on-as-a-service"></a>Impostare l'autorizzazione: Accedi come servizio
 
-#### <a name="access-to-the-app-folder"></a>Accesso alla cartella dell'app
+Concedere l'accesso per scrittura/lettura/esecuzione alla cartella dell'app usando il comando [icacls](/windows-server/administration/windows-commands/icacls):
 
-Concedere l'accesso per scrittura/lettura/esecuzione alla cartella dell'app usando il comando [icacls](/windows-server/administration/windows-commands/icacls) da una shell dei comandi amministrativa:
-
-```console
+```powershell
 icacls "{PATH}" /grant {USER ACCOUNT}:(OI)(CI){PERMISSION FLAGS} /t
 ```
 
@@ -195,82 +197,69 @@ icacls "{PATH}" /grant {USER ACCOUNT}:(OI)(CI){PERMISSION FLAGS} /t
 
 Per l'app di esempio pubblicata nella cartella *c:\\svc* e l'account `ServiceUser` con autorizzazioni di scrittura/lettura/esecuzione, usare il comando seguente:
 
-```console
+```powershell
 icacls "c:\svc" /grant ServiceUser:(OI)(CI)WRX /t
 ```
 
 Per altre informazioni, vedere [icacls](/windows-server/administration/windows-commands/icacls).
 
-#### <a name="log-on-as-a-service"></a>Accedi come servizio
+## <a name="create-the-service"></a>Creare il servizio
 
-Per concedere il privilegio [Accedi come servizio](/windows/security/threat-protection/security-policy-settings/log-on-as-a-service) all'account utente:
+Usare lo script di PowerShell [RegisterService.ps1](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/windows-service/scripts) per la registrazione del servizio. Da un prompt dei comandi di PowerShell 6 amministrativo, eseguire il comando seguente:
 
-1. Individuare i criteri **Assegnazione diritti utente** nella console Criteri di sicurezza locali o nella console Editor Criteri di gruppo locali. Per istruzioni, vedere: [Configurare le impostazioni dei criteri di sicurezza](/windows/security/threat-protection/security-policy-settings/how-to-configure-security-policy-settings).
-1. Individuare i criteri `Log on as a service`. Fare doppio clic sul criterio per aprirlo.
-1. Selezionare **Aggiungi utente o gruppo**.
-1. Selezionare **Avanzate** e selezionare **Trova ora**.
-1. Selezionare l'account utente creato nella sezione [Creare un account utente](#create-a-user-account) in precedenza. Selezionare **OK** per accettare la selezione.
-1. Selezionare **OK** dopo aver confermato che il nome dell'oggetto è corretto.
-1. Scegliere il pulsante **Applica**. Selezionare **OK** per chiudere la finestra dei criteri.
-
-## <a name="manage-the-service"></a>Gestire il servizio
-
-### <a name="create-the-service"></a>Creare il servizio
-
-Usare lo strumento da riga di comando [sc.exe](https://technet.microsoft.com/library/bb490995) per creare il servizio da una shell dei comandi amministrativa. Il valore `binPath` rappresenta il percorso dell'eseguibile dell'app, che include il nome del file eseguibile. **Lo spazio tra il segno di uguale e il carattere di virgoletta di ogni parametro e valore è obbligatorio.**
-
-```console
-sc create {SERVICE NAME} binPath= "{PATH}" obj= "{DOMAIN}\{USER ACCOUNT}" password= "{PASSWORD}"
+```powershell
+.\RegisterService.ps1 
+    -Name {NAME} 
+    -DisplayName "{DISPLAY NAME}" 
+    -Description "{DESCRIPTION}" 
+    -Path "{PATH}" 
+    -Exe {ASSEMBLY}.exe 
+    -User {DOMAIN\USER}
 ```
-
-* `{SERVICE NAME}` &ndash; Nome da assegnare al servizio in [Gestione controllo servizi](/windows/desktop/services/service-control-manager).
-* `{PATH}` &ndash; Percorso dell'eseguibile del servizio.
-* `{DOMAIN}` &ndash; Dominio di un computer aggiunto a un dominio. Se il computer non è aggiunto a un dominio, usare il nome del computer locale.
-* `{USER ACCOUNT}` &ndash; Account utente con cui viene eseguito il servizio.
-* `{PASSWORD}` &ndash; Password dell'account utente.
-
-> [!WARNING]
-> **Non** omettere il parametro `obj`. Il valore predefinito per `obj` è l'account [LocalSystem](/windows/desktop/services/localsystem-account). L'esecuzione di un servizio nel contesto dell'account `LocalSystem` presenta rischi significativi per la sicurezza. Eseguire sempre un servizio con un account utente con privilegi limitati.
 
 Nell'esempio seguente per l'app di esempio:
 
 * Il servizio è denominato **MyService**.
-* Il servizio pubblicato risiede nella cartella *c:\\svc*. L'eseguibile dell'app è denominato *SampleApp.exe*. Racchiudere il valore `binPath` tra virgolette doppie (").
-* Il servizio viene eseguito nel contesto dell'account `ServiceUser`. Sostituire `{DOMAIN}` con il dominio dell'account utente o il nome del computer locale. Racchiudere il valore `obj` tra virgolette doppie ("). Esempio: se il sistema host è un computer locale denominato `MairaPC`, impostare `obj` su `"MairaPC\ServiceUser"`.
-* Sostituire `{PASSWORD}` con la password dell'account utente. Racchiudere il valore `password` tra virgolette doppie (").
+* Il servizio pubblicato risiede nella cartella *c:\\svc*. L'eseguibile dell'app è denominato *SampleApp.exe*.
+* Il servizio viene eseguito nel contesto dell'account `ServiceUser`. Nell'esempio seguente il nome del computer locale è `Desktop-PC`.
 
-```console
-sc create MyService binPath= "c:\svc\sampleapp.exe" obj= "{DOMAIN}\ServiceUser" password= "{PASSWORD}"
+```powershell
+.\RegisterService.ps1 
+    -Name MyService 
+    -DisplayName "My Cool Service" 
+    -Description "This is the Sample App service." 
+    -Path "c:\svc" 
+    -Exe SampleApp.exe 
+    -User Desktop-PC\ServiceUser
 ```
 
-> [!IMPORTANT]
-> Assicurarsi che siano presenti gli spazi tra i segni di uguale e i valori dei parametri.
+## <a name="manage-the-service"></a>Gestire il servizio
 
 ### <a name="start-the-service"></a>Avviare il servizio
 
-Avviare il servizio con il comando `sc start {SERVICE NAME}`.
+Avviare il servizio con il comando di PowerShell 6 `Start-Service -Name {NAME}`.
 
 Per avviare il servizio app di esempio, usare il comando seguente:
 
-```console
-sc start MyService
+```powershell
+Start-Service -Name MyService
 ```
 
 L'avvio del servizio richiede alcuni secondi.
 
 ### <a name="determine-the-service-status"></a>Determinare lo stato del servizio
 
-Per verificare lo stato del servizio, usare il comando `sc query {SERVICE NAME}`. Lo stato viene indicato con uno dei valori seguenti:
+Per verificare lo stato del servizio, usare il comando di PowerShell 6`Get-Service -Name {NAME}`. Lo stato viene indicato con uno dei valori seguenti:
 
-* `START_PENDING`
-* `RUNNING`
-* `STOP_PENDING`
-* `STOPPED`
+* `Starting`
+* `Running`
+* `Stopping`
+* `Stopped`
 
 Usare il comando seguente per verificare lo stato del servizio app di esempio:
 
-```console
-sc query MyService
+```powershell
+Get-Service -Name MyService
 ```
 
 ### <a name="browse-a-web-app-service"></a>Individuare un servizio app Web
@@ -281,28 +270,22 @@ Per il servizio app di esempio, selezionare l'app in `http://localhost:5000`.
 
 ### <a name="stop-the-service"></a>Arresta il servizio
 
-Arrestare il servizio con il comando `sc stop {SERVICE NAME}`.
+Arrestare il servizio con il comando di Powershell 6 `Stop-Service -Name {NAME}`.
 
 Per arrestare il servizio app di esempio, usare il comando seguente:
 
-```console
-sc stop MyService
+```powershell
+Stop-Service -Name MyService
 ```
 
-### <a name="delete-the-service"></a>Eliminare il servizio
+### <a name="remove-the-service"></a>Rimuovere il servizio
 
-Dopo il breve lasso di tempo necessario per arrestare il servizio, disinstallare il servizio con il comando `sc delete {SERVICE NAME}`.
+Dopo il breve lasso di tempo necessario per arrestare il servizio, rimuovere il servizio con il comando di PowerShell 6`Remove-Service -Name {NAME}`.
 
 Verificare lo stato del servizio app di esempio:
 
-```console
-sc query MyService
-```
-
-Quando il servizio app di esempio è nello stato `STOPPED`, usare il comando seguente per disinstallare il servizio app di esempio:
-
-```console
-sc delete MyService
+```powershell
+Remove-Service -Name MyService
 ```
 
 ## <a name="handle-starting-and-stopping-events"></a>Gestire gli eventi di avvio e arresto
