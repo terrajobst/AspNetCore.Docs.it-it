@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 01/10/2019
 uid: migration/proper-to-2x/membership-to-core-identity
-ms.openlocfilehash: 0b7001a311eeaaa78e3d52e2ec66d33ad057c381
-ms.sourcegitcommit: cec77d5ad8a0cedb1ecbec32834111492afd0cd2
+ms.openlocfilehash: 3b708da13ff9f2887eee87ea17844312a4fe1b8d
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54207408"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264727"
 ---
 # <a name="migrate-from-aspnet-membership-authentication-to-aspnet-core-20-identity"></a>Eseguire la migrazione dall'autenticazione di appartenenza ASP.NET a ASP.NET Core 2.0 Identity
 
@@ -54,6 +54,7 @@ Il modo più rapido per visualizzare lo schema per l'identità di ASP.NET Core 2
       }
     }
     ```
+
 1. Selezionare **View** > **Esplora oggetti di SQL Server**. Espandere il nodo corrispondente al nome del database specificato nella `ConnectionStrings:DefaultConnection` proprietà di *appSettings. JSON*.
 
     Il `Update-Database` comando ha creato il database specificato con lo schema e tutti i dati necessari per l'inizializzazione dell'app. La figura seguente viene illustrata la struttura della tabella che viene creata con i passaggi precedenti.
@@ -66,15 +67,15 @@ Esistono differenze minime nei campi relativi all'appartenenza e ASP.NET Core Id
 
 ### <a name="users"></a>Utenti
 
-|*Identità<br>(dbo. AspNetUsers)*        ||*Appartenenza<br>(dbo.aspnet_Users / dbo.aspnet_Membership)*||
+|*Identity<br>(dbo.AspNetUsers)*        ||*Membership<br>(dbo.aspnet_Users / dbo.aspnet_Membership)*||
 |----------------------------------------|-----------------------------------------------------------|
 |**Nome del campo**                 |**Type**|**Nome del campo**                                    |**Type**|
-|`Id`                           |stringa  |`aspnet_Users.UserId`                             |stringa  |
-|`UserName`                     |stringa  |`aspnet_Users.UserName`                           |stringa  |
-|`Email`                        |stringa  |`aspnet_Membership.Email`                         |stringa  |
-|`NormalizedUserName`           |stringa  |`aspnet_Users.LoweredUserName`                    |stringa  |
-|`NormalizedEmail`              |stringa  |`aspnet_Membership.LoweredEmail`                  |stringa  |
-|`PhoneNumber`                  |stringa  |`aspnet_Users.MobileAlias`                        |stringa  |
+|`Id`                           |string  |`aspnet_Users.UserId`                             |string  |
+|`UserName`                     |string  |`aspnet_Users.UserName`                           |string  |
+|`Email`                        |string  |`aspnet_Membership.Email`                         |string  |
+|`NormalizedUserName`           |string  |`aspnet_Users.LoweredUserName`                    |string  |
+|`NormalizedEmail`              |string  |`aspnet_Membership.LoweredEmail`                  |string  |
+|`PhoneNumber`                  |string  |`aspnet_Users.MobileAlias`                        |string  |
 |`LockoutEnabled`               |bit     |`aspnet_Membership.IsLockedOut`                   |bit     |
 
 > [!NOTE]
@@ -82,20 +83,20 @@ Esistono differenze minime nei campi relativi all'appartenenza e ASP.NET Core Id
 
 ### <a name="roles"></a>Ruoli
 
-|*Identità<br>(dbo. AspNetRoles)*        ||*Appartenenza<br>(dbo.aspnet_Roles)*||
+|*Identity<br>(dbo.AspNetRoles)*        ||*Membership<br>(dbo.aspnet_Roles)*||
 |----------------------------------------|-----------------------------------|
 |**Nome del campo**                 |**Type**|**Nome del campo**   |**Type**         |
-|`Id`                           |stringa  |`RoleId`         | stringa          |
-|`Name`                         |stringa  |`RoleName`       | stringa          |
-|`NormalizedName`               |stringa  |`LoweredRoleName`| stringa          |
+|`Id`                           |string  |`RoleId`         | string          |
+|`Name`                         |string  |`RoleName`       | string          |
+|`NormalizedName`               |string  |`LoweredRoleName`| string          |
 
 ### <a name="user-roles"></a>Ruoli utente
 
-|*Identità<br>(dbo. AspNetUserRoles)*||*Appartenenza<br>(dbo.aspnet_UsersInRoles)*||
+|*Identity<br>(dbo.AspNetUserRoles)*||*Membership<br>(dbo.aspnet_UsersInRoles)*||
 |------------------------------------|------------------------------------------|
 |**Nome del campo**           |**Type**  |**Nome del campo**|**Type**                   |
-|`RoleId`                 |stringa    |`RoleId`      |stringa                     |
-|`UserId`                 |stringa    |`UserId`      |stringa                     |
+|`RoleId`                 |string    |`RoleId`      |string                     |
+|`UserId`                 |string    |`UserId`      |string                     |
 
 Fare riferimento a tabelle di mapping precedenti durante la creazione di uno script di migrazione per *gli utenti* e *ruoli*. Nell'esempio seguente si presuppone due database in un server di database. Un database contiene lo schema di appartenenza ASP.NET esistente e i dati. L'altra *CoreIdentitySample* database è stato creato utilizzando i passaggi descritti in precedenza. I commenti sono incluse inline per altri dettagli.
 
@@ -127,7 +128,7 @@ SELECT aspnet_Users.UserId,
        -- Creates an empty password since passwords don't map between the 2 schemas
        '',
        /*
-        The SecurityStamp token is used to verify the state of an account and 
+        The SecurityStamp token is used to verify the state of an account and
         is subject to change at any time. It should be initialized as a new ID.
        */
        NewID(),

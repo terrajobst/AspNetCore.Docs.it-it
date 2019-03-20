@@ -5,12 +5,12 @@ description: Usare l'identità con un'app ASP.NET Core. Informazioni su come imp
 ms.author: riande
 ms.date: 08/08/2018
 uid: security/authentication/identity
-ms.openlocfilehash: d57ab5f2fdfabdfe3a987475d2db68b3fc1dec72
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 355c53e0c957944cb35c37c6b01e724af5f93f44
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209200"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265476"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Introduzione all'identità in ASP.NET Core
 
@@ -27,6 +27,7 @@ In questo argomento, informazioni su come usare l'identità per registrare, acce
 ::: moniker range=">= aspnetcore-2.1"
 
 <a name="adi"></a>
+
 ## <a name="adddefaultidentity-and-addidentity"></a>AddDefaultIdentity e AddIdentity
 
 [AddDefaultIdentity](/dotnet/api/microsoft.extensions.dependencyinjection.identityservicecollectionuiextensions.adddefaultidentity?view=aspnetcore-2.1#Microsoft_Extensions_DependencyInjection_IdentityServiceCollectionUIExtensions_AddDefaultIdentity__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_Microsoft_AspNetCore_Identity_IdentityOptions__) è stato introdotto in ASP.NET Core 2.1. La chiamata `AddDefaultIdentity` è simile alla chiamata seguente:
@@ -71,6 +72,7 @@ Eseguire l'app e registrare un utente. A seconda delle dimensioni dello schermo,
 [!INCLUDE[](~/includes/view-identity-db.md)]
 
 <a name="pw"></a>
+
 ### <a name="configure-identity-services"></a>Configurare i servizi di identità
 
 Aggiunta di servizi `ConfigureServices`. Il modello tipico consiste nel chiamare tutti i metodi `Add{Service}` e quindi chiamare tutti i metodi `services.Configure{Service}`.

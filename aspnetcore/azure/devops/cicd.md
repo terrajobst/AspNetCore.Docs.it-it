@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.date: 10/24/2018
 ms.custom: seodec18
 uid: azure/devops/cicd
-ms.openlocfilehash: 906aae3fd4b4abd0becc8847b0f54c372bda300a
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 676620b5dd151c9cd009d7cb278ed2c2b122c83f
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346307"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264878"
 ---
 # <a name="continuous-integration-and-deployment"></a>Integrazione continua e distribuzione
 
@@ -39,17 +39,23 @@ In questa sezione, si completeranno le attività seguenti:
 1. Scegliere il **crea repository** pulsante.
 1. Aprire shell dei comandi del computer locale. Passare alla directory in cui il *lettore di feed semplice* è archiviato il repository Git.
 1. Rinominare l'oggetto esistente *origin* remota a *upstream*. Eseguire il seguente comando:
+
     ```console
     git remote rename origin upstream
     ```
+
 1. Aggiungere un nuovo *origin* remota che puntano alla copia locale del repository in GitHub. Eseguire il seguente comando:
+
     ```console
     git remote add origin https://github.com/<GitHub_username>/simple-feed-reader/
     ```
+
 1. Pubblicare il repository Git locale al repository GitHub appena creato. Eseguire il seguente comando:
+
     ```console
     git push -u origin master
     ```
+
 1. Aprire una finestra del browser e passare a `https://github.com/<GitHub_username>/simple-feed-reader/`. Convalida che viene visualizzato il codice nel repository GitHub.
 
 ## <a name="disconnect-local-git-deployment"></a>Disconnettere la distribuzione Git locale
@@ -192,6 +198,7 @@ Esistono tre passaggi distinti per il completamento. Completare i passaggi nei r
     ```console
     git commit -a -m "upgraded to V4"
     ```
+
 1. Il push della modifica *master* branch per il *origin* remota del repository GitHub:
 
     ```console

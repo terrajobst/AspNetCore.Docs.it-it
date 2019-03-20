@@ -5,12 +5,12 @@ description: Informazioni su come creare un'app ASP.NET Core con messaggio di po
 ms.author: riande
 ms.date: 3/11/2019
 uid: security/authentication/accconfirm
-ms.openlocfilehash: d102ed0a4a75f6273fcda0a8cc7e9d091ff94b50
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 3bfc2ce46cfbc2ee308940f9e04eb2ffeec09073
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209925"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265491"
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Conferma account e recupero della password in ASP.NET Core
 
@@ -45,6 +45,7 @@ dotnet new webapp -au Individual -uld -o WebPWrecover
 cd WebPWrecover
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet restore
+dotnet tool install -g dotnet-aspnet-codegenerator
 dotnet aspnet-codegenerator identity -dc WebPWrecover.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout;Account.ConfirmEmail"
 dotnet ef database drop -f
 dotnet ef database update
@@ -63,6 +64,7 @@ Si noti la tabella `EmailConfirmed` campo è `False`.
 Si potrebbe voler utilizzare nuovamente questo messaggio di posta elettronica nel passaggio successivo, quando l'app invia un messaggio di posta elettronica di conferma. Fare doppio clic sulla riga e selezionare **Elimina**. L'eliminazione di alias di posta elettronica rende più semplice nella procedura seguente.
 
 <a name="prevent-login-at-registration"></a>
+
 ## <a name="require-email-confirmation"></a>Richiedere conferma tramite posta elettronica
 
 È consigliabile verificare che il messaggio di posta elettronica di una nuova registrazione utente. Inviare tramite posta elettronica di conferma consente di verificare che non sta rappresentando qualcun altro (vale a dire non hanno registrato con un altro messaggio di posta elettronica). Si supponga che si ha un forum di discussione e si desidera evitare che "yli@example.com"da registrare come"nolivetto@contoso.com". Senza conferma tramite posta elettronica, "nolivetto@contoso.com" può ricevere e-mail indesiderate dalla propria app. Si supponga che l'utente registrato accidentalmente come "ylo@example.com" e non l'aveste notato l'errore di ortografia di "yli". Essi non sarebbe in grado di utilizzare il recupero della password perché l'app non dispone di posta elettronica corretta. Conferma tramite posta elettronica fornisce una protezione limitata dal BOT. Conferma tramite posta elettronica non fornisce protezione da utenti malintenzionati con numero di account di posta elettronica.
@@ -96,13 +98,13 @@ In Windows, Secret Manager archivia le coppie di chiavi/valore in una *Secrets* 
 
 Il contenuto del *Secrets* file non vengono crittografati. Il markup seguente mostra le *Secrets* file. Il `SendGridKey` valore è stato rimosso.
 
- ```json
-  {
-    "SendGridUser": "RickAndMSFT",
-    "SendGridKey": "<key removed>"
-  }
-  ```
- 
+```json
+{
+  "SendGridUser": "RickAndMSFT",
+  "SendGridKey": "<key removed>"
+}
+```
+
 Per altre informazioni, vedere la [modello di opzioni](xref:fundamentals/configuration/options) e [configurazione](xref:fundamentals/configuration/index).
 
 ### <a name="install-sendgrid"></a>Installare SendGrid
@@ -130,6 +132,7 @@ dotnet add package SendGrid
 ------
 
 Visualizzare [inizia gratuitamente con SendGrid](https://sendgrid.com/free/) per registrare un account SendGrid gratuito.
+
 ### <a name="implement-iemailsender"></a>Implementare IEmailSender
 
 L'implementazione `IEmailSender`, creare *Services/EmailSender.cs* con codice simile al seguente:
@@ -213,6 +216,7 @@ Aggiungere il provider personalizzato al contenitore del servizio:
 Visualizzare [questo problema su GitHub](https://github.com/aspnet/AspNetCore/issues/5410).
 
 <a name="debug"></a>
+
 ### <a name="debug-email"></a>Eseguire il debug tramite posta elettronica
 
 Se non è possibile ottenere l'indirizzo di posta elettronica funzionante:
