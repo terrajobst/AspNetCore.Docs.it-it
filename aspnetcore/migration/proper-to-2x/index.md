@@ -5,12 +5,6 @@ description: Indicazioni sulla migrazione di app ASP.NET MVC o Web API esistenti
 ms.author: scaddie
 ms.date: 12/11/2018
 uid: migration/proper-to-2x/index
-ms.openlocfilehash: a9eef832a68afa1a73e3c7c545378da190602ce2
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284396"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core"></a>Eseguire la migrazione da ASP.NET ad ASP.NET Core
 
@@ -66,10 +60,10 @@ ASP.NET Core usa un approccio simile, ma non si basa su OWIN per gestire la voce
 
 `Startup` deve includere un metodo `Configure`. In `Configure` aggiungere il middleware necessario alla pipeline. Nell'esempio seguente, estratto dal modello di sito Web predefinito, i metodi di estensione configurano la pipeline con il supporto per:
 
-* Pagine di errore
-* Protocollo HTTP Strict Transport Security (HSTS)
-* Reindirizzamento HTTP a HTTPS
-* ASP.NET Core MVC
+- Pagine di errore
+- Protocollo HTTP Strict Transport Security (HSTS)
+- Reindirizzamento HTTP a HTTPS
+- ASP.NET Core MVC
 
 [!code-csharp[](samples/startup.cs)]
 
@@ -118,15 +112,15 @@ Nelle app ASP.NET gli sviluppatori si affidano a una libreria di terze parti per
 
 Un esempio di configurazione dell'inserimento delle dipendenze con Unity è l'implementazione di `IDependencyResolver` che esegue il wrapping di un oggetto `UnityContainer`:
 
-[!code-csharp[](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample8.cs)]
+[!code-csharp[](samples/sample8.cs)]
 
 Creare un'istanza di `UnityContainer`, registrare il servizio e impostare il sistema di risoluzione delle dipendenze di `HttpConfiguration` sulla nuova istanza di `UnityResolver` per il contenitore:
 
-[!code-csharp[](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample9.cs)]
+[!code-csharp[](samples/sample9.cs)]
 
 Inserire `IProductRepository` dove necessario:
 
-[!code-csharp[](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample5.cs)]
+[!code-csharp[](samples/sample5.cs)]
 
 Poiché l'inserimento delle dipendenze fa parte di ASP.NET Core, è possibile aggiungere il servizio nel metodo `ConfigureServices` di *Startup.cs*:
 

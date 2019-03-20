@@ -308,7 +308,7 @@ dotnet run -CLKey1=value1 -CLKey2=value2
 
 Dopo aver eseguito il comando precedente, la configurazione contiene i valori mostrati nella tabella seguente.
 
-| Chiave               | Valore    |
+| Chiave               | Value    |
 | ----------------- | -------- |
 | `CommandLineKey1` | `value1` |
 | `CommandLineKey2` | `value2` |
@@ -530,8 +530,6 @@ Gli overload consentono di specificare:
 * Se il file è facoltativo.
 * Se la configurazione viene ricaricata se viene modificato il file.
 * Il <xref:Microsoft.Extensions.FileProviders.IFileProvider> usato per accedere al file.
-
-
 
 `AddJsonFile` viene chiamato automaticamente due volte quando si inizializza un nuovo <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> con <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*>. Il metodo viene chiamato per caricare la configurazione da:
 
