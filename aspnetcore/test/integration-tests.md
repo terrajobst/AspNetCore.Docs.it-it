@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/25/2019
 uid: test/integration-tests
-ms.openlocfilehash: 053713e148df70b0be6bb567b55b2381a78d6c3e
-ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
+ms.openlocfilehash: 50cb6b26be187c7f36f189e77fd29b4559221f2c
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833579"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209239"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Test di integrazione in ASP.NET Core
 
@@ -91,7 +91,7 @@ Il `Microsoft.AspNetCore.Mvc.Testing` pacchetto gestisce le attività seguenti:
 Il [unit test](/dotnet/articles/core/testing/unit-testing-with-dotnet-test) documentazione viene descritto come configurare un test progetto e test runner, oltre a istruzioni dettagliate su come eseguire i test e indicazioni sulle modalità per i test di nome e le classi di test.
 
 > [!NOTE]
-> Quando si crea un progetto di test per un'app, separare gli unit test dal test di integrazione in progetti diversi. Ciò garantisce che componenti dell'infrastruttura di test non accidentalmente sono inclusi negli unit test. La separazione di unit test e integrazione test consente anche controllare su quali set di test vengono eseguiti.
+> Quando si crea un progetto di test per un'app, separare gli unit test dal test di integrazione in progetti diversi. Questo garantisce che i componenti dell'infrastruttura di test non sono inclusi accidentalmente negli unit test. La separazione di unit test e integrazione test consente anche controllare su quali set di test vengono eseguiti.
 
 Non è praticamente alcuna differenza tra la configurazione per i test delle App Razor Pages e App MVC. L'unica differenza è in modalità di denominazione dei test. In un'app Razor Pages, sono in genere denominati test degli endpoint di pagina dopo la classe di modello di pagina (ad esempio, `IndexPageTests` per verificare l'integrazione di componenti per la pagina di indice). In un'app MVC, i test sono in genere organizzati per classi controller e denominati dopo i controller eseguono il test (ad esempio, `HomeControllerTests` per verificare l'integrazione di componenti per il controller Home).
 

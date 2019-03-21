@@ -5,12 +5,12 @@ description: ''
 ms.author: tdykstra
 ms.date: 12/07/2016
 uid: migration/http-modules
-ms.openlocfilehash: 601b93fb12ab5b37b7d8ad8fd9825accc6e314cd
-ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
+ms.openlocfilehash: 516230a66ee3edba986c91d79684256aa8e4c994
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56743855"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209846"
 ---
 # <a name="migrate-http-handlers-and-modules-to-aspnet-core-middleware"></a>Eseguire la migrazione di moduli e gestori HTTP in middleware di ASP.NET Core
 
@@ -26,29 +26,29 @@ Prima di procedere al middleware di ASP.NET Core, è opportuno innanzitutto riep
 
 **I gestori sono:**
 
-   * Le classi che implementano [IHttpHandler](/dotnet/api/system.web.ihttphandler)
+* Le classi che implementano [IHttpHandler](/dotnet/api/system.web.ihttphandler)
 
-   * Consente di gestire le richieste con un nome file specificato o l'estensione, ad esempio *.report*
+* Consente di gestire le richieste con un nome file specificato o l'estensione, ad esempio *.report*
 
-   * [Configurata](/iis/configuration/system.webserver/handlers/) in *Web. config*
+* [Configurata](/iis/configuration/system.webserver/handlers/) in *Web. config*
 
 **I moduli sono:**
 
-   * Le classi che implementano [IHttpModule](/dotnet/api/system.web.ihttpmodule)
+* Le classi che implementano [IHttpModule](/dotnet/api/system.web.ihttpmodule)
 
-   * Richiamato per ogni richiesta
+* Richiamato per ogni richiesta
 
-   * In grado di corto circuito (interrompere ulteriore elaborazione di una richiesta)
+* In grado di corto circuito (interrompere ulteriore elaborazione di una richiesta)
 
-   * Possibilità di aggiungere alla risposta HTTP, o crearne di propri
+* Possibilità di aggiungere alla risposta HTTP, o crearne di propri
 
-   * [Configurata](/iis/configuration/system.webserver/modules/) in *Web. config*
+* [Configurata](/iis/configuration/system.webserver/modules/) in *Web. config*
 
 **L'ordine in cui i moduli elaborino le richieste in ingresso è determinato da:**
 
-   1. Il [ciclo di vita dell'applicazione](https://msdn.microsoft.com/library/ms227673.aspx), ovvero un eventi della serie generato da ASP.NET: [BeginRequest](/dotnet/api/system.web.httpapplication.beginrequest), [AuthenticateRequest](/dotnet/api/system.web.httpapplication.authenticaterequest), etc. Ogni modulo è possibile creare un gestore per uno o più eventi.
+1. Il [ciclo di vita dell'applicazione](https://msdn.microsoft.com/library/ms227673.aspx), ovvero un eventi della serie generato da ASP.NET: [BeginRequest](/dotnet/api/system.web.httpapplication.beginrequest), [AuthenticateRequest](/dotnet/api/system.web.httpapplication.authenticaterequest), etc. Ogni modulo è possibile creare un gestore per uno o più eventi.
 
-   2. Per lo stesso evento, l'ordine in cui configurarli nel *Web. config*.
+2. Per lo stesso evento, l'ordine in cui configurarli nel *Web. config*.
 
 Oltre ai moduli, è possibile aggiungere gestori per gli eventi del ciclo di vita per le *Global.asax.cs* file. Dopo i gestori nei moduli configurati, eseguire questi gestori.
 
@@ -56,29 +56,29 @@ Oltre ai moduli, è possibile aggiungere gestori per gli eventi del ciclo di vit
 
 **Middleware sono più semplici rispetto a gestori e moduli HTTP:**
 
-   * I moduli, gestori *Global.asax.cs*, *Web. config* (ad eccezione di configurazione di IIS) e il ciclo di vita dell'applicazione sono stati eliminati
+* I moduli, gestori *Global.asax.cs*, *Web. config* (ad eccezione di configurazione di IIS) e il ciclo di vita dell'applicazione sono stati eliminati
 
-   * I ruoli di entrambi i moduli e gestori sono stati eseguiti al middleware
+* I ruoli di entrambi i moduli e gestori sono stati eseguiti al middleware
 
-   * Middleware vengono configurati utilizzando codice anziché in *Web. config*
+* Middleware vengono configurati utilizzando codice anziché in *Web. config*
 
-   * [Creazione di rami pipeline](xref:fundamentals/middleware/index#use-run-and-map) consente di inviare richieste al middleware specifico, basato sull'URL non solo ma anche in intestazioni della richiesta, le stringhe di query, e così via.
+* [Creazione di rami pipeline](xref:fundamentals/middleware/index#use-run-and-map) consente di inviare richieste al middleware specifico, basato sull'URL non solo ma anche in intestazioni della richiesta, le stringhe di query, e così via.
 
 **Middleware sono molto simili ai moduli:**
 
-   * Richiamato in linea di principio per ogni richiesta
+* Richiamato in linea di principio per ogni richiesta
 
-   * In grado di corto circuito da una richiesta, [non trasmettere la richiesta al middleware successivo](#http-modules-shortcircuiting-middleware)
+* In grado di corto circuito da una richiesta, [non trasmettere la richiesta al middleware successivo](#http-modules-shortcircuiting-middleware)
 
-   * In grado di creare le proprie risposte HTTP
+* In grado di creare le proprie risposte HTTP
 
 **Middleware e i moduli vengono elaborati in un ordine diverso:**
 
-   * Ordine del middleware è in base all'ordine in cui viene inserito nel pipeline delle richieste, mentre l'ordine dei moduli si basa principalmente sulla [ciclo di vita dell'applicazione](https://msdn.microsoft.com/library/ms227673.aspx) eventi
+* Ordine del middleware è in base all'ordine in cui viene inserito nel pipeline delle richieste, mentre l'ordine dei moduli si basa principalmente sulla [ciclo di vita dell'applicazione](https://msdn.microsoft.com/library/ms227673.aspx) eventi
 
-   * Ordine del middleware per le risposte è l'opposto rispetto a quello per le richieste, mentre l'ordine dei moduli è lo stesso per le richieste e risposte
+* Ordine del middleware per le risposte è l'opposto rispetto a quello per le richieste, mentre l'ordine dei moduli è lo stesso per le richieste e risposte
 
-   * Vedere [creare una pipeline middleware con IApplicationBuilder](xref:fundamentals/middleware/index#create-a-middleware-pipeline-with-iapplicationbuilder)
+* Vedere [creare una pipeline middleware con IApplicationBuilder](xref:fundamentals/middleware/index#create-a-middleware-pipeline-with-iapplicationbuilder)
 
 ![Middleware](http-modules/_static/middleware.png)
 

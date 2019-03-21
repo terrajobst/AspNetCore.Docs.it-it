@@ -1,36 +1,40 @@
 ---
 title: Dettagli di crittografia autenticata in ASP.NET Core
 author: rick-anderson
-description: Ulteriori dettagli sull'implementazione della crittografia autenticata la protezione dei dati di ASP.NET Core.
+description: Scopri i dettagli di implementazione della crittografia autenticata la protezione dei dati di ASP.NET Core.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/implementation/authenticated-encryption-details
-ms.openlocfilehash: ac650e5c32e7eacc4088225e63f56340f95e1913
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 9def03e6b27e19fc34a839e923d6152e086889db
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275684"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208580"
 ---
 # <a name="authenticated-encryption-details-in-aspnet-core"></a>Dettagli di crittografia autenticata in ASP.NET Core
 
 <a name="data-protection-implementation-authenticated-encryption-details"></a>
 
-Le chiamate a IDataProtector.Protect sono le operazioni di crittografia autenticata. Il metodo Protect offre riservatezza e autenticità e quest'ultima è associata alla catena scopo utilizzato per derivare questa particolare istanza di oggetto IDataProtector IDataProtectionProvider radice.
+Le chiamate a IDataProtector.Protect sono operazioni di crittografia autenticata. Il metodo Protect offre sia la riservatezza e l'autenticità e quest'ultima è associata alla catena scopo che è stata utilizzata per derivare questa particolare istanza di oggetto IDataProtector dalla radice IDataProtectionProvider.
 
-IDataProtector.Protect accetta un parametro di testo normale byte [] e produce un byte [] protetto del payload, il cui formato è descritto di seguito. (È inoltre disponibile un overload del metodo di estensione che accetta un parametro di stringa in testo normale e restituisce un payload di stringa protetta. Se questa API viene usata il formato di payload protetto avranno comunque il seguito struttura, ma sarà [con codifica base64url](https://tools.ietf.org/html/rfc4648#section-5).)
+IDataProtector.Protect accetta un parametro di testo normale byte [] e produce un payload protetto [] byte, il cui formato è descritto di seguito. (È inoltre disponibile un overload del metodo di estensione che accetta un parametro di stringa in testo normale e restituisce un payload protetto di stringa. Se questa API viene usata il formato di payload protetti avranno comunque la seguente struttura, ma sarà [con codifica base64url](https://tools.ietf.org/html/rfc4648#section-5).)
 
-## <a name="protected-payload-format"></a>Formato di payload protetto
+## <a name="protected-payload-format"></a>Formato di payload protetti
 
-Il formato di payload protetto è costituita da tre componenti principali:
+Il formato di payload protetti è costituito da tre componenti principali:
 
-* Intestazione magic a 32 bit che identifica la versione del sistema di protezione dati.
+* Un'intestazione magic a 32 bit che identifica la versione del sistema di protezione dati.
 
-* Id chiave a 128 bit che identifica la chiave utilizzata per proteggere il payload specifico.
+* Id chiave a 128 bit che identifica la chiave utilizzata per proteggere questo payload specifico.
 
-* Il resto del payload protetto è [specifiche per il componente di crittografia incapsulata da questa chiave](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation). Nell'esempio seguente la chiave rappresenta un AES-256-CBC + HMACSHA256 simmetrica e il payload è ulteriormente suddivisi come segue: * il modificatore di chiave A 128 bit. * Un vettore di inizializzazione di 128 bit. * 48 byte di output AES-256-CBC. * Un tag di autenticazione HMACSHA256.
+* È il resto del payload protetto [specifiche per il componente di crittografia incapsulata da questa chiave](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation). Nell'esempio seguente, la chiave rappresenta un AES-256-CBC + encryptor HMACSHA256, e il payload viene ulteriormente suddiviso come indicato di seguito:
+  * Modificatore di un chiave a 128 bit.
+  * Un vettore di inizializzazione di 128 bit.
+  * 48 byte di output di AES-256-CBC.
+  * Un tag di autenticazione HMACSHA256.
 
-Un payload protetto di esempio è illustrato di seguito.
+Di seguito è illustrato un esempio di payload protetti.
 
 ```
 09 F0 C9 F0 80 9C 81 0C 19 66 19 40 95 36 53 F8
@@ -44,11 +48,11 @@ AA FF EE 57 57 2F 40 4C 3F 7F CC 9D CC D9 32 3E
 52 C9 74 A0
 ```
 
-Il formato di payload sopra i primi 32 bit o 4 byte sono l'intestazione di chiave che identifica la versione (09 F0 C9 F0)
+Dal formato di payload sopra i primi 32 bit o 4 byte rappresentano l'intestazione magic che identifica la versione (09 F0 C9 F0)
 
-La successiva 128 bit o 16 byte è l'identificatore di chiave (80 9C 81 0C 19 66 19 40 95 36 53 F8 AA FF EE 57)
+I successivi 128 bit o 16 byte è l'identificatore di chiave (80 9 81 C 0C 19 66 19 40 95 36 53 F8 AA FF EE 57)
 
-Il resto contiene il payload e specifico il formato utilizzato.
+Il resto contiene il payload e specifico del formato utilizzato.
 
->[!WARNING]
-> Tutti i payload protetti per una determinata chiave inizia con la stessa intestazione a 20 byte (valore chiave, chiave id). Gli amministratori possono utilizzare questo fatto per motivi di diagnostica per simulare quando è stato generato un payload. Ad esempio, il payload precedente corrisponde alla chiave {0c819c80-6619-4019-9536-53f8aaffee57}. Se dopo aver controllato l'archivio chiave che la data di attivazione della chiave specifico è stato 2015-01-01 e la data di scadenza è stata 2015-03-01, quindi è ragionevole presupporre che il payload (se non manomessi) è stato generato all'interno di tale finestra, fornire o richiedere una piccola per indurre su entrambi i lati.
+> [!WARNING]
+> Tutti i payload protetti per una determinata chiave inizia con la stessa intestazione di 20 byte (valore magic, id chiave). Gli amministratori possono utilizzare questo fatto per scopi diagnostici per approssimare quando è stato generato un payload. Ad esempio, il payload precedente corrisponde alla chiave {0c819c80-6619-4019-9536-53f8aaffee57}. Se dopo aver controllato l'archivio chiave che la data di attivazione della chiave specifico era 2015-01-01 e relativa data di scadenza cadeva 2015-03-01, quindi a diminuire è ragionevole presupporre che il payload (se non manomessi) è stato generato in tale intervallo, assegnare o eseguire un piccolo fattore di fudge su entrambi i lati.

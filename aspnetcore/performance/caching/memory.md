@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/11/2019
 uid: performance/caching/memory
-ms.openlocfilehash: 9a7727ad41a05f39d74877af3c8f2e3f7a620c7d
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: c115e43b9dd4f838ab9600c2e105d86732d857ad
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103072"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208271"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>Memorizzare nella cache in memoria in ASP.NET Core
 
@@ -111,10 +111,10 @@ Il codice seguente chiama [ottenere](/dotnet/api/microsoft.extensions.caching.me
 
 L'esempio seguente:
 
-- Imposta l'ora di scadenza assoluta. Questo è il tempo massimo che può essere memorizzato nella cache la voce e impedisce la voce diventi obsoleta quando la scadenza variabile in modo continuo viene rinnovata.
-- Imposta una scadenza variabile. Le richieste che accedono a questo elemento memorizzato nella cache verranno reimpostato il clock di scadenza scorrevole.
-- Imposta la priorità della cache su `CacheItemPriority.NeverRemove`.
-- Imposta una [PostEvictionDelegate](/dotnet/api/microsoft.extensions.caching.memory.postevictiondelegate) che verrà chiamato dopo la voce viene rimosso dalla cache. Il callback viene eseguito su un thread diverso dal codice che rimuove l'elemento dalla cache.
+* Imposta l'ora di scadenza assoluta. Questo è il tempo massimo che può essere memorizzato nella cache la voce e impedisce la voce diventi obsoleta quando la scadenza variabile in modo continuo viene rinnovata.
+* Imposta una scadenza variabile. Le richieste che accedono a questo elemento memorizzato nella cache verranno reimpostato il clock di scadenza scorrevole.
+* Imposta la priorità della cache su `CacheItemPriority.NeverRemove`.
+* Imposta una [PostEvictionDelegate](/dotnet/api/microsoft.extensions.caching.memory.postevictiondelegate) che verrà chiamato dopo la voce viene rimosso dalla cache. Il callback viene eseguito su un thread diverso dal codice che rimuove l'elemento dalla cache.
 
 [!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_et&highlight=14-21)]
 
@@ -161,14 +161,14 @@ Usando un `CancellationTokenSource` consente a più voci della cache essere elim
 
 ## <a name="additional-notes"></a>Note aggiuntive
 
-- Quando si usa un callback per ripopolare un elemento della cache:
+* Quando si usa un callback per ripopolare un elemento della cache:
 
-  - Più richieste possono trovare vuoto il valore della chiave memorizzata nella cache perché non è stato completato il callback.
-  - Ciò può comportare diversi thread ripopolamento l'elemento memorizzato nella cache.
+  * Più richieste possono trovare vuoto il valore della chiave memorizzata nella cache perché non è stato completato il callback.
+  * Ciò può comportare diversi thread ripopolamento l'elemento memorizzato nella cache.
 
-- Quando una voce della cache viene usata per creare un altro, l'elemento figlio copia token scadenza della voce padre e le impostazioni di scadenza basati sul tempo. L'elemento figlio non è scaduto per la rimozione manuale o l'aggiornamento della voce padre.
+* Quando una voce della cache viene usata per creare un altro, l'elemento figlio copia token scadenza della voce padre e le impostazioni di scadenza basati sul tempo. L'elemento figlio non è scaduto per la rimozione manuale o l'aggiornamento della voce padre.
 
-- Uso [PostEvictionCallbacks](/dotnet/api/microsoft.extensions.caching.memory.icacheentry.postevictioncallbacks#Microsoft_Extensions_Caching_Memory_ICacheEntry_PostEvictionCallbacks) per impostare i callback che verranno generati dopo che la voce della cache viene rimosso dalla cache.
+* Uso [PostEvictionCallbacks](/dotnet/api/microsoft.extensions.caching.memory.icacheentry.postevictioncallbacks#Microsoft_Extensions_Caching_Memory_ICacheEntry_PostEvictionCallbacks) per impostare i callback che verranno generati dopo che la voce della cache viene rimosso dalla cache.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

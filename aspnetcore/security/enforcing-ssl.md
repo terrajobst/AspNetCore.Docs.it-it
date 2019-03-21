@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/01/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: 0c3add9c8860a47932cda3a8b07c83dc774bf1f1
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 16cfa672fe4a81d9e8f09fc3dd1e6c036edd4c4e
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54098974"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208976"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Imporre HTTPS in ASP.NET Core
 
@@ -30,7 +30,7 @@ Nessuna API può impedire a un client di inviare i dati sensibili alla prima ric
 > * È in ascolto su HTTP.
 > * Chiudere la connessione con il codice di stato 400 (Bad Request) e non rispondere alla richiesta.
 
-## <a name="require-https"></a>La richiesta di HTTPS
+## <a name="require-https"></a>Richiedere HTTPS
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -69,7 +69,7 @@ Specificare la porta HTTPS usando uno degli approcci seguenti:
 
   **Chiave**: `https_port`  
   **Tipo**: *string*  
-  **Default**: Non è impostato un valore predefinito.  
+  **Predefinito**: non è impostato nessun valore predefinito.  
   **Impostare usando**: `UseSetting`  
   **Variabile di ambiente**: `<PREFIX_>HTTPS_PORT` (È il prefisso `ASPNETCORE_` quando si usano i [Host Web](xref:fundamentals/host/web-host).)
 
@@ -212,7 +212,7 @@ Deselezionare i **Configura per HTTPS** casella di controllo.
 
 ![Nuova applicazione Web ASP.NET Core finestra di dialogo che mostra la configura per HTTPS casella di controllo deselezionata.](enforcing-ssl/_static/out.png)
 
-#   <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli) 
+# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli) 
 
 Usare l'opzione `--no-https`. Esempio:
 

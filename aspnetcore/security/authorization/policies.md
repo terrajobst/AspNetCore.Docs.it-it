@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/21/2017
 uid: security/authorization/policies
-ms.openlocfilehash: c2bc626b2dd341dda878a151def6b405884357d7
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: e72f15c28fb7b62c671dd6475cc323cacce42de6
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665402"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208321"
 ---
 # <a name="policy-based-authorization-in-aspnet-core"></a>Autorizzazione basata su criteri in ASP.NET Core
 
@@ -19,13 +19,25 @@ Sotto le quinte [autorizzazione basata sui ruoli](xref:security/authorization/ro
 
 Un criterio di autorizzazione è costituito da uno o più requisiti. In cui è registrata come parte della configurazione del servizio di autorizzazione, il `Startup.ConfigureServices` metodo:
 
-[!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=40-41,50-55,63,72)]
+[!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=32-33,48-53,61,66)]
 
 Nell'esempio precedente, viene creato un criterio di "AtLeast21". Ha un unico requisito&mdash;che di una durata minima, che viene fornita come parametro al requisito.
 
-I criteri vengono applicati usando i `[Authorize]` attributo con il nome del criterio. Ad esempio:
+## <a name="applying-policies-to-mvc-controllers"></a>Applicare criteri ai controller MVC
+
+Se si usano le pagine Razor, vedere [applicazione di criteri a Razor Pages](#applying-policies-to-razor-pages) in questo documento.
+
+I criteri vengono applicati ai controller usando il `[Authorize]` attributo con il nome del criterio. Ad esempio:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp1/Controllers/AlcoholPurchaseController.cs?name=snippet_AlcoholPurchaseControllerClass&highlight=4)]
+
+## <a name="applying-policies-to-razor-pages"></a>Applicare criteri a Razor Pages
+
+I criteri vengono applicati a Razor Pages usando il `[Authorize]` attributo con il nome del criterio. Ad esempio:
+
+[!code-csharp[](policies/samples/PoliciesAuthApp2/Pages/AlcoholPurchase.cshtml.cs?name=snippet_AlcoholPurchaseModelClass&highlight=4)]
+
+Criteri possono essere applicati anche alle pagine Razor con un [convenzione autorizzazione](xref:security/authorization/razor-pages-authorization).
 
 ## <a name="requirements"></a>Requisiti
 
@@ -70,7 +82,7 @@ Il codice precedente attraversa [PendingRequirements](/dotnet/api/microsoft.aspn
 
 I gestori registrati dell'insieme di servizi durante la configurazione. Ad esempio:
 
-[!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=40-41,50-55,63-65,72)]
+[!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=32-33,48-53,61,62-63,66)]
 
 Il codice precedente registra `MinimumAgeHandler` come un singleton richiamando `services.AddSingleton<IAuthorizationHandler, MinimumAgeHandler>();`. Gestori possono essere registrati usando uno dei integrato [durate del servizio](xref:fundamentals/dependency-injection#service-lifetimes).
 
@@ -112,7 +124,7 @@ Si possono verificare situazioni in cui che soddisfano un criterio è semplice d
 
 Ad esempio, il precedente `BadgeEntryHandler` potrebbe essere riscritto come segue:
 
-[!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=52-53,57-63)]
+[!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=50-51,55-61)]
 
 ## <a name="accessing-mvc-request-context-in-handlers"></a>Accesso al contesto di richiesta MVC nei gestori
 
