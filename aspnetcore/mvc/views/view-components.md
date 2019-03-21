@@ -5,12 +5,12 @@ description: Informazioni sull'uso dei componenti di visualizzazione in ASP.NET 
 ms.author: riande
 ms.date: 1/30/2019
 uid: mvc/views/view-components
-ms.openlocfilehash: d979c9480f7bffff993f0ea526bdc231b940baa2
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: b18473c6a76c4dc9030f0a032db1aff733f5acb7
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410482"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264775"
 ---
 # <a name="view-components-in-aspnet-core"></a>Componenti di visualizzazione in ASP.NET Core
 
@@ -316,6 +316,7 @@ Usare l'helper tag del componente di visualizzazione nel file di markup Razor:
 <vc:priority-list max-priority="999" is-done="false">
 </vc:priority-list>
 ```
+
 ::: moniker-end
 
 La firma del metodo di `PriorityList.Invoke` è sincrona, ma Razor trova e chiama il metodo con `Component.InvokeAsync` nel file di markup.

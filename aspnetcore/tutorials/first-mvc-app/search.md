@@ -5,12 +5,12 @@ description: Illustra come aggiungere la funzionalità di ricerca a un'app ASP.N
 ms.author: riande
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/search
-ms.openlocfilehash: e5dce35b60080ef752f8e6c6004158219015cbf5
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 41d7494b77edaddbf719cab087142f0132dd3ed6
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410638"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208382"
 ---
 # <a name="add-search-to-an-aspnet-core-mvc-app"></a>Aggiungere la funzionalità di ricerca a un'app ASP.NET Core MVC
 
@@ -113,10 +113,10 @@ Aggiungere la classe `MovieGenreViewModel` seguente alla cartella *Models*:
 
 Il modello di vista movie-genre conterrà:
 
-   * Un elenco di film.
-   * `SelectList` contiene l'elenco dei generi. Consente all'utente di selezionare un genere dall'elenco.
-   * `MovieGenre` che contiene il genere selezionato.
-   * `SearchString`, che contiene il testo immesso dagli utenti nella casella di testo di ricerca.
+* Un elenco di film.
+* `SelectList` contiene l'elenco dei generi. Consente all'utente di selezionare un genere dall'elenco.
+* `MovieGenre` che contiene il genere selezionato.
+* `SearchString`, che contiene il testo immesso dagli utenti nella casella di testo di ricerca.
 
 Sostituire il metodo `Index` in `MoviesController.cs` con il codice seguente:
 
@@ -148,4 +148,4 @@ Eseguire il test dell'app effettuando una ricerca per genere, titolo del film ed
 
 > [!div class="step-by-step"]
 > [Precedente](controller-methods-views.md)
-> [Successivo](new-field.md)  
+> [Successivo](new-field.md)

@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/13/2018
 uid: web-api/advanced/conventions
-ms.openlocfilehash: 5ae96b213a19464045e1d0b1a76f8eb81089dc5b
-ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
+ms.openlocfilehash: 64be4984779724eb60af3b70d4f52b22eae32213
+ms.sourcegitcommit: 10e14b85490f064395e9b2f423d21e3c2d39ed8b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55236341"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58142311"
 ---
 # <a name="use-web-api-conventions"></a>Usare le convenzioni dell'API Web
 
@@ -25,7 +25,7 @@ Una convenzione consente di:
 * Definire i tipi restituiti più comuni e i codici di stato restituiti da un tipo di azione specifico.
 * Identificare le azioni che deviano dallo standard definito.
 
-ASP.NET Core MVC 2.2 e versioni successive include un set di convenzioni predefinite in `Microsoft.AspNetCore.Mvc.DefaultApiConventions`. Le convenzioni sono basate sul controller (*ValuesController.cs*) disponibile nel modello di progetto **API** di ASP.NET Core. Se si seguono i criteri del modello, le convenzioni predefinite danno i risultati previsti. Se tuttavia le convenzioni predefinite non soddisfano le proprie esigenze, vedere [Creare convenzioni dell'API Web](#create-web-api-conventions).
+ASP.NET Core MVC 2.2 e versioni successive include un set di convenzioni predefinite in <xref:Microsoft.AspNetCore.Mvc.DefaultApiConventions?displayProperty=fullName>. Le convenzioni sono basate sul controller (*ValuesController.cs*) disponibile nel modello di progetto **API** di ASP.NET Core. Se si seguono i criteri del modello, le convenzioni predefinite danno i risultati previsti. Se tuttavia le convenzioni predefinite non soddisfano le proprie esigenze, vedere [Creare convenzioni dell'API Web](#create-web-api-conventions).
 
 In fase di runtime, <xref:Microsoft.AspNetCore.Mvc.ApiExplorer> riconosce le convenzioni. `ApiExplorer` è l'astrazione MVC per comunicare con i generatori di documenti [OpenAPI](https://www.openapis.org/) (noti anche come Swagger). Gli attributi della convenzione applicata vengono associati a un'azione e sono inclusi nella documentazione OpenAPI dell'azione. Anche gli [analizzatori di API](xref:web-api/advanced/analyzers) supportano le convenzioni. Se l'azione non è convenzionale (ad esempio, se restituisce un codice di stato non documentato dalla convenzione applicata), un avviso richiede di documentare il codice di stato.
 

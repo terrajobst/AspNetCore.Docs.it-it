@@ -5,12 +5,12 @@ description: In questa esercitazione verrà effettuato l'aggiornamento di dati c
 ms.author: riande
 ms.date: 11/15/2017
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: c3dbfe57a832ba63c5da2f89c0d29e443a1277a7
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: e1407048157fccdbfdd854071a6fbf9785356026
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345762"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208609"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---update-related-data---7-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Aggiornare dati correlati - 7 di 8
 
@@ -136,9 +136,9 @@ Aggiornare il modello della pagina Edit (Modifica) dell'insegnante con il codice
 
 Il codice precedente:
 
-- Ottiene l'entità `Instructor` corrente dal database tramite il caricamento eager per la proprietà di navigazione `OfficeAssignment`.
-- Aggiorna l'entità `Instructor` recuperata con valori dallo strumento di associazione di modelli. `TryUpdateModel` impedisce l'[overposting](xref:data/ef-rp/crud#overposting).
-- Se la posizione dell'ufficio è vuota, imposta `Instructor.OfficeAssignment` su Null. Se `Instructor.OfficeAssignment` è Null, la riga correlata nella tabella `OfficeAssignment` viene eliminata.
+* Ottiene l'entità `Instructor` corrente dal database tramite il caricamento eager per la proprietà di navigazione `OfficeAssignment`.
+* Aggiorna l'entità `Instructor` recuperata con valori dallo strumento di associazione di modelli. `TryUpdateModel` impedisce l'[overposting](xref:data/ef-rp/crud#overposting).
+* Se la posizione dell'ufficio è vuota, imposta `Instructor.OfficeAssignment` su Null. Se `Instructor.OfficeAssignment` è Null, la riga correlata nella tabella `OfficeAssignment` viene eliminata.
 
 ### <a name="update-the-instructor-edit-page"></a>Aggiornare la pagina di modifica dell'insegnante
 

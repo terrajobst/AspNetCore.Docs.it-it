@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/new-field
-ms.openlocfilehash: f352a9c3573119028d1bc42fd622919ce0560e7c
-ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
+ms.openlocfilehash: 44487b91c8bbd353157a5f5f1b834187e47e2f3e
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57841501"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264657"
 ---
 # <a name="add-a-new-field-to-an-aspnet-core-mvc-app"></a>Aggiungere un nuovo campo a un'app ASP.NET Core MVC
 
@@ -49,18 +49,17 @@ Modificare il file */Views/Movies/Index.cshtml* e aggiungere un campo `Rating`:
 
 Aggiornare */Views/Movies/Create.cshtml* con un campo `Rating`.
 
-<!-- VS -------------------------->
 # <a name="visual-studio--visual-studio-for-mactabvisual-studiovisual-studio-mac"></a>[Visual Studio/Visual Studio per Mac](#tab/visual-studio+visual-studio-mac)
 
 È possibile copiare e incollare il "gruppo di moduli" precedente e aggiornare i campi usando intelliSense. IntelliSense funziona con gli [helper tag](xref:mvc/views/tag-helpers/intro).
 
 ![Lo sviluppatore ha digitato la lettera R per il valore dell'attributo asp-for nel secondo elemento di etichetta della vista. Viene visualizzato un menu a comparsa Intellisense con i campi disponibili, tra cui Rating che viene evidenziato automaticamente nell'elenco. Quando lo sviluppatore fa clic sul campo o preme il tasto INVIO, il valore verrà impostato su Rating.](new-field/_static/cr.png)
 
-<!-- Code -------------------------->
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
 <!-- This tab intentionally left blank. -->
----  
-<!-- End of VS tabs -->
+
+---
 
 Aggiornare la classe `SeedData` in modo che fornisca un valore per la nuova colonna. Di seguito viene illustrata una modifica di esempio, ma si apporterà questa modifica per ogni `new Movie`.
 
@@ -82,7 +81,6 @@ Per correggere questo errore, esistono alcuni approcci:
 
 Per questa esercitazione viene usato Migrazioni Code First.
 
-<!-- VS -------------------------->
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Dal menu **Strumenti** selezionare **Gestione pacchetti NuGet > Console di Gestione pacchetti**.
@@ -106,17 +104,17 @@ Se vengono eliminati tutti i record del database, il database viene inizializzat
 
 [!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
 
-Eliminare il database e usare le migrazioni per ricreare il database. Per eliminare il database, eliminare il file di database (*MvcMovie.db*). Quindi eseguire il comando `ef database update`: 
+Eliminare il database e usare le migrazioni per ricreare il database. Per eliminare il database, eliminare il file di database (*MvcMovie.db*). Quindi eseguire il comando `ef database update`:
 
 ```console
 dotnet ef database update
 ```
 
----  
+---
 <!-- End of VS tabs -->
 
 Eseguire l'app e verificare che sia possibile creare/modificare/visualizzare i film con un campo `Rating`. È consigliabile aggiungere il campo `Rating` ai modelli di vista `Edit`, `Details` e `Delete`.
 
 > [!div class="step-by-step"]
 > [Precedente](search.md)
-> [Successivo](validation.md)  
+> [Successivo](validation.md)

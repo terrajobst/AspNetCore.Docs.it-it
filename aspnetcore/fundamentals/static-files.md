@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/18/2018
 uid: fundamentals/static-files
-ms.openlocfilehash: e6bda5dd60c62c7bdbfa81f34c14cfcd07e8d700
-ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
+ms.openlocfilehash: 114fee0795977043f3a74a81a15923a8bf5faf6b
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56744053"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208635"
 ---
 # <a name="static-files-in-aspnet-core"></a>File statici in ASP.NET Core
 
@@ -94,7 +94,7 @@ Considerare una gerarchia di directory in cui si trovano i file statici da usare
   * **js**
 * **MyStaticFiles**
   * **images**
-      * *banner1.svg*
+    * *banner1.svg*
 
 Una richiesta può accedere al file *banner1.svg* configurando il middleware dei file statici come indicato di seguito:
 
@@ -193,7 +193,7 @@ Considerare la gerarchia di directory seguente:
   * **js**
 * **MyStaticFiles**
   * **images**
-      * *banner1.svg*
+    * *banner1.svg*
   * *default.html*
 
 Il codice seguente abilita i file statici, i file predefiniti e l'esplorazione directory di `MyStaticFiles`:

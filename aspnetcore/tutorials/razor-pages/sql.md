@@ -5,12 +5,12 @@ description: Questa sezione illustra l'utilizzo di un database e di ASP.NET Core
 ms.author: riande
 ms.date: 12/07/2017
 uid: tutorials/razor-pages/sql
-ms.openlocfilehash: e2e9be0aa25166e216d34419859cd907d0423f70
-ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
+ms.openlocfilehash: 6cef55382d8c77e95280ea4eea2dbc2af1c81987
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57841566"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265558"
 ---
 # <a name="work-with-a-database-and-aspnet-core"></a>Usare un database e ASP.NET Core
 
@@ -20,23 +20,19 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT) e [Joe Audette](https://twit
 
 L'oggetto `RazorPagesMovieContext` gestisce l'attività di connessione al database e di mapping degli oggetti `Movie` ai record di database. Il contesto del database viene registrato nel contenitore di [inserimento dipendenze](xref:fundamentals/dependency-injection) nel metodo `ConfigureServices` di *Startup.cs*:
 
-<!-- VS -------------------------->
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Startup.cs?name=snippet_ConfigureServices&highlight=15-18)]
 
-<!-- Code -------------------------->
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Startup.cs?name=snippet_UseSqlite&highlight=11-12)]
 
-<!-- Mac -------------------------->
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Startup.cs?name=snippet_UseSqlite&highlight=11-12)]
 
----  
-<!-- End of VS tabs -->
+---
 
 Per altre informazioni sui metodi usati in `ConfigureServices`, vedere:
 
@@ -45,29 +41,24 @@ Per altre informazioni sui metodi usati in `ConfigureServices`, vedere:
 
 Il sistema di [configurazione](xref:fundamentals/configuration/index) di ASP.NET Core legge la `ConnectionString`. Per lo sviluppo locale, ottiene la stringa di connessione dal file *appsettings.json*.
 
-<!-- VS -------------------------->
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Il valore del nome per il database (`Database={Database name}`) sarà diverso per il codice generato. Il valore del nome è arbitrario.
 
 [!code-json[](razor-pages-start/sample/RazorPagesMovie22/appsettings.json)]
 
-<!-- Code -------------------------->
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 [!code-json[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/appsettings_SQLite.json?highlight=8-10)]
 
-<!-- Mac -------------------------->
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 [!code-json[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/appsettings_SQLite.json?highlight=8-10)]
 
----  
-<!-- End of VS tabs -->
+---
 
 Quando l'app viene distribuita in un server di test o produzione, è possibile utilizzare una variabile di ambiente per impostare la stringa di connessione su un server di database reale. Per altre informazioni, vedere [Configurazione](xref:fundamentals/configuration/index).
 
-<!-- VS -------------------------->
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ## <a name="sql-server-express-localdb"></a>LocalDB di SQL Server Express
@@ -90,20 +81,18 @@ Si noti l'icona a forma di chiave accanto a `ID`. Per impostazione predefinita, 
 * Fare clic con il pulsante destro del mouse sulla tabella `Movie` e selezionare**Visualizza dati**:
 
   ![Tabella Movie aperta con i dati della tabella](sql/_static/vd22.png)
-<!-- Code -------------------------->
+
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 [!INCLUDE[](~/includes/rp/sqlite.md)]
 [!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
 
-<!-- Mac -------------------------->
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 [!INCLUDE[](~/includes/rp/sqlite.md)]
 [!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
 
----  
-<!-- End of VS tabs -->
+---
 
 ## <a name="seed-the-database"></a>Specificare il valore di inizializzazione del database
 
@@ -119,7 +108,9 @@ if (context.Movie.Any())
     return;   // DB has been seeded.
 }
 ```
+
 <a name="si"></a>
+
 ### <a name="add-the-seed-initializer"></a>Aggiungere l'inizializzatore del valore di inizializzazione
 
 In *Program.cs* modificare il metodo `Main` per eseguire le operazioni seguenti:
@@ -139,7 +130,6 @@ Accesso non riuscito per l'utente "nome-utente".
 
 ### <a name="test-the-app"></a>Eseguire il test dell'app
 
-<!-- VS -------------------------->
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Eliminare tutti i record nel database. È possibile eseguire questa operazione con i collegamenti di eliminazione nel browser o da [SSOX](xref:tutorials/razor-pages/new-field#ssox)
@@ -154,25 +144,20 @@ Accesso non riuscito per l'utente "nome-utente".
     * Se Visual Studio è in esecuzione in modalità non di debug, premere F5 per attivare la modalità di debug.
     * Se Visual Studio è in esecuzione in modalità di debug, arrestare il debugger e premere F5.
 
-<!-- Code -------------------------->
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Eliminare tutti i record del database; verrà quindi eseguito il metodo di inizializzazione. Arrestare e avviare l'app per inizializzare il database.
 
 L'app mostra i dati inizializzati.
 
-<!-- Mac -------------------------->
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 Eliminare tutti i record del database; verrà quindi eseguito il metodo di inizializzazione. Arrestare e avviare l'app per inizializzare il database.
 
 L'app mostra i dati inizializzati.
 
----  
-<!-- End of VS tabs -->
+---
 
-
-   
 L'app visualizza i dati sottoposti a seed:
 
 ![App per i film aperta in Chrome con i dati sui film](sql/_static/m55.png)

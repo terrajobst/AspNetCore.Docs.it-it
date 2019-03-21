@@ -6,12 +6,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 11/30/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 53ec924c2d7b4fac227be0c0bf24d93476528167
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: ba36f75dfa40012df3140cdcbf8a7732fb0709fe
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54836558"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264544"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Esercitazione: Introduzione ad ASP.NET Core SignalR
 
@@ -79,7 +79,7 @@ La libreria server di SignalR è inclusa nel metapacchetto `Microsoft.AspNetCore
 
 * In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e scegliere **Aggiungi** > **Client-Side Library** (Libreria lato client).
 
-* Nella finestra di dialogo **Add Client-Side Library** (Aggiungi libreria lato client) selezionare **unpkg** in **Provider**. 
+* Nella finestra di dialogo **Add Client-Side Library** (Aggiungi libreria lato client) selezionare **unpkg** in **Provider**.
 
 * In **Libreria** immettere `@aspnet/signalr@1` e selezionare la versione più recente che non sia di anteprima.
 
@@ -210,7 +210,7 @@ Un *hub* è una classe usata come pipeline di alto livello che gestisce le comun
   ```console
   dotnet run -p SignalRChat.csproj
   ```
-  
+
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 * Nel menu selezionare **Esegui > Avvia senza eseguire debug**.

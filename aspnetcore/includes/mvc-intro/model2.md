@@ -1,9 +1,16 @@
+---
+ms.openlocfilehash: 82c0f3076e846045ca85697e150ff0ab9be75dba
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58214487"
+---
 <a name="dc"></a>
 
 Aggiungere la classe `MvcMovieContext` seguente alla cartella *Models*:  
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Data/MvcMovieContext.cs)]
-
 
 Il codice precedente crea una proprietà `DbSet` per il set di entità. Nella terminologia di Entity Framework, un set di entità corrisponde in genere alla tabella di un database e un'entità corrisponde a una riga della tabella.
 

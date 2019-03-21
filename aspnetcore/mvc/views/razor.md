@@ -5,12 +5,12 @@ description: Informazioni sulla sintassi di markup Razor per l'incorporamento di
 ms.author: riande
 ms.date: 10/26/2018
 uid: mvc/views/razor
-ms.openlocfilehash: 8e9ec3c5040e5a24cd5f773b1232897338741c0c
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
+ms.openlocfilehash: 254c85ee9e74dc72170b19d27fbc5f1ae7ccd3dc
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396259"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264749"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Guida di riferimento della sintassi Razor per ASP.NET Core
 
@@ -69,9 +69,9 @@ Le espressioni implicite **non possono** contenere generics C#, poiché i caratt
 
 Il codice precedente genera un errore del compilatore simile a uno dei seguenti:
 
- * L'elemento "int" non è stato chiuso. Tutti gli elementi devono essere a chiusura automatica o avere un tag di fine corrispondente.
- *  Non è possibile convertire il gruppo di metodi 'GenericMethod' nel tipo non delegato 'object'. Si intendeva chiamare il metodo?' 
- 
+* L'elemento "int" non è stato chiuso. Tutti gli elementi devono essere a chiusura automatica o avere un tag di fine corrispondente.
+* Non è possibile convertire il gruppo di metodi 'GenericMethod' nel tipo non delegato 'object'. Si intendeva chiamare il metodo?'
+
 Le chiamate di metodo generiche devono essere racchiuse in un'[espressione esplicita Razor](#explicit-razor-expressions) o in un [blocco di codice Razor](#razor-code-blocks).
 
 ## <a name="explicit-razor-expressions"></a>Espressioni esplicite Razor
@@ -199,7 +199,7 @@ Usare questo approccio per eseguire il rendering di HTML che non è racchiuso tr
 
 Il tag **\<text>** è utile per controllare gli spazi vuoti durante il rendering del contenuto:
 
-* Solo il contenuto tra il tag **\<text>** viene sottoposto a rendering. 
+* Solo il contenuto tra il tag **\<text>** viene sottoposto a rendering.
 * Non vengono visualizzati spazi vuoti prima o dopo il tag **\<text>** nell'output HTML.
 
 ### <a name="explicit-line-transition-with-"></a>Transizione riga esplicita con @:
@@ -337,7 +337,6 @@ Sono supportate le seguenti istruzioni di ciclo:
 
 In C# viene usata un'istruzione `using` per verificare che un oggetto sia stato eliminato. In Razor lo stesso meccanismo viene usato per creare gli helper HTML che includono contenuto aggiuntivo. Nel codice seguente, l'helper HTML esegue il rendering di un tag di modulo con l'istruzione `@using`:
 
-
 ```cshtml
 @using (Html.BeginForm())
 {
@@ -425,6 +424,7 @@ public class _Views_Something_cshtml : RazorPage<dynamic>
 La sezione [Ispezionare la classe C# Razor generata per una visualizzazione](#inspect-the-razor-c-class-generated-for-a-view) più avanti in questo articolo illustra come visualizzare la classe generata.
 
 <a name="using"></a>
+
 ### <a name="using"></a>@using
 
 La direttiva `@using` aggiunge la direttiva C# `using` alla visualizzazione generata:
@@ -579,7 +579,7 @@ Output sottoposto a rendering:
 @using Microsoft.AspNetCore.Html
 
 @functions {
-    public static IHtmlContent Repeat(IEnumerable<dynamic> items, int times, 
+    public static IHtmlContent Repeat(IEnumerable<dynamic> items, int times,
         Func<dynamic, IHtmlContent> template)
     {
         var html = new HtmlContentBuilder();

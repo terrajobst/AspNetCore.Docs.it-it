@@ -5,12 +5,12 @@ description: Illustra le pagine Razor generate tramite scaffolding.
 ms.author: riande
 ms.date: 12/4/2018
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: 07ad142b369fab92589f63479533a769136a087b
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: c4d0e5c7b7365edc0df5428c250037db7ef3da2a
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346450"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265267"
 ---
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>Pagine Razor create in ASP.NET Core tramite scaffolding
 
@@ -51,6 +51,7 @@ Esaminare l'espressione lambda usata nell'helper HTML seguente:
 L'helper HTML `DisplayNameFor` controlla la proprietà `Title` a cui fa riferimento nell'espressione lambda per determinare il nome visualizzato. L'espressione lambda viene controllata anziché valutata. Non sussiste pertanto violazione di accesso quando `model`, `model.Movie`, o `model.Movie[0]` sono `null` o vuoti. Quando invece l'espressione lambda viene valutata (ad esempio con `@Html.DisplayFor(modelItem => item.Title)`), vengono valutati i valori proprietà del modello.
 
 <a name="md"></a>
+
 ### <a name="the-model-directive"></a>La direttiva @model
 
 [!code-cshtml[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-2&highlight=2)]
@@ -64,6 +65,7 @@ Selezionare i collegamenti di menu: **RazorPagesMovie**, **Home** e **Privacy**.
 I modelli di [layout](xref:mvc/views/layout) consentono di specificare il layout del contenitore HTML del sito in un'unica posizione e quindi di applicarlo in più pagine del sito. Trovare la riga `@RenderBody()`. `RenderBody` è un segnaposto dove tutte le visualizzazioni specifiche della pagina vengono presentate, *incapsulate* nella pagina di layout. Ad esempio, se si seleziona il collegamento **Privacy**, il rendering della visualizzazione **Pages/Privacy.cshtml** viene eseguito all'interno del metodo `RenderBody`.
 
 <a name="vd"></a>
+
 ### <a name="viewdata-and-layout"></a>ViewData e layout
 
 Si consideri il seguente codice del file *Pages/Movies/Index.cshtml*:
@@ -72,12 +74,12 @@ Si consideri il seguente codice del file *Pages/Movies/Index.cshtml*:
 
 Il codice evidenziato sopra è un esempio di transizione Razor in C#. Tra i caratteri `{` e `}` è racchiuso un blocco di codice C#.
 
-La classe di base `PageModel` ha una proprietà del dizionario `ViewData` che può essere usata per aggiungere i dati da passare a una visualizzazione. Gli oggetti vengono aggiunti al dizionario `ViewData` usando uno schema chiave/valore. Nell'esempio precedente la proprietà "Title" viene aggiunta al dizionario `ViewData`. 
+La classe di base `PageModel` ha una proprietà del dizionario `ViewData` che può essere usata per aggiungere i dati da passare a una visualizzazione. Gli oggetti vengono aggiunti al dizionario `ViewData` usando uno schema chiave/valore. Nell'esempio precedente la proprietà "Title" viene aggiunta al dizionario `ViewData`.
 
 La proprietà "Title" viene usata nel file *Pages/Shared/_Layout.cshtml*. Il markup seguente illustra le prime righe del file *_Layout.cshtml*.
 
 <!-- we need a snapshot copy of layout because we are
-changing in in the next step. 
+changing in in the next step.
 -->
 [!code-cshtml[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/NU/_Layout.cshtml?highlight=6-99)]
 
@@ -88,7 +90,6 @@ La riga `@*Markup removed for brevity.*@` è un commento Razor che non viene vis
 Modificare l'elemento `<title>` nel file *Pages/Shared/_Layout.cshtml* affinché venga visualizzato **Movie** anziché **RazorPagesMovie**.
 
 [!code-cshtml[](razor-pages-start/sample/RazorPagesMovie22/Pages/Shared/_Layout.cshtml?range=1-6&highlight=6)]
-
 
 Trovare l'elemento di ancoraggio seguente nel file *Pages/Shared/_Layout.cshtml*.
 
@@ -141,24 +142,21 @@ Esaminare il file della pagina Razor *Pages/Movies/Create.cshtml*:
 
 [!code-cshtml[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml)]
 
-<!-- VS -------------------------->
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Per visualizzare il tag `<form method="post">`, Visual Studio usa un tipo di carattere in grassetto distintivo specifico per gli helper tag:
 
 ![Visualizzazione di VS17 della pagina Create.cshtml](page/_static/th.png)
-<!-- Code -------------------------->
+
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Per altre informazioni sugli helper tag, ad esempio `<form method="post">`, vedere [Helper tag in ASP.NET Core](xref:mvc/views/tag-helpers/intro).
 
-<!-- Mac -------------------------->
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 Per visualizzare il tag `<form method="post">`, Visual Studio per Mac usa un tipo di carattere in grassetto distintivo specifico per gli helper tag.
 
----  
-<!-- End of VS tabs -->
+---
 
 L'elemento `<form method="post">` è un [helper tag del modulo](xref:mvc/views/working-with-forms#the-form-tag-helper). L'helper tag del modulo include automaticamente un [token antifalsificazione](xref:security/anti-request-forgery).
 
@@ -175,7 +173,6 @@ L'[helper tag di input](xref:mvc/views/working-with-forms) (`<input asp-for="Mov
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Versione YouTube dell'esercitazione](https://youtu.be/zxgKjPYnOMM)
-
 
 > [!div class="step-by-step"]
 > [Precedente: Aggiunta di un modello](xref:tutorials/razor-pages/model)

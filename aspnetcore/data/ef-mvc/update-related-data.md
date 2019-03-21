@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 02/05/2019
 ms.topic: tutorial
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: ac94f2e2876c2d8d571a451e4641787ffe37b3d2
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: 1606b872df2df839266ef17efee1948065c4efae
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103033"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209414"
 ---
 # <a name="tutorial-update-related-data---aspnet-mvc-with-ef-core"></a>Esercitazione: Aggiornare i dati correlati - ASP.NET MVC con EF Core
 
@@ -131,11 +131,11 @@ Sostituire il metodo `Edit` HttpPost con il codice seguente per gestire gli aggi
 
 Il codice effettua queste operazioni:
 
--  Modifica il nome del metodo in `EditPost` perché ora la firma è la stessa del metodo `Edit` HttpGet (l'attributo `ActionName` specifica che l'URL `/Edit/` viene ancora usato).
+* Modifica il nome del metodo in `EditPost` perché ora la firma è la stessa del metodo `Edit` HttpGet (l'attributo `ActionName` specifica che l'URL `/Edit/` viene ancora usato).
 
--  Ottiene l'entità Instructor corrente dal database tramite il caricamento eager per la proprietà di navigazione `OfficeAssignment`. Ciò corrisponde a quanto effettuato nel metodo `Edit` HttpGet.
+* Ottiene l'entità Instructor corrente dal database tramite il caricamento eager per la proprietà di navigazione `OfficeAssignment`. Ciò corrisponde a quanto effettuato nel metodo `Edit` HttpGet.
 
--  Aggiorna l'entità Instructor recuperata con valori dallo strumento di associazione di modelli. L'overload `TryUpdateModel` consente di creare un elenco elementi consentiti per le proprietà da includere. In questo modo è possibile evitare l'overposting, come illustrato nella [seconda esercitazione](crud.md).
+* Aggiorna l'entità Instructor recuperata con valori dallo strumento di associazione di modelli. L'overload `TryUpdateModel` consente di creare un elenco elementi consentiti per le proprietà da includere. In questo modo è possibile evitare l'overposting, come illustrato nella [seconda esercitazione](crud.md).
 
     <!-- Snippets don't play well with <ul> [!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?range=241-244)] -->
 
@@ -146,7 +146,7 @@ Il codice effettua queste operazioni:
         i => i.FirstMidName, i => i.LastName, i => i.HireDate, i => i.OfficeAssignment))
     ```
 
--   Se la posizione dell'ufficio è vuota, impostare la proprietà Instructor.OfficeAssignment su Null, in modo che la riga correlata nella tabella OfficeAssignment venga eliminata.
+* Se la posizione dell'ufficio è vuota, impostare la proprietà Instructor.OfficeAssignment su Null, in modo che la riga correlata nella tabella OfficeAssignment venga eliminata.
 
     <!-- Snippets don't play well with <ul>  "intro/samples/cu/Controllers/InstructorsController.cs"} -->
 
@@ -157,7 +157,7 @@ Il codice effettua queste operazioni:
     }
     ```
 
-- Salva le modifiche nel database.
+* Salva le modifiche nel database.
 
 ### <a name="update-the-instructor-edit-view"></a>Aggiornare la visualizzazione di modifica dell'insegnante
 
@@ -225,7 +225,7 @@ In *Views/Instructors/Edit.cshtml* aggiungere un campo **Courses** (Corsi) con u
 
 <a id="notepad"></a>
 > [!NOTE]
-> Quando si incolla il codice in Visual Studio, le interruzioni di riga vengono modificate in modo tale da danneggiare il codice.  Premere Ctrl + Z una volta per annullare la formattazione automatica.  Ciò corregge le interruzioni di riga, che vengono visualizzate come illustrato qui. Il rientro non deve necessariamente essere perfetto, ma le righe `@</tr><tr>`, `@:<td>`, `@:</td>` e `@:</tr>` devono trovarsi in una sola riga, come illustrato. In caso contrario, viene visualizzato un errore di runtime. Dopo aver selezionato il blocco di nuovo codice, premere Tab tre volte per allineare il nuovo codice con il codice esistente. È possibile controllare lo stato del problema [qui](https://developercommunity.visualstudio.com/content/problem/147795/razor-editor-malforms-pasted-markup-and-creates-in.html).
+> Quando si incolla il codice in Visual Studio, le interruzioni di riga vengono modificate in modo tale da danneggiare il codice. Premere Ctrl + Z una volta per annullare la formattazione automatica. Ciò corregge le interruzioni di riga, che vengono visualizzate come illustrato qui. Il rientro non deve necessariamente essere perfetto, ma le righe `@</tr><tr>`, `@:<td>`, `@:</td>` e `@:</tr>` devono trovarsi in una sola riga, come illustrato. In caso contrario, viene visualizzato un errore di runtime. Dopo aver selezionato il blocco di nuovo codice, premere Tab tre volte per allineare il nuovo codice con il codice esistente. È possibile controllare lo stato del problema [qui](https://developercommunity.visualstudio.com/content/problem/147795/razor-editor-malforms-pasted-markup-and-creates-in.html).
 
 [!code-html[](intro/samples/cu/Views/Instructors/Edit.cshtml?range=35-61)]
 
@@ -250,7 +250,7 @@ In *InstructorsController.cs* eliminare il metodo `DeleteConfirmed` e sostituirl
 
 Questo codice determina le modifiche seguenti:
 
-* Esegue il caricamento eager per la proprietà di navigazione `CourseAssignments`.  È necessario includere questa proprietà o EF non sarà a conoscenza delle entità `CourseAssignment` correlate e non le eliminerà.  Per evitare la necessità di leggerle qui, è possibile configurare l'eliminazione a catena nel database.
+* Esegue il caricamento eager per la proprietà di navigazione `CourseAssignments`. È necessario includere questa proprietà o EF non sarà a conoscenza delle entità `CourseAssignment` correlate e non le eliminerà. Per evitare la necessità di leggerle qui, è possibile configurare l'eliminazione a catena nel database.
 
 * Se l'insegnante da eliminare è assegnato come responsabile di un dipartimento, tale assegnazione viene rimossa dal dipartimento.
 

@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 02/05/2019
 ms.topic: tutorial
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: c08fd6ff7c19c63161135b4c87609f6edd3edb80
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: 5ab893dd77ff2cc9a735702eb3a547ed8bcb2197
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103124"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264854"
 ---
 # <a name="tutorial-create-a-complex-data-model---aspnet-mvc-with-ef-core"></a>Esercitazione: Creare un modello di dati complesso - ASP.NET MVC con EF Core
 
@@ -287,7 +287,6 @@ public ICollection<CourseAssignment> CourseAssignments { get; set; }
 
 ![Entità Department](complex-data-model/_static/department-entity.png)
 
-
 Creare *Models/Department.cs* con il codice seguente:
 
 [!code-csharp[](intro/samples/cu/Models/Department.cs?name=snippet_Begin)]
@@ -322,6 +321,7 @@ public ICollection<Course> Courses { get; set; }
 
 > [!NOTE]
 > Per convenzione, Entity Framework consente l'eliminazione a catena per le chiavi esterne non nullable e per le relazioni molti-a-molti. Ciò può determinare regole di eliminazione a catena circolari, che generano un'eccezione quando si prova ad aggiungere una migrazione. Se ad esempio la proprietà Department.InstructorID non è stata definita come nullable, EF configura una regola di eliminazione a catena per eliminare l'insegnante quando si elimina il reparto, un risultato indesiderato. Se le regole business richiedono che la proprietà `InstructorID` sia non nullable, è necessario usare la seguente istruzione API Fluent per disattivare l'eliminazione a catena nella relazione:
+>
 > ```csharp
 > modelBuilder.Entity<Department>()
 >    .HasOne(d => d.Administrator)
@@ -482,6 +482,7 @@ Salvare le modifiche apportate ad *appsettings.json*.
 
 > [!NOTE]
 > In alternativa alla modifica del nome del database, è possibile eliminare il database. Usare **Esplora oggetti di SQL Server** o il comando della CLI `database drop`:
+>
 > ```console
 > dotnet ef database drop
 > ```

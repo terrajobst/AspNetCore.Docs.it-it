@@ -5,12 +5,12 @@ description: ''
 ms.author: riande
 ms.date: 07/03/2017
 uid: mvc/controllers/actions
-ms.openlocfilehash: 8289424b3cd3678bea18a25c7850e409795d1577
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 952e4dbb2c4343ca87ace1535e4a5968faf088cf
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410436"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209015"
 ---
 # <a name="handle-requests-with-controllers-in-aspnet-core-mvc"></a>Gestire le richieste con controller in ASP.NET Core MVC
 
@@ -98,7 +98,7 @@ Le applicazioni condividono in genere parti del flusso di lavoro. Tra gli esempi
 La maggior parte degli attributi di filtro, ad esempio `[Authorize]`, può essere applicata a livello di controller o di azione, a seconda del livello di granularità desiderato.
 
 La gestione degli errori e la memorizzazione nella cache delle risposte rappresentano spesso problemi di montaggio incrociato:
-   * [Gestire gli errori](xref:mvc/controllers/filters#exception-filters)
-   * [Memorizzazione nella cache delle risposte](xref:performance/caching/response)
+* [Gestire gli errori](xref:mvc/controllers/filters#exception-filters)
+* [Memorizzazione nella cache delle risposte](xref:performance/caching/response)
 
 Molti problemi di montaggio incrociato possono essere gestiti tramite filtri o [middleware](xref:fundamentals/middleware/index) personalizzato.

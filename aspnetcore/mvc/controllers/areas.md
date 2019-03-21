@@ -5,12 +5,12 @@ description: Informazioni sulle aree, una funzionalità di ASP.NET MVC che conse
 ms.author: riande
 ms.date: 02/14/2019
 uid: mvc/controllers/areas
-ms.openlocfilehash: 8904d217a18fff65113ae3469efe60258d20d5f0
-ms.sourcegitcommit: 6ddd8a7675c1c1d997c8ab2d4498538e44954cac
+ms.openlocfilehash: 79bc023a7bd00a9d4de375e3cddaafd148251469
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57400645"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264761"
 ---
 # <a name="areas-in-aspnet-core"></a>Aree in ASP.NET Core
 
@@ -38,6 +38,7 @@ Una tipica app Web ASP.NET Core che usa aree, controller e visualizzazioni conti
 * La [route di area aggiunta all'avvio](#add-area-route): [!code-csharp[](areas/samples/MVCareas/Startup.cs?name=snippet2&highlight=3-6)]
 
 ### <a name="area-folder-structure"></a>Struttura di cartelle dell'area
+
 Si consideri un'applicazione che ha due gruppi logici, *Prodotti* e *Servizi*. Usando le aree, la struttura delle cartelle sarebbe simile alla seguente:
 
 * Nome progetto
@@ -172,7 +173,7 @@ Prendere in considerazione l'area *Services* del codice di esempio, che non cont
 Nel markup precedente:
 
 * Il nome di dominio completo deve essere usato per specificare il modello (`@model RPareas.Areas.Services.Pages.Manage.AboutModel`).
-* [Gli helper tag]() sono abilitati da `@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers`
+* [Gli helper tag](xref:mvc/views/tag-helpers/intro) sono abilitati da `@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers`
 
 Nel download di esempio, l'area Products contiene il file *_ViewImports* seguente:
 

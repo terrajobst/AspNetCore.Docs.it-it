@@ -5,12 +5,12 @@ description: Scoprire come aggiungere classi per la gestione dei film in un data
 ms.author: riande
 ms.date: 02/12/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 0ba00750dee1ccbef5d91d8c66f2de0db401c5c1
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: b4f14241d50383ad4d1c1d8c9d00ca439f371b7d
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346359"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265023"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Aggiungere un modello a un'app Razor Pages in ASP.NET Core
 
@@ -26,8 +26,6 @@ Le classi di modello sono dette classi POCO (da "plain-old CLR objects") perché
 
 ## <a name="add-a-data-model"></a>Aggiungere un modello di dati
 
-<!-- VS -------------------------->
-
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Fare clic con il pulsante destro del mouse sul progetto **RazorPagesMovie** > **Aggiungi** > **Nuova cartella**. Assegnare il nome *Modelli* alla cartella.
@@ -35,8 +33,6 @@ Fare clic con il pulsante destro del mouse sul progetto **RazorPagesMovie** > **
 Fare clic con il pulsante destro del mouse sulla cartella *Models*. Selezionare **Aggiungi** > **Classe**. Denominare la classe **Movie**.
 
 [!INCLUDE [model 1b](~/includes/RP/model1b.md)]
-
-<!-- Code -------------------------->
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -47,7 +43,6 @@ Fare clic con il pulsante destro del mouse sulla cartella *Models*. Selezionare 
 
 [!INCLUDE [model 2](~/includes/RP/model2.md)]
 
-<!-- Mac -------------------------->
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 * In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **RazorPagesMovie**, quindi selezionare **Aggiungi** > **Nuova cartella**. Assegnare il nome *Modelli* alla cartella.
@@ -62,8 +57,6 @@ Fare clic con il pulsante destro del mouse sulla cartella *Models*. Selezionare 
 
 [!INCLUDE [model 2](~/includes/RP/model2.md)]
 
-<!-- End of VS tabs -->
-
 ---
 
 Compilare il progetto per verificare che non siano presenti errori di compilazione.
@@ -71,8 +64,6 @@ Compilare il progetto per verificare che non siano presenti errori di compilazio
 ## <a name="scaffold-the-movie-model"></a>Eseguire lo scaffolding del modello di filmato
 
 In questa sezione viene eseguito lo scaffolding del modello di filmato. Lo strumento di scaffolding crea quindi le pagine per le operazioni CRUD (creazione, lettura, aggiornamento ed eliminazione) per il modello di filmato.
-
-<!-- VS -------------------------->
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -98,8 +89,6 @@ Completare la finestra di dialogo **Pagine Razor che usano Entity Framework (CRU
 ![Immagine relativa alle istruzioni precedenti.](model/_static/arp.png)
 
 Il file *appsettings.json* è stato aggiornato con la stringa di connessione usata per connettersi a un database locale.
-
-<!-- Code -------------------------->
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -127,8 +116,6 @@ Il file *appsettings.json* è stato aggiornato con la stringa di connessione usa
 
 [!INCLUDE [explains scaffold gen params](~/includes/RP/model4.md)]
 
-<!-- Mac -------------------------->
-
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 * Aprire una finestra di comando nella directory del progetto (la directory che contiene i file *Program.cs*, *Startup.cs* e *csproj*).
@@ -137,6 +124,7 @@ Il file *appsettings.json* è stato aggiornato con la stringa di connessione usa
   ```console
    dotnet tool install --global dotnet-aspnet-codegenerator
    ```
+
 * Eseguire il comando seguente:
 
   ```console
@@ -164,11 +152,7 @@ I file creati e aggiornati sono illustrati nella sezione successiva.
 
 ## <a name="initial-migration"></a>Migrazione iniziale
 
-<!-- VS -------------------------->
-
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-
-<!-- VS -------------------------->
 
 In questa sezione viene usata la Console di Gestione pacchetti (PMC) per:
 
@@ -186,11 +170,7 @@ Add-Migration Initial
 Update-Database
 ```
 
-<!-- Code -------------------------->
-
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
-
-<!-- Mac -------------------------->
 
 [!INCLUDE [initial migration](~/includes/RP/model3.md)]
 
@@ -198,8 +178,7 @@ Update-Database
 
 [!INCLUDE [initial migration](~/includes/RP/model3.md)]
 
----  
-<!-- End of VS tabs -->
+---
 
 I comandi precedenti generano l'avviso seguente: "No type was specified for the decimal column 'Price' on entity type 'Movie'. (Nessun tipo specificato per la colonna decimale 'Price' nel tipo di entità 'Movie'). This will cause values to be silently truncated if they do not fit in the default precision and scale. (I valori saranno quindi automaticamente troncati se non rispettano la precisione e la scala predefinite). Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'. (Specificare in modo esplicito il tipo di colonna di SQL Server che può supportare tutti i valori usando 'HasColumnType()')"
 
@@ -208,8 +187,6 @@ I comandi precedenti generano l'avviso seguente: "No type was specified for the 
 Il comando `ef migrations add InitialCreate` genera un codice per creare lo schema del database iniziale. Lo schema è basato sul modello specificato in `DbContext` (nel file *RazorPagesMovieContext.cs*). L'argomento `InitialCreate` viene usato per denominare le migrazioni. È possibile usare qualsiasi nome, ma per convenzione viene selezionato un nome che descrive la migrazione.
 
 Il comando `ef database update` esegue il metodo `Up` nel file *Migrations/\<time-stamp>_InitialCreate.cs*. Il metodo `Up` crea il database.
-
-<!-- VS -------------------------->
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -230,15 +207,10 @@ Esaminare il metodo `Startup.ConfigureServices`. La riga evidenziata è stata ag
 il codice precedente crea una proprietà [`DbSet<Movie>`](/dotnet/api/microsoft.entityframeworkcore.dbset-1) per il set di entità. Nella terminologia di Entity Framework, un set di entità corrisponde in genere alla tabella di un database. Un'entità corrisponde a una riga nella tabella.
 
 Il nome della stringa di connessione viene passato al contesto chiamando un metodo in un oggetto [DbContextOptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions). Per lo sviluppo locale, il [sistema di configurazione di ASP.NET Core](xref:fundamentals/configuration/index) legge la stringa di connessione dal file *appsettings.json*.
-<!-- Code -------------------------->
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-<!-- Mac -------------------------->
-
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
-
-<!-- End of VS tabs -->
 
 ---
 
@@ -264,7 +236,7 @@ Non è stato eseguita la [migrazione](#pmc).
 * Eseguire il test del collegamento **Crea**.
 
   ![Pagina Crea](model/_static/conan.png)
-  
+
   > [!NOTE]
   > Potrebbe non essere possibile immettere virgole decimali nel campo `Price`. Per supportare la [convalida jQuery](https://jqueryvalidation.org/) per impostazioni locali diverse dall'inglese che usano la virgola (",") come separatore decimale e per formati di data diversi da quello dell'inglese (Stati Uniti), è necessario globalizzare l'app. Per istruzioni sulla globalizzazione, vedere [questo problema su GitHub](https://github.com/aspnet/Docs/issues/4076#issuecomment-326590420).
 

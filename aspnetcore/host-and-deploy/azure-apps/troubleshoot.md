@@ -4,14 +4,14 @@ author: guardrex
 description: Informazioni su come diagnosticare i problemi delle distribuzioni di ASP.NET Core in Servizio App di Azure.
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/05/2019
+ms.date: 03/06/2019
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: c3732bfab362ec034248eb3912d4b1337c94216e
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: 326f66070d51c04298abbf6292d2d350414311de
+ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665428"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57841401"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Risolvere i problemi di ASP.NET Core in Servizio app di Azure
 
@@ -187,7 +187,10 @@ Vedere <xref:host-and-deploy/azure-iis-errors-reference>. Nell'argomento di rife
 
 ## <a name="slow-or-hanging-app"></a>App lenta o bloccata
 
-Quando un'app risponde lentamente o si blocca durante una richiesta, vedere [Troubleshoot slow web app performance issues in Azure App Service](/azure/app-service/app-service-web-troubleshoot-performance-degradation) (Risoluzione dei problemi di prestazioni delle app Web lente in Servizio app di Azure) per indicazioni sul debug.
+Quando un'app risponde lentamente o si blocca durante una richiesta, vedere gli articoli seguenti:
+
+* [Troubleshoot slow web app performance issues in Azure App Service](/azure/app-service/app-service-web-troubleshoot-performance-degradation) (Risoluzione dei problemi di prestazioni delle app Web lente in Servizio app di Azure)
+* [Use Crash Diagnoser Site Extension to Capture Dump for Intermittent Exception issues or performance issues on Azure Web App](https://blogs.msdn.microsoft.com/asiatech/2015/12/28/use-crash-diagnoser-site-extension-to-capture-dump-for-intermittent-exception-issues-or-performance-issues-on-azure-web-app/) (Usare l'estensione del sito Crash Diagnoser per acquisire il dump per i problemi di eccezioni intermittenti o i problemi di prestazioni nell'app Web di Azure)
 
 ## <a name="remote-debugging"></a>Debug remoto
 

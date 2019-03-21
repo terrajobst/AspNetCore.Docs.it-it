@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/08/2019
 uid: mvc/controllers/filters
-ms.openlocfilehash: a9081a9938d56b7612bba13937eba384ff02455b
-ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
+ms.openlocfilehash: 4fe04cde2a234302845b2cbded106f1e809842bc
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833735"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209294"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtri in ASP.NET Core
 
@@ -19,11 +19,11 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://githu
 
 I *filtri* in ASP.NET Core MVC consentono di eseguire codice prima o dopo fasi specifiche della pipeline di elaborazione della richiesta.
 
- I filtri predefiniti gestiscono attività, ad esempio:
+I filtri predefiniti gestiscono attività, ad esempio:
 
- * Autorizzazione (impedire l'accesso alle risorse per cui un utente non è autorizzato).
- * Assicurarsi che tutte le richieste utilizzino HTTPS.
- * Memorizzazione nella cache delle risposte (blocco della pipeline delle richieste per restituire una risposta memorizzata nella cache). 
+* Autorizzazione (impedire l'accesso alle risorse per cui un utente non è autorizzato).
+* Assicurarsi che tutte le richieste utilizzino HTTPS.
+* Memorizzazione nella cache delle risposte (blocco della pipeline delle richieste per restituire una risposta memorizzata nella cache). 
 
 I filtri personalizzati possono essere creati per gestire problemi relativi a più settori. I filtri possono evitare la duplicazione di codice tra le azioni. Ad esempio, un filtro eccezioni per la gestione degli errori potrebbe consolidare la gestione degli errori.
 
@@ -373,7 +373,7 @@ Quando viene eseguito il metodo `OnResultExecuted`, molto probabilmente la rispo
 
 La proprietà `ResultExecutedContext.Exception` viene impostata su un valore non Null se il risultato dell'azione o un filtro risultato successivo ha generato un'eccezione. Se si imposta `Exception` su Null l'eccezione viene gestita e si evita che venga generata nuovamente da MVC in un punto successivo della pipeline. Quando si gestisce un'eccezione in un filtro risultato, non è possibile scrivere dati nella risposta. Se il risultato dell'azione genera un'eccezione durante l'esecuzione e le intestazioni sono già state scaricate nel client, non esiste alcun meccanismo affidabile per inviare un codice di errore.
 
-Per un oggetto `IAsyncResultFilter`, una chiamata a `await next` in `ResultExecutionDelegate` esegue tutti i filtri risultato successivi e il risultato dell'azione. Per bloccare questa elaborazione, impostare `ResultExecutingContext.Cancel` su true e non chiamare `ResultExectionDelegate`.
+Per un oggetto `IAsyncResultFilter`, una chiamata a `await next` in `ResultExecutionDelegate` esegue tutti i filtri risultato successivi e il risultato dell'azione. Per bloccare questa elaborazione, impostare `ResultExecutingContext.Cancel` su true e non chiamare `ResultExecutionDelegate`.
 
 Il framework specifica una classe astratta `ResultFilterAttribute` che è possibile includere in una sottoclasse. La classe [AddHeaderAttribute](#add-header-attribute) illustrata in precedenza è un esempio di un attributo del filtro risultato.
 

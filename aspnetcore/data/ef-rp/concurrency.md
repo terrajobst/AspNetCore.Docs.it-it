@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/07/2018
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: a6c264e460855c9f1d6f5a363eb7ee2cf69619ee
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 3fb8ebe415d0619d33302a08e97da78db0ad1d1e
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346294"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265504"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Concorrenza - 8 di 8
 
@@ -95,9 +95,9 @@ Per rilevare i conflitti di concorrenza si aggiunge al modello una colonna di ri
 
 Il database genera un numero `rowversion` sequenziale che viene incrementato ogni volta che la riga viene aggiornata. In un comando `Update` o `Delete` la clausola `Where` include il valore recuperato di `rowversion`. Se la riga che viene aggiornata è stata modificata:
 
- * `rowversion` non corrisponde al valore recuperato.
- * I comandi `Update` o `Delete` non trovano una riga perché la clausola `Where` include il valore `rowversion` recuperato.
- * Viene generata un'eccezione `DbUpdateConcurrencyException`.
+* `rowversion` non corrisponde al valore recuperato.
+* I comandi `Update` o `Delete` non trovano una riga perché la clausola `Where` include il valore `rowversion` recuperato.
+* Viene generata un'eccezione `DbUpdateConcurrencyException`.
 
 In EF Core quando nessuna riga è stata aggiornata da un comando `Update` o `Delete` viene generata un'eccezione di concorrenza.
 
@@ -152,6 +152,7 @@ I comandi precedenti:
 * Eseguono migrations per aggiornare il database.
 
 <a name="scaffold"></a>
+
 ## <a name="scaffold-the-departments-model"></a>Scaffolding del modello Departments (Reparti)
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
@@ -272,7 +273,6 @@ La pagina Delete (Elimina) rileva i conflitti di concorrenza quando l'entità è
 Aggiornare *Pages/Departments/Delete.cshtml* con il codice seguente:
 
 [!code-html[](intro/samples/cu/Pages/Departments/Delete.cshtml?highlight=1,10,39,51)]
-
 
 Il markup precedente apporta le modifiche seguenti:
 

@@ -5,12 +5,12 @@ description: Aggiungere un modello a una app semplice di ASP.NET Core.
 ms.author: riande
 ms.date: 02/25/2019
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: ccdb7b920517c94b9154fe73b4ef1633f4ad0157
-ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
+ms.openlocfilehash: ed83ab92c70ea87f3c805787303e24c9ecfc4e12
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833553"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265533"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Aggiungere un modello a un'app ASP.NET Core MVC
 
@@ -26,14 +26,12 @@ In questa esercitazione si scrivono innanzitutto le classi di modello e EF Core 
 
 ## <a name="add-a-data-model-class"></a>Aggiungere una classe del modello di dati
 
-<!-- VS -------------------------->
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Fare clic con il pulsante destro del mouse sulla cartella *Models* > **Aggiungi** > **Classe**. Denominare la classe **Movie**.
 
 [!INCLUDE [model 1b](~/includes/mvc-intro/model1b.md)]
 
-<!-- Code -------------------------->
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio per Mac](#tab/visual-studio-code+visual-studio-mac)
 
 * Aggiungere una classe alla cartella *Modello* denominata *Movie.cs*.
@@ -41,14 +39,12 @@ Fare clic con il pulsante destro del mouse sulla cartella *Models* > **Aggiungi*
 [!INCLUDE [model 1b](~/includes/mvc-intro/model1b.md)]
 [!INCLUDE [model 2](~/includes/mvc-intro/model2.md)]
 
----  
-<!-- End of VS tabs -->
+---
 
 ## <a name="scaffold-the-movie-model"></a>Eseguire lo scaffolding del modello di filmato
 
 In questa sezione viene eseguito lo scaffolding del modello di filmato. Lo strumento di scaffolding crea quindi le pagine per le operazioni CRUD (creazione, lettura, aggiornamento ed eliminazione) per il modello di filmato.
 
-<!-- VS -------------------------->
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella *Controller* **> Aggiungi > Nuovo elemento di scaffolding**.
@@ -76,11 +72,10 @@ Visual Studio crea:
 
 * Una [classe del contesto di database](xref:data/ef-mvc/intro#create-the-database-context) Entity Framework Core (*Data/MvcMovieContext.cs*)
 * Un controller di film (*Controllers/MoviesController.cs*)
-* File di vista Razor per le pagine Create (Crea), Delete (Elimina), Details (Dettagli), Edit (Modifica) e Index (Indice) (<em>Views/Movies/&ast;.cshtml</em>)
+* File di vista Razor per le pagine Create (Crea), Delete (Elimina), Details (Dettagli), Edit (Modifica) e Index (Indice) (*Views/Movies/\*.cshtml*)
 
 La creazione automatica del contesto di database e di viste e metodi di azione [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) (create, read, update, delete) è nota come *scaffolding*.
 
-<!-- Code -------------------------->
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 <!--  Until https://github.com/aspnet/Scaffolding/issues/582 is fixed windows needs backslash or the namespace is namespace RazorPagesMovie.Pages_Movies rather than namespace RazorPagesMovie.Pages.Movies
@@ -313,4 +308,4 @@ Poiché l'oggetto `Model` è fortemente tipizzato (come un oggetto `IEnumerable<
 
 > [!div class="step-by-step"]
 > [Precedente - Aggiunta di una vista](adding-view.md)
-> [Successivo - Utilizzo del linguaggio SQL](working-with-sql.md)  
+> [Successivo - Utilizzo del linguaggio SQL](working-with-sql.md)
