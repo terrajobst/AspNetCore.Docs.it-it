@@ -141,6 +141,7 @@ Al termine dell'operazione, viene installata l'anteprima più recente di .NET Co
    ```powershell
    Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.{X.Y}.{PLATFORM}\
    ```
+
    Il comando restituisce `True` quando è installato il runtime di anteprima x64.
 
 > [!NOTE]
@@ -194,11 +195,13 @@ Per la distribuzione di un'app autonoma:
      <RuntimeIdentifier>win-x86</RuntimeIdentifier>
    </PropertyGroup>
    ```
+
 1. Da una shell dei comandi eseguire il comando [dotnet publish](/dotnet/core/tools/dotnet-publish) per pubblicare l'app in configurazione Rilascio per il runtime dell'host. Nell'esempio seguente l'app viene pubblicata per il RID `win-x86`. Il RID fornito per l'opzione `--runtime` deve essere specificato nella proprietà `<RuntimeIdentifier>` (o `<RuntimeIdentifiers>`) del file di progetto.
 
    ```console
    dotnet publish --configuration Release --runtime win-x86
    ```
+
 1. Spostare il contenuto della directory *bin/Release/{TARGET FRAMEWORK}/{RUNTIME IDENTIFIER}/publish* nel sito del Servizio app.
 
 ### <a name="use-docker-with-web-apps-for-containers"></a>Usare Docker con app Web per contenitori
