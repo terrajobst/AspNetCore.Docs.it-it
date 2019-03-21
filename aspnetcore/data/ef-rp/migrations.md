@@ -5,12 +5,12 @@ description: In questa esercitazione si inizia a usare la funzionalità delle mi
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/migrations
-ms.openlocfilehash: ef79aca700068aadf9b5b2b689213b6e78a5d729
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 5848e5e1e45708c3ab5c2a79614111662701aa77
+ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346437"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58320160"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Migrazioni - 4 di 8
 
@@ -61,7 +61,7 @@ Digitare quanto segue nella finestra di comando:
  dotnet ef database drop
  ```
 
-------
+---
 
 ## <a name="create-an-initial-migration-and-update-the-db"></a>Creare una migrazione iniziale e aggiornare il database
 
@@ -81,7 +81,7 @@ dotnet ef migrations add InitialCreate
 dotnet ef database update
 ```
 
-------
+---
 
 ### <a name="examine-the-up-and-down-methods"></a>Esaminare i metodi Up e Down
 
@@ -120,7 +120,7 @@ dotnet ef migrations remove
 
 Per altre informazioni, vedere [dotnet ef migrations remove](/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove).
 
-------
+---
 
 Il comando di rimozione migrazioni elimina la migrazione e garantisce che lo snapshot venga reimpostato correttamente.
 
