@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/25/2019
 uid: test/integration-tests
-ms.openlocfilehash: 50cb6b26be187c7f36f189e77fd29b4559221f2c
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 11a8f4296e1b0b229c736645f1aa598307b88ec4
+ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209239"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58320186"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Test di integrazione in ASP.NET Core
 
@@ -311,7 +311,7 @@ Chiamare il [UseSolutionRelativeContentRoot](/dotnet/api/microsoft.aspnetcore.te
 
 ## <a name="disable-shadow-copying"></a>Disabilitare la creazione di copie shadow
 
-Creazione di copie shadow fa sì che i test da eseguire in una cartella diversa da quella cartella di output. Per i test per il corretto funzionamento, è necessario disabilitare la copia shadow. Il [app di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples) Usa xUnit e disabilita la creazione di copie shadow per xUnit includendo un' *xunit.runner.json* file con l'impostazione di configurazione corretto. Per altre informazioni, vedere [configurazione xUnit.net con JSON](https://xunit.github.io/docs/configuring-with-json.html).
+Creazione di copie shadow fa sì che i test da eseguire in una cartella diversa da quella cartella di output. Per i test per il corretto funzionamento, è necessario disabilitare la copia shadow. Il [app di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples) Usa xUnit e disabilita la creazione di copie shadow per xUnit includendo un' *xunit.runner.json* file con l'impostazione di configurazione corretto. Per altre informazioni, vedere [configurazione xUnit con JSON](https://xunit.github.io/docs/configuring-with-json.html).
 
 Aggiungere il *xunit.runner.json* file alla radice del progetto di test con il contenuto seguente:
 

@@ -5,12 +5,12 @@ description: Informazioni su come creare un'app ASP.NET Core con messaggio di po
 ms.author: riande
 ms.date: 3/11/2019
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 3bfc2ce46cfbc2ee308940f9e04eb2ffeec09073
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 59041bcf11f7deb351a2f0bb075ed80c8af5e12b
+ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58265491"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58320219"
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Conferma account e recupero della password in ASP.NET Core
 
@@ -129,7 +129,7 @@ Dalla console, immettere il comando seguente:
 dotnet add package SendGrid
 ```
 
-------
+---
 
 Visualizzare [inizia gratuitamente con SendGrid](https://sendgrid.com/free/) per registrare un account SendGrid gratuito.
 

@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 11/20/2018
 uid: signalr/hubs
-ms.openlocfilehash: 9bc74079235338c75c47e06bde2b78dc1c466bd6
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: 244ddc40e647bfcc3ca8cda2797c51bc49174822
+ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54836688"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58320147"
 ---
 # <a name="use-hubs-in-signalr-for-aspnet-core"></a>Usare hub di SignalR per ASP.NET Core
 
@@ -52,6 +52,7 @@ public class ChatHub : Hub
 
 > [!NOTE]
 > Gli hub sono temporanei:
+>
 > * Non archiviare lo stato in una proprietà nella classe dell'hub. Ogni chiamata al metodo dell'hub viene eseguito in una nuova istanza di hub.  
 > * Usare `await` quando si chiamano i metodi asincroni che dipendono da hub di rimanere attivo. Ad esempio, un metodo, ad esempio `Clients.All.SendAsync(...)` può avere esito negativo se viene chiamato senza `await` e il metodo dell'hub viene completato prima `SendAsync` termina.
 
@@ -153,7 +154,7 @@ Eseguire l'override di `OnDisconnectedAsync` metodo virtuale per eseguire azioni
 
 [!code-csharp[Handle disconnection](hubs/sample/hubs/chathub.cs?name=OnDisconnectedAsync)]
 
-## <a name="handle-errors"></a>Gestione degli errori
+## <a name="handle-errors"></a>Gestire gli errori
 
 Le eccezioni generate nei metodi dell'hub vengono inviate al client che ha richiamato il metodo. Nel client JavaScript, il `invoke` metodo restituisce un [promessa JavaScript](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Using_promises). Quando il client riceve un errore con un gestore eventi associati all'oggetto mediante promise `catch`, ha richiamato e passato come un JavaScript `Error` oggetto.
 

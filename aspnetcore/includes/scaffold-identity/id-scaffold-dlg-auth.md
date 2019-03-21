@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 53774177030adf8a61606a696af85cd1f57d6ab9
+ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58320292"
+---
 Eseguire l'utilità di scaffolding di identità:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
@@ -21,35 +29,35 @@ Nota: Se si crea un nuovo contesto utente, non è necessario selezionare un file
 
 Se l'utilità di scaffolding di ASP.NET Core non è stato precedentemente installato, installarlo ora:
 
-```cli
+```console
 dotnet tool install -g dotnet-aspnet-codegenerator
 ```
 
 Aggiungere un riferimento al pacchetto [Microsoft.VisualStudio.Web.CodeGeneration.Design](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.CodeGeneration.Design/) al progetto (\*csproj) file. Eseguire il comando seguente nella directory del progetto:
 
-```cli
+```console
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet restore
 ```
 
 Eseguire il comando seguente per elencare le opzioni di utilità di scaffolding di identità:
 
-```cli
+```console
 dotnet aspnet-codegenerator identity -h
 ```
 
 Nella cartella del progetto, eseguire l'utilità di scaffolding di identità con le opzioni desiderate. Ad esempio, per la configurazione di identità con l'interfaccia utente predefinita e il numero minimo di file, eseguire il comando seguente. Usare il nome completo corretto per il contesto del database:
 
-```cli
+```console
 dotnet aspnet-codegenerator identity -dc MyWeb.Data.ApplicationDbContext --files Account.Register
 ```
 
-PowerShell Usa un punto e virgola come separatore di comandi. Quando si usa powershell, eseguire l'escape di punti e virgola nell'elenco di file o inserire l'elenco di file tra virgolette doppie. Ad esempio:
+PowerShell Usa un punto e virgola come separatore di comandi. Quando si usa PowerShell, eseguire l'escape di punti e virgola nell'elenco di file o inserire l'elenco di file tra virgolette doppie. Ad esempio:
 
-```cli
+```console
 dotnet aspnet-codegenerator identity -dc MyWeb.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout"
 ```
 
 Se si esegue l'utilità di scaffolding di identità senza specificare il `--files` flag o `--useDefaultUI` flag, tutte le pagine dell'interfaccia utente di identità disponibili verranno create nel progetto.
 
--------------
+---
