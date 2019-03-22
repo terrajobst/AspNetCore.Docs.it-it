@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/12/2019
 uid: spa/blazor/get-started
-ms.openlocfilehash: 667c57d536450fa2f8ae1cabc7c5a76a16d38a55
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: f46bd9af0f0762e794349d4e98de5c086a690d72
+ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665587"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58327229"
 ---
 # <a name="get-started-with-blazor"></a>Introduzione a Blazor
 
@@ -28,7 +28,7 @@ Prerequisiti:
 
 Per creare il primo progetto Blazor in Visual Studio:
 
-1. Installare la versione più recente [estensione servizi di linguaggio Blazor](https://go.microsoft.com/fwlink/?linkid=870389) da Visual Studio Marketplace. Questo passaggio rende disponibili i modelli Blazor a Visual Studio.
+1. Installare la versione più recente [Blazor estensione](https://go.microsoft.com/fwlink/?linkid=870389) da Visual Studio Marketplace. Questo passaggio rende disponibili i modelli Blazor a Visual Studio.
 1. Rendere disponibili per l'uso con la CLI di .NET Core i modelli Blazor eseguendo il comando seguente in una shell dei comandi:
 
    ```console
