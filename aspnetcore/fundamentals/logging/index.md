@@ -56,7 +56,7 @@ Altre informazioni sui [provider di registrazione predefiniti](#built-in-logging
 
 ## <a name="create-logs"></a>Creare log
 
-Ottenere un oggetto <xref:Microsoft.Extensions.Logging.ILogger`1> dall'inserimento delle dipendenze.
+Ottenere un oggetto <xref:Microsoft.Extensions.Logging.ILogger%601> dall'inserimento delle dipendenze.
 
 ::: moniker range=">= aspnetcore-2.0"
 
