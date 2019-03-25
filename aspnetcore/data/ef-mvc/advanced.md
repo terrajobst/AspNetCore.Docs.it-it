@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 02/05/2019
 ms.topic: tutorial
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: f02aa1d6d8e431e7e2613835b3216786aed4ecd4
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: c4804bd6614c7d5a2a30c8f59a645f603929ad52
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103098"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264592"
 ---
 # <a name="tutorial-learn-about-advanced-scenarios---aspnet-mvc-with-ef-core"></a>Esercitazione: Informazioni sugli scenari avanzati - ASP.NET MVC con EF Core
 
@@ -81,7 +81,7 @@ Si supponga che gli amministratori di Contoso University vogliano eseguire modif
 
 ![Pagina di aggiornamento dei crediti dei corsi](advanced/_static/update-credits.png)
 
-In *CoursesContoller.cs* aggiungere i metodi UpdateCourseCredits per HttpGet e HttpPost:
+In *CoursesController.cs* aggiungere i metodi UpdateCourseCredits per HttpGet e HttpPost:
 
 [!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_UpdateGet)]
 
@@ -202,6 +202,7 @@ La [terza esercitazione di questa serie](sort-filter-page.md) descrive come scri
 Tom Dykstra e Rick Anderson (twitter @RickAndMSFT) hanno scritto questa esercitazione. Rowan Miller, Diego Vega e altri membri del team Entity Framework hanno offerto supporto per le revisioni del codice e per il debug dei problemi sorti durante la scrittura del codice per le esercitazioni. John Parente e Paul Goldman hanno collaborato all'aggiornamento dell'esercitazione per ASP.NET Core 2.2.
 
 <a id="common-errors"></a>
+
 ## <a name="troubleshoot-common-errors"></a>Risolvere gli errori comuni
 
 ### <a name="contosouniversitydll-used-by-another-process"></a>ContosoUniversity.dll usata da un altro processo

@@ -5,12 +5,12 @@ description: Questo articolo presenta i file degli oggetti portabili e descrive 
 ms.author: scaddie
 ms.date: 09/26/2017
 uid: fundamentals/portable-object-localization
-ms.openlocfilehash: c9f892f5a886d7167b4705595ed2277279495201
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 466759b30e756a7cac8abab7352025df0462bb6f
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207628"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58210093"
 ---
 # <a name="configure-portable-object-localization-in-aspnet-core"></a>Configurare la localizzazione degli oggetti portabili in ASP.NET Core
 
@@ -91,7 +91,7 @@ Viene inserita un'istanza `IViewLocalizer` che viene usata per tradurre il testo
 
 ### <a name="creating-a-po-file"></a>Creazione di un file PO
 
-Creare un file denominato *<culture code>.po* nella cartella radice dell'applicazione. In questo esempio il nome file è *fr.po* poiché viene usata la lingua francese:
+Creare un file denominato *\<codice delle impostazioni cultura>.po* nella cartella radice dell'applicazione. In questo esempio il nome file è *fr.po* poiché viene usata la lingua francese:
 
 [!code-text[](localization/sample/POLocalization/fr.po)]
 

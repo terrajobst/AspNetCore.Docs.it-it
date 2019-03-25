@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/27/2019
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: a0fbeac51bd1bfbc50c4d369a479ce5f3091358b
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 2d5168ed4b1e14e507262361de9fa959924b82f6
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346255"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209557"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>Helper tag nei moduli in ASP.NET Core
 
@@ -205,9 +205,7 @@ L'helper tag `Input` imposta l'attributo HTML `type` in base al tipo .NET. La ta
 |Int|type="number"|
 |Single, Double|type="number"|
 
-
 La tabella seguente illustra alcuni attributi di [annotazioni dei dati](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) comuni di cui l'helper tag Input esegue il mapping a tipi di input specifici (non tutti gli attributi di convalida sono elencati):
-
 
 |Attributo|Tipo Input|
 |---|---|
@@ -215,10 +213,9 @@ La tabella seguente illustra alcuni attributi di [annotazioni dei dati](/dotnet/
 |[Url]|type="url"|
 |[HiddenInput]|type="hidden"|
 |[Phone]|type="tel"|
-|[DataType(DataType.Password)]| type="password"|
-|[DataType(DataType.Date)]| type="date"|
-|[DataType(DataType.Time)]| type="time"|
-
+|[DataType(DataType.Password)]|type="password"|
+|[DataType(DataType.Date)]|type="date"|
+|[DataType(DataType.Time)]|type="time"|
 
 Esempio:
 
@@ -378,7 +375,7 @@ Viene generato il codice HTML seguente:
 
 ## <a name="the-label-tag-helper"></a>Helper tag Label
 
-* Genera la didascalia dell'etichetta e l'attributo `for` in un elemento [ <label> ](https://www.w3.org/wiki/HTML/Elements/label) per un nome di espressione
+* Genera la didascalia dell'etichetta e l'attributo `for` in un elemento [\<etichetta>](https://www.w3.org/wiki/HTML/Elements/label) per un nome di espressione
 
 * Helper HTML alternativo: `Html.LabelFor`.
 

@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni sugli helper tag e su come usarli in ASP.NET Core.
 ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.date: 2/14/2018
+ms.date: 03/18/2019
 uid: mvc/views/tag-helpers/intro
-ms.openlocfilehash: 4b9bceb3ce0153af2d9a30c402febe09707145b7
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: 7768dd45bdbe40c16176d57a76823cbb9dd0b91b
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477306"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264612"
 ---
 # <a name="tag-helpers-in-aspnet-core"></a>Helper tag in ASP.NET Core
 
@@ -122,6 +122,7 @@ La direttiva `@tagHelperPrefix` consente di specificare una stringa di prefisso 
 ```cshtml
 @tagHelperPrefix th:
 ```
+
 Nell'immagine di codice seguente, il prefisso dell'helper tag è impostato su `th:`. Pertanto, solo gli elementi che usano il prefisso `th:` supportano gli helper tag. Gli elementi abilitati per gli helper tag hanno un tipo di carattere distintivo. Gli elementi `<label>` e `<input>` includono il prefisso dell'helper tag e sono abilitati per gli helper tag, mentre l'elemento `<span>` non lo è.
 
 ![immagine](intro/_static/thp.png)
@@ -186,37 +187,21 @@ Il simbolo `@` indica a Razor l'inizio del codice. I due parametri successivi ("
 new {@class="caption"}
 ```
 
-è un oggetto anonimo usato per rappresentare gli attributi. Poiché <strong>class</strong> è una parola chiave riservata in C#, usare il simbolo `@` per imporre a C# di interpretare "@class=" come un simbolo (nome di proprietà). Per un progettista all'avanguardia che abbia familiarità con HTML/CSS/JavaScript e altre tecnologie client, ma non con C# e Razor, la maggior parte della riga è sconosciuta. L'intera riga deve essere creata senza alcun aiuto da parte di IntelliSense.
+è un oggetto anonimo usato per rappresentare gli attributi. Poiché `class` è una parola chiave riservata in C#, usare il simbolo `@` per imporre a C# di interpretare `@class=` come un simbolo (nome di proprietà). Per un progettista all'avanguardia che abbia familiarità con HTML/CSS/JavaScript e altre tecnologie client, ma non con C# e Razor, la maggior parte della riga è sconosciuta. L'intera riga deve essere creata senza alcun aiuto da parte di IntelliSense.
 
 Usando `LabelTagHelper`, è possibile scrivere lo stesso markup nel modo seguente:
 
-![immagine](intro/_static/label2.png)
+```cshtml
+<label class="caption" asp-for="FirstName"></label>
+```
 
 Con la versione helper tag, non appena si digita `<l` nell'editor di Visual Studio, IntelliSense visualizza gli elementi corrispondenti:
 
 ![immagine](intro/_static/label.png)
 
-IntelliSense aiuta a scrivere l'intera riga. Per impostazione predefinita, `LabelTagHelper` imposta inoltre il contenuto del valore dell'attributo `asp-for` ("FirstName") su "First Name". Converte le proprietà scritte con le maiuscole/minuscole camel in una frase composta dal nome della proprietà con uno spazio in corrispondenza di ogni nuova lettera maiuscola. Nel markup seguente:
+IntelliSense aiuta a scrivere l'intera riga.
 
-![immagine](intro/_static/label2.png)
-
-genera:
-
-```cshtml
-<label class="caption" for="FirstName">First Name</label>
-```
-
-Il contenuto convertito da maiuscole/minuscole camel in frase non viene usato se viene aggiunto contenuto a `<label>`. Ad esempio:
-
-![immagine](intro/_static/1stName.png)
-
-genera:
-
-```cshtml
-<label class="caption" for="FirstName">Name First</label>
-```
-
-L'immagine di codice seguente illustra la porzione Form della visualizzazione Razor *Views/Account/Register.cshtml* generata dal modello MVC legacy di ASP.NET 4.5.x incluso in Visual Studio 2015.
+L'immagine di codice seguente illustra la porzione Form della visualizzazione Razor *Views/Account/Register.cshtml* generata dal modello MVC di ASP.NET 4.5.x incluso in Visual Studio.
 
 ![immagine](intro/_static/regCS.png)
 
@@ -267,5 +252,5 @@ L'editor di Visual Studio agevola la scrittura di **tutto** il markup nell'appro
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Creare helper tag](xref:mvc/views/tag-helpers/authoring)
-* [Uso dei moduli ](xref:mvc/views/working-with-forms)
+* [Utilizzo dei moduli](xref:mvc/views/working-with-forms)
 * [TagHelperSamples in GitHub](https://github.com/dpaquette/TagHelperSamples) contiene esempi di helper tag per l'uso di [Bootstrap](http://getbootstrap.com/).

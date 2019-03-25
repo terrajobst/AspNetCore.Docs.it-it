@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: 140f482e136acf4daba1248fecc87e06db6866f3
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: a264cdaf0f577be6ea2043935b485f4fd16e0229
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345892"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264949"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Leggere dati correlati - 6 di 8
 
@@ -68,6 +68,7 @@ Per visualizzare il nome del dipartimento assegnato in un elenco dei corsi:
 ![Course.Department](read-related-data/_static/dep-crs.png)
 
 <a name="scaffold"></a>
+
 ### <a name="scaffold-the-course-model"></a>Scaffolding del modello Course
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
@@ -115,6 +116,7 @@ Eseguire l'app e selezionare la scheda **Courses** (Corsi) per visualizzare l'el
 ![Pagina di indice dei corsi](read-related-data/_static/courses-index.png)
 
 <a name="select"></a>
+
 ### <a name="loading-related-data-with-select"></a>Caricamento di dati correlati con Select
 
 Il metodo `OnGetAsync` carica i dati correlati con il metodo `Include`:
@@ -187,7 +189,6 @@ La query ha due istruzioni Include, che riguardano:
 * `OfficeAssignment`: visualizzato nella [visualizzazione degli insegnanti](#IP).
 * `CourseAssignments`: visualizza i corsi tenuti.
 
-
 ### <a name="update-the-instructors-index-page"></a>Aggiornare la pagina di indice degli insegnanti
 
 Aggiornare *Pages/Instructors/Index.cshtml* con il markup seguente:
@@ -198,11 +199,11 @@ Il markup precedente apporta le modifiche seguenti:
 
 * Aggiorna la direttiva `page` da `@page` a `@page "{id:int?}"`. `"{id:int?}"` è un modello di route. Il modello di route cambia le stringhe di query di tipo integer nell'URL in dati di route. Se ad esempio si fa clic su sul collegamento **Select** (Seleziona) per un insegnante con la sola direttiva `@page`, viene generato un URL come il seguente:
 
-    `http://localhost:1234/Instructors?id=2`
+  `http://localhost:1234/Instructors?id=2`
 
-    Quando la direttiva della pagina è `@page "{id:int?}"`, l'URL precedente è:
+  Quando la direttiva della pagina è `@page "{id:int?}"`, l'URL precedente è:
 
-    `http://localhost:1234/Instructors/2`
+  `http://localhost:1234/Instructors/2`
 
 * Il titolo pagina è **Instructors** (Insegnanti).
 * È stata aggiunta la colonna **Office** (Ufficio) che visualizza `item.OfficeAssignment.Location` solo se `item.OfficeAssignment` non è Null. Poiché questa è una relazione uno-a-zero-o-uno, potrebbe non esserci un'entità OfficeAssignment correlata.

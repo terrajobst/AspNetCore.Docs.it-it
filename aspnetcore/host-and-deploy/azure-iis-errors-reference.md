@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/28/2019
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: 1c8cb31b306b38ec17596af0a84f22ca0e3d911c
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 053dcce7f8c59b7afe7e52d2f704c992afce0b67
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346226"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265170"
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Errori comuni di Servizio app di Azure e IIS con ASP.NET Core
 
@@ -61,7 +61,7 @@ I file non appartenenti al sistema operativo presenti nella directory **C:\Windo
 
 *Si applica alle app ospitate da Servizi app di Azure.*
 
-* **Browser:** Errore HTTP 500.0 - Errore di caricamento gestore In-Process ANCM 
+* **Browser:** Errore HTTP 500.0 - Errore di caricamento gestore In-Process ANCM
 
 * **Registro dell'applicazione:** Chiamata di hostfxr per trovare il gestore delle richieste In-Process non riuscita senza trovare dipendenze native. Non è stato possibile trovare il gestore delle richieste In-Process. Output acquisito dalla chiamata di hostfxr: Non è stato possibile trovare qualsiasi versione del framework compatibile. Impossibile trovare la versione del framework 'Microsoft.AspNetCore.App', version '{VERSION}-preview-\*' specificata. Impossibile avviare l'applicazione '/LM/W3SVC/1416782824/ROOT', ErrorCode '0x8000ffff'.
 
@@ -80,7 +80,7 @@ Risoluzione dei problemi:
   * Runtime ASP.NET Core {RUNTIME VERSION} (x86)
   * Runtime ASP.NET Core {RUNTIME VERSION} (x64)
 
-  Riavviare l'app. Attendere alcuni secondi per il riavvio dell'app. 
+  Riavviare l'app. Attendere alcuni secondi per il riavvio dell'app.
 
 * Se l'app è in esecuzione in un runtime di anteprima e sono installate entrambe le [estensioni del sito](xref:host-and-deploy/azure-apps/index#install-the-preview-site-extension) a 32 bit (x86) e a 64 bit (x64), disinstallare l'estensione del sito che non corrisponde al numero di bit dell'app. Dopo aver rimosso l'estensione del sito, riavviare l'app. Attendere alcuni secondi per il riavvio dell'app.
 
@@ -201,7 +201,7 @@ Risoluzione dei problemi:
   ```xml
   <section name="aspNetCore" overrideModeDefault="Allow" />
   ```
-  
+
   In alternativa installare la versione più recente del bundle di hosting ASP.NET Core. La versione più recente è compatibile con le app ASP.NET Core supportate.
 
 ## <a name="incorrect-processpath-missing-path-variable-hosting-bundle-not-installed-systemiis-not-restarted-vc-redistributable-not-installed-or-dotnetexe-access-violation"></a>ProcessPath non corretto, variabile di percorso mancante, aggregazione di hosting non installata, sistema/IIS non riavviato, VC Redistributable non installato o violazione dell'accesso a dotnet.exe

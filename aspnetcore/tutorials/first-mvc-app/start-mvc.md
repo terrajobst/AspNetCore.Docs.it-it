@@ -5,12 +5,12 @@ description: Informazioni introduttive su ASP.NET Core MVC.
 ms.author: riande
 ms.date: 12/12/2018
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: c09c06f55c4179e9e2174f0063ab7387b7e4c31b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: dbc07558d7d7672e60e8834dc3e4e9d8aab437e3
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56899229"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265281"
 ---
 # <a name="get-started-with-aspnet-core-mvc"></a>Introduzione ad ASP.NET Core MVC
 
@@ -36,7 +36,6 @@ Al termine di queste operazioni si ottiene un'app che può gestire e visualizzar
 
 ## <a name="create-a-web-app"></a>Creare un'app Web
 
-<!-- VS -------------------------->
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 In Visual Studio selezionare **File > Nuovo > Progetto**.
@@ -50,7 +49,7 @@ Completare la finestra di dialogo **Nuovo progetto**:
 * Denominare il progetto "MvcMovie" (è importante denominare il progetto "MvcMovie" in modo che quando si copia il codice lo spazio dei nomi corrisponda).
 * Scegliere **OK**.
 
-![Finestra di dialogo Nuovo progetto, .NET nel riquadro sinistro, Web ASP.NET Core ](start-mvc/_static/new_project2-21.png)
+![Finestra di dialogo Nuovo progetto, .NET Core nel riquadro sinistro, Web ASP.NET Core ](start-mvc/_static/new_project2-21.png)
 
 Completare la finestra di dialogo **Nuova Applicazione Web ASP.NET Core (.NET Core) - MvcMovie**:
 
@@ -58,11 +57,10 @@ Completare la finestra di dialogo **Nuova Applicazione Web ASP.NET Core (.NET Co
 * Selezionare **Applicazione Web (Model-View-Controller)**
 * Scegliere **OK**.
 
-![Finestra di dialogo Nuovo progetto, .NET nel riquadro sinistro, Web ASP.NET Core ](start-mvc/_static/new_project22-21.png)
+![Finestra di dialogo Nuovo progetto, .NET Core nel riquadro sinistro, Web ASP.NET Core ](start-mvc/_static/new_project22-21.png)
 
 Visual Studio ha usato un modello predefinito per il progetto MVC appena creato. Ora è possibile disporre di un'app funzionante immettendo un nome progetto e selezionando alcune opzioni. Si tratta di un progetto iniziale di base che rappresenta un ottimo punto di partenza.
 
-<!-- Code -------------------------->
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Nell'esercitazione si presuppone una familarità con Visual Studio Code. Vedere [Introduzione a VS Code](https://code.visualstudio.com/docs) e [Guida a Visual Studio Code](#visual-studio-code-help) per altre informazioni.
@@ -81,7 +79,6 @@ Nell'esercitazione si presuppone una familarità con Visual Studio Code. Vedere 
   * `dotnet new mvc -o MvcMovie`: crea un nuovo progetto ASP.NET Core MVC nella cartella *MvcMovie*.
   * `code -r MvcMovie`: carica il file di progetto *MvcMovie.csproj* in Visual Studio Code.
 
-<!-- Mac -------------------------->
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 * Selezionare **File** > **Nuova soluzione**.
@@ -96,12 +93,11 @@ Nell'esercitazione si presuppone una familarità con Visual Studio Code. Vedere 
 
 * Denominare il progetto **MvcMovie**, quindi selezionare **Crea**.
 
----  
-<!-- End of VS tabs -->
+---
 
 ### <a name="run-the-app"></a>Eseguire l'app
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Selezionare **CTRL+F5** per eseguire l'app in modalità non di debug.
 
@@ -117,7 +113,7 @@ Selezionare **CTRL+F5** per eseguire l'app in modalità non di debug.
 
   ![IIS Express](start-mvc/_static/iis_express.png)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code) 
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Premere CTRL+F5 per l'esecuzione senza il debugger.
 
@@ -136,7 +132,7 @@ Per avviare l'app, selezionare **Esegui** > **Avvia senza eseguire debug**. Visu
 * La barra degli indirizzi visualizza `localhost:port#` e non `example.com` o simili. Ciò accade perché `localhost` è il nome host standard per il computer locale. Quando Visual Studio crea un progetto Web, per il server Web viene usata una porta casuale. Quando si esegue l'app verrà visualizzato un numero di porta diverso.
 * È possibile scegliere se avviare l'app in modalità di debug o non di dal menu **Esegui**.
 
-------
+---
 
 * Selezionare **Accept** (Accetto) per autorizzare il rilevamento. Questa app non rileva informazioni personali. Il codice generato del modello include asset che consentono di soddisfare il [Regolamento generale sulla protezione dei dati (GDPR)](xref:security/gdpr).
 
@@ -151,4 +147,4 @@ Per avviare l'app, selezionare **Esegui** > **Avvia senza eseguire debug**. Visu
 Nella parte seguente di questa esercitazione vengono fornite informazioni su MVC e istruzioni per iniziare a creare codice.
 
 > [!div class="step-by-step"]
-> [avanti](adding-controller.md)  
+> [avanti](adding-controller.md)

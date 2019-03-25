@@ -5,14 +5,14 @@ description: Informazioni su come controllare il linker del linguaggio intermedi
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/20/2019
+ms.date: 03/11/2019
 uid: host-and-deploy/razor-components/configure-linker
-ms.openlocfilehash: 7c53e7912ec3b0ae471ea38777f874f55a32487d
-ms.sourcegitcommit: 0945078a09c372f17e9b003758ed87e99c2449f4
+ms.openlocfilehash: c73c972e22a51842c5d8dd209b7e1ed987f9090d
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56647941"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58207931"
 ---
 # <a name="configure-the-linker-for-blazor"></a>Configurare il linker per Blazor
 
@@ -20,14 +20,14 @@ Di [Luke Latham](https://github.com/guardrex)
 
 [!INCLUDE[](~/includes/razor-components-preview-notice.md)]
 
-Blazor esegue il collegamento del [linguaggio intermedio (IL)](/dotnet/standard/managed-code#intermediate-language--execution) durante ogni compilazione in modalità versione per rimuovere IL non necessario dagli assembly di output.
+Blazor esegue il collegamento del [linguaggio intermedio (IL)](/dotnet/standard/managed-code#intermediate-language--execution) durante ogni compilazione in modalità versione per rimuovere IL non necessario dagli assembly di output dell'app.
 
-È possibile controllare il collegamento degli assembly con uno degli approcci seguenti:
+Controllare il collegamento degli assembly adottando uno degli approcci seguenti:
 
-* Disabilitare il collegamento a livello globale con una proprietà di MSBuild.
-* Controllare il collegamento per ogni singolo assembly con un file di configurazione.
+* Disabilitare il collegamento a livello globale con una [proprietà di MSBuild](#disable-linking-with-a-msbuild-property).
+* Controllare il collegamento per ogni singolo assembly con un [file di configurazione](#control-linking-with-a-configuration-file).
 
-## <a name="disable-linking-with-an-msbuild-property"></a>Disabilitare il collegamento con una proprietà di MSBuild
+## <a name="disable-linking-with-a-msbuild-property"></a>Disabilitare il collegamento con una proprietà di MSBuild
 
 Il collegamento è abilitato per impostazione predefinita in modalità versione quando viene compilata un'app, operazione che include la pubblicazione. Per disabilitare il collegamento per tutti gli assembly, impostare la proprietà di MSBuild `<BlazorLinkOnBuild>` su `false` nel file di progetto:
 
@@ -39,9 +39,15 @@ Il collegamento è abilitato per impostazione predefinita in modalità versione 
 
 ## <a name="control-linking-with-a-configuration-file"></a>Controllare il collegamento con un file di configurazione
 
-Il collegamento può essere controllato per ogni singolo assembly usando un file di configurazione XML e specificando il file come un elemento MSBuild nel file di progetto.
+Controllare il collegamento per ogni singolo assembly usando un file di configurazione XML e specificando il file come un elemento MSBuild nel file di progetto:
 
-Di seguito è riportato un esempio di file di configurazione (*Linker.xml*):
+```xml
+<ItemGroup>
+  <BlazorLinkerDescriptor Include="Linker.xml" />
+</ItemGroup>
+```
+
+*Linker.xml*:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -73,12 +79,4 @@ Di seguito è riportato un esempio di file di configurazione (*Linker.xml*):
 </linker>
 ```
 
-Per altre informazioni sul formato di file per il file di configurazione, vedere [IL Linker: Syntax of xml descriptor](https://github.com/mono/linker/blob/master/src/linker/README.md#syntax-of-xml-descriptor) (Linker IL: sintassi del descrittore xml).
-
-Specificare il file di configurazione nel file di progetto con l'elemento `BlazorLinkerDescriptor`:
-
-```xml
-<ItemGroup>
-  <BlazorLinkerDescriptor Include="Linker.xml" />
-</ItemGroup>
-```
+Per altre informazioni, vedere [IL Linker: Syntax of xml descriptor](https://github.com/mono/linker/blob/master/src/linker/README.md#syntax-of-xml-descriptor) (Linker IL: sintassi del descrittore xml).

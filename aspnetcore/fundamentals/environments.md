@@ -5,12 +5,12 @@ description: Informazioni su come controllare il comportamento di app ASP.NET Co
 ms.author: riande
 ms.date: 01/22/2019
 uid: fundamentals/environments
-ms.openlocfilehash: 4120453c36d1fc2a2303c2175df30ef9777bc54f
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 5982f3e51a68dfa29af482067156c42006f50c0c
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345951"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208454"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>Usare più ambienti in ASP.NET Core
 
@@ -31,9 +31,9 @@ Il codice precedente:
 * Chiama [UseDeveloperExceptionPage](/dotnet/api/microsoft.aspnetcore.builder.developerexceptionpageextensions.usedeveloperexceptionpage) quando `ASPNETCORE_ENVIRONMENT` è impostato su `Development`.
 * Chiama [UseExceptionHandler](/dotnet/api/microsoft.aspnetcore.builder.exceptionhandlerextensions.useexceptionhandler) quando il valore di `ASPNETCORE_ENVIRONMENT` è uno dei seguenti:
 
-    * `Staging`
-    * `Production`
-    * `Staging_2`
+  * `Staging`
+  * `Production`
+  * `Staging_2`
 
 L'[helper per tag di ambiente](xref:mvc/views/tag-helpers/builtin-th/environment-tag-helper) usa il valore di `IHostingEnvironment.EnvironmentName` per includere o escludere il markup nell'elemento:
 
@@ -290,7 +290,7 @@ Per le distribuzioni di Linux, usare il comando `export` al prompt dei comandi p
 
 Per caricare la configurazione dall'ambiente, sono consigliabili:
 
-* File *appsettings* (*appsettings.&lt;<Environment>&gt;.json). Vedere [Configurazione: Provider di configurazione dei file](xref:fundamentals/configuration/index#file-configuration-provider).
+* file *appSettings* (*appsettings.\< Ambiente>.json*). Vedere [Configurazione: Provider di configurazione dei file](xref:fundamentals/configuration/index#file-configuration-provider).
 * Variabili di ambiente (impostate in ogni sistema in cui è ospitata l'app). Vedere [Configurazione: Provider di configurazione dei file](xref:fundamentals/configuration/index#file-configuration-provider) e [Archiviazione sicura di segreti dell'app durante lo sviluppo: Variabili di ambiente](xref:security/app-secrets#environment-variables).
 * Secret Manager (solo nell'ambiente di sviluppo). Vedere <xref:security/app-secrets>.
 

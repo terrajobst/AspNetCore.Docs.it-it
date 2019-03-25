@@ -5,12 +5,12 @@ description: Informazioni su come ASP.NET Core offre servizi e middleware per la
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 70de86f2e8c4a5577b8a4b50c53d66eb3b205c09
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: 4e87423a02a275eae7e2f6054e7a3b6c22cd7cee
+ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665539"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58320218"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalizzazione e localizzazione in ASP.NET Core
 
@@ -76,7 +76,7 @@ Un file di risorse francese può contenere quanto segue:
 
 | Chiave | Value |
 | ----- | ------ |
-| `<i>Hello</i> <b>{0}!</b>` | `<i>Bonjour</i> <b>{0} !</b> ` |
+| `<i>Hello</i> <b>{0}!</b>` | `<i>Bonjour</i> <b>{0} !</b>` |
 
 La visualizzazione di cui è stato eseguito il rendering conterrà il markup HTML del file di risorse.
 
@@ -98,6 +98,7 @@ I messaggi di errore DataAnnotations vengono localizzati con `IStringLocalizer<T
 In ASP.NET Core MVC 1.1.0 e versioni successive, gli attributi non di convalida vengono localizzati. ASP.NET Core MVC 1.0 **non** ricerca le stringhe localizzate per gli attributi non di convalida.
 
 <a name="one-resource-string-multiple-classes"></a>
+
 ### <a name="using-one-resource-string-for-multiple-classes"></a>Uso di un'unica stringa di risorsa per più classi
 
 Il codice seguente illustra come usare una sola stringa di risorsa per gli attributi di convalida con più classi:
@@ -172,7 +173,7 @@ Se lo spazio dei nomi radice di un assembly è diverso dal nome dell'assembly:
 
 Se l'attributo `RootNamespace` è diverso da `AssemblyName`, includere quanto segue in *AssemblyInfo.cs*, sostituendo i valori dei parametri con quelli effettivi:
 
-```Csharp
+```csharp
 using System.Reflection;
 using Microsoft.Extensions.Localization;
 
@@ -304,7 +305,6 @@ Usare `RequestLocalizationOptions` per aggiungere o rimuovere i provider di loca
 ### <a name="set-the-culture-programmatically"></a>Specificare le impostazioni cultura a livello di codice
 
 Questo progetto di esempio **Localization.StarterWeb** in [GitHub](https://github.com/aspnet/entropy) contiene l'interfaccia utente per impostare `Culture`. Il file *Views/Shared/_SelectLanguagePartial.cshtml* consente di selezionare le impostazioni cultura dall'elenco delle impostazioni cultura supportate:
-
 
 [!code-cshtml[](localization/sample/Localization/Views/Shared/_SelectLanguagePartial.cshtml)]
 

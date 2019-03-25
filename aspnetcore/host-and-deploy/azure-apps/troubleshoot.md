@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/06/2019
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: 326f66070d51c04298abbf6292d2d350414311de
-ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
+ms.openlocfilehash: 36c2bdfa585a0fd54ca93bf4c0edb4cf6f7d934a
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57841401"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265438"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Risolvere i problemi di ASP.NET Core in Servizio app di Azure
 
@@ -23,8 +23,7 @@ In questo articolo vengono fornite istruzioni su come diagnosticare un problema 
 
 ## <a name="app-startup-errors"></a>Errori di avvio delle app
 
-**502.5 Errore del processo**  
-Il processo di lavoro ha esito negativo. L'app non viene avviata.
+**Errore del processo 502.5** Il processo di lavoro ha esito negativo. L'app non viene avviata.
 
 Il [modulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module) tenta di avviare il processo di lavoro, ma l'avvio non riesce. Esaminare il log eventi dell'applicazione spesso è utile per risolvere i problemi di questo tipo. La procedura per accedere al log è illustrata nella sezione [Log eventi dell'applicazione](#application-event-log).
 
@@ -32,7 +31,8 @@ La pagina di errore *502.5 Errore del processo* viene restituita quando il proce
 
 ![Finestra del browser con la pagina 502.5 Errore del processo](troubleshoot/_static/process-failure-page.png)
 
-**500 Errore interno del server**  
+**500 Errore interno del server**
+
 L'app viene avviata, ma un errore impedisce al server di soddisfare la richiesta.
 
 Questo errore si verifica all'interno del codice dell'app durante l'avvio o durante la creazione di una risposta. La risposta potrebbe non avere alcun contenuto o essere visualizzata nel browser come un codice *500 Errore interno del server*. Il log eventi dell'applicazione in genere indica che l'app è stata avviata normalmente. Dal punto di vista del server, questo è corretto. L'app è stata effettivamente avviata, ma non può generare una risposta valida. Per risolvere il problema, [eseguire l'app nella console Kudu](#run-the-app-in-the-kudu-console) o [abilitare il log stdout del modulo ASP.NET Core](#aspnet-core-module-stdout-log).
@@ -83,15 +83,16 @@ Molti errori di avvio non producono informazioni utili nel log eventi dell'appli
      ```console
      dotnet .\{ASSEMBLY NAME}.dll
      ```
+
    * Se l'app è una [distribuzione autonoma](/dotnet/core/deploying/#self-contained-deployments-scd):
 
      ```console
      {ASSEMBLY NAME}.exe
      ```
-   
+
 L'output della console per l'app, in cui sono indicati gli eventuali errori, verrà inviato alla console Kudu.
-   
-##### <a name="framework-depdendent-deployment-running-on-a-preview-release"></a>Distribuzione dipendente dal framework in esecuzione in una versione di anteprima
+
+##### <a name="framework-dependent-deployment-running-on-a-preview-release"></a>Distribuzione dipendente dal framework in esecuzione in una versione di anteprima
 
 *Richiede l'installazione dell'estensione del sito del runtime ASP.NET Core {VERSION} (x86).*
 
@@ -113,7 +114,7 @@ L'output della console per l'app, in cui sono indicati gli eventuali errori, ver
 
 L'output della console per l'app, in cui sono indicati gli eventuali errori, verrà inviato alla console Kudu.
 
-##### <a name="framework-depdendent-deployment-running-on-a-preview-release"></a>Distribuzione dipendente dal framework in esecuzione in una versione di anteprima
+##### <a name="framework-dependent-deployment-running-on-a-preview-release"></a>Distribuzione dipendente dal framework in esecuzione in una versione di anteprima
 
 *Richiede l'installazione dell'estensione del sito del runtime ASP.NET Core {VERSION} (x64).*
 
@@ -170,7 +171,7 @@ Il log di debug del modulo ASP.NET Core fornisce dati di registrazione aggiuntiv
 
 Al termine della risoluzione dei problemi, disabilitare la registrazione di debug:
 
-1. Per disabilitare il log di debug avanzato, seguire questa procedura:
+1. Per disabilitare il log di debug avanzato, eseguire le operazioni seguenti:
    * Rimuovere `<handlerSettings>` dal file *web.config* in locale e ridistribuire l'app.
    * Usare la console Kudu per modificare il file *web.config* e rimuovere la sezione `<handlerSettings>`. Salvare il file.
 
@@ -230,7 +231,7 @@ Passare all'attivazione della registrazione diagnostica:
 
 1. Nel portale di Azure selezionare il pannello **Log di diagnostica**.
 1. Selezionare l'interruttore **Attivato** per **Registrazione applicazioni (file system)** e **Messaggi di errore dettagliati**. Selezionare il pulsante **Salva** nella parte superiore del pannello.
-1. Per includere la traccia delle richieste non riuscite, anche nota come registrazione FREB (Failed Request Event Buffering), selezionare l'interruttore **Attivato** per **Traccia delle richieste non riuscite**. 
+1. Per includere la traccia delle richieste non riuscite, anche nota come registrazione FREB (Failed Request Event Buffering), selezionare l'interruttore **Attivato** per **Traccia delle richieste non riuscite**.
 1. Selezionare il pannello **Flusso di registrazione**, immediatamente sotto il pannello **Log di diagnostica** nel portale.
 1. Effettuare una richiesta all'app.
 1. Nei dati del flusso di registrazione viene indicata la causa dell'errore.

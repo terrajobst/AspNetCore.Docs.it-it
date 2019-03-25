@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 02/04/2019
 ms.topic: tutorial
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 368b1774ba977ec8020a02d48705200fd54c3bbd
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: 83f5d4bdc3d5872109649818b61a6dbb656fd8be
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56102981"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264828"
 ---
 # <a name="tutorial-implement-crud-functionality---aspnet-mvc-with-ef-core"></a>Esercitazione: Implementare la funzionalità CRUD - ASP.NET MVC con EF Core
 
@@ -123,6 +123,7 @@ A differenza dell'attributo `Bind`, il blocco Try-Catch rappresenta l'unica modi
 L'attributo `ValidateAntiForgeryToken` è utile per prevenire attacchi tramite richieste intersito false (CSRF). Il token viene inserito automaticamente nella visualizzazione da [FormTagHelper](xref:mvc/views/working-with-forms#the-form-tag-helper) e viene incluso quando il modulo viene inviato dall'utente. Il token è convalidato dall'attributo `ValidateAntiForgeryToken`. Per altre informazioni sulle richieste intersito false, vedere [Richiesta intersito falsa](../../security/anti-request-forgery.md).
 
 <a id="overpost"></a>
+
 ### <a name="security-note-about-overposting"></a>Nota sulla sicurezza relativa all'overposting
 
 L'attributo `Bind` che il codice con scaffolding include nel metodo `Create` consente di impedire l'overposting negli scenari di creazione. Si supponga ad esempio che l'entità Student includa una proprietà `Secret` che la pagina Web non deve impostare.
