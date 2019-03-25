@@ -18,7 +18,7 @@ ASP.NET Core è un framework multipiattaforma, ad alte prestazioni, [open source
 * Distribuire nel cloud o in locale.
 * Eseguire in [.NET Core o .NET Framework](/dotnet/articles/standard/choosing-core-framework-server).
 
-## <a name="why-use-aspnet-core"></a>Perché usare ASP.NET Core?
+## <a name="why-to-use-aspnet-core"></a>Perché usare ASP.NET Core
 
 Milioni di sviluppatori hanno usato, e continuano a usare, [ASP.NET 4.x](/aspnet/overview) per creare app Web. ASP.NET Core è una riprogettazione di ASP.NET 4.x, con modifiche a livello di architettura che comportano un framework più efficiente e modulare.
 
@@ -136,7 +136,7 @@ WebHost.CreateDefaultBuilder(args)
 
 Il file markdown dell'argomento fa riferimento al frammento di codice C# precedente con la riga seguente:
 
-```
+```md
 [!code-csharp[](sample/SampleApp/Program.cs?name=snippet_FilterInCode)]
 ```
 
