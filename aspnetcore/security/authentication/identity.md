@@ -3,14 +3,14 @@ title: Introduzione all'identità in ASP.NET Core
 author: rick-anderson
 description: Usare l'identità con un'app ASP.NET Core. Informazioni su come impostare i requisiti di password (RequireDigit RequiredLength, RequiredUniqueChars e altro ancora).
 ms.author: riande
-ms.date: 08/08/2018
+ms.date: 03/26/2019
 uid: security/authentication/identity
-ms.openlocfilehash: 355c53e0c957944cb35c37c6b01e724af5f93f44
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: efe8119c2d18db50dce3df57fa0e300d0d0df2cd
+ms.sourcegitcommit: 687ffb15ebe65379f75c84739ea851d5a0d788b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58265476"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58488673"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Introduzione all'identità in ASP.NET Core
 
@@ -64,6 +64,24 @@ Fornisce il progetto generato [ASP.NET Core Identity](xref:security/authenticati
 * / Identità/Account/Login
 * / Identità/Account/disconnessione
 * / Identità/Account/gestire
+
+### <a name="apply-migrations"></a>Applicare le migrazioni
+
+Applicare le migrazioni per inizializzare il database.
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+Eseguire il comando seguente in Package Manager Console (console di gestione pacchetti):
+
+```PM> Update-Database```
+
+# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
+
+```cli
+dotnet ef database update
+```
+
+---
 
 ### <a name="test-register-and-login"></a>Registrazione di test e account di accesso
 
