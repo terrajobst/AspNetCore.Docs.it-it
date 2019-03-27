@@ -5,7 +5,7 @@ description: Questo articolo contiene collegamenti a risorse di hosting e distri
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/26/2019
+ms.date: 03/23/2019
 uid: host-and-deploy/azure-apps/index
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Distribuire le app ASP.NET Core in Servizio app di Azure
@@ -78,7 +78,17 @@ Il middleware di integrazione di IIS, che consente di configurare il middleware 
 
 ## <a name="monitoring-and-logging"></a>Monitoraggio e registrazione
 
-Le app ASP.NET Core distribuite in Servizio app ricevono automaticamente un'estensione di Servizio app, ovvero le **estensioni di registrazione di ASP.NET Core**. L'estensione abilita la registrazione di Azure.
+::: moniker range=">= aspnetcore-3.0"
+
+Le app ASP.NET Core distribuite in Servizio app di Azure ricevono automaticamente l'estensione di Servizio app **ASP.NET Core Logging Integration** (Integrazione di registrazione ASP.NET Core). L'estensione abilita l'integrazione della registrazione per le app ASP.NET Core in Servizio app di Azure.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+Le app ASP.NET Core distribuite in Servizio app ricevono automaticamente un'estensione di Servizio app, ovvero le **estensioni di registrazione di ASP.NET Core**. L'estensione abilita l'integrazione della registrazione per le app ASP.NET Core in Servizio app di Azure.
+
+::: moniker-end
 
 Per informazioni sul monitoraggio, la registrazione e la risoluzione dei problemi, vedere gli articoli seguenti:
 

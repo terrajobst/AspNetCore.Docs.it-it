@@ -5,7 +5,7 @@ description: 'Informazioni su come ospitare e distribuire Razor Components e app
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/29/2019
+ms.date: 03/22/2019
 uid: host-and-deploy/razor-components/index
 ---
 # <a name="host-and-deploy-razor-components"></a>Ospitare e distribuire Razor Components
@@ -284,7 +284,7 @@ Quando si usa un sito di progetto anziché un sito dell'organizzazione, aggiunge
 
 Con il [modello di hosting sul lato server](xref:razor-components/hosting-models#server-side-hosting-model), Razor Components viene eseguito nel server dall'interno di un'app ASP.NET Core. Gli aggiornamenti dell'interfaccia utente, la gestione degli eventi e le chiamate JavaScript vengono gestite tramite una connessione SignalR.
 
-L'app è inclusa con l'app ASP.NET Core nell'output pubblicato in modo che le due app vengano distribuite insieme. È necessario un server Web in grado di ospitare un'app ASP.NET Core. Per una distribuzione sul lato server, Visual Studio include il modello di progetto **Blazor (lato server in ASP.NET Core)** (modello `blazorserver` quando si usa il comando [dotnet new](/dotnet/core/tools/dotnet-new)).
+L'app è inclusa con l'app ASP.NET Core nell'output pubblicato in modo che le due app vengano distribuite insieme. È necessario un server Web in grado di ospitare un'app ASP.NET Core. Per una distribuzione sul lato server, Visual Studio include il modello di progetto **Razor Components** (modello `razorcomponents` quando si usa il comando [dotnet new](/dotnet/core/tools/dotnet-new)).
 
 <!--
 
