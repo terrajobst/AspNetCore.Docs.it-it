@@ -5,12 +5,12 @@ description: Informazioni su come ASP.NET Core offre servizi e middleware per la
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 4e87423a02a275eae7e2f6054e7a3b6c22cd7cee
-ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
+ms.openlocfilehash: 3192ad150b914c00b315f38bd9fe077ebf402b37
+ms.sourcegitcommit: 687ffb15ebe65379f75c84739ea851d5a0d788b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58320218"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58488702"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalizzazione e localizzazione in ASP.NET Core
 
@@ -343,6 +343,7 @@ Termini:
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
+* <xref:fundamentals/troubleshoot-aspnet-core-localization>
 * [Progetto Localization.StarterWeb](https://github.com/aspnet/Entropy/tree/master/samples/Localization.StarterWeb) usato nell'articolo.
 * [Globalizzazione e localizzazione di applicazioni .NET](/dotnet/standard/globalization-localization/index)
 * [Uso dei file RESX a livello di codice](/dotnet/framework/resources/working-with-resx-files-programmatically)

@@ -5,12 +5,12 @@ description: Informazioni sulla sintassi di markup Razor per l'incorporamento di
 ms.author: riande
 ms.date: 10/26/2018
 uid: mvc/views/razor
-ms.openlocfilehash: 254c85ee9e74dc72170b19d27fbc5f1ae7ccd3dc
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 53d4dc608fbfd45bcc015a3af83f5d87f86c7f15
+ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264749"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58327365"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Guida di riferimento della sintassi Razor per ASP.NET Core
 
@@ -534,7 +534,7 @@ I modelli Razor consentono di definire un frammento di codice dell'interfaccia u
 @<tag>...</tag>
 ```
 
-L'esempio seguente illustra come specificare un delegato Razor basato su modelli come <xref:System.Func`2>. Per il parametro del metodo incapsulato dal delegato viene specificato il [tipo dinamico](/dotnet/csharp/programming-guide/types/using-type-dynamic). Come valore restituito del delegato viene specificato un [tipo di oggetto](/dotnet/csharp/language-reference/keywords/object). Il modello viene usato con un oggetto <xref:System.Collections.Generic.List`1> di `Pet` dotato della proprietà `Name`.
+L'esempio seguente illustra come specificare un delegato Razor basato su modelli come <xref:System.Func%602>. Per il parametro del metodo incapsulato dal delegato viene specificato il [tipo dinamico](/dotnet/csharp/programming-guide/types/using-type-dynamic). Come valore restituito del delegato viene specificato un [tipo di oggetto](/dotnet/csharp/language-reference/keywords/object). Il modello viene usato con un oggetto <xref:System.Collections.Generic.List%601> di `Pet` dotato della proprietà `Name`.
 
 ```csharp
 public class Pet
@@ -599,7 +599,7 @@ Output sottoposto a rendering:
 
 Usando l'elenco di animali domestici (pets) dell'esempio precedente, il metodo `Repeat` viene chiamato con:
 
-* <xref:System.Collections.Generic.List`1> di `Pet`.
+* <xref:System.Collections.Generic.List%601> di `Pet`.
 * Numero di ripetizioni di ogni animale domestico.
 * Modello inline da usare per gli elementi elenco di un elenco non ordinato.
 
