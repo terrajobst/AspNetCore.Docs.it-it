@@ -5,14 +5,14 @@ description: Informazioni su come migliorare un'app ASP.NET Core da un assembly 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 03/10/2019
+ms.date: 03/23/2019
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: 25564ecebf48f65a209ac48e77856ef36d897959
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: c174d658c84ada88eef17528c663735a91347ba7
+ms.sourcegitcommit: 7d6019f762fc5b8cbedcd69801e8310f51a17c18
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264988"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58419446"
 ---
 # <a name="use-hosting-startup-assemblies-in-aspnet-core"></a>Usare assembly di avvio dell'hosting in ASP.NET Core
 
@@ -381,18 +381,7 @@ dotnet nuget locals all --clear
 **Attivazione da un assembly distribuito tramite l'archivio di runtime**
 
 1. Il progetto *StartupDiagnostics* usa [PowerShell](/powershell/scripting/powershell-scripting) per modificare il relativo file *StartupDiagnostics.deps.json*. PowerShell viene installato per impostazione predefinita in Windows a partire da Windows 7 SP1 e Windows Server 2008 R2 SP1. Per ottenere PowerShell su altre piattaforme, vedere [Installazione di Windows PowerShell](/powershell/scripting/setup/installing-powershell#powershell-core).
-1. Compilare il progetto *StartupDiagnostics*. Dopo aver compilato il progetto, una destinazione di compilazione nel file di progetto esegue automaticamente le operazioni seguenti:
-   * Attiva lo script di PowerShell per modificare il file *StartupDiagnostics.deps.json*.
-   * Sposta il file *StartupDiagnostics.deps.json* nella cartella *additionalDeps* del profilo utente.
-1. Eseguire il comando `dotnet store` a un prompt dei comandi nella directory di avvio dell'hosting per archiviare l'assembly e le relative dipendenze nell'archivio di runtime del profilo utente:
-
-   ```console
-   dotnet store --manifest StartupDiagnostics.csproj --runtime <RID>
-   ```
-
-   Per Windows, il comando usa l'[identificatore di runtime (RID)](/dotnet/core/rid-catalog) `win7-x64`. Quando si specifica l'avvio dell'hosting per un runtime diverso, immettere il RID corretto.
-1. Impostare le variabili di ambiente:
-   * Aggiungere il nome dell'assembly di *StartupDiagnostics* alla variabile di ambiente `ASPNETCORE_HOSTINGSTARTUPASSEMBLIES`.
-   * In Windows impostare la variabile di ambiente `DOTNET_ADDITIONAL_DEPS` su `%UserProfile%\.dotnet\x64\additionalDeps\StartupDiagnostics\`. In macOS/Linux impostare la variabile di ambiente `DOTNET_ADDITIONAL_DEPS` su `/Users/<USER>/.dotnet/x64/additionalDeps/StartupDiagnostics/`, dove `<USER>` è il profilo utente che contiene l'avvio dell'hosting.
+1. Eseguire lo script *build.ps1* nella cartella *RuntimeStore*. Il comando `dotnet store` nello script usa l'[identificatore di runtime (RID)](/dotnet/core/rid-catalog) `win7-x64` per un avvio dell'hosting distribuito su Windows. Quando si specifica l'avvio dell'hosting per un runtime diverso, immettere il RID corretto.
+1. Eseguire lo script *deploy.ps1* nella cartella *deployment*.
 1. Eseguire l'app di esempio.
 1. Richiedere l'endpoint `/services` per visualizzare i servizi registrati dell'app. Richiedere l'endpoint `/diag` per visualizzare le informazioni di diagnostica.

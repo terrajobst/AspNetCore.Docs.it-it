@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/30/2018
 uid: tutorials/get-started-with-nswag
-ms.openlocfilehash: 43f0f04ae63f4e74d8de6001a4a7518e4eb23d77
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: af07ad771c582cfad80f297748c3c1049ff4a7d6
+ms.sourcegitcommit: 7d6019f762fc5b8cbedcd69801e8310f51a17c18
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209145"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58419407"
 ---
 # <a name="get-started-with-nswag-and-aspnet-core"></a>Introduzione a NSwag e ad ASP.NET Core
 
@@ -47,7 +47,7 @@ Per usare il middleware ASP.NET Core di [NSwag](https://github.com/RSuter/NSwag)
 
 Usare uno degli approcci seguenti per installare il pacchetto NuGet NSwag:
 
-### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Dalla finestra **Console di Gestione pacchetti**:
   * Passare a **Vista** > **Altre finestre** > **Console di Gestione pacchetti**
@@ -64,14 +64,14 @@ Usare uno degli approcci seguenti per installare il pacchetto NuGet NSwag:
   * Immettere "NSwag.AspNetCore" nella casella di ricerca
   * Selezionare il pacchetto "NSwag.AspNetCore" dalla scheda **Sfoglia** e fare clic su **Installa**
 
-### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 * Fare clic su con il pulsante destro del mouse sulla cartella *Pacchetti* in **Solution Pad** (Riquadro della soluzione) > **Aggiungi pacchetti**
 * Impostare l'elenco a discesa **Aggiungi pacchetti** della finestra **Origine** su "nuget.org"
 * Immettere "NSwag.AspNetCore" nella casella di ricerca
 * Selezionare il pacchetto "NSwag.AspNetCore" dal riquadro dei risultati e fare clic su **Aggiungi pacchetto**
 
-### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Eseguire il comando seguente da **Terminale integrato**:
 
@@ -79,7 +79,7 @@ Eseguire il comando seguente da **Terminale integrato**:
 dotnet add TodoApi.csproj package NSwag.AspNetCore
 ```
 
-### <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
+# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 
 Eseguire il comando seguente:
 
@@ -202,9 +202,9 @@ L'interfaccia utente di Swagger visualizza le informazioni sulla versione:
 
 ### <a name="xml-comments"></a>XML (commenti)
 
- Per abilitare i commenti XML, seguire questa procedura:
+Per abilitare i commenti XML, seguire questa procedura:
 
-# <a name="visual-studiotabvisual-studio-xml"></a>[Visual Studio](#tab/visual-studio-xml/)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -222,7 +222,7 @@ L'interfaccia utente di Swagger visualizza le informazioni sulla versione:
 
 ::: moniker-end
 
-# <a name="visual-studio-for-mactabvisual-studio-mac-xml"></a>[Visual Studio per Mac](#tab/visual-studio-mac-xml/)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -240,7 +240,7 @@ L'interfaccia utente di Swagger visualizza le informazioni sulla versione:
 
 ::: moniker-end
 
-# <a name="visual-studio-codetabvisual-studio-code-xml"></a>[Visual Studio Code](#tab/visual-studio-code-xml/)
+# <a name="visual-studio-code--net-core-clitabvisual-studio-codenetcore-cli"></a>[Visual Studio Code/Interfaccia della riga di comando di .NET Core](#tab/visual-studio-code+netcore-cli)
 
 Aggiungere manualmente le righe evidenziate al file con estensione *csproj*:
 
@@ -276,7 +276,7 @@ L'azione precedente restituisce `IActionResult`, ma all'interno dell'azione vien
 
 ::: moniker range=">= aspnetcore-2.1"
 
-Dato che NSwag usa la [reflection](/dotnet/csharp/programming-guide/concepts/reflection) e il tipo restituito consigliato per le azioni API Web è [ActionResult\<T>](xref:Microsoft.AspNetCore.Mvc.ActionResult`1), può solo dedurre il tipo restituito definito da `T`. Non è possibile dedurre automaticamente altri tipi restituiti possibili.
+ Dato che NSwag usa la [reflection](/dotnet/csharp/programming-guide/concepts/reflection) e il tipo restituito consigliato per le azioni API Web è [ActionResult\<T>](xref:Microsoft.AspNetCore.Mvc.ActionResult%601), può solo dedurre il tipo restituito definito da `T`. Non è possibile dedurre automaticamente altri tipi restituiti possibili. 
 
 Si consideri l'esempio seguente:
 
