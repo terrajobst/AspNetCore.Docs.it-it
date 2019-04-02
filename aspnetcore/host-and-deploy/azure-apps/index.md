@@ -5,7 +5,7 @@ description: Questo articolo contiene collegamenti a risorse di hosting e distri
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/23/2019
+ms.date: 03/30/2019
 uid: host-and-deploy/azure-apps/index
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Distribuire le app ASP.NET Core in Servizio app di Azure
@@ -14,7 +14,7 @@ Il [servizio app di Azure](https://azure.microsoft.com/services/app-service/) è
 
 ## <a name="useful-resources"></a>Risorse utili
 
-[Documentazione di App Web](/azure/app-service/) di Azure è la home page della documentazione, delle esercitazioni, degli esempi, delle guide introduttive e di altre risorse per le app di Azure. Due importanti esercitazioni relative all'hosting di app ASP.NET Core sono:
+[Documentazione del servizio app](/azure/app-service/) è la home page di documentazione, esercitazioni, esempi, guide introduttive e altre risorse per le app di Azure. Due importanti esercitazioni relative all'hosting di app ASP.NET Core sono:
 
 [Creare un'app Web ASP.NET Core in Azure](/azure/app-service/app-service-web-get-started-dotnet)  
 Usare Visual Studio per creare e distribuire un'app Web ASP.NET Core nel servizio app di Azure in Windows.
@@ -30,7 +30,7 @@ Informazioni su come pubblicare un'app ASP.NET Core in Servizio app di Azure con
 <xref:host-and-deploy/azure-apps/azure-continuous-deployment>  
 Informazioni su come creare un'app Web ASP.NET Core tramite Visual Studio e distribuirla nel Servizio app di Azure usando Git per la distribuzione continua.
 
-[Creare la prima pipeline con Azure Pipelines](/azure/devops/pipelines/get-started-yaml)  
+[Creare la prima pipeline](/azure/devops/pipelines/get-started-yaml)  
 Impostare una build CI per un'app ASP.NET Core e quindi creare una versione di distribuzione continua in Servizio App di Azure.
 
 [Azure Web App sandbox](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) (Sandbox per app Web di Azure)  
@@ -92,10 +92,10 @@ Le app ASP.NET Core distribuite in Servizio app ricevono automaticamente un'este
 
 Per informazioni sul monitoraggio, la registrazione e la risoluzione dei problemi, vedere gli articoli seguenti:
 
-[Procedura: Monitorare le app in Servizio app di Azure](/azure/app-service/web-sites-monitor)  
+[Monitorare le app nel servizio app di Azure](/azure/app-service/web-sites-monitor)  
 Informazioni su come esaminare le quote e le metriche per le app e i piani del servizio app.
 
-[Abilitare la registrazione diagnostica per le app Web nel servizio app di Azure](/azure/app-service/web-sites-enable-diagnostic-log)  
+[Abilitare la registrazione diagnostica per le app nel servizio app di Azure](/azure/app-service/web-sites-enable-diagnostic-log)  
 Informazioni su come abilitare e accedere alla registrazione diagnostica per i codici di stato HTTP, le richieste non riuscite e l'attività del server Web.
 
 <xref:fundamentals/error-handling>  
@@ -220,7 +220,7 @@ L'[hub Docker](https://hub.docker.com/r/microsoft/aspnetcore/) contiene le immag
 
 ## <a name="protocol-settings-https"></a>Impostazioni del protocollo (HTTPS)
 
-Le associazioni di protocollo protette consentono di specificare un certificato da usare per rispondere alle richieste su HTTPS. L'associazione richiede un certificato privato valido (*PFX*) rilasciato per il nome host specifico. Per altre informazioni, vedere [Esercitazione: Associare un certificato SSL personalizzato esistente ad App Web di Azure](/azure/app-service/app-service-web-tutorial-custom-ssl).
+Le associazioni di protocollo protette consentono di specificare un certificato da usare per rispondere alle richieste su HTTPS. L'associazione richiede un certificato privato valido (*PFX*) rilasciato per il nome host specifico. Per altre informazioni, vedere [Esercitazione: Associare un certificato SSL personalizzato esistente al servizio app di Azure](/azure/app-service/app-service-web-tutorial-custom-ssl).
 
 ## <a name="transform-webconfig"></a>Trasformare web.config
 
@@ -228,7 +228,7 @@ Se è necessario trasformare *web.config* in fase di pubblicazione (ad esempio, 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Panoramica di App Web (video di 5 minuti)](/azure/app-service/app-service-web-overview)
+* [Panoramica del servizio app](/azure/app-service/app-service-web-overview)
 * [Azure App Service: The Best Place to Host your .NET Apps ](https://channel9.msdn.com/events/dotnetConf/2017/T222) (Servizio app di Azure: la soluzione migliore per l'hosting delle app .NET) (video di 55 minuti)
 * [Azure Friday: Azure App Service Diagnostic and Troubleshooting Experience](https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Diagnostic-and-Troubleshooting-Experience) (Azure Friday: diagnostica e risoluzione dei problemi del servizio app di Azure) (video di 12 minuti)
 * [Panoramica della diagnostica del servizio app di Azure](/azure/app-service/app-service-diagnostics)
@@ -239,4 +239,4 @@ Il servizio app di Azure in Windows Server usa [Internet Information Services (I
 * <xref:host-and-deploy/iis/index>
 * <xref:host-and-deploy/aspnet-core-module>
 * <xref:host-and-deploy/iis/modules>
-* [Libreria Microsoft TechNet: Windows Server](/windows-server/windows-server-versions)
+* [Windows Server - Contenuti per l'amministratore IT per la versione corrente e le versioni precedenti](/windows-server/windows-server-versions)
