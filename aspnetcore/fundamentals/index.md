@@ -2,10 +2,17 @@
 title: Nozioni fondamentali su ASP.NET Core
 author: rick-anderson
 description: Informazioni sui concetti fondamentali per la compilazione di app ASP.NET Core.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/02/2019
+ms.date: 03/31/2019
 uid: fundamentals/index
+ms.openlocfilehash: a1fed574db0baab391ebb9cfc44664ceddbfa69b
+ms.sourcegitcommit: 5995f44e9e13d7e7aa8d193e2825381c42184e47
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58809289"
 ---
 # <a name="aspnet-core-fundamentals"></a>Nozioni fondamentali su ASP.NET Core
 
@@ -21,31 +28,23 @@ All'interno della classe `Startup`:
 * Il codice per configurare o *registrare* i servizi viene aggiunto al metodo `Startup.ConfigureServices`. I *servizi* sono componenti usati dall'app. Un oggetto di contesto Entity Framework Core, ad esempio, è un servizio.
 * Il codice per configurare la pipeline di gestione delle richieste viene aggiunto al metodo `Startup.Configure`. La pipeline è strutturata come una serie di componenti *middleware*. Un componente middleware, ad esempio, potrebbe gestire le richieste per i file statici o reindirizzare le richieste HTTP a HTTPS. Ogni componente middleware esegue operazioni asincrone su un `HttpContext`, quindi richiama il componente middleware successivo della pipeline oppure termina la richiesta.
 
-::: moniker range=">= aspnetcore-2.0"
-
 Ecco un esempio di classe `Startup`:
 
 [!code-csharp[](index/snapshots/2.x/Startup1.cs?highlight=3,12)]
 
-::: moniker-end
-
-Per altre informazioni, vedere [Avvio dell'app](xref:fundamentals/startup).
+Per ulteriori informazioni, vedere <xref:fundamentals/startup>.
 
 ## <a name="dependency-injection-services"></a>Iniezione di dipendenze (servizi)
 
 ASP.NET Core include un framework di inserimento delle dipendenze predefinito che rende disponibili i servizi configurati per le classi di un'app. Un modo per inserire un'istanza di un servizio in una classe consiste nel creare un costruttore con un parametro del tipo richiesto. Il parametro può essere il tipo di servizio o un'interfaccia. Il sistema di inserimento delle dipendenze fornisce il servizio in runtime.
 
-::: moniker range=">= aspnetcore-2.0"
-
 Di seguito viene proposto un esempio di classe che usa l'inserimento delle dipendenze per ottenere un oggetto di contesto Entity Framework Core. La riga evidenziata è un esempio di inserimento costruttore:
 
 [!code-csharp[](index/snapshots/2.x/Index.cshtml.cs?highlight=5)]
 
-::: moniker-end
-
 Nonostante l'inserimento delle dipendenze sia predefinito, è progettato per consentire il collegamento di un contenitore di inversione del controllo (IoC) di terze parti, qualora lo si preferisse.
 
-Per altre informazioni, vedere [Dependency injection](xref:fundamentals/dependency-injection) (Inserimento delle dipendenze).
+Per ulteriori informazioni, vedere <xref:fundamentals/dependency-injection>.
 
 ## <a name="middleware"></a>Middleware
 
@@ -53,17 +52,13 @@ La pipeline di gestione delle richieste è strutturata come una serie di compone
 
 Per convenzione viene aggiunto un componente middleware alla pipeline richiamando il relativo metodo di estensione `Use...` nel metodo `Startup.Configure`. Per abilitare il rendering dei file statici, ad esempio, chiamare `UseStaticFiles`.
 
-::: moniker range=">= aspnetcore-2.0"
-
 Il codice evidenziato nell'esempio seguente configura la pipeline di gestione delle richieste:
 
 [!code-csharp[](index/snapshots/2.x/Startup1.cs?highlight=14-16)]
 
-::: moniker-end
-
 ASP.NET Core include un ampio set di middleware predefiniti, ma consente anche di scrivere middleware personalizzati.
 
-Per altre informazioni, vedere [Middleware](xref:fundamentals/middleware/index).
+Per ulteriori informazioni, vedere <xref:fundamentals/middleware/index>.
 
 <a id="host"/>
 
@@ -81,59 +76,55 @@ Il motivo principale per cui tutte le risorse interdipendenti dell'app sono incl
 
 Il codice usato per creare un host si trova in `Program.Main` e segue il pattern [Builder](https://wikipedia.org/wiki/Builder_pattern). Per configurare ogni risorsa che fa parte dell'host vengono chiamati dei metodi. Un metodo builder viene chiamato per combinare il tutto e creare un'istanza dell'oggetto host.
 
-::: moniker range="<= aspnetcore-2.2"
+::: moniker range=">= aspnetcore-3.0"
+
+In ASP.NET Core 3.0 o versioni successive è possibile usare un host generico (classe `Host`) o un host Web (classe `WebHost`) in un'app Web. È consigliato l'uso di un host generico, mentre l'host Web è disponibile per garantire la compatibilità con le versioni precedenti.
+
+Il framework offre i metodi `CreateDefaultBuilder` e `ConfigureWebHostDefaults` per configurare un host con le opzioni usate comunemente, ad esempio:
+
+* Usare [Kestrel](#servers) come server Web e abilitare l'integrazione IIS.
+* Caricare la configurazione da *appsettings.json*, *appsettings.[EnvironmentName].json*, variabili di ambiente, argomenti della riga di comando e altri origini di configurazione.
+* Inviare l'output di registrazione alla console e ai provider di debug.
+
+Ecco un esempio di codice per creare un host. I metodi che configurano l'host con le opzioni usate comunemente sono evidenziati:
+
+[!code-csharp[](index/snapshots/3.x/Program1.cs?highlight=9-10)]
+
+Per altre informazioni, vedere <xref:fundamentals/host/generic-host> e <xref:fundamentals/host/web-host>.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 ASP.NET Core 2.x usa un host Web (classe `WebHost`) per le app Web. Il framework offre `CreateDefaultBuilder` per configurare un host con le opzioni usate comunemente, ad esempio:
 
 * Usare [Kestrel](#servers) come server Web e abilitare l'integrazione IIS.
-* Caricare la configurazione da *appsettings.json*, variabili di ambiente, argomenti della riga di comando e altre origini.
+* Caricare la configurazione da *appsettings.json*, *appsettings.[EnvironmentName].json*, variabili di ambiente, argomenti della riga di comando e altri origini di configurazione.
 * Inviare l'output di registrazione alla console e ai provider di debug.
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.0 <= aspnetcore-2.2"
 
 Ecco un esempio di codice per creare un host:
 
 [!code-csharp[](index/snapshots/2.x/Program1.cs?highlight=9)]
 
-Per altre informazioni, vedere [Host Web](xref:fundamentals/host/web-host).
-
-::: moniker-end
-
-::: moniker range="> aspnetcore-2.2"
-
-Nelle app Web in ASP.NET Core 3.0 è possibile usare un host Web (classe `WebHost`) o un host generico (classe `Host`). È consigliato l'uso di un host generico, mentre l'host Web è disponibile per garantire la compatibilità con le versioni precedenti.
-
-Il framework offre i metodi `CreateDefaultBuilder` e `ConfigureWebHostDefaults` per configurare un host con le opzioni usate comunemente, ad esempio:
-
-* Usare [Kestrel](#servers) come server Web e abilitare l'integrazione IIS.
-* Caricare la configurazione da *appsettings.json*, *appsettings.[EnvironmentName].json*, variabili di ambiente e argomenti della riga di comando.
-* Inviare l'output di registrazione alla console e ai provider di debug.
-
-Ecco un esempio di codice per creare un host. I metodi che configurano l'host con le opzioni usate comunemente sono evidenziati.
-
-[!code-csharp[](index/snapshots/3.x/Program1.cs?highlight=9-10)]
-
-Per altre informazioni, vedere [Host generico](xref:fundamentals/host/generic-host) e [Host Web](xref:fundamentals/host/web-host)
+Per ulteriori informazioni, vedere <xref:fundamentals/host/web-host>.
 
 ::: moniker-end
 
 ### <a name="advanced-host-scenarios"></a>Scenari host avanzati
 
-::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
+::: moniker range=">= aspnetcore-3.0"
 
-L'host Web è progettato per includere un'implementazione del server HTTP che non è necessaria per altri tipi di app .NET. A partire dalla versione 2.1, l'host generico (classe `Host`) è disponibile per qualsiasi app .NET Core, non solo per le app ASP.NET Core. L'host generico consente di usare funzionalità trasversali quali la registrazione, l'inserimento delle dipendenze, la configurazione e la gestione del ciclo di vita delle app in altri tipi di app. Per altre informazioni, vedere [Host generico](xref:fundamentals/host/generic-host).
-
-::: moniker-end
-
-::: moniker range="> aspnetcore-2.2"
-
-L'host generico è disponibile per qualsiasi app .NET Core, non solo per le app ASP.NET Core. L'host generico consente di usare funzionalità trasversali quali la registrazione, l'inserimento delle dipendenze, la configurazione e la gestione del ciclo di vita delle app in altri tipi di app. Per altre informazioni, vedere [Host generico](xref:fundamentals/host/generic-host).
+L'host generico è disponibile per qualsiasi app .NET Core, non solo per le app ASP.NET Core. L'host generico (classe `Host`) consente ad altri tipi di app di usare estensioni del framework trasversali quali la registrazione, l'inserimento delle dipendenze, la configurazione e la gestione del ciclo di vita delle app. Per ulteriori informazioni, vedere <xref:fundamentals/host/generic-host>.
 
 ::: moniker-end
 
-È anche possibile usare l'host per eseguire attività in background. Per altre informazioni, vedere [Attività in background](xref:fundamentals/host/hosted-services).
+::: moniker range="< aspnetcore-3.0"
+
+L'host Web è progettato per includere un'implementazione del server HTTP che non è richiesta per altri tipi di app .NET. A partire da ASP.NET Core 2.1, l'host generico (classe `Host`) è disponibile per qualsiasi app .NET Core e non solo per le app ASP.NET Core. L'host generico consente ad altri tipi di app di usare estensioni del framework trasversali quali la registrazione, l'inserimento delle dipendenze, la configurazione e la gestione del ciclo di vita delle app. Per ulteriori informazioni, vedere <xref:fundamentals/host/generic-host>.
+
+::: moniker-end
+
+È anche possibile usare l'host per eseguire attività in background. Per ulteriori informazioni, vedere <xref:fundamentals/host/hosted-services>.
 
 ## <a name="servers"></a>Server
 
@@ -182,7 +173,7 @@ ASP.NET Core fornisce l'implementazione del server multipiattaforma *Kestrel*. I
 
 ::: moniker-end
 
-Per altre informazioni, vedere [Server](xref:fundamentals/servers/index).
+Per ulteriori informazioni, vedere <xref:fundamentals/servers/index>.
 
 ## <a name="configuration"></a>Configurazione
 
@@ -190,9 +181,9 @@ ASP.NET Core offre un framework di configurazione che ottiene le impostazioni, a
 
 Si potrebbe specificare, ad esempio, che la configurazione proviene da *appsettings.json* e da variabili di ambiente. Quindi, quando viene richiesto il valore di *ConnectionString*, il framework esaminerebbe per primo il file *appsettings.json*. Se il valore venisse trovato qui ma anche in una variabile di ambiente, il valore della variabile di ambiente avrebbe la precedenza.
 
-Per la gestione dei dati di configurazione riservati, ad esempio le password, ASP.NET Core offre uno [strumento Secret Manager](xref:security/app-secrets). Per i segreti di produzione, si consiglia di usare [Azure Key Vault](/aspnet/core/security/key-vault-configuration).
+Per la gestione dei dati di configurazione riservati, ad esempio le password, ASP.NET Core offre uno [strumento Secret Manager](xref:security/app-secrets). Per i segreti di produzione, si consiglia di usare [Azure Key Vault](xref:security/key-vault-configuration).
 
-Per altre informazioni, vedere [Configurazione](xref:fundamentals/configuration/index).
+Per ulteriori informazioni, vedere <xref:fundamentals/configuration/index>.
 
 ## <a name="options"></a>Opzioni
 
@@ -209,21 +200,17 @@ var options = new WebSocketOptions
 app.UseWebSockets(options);
 ```
 
-Per altre informazioni, vedere [Opzioni](xref:fundamentals/configuration/options).
+Per ulteriori informazioni, vedere <xref:fundamentals/configuration/options>.
 
 ## <a name="environments"></a>Ambienti
 
 Gli ambienti di esecuzione, ad esempio *Sviluppo*, *Staging* e *Produzione*, sono un concetto fondamentale in ASP.NET Core. È possibile specificare l'ambiente in cui viene eseguita un'app impostando la variabile di ambiente `ASPNETCORE_ENVIRONMENT`. ASP.NET Core legge tale variabile di ambiente all'avvio dell'app e ne archivia il valore in un'implementazione `IHostingEnvironment`. L'oggetto ambiente è disponibile in un punto qualsiasi dell'app tramite l'inserimento delle dipendenze.
 
-::: moniker range=">= aspnetcore-2.0"
-
 Il seguente codice di esempio della classe `Startup` configura l'app in modo che fornisca informazioni dettagliate sull'errore solo quando viene eseguita nell'ambiente di sviluppo:
 
 [!code-csharp[](index/snapshots/2.x/Startup2.cs?highlight=3-6)]
 
-::: moniker-end
-
-Per altre informazioni, vedere [Ambienti](xref:fundamentals/environments).
+Per ulteriori informazioni, vedere <xref:fundamentals/environments>.
 
 ## <a name="logging"></a>Registrazione
 
@@ -239,23 +226,19 @@ ASP.NET Core supporta un'API di registrazione che funziona con un'ampia gamma di
 
 Scrivere i log da un punto qualsiasi del codice di un'app recuperando un oggetto `ILogger` dall'inserimento delle dipendenze e chiamando i metodi di registrazione.
 
-::: moniker range=">= aspnetcore-2.0"
-
 Ecco un esempio di codice che usa un oggetto `ILogger` con inserimento costruttore e chiamate al metodo di registrazione evidenziati.
 
 [!code-csharp[](index/snapshots/2.x/TodoController.cs?highlight=5,13,17)]
 
-::: moniker-end
-
 L'interfaccia `ILogger` consente di passare qualsiasi numero di campi al provider di registrazione. I campi vengono usati comunemente per costruire una stringa di messaggio, ma il provider può anche inviarli come campi separati a un archivio dati. Questa funzionalità consente ai provider di registrazione di implementare la [registrazione semantica, nota anche come registrazione strutturata](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
-Per altre informazioni, vedere [Registrazione](xref:fundamentals/logging/index).
+Per ulteriori informazioni, vedere <xref:fundamentals/logging/index>.
 
 ## <a name="routing"></a>Routing
 
 Una *route* è un modello URL di cui è stato eseguito il mapping su un gestore. Il gestore è in genere una pagina Razor, un metodo di azione in un controller MVC o un tipo di middleware. Il routing di ASP.NET Core consente di controllare gli URL usati dall'app.
 
-Per altre informazioni, vedere [Routing](xref:fundamentals/routing).
+Per ulteriori informazioni, vedere <xref:fundamentals/routing>.
 
 ## <a name="error-handling"></a>Gestione degli errori
 
@@ -266,9 +249,7 @@ ASP.NET Core dispone di funzionalità predefinite per la gestione degli errori, 
 * Pagine dei codici di stato statiche
 * Gestione delle eccezioni durante l'avvio
 
-Per altre informazioni, vedere [Gestione degli errori](xref:fundamentals/error-handling).
-
-::: moniker range=">= aspnetcore-2.1"
+Per ulteriori informazioni, vedere <xref:fundamentals/error-handling>.
 
 ## <a name="make-http-requests"></a>Creare richieste HTTP
 
@@ -278,32 +259,30 @@ Un'implementazione di `IHttpClientFactory` è disponibile per la creazione di is
 * Supporta la registrazione e il concatenamento di più gestori di delega per creare una pipeline di middleware per le richieste in uscita. Questo modello è simile alla pipeline di middleware in ingresso in ASP.NET Core. Il modello offre un meccanismo per gestire le problematiche trasversali relative alle richieste HTTP, tra cui memorizzazione nella cache, gestione degli errori, serializzazione e registrazione.
 * Si integra con *Polly*, una famosa libreria di terze parti per la gestione degli errori temporanei.
 * Gestisce il pooling e la durata delle istanze di `HttpClientMessageHandler` sottostanti per evitare problemi DNS comuni che si verificano quando le durate di `HttpClient` vengono gestite manualmente.
-* Aggiunge un'esperienza di registrazione configurabile, tramite *ILogger*, per tutte le richieste inviate attraverso i client creati dalla factory.
+* Aggiunge un'esperienza di registrazione configurabile, tramite `ILogger`, per tutte le richieste inviate attraverso i client creati dalla factory.
 
-Per altre informazioni, vedere [Creare richieste HTTP](xref:fundamentals/http-requests).
-
-::: moniker-end
+Per ulteriori informazioni, vedere <xref:fundamentals/http-requests>.
 
 ## <a name="content-root"></a>Radice del contenuto
 
 La radice del contenuto è il percorso di base per i contenuti privati usati dall'app, ad esempio i relativi file Razor. Per impostazione predefinita, la radice del contenuto è il percorso di base per il file eseguibile che ospita l'app. È possibile specificare un percorso alternativo in fase di [creazione dell'host](#host).
 
-::: moniker range="<= aspnetcore-2.2"
-
-Per altre informazioni, vedere [Radice del contenuto](xref:fundamentals/host/web-host#content-root).
-
-::: moniker-end
-
-::: moniker range="> aspnetcore-2.2"
+::: moniker range=">= aspnetcore-3.0"
 
 Per altre informazioni, vedere [Radice del contenuto](xref:fundamentals/host/generic-host#content-root).
 
 ::: moniker-end
 
+::: moniker range="< aspnetcore-3.0"
+
+Per altre informazioni, vedere [Radice del contenuto](xref:fundamentals/host/web-host#content-root).
+
+::: moniker-end
+
 ## <a name="web-root"></a>Radice Web
 
-La radice Web, nota anche come *webroot*, è il percorso di base per le risorse statiche pubbliche, ad esempio CSS, JavaScript e i file di immagine. Per impostazione predefinita, il middleware dei file statici verrà usato solo dai file della radice Web e dalle relative sottodirectory. Il percorso della radice Web è, per impostazione predefinita, *\<radice del contenuto >/wwwroot*, ma è possibile impostare un percorso diverso in fase di [creazione dell'host](#host).
+La radice Web, nota anche come *webroot*, è il percorso di base per le risorse statiche pubbliche, ad esempio CSS, JavaScript e i file di immagine. Per impostazione predefinita, il middleware dei file statici verrà usato solo dai file della radice Web e dalle relative sottodirectory. Il percorso della radice Web è, per impostazione predefinita, *{Radice contenuto}/wwwroot*, ma è possibile impostare un percorso diverso in fase di [creazione dell'host](#host).
 
 Per i file Razor (file con estensione  *CSHTML*), il carattere tilde-barra `~/` punta alla radice Web. I percorsi che iniziano con `~/` sono indicati come percorsi virtuali.
 
-Per altre informazioni, vedere [File statici](xref:fundamentals/static-files).
+Per ulteriori informazioni, vedere <xref:fundamentals/static-files>.
