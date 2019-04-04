@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc, seodec18
 ms.date: 01/31/2019
 uid: tutorials/first-mongo-app
-ms.openlocfilehash: 91d8be6cd9160eefe56731d23d5dc7ba18eb6a8f
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: 5b8a0c963940d65545579b7120edac3571e4ad2a
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665457"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750684"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a>Creare un'API Web con ASP.NET Core e MongoDB
 
@@ -242,6 +242,7 @@ La classe `BookService` usa i membri `MongoDB.Driver` seguenti per eseguire oper
 
     * Usa la classe `BookService` per eseguire operazioni CRUD.
     * Contiene metodi di azione per supportare le richieste HTTP GET, POST, PUT e DELETE.
+    * Il metodo <xref:System.Web.Http.ApiController.CreatedAtRoute*> restituisce una risposta 201, la risposta standard per un metodo HTTP POST che crea una nuova risorsa nel server. `CreatedAtRoute` aggiunge anche un'intestazione Location (Posizione) alla risposta. L'intestazione Location (Posizione) specifica l'URI dell'elemento attività appena creato. Vedere [10.2.2 201 Created](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
 1. Compilare ed eseguire l'app.
 1. Passare a `http://localhost:<port>/api/books` nel browser. Viene visualizzata la risposta JSON seguente:
 

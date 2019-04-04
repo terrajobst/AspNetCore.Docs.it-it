@@ -5,14 +5,14 @@ description: Informazioni sull'uso dell'interfaccia IHttpClientFactory per gesti
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 01/25/2019
+ms.date: 03/30/2019
 uid: fundamentals/http-requests
-ms.openlocfilehash: a4026addaa55d463c41aadd0a7a39606c88fcb84
-ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
+ms.openlocfilehash: 270727443f091306ac3e4ce4e2ceb99b88bbc609
+ms.sourcegitcommit: 5995f44e9e13d7e7aa8d193e2825381c42184e47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56744209"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58809208"
 ---
 # <a name="make-http-requests-using-ihttpclientfactory-in-aspnet-core"></a>Effettuare richieste HTTP usando IHttpClientFactory in ASP.NET Core
 
@@ -199,7 +199,7 @@ Usare uno degli approcci seguenti per condividere lo stato in base alla richiest
 
 Per consentire l'uso dei criteri Polly con le istanze configurate di `HttpClient` sono disponibili metodi di estensione. Le estensioni per Polly sono disponibili nel pacchetto NuGet [Microsoft.Extensions.Http.Polly](https://www.nuget.org/packages/Microsoft.Extensions.Http.Polly/). Il pacchetto non è incluso nel metapacchetto [Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app). Per usare le estensioni, nel progetto deve essere incluso un elemento `<PackageReference />` esplicito.
 
-[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/HttpClientFactorySample.csproj?highlight=9)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/HttpClientFactorySample.csproj?highlight=10)]
 
 Dopo il ripristino di questo pacchetto, i metodi di estensione che supportano l'aggiunta di gestori basati su Polly ai client risultano disponibili.
 

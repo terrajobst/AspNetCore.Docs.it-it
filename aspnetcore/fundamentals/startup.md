@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 01/17/2019
 uid: fundamentals/startup
-ms.openlocfilehash: d629c2f02f9021454d8f8539018f3e2ca4703a00
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 9556ec076fce3500115cf0e934202f11b175ccd3
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346398"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750794"
 ---
 # <a name="app-startup-in-aspnet-core"></a>Avvio dell'app in ASP.NET Core
 
@@ -95,7 +95,7 @@ Per altre informazioni su come usare `IApplicationBuilder` e sull'ordine di elab
 
 Per configurare i servizi e la pipeline di elaborazione delle richieste senza usare una classe `Startup`, chiamare i metodi pratici `ConfigureServices` e `Configure` sul generatore di host. Se vengono effettuate più chiamate a `ConfigureServices`, le chiamate vengono aggiunte l'una all'altra. In presenza di più chiamate del metodo `Configure` viene usata l'ultima chiamata di `Configure`.
 
-[!code-csharp[](startup/sample_snapshot/Program1.cs?highlight=18,22)]
+[!code-csharp[](startup/sample_snapshot/Program1.cs?highlight=16,20)]
 
 ## <a name="extend-startup-with-startup-filters"></a>Estendere l'avvio con filtri di avvio
 
