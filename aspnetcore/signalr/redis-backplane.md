@@ -7,47 +7,47 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 11/28/2018
 uid: signalr/redis-backplane
-ms.openlocfilehash: c02d8cd5fb3b6edbb21be4889da2e880099b731b
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: 9d2a942dba6abe669126efee7f2b3cdd6560658e
+ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54837442"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59012643"
 ---
-# <a name="set-up-a-redis-backplane-for-aspnet-core-signalr-scale-out"></a><span data-ttu-id="b72d2-103">Configurare un backplane di Redis per ASP.NET Core SignalR. scale-out</span><span class="sxs-lookup"><span data-stu-id="b72d2-103">Set up a Redis backplane for ASP.NET Core SignalR scale-out</span></span>
+# <a name="set-up-a-redis-backplane-for-aspnet-core-signalr-scale-out"></a><span data-ttu-id="8ea06-103">Configurare un backplane di Redis per ASP.NET Core SignalR. scale-out</span><span class="sxs-lookup"><span data-stu-id="8ea06-103">Set up a Redis backplane for ASP.NET Core SignalR scale-out</span></span>
 
-<span data-ttu-id="b72d2-104">Dal [Andrew Stanton-Nurse](https://twitter.com/anurse), [Brady Gaster](https://twitter.com/bradygaster), e [Tom Dykstra](https://github.com/tdykstra),</span><span class="sxs-lookup"><span data-stu-id="b72d2-104">By [Andrew Stanton-Nurse](https://twitter.com/anurse), [Brady Gaster](https://twitter.com/bradygaster), and [Tom Dykstra](https://github.com/tdykstra),</span></span>
+<span data-ttu-id="8ea06-104">Dal [Andrew Stanton-Nurse](https://twitter.com/anurse), [Brady Gaster](https://twitter.com/bradygaster), e [Tom Dykstra](https://github.com/tdykstra),</span><span class="sxs-lookup"><span data-stu-id="8ea06-104">By [Andrew Stanton-Nurse](https://twitter.com/anurse), [Brady Gaster](https://twitter.com/bradygaster), and [Tom Dykstra](https://github.com/tdykstra),</span></span>
 
-<span data-ttu-id="b72d2-105">Questo articolo descrive aspetti di SignalR specifiche della configurazione di un [Redis](https://redis.io/) server da utilizzare per scalabilità orizzontale di un'app ASP.NET Core SignalR.</span><span class="sxs-lookup"><span data-stu-id="b72d2-105">This article explains SignalR-specific aspects of setting up a [Redis](https://redis.io/) server to use for scaling out an ASP.NET Core SignalR app.</span></span>
+<span data-ttu-id="8ea06-105">Questo articolo descrive aspetti di SignalR specifiche della configurazione di un [Redis](https://redis.io/) server da utilizzare per scalabilità orizzontale di un'app ASP.NET Core SignalR.</span><span class="sxs-lookup"><span data-stu-id="8ea06-105">This article explains SignalR-specific aspects of setting up a [Redis](https://redis.io/) server to use for scaling out an ASP.NET Core SignalR app.</span></span>
 
-## <a name="set-up-a-redis-backplane"></a><span data-ttu-id="b72d2-106">Configurare un backplane di Redis</span><span class="sxs-lookup"><span data-stu-id="b72d2-106">Set up a Redis backplane</span></span>
+## <a name="set-up-a-redis-backplane"></a><span data-ttu-id="8ea06-106">Configurare un backplane di Redis</span><span class="sxs-lookup"><span data-stu-id="8ea06-106">Set up a Redis backplane</span></span>
 
-* <span data-ttu-id="b72d2-107">Distribuire un server Redis.</span><span class="sxs-lookup"><span data-stu-id="b72d2-107">Deploy a Redis server.</span></span>
+* <span data-ttu-id="8ea06-107">Distribuire un server Redis.</span><span class="sxs-lookup"><span data-stu-id="8ea06-107">Deploy a Redis server.</span></span>
 
   > [!IMPORTANT] 
-  > <span data-ttu-id="b72d2-108">Per la produzione backplane di Redis è consigliabile solo quando viene eseguita nello stesso data center dell'App per SignalR.</span><span class="sxs-lookup"><span data-stu-id="b72d2-108">For production use, a Redis backplane is recommended only when it runs in the same data center as the SignalR app.</span></span> <span data-ttu-id="b72d2-109">In caso contrario, la latenza di rete comporta una riduzione delle prestazioni.</span><span class="sxs-lookup"><span data-stu-id="b72d2-109">Otherwise, network latency degrades performance.</span></span> <span data-ttu-id="b72d2-110">Se l'app di SignalR è in esecuzione nel cloud di Azure, servizio Azure SignalR è consigliabile invece un backplane di Redis.</span><span class="sxs-lookup"><span data-stu-id="b72d2-110">If your SignalR app is running in the Azure cloud, we recommend Azure SignalR Service instead of a Redis backplane.</span></span> <span data-ttu-id="b72d2-111">È possibile usare il servizio Cache Redis di Azure per lo sviluppo e ambienti di test.</span><span class="sxs-lookup"><span data-stu-id="b72d2-111">You can use the Azure Redis Cache Service for development and test environments.</span></span>
+  > <span data-ttu-id="8ea06-108">Per la produzione backplane di Redis è consigliabile solo quando viene eseguita nello stesso data center dell'App per SignalR.</span><span class="sxs-lookup"><span data-stu-id="8ea06-108">For production use, a Redis backplane is recommended only when it runs in the same data center as the SignalR app.</span></span> <span data-ttu-id="8ea06-109">In caso contrario, la latenza di rete comporta una riduzione delle prestazioni.</span><span class="sxs-lookup"><span data-stu-id="8ea06-109">Otherwise, network latency degrades performance.</span></span> <span data-ttu-id="8ea06-110">Se l'app di SignalR è in esecuzione nel cloud di Azure, servizio Azure SignalR è consigliabile invece un backplane di Redis.</span><span class="sxs-lookup"><span data-stu-id="8ea06-110">If your SignalR app is running in the Azure cloud, we recommend Azure SignalR Service instead of a Redis backplane.</span></span> <span data-ttu-id="8ea06-111">È possibile usare il servizio Cache Redis di Azure per lo sviluppo e ambienti di test.</span><span class="sxs-lookup"><span data-stu-id="8ea06-111">You can use the Azure Redis Cache Service for development and test environments.</span></span>
 
-  <span data-ttu-id="b72d2-112">Per altre informazioni, vedere le seguenti risorse:</span><span class="sxs-lookup"><span data-stu-id="b72d2-112">For more information, see the following resources:</span></span>
+  <span data-ttu-id="8ea06-112">Per altre informazioni, vedere le seguenti risorse:</span><span class="sxs-lookup"><span data-stu-id="8ea06-112">For more information, see the following resources:</span></span>
 
   * <xref:signalr/scale>
-  * [<span data-ttu-id="b72d2-113">Documentazione di redis</span><span class="sxs-lookup"><span data-stu-id="b72d2-113">Redis documentation</span></span>](https://redis.io/)
-  * [<span data-ttu-id="b72d2-114">Documentazione di Cache Redis di Azure</span><span class="sxs-lookup"><span data-stu-id="b72d2-114">Azure Redis Cache documentation</span></span>](https://docs.microsoft.com/en-us/azure/redis-cache/)
+  * [<span data-ttu-id="8ea06-113">Documentazione di redis</span><span class="sxs-lookup"><span data-stu-id="8ea06-113">Redis documentation</span></span>](https://redis.io/)
+  * [<span data-ttu-id="8ea06-114">Documentazione di Cache Redis di Azure</span><span class="sxs-lookup"><span data-stu-id="8ea06-114">Azure Redis Cache documentation</span></span>](https://docs.microsoft.com/azure/redis-cache/)
 
 ::: moniker range="= aspnetcore-2.1"
 
-* <span data-ttu-id="b72d2-115">Nell'app SignalR, installare il `Microsoft.AspNetCore.SignalR.Redis` pacchetto NuGet.</span><span class="sxs-lookup"><span data-stu-id="b72d2-115">In the SignalR app, install the `Microsoft.AspNetCore.SignalR.Redis` NuGet package.</span></span> <span data-ttu-id="b72d2-116">(È anche disponibile un `Microsoft.AspNetCore.SignalR.StackExchangeRedis` creare un pacchetto, ma che uno è per ASP.NET Core 2.2 e versioni successive.)</span><span class="sxs-lookup"><span data-stu-id="b72d2-116">(There is also a `Microsoft.AspNetCore.SignalR.StackExchangeRedis` package, but that one is for ASP.NET Core 2.2 and later.)</span></span>
+* <span data-ttu-id="8ea06-115">Nell'app SignalR, installare il `Microsoft.AspNetCore.SignalR.Redis` pacchetto NuGet.</span><span class="sxs-lookup"><span data-stu-id="8ea06-115">In the SignalR app, install the `Microsoft.AspNetCore.SignalR.Redis` NuGet package.</span></span> <span data-ttu-id="8ea06-116">(È anche disponibile un `Microsoft.AspNetCore.SignalR.StackExchangeRedis` creare un pacchetto, ma che uno è per ASP.NET Core 2.2 e versioni successive.)</span><span class="sxs-lookup"><span data-stu-id="8ea06-116">(There is also a `Microsoft.AspNetCore.SignalR.StackExchangeRedis` package, but that one is for ASP.NET Core 2.2 and later.)</span></span>
 
-* <span data-ttu-id="b72d2-117">Nel `Startup.ConfigureServices` metodo, chiamare `AddRedis` dopo `AddSignalR`:</span><span class="sxs-lookup"><span data-stu-id="b72d2-117">In the `Startup.ConfigureServices` method, call `AddRedis` after `AddSignalR`:</span></span>
+* <span data-ttu-id="8ea06-117">Nel `Startup.ConfigureServices` metodo, chiamare `AddRedis` dopo `AddSignalR`:</span><span class="sxs-lookup"><span data-stu-id="8ea06-117">In the `Startup.ConfigureServices` method, call `AddRedis` after `AddSignalR`:</span></span>
 
   ```csharp
   services.AddSignalR().AddRedis("<your_Redis_connection_string>");
   ```
 
-* <span data-ttu-id="b72d2-118">Configurare le opzioni in base alle esigenze:</span><span class="sxs-lookup"><span data-stu-id="b72d2-118">Configure options as needed:</span></span>
+* <span data-ttu-id="8ea06-118">Configurare le opzioni in base alle esigenze:</span><span class="sxs-lookup"><span data-stu-id="8ea06-118">Configure options as needed:</span></span>
  
-  <span data-ttu-id="b72d2-119">La maggior parte delle opzioni possono essere impostate nella stringa di connessione o nel [ConfigurationOptions](https://stackexchange.github.io/StackExchange.Redis/Configuration#configuration-options) oggetto.</span><span class="sxs-lookup"><span data-stu-id="b72d2-119">Most options can be set in the connection string or in the [ConfigurationOptions](https://stackexchange.github.io/StackExchange.Redis/Configuration#configuration-options) object.</span></span> <span data-ttu-id="b72d2-120">Le opzioni specificate in `ConfigurationOptions` eseguono l'override impostato nella stringa di connessione.</span><span class="sxs-lookup"><span data-stu-id="b72d2-120">Options specified in `ConfigurationOptions` override the ones set in the connection string.</span></span>
+  <span data-ttu-id="8ea06-119">La maggior parte delle opzioni possono essere impostate nella stringa di connessione o nel [ConfigurationOptions](https://stackexchange.github.io/StackExchange.Redis/Configuration#configuration-options) oggetto.</span><span class="sxs-lookup"><span data-stu-id="8ea06-119">Most options can be set in the connection string or in the [ConfigurationOptions](https://stackexchange.github.io/StackExchange.Redis/Configuration#configuration-options) object.</span></span> <span data-ttu-id="8ea06-120">Le opzioni specificate in `ConfigurationOptions` eseguono l'override impostato nella stringa di connessione.</span><span class="sxs-lookup"><span data-stu-id="8ea06-120">Options specified in `ConfigurationOptions` override the ones set in the connection string.</span></span>
 
-  <span data-ttu-id="b72d2-121">Nell'esempio seguente viene illustrato come impostare le opzioni `ConfigurationOptions` oggetto.</span><span class="sxs-lookup"><span data-stu-id="b72d2-121">The following example shows how to set options in the `ConfigurationOptions` object.</span></span> <span data-ttu-id="b72d2-122">Questo esempio viene aggiunto un prefisso di canale in modo che più App possono condividere la stessa istanza di Redis, come illustrato nel passaggio seguente.</span><span class="sxs-lookup"><span data-stu-id="b72d2-122">This example adds a channel prefix so that multiple apps can share the same Redis instance, as explained in the following step.</span></span>
+  <span data-ttu-id="8ea06-121">Nell'esempio seguente viene illustrato come impostare le opzioni `ConfigurationOptions` oggetto.</span><span class="sxs-lookup"><span data-stu-id="8ea06-121">The following example shows how to set options in the `ConfigurationOptions` object.</span></span> <span data-ttu-id="8ea06-122">Questo esempio viene aggiunto un prefisso di canale in modo che più App possono condividere la stessa istanza di Redis, come illustrato nel passaggio seguente.</span><span class="sxs-lookup"><span data-stu-id="8ea06-122">This example adds a channel prefix so that multiple apps can share the same Redis instance, as explained in the following step.</span></span>
 
   ```csharp
   services.AddSignalR()
@@ -56,28 +56,28 @@ ms.locfileid: "54837442"
     });
   ```
 
-  <span data-ttu-id="b72d2-123">Nel codice precedente, `options.Configuration` viene inizializzata con qualsiasi elemento è stato specificato nella stringa di connessione.</span><span class="sxs-lookup"><span data-stu-id="b72d2-123">In the preceding code, `options.Configuration` is initialized with whatever was specified in the connection string.</span></span>
+  <span data-ttu-id="8ea06-123">Nel codice precedente, `options.Configuration` viene inizializzata con qualsiasi elemento è stato specificato nella stringa di connessione.</span><span class="sxs-lookup"><span data-stu-id="8ea06-123">In the preceding code, `options.Configuration` is initialized with whatever was specified in the connection string.</span></span>
 
 ::: moniker-end
 
 ::: moniker range="> aspnetcore-2.1"
 
-* <span data-ttu-id="b72d2-124">Nell'app SignalR, installare uno dei pacchetti NuGet seguenti:</span><span class="sxs-lookup"><span data-stu-id="b72d2-124">In the SignalR app, install one of the following NuGet packages:</span></span>
+* <span data-ttu-id="8ea06-124">Nell'app SignalR, installare uno dei pacchetti NuGet seguenti:</span><span class="sxs-lookup"><span data-stu-id="8ea06-124">In the SignalR app, install one of the following NuGet packages:</span></span>
 
-  * <span data-ttu-id="b72d2-125">`Microsoft.AspNetCore.SignalR.StackExchangeRedis` - Depends on StackExchange.Redis 2.X.X.</span><span class="sxs-lookup"><span data-stu-id="b72d2-125">`Microsoft.AspNetCore.SignalR.StackExchangeRedis` - Depends on StackExchange.Redis 2.X.X.</span></span> <span data-ttu-id="b72d2-126">Questo è il pacchetto consigliato per ASP.NET Core 2.2 e versioni successive.</span><span class="sxs-lookup"><span data-stu-id="b72d2-126">This is the recommended package for ASP.NET Core 2.2 and later.</span></span>
-  * <span data-ttu-id="b72d2-127">`Microsoft.AspNetCore.SignalR.Redis` - Depends on StackExchange.Redis 1.X.X.</span><span class="sxs-lookup"><span data-stu-id="b72d2-127">`Microsoft.AspNetCore.SignalR.Redis` - Depends on StackExchange.Redis 1.X.X.</span></span> <span data-ttu-id="b72d2-128">Questo pacchetto non spediranno in ASP.NET Core 3.0.</span><span class="sxs-lookup"><span data-stu-id="b72d2-128">This package will not be shipping in ASP.NET Core 3.0.</span></span>
+  * `Microsoft.AspNetCore.SignalR.StackExchangeRedis` <span data-ttu-id="8ea06-125">- Depends on StackExchange.Redis 2.X.X.</span><span class="sxs-lookup"><span data-stu-id="8ea06-125">- Depends on StackExchange.Redis 2.X.X.</span></span> <span data-ttu-id="8ea06-126">Questo è il pacchetto consigliato per ASP.NET Core 2.2 e versioni successive.</span><span class="sxs-lookup"><span data-stu-id="8ea06-126">This is the recommended package for ASP.NET Core 2.2 and later.</span></span>
+  * `Microsoft.AspNetCore.SignalR.Redis` <span data-ttu-id="8ea06-127">- Depends on StackExchange.Redis 1.X.X.</span><span class="sxs-lookup"><span data-stu-id="8ea06-127">- Depends on StackExchange.Redis 1.X.X.</span></span> <span data-ttu-id="8ea06-128">Questo pacchetto non spediranno in ASP.NET Core 3.0.</span><span class="sxs-lookup"><span data-stu-id="8ea06-128">This package will not be shipping in ASP.NET Core 3.0.</span></span>
 
-* <span data-ttu-id="b72d2-129">Nel `Startup.ConfigureServices` metodo, chiamare `AddStackExchangeRedis` dopo `AddSignalR`:</span><span class="sxs-lookup"><span data-stu-id="b72d2-129">In the `Startup.ConfigureServices` method, call `AddStackExchangeRedis` after `AddSignalR`:</span></span>
+* <span data-ttu-id="8ea06-129">Nel `Startup.ConfigureServices` metodo, chiamare `AddStackExchangeRedis` dopo `AddSignalR`:</span><span class="sxs-lookup"><span data-stu-id="8ea06-129">In the `Startup.ConfigureServices` method, call `AddStackExchangeRedis` after `AddSignalR`:</span></span>
 
   ```csharp
   services.AddSignalR().AddStackExchangeRedis("<your_Redis_connection_string>");
   ```
 
-* <span data-ttu-id="b72d2-130">Configurare le opzioni in base alle esigenze:</span><span class="sxs-lookup"><span data-stu-id="b72d2-130">Configure options as needed:</span></span>
+* <span data-ttu-id="8ea06-130">Configurare le opzioni in base alle esigenze:</span><span class="sxs-lookup"><span data-stu-id="8ea06-130">Configure options as needed:</span></span>
  
-  <span data-ttu-id="b72d2-131">La maggior parte delle opzioni possono essere impostate nella stringa di connessione o nel [ConfigurationOptions](https://stackexchange.github.io/StackExchange.Redis/Configuration#configuration-options) oggetto.</span><span class="sxs-lookup"><span data-stu-id="b72d2-131">Most options can be set in the connection string or in the [ConfigurationOptions](https://stackexchange.github.io/StackExchange.Redis/Configuration#configuration-options) object.</span></span> <span data-ttu-id="b72d2-132">Le opzioni specificate in `ConfigurationOptions` eseguono l'override impostato nella stringa di connessione.</span><span class="sxs-lookup"><span data-stu-id="b72d2-132">Options specified in `ConfigurationOptions` override the ones set in the connection string.</span></span>
+  <span data-ttu-id="8ea06-131">La maggior parte delle opzioni possono essere impostate nella stringa di connessione o nel [ConfigurationOptions](https://stackexchange.github.io/StackExchange.Redis/Configuration#configuration-options) oggetto.</span><span class="sxs-lookup"><span data-stu-id="8ea06-131">Most options can be set in the connection string or in the [ConfigurationOptions](https://stackexchange.github.io/StackExchange.Redis/Configuration#configuration-options) object.</span></span> <span data-ttu-id="8ea06-132">Le opzioni specificate in `ConfigurationOptions` eseguono l'override impostato nella stringa di connessione.</span><span class="sxs-lookup"><span data-stu-id="8ea06-132">Options specified in `ConfigurationOptions` override the ones set in the connection string.</span></span>
 
-  <span data-ttu-id="b72d2-133">Nell'esempio seguente viene illustrato come impostare le opzioni `ConfigurationOptions` oggetto.</span><span class="sxs-lookup"><span data-stu-id="b72d2-133">The following example shows how to set options in the `ConfigurationOptions` object.</span></span> <span data-ttu-id="b72d2-134">Questo esempio viene aggiunto un prefisso di canale in modo che più App possono condividere la stessa istanza di Redis, come illustrato nel passaggio seguente.</span><span class="sxs-lookup"><span data-stu-id="b72d2-134">This example adds a channel prefix so that multiple apps can share the same Redis instance, as explained in the following step.</span></span>
+  <span data-ttu-id="8ea06-133">Nell'esempio seguente viene illustrato come impostare le opzioni `ConfigurationOptions` oggetto.</span><span class="sxs-lookup"><span data-stu-id="8ea06-133">The following example shows how to set options in the `ConfigurationOptions` object.</span></span> <span data-ttu-id="8ea06-134">Questo esempio viene aggiunto un prefisso di canale in modo che più App possono condividere la stessa istanza di Redis, come illustrato nel passaggio seguente.</span><span class="sxs-lookup"><span data-stu-id="8ea06-134">This example adds a channel prefix so that multiple apps can share the same Redis instance, as explained in the following step.</span></span>
 
   ```csharp
   services.AddSignalR()
@@ -86,38 +86,38 @@ ms.locfileid: "54837442"
     });
   ```
 
-  <span data-ttu-id="b72d2-135">Nel codice precedente, `options.Configuration` viene inizializzata con qualsiasi elemento è stato specificato nella stringa di connessione.</span><span class="sxs-lookup"><span data-stu-id="b72d2-135">In the preceding code, `options.Configuration` is initialized with whatever was specified in the connection string.</span></span>
+  <span data-ttu-id="8ea06-135">Nel codice precedente, `options.Configuration` viene inizializzata con qualsiasi elemento è stato specificato nella stringa di connessione.</span><span class="sxs-lookup"><span data-stu-id="8ea06-135">In the preceding code, `options.Configuration` is initialized with whatever was specified in the connection string.</span></span>
 
-  <span data-ttu-id="b72d2-136">Per informazioni sulle opzioni di Redis, vedere la [documentazione di StackExchange Redis](https://stackexchange.github.io/StackExchange.Redis/Configuration.html).</span><span class="sxs-lookup"><span data-stu-id="b72d2-136">For information about Redis options, see the [StackExchange Redis documentation](https://stackexchange.github.io/StackExchange.Redis/Configuration.html).</span></span>
+  <span data-ttu-id="8ea06-136">Per informazioni sulle opzioni di Redis, vedere la [documentazione di StackExchange Redis](https://stackexchange.github.io/StackExchange.Redis/Configuration.html).</span><span class="sxs-lookup"><span data-stu-id="8ea06-136">For information about Redis options, see the [StackExchange Redis documentation](https://stackexchange.github.io/StackExchange.Redis/Configuration.html).</span></span>
 
 ::: moniker-end
 
-* <span data-ttu-id="b72d2-137">Se si usa un server di Redis per più App SignalR, usare un prefisso di canale diversi per ogni app SignalR.</span><span class="sxs-lookup"><span data-stu-id="b72d2-137">If you're using one Redis server for multiple SignalR apps, use a different channel prefix for each SignalR app.</span></span>
+* <span data-ttu-id="8ea06-137">Se si usa un server di Redis per più App SignalR, usare un prefisso di canale diversi per ogni app SignalR.</span><span class="sxs-lookup"><span data-stu-id="8ea06-137">If you're using one Redis server for multiple SignalR apps, use a different channel prefix for each SignalR app.</span></span>
 
-  <span data-ttu-id="b72d2-138">L'impostazione di un prefisso di canale consente di isolare un'app di SignalR da altri utenti che usano i prefissi di canale diversi.</span><span class="sxs-lookup"><span data-stu-id="b72d2-138">Setting a channel prefix isolates one SignalR app from others that use different channel prefixes.</span></span> <span data-ttu-id="b72d2-139">Se non si assegnano prefissi diversi, un messaggio inviato da un'app a tutti i propri client verrà inviata a tutti i client di tutte le app che usano il server Redis come backplane.</span><span class="sxs-lookup"><span data-stu-id="b72d2-139">If you don't assign different prefixes, a message sent from one app to all of its own clients will go to all clients of all apps that use the Redis server as a backplane.</span></span>
+  <span data-ttu-id="8ea06-138">L'impostazione di un prefisso di canale consente di isolare un'app di SignalR da altri utenti che usano i prefissi di canale diversi.</span><span class="sxs-lookup"><span data-stu-id="8ea06-138">Setting a channel prefix isolates one SignalR app from others that use different channel prefixes.</span></span> <span data-ttu-id="8ea06-139">Se non si assegnano prefissi diversi, un messaggio inviato da un'app a tutti i propri client verrà inviata a tutti i client di tutte le app che usano il server Redis come backplane.</span><span class="sxs-lookup"><span data-stu-id="8ea06-139">If you don't assign different prefixes, a message sent from one app to all of its own clients will go to all clients of all apps that use the Redis server as a backplane.</span></span>
 
-* <span data-ttu-id="b72d2-140">Configurare il server farm di bilanciamento del carico per le sessioni permanenti.</span><span class="sxs-lookup"><span data-stu-id="b72d2-140">Configure your server farm load balancing software for sticky sessions.</span></span> <span data-ttu-id="b72d2-141">Di seguito sono riportati alcuni esempi di documentazione su come eseguire questa operazione:</span><span class="sxs-lookup"><span data-stu-id="b72d2-141">Here are some examples of documentation on how to do that:</span></span>
+* <span data-ttu-id="8ea06-140">Configurare il server farm di bilanciamento del carico per le sessioni permanenti.</span><span class="sxs-lookup"><span data-stu-id="8ea06-140">Configure your server farm load balancing software for sticky sessions.</span></span> <span data-ttu-id="8ea06-141">Di seguito sono riportati alcuni esempi di documentazione su come eseguire questa operazione:</span><span class="sxs-lookup"><span data-stu-id="8ea06-141">Here are some examples of documentation on how to do that:</span></span>
 
-  * [<span data-ttu-id="b72d2-142">IIS</span><span class="sxs-lookup"><span data-stu-id="b72d2-142">IIS</span></span>](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing)
-  * [<span data-ttu-id="b72d2-143">HAProxy</span><span class="sxs-lookup"><span data-stu-id="b72d2-143">HAProxy</span></span>](https://www.haproxy.com/blog/load-balancing-affinity-persistence-sticky-sessions-what-you-need-to-know/)
-  * [<span data-ttu-id="b72d2-144">Nginx</span><span class="sxs-lookup"><span data-stu-id="b72d2-144">Nginx</span></span>](https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/#sticky)
-  * [<span data-ttu-id="b72d2-145">pfSense</span><span class="sxs-lookup"><span data-stu-id="b72d2-145">pfSense</span></span>](https://www.netgate.com/docs/pfsense/loadbalancing/inbound-load-balancing.html#sticky-connections)
+  * [<span data-ttu-id="8ea06-142">IIS</span><span class="sxs-lookup"><span data-stu-id="8ea06-142">IIS</span></span>](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing)
+  * [<span data-ttu-id="8ea06-143">HAProxy</span><span class="sxs-lookup"><span data-stu-id="8ea06-143">HAProxy</span></span>](https://www.haproxy.com/blog/load-balancing-affinity-persistence-sticky-sessions-what-you-need-to-know/)
+  * [<span data-ttu-id="8ea06-144">Nginx</span><span class="sxs-lookup"><span data-stu-id="8ea06-144">Nginx</span></span>](https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/#sticky)
+  * [<span data-ttu-id="8ea06-145">pfSense</span><span class="sxs-lookup"><span data-stu-id="8ea06-145">pfSense</span></span>](https://www.netgate.com/docs/pfsense/loadbalancing/inbound-load-balancing.html#sticky-connections)
 
-## <a name="redis-server-errors"></a><span data-ttu-id="b72d2-146">Errori del server redis</span><span class="sxs-lookup"><span data-stu-id="b72d2-146">Redis server errors</span></span>
+## <a name="redis-server-errors"></a><span data-ttu-id="8ea06-146">Errori del server redis</span><span class="sxs-lookup"><span data-stu-id="8ea06-146">Redis server errors</span></span>
 
-<span data-ttu-id="b72d2-147">Quando un server Redis diventa inattiva, SignalR genera eccezioni che indicano i messaggi non recapitati.</span><span class="sxs-lookup"><span data-stu-id="b72d2-147">When a Redis server goes down, SignalR throws exceptions that indicate messages won't be delivered.</span></span> <span data-ttu-id="b72d2-148">Alcuni messaggi di eccezione tipico:</span><span class="sxs-lookup"><span data-stu-id="b72d2-148">Some typical exception messages:</span></span>
+<span data-ttu-id="8ea06-147">Quando un server Redis diventa inattiva, SignalR genera eccezioni che indicano i messaggi non recapitati.</span><span class="sxs-lookup"><span data-stu-id="8ea06-147">When a Redis server goes down, SignalR throws exceptions that indicate messages won't be delivered.</span></span> <span data-ttu-id="8ea06-148">Alcuni messaggi di eccezione tipico:</span><span class="sxs-lookup"><span data-stu-id="8ea06-148">Some typical exception messages:</span></span>
 
-* <span data-ttu-id="b72d2-149">*Scrittura non riuscita del messaggio*</span><span class="sxs-lookup"><span data-stu-id="b72d2-149">*Failed writing message*</span></span>
-* <span data-ttu-id="b72d2-150">*Impossibile richiamare il metodo dell'hub 'MethodName'*</span><span class="sxs-lookup"><span data-stu-id="b72d2-150">*Failed to invoke hub method 'MethodName'*</span></span>
-* <span data-ttu-id="b72d2-151">*Impossibile stabilire la connessione a Redis*</span><span class="sxs-lookup"><span data-stu-id="b72d2-151">*Connection to Redis failed*</span></span>
+* *<span data-ttu-id="8ea06-149">Scrittura non riuscita del messaggio</span><span class="sxs-lookup"><span data-stu-id="8ea06-149">Failed writing message</span></span>*
+* *<span data-ttu-id="8ea06-150">Impossibile richiamare il metodo dell'hub 'MethodName'</span><span class="sxs-lookup"><span data-stu-id="8ea06-150">Failed to invoke hub method 'MethodName'</span></span>*
+* *<span data-ttu-id="8ea06-151">Impossibile stabilire la connessione a Redis</span><span class="sxs-lookup"><span data-stu-id="8ea06-151">Connection to Redis failed</span></span>*
 
-<span data-ttu-id="b72d2-152">SignalR non memorizzare nel buffer i messaggi di inviarli quando il server torna allo stato attivo.</span><span class="sxs-lookup"><span data-stu-id="b72d2-152">SignalR doesn't buffer messages to send them when the server comes back up.</span></span> <span data-ttu-id="b72d2-153">Tutti i messaggi inviati mentre il server Redis è inattivo vengono persi.</span><span class="sxs-lookup"><span data-stu-id="b72d2-153">Any messages sent while the Redis server is down are lost.</span></span>
+<span data-ttu-id="8ea06-152">SignalR non memorizzare nel buffer i messaggi di inviarli quando il server torna allo stato attivo.</span><span class="sxs-lookup"><span data-stu-id="8ea06-152">SignalR doesn't buffer messages to send them when the server comes back up.</span></span> <span data-ttu-id="8ea06-153">Tutti i messaggi inviati mentre il server Redis è inattivo vengono persi.</span><span class="sxs-lookup"><span data-stu-id="8ea06-153">Any messages sent while the Redis server is down are lost.</span></span>
 
-<span data-ttu-id="b72d2-154">SignalR si riconnette automaticamente quando il server Redis è nuovamente disponibile.</span><span class="sxs-lookup"><span data-stu-id="b72d2-154">SignalR automatically reconnects when the Redis server is available again.</span></span>
+<span data-ttu-id="8ea06-154">SignalR si riconnette automaticamente quando il server Redis è nuovamente disponibile.</span><span class="sxs-lookup"><span data-stu-id="8ea06-154">SignalR automatically reconnects when the Redis server is available again.</span></span>
 
-### <a name="custom-behavior-for-connection-failures"></a><span data-ttu-id="b72d2-155">Comportamento personalizzato per gli errori di connessione</span><span class="sxs-lookup"><span data-stu-id="b72d2-155">Custom behavior for connection failures</span></span>
+### <a name="custom-behavior-for-connection-failures"></a><span data-ttu-id="8ea06-155">Comportamento personalizzato per gli errori di connessione</span><span class="sxs-lookup"><span data-stu-id="8ea06-155">Custom behavior for connection failures</span></span>
 
-<span data-ttu-id="b72d2-156">Ecco un esempio che illustra come gestire gli eventi di errore di connessione Redis.</span><span class="sxs-lookup"><span data-stu-id="b72d2-156">Here's an example that shows how to handle Redis connection failure events.</span></span>
+<span data-ttu-id="8ea06-156">Ecco un esempio che illustra come gestire gli eventi di errore di connessione Redis.</span><span class="sxs-lookup"><span data-stu-id="8ea06-156">Here's an example that shows how to handle Redis connection failure events.</span></span>
 
 ::: moniker range="= aspnetcore-2.1"
 
@@ -184,15 +184,15 @@ services.AddSignalR()
 
 ::: moniker-end
 
-## <a name="clustering"></a><span data-ttu-id="b72d2-157">Clustering</span><span class="sxs-lookup"><span data-stu-id="b72d2-157">Clustering</span></span>
+## <a name="clustering"></a><span data-ttu-id="8ea06-157">Clustering</span><span class="sxs-lookup"><span data-stu-id="8ea06-157">Clustering</span></span>
 
-<span data-ttu-id="b72d2-158">Il clustering è un metodo per ottenere una disponibilità elevata mediante più server di Redis.</span><span class="sxs-lookup"><span data-stu-id="b72d2-158">Clustering is a method for achieving high availability by using multiple Redis servers.</span></span> <span data-ttu-id="b72d2-159">Il servizio cluster non è ufficialmente supportato, ma potrebbe funzionare.</span><span class="sxs-lookup"><span data-stu-id="b72d2-159">Clustering isn't officially supported, but it might work.</span></span>
+<span data-ttu-id="8ea06-158">Il clustering è un metodo per ottenere una disponibilità elevata mediante più server di Redis.</span><span class="sxs-lookup"><span data-stu-id="8ea06-158">Clustering is a method for achieving high availability by using multiple Redis servers.</span></span> <span data-ttu-id="8ea06-159">Il servizio cluster non è ufficialmente supportato, ma potrebbe funzionare.</span><span class="sxs-lookup"><span data-stu-id="8ea06-159">Clustering isn't officially supported, but it might work.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="b72d2-160">Passaggi successivi</span><span class="sxs-lookup"><span data-stu-id="b72d2-160">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="8ea06-160">Passaggi successivi</span><span class="sxs-lookup"><span data-stu-id="8ea06-160">Next steps</span></span>
 
-<span data-ttu-id="b72d2-161">Per altre informazioni, vedere le seguenti risorse:</span><span class="sxs-lookup"><span data-stu-id="b72d2-161">For more information, see the following resources:</span></span>
+<span data-ttu-id="8ea06-161">Per altre informazioni, vedere le seguenti risorse:</span><span class="sxs-lookup"><span data-stu-id="8ea06-161">For more information, see the following resources:</span></span>
 
 * <xref:signalr/scale>
-* [<span data-ttu-id="b72d2-162">Documentazione di redis</span><span class="sxs-lookup"><span data-stu-id="b72d2-162">Redis documentation</span></span>](https://redis.io/documentation)
-* [<span data-ttu-id="b72d2-163">Documentazione di StackExchange Redis</span><span class="sxs-lookup"><span data-stu-id="b72d2-163">StackExchange Redis documentation</span></span>](https://stackexchange.github.io/StackExchange.Redis/)
-* [<span data-ttu-id="b72d2-164">Documentazione di Cache Redis di Azure</span><span class="sxs-lookup"><span data-stu-id="b72d2-164">Azure Redis Cache documentation</span></span>](https://docs.microsoft.com/en-us/azure/redis-cache/)
+* [<span data-ttu-id="8ea06-162">Documentazione di redis</span><span class="sxs-lookup"><span data-stu-id="8ea06-162">Redis documentation</span></span>](https://redis.io/documentation)
+* [<span data-ttu-id="8ea06-163">Documentazione di StackExchange Redis</span><span class="sxs-lookup"><span data-stu-id="8ea06-163">StackExchange Redis documentation</span></span>](https://stackexchange.github.io/StackExchange.Redis/)
+* [<span data-ttu-id="8ea06-164">Documentazione di Cache Redis di Azure</span><span class="sxs-lookup"><span data-stu-id="8ea06-164">Azure Redis Cache documentation</span></span>](https://docs.microsoft.com/azure/redis-cache/)

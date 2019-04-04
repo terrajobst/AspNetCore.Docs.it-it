@@ -1,12 +1,18 @@
 ---
 title: Ospitare e distribuire Razor Components
 author: guardrex
-description: 'Informazioni su come ospitare e distribuire Razor Components e app Blazor con ASP.NET Core, reti per la distribuzione di contenuti (CDN), file server e pagine di GitHub.'
+description: Informazioni su come ospitare e distribuire Razor Components e app Blazor con ASP.NET Core, reti per la distribuzione di contenuti (CDN), file server e pagine di GitHub.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 03/22/2019
 uid: host-and-deploy/razor-components/index
+ms.openlocfilehash: 236e8da27b80dbdb3e0ea885413b6cfd563dde60
+ms.sourcegitcommit: 7d6019f762fc5b8cbedcd69801e8310f51a17c18
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58419420"
 ---
 # <a name="host-and-deploy-razor-components"></a><span data-ttu-id="f0ac5-103">Ospitare e distribuire Razor Components</span><span class="sxs-lookup"><span data-stu-id="f0ac5-103">Host and deploy Razor Components</span></span>
 

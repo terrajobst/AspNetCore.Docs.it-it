@@ -1,10 +1,16 @@
 ---
-title: 'Esercitazione: Creare un''app web Razor Pages con ASP.NET Core'
+title: "Esercitazione: Creare un'app web Razor Pages con ASP.NET Core"
 author: rick-anderson
-description: 'Creare un''app Web Razor Pages in Windows con Visual Studio, ASP.NET Core ed EF Core.'
+description: Creare un'app Web Razor Pages in Windows con Visual Studio, ASP.NET Core ed EF Core.
 ms.author: riande
 ms.date: 09/08/2017
 uid: tutorials/razor-pages/index
+ms.openlocfilehash: c3dcc18844f2a12a2a116b11cb007cb833203dc3
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57345600"
 ---
 # <a name="tutorial-create-a-razor-pages-web-app-with-aspnet-core"></a><span data-ttu-id="d75fe-103">Esercitazione: Creare un'app web Razor Pages con ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="d75fe-103">Tutorial: Create a Razor Pages web app with ASP.NET Core</span></span>
 
