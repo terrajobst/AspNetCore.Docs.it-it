@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 11/28/2018
 uid: signalr/redis-backplane
-ms.openlocfilehash: c02d8cd5fb3b6edbb21be4889da2e880099b731b
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: 9d2a942dba6abe669126efee7f2b3cdd6560658e
+ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54837442"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59012643"
 ---
 # <a name="set-up-a-redis-backplane-for-aspnet-core-signalr-scale-out"></a>Configurare un backplane di Redis per ASP.NET Core SignalR. scale-out
 
@@ -31,7 +31,7 @@ Questo articolo descrive aspetti di SignalR specifiche della configurazione di u
 
   * <xref:signalr/scale>
   * [Documentazione di redis](https://redis.io/)
-  * [Documentazione di Cache Redis di Azure](https://docs.microsoft.com/en-us/azure/redis-cache/)
+  * [Documentazione di Cache Redis di Azure](https://docs.microsoft.com/azure/redis-cache/)
 
 ::: moniker range="= aspnetcore-2.1"
 
@@ -195,4 +195,4 @@ Per altre informazioni, vedere le seguenti risorse:
 * <xref:signalr/scale>
 * [Documentazione di redis](https://redis.io/documentation)
 * [Documentazione di StackExchange Redis](https://stackexchange.github.io/StackExchange.Redis/)
-* [Documentazione di Cache Redis di Azure](https://docs.microsoft.com/en-us/azure/redis-cache/)
+* [Documentazione di Cache Redis di Azure](https://docs.microsoft.com/azure/redis-cache/)
