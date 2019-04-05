@@ -4,14 +4,14 @@ author: guardrex
 description: Informazioni su Kestrel, il server Web multipiattaforma per ASP.NET Core.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 03/04/2019
+ms.date: 03/28/2019
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 5fc6c78f3eb76fcf3dd663c8d878250f0051f153
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: ab56f01c000c5404b58d79727b5b426d801081c2
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665639"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58751062"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementazione del server Web Kestrel in ASP.NET Core
 
@@ -447,9 +447,83 @@ Configurazione di `KestrelServerOptions` in ASP.NET Core 2.1 o versioni successi
 
 Specifica un elemento di configurazione `Action` da eseguire per ogni endpoint specificato. Se si chiama `ConfigureEndpointDefaults` più volte, gli elementi `Action` precedenti vengono sostituiti con l'ultimo elemento `Action` specificato.
 
+::: moniker range=">= aspnetcore-3.0"
+
+```csharp
+Host.CreateDefaultBuilder(args)
+    .ConfigureWebHostDefaults(webBuilder =>
+    {
+        webBuilder.ConfigureKestrel(serverOptions =>
+        {
+            serverOptions.ConfigureEndpointDefaults(configureOptions =>
+            {
+                configureOptions.NoDelay = true;
+            });
+        });
+        webBuilder.UseStartup<Startup>();
+    });
+```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+```csharp
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        .UseStartup<Startup>()
+        .ConfigureKestrel((context, options) =>
+        {
+            options.ConfigureEndpointDefaults(configureOptions =>
+            {
+                configureOptions.NoDelay = true;
+            });
+        });
+```
+
+::: moniker-end
+
 ### <a name="configurehttpsdefaultsactionlthttpsconnectionadapteroptionsgt"></a>ConfigureHttpsDefaults(Action&lt;HttpsConnectionAdapterOptions&gt;)
 
 Specifica un elemento di configurazione `Action` da eseguire per ogni endpoint HTTPS. Se si chiama `ConfigureHttpsDefaults` più volte, gli elementi `Action` precedenti vengono sostituiti con l'ultimo elemento `Action` specificato.
+
+::: moniker range=">= aspnetcore-3.0"
+
+```csharp
+Host.CreateDefaultBuilder(args)
+    .ConfigureWebHostDefaults(webBuilder =>
+    {
+        webBuilder.ConfigureKestrel(serverOptions =>
+        {
+            serverOptions.ConfigureHttpsDefaults(options =>
+            {
+                // certificate is an X509Certificate2
+                options.ServerCertificate = certificate;
+            });
+        });
+        webBuilder.UseStartup<Startup>();
+    });
+```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+```csharp
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        .UseStartup<Startup>()
+        .ConfigureKestrel((context, options) =>
+        {
+            options.ConfigureHttpsDefaults(httpsOptions =>
+            {
+                // certificate is an X509Certificate2
+                httpsOptions.ServerCertificate = certificate;
+            });
+        });
+```
+
+::: moniker-end
 
 ### <a name="configureiconfiguration"></a>Configure(IConfiguration)
 
@@ -495,6 +569,8 @@ Configurazioni supportate descritte in seguito:
 *Nessuna configurazione*
 
 Kestrel è in ascolto su `http://localhost:5000` e `https://localhost:5001` (se è disponibile un certificato predefinito).
+
+<a name="configuration"></a>
 
 *Sostituire il certificato predefinito della configurazione*
 
