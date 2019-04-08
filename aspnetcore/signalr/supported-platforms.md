@@ -5,14 +5,14 @@ description: Informazioni sulle piattaforme supportate per ASP.NET Core SignalR.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 11/12/2018
+ms.date: 04/06/2019
 uid: signalr/supported-platforms
-ms.openlocfilehash: e4e84baf0120036b473eac256107b46a4accfe37
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: fefaaf97de3f1fabf8f3154bf5b4ccb37195ccff
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54837715"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068222"
 ---
 # <a name="aspnet-core-signalr-supported-platforms"></a>Piattaforme supportate di ASP.NET Core SignalR
 
@@ -36,7 +36,7 @@ Il [client JavaScript](https://www.npmjs.com/package/@aspnet/signalr) viene eseg
 
 Il [client .NET](https://www.nuget.org/packages/Microsoft.AspNetCore.SignalR/) viene eseguito su qualsiasi piattaforma supportata da ASP.NET Core. Ad esempio, [gli sviluppatori di Xamarin possono usare SignalR](https://github.com/aspnet/Announcements/issues/305) per la creazione di App per Android usando xamarin. Android 8.4.0.1 e versioni successive e le app iOS con xamarin. IOS 11.14.0.4 e versioni successive.
 
-Se il server è in esecuzione IIS, il trasporto WebSocket richiede IIS 8.0 o versione successiva in Windows Server 2012 o versione successiva. Sono supportati altri tipi di trasporto in tutte le piattaforme.
+Se il server è in esecuzione IIS, il trasporto WebSocket richiede IIS 8.0 o versione successiva in Windows Server 2012 o versioni successive. Sono supportati altri tipi di trasporto in tutte le piattaforme.
 
 ## <a name="java-client"></a>Client Java
 

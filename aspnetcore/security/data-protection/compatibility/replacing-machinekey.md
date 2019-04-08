@@ -1,48 +1,48 @@
 ---
 title: Sostituire l'elemento machineKey ASP.NET in ASP.NET Core
 author: rick-anderson
-description: Informazioni su come sostituire machineKey in ASP.NET per consentire l'utilizzo di un sistema di protezione dati nuovi e più sicuro.
+description: Informazioni su come sostituire machineKey di ASP.NET per consentire l'uso di un sistema di protezione dati nuovi e più sicuro.
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 04/06/2019
 uid: security/data-protection/compatibility/replacing-machinekey
-ms.openlocfilehash: 5f9e5cec02b66e1315548c4e7c18fe168ad161eb
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: ff36382d22a218a228b42a31ae4f8ad2eb2d5b5f
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278824"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068284"
 ---
 # <a name="replace-the-aspnet-machinekey-in-aspnet-core"></a>Sostituire l'elemento machineKey ASP.NET in ASP.NET Core
 
 <a name="compatibility-replacing-machinekey"></a>
 
-L'implementazione del `<machineKey>` elemento ASP.NET [sostituibile](https://blogs.msdn.microsoft.com/webdev/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2/). In questo modo la maggior parte delle chiamate alle routine di crittografia di ASP.NET essere instradata attraverso un meccanismo di protezione dei dati di sostituzione, tra cui il nuovo sistema di protezione dati.
+L'implementazione del `<machineKey>` elemento ASP.NET [sostituibile](https://blogs.msdn.microsoft.com/webdev/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2/). In questo modo la maggior parte delle chiamate alle routine di crittografia ASP.NET devono essere instradati attraverso un meccanismo di protezione dei dati di sostituzione, tra cui il nuovo sistema di protezione dati.
 
 ## <a name="package-installation"></a>Installazione del pacchetto
 
 > [!NOTE]
-> Il nuovo sistema di protezione dati può solo essere installato in un'applicazione ASP.NET esistente come destinazione .NET 4.5.1 o versione successiva. L'installazione verrà esito negativo se l'applicazione è destinata a .NET 4.5 o inferiore.
+> Il nuovo sistema di protezione dei dati può essere solo installato in un'applicazione ASP.NET esistente destinate a .NET 4.5.1 o versioni successive. Installazione verrà esito negativo se l'applicazione è destinata a .NET 4.5 o in basso.
 
-Per installare il nuovo sistema di protezione dati in un progetto 4.5.1+ ASP.NET esistente, installare il pacchetto Microsoft.AspNetCore.DataProtection.SystemWeb. Questo crea un'istanza di sistema di protezione dati mediante il [configurazione predefinita](xref:security/data-protection/configuration/default-settings) impostazioni.
+Per installare il nuovo sistema di protezione dei dati in un progetto di 4.5.1+ ASP.NET esistente, installare il pacchetto Microsoft.AspNetCore.DataProtection.SystemWeb. Si creerà un'istanza del sistema di protezione dati i dati tramite il [configurazione predefinita](xref:security/data-protection/configuration/default-settings) impostazioni.
 
-Quando si installa il pacchetto, inserita una riga in *Web. config* che indica ad ASP.NET di usarlo per [più operazioni di crittografia](https://blogs.msdn.microsoft.com/webdev/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2/), inclusi autenticazione basata su form, lo stato di visualizzazione e le chiamate a MachineKey.Protect. La riga di inserimento è simile alla seguente.
+Quando si installa il pacchetto, inserita una riga in *Web. config* ASP.NET da utilizzare per comunicare [più operazioni di crittografia](https://blogs.msdn.microsoft.com/webdev/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2/), tra cui l'autenticazione basata su form, lo stato di visualizzazione e le chiamate a MachineKey. Protect. La riga inserita legge come indicato di seguito.
 
 ```xml
 <machineKey compatibilityMode="Framework45" dataProtectorType="..." />
 ```
 
 >[!TIP]
-> È possibile stabilire se il nuovo sistema di protezione dati è attivo controllando campi quali `__VIEWSTATE`, che deve iniziare con "CfDJ8" come nell'esempio seguente. "CfDJ8" è la rappresentazione base64 dell'intestazione magic "09 F0 C9 F0" che identifica un payload protetto dal sistema di protezione dati.
+> È possibile indicare se il nuovo sistema di protezione dati è attivo controllando i campi, ad esempio `__VIEWSTATE`, che deve iniziare con "CfDJ8" come nell'esempio seguente. "CfDJ8" è la rappresentazione base64 dell'intestazione magic "09 F0 C9 F0" che identifica un payload protetto dal sistema di protezione dati.
 
 ```html
 <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="CfDJ8AWPr2EQPTBGs3L2GCZOpk..." />
 ```
 
-## <a name="package-configuration"></a>Configurazione del pacchetto
+## <a name="package-configuration"></a>configurazione del pacchetto
 
-Il sistema di protezione dati viene creato con una configurazione predefinita per l'installazione di zero. Tuttavia, poiché per impostazione predefinita le chiavi vengono rese persistenti nel file system locale, non funzionerà per le applicazioni che vengono distribuite in una farm. Per risolvere questo problema, è possibile specificare la configurazione tramite la creazione di un tipo che crea una sottoclasse DataProtectionStartup ed esegue l'override di metodo ConfigureServices.
+Il sistema di protezione dati viene creata un'istanza con una configurazione di zero-programma di installazione predefinita. Tuttavia, poiché per impostazione predefinita le chiavi vengono rese persistenti nel file system locale, questo non funzionerà per le applicazioni che vengono distribuite in una farm. Per risolvere questo problema, è possibile fornire configurazione creando un tipo che crea una sottoclasse DataProtectionStartup ed esegue l'override relativo metodo ConfigureServices.
 
-Di seguito è riportato un esempio di un tipo di avvio di protezione dati personalizzati che è configurato sia in cui le chiavi sono persistenti e come essi sta crittografati a riposo. Esegue l'override anche i criteri di isolamento predefinito app fornendo il proprio nome dell'applicazione.
+Di seguito è riportato un esempio di un tipo di avvio di protezione dati personalizzati che configurato sia in cui vengono salvati in modo permanente le chiavi e modo in cui si sta crittografati a riposo. Esegue l'override anche i criteri di isolamento di app predefinito, fornendo il proprio nome dell'applicazione.
 
 ```csharp
 using System;
@@ -67,9 +67,9 @@ namespace DataProtectionDemo
 ```
 
 >[!TIP]
-> È inoltre possibile utilizzare `<machineKey applicationName="my-app" ... />` al posto di una chiamata esplicita a SetApplicationName. Si tratta di un meccanismo utile per evitare di forzare lo sviluppatore di creare un tipo derivato da DataProtectionStartup se il nome dell'applicazione tutti volevano per configurare l'impostazione.
+> È anche possibile usare `<machineKey applicationName="my-app" ... />` al posto di una chiamata esplicita a SetApplicationName. Si tratta di un meccanismo utile per evitare di forzare lo sviluppatore a creare un tipo derivato DataProtectionStartup se tutto è quindi necessario configurare l'impostazione del nome dell'applicazione.
 
-Per abilitare questa configurazione personalizzata, tornare al file Web. config e cercare il `<appSettings>` elemento che consentono di installare il pacchetto aggiunto al file di configurazione. Sarà simile al seguente il markup seguente:
+Per abilitare questa configurazione personalizzata, tornare al file Web. config e cercare il `<appSettings>` elemento che installano il pacchetto aggiunto al file di configurazione. Sarà simile al markup seguente:
 
 ```xml
 <appSettings>
@@ -82,7 +82,7 @@ Per abilitare questa configurazione personalizzata, tornare al file Web. config 
 </appSettings>
 ```
 
-Inserire il valore vuoto con il nome completo dell'assembly del tipo derivato DataProtectionStartup che appena creato. Se il nome dell'applicazione è DataProtectionDemo, questo sarà simile di seguito.
+Immettere il valore vuoto con il nome qualificato dall'assembly del tipo derivato DataProtectionStartup che appena creato. Se il nome dell'applicazione è DataProtectionDemo, riportato di seguito.
 
 ```xml
 <add key="aspnet:dataProtectionStartupType"

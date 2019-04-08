@@ -5,14 +5,14 @@ description: Informazioni su come iniziare a utilizzare Blazor creando e modific
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/12/2019
+ms.date: 04/07/2019
 uid: spa/blazor/get-started
-ms.openlocfilehash: f46bd9af0f0762e794349d4e98de5c086a690d72
-ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
+ms.openlocfilehash: b3928c2812be6f34cdf2f17295a1251106f651e5
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58327229"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068235"
 ---
 # <a name="get-started-with-blazor"></a>Introduzione a Blazor
 
@@ -20,7 +20,7 @@ Di [Daniel Roth](https://github.com/danroth27) e [Luke Latham](https://github.co
 
 [!INCLUDE[](~/includes/razor-components-preview-notice.md)]
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
 
 Prerequisiti:
 
@@ -28,16 +28,22 @@ Prerequisiti:
 
 Per creare il primo progetto Blazor in Visual Studio:
 
+1. Installare la versione più recente [.NET Core 3.0 Preview SDK](https://dotnet.microsoft.com/download/dotnet-core/3.0) release.
+1. Consentire a Visual Studio usare l'anteprima di SDK:
+   1. Aprire **degli strumenti** > **opzioni** nella barra dei menu.
+   1. Aprire il **progetti e soluzioni** nodo. Aprire il **.NET Core** scheda.
+   1. Selezionare la casella **utilizzano le anteprime di .NET Core SDK**. Scegliere **OK**.
 1. Installare la versione più recente [Blazor estensione](https://go.microsoft.com/fwlink/?linkid=870389) da Visual Studio Marketplace. Questo passaggio rende disponibili i modelli Blazor a Visual Studio.
 1. Rendere disponibili per l'uso con la CLI di .NET Core i modelli Blazor eseguendo il comando seguente in una shell dei comandi:
 
    ```console
    dotnet new -i Microsoft.AspNetCore.Blazor.Templates::0.9.0-preview3-19154-02
    ```
-
-1. Selezionare **File** > **nuovo progetto** > **Web** > **applicazione Web ASP.NET Core**.
+1. Creare un nuovo progetto.
+1. Selezionare **Applicazione Web ASP.NET Core**. Scegliere **Avanti**.
+1. Specificare un nome nella **nome progetto** campo. Verificare i **posizione** voce sia corretta o specificare un percorso per il progetto. Scegliere **Crea**.
 1. Assicurarsi che **.NET Core** e **ASP.NET Core 3.0** sono selezionate nella parte superiore.
-1. Scegliere il modello **Blazor** e selezionare **OK**.
+1. Selezionare il **Blazor** modello e selezionare **crea**.
 1. Premere **F5** per eseguire l'app.
 
 La procedura è stata completata. Sono stati eseguiti la prima app Blazor!
@@ -88,7 +94,7 @@ To create your first project Blazor project in Visual Studio for Mac:
 Congratulations! You just ran your first Blazor app!
 -->
 
-# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli/)
+# [<a name="net-core-cli"></a>Interfaccia della riga di comando di .NET Core](#tab/netcore-cli/)
 
 Prerequisiti:
 

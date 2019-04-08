@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni su come condividere i cookie di autenticazione tra ASP.NET 4.x e le app ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/19/2017
+ms.date: 04/06/2019
 uid: security/cookie-sharing
-ms.openlocfilehash: 504d3369c908aabddeaa2fc3d1ef16a42b5cb771
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 7a049ed8787808e228859afc051b8697a6261c21
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58208515"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068310"
 ---
 # <a name="share-cookies-among-apps-with-aspnet-and-aspnet-core"></a>Condividere cookie tra le app con ASP.NET e ASP.NET Core
 
@@ -157,7 +157,7 @@ App ASP.NET 4.x che usano il middleware di autenticazione di Katana cookie può 
 
 Quando un'app Usa il middleware di autenticazione cookie Katana, chiama `UseCookieAuthentication` del progetto *Startup.Auth.cs* file. Progetti di app web ASP.NET 4.x creati con Visual Studio 2013 e versioni successive usano il middleware di autenticazione del cookie Katana per impostazione predefinita. Sebbene `UseCookieAuthentication` è obsoleto e non supportati per le app ASP.NET Core, la chiamata `UseCookieAuthentication` in un'app ASP.NET 4.x Usa Katana middleware di autenticazione del cookie è valido.
 
-Un'app ASP.NET 4.x deve avere come destinazione .NET Framework 4.5.1 o versione successiva. In caso contrario, i pacchetti NuGet necessari esito negativo per l'installazione.
+Un'app ASP.NET 4.x deve avere come destinazione .NET Framework 4.5.1 o versioni successive. In caso contrario, i pacchetti NuGet necessari esito negativo per l'installazione.
 
 Per condividere i cookie di autenticazione tra un'app ASP.NET 4.x e un'app ASP.NET Core, configurare l'app ASP.NET Core, come indicato in precedenza, quindi configurare l'app ASP.NET 4.x seguendo questa procedura:
 
