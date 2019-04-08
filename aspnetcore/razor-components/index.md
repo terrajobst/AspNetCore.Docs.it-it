@@ -1,24 +1,24 @@
 ---
-title: Introduzione a Razor Components
+title: Introduzione a Razor Components in ASP.NET Core
 author: guardrex
 description: Esplorare ASP.NET Core Razor Components, un modo per creare un'interfaccia utente Web sul lato client interattiva con .NET in un'app ASP.NET Core.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
-ms.custom: mvc
+ms.custom: seoapril2019
 ms.date: 03/27/2019
 uid: razor-components/index
-ms.openlocfilehash: 8b2e87fe856598a5ac231e3bc1d413957829b448
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: 43d5cf1d752b66a531c8d974deeb5a5fc8e94b43
+ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58751010"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59012656"
 ---
 # <a name="introduction-to-razor-components"></a>Introduzione a Razor Components
 
 Di [Daniel Roth](https://github.com/danroth27) e [Luke Latham](https://github.com/guardrex)
 
-*Razor Components* è un modo per sviluppare un'interfaccia utente Web sul lato client interattiva con .NET:
+*Razor Components*, una funzionalità introdotta nella versione 3.0 di ASP.NET Core (anteprima), è un modo per creare un'interfaccia utente Web sul lato client interattiva con .NET:
 
 * Sviluppare interfacce utente interattive avanzate usando C# invece che JavaScript.
 * Condividere la logica dell'app, interamente scritta con .NET, sul lato client e sul lato server.
