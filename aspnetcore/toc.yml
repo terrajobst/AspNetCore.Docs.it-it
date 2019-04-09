@@ -561,10 +561,14 @@ items:
       name: Panoramica
     - uid: razor-components/get-started
       name: Introduzione
+    - uid: razor-components/hosting-models
+      name: Modelli di hosting
     - uid: tutorials/first-razor-components-app
       name: Creare la prima app
     - uid: razor-components/components
       name: Componenti
+    - uid: razor-components/forms-validation
+      name: Moduli e convalida
     - uid: razor-components/class-libraries
       name: Librerie di componenti
     - uid: razor-components/layouts
@@ -577,14 +581,12 @@ items:
       name: Interoperabilità JavaScript
     - uid: razor-components/debug
       name: Debug
-    - uid: razor-components/hosting-models
-      name: Modelli di hosting
     - name: Ospitare e distribuire
       items:
-      - uid: host-and-deploy/razor-components/index
+      - uid: host-and-deploy/razor-components-blazor/index
         name: Panoramica
-      - uid: host-and-deploy/razor-components/configure-linker
-        name: Configurare il linker
+      - uid: host-and-deploy/razor-components-blazor/razor-components
+        name: Razor Components
   - name: Applicazioni a pagina singola
     items:
     - name: Blazor
@@ -593,10 +595,14 @@ items:
         name: Panoramica
       - uid: spa/blazor/get-started
         name: Introduzione
+      - uid: razor-components/hosting-models
+        name: Modelli di hosting
       - uid: tutorials/first-razor-components-app
         name: Creare la prima app
       - uid: razor-components/components
         name: Componenti
+      - uid: razor-components/forms-validation
+        name: Moduli e convalida
       - uid: razor-components/class-libraries
         name: Librerie di componenti
       - uid: razor-components/layouts
@@ -609,13 +615,13 @@ items:
         name: Interoperabilità JavaScript
       - uid: razor-components/debug
         name: Debug
-      - uid: razor-components/hosting-models
-        name: Modelli di hosting
       - name: Ospitare e distribuire
         items:
-        - uid: host-and-deploy/razor-components/index
+        - uid: host-and-deploy/razor-components-blazor/index
           name: Panoramica
-        - uid: host-and-deploy/razor-components/configure-linker
+        - uid: host-and-deploy/razor-components-blazor/blazor
+          name: Blazor
+        - uid: host-and-deploy/razor-components-blazor/configure-linker
           name: Configurare il linker
     - uid: spa/angular
       name: Angular
@@ -774,11 +780,15 @@ items:
   - uid: host-and-deploy/health-checks
     name: Controlli di integrità
     displayName: deploy, publish
-  - name: Razor Components
+  - name: Razor Components/Blazor
     items:
-    - uid: host-and-deploy/razor-components/index
+    - uid: host-and-deploy/razor-components-blazor/index
       name: Panoramica
-    - uid: host-and-deploy/razor-components/configure-linker
+    - uid: host-and-deploy/razor-components-blazor/blazor
+      name: Blazor
+    - uid: host-and-deploy/razor-components-blazor/razor-components
+      name: Razor Components
+    - uid: host-and-deploy/razor-components-blazor/configure-linker
       name: Configurare il linker
 - name: Sicurezza e Identity
   displayName: authentication, authorization
@@ -1083,9 +1093,9 @@ items:
   href: /dotnet/api/?view=aspnetcore-2.2
 - name: Collaborazione
   href: https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md
-ms.openlocfilehash: d9ab9beacab19a0e004878d2645b1106bf5dc0d6
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: 0065707eeaf77327e553b3c43b65e11063edd7e0
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58751100"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068391"

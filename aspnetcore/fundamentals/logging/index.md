@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 03/02/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: c6543ec1f2295c21c6a693ac8bd16ee07ec11381
-ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
+ms.openlocfilehash: 065b2016d3a2dcc2243ec6869e027c5fabe4dad8
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58327407"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068404"
 ---
 # <a name="logging-in-aspnet-core"></a>Registrazione in ASP.NET Core
 
@@ -110,7 +110,7 @@ Per scrivere log nella classe `Program`, ottenere un'istanza di `ILogger` dall'i
 
 ### <a name="no-asynchronous-logger-methods"></a>Evitare l'uso di metodi logger asincroni
 
-La registrazione deve essere così rapida da non giustificare l'impatto sulle prestazioni del codice asincrono. Se l'archivio dati di registrazione è lento, non scrivere direttamente al suo interno. Scrivere invece i messaggi di log prima in un archivio veloce e quindi spostarli nell'archivio lento in un secondo momento. Registrare ad esempio in una coda di messaggi che viene letta e salvata in modo permanente in un archivio lento da un altro processo.
+La registrazione deve essere così rapida da non giustificare l'impatto sulle prestazioni del codice asincrono. Se l'archivio dati di registrazione è lento, non scrivere direttamente al suo interno. Scrivere invece i messaggi di log prima in un archivio veloce e quindi spostarli nell'archivio lento in un secondo momento. Ad esempio, se la registrazione viene eseguita in SQL Server, è preferibile non farlo direttamente in un metodo `Log`, poiché i metodi `Log` sono sincroni. Al contrario, aggiungere i messaggi di log in modo sincrono a una coda in memoria e usare un ruolo di lavoro in background per eseguire il pull dei messaggi dalla coda per eseguire le operazioni asincrone di push dei dati in SQL Server.
 
 ## <a name="configuration"></a>Configurazione
 
@@ -168,7 +168,7 @@ Se i livelli sono specificati in `Logging.{providername}.LogLevel`, eseguono l'o
 }
 ```
 
-Le chiavi `LogLevel` rappresentano i nomi dei log. La chiave `Default` si applica ai log non esplicitamente elencati. Il valore rappresenta il [livello del log](#log-level) applicato al log specificato.
+`LogLevel` Le chiavi rappresentano i nomi dei log. La chiave `Default` si applica ai log non esplicitamente elencati. Il valore rappresenta il [livello del log](#log-level) applicato al log specificato.
 
 ::: moniker-end
 
@@ -249,7 +249,7 @@ Per specificare in modo esplicito la categoria, chiamare `ILoggerFactory.CreateL
 
 ::: moniker-end
 
-L'uso di `ILogger<T>` equivale a chiamare `CreateLogger` con il nome completo di tipo `T`.
+`ILogger<T>` equivale a chiamare `CreateLogger` con il nome completo di tipo `T`.
 
 ## <a name="log-level"></a>Livello di registrazione
 
@@ -293,7 +293,7 @@ ASP.NET Core definisce i livelli di registrazione seguenti, ordinati dal meno gr
 
 * Error = 4
 
-  Per errori ed eccezioni che non possono essere gestiti. Questi messaggi indicano un errore nell'operazione o nell'attività in corso (ad esempio la richiesta HTTP corrente), non un errore a livello di app. Messaggio di registrazione di esempio:`Cannot insert record due to duplicate key violation.`
+  Per errori ed eccezioni che non possono essere gestiti. Questi messaggi indicano un errore nell'operazione o nell'attività in corso (ad esempio la richiesta HTTP corrente), non un errore a livello di app. Messaggio di log di esempio: `Cannot insert record due to duplicate key violation.`
 
 * Critical = 5
 
@@ -770,12 +770,12 @@ L'esempio seguente configura un provider `TraceSource` che registra messaggi `Wa
 
 Per informazioni sulla registrazione in Azure, vedere le sezioni seguenti:
 
-* [Provider di Servizio app di Azure](#azure-app-service-provider)
+* [Provider del Servizio app di Azure](#azure-app-service-provider)
 * [Flusso di registrazione di Azure](#azure-log-streaming)
 
 ::: moniker range=">= aspnetcore-1.1"
 
-* [Registrazione traccia di Azure Application Insights](#azure-application-insights-trace-logging)
+* [Registrazione di traccia di Azure Application Insights](#azure-application-insights-trace-logging)
 
 ::: moniker-end
 
