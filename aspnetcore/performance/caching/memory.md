@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni su come memorizzare i dati nella cache in memoria in ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/11/2019
+ms.date: 04/11/2019
 uid: performance/caching/memory
-ms.openlocfilehash: c115e43b9dd4f838ab9600c2e105d86732d857ad
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 6433df36023b79bc679186bee8b0a92371661dbe
+ms.sourcegitcommit: 258a97159da206f9009f23fdf6f8fa32f178e50b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58208271"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425049"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>Memorizzare nella cache in memoria in ASP.NET Core
 
@@ -21,7 +21,7 @@ Dal [Rick Anderson](https://twitter.com/RickAndMSFT), [John Luo](https://github.
 
 ## <a name="caching-basics"></a>Nozioni di base di memorizzazione nella cache
 
-La memorizzazione nella cache può migliorare significativamente le prestazioni e scalabilità di un'app, riducendo il lavoro necessario per generare il contenuto. La memorizzazione nella cache funziona meglio con i dati che vengono modificati raramente. La memorizzazione nella cache esegue una copia di dati che possono essere restituiti molto più veloce dall'origine dati originale. È necessario scrivere e testare l'app per non dipendere mai dati memorizzati nella cache.
+La memorizzazione nella cache può migliorare significativamente le prestazioni e scalabilità di un'app, riducendo il lavoro necessario per generare il contenuto. La memorizzazione nella cache funziona meglio con i dati che vengono modificati raramente. La memorizzazione nella cache esegue una copia di dati che possono essere restituiti molto più veloce dall'origine dati originale. Le app devono essere scritte e testate per **mai** dipendono dai dati memorizzati nella cache.
 
 ASP.NET Core supporta diverse cache diverse. La cache più semplice si basa sulla [IMemoryCache](/dotnet/api/microsoft.extensions.caching.memory.imemorycache), che rappresenta una cache archiviata nella memoria del server web. Le app eseguite in una server farm di più server è necessario assicurarsi che le sessioni sono permanenti quando si usa la cache in memoria. Sessioni permanenti assicurarsi che le successive richieste da un client tutte andare allo stesso server. Ad esempio, uso di App Web di Azure [Application Request Routing](https://www.iis.net/learn/extensions/planning-for-arr) (ARR) per indirizzare tutte le richieste successive nello stesso server.
 
@@ -43,7 +43,7 @@ La cache in memoria può archiviare qualsiasi oggetto. l'interfaccia di cache di
 * Eventuali [implementazione di .NET](/dotnet/standard/net-standard#net-implementation-support) che ha come destinazione .NET Standard 2.0 o versione successiva. Ad esempio, ASP.NET Core 2.0 o versione successiva.
 * .NET framework 4.5 o versione successiva.
 
-[Extensions](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/) / `IMemoryCache` (descritte in questo argomento) è consigliato rispetto `System.Runtime.Caching` / `MemoryCache` perché è meglio integrato in ASP.NET Core. Ad esempio, `IMemoryCache` funziona in modo nativo con ASP.NET Core [inserimento delle dipendenze](xref:fundamentals/dependency-injection).
+[Extensions](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/) / `IMemoryCache` (descritto in questo articolo) è consigliato rispetto `System.Runtime.Caching` / `MemoryCache` perché è meglio integrato in ASP.NET Core. Ad esempio, `IMemoryCache` funziona in modo nativo con ASP.NET Core [inserimento delle dipendenze](xref:fundamentals/dependency-injection).
 
 Uso `System.Runtime.Caching` / `MemoryCache` come un bridge di compatibilità durante il porting del codice da ASP.NET 4.x ad ASP.NET Core.
 
@@ -53,7 +53,7 @@ Uso `System.Runtime.Caching` / `MemoryCache` come un bridge di compatibilità du
 * La cache utilizza una risorsa limitata, della memoria. Limitare l'aumento delle dimensioni della cache:
   * Effettuare **non** usare input esterno come chiavi della cache.
   * Usare le scadenze per limitare l'aumento delle dimensioni della cache.
-  * [Usare SetSize, dimensioni e SizeLimit per limitare le dimensioni della cache](#use-setsize-size-and-sizelimit-to-limit-cache-size)
+  * [Usare SetSize, dimensioni e SizeLimit per limitare le dimensioni della cache](#use-setsize-size-and-sizelimit-to-limit-cache-size). Il runtime di ASP.NET Core non limita le dimensioni di cache basata su richieste di memoria. Spetta allo sviluppatore per limitare le dimensioni della cache.
 
 ## <a name="using-imemorycache"></a>Usando IMemoryCache
 
@@ -93,7 +93,7 @@ Vengono visualizzati l'ora corrente e l'ora memorizzati nella cache:
 
 [!code-cshtml[](memory/sample/WebCache/Views/Home/Cache.cshtml)]
 
-Memorizzato nella cache `DateTime` valore rimane nella cache anche se esistono richieste entro il periodo di timeout (e nessuna rimozione dovuta a pressione della memoria). L'immagine seguente mostra l'ora corrente e un'ora precedente recuperato dalla cache:
+Memorizzato nella cache `DateTime` valore rimane nella cache anche se esistono richieste nel periodo di timeout. L'immagine seguente mostra l'ora corrente e un'ora precedente recuperato dalla cache:
 
 ![Vista Index con due diverse volte visualizzato](memory/_static/time.png)
 
@@ -122,7 +122,7 @@ L'esempio seguente:
 
 ## <a name="use-setsize-size-and-sizelimit-to-limit-cache-size"></a>Usare SetSize, dimensioni e SizeLimit per limitare le dimensioni della cache
 
-Oggetto `MemoryCache` istanza può facoltativamente specificare e applicare un limite di dimensione. Il limite delle dimensioni di memoria non è un'unità di misura definita perché la cache è disponibile alcun meccanismo per misurare le dimensioni delle voci. Se la dimensione massima di memoria cache è impostata, tutte le voci devono specificare dimensioni. La dimensione specificata è lo sviluppatore decide di unità.
+Oggetto `MemoryCache` istanza può facoltativamente specificare e applicare un limite di dimensione. Il limite delle dimensioni di memoria non è un'unità di misura definita perché la cache è disponibile alcun meccanismo per misurare le dimensioni delle voci. Se la dimensione massima di memoria cache è impostata, tutte le voci devono specificare dimensioni. Il runtime di ASP.NET Core non limita le dimensioni di cache basata su richieste di memoria. Spetta allo sviluppatore per limitare le dimensioni della cache. La dimensione specificata è lo sviluppatore decide di unità.
 
 Ad esempio:
 
