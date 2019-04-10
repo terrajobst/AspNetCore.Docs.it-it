@@ -4,14 +4,14 @@ author: Rick-Anderson
 description: Informazioni su come Razor Pages in ASP.NET Core semplifica e rende più produttiva la scrittura di codice incentrata sulle pagine rispetto a MVC.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 05/12/2018
+ms.date: 04/06/2019
 uid: razor-pages/index
-ms.openlocfilehash: 50db8cd9b0523239acb1d439b472ea5d3cb6cb7c
-ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
+ms.openlocfilehash: e79ce1e2ddfc0e1a4d72e3f67f702d6eb938b8d3
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59068378"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468695"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introduzione a Razor Pages in ASP.NET Core
 
@@ -157,7 +157,7 @@ La proprietà `Customer` usa l'attributo `[BindProperty]` optare per consentire 
 
 [!code-cs[](index/sample/RazorPagesContacts/Pages/Create.cshtml.cs?name=snippet_PageModel&highlight=10-11)]
 
-Per impostazione predefinita Razor Pages associa le proprietà solo ai verbi non GET. Il binding alle proprietà può ridurre la quantità di codice da scrivere. Riduce il codice usando la stessa proprietà per il eseguire il rendering dei campi del form (`<input asp-for="Customer.Name" />`) e accettare l'input.
+Per impostazione predefinita Razor Pages associa le proprietà solo ai verbi non GET. Il binding alle proprietà può ridurre la quantità di codice da scrivere. Riduce il codice usando la stessa proprietà per il eseguire il rendering dei campi del form (`<input asp-for="Customer.Name">`) e accettare l'input.
 
 [!INCLUDE[](~/includes/bind-get.md)]
 

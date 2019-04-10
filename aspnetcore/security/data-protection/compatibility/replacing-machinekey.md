@@ -5,12 +5,12 @@ description: Informazioni su come sostituire machineKey di ASP.NET per consentir
 ms.author: riande
 ms.date: 04/06/2019
 uid: security/data-protection/compatibility/replacing-machinekey
-ms.openlocfilehash: ff36382d22a218a228b42a31ae4f8ad2eb2d5b5f
-ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
+ms.openlocfilehash: 2317cb50cfe63226baf336ebfc5d681d1cebe5c6
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59068284"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468566"
 ---
 # <a name="replace-the-aspnet-machinekey-in-aspnet-core"></a>Sostituire l'elemento machineKey ASP.NET in ASP.NET Core
 
@@ -35,7 +35,7 @@ Quando si installa il pacchetto, inserita una riga in *Web. config* ASP.NET da u
 > È possibile indicare se il nuovo sistema di protezione dati è attivo controllando i campi, ad esempio `__VIEWSTATE`, che deve iniziare con "CfDJ8" come nell'esempio seguente. "CfDJ8" è la rappresentazione base64 dell'intestazione magic "09 F0 C9 F0" che identifica un payload protetto dal sistema di protezione dati.
 
 ```html
-<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="CfDJ8AWPr2EQPTBGs3L2GCZOpk..." />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="CfDJ8AWPr2EQPTBGs3L2GCZOpk...">
 ```
 
 ## <a name="package-configuration"></a>configurazione del pacchetto
