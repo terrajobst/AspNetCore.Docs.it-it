@@ -4,15 +4,15 @@ description: Questa esercitazione presenta argomenti utili dopo aver appreso le 
 author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/05/2019
+ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: c4804bd6614c7d5a2a30c8f59a645f603929ad52
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: c6255e2b4fc67c6174bab4458ec82035b1886002
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264592"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750624"
 ---
 # <a name="tutorial-learn-about-advanced-scenarios---aspnet-mvc-with-ef-core"></a>Esercitazione: Informazioni sugli scenari avanzati - ASP.NET MVC con EF Core
 
@@ -33,7 +33,7 @@ Le attività di questa esercitazione sono le seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Implementare l'ereditarietà con EF Core in un'app Web ASP.NET Core MVC](inheritance.md)
+* [Implementare l'ereditarietà](inheritance.md)
 
 ## <a name="perform-raw-sql-queries"></a>Eseguire query SQL non elaborate
 
@@ -53,7 +53,7 @@ La classe `DbSet<TEntity>` offre un metodo che è possibile usare per eseguire u
 
 In *DepartmentsController.cs* nel metodo `Details` sostituire il codice che recupera un reparto con una chiamata al metodo `FromSql`, come illustrato nel codice evidenziato seguente:
 
-[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_RawSQL&highlight=8,9,10,13)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_RawSQL&highlight=8,9,10)]
 
 Per verificare il corretto funzionamento del nuovo codice, selezionare la scheda **Departments** e quindi **Dettagli** per uno dei reparti.
 
@@ -276,6 +276,7 @@ Le attività di questa esercitazione sono le seguenti:
 > * Scoprire di più sul codice sorgente e i piani di sviluppo di EF Core
 > * Imparare a usare LINQ dinamico per semplificare il codice
 
-Questa esercitazione completa la serie di esercitazioni sull'uso di Entity Framework Core in un'applicazione ASP.NET Core MVC. Per scoprire di più sull'uso di EF 6 con ASP.NET Core, vedere l'articolo successivo.
+Questa esercitazione completa la serie di esercitazioni sull'uso di Entity Framework Core in un'applicazione ASP.NET Core MVC. In questa serie di esercitazioni è stato usato un nuovo database; in alternativa, è possibile decompilare un modello di un database esistente.
+
 > [!div class="nextstepaction"]
-> [EF 6 con ASP.NET Core](../entity-framework-6.md)
+> [Esercitazione: EF Core con MVC, database esistente](/ef/core/get-started/aspnetcore/new-db?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json)

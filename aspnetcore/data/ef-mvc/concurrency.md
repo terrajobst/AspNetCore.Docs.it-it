@@ -4,15 +4,15 @@ description: Questa esercitazione descrive la gestione dei conflitti quando più
 author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/05/2019
+ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: 7b18927d5d528ec2951087502e26b2b30214f389
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: 668cdafc078091b65035ecad854d2ecc62555721
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103020"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750858"
 ---
 # <a name="tutorial-handle-concurrency---aspnet-mvc-with-ef-core"></a>Esercitazione: Gestire la concorrenza - ASP.NET MVC con EF Core
 
@@ -39,7 +39,7 @@ Le attività di questa esercitazione sono le seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Aggiornare i dati correlati con EF Core in un'app Web ASP.NET Core MVC](update-related-data.md)
+* [Aggiornare dati correlati](update-related-data.md)
 
 ## <a name="concurrency-conflicts"></a>Conflitti di concorrenza
 
@@ -148,7 +148,7 @@ Questo codice imposta come intestazione "Departments" (Reparti), elimina la colo
 
 Sia nel metodo HttpGet `Edit` che nel metodo `Details`, aggiungere `AsNoTracking`. Nel metodo HttpGet `Edit` aggiungere il caricamento eager per Administrator.
 
-[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EagerLoading&highlight=2,3)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EagerLoading)]
 
 Sostituire il codice esistente del metodo HttpPost `Edit` con il codice seguente.
 
@@ -309,6 +309,7 @@ Le attività di questa esercitazione sono le seguenti:
 > * Aggiornare la pagina Delete
 > * Aggiornare le visualizzazioni Details e Create
 
-L'esercitazione successiva illustra come implementare l'ereditarietà tabella per gerarchia per le entità Instructor e Student.
+Passare all'esercitazione successiva per apprendere come implementare l'ereditarietà tabella per gerarchia per le entità Instructor e Student.
+
 > [!div class="nextstepaction"]
-> [Implementare l'ereditarietà tabella per gerarchia](inheritance.md)
+> [Successivo: Implementare l'ereditarietà tabella per gerarchia](inheritance.md)

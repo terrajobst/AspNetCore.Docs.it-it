@@ -3,15 +3,15 @@ title: 'Esercitazione: Leggere dati correlati - ASP.NET MVC con EF Core'
 description: In questa esercitazione verranno letti e visualizzati dati correlati, ovvero dati che Entity Framework carica all'interno delle proprietà di navigazione.
 author: rick-anderson
 ms.author: tdykstra
-ms.date: 02/05/2019
+ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: 73e225c2cd6d9f88079c54115cccad48f43d7d0c
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: a2ae878fd861b68a17de19af1b33b6ffbf5a268c
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103046"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58751085"
 ---
 # <a name="tutorial-read-related-data---aspnet-mvc-with-ef-core"></a>Esercitazione: Leggere dati correlati - ASP.NET MVC con EF Core
 
@@ -33,7 +33,7 @@ Le attività di questa esercitazione sono le seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Creare un modello di dati più complesso con EF Core per un'app Web ASP.NET Core MVC](complex-data-model.md)
+* [Creare un modello di dati complesso](complex-data-model.md)
 
 ## <a name="learn-how-to-load-related-data"></a>Scoprire come caricare i dati correlati
 
@@ -257,6 +257,7 @@ Le attività di questa esercitazione sono le seguenti:
 > * Creazione di una pagina Instructors
 > * Raccolta di informazioni sul caricamento esplicito
 
-Passare all'articolo successivo per informazioni su come aggiornare i dati correlati.
+Passare all'esercitazione successiva per informazioni su come aggiornare i dati correlati.
+
 > [!div class="nextstepaction"]
 > [Aggiornare dati correlati](update-related-data.md)

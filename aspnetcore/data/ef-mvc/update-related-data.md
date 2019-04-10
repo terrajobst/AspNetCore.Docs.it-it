@@ -4,15 +4,15 @@ description: In questa esercitazione verrà effettuato l'aggiornamento di dati c
 author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/05/2019
+ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: 1606b872df2df839266ef17efee1948065c4efae
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 6add725430380f0855fe660a70b90a4546ef0637
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209414"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750905"
 ---
 # <a name="tutorial-update-related-data---aspnet-mvc-with-ef-core"></a>Esercitazione: Aggiornare i dati correlati - ASP.NET MVC con EF Core
 
@@ -35,7 +35,7 @@ Le attività di questa esercitazione sono le seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Leggere i dati correlati con EF Core per un'app Web ASP.NET Core MVC](read-related-data.md)
+* [Leggere dati correlati](read-related-data.md)
 
 ## <a name="customize-courses-pages"></a>Personalizzare le pagine dei corsi
 
@@ -123,7 +123,7 @@ Quando si modifica il record di un insegnante, è necessario essere in grado di 
 
 In *InstructorsController.cs* modificare il codice nel metodo `Edit` HttpGet in modo che carichi la proprietà di navigazione `OfficeAssignment` dell'entità Instructor e chiami `AsNoTracking`:
 
-[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?highlight=9,10&name=snippet_EditGetOA)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?highlight=8-11&name=snippet_EditGetOA)]
 
 Sostituire il metodo `Edit` HttpPost con il codice seguente per gestire gli aggiornamenti delle assegnazioni di ufficio:
 
@@ -225,7 +225,7 @@ In *Views/Instructors/Edit.cshtml* aggiungere un campo **Courses** (Corsi) con u
 
 <a id="notepad"></a>
 > [!NOTE]
-> Quando si incolla il codice in Visual Studio, le interruzioni di riga vengono modificate in modo tale da danneggiare il codice. Premere Ctrl + Z una volta per annullare la formattazione automatica. Ciò corregge le interruzioni di riga, che vengono visualizzate come illustrato qui. Il rientro non deve necessariamente essere perfetto, ma le righe `@</tr><tr>`, `@:<td>`, `@:</td>` e `@:</tr>` devono trovarsi in una sola riga, come illustrato. In caso contrario, viene visualizzato un errore di runtime. Dopo aver selezionato il blocco di nuovo codice, premere Tab tre volte per allineare il nuovo codice con il codice esistente. È possibile controllare lo stato del problema [qui](https://developercommunity.visualstudio.com/content/problem/147795/razor-editor-malforms-pasted-markup-and-creates-in.html).
+> Quando si incolla il codice in Visual Studio, è possibile che le interruzioni di riga vengano modificate in un modo che danneggia il codice. Se il codice ha un aspetto diverso dopo aver incollato, premere CTRL+Z una volta per annullare la formattazione automatica. Ciò corregge le interruzioni di riga, che vengono visualizzate come illustrato qui. Il rientro non deve necessariamente essere perfetto, ma le righe `@</tr><tr>`, `@:<td>`, `@:</td>` e `@:</tr>` devono trovarsi in una sola riga, come illustrato. In caso contrario, viene visualizzato un errore di runtime. Dopo aver selezionato il blocco di nuovo codice, premere Tab tre volte per allineare il nuovo codice con il codice esistente. Questo problema è stato risolto in Visual Studio 2019.
 
 [!code-html[](intro/samples/cu/Views/Instructors/Edit.cshtml?range=35-61)]
 
@@ -314,6 +314,7 @@ Le attività di questa esercitazione sono le seguenti:
 > * Aggiornare la pagina Delete
 > * Aggiungere posizione dell'ufficio e corsi alla pagina Create
 
-Passare all'articolo successivo per informazioni su come gestire i conflitti di concorrenza.
+Passare all'esercitazione successiva per informazioni su come gestire i conflitti di concorrenza.
+
 > [!div class="nextstepaction"]
 > [Gestire i conflitti di concorrenza](concurrency.md)

@@ -3,15 +3,15 @@ title: 'Esercitazione: Aggiungere funzionalità di ordinamento, filtro e suddivi
 description: In questa esercitazione si aggiungeranno le funzionalità di ordinamento, filtro e suddivisione in pagine alla pagina Student Index (Indice degli studenti). Verrà anche creata una pagina che esegue il raggruppamento semplice.
 author: rick-anderson
 ms.author: tdykstra
-ms.date: 02/04/2019
+ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: 51b6b08d2410652f93427371aec299eb4c8789f1
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: dff5a5b1ba3c8ed07ccc8d134f8cfeb25b9f6689
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103059"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58751043"
 ---
 # <a name="tutorial-add-sorting-filtering-and-paging---aspnet-mvc-with-ef-core"></a>Esercitazione: Aggiungere funzionalità di ordinamento, filtro e suddivisione in pagine - ASP.NET MVC con EF Core
 
@@ -33,7 +33,7 @@ Le attività di questa esercitazione sono le seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Implementare la funzionalità CRUD con EF Core in un'app Web ASP.NET Core MVC](crud.md)
+* [Implementare la funzionalità CRUD](crud.md)
 
 ## <a name="add-column-sort-links"></a>Aggiungere collegamenti per l'ordinamento delle colonne
 
@@ -144,7 +144,7 @@ public async Task<IActionResult> Index(
     string sortOrder,
     string currentFilter,
     string searchString,
-    int? page)
+    int? pageNumber)
 ```
 
 La prima volta che viene visualizzata la pagina o se l'utente non ha selezionato un collegamento di suddivisione in pagine o di ordinamento, tutti i parametri saranno Null.  Se si seleziona un collegamento di suddivisione in pagine, la variabile di pagina conterrà il numero della pagina da visualizzare.
@@ -158,7 +158,7 @@ Se la stringa di ricerca viene modificata nella suddivisione in pagine, la pagin
 ```csharp
 if (searchString != null)
 {
-    page = 1;
+    pageNumber = 1;
 }
 else
 {
@@ -169,10 +169,10 @@ else
 Alla fine del metodo `Index`, il metodo `PaginatedList.CreateAsync` converte la query degli studenti in una pagina singola di studenti in un tipo di raccolta che supporta la suddivisione in pagine. La pagina singola di studenti viene quindi passata alla visualizzazione.
 
 ```csharp
-return View(await PaginatedList<Student>.CreateAsync(students.AsNoTracking(), page ?? 1, pageSize));
+return View(await PaginatedList<Student>.CreateAsync(students.AsNoTracking(), pageNumber ?? 1, pageSize));
 ```
 
-Il metodo `PaginatedList.CreateAsync` accetta un numero di pagina. I due punti interrogativi rappresentano l'operatore null-coalescing. L'operatore null-coalescing definisce un valore predefinito per un tipo nullable. L'espressione `(page ?? 1)` significa restituzione del valore di `page` se ha un valore oppure restituzione di 1 se `page` è Null.
+Il metodo `PaginatedList.CreateAsync` accetta un numero di pagina. I due punti interrogativi rappresentano l'operatore null-coalescing. L'operatore null-coalescing definisce un valore predefinito per un tipo nullable. L'espressione `(pageNumber ?? 1)` significa restituzione del valore di `pageNumber` se ha un valore oppure restituzione di 1 se `pageNumber` è Null.
 
 ## <a name="add-paging-links"></a>Aggiungere collegamenti per la suddivisione in pagine
 
@@ -193,7 +193,7 @@ I pulsanti di suddivisione in pagine vengono visualizzati dagli helper tag:
 ```html
 <a asp-action="Index"
    asp-route-sortOrder="@ViewData["CurrentSort"]"
-   asp-route-page="@(Model.PageIndex - 1)"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
    asp-route-currentFilter="@ViewData["CurrentFilter"]"
    class="btn btn-default @prevDisabled">
    Previous
@@ -234,7 +234,7 @@ Aggiungere una variabile di classe per il contesto del database immediatamente d
 
 [!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_AddContext&highlight=3,5,7)]
 
-Sostituire il metodo `About` con il codice seguente:
+Aggiungere un metodo `About` con il codice seguente:
 
 [!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseDbSet)]
 
@@ -244,11 +244,11 @@ L'istruzione LINQ raggruppa le entità di studenti per data di registrazione, ca
 
 ### <a name="modify-the-about-view"></a>Modificare la visualizzazione della pagina About (Informazioni)
 
-Sostituire il codice nel file *Views/Home/About.cshtml* con il codice seguente:
+Aggiungere un file *Views/Home/About.cshtml* con il codice seguente:
 
 [!code-html[](intro/samples/cu/Views/Home/About.cshtml)]
 
-Eseguire l'app e passare alla pagina About (Informazioni). Il numero di studenti per ogni data di registrazione viene visualizzato in una tabella.
+Eseguire l'app e passare alla pagina About. Il numero di studenti per ogni data di registrazione viene visualizzato in una tabella.
 
 ## <a name="get-the-code"></a>Ottenere il codice
 
@@ -266,6 +266,7 @@ Le attività di questa esercitazione sono le seguenti:
 > * Aggiungere collegamenti per la suddivisione in pagine
 > * Creare una pagina About
 
-Nella prossima esercitazione si apprenderà come gestire le modifiche al modello di dati tramite le migrazioni.
+Passare all'esercitazione successiva per apprendere come gestire le modifiche al modello di dati tramite le migrazioni.
+
 > [!div class="nextstepaction"]
-> [Gestire le modifiche al modello di dati](migrations.md)
+> [Successivo: Gestire le modifiche al modello di dati](migrations.md)

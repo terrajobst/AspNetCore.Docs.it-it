@@ -7,25 +7,20 @@ ms.custom: mvc
 ms.date: 02/06/2019
 ms.topic: tutorial
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 31fca1b32942f9246e099c01669f77824edf521e
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 282af56eb911aea53a6ce945e7c1177c158fc342
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264840"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750588"
 ---
 # <a name="tutorial-get-started-with-ef-core-in-an-aspnet-mvc-web-app"></a>Esercitazione: Introduzione a EF Core in un'app Web ASP.NET MVC
 
 [!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc.md)]
 
-L'applicazione Web di esempio di Contoso University illustra come creare applicazioni Web ASP.NET Core 2.2 MVC con Entity Framework Core 2.0 e Visual Studio 2017.
+L'applicazione Web di esempio di Contoso University illustra come creare applicazioni Web ASP.NET Core 2.2 MVC con Entity Framework (EF) Core 2.2 e Visual Studio 2017 o 2019.
 
 L'applicazione di esempio è un sito Web per una fittizia Contoso University. Include funzionalità, come ad esempio l'ammissione di studenti, la creazione di corsi e le assegnazioni di insegnati. Questa è la prima di una serie di esercitazioni che illustrano come compilare da zero l'app di esempio di Contoso University.
-
-Entity Framework Core 2.0 è la versione più recente di Entity Framework, ma non offre ancora tutte le funzionalità di EF 6.x. Per informazioni su come scegliere tra Entity Framework 6.x e Entity Framework Core, vedere [Confronto tra EF Core e EF6.x](/ef/efcore-and-ef6/). Se si sceglie Entity Framework 6.x, vedere [la versione precedente di questa serie di esercitazioni](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
-
-> [!NOTE]
-> Per la versione di ASP.NET 1.1 di questa esercitazione, vedere la [versione di Visual Studio 2017 Update 2 di questa esercitazione in formato PDF](https://webpifeed.blob.core.windows.net/webpifeed/Partners/efmvc1.1.pdf).
 
 Le attività di questa esercitazione sono le seguenti:
 
@@ -35,14 +30,17 @@ Le attività di questa esercitazione sono le seguenti:
 > * Scoprire di più sui pacchetti NuGet di EF Core
 > * Creare il modello di dati
 > * Creare il contesto di database
-> * Registrare SchoolContext
-> * Inizializzare il database con dati di test
+> * Registrare il contesto per l'inserimento delle dipendenze
+> * Inizializzare il database con i dati di test
 > * Creare controller e visualizzazioni
 > * Visualizzare il database
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[!INCLUDE [](~/includes/net-core-prereqs.md)]
+* [.NET Core SDK 2.2](https://www.microsoft.com/net/download)
+* [Visual Studio 2017 o 2019](https://visualstudio.microsoft.com/downloads/) con i carichi di lavoro seguenti:
+    * **ASP.NET e carico di lavoro di sviluppo Web**
+    * Carico di lavoro di **sviluppo multipiattaforma .NET Core**
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
@@ -61,11 +59,9 @@ Gli utenti possono visualizzare e aggiornare le informazioni che riguardano stud
 
 ![Pagina Students Edit (Modifica studenti)](intro/_static/student-edit.png)
 
-Lo stile dell'interfaccia utente del sito è simile a quanto è stato generato tramite i modelli predefiniti. L'esercitazione si concentra pertanto soprattutto sull'uso di Entity Framework.
+## <a name="create-web-app"></a>Creare un'app Web
 
-## <a name="create-aspnet-core-mvc-web-app"></a>Creare un'app Web ASP.NET Core MVC
-
-Aprire Visual Studio e creare un nuovo progetto Web ASP.NET Core C# denominato "ContosoUniversity".
+* Aprire Visual Studio.
 
 * Scegliere **Nuovo > Progetto** dal menu **File**.
 
@@ -77,17 +73,15 @@ Aprire Visual Studio e creare un nuovo progetto Web ASP.NET Core C# denominato "
 
   ![Finestra di dialogo Nuovo progetto](intro/_static/new-project2.png)
 
-* Attendere che venga visualizzata la finestra di dialogo **Nuova applicazione Web ASP.NET Core (.NET Core)**
+* Attendere che venga visualizzata la finestra di dialogo **Nuova applicazione Web ASP.NET Core**.
 
-  ![Finestra di dialogo Nuovo progetto ASP.NET Core](intro/_static/new-aspnet2.png)
-
-* Selezionare **ASP.NET Core 2.2** e il modello **Applicazione Web (MVC)**.
-
-  **Nota:** Questa esercitazione richiede ASP.NET Core 2.2 ed EF Core 2.0 o versione successiva.
+* Selezionare **.NET Core**, **ASP.NET Core 2.2** e il modello **Applicazione Web (MVC)**.
 
 * Assicurarsi che per **Autenticazione** sia impostata l'opzione **Nessuna autenticazione**.
 
-* Fare clic su **OK**
+* Scegliere **OK**.
+
+  ![Finestra di dialogo Nuovo progetto ASP.NET Core](intro/_static/new-aspnet2.png)
 
 ## <a name="set-up-the-site-style"></a>Impostare lo stile del sito
 
@@ -101,7 +95,7 @@ Aprire *Views/Shared/_Layout.cshtml* e apportare le modifiche seguenti:
 
 Le modifiche vengono evidenziate.
 
-[!code-cshtml[](intro/samples/cu/Views/Shared/_Layout.cshtml?highlight=6,32-36,51)]
+[!code-cshtml[](intro/samples/cu/Views/Shared/_Layout.cshtml?highlight=6,37-48,63)]
 
 In *Views/Home/Index.cshtml* sostituire il contenuto del file con il codice seguente. In questo modo il testo su ASP.NET e MVC sarà sostituito dal testo relativo a questa applicazione:
 
@@ -113,9 +107,9 @@ Premere CTRL+F5 per eseguire il progetto oppure selezionare **Debug > Avvia senz
 
 ## <a name="about-ef-core-nuget-packages"></a>Informazioni sui pacchetti NuGet di EF Core
 
-Per aggiungere il supporto di Entity Framework Core a un progetto, installare il provider di database di destinazione. Questa esercitazione usa SQL Server e il pacchetto del provider è [Microsoft.EntityFrameworkCore.SqlServer](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/). Questo pacchetto è incluso nel [metapacchetto Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app), quindi non è necessario aggiungere un riferimento al pacchetto se l'app dispone di un riferimento per il pacchetto `Microsoft.AspNetCore.App`.
+Per aggiungere il supporto di Entity Framework Core a un progetto, installare il provider di database di destinazione. Questa esercitazione usa SQL Server e il pacchetto del provider è [Microsoft.EntityFrameworkCore.SqlServer](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/). Poiché il pacchetto è incluso nel [metapacchetto Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app), non è necessario inserire alcun riferimento al pacchetto.
 
-Questo pacchetto e le relative dipendenze (`Microsoft.EntityFrameworkCore` e `Microsoft.EntityFrameworkCore.Relational`) offrono supporto di runtime per Entity Framework. Nell'esercitazione [Migrazioni](migrations.md) viene aggiunto un pacchetto di strumenti.
+Il pacchetto EF SQL Server e le relative dipendenze (`Microsoft.EntityFrameworkCore` e `Microsoft.EntityFrameworkCore.Relational`) offrono supporto di runtime per Entity Framework. Nell'esercitazione [Migrazioni](migrations.md) viene aggiunto un pacchetto di strumenti.
 
 Per informazioni su altri provider di database disponibili per Entity Framework Core, vedere [Provider di database](/ef/core/providers/).
 
@@ -197,7 +191,7 @@ ASP.NET Core implementa l'[inserimento delle dipendenze](../../fundamentals/depe
 
 Per registrare `SchoolContext` come servizio, aprire *Startup.cs* e aggiungere le righe evidenziate al metodo `ConfigureServices`.
 
-[!code-csharp[](intro/samples/cu/Startup.cs?name=snippet_SchoolContext&highlight=3-4)]
+[!code-csharp[](intro/samples/cu/Startup.cs?name=snippet_SchoolContext&highlight=9-10)]
 
 Il nome della stringa di connessione viene passato al contesto chiamando un metodo in un oggetto `DbContextOptionsBuilder`. Per lo sviluppo locale, il [sistema di configurazione di ASP.NET Core](xref:fundamentals/configuration/index) legge la stringa di connessione dal file *appsettings.json*.
 
@@ -249,11 +243,6 @@ La creazione automatica di metodi di azione CRUD e di visualizzazioni è nota co
 
 * Fare clic con il pulsante destro del mouse sulla cartella **Controller** in **Esplora soluzioni** e scegliere **Aggiungi -> Nuovo elemento di scaffolding**.
 
-Se viene visualizzata la finestra di dialogo **Aggiungi dipendenze MVC**:
-
-* [Aggiornare Visual Studio alla versione più recente](https://www.visualstudio.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017). Questa finestra di dialogo viene visualizzata nelle versioni di Visual Studio precedenti alla 15.5.
-* Se non è possibile eseguire l'aggiornamento, selezionare **Aggiungi** ed eseguire di nuovo i passaggi per l'aggiunta del controller.
-
 * Nella finestra di dialogo **Aggiungi scaffolding** eseguire le operazioni seguenti:
 
   * Selezionare **Controller MVC con visualizzazioni, che usa Entity Framework**.
@@ -292,7 +281,7 @@ Nella visualizzazione *Views/Students/Index.cshtml* è contenuto l'elenco sotto 
 
 Premere CTRL+F5 per eseguire il progetto oppure selezionare **Debug > Avvia senza eseguire debug** dal menu.
 
-Fare clic sulla scheda Students (Studenti) per visualizzare i dati di test inseriti nel metodo `DbInitializer.Initialize`. A seconda delle dimensione della finestra del browser, il collegamento della scheda `Student` viene visualizzato in alto alla pagina oppure è necessario selezionare l'icona di spostamento in alto a destra per visualizzarlo.
+Fare clic sulla scheda Students (Studenti) per visualizzare i dati di test inseriti nel metodo `DbInitializer.Initialize`. A seconda delle dimensione della finestra del browser, il collegamento della scheda `Students` viene visualizzato in alto alla pagina oppure è necessario selezionare l'icona di spostamento in alto a destra per visualizzarlo.
 
 ![Home page di Contoso University ristretta](intro/_static/home-page-narrow.png)
 
@@ -385,6 +374,7 @@ Le attività di questa esercitazione sono le seguenti:
 
 Nella prossima esercitazione vengono esaminate le operazioni CRUD per creare, leggere, aggiornare, eliminare ed elencare.
 
-Passare all'articolo successivo per informazioni su come eseguire operazioni CRUD (creazione, lettura, aggiornamento ed eliminazione) di base.
+Passare all'esercitazione successiva per informazioni su come eseguire operazioni CRUD (creazione, lettura, aggiornamento ed eliminazione) di base.
+
 > [!div class="nextstepaction"]
 > [Implementare funzionalità CRUD di base](crud.md)

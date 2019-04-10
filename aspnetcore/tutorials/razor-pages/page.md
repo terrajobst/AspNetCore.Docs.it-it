@@ -5,12 +5,12 @@ description: Illustra le pagine Razor generate tramite scaffolding.
 ms.author: riande
 ms.date: 12/4/2018
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: 9acb30bbed6aaed893b8a6373a210ef18e5ee60b
-ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
+ms.openlocfilehash: b654138231440a0c63492cae70f794da0151890d
+ms.sourcegitcommit: 5995f44e9e13d7e7aa8d193e2825381c42184e47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58320134"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58809302"
 ---
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>Pagine Razor create in ASP.NET Core tramite scaffolding
 
@@ -87,7 +87,7 @@ La riga `@*Markup removed for brevity.*@` è un commento Razor che non viene vis
 
 ### <a name="update-the-layout"></a>Aggiornare il layout
 
-Modificare l'elemento `<title>` nel file *Pages/Shared/_Layout.cshtml* affinché venga visualizzato **Movie** anziché **RazorPagesMovie**.
+Modificare l'elemento `<title>` nel file *Pages/Shared/_Layout.cshtml* per visualizzare **Movie** anziché **RazorPagesMovie**.
 
 [!code-cshtml[](razor-pages-start/sample/RazorPagesMovie22/Pages/Shared/_Layout.cshtml?range=1-6&highlight=6)]
 

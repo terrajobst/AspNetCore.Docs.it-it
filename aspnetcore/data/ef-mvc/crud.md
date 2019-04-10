@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 02/04/2019
 ms.topic: tutorial
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 83f5d4bdc3d5872109649818b61a6dbb656fd8be
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: cee521eec3172c04b4d9d93c12076c42c9adff18
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264828"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750607"
 ---
 # <a name="tutorial-implement-crud-functionality---aspnet-mvc-with-ef-core"></a>Esercitazione: Implementare la funzionalità CRUD - ASP.NET MVC con EF Core
 
@@ -32,7 +32,7 @@ Le attività di questa esercitazione sono le seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Introduzione a EF Core in un'app Web ASP.NET Core MVC](intro.md)
+* [Introduzione a EF Core e ASP.NET Core MVC](intro.md)
 
 ## <a name="customize-the-details-page"></a>Personalizzare la pagina Details
 
@@ -243,7 +243,7 @@ Questo codice accetta un parametro facoltativo che indica se il metodo è stato 
 
 Sostituire il metodo di azione HttpPost `Delete` (denominato `DeleteConfirmed`) con il codice seguente che esegue l'operazione di eliminazione e rileva eventuali errori di aggiornamento del database.
 
-[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteWithReadFirst&highlight=6,8-11,13-14,18-23)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteWithReadFirst&highlight=6-9,11-12,16-21)]
 
 Questo codice recupera l'entità selezionata, quindi chiama il metodo `Remove` per impostare lo stato dell'entità su `Deleted`. Quando viene chiamato `SaveChanges`, viene generato un comando SQL DELETE.
 
@@ -306,6 +306,7 @@ Le attività di questa esercitazione sono le seguenti:
 > * Aggiornamento della pagina Delete
 > * Chiusura delle connessioni di database
 
-Passare all'articolo successivo per informazioni su come estendere la funzionalità della pagina **Index** aggiungendo ordinamento, filtro e suddivisione in pagine.
+Passare all'esercitazione successiva per informazioni su come estendere la funzionalità della pagina **Index** aggiungendo ordinamento, filtro e suddivisione in pagine.
+
 > [!div class="nextstepaction"]
-> [Ordinamento, filtro e suddivisione in pagine](sort-filter-page.md)
+> [Successivo: Ordinamento, filtro e suddivisione in pagine](sort-filter-page.md)

@@ -4,15 +4,15 @@ description: Questa esercitazione illustra come implementare l'ereditarietà nel
 author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/05/2019
+ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: 0a5eb1aba43bc2adf746202772c7f98eff49b4ff
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: ba688b259206f21045376b6a38a266ad7528aec1
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103007"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750770"
 ---
 # <a name="tutorial-implement-inheritance---aspnet-mvc-with-ef-core"></a>Esercitazione: Implementare l'ereditarietà - ASP.NET MVC con EF Core
 
@@ -32,7 +32,7 @@ Le attività di questa esercitazione sono le seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Gestire la concorrenza con EF Core in un'app Web ASP.NET Core MVC](concurrency.md)
+* [Gestire la concorrenza](concurrency.md)
 
 ## <a name="map-inheritance-to-database"></a>Eseguire il mapping dell'ereditarietà al database
 
@@ -168,6 +168,7 @@ Le attività di questa esercitazione sono le seguenti:
 > * Creare e aggiornare le migrazioni
 > * Testare l'implementazione
 
-Nella prossima esercitazione si apprenderà come gestire diversi scenari Entity Framework relativamente avanzati.
+Passare all'esercitazione successiva per apprendere come gestire diversi scenari di Entity Framework relativamente avanzati.
+
 > [!div class="nextstepaction"]
-> [Argomenti avanzati](advanced.md)
+> [Successivo: Argomenti avanzati](advanced.md)
