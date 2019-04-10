@@ -5,14 +5,14 @@ description: Esplorare ASP.NET Core Razor Components, un modo per creare un'inte
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: seoapril2019
-ms.date: 03/27/2019
+ms.date: 04/08/2019
 uid: razor-components/index
-ms.openlocfilehash: 43d5cf1d752b66a531c8d974deeb5a5fc8e94b43
-ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
+ms.openlocfilehash: c64f40ab78036e96db154acc33588a08bbf2f2d6
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59012656"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468666"
 ---
 # <a name="introduction-to-razor-components"></a>Introduzione a Razor Components
 
@@ -64,7 +64,7 @@ Il markup seguente è un esempio di un componente finestra di dialogo personaliz
 <div>
     <h2>@Title</h2>
     @BodyContent
-    <button onclick=@OnOK>OK</button>
+    <button onclick="@OnOK">OK</button>
 </div>
 
 @functions {
