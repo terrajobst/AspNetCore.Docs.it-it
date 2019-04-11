@@ -197,7 +197,7 @@ dotnet bundle
 ```
 
 > [!IMPORTANT]
-> Gestione pacchetti NuGet aggiunge le dipendenze al file csproj come `<PackageReference />` nodi. Il `dotnet bundle` comando è registrato con la CLI di .NET Core solo quando un `<DotNetCliToolReference />` viene utilizzato il nodo. Modificare di conseguenza il file *. csproj.
+> Gestione pacchetti NuGet aggiunge le dipendenze al file *.csproj come `<PackageReference />` nodi. Il `dotnet bundle` comando è registrato con la CLI di .NET Core solo quando un `<DotNetCliToolReference />` viene utilizzato il nodo. Modificare di conseguenza il file *. csproj.
 
 ## <a name="add-files-to-workflow"></a>Aggiungere file al flusso di lavoro
 
