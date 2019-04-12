@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni su come configurare la protezione dei dati in ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/08/2019
+ms.date: 04/11/2019
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: 36a06246513215ec29891df02688d113db11f914
-ms.sourcegitcommit: 32bc00435767189fa3ae5fb8a91a307bf889de9d
+ms.openlocfilehash: ee43427fa1e82a365d49df50567b4ca7afb5a5d3
+ms.sourcegitcommit: 9b7fcb4ce00a3a32e153a080ebfaae4ef417aafa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57733497"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59516248"
 ---
 # <a name="configure-aspnet-core-data-protection"></a>Configurare la protezione dei dati di ASP.NET Core
 
@@ -44,7 +44,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Impostare il percorso di archiviazione chiavi (ad esempio, [PersistKeysToAzureBlobStorage](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.persistkeystoazureblobstorage)). Il percorso deve essere impostato perché la chiamata `ProtectKeysWithAzureKeyVault` implementa un' [IXmlEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmlencryptor) che disattiva le impostazioni di protezione automatica dei dati, tra cui la posizione di archiviazione del gruppo di chiavi. L'esempio precedente Usa l'archiviazione Blob di Azure per rendere persistente il gruppo di chiavi. Per altre informazioni, vedere [provider archiviazione chiavi: Azure e Redis](xref:security/data-protection/implementation/key-storage-providers#azure-and-redis). È anche possibile salvare il gruppo di chiavi in locale con [PersistKeysToFileSystem](xref:security/data-protection/implementation/key-storage-providers#file-system).
 
-Il `keyIdentifier` è l'identificatore di chiave di insieme di credenziali delle chiavi usato per la chiave di crittografia (ad esempio, `https://contosokeyvault.vault.azure.net/keys/dataprotection/`).
+Il `keyIdentifier` è l'identificatore di chiave di insieme di credenziali delle chiavi usato per la chiave di crittografia. Ad esempio, una chiave creata in insieme di credenziali delle chiavi denominato `dataprotection` nella `contosokeyvault` è l'identificatore di chiave `https://contosokeyvault.vault.azure.net/keys/dataprotection/`. L'App disponga **Unwrap Key** e **Wrap Key** delle autorizzazioni per l'insieme di credenziali delle chiavi.
 
 `ProtectKeysWithAzureKeyVault` Overload:
 
@@ -154,7 +154,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="disableautomatickeygeneration"></a>DisableAutomaticKeyGeneration
 
-È possibile uno scenario in cui non si desidera distribuire automaticamente le chiavi (creazione di nuove chiavi) come approccio alla scadenza di un'app. Un esempio di questo può essere impostate in una relazione primario/secondario, solo l'app principale è responsabile di competenze di gestione delle chiavi e App secondaria hanno semplicemente una vista di sola lettura del gruppo di chiavi in cui le app. Le app secondarie possono essere configurate per considerare il gruppo di chiavi di sola lettura tramite la configurazione di sistema con [DisableAutomaticKeyGeneration](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.disableautomatickeygeneration):
+È possibile uno scenario in cui non si desidera distribuire automaticamente le chiavi (creazione di nuove chiavi) come approccio alla scadenza di un'app. Un esempio di questo può essere impostate in una relazione primario/secondario, solo l'app principale è responsabile di competenze di gestione delle chiavi e App secondaria hanno semplicemente una vista di sola lettura del gruppo di chiavi in cui le app. Le app secondarie possono essere configurate per considerare il gruppo di chiavi di sola lettura tramite la configurazione di sistema con <xref:Microsoft.AspNetCore.DataProtection.DataProtectionBuilderExtensions.DisableAutomaticKeyGeneration*>:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -166,15 +166,14 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="per-application-isolation"></a>Isolamento per ogni applicazione
 
-Quando il sistema di protezione dei dati viene fornito da un host ASP.NET Core, automaticamente consente di isolare le app da uno a altro, anche se queste App sono in esecuzione con lo stesso account di processo di lavoro e utilizzano il materiale della chiave master stesso. Questo è un po' come il modificatore IsolateApps da System. Web  **\<machineKey >** elemento.
+Quando il sistema di protezione dei dati viene fornito da un host ASP.NET Core, automaticamente consente di isolare le app da uno a altro, anche se queste App sono in esecuzione con lo stesso account di processo di lavoro e utilizzano il materiale della chiave master stesso. Questo è un po' come il modificatore IsolateApps da System. Web `<machineKey>` elemento.
 
-Il meccanismo di isolamento funziona da prendere in considerazione ogni app nel computer locale come tenant univoco, pertanto il [oggetto IDataProtector](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotector) rooted per un'app include automaticamente l'ID dell'app come discriminatore. ID univoco dell'app deriva da una delle due posizioni:
+Il meccanismo di isolamento funziona da prendere in considerazione ogni app nel computer locale come tenant univoco, pertanto il <xref:Microsoft.AspNetCore.DataProtection.IDataProtector> rooted per un'app include automaticamente l'ID dell'app come discriminatore. ID univoco dell'app è percorso fisico dell'app:
 
-1. Se l'app è ospitata in IIS, l'identificatore univoco è il percorso di configurazione dell'app. Se un'app viene distribuita in un ambiente web farm, questo valore deve essere stabile, presupponendo che gli ambienti di IIS vengono configurati in modo analogo tra tutte le macchine nella web farm.
+* Per le app ospitate nei [IIS](xref:fundamentals/servers/index#iis-http-server), l'ID univoco è il percorso fisico IIS dell'app. Se un'app viene distribuita in un ambiente web farm, questo valore è stabile, presupponendo che gli ambienti di IIS vengono configurati in modo analogo tra tutte le macchine nella web farm.
+* Per le app self-hosted in esecuzione sul [server Kestrel](xref:fundamentals/servers/index#kestrel), l'ID univoco è il percorso fisico per l'app sul disco.
 
-2. Se l'app non è ospitato in IIS, l'identificatore univoco è il percorso fisico dell'app.
-
-L'identificatore univoco è progettato per sopravvivere alle reimpostazioni &mdash; dell'app per le singole e della macchina stessa.
+L'identificatore univoco è progettato per sopravvivere alle reimpostazioni&mdash;dell'app per le singole e della macchina stessa.
 
 Questo meccanismo di isolamento si presuppone che l'App non siano dannose. Un'applicazione dannosa sempre può influire su qualsiasi altra app in esecuzione con lo stesso account di processo di lavoro. In un ambiente di hosting condiviso in cui le app sono reciprocamente attendibili, provider di hosting deve provvedere a garantire isolamento a livello di sistema operativo tra le app, tra cui la separazione delle App sottostante repository della chiave.
 
