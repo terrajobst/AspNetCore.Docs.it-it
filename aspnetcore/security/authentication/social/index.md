@@ -4,33 +4,79 @@ author: rick-anderson
 description: Questa esercitazione illustra come compilare un'app ASP.NET Core 2.x tramite OAuth 2.0 con provider di autenticazione esterni.
 ms.author: riande
 ms.custom: mvc
-ms.date: 1/19/2019
+ms.date: 4/19/2019
 uid: security/authentication/social/index
-ms.openlocfilehash: 48dd8b772234ff18158423a36ed1716102bc2f31
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
+ms.openlocfilehash: 61482481358256dc9ddd1a0a894541040a8a452f
+ms.sourcegitcommit: 9b7fcb4ce00a3a32e153a080ebfaae4ef417aafa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396142"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59516326"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Autenticazione dei provider Facebook, Google ed esterni in ASP.NET Core
 
 Da [Valeriy Novytskyy](https://github.com/01binary) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Questa esercitazione illustra come compilare un'app ASP.NET Core 2.2 che consente agli utenti di accedere tramite OAuth 2.0 con credenziali di provider di autenticazione esterni.
+Questa esercitazione illustra come compilare un'app ASP.NET Core 2.2 che consente agli utenti di eseguire l'accesso tramite OAuth 2.0 con credenziali di provider di autenticazione esterni.
 
 I provider di [Facebook](xref:security/authentication/facebook-logins), [Twitter](xref:security/authentication/twitter-logins), [Google](xref:security/authentication/google-logins), e [Microsoft](xref:security/authentication/microsoft-logins) vengono trattati nelle sezioni seguenti. Altri provider sono disponibili nei pacchetti di terze parti, ad esempio [AspNet.Security.OAuth.Providers](https://github.com/aspnet-contrib/AspNet.Security.OAuth.Providers) e [AspNet.Security.OpenId.Providers](https://github.com/aspnet-contrib/AspNet.Security.OpenId.Providers).
 
 ![Icone di social media per Facebook, Twitter, Google + e Windows](index/_static/social.png)
 
-Consentire agli utenti di accedere con le credenziali esistenti è utile per gli utenti e sposta molte delle complessità di gestione del processo di accesso in una terza parte. Per degli esempi di come gli account di accesso ai social possano risultare utili per la conversione del traffico e del cliente, vedere dei case study da [Facebook](https://www.facebook.com/unsupportedbrowser) e [Twitter](https://dev.twitter.com/resources/case-studies).
+Il fatto di consentire agli utenti l'accesso con le proprie credenziali esistenti:
+* È pratico per gli utenti.
+* Trasferisce a terzi molti aspetti complicati del processo di accesso. 
+
+Per degli esempi di come gli account di accesso ai social possano risultare utili per la conversione del traffico e del cliente, vedere dei case study da [Facebook](https://www.facebook.com/unsupportedbrowser) e [Twitter](https://dev.twitter.com/resources/case-studies).
 
 ## <a name="create-a-new-aspnet-core-project"></a>Creare un nuovo progetto ASP.NET Core
 
-* In Visual Studio 2017 creare un nuovo progetto dalla pagina iniziale o scegliendo **File** > **Nuovo** > **Progetto**.
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Selezionare il modello **Applicazione Web ASP.NET Core** disponibile nella categoria **Visual C#** > **.NET Core**:
+* Dal menu **File** di Visual Studio selezionare **Nuovo** > **Progetto**.
+* Creare una nuova applicazione Web ASP.NET Core.
+* Selezionare **ASP.NET Core 2.2** nell'elenco a discesa e quindi selezionare **Applicazione Web**.
 * Selezionare **Modifica autenticazione** e impostare l'autenticazione su **Account utente individuali**.
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+* Aprire il [terminale integrato](https://code.visualstudio.com/docs/editor/integrated-terminal).
+
+* Cambiare directory (`cd`) e passare alla cartella che conterrà il progetto.
+
+* Eseguire i comandi seguenti:
+
+  ```console
+  dotnet new webapp -o WebApp1
+  code -r WebApp1
+  ```
+
+  * Il comando `dotnet new` crea un nuovo progetto Razor Pages nella cartella *WebApp1*.
+  * Il comando `code` apre la cartella *WebApp1* in una nuova istanza di Visual Studio Code.
+
+  Viene visualizzata una finestra di dialogo con **Required assets to build and debug are missing from 'WebApp1'. Add them?** (Risorse di compilazione e debug mancanti da "WebApp1". Aggiungerle?)
+
+* Selezionare **Sì**.
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
+
+Da un terminale eseguire il comando seguente:
+
+<!-- TODO: update these instruction once mac support 2.2 projects -->
+
+```console
+dotnet new webapp -o WebApp1
+```
+
+I comandi precedenti usano l'[interfaccia della riga di comando di .NET Core](/dotnet/core/tools/dotnet) per creare un progetto Razor Pages.
+
+## <a name="open-the-project"></a>Aprire il progetto
+
+Da Visual Studio, selezionare **File > Apri**, quindi selezionare il file *WebApp1.csproj*.
+
+<!-- End of VS tabs -->
+
+---
 
 ## <a name="apply-migrations"></a>Applicare le migrazioni
 
