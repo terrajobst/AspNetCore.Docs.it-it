@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/28/2019
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: de740775e124298f7c3d3be0c6f5a7311174116d
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 9770801b527829b131257da7c6e670bd33c23634
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58265485"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468873"
 ---
 # <a name="iis-modules-with-aspnet-core"></a>Moduli IIS con ASP.NET Core
 
@@ -30,15 +30,15 @@ La tabella indica i moduli di IIS nativi che funzionano con le app ASP.NET Core 
 | **Autenticazione mapping certificazione client**<br>`CertificateMappingAuthenticationModule`      | Sì | |
 | **CGI**<br>`CgiModule`                                                                           | No  | |
 | **Convalida della configurazione**<br>`ConfigurationValidationModule`                                  | Sì | |
-| **Errori HTTP**<br>`CustomErrorModule`                                                           | No  | [Middleware delle tabelle codici di stato](xref:fundamentals/error-handling#configure-status-code-pages) |
+| **Errori HTTP**<br>`CustomErrorModule`                                                           | No  | [Middleware delle tabelle codici di stato](xref:fundamentals/error-handling#usestatuscodepages) |
 | **Registrazione personalizzata**<br>`CustomLoggingModule`                                                      | Sì | |
 | **Documento predefinito**<br>`DefaultDocumentModule`                                                  | No  | [Middleware dei file predefiniti](xref:fundamentals/static-files#serve-a-default-document) |
 | **Autenticazione digest**<br>`DigestAuthenticationModule`                                        | Sì | |
 | **Esplorazione directory**<br>`DirectoryListingModule`                                               | No  | [Middleware di esplorazione directory](xref:fundamentals/static-files#enable-directory-browsing) |
 | **Compressione dinamica**<br>`DynamicCompressionModule`                                            | Sì | [Middleware di compressione delle risposte](xref:performance/response-compression) |
 | **Traccia delle richieste non riuscite**<br>`FailedRequestsTracingModule`                                     | Sì | [Registrazione di ASP.NET Core](xref:fundamentals/logging/index#tracesource-provider) |
-| **Memorizzazione nella cache dei file**<br>`FileCacheModule`                                                            | No  | [Middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware) |
-| **Memorizzazione nella cache HTTP**<br>`HttpCacheModule`                                                            | No  | [Middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware) |
+| **Memorizzazione nella cache dei file**<br>`FileCacheModule`                                                            | No  | [Middleware di memorizzazione nella cache di risposta](xref:performance/caching/middleware) |
+| **Memorizzazione nella cache HTTP**<br>`HttpCacheModule`                                                            | No  | [Middleware di memorizzazione nella cache di risposta](xref:performance/caching/middleware) |
 | **Registrazione HTTP**<br>`HttpLoggingModule`                                                          | Sì | [Registrazione di ASP.NET Core](xref:fundamentals/logging/index) |
 | **Reindirizzamento HTTP**<br>`HttpRedirectionModule`                                                  | Sì | [Middleware di riscrittura URL](xref:fundamentals/url-rewriting) |
 | **Traccia HTTP**<br>`TracingModule`                                                              | Sì | |
@@ -70,7 +70,7 @@ I moduli gestiti *non* funzionano con le app ASP.NET Core ospitate quando la ver
 | DefaultAuthentication   | |
 | FileAuthorization       | |
 | FormsAuthentication     | [Cookie del middleware di autenticazione](xref:security/authentication/cookie) |
-| OutputCache             | [Middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware) |
+| OutputCache             | [Middleware di memorizzazione nella cache di risposta](xref:performance/caching/middleware) |
 | Profilo                 | |
 | RoleManager             | |
 | ScriptModule-4.0        | |
@@ -167,7 +167,7 @@ Il modulo di memorizzazione nella cache HTTP (`HttpCacheModule`) implementa la c
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * <xref:host-and-deploy/iis/index>
-* [Introduction to IIS Architectures: Modules in IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture#modules-in-iis) (Introduzione alle architetture IIS: moduli di IIS)
-* [IIS Modules Overview](/iis/get-started/introduction-to-iis/iis-modules-overview) (Panoramica dei moduli IIS)
-* [Customizing IIS 7.0 Roles and Modules](https://technet.microsoft.com/library/cc627313.aspx) (Personalizzazione di ruoli e moduli di IIS 7.0)
+* [Introduction to IIS Architectures: Modules in IIS (Introduzione alle architetture IIS: moduli di IIS)](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture#modules-in-iis)
+* [IIS Modules Overview (Panoramica dei moduli IIS)](/iis/get-started/introduction-to-iis/iis-modules-overview)
+* [Customizing IIS 7.0 Roles and Modules (Personalizzazione di ruoli e moduli di IIS 7.0)](https://technet.microsoft.com/library/cc627313.aspx)
 * [IIS `<system.webServer>`](/iis/configuration/system.webServer/)

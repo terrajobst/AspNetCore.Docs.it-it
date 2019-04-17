@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni sull'uso, sulla protezione di file statici e sulla configurazione dei comportamenti del middleware che ospita i file statici nell'app Web ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 04/08/2019
 uid: fundamentals/static-files
-ms.openlocfilehash: 114fee0795977043f3a74a81a15923a8bf5faf6b
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 12c7b39bee462ff83188a5a0f10b133ca273863b
+ms.sourcegitcommit: 258a97159da206f9009f23fdf6f8fa32f178e50b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58208635"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425062"
 ---
 # <a name="static-files-in-aspnet-core"></a>File statici in ASP.NET Core
 
@@ -200,7 +200,7 @@ Il codice seguente abilita i file statici, i file predefiniti e l'esplorazione d
 
 [!code-csharp[](static-files/samples/1x/StartupUseFileServer.cs?name=snippet_ConfigureMethod&highlight=5-11)]
 
-Chiamare il metodo `AddDirectoryBrowser` quando il valore della proprietà `EnableDirectoryBrowsing` è `true`:
+`AddDirectoryBrowser` deve essere chiamato quando il valore della proprietà `EnableDirectoryBrowsing` è `true`:
 
 [!code-csharp[](static-files/samples/1x/StartupUseFileServer.cs?name=snippet_ConfigureServicesMethod)]
 
@@ -216,7 +216,7 @@ Se non esiste un file predefinito nella directory *MyStaticFiles*, *http://\<ind
 ![Elenco di file statici](static-files/_static/db2.png)
 
 > [!NOTE]
-> `UseDefaultFiles` e `UseDirectoryBrowser` usano l'URL *http://\<indirizzo_server > / StaticFiles* senza la barra finale per attivare un reindirizzamento lato client a *http://\<indirizzo_server>/StaticFiles /*. Si noti l'aggiunta della barra finale. Gli URL relativi all'interno dei documenti sono considerati non validi senza barra finale.
+> <xref:Microsoft.AspNetCore.Builder.DefaultFilesExtensions.UseDefaultFiles*> e <xref:Microsoft.AspNetCore.Builder.DirectoryBrowserExtensions.UseDirectoryBrowser*> eseguono un reindirizzamento sul lato client da `http://{SERVER ADDRESS}/StaticFiles` (senza barra rovesciata) a `http://{SERVER ADDRESS}/StaticFiles/` (con barra rovesciata). Gli URL relativi all'interno della directory *StaticFiles* non sono validi senza barra finale.
 
 ## <a name="fileextensioncontenttypeprovider"></a>Classe FileExtensionContentTypeProvider
 
@@ -242,7 +242,7 @@ Con il codice precedente, una richiesta per un file con un tipo di contenuto sco
 ### <a name="considerations"></a>Considerazioni
 
 > [!WARNING]
-> L'uso di `UseDirectoryBrowser` e `UseStaticFiles` può comportare la perdita di informazioni riservate. È consigliabile disabilitare l'esplorazione directory nell'ambiente di produzione. Controllare attentamente quali sono le directory abilitate tramite `UseStaticFiles` o `UseDirectoryBrowser`. L'intera directory e le relative sottodirectory diventano pubblicamente accessibili. Archiviare i file pubblicamente utilizzabili in una directory dedicata, ad esempio  *\<radice_contenuto > / wwwroot*. Tenere questi file separati da visualizzazioni MVC, Razor Pages (solo versione 2.x), file di configurazione e così via.
+> `UseDirectoryBrowser` e `UseStaticFiles` possono causare la perdita di informazioni riservate. È consigliabile disabilitare l'esplorazione directory nell'ambiente di produzione. Controllare attentamente quali sono le directory abilitate tramite `UseStaticFiles` o `UseDirectoryBrowser`. L'intera directory e le relative sottodirectory diventano pubblicamente accessibili. Archiviare i file pubblicamente utilizzabili in una directory dedicata, ad esempio  *\<radice_contenuto > / wwwroot*. Tenere questi file separati da visualizzazioni MVC, Razor Pages (solo versione 2.x), file di configurazione e così via.
 
 * Gli URL per il contenuto esposto con `UseDirectoryBrowser` e `UseStaticFiles` sono soggetti a distinzione tra maiuscole e minuscole e a limitazione di caratteri del file system sottostante. Ad esempio, in Windows viene fatta distinzione tra maiuscole e minuscole, al contrario di quanto avviene in macOS e Linux.
 

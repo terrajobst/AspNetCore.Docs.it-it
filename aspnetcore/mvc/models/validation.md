@@ -4,14 +4,15 @@ author: tdykstra
 description: Informazioni sulla convalida del modello in ASP.NET Core MVC e in Razor Pages.
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/01/2019
+ms.date: 04/06/2019
+monikerRange: '>= aspnetcore-2.1'
 uid: mvc/models/validation
-ms.openlocfilehash: b766d47f296745ba4be6ea8cb6335db9c3e2d975
-ms.sourcegitcommit: 5995f44e9e13d7e7aa8d193e2825381c42184e47
+ms.openlocfilehash: 1ae3c20478b02d6f654e65fdf34c88e1ffb837f8
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58809315"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468737"
 ---
 # <a name="model-validation-in-aspnet-core-mvc-and-razor-pages"></a>Convalida del modello in ASP.NET Core MVC e in Razor Pages
 
@@ -23,23 +24,11 @@ Questo articolo illustra come convalidare l'input utente in un'app ASP.NET Core 
 
 Lo stato del modello rappresenta gli errori che provengono da due sottosistemi: associazione di modelli e convalida del modello. Gli errori provenienti dall'[associazione di modelli](model-binding.md) sono in genere errori di conversione dei dati, ad esempio l'immissione di una "x" in un campo in cui è previsto un intero. La convalida del modello è un processo successivo all'associazione di modelli e segnala gli errori in caso di dati non conformi alle regole di business, ad esempio l'immissione del valore 0 in un campo in cui è previsto un valore compreso tra 1 e 5.
 
-::: moniker range=">= aspnetcore-2.1"
-
-Sia l'associazione che la convalida di modelli avviene prima di eseguire un'azione del controller o un metodo gestore di Razor Pages. È responsabilità dell'app esaminare `ModelState.IsValid` e rispondere nel modo appropriato. Le app Web in genere visualizzare di nuovo la pagina con un messaggio di errore:
-
-[!code-csharp[](validation/sample_snapshot/Create.cshtml.cs?name=snippet&highlight=3-6)]
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1"
-
 Sia l'associazione che la convalida di modelli avviene prima di eseguire un'azione del controller o un metodo gestore di Razor Pages. Per le app Web, è responsabilità dell'app esaminare `ModelState.IsValid` e rispondere nel modo appropriato. Le app Web in genere visualizzare di nuovo la pagina con un messaggio di errore:
 
 [!code-csharp[](validation/sample_snapshot/Create.cshtml.cs?name=snippet&highlight=3-6)]
 
 I controller API Web non devono controllare `ModelState.IsValid` se hanno l'attributo `[ApiController]`. In questo caso, se lo stato del modello non è valido, viene restituita una risposta HTTP 400 automatica contenente i dettagli del problema. Per altre informazioni, vedere [Risposte HTTP 400 automatiche](xref:web-api/index#automatic-http-400-responses).
-
-::: moniker-end
 
 ## <a name="rerun-validation"></a>Rieseguire la convalida
 
@@ -140,7 +129,7 @@ La proprietà `[Remote]` dell'attributo `AdditionalFields` consente di convalida
 
 [!code-csharp[](validation/sample/Models/User.cs?name=snippet_UserNameProperties)]
 
-È stato possibile impostare in modo esplicito `AdditionalFields` sulle stringhe `"FirstName"` e `"LastName"`, ma usando l'operatore [`nameof`](/dotnet/csharp/language-reference/keywords/nameof) il successivo refactoring risulta semplificato. Il metodo di azione per la convalida deve accettare gli argomenti sia per il nome e sia per il cognome:
+`AdditionalFields` può essere impostato in modo esplicito sulle stringhe `"FirstName"` e `"LastName"`, ma usando l'operatore [`nameof`](/dotnet/csharp/language-reference/keywords/nameof) il successivo refactoring risulta semplificato. Il metodo di azione per la convalida deve accettare gli argomenti sia per il nome e sia per il cognome:
 
 [!code-csharp[](validation/sample/Controllers/UsersController.cs?name=snippet_VerifyName)]
 
@@ -162,7 +151,6 @@ Se si vuole usare un tipo di convalida non definita da attributi predefiniti, è
 * [Creare attributi personalizzati](#custom-attributes).
 * [Implementare IValidatableObject](#ivalidatableobject).
 
-
 ## <a name="custom-attributes"></a>Attributi personalizzati
 
 Per gli scenari non gestiti dagli attributi di convalida predefiniti, è possibile creare attributi di convalida personalizzati. Creare una classe che eredita da <xref:System.ComponentModel.DataAnnotations.ValidationAttribute> ed eseguire l'override del metodo <xref:System.ComponentModel.DataAnnotations.ValidationAttribute.IsValid*>.
@@ -180,8 +168,6 @@ La variabile `movie` nell'esempio precedente rappresenta un oggetto `Movie` cont
 L'esempio precedente usa solo tipi `Movie`. Un'altra opzione per la convalida a livello di classe consiste nell'implementare `IValidatableObject` nella classe del modello, come illustrato nell'esempio seguente:
 
 [!code-csharp[](validation/sample/Models/MovieIValidatable.cs?name=snippet&highlight=1,26-34)]
-
-::: moniker range=">= aspnetcore-2.1"
 
 ## <a name="top-level-node-validation"></a>Convalida del nodo di primo livello
 
@@ -210,25 +196,19 @@ Quando viene eseguita con `CompatibilityVersion.Version_2_1` o versione successi
 
 [!code-csharp[](validation/sample_snapshot/Startup.cs?name=snippet_AddMvc&highlight=4)]
 
-::: moniker-end
-
 ## <a name="maximum-errors"></a>Numero massimo di errori
 
 La convalida si interrompe quando viene raggiunto il numero di errori (200 per impostazione predefinita). È possibile configurare questo numero con il codice seguente in `Startup.ConfigureServices`:
 
 [!code-csharp[](validation/sample/Startup.cs?name=snippet_MaxModelValidationErrors&highlight=3)]
 
-::: moniker range=">= aspnetcore-2.1"
-
 ## <a name="maximum-recursion"></a>Numero massimo di ricorsioni
 
-<xref:Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ValidationVisitor> attraversare l'oggetto grafico del modello che deve essere convalidato. Per i modelli molti profondi o ricorsivi all'infinito, la convalida può generare un overflow dello stack. [MvcOptions.MaxValidationDepth](xref:Microsoft.AspNetCore.Mvc.MvcOptions.MaxValidationDepth) consente di arrestare tempestivamente la convalida se la ricorsione del visitatore supera la profondità configurata. Il valore predefinito di `MvcOptions.MaxValidationDepth` è 200 quando la convalida viene eseguita con `CompatibilityVersion.Version_2_2` o versione successiva. Per le versioni precedenti, il valore è Null, vale a dire che non esistono limiti di profondità.
+<xref:Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ValidationVisitor> attraversa l'oggetto grafo del modello che deve essere convalidato. Per i modelli molti profondi o ricorsivi all'infinito, la convalida può generare un overflow dello stack. [MvcOptions.MaxValidationDepth](xref:Microsoft.AspNetCore.Mvc.MvcOptions.MaxValidationDepth) consente di arrestare tempestivamente la convalida se la ricorsione del visitatore supera la profondità configurata. Il valore predefinito di `MvcOptions.MaxValidationDepth` è 200 quando la convalida viene eseguita con `CompatibilityVersion.Version_2_2` o versione successiva. Per le versioni precedenti, il valore è Null, vale a dire che non esistono limiti di profondità.
 
 ## <a name="automatic-short-circuit"></a>Corto circuito automatico
 
 La convalida viene ignorata automaticamente (corto circuito) se l'oggetto grafico non richiede la convalida. Gli oggetti per cui viene ignorata la convalida sono le raccolte di primitive (ad esempio `byte[]`, `string[]`, `Dictionary<string, string>`) e gli oggetti grafici complessi che non hanno validator.
-
-::: moniker-end
 
 ## <a name="disable-validation"></a>Disabilitare la convalida
 
@@ -270,7 +250,7 @@ Gli helper tag precedenti eseguono il rendering del codice HTML seguente.
             <div class="col-md-10">
                 <input class="form-control" type="datetime"
                 data-val="true" data-val-required="The ReleaseDate field is required."
-                id="ReleaseDate" name="ReleaseDate" value="" />
+                id="ReleaseDate" name="ReleaseDate" value="">
                 <span class="text-danger field-validation-valid"
                 data-valmsg-for="ReleaseDate" data-valmsg-replace="true"></span>
             </div>
@@ -281,7 +261,7 @@ Gli helper tag precedenti eseguono il rendering del codice HTML seguente.
 
 Si noti che gli attributi `data-` nell'output HTML corrispondono agli attributi di convalida per la proprietà `ReleaseDate`. L'attributo `data-val-required` contiene un messaggio di errore che viene visualizzato se l'utente non compila il campo relativo alla data di uscita. Lo script jQuery Unobtrusive Validation passa questo valore al metodo [`required()`](https://jqueryvalidation.org/required-method/) jQuery Validate, che visualizza il messaggio nell'elemento **\<span>** di accompagnamento.
 
-La convalida del tipo di dati si basa sul tipo .NET di una proprietà, a meno che sia sostituito dall'attributo `[DataType]`. I browser generano messaggi di errore predefiniti propri che il pacchetto jQuery Validation Unobtrusive Validation può comunque sostituire. Gli attributi `[DataType]` e le sottoclassi, ad esempio `[EmailAddress]`, consentono di specificare il messaggio di errore.
+La convalida del tipo di dati si basa sul tipo .NET di una proprietà, a meno che sia sostituito dall'attributo `[DataType]`. I browser generano messaggi di errore predefiniti propri che il pacchetto jQuery Validation Unobtrusive Validation può comunque sostituire. `[DataType]` Gli attributi [DataType] e le sottoclassi, ad esempio `[EmailAddress]`, consentono di specificare il messaggio di errore.
 
 ### <a name="add-validation-to-dynamic-forms"></a>Aggiungere la convalida a moduli dinamici
 
@@ -308,7 +288,7 @@ Il metodo `$.validator.unobtrusive.parse()` accetta un selettore jQuery per ogni
 
 ### <a name="add-validation-to-dynamic-controls"></a>Aggiungere la convalida a controlli dinamici
 
-Il metodo `$.validator.unobtrusive.parse()` funziona su un intero modulo e non sui singoli controlli generati dinamicamente, ad esempio `<input/>` e `<select/>`. Per eseguire il reparse del modulo, rimuovere i dati di convalida aggiunti quando il modulo è stato precedentemente analizzato, come illustrato nell'esempio seguente:
+Il metodo `$.validator.unobtrusive.parse()` funziona su un intero modulo e non sui singoli controlli generati dinamicamente, ad esempio `<input>` e `<select/>`. Per eseguire il reparse del modulo, rimuovere i dati di convalida aggiunti quando il modulo è stato precedentemente analizzato, come illustrato nell'esempio seguente:
 
 ```js
 $.get({
@@ -349,7 +329,7 @@ L'esempio seguente contiene gli attributi `data-` per l'attributo `ClassicMovie`
     data-val-classicmovie1="Classic movies must have a release year earlier than 1960."
     data-val-classicmovie1-year="1960"
     data-val-required="The ReleaseDate field is required."
-    id="ReleaseDate" name="ReleaseDate" value="" />
+    id="ReleaseDate" name="ReleaseDate" value="">
 ```
 
 Come già accennato in precedenza, gli [helper tag](xref:mvc/views/tag-helpers/intro) e gli [helper HTML](xref:mvc/views/overview) usano le informazioni degli attributi di convalida per eseguire il rendering degli attributi `data-`. Per scrivere il codice che crea attributi HTML `data-` personalizzati, sono disponibili due opzioni:
@@ -391,5 +371,5 @@ Questo codice funziona solo nelle viste MVC e non in Razor Pages. Un'altra opzio
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [System.ComponentModel.DataAnnotations namespace](xref:System.ComponentModel.DataAnnotations)
+* [Spazio dei nomi System.ComponentModel.DataAnnotations](xref:System.ComponentModel.DataAnnotations)
 * [Associazione di modelli](model-binding.md)

@@ -5,14 +5,14 @@ description: Informazioni su come migliorare un'app ASP.NET Core da un assembly 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 03/23/2019
+ms.date: 04/06/2019
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: c174d658c84ada88eef17528c663735a91347ba7
-ms.sourcegitcommit: 7d6019f762fc5b8cbedcd69801e8310f51a17c18
+ms.openlocfilehash: c2a2e1fbd288ff292c6759d03fae51876cdb5704
+ms.sourcegitcommit: 258a97159da206f9009f23fdf6f8fa32f178e50b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58419446"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425075"
 ---
 # <a name="use-hosting-startup-assemblies-in-aspnet-core"></a>Usare assembly di avvio dell'hosting in ASP.NET Core
 
@@ -44,10 +44,10 @@ Per disabilitare il caricamento automatico degli assembly di avvio dell'hosting,
 
 * Per evitare il caricamento di tutti gli assembly di avvio dell'hosting, impostare uno degli elementi seguenti su `true` o `1`:
   * Impostazione di configurazione host per [impedire l'avvio dell'hosting](xref:fundamentals/host/web-host#prevent-hosting-startup).
-  * La variabile di ambiente `ASPNETCORE_PREVENTHOSTINGSTARTUP`.
+  * `ASPNETCORE_PREVENTHOSTINGSTARTUP` Variabile di ambiente ASPNETCORE_PREVENTHOSTINGSTARTUP.
 * Per impedire il caricamento di specifici assembly di avvio dell'hosting, impostare uno degli elementi seguenti su una stringa delimitata da punti e virgola di assembly di avvio dell'hosting da escludere all'avvio:
   * Impostazione di configurazione host per [assembly di avvio dell'hosting da escludere](xref:fundamentals/host/web-host#hosting-startup-exclude-assemblies).
-  * La variabile di ambiente `ASPNETCORE_HOSTINGSTARTUPEXCLUDEASSEMBLIES`.
+  * `ASPNETCORE_HOSTINGSTARTUPEXCLUDEASSEMBLIES` Variabile di ambiente ASPNETCORE_HOSTINGSTARTUPEXCLUDEASSEMBLIES.
 
 Se l'impostazione di configurazione host e la variabile di ambiente sono entrambe impostate, l'impostazione host controlla il comportamento.
 
@@ -124,7 +124,7 @@ Un attributo [HostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.hostingst
 
 [!code-csharp[](platform-specific-configuration/samples-snapshot/2.x/StartupEnhancement.cs?name=snippet1)]
 
-Una classe implementa `IHostingStartup`. Il metodo [Configure](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup.configure) della classe usa un'interfaccia [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) per aggiungere miglioramenti a un'app. Nell'assembly di avvio dell'hosting `IHostingStartup.Configure` viene chiamato dal runtime prima di `Startup.Configure` nel codice utente, il che consente al codice utente di sovrascrivere qualsiasi configurazione fornita dall'assembly di avvio dell'hosting.
+Una classe implementa `IHostingStartup`. Il metodo [Configure](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup.configure) della classe usa un'interfaccia [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) per aggiungere miglioramenti a un'app. `IHostingStartup.Configure` viene chiamato nell'assembly di avvio dell'hosting dal runtime prima di `Startup.Configure` nel codice utente, il che consente al codice utente di sovrascrivere qualsiasi configurazione fornita dall'assembly di avvio dell'hosting.
 
 [!code-csharp[](platform-specific-configuration/samples-snapshot/2.x/StartupEnhancement.cs?name=snippet2&highlight=3,5)]
 
@@ -281,7 +281,7 @@ Posizionare il file *\*.deps.json* nel percorso seguente:
 
 * `{ADDITIONAL DEPENDENCIES PATH}` &ndash; Percorso aggiunto alla variabile di ambiente `DOTNET_ADDITIONAL_DEPS`.
 * `{SHARED FRAMEWORK NAME}` &ndash; Framework condiviso necessario per questo file di dipendenze aggiuntive.
-* `{SHARED FRAMEWORK VERSION}` &ndash; Versione minima del framework condiviso.
+* `{SHARED FRAMEWORK VERSION}` &ndash;Versione minima del framework condiviso.
 * `{ENHANCEMENT ASSEMBLY NAME}` &ndash; Nome dell'assembly del miglioramento.
 
 Nell'app di esempio (progetto *RuntimeStore*), il file di dipendenze aggiuntive viene posizionato nel percorso seguente:
@@ -381,7 +381,14 @@ dotnet nuget locals all --clear
 **Attivazione da un assembly distribuito tramite l'archivio di runtime**
 
 1. Il progetto *StartupDiagnostics* usa [PowerShell](/powershell/scripting/powershell-scripting) per modificare il relativo file *StartupDiagnostics.deps.json*. PowerShell viene installato per impostazione predefinita in Windows a partire da Windows 7 SP1 e Windows Server 2008 R2 SP1. Per ottenere PowerShell su altre piattaforme, vedere [Installazione di Windows PowerShell](/powershell/scripting/setup/installing-powershell#powershell-core).
-1. Eseguire lo script *build.ps1* nella cartella *RuntimeStore*. Il comando `dotnet store` nello script usa l'[identificatore di runtime (RID)](/dotnet/core/rid-catalog) `win7-x64` per un avvio dell'hosting distribuito su Windows. Quando si specifica l'avvio dell'hosting per un runtime diverso, immettere il RID corretto.
-1. Eseguire lo script *deploy.ps1* nella cartella *deployment*.
+1. Eseguire lo script *build.ps1* nella cartella *RuntimeStore*. Lo script:
+   * Genera il pacchetto `StartupDiagnostics`.
+   * Genera l'archivio di runtime per `StartupDiagnostics` nella cartella *store*. Il comando `dotnet store` nello script usa l'[identificatore di runtime (RID)](/dotnet/core/rid-catalog) `win7-x64` per un avvio dell'hosting distribuito su Windows. Quando si specifica l'avvio dell'hosting per un runtime diverso, immettere il RID corretto nella riga 37 dello script.
+   * Genera `additionalDeps` per `StartupDiagnostics` nella cartella *additionalDeps/shared/Microsoft.AspNetCore.App/{Shared Framework Version}/*.
+   * Posiziona il file *deploy.ps1* nella cartella *deployment*.
+1. Eseguire lo script *deploy.ps1* nella cartella *deployment*. Lo script aggiunge:
+   * `StartupDiagnostics` alla variabile di ambiente `ASPNETCORE_HOSTINGSTARTUPASSEMBLIES`.
+   * Percorso delle dipendenze di avvio dell'hosting per la variabile di ambiente `DOTNET_ADDITIONAL_DEPS`.
+   * Percorso dell'archivio di runtime per la variabile di ambiente `DOTNET_SHARED_STORE`.
 1. Eseguire l'app di esempio.
 1. Richiedere l'endpoint `/services` per visualizzare i servizi registrati dell'app. Richiedere l'endpoint `/diag` per visualizzare le informazioni di diagnostica.

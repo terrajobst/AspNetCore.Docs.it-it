@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/07/2019
 uid: index
-ms.openlocfilehash: 944c8a93aff53b8d72fda03f5df9c5ba45990cbc
-ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
+ms.openlocfilehash: 9cb598c4068586e4e960ec40743c4f54f09995ad
+ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59068273"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59614372"
 ---
 # <a name="introduction-to-aspnet-core"></a>Introduzione a ASP.NET Core
 
@@ -44,7 +44,7 @@ ASP.NET Core MVC offre funzionalità per la compilazione di [API Web](xref:tutor
 
 ## <a name="client-side-development"></a>Sviluppo lato client
 
-ASP.NET Core si integra perfettamente con framework e librerie lato client di grande diffusione, tra cui [Razor Components](xref:razor-components/index), [Angular](xref:spa/angular), [React](xref:spa/react) e [Bootstrap](https://getbootstrap.com/). Per altre informazioni, vedere [Razor Components](xref:razor-components/index) e gli argomenti correlati in *Sviluppo lato client*.
+ASP.NET Core si integra perfettamente con popolari framework e librerie sul lato client, inclusi [Blazor](xref:blazor/index), [Angular](xref:spa/angular), [React](xref:spa/react) e [Bootstrap](https://getbootstrap.com/). Per altre informazioni, vedere <xref:blazor/index> e gli argomenti correlati in *Sviluppo lato client*.
 
 <a name="target-framework"></a>
 

@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 01/17/2019
 uid: fundamentals/startup
-ms.openlocfilehash: 9556ec076fce3500115cf0e934202f11b175ccd3
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: 362186be6feeeefeca3c56688ee6420de5fb9659
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58750794"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468624"
 ---
 # <a name="app-startup-in-aspnet-core"></a>Avvio dell'app in ASP.NET Core
 
@@ -63,18 +63,20 @@ L'host può configurare alcuni servizi prima che vengano chiamati i metodi `Star
 
 Per le funzionalità che richiedono l'installazione sostanziale, sono disponibili i metodi di estensione `Add{Service}` in <xref:Microsoft.Extensions.DependencyInjection.IServiceCollection>. Un'app ASP.NET Core tipica registra i servizi per Entity Framework, Identity e MVC:
 
-[!code-csharp[](startup/sample_snapshot/Startup3.cs?highlight=4,7,11)]
+[!code-csharp[](startup/sample_snapshot/Startup3.cs)]
 
 L'aggiunta dei servizi al contenitore dei servizi li rende disponibili all'interno dell'app e nel metodo `Configure`. I servizi vengono risolti tramite [inserimento delle dipendenze](xref:fundamentals/dependency-injection) o da <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder.ApplicationServices*>.
 
+Vedere [SetCompatibilityVersion](xref:mvc/compatibility-version) per altre informazioni su `SetCompatibilityVersion`.
+
 ## <a name="the-configure-method"></a>Metodo Configure
 
-Il metodo <xref:Microsoft.AspNetCore.Hosting.StartupBase.Configure*> viene usato per specificare come risponde l'app alle richieste HTTP. La pipeline delle richieste viene configurata aggiungendo i componenti [middleware](xref:fundamentals/middleware/index) a un'istanza <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder>. `IApplicationBuilder` è disponibile per il metodo `Configure` ma non viene registrato nel contenitore dei servizi. L'hosting crea `IApplicationBuilder` e lo passa direttamente a `Configure`.
+Il metodo <xref:Microsoft.AspNetCore.Hosting.StartupBase.Configure*> viene usato per specificare come risponde l'app alle richieste HTTP. La pipeline delle richieste viene configurata aggiungendo i componenti [middleware](xref:fundamentals/middleware/index) a un'istanza <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder>. `IApplicationBuilder` è disponibile per il metodo `Configure`, ma non viene registrato nel contenitore dei servizi. L'hosting crea `IApplicationBuilder` e lo passa direttamente a `Configure`.
 
 I [modelli ASP.NET Core](/dotnet/core/tools/dotnet-new) configurano la pipeline con il supporto per:
 
 * [Pagina delle eccezioni per gli sviluppatori](xref:fundamentals/error-handling#developer-exception-page)
-* [Gestore di eccezioni](xref:fundamentals/error-handling#configure-a-custom-exception-handling-page)
+* [Gestore di eccezioni](xref:fundamentals/error-handling#exception-handler-page)
 * [Protocollo HTTP Strict Transport Security (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts)
 * [Reindirizzamento HTTPS](xref:security/enforcing-ssl)
 * [File statici](xref:fundamentals/static-files)

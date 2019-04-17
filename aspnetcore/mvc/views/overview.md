@@ -3,14 +3,14 @@ title: Visualizzazioni in ASP.NET Core MVC
 author: ardalis
 description: Informazioni su come le visualizzazioni gestiscono la presentazione dei dati dell'app e l'interazione dell'utente in ASP.NET Core MVC.
 ms.author: riande
-ms.date: 12/12/2017
+ms.date: 04/03/2019
 uid: mvc/views/overview
-ms.openlocfilehash: 0ee1fef9e9da15d91427a2eb5b5f530a0b77ce33
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 766996645bc6ef2b6be42d729baf5d57f55b6ddd
+ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58265386"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59012799"
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Visualizzazioni in ASP.NET Core MVC
 
@@ -202,7 +202,7 @@ Oltre alle visualizzazioni fortemente tipizzate, le visualizzazioni hanno access
 | Una visualizzazione e una [visualizzazione Layout](xref:mvc/views/layout)   | Impostazione del contenuto dell'elemento **\<title>** nella visualizzazione Layout da un file di visualizzazione.  |
 | Una [visualizzazione parziale](xref:mvc/views/partial) e una visualizzazione | Widget che visualizza i dati in base alla pagina Web richiesta dall'utente.      |
 
-È possibile fare riferimento a questa raccolta tramite le proprietà `ViewData` o `ViewBag` nei controller e nelle visualizzazioni. La proprietà `ViewData` è un dizionario di oggetti con tipizzazione debole. La proprietà `ViewBag` è un wrapper di `ViewData` che offre proprietà dinamiche per la raccolta `ViewData` sottostante.
+È possibile fare riferimento a questa raccolta tramite le proprietà `ViewData` o `ViewBag` nei controller e nelle visualizzazioni. La proprietà `ViewData` è un dizionario di oggetti con tipizzazione debole. La proprietà `ViewBag` è un wrapper di `ViewData` che offre proprietà dinamiche per la raccolta `ViewData` sottostante. Nota: Per le ricerche di chiavi non viene fatta distinzione tra maiuscole e minuscole sia per `ViewData` che per `ViewBag`.
 
 `ViewData` e `ViewBag` vengono risolte in modo dinamico in fase di esecuzione. Poiché non offrono il controllo del tipo in fase di compilazione, entrambe sono in genere più soggette a errori rispetto all'uso di un elemento viewmodel. Per questo motivo, alcuni sviluppatori preferiscono non usare mai `ViewData` e `ViewBag` o usarle il meno possibile.
 
@@ -250,7 +250,7 @@ Lavorare con i dati in una visualizzazione:
 
 ::: moniker range=">= aspnetcore-2.1"
 
-**Attributo ViewData**
+**Attributo viewData**
 
 Un altro approccio che usa [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) è [ViewDataAttribute](/dotnet/api/microsoft.aspnetcore.mvc.viewdataattribute). I valori delle proprietà nei controller o nei modelli Razor Page decorate con `[ViewData]` vengono archiviati e caricati dal dizionario.
 

@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 03/02/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 065b2016d3a2dcc2243ec6869e027c5fabe4dad8
-ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
+ms.openlocfilehash: f0e4dbb6fda4f676ad8e769c71cc9548a4d61d66
+ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59068404"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59614435"
 ---
 # <a name="logging-in-aspnet-core"></a>Registrazione in ASP.NET Core
 
@@ -168,7 +168,7 @@ Se i livelli sono specificati in `Logging.{providername}.LogLevel`, eseguono l'o
 }
 ```
 
-`LogLevel` Le chiavi rappresentano i nomi dei log. La chiave `Default` si applica ai log non esplicitamente elencati. Il valore rappresenta il [livello del log](#log-level) applicato al log specificato.
+Le chiavi `LogLevel` rappresentano i nomi dei log. La chiave `Default` si applica ai log non esplicitamente elencati. Il valore rappresenta il [livello del log](#log-level) applicato al log specificato.
 
 ::: moniker-end
 
@@ -249,7 +249,7 @@ Per specificare in modo esplicito la categoria, chiamare `ILoggerFactory.CreateL
 
 ::: moniker-end
 
-`ILogger<T>` equivale a chiamare `CreateLogger` con il nome completo di tipo `T`.
+L'uso di `ILogger<T>` equivale a chiamare `CreateLogger` con il nome completo di tipo `T`.
 
 ## <a name="log-level"></a>Livello di registrazione
 
@@ -293,7 +293,7 @@ ASP.NET Core definisce i livelli di registrazione seguenti, ordinati dal meno gr
 
 * Error = 4
 
-  Per errori ed eccezioni che non possono essere gestiti. Questi messaggi indicano un errore nell'operazione o nell'attività in corso (ad esempio la richiesta HTTP corrente), non un errore a livello di app. Messaggio di log di esempio: `Cannot insert record due to duplicate key violation.`
+  Per errori ed eccezioni che non possono essere gestiti. Questi messaggi indicano un errore nell'operazione o nell'attività in corso (ad esempio la richiesta HTTP corrente), non un errore a livello di app. Messaggio di registrazione di esempio:`Cannot insert record due to duplicate key violation.`
 
 * Critical = 5
 
@@ -497,7 +497,8 @@ Ogni provider definisce un *alias* che può essere utilizzato nella configurazio
 * Console
 * Debug
 * EventLog
-* AzureAppServices
+* AzureAppServicesFile
+* AzureAppServicesBlob
 * TraceSource
 * EventSource
 
@@ -770,12 +771,12 @@ L'esempio seguente configura un provider `TraceSource` che registra messaggi `Wa
 
 Per informazioni sulla registrazione in Azure, vedere le sezioni seguenti:
 
-* [Provider del Servizio app di Azure](#azure-app-service-provider)
+* [Provider di Servizio app di Azure](#azure-app-service-provider)
 * [Flusso di registrazione di Azure](#azure-log-streaming)
 
 ::: moniker range=">= aspnetcore-1.1"
 
-* [Registrazione di traccia di Azure Application Insights](#azure-application-insights-trace-logging)
+* [Registrazione traccia di Azure Application Insights](#azure-application-insights-trace-logging)
 
 ::: moniker-end
 

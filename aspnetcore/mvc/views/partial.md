@@ -4,14 +4,14 @@ author: ardalis
 description: Informazioni su come usare le visualizzazioni parziali per suddividere file di markup di grandi dimensioni e ridurre la duplicazione del markup comune nelle pagine Web nelle app ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/11/2018
+ms.date: 04/06/2019
 uid: mvc/views/partial
-ms.openlocfilehash: b7c1545007086053e879bce6781802959da77901
-ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
+ms.openlocfilehash: 65da78d6df3f179df9bdfa3a32af8736b71bbac5
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58327378"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468708"
 ---
 # <a name="partial-views-in-aspnet-core"></a>Visualizzazioni parziali in ASP.NET Core
 
@@ -74,7 +74,7 @@ I nomi dei file di visualizzazione parziale iniziano spesso con un carattere di 
 
 All'interno di un file di markup è possibile fare riferimento a una visualizzazione parziale in diversi modi. È consigliabile usare uno dei metodi asincroni seguenti nelle app:
 
-* [Helper per tag parziale](#partial-tag-helper)
+* [Helper tag Partial](#partial-tag-helper)
 * [Helper HTML asincrono](#asynchronous-html-helper)
 
 ::: moniker-end
@@ -243,7 +243,7 @@ Le convenzioni seguenti si applicano all'individuazione delle visualizzazioni pa
 
 ## <a name="access-data-from-partial-views"></a>Accesso ai dati da visualizzazioni parziali
 
-Quando viene creata un'istanza di una visualizzazione parziale, riceve una *copia* del dizionario `ViewData` del padre. Gli aggiornamenti apportati ai dati all'interno della visualizzazione parziale non vengono mantenuti per la visualizzazione padre. Le modifiche a `ViewData` in una visualizzazione parziale vengono perse quando viene restituita la visualizzazione parziale.
+Quando viene creata un'istanza di una visualizzazione parziale, riceve una *copia* del dizionario `ViewData` del padre. Gli aggiornamenti apportati ai dati all'interno della visualizzazione parziale non vengono mantenuti per la visualizzazione padre. `ViewData` Le modifiche a ViewData in una visualizzazione parziale vengono perse quando viene restituita la visualizzazione parziale.
 
 L'esempio seguente mostra come passare un'istanza di [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) a una visualizzazione parziale:
 

@@ -5,12 +5,12 @@ description: Questa esercitazione illustra come installare e usare lo strumento 
 ms.author: riande
 ms.date: 05/31/2018
 uid: tutorials/dotnet-watch
-ms.openlocfilehash: f1e0d91b27df4af7cbfb6f2547c94c0370c65d0d
-ms.sourcegitcommit: cec77d5ad8a0cedb1ecbec32834111492afd0cd2
+ms.openlocfilehash: 40ecca1c6f9d519b24649d0c28946d95b820c07c
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54207502"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068196"
 ---
 # <a name="develop-aspnet-core-apps-using-a-file-watcher"></a>Sviluppare app ASP.NET Core usando un watcher per file
 
@@ -27,6 +27,9 @@ In una shell dei comandi passare alla cartella *WebApp*. Eseguire il comando seg
 ```console
 dotnet run
 ```
+
+> [!NOTE]
+> È possibile usare `dotnet run --project <PROJECT>` per specificare un progetto da eseguire. Ad esempio, l'esecuzione di `dotnet run --project WebApp` dalla radice dell'app di esempio consentirà di eseguire anche il progetto *WebApp*.
 
 L'output della console visualizza messaggi simili al seguente che indicano che l'app è in esecuzione e in attesa di richieste:
 
@@ -77,6 +80,9 @@ Qualsiasi [comando dell'interfaccia della riga di comando di .NET Core](/dotnet/
 
 Eseguire `dotnet watch run` nella cartella *WebApp*. L'output della console indica che `watch` è stato avviato.
 
+> [!NOTE]
+> È possibile usare `dotnet watch --project <PROJECT>` per specificare un progetto da controllare. Ad esempio, l'esecuzione di `dotnet watch --project WebApp run` dalla radice dell'app di esempio consentirà di eseguire e controllare anche il progetto *WebApp*.
+
 ## <a name="make-changes-with-dotnet-watch"></a>Apportare modifiche con `dotnet watch`
 
 Assicurarsi che `dotnet watch` sia in esecuzione.
@@ -86,7 +92,7 @@ Correggere il bug nel metodo `Product` di *MathController.cs* in modo che restit
 ```csharp
 public static int Product(int a, int b)
 {
-  return a * b;
+    return a * b;
 }
 ```
 
@@ -129,7 +135,7 @@ Per impostazione predefinita, `dotnet-watch` tiene traccia di tutti i file che s
 
 ## <a name="opt-out-of-files-to-be-watched"></a>Esclusione di file dal controllo
 
-È possibile configurare `dotnet-watch` in modo che ignori le impostazioni predefinite. Per ignorare file specifici, aggiungere l'attributo `Watch="false"` alla definizione di un elemento nel file con estensione *csproj*:
+`dotnet-watch` può essere configurato in modo che ignori le impostazioni predefinite. Per ignorare file specifici, aggiungere l'attributo `Watch="false"` alla definizione di un elemento nel file con estensione *csproj*:
 
 ```xml
 <ItemGroup>

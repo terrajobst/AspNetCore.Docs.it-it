@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: seodec18
 ms.date: 11/22/2018
 uid: data/ef-rp/intro
-ms.openlocfilehash: 7723f7ca6c5f9a21b2628933c6e7dabde20c3af6
-ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
+ms.openlocfilehash: aff62d760cf0899983cf841f6715f2658b113f82
+ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58320199"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59012682"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>Razor Pages con Entity Framework Core in ASP.NET Core: esercitazione 1 di 8
 
@@ -29,11 +29,11 @@ L'app di esempio è un sito Web per una fittizia Contoso University. Include fun
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
 
 [!INCLUDE [](~/includes/net-core-prereqs-windows.md)]
 
-# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
+# [<a name="net-core-cli"></a>Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 
 [!INCLUDE [](~/includes/2.1-SDK.md)]
 
@@ -59,7 +59,7 @@ Lo stile dell'interfaccia utente del sito è simile a quanto è stato generato t
 
 ## <a name="create-the-contosouniversity-razor-pages-web-app"></a>Creare l'app Web di Razor Pages ContosoUniversity
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
 
 * Dal menu **File** di Visual Studio selezionare **Nuovo** > **Progetto**.
 * Creare una nuova applicazione Web ASP.NET Core. Denominare il progetto **ContosoUniversity**. È importante denominare il progetto *ContosoUniversity* in modo che gli spazi dei nomi corrispondano quando il codice viene copiato/incollato.
@@ -68,7 +68,7 @@ Lo stile dell'interfaccia utente del sito è simile a quanto è stato generato t
 Per le immagini dei passaggi precedenti, vedere [Creare un'app Web Razor](xref:tutorials/razor-pages/razor-pages-start#create-a-razor-pages-web-app).
 Eseguire l'app.
 
-# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
+# [<a name="net-core-cli"></a>Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 
 ```CLI
 dotnet new webapp -o ContosoUniversity
@@ -116,7 +116,7 @@ La proprietà `ID` diventa la colonna di chiave primaria della tabella di databa
 
 La proprietà `Enrollments` rappresenta una [proprietà di navigazione](/ef/core/modeling/relationships). Le proprietà di navigazione si collegano ad altre entità correlate a questa entità. In questo caso la proprietà `Enrollments` di `Student entity` contiene tutte le entità `Enrollment` correlate a `Student`. Ad esempio, se una riga Student (Studente) nella database presenta due righe Enrollment (Iscrizione) correlate, la proprietà di navigazione `Enrollments` contiene questi due entità `Enrollment`. Una riga `Enrollment` correlata è una riga che contiene il valore della chiave primaria dello studente nella colonna `StudentID`. Si supponga ad esempio che per lo studente con ID = 1 siano presenti due righe nella tabella `Enrollment`. La tabella `Enrollment` contiene due righe con `StudentID` = 1. `StudentID` è una chiave esterna nella tabella `Enrollment` che specifica lo studente nella tabella `Student`.
 
-Se una proprietà di navigazione può contenere più entità, deve essere un tipo elenco, ad esempio `ICollection<T>`. È possibile specificare `ICollection<T>` o un tipo, ad esempio `List<T>` o `HashSet<T>`. Se si specifica `ICollection<T>`, per impostazione predefinita Entity Framework Core crea una raccolta `HashSet<T>`. Le proprietà di navigazione che contengono più entità provengono da relazioni molti-a-molti e uno-a-molti.
+Se una proprietà di navigazione può contenere più entità, deve essere un tipo elenco, ad esempio `ICollection<T>`. `ICollection<T>` È possibile specificare ICollection<T> o un tipo, ad esempio `List<T>` o `HashSet<T>`. Se si specifica `ICollection<T>`, per impostazione predefinita Entity Framework Core crea una raccolta `HashSet<T>`. Le proprietà di navigazione che contengono più entità provengono da relazioni molti-a-molti e uno-a-molti.
 
 ### <a name="the-enrollment-entity"></a>Entità Enrollment (Iscrizione)
 
@@ -155,7 +155,7 @@ In questa sezione viene eseguito lo scaffolding del modello Student (Studente). 
 * Compilare il progetto.
 * Creare la cartella *Pages/Students*.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
 
 * In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella *Pages/Students* > **Aggiungi** > **Nuovo elemento di scaffolding**.
 * Nella finestra di dialogo **Aggiungi scaffolding** selezionare **Pagine Razor che usano Entity Framework (CRUD)** > **Aggiungi**.
@@ -171,7 +171,7 @@ Completare la finestra di dialogo **Pagine Razor che usano Entity Framework (CRU
 
 Vedere [Eseguire lo scaffolding del modello di filmato](xref:tutorials/razor-pages/model#scaffold-the-movie-model) se si riscontrano problemi con il passaggio precedente.
 
-# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
+# [<a name="net-core-cli"></a>Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 
 Eseguire i comandi seguenti per eseguire lo scaffolding del modello Student (Studente).
 
@@ -278,8 +278,9 @@ Eliminare tutti i record degli studenti e riavviare l'app. Se il database non è
 
 ## <a name="view-the-db"></a>Visualizzare il database
 
+Il nome del database viene generato dal nome del contesto specificato in precedenza con l'aggiunta di un trattino e un GUID. Di conseguenza, il nome del database sarà "SchoolContext-{GUID}". Il GUID sarà diverso per ogni utente.
 Aprire **Esplora oggetti di SQL Server** dal menu **Visualizza** in Visual Studio.
-In Esplora oggetti di SQL Server fare clic su **(localdb)\MSSQLLocalDB > Database > ContosoUniversity1**.
+In Esplora oggetti di SQL Server fare clic su **(localdb)\MSSQLLocalDB > Databases > SchoolContext-{GUID}**.
 
 Espandere il nodo **Tabelle**.
 
@@ -322,4 +323,4 @@ Nella prossima esercitazione, vengono esaminate le operazioni CRUD per creare, l
 * [Versione YouTube dell'esercitazione](https://www.youtube.com/watch?v=P7iTtQnkrNs)
 
 > [!div class="step-by-step"]
-> [avanti](xref:data/ef-rp/crud)
+> [Successivo](xref:data/ef-rp/crud)
