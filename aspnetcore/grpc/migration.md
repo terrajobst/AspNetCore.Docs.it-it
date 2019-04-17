@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 03/31/2019
 uid: grpc/migration
-ms.openlocfilehash: ffe5ccbd99c6920e093eddc00fc60a9f66aab527
-ms.sourcegitcommit: 5995f44e9e13d7e7aa8d193e2825381c42184e47
+ms.openlocfilehash: 4d489b5aecf2e15fbbe3ac472b991a4365cd47c1
+ms.sourcegitcommit: 57a974556acd09363a58f38c26f74dc21e0d4339
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "59515512"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59672619"
 ---
 # <a name="migrating-grpc-services-from-c-core-to-aspnet-core"></a>Migrazione dei servizi gRPC da C-core a ASP.NET Core
 
@@ -27,7 +27,7 @@ Una durata con ambita consente l'implementazione del servizio risolvere altri se
 
 * Per ogni richiesta viene creata una nuova istanza dell'implementazione del servizio.
 * Non è possibile condividere lo stato tra le richieste tramite i membri di istanza sul tipo di implementazione.
-* Nella previsione consiste nell'archiviare degli stati condivisi in un servizio singleton nel contenitore di inserimento delle dipendenze. Gli stati condivisi archiviati vengono risolti nel costruttore dell'implementazione del servizio gRPC. 
+* Nella previsione consiste nell'archiviare degli stati condivisi in un servizio singleton nel contenitore di inserimento delle dipendenze. Gli stati condivisi archiviati vengono risolti nel costruttore dell'implementazione del servizio gRPC.
 
 Per altre informazioni su durate del servizio, vedere <xref:fundamentals/dependency-injection#service-lifetimes>.
 
