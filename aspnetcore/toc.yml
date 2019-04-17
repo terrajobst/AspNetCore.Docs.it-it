@@ -261,10 +261,82 @@ items:
       name: Inserimento di dipendenze - Viste
     - uid: mvc/controllers/testing
       name: Unit test
-  - uid: razor-components/index
-    name: Razor Components
+  - name: Blazor
+    items:
+    - uid: blazor/index
+      name: Panoramica
+    - uid: blazor/get-started
+      name: Introduzione
+    - uid: blazor/hosting-models
+      name: Modelli di hosting
+    - uid: tutorials/first-blazor-app
+      name: Creare la prima app
+    - uid: blazor/components
+      name: Componenti
+    - uid: blazor/forms-validation
+      name: Moduli e convalida
+    - uid: blazor/class-libraries
+      name: Librerie di componenti
+    - uid: blazor/layouts
+      name: Layout
+    - uid: blazor/dependency-injection
+      name: Inserimento di dipendenze
+    - uid: blazor/routing
+      name: Routing
+    - uid: blazor/javascript-interop
+      name: Interoperabilità JavaScript
+    - uid: blazor/debug
+      name: Debug
+    - name: Ospitare e distribuire
+      items:
+      - uid: host-and-deploy/blazor/index
+        name: Panoramica
+      - uid: host-and-deploy/blazor/client-side
+        name: Lato client
+      - uid: host-and-deploy/blazor/server-side
+        name: Lato server
+      - uid: host-and-deploy/blazor/configure-linker
+        name: Configurare il linker
+  - name: Sviluppo lato client
+    items:
+    - name: Applicazioni a pagina singola
+      items:
+      - uid: spa/angular
+        name: Angular
+      - uid: spa/react
+        name: React
+      - uid: spa/react-with-redux
+        name: React con Redux
+      - uid: client-side/spa-services
+        name: JavaScriptServices
+    - name: LibMan
+      items:
+      - uid: client-side/libman/index
+        name: Panoramica
+      - uid: client-side/libman/libman-cli
+        name: CLI
+      - uid: client-side/libman/libman-vs
+        name: Visual Studio
+    - uid: client-side/using-gulp
+      name: Gulp
+    - uid: client-side/using-grunt
+      name: Grunt
+    - uid: client-side/bower
+      name: Bower
+    - uid: client-side/bundling-and-minification
+      name: Aggregare e minimizzare
+    - uid: client-side/using-browserlink
+      name: Browser Link
   - uid: fundamentals/app-state
     name: Stato di sessioni e app
+  - uid: mvc/views/layout
+    name: Layout
+  - uid: mvc/models/model-binding
+    name: Associazione di modelli
+  - uid: mvc/models/validation
+    name: Convalida modello
+  - uid: mvc/views/razor
+    name: Sintassi Razor
   - name: Helper tag
     items:
     - uid: mvc/views/tag-helpers/intro
@@ -303,14 +375,6 @@ items:
         href: mvc/views/working-with-forms.md#the-validation-message-tag-helper
       - name: Riepilogo convalida
         href: mvc/views/working-with-forms.md#the-validation-summary-tag-helper
-  - uid: mvc/views/layout
-    name: Layout
-  - uid: mvc/models/model-binding
-    name: Associazione di modelli
-  - uid: mvc/models/validation
-    name: Convalida modello
-  - uid: mvc/views/razor
-    name: Sintassi Razor
   - name: Avanzate
     items:
     - uid: mvc/views/view-components
@@ -553,102 +617,6 @@ items:
       href: /azure/visual-studio/vs-storage-aspnet5-getting-started-queues?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
     - name: Archiviazione - Tabelle
       href: /azure/visual-studio/vs-storage-aspnet5-getting-started-tables?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
-- name: Sviluppo lato client
-  items:
-  - name: Razor Components
-    items:
-    - uid: razor-components/index
-      name: Panoramica
-    - uid: razor-components/get-started
-      name: Introduzione
-    - uid: razor-components/hosting-models
-      name: Modelli di hosting
-    - uid: tutorials/first-razor-components-app
-      name: Creare la prima app
-    - uid: razor-components/components
-      name: Componenti
-    - uid: razor-components/forms-validation
-      name: Moduli e convalida
-    - uid: razor-components/class-libraries
-      name: Librerie di componenti
-    - uid: razor-components/layouts
-      name: Layout
-    - uid: razor-components/dependency-injection
-      name: Inserimento di dipendenze
-    - uid: razor-components/routing
-      name: Routing
-    - uid: razor-components/javascript-interop
-      name: Interoperabilità JavaScript
-    - uid: razor-components/debug
-      name: Debug
-    - name: Ospitare e distribuire
-      items:
-      - uid: host-and-deploy/razor-components-blazor/index
-        name: Panoramica
-      - uid: host-and-deploy/razor-components-blazor/razor-components
-        name: Razor Components
-  - name: Applicazioni a pagina singola
-    items:
-    - name: Blazor
-      items:
-      - uid: spa/blazor/index
-        name: Panoramica
-      - uid: spa/blazor/get-started
-        name: Introduzione
-      - uid: razor-components/hosting-models
-        name: Modelli di hosting
-      - uid: tutorials/first-razor-components-app
-        name: Creare la prima app
-      - uid: razor-components/components
-        name: Componenti
-      - uid: razor-components/forms-validation
-        name: Moduli e convalida
-      - uid: razor-components/class-libraries
-        name: Librerie di componenti
-      - uid: razor-components/layouts
-        name: Layout
-      - uid: razor-components/dependency-injection
-        name: Inserimento di dipendenze
-      - uid: razor-components/routing
-        name: Routing
-      - uid: razor-components/javascript-interop
-        name: Interoperabilità JavaScript
-      - uid: razor-components/debug
-        name: Debug
-      - name: Ospitare e distribuire
-        items:
-        - uid: host-and-deploy/razor-components-blazor/index
-          name: Panoramica
-        - uid: host-and-deploy/razor-components-blazor/blazor
-          name: Blazor
-        - uid: host-and-deploy/razor-components-blazor/configure-linker
-          name: Configurare il linker
-    - uid: spa/angular
-      name: Angular
-    - uid: spa/react
-      name: React
-    - uid: spa/react-with-redux
-      name: React con Redux
-    - uid: client-side/spa-services
-      name: JavaScriptServices
-  - name: LibMan
-    items:
-    - uid: client-side/libman/index
-      name: Panoramica
-    - uid: client-side/libman/libman-cli
-      name: CLI
-    - uid: client-side/libman/libman-vs
-      name: Visual Studio
-  - uid: client-side/using-gulp
-    name: Gulp
-  - uid: client-side/using-grunt
-    name: Grunt
-  - uid: client-side/bower
-    name: Bower
-  - uid: client-side/bundling-and-minification
-    name: Aggregare e minimizzare
-  - uid: client-side/using-browserlink
-    name: Browser Link
 - name: Hosting e distribuzione
   displayName: publish
   items:
@@ -777,15 +745,15 @@ items:
   - uid: host-and-deploy/health-checks
     name: Controlli di integrità
     displayName: deploy, publish
-  - name: Razor Components/Blazor
+  - name: Blazor
     items:
-    - uid: host-and-deploy/razor-components-blazor/index
+    - uid: host-and-deploy/blazor/index
       name: Panoramica
-    - uid: host-and-deploy/razor-components-blazor/blazor
-      name: Blazor
-    - uid: host-and-deploy/razor-components-blazor/razor-components
-      name: Razor Components
-    - uid: host-and-deploy/razor-components-blazor/configure-linker
+    - uid: host-and-deploy/blazor/client-side
+      name: Lato client
+    - uid: host-and-deploy/blazor/server-side
+      name: Lato server
+    - uid: host-and-deploy/blazor/configure-linker
       name: Configurare il linker
 - name: Sicurezza e Identity
   displayName: authentication, authorization
@@ -1090,9 +1058,9 @@ items:
   href: /dotnet/api/?view=aspnetcore-2.2
 - name: Collaborazione
   href: https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md
-ms.openlocfilehash: e788460a2de31aa570907b4561d30ad0da2ca854
-ms.sourcegitcommit: 9b7fcb4ce00a3a32e153a080ebfaae4ef417aafa
+ms.openlocfilehash: 1863125cec772262c41884af343f66ec8fcb53ad
+ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59516274"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59614298"
