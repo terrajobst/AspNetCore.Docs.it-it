@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.date: 03/30/2019
 uid: host-and-deploy/azure-apps/index
 ms.openlocfilehash: 009ee97d954a21f5fca1713b2b45218cac235e33
-ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59012838"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Distribuire le app ASP.NET Core in Servizio app di Azure
@@ -25,7 +25,7 @@ Il [servizio app di Azure](https://azure.microsoft.com/services/app-service/) è
 [Creare un'app Web ASP.NET Core in Azure](/azure/app-service/app-service-web-get-started-dotnet)  
 Usare Visual Studio per creare e distribuire un'app Web ASP.NET Core nel servizio app di Azure in Windows.
 
-[Creare un'app ASP.NET Core nel servizio app in Linux](/azure/app-service/containers/quickstart-dotnetcore)  
+[Creare un'app ASP.NET Core nel Servizio app in Linux](/azure/app-service/containers/quickstart-dotnetcore)  
 Usare la riga di comando per creare e distribuire un'app Web ASP.NET Core nel servizio app di Azure in Linux.
 
 Gli articoli seguenti sono disponibili nella documentazione di ASP.NET Core:
@@ -39,7 +39,7 @@ Informazioni su come creare un'app Web ASP.NET Core tramite Visual Studio e dist
 [Creare la prima pipeline](/azure/devops/pipelines/get-started-yaml)  
 Impostare una build CI per un'app ASP.NET Core e quindi creare una versione di distribuzione continua in Servizio App di Azure.
 
-[Sandbox per app Web di Azure](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)  
+[Azure Web App sandbox](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) (Sandbox per app Web di Azure)  
 Individuare le limitazioni di esecuzione di runtime di Servizio app di Azure applicate dalla piattaforma per le app Azure.
 
 ## <a name="application-configuration"></a>Configurazione dell'applicazione
@@ -236,8 +236,8 @@ Se è necessario trasformare *web.config* in fase di pubblicazione (ad esempio, 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Panoramica del servizio app](/azure/app-service/app-service-web-overview)
-* [Azure App Service: The Best Place to Host your .NET Apps (Servizio app di Azure: la soluzione migliore per l'hosting delle app .NET) (video di 55 minuti)](https://channel9.msdn.com/events/dotnetConf/2017/T222)
-* [Azure Friday: Azure App Service Diagnostic and Troubleshooting Experience (Azure Friday: diagnostica e risoluzione dei problemi del servizio app di Azure) (video di 12 minuti)](https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Diagnostic-and-Troubleshooting-Experience)
+* [Azure App Service: The Best Place to Host your .NET Apps ](https://channel9.msdn.com/events/dotnetConf/2017/T222) (Servizio app di Azure: la soluzione migliore per l'hosting delle app .NET) (video di 55 minuti)
+* [Azure Friday: Azure App Service Diagnostic and Troubleshooting Experience](https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Diagnostic-and-Troubleshooting-Experience) (Azure Friday: diagnostica e risoluzione dei problemi del servizio app di Azure) (video di 12 minuti)
 * [Panoramica della diagnostica del servizio app di Azure](/azure/app-service/app-service-diagnostics)
 * <xref:host-and-deploy/web-farm>
 

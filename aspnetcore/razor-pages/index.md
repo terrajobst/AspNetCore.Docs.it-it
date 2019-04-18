@@ -7,10 +7,10 @@ ms.author: riande
 ms.date: 04/06/2019
 uid: razor-pages/index
 ms.openlocfilehash: e79ce1e2ddfc0e1a4d72e3f67f702d6eb938b8d3
-ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59468695"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introduzione a Razor Pages in ASP.NET Core
@@ -31,11 +31,11 @@ Questo documento offre un'introduzione a Razor Pages. Non è un'esercitazione de
 
 ## <a name="create-a-razor-pages-project"></a>Creare un progetto Razor Pages
 
-# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Per istruzioni dettagliate su come creare un progetto Razor Pages, vedere [Introduzione a Razor Pages](xref:tutorials/razor-pages/razor-pages-start).
 
-# [<a name="visual-studio-for-mac"></a>Visual Studio per Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -51,7 +51,7 @@ Eseguire `dotnet new razor` dalla riga di comando.
 
 Aprire il file *CSPROJ* generato da Visual Studio per Mac.
 
-# [<a name="visual-studio-code"></a>Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -93,10 +93,10 @@ Le associazioni dei percorsi URL alle pagine sono determinate dalla posizione de
 
 | Percorso e nome file               | URL corrispondente |
 | ----------------- | ------------ |
-| */Pages/Index.cshtml* | `/` oppure `/Index` |
+| */Pages/Index.cshtml* | `/` o `/Index` |
 | */Pages/Contact.cshtml* | `/Contact` |
 | */Pages/Store/Contact.cshtml* | `/Store/Contact` |
-| */Pages/Store/Index.cshtml* | `/Store` oppure `/Store/Index` |
+| */Pages/Store/Index.cshtml* | `/Store` o `/Store/Index` |
 
 Note:
 
@@ -134,7 +134,7 @@ La classe `PageModel` consente la separazione della logica di una pagina dalla r
 La pagina contiene un oggetto `OnPostAsync`, ovvero un *metodo gestore* che viene eseguito per le richieste `POST`, quando un utente invia il form. È possibile aggiungere metodi gestore per qualsiasi verbo HTTP. I gestori più comuni sono:
 
 * `OnGet` per inizializzare lo stato necessario per la pagina. Esempio di [OnGet](#OnGet).
-* `OnPost` per gestire gli invii di moduli.
+* `OnPost` per gestire gli invii di form.
 
 Il suffisso `Async` nel nome è facoltativo, ma viene spesso usato per convenzione per le funzioni asincrone. Il codice `OnPostAsync` nell'esempio precedente è simile a ciò che in genere si scrive in un controller. Il codice precedente è tipico di Razor Pages. La maggior parte delle primitive di MVC, ad esempio l'[associazione di modelli](xref:mvc/models/model-binding), la [convalida](xref:mvc/models/validation) e i risultati dell'azione vengono condivise.  <!-- Review: Ryan, can we get a list of what is shared and what isn't? -->
 
@@ -149,7 +149,7 @@ Verificare se sono presenti errori di convalida.
 * Se non sono presenti errori, salvare i dati e reindirizzare.
 * Se sono presenti errori, visualizzare di nuovo la pagina con i messaggi di convalida. La convalida lato client è identica alle applicazioni ASP.NET Core MVC tradizionali. In molti casi gli errori di convalida vengono rilevati nel client e mai inviati al server.
 
-Quando i dati vengono immessi correttamente, il metodo gestore `OnPostAsync` chiama il metodo helper `RedirectToPage` per restituire un'istanza di `RedirectToPageResult`. `RedirectToPage` è un nuovo risultato dell'azione, simile a `RedirectToAction` o `RedirectToRoute`, ma personalizzato per le pagine. Nell'esempio precedente viene reindirizzato alla pagina di indice radice (`/Index`). `RedirectToPage` è descritto in dettaglio nella sezione [Generazione di URL per le pagine](#url_gen).
+Quando i dati vengono immessi correttamente, il metodo gestore `OnPostAsync` chiama il metodo helper `RedirectToPage` per restituire un'istanza di `RedirectToPageResult`. `RedirectToPage` è un nuovo risultato dell'azione, simile a `RedirectToAction` o `RedirectToRoute`, ma personalizzato per le pagine. Nell'esempio precedente viene reindirizzato alla pagina di indice radice (`/Index`). Il metodo `RedirectToPage` è descritto in dettaglio nella sezione [Generazione di URL per le pagine](#url_gen).
 
 Quando il form inviato contiene errori di convalida (che vengono passati al server), il metodo gestore `OnPostAsync` chiama il metodo helper `Page`. `Page` restituisce un'istanza di `PageResult`. La restituzione di `Page` è simile al modo in cui le azioni nel controller restituiscono `View`. `PageResult` è il tipo restituito <!-- Review  --> predefinito per un metodo gestore. Un metodo gestore che restituisce `void` esegue il rendering della pagina.
 
@@ -346,7 +346,7 @@ Il file *Pages/_ViewImports.cshtml* file imposta il seguente spazio dei nomi:
 
 Lo spazio dei nomi generato per la pagina Razor *Pages/Customers/Edit.cshtml* corrisponde alla classe `PageModel`.
 
-`@namespace` *funziona anche con le normali visualizzazioni Razor.*
+`@namespace` *Funziona anche con le normali visualizzazioni Razor.*
 
 Il file di visualizzazione *Pages/Create.cshtml* originale:
 
@@ -396,7 +396,7 @@ La generazione di URL per le pagine supporta i nomi relativi. La tabella seguent
 | RedirectToPage("../Index") | *Pages/Index* |
 | RedirectToPage("Index")  | *Pages/Customers/Index* |
 
-`RedirectToPage("Index")`, `RedirectToPage("./Index")` e `RedirectToPage("../Index")` sono *nomi relativi*. Il parametro `RedirectToPage` è *combinato* con il percorso della pagina corrente per calcolare il nome della pagina di destinazione.  <!-- Review: Original had The provided string is combined with the page name of the current page to compute the name of the destination page.  page name, not page path -->
+`RedirectToPage("Index")`, `RedirectToPage("./Index")`, e `RedirectToPage("../Index")` sono *nomi relativi*. Il parametro `RedirectToPage` è *combinato* con il percorso della pagina corrente per calcolare il nome della pagina di destinazione.  <!-- Review: Original had The provided string is combined with the page name of the current page to compute the name of the destination page.  page name, not page path -->
 
 Il collegamento dei nomi relativi è utile quando si compilano siti con una struttura complessa. Se si usano i nomi relativi per il collegamento tra le pagine in una cartella, è possibile rinominare tale cartella. Tutti i collegamenti continuano a funzionare perché non includono il nome della cartella.
 

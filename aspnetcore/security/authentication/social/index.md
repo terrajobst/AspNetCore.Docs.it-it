@@ -7,10 +7,10 @@ ms.custom: mvc
 ms.date: 4/19/2019
 uid: security/authentication/social/index
 ms.openlocfilehash: 61482481358256dc9ddd1a0a894541040a8a452f
-ms.sourcegitcommit: 9b7fcb4ce00a3a32e153a080ebfaae4ef417aafa
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59516326"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Autenticazione dei provider Facebook, Google ed esterni in ASP.NET Core
@@ -54,7 +54,7 @@ Per degli esempi di come gli account di accesso ai social possano risultare util
   * Il comando `dotnet new` crea un nuovo progetto Razor Pages nella cartella *WebApp1*.
   * Il comando `code` apre la cartella *WebApp1* in una nuova istanza di Visual Studio Code.
 
-  Viene visualizzata una finestra di dialogo con **Required assets to build and debug are missing from 'WebApp1'. Add them?** (Risorse di compilazione e debug mancanti da "WebApp1". Aggiungerle?)
+  Viene visualizzata una finestra di dialogo con **Required assets to build and debug are missing from 'WebApp1'. Add them?** (Risorse di compilazione e debug mancanti da "RazorPagesMovie". Aggiungerle?)
 
 * Selezionare **Sì**.
 
