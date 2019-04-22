@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 04/17/2019
 uid: signalr/javascript-client
-ms.openlocfilehash: e58015221497a9f962edf9f9fdba7ea3025d7694
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: f1f072e63928502fa1bad62e808ff035e57f2fd3
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59705604"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59983013"
 ---
 # <a name="aspnet-core-signalr-javascript-client"></a>ASP.NET Core SignalR JavaScript client
 
@@ -66,6 +66,13 @@ Client JavaScript chiamano metodi pubblici in hub tramite il [richiamare](/javas
 
 > [!NOTE]
 > Se si usa il servizio Azure SignalR in *modalità senza server*, non è possibile chiamare i metodi dell'hub da un client. Per altre informazioni, vedere la [documentazione di SignalR Service](/azure/azure-signalr/signalr-concept-serverless-development-config).
+
+Il `invoke` metodo viene restituito un JavaScript [Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise). Il `Promise` viene risolto con il valore restituito (se presente) quando restituito dal metodo nel server. Se il metodo nel server genera un errore, il `Promise` viene rifiutato con il messaggio di errore. Usare la `then` e `catch` metodi sulle `Promise` per gestire questi casi (o `await` sintassi).
+
+Il `send` metodo viene restituito un JavaScript `Promise`. Il `Promise` è risolto quando il messaggio è stato inviato al server. Se si verifica un errore di invio del messaggio, il `Promise` viene rifiutato con il messaggio di errore. Usare la `then` e `catch` metodi sulle `Promise` per gestire questi casi (o `await` sintassi).
+
+> [!NOTE]
+> Usando `send` senza aspettare il server ha ricevuto il messaggio. Non è pertanto possibile restituire errori o i dati dal server.
 
 ## <a name="call-client-methods-from-hub"></a>Chiamare i metodi client hub
 
