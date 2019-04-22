@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni su come creare helper tag in ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 04/12/2019
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: ddfd7cb8c67e28709b8ce75d5a4d0a8c0c0cc43c
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 19b7df1abc8765cb9a77487e39c4365fdacf2b65
+ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58210080"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59614422"
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>Creare helper tag in ASP.NET Core
 
@@ -65,7 +65,9 @@ In altre parole, un tag di ancoraggio che dà come risultato un collegamento di 
    public class Email : TagHelper
    ```
 
-1. Per rendere la classe `EmailTagHelper` disponibile per tutte le visualizzazioni Razor in uso, aggiungere la direttiva `addTagHelper` al file *Views/_ViewImports.cshtml*:[!code-html[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopyEmail.cshtml?highlight=2,3)]
+1. Per rendere la classe `EmailTagHelper` disponibile per tutte le visualizzazioni Razor in uso, aggiungere la direttiva `addTagHelper` al file *Views/_ViewImports.cshtml*:
+
+   [!code-html[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopyEmail.cshtml?highlight=2,3)]
 
    Il codice qui sopra usa la sintassi con caratteri jolly per specificare che tutti gli helper tag in questo assembly saranno disponibili. La prima stringa dopo `@addTagHelper` specifica l'helper tag da caricare (usare "*" per indicare tutti gli helper tag), e la seconda stringa "AuthoringTagHelpers" specifica l'assembly in cui si trova l'helper tag. Si noti anche che la seconda riga introduce gli helper tag ASP.NET Core MVC tramite la sintassi con caratteri jolly. Questi helper sono trattati in [Introduzione agli helper tag](intro.md). È la direttiva `@addTagHelper` che rende l'helper tag disponibile per la visualizzazione Razor. In alternativa, è possibile specificare il nome completo dell'helper tag, come illustrato di seguito:
 

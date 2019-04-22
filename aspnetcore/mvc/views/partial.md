@@ -7,10 +7,10 @@ ms.custom: mvc
 ms.date: 04/06/2019
 uid: mvc/views/partial
 ms.openlocfilehash: 65da78d6df3f179df9bdfa3a32af8736b71bbac5
-ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59468708"
 ---
 # <a name="partial-views-in-aspnet-core"></a>Visualizzazioni parziali in ASP.NET Core
@@ -74,7 +74,7 @@ I nomi dei file di visualizzazione parziale iniziano spesso con un carattere di 
 
 All'interno di un file di markup è possibile fare riferimento a una visualizzazione parziale in diversi modi. È consigliabile usare uno dei metodi asincroni seguenti nelle app:
 
-* [Helper tag Partial](#partial-tag-helper)
+* [Helper per tag parziale](#partial-tag-helper)
 * [Helper HTML asincrono](#asynchronous-html-helper)
 
 ::: moniker-end
@@ -243,7 +243,7 @@ Le convenzioni seguenti si applicano all'individuazione delle visualizzazioni pa
 
 ## <a name="access-data-from-partial-views"></a>Accesso ai dati da visualizzazioni parziali
 
-Quando viene creata un'istanza di una visualizzazione parziale, riceve una *copia* del dizionario `ViewData` del padre. Gli aggiornamenti apportati ai dati all'interno della visualizzazione parziale non vengono mantenuti per la visualizzazione padre. `ViewData` Le modifiche a ViewData in una visualizzazione parziale vengono perse quando viene restituita la visualizzazione parziale.
+Quando viene creata un'istanza di una visualizzazione parziale, riceve una *copia* del dizionario `ViewData` del padre. Gli aggiornamenti apportati ai dati all'interno della visualizzazione parziale non vengono mantenuti per la visualizzazione padre. Le modifiche a `ViewData` in una visualizzazione parziale vengono perse quando viene restituita la visualizzazione parziale.
 
 L'esempio seguente mostra come passare un'istanza di [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) a una visualizzazione parziale:
 

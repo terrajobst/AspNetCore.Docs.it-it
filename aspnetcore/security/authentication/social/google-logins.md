@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 1/11/2019
 uid: security/authentication/google-logins
-ms.openlocfilehash: 1328bcbce3e6e4786f9d410d1f28f309dc9d2722
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: 44c79b3279db7946b6d89a726bd3f5acfb5f51af
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58750542"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59705591"
 ---
 # <a name="google-external-login-setup-in-aspnet-core"></a>Configurazione dell'accesso esterno Google in ASP.NET Core
 
 Da [Valeriy Novytskyy](https://github.com/01binary) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Nel gennaio 2019 iniziato a Google [arrestare](https://developers.google.com/+/api-shutdown) Google + Accedi e gli sviluppatori devono spostare in un nuovo accesso di Google nel sistema da marzo. ASP.NET Core 2.1 e 2.2 di pacchetti per l'autenticazione di Google verrà aggiornato nel mese di febbraio per contenere le modifiche apportate. Per altre informazioni e soluzioni di attenuazione temporanee per ASP.NET Core, vedere [questo problema su GitHub](https://github.com/aspnet/AspNetCore/issues/6486). Questa esercitazione è stata aggiornata al nuovo processo di installazione.
+[Google + API legacy siano state arrestate al momento della stesura del 7 marzo 2019](https://developers.google.com/+/api-shutdown). Google + Accedi e gli sviluppatori devono spostare in un nuovo accesso di Google nel sistema. I pacchetti ASP.NET Core 2.1 e 2.2 per l'autenticazione di Google hanno aggiornato per contenere le modifiche apportate. Per altre informazioni e soluzioni di attenuazione temporanee per ASP.NET Core, vedere [questo problema su GitHub](https://github.com/aspnet/AspNetCore/issues/6486). Questa esercitazione è stata aggiornata al nuovo processo di installazione.
 
 Questa esercitazione illustra come consentire agli utenti di accedere con il proprio account Google usando il progetto ASP.NET Core 2.2 creato sul [pagina precedente](xref:security/authentication/social/index).
 

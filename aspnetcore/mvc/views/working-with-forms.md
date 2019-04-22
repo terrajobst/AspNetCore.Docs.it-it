@@ -7,10 +7,10 @@ ms.custom: mvc
 ms.date: 04/06/2019
 uid: mvc/views/working-with-forms
 ms.openlocfilehash: 6eff3bf03e650e154b5c767c9bcdd915e7db8b47
-ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59468802"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>Helper tag nei moduli in ASP.NET Core
@@ -171,7 +171,7 @@ Sintassi:
 
 L'helper tag Input:
 
-* Genera gli attributi HTML `id` e `name` per il nome dell'espressione specificata nell'attributo `asp-for`. `asp-for="Property1.Property2"` equivale a `m => m.Property1.Property2`. Il nome dell'espressione viene usato come valore dell'attributo `asp-for`. Per altre informazioni, vedere la sezione [Nomi delle espressioni](#expression-names).
+* Genera gli attributi HTML `id` e `name` per il nome dell'espressione specificata nell'attributo `asp-for`. `asp-for="Property1.Property2"` è equivalente a `m => m.Property1.Property2`. Il nome dell'espressione viene usato come valore dell'attributo `asp-for`. Per altre informazioni, vedere la sezione [Nomi delle espressioni](#expression-names).
 
 * Imposta il valore dell'attributo HTML `type` in base agli attributi relativi al tipo di modello e all'[annotazione dei dati](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) applicati alla proprietà del modello
 
@@ -249,7 +249,7 @@ Le annotazioni dei dati applicate alle proprietà `Email` e `Password` generano 
 
 ### <a name="htmlattributes"></a>HtmlAttributes
 
-`@Html.Editor()` e `@Html.EditorFor()` usano una voce `ViewDataDictionary` speciale denominata `htmlAttributes` quando eseguono i modelli predefiniti. È possibile aumentare questo comportamento usando i parametri `additionalViewData`. La chiave "htmlAttributes" non fa distinzione tra maiuscole e minuscole. La chiave "htmlAttributes" viene gestita in modo analogo all'oggetto `htmlAttributes` passato agli helper di input come `@Html.TextBox()`.
+Quando eseguono i modelli predefiniti, `@Html.Editor()` e `@Html.EditorFor()` usano una voce `ViewDataDictionary` speciale denominata `htmlAttributes`. È possibile aumentare questo comportamento usando i parametri `additionalViewData`. La chiave "htmlAttributes" non fa distinzione tra maiuscole e minuscole. La chiave "htmlAttributes" viene gestita in modo analogo all'oggetto `htmlAttributes` passato agli helper di input come `@Html.TextBox()`.
 
 ```HTML
 @Html.EditorFor(model => model.YourProperty, 
@@ -277,7 +277,7 @@ Con le proprietà delle raccolte, `asp-for="CollectionProperty[23].Member"` gene
 
 Quando ASP.NET Core MVC calcola il valore di `ModelExpression`, analizza diverse origini, tra cui `ModelState`. Considerare `<input type="text" asp-for="@Name">`. L'attributo `value` calcolato è il primo valore non Null da:
 
-* `ModelState` Voce ModelState con chiave "Name".
+* Voce `ModelState` con chiave "Name".
 * Risultato dell'espressione `Model.Name`.
 
 ### <a name="navigating-child-properties"></a>Esplorazione delle proprietà figlio

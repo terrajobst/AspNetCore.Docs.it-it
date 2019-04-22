@@ -6,10 +6,10 @@ ms.author: riande
 ms.date: 12/5/2018
 uid: tutorials/razor-pages/razor-pages-start
 ms.openlocfilehash: 1d264ca4a605d8291e273a8f054c92e7eefa5548
-ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59468847"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Esercitazione: Introduzione all'uso di pagine Razor in ASP.NET Core
@@ -39,7 +39,7 @@ Alla fine di questa esercitazione si avrà un'app Web Razor Pages, che verrà co
 
 ## <a name="create-a-razor-pages-web-app"></a>Creare un'app Web di Razor Pages
 
-# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Dal menu **File** di Visual Studio selezionare **Nuovo** > **Progetto**.
 
@@ -55,7 +55,7 @@ Alla fine di questa esercitazione si avrà un'app Web Razor Pages, che verrà co
 
   ![Esplora soluzioni](razor-pages-start/_static/se2.2.png)
 
-# [<a name="visual-studio-code"></a>Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * Aprire il [terminale integrato](https://code.visualstudio.com/docs/editor/integrated-terminal).
 
@@ -75,9 +75,9 @@ Alla fine di questa esercitazione si avrà un'app Web Razor Pages, che verrà co
 
 * Selezionare **Sì**.
 
-# [<a name="visual-studio-for-mac"></a>Visual Studio per Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
-Dal Terminale eseguire il comando seguente:
+Da un terminale eseguire il comando seguente:
 
 <!-- TODO: update these instruction once mac support 2.2 projects -->
 
@@ -97,7 +97,7 @@ Da Visual Studio, selezionare **File > Apri**, quindi selezionare il file *Razor
 
 ## <a name="run-the-app"></a>Eseguire l'app
 
-# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Premere CTRL+F5 per l'esecuzione senza il debugger.
 
@@ -115,7 +115,7 @@ Da Visual Studio, selezionare **File > Apri**, quindi selezionare il file *Razor
 
   ![Pagina Home o di indice](razor-pages-start/_static/home2.2.png)
   
-# [<a name="visual-studio-code"></a>Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
   [!INCLUDE[](~/includes/trustCertVSC.md)]
 
@@ -133,7 +133,7 @@ Da Visual Studio, selezionare **File > Apri**, quindi selezionare il file *Razor
 
   ![Pagina Home o di indice](razor-pages-start/_static/home2.2.png)
   
-# [<a name="visual-studio-for-mac"></a>Visual Studio per Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
   [!INCLUDE[](~/includes/trustCertMac.md)]
 

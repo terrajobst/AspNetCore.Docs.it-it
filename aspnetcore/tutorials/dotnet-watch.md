@@ -6,10 +6,10 @@ ms.author: riande
 ms.date: 05/31/2018
 uid: tutorials/dotnet-watch
 ms.openlocfilehash: 40ecca1c6f9d519b24649d0c28946d95b820c07c
-ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59068196"
 ---
 # <a name="develop-aspnet-core-apps-using-a-file-watcher"></a>Sviluppare app ASP.NET Core usando un watcher per file
@@ -135,7 +135,7 @@ Per impostazione predefinita, `dotnet-watch` tiene traccia di tutti i file che s
 
 ## <a name="opt-out-of-files-to-be-watched"></a>Esclusione di file dal controllo
 
-`dotnet-watch` può essere configurato in modo che ignori le impostazioni predefinite. Per ignorare file specifici, aggiungere l'attributo `Watch="false"` alla definizione di un elemento nel file con estensione *csproj*:
+È possibile configurare `dotnet-watch` in modo che ignori le impostazioni predefinite. Per ignorare file specifici, aggiungere l'attributo `Watch="false"` alla definizione di un elemento nel file con estensione *csproj*:
 
 ```xml
 <ItemGroup>

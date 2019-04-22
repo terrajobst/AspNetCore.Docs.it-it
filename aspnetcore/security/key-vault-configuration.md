@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.date: 02/25/2019
 uid: security/key-vault-configuration
 ms.openlocfilehash: 8fd1cca1803d3f1d44d80ec63c5cfc259cbdaf55
-ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59012695"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Azure Key Vault Configuration Provider in ASP.NET Core
@@ -370,9 +370,9 @@ L'app non riesce a caricare la configurazione utilizzando il provider, viene scr
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * <xref:fundamentals/configuration/index>
-* [Microsoft Azure: Key Vault](https://azure.microsoft.com/services/key-vault/)
+* [Microsoft Azure: Insieme di credenziali delle chiavi](https://azure.microsoft.com/services/key-vault/)
 * [Microsoft Azure: Documentazione su Key Vault](/azure/key-vault/)
 * [Come generare e trasferire chiavi HSM protette le chiavi SSH per Azure Key Vault](/azure/key-vault/key-vault-hsm-protected-keys)
 * [Classe KeyVaultClient](/dotnet/api/microsoft.azure.keyvault.keyvaultclient)
-* [Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault usando un'app web .NET](/azure/key-vault/quick-create-net)
+* [Avvio rapido: Impostare e recuperare un segreto da Azure Key Vault usando un'app web .NET](/azure/key-vault/quick-create-net)
 * [Esercitazione: Come usare Azure Key Vault con Windows macchina virtuale di Azure in .NET](/azure/key-vault/tutorial-net-windows-virtual-machine)

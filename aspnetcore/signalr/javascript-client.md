@@ -5,14 +5,14 @@ description: Panoramica di ASP.NET Core SignalR JavaScript client.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 03/14/2019
+ms.date: 04/17/2019
 uid: signalr/javascript-client
-ms.openlocfilehash: a0980dca2eb8d483a9d9f1c5667fb74ee06364f0
-ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
+ms.openlocfilehash: e58015221497a9f962edf9f9fdba7ea3025d7694
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57978342"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59705604"
 ---
 # <a name="aspnet-core-signalr-javascript-client"></a>ASP.NET Core SignalR JavaScript client
 
@@ -104,7 +104,140 @@ Usare la [configureLogging](/javascript/api/%40aspnet/signalr/hubconnectionbuild
 
 ## <a name="reconnect-clients"></a>Riconnettere i client
 
-Non riconnessione automaticamente il client JavaScript per SignalR. È necessario scrivere codice che si riconnetterà manualmente il client. Il codice seguente illustra un approccio tipico di riconnessione:
+::: moniker range=">= aspnetcore-3.0"
+
+### <a name="automatically-reconnect"></a>La riconnessione automatica
+
+Il client JavaScript per SignalR può essere configurato per la riconnessione automatica usando la `withAutomaticReconnect` metodo sul [HubConnectionBuilder](/javascript/api/%40aspnet/signalr/hubconnectionbuilder). Non riconnettersi automaticamente per impostazione predefinita.
+
+```javascript
+const connection = new signalR.HubConnectionBuilder()
+    .withUrl("/chatHub")
+    .withAutomaticReconnect()
+    .build();
+```
+
+Senza parametri, `withAutomaticReconnect()` consente di configurare il client per l'attesa di 0, 2, 10 e 30 secondi rispettivamente prima di provare ogni tentativo di riconnessione, fermandosi quando quattro tentativi non riusciti.
+
+Prima di avviare qualsiasi tentativo di riconnessione, il `HubConnection` verrà transizione per il `HubConnectionState.Reconnecting` sullo stato e la generazione di relativo `onreconnecting` callback anziché in fase di transizione per il `Disconnected` dello stato e l'attivazione relativo `onclose` i callback, ad esempio un `HubConnection`senza la riconnessione automatica configurata. Ciò offre un'opportunità per avvisare gli utenti che la connessione è stata persa e disattivare gli elementi dell'interfaccia utente.
+
+```javascript
+connection.onreconnecting((error) => {
+  console.assert(connection.state === signalR.HubConnectionState.Reconnecting);
+
+  document.getElementById("messageInput").disabled = true;
+
+  const li = document.createElement("li");
+  li.textContent = `Connection lost due to error "${error}". Reconnecting.`;
+  document.getElementById("messagesList").appendChild(li);
+});
+```
+
+Se il client si riconnette correttamente entro i primi quattro diversi, il `HubConnection` passerà al `Connected` lo stato e la generazione di relativo `onreconnected` i callback. Ciò offre un'opportunità per informare gli utenti che è stata ristabilita la connessione.
+
+Poiché la connessione sia completamente nuovo al server, un nuovo `connectionId` riceveranno la `onreconnected` callback.
+
+> [!WARNING]
+> Il `onreconnected` del callback `connectionId` parametro sarà indefinito se il `HubConnection` è stato configurato per [ignorare la negoziazione](xref:signalr/configuration#configure-client-options).
+
+```javascript
+connection.onreconnected((connectionId) => {
+  console.assert(connection.state === signalR.HubConnectionState.Connected);
+
+  document.getElementById("messageInput").disabled = false;
+
+  const li = document.createElement("li");
+  li.textContent = `Connection reestablished. Connected with connectionId "${connectionId}".`;
+  document.getElementById("messagesList").appendChild(li);
+});
+```
+
+`withAutomaticReconnect()` non configurare il `HubConnection` tentativo iniziale di avvio non riuscite, in modo che gli errori di avvio devono essere gestite manualmente:
+
+```javascript
+async function start() {
+    try {
+        await connection.start();
+        console.assert(connection.state === signalR.HubConnectionState.Connected);
+        console.log("connected");
+    } catch (err) {
+        console.assert(connection.state === signalR.HubConnectionState.Disconnected);
+        console.log(err);
+        setTimeout(() => start(), 5000);
+    }
+};
+```
+
+Se il client non è stata riconnettersi entro i primi quattro diversi, il `HubConnection` verranno transizione per il `Disconnected` lo stato e la generazione di relativo [onclose](/javascript/api/%40aspnet/signalr/hubconnection#onclose) i callback. Ciò offre un'opportunità per informare gli utenti la connessione viene definitivamente perduto e consiglia di aggiornare la pagina:
+
+```javascript
+connection.onclose((error) => {
+  console.assert(connection.state === signalR.HubConnectionState.Disconnected);
+
+  document.getElementById("messageInput").disabled = true;
+
+  const li = document.createElement("li");
+  li.textContent = `Connection closed due to error "${error}". Try refreshing this page to restart the connection.`;
+  document.getElementById("messagesList").appendChild(li);
+})
+```
+
+Per configurare un numero di tentativi di riconnessione prima della disconnessione personalizzato o modificare l'intervallo di tempo di riconnessione, `withAutomaticReconnect` accetta una matrice di numeri che rappresenta il ritardo in millisecondi di attesa prima di avviare ogni tentativo di riconnessione.
+
+```javascript
+const connection = new signalR.HubConnectionBuilder()
+    .withUrl("/chatHub")
+    .withAutomaticReconnect([0, 0, 10000])
+    .build();
+
+    // .withAutomaticReconnect([0, 2000, 10000, 30000]) yields the default behavior
+```
+
+Nell'esempio precedente viene configurata la `HubConnection` per avviare il tentativo di riconnessioni immediatamente dopo la connessione viene persa. Questo vale anche per la configurazione predefinita.
+
+Se non riesce al primo tentativo di riconnessione, il secondo tentativo di riconnessione anche inizierà immediatamente anziché attendere 2 secondi, come verrebbe mostrata nella configurazione predefinita.
+
+Se ha esito negativo al secondo tentativo di riconnessione, il terzo tentativo di riconnessione verrà avviato entro 10 secondi, ovvero anche in questo caso, ad esempio la configurazione predefinita.
+
+Il comportamento personalizzato quindi differisce anche in questo caso il comportamento predefinito arrestando dopo la riconnessione terzo tentativo errore anziché tentare di uno più riconnettersi tentativo in un altro, come verrebbe mostrata nella configurazione predefinita di 30 secondi.
+
+Se si desidera maggiore controllo sulla temporizzazione e numero di automatico tentativi, di riconnessione `withAutomaticReconnect` accetta un oggetto che implementa le `IReconnectPolicy` interfaccia che dispone di un singolo metodo denominato `nextRetryDelayInMilliseconds`.
+
+`nextRetryDelayInMilliseconds` accetta due argomenti, `previousRetryCount` e `elapsedMilliseconds`, che sono entrambi i numeri. Prima il primo tentativo di riconnessione, entrambe `previousRetryCount` e `elapsedMilliseconds` saranno pari a zero. Dopo ogni tentativo di ripetizione dei tentativi non riusciti `previousRetryCount` viene incrementato di uno e `elapsedMilliseconds` verrà aggiornato per riflettere la quantità di tempo impiegato per la riconnessione finora in millisecondi.
+
+`nextRetryDelayInMilliseconds` deve restituire un numero che rappresenta il numero di millisecondi di attesa prima del successivo tentativo di riconnessione o `null` se il `HubConnection` deve interrompere la riconnessione.
+
+```javascript
+const connection = new signalR.HubConnectionBuilder()
+    .withUrl("/chatHub")
+    .withAutomaticReconnect({
+        nextRetryDelayInMilliseconds: (previousRetryCount, elapsedMilliseconds) => {
+          if (elapsedMilliseconds < 60000) {
+            // If we've been reconnecting for less than 60 seconds so far,
+            // wait between 0 and 10 seconds before the next reconnect attempt.
+            return Math.random() * 10000;
+          } else {
+            // If we've been reconnecting for more than 60 seconds so far, stop reconnecting.
+            return null;
+          }
+        })
+    .build();
+```
+
+In alternativa, è possibile scrivere codice che si riconnetterà il client manualmente, come illustrato in [riconnettere manualmente](#manually-reconnect).
+
+::: moniker-end
+
+### <a name="manually-reconnect"></a>Riconnettere manualmente
+
+::: moniker range="< aspnetcore-3.0"
+
+> [!WARNING]
+> Prima 3.0, non riconnettersi automaticamente il client JavaScript per SignalR. È necessario scrivere codice che si riconnetterà manualmente il client.
+
+::: moniker-end
+
+Il codice seguente illustra un approccio tipico riconnessione manuale:
 
 1. Una funzione (in questo caso, il `start` (funzione)) viene creato per avviare la connessione.
 1. Chiamare il `start` funzione della connessione `onclose` gestore dell'evento.

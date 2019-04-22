@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.date: 04/07/2019
 uid: fundamentals/dependency-injection
 ms.openlocfilehash: da6ddf1f0efd164a58f017ff55ce216bbefa7cc6
-ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59068323"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Inserimento delle dipendenze in ASP.NET Core
@@ -80,7 +80,7 @@ Questa interfaccia viene implementata da un tipo concreto, `MyDependency`:
 
 [!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Services/MyDependency.cs?name=snippet1)]
 
-`MyDependency` richiede un'istanza di [ILogger&lt;TCategoryName&gt;](/dotnet/api/microsoft.extensions.logging.ilogger-1) nel relativo costruttore. Non è insolito usare l'inserimento delle dipendenze in modo concatenato. Ogni dipendenza richiesta richiede a sua volta le proprie dipendenze. Il contenitore risolve le dipendenze nel grafico e restituisce il servizio completamente risolto. Il set di dipendenze che devono essere risolte viene generalmente chiamato *albero delle dipendenze* o *grafico dipendenze* o *grafico degli oggetti*.
+`MyDependency` richiede un'istanza di [ILogger&lt;TCategoryName&gt; ](/dotnet/api/microsoft.extensions.logging.ilogger-1) nel relativo costruttore. Non è insolito usare l'inserimento delle dipendenze in modo concatenato. Ogni dipendenza richiesta richiede a sua volta le proprie dipendenze. Il contenitore risolve le dipendenze nel grafico e restituisce il servizio completamente risolto. Il set di dipendenze che devono essere risolte viene generalmente chiamato *albero delle dipendenze* o *grafico dipendenze* o *grafico degli oggetti*.
 
 `IMyDependency` e `ILogger<TCategoryName>` devono essere registrati nel contenitore di servizi. `IMyDependency` viene registrato in `Startup.ConfigureServices`. `ILogger<TCategoryName>` viene registrato dall'infrastruttura di astrazioni di registrazione, pertanto si tratta di un [servizio fornito dal framework](#framework-provided-services) registrato per impostazione predefinita dal framework.
 
@@ -236,7 +236,7 @@ Scoped: 5d997e2d-55f5-4a64-8388-51c4e3a1ad19
 Singleton: 01271bc1-9e31-48e7-8f7c-7261b040ded9  
 Instance: 00000000-0000-0000-0000-000000000000
 
-`OperationService` Operazioni di OperationService:
+Operazioni di `OperationService`:
 
 Transient: c6b049eb-1318-4e31-90f1-eb2dd849ff64  
 Scoped: 5d997e2d-55f5-4a64-8388-51c4e3a1ad19  
@@ -252,7 +252,7 @@ Scoped: 31e820c5-4834-4d22-83fc-a60118acb9f4
 Singleton: 01271bc1-9e31-48e7-8f7c-7261b040ded9  
 Instance: 00000000-0000-0000-0000-000000000000
 
-`OperationService` Operazioni di OperationService:
+Operazioni di `OperationService`:
 
 Transient: c4cbacb8-36a2-436d-81c8-8c1b78808aaf  
 Scoped: 31e820c5-4834-4d22-83fc-a60118acb9f4  
@@ -364,7 +364,7 @@ Il contenitore di servizi predefinito è progettato per soddisfare le esigenze d
 * Inserimento in base al nome
 * Contenitori figlio
 * Gestione della durata personalizzata
-* `Func<T>` Supporto di Func<T> per l'inizializzazione differita
+* Supporto di `Func<T>` per l'inizializzazione differita
 
 Vedere il [file Dependency Injection readme.md](https://github.com/aspnet/Extensions/tree/master/src/DependencyInjection) per un elenco di alcuni dei contenitori che supportano gli adattatori.
 
@@ -416,7 +416,7 @@ Non è necessario che il metodo factory del singolo servizio, ad esempio il seco
 
 ## <a name="recommendations"></a>Suggerimenti
 
-* `async/await` La risoluzione del servizio basata su async/await e `Task` non è supportata. Dato che C# non supporta i costruttori asincroni, il modello consigliato consiste nell'usare i metodi asincroni dopo avere risolto in modo sincrono il servizio.
+* La risoluzione basata sui servizi `async/await` e `Task` non è supportata. Dato che C# non supporta i costruttori asincroni, il modello consigliato consiste nell'usare i metodi asincroni dopo avere risolto in modo sincrono il servizio.
 
 * Evitare di archiviare i dati e la configurazione direttamente nel contenitore del servizio. Ad esempio, il carrello acquisti di un utente non dovrebbe in genere essere aggiunto al contenitore del servizio. La configurazione deve usare il [modello di opzioni](xref:fundamentals/configuration/options). Analogamente, evitare gli oggetti "contenitori di dati" che hanno la sola funzione di consentire l'accesso ad altri oggetti. È preferibile richiedere l'elemento effettivo tramite inserimento delle dipendenze.
 
@@ -471,6 +471,6 @@ L'inserimento di dipendenze è un'*alternativa* ai modelli di accesso agli ogget
 * <xref:fundamentals/startup>
 * <xref:fundamentals/middleware/extensibility>
 * [Scrittura di codice pulito in ASP.NET Core con inserimento delle dipendenze (MSDN)](https://msdn.microsoft.com/magazine/mt703433.aspx)
-* [Explicit Dependencies Principle (Principio delle dipendenze esplicite)](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies)
-* [Inversion of Control Containers and the Dependency Injection Pattern (Martin Fowler) (Contenitori di inversione del controllo e modello di inserimento delle dipendenze)](https://www.martinfowler.com/articles/injection.html)
-* [How to register a service with multiple interfaces in ASP.NET Core DI (Come registrare un servizio con più interfacce nell'inserimento delle dipendenze di ASP.NET Core)](https://andrewlock.net/how-to-register-a-service-with-multiple-interfaces-for-in-asp-net-core-di/)
+* [Explicit Dependencies Principle](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies) (Principio delle dipendenze esplicite)
+* [Inversion of Control Containers and the Dependency Injection Pattern](https://www.martinfowler.com/articles/injection.html) (Martin Fowler) (Contenitori di inversione del controllo e modello di inserimento delle dipendenze)
+* [How to register a service with multiple interfaces in ASP.NET Core DI](https://andrewlock.net/how-to-register-a-service-with-multiple-interfaces-for-in-asp-net-core-di/) (Come registrare un servizio con più interfacce in ASP.NET Core DI)

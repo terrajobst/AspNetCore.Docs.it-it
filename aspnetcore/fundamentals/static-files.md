@@ -7,10 +7,10 @@ ms.custom: mvc
 ms.date: 04/08/2019
 uid: fundamentals/static-files
 ms.openlocfilehash: 12c7b39bee462ff83188a5a0f10b133ca273863b
-ms.sourcegitcommit: 258a97159da206f9009f23fdf6f8fa32f178e50b
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59425062"
 ---
 # <a name="static-files-in-aspnet-core"></a>File statici in ASP.NET Core
@@ -200,7 +200,7 @@ Il codice seguente abilita i file statici, i file predefiniti e l'esplorazione d
 
 [!code-csharp[](static-files/samples/1x/StartupUseFileServer.cs?name=snippet_ConfigureMethod&highlight=5-11)]
 
-`AddDirectoryBrowser` deve essere chiamato quando il valore della proprietà `EnableDirectoryBrowsing` è `true`:
+Chiamare il metodo `AddDirectoryBrowser` quando il valore della proprietà `EnableDirectoryBrowsing` è `true`:
 
 [!code-csharp[](static-files/samples/1x/StartupUseFileServer.cs?name=snippet_ConfigureServicesMethod)]
 
@@ -242,7 +242,7 @@ Con il codice precedente, una richiesta per un file con un tipo di contenuto sco
 ### <a name="considerations"></a>Considerazioni
 
 > [!WARNING]
-> `UseDirectoryBrowser` e `UseStaticFiles` possono causare la perdita di informazioni riservate. È consigliabile disabilitare l'esplorazione directory nell'ambiente di produzione. Controllare attentamente quali sono le directory abilitate tramite `UseStaticFiles` o `UseDirectoryBrowser`. L'intera directory e le relative sottodirectory diventano pubblicamente accessibili. Archiviare i file pubblicamente utilizzabili in una directory dedicata, ad esempio  *\<radice_contenuto > / wwwroot*. Tenere questi file separati da visualizzazioni MVC, Razor Pages (solo versione 2.x), file di configurazione e così via.
+> L'uso di `UseDirectoryBrowser` e `UseStaticFiles` può comportare la perdita di informazioni riservate. È consigliabile disabilitare l'esplorazione directory nell'ambiente di produzione. Controllare attentamente quali sono le directory abilitate tramite `UseStaticFiles` o `UseDirectoryBrowser`. L'intera directory e le relative sottodirectory diventano pubblicamente accessibili. Archiviare i file pubblicamente utilizzabili in una directory dedicata, ad esempio  *\<radice_contenuto > / wwwroot*. Tenere questi file separati da visualizzazioni MVC, Razor Pages (solo versione 2.x), file di configurazione e così via.
 
 * Gli URL per il contenuto esposto con `UseDirectoryBrowser` e `UseStaticFiles` sono soggetti a distinzione tra maiuscole e minuscole e a limitazione di caratteri del file system sottostante. Ad esempio, in Windows viene fatta distinzione tra maiuscole e minuscole, al contrario di quanto avviene in macOS e Linux.
 
