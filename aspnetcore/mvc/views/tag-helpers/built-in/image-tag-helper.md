@@ -7,57 +7,57 @@ ms.custom: mvc
 ms.date: 04/06/2019
 uid: mvc/views/tag-helpers/builtin-th/image-tag-helper
 ms.openlocfilehash: 916a68c187cbf516a59d3c5d7578cdb6ada01b86
-ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59468818"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59705510"
 ---
-# <a name="image-tag-helper-in-aspnet-core"></a><span data-ttu-id="4f110-103">Helper tag di immagine in ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="4f110-103">Image Tag Helper in ASP.NET Core</span></span>
+# <a name="image-tag-helper-in-aspnet-core"></a><span data-ttu-id="b76e1-103">Helper tag di immagine in ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="b76e1-103">Image Tag Helper in ASP.NET Core</span></span>
 
-<span data-ttu-id="4f110-104">Di [Peter Kellner](http://peterkellner.net)</span><span class="sxs-lookup"><span data-stu-id="4f110-104">By [Peter Kellner](http://peterkellner.net)</span></span>
+<span data-ttu-id="b76e1-104">Di [Peter Kellner](http://peterkellner.net)</span><span class="sxs-lookup"><span data-stu-id="b76e1-104">By [Peter Kellner](http://peterkellner.net)</span></span>
 
-<span data-ttu-id="4f110-105">L'helper tag di immagine migliora il tag `<img>` per rendere disponibile il comportamento di cache-busting per i file di immagine statici.</span><span class="sxs-lookup"><span data-stu-id="4f110-105">The Image Tag Helper enhances the `<img>` tag to provide cache-busting behavior for static image files.</span></span>
+<span data-ttu-id="b76e1-105">L'helper tag di immagine migliora il tag `<img>` per rendere disponibile il comportamento di cache-busting per i file di immagine statici.</span><span class="sxs-lookup"><span data-stu-id="b76e1-105">The Image Tag Helper enhances the `<img>` tag to provide cache-busting behavior for static image files.</span></span>
 
-<span data-ttu-id="4f110-106">Una stringa di cache-busting è un valore univoco che rappresenta l'hash del file di immagine statico aggiunto all'URL dell'asset.</span><span class="sxs-lookup"><span data-stu-id="4f110-106">A cache-busting string is a unique value representing the hash of the static image file appended to the asset's URL.</span></span> <span data-ttu-id="4f110-107">La stringa univoca richiede ai client (e ad alcuni proxy) di ricaricare l'immagine dal server Web host e non dalla cache del client.</span><span class="sxs-lookup"><span data-stu-id="4f110-107">The unique string prompts clients (and some proxies) to reload the image from the host web server and not from the client's cache.</span></span>
+<span data-ttu-id="b76e1-106">Una stringa di cache-busting è un valore univoco che rappresenta l'hash del file di immagine statico aggiunto all'URL dell'asset.</span><span class="sxs-lookup"><span data-stu-id="b76e1-106">A cache-busting string is a unique value representing the hash of the static image file appended to the asset's URL.</span></span> <span data-ttu-id="b76e1-107">La stringa univoca richiede ai client (e ad alcuni proxy) di ricaricare l'immagine dal server Web host e non dalla cache del client.</span><span class="sxs-lookup"><span data-stu-id="b76e1-107">The unique string prompts clients (and some proxies) to reload the image from the host web server and not from the client's cache.</span></span>
 
-<span data-ttu-id="4f110-108">Se l'origine dell'immagine (`src`) è un file statico nel server Web host:</span><span class="sxs-lookup"><span data-stu-id="4f110-108">If the image source (`src`) is a static file on the host web server:</span></span>
+<span data-ttu-id="b76e1-108">Se l'origine dell'immagine (`src`) è un file statico nel server Web host:</span><span class="sxs-lookup"><span data-stu-id="b76e1-108">If the image source (`src`) is a static file on the host web server:</span></span>
 
-* <span data-ttu-id="4f110-109">Una stringa di cache-busting univoca viene aggiunta come parametro di query all'origine dell'immagine.</span><span class="sxs-lookup"><span data-stu-id="4f110-109">A unique cache-busting string is appended as a query parameter to the image source.</span></span>
-* <span data-ttu-id="4f110-110">Se il file nel server Web host cambia, viene generato un URL di richiesta univoco, che include il parametro di richiesta aggiornato.</span><span class="sxs-lookup"><span data-stu-id="4f110-110">If the file on the host web server changes, a unique request URL is generated that includes the updated request parameter.</span></span>
+* <span data-ttu-id="b76e1-109">Una stringa di cache-busting univoca viene aggiunta come parametro di query all'origine dell'immagine.</span><span class="sxs-lookup"><span data-stu-id="b76e1-109">A unique cache-busting string is appended as a query parameter to the image source.</span></span>
+* <span data-ttu-id="b76e1-110">Se il file nel server Web host cambia, viene generato un URL di richiesta univoco, che include il parametro di richiesta aggiornato.</span><span class="sxs-lookup"><span data-stu-id="b76e1-110">If the file on the host web server changes, a unique request URL is generated that includes the updated request parameter.</span></span>
 
-<span data-ttu-id="4f110-111">Per una panoramica degli helper tag, vedere <xref:mvc/views/tag-helpers/intro>.</span><span class="sxs-lookup"><span data-stu-id="4f110-111">For an overview of Tag Helpers, see <xref:mvc/views/tag-helpers/intro>.</span></span>
+<span data-ttu-id="b76e1-111">Per una panoramica degli helper tag, vedere <xref:mvc/views/tag-helpers/intro>.</span><span class="sxs-lookup"><span data-stu-id="b76e1-111">For an overview of Tag Helpers, see <xref:mvc/views/tag-helpers/intro>.</span></span>
 
-## <a name="image-tag-helper-attributes"></a><span data-ttu-id="4f110-112">Attributi dell'helper tag di immagine</span><span class="sxs-lookup"><span data-stu-id="4f110-112">Image Tag Helper Attributes</span></span>
+## <a name="image-tag-helper-attributes"></a><span data-ttu-id="b76e1-112">Attributi dell'helper tag di immagine</span><span class="sxs-lookup"><span data-stu-id="b76e1-112">Image Tag Helper Attributes</span></span>
 
-### <a name="src"></a><span data-ttu-id="4f110-113">src</span><span class="sxs-lookup"><span data-stu-id="4f110-113">src</span></span>
+### <a name="src"></a><span data-ttu-id="b76e1-113">src</span><span class="sxs-lookup"><span data-stu-id="b76e1-113">src</span></span>
 
-<span data-ttu-id="4f110-114">Per attivare l'helper tag di immagine, è richiesto l'attributo `src` per l'elemento `<img>`.</span><span class="sxs-lookup"><span data-stu-id="4f110-114">To activate the Image Tag Helper, the `src` attribute is required on the `<img>` element.</span></span>
+<span data-ttu-id="b76e1-114">Per attivare l'helper tag di immagine, è richiesto l'attributo `src` per l'elemento `<img>`.</span><span class="sxs-lookup"><span data-stu-id="b76e1-114">To activate the Image Tag Helper, the `src` attribute is required on the `<img>` element.</span></span>
 
-<span data-ttu-id="4f110-115">L'origine dell'immagine (`src`) deve puntare a un file fisico statico nel server.</span><span class="sxs-lookup"><span data-stu-id="4f110-115">The image source (`src`) must point to a physical static file on the server.</span></span> <span data-ttu-id="4f110-116">Se `src` è un URI remoto, il parametro di stringa di query di cache-busting non viene generato.</span><span class="sxs-lookup"><span data-stu-id="4f110-116">If the `src` is a remote URI, the cache-busting query string parameter isn't generated.</span></span>
+<span data-ttu-id="b76e1-115">L'origine dell'immagine (`src`) deve puntare a un file fisico statico nel server.</span><span class="sxs-lookup"><span data-stu-id="b76e1-115">The image source (`src`) must point to a physical static file on the server.</span></span> <span data-ttu-id="b76e1-116">Se `src` è un URI remoto, il parametro di stringa di query di cache-busting non viene generato.</span><span class="sxs-lookup"><span data-stu-id="b76e1-116">If the `src` is a remote URI, the cache-busting query string parameter isn't generated.</span></span>
 
-### <a name="asp-append-version"></a><span data-ttu-id="4f110-117">asp-append-version</span><span class="sxs-lookup"><span data-stu-id="4f110-117">asp-append-version</span></span>
+### <a name="asp-append-version"></a><span data-ttu-id="b76e1-117">asp-append-version</span><span class="sxs-lookup"><span data-stu-id="b76e1-117">asp-append-version</span></span>
 
-<span data-ttu-id="4f110-118">Quando si specifica `asp-append-version` con un valore `true` insieme a un attributo `src`, viene chiamato l'helper tag di immagine.</span><span class="sxs-lookup"><span data-stu-id="4f110-118">When `asp-append-version` is specified with a `true` value along with a `src` attribute, the Image Tag Helper is invoked.</span></span>
+<span data-ttu-id="b76e1-118">Quando si specifica `asp-append-version` con un valore `true` insieme a un attributo `src`, viene chiamato l'helper tag di immagine.</span><span class="sxs-lookup"><span data-stu-id="b76e1-118">When `asp-append-version` is specified with a `true` value along with a `src` attribute, the Image Tag Helper is invoked.</span></span>
 
-<span data-ttu-id="4f110-119">L'esempio seguente usa un helper tag di immagine:</span><span class="sxs-lookup"><span data-stu-id="4f110-119">The following example uses an Image Tag Helper:</span></span>
+<span data-ttu-id="b76e1-119">L'esempio seguente usa un helper tag di immagine:</span><span class="sxs-lookup"><span data-stu-id="b76e1-119">The following example uses an Image Tag Helper:</span></span>
 
 ```cshtml
 <img src="~/images/asplogo.png" asp-append-version="true">
 ```
 
-<span data-ttu-id="4f110-120">Se il file statico esiste nella directory */wwwroot/images/* il codice HTML generato è simile al seguente (l'hash sarà diverso):</span><span class="sxs-lookup"><span data-stu-id="4f110-120">If the static file exists in the directory */wwwroot/images/*, the generated HTML is similar to the following (the hash will be different):</span></span>
+<span data-ttu-id="b76e1-120">Se il file statico esiste nella directory */wwwroot/images/* il codice HTML generato è simile al seguente (l'hash sarà diverso):</span><span class="sxs-lookup"><span data-stu-id="b76e1-120">If the static file exists in the directory */wwwroot/images/*, the generated HTML is similar to the following (the hash will be different):</span></span>
 
 ```html
 <img src="/images/asplogo.png?v=Kl_dqr9NVtnMdsM2MUg4qthUnWZm5T1fCEimBPWDNgM">
 ```
 
-<span data-ttu-id="4f110-121">Il valore assegnato al parametro `v` è il valore dell'hash del file *asplogo.png* su disco.</span><span class="sxs-lookup"><span data-stu-id="4f110-121">The value assigned to the parameter `v` is the hash value of the *asplogo.png* file on disk.</span></span> <span data-ttu-id="4f110-122">Se il server Web non è in grado di ottenere l'accesso in lettura al file statico, non viene aggiunto alcun parametro `v` all'attributo `src` nel markup di cui viene eseguito il rendering.</span><span class="sxs-lookup"><span data-stu-id="4f110-122">If the web server is unable to obtain read access to the static file, no `v` parameter is added to the `src` attribute in the rendered markup.</span></span>
+<span data-ttu-id="b76e1-121">Il valore assegnato al parametro `v` è il valore dell'hash del file *asplogo.png* su disco.</span><span class="sxs-lookup"><span data-stu-id="b76e1-121">The value assigned to the parameter `v` is the hash value of the *asplogo.png* file on disk.</span></span> <span data-ttu-id="b76e1-122">Se il server Web non è in grado di ottenere l'accesso in lettura al file statico, non viene aggiunto alcun parametro `v` all'attributo `src` nel markup di cui viene eseguito il rendering.</span><span class="sxs-lookup"><span data-stu-id="b76e1-122">If the web server is unable to obtain read access to the static file, no `v` parameter is added to the `src` attribute in the rendered markup.</span></span>
 
-## <a name="hash-caching-behavior"></a><span data-ttu-id="4f110-123">Comportamento di memorizzazione nella cache dell'hash</span><span class="sxs-lookup"><span data-stu-id="4f110-123">Hash caching behavior</span></span>
+## <a name="hash-caching-behavior"></a><span data-ttu-id="b76e1-123">Comportamento di memorizzazione nella cache dell'hash</span><span class="sxs-lookup"><span data-stu-id="b76e1-123">Hash caching behavior</span></span>
 
-<span data-ttu-id="4f110-124">L'helper tag di immagine usa il provider di cache nel server Web locale per archiviare l'hash `Sha512` calcolato di un determinato file.</span><span class="sxs-lookup"><span data-stu-id="4f110-124">The Image Tag Helper uses the cache provider on the local web server to store the calculated `Sha512` hash of a given file.</span></span> <span data-ttu-id="4f110-125">Se il file è richiesto più volte, l'hash non viene ricalcolato.</span><span class="sxs-lookup"><span data-stu-id="4f110-125">If the file is requested multiple times, the hash isn't recalculated.</span></span> <span data-ttu-id="4f110-126">La cache viene invalidata da un watcher di file che viene associato al file quando viene calcolato l'hash `Sha512` del file.</span><span class="sxs-lookup"><span data-stu-id="4f110-126">The cache is invalidated by a file watcher that's attached to the file when the file's `Sha512` hash is calculated.</span></span> <span data-ttu-id="4f110-127">Quando il file cambia su disco, viene calcolato e memorizzato nella cache un nuovo hash.</span><span class="sxs-lookup"><span data-stu-id="4f110-127">When the file changes on disk, a new hash is calculated and cached.</span></span>
+<span data-ttu-id="b76e1-124">L'helper tag di immagine usa il provider di cache nel server Web locale per archiviare l'hash `Sha512` calcolato di un determinato file.</span><span class="sxs-lookup"><span data-stu-id="b76e1-124">The Image Tag Helper uses the cache provider on the local web server to store the calculated `Sha512` hash of a given file.</span></span> <span data-ttu-id="b76e1-125">Se il file è richiesto più volte, l'hash non viene ricalcolato.</span><span class="sxs-lookup"><span data-stu-id="b76e1-125">If the file is requested multiple times, the hash isn't recalculated.</span></span> <span data-ttu-id="b76e1-126">La cache viene invalidata da un watcher di file che viene associato al file quando viene calcolato l'hash `Sha512` del file.</span><span class="sxs-lookup"><span data-stu-id="b76e1-126">The cache is invalidated by a file watcher that's attached to the file when the file's `Sha512` hash is calculated.</span></span> <span data-ttu-id="b76e1-127">Quando il file cambia su disco, viene calcolato e memorizzato nella cache un nuovo hash.</span><span class="sxs-lookup"><span data-stu-id="b76e1-127">When the file changes on disk, a new hash is calculated and cached.</span></span>
 
-## <a name="additional-resources"></a><span data-ttu-id="4f110-128">Risorse aggiuntive</span><span class="sxs-lookup"><span data-stu-id="4f110-128">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="b76e1-128">Risorse aggiuntive</span><span class="sxs-lookup"><span data-stu-id="b76e1-128">Additional resources</span></span>
 
 * <xref:performance/caching/memory>
