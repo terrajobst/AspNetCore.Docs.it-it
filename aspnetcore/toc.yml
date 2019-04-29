@@ -1,1070 +1,1079 @@
-items:
 - name: Documentazione di ASP.NET Core
-  href: /aspnet/#pivot=core
+  href: '/aspnet/#pivot=core'
 - name: Panoramica
   items:
-  - uid: index
-    name: Informazioni su ASP.NET Core
-  - uid: fundamentals/choose-between-aspnet-and-aspnetcore
-    name: Confronto tra ASP.NET Core e ASP.NET
-  - name: Confronto tra .NET Core e .NET Framework
-    href: /dotnet/standard/choosing-core-framework-server?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
-- uid: getting-started
-  name: Introduzione
+    - name: Informazioni su ASP.NET Core
+      uid: index
+    - name: Confronto tra ASP.NET Core e ASP.NET
+      uid: fundamentals/choose-between-aspnet-and-aspnetcore
+    - name: Confronto tra .NET Core e .NET Framework
+      href: /dotnet/standard/choosing-core-framework-server?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
+- name: Introduzione
+  uid: getting-started
 - name: Novità
   items:
-  - uid: aspnetcore-2.2
-    name: Novità nella versione 2.2
-  - uid: aspnetcore-2.1
-    name: Novità nella versione 2.1
-  - uid: aspnetcore-2.0
-    name: Novità nella versione 2.0
-  - uid: aspnetcore-1.1
-    name: Novità nella versione 1.1
+    - name: Novità nella versione 2.2
+      uid: aspnetcore-2.2
+    - name: Novità nella versione 2.1
+      uid: aspnetcore-2.1
+    - name: Novità nella versione 2.0
+      uid: aspnetcore-2.0
+    - name: Novità nella versione 1.1
+      uid: aspnetcore-1.1
 - name: Esercitazioni
   items:
-  - name: App Web
-    items:
-    - name: Razor Pages
-      displayName: tutorial
+    - name: App Web
       items:
-      - uid: tutorials/razor-pages/index
-        name: Panoramica
-      - uid: tutorials/razor-pages/razor-pages-start
-        name: Introduzione
-      - uid: tutorials/razor-pages/model
-        name: Aggiungere un modello
-      - uid: tutorials/razor-pages/page
-        name: Scaffolding
-      - uid: tutorials/razor-pages/sql
-        name: Usare un database
-      - uid: tutorials/razor-pages/da1
-        name: Aggiornare le pagine
-      - uid: tutorials/razor-pages/search
-        name: Aggiungere la funzionalità di ricerca
-      - uid: tutorials/razor-pages/new-field
-        name: Aggiungere un nuovo campo
-      - uid: tutorials/razor-pages/validation
-        name: Aggiungere la convalida
-    - name: MVC
-      displayName: tutorial
+        - name: Razor Pages
+          displayName: tutorial
+          items:
+            - name: Panoramica
+              uid: tutorials/razor-pages/index
+            - name: Introduzione
+              uid: tutorials/razor-pages/razor-pages-start
+            - name: Aggiungere un modello
+              uid: tutorials/razor-pages/model
+            - name: Scaffolding
+              uid: tutorials/razor-pages/page
+            - name: Usare un database
+              uid: tutorials/razor-pages/sql
+            - name: Aggiornare le pagine
+              uid: tutorials/razor-pages/da1
+            - name: Aggiungere la funzionalità di ricerca
+              uid: tutorials/razor-pages/search
+            - name: Aggiungere un nuovo campo
+              uid: tutorials/razor-pages/new-field
+            - name: Aggiungere la convalida
+              uid: tutorials/razor-pages/validation
+        - name: MVC
+          displayName: tutorial
+          items:
+            - name: Panoramica
+              uid: tutorials/first-mvc-app/index
+            - name: Introduzione
+              uid: tutorials/first-mvc-app/start-mvc
+            - name: Aggiungere un controller
+              uid: tutorials/first-mvc-app/adding-controller
+            - name: Aggiungere una vista
+              uid: tutorials/first-mvc-app/adding-view
+            - name: Aggiungere un modello
+              uid: tutorials/first-mvc-app/adding-model
+            - name: Usare un database
+              uid: tutorials/first-mvc-app/working-with-sql
+            - name: Azioni e viste del controller
+              uid: tutorials/first-mvc-app/controller-methods-views
+            - name: Aggiungere la funzionalità di ricerca
+              uid: tutorials/first-mvc-app/search
+            - name: Aggiungere un nuovo campo
+              uid: tutorials/first-mvc-app/new-field
+            - name: Aggiungere la convalida
+              uid: tutorials/first-mvc-app/validation
+            - name: Esaminare i dettagli e i metodi di eliminazione
+              uid: tutorials/first-mvc-app/details
+    - name: App per le API Web
       items:
-      - uid: tutorials/first-mvc-app/index
-        name: Panoramica
-      - uid: tutorials/first-mvc-app/start-mvc
-        name: Introduzione
-      - uid: tutorials/first-mvc-app/adding-controller
-        name: Aggiungere un controller
-      - uid: tutorials/first-mvc-app/adding-view
-        name: Aggiungere una vista
-      - uid: tutorials/first-mvc-app/adding-model
-        name: Aggiungere un modello
-      - uid: tutorials/first-mvc-app/working-with-sql
-        name: Usare un database
-      - uid: tutorials/first-mvc-app/controller-methods-views
-        name: Azioni e viste del controller
-      - uid: tutorials/first-mvc-app/search
-        name: Aggiungere la funzionalità di ricerca
-      - uid: tutorials/first-mvc-app/new-field
-        name: Aggiungere un nuovo campo
-      - uid: tutorials/first-mvc-app/validation
-        name: Aggiungere la convalida
-      - uid: tutorials/first-mvc-app/details
-        name: Esaminare i dettagli e i metodi di eliminazione
-  - name: App per le API Web
-    items:
-    - uid: tutorials/first-web-api
-      name: Creare un'API Web
-      displayName: tutorial
-    - uid: tutorials/first-mongo-app
-      name: API Web con MongoDB
-      displayName: tutorial
-    - uid: mobile/native-mobile-backend
-      name: Back-end per dispositivi mobili
-      displayName: tutorial
-  - name: App Web in tempo reale
-    items:
-    - uid: tutorials/signalr
-      name: SignalR con JavaScript
-      displayName: tutorial
-    - uid: tutorials/signalr-typescript-webpack
-      name: SignalR con TypeScript
-      displayName: tutorial
-  - name: App RPC
-    items:
-    - uid: tutorials/grpc/grpc-start
-      name: Introduzione all'uso del servizio gRPC in ASP.NET Core
-  - name: Accesso ai dati
-    items:
-    - name: EF Core con Razor Pages
-      displayName: tutorial
+        - name: Creare un'API Web
+          displayName: tutorial
+          uid: tutorials/first-web-api
+        - name: API Web con MongoDB
+          displayName: tutorial
+          uid: tutorials/first-mongo-app
+        - name: Back-end per dispositivi mobili
+          displayName: tutorial
+          uid: mobile/native-mobile-backend
+    - name: App Web in tempo reale
       items:
-      - uid: data/ef-rp/index
-        name: Panoramica
-      - uid: data/ef-rp/intro
-        name: Introduzione
-      - uid: data/ef-rp/crud
-        name: Creazione, lettura, aggiornamento ed eliminazione
-      - uid: data/ef-rp/sort-filter-page
-        name: Ordinamento, filtro, pagina e gruppo
-      - uid: data/ef-rp/migrations
-        name: Migrazioni
-      - uid: data/ef-rp/complex-data-model
-        name: Creare un modello di dati complesso
-      - uid: data/ef-rp/read-related-data
-        name: Leggere dati correlati
-      - uid: data/ef-rp/update-related-data
-        name: Aggiornare dati correlati
-      - uid: data/ef-rp/concurrency
-        name: Gestire i conflitti di concorrenza
-    - name: EF Core con MVC, database esistente
-      displayName: tutorial
-      href: /ef/core/get-started/aspnetcore/existing-db?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
-    - name: EF Core con MVC, nuovo database
-      displayName: tutorial
-      href: /ef/core/get-started/aspnetcore/new-db?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
-    - name: EF Core con MVC, 10 esercitazioni
+        - name: SignalR con JavaScript
+          displayName: tutorial
+          uid: tutorials/signalr
+        - name: SignalR con TypeScript
+          displayName: tutorial
+          uid: tutorials/signalr-typescript-webpack
+    - name: App RPC
       items:
-      - uid: data/ef-mvc/index
-        name: Panoramica
-      - uid: data/ef-mvc/intro
-        name: Introduzione
-      - uid: data/ef-mvc/crud
-        name: Creazione, lettura, aggiornamento ed eliminazione
-      - uid: data/ef-mvc/sort-filter-page
-        name: Ordinamento, filtro, pagina e gruppo
-      - uid: data/ef-mvc/migrations
-        name: Migrazioni
-      - uid: data/ef-mvc/complex-data-model
-        name: Creare un modello di dati complesso
-      - uid: data/ef-mvc/read-related-data
-        name: Leggere dati correlati
-      - uid: data/ef-mvc/update-related-data
-        name: Aggiornare dati correlati
-      - uid: data/ef-mvc/concurrency
-        name: Gestire i conflitti di concorrenza
-      - uid: data/ef-mvc/inheritance
-        name: Ereditarietà
-      - uid: data/ef-mvc/advanced
-        name: Argomenti avanzati
+        - name: Introduzione all'uso del servizio gRPC in ASP.NET Core
+          uid: tutorials/grpc/grpc-start
+    - name: Accesso ai dati
+      items:
+        - name: EF Core con Razor Pages
+          displayName: tutorial
+          items:
+            - name: Panoramica
+              uid: data/ef-rp/index
+            - name: Introduzione
+              uid: data/ef-rp/intro
+            - name: 'Creazione, lettura, aggiornamento ed eliminazione'
+              uid: data/ef-rp/crud
+            - name: 'Ordinamento, filtro, pagina e gruppo'
+              uid: data/ef-rp/sort-filter-page
+            - name: Migrazioni
+              uid: data/ef-rp/migrations
+            - name: Creare un modello di dati complesso
+              uid: data/ef-rp/complex-data-model
+            - name: Leggere dati correlati
+              uid: data/ef-rp/read-related-data
+            - name: Aggiornare dati correlati
+              uid: data/ef-rp/update-related-data
+            - name: Gestire i conflitti di concorrenza
+              uid: data/ef-rp/concurrency
+        - name: 'EF Core con MVC, database esistente'
+          displayName: tutorial
+          href: /ef/core/get-started/aspnetcore/existing-db?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
+        - name: 'EF Core con MVC, nuovo database'
+          displayName: tutorial
+          href: /ef/core/get-started/aspnetcore/new-db?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
+        - name: 'EF Core con MVC, 10 esercitazioni'
+          items:
+            - name: Panoramica
+              uid: data/ef-mvc/index
+            - name: Introduzione
+              uid: data/ef-mvc/intro
+            - name: 'Creazione, lettura, aggiornamento ed eliminazione'
+              uid: data/ef-mvc/crud
+            - name: 'Ordinamento, filtro, pagina e gruppo'
+              uid: data/ef-mvc/sort-filter-page
+            - name: Migrazioni
+              uid: data/ef-mvc/migrations
+            - name: Creare un modello di dati complesso
+              uid: data/ef-mvc/complex-data-model
+            - name: Leggere dati correlati
+              uid: data/ef-mvc/read-related-data
+            - name: Aggiornare dati correlati
+              uid: data/ef-mvc/update-related-data
+            - name: Gestire i conflitti di concorrenza
+              uid: data/ef-mvc/concurrency
+            - name: Ereditarietà
+              uid: data/ef-mvc/inheritance
+            - name: Argomenti avanzati
+              uid: data/ef-mvc/advanced
+- name: Esercitazioni (Microsoft Learn)
+  displayName: tutorial
+  items:
+    - name: App per le API Web
+      href: /learn/modules/build-web-api-net-core/
+    - name: Accesso ai dati
+      displayName: 'tutorial, ef, entity framework'
+      href: /learn/modules/persist-data-ef-core/
 - name: Concetti fondamentali
   items:
-  - uid: fundamentals/index
-    name: Panoramica
-  - uid: fundamentals/startup
-    name: Classe Startup
-  - uid: fundamentals/dependency-injection
-    name: Iniezione di dipendenze (servizi)
-  - uid: fundamentals/middleware/index
-    name: Middleware
-  - name: Host
-    items:
-    - uid: fundamentals/host/web-host
-      name: Host Web
-    - uid: fundamentals/host/generic-host
-      name: Host generico
-  - uid: fundamentals/servers/index
-    name: Server
-  - uid: fundamentals/configuration/index
-    name: Configurazione
-  - uid: fundamentals/configuration/options
-    name: Opzioni
-  - uid: fundamentals/environments
-    name: Ambienti (sviluppo, gestione temporanea, produzione)
-  - uid: fundamentals/logging/index
-    name: Registrazione
-  - uid: fundamentals/routing
-    name: Routing
-  - uid: fundamentals/error-handling
-    name: Gestire gli errori
-  - uid: fundamentals/http-requests
-    name: Creare richieste HTTP
-    displayName: httpclient, httpclientfactory
-  - uid: fundamentals/static-files
-    name: File statici
+    - name: Panoramica
+      uid: fundamentals/index
+    - name: Classe Startup
+      uid: fundamentals/startup
+    - name: Iniezione di dipendenze (servizi)
+      uid: fundamentals/dependency-injection
+    - name: Middleware
+      uid: fundamentals/middleware/index
+    - name: Host
+      items:
+        - name: Host Web
+          uid: fundamentals/host/web-host
+        - name: Host generico
+          uid: fundamentals/host/generic-host
+    - name: Server
+      uid: fundamentals/servers/index
+    - name: Configurazione
+      uid: fundamentals/configuration/index
+    - name: Opzioni
+      uid: fundamentals/configuration/options
+    - name: 'Ambienti (sviluppo, gestione temporanea, produzione)'
+      uid: fundamentals/environments
+    - name: Registrazione
+      uid: fundamentals/logging/index
+    - name: Routing
+      uid: fundamentals/routing
+    - name: Gestire gli errori
+      uid: fundamentals/error-handling
+    - name: Creare richieste HTTP
+      displayName: 'httpclient, httpclientfactory'
+      uid: fundamentals/http-requests
+    - name: File statici
+      uid: fundamentals/static-files
 - name: App Web
   items:
-  - name: Razor Pages
-    items:
-    - uid: razor-pages/index
-      name: Introduzione
-    - name: Esercitazione
+    - name: Razor Pages
       items:
-      - uid: tutorials/razor-pages/index
-        name: Panoramica
-      - uid: tutorials/razor-pages/razor-pages-start
-        name: Introduzione
-      - uid: tutorials/razor-pages/model
-        name: Aggiungere un modello
-      - uid: tutorials/razor-pages/page
-        name: Scaffolding
-      - uid: tutorials/razor-pages/sql
-        name: Usare un database
-      - uid: tutorials/razor-pages/da1
-        name: Aggiornare le pagine
-      - uid: tutorials/razor-pages/search
-        name: Aggiungere la funzionalità di ricerca
-      - uid: tutorials/razor-pages/new-field
-        name: Aggiungere un nuovo campo
-      - uid: tutorials/razor-pages/validation
-        name: Aggiungere la convalida
-    - uid: razor-pages/filter
-      name: Filtri
-    - uid: razor-pages/ui-class
-      name: Librerie di classi Razor
-    - uid: razor-pages/razor-pages-conventions
-      name: Convenzioni di route e app
-    - uid: razor-pages/upload-files
-      name: Caricare file
-    - uid: razor-pages/sdk
-      name: Razor SDK
-  - name: MVC
-    items:
-    - uid: mvc/overview
-      name: Panoramica
-    - uid: tutorials/first-mvc-app/index
-      name: Esercitazione
+        - name: Introduzione
+          uid: razor-pages/index
+        - name: Esercitazione
+          items:
+            - name: Panoramica
+              uid: tutorials/razor-pages/index
+            - name: Introduzione
+              uid: tutorials/razor-pages/razor-pages-start
+            - name: Aggiungere un modello
+              uid: tutorials/razor-pages/model
+            - name: Scaffolding
+              uid: tutorials/razor-pages/page
+            - name: Usare un database
+              uid: tutorials/razor-pages/sql
+            - name: Aggiornare le pagine
+              uid: tutorials/razor-pages/da1
+            - name: Aggiungere la funzionalità di ricerca
+              uid: tutorials/razor-pages/search
+            - name: Aggiungere un nuovo campo
+              uid: tutorials/razor-pages/new-field
+            - name: Aggiungere la convalida
+              uid: tutorials/razor-pages/validation
+        - name: Filtri
+          uid: razor-pages/filter
+        - name: Librerie di classi Razor
+          uid: razor-pages/ui-class
+        - name: Convenzioni di route e app
+          uid: razor-pages/razor-pages-conventions
+        - name: Caricare file
+          uid: razor-pages/upload-files
+        - name: Razor SDK
+          uid: razor-pages/sdk
+    - name: MVC
       items:
-      - uid: tutorials/first-mvc-app/start-mvc
-        name: Introduzione
-      - uid: tutorials/first-mvc-app/adding-controller
-        name: Aggiungere un controller
-      - uid: tutorials/first-mvc-app/adding-view
-        name: Aggiungere una vista
-      - uid: tutorials/first-mvc-app/adding-model
-        name: Aggiungere un modello
-      - uid: tutorials/first-mvc-app/working-with-sql
-        name: Usare un database
-      - uid: tutorials/first-mvc-app/controller-methods-views
-        name: Azioni e viste del controller
-      - uid: tutorials/first-mvc-app/search
-        name: Aggiungere la funzionalità di ricerca
-      - uid: tutorials/first-mvc-app/new-field
-        name: Aggiungere un nuovo campo
-      - uid: tutorials/first-mvc-app/validation
-        name: Aggiungere la convalida
-      - uid: tutorials/first-mvc-app/details
-        name: Esaminare i dettagli e i metodi di eliminazione
-    - uid: mvc/views/overview
-      name: Visualizzazioni
-    - uid: mvc/views/partial
-      name: Visualizzazioni parziali
-    - uid: mvc/controllers/actions
-      name: Controllers
-    - uid: mvc/controllers/routing
-      name: Routing
-    - uid: mvc/models/file-uploads
-      name: Caricamenti di file
-    - uid: mvc/controllers/dependency-injection
-      name: Inserimento di dipendenze - Controller
-    - uid: mvc/views/dependency-injection
-      name: Inserimento di dipendenze - Viste
-    - uid: mvc/controllers/testing
-      name: Unit test
-  - name: Blazor
-    items:
-    - uid: blazor/index
-      name: Panoramica
-    - uid: blazor/get-started
-      name: Introduzione
-    - uid: blazor/hosting-models
-      name: Modelli di hosting
-    - uid: tutorials/first-blazor-app
-      name: Creare la prima app
-    - uid: blazor/components
-      name: Componenti
-    - uid: blazor/forms-validation
-      name: Moduli e convalida
-    - uid: blazor/class-libraries
-      name: Librerie di componenti
-    - uid: blazor/layouts
-      name: Layout
-    - uid: blazor/dependency-injection
-      name: Inserimento di dipendenze
-    - uid: blazor/routing
-      name: Routing
-    - uid: blazor/javascript-interop
-      name: Interoperabilità JavaScript
-    - uid: blazor/debug
-      name: Debug
-    - name: Ospitare e distribuire
+        - name: Panoramica
+          uid: mvc/overview
+        - name: Esercitazione
+          uid: tutorials/first-mvc-app/index
+          items:
+            - name: Introduzione
+              uid: tutorials/first-mvc-app/start-mvc
+            - name: Aggiungere un controller
+              uid: tutorials/first-mvc-app/adding-controller
+            - name: Aggiungere una vista
+              uid: tutorials/first-mvc-app/adding-view
+            - name: Aggiungere un modello
+              uid: tutorials/first-mvc-app/adding-model
+            - name: Usare un database
+              uid: tutorials/first-mvc-app/working-with-sql
+            - name: Azioni e viste del controller
+              uid: tutorials/first-mvc-app/controller-methods-views
+            - name: Aggiungere la funzionalità di ricerca
+              uid: tutorials/first-mvc-app/search
+            - name: Aggiungere un nuovo campo
+              uid: tutorials/first-mvc-app/new-field
+            - name: Aggiungere la convalida
+              uid: tutorials/first-mvc-app/validation
+            - name: Esaminare i dettagli e i metodi di eliminazione
+              uid: tutorials/first-mvc-app/details
+        - name: Visualizzazioni
+          uid: mvc/views/overview
+        - name: Visualizzazioni parziali
+          uid: mvc/views/partial
+        - name: Controllers
+          uid: mvc/controllers/actions
+        - name: Routing
+          uid: mvc/controllers/routing
+        - name: Caricamenti di file
+          uid: mvc/models/file-uploads
+        - name: Inserimento di dipendenze - Controller
+          uid: mvc/controllers/dependency-injection
+        - name: Inserimento di dipendenze - Viste
+          uid: mvc/views/dependency-injection
+        - name: Unit test
+          uid: mvc/controllers/testing
+    - name: Blazor
       items:
-      - uid: host-and-deploy/blazor/index
-        name: Panoramica
-      - uid: host-and-deploy/blazor/client-side
-        name: Lato client
-      - uid: host-and-deploy/blazor/server-side
-        name: Lato server
-      - uid: host-and-deploy/blazor/configure-linker
-        name: Configurare il linker
-  - name: Sviluppo lato client
-    items:
-    - name: Applicazioni a pagina singola
+        - name: Panoramica
+          uid: blazor/index
+        - name: Introduzione
+          uid: blazor/get-started
+        - name: Modelli di hosting
+          uid: blazor/hosting-models
+        - name: Creare la prima app
+          uid: tutorials/first-blazor-app
+        - name: Componenti
+          uid: blazor/components
+        - name: Moduli e convalida
+          uid: blazor/forms-validation
+        - name: Librerie di componenti
+          uid: blazor/class-libraries
+        - name: Layout
+          uid: blazor/layouts
+        - name: Inserimento di dipendenze
+          uid: blazor/dependency-injection
+        - name: Routing
+          uid: blazor/routing
+        - name: Interoperabilità JavaScript
+          uid: blazor/javascript-interop
+        - name: Debug
+          uid: blazor/debug
+        - name: Ospitare e distribuire
+          items:
+            - name: Panoramica
+              uid: host-and-deploy/blazor/index
+            - name: Lato client
+              uid: host-and-deploy/blazor/client-side
+            - name: Lato server
+              uid: host-and-deploy/blazor/server-side
+            - name: Configurare il linker
+              uid: host-and-deploy/blazor/configure-linker
+    - name: Sviluppo lato client
       items:
-      - uid: spa/angular
-        name: Angular
-      - uid: spa/react
-        name: React
-      - uid: spa/react-with-redux
-        name: React con Redux
-      - uid: client-side/spa-services
-        name: JavaScriptServices
-    - name: LibMan
+        - name: Applicazioni a pagina singola
+          items:
+            - name: Angular
+              uid: spa/angular
+            - name: React
+              uid: spa/react
+            - name: React con Redux
+              uid: spa/react-with-redux
+            - name: JavaScriptServices
+              uid: client-side/spa-services
+        - name: LibMan
+          items:
+            - name: Panoramica
+              uid: client-side/libman/index
+            - name: CLI
+              uid: client-side/libman/libman-cli
+            - name: Visual Studio
+              uid: client-side/libman/libman-vs
+        - name: Gulp
+          uid: client-side/using-gulp
+        - name: Grunt
+          uid: client-side/using-grunt
+        - name: Bower
+          uid: client-side/bower
+        - name: Aggregare e minimizzare
+          uid: client-side/bundling-and-minification
+        - name: Browser Link
+          uid: client-side/using-browserlink
+    - name: Stato di sessioni e app
+      uid: fundamentals/app-state
+    - name: Layout
+      uid: mvc/views/layout
+    - name: Associazione di modelli
+      uid: mvc/models/model-binding
+    - name: Convalida modello
+      uid: mvc/models/validation
+    - name: Sintassi Razor
+      uid: mvc/views/razor
+    - name: Helper tag
       items:
-      - uid: client-side/libman/index
-        name: Panoramica
-      - uid: client-side/libman/libman-cli
-        name: CLI
-      - uid: client-side/libman/libman-vs
-        name: Visual Studio
-    - uid: client-side/using-gulp
-      name: Gulp
-    - uid: client-side/using-grunt
-      name: Grunt
-    - uid: client-side/bower
-      name: Bower
-    - uid: client-side/bundling-and-minification
-      name: Aggregare e minimizzare
-    - uid: client-side/using-browserlink
-      name: Browser Link
-  - uid: fundamentals/app-state
-    name: Stato di sessioni e app
-  - uid: mvc/views/layout
-    name: Layout
-  - uid: mvc/models/model-binding
-    name: Associazione di modelli
-  - uid: mvc/models/validation
-    name: Convalida modello
-  - uid: mvc/views/razor
-    name: Sintassi Razor
-  - name: Helper tag
-    items:
-    - uid: mvc/views/tag-helpers/intro
-      name: Panoramica
-    - uid: mvc/views/tag-helpers/authoring
-      name: Creare helper per i tag
-    - uid: mvc/views/working-with-forms
-      name: Usare helper per i tag nei moduli
-    - uid: mvc/views/tag-helpers/th-components
-      name: Componenti helper tag
-    - name: Helper tag predefiniti
+        - name: Panoramica
+          uid: mvc/views/tag-helpers/intro
+        - name: Creare helper per i tag
+          uid: mvc/views/tag-helpers/authoring
+        - name: Usare helper per i tag nei moduli
+          uid: mvc/views/working-with-forms
+        - name: Componenti helper tag
+          uid: mvc/views/tag-helpers/th-components
+        - name: Helper tag predefiniti
+          items:
+            - name: Ancoraggio
+              uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
+            - name: Cache
+              uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
+            - name: Cache distribuita
+              uid: mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper
+            - name: Ambiente
+              uid: mvc/views/tag-helpers/builtin-th/environment-tag-helper
+            - name: Form
+              href: 'mvc/views/working-with-forms.md#the-form-tag-helper'
+            - name: Image
+              uid: mvc/views/tag-helpers/builtin-th/image-tag-helper
+            - name: Input
+              href: 'mvc/views/working-with-forms.md#the-input-tag-helper'
+            - name: Label
+              href: 'mvc/views/working-with-forms.md#the-label-tag-helper'
+            - name: Partial
+              uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
+            - name: Seleziona
+              href: 'mvc/views/working-with-forms.md#the-select-tag-helper'
+            - name: Area di testo
+              href: 'mvc/views/working-with-forms.md#the-textarea-tag-helper'
+            - name: Messaggio di convalida
+              href: 'mvc/views/working-with-forms.md#the-validation-message-tag-helper'
+            - name: Riepilogo convalida
+              href: 'mvc/views/working-with-forms.md#the-validation-summary-tag-helper'
+    - name: Avanzate
       items:
-      - uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-        name: Ancoraggio
-      - uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
-        name: Cache
-      - uid: mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper
-        name: Cache distribuita
-      - uid: mvc/views/tag-helpers/builtin-th/environment-tag-helper
-        name: Ambiente
-      - name: Form
-        href: mvc/views/working-with-forms.md#the-form-tag-helper
-      - uid: mvc/views/tag-helpers/builtin-th/image-tag-helper
-        name: Image
-      - name: Input
-        href: mvc/views/working-with-forms.md#the-input-tag-helper
-      - name: Label
-        href: mvc/views/working-with-forms.md#the-label-tag-helper
-      - uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
-        name: Partial
-      - name: Seleziona
-        href: mvc/views/working-with-forms.md#the-select-tag-helper
-      - name: Area di testo
-        href: mvc/views/working-with-forms.md#the-textarea-tag-helper
-      - name: Messaggio di convalida
-        href: mvc/views/working-with-forms.md#the-validation-message-tag-helper
-      - name: Riepilogo convalida
-        href: mvc/views/working-with-forms.md#the-validation-summary-tag-helper
-  - name: Avanzate
-    items:
-    - uid: mvc/views/view-components
-      name: Componenti di visualizzazione
-    - uid: mvc/views/view-compilation
-      name: Compilazione visualizzazione
-    - uid: mvc/controllers/application-model
-      name: Modello applicazioni
-    - uid: mvc/controllers/filters
-      name: Filtri
-    - uid: mvc/controllers/areas
-      name: Aree
-    - uid: mvc/extensibility/app-parts
-      name: Parti di app
-    - uid: mvc/advanced/custom-model-binding
-      name: Associazione di modelli personalizzati
-    - uid: mvc/compatibility-version
-      name: Versione di compatibilità
+        - name: Componenti di visualizzazione
+          uid: mvc/views/view-components
+        - name: Compilazione visualizzazione
+          uid: mvc/views/view-compilation
+        - name: Modello applicazioni
+          uid: mvc/controllers/application-model
+        - name: Filtri
+          uid: mvc/controllers/filters
+        - name: Aree
+          uid: mvc/controllers/areas
+        - name: Parti di app
+          uid: mvc/extensibility/app-parts
+        - name: Associazione di modelli personalizzati
+          uid: mvc/advanced/custom-model-binding
+        - name: Versione di compatibilità
+          uid: mvc/compatibility-version
 - name: App per le API Web
   items:
-  - uid: web-api/index
-    name: Panoramica
-  - name: Esercitazioni
-    items:
-    - uid: tutorials/first-web-api
-      name: Creare un'API Web
-    - uid: tutorials/first-mongo-app
-      name: API Web con MongoDB
-  - name: Swagger/OpenAPI
-    items:
-    - uid: tutorials/web-api-help-pages-using-swagger
-      name: Panoramica
-    - uid: tutorials/get-started-with-swashbuckle
-      name: Introduzione a Swashbuckle
-    - uid: tutorials/get-started-with-nswag
-      name: Introduzione a NSwag
-  - uid: web-api/action-return-types
-    name: Tipi restituiti per le azioni
-  - uid: web-api/advanced/formatting
-    name: Formattare i dati di risposta
-  - uid: web-api/advanced/custom-formatters
-    name: Formattatori personalizzati
-  - uid: web-api/advanced/analyzers
-    name: Analizzatori
-  - uid: web-api/advanced/conventions
-    name: Convenzioni
+    - name: Panoramica
+      uid: web-api/index
+    - name: Esercitazioni
+      items:
+        - name: Creare un'API Web
+          uid: tutorials/first-web-api
+        - name: API Web con MongoDB
+          uid: tutorials/first-mongo-app
+    - name: Swagger/OpenAPI
+      items:
+        - name: Panoramica
+          uid: tutorials/web-api-help-pages-using-swagger
+        - name: Introduzione a Swashbuckle
+          uid: tutorials/get-started-with-swashbuckle
+        - name: Introduzione a NSwag
+          uid: tutorials/get-started-with-nswag
+    - name: Tipi restituiti per le azioni
+      uid: web-api/action-return-types
+    - name: Formattare i dati di risposta
+      uid: web-api/advanced/formatting
+    - name: Formattatori personalizzati
+      uid: web-api/advanced/custom-formatters
+    - name: Analizzatori
+      uid: web-api/advanced/analyzers
+    - name: Convenzioni
+      uid: web-api/advanced/conventions
 - name: App in tempo reale
   displayName: signalr
   items:
-  - uid: signalr/introduction
-    name: Panoramica di SignalR
-  - uid: signalr/supported-platforms
-    name: Piattaforme supportate
-    displayName: signalr
-  - name: Esercitazioni
-    items:
-    - uid: tutorials/signalr
-      name: SignalR con JavaScript
-    - uid: tutorials/signalr-typescript-webpack
-      name: SignalR con TypeScript
-  - name: Esempi
-    displayName: signalr
-    href: https://github.com/aspnet/SignalR-samples
-  - name: Concetti relativi al server
-    displayName: signalr
-    items:
-    - uid: signalr/hubs
-      name: Hub
+    - name: Panoramica di SignalR
+      uid: signalr/introduction
+    - name: Piattaforme supportate
+      uid: signalr/supported-platforms
       displayName: signalr
-    - uid: signalr/hubcontext
-      name: Inviare dall'esterno di un hub
+    - name: Esercitazioni
+      items:
+        - name: SignalR con JavaScript
+          uid: tutorials/signalr
+        - name: SignalR con TypeScript
+          uid: tutorials/signalr-typescript-webpack
+    - name: Esempi
+      href: 'https://github.com/aspnet/SignalR-samples'
       displayName: signalr
-    - uid: signalr/groups
-      name: Utenti e gruppi
+    - name: Concetti relativi al server
       displayName: signalr
-    - uid: signalr/publish-to-azure-web-app
-      name: Pubblicare in Azure
+      items:
+        - name: Hub
+          uid: signalr/hubs
+          displayName: signalr
+        - name: Inviare dall'esterno di un hub
+          uid: signalr/hubcontext
+          displayName: signalr
+        - name: Utenti e gruppi
+          uid: signalr/groups
+          displayName: signalr
+        - name: Pubblicare in Azure
+          uid: signalr/publish-to-azure-web-app
+          displayName: signalr
+        - name: Considerazioni sulla progettazione dell'API
+          uid: signalr/api-design
+          displayName: signalr
+    - name: Client
       displayName: signalr
-    - uid: signalr/api-design
-      name: Considerazioni sulla progettazione dell'API
+      items:
+        - name: Client .NET
+          uid: signalr/dotnet-client
+          displayName: signalr
+        - name: Riferimento alle API .NET
+          href: /dotnet/api/microsoft.aspnetcore.signalr.client
+          displayName: signalr
+        - name: Client Java
+          uid: signalr/java-client
+          displayName: signalr
+        - name: Informazioni di riferimento sulle API Java
+          href: /java/api/com.microsoft.signalr?view=aspnet-signalr-java
+          displayName: signalr
+        - name: Client JavaScript
+          uid: signalr/javascript-client
+          displayName: signalr
+        - name: Informazioni di riferimento sulle API JavaScript
+          href: /javascript/api/?view=signalr-js-latest
+          displayName: signalr
+    - name: Hosting e ridimensionamento
       displayName: signalr
-  - name: Client
-    displayName: signalr
-    items:
-    - uid: signalr/dotnet-client
-      name: Client .NET
+      items:
+        - name: Panoramica
+          displayName: signalr
+          uid: signalr/scale
+        - name: Servizio Azure SignalR
+          displayName: signalr
+          href: /azure/azure-signalr/signalr-overview?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
+        - name: Backplane Redis
+          displayName: signalr
+          uid: signalr/redis-backplane
+        - name: SignalR con servizi in background
+          uid: signalr/background-services
+    - name: Configurazione
+      uid: signalr/configuration
       displayName: signalr
-    - name: Riferimento alle API .NET
+    - name: Autenticazione e autorizzazione
+      uid: signalr/authn-and-authz
       displayName: signalr
-      href: /dotnet/api/microsoft.aspnetcore.signalr.client
-    - uid: signalr/java-client
-      name: Client Java
+    - name: Considerazioni sulla sicurezza
+      uid: signalr/security
       displayName: signalr
-    - name: Informazioni di riferimento sulle API Java
+    - name: Protocollo hub MessagePack
+      uid: signalr/messagepackhubprotocol
       displayName: signalr
-      href: /java/api/com.microsoft.signalr?view=aspnet-signalr-java
-    - uid: signalr/javascript-client
-      name: Client JavaScript
+    - name: Flusso
+      uid: signalr/streaming
       displayName: signalr
-    - name: Informazioni di riferimento sulle API JavaScript
+    - name: Confronto tra SignalR e SignalR Core
+      uid: signalr/version-differences
       displayName: signalr
-      href: /javascript/api/?view=signalr-js-latest
-  - name: Hosting e ridimensionamento
-    displayName: signalr
-    items:
-    - uid: signalr/scale
-      name: Panoramica
+    - name: WebSocket senza SignalR
       displayName: signalr
-    - name: Servizio Azure SignalR
+      uid: fundamentals/websockets
+    - name: Registrazione e diagnostica
       displayName: signalr
-      href: /azure/azure-signalr/signalr-overview?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
-    - uid: signalr/redis-backplane
-      name: Backplane Redis
-      displayName: signalr
-    - uid: signalr/background-services
-      name: SignalR con servizi in background
-  - uid: signalr/configuration
-    name: Configurazione
-    displayName: signalr
-  - uid: signalr/authn-and-authz
-    name: Autenticazione e autorizzazione
-    displayName: signalr
-  - uid: signalr/security
-    name: Considerazioni sulla sicurezza
-    displayName: signalr
-  - uid: signalr/messagepackhubprotocol
-    name: Protocollo hub MessagePack
-    displayName: signalr
-  - uid: signalr/streaming
-    name: Flusso
-    displayName: signalr
-  - uid: signalr/version-differences
-    name: Confronto tra SignalR e SignalR Core
-    displayName: signalr
-  - uid: fundamentals/websockets
-    name: WebSocket senza SignalR
-    displayName: signalr
-  - uid: signalr/diagnostics
-    name: Registrazione e diagnostica
-    displayName: signalr
+      uid: signalr/diagnostics
 - name: App RPC
   items:
-  - uid: grpc/index
-    name: Introduzione ai servizi gRPC
-  - uid: grpc/basics
-    name: Servizi gRPC con C#
-  - uid: grpc/aspnetcore
-    name: Servizi gRPC con ASP.NET Core
-  - uid: grpc/migration
-    name: Migrazione di servizi gRPC da C Core ad ASP.NET Core
-  - uid: grpc/comparison
-    name: Confronto tra servizi gRPC e API HTTP
-  - name: Esercitazioni
-    items:
-    - uid: tutorials/grpc/index
-      name: Introduzione all'uso del servizio gRPC in ASP.NET Core
-    - uid: tutorials/grpc/grpc-start
-      name: Creare un servizio Greeter gRPC ASP.NET Core
-    - uid: tutorials/grpc/grpc-client
-      name: Creare un client gRPC .NET Core
-- name: Test, debug e risoluzione dei problemi
+    - name: Introduzione ai servizi gRPC
+      uid: grpc/index
+    - name: 'Servizi gRPC con C#'
+      uid: grpc/basics
+    - name: Servizi gRPC con ASP.NET Core
+      uid: grpc/aspnetcore
+    - name: Configurazione
+      uid: grpc/configuration
+    - name: Migrazione di servizi gRPC da C Core ad ASP.NET Core
+      uid: grpc/migration
+    - name: Confronto tra servizi gRPC e API HTTP
+      uid: grpc/comparison
+    - name: Esercitazioni
+      items:
+        - name: Introduzione all'uso del servizio gRPC in ASP.NET Core
+          uid: tutorials/grpc/index
+        - name: Creare un servizio Greeter gRPC ASP.NET Core
+          uid: tutorials/grpc/grpc-start
+        - name: Creare un client gRPC .NET Core
+          uid: tutorials/grpc/grpc-client
+- name: 'Test, debug e risoluzione dei problemi'
   items:
-  - name: Unit test
-    href: /dotnet/core/testing/unit-testing-with-dotnet-test?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
-  - uid: test/razor-pages-tests
-    name: Unit test per Razor Pages
-  - uid: mvc/controllers/testing
-    name: Test controller
-  - name: Debug remoto
-    href: /visualstudio/debugger/remote-debugging-azure
-  - name: Debugger di snapshot
-    href: /azure/azure-monitor/app/snapshot-debugger?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
-  - name: Debug di snapshot in Visual Studio
-    href: /visualstudio/debugger/debug-live-azure-applications
-  - uid: test/integration-tests
-    name: Test di integrazione
-  - uid: test/loadtests
-    name: Test di carico e di stress
-  - uid: test/troubleshoot
-    name: Risolvere i problemi
-  - uid: fundamentals/logging/index
-    name: Registrazione
+    - name: Unit test
+      href: /dotnet/core/testing/unit-testing-with-dotnet-test?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
+    - name: Unit test per Razor Pages
+      uid: test/razor-pages-tests
+    - name: Test controller
+      uid: mvc/controllers/testing
+    - name: Debug remoto
+      href: /visualstudio/debugger/remote-debugging-azure
+    - name: Debugger di snapshot
+      href: /azure/azure-monitor/app/snapshot-debugger?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
+    - name: Debug di snapshot in Visual Studio
+      href: /visualstudio/debugger/debug-live-azure-applications
+    - name: Test di integrazione
+      uid: test/integration-tests
+    - name: Test di carico e di stress
+      uid: test/loadtests
+    - name: Risolvere i problemi
+      uid: test/troubleshoot
+    - name: Registrazione
+      uid: fundamentals/logging/index
 - name: Accesso ai dati
   items:
-  - name: Esercitazioni
-    items:
-    - name: EF Core con Razor Pages
+    - name: Esercitazioni
       items:
-      - uid: data/ef-rp/index
-        name: Panoramica
-      - uid: data/ef-rp/intro
-        name: Introduzione
-      - uid: data/ef-rp/crud
-        name: Creazione, lettura, aggiornamento ed eliminazione
-      - uid: data/ef-rp/sort-filter-page
-        name: Ordinamento, filtro, pagina e gruppo
-      - uid: data/ef-rp/migrations
-        name: Migrazioni
-      - uid: data/ef-rp/complex-data-model
-        name: Creare un modello di dati complesso
-      - uid: data/ef-rp/read-related-data
-        name: Leggere dati correlati
-      - uid: data/ef-rp/update-related-data
-        name: Aggiornare dati correlati
-      - uid: data/ef-rp/concurrency
-        name: Gestire i conflitti di concorrenza
-    - name: EF Core con MVC, nuovo database
-      href: /ef/core/get-started/aspnetcore/new-db?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
-    - name: EF Core con MVC, database esistente
-      href: /ef/core/get-started/aspnetcore/existing-db?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
-    - name: EF Core con MVC, 10 esercitazioni
+        - name: EF Core con Razor Pages
+          items:
+            - name: Panoramica
+              uid: data/ef-rp/index
+            - name: Introduzione
+              uid: data/ef-rp/intro
+            - name: 'Creazione, lettura, aggiornamento ed eliminazione'
+              uid: data/ef-rp/crud
+            - name: 'Ordinamento, filtro, pagina e gruppo'
+              uid: data/ef-rp/sort-filter-page
+            - name: Migrazioni
+              uid: data/ef-rp/migrations
+            - name: Creare un modello di dati complesso
+              uid: data/ef-rp/complex-data-model
+            - name: Leggere dati correlati
+              uid: data/ef-rp/read-related-data
+            - name: Aggiornare dati correlati
+              uid: data/ef-rp/update-related-data
+            - name: Gestire i conflitti di concorrenza
+              uid: data/ef-rp/concurrency
+        - name: 'EF Core con MVC, nuovo database'
+          href: /ef/core/get-started/aspnetcore/new-db?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
+        - name: 'EF Core con MVC, database esistente'
+          href: /ef/core/get-started/aspnetcore/existing-db?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
+        - name: 'EF Core con MVC, 10 esercitazioni'
+          items:
+            - name: Panoramica
+              uid: data/ef-mvc/index
+            - name: Introduzione
+              uid: data/ef-mvc/intro
+            - name: 'Creazione, lettura, aggiornamento ed eliminazione'
+              uid: data/ef-mvc/crud
+            - name: 'Ordinamento, filtro, pagina e gruppo'
+              uid: data/ef-mvc/sort-filter-page
+            - name: Migrazioni
+              uid: data/ef-mvc/migrations
+            - name: Creare un modello di dati complesso
+              uid: data/ef-mvc/complex-data-model
+            - name: Leggere dati correlati
+              uid: data/ef-mvc/read-related-data
+            - name: Aggiornare dati correlati
+              uid: data/ef-mvc/update-related-data
+            - name: Gestire i conflitti di concorrenza
+              uid: data/ef-mvc/concurrency
+            - name: Ereditarietà
+              uid: data/ef-mvc/inheritance
+            - name: Argomenti avanzati
+              uid: data/ef-mvc/advanced
+    - name: EF 6 con ASP.NET Core
+      uid: data/entity-framework-6
+    - name: Archiviazione di Azure con Visual Studio
       items:
-      - uid: data/ef-mvc/index
-        name: Panoramica
-      - uid: data/ef-mvc/intro
-        name: Introduzione
-      - uid: data/ef-mvc/crud
-        name: Creazione, lettura, aggiornamento ed eliminazione
-      - uid: data/ef-mvc/sort-filter-page
-        name: Ordinamento, filtro, pagina e gruppo
-      - uid: data/ef-mvc/migrations
-        name: Migrazioni
-      - uid: data/ef-mvc/complex-data-model
-        name: Creare un modello di dati complesso
-      - uid: data/ef-mvc/read-related-data
-        name: Leggere dati correlati
-      - uid: data/ef-mvc/update-related-data
-        name: Aggiornare dati correlati
-      - uid: data/ef-mvc/concurrency
-        name: Gestire i conflitti di concorrenza
-      - uid: data/ef-mvc/inheritance
-        name: Ereditarietà
-      - uid: data/ef-mvc/advanced
-        name: Argomenti avanzati
-  - uid: data/entity-framework-6
-    name: EF 6 con ASP.NET Core
-  - name: Archiviazione di Azure con Visual Studio
-    items:
-    - name: Servizi connessi
-      href: /visualstudio/azure/vs-azure-tools-connected-services-storage
-    - name: Archiviazione - BLOB
-      href: /azure/visual-studio/vs-storage-aspnet5-getting-started-blobs?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
-    - name: Archiviazione - Code
-      href: /azure/visual-studio/vs-storage-aspnet5-getting-started-queues?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
-    - name: Archiviazione - Tabelle
-      href: /azure/visual-studio/vs-storage-aspnet5-getting-started-tables?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
+        - name: Servizi connessi
+          href: /visualstudio/azure/vs-azure-tools-connected-services-storage
+        - name: Archiviazione - BLOB
+          href: /azure/visual-studio/vs-storage-aspnet5-getting-started-blobs?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
+        - name: Archiviazione - Code
+          href: /azure/visual-studio/vs-storage-aspnet5-getting-started-queues?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
+        - name: Archiviazione - Tabelle
+          href: /azure/visual-studio/vs-storage-aspnet5-getting-started-tables?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
 - name: Hosting e distribuzione
   displayName: publish
   items:
-  - uid: host-and-deploy/index
-    name: Panoramica
-    displayName: azure, deploy, publish
-  - name: Host nel Servizio app di Azure
-    displayName: deploy, publish
-    items:
-    - uid: host-and-deploy/azure-apps/index
-      name: Panoramica
-      displayName: azure, deploy, publish
-    - uid: tutorials/publish-to-azure-webapp-using-vs
-      name: Pubblicare con Visual Studio
-      displayName: azure, deploy, publish
-    - name: Pubblicare con Visual Studio per Mac
-      displayName: azure, deploy, publish
-      href: /visualstudio/mac/publish-app-svc?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
-    - name: Pubblicare con gli strumenti CLI
-      displayName: azure, deploy, publish
-      href: /azure/app-service/app-service-web-tutorial-dotnetcore-sqldb?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
-    - uid: host-and-deploy/azure-apps/azure-continuous-deployment
-      name: Pubblicare con Visual Studio e Git
-      displayName: azure, deploy, publish
-    - name: Distribuzione continua con Azure Pipelines
-      displayName: azure, deploy, publish
-      href: /azure/devops/pipelines/get-started-yaml
-    - uid: host-and-deploy/aspnet-core-module
-      name: Modulo ASP.NET Core
-      displayName: azure, deploy, publish
-    - uid: host-and-deploy/azure-apps/troubleshoot
-      name: Risolvere i problemi
-      displayName: azure, deploy, publish
-    - uid: host-and-deploy/azure-iis-errors-reference
-      name: Informazioni di riferimento sugli errori
-      displayName: azure, deploy, publish
-  - name: DevOps
-    items:
-    - uid: azure/devops/index
-      name: Panoramica
-      displayName: azure, deploy, publish
-    - uid: azure/devops/tools-and-downloads
-      name: Strumenti e download
-      displayName: azure, deploy, publish
-    - uid: azure/devops/deploy-to-app-service
-      name: Distribuire nel servizio app
-      displayName: azure, deploy, publish
-    - uid: azure/devops/cicd
-      name: Integrazione e distribuzione continua
-      displayName: azure, deploy, publish
-    - uid: azure/devops/monitor
-      name: Monitoraggio e risoluzione dei problemi
-      displayName: azure, deploy, publish
-    - uid: azure/devops/next-steps
-      name: Passaggi successivi
-      displayName: azure, deploy, publish
-  - name: Host in Windows con IIS
-    displayName: deploy, publish
-    items:
-    - uid: host-and-deploy/iis/index
-      name: Panoramica
-      displayName: deploy, publish
-    - uid: host-and-deploy/aspnet-core-module
-      name: Modulo ASP.NET Core
-      displayName: deploy, publish
-    - uid: host-and-deploy/iis/development-time-iis-support
-      name: Supporto di IIS in Visual Studio
-      displayName: deploy, publish
-    - uid: host-and-deploy/iis/modules
-      name: Moduli IIS
-      displayName: deploy, publish
-    - uid: host-and-deploy/iis/troubleshoot
-      name: Risolvere i problemi
-      displayName: deploy, publish
-    - uid: host-and-deploy/azure-iis-errors-reference
-      name: Informazioni di riferimento sugli errori
-      displayName: deploy, publish
-    - uid: host-and-deploy/iis/transform-webconfig
-      name: Trasformare web.config
-      displayName: deploy, publish
-  - uid: fundamentals/servers/kestrel
-    name: Kestrel
-    displayName: deploy, publish, server
-  - uid: fundamentals/servers/httpsys
-    name: HTTP.sys
-    displayName: deploy, publish, server
-  - uid: host-and-deploy/windows-service
-    name: Host in un servizio Windows
-    displayName: deploy, publish
-  - uid: host-and-deploy/linux-nginx
-    name: Host in Linux con Nginx
-    displayName: deploy, publish
-  - uid: host-and-deploy/linux-apache
-    name: Host in Linux con Apache
-    displayName: deploy, publish
-  - name: Host in Docker
-    displayName: deploy, publish
-    items:
-    - uid: host-and-deploy/docker/index
-      name: Panoramica
-      displayName: deploy, publish, docker
-    - uid: host-and-deploy/docker/visual-studio-tools-for-docker
-      name: Strumenti di Visual Studio
-      displayName: deploy, publish, docker
-    - name: Pubblicare in un'immagine Docker
-      displayName: deploy, publish, docker
-      href: /visualstudio/containers/vs-azure-tools-docker-hosting-web-apps-in-docker
-    - name: Immagini Docker di esempio
-      displayName: deploy, publish, docker
-      href: https://github.com/dotnet/dotnet-docker/blob/master/samples/aspnetapp/README.md
-  - uid: host-and-deploy/proxy-load-balancer
-    name: Configurazione di proxy e bilanciamento del carico
-    displayName: deploy, publish
-  - uid: host-and-deploy/web-farm
-    name: Hosting in una Web farm
-    displayName: deploy, publish
-  - uid: host-and-deploy/visual-studio-publish-profiles
-    name: Profili di pubblicazione di Visual Studio
-    displayName: deploy, publish
-  - name: Pubblicazione in una cartella con Visual Studio per Mac
-    displayName: deploy, publish
-    href: /visualstudio/mac/publish-folder?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
-  - uid: host-and-deploy/directory-structure
-    name: Struttura di directory
-    displayName: deploy, publish
-  - uid: host-and-deploy/health-checks
-    name: Controlli di integrità
-    displayName: deploy, publish
-  - name: Blazor
-    items:
-    - uid: host-and-deploy/blazor/index
-      name: Panoramica
-    - uid: host-and-deploy/blazor/client-side
-      name: Lato client
-    - uid: host-and-deploy/blazor/server-side
-      name: Lato server
-    - uid: host-and-deploy/blazor/configure-linker
-      name: Configurare il linker
+    - name: Panoramica
+      displayName: 'azure, deploy, publish'
+      uid: host-and-deploy/index
+    - name: Host nel Servizio app di Azure
+      displayName: 'deploy, publish'
+      items:
+        - name: Panoramica
+          displayName: 'azure, deploy, publish'
+          uid: host-and-deploy/azure-apps/index
+        - name: Pubblicare con Visual Studio
+          displayName: 'azure, deploy, publish'
+          uid: tutorials/publish-to-azure-webapp-using-vs
+        - name: Pubblicare con Visual Studio per Mac
+          displayName: 'azure, deploy, publish'
+          href: /visualstudio/mac/publish-app-svc?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
+        - name: Pubblicare con gli strumenti CLI
+          displayName: 'azure, deploy, publish'
+          href: /azure/app-service/app-service-web-tutorial-dotnetcore-sqldb?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
+        - name: Pubblicare con Visual Studio e Git
+          displayName: 'azure, deploy, publish'
+          uid: host-and-deploy/azure-apps/azure-continuous-deployment
+        - name: Distribuzione continua con Azure Pipelines
+          displayName: 'azure, deploy, publish'
+          href: /azure/devops/pipelines/get-started-yaml
+        - name: Modulo ASP.NET Core
+          displayName: 'azure, deploy, publish'
+          uid: host-and-deploy/aspnet-core-module
+        - name: Risolvere i problemi
+          displayName: 'azure, deploy, publish'
+          uid: host-and-deploy/azure-apps/troubleshoot
+        - name: Informazioni di riferimento sugli errori
+          displayName: 'azure, deploy, publish'
+          uid: host-and-deploy/azure-iis-errors-reference
+    - name: DevOps
+      items:
+        - name: Panoramica
+          displayName: 'azure, deploy, publish'
+          uid: azure/devops/index
+        - name: Strumenti e download
+          displayName: 'azure, deploy, publish'
+          uid: azure/devops/tools-and-downloads
+        - name: Distribuire nel servizio app
+          displayName: 'azure, deploy, publish'
+          uid: azure/devops/deploy-to-app-service
+        - name: Integrazione e distribuzione continua
+          displayName: 'azure, deploy, publish'
+          uid: azure/devops/cicd
+        - name: Monitoraggio e risoluzione dei problemi
+          displayName: 'azure, deploy, publish'
+          uid: azure/devops/monitor
+        - name: Passaggi successivi
+          displayName: 'azure, deploy, publish'
+          uid: azure/devops/next-steps
+    - name: Host in Windows con IIS
+      displayName: 'deploy, publish'
+      items:
+        - name: Panoramica
+          displayName: 'deploy, publish'
+          uid: host-and-deploy/iis/index
+        - name: Modulo ASP.NET Core
+          displayName: 'deploy, publish'
+          uid: host-and-deploy/aspnet-core-module
+        - name: Supporto di IIS in Visual Studio
+          displayName: 'deploy, publish'
+          uid: host-and-deploy/iis/development-time-iis-support
+        - name: Moduli IIS
+          displayName: 'deploy, publish'
+          uid: host-and-deploy/iis/modules
+        - name: Risolvere i problemi
+          displayName: 'deploy, publish'
+          uid: host-and-deploy/iis/troubleshoot
+        - name: Informazioni di riferimento sugli errori
+          displayName: 'deploy, publish'
+          uid: host-and-deploy/azure-iis-errors-reference
+        - name: Trasformare web.config
+          displayName: 'deploy, publish'
+          uid: host-and-deploy/iis/transform-webconfig
+    - name: Kestrel
+      uid: fundamentals/servers/kestrel
+      displayName: 'deploy, publish, server'
+    - name: HTTP.sys
+      displayName: 'deploy, publish, server'
+      uid: fundamentals/servers/httpsys
+    - name: Host in un servizio Windows
+      displayName: 'deploy, publish'
+      uid: host-and-deploy/windows-service
+    - name: Host in Linux con Nginx
+      displayName: 'deploy, publish'
+      uid: host-and-deploy/linux-nginx
+    - name: Host in Linux con Apache
+      displayName: 'deploy, publish'
+      uid: host-and-deploy/linux-apache
+    - name: Host in Docker
+      displayName: 'deploy, publish'
+      items:
+        - name: Panoramica
+          displayName: 'deploy, publish, docker'
+          uid: host-and-deploy/docker/index
+        - name: Creare immagini Docker
+          displayName: 'deploy, publish, docker'
+          uid: host-and-deploy/docker/building-net-docker-images
+        - name: Strumenti di Visual Studio
+          displayName: 'deploy, publish, docker'
+          uid: host-and-deploy/docker/visual-studio-tools-for-docker
+        - name: Pubblicare in un'immagine Docker
+          displayName: 'deploy, publish, docker'
+          href: /visualstudio/containers/vs-azure-tools-docker-hosting-web-apps-in-docker
+        - name: Immagini Docker di esempio
+          displayName: 'deploy, publish, docker'
+          href: 'https://github.com/dotnet/dotnet-docker/blob/master/samples/aspnetapp/README.md'
+    - name: Configurazione di proxy e bilanciamento del carico
+      displayName: 'deploy, publish'
+      uid: host-and-deploy/proxy-load-balancer
+    - name: Hosting in una Web farm
+      displayName: 'deploy, publish'
+      uid: host-and-deploy/web-farm
+    - name: Profili di pubblicazione di Visual Studio
+      displayName: 'deploy, publish'
+      uid: host-and-deploy/visual-studio-publish-profiles
+    - name: Pubblicazione in una cartella con Visual Studio per Mac
+      displayName: 'deploy, publish'
+      href: /visualstudio/mac/publish-folder?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
+    - name: Struttura di directory
+      displayName: 'deploy, publish'
+      uid: host-and-deploy/directory-structure
+    - name: Controlli di integrità
+      uid: host-and-deploy/health-checks
+      displayName: 'deploy, publish'
+    - name: Blazor
+      items:
+        - name: Panoramica
+          uid: host-and-deploy/blazor/index
+        - name: Lato client
+          uid: host-and-deploy/blazor/client-side
+        - name: Lato server
+          uid: host-and-deploy/blazor/server-side
+        - name: Configurare il linker
+          uid: host-and-deploy/blazor/configure-linker
 - name: Sicurezza e Identity
-  displayName: authentication, authorization
+  displayName: 'authentication, authorization'
   items:
-  - uid: security/index
-    name: Panoramica
-  - name: Autenticazione
-    items:
-    - uid: security/authentication/identity
-      name: Introduzione all'identità
-    - uid: security/authentication/identity/spa
-      name: Identità con SPA
-    - uid: security/authentication/scaffold-identity
-      name: Scaffolding dell'identità
-    - uid: security/authentication/add-user-data
-      name: Aggiungere dati utente personalizzati all'identità
-    - uid: security/authentication/samples
-      name: Esempi di autenticazione
-    - uid: security/authentication/customize_identity_model
-      name: Personalizzare l'identità
-    - uid: security/authentication/community
-      name: Opzioni di autenticazione OSS della community
-    - uid: security/authentication/identity-configuration
-      name: Configurare Identity
-    - uid: security/authentication/windowsauth
-      name: Configurare l'autenticazione Windows
-    - uid: security/authentication/identity-custom-storage-providers
-      name: Provider di archiviazione personalizzati per Identity
-    - name: Google, Facebook ...
+    - name: Panoramica
+      uid: security/index
+    - name: Autenticazione
       items:
-      - uid: security/authentication/social/index
-        name: Panoramica
-      - uid: security/authentication/google-logins
-        name: Autenticazione Google
-      - uid: security/authentication/facebook-logins
-        name: Autenticazione Facebook
-      - uid: security/authentication/microsoft-logins
-        name: Autenticazione Microsoft
-      - uid: security/authentication/twitter-logins
-        name: Autenticazione Twitter
-      - uid: security/authentication/otherlogins
-        name: Altri provider di servizi
-      - uid: security/authentication/social/additional-claims
-        name: Attestazioni aggiuntive
-    - uid: security/authentication/policyschemes
-      name: Schemi di criteri
-    - uid: security/authentication/ws-federation
-      name: Autenticazione WS-Federation
-    - uid: security/authentication/accconfirm
-      name: Conferma account e recupero password
-    - uid: security/authentication/identity-enable-qrcodes
-      name: Abilitare la generazione di codice a matrice in Identity
-    - uid: security/authentication/2fa
-      name: Autenticazione a due fattori con SMS
-    - uid: security/authentication/cookie
-      name: Usare l'autenticazione tramite cookie senza Identity
-    - name: Azure Active Directory
+        - name: Introduzione all'identità
+          uid: security/authentication/identity
+        - name: Identità con SPA
+          uid: security/authentication/identity/spa
+        - name: Scaffolding dell'identità
+          uid: security/authentication/scaffold-identity
+        - name: Aggiungere dati utente personalizzati all'identità
+          uid: security/authentication/add-user-data
+        - name: Esempi di autenticazione
+          uid: security/authentication/samples
+        - name: Personalizzare l'identità
+          uid: security/authentication/customize_identity_model
+        - name: Opzioni di autenticazione OSS della community
+          uid: security/authentication/community
+        - name: Configurare Identity
+          uid: security/authentication/identity-configuration
+        - name: Configurare l'autenticazione Windows
+          uid: security/authentication/windowsauth
+        - name: Provider di archiviazione personalizzati per Identity
+          uid: security/authentication/identity-custom-storage-providers
+        - name: 'Google, Facebook ...'
+          items:
+            - name: Panoramica
+              uid: security/authentication/social/index
+            - name: Autenticazione Google
+              uid: security/authentication/google-logins
+            - name: Autenticazione Facebook
+              uid: security/authentication/facebook-logins
+            - name: Autenticazione Microsoft
+              uid: security/authentication/microsoft-logins
+            - name: Autenticazione Twitter
+              uid: security/authentication/twitter-logins
+            - name: Altri provider di servizi
+              uid: security/authentication/otherlogins
+            - name: Attestazioni aggiuntive
+              uid: security/authentication/social/additional-claims
+        - name: Schemi di criteri
+          uid: security/authentication/policyschemes
+        - name: Autenticazione WS-Federation
+          uid: security/authentication/ws-federation
+        - name: Conferma account e recupero password
+          uid: security/authentication/accconfirm
+        - name: Abilitare la generazione di codice a matrice in Identity
+          uid: security/authentication/identity-enable-qrcodes
+        - name: Autenticazione a due fattori con SMS
+          uid: security/authentication/2fa
+        - name: Usare l'autenticazione tramite cookie senza Identity
+          uid: security/authentication/cookie
+        - name: Azure Active Directory
+          items:
+            - name: Panoramica
+              uid: security/authentication/azure-active-directory/index
+            - name: Integrare Azure AD in un'app Web
+              href: 'https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/'
+            - name: Integrare Azure AD B2C in un'app Web
+              uid: security/authentication/azure-ad-b2c
+            - name: Integrare Azure AD B2C in un'API Web
+              uid: security/authentication/azure-ad-b2c-webapi
+            - name: Chiamare un'API Web da WPF
+              href: 'https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/'
+            - name: Chiamare un'API Web in un'app Web con Azure AD
+              href: 'https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/'
+        - name: Proteggere app ASP.NET Core con IdentityServer4
+          href: 'https://identityserver4.readthedocs.io/'
+        - name: Proteggere app ASP.NET Core con l'autenticazione di Servizio app di Azure
+          href: /azure/app-service/overview-authentication-authorization?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
+        - name: Account utente individuali
+          uid: security/authentication/individual
+    - name: Autorizzazione
       items:
-      - uid: security/authentication/azure-active-directory/index
-        name: Panoramica
-      - name: Integrare Azure AD in un'app Web
-        href: https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/
-      - uid: security/authentication/azure-ad-b2c
-        name: Integrare Azure AD B2C in un'app Web
-      - uid: security/authentication/azure-ad-b2c-webapi
-        name: Integrare Azure AD B2C in un'API Web
-      - name: Chiamare un'API Web da WPF
-        href: https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/
-      - name: Chiamare un'API Web in un'app Web con Azure AD
-        href: https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/
-    - name: Proteggere app ASP.NET Core con IdentityServer4
-      href: https://identityserver4.readthedocs.io/
-    - name: Proteggere app ASP.NET Core con l'autenticazione di Servizio app di Azure
-      href: /azure/app-service/overview-authentication-authorization?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
-    - uid: security/authentication/individual
-      name: Account utente individuali
-  - name: Autorizzazione
-    items:
-    - uid: security/authorization/introduction
-      name: Panoramica
-    - uid: security/authorization/secure-data
-      name: Creare un'app Web con autorizzazioni
-    - uid: security/authorization/razor-pages-authorization
-      name: Convenzioni di autorizzazione di Razor Pages
-    - uid: security/authorization/simple
-      name: Autorizzazione semplice
-    - uid: security/authorization/roles
-      name: Autorizzazione basata sui ruoli
-    - uid: security/authorization/claims
-      name: Autorizzazione basata sulle attestazioni
-    - uid: security/authorization/policies
-      name: Autorizzazione basata sui criteri
-    - uid: security/authorization/iauthorizationpolicyprovider
-      name: Provider di criteri di autorizzazione
-    - uid: security/authorization/dependencyinjection
-      name: Inserimento di dipendenze nei gestori di requisiti
-    - uid: security/authorization/resourcebased
-      name: Autorizzazione basata su risorse
-    - uid: security/authorization/views
-      name: Autorizzazione basata sulla visualizzazione
-    - uid: security/authorization/limitingidentitybyscheme
-      name: Limitare l'identità tramite schema
-  - name: Protezione dei dati
-    displayName: encryption
-    items:
-    - uid: security/data-protection/introduction
-      name: Panoramica
-    - uid: security/data-protection/using-data-protection
-      name: API di protezione dati
-    - name: API utente
+        - name: Panoramica
+          uid: security/authorization/introduction
+        - name: Creare un'app Web con autorizzazioni
+          uid: security/authorization/secure-data
+        - name: Convenzioni di autorizzazione di Razor Pages
+          uid: security/authorization/razor-pages-authorization
+        - name: Autorizzazione semplice
+          uid: security/authorization/simple
+        - name: Autorizzazione basata sui ruoli
+          uid: security/authorization/roles
+        - name: Autorizzazione basata sulle attestazioni
+          uid: security/authorization/claims
+        - name: Autorizzazione basata sui criteri
+          uid: security/authorization/policies
+        - name: Provider di criteri di autorizzazione
+          uid: security/authorization/iauthorizationpolicyprovider
+        - name: Inserimento di dipendenze nei gestori di requisiti
+          uid: security/authorization/dependencyinjection
+        - name: Autorizzazione basata su risorse
+          uid: security/authorization/resourcebased
+        - name: Autorizzazione basata sulla visualizzazione
+          uid: security/authorization/views
+        - name: Limitare l'identità tramite schema
+          uid: security/authorization/limitingidentitybyscheme
+    - name: Protezione dei dati
+      displayName: encryption
       items:
-      - uid: security/data-protection/consumer-apis/overview
-        name: Panoramica
-      - uid: security/data-protection/consumer-apis/purpose-strings
-        name: Stringhe di scopi
-      - uid: security/data-protection/consumer-apis/purpose-strings-multitenancy
-        name: Gerarchia di scopi e multi-tenancy
-      - uid: security/data-protection/consumer-apis/password-hashing
-        name: Password con hash
-      - uid: security/data-protection/consumer-apis/limited-lifetime-payloads
-        name: Limitare la durata di payload protetti
-      - uid: security/data-protection/consumer-apis/dangerous-unprotect
-        name: Payload non protetti le cui chiavi sono state revocate
-    - name: Configurazione
+        - name: Panoramica
+          uid: security/data-protection/introduction
+        - name: API di protezione dati
+          uid: security/data-protection/using-data-protection
+        - name: API utente
+          items:
+            - name: Panoramica
+              uid: security/data-protection/consumer-apis/overview
+            - name: Stringhe di scopi
+              uid: security/data-protection/consumer-apis/purpose-strings
+            - name: Gerarchia di scopi e multi-tenancy
+              uid: security/data-protection/consumer-apis/purpose-strings-multitenancy
+            - name: Password con hash
+              uid: security/data-protection/consumer-apis/password-hashing
+            - name: Limitare la durata di payload protetti
+              uid: security/data-protection/consumer-apis/limited-lifetime-payloads
+            - name: Payload non protetti le cui chiavi sono state revocate
+              uid: security/data-protection/consumer-apis/dangerous-unprotect
+        - name: Configurazione
+          items:
+            - name: Panoramica
+              uid: security/data-protection/configuration/index
+            - name: Configurare la protezione dati
+              uid: security/data-protection/configuration/overview
+            - name: Impostazioni predefinite
+              uid: security/data-protection/configuration/default-settings
+            - name: Criteri a livello di computer
+              uid: security/data-protection/configuration/machine-wide-policy
+            - name: Scenari non compatibili con DI
+              uid: security/data-protection/configuration/non-di-scenarios
+        - name: API di estendibilità
+          items:
+            - name: Panoramica
+              uid: security/data-protection/extensibility/index
+            - name: Estendibilità della crittografia Core
+              uid: security/data-protection/extensibility/core-crypto
+            - name: Estendibilità della gestione delle chiavi
+              uid: security/data-protection/extensibility/key-management
+            - name: Varie API
+              uid: security/data-protection/extensibility/misc-apis
+        - name: Implementazione
+          items:
+            - name: Panoramica
+              uid: security/data-protection/implementation/index
+            - name: Dettagli di crittografia autenticata
+              uid: security/data-protection/implementation/authenticated-encryption-details
+            - name: Derivazione di sottochiavi e crittografia autenticata
+              uid: security/data-protection/implementation/subkeyderivation
+            - name: Intestazioni di contesto
+              uid: security/data-protection/implementation/context-headers
+            - name: Gestione delle chiavi
+              uid: security/data-protection/implementation/key-management
+            - name: Provider di archiviazione chiavi
+              uid: security/data-protection/implementation/key-storage-providers
+            - name: Crittografia a chiave inattiva
+              uid: security/data-protection/implementation/key-encryption-at-rest
+            - name: Immutabilità delle chiavi e impostazioni
+              uid: security/data-protection/implementation/key-immutability
+            - name: Formato di archiviazione chiavi
+              uid: security/data-protection/implementation/key-storage-format
+            - name: Provider di protezione dati temporanea
+              uid: security/data-protection/implementation/key-storage-ephemeral
+        - name: Compatibilità
+          items:
+            - name: Panoramica
+              uid: security/data-protection/compatibility/index
+            - name: Sostituire machineKey in ASP.NET
+              uid: security/data-protection/compatibility/replacing-machinekey
+    - name: Gestione dei segreti
       items:
-      - uid: security/data-protection/configuration/index
-        name: Panoramica
-      - uid: security/data-protection/configuration/overview
-        name: Configurare la protezione dati
-      - uid: security/data-protection/configuration/default-settings
-        name: Impostazioni predefinite
-      - uid: security/data-protection/configuration/machine-wide-policy
-        name: Criteri a livello di computer
-      - uid: security/data-protection/configuration/non-di-scenarios
-        name: Scenari non compatibili con DI
-    - name: API di estendibilità
-      items:
-      - uid: security/data-protection/extensibility/index
-        name: Panoramica
-      - uid: security/data-protection/extensibility/core-crypto
-        name: Estendibilità della crittografia Core
-      - uid: security/data-protection/extensibility/key-management
-        name: Estendibilità della gestione delle chiavi
-      - uid: security/data-protection/extensibility/misc-apis
-        name: Varie API
-    - name: Implementazione
-      items:
-      - uid: security/data-protection/implementation/index
-        name: Panoramica
-      - uid: security/data-protection/implementation/authenticated-encryption-details
-        name: Dettagli di crittografia autenticata
-      - uid: security/data-protection/implementation/subkeyderivation
-        name: Derivazione di sottochiavi e crittografia autenticata
-      - uid: security/data-protection/implementation/context-headers
-        name: Intestazioni di contesto
-      - uid: security/data-protection/implementation/key-management
-        name: Gestione delle chiavi
-      - uid: security/data-protection/implementation/key-storage-providers
-        name: Provider di archiviazione chiavi
-      - uid: security/data-protection/implementation/key-encryption-at-rest
-        name: Crittografia a chiave inattiva
-      - uid: security/data-protection/implementation/key-immutability
-        name: Immutabilità delle chiavi e impostazioni
-      - uid: security/data-protection/implementation/key-storage-format
-        name: Formato di archiviazione chiavi
-      - uid: security/data-protection/implementation/key-storage-ephemeral
-        name: Provider di protezione dati temporanea
-    - name: Compatibilità
-      items:
-      - uid: security/data-protection/compatibility/index
-        name: Panoramica
-      - uid: security/data-protection/compatibility/replacing-machinekey
-        name: Sostituire machineKey in ASP.NET
-  - uid: security/app-secrets
-    name: Proteggere i segreti in fase di sviluppo
-    displayName: password
-  - uid: security/key-vault-configuration
-    name: Provider di configurazione di Azure Key Vault
-  - uid: security/enforcing-ssl
-    name: Imporre HTTPS
-  - uid: security/gdpr
-    name: Supporto per il Regolamento generale sulla protezione dei dati (GDPR) dell'Unione Europea
-  - uid: security/anti-request-forgery
-    name: Evitare la falsificazione di richieste
-  - uid: security/preventing-open-redirects
-    name: Prevenire attacchi di reindirizzamento aperto
-  - uid: security/cross-site-scripting
-    name: Evitare il cross-site scripting
-  - uid: security/cors
-    name: Abilitare richieste tra le origini (CORS)
-  - uid: security/cookie-sharing
-    name: Condividere cookie tra le app
-  - uid: security/ip-safelist
-    name: Elenco di indirizzi IP attendibili
-  - name: Sicurezza dell'applicazione - OWASP
-    href: https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/DotNet_Security_Cheat_Sheet.md
+        - name: Proteggere i segreti in fase di sviluppo
+          displayName: 'password, connection string, API key'
+          uid: security/app-secrets
+        - name: Provider di configurazione di Azure Key Vault
+          displayName: 'password, connection string, API key, secrets'
+          uid: security/key-vault-configuration
+    - name: Imporre HTTPS
+      uid: security/enforcing-ssl
+    - name: Supporto per il Regolamento generale sulla protezione dei dati (GDPR) dell'Unione Europea
+      uid: security/gdpr
+    - name: Evitare la falsificazione di richieste
+      uid: security/anti-request-forgery
+    - name: Prevenire attacchi di reindirizzamento aperto
+      uid: security/preventing-open-redirects
+    - name: Evitare il cross-site scripting
+      uid: security/cross-site-scripting
+    - name: Abilitare richieste tra le origini (CORS)
+      uid: security/cors
+    - name: Condividere cookie tra le app
+      uid: security/cookie-sharing
+    - name: Elenco di indirizzi IP attendibili
+      uid: security/ip-safelist
+    - name: Sicurezza dell'applicazione - OWASP
+      href: 'https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/DotNet_Security_Cheat_Sheet.md'
 - name: Prestazioni
   items:
-  - uid: performance/performance-best-practices
-    name: Panoramica
-  - name: Memorizzazione nella cache delle risposte
-    items:
-    - uid: performance/caching/response
-      name: Panoramica
-    - uid: performance/caching/memory
-      name: Cache in memoria
-    - uid: performance/caching/distributed
-      name: Memorizzazione nella cache distribuita
-    - uid: performance/caching/middleware
-      name: Middleware di memorizzazione nella cache di risposta
-  - uid: performance/response-compression
-    name: Compressione delle risposte
-  - uid: performance/diagnostic-tools
-    name: Strumenti di diagnostica
-  - uid: test/loadtests
-    name: Test di carico e di stress
+    - name: Panoramica
+      uid: performance/performance-best-practices
+    - name: Memorizzazione nella cache delle risposte
+      items:
+        - name: Panoramica
+          uid: performance/caching/response
+        - name: Cache in memoria
+          uid: performance/caching/memory
+        - name: Memorizzazione nella cache distribuita
+          uid: performance/caching/distributed
+        - name: Middleware di memorizzazione nella cache di risposta
+          uid: performance/caching/middleware
+    - name: Compressione delle risposte
+      uid: performance/response-compression
+    - name: Strumenti di diagnostica
+      uid: performance/diagnostic-tools
+    - name: Test di carico e di stress
+      uid: test/loadtests
 - name: Globalizzazione e localizzazione
   items:
-  - uid: fundamentals/localization
-    name: Panoramica
-    displayName: globalization, localization
-  - uid: fundamentals/portable-object-localization
-    name: Localizzazione degli oggetti portabili
-  - uid: fundamentals/troubleshoot-aspnet-core-localization
-    name: Risolvere i problemi
+    - name: Panoramica
+      displayName: 'globalization, localization'
+      uid: fundamentals/localization
+    - name: Localizzazione degli oggetti portabili
+      uid: fundamentals/portable-object-localization
+    - name: Risolvere i problemi
+      uid: fundamentals/troubleshoot-aspnet-core-localization
 - name: Avanzate
   items:
-  - uid: fundamentals/middleware/write
-    name: Scrivere il middleware
-  - uid: fundamentals/middleware/request-response
-    name: Operazioni di richieste e risposte
-    displayName: middleware
-  - uid: fundamentals/url-rewriting
-    name: Riscrittura dell'URL
-  - uid: fundamentals/file-providers
-    name: Provider di file
-  - uid: fundamentals/request-features
-    name: Interfacce di richiesta funzionalità
-  - uid: fundamentals/httpcontext
-    name: Accedere a HttpContext
-  - uid: fundamentals/change-tokens
-    name: Modificare token
-  - uid: fundamentals/owin
-    name: Open Web Interface for .NET (OWIN)
-  - uid: fundamentals/host/hosted-services
-    name: Attività in background con servizi ospitati
-  - uid: fundamentals/configuration/platform-specific-configuration
-    name: Assembly di avvio dell'hosting
-  - uid: fundamentals/metapackage-app
-    name: Metapacchetto Microsoft.AspNetCore.App
-  - uid: fundamentals/metapackage
-    name: Metapacchetto Microsoft.AspNetCore.All
-  - uid: fundamentals/logging/loggermessage
-    name: Registrazione con LoggerMessage
-  - uid: tutorials/dotnet-watch
-    name: Usare un watcher per file
-  - uid: fundamentals/middleware/extensibility
-    name: Middleware basato su factory
-  - uid: fundamentals/middleware/extensibility-third-party-container
-    name: Middleware basato su factory con contenitore di terze parti
+    - name: Scrivere il middleware
+      uid: fundamentals/middleware/write
+    - name: Operazioni di richieste e risposte
+      displayName: middleware
+      uid: fundamentals/middleware/request-response
+    - name: Riscrittura dell'URL
+      uid: fundamentals/url-rewriting
+    - name: Provider di file
+      uid: fundamentals/file-providers
+    - name: Interfacce di richiesta funzionalità
+      uid: fundamentals/request-features
+    - name: Accedere a HttpContext
+      uid: fundamentals/httpcontext
+    - name: Modificare token
+      uid: fundamentals/change-tokens
+    - name: Open Web Interface for .NET (OWIN)
+      uid: fundamentals/owin
+    - name: Attività in background con servizi ospitati
+      uid: fundamentals/host/hosted-services
+    - name: Assembly di avvio dell'hosting
+      uid: fundamentals/configuration/platform-specific-configuration
+    - name: Metapacchetto Microsoft.AspNetCore.App
+      uid: fundamentals/metapackage-app
+    - name: Metapacchetto Microsoft.AspNetCore.All
+      uid: fundamentals/metapackage
+    - name: Registrazione con LoggerMessage
+      uid: fundamentals/logging/loggermessage
+    - name: Usare un watcher per file
+      uid: tutorials/dotnet-watch
+    - name: Middleware basato su factory
+      uid: fundamentals/middleware/extensibility
+    - name: Middleware basato su factory con contenitore di terze parti
+      uid: fundamentals/middleware/extensibility-third-party-container
 - name: Migrazione
   items:
-  - uid: migration/22-to-30
-    name: Da 2.2 a 3.0
-    displayName: migrate, migration
-  - uid: migration/21-to-22
-    name: Da 2.1 a 2.2
-    displayName: migrate, migration
-  - uid: migration/20_21
-    name: Da 2.0 a 2.1
-    displayName: migrate, migration
-  - name: Da 1.x a 2.0
-    displayName: migrate, migration
-    items:
-    - uid: migration/1x-to-2x/index
-      name: Panoramica
-    - uid: migration/1x-to-2x/identity-2x
-      name: Autenticazione e identità
-  - name: Da ASP.NET a ASP.NET Core
-    displayName: migrate, migration
-    items:
-    - uid: migration/proper-to-2x/index
-      name: Panoramica
-    - uid: migration/mvc
-      name: MVC
-    - uid: migration/webapi
-      name: API Web
-    - uid: migration/configuration
-      name: Configurazione
-    - uid: migration/identity
-      name: Autenticazione e identità
-    - uid: migration/claimsprincipal-current
-      name: ClaimsPrincipal.Current
-    - uid: migration/proper-to-2x/membership-to-core-identity
-      name: Dall'appartenenza all'identità
-    - uid: migration/http-modules
-      name: Moduli HTTP in middleware
-  - uid: migration/logging-nonaspnetcore
-    name: Registrazione (non ASP.NET Core)
-    displayName: migrate, migration
+    - name: Da 2.2 a 3.0
+      displayName: 'migrate, migration'
+      uid: migration/22-to-30
+    - name: Da 2.1 a 2.2
+      displayName: 'migrate, migration'
+      uid: migration/21-to-22
+    - name: Da 2.0 a 2.1
+      displayName: 'migrate, migration'
+      uid: migration/20_21
+    - name: Da 1.x a 2.0
+      displayName: 'migrate, migration'
+      items:
+        - name: Panoramica
+          uid: migration/1x-to-2x/index
+        - name: Autenticazione e identità
+          uid: migration/1x-to-2x/identity-2x
+    - name: Da ASP.NET a ASP.NET Core
+      displayName: 'migrate, migration'
+      items:
+        - name: Panoramica
+          uid: migration/proper-to-2x/index
+        - name: MVC
+          uid: migration/mvc
+        - name: API Web
+          uid: migration/webapi
+        - name: Configurazione
+          uid: migration/configuration
+        - name: Autenticazione e identità
+          uid: migration/identity
+        - name: ClaimsPrincipal.Current
+          uid: migration/claimsprincipal-current
+        - name: Dall'appartenenza all'identità
+          uid: migration/proper-to-2x/membership-to-core-identity
+        - name: Moduli HTTP in middleware
+          uid: migration/http-modules
+    - name: Registrazione (non ASP.NET Core)
+      displayName: 'migrate, migration'
+      uid: migration/logging-nonaspnetcore
 - name: API (riferimento)
   href: /dotnet/api/?view=aspnetcore-2.2
 - name: Collaborazione
-  href: https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md
-ms.openlocfilehash: 721fb2d1042307c23e0858a7a1bf71a0b24d57ab
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59705562"
+  href: 'https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md'

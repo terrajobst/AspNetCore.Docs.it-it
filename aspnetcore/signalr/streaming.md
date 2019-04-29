@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 04/12/2019
 uid: signalr/streaming
-ms.openlocfilehash: 83bbb231482d9c1606be3c5bbbeb1cc3b8efcf7d
-ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
-ms.translationtype: MT
+ms.openlocfilehash: d185056d3bdda089eaa46ae9b8e13ab7a4354f93
+ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59982656"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60165076"
 ---
 # <a name="use-streaming-in-aspnet-core-signalr"></a>Usare lo streaming in ASP.NET Core SignalR
 
@@ -36,13 +36,13 @@ ASP.NET Core SignalR supporta streaming valori restituiti dei metodi del server.
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Un metodo dell'hub diventa automaticamente un metodo dell'hub sul flusso quando viene restituito un <xref:System.Threading.Channels.ChannelReader`1>, `IAsyncEnumerable<T>`, `Task<ChannelReader<T>>`, o `Task<IAsyncEnumerable<T>>`.
+Un metodo dell'hub diventa automaticamente un metodo dell'hub sul flusso quando viene restituito un <xref:System.Threading.Channels.ChannelReader%601>, `IAsyncEnumerable<T>`, `Task<ChannelReader<T>>`, o `Task<IAsyncEnumerable<T>>`.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-Un metodo dell'hub diventa automaticamente un metodo dell'hub sul flusso quando viene restituito un <xref:System.Threading.Channels.ChannelReader`1> o un `Task<ChannelReader<T>>`.
+Un metodo dell'hub diventa automaticamente un metodo dell'hub sul flusso quando viene restituito un <xref:System.Threading.Channels.ChannelReader%601> o un `Task<ChannelReader<T>>`.
 
 ::: moniker-end
 
@@ -58,7 +58,7 @@ I metodi dell'hub di streaming può restituire `IAsyncEnumerable<T>` oltre a `Ch
 
 ::: moniker-end
 
-L'esempio seguente illustra le nozioni di base dei dati al client utilizzando i canali di streaming. Ogni volta che un oggetto viene scritto il <xref:System.Threading.Channels.ChannelWriter`1>, l'oggetto viene inviato immediatamente al client. Al termine, il `ChannelWriter` sia completata per indicare al client il flusso è chiuso.
+L'esempio seguente illustra le nozioni di base dei dati al client utilizzando i canali di streaming. Ogni volta che un oggetto viene scritto il <xref:System.Threading.Channels.ChannelWriter%601>, l'oggetto viene inviato immediatamente al client. Al termine, il `ChannelWriter` sia completata per indicare al client il flusso è chiuso.
 
 > [!NOTE]
 > Scrivere il `ChannelWriter<T>` su un thread in background e restituire il `ChannelReader` appena possibile. Altre chiamate dell'hub sono bloccate fino a quando un `ChannelReader` viene restituito.
