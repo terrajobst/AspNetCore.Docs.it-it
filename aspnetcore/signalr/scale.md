@@ -8,11 +8,11 @@ ms.custom: mvc
 ms.date: 11/28/2018
 uid: signalr/scale
 ms.openlocfilehash: 4ac4509acc89d0091a3757c7cfbc9981614f29ad
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54836922"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64895078"
 ---
 # <a name="aspnet-core-signalr-hosting-and-scaling"></a>ASP.NET Core SignalR hosting e scalabilità
 
@@ -46,7 +46,7 @@ Un'app che usa SignalR deve tenere traccia di tutte le connessioni, che crea pro
 
 Le opzioni per risolvere questo problema sono le [servizio Azure SignalR](#azure-signalr-service) e [Redis backplane](#redis-backplane).
 
-## <a name="azure-signalr-service"></a>Azure SignalR Service
+## <a name="azure-signalr-service"></a>Servizio Azure SignalR
 
 Il servizio Azure SignalR è un proxy anziché un backplane. Ogni volta che un client avvia una connessione al server, viene reindirizzato il client per connettersi al servizio. Tale processo è illustrato nel diagramma seguente:
 
@@ -66,7 +66,7 @@ Per questi motivi, è consigliabile il servizio Azure SignalR per tutte le app A
 
 Per altre informazioni vedere la [documentazione del servizio Azure SignalR](/azure/azure-signalr/signalr-overview).
 
-## <a name="redis-backplane"></a>Redis backplane
+## <a name="redis-backplane"></a>Backplane Redis
 
 [Redis](https://redis.io/) è un archivio chiave-valore in memoria che supporta un sistema di messaggistica con un modello publish/subscribe. Backplane SignalR Redis Usa la funzionalità di pubblicazione/sottoscrizione per inoltrare i messaggi ad altri server. Quando un client stabilisce una connessione, le informazioni di connessione viene passate al backplane. Quando un server vuole inviare un messaggio a tutti i client, invia al backplane. Backplane SA connesse tutte le soluzioni client e che i server si trovano nella. Invia il messaggio a tutti i client tramite le rispettive istanze server. Questo processo è illustrato nel diagramma seguente:
 

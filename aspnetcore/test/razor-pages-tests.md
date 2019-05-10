@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/27/2017
 uid: test/razor-pages-tests
-ms.openlocfilehash: 5116ec3c3d6c27f9b0e098f82c82dd7b7337b8f6
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: f1526b8803f43ec8cbe77c1d2c100d9daf6cd316
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207498"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64893718"
 ---
 # <a name="razor-pages-unit-tests-in-aspnet-core"></a>Gli unit test di Razor Pages in ASP.NET Core
 
@@ -30,16 +30,16 @@ In questo argomento si presuppone una conoscenza di base dell'App Razor Pages e 
 * [Introduzione a Razor Pages](xref:tutorials/razor-pages/razor-pages-start)
 * [Unit test c# in .NET Core tramite test dotnet e xUnit](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/razor-pages-tests/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/razor-pages-tests/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 Il progetto di esempio è costituito da due App:
 
 | App         | Cartella del progetto                        | Descrizione |
 | ----------- | ------------------------------------- | ----------- |
 | App messaggi | *src/RazorPagesTestSample*            | Consente all'utente di aggiungere, eliminare uno, eliminare tutti e analizzare i messaggi. |
-| Testare l'app    | *tests/RazorPagesTestSample.Tests*    | Utilizzato per l'app messaggio unit test: accesso ai dati layer (DAL) e il modello di pagina di indice. |
+| Testare l'app    | *tests/RazorPagesTestSample.Tests*    | Utilizzato per l'app messaggio unit test: Livello di accesso ai dati (DAL) e il modello di pagina di indice. |
 
-I test possono essere eseguiti usando le funzionalità di test predefinito di un ambiente IDE, ad esempio [Visual Studio](https://www.visualstudio.com/vs/). Se si usa [Visual Studio Code](https://code.visualstudio.com/) o la riga di comando, eseguire il comando seguente al prompt dei comandi nel *tests/RazorPagesTestSample.Tests* cartella:
+I test possono essere eseguiti usando le funzionalità di test predefinito di un ambiente IDE, ad esempio [Visual Studio](https://visualstudio.microsoft.com). Se si usa [Visual Studio Code](https://code.visualstudio.com/) o la riga di comando, eseguire il comando seguente al prompt dei comandi nel *tests/RazorPagesTestSample.Tests* cartella:
 
 ```console
 dotnet test
@@ -110,7 +110,7 @@ Ogni metodo di test nel `DataAccessLayerTest` classe (*UnitTests/DataAccessLayer
 
 1. Disponi: Il database è configurato per il test e/o il risultato previsto è definito.
 1. ACT: Viene eseguito il test.
-1. Assert: Le asserzioni vengono apportate per determinare se il risultato del test è un esito positivo.
+1. L'asserzione: Le asserzioni vengono effettuate per determinare se il risultato del test è un esito positivo.
 
 Ad esempio, il `DeleteMessageAsync` metodo è responsabile della rimozione di un singolo messaggio identificato dal relativo `Id` (*src/RazorPagesTestSample/Data/AppDbContext.cs*):
 
@@ -124,7 +124,7 @@ In primo luogo, il metodo esegue il passaggio di disposizione, in cui avviene la
 
 [!code-csharp[](razor-pages-tests/samples/2.x/tests/RazorPagesTestSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet1)]
 
-Il metodo opera: il `DeleteMessageAsync` metodo viene eseguito passando il `recId` di `1`:
+Il metodo opera: Il `DeleteMessageAsync` metodo viene eseguito passando il `recId` di `1`:
 
 [!code-csharp[](razor-pages-tests/samples/2.x/tests/RazorPagesTestSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet2)]
 
@@ -167,7 +167,7 @@ Il `OnGetAsync_PopulatesThePageModel_WithAListOfMessages` testare viene mostrato
 
 Quando la `OnGetAsync` metodo viene eseguito nel passaggio Act, chiama il modello di pagina `GetMessagesAsync` (metodo).
 
-Passaggio di Act di unit test (*tests/RazorPagesTestSample.Tests/UnitTests/IndexPageTests.cs*):
+Unit test Act step (*tests/RazorPagesTestSample.Tests/UnitTests/IndexPageTests.cs*):
 
 [!code-csharp[](razor-pages-tests/samples/2.x/tests/RazorPagesTestSample.Tests/UnitTests/IndexPageTests.cs?name=snippet2)]
 

@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 10/24/2018
 uid: security/data-protection/introduction
 ms.openlocfilehash: 37f170a3e8a46ef2215b0999358d46dd402636df
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50089548"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64897988"
 ---
 # <a name="aspnet-core-data-protection"></a>Protezione dei dati di ASP.NET Core
 
@@ -21,7 +21,7 @@ Lo stack di protezione dei dati di ASP.NET Core è progettato per essere utilizz
 
 ## <a name="problem-statement"></a>Presentazione del problema
 
-L'istruzione di problema generale può essere dichiarata in una singola frase sinteticamente: è necessario rendere persistenti le informazioni attendibili per un successivo recupero, ma il meccanismo di persistenza non attendibili. In termini di web, questo potrebbe essere scritto come "Ho bisogno di andata e ritorno dello stato attendibile tramite un client non attendibile".
+L'istruzione di problema generale può essere dichiarato sinteticamente in una singola frase: È necessario rendere persistenti le informazioni attendibili per un successivo recupero, ma il meccanismo di persistenza non attendibili. In termini di web, questo potrebbe essere scritto come "Ho bisogno di andata e ritorno dello stato attendibile tramite un client non attendibile".
 
 L'esempio canonico è un cookie di autenticazione o bearer token. Il server genera un "Sono Groot e disporre delle autorizzazioni xyz" del token e lo passa al client. Successivamente il client presenta tale token al server, ma il server deve avere un tipo di garanzia che il client non è ancora contraffatto il token. In questo modo il primo requisito: autenticità (noto anche come l'integrità, a prova di manomissione).
 

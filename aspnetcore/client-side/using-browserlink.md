@@ -7,11 +7,11 @@ ms.custom: H1Hack27Feb2017
 ms.date: 09/22/2017
 uid: client-side/using-browserlink
 ms.openlocfilehash: 452ba5149563c186750466f471c7b950f0017614
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41835671"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64894708"
 ---
 # <a name="browser-link-in-aspnet-core"></a>Collegamento del browser in ASP.NET Core
 
@@ -83,7 +83,7 @@ Dal controllo della barra degli strumenti di collegamento del Browser, è possib
 
 * Aggiornare l'applicazione web in diversi browser in una sola volta.
 * Aprire il **Dashboard Browser Link**.
-* Abilitare o disabilitare **collegamento del Browser**. Nota: Il collegamento del Browser è disabilitato per impostazione predefinita in Visual Studio 2017 (versione 15.3).
+* Abilitare o disabilitare **collegamento del Browser**. Nota: Collegamento del browser è disabilitato per impostazione predefinita in Visual Studio 2017 (versione 15.3).
 * Abilitare o disabilitare [sincronizzazione automatica CSS](#enable-or-disable-css-auto-sync).
 
 > [!NOTE]
@@ -121,11 +121,11 @@ Aprire il Dashboard Browser Link nell'elenco di Browser Link a discesa di menu p
 
 Se non è connesso alcun browser, è possibile avviare una sessione di debug non selezionando il *Visualizza nel Browser* collegamento:
 
-![browserlink-dashboard-no-connessioni](using-browserlink/_static/browserlink-dashboard-no-connections.png)
+![browserlink-dashboard-no-connections](using-browserlink/_static/browserlink-dashboard-no-connections.png)
 
 In caso contrario, il browser connessi vengono visualizzati con il percorso della pagina che mostra ogni browser:
 
-![browserlink-dashboard-2-connessioni](using-browserlink/_static/browserlink-dashboard-two-connections.png)
+![browserlink-dashboard-two-connections](using-browserlink/_static/browserlink-dashboard-two-connections.png)
 
 Se si desidera, è possibile fare clic sul nome di un browser elencati per aggiornare il browser singolo.
 

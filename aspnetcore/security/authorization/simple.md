@@ -1,24 +1,24 @@
 ---
 title: Autorizzazione semplice in ASP.NET Core
 author: rick-anderson
-description: Imparare a usare l'attributo Authorize per limitare l'accesso alle azioni e controller di ASP.NET Core.
+description: Informazioni su come usare l'attributo Authorize per limitare l'accesso alle azioni e controller ASP.NET Core.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/authorization/simple
 ms.openlocfilehash: 6409def0508b855d3d2a4a1f4d3a3d15bfe5dd32
-ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36961123"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64897678"
 ---
 # <a name="simple-authorization-in-aspnet-core"></a>Autorizzazione semplice in ASP.NET Core
 
 <a name="security-authorization-simple"></a>
 
-L'autorizzazione in MVC è controllata tramite il `AuthorizeAttribute` attributo e i relativi parametri diversi. Nella sua forma più semplice, l'applicazione di `AuthorizeAttribute` attributo a un controller o un'azione verrà limitato l'accesso al controller o azione da qualsiasi utente autenticato.
+Autorizzazione in MVC è controllata tramite il `AuthorizeAttribute` attributo e i relativi parametri diversi. Nella forma più semplice, applicare il `AuthorizeAttribute` attributo a un controller o azione verrà limitato l'accesso al controller o azione per tutti gli utenti autenticati.
 
-Ad esempio, il codice seguente consente di limitare l'accesso al `AccountController` da qualsiasi utente autenticato.
+Ad esempio, il codice riportato di seguito limitano l'accesso al `AccountController` da qualsiasi utente autenticato.
 
 ```csharp
 [Authorize]
@@ -34,7 +34,7 @@ public class AccountController : Controller
 }
 ```
 
-Se si desidera applicare l'autorizzazione a un'azione anziché il controller, applicare il `AuthorizeAttribute` attributo per l'azione di se stesso:
+Se si desidera applicare l'autorizzazione a un'azione piuttosto che il controller, applicare il `AuthorizeAttribute` dell'attributo dell'azione stessa:
 
 ```csharp
 public class AccountController : Controller
@@ -50,9 +50,9 @@ public class AccountController : Controller
 }
 ```
 
-Ora possono accedere solo gli utenti autenticati il `Logout` (funzione).
+È ora possono accedere solo agli utenti autenticati di `Logout` (funzione).
 
-È anche possibile usare il `AllowAnonymous` attributo per consentire l'accesso da utenti non autenticati per le singole azioni. Ad esempio:
+È anche possibile usare il `AllowAnonymous` attributo per consentire l'accesso gli utenti non autenticati a singole azioni. Ad esempio:
 
 ```csharp
 [Authorize]
@@ -69,7 +69,7 @@ public class AccountController : Controller
 }
 ```
 
-In questo modo solo gli utenti autenticati per il `AccountController`, ad eccezione del `Login` azione, che è accessibile da parte degli utenti, indipendentemente dal loro stato autenticato o anonimo / non autenticato.
+In questo modo solo gli utenti autenticati per il `AccountController`, tranne che per il `Login` azione, che è accessibile da parte degli utenti, indipendentemente dal loro stato autenticato o non autenticato o anonimo.
 
 > [!WARNING]
-> `[AllowAnonymous]` Ignora tutte le istruzioni di autorizzazione. Se si combinano `[AllowAnonymous]` e di qualsiasi `[Authorize]` attributo, il `[Authorize]` gli attributi vengono ignorati. Ad esempio se si applica `[AllowAnonymous]` a livello di controller, qualsiasi `[Authorize]` attributi allo stesso controller (o su qualsiasi azione all'interno di esso) viene ignorato.
+> `[AllowAnonymous]` Consente di ignorare tutte le istruzioni di autorizzazione. Se si combinano `[AllowAnonymous]` e l'eventuale `[Authorize]` attributo, il `[Authorize]` gli attributi vengono ignorati. Ad esempio se si applicano `[AllowAnonymous]` a livello di controller, qualsiasi `[Authorize]` attributi allo stesso controller (o in qualsiasi azione all'interno di esso) viene ignorato.

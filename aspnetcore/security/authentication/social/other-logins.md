@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 11/11/2018
 uid: security/authentication/otherlogins
 ms.openlocfilehash: b69c366ec1bf12ccf434991fc8a79eaf8c09da3d
-ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708465"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64897508"
 ---
 # <a name="external-oauth-authentication-providers"></a>Provider di autenticazione OAuth esterno
 
@@ -41,7 +41,7 @@ Nell'elenco seguente include comuni provider di autenticazione esterni OAuth che
 
 * [Vimeo](https://vimeo.com/join) ([istruzioni](https://developer.vimeo.com/api/authentication))
 
-* [SoundCloud](https://soundcloud.com/you/apps/new) ([istruzioni](https://developers.soundcloud.com/blog/we-love-oauth-2))
+* [SoundCloud](https://soundcloud.com/you/apps/new) ([Instructions](https://developers.soundcloud.com/blog/we-love-oauth-2))
 
 * [VK](https://vk.com/apps?act=manage) ([istruzioni](https://vk.com/pages?oid=-17680044&p=Authorizing_Sites))
 

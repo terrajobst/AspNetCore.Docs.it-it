@@ -7,25 +7,25 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 04/20/2018
 uid: signalr/publish-to-azure-web-app
-ms.openlocfilehash: 66fa855590c49c4284e4b42cae57f3d4d81dd0fc
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: 1c472711a86edae8dc6e207734aa54e48c02d47d
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54837676"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65087692"
 ---
 # <a name="publish-an-aspnet-core-signalr-app-to-an-azure-web-app"></a>Pubblicare un ASP.NET Core SignalR app a un'App Web di Azure
 
 [App Web di Azure](/azure/app-service/app-service-web-overview) è un [Microsoft il cloud computing](https://azure.microsoft.com/) servizio della piattaforma per l'hosting di App web, tra cui ASP.NET Core.
 
 > [!NOTE]
-> Questo articolo si riferisce alla pubblicazione di un'app ASP.NET Core SignalR da Visual Studio. Visita [servizio SignalR per Azure](https://azure.microsoft.com/en-gb/services/signalr-service?) per altre informazioni sull'uso di SignalR in Azure.
+> Questo articolo si riferisce alla pubblicazione di un'app ASP.NET Core SignalR da Visual Studio. Visita [servizio SignalR per Azure](https://azure.microsoft.com/services/signalr-service) per altre informazioni sull'uso di SignalR in Azure.
 
 ## <a name="publish-the-app"></a>Pubblicare l'app
 
 Visual Studio offre strumenti incorporati per la pubblicazione in un'App Web di Azure. Visual Studio Code utente può utilizzare [CLI Azure](/cli/azure) comandi per pubblicare le App in Azure. Questo articolo illustra pubblicazione usando gli strumenti in Visual Studio. Per pubblicare un'app usando Azure CLI, vedere [pubblicare un'app ASP.NET Core in Azure con gli strumenti da riga di comando](/azure/app-service/app-service-web-get-started-dotnet).
 
-Pulsante destro del mouse sul progetto in **Esplora soluzioni** e selezionare **Publish**. Verificare che **Crea nuovo** viene archiviato il **selezionare una destinazione di pubblicazione** finestra di dialogo e selezionare **Publish**.
+Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Pubblica**. Verificare che **Crea nuovo** viene archiviato il **selezionare una destinazione di pubblicazione** finestra di dialogo e selezionare **Publish**.
 
 ![Selezione destinazione di pubblicazione](publish-to-azure-web-app/_static/pick-publish-target-dialog.png)
 

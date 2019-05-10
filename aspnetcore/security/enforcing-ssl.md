@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/01/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: 16cfa672fe4a81d9e8f09fc3dd1e6c036edd4c4e
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: ab407436afb16687fa285a836b608ad2e6a4802f
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58208976"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64894558"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Imporre HTTPS in ASP.NET Core
 
@@ -239,13 +239,13 @@ For establishing trust on other platforms refer to the platform specific documen
 For more information on configuring HTTPS see https://go.microsoft.com/fwlink/?linkid=848054.
 ```
 
-Installazione di .NET Core SDK consente di installare il certificato di sviluppo di ASP.NET Core HTTPS nell'archivio certificati utente locale. Il certificato è stato installato, ma non è attendibile. Per considerare attendibile il certificato di eseguire l'operazione una tantum per l'esecuzione di dotnet `dev-certs` strumento:
+L'installazione di .NET Core SDK include l'installazione del certificato di sviluppo HTTPS ASP.NET Core nell'archivio certificati utente locale. Il certificato è stato installato, ma non è attendibile. Per considerare attendibile il certificato di eseguire l'operazione una tantum per l'esecuzione di dotnet `dev-certs` strumento:
 
 ```console
 dotnet dev-certs https --trust
 ```
 
-Il comando riportato di seguito vengono fornite informazioni sul `dev-certs` strumento:
+Il comando seguente consente di visualizzare informazioni della Guida sullo strumento `dev-certs`:
 
 ```console
 dotnet dev-certs https --help
@@ -253,7 +253,7 @@ dotnet dev-certs https --help
 
 ## <a name="how-to-set-up-a-developer-certificate-for-docker"></a>Come configurare un certificato dello sviluppatore per Docker
 
-Visualizzare [questo problema su GitHub](https://github.com/aspnet/Docs/issues/6199).
+Visualizzare [questo problema su GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/6199).
 
 ::: moniker-end
 

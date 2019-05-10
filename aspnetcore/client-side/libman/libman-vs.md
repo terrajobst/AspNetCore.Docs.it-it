@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/20/2018
 uid: client-side/libman/libman-vs
-ms.openlocfilehash: 727bd80b7f37f6ebd9d37b7aab1aa6c33b85678c
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 41a5a41c8921b04290784d26441ecb46aea753e7
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206727"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64894968"
 ---
 # <a name="use-libman-with-aspnet-core-in-visual-studio"></a>Usare LibMan con ASP.NET Core in Visual Studio
 
@@ -24,7 +24,7 @@ Visual Studio offre supporto predefinito per [LibMan](xref:client-side/libman/in
 * Finestra di dialogo di ricerca per trovare le librerie e aggiunge i file a un progetto.
 * Supporto per *libman.json*&mdash;LibMan file manifesto.
 
-[Visualizzare o scaricare codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/client-side/libman/samples/) [(come scaricare)](xref:index#how-to-download-a-sample)
+[Visualizzare o scaricare codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/client-side/libman/samples/) [(come scaricare)](xref:index#how-to-download-a-sample)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -64,9 +64,9 @@ Seguire questi passaggi per installare una libreria lato client:
   
   |Posizione di avvio                           |Cartella suggerita      |
   |------------------------------------------|----------------------|
-  |radice del progetto (se *wwwroot* esiste)        |*Wwwroot/lib/jquery /* |
-  |radice del progetto (se *wwwroot* non esiste) |*jquery/lib /*         |
-  |*Pagine* cartella nel progetto                 |*Pagine/jquery /*       |
+  |radice del progetto (se *wwwroot* esiste)        |*wwwroot/lib/jquery/* |
+  |radice del progetto (se *wwwroot* non esiste) |*lib/jquery/*         |
+  |*Pagine* cartella nel progetto                 |*Pages/jquery/*       |
 
 * Scegliere il **installare** pulsante per scaricare i file, per la configurazione nel *libman.json*.
 * Esaminare i **Gestione librerie** feed del **Output** finestra per i dettagli di installazione. Ad esempio:

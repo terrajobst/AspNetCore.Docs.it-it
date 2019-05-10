@@ -1,31 +1,31 @@
 ---
 title: Introduzione alle autorizzazioni in ASP.NET Core
 author: rick-anderson
-description: Le nozioni di autorizzazione e come funziona l'autorizzazione in App ASP.NET Core.
+description: Informazioni di base del funzionamento dell'autorizzazione nelle App ASP.NET Core e l'autorizzazione.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/authorization/introduction
 ms.openlocfilehash: 5465eb7875ebecd77b628376ef886db0ddd05025
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276867"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64896978"
 ---
 # <a name="introduction-to-authorization-in-aspnet-core"></a>Introduzione alle autorizzazioni in ASP.NET Core
 
 <a name="security-authorization-introduction"></a>
 
-Autorizzazione si intende il processo che determina a quali un utente è in grado di eseguire. Ad esempio, un utente amministratore è possibile creare una raccolta documenti, aggiungere documenti, modificare i documenti e li elimina. Un utente senza privilegi di amministratore che utilizza con la libreria è autorizzato solo leggere i documenti.
+Autorizzazione si riferisce al processo che determina ciò che un utente è in grado di eseguire. Ad esempio, un utente amministratore è consentito per creare una raccolta documenti aggiungere i documenti, modificare i documenti ed eliminarli. Un utente non amministratore, utilizzare la libreria solo è autorizzato a leggere i documenti.
 
-L'autorizzazione è ortogonali e indipendenti dal tipo di autenticazione. Autorizzazione richiede tuttavia un meccanismo di autenticazione. L'autenticazione è il processo di individuazione che un utente. L'autenticazione può creare una o più identità per l'utente corrente.
+L'autorizzazione è ortogonale e indipendente dall'autenticazione. Tuttavia, autorizzazione, è necessario un meccanismo di autenticazione. L'autenticazione è il processo di accerta l'identità è un utente. L'autenticazione può creare una o più identità per l'utente corrente.
 
-## <a name="authorization-types"></a>Tipi di autorizzazioni
+## <a name="authorization-types"></a>Tipi di autorizzazione
 
-Autorizzazione di ASP.NET Core offre un semplice dichiarativo [ruolo](xref:security/authorization/roles) e potente [basata su criteri](xref:security/authorization/policies) modello. Autorizzazione è espresso in requisiti e i gestori di valutare le attestazioni dell'utente rispetto ai requisiti. Controlli imperativi possono essere basati su criteri semplici o criteri di cui valutare l'identità dell'utente e le proprietà della risorsa che l'utente sta tentando di accedere.
+Autorizzazione di ASP.NET Core fornisce un semplice e dichiarativo [ruolo](xref:security/authorization/roles) e un ricco [basata su criteri](xref:security/authorization/policies) modello. Autorizzazione viene espresso in requisiti e i gestori di valutare le attestazioni dell'utente in base ai requisiti. Controlli imperativi possono basarsi su simple o criteri di cui valutano l'identità dell'utente e le proprietà della risorsa a cui l'utente sta provando ad accedere.
 
 ## <a name="namespaces"></a>Spazi dei nomi
 
-I componenti di autorizzazione, inclusi il `AuthorizeAttribute` e `AllowAnonymousAttribute` gli attributi, si trovano nel `Microsoft.AspNetCore.Authorization` dello spazio dei nomi.
+I componenti di autorizzazione, inclusi i `AuthorizeAttribute` e `AllowAnonymousAttribute` gli attributi, si trovano nel `Microsoft.AspNetCore.Authorization` dello spazio dei nomi.
 
-Consultare la documentazione su [autorizzazione semplice](xref:security/authorization/simple).
+Consultare la documentazione sul [autorizzazione semplice](xref:security/authorization/simple).
