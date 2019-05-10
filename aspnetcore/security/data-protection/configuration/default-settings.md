@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/configuration/default-settings
 ms.openlocfilehash: 2f022a4c7519485fe629ce47c27d214c8c27d5bc
-ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56159211"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64897278"
 ---
 # <a name="data-protection-key-management-and-lifetime-in-aspnet-core"></a>Gestione delle chiavi protezione dati e la durata in ASP.NET Core
 
@@ -27,12 +27,12 @@ L'app prova a rilevare proprio ambiente operativo e gestire configurazione della
 
 1. Se il profilo utente è disponibile, le chiavi vengono rese persistenti per il *%LOCALAPPDATA%\ASP.NET\DataProtection-Keys* cartella. Se il sistema operativo è Windows, le chiavi vengono crittografate a riposo tramite DPAPI.
 
-   Il pool di applicazioni [setProfileEnvironment attributo](/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration) deve anche essere abilitato. Il valore predefinito di `setProfileEnvironment` è `true`. In alcuni scenari (ad esempio, Windows del sistema operativo), `setProfileEnvironment` è impostata su `false`. Se le chiavi non vengono archiviate nella directory del profilo utente come previsto:
+   Deve essere abilitato anche l'[attributo setProfileEnvironment](/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration) del pool di app. Il valore predefinito di `setProfileEnvironment` è `true`. In alcuni scenari (ad esempio, per il sistema operativo Windows), `setProfileEnvironment` è impostato su `false`. Se le chiavi non vengono archiviate nella directory del profilo utente come previsto:
 
-   1. Passare il *%windir%/system32/inetsrv/config* cartella.
-   1. Aprire il *applicationHost. config* file.
+   1. Passare alla cartella *%windir%/system32/inetsrv/config*.
+   1. Aprire il file *applicationHost.config*.
    1. Individuare l'elemento `<system.applicationHost><applicationPools><applicationPoolDefaults><processModel>` .
-   1. Verificare che il `setProfileEnvironment` attributo non è presente, che per impostazione predefinita il valore per `true`, o impostare in modo esplicito il valore dell'attributo `true`.
+   1. Verificare che l'attributo `setProfileEnvironment` non sia presente, condizione che corrisponde all'impostazione predefinita `true`, o impostare in modo esplicito il valore dell'attributo su `true`.
 
 1. Se l'app è ospitata in IIS, le chiavi vengono mantenute nel Registro di sistema HKLM in una chiave del Registro di sistema speciale che acled solo per l'account di processo di lavoro. Le chiavi vengono crittografate a riposo tramite la DPAPI.
 
