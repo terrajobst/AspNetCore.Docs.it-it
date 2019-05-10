@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: 3113220696eb3e3cb8c126cd1287e60203d96378
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58208334"
----
 # <a name="aspnet-core-built-in-tag-helpers-sample"></a>Esempio di helper per tag incorporati di ASP.NET Core
 
 In questo esempio vengono illustrate le variazioni degli helper per tag incorporati con MVC e Razor Pages:

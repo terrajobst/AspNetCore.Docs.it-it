@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 11/20/2018
 uid: client-side/bundling-and-minification
 ms.openlocfilehash: 5d5f0aadb7740c9b2b959d12a585cd8c91758ce8
-ms.sourcegitcommit: 4225e2c49a0081e6ac15acff673587201f54b4aa
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282141"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64894298"
 ---
 # <a name="bundle-and-minify-static-assets-in-aspnet-core"></a>Aggregare e minimizzare asset statici in ASP.NET Core
 
@@ -85,15 +85,15 @@ Il *bundleconfig.json* file definisce le opzioni per ogni aggregazione. Nell'ese
 
 Opzioni di configurazione includono:
 
-* `outputFileName`: Nome del file di bundle per l'output. Può contenere un percorso relativo di *bundleconfig.json* file. **Obbligatorio**
-* `inputFiles`: Una matrice di file da raccogliere. Questi sono i percorsi relativi nel file di configurazione. **facoltativo**, * restituisce un valore vuoto in un file di output vuoto. [glob](http://www.tldp.org/LDP/abs/html/globbingref.html) sono supportati i modelli.
-* `minify`: Le opzioni di minimizzazione per il tipo di output. **facoltativo**, *default - `minify: { enabled: true }`*
+* `outputFileName`: Il nome del file di bundle per l'output. Può contenere un percorso relativo di *bundleconfig.json* file. **required**
+* `inputFiles`: Matrice di file da raccogliere. Questi sono i percorsi relativi nel file di configurazione. **facoltativo**, * restituisce un valore vuoto in un file di output vuoto. [glob](http://www.tldp.org/LDP/abs/html/globbingref.html) sono supportati i modelli.
+* `minify`: Le opzioni di minimizzazione per il tipo di output. **optional**, *default - `minify: { enabled: true }`*
   * Opzioni di configurazione sono disponibili per ogni tipo di file di output.
-    * [Minimizzatore CSS](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
-    * [Minimizzatore JavaScript](https://github.com/madskristensen/BundlerMinifier/wiki/JavaScript-Minifier-settings)
-    * [Minimizzatore di HTML](https://github.com/madskristensen/BundlerMinifier/wiki)
-* `includeInProject`: Flag che indica se aggiungere i file generati da file di progetto. **facoltativo**, *predefinito: false*
-* `sourceMap`: Flag che indica se generare una mappa di origine per il file nel bundle. **facoltativo**, *predefinito: false*
+    * [CSS Minifier](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
+    * [JavaScript Minifier](https://github.com/madskristensen/BundlerMinifier/wiki/JavaScript-Minifier-settings)
+    * [HTML Minifier](https://github.com/madskristensen/BundlerMinifier/wiki)
+* `includeInProject`: Flag che indica se aggiungere i file generati da file di progetto. **optional**, *default - false*
+* `sourceMap`: Flag che indica se generare una mappa di origine per il file nel bundle. **optional**, *default - false*
 * `sourceMapRootPath`: Il percorso radice per l'archiviazione file di mappa di origine generato.
 
 ## <a name="build-time-execution-of-bundling-and-minification"></a>Esecuzione fase di compilazione di creazione di bundle e minimizzazione

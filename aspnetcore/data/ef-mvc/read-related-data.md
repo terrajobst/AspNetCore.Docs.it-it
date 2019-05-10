@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: a2ae878fd861b68a17de19af1b33b6ffbf5a268c
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: 5b45ced4fe6ed220c9a63bc6480c8c8520b36ed4
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58751085"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64886366"
 ---
 # <a name="tutorial-read-related-data---aspnet-mvc-with-ef-core"></a>Esercitazione: Leggere dati correlati - ASP.NET MVC con EF Core
 
@@ -245,7 +245,7 @@ Eseguire l'app e passare alla pagina di indice degli insegnanti. Non si noterà 
 
 ## <a name="get-the-code"></a>Ottenere il codice
 
-[Scaricare o visualizzare l'applicazione completata.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[Scaricare o visualizzare l'applicazione completata.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

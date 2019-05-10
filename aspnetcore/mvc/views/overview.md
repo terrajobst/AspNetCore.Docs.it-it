@@ -5,12 +5,12 @@ description: Informazioni su come le visualizzazioni gestiscono la presentazione
 ms.author: riande
 ms.date: 04/03/2019
 uid: mvc/views/overview
-ms.openlocfilehash: 766996645bc6ef2b6be42d729baf5d57f55b6ddd
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: 5e56c6bb18cb5d2389c11eb3e4aa9869228da47d
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59012799"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64891346"
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Visualizzazioni in ASP.NET Core MVC
 
@@ -61,7 +61,7 @@ Le visualizzazioni vengono in genere restituite da azioni come [ViewResult](/dot
 
 Quando viene restituita questa azione, il rendering della visualizzazione *About.cshtml* nell'ultima sezione corrisponderà alla pagina Web seguente:
 
-![Rendering della pagina About nel browser Edge](overview/_static/about-page.png)
+![Rendering della pagina About nel browser Microsoft Edge](overview/_static/about-page.png)
 
 Il metodo helper `View` ha diversi overload. È possibile specificare:
 
@@ -135,7 +135,7 @@ L'approccio più efficace consiste nello specificare un tipo di [modello](xref:m
 
 L'uso di un viewmodel per passare i dati a una visualizzazione consente a quest'ultima di trarre vantaggio dal controllo con tipizzazione *forte*. L'espressione *tipizzazione forte* o *fortemente tipizzato* indica che ogni variabile e costante ha un tipo definito in modo esplicito, ad esempio `string`, `int` o `DateTime`. La validità dei tipi usati in una visualizzazione viene verificata in fase di compilazione.
 
-In [Visual Studio](https://www.visualstudio.com/vs/) e [Visual Studio Code](https://code.visualstudio.com/) i membri delle classi fortemente tipizzati vengono elencati usando una funzionalità denominata [IntelliSense](/visualstudio/ide/using-intellisense). Per visualizzare le proprietà di un elemento viewmodel, digitare il nome della variabile per l'elemento viewmodel seguito da un punto (`.`). Ciò consente di scrivere il codice più velocemente con un minor numero di errori.
+In [Visual Studio](https://visualstudio.microsoft.com) e [Visual Studio Code](https://code.visualstudio.com/) i membri delle classi fortemente tipizzati vengono elencati usando una funzionalità denominata [IntelliSense](/visualstudio/ide/using-intellisense). Per visualizzare le proprietà di un elemento viewmodel, digitare il nome della variabile per l'elemento viewmodel seguito da un punto (`.`). Ciò consente di scrivere il codice più velocemente con un minor numero di errori.
 
 Specificare un modello usando la direttiva `@model`. Usare il modello con `@Model`:
 

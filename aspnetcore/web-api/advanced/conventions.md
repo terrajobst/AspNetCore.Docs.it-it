@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/13/2018
 uid: web-api/advanced/conventions
-ms.openlocfilehash: 25e8d5209f02683c533ef7c316b91d447f1b20ba
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: 671e39ded50e50bbfe6d12879895bee74367f754
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59705458"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64890776"
 ---
 # <a name="use-web-api-conventions"></a>Usare le convenzioni dell'API Web
 
@@ -29,7 +29,7 @@ ASP.NET Core MVC 2.2 e versioni successive include un set di convenzioni predefi
 
 In fase di runtime, <xref:Microsoft.AspNetCore.Mvc.ApiExplorer> riconosce le convenzioni. `ApiExplorer` è l'astrazione MVC per comunicare con i generatori di documenti [OpenAPI](https://www.openapis.org/) (noti anche come Swagger). Gli attributi della convenzione applicata vengono associati a un'azione e sono inclusi nella documentazione OpenAPI dell'azione. Anche gli [analizzatori di API](xref:web-api/advanced/analyzers) supportano le convenzioni. Se l'azione non è convenzionale (ad esempio, se restituisce un codice di stato non documentato dalla convenzione applicata), un avviso richiede di documentare il codice di stato.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/conventions/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/conventions/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="apply-web-api-conventions"></a>Applicare le convenzioni dell'API Web
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 162586059e3115bc15efaa63a9a0652e09872f1b
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 228722ecdc0fb19e024b7154393390fe6d34c5ff
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209965"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64887306"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Ordinamento, filtro, suddivisione in pagine - 3 di 8
 
@@ -29,7 +29,7 @@ La figura seguente illustra una pagina completata. Le intestazioni di colonna so
 
 ![Pagina Student Index (Indice degli studenti)](sort-filter-page/_static/paging.png)
 
-Se si verificano problemi che non si è in grado di risolvere, scaricare l'[app completa](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).
+Se si verificano problemi che non si è in grado di risolvere, scaricare l'[app completa](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).
 
 ## <a name="add-sorting-to-the-index-page"></a>Aggiungere l'ordinamento alla pagina Index (Indice)
 
@@ -275,13 +275,13 @@ Sostituire il codice nel file *Pages/About.cshtml* con il codice seguente:
 
 Eseguire l'app e passare alla pagina About (Informazioni). Il numero di studenti per ogni data di registrazione viene visualizzato in una tabella.
 
-Se si verificano problemi che non è possibile risolvere, scaricare l'[app completa per questa fase](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part3-sorting).
+Se si verificano problemi che non è possibile risolvere, scaricare l'[app completa per questa fase](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part3-sorting).
 
 ![Pagina About (Informazioni)](sort-filter-page/_static/about.png)
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Debug dell'origine ASP.NET Core 2.x](https://github.com/aspnet/Docs/issues/4155)
+* [Debug dell'origine ASP.NET Core 2.x](https://github.com/aspnet/AspNetCore.Docs/issues/4155)
 * [Versione YouTube dell'esercitazione](https://www.youtube.com/watch?v=MDs7PFpoMqI)
 
 Nella prossima esercitazione, l'app usa le migrazioni per aggiornare il modello di dati.

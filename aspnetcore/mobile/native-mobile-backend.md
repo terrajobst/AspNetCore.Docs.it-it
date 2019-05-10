@@ -5,12 +5,12 @@ description: Informazioni su come creare servizi back-end mediante ASP.NET Core 
 ms.author: riande
 ms.date: 10/14/2016
 uid: mobile/native-mobile-backend
-ms.openlocfilehash: 13149dd4b877b8c17d33d428779ad31d8c51ae9e
-ms.sourcegitcommit: 687ffb15ebe65379f75c84739ea851d5a0d788b7
+ms.openlocfilehash: b50d2593d7dc4b89472033898373e3a22fc9a7a3
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488728"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64883956"
 ---
 # <a name="create-backend-services-for-native-mobile-apps-with-aspnet-core"></a>Creare servizi back-end per app native per dispositivi mobili con ASP.NET Core
 
@@ -18,7 +18,7 @@ Di [Steve Smith](https://ardalis.com/)
 
 Le app per dispositivi mobili possono comunicare con i servizi back-end di ASP.NET Core. Per istruzioni sulla connessione a servizi Web locali da simulatori iOS ed emulatori Android, vedere [Connettersi a servizi Web locali da simulatori iOS ed emulatori Android](/xamarin/cross-platform/deploy-test/connect-to-local-web-services).
 
-[Visualizzare o scaricare codice di esempio di servizi back-end](https://github.com/aspnet/Docs/tree/master/aspnetcore/mobile/native-mobile-backend/sample)
+[Visualizzare o scaricare codice di esempio di servizi back-end](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mobile/native-mobile-backend/sample)
 
 ## <a name="the-sample-native-mobile-app"></a>App per dispositivi mobili nativa di esempio
 

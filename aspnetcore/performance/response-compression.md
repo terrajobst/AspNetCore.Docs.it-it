@@ -7,18 +7,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/13/2019
 uid: performance/response-compression
-ms.openlocfilehash: e87480ebb81791ed233f3e2308e35e21e081824f
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: e312d43fb62106f6ecb98367c29daa377bb227c9
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248368"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64893348"
 ---
 # <a name="response-compression-in-aspnet-core"></a>Compressione delle risposte in ASP.NET Core
 
 Di [Luke Latham](https://github.com/guardrex)
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 Larghezza di banda di rete è una risorsa limitata. Riduzione delle dimensioni della risposta in genere aumenta la velocità di risposta di un'app, spesso notevolmente. Un modo per ridurre le dimensioni dei payload è per la compressione delle risposte di un'app.
 
@@ -89,7 +89,7 @@ Le intestazioni coinvolti nella richiesta, l'invio, la memorizzazione nella cach
 | `Content-Type`     | Specifica il tipo MIME del contenuto. Ogni risposta deve specificare relativo `Content-Type`. Il middleware controlla questo valore per determinare se la risposta deve essere compresso. Il middleware specifica un set di [predefinito di tipi MIME](#mime-types) che può codificare, ma è possibile sostituire o aggiungere tipi MIME. |
 | `Vary`             | Quando inviato dal server con il valore `Accept-Encoding` ai client e i proxy, il `Vary` intestazione indica al client o al proxy di memorizzazione nella cache (variare) delle risposte in base al valore del `Accept-Encoding` intestazione della richiesta. Il risultato della restituzione del contenuto con il `Vary: Accept-Encoding` intestazione è che entrambi compressi e decompressi le risposte vengono memorizzate nella cache separatamente. |
 
-Scopri le funzionalità del Middleware di compressione delle risposte con il [app di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples). L'esempio illustra:
+Scopri le funzionalità del Middleware di compressione delle risposte con il [app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples). L'esempio illustra:
 
 * La compressione delle risposte di app con Gzip e provider di compressione personalizzato.
 * Come aggiungere un tipo MIME per l'elenco predefinito di tipi MIME per la compressione.

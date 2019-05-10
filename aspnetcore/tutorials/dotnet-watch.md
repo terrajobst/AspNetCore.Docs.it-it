@@ -5,12 +5,12 @@ description: Questa esercitazione illustra come installare e usare lo strumento 
 ms.author: riande
 ms.date: 05/31/2018
 uid: tutorials/dotnet-watch
-ms.openlocfilehash: 40ecca1c6f9d519b24649d0c28946d95b820c07c
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: 03b4f7f4ade5268915482a659890c7edc2d9a852
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59068196"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64889876"
 ---
 # <a name="develop-aspnet-core-apps-using-a-file-watcher"></a>Sviluppare app ASP.NET Core usando un watcher per file
 
@@ -20,7 +20,7 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT) e [Victor Hurdugaci](https:/
 
 Questa esercitazione usa un'API Web esistente con due endpoint, di cui uno restituisce una somma e l'altro un prodotto. Il metodo del prodotto ha un bug, che verrà corretto in questa esercitazione.
 
-Scaricare l'[app di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/dotnet-watch/sample). L'esempio è costituito da due progetti: *WebApp* (un'API Web di ASP.NET Core) e *WebAppTests* (unit test per l'API Web).
+Scaricare l'[app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/dotnet-watch/sample). L'esempio è costituito da due progetti: *WebApp* (un'API Web di ASP.NET Core) e *WebAppTests* (unit test per l'API Web).
 
 In una shell dei comandi passare alla cartella *WebApp*. Eseguire il comando seguente:
 

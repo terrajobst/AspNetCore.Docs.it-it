@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 10/14/2016
 uid: migration/identity
 ms.openlocfilehash: 72e62e78e37325ec47d54abbc11a875ae87fb63a
-ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "41828330"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64891878"
 ---
 # <a name="migrate-authentication-and-identity-to-aspnet-core"></a>Eseguire la migrazione di autenticazione e identità ad ASP.NET Core
 

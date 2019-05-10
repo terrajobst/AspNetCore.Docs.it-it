@@ -5,24 +5,50 @@ description: Informazioni su come usare l'autenticazione e autorizzazione in ASP
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 01/31/2019
+ms.date: 05/09/2019
 uid: signalr/authn-and-authz
-ms.openlocfilehash: 5d4574775606b4354ec099b6b32e05294d9f0e45
-ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
+ms.openlocfilehash: e8f9dc48be780fb91bdec6ea4d579f5e4f16197b
+ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55667310"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65516945"
 ---
 # <a name="authentication-and-authorization-in-aspnet-core-signalr"></a>Autenticazione e autorizzazione in ASP.NET Core SignalR
 
 Da [Andrew Stanton-Nurse](https://twitter.com/anurse)
 
-[Visualizzare o scaricare codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/authn-and-authz/sample/) [(come scaricare)](xref:index#how-to-download-a-sample)
+[Visualizzare o scaricare codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/authn-and-authz/sample/) [(come scaricare)](xref:index#how-to-download-a-sample)
 
 ## <a name="authenticate-users-connecting-to-a-signalr-hub"></a>Eseguire l'autenticazione di utenti che si connettono a un hub SignalR
 
 Può essere utilizzato con SignalR [autenticazione ASP.NET Core](xref:security/authentication/identity) per associare un utente a ogni connessione. In un hub, i dati di autenticazione è possibile accedere dal [ `HubConnectionContext.User` ](/dotnet/api/microsoft.aspnetcore.signalr.hubconnectioncontext.user) proprietà. L'autenticazione consente l'hub chiamare i metodi in tutte le connessioni associate a un utente (vedere [gestire utenti e gruppi in SignalR](xref:signalr/groups) per altre informazioni). Più connessioni possono essere associate a un singolo utente.
+
+Di seguito è riportato un esempio di `Startup.Configure` che utilizza l'autenticazione di SignalR e ASP.NET Core:
+
+```csharp
+public void Configure(IApplicationBuilder app)
+{
+    ...
+
+    app.UseStaticFiles();
+    
+    app.UseAuthentication();
+
+    app.UseSignalR(hubs =>
+    {
+        hubs.MapHub<ChatHub>("/chat");
+    });
+
+    app.UseMvc(routes =>
+    {
+        routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
+    });
+}
+```
+
+> [!NOTE]
+> È importante l'ordine in cui si registra il middleware di autenticazione SignalR e ASP.NET Core. Chiamare sempre `UseAuthentication` prima `UseSignalR` SignalR presenta un utente di `HttpContext`.
 
 ### <a name="cookie-authentication"></a>Autenticazione tramite cookie
 
