@@ -5,14 +5,14 @@ description: Informazioni su come configurare le app ASP.NET Core SignalR.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 02/07/2019
+ms.date: 04/15/2019
 uid: signalr/configuration
-ms.openlocfilehash: 2c1bb8d5e317813d1fdb8d474b7d7d892e6f67ec
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 703357fd52805e01515e5bac3b1a364ce7fe00f0
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264579"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65087647"
 ---
 # <a name="aspnet-core-signalr-configuration"></a>Configurazione di ASP.NET Core SignalR
 
@@ -167,6 +167,31 @@ let connection = new signalR.HubConnectionBuilder()
     .configureLogging(signalR.LogLevel.Information)
     .build();
 ```
+
+::: moniker range=">= aspnetcore-3.0"
+
+Invece di un `LogLevel` valore, è anche possibile fornire un `string` valore che rappresenta un nome a livello di log. Ciò è utile quando si configura la registrazione in ambienti di SignalR in cui non si ha accesso al `LogLevel` costanti.
+
+```javascript
+let connection = new signalR.HubConnectionBuilder()
+    .withUrl("/myhub")
+    .configureLogging("warn")
+    .build();
+```
+
+Nella tabella seguente sono elencati i livelli di log disponibili. Il valore specificato per `configureLogging` imposta la **minimo** livello che verrà registrato di registrazione. I messaggi registrati a questo livello **o i livelli elencati dopo di esso nella tabella**, verranno registrati.
+
+| string | LogLevel |
+| - | - |
+| `"trace"` | `LogLevel.Trace` |
+| `"debug"` | `LogLevel.Debug` |
+| `"info"` **or** `"information"` | `LogLevel.Information` |
+| `"warn"` **or** `"warning"` | `LogLevel.Warning` |
+| `"error"` | `LogLevel.Error` |
+| `"critical"` | `LogLevel.Critical` |
+| `"none"` | `LogLevel.None` |
+
+::: moniker-end
 
 > [!NOTE]
 > Per disabilitare completamente la registrazione, specificare `signalR.LogLevel.None` nella `configureLogging` (metodo).

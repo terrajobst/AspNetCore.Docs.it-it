@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/08/2019
 uid: mvc/controllers/filters
-ms.openlocfilehash: 4fe04cde2a234302845b2cbded106f1e809842bc
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: f357df0bbc51e881132e36ccb20f4ffdc3035032
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209294"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64883466"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtri in ASP.NET Core
 
@@ -27,7 +27,7 @@ I filtri predefiniti gestiscono attività, ad esempio:
 
 I filtri personalizzati possono essere creati per gestire problemi relativi a più settori. I filtri possono evitare la duplicazione di codice tra le azioni. Ad esempio, un filtro eccezioni per la gestione degli errori potrebbe consolidare la gestione degli errori.
 
-[Visualizzare o scaricare un esempio da GitHub](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/filters/sample).
+[Visualizzare o scaricare un esempio da GitHub](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/sample).
 
 ## <a name="how-filters-work"></a>Funzionamento dei filtri
 
@@ -425,4 +425,4 @@ I filtri middleware vengono eseguiti nella stessa fase della pipeline filtro com
 ## <a name="next-actions"></a>Azioni successive
 
 * Vedere [Modalità di filtro per Razor Pages](xref:razor-pages/filter)
-* Per sperimentare i filtri, [scaricare, testare e modificare l'esempio di GitHub](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/filters/sample).
+* Per sperimentare i filtri, [scaricare, testare e modificare l'esempio di GitHub](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/sample).

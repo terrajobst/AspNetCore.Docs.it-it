@@ -4,14 +4,14 @@ author: isaac2004
 description: Informazioni sulle nuove funzionalità in ASP.NET Core 2.1.
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 04/30/2019
 uid: aspnetcore-2.1
-ms.openlocfilehash: 8299af819f86d3d2371650ce3d87deb817f0feb8
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: 359f961db768b9048427c8ab296ee3e035879408
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248173"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65086399"
 ---
 # <a name="whats-new-in-aspnet-core-21"></a>Novità di ASP.NET Core 2.1
 
@@ -28,7 +28,7 @@ SignalR è stato riscritto per ASP.NET Core 2.1. SignalR ASP.NET Core include nu
 * Un nuovo modello di risposta streaming.
 * Supporto per client basati su WebSocket.
 
-Per altre informazioni, vedere [ASP.NET Core SignalR](xref:signalr/index).
+Per altre informazioni, vedere [ASP.NET Core SignalR](xref:signalr/introduction).
 
 ## <a name="razor-class-libraries"></a>Librerie di classi Razor
 
@@ -75,7 +75,7 @@ Nell'ambiente di produzione, HTTPS deve essere configurato in modo esplicito. Ne
 
 ## <a name="gdpr"></a>GDPR
 
-ASP.NET Core offre API e modelli con cui è possibile soddisfare alcuni dei requisiti del [GDPR](https://www.eugdpr.org/). Per altre informazioni, vedere [Supporto per il Regolamento generale sulla protezione dei dati in ASP.NET Core](xref:security/gdpr). L'[app di esempio](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample) illustra come usare e testare molte delle API e dei punti di estensione del GDPR aggiunti nei modelli ASP.NET Core 2.1.
+ASP.NET Core offre API e modelli con cui è possibile soddisfare alcuni dei requisiti del [GDPR](https://www.eugdpr.org/). Per altre informazioni, vedere [Supporto per il Regolamento generale sulla protezione dei dati in ASP.NET Core](xref:security/gdpr). L'[app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/security/gdpr/sample) illustra come usare e testare molte delle API e dei punti di estensione del GDPR aggiunti nei modelli ASP.NET Core 2.1.
 
 ## <a name="integration-tests"></a>Test di integrazione
 

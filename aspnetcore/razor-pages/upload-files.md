@@ -7,24 +7,24 @@ ms.author: riande
 ms.date: 11/10/2018
 ms.custom: mvc, seodec18
 uid: razor-pages/upload-files
-ms.openlocfilehash: a12653e5dc99ad731de63e151af6dbdbe38ffefc
-ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
-ms.translationtype: HT
+ms.openlocfilehash: 07457d57b7d3b444c8cea818149569407f1dd8e8
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60165222"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65085724"
 ---
 # <a name="upload-files-to-a-razor-page-in-aspnet-core"></a>Caricare file in una pagina Razor in ASP.NET Core
 
 Di [Luke Latham](https://github.com/guardrex)
 
-Questo argomento si basa il [app di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample) in <xref:tutorials/razor-pages/razor-pages-start>.
+Questo argomento si basa il [app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample) in <xref:tutorials/razor-pages/razor-pages-start>.
 
 Questo argomento illustra come usare l'associazione di modelli semplice per caricare i file, che funziona bene per il caricamento di file di piccole dimensioni. Per informazioni sulla trasmissione di file di grandi dimensioni, vedere [Caricamento di file di grandi dimensioni con il flusso](xref:mvc/models/file-uploads#uploading-large-files-with-streaming).
 
 Nella procedura descritta di seguito viene aggiunta una funzionalità di caricamento di file di pianificazione di film all'app di esempio. Ogni pianificazione di film è rappresentata da una classe `Schedule`. La classe include due versioni della pianificazione. La versione `PublicSchedule` viene messa a disposizione dei clienti. L'altra versione, `PrivateSchedule`, viene usata per i dipendenti della società. Le versioni vengono caricate come file separati. Nell'esercitazione viene illustrato come eseguire il caricamento di due file da una pagina con un solo invio al server.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-pages/upload-files/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/upload-files/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="security-considerations"></a>Considerazioni sulla sicurezza
 

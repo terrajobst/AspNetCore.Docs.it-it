@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: 26a29630c9a93ab5c50b4258f112e0085fcc2d6b
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264598"
----
 # <a name="aspnet-core-docs"></a>Documentazione di ASP.NET Core
 
 Questo repository contiene la documentazione concettuale per ASP.NET Core ospitata in [docs.microsoft.com/aspnet](https://docs.microsoft.com/aspnet). Vedere le [guida per i contributi](CONTRIBUTING.md) e l'[l'elenco dei problemi](https://github.com/aspnet/Docs/issues) se si vuole contribuire.

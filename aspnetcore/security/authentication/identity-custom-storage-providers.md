@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: ccd56d0c15639e1ad29094e947f8055702ee2264
-ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
+ms.openlocfilehash: 5a0797fcfe93d49b941b61688ae8f58a1b5d7614
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833670"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65086354"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Provider di archiviazione personalizzati per ASP.NET Core Identity
 
@@ -19,7 +19,7 @@ Di [Steve Smith](https://ardalis.com/)
 
 ASP.NET Core Identity è un sistema estendibile che consente di creare un provider di archiviazione personalizzati e connetterla all'app. Questo argomento descrive come creare un provider di archiviazione personalizzati per ASP.NET Core Identity. Sono inclusi i concetti importanti per la creazione di un proprio provider di archiviazione, ma non è una procedura dettagliata.
 
-[Visualizzare o scaricare un esempio da GitHub](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/identity/sample).
+[Visualizzare o scaricare un esempio da GitHub](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/identity/sample).
 
 ## <a name="introduction"></a>Introduzione
 
@@ -139,7 +139,7 @@ Creare un `UserStore` classe che fornisce i metodi per tutte le operazioni di da
 * [IUserTwoFactorStore](/dotnet/api/microsoft.aspnetcore.identity.iusertwofactorstore-1)
 * [IUserLockoutStore](/dotnet/api/microsoft.aspnetcore.identity.iuserlockoutstore-1)
 
-Le interfacce facoltative ereditano `IUserStore<TUser>`. È possibile visualizzare archiviare in un utente di esempio implementata parzialmente il [app di esempio](https://github.com/aspnet/Docs/blob/master/aspnetcore/security/authentication/identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs).
+Le interfacce facoltative ereditano `IUserStore<TUser>`. È possibile visualizzare archiviare in un utente di esempio implementata parzialmente il [app di esempio](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/security/authentication/identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs).
 
 All'interno di `UserStore` (classe), è utilizzare le classi di accesso di dati creato per eseguire operazioni. Questi vengono passati tramite inserimento delle dipendenze. Ad esempio, in SQL Server con Dapper implementazione, il `UserStore` classe ha la `CreateAsync` metodo che utilizza un'istanza di `DapperUsersTable` per inserire un nuovo record:
 

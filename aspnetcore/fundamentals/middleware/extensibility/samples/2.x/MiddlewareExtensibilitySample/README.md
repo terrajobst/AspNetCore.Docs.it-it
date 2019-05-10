@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: 41021e30ae85dd0ae42cbe6f1606727e21bd7707
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59705523"
----
 # <a name="aspnet-core-middleware-extensibility-sample"></a>Esempio di estendibilità del middleware di ASP.NET Core
 
 Questo esempio illustra gli scenari descritti in [Attivazione del middleware basata su factory in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/middleware/middleware-extensibility).

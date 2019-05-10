@@ -4,20 +4,20 @@ author: rick-anderson
 description: Informazioni su come creare helper tag in ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/12/2019
+ms.date: 04/29/2019
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: 19b7df1abc8765cb9a77487e39c4365fdacf2b65
-ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
+ms.openlocfilehash: 37e39ac93e7b67184dfc238d58e12c2be8d84f91
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59614422"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65087338"
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>Creare helper tag in ASP.NET Core
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/authoring/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/tag-helpers/authoring/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="get-started-with-tag-helpers"></a>Guida introduttiva agli helper tag
 
@@ -108,7 +108,9 @@ Aggiornare la classe `EmailTagHelper` con il codice seguente:
 
 Questo approccio funziona per l'attributo "href" a condizione che non esista nella raccolta di attributi. È anche possibile usare il metodo `output.Attributes.Add` per aggiungere un attributo di helper tag alla fine della raccolta di attributi di tag.
 
-1. Aggiornare il markup nel file *Views/Home/Contact.cshtm* con queste modifiche: [!code-html[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/ContactCopy.cshtml?highlight=15,16)]
+1. Aggiornare il markup nel file *Views/Home/Contact.cshtml* con queste modifiche:
+
+   [!code-html[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/ContactCopy.cshtml?highlight=15,16)]
 
 1. Eseguire l'app e verificare che generi collegamenti corretti.
 
