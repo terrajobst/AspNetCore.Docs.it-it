@@ -3,20 +3,20 @@ title: Usare Grunt in ASP.NET Core
 author: rick-anderson
 description: ''
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 05/10/2019
 uid: client-side/using-grunt
-ms.openlocfilehash: fc912974fb6ed3c65bb46a7d616d9e531587d946
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 73b7704726db9d93588dddd3f3b05a23fb3425b3
+ms.sourcegitcommit: ffe3ed7921ec6c7c70abaac1d10703ec9a43374c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64894638"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65535946"
 ---
 # <a name="use-grunt-in-aspnet-core"></a>Usare Grunt in ASP.NET Core
 
 Da [riso Noel](https://blog.falafel.com/falafel-software-recognized-sitefinity-website-year/)
 
-Grunt è uno strumento di esecuzione attività JavaScript che automatizza la minimizzazione dello script, la compilazione TypeScript, gli strumenti "lint" qualità del codice, pre-processori CSS e praticamente qualsiasi lavoro ingrato ripetitiva che deve eseguire per supportare lo sviluppo di client. Grunt è completamente supportato in Visual Studio, anche se i modelli di progetto ASP.NET usano Gulp per impostazione predefinita (vedere [uso di Gulp](using-gulp.md)).
+Grunt è uno strumento di esecuzione attività JavaScript che automatizza la minimizzazione dello script, la compilazione TypeScript, gli strumenti "lint" qualità del codice, pre-processori CSS e praticamente qualsiasi lavoro ingrato ripetitiva che deve eseguire per supportare lo sviluppo di client. Grunt è completamente supportato in Visual Studio.
 
 Questo esempio Usa un progetto ASP.NET Core vuoto come punto di partenza, in cui viene illustrato come automatizzare il processo di compilazione di client da zero.
 
@@ -286,7 +286,3 @@ Scaricare e ricaricare il progetto. Quando il progetto viene caricato anche in q
 ## <a name="summary"></a>Riepilogo
 
 Grunt è uno strumento di esecuzione di attività potente che può essere utilizzato per automatizzare la maggior parte delle attività di compilazione di client. Monitoraggio prestazioni rete per offrire le funzionalità di integrazione con Visual Studio degli strumenti e i pacchetti, si avvale di grunt. Task Runner Explorer di Visual Studio rileva le modifiche apportate ai file di configurazione e fornisce una comoda interfaccia per eseguire le attività, visualizzare le attività in esecuzione e per associare attività agli eventi di Visual Studio.
-
-## <a name="additional-resources"></a>Risorse aggiuntive
-
-* [Usare Gulp](using-gulp.md)

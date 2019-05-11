@@ -4,14 +4,14 @@ author: scottaddie
 description: Informazioni su come ottimizzare le risorse statiche in un'applicazione web ASP.NET Core applicando tecniche di creazione di bundle e minimizzazione.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 11/20/2018
+ms.date: 05/10/2019
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: 5d5f0aadb7740c9b2b959d12a585cd8c91758ce8
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: ba01d365a25dfbd13fed89263d7489b2ce2a8771
+ms.sourcegitcommit: ffe3ed7921ec6c7c70abaac1d10703ec9a43374c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64894298"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65535924"
 ---
 # <a name="bundle-and-minify-static-assets-in-aspnet-core"></a>Aggregare e minimizzare asset statici in ASP.NET Core
 
@@ -63,7 +63,7 @@ I browser sono piuttosto dettagliati per quanto riguarda le intestazioni di rich
 
 ## <a name="choose-a-bundling-and-minification-strategy"></a>Scegliere una strategia di creazione di bundle e minimizzazione
 
-I modelli di progetto MVC e Razor Pages forniscono una soluzione di out-of-the-box per la creazione di bundle e minimizzazione costituito da un file di configurazione JSON. Strumenti di terze parti, ad esempio la [Gulp](xref:client-side/using-gulp) e [Grunt](xref:client-side/using-grunt) gli strumenti di esecuzione di attività, eseguire le stesse attività con un po' più complesso. Uno strumento di terze parti può essere un candidato ideale quando il flusso di lavoro di sviluppo richiede ulteriori elaborazioni, oltre alla creazione di bundle e minimizzazione&mdash;, come l'ottimizzazione di Lint e l'immagine. Usando in fase di progettazione e minimizzazione, vengono creati i file minimizzati prima della distribuzione dell'app. Creazione di bundle e minimizzazione prima della distribuzione offre il vantaggio di carico del server ridotto. Tuttavia, è importante tenere presente che in fase di progettazione creazione di bundle e minimizzazione aumenta la complessità di compilazione e funziona solo con i file statici.
+I modelli di progetto MVC e Razor Pages forniscono una soluzione di out-of-the-box per la creazione di bundle e minimizzazione costituito da un file di configurazione JSON. Strumenti di terze parti, ad esempio la [Grunt](xref:client-side/using-grunt) runner di attività, eseguire le stesse attività con un po' più complesso. Uno strumento di terze parti può essere un candidato ideale quando il flusso di lavoro di sviluppo richiede ulteriori elaborazioni, oltre alla creazione di bundle e minimizzazione&mdash;, come l'ottimizzazione di Lint e l'immagine. Usando in fase di progettazione e minimizzazione, vengono creati i file minimizzati prima della distribuzione dell'app. Creazione di bundle e minimizzazione prima della distribuzione offre il vantaggio di carico del server ridotto. Tuttavia, è importante tenere presente che in fase di progettazione creazione di bundle e minimizzazione aumenta la complessità di compilazione e funziona solo con i file statici.
 
 ## <a name="configure-bundling-and-minification"></a>Configurare la creazione di bundle e minimizzazione
 
@@ -325,11 +325,9 @@ In questo esempio, tutte le attività definiti all'interno di `MyPreCompileTarge
 ========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
 ```
 
-In alternativa, Visual Studio Task Runner Explorer può essere utilizzato per associare le attività Gulp a eventi specifici di Visual Studio. Visualizzare [esecuzione di attività predefinito](xref:client-side/using-gulp#running-default-tasks) per istruzioni su come questa operazione.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Usare Gulp](xref:client-side/using-gulp)
 * [Usare Grunt](xref:client-side/using-grunt)
 * [Usare più ambienti](xref:fundamentals/environments)
 * [Helper tag](xref:mvc/views/tag-helpers/intro)
