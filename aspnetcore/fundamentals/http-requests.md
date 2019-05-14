@@ -5,14 +5,14 @@ description: Informazioni sull'uso dell'interfaccia IHttpClientFactory per gesti
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 03/30/2019
+ms.date: 05/10/2019
 uid: fundamentals/http-requests
-ms.openlocfilehash: 84cdbca20e7c7aaa1941c78483cc36a9f0b24505
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 540f14ad2b290d276436033a94d4c815888e5a95
+ms.sourcegitcommit: ffe3ed7921ec6c7c70abaac1d10703ec9a43374c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64888946"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65536011"
 ---
 # <a name="make-http-requests-using-ihttpclientfactory-in-aspnet-core"></a>Effettuare richieste HTTP usando IHttpClientFactory in ASP.NET Core
 
@@ -27,9 +27,13 @@ Di [Glenn Condron](https://github.com/glennc), [Ryan Nowak](https://github.com/r
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/http-requests/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
+::: moniker range="<= aspnetcore-2.2"
+
 ## <a name="prerequisites"></a>Prerequisiti
 
 I progetti destinati a .NET Framework richiedono l'installazione del pacchetto NuGet [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/). I progetti destinati a .NET Core che fanno riferimento al [metapacchetto Microsoft.AspNetCore.All](xref:fundamentals/metapackage-app) sono già inclusi nel pacchetto `Microsoft.Extensions.Http`.
+
+::: moniker-end
 
 ## <a name="consumption-patterns"></a>Modelli di consumo
 
@@ -197,11 +201,10 @@ Usare uno degli approcci seguenti per condividere lo stato in base alla richiest
 
 `IHttpClientFactory` si integra con una libreria di terze parti piuttosto diffusa denominata [Polly](https://github.com/App-vNext/Polly). Polly è una libreria di gestione degli errori temporanei e di resilienza completa per .NET. Consente agli sviluppatori di esprimere criteri quali Retry, Circuit Breaker, Timeout, Bulkhead Isolation e Fallback in modo fluido e thread-safe.
 
-Per consentire l'uso dei criteri Polly con le istanze configurate di `HttpClient` sono disponibili metodi di estensione. Le estensioni per Polly sono disponibili nel pacchetto NuGet [Microsoft.Extensions.Http.Polly](https://www.nuget.org/packages/Microsoft.Extensions.Http.Polly/). Il pacchetto non è incluso nel metapacchetto [Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app). Per usare le estensioni, nel progetto deve essere incluso un elemento `<PackageReference />` esplicito.
+Per consentire l'uso dei criteri Polly con le istanze configurate di `HttpClient` sono disponibili metodi di estensione. Le estensioni Polly:
 
-[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/HttpClientFactorySample.csproj?highlight=10)]
-
-Dopo il ripristino di questo pacchetto, i metodi di estensione che supportano l'aggiunta di gestori basati su Polly ai client risultano disponibili.
+* Supportano l'aggiunta di gestori basati su Polly ai client.
+* Possono essere usate dopo l'installazione del pacchetto NuGet [Microsoft.Extensions.Http.Polly](https://www.nuget.org/packages/Microsoft.Extensions.Http.Polly/). Il pacchetto non è incluso nel framework condiviso ASP.NET Core.
 
 ### <a name="handle-transient-faults"></a>Gestire gli errori temporanei
 
@@ -219,11 +222,11 @@ Per aggiungere gestori basati su Polly è possibile usare altri metodi di estens
 
 [!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet8)]
 
-Nel codice precedente se la richiesta in uscita è un'operazione GET, viene applicato un timeout di 10 secondi. Per qualsiasi altro metodo HTTP viene usato un timeout di 30 secondi.
+Nel codice precedente, se la richiesta in uscita è una richiesta HTTP GET viene applicato un timeout di 10 secondi. Per qualsiasi altro metodo HTTP viene usato un timeout di 30 secondi.
 
 ### <a name="add-multiple-polly-handlers"></a>Aggiungere più gestori Polly
 
-Una pratica comune per offrire una funzionalità avanzata è quella di annidare i criteri Polly:
+In molti casi i criteri Polly vengono annidati per offrire funzionalità avanzate:
 
 [!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet9)]
 

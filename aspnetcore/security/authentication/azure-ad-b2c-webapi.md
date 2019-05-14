@@ -6,12 +6,12 @@ ms.author: casoper
 ms.date: 09/21/2018
 ms.custom: mvc, seodec18
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: 00e7c9a438260ef8e12e567e521fc44b2ffa9cca
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 0eb8b533f44a1f72cfc3c4ec5ec060adb37eed6c
+ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65086335"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610362"
 ---
 # <a name="authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Autenticazione nell'API web con Azure Active Directory B2C in ASP.NET Core
 
@@ -37,7 +37,7 @@ In questa esercitazione si apprenderà come:
 Di seguito sono necessarie per questa procedura dettagliata:
 
 * [Sottoscrizione di Microsoft Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-* [Visual Studio 2017](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) (qualsiasi edizione)
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019)
 * [Postman](https://www.getpostman.com/postman)
 
 ## <a name="create-the-azure-active-directory-b2c-tenant"></a>Creare il tenant di Azure Active Directory B2C
@@ -65,7 +65,7 @@ Usare i valori seguenti:
 
 Dopo aver registrato l'API, viene visualizzato l'elenco di API e App nel tenant. Selezionare l'API che è stato registrato in precedenza. Selezionare il **copia** a destra dell'icona le **ID applicazione** campo per copiarlo negli Appunti. Selezionare **ambiti pubblicati** e verificare il valore predefinito *user_impersonation* ambito è presente.
 
-## <a name="create-an-aspnet-core-app-in-visual-studio-2017"></a>Creare un'app ASP.NET Core in Visual Studio 2017
+## <a name="create-an-aspnet-core-app-in-visual-studio"></a>Creare un'app ASP.NET Core in Visual Studio
 
 Il modello di applicazione Web di Visual Studio può essere configurato per usare il tenant di Azure AD B2C per l'autenticazione.
 
