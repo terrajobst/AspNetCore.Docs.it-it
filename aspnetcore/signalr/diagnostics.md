@@ -168,7 +168,7 @@ La maggior parte degli strumenti di sviluppo del browser aperta una scheda "Rete
 
 ### <a name="microsoft-edge-and-internet-explorer"></a>Microsoft Edge e Internet Explorer
 
-(Le istruzioni sono gli stessi per sia Edge e Internet Explorer)
+(Le istruzioni sono le stesse sia per Microsoft Edge che per Internet Explorer)
 
 1. Premere F12 per aprire gli strumenti di sviluppo
 2. Fare clic sulla scheda di rete

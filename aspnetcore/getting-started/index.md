@@ -4,24 +4,24 @@ author: rick-anderson
 description: Un'esercitazione rapida per creare ed eseguire una semplice app Hello World usando ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/15/2019
+ms.date: 5/15/2019
 uid: getting-started
-ms.openlocfilehash: 76728c484368a8b63130c259a9663473970846d3
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 9227dcfbc84376d9d73bc6fc0dd76085779acae1
+ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209476"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610315"
 ---
 # <a name="tutorial-get-started-with-aspnet-core"></a>Esercitazione: Introduzione ad ASP.NET Core
 
-Questa esercitazione illustra come usare l'interfaccia della riga di comando di .NET Core per creare un'app Web ASP.NET Core.
+Questa esercitazione illustra come usare l'interfaccia della riga di comando di .NET Core per creare ed eseguire un'app Web ASP.NET Core.
 
 Si imparerà a eseguire le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Creare un progetto di app Web.
-> * Abilitare HTTPS locale.
+> * Considerare attendibile il certificato di sviluppo.
 > * Eseguire l'app.
 > * Modificare una pagina Razor.
 
@@ -41,7 +41,7 @@ Aprire una shell dei comandi e immettere il comando seguente:
 dotnet new webapp -o aspnetcoreapp
 ```
 
-## <a name="enable-local-https"></a>Abilitare HTTPS locale
+### <a name="trust-the-development-certificate"></a>Considerare attendibile il certificato di sviluppo
 
 Considerare attendibile il certificato di sviluppo HTTPS:
 
@@ -70,6 +70,8 @@ Il comando precedente consente di visualizzare il messaggio seguente:
 Questo comando potrebbe richiedere la password per installare il certificato nel keychain di sistema. Inserire la password se si accetta di considerare attendibile il certificato di sviluppo.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+Per il sottosistema Windows per Linux, vedere [Considerare attendibile il certificato HTTPS dal sottosistema Windows per Linux](xref:security/enforcing-ssl#wsl).
 
 Vedere la documentazione della distribuzione di Linux su come rendere attendibile il certificato di sviluppo HTTPS.
 
@@ -102,7 +104,7 @@ In questa esercitazione si è appreso come:
 
 > [!div class="checklist"]
 > * Creare un progetto di app Web.
-> * Abilitare HTTPS locale.
+> * Considerare attendibile il certificato di sviluppo.
 > * Eseguire il progetto.
 > * Apportare una modifica.
 
