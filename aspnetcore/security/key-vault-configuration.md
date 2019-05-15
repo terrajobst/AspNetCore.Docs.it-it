@@ -5,14 +5,14 @@ description: Informazioni su come usare il Provider di configurazione dell'insie
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/25/2019
+ms.date: 05/13/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: 45eca05b5eb41815924ca48f60c3b00046c6bdaf
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 78c63cf135ca92f0b5f6c6828b2ae34a44a7b36c
+ms.sourcegitcommit: 3ee6ee0051c3d2c8d47a58cb17eef1a84a4c46a0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64894988"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65621006"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Azure Key Vault Configuration Provider in ASP.NET Core
 
@@ -111,7 +111,7 @@ Le istruzioni fornite dal [Guida introduttiva: Impostare e recuperare un segreto
    az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "Section--SecretName" --value "secret_value_2_prod"
    ```
 
-## <a name="use-application-id-and-client-secret-for-non-azure-hosted-apps"></a>Usare l'ID applicazione e il segreto Client per le app di Azure-indipendenti
+## <a name="use-application-id-and-x509-certificate-for-non-azure-hosted-apps"></a>Usare certificati X.509 e ID dell'applicazione per le app non--ospitate in Azure
 
 Configurare Azure AD, Azure Key Vault e l'app per usare un ID di applicazione di Azure Active Directory e x. 509 del certificato per l'autenticazione a un insieme di credenziali delle chiavi **quando l'app è ospitata all'esterno di Azure**. Per altre informazioni, vedere [sulle chiavi, segreti e certificati](/azure/key-vault/about-keys-secrets-and-certificates).
 
@@ -120,12 +120,15 @@ Configurare Azure AD, Azure Key Vault e l'app per usare un ID di applicazione di
 
 L'app di esempio Usa un ID applicazione e certificati X.509 quando le `#define` istruzione all'inizio del *Program.cs* file sia impostato su `Certificate`.
 
+1. Creare un archivio di PKCS #12 (*PFX*) certificato. Le opzioni per la creazione di certificati includono [MakeCert in Windows](/windows/desktop/seccrypto/makecert) e [OpenSSL](https://www.openssl.org/).
+1. Installare il certificato nell'archivio certificati personali dell'utente corrente. Contrassegnare la chiave come esportabile è facoltativo. Si noti identificazione personale del certificato, che viene usato più avanti in questo processo.
+1. Esportare l'archivio di PKCS #12 (*PFX*) certificato sotto forma di un certificato con codifica DER (*CER*).
 1. Registrare l'app con Azure AD (**registrazioni per l'App**).
-1. Caricare la chiave pubblica:
+1. Caricare il certificato con codifica DER (*CER*) ad Azure AD:
    1. Selezionare l'app di Azure AD.
-   1. Passare a **le impostazioni** > **chiavi**.
-   1. Selezionare **carica la chiave pubblica** per caricare il certificato che contiene la chiave pubblica. Oltre a usare una *CER*, *PEM*, o *CRT* certificato, una *PFX* certificato può essere caricato.
-1. Store dell'App il nome del key vault e l'ID applicazione *appSettings. JSON* file. Inserire il certificato alla radice dell'app o nell'archivio certificati dell'app&dagger;.
+   1. Passare a **certificati e i segreti**.
+   1. Selezionare **carica certificato** per caricare il certificato che contiene la chiave pubblica. Oggetto *CER*, *PEM*, o *CRT* certificato è accettabile.
+1. Store il nome del key vault, ID applicazione e identificazione personale del certificato dell'app *appSettings. JSON* file.
 1. Passare a **insiemi di credenziali della chiave** nel portale di Azure.
 1. Selezionare l'insieme di credenziali delle chiavi che è stato creato nel [archiviazione di segreti nell'ambiente di produzione con Azure Key Vault](#secret-storage-in-the-production-environment-with-azure-key-vault) sezione.
 1. Selezionare **criteri di accesso**.
@@ -136,8 +139,6 @@ L'app di esempio Usa un ID applicazione e certificati X.509 quando le `#define` 
 1. Selezionare **Salva**.
 1. Distribuire l'app.
 
-&dagger;Nell'app di esempio, il certificato viene utilizzato direttamente dal file fisico certificato nella radice dell'app tramite la creazione di una nuova `X509Certificate2` quando si chiama `AddAzureKeyVault`. Un approccio alternativo è consentire al sistema operativo di gestire il certificato. Per altre informazioni, vedere la [consentire al sistema operativo gestire il certificato X.509](#allow-the-os-to-manage-the-x509-certificate) sezione.
-
 Il `Certificate` app di esempio ottiene i valori di configurazione da `IConfigurationRoot` con lo stesso nome come nome del segreto:
 
 * Valori non gerarchici: Il valore per `SecretName` viene ottenuto con `config["SecretName"]`.
@@ -145,14 +146,15 @@ Il `Certificate` app di esempio ottiene i valori di configurazione da `IConfigur
   * `config["Section:SecretName"]`
   * `config.GetSection("Section")["SecretName"]`
 
-Le chiamate dell'app `AddAzureKeyVault` con i valori forniti per il *appSettings. JSON* file:
+Il certificato X.509 viene gestito dal sistema operativo. Le chiamate dell'app `AddAzureKeyVault` con i valori forniti per il *appSettings. JSON* file:
 
-[!code-csharp[](key-vault-configuration/sample/Program.cs?name=snippet1&highlight=12-15)]
+[!code-csharp[](key-vault-configuration/sample/Program.cs?name=snippet1&highlight=20-23)]
 
 Valori di esempio:
 
 * Nome del key vault: `contosovault`
 * ID applicazione: `627e911e-43cc-61d4-992e-12db9c81b413`
+* Identificazione personale del certificato: `fe14593dd66b2406c5269d742d04b6e1ab03adb1`
 
 *appsettings.json*:
 
@@ -203,17 +205,7 @@ Nell'esempio seguente, viene stabilito un segreto della chiave dell'insieme di c
 
 `AddAzureKeyVault` viene chiamato con un oggetto personalizzato `IKeyVaultSecretManager`:
 
-[!code-csharp[](key-vault-configuration/sample_snapshot/Program.cs?name=snippet1&highlight=22)]
-
-I valori per nome del key vault, ID applicazione e la Password (segreto Client) vengono forniti per il *appSettings. JSON* file:
-
-[!code-json[](key-vault-configuration/sample/appsettings.json)]
-
-Valori di esempio:
-
-* Nome del key vault: `contosovault`
-* ID applicazione: `627e911e-43cc-61d4-992e-12db9c81b413`
-* Password: `g58K3dtg59o1Pa+e59v2Tx829w6VxTB2yv9sv/101di=`
+[!code-csharp[](key-vault-configuration/sample_snapshot/Program.cs?highlight=30-34)]
 
 Il `IKeyVaultSecretManager` implementazione reagisca ai prefissi di versione dei segreti per caricare il segreto appropriato nella configurazione:
 
@@ -261,44 +253,6 @@ Quando viene implementato questo approccio:
 
 > [!NOTE]
 > È anche possibile fornire una propria `KeyVaultClient` implementazione di `AddAzureKeyVault`. Un client personalizzato consente la condivisione di una singola istanza del client dell'app.
-
-## <a name="allow-the-os-to-manage-the-x509-certificate"></a>Consentire al sistema operativo gestire il certificato X.509
-
-Il certificato X.509 può essere gestito dal sistema operativo. L'esempio seguente usa il `AddAzureKeyVault` overload che accetta un `X509Certificate2` dall'archivio di certificati utente corrente del computer e un'identificazione personale del certificato fornito dalla configurazione:
-
-```csharp
-// using System.Linq;
-// using System.Security.Cryptography.X509Certificates;
-// using Microsoft.Extensions.Configuration;
-
-WebHost.CreateDefaultBuilder(args)
-    .ConfigureAppConfiguration((context, config) =>
-    {
-        if (context.HostingEnvironment.IsProduction())
-        {
-            var builtConfig = config.Build();
-
-            using (var store = new X509Store(StoreName.My, 
-                StoreLocation.CurrentUser))
-            {
-                store.Open(OpenFlags.ReadOnly);
-                var certs = store.Certificates
-                    .Find(X509FindType.FindByThumbprint, 
-                        builtConfig["CertificateThumbprint"], false);
-
-                config.AddAzureKeyVault(
-                    builtConfig["KeyVaultName"], 
-                    builtConfig["AzureADApplicationId"], 
-                    certs.OfType<X509Certificate2>().Single());
-
-                store.Close();
-            }
-        }
-    })
-    .UseStartup<Startup>();
-```
-
-Per altre informazioni, vedere [eseguire l'autenticazione con un certificato anziché un segreto Client](/azure/key-vault/key-vault-use-from-web-application#authenticate-with-a-certificate-instead-of-a-client-secret).
 
 ## <a name="bind-an-array-to-a-class"></a>Associare una matrice a una classe
 
@@ -358,13 +312,12 @@ I segreti scaduti e disabilitati generano un `KeyVaultClientException`. Per evit
 
 L'app non riesce a caricare la configurazione utilizzando il provider, viene scritto un messaggio di errore per il [registrazione di ASP.NET Core infrastructure](xref:fundamentals/logging/index). Configurazione del caricamento impedire che le condizioni seguenti:
 
-* L'app non è configurato correttamente in Azure Active Directory.
+* L'app o il certificato non è configurato correttamente in Azure Active Directory.
 * L'insieme di credenziali delle chiavi non esiste in Azure Key Vault.
 * L'app non è autorizzato ad accedere l'insieme di credenziali delle chiavi.
 * I criteri di accesso non includano `Get` e `List` autorizzazioni.
 * Nell'insieme di credenziali chiave, i dati di configurazione (coppia nome-valore) in modo non corretto denominati, mancante, disabilitato o scaduto.
-* L'app con il nome dell'insieme di credenziali chiave errata (`KeyVaultName`), Id di applicazione Azure AD (`AzureADApplicationId`), o Password di Azure AD (segreto Client) (`AzureADPassword`).
-* La Password di Azure AD (segreto Client) (`AzureADPassword`) è scaduto.
+* L'app con il nome dell'insieme di credenziali chiave errata (`KeyVaultName`), Id di applicazione Azure AD (`AzureADApplicationId`), o l'identificazione personale del certificato di Azure AD (`AzureADCertThumbprint`).
 * Non è corretta nell'app per il valore che si sta provando a caricare la chiave di configurazione (nome).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
