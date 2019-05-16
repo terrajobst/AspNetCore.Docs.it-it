@@ -92,7 +92,11 @@
     - name: App RPC
       items:
         - name: Introduzione all'uso del servizio gRPC in ASP.NET Core
+          uid: tutorials/grpc/index
+        - name: Creare un servizio Greeter gRPC ASP.NET Core
           uid: tutorials/grpc/grpc-start
+        - name: Creare un client gRPC .NET Core
+          uid: tutorials/grpc/grpc-client
     - name: Accesso ai dati
       items:
         - name: EF Core con Razor Pages
@@ -230,8 +234,9 @@
         - name: Panoramica
           uid: mvc/overview
         - name: Esercitazione
-          uid: tutorials/first-mvc-app/index
           items:
+            - name: Panoramica
+              uid: tutorials/first-mvc-app/index
             - name: Introduzione
               uid: tutorials/first-mvc-app/start-mvc
             - name: Aggiungere un controller
@@ -324,8 +329,6 @@
               uid: client-side/libman/libman-cli
             - name: Visual Studio
               uid: client-side/libman/libman-vs
-        - name: Gulp
-          uid: client-side/using-gulp
         - name: Grunt
           uid: client-side/using-grunt
         - name: Bower
@@ -338,13 +341,10 @@
       uid: fundamentals/app-state
     - name: Layout
       uid: mvc/views/layout
-    - name: Associazione di modelli
-      uid: mvc/models/model-binding
-    - name: Convalida modello
-      uid: mvc/models/validation
     - name: Sintassi Razor
       uid: mvc/views/razor
     - name: Helper tag
+      uid: mvc/views/tag-helpers/builtin-th/Index
       items:
         - name: Panoramica
           uid: mvc/views/tag-helpers/intro
@@ -396,10 +396,6 @@
           uid: mvc/controllers/areas
         - name: Parti di app
           uid: mvc/extensibility/app-parts
-        - name: Associazione di modelli personalizzati
-          uid: mvc/advanced/custom-model-binding
-        - name: Versione di compatibilità
-          uid: mvc/compatibility-version
 - name: App per le API Web
   items:
     - name: Panoramica
@@ -1000,6 +996,14 @@
       uid: fundamentals/troubleshoot-aspnet-core-localization
 - name: Avanzate
   items:
+    - name: Associazione di modelli
+      uid: mvc/models/model-binding
+    - name: Associazione di modelli personalizzati
+      uid: mvc/advanced/custom-model-binding
+    - name: Convalida modello
+      uid: mvc/models/validation
+    - name: Versione di compatibilità
+      uid: mvc/compatibility-version
     - name: Scrivere il middleware
       uid: fundamentals/middleware/write
     - name: Operazioni di richieste e risposte
@@ -1076,4 +1080,4 @@
 - name: API (riferimento)
   href: /dotnet/api/?view=aspnetcore-2.2
 - name: Collaborazione
-  href: 'https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md'
+  href: 'https://github.com/aspnet/AspNetCore.Docs/blob/master/CONTRIBUTING.md'

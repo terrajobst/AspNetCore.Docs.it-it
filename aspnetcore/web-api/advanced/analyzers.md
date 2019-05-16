@@ -7,56 +7,56 @@ ms.author: pranavkm
 ms.custom: mvc
 ms.date: 12/14/2018
 uid: web-api/advanced/analyzers
-ms.openlocfilehash: 7558552586d3056c43d8bfd9ef74cbcb3396726f
-ms.sourcegitcommit: 6548c19f345850ee22b50f7ef9fca732895d9e08
+ms.openlocfilehash: bcc89f856e0aeef80c46a44f76f86b4c09ac6746
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53425094"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64890826"
 ---
-# <a name="use-web-api-analyzers"></a><span data-ttu-id="cca17-103">Usare gli analizzatori dell'API Web</span><span class="sxs-lookup"><span data-stu-id="cca17-103">Use web API analyzers</span></span>
+# <a name="use-web-api-analyzers"></a><span data-ttu-id="84a56-103">Usare gli analizzatori dell'API Web</span><span class="sxs-lookup"><span data-stu-id="84a56-103">Use web API analyzers</span></span>
 
-<span data-ttu-id="cca17-104">ASP.NET Core 2.2 e versioni successive include il pacchetto NuGet [Microsoft.AspNetCore.Mvc.Api.Analyzers](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Api.Analyzers), che contiene analizzatori per le API Web.</span><span class="sxs-lookup"><span data-stu-id="cca17-104">ASP.NET Core 2.2 and later includes the [Microsoft.AspNetCore.Mvc.Api.Analyzers](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Api.Analyzers) NuGet package containing analyzers for web APIs.</span></span> <span data-ttu-id="cca17-105">Gli analizzatori funzionano con i controller annotati con <xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute>, sulla base delle [convenzioni API](xref:web-api/advanced/conventions).</span><span class="sxs-lookup"><span data-stu-id="cca17-105">The analyzers work with controllers annotated with <xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute>, while building on [API conventions](xref:web-api/advanced/conventions).</span></span>
+<span data-ttu-id="84a56-104">ASP.NET Core 2.2 e versioni successive include il pacchetto NuGet [Microsoft.AspNetCore.Mvc.Api.Analyzers](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Api.Analyzers), che contiene analizzatori per le API Web.</span><span class="sxs-lookup"><span data-stu-id="84a56-104">ASP.NET Core 2.2 and later includes the [Microsoft.AspNetCore.Mvc.Api.Analyzers](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Api.Analyzers) NuGet package containing analyzers for web APIs.</span></span> <span data-ttu-id="84a56-105">Gli analizzatori funzionano con i controller annotati con <xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute>, sulla base delle [convenzioni API](xref:web-api/advanced/conventions).</span><span class="sxs-lookup"><span data-stu-id="84a56-105">The analyzers work with controllers annotated with <xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute>, while building on [API conventions](xref:web-api/advanced/conventions).</span></span>
 
-## <a name="package-installation"></a><span data-ttu-id="cca17-106">Installazione del pacchetto</span><span class="sxs-lookup"><span data-stu-id="cca17-106">Package installation</span></span>
+## <a name="package-installation"></a><span data-ttu-id="84a56-106">Installazione del pacchetto</span><span class="sxs-lookup"><span data-stu-id="84a56-106">Package installation</span></span>
 
-<span data-ttu-id="cca17-107">È possibile aggiungere `Microsoft.AspNetCore.Mvc.Api.Analyzers` con uno degli approcci seguenti:</span><span class="sxs-lookup"><span data-stu-id="cca17-107">`Microsoft.AspNetCore.Mvc.Api.Analyzers` can be added with one of the following approaches:</span></span>
+<span data-ttu-id="84a56-107">È possibile aggiungere `Microsoft.AspNetCore.Mvc.Api.Analyzers` con uno degli approcci seguenti:</span><span class="sxs-lookup"><span data-stu-id="84a56-107">`Microsoft.AspNetCore.Mvc.Api.Analyzers` can be added with one of the following approaches:</span></span>
 
-### <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="cca17-108">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="cca17-108">Visual Studio</span></span>](#tab/visual-studio)
+### <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="84a56-108">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="84a56-108">Visual Studio</span></span>](#tab/visual-studio)
 
-* <span data-ttu-id="cca17-109">Dalla finestra **Console di Gestione pacchetti**:</span><span class="sxs-lookup"><span data-stu-id="cca17-109">From the **Package Manager Console** window:</span></span>
-  * <span data-ttu-id="cca17-110">Passare a **Vista** > **Altre finestre** > **Console di Gestione pacchetti**.</span><span class="sxs-lookup"><span data-stu-id="cca17-110">Go to **View** > **Other Windows** > **Package Manager Console**.</span></span>
-  * <span data-ttu-id="cca17-111">Passare alla directory che contiene il file *ApiConventions.csproj*.</span><span class="sxs-lookup"><span data-stu-id="cca17-111">Navigate to the directory in which the *ApiConventions.csproj* file exists.</span></span>
-  * <span data-ttu-id="cca17-112">Eseguire il seguente comando:</span><span class="sxs-lookup"><span data-stu-id="cca17-112">Execute the following command:</span></span>
+* <span data-ttu-id="84a56-109">Dalla finestra **Console di Gestione pacchetti**:</span><span class="sxs-lookup"><span data-stu-id="84a56-109">From the **Package Manager Console** window:</span></span>
+  * <span data-ttu-id="84a56-110">Passare a **Vista** > **Altre finestre** > **Console di Gestione pacchetti**.</span><span class="sxs-lookup"><span data-stu-id="84a56-110">Go to **View** > **Other Windows** > **Package Manager Console**.</span></span>
+  * <span data-ttu-id="84a56-111">Passare alla directory che contiene il file *ApiConventions.csproj*.</span><span class="sxs-lookup"><span data-stu-id="84a56-111">Navigate to the directory in which the *ApiConventions.csproj* file exists.</span></span>
+  * <span data-ttu-id="84a56-112">Eseguire il seguente comando:</span><span class="sxs-lookup"><span data-stu-id="84a56-112">Execute the following command:</span></span>
 
     ```powershell
     Install-Package Microsoft.AspNetCore.Mvc.Api.Analyzers
     ```
 
-* <span data-ttu-id="cca17-113">Dalla finestra di dialogo **Gestisci pacchetti NuGet**:</span><span class="sxs-lookup"><span data-stu-id="cca17-113">From the **Manage NuGet Packages** dialog:</span></span>
-  * <span data-ttu-id="cca17-114">Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** > **Gestisci pacchetti NuGet**.</span><span class="sxs-lookup"><span data-stu-id="cca17-114">Right-click the project in **Solution Explorer** > **Manage NuGet Packages**.</span></span>
-  * <span data-ttu-id="cca17-115">Impostare **Origine pacchetto** su "nuget.org".</span><span class="sxs-lookup"><span data-stu-id="cca17-115">Set the **Package source** to "nuget.org".</span></span>
-  * <span data-ttu-id="cca17-116">Immettere "Microsoft.AspNetCore.Mvc.Api.Analyzers" nella casella di ricerca.</span><span class="sxs-lookup"><span data-stu-id="cca17-116">Enter "Microsoft.AspNetCore.Mvc.Api.Analyzers" in the search box.</span></span>
-  * <span data-ttu-id="cca17-117">Selezionare il pacchetto "Microsoft.AspNetCore.Mvc.Api.Analyzers" nella scheda **Sfoglia** e fare clic su **Installa**.</span><span class="sxs-lookup"><span data-stu-id="cca17-117">Select the "Microsoft.AspNetCore.Mvc.Api.Analyzers" package from the **Browse** tab and click **Install**.</span></span>
+* <span data-ttu-id="84a56-113">Dalla finestra di dialogo **Gestisci pacchetti NuGet**:</span><span class="sxs-lookup"><span data-stu-id="84a56-113">From the **Manage NuGet Packages** dialog:</span></span>
+  * <span data-ttu-id="84a56-114">Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** > **Gestisci pacchetti NuGet**.</span><span class="sxs-lookup"><span data-stu-id="84a56-114">Right-click the project in **Solution Explorer** > **Manage NuGet Packages**.</span></span>
+  * <span data-ttu-id="84a56-115">Impostare **Origine pacchetto** su "nuget.org".</span><span class="sxs-lookup"><span data-stu-id="84a56-115">Set the **Package source** to "nuget.org".</span></span>
+  * <span data-ttu-id="84a56-116">Immettere "Microsoft.AspNetCore.Mvc.Api.Analyzers" nella casella di ricerca.</span><span class="sxs-lookup"><span data-stu-id="84a56-116">Enter "Microsoft.AspNetCore.Mvc.Api.Analyzers" in the search box.</span></span>
+  * <span data-ttu-id="84a56-117">Selezionare il pacchetto "Microsoft.AspNetCore.Mvc.Api.Analyzers" nella scheda **Sfoglia** e fare clic su **Installa**.</span><span class="sxs-lookup"><span data-stu-id="84a56-117">Select the "Microsoft.AspNetCore.Mvc.Api.Analyzers" package from the **Browse** tab and click **Install**.</span></span>
 
-### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="cca17-118">Visual Studio per Mac</span><span class="sxs-lookup"><span data-stu-id="cca17-118">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="84a56-118">Visual Studio per Mac</span><span class="sxs-lookup"><span data-stu-id="84a56-118">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
 
-* <span data-ttu-id="cca17-119">Fare clic con il pulsante destro del mouse sulla cartella *Pacchetti* in **Solution Pad** (Riquadro della soluzione)  > **Aggiungi pacchetti**.</span><span class="sxs-lookup"><span data-stu-id="cca17-119">Right-click the *Packages* folder in **Solution Pad** > **Add Packages...**.</span></span>
-* <span data-ttu-id="cca17-120">Impostare l'elenco a discesa **Aggiungi pacchetti** della finestra **Origine** su "nuget.org".</span><span class="sxs-lookup"><span data-stu-id="cca17-120">Set the **Add Packages** window's **Source** drop-down to "nuget.org".</span></span>
-* <span data-ttu-id="cca17-121">Immettere "Microsoft.AspNetCore.Mvc.Api.Analyzers" nella casella di ricerca.</span><span class="sxs-lookup"><span data-stu-id="cca17-121">Enter "Microsoft.AspNetCore.Mvc.Api.Analyzers" in the search box.</span></span>
-* <span data-ttu-id="cca17-122">Selezionare il pacchetto "Microsoft.AspNetCore.Mvc.Api.Analyzers" nel riquadro dei risultati e fare clic su **Aggiungi pacchetto**.</span><span class="sxs-lookup"><span data-stu-id="cca17-122">Select the "Microsoft.AspNetCore.Mvc.Api.Analyzers" package from the results pane and click **Add Package**.</span></span>
+* <span data-ttu-id="84a56-119">Fare clic con il pulsante destro del mouse sulla cartella *Pacchetti* in **Solution Pad** (Riquadro della soluzione)  > **Aggiungi pacchetti**.</span><span class="sxs-lookup"><span data-stu-id="84a56-119">Right-click the *Packages* folder in **Solution Pad** > **Add Packages...**.</span></span>
+* <span data-ttu-id="84a56-120">Impostare l'elenco a discesa **Aggiungi pacchetti** della finestra **Origine** su "nuget.org".</span><span class="sxs-lookup"><span data-stu-id="84a56-120">Set the **Add Packages** window's **Source** drop-down to "nuget.org".</span></span>
+* <span data-ttu-id="84a56-121">Immettere "Microsoft.AspNetCore.Mvc.Api.Analyzers" nella casella di ricerca.</span><span class="sxs-lookup"><span data-stu-id="84a56-121">Enter "Microsoft.AspNetCore.Mvc.Api.Analyzers" in the search box.</span></span>
+* <span data-ttu-id="84a56-122">Selezionare il pacchetto "Microsoft.AspNetCore.Mvc.Api.Analyzers" nel riquadro dei risultati e fare clic su **Aggiungi pacchetto**.</span><span class="sxs-lookup"><span data-stu-id="84a56-122">Select the "Microsoft.AspNetCore.Mvc.Api.Analyzers" package from the results pane and click **Add Package**.</span></span>
 
-### <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="cca17-123">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="cca17-123">Visual Studio Code</span></span>](#tab/visual-studio-code)
+### <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="84a56-123">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="84a56-123">Visual Studio Code</span></span>](#tab/visual-studio-code)
 
-<span data-ttu-id="cca17-124">Eseguire il comando seguente da **Terminale integrato**:</span><span class="sxs-lookup"><span data-stu-id="cca17-124">Run the following command from the **Integrated Terminal**:</span></span>
+<span data-ttu-id="84a56-124">Eseguire il comando seguente da **Terminale integrato**:</span><span class="sxs-lookup"><span data-stu-id="84a56-124">Run the following command from the **Integrated Terminal**:</span></span>
 
 ```console
 dotnet add ApiConventions.csproj package Microsoft.AspNetCore.Mvc.Api.Analyzers
 ```
 
-### <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="cca17-125">Interfaccia della riga di comando di .NET Core</span><span class="sxs-lookup"><span data-stu-id="cca17-125">.NET Core CLI</span></span>](#tab/netcore-cli)
+### <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="84a56-125">Interfaccia della riga di comando di .NET Core</span><span class="sxs-lookup"><span data-stu-id="84a56-125">.NET Core CLI</span></span>](#tab/netcore-cli)
 
-<span data-ttu-id="cca17-126">Eseguire il comando seguente:</span><span class="sxs-lookup"><span data-stu-id="cca17-126">Run the following command:</span></span>
+<span data-ttu-id="84a56-126">Eseguire il comando seguente:</span><span class="sxs-lookup"><span data-stu-id="84a56-126">Run the following command:</span></span>
 
 ```console
 dotnet add ApiConventions.csproj package Microsoft.AspNetCore.Mvc.Api.Analyzers
@@ -64,18 +64,20 @@ dotnet add ApiConventions.csproj package Microsoft.AspNetCore.Mvc.Api.Analyzers
 
 ---
 
-## <a name="analyzers-for-api-conventions"></a><span data-ttu-id="cca17-127">Analizzatori per le convenzioni API</span><span class="sxs-lookup"><span data-stu-id="cca17-127">Analyzers for API conventions</span></span>
+## <a name="analyzers-for-api-conventions"></a><span data-ttu-id="84a56-127">Analizzatori per le convenzioni API</span><span class="sxs-lookup"><span data-stu-id="84a56-127">Analyzers for API conventions</span></span>
 
-<span data-ttu-id="cca17-128">I documenti OpenAPI contengono i codici di stato e i tipi di risposta che può restituire un'azione.</span><span class="sxs-lookup"><span data-stu-id="cca17-128">OpenAPI documents contain status codes and response types that an action may return.</span></span> <span data-ttu-id="cca17-129">In ASP.NET Core MVC, per documentare un'azione vengono usati attributi come <xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute> e <xref:Microsoft.AspNetCore.Mvc.ProducesAttribute>.</span><span class="sxs-lookup"><span data-stu-id="cca17-129">In ASP.NET Core MVC, attributes such as <xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute> and <xref:Microsoft.AspNetCore.Mvc.ProducesAttribute> are used to document an action.</span></span> <span data-ttu-id="cca17-130"><xref:tutorials/web-api-help-pages-using-swagger> illustra in dettaglio la documentazione dell'API.</span><span class="sxs-lookup"><span data-stu-id="cca17-130"><xref:tutorials/web-api-help-pages-using-swagger> goes into further detail on documenting your API.</span></span>
+<span data-ttu-id="84a56-128">I documenti OpenAPI contengono i codici di stato e i tipi di risposta che può restituire un'azione.</span><span class="sxs-lookup"><span data-stu-id="84a56-128">OpenAPI documents contain status codes and response types that an action may return.</span></span> <span data-ttu-id="84a56-129">In ASP.NET Core MVC, per documentare un'azione vengono usati attributi come <xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute> e <xref:Microsoft.AspNetCore.Mvc.ProducesAttribute>.</span><span class="sxs-lookup"><span data-stu-id="84a56-129">In ASP.NET Core MVC, attributes such as <xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute> and <xref:Microsoft.AspNetCore.Mvc.ProducesAttribute> are used to document an action.</span></span> <span data-ttu-id="84a56-130"><xref:tutorials/web-api-help-pages-using-swagger> illustra in dettaglio la documentazione dell'API.</span><span class="sxs-lookup"><span data-stu-id="84a56-130"><xref:tutorials/web-api-help-pages-using-swagger> goes into further detail on documenting your API.</span></span>
 
-<span data-ttu-id="cca17-131">Uno degli analizzatori del pacchetto verifica i controller annotati con <xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute> e identifica le azioni che non documentano completamente le relative risposte.</span><span class="sxs-lookup"><span data-stu-id="cca17-131">One of the analyzers in the package inspects controllers annotated with <xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute> and identifies actions that don't entirely document their responses.</span></span> <span data-ttu-id="cca17-132">Si consideri l'esempio seguente:</span><span class="sxs-lookup"><span data-stu-id="cca17-132">Consider the following example:</span></span>
+<span data-ttu-id="84a56-131">Uno degli analizzatori del pacchetto verifica i controller annotati con <xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute> e identifica le azioni che non documentano completamente le relative risposte.</span><span class="sxs-lookup"><span data-stu-id="84a56-131">One of the analyzers in the package inspects controllers annotated with <xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute> and identifies actions that don't entirely document their responses.</span></span> <span data-ttu-id="84a56-132">Si consideri l'esempio seguente:</span><span class="sxs-lookup"><span data-stu-id="84a56-132">Consider the following example:</span></span>
 
 [!code-csharp[](conventions/sample/Controllers/ContactsController.cs?name=missing404docs&highlight=9)]
 
-<span data-ttu-id="cca17-133">L'azione precedente documenta il tipo restituito HTTP 200 (operazione riuscita) ma non documenta il codice di stato HTTP 404 (operazione non riuscita).</span><span class="sxs-lookup"><span data-stu-id="cca17-133">The preceding action documents the HTTP 200 success return type but doesn't document the HTTP 404 failure status code.</span></span> <span data-ttu-id="cca17-134">L'analizzatore segnala l'assenza di documentazione per il codice di stato HTTP 404 come un avviso.</span><span class="sxs-lookup"><span data-stu-id="cca17-134">The analyzer reports the missing documentation for the HTTP 404 status code as a warning.</span></span> <span data-ttu-id="cca17-135">È disponibile un'opzione per risolvere il problema.</span><span class="sxs-lookup"><span data-stu-id="cca17-135">An option to fix the problem is provided.</span></span>
+<span data-ttu-id="84a56-133">L'azione precedente documenta il tipo restituito HTTP 200 (operazione riuscita) ma non documenta il codice di stato HTTP 404 (operazione non riuscita).</span><span class="sxs-lookup"><span data-stu-id="84a56-133">The preceding action documents the HTTP 200 success return type but doesn't document the HTTP 404 failure status code.</span></span> <span data-ttu-id="84a56-134">L'analizzatore segnala l'assenza di documentazione per il codice di stato HTTP 404 come un avviso.</span><span class="sxs-lookup"><span data-stu-id="84a56-134">The analyzer reports the missing documentation for the HTTP 404 status code as a warning.</span></span> <span data-ttu-id="84a56-135">È disponibile un'opzione per risolvere il problema.</span><span class="sxs-lookup"><span data-stu-id="84a56-135">An option to fix the problem is provided.</span></span>
 
-## <a name="additional-resources"></a><span data-ttu-id="cca17-136">Risorse aggiuntive</span><span class="sxs-lookup"><span data-stu-id="cca17-136">Additional resources</span></span>
+![Analizzatore che restituisce un avviso](conventions/_static/Analyzer.gif)
+
+## <a name="additional-resources"></a><span data-ttu-id="84a56-137">Risorse aggiuntive</span><span class="sxs-lookup"><span data-stu-id="84a56-137">Additional resources</span></span>
 
 * <xref:web-api/advanced/conventions>
 * <xref:tutorials/web-api-help-pages-using-swagger>
-* [<span data-ttu-id="cca17-137">Annotazione con l'attributo ApiController</span><span class="sxs-lookup"><span data-stu-id="cca17-137">Annotation with ApiController attribute</span></span>](xref:web-api/index#annotation-with-apicontroller-attribute)
+* <xref:web-api/index>
