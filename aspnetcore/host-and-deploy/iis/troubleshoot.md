@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/14/2019
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: 1fa90737aadebe3f714c702fbce649629d79dcd4
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: f89eac3ae6fc704bc8bf38a9707fc3c6c3568e91
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264546"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64884346"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>Risolvere i problemi di ASP.NET Core in IIS
 
@@ -49,7 +49,7 @@ Il processo di lavoro ha esito negativo. L'app non viene avviata.
 
 Il modulo ASP.NET Core prova ad avviare il processo dotnet back-end, ma l'avvio non riesce. In genere è possibile determinare la causa di un errore di avvio del processo dalle voci nel [log eventi dell'applicazione](#application-event-log) e nel [log stdout del modulo ASP.NET Core](#aspnet-core-module-stdout-log).
 
-Una condizione di errore comune è dovuta alla configurazione non corretta dell'app perché come destinazione viene specificata una versione del framework condiviso ASP.NET Core, che non è presente. Controllare le versioni del framework condiviso ASP.NET Core installate nel computer di destinazione.
+Una condizione di errore comune è dovuta alla configurazione non corretta dell'app perché come destinazione viene specificata una versione del framework condiviso ASP.NET Core, che non è presente. Controllare le versioni del framework condiviso ASP.NET Core installate nel computer di destinazione. Il *framework condiviso* è il set di assembly (file *DLL*) che vengono installati nel computer e cui fa riferimento un metapacchetto, ad esempio `Microsoft.AspNetCore.App`. Il riferimento del metapacchetto può specificare una versione minima richiesta. Per altre informazioni, vedere [The shared framework](https://natemcmaster.com/blog/2018/08/29/netcore-primitives-2/) (Il framework condiviso).
 
 La pagina di errore *502.5 Errore del processo* viene restituita quando il processo di lavoro ha esito negativo a causa di un errore di configurazione dell'hosting o dell'app:
 
@@ -241,7 +241,7 @@ Un *dump* è uno snapshot della memoria del sistema e può essere utile per dete
 Ottenere e analizzare un dump da [Segnalazione errori Windows](/windows/desktop/wer/windows-error-reporting):
 
 1. Creare una cartella per i file dump di arresto anomalo del sistema in `c:\dumps`. Il pool di app deve avere accesso in scrittura alla cartella.
-1. Eseguire lo [script di PowerShell EnableDumps](https://github.com/aspnet/Docs/blob/master/aspnetcore/host-and-deploy/iis/troubleshoot/scripts/EnableDumps.ps1):
+1. Eseguire lo [script di PowerShell EnableDumps](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/host-and-deploy/iis/troubleshoot/scripts/EnableDumps.ps1):
    * Se l'app usa il [modello di hosting in-process](xref:fundamentals/servers/index#in-process-hosting-model), eseguire lo script per *w3wp.exe*:
 
      ```console
@@ -255,7 +255,7 @@ Ottenere e analizzare un dump da [Segnalazione errori Windows](/windows/desktop/
      ```
 
 1. Eseguire l'app nelle condizioni che causano l'arresto anomalo.
-1. Dopo che si è verificato l'arresto anomalo, eseguire lo [script di PowerShell DisableDumps](https://github.com/aspnet/Docs/blob/master/aspnetcore/host-and-deploy/iis/troubleshoot/scripts/DisableDumps.ps1):
+1. Dopo che si è verificato l'arresto anomalo, eseguire lo [script di PowerShell DisableDumps](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/host-and-deploy/iis/troubleshoot/scripts/DisableDumps.ps1):
    * Se l'app usa il [modello di hosting in-process](xref:fundamentals/servers/index#in-process-hosting-model), eseguire lo script per *w3wp.exe*:
 
      ```console

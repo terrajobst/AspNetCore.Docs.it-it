@@ -7,18 +7,18 @@ ms.custom: mvc
 ms.date: 04/06/2019
 monikerRange: '>= aspnetcore-2.1'
 uid: mvc/models/validation
-ms.openlocfilehash: 1ae3c20478b02d6f654e65fdf34c88e1ffb837f8
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: acb0ae989f6e82a5bc80935a8acfc96e51073d2f
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59468737"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64883176"
 ---
 # <a name="model-validation-in-aspnet-core-mvc-and-razor-pages"></a>Convalida del modello in ASP.NET Core MVC e in Razor Pages
 
 Questo articolo illustra come convalidare l'input utente in un'app ASP.NET Core MVC o Razor Pages.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/models/validation/sample) ([procedura per il download](xref:index#how-to-download-a-sample)).
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/validation/sample) ([procedura per il download](xref:index#how-to-download-a-sample)).
 
 ## <a name="model-state"></a>Stato del modello
 
@@ -38,7 +38,7 @@ La convalida è automatica, ma potrebbe essere necessario ripeterla manualmente.
 
 ## <a name="validation-attributes"></a>Attributi di convalida
 
-Gli attributi di convalida consentono di specificare le regole di convalida per le proprietà del modello. Nell'esempio seguente dell'[app di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/models/validation/sample) viene illustrata una classe di modello annotata con attributi di convalida. `[ClassicMovie]` è un attributo di convalida personalizzato, mentre gli altri sono attributi predefiniti. Non viene visualizzato l'attributo `[ClassicMovie2]`, che rappresenta un modo alternativo di implementare un attributo personalizzato.
+Gli attributi di convalida consentono di specificare le regole di convalida per le proprietà del modello. Nell'esempio seguente dell'[app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/validation/sample) viene illustrata una classe di modello annotata con attributi di convalida. `[ClassicMovie]` è un attributo di convalida personalizzato, mentre gli altri sono attributi predefiniti. Non viene visualizzato l'attributo `[ClassicMovie2]`, che rappresenta un modo alternativo di implementare un attributo personalizzato.
 
 [!code-csharp[](validation/sample/Models/Movie.cs?name=snippet_ModelClass)]
 
@@ -367,7 +367,11 @@ Il codice seguente disabilita la convalida lato client nelle visualizzazioni MVC
 
 [!code-csharp[](validation/sample_snapshot/Startup2.cs?name=snippet_DisableClientValidation)]
 
-Questo codice funziona solo nelle viste MVC e non in Razor Pages. Un'altra opzione per disabilitare la convalida lato client consiste nell'impostare come commento il riferimento a `_ValidationScriptsPartial` nel file *.cshtml*.
+E in Razor Pages:
+
+[!code-csharp[](validation/sample_snapshot/Startup3.cs?name=snippet_DisableClientValidation)]
+
+Un'altra opzione per disabilitare la convalida lato client consiste nell'impostare come commento il riferimento a `_ValidationScriptsPartial` nel file *.cshtml*.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

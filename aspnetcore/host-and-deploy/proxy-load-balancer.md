@@ -4,14 +4,14 @@ author: guardrex
 description: Informazioni sulla configurazione per le app ospitate dietro server proxy e servizi di bilanciamento del carico, che spesso nascondono informazioni importanti sulle richieste.
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/06/2018
+ms.date: 05/08/2019
 uid: host-and-deploy/proxy-load-balancer
-ms.openlocfilehash: 3ac67f0cb0c7b472e7192f684b1a8fc9685794ce
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: a5bd33ed787dec83bc1b19fa2ae13991b06ef0c2
+ms.sourcegitcommit: a3926eae3f687013027a2828830c12a89add701f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264903"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65450974"
 ---
 # <a name="configure-aspnet-core-to-work-with-proxy-servers-and-load-balancers"></a>Configurare ASP.NET Core per l'uso di server proxy e servizi di bilanciamento del carico
 
@@ -249,9 +249,9 @@ services.Configure<ForwardedHeadersOptions>(options =>
 
 ## <a name="troubleshoot"></a>Risolvere i problemi
 
-Quando le intestazioni non vengono inoltrate come previsto, abilitare la [registrazione](xref:fundamentals/logging/index). Se i log non forniscono informazioni sufficienti per risolvere il problema, enumerare le intestazioni delle richieste ricevute dal server. Usare il middleware inline per scrivere le intestazioni di richiesta in una risposta dell'app o per registrare le intestazioni. Inserire uno degli esempi di codice seguenti immediatamente dopo la chiamata a <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*> in `Startup.Configure`.
+Quando le intestazioni non vengono inoltrate come previsto, abilitare la [registrazione](xref:fundamentals/logging/index). Se i log non forniscono informazioni sufficienti per risolvere il problema, enumerare le intestazioni delle richieste ricevute dal server. Usare il middleware inline per scrivere le intestazioni di richiesta in una risposta dell'app o per registrare le intestazioni. 
 
-Per scrivere le intestazioni nella risposta dell'app, usare il middleware inline di terminale seguente:
+Per scrivere le intestazioni nella risposta dell'app, aggiungere il middleware inline di terminale seguente immediatamente dopo la chiamata a <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*> in `Startup.Configure`:
 
 ```csharp
 app.Run(async (context) =>
@@ -283,26 +283,29 @@ app.Run(async (context) =>
 });
 ```
 
-Usando il middleware inline seguente è possibile scrivere nei log anziché nel corpo della risposta, in modo da consentire il normale funzionamento del sito anche durante il debug.
+È possibile scrivere nei log invece che nel corpo della risposta. La scrittura nei log permette il normale funzionamento del sito durante il debug.
+
+Per scrivere nei log invece che nel corpo della risposta:
+
+* Inserire `ILogger<Startup>` nella classe `Startup` come descritto in [Creare log in Startup](xref:fundamentals/logging/index#create-logs-in-startup).
+* Aggiungere il middleware inline seguente immediatamente dopo la chiamata a <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*> in `Startup.Configure`.
 
 ```csharp
-var logger = _loggerFactory.CreateLogger<Startup>();
-
 app.Use(async (context, next) =>
 {
     // Request method, scheme, and path
-    logger.LogDebug("Request Method: {METHOD}", context.Request.Method);
-    logger.LogDebug("Request Scheme: {SCHEME}", context.Request.Scheme);
-    logger.LogDebug("Request Path: {PATH}", context.Request.Path);
+    _logger.LogDebug("Request Method: {METHOD}", context.Request.Method);
+    _logger.LogDebug("Request Scheme: {SCHEME}", context.Request.Scheme);
+    _logger.LogDebug("Request Path: {PATH}", context.Request.Path);
 
     // Headers
     foreach (var header in context.Request.Headers)
     {
-        logger.LogDebug("Header: {KEY}: {VALUE}", header.Key, header.Value);
+        _logger.LogDebug("Header: {KEY}: {VALUE}", header.Key, header.Value);
     }
 
     // Connection: RemoteIp
-    logger.LogDebug("Request RemoteIp: {REMOTE_IP_ADDRESS}", 
+    _logger.LogDebug("Request RemoteIp: {REMOTE_IP_ADDRESS}", 
         context.Connection.RemoteIpAddress);
 
     await next();

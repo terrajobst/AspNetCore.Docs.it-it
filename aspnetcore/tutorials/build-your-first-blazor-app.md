@@ -5,50 +5,38 @@ description: Istruzioni dettagliate per creare un'app Blazor.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/15/2019
+ms.date: 04/18/2019
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: 310eb211f68076d6f52d6427940e07736d833e5b
-ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
+ms.openlocfilehash: d235fec4e128ad8622a06d301eeac15c4862c159
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59614710"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65087754"
 ---
 # <a name="build-your-first-blazor-app"></a>Creare la prima app Blazor
 
 Di [Daniel Roth](https://github.com/danroth27) e [Luke Latham](https://github.com/guardrex)
 
-[!INCLUDE[](~/includes/razor-components-preview-notice.md)]
+Questa esercitazione mostra come compilare e modificare un'app Blazor.
 
-Questa esercitazione illustra come creare un'app con Razor Components sul lato server o Blazor sul lato client.
-
-Per un'esperienza con ASP.NET Core Razor Components sul lato server (*consigliata*):
-
-* Seguire le indicazioni per l'*esperienza con Razor Components* in <xref:blazor/get-started#server-side-razor-components-experience> per creare un progetto basato su Razor Components.
-* Denominare il progetto `RazorComponents`.
-
-Per un'esperienza con Blazor:
-
-* Seguire le indicazioni per l'*esperienza con Blazor* in <xref:blazor/get-started#client-side-blazor-experience> per creare un progetto basato su Blazor.
-* Denominare il progetto `Blazor`.
-
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/build-your-first-blazor-app/samples/) ([procedura per il download](xref:index#how-to-download-a-sample)). Vedere gli argomenti seguenti per i prerequisiti:
+Seguire le indicazioni contenute nell'articolo <xref:blazor/get-started> per creare un progetto Blazor per questa esercitazione.
 
 ## <a name="build-components"></a>Compilare i componenti
 
-1. Esplorare ognuna delle tre pagine dell'app nella cartella *Components/Pages* (*Pages* in Blazor): Home, Counter e Fetch data (Home, Contatore e Recupera dati). Queste pagine vengono implementate dai file del componente Razor: *Index.Razor*, *Counter.razor* e *FetchData.razor*. (Blazor continua a usare l'estensione file *cshtml*: *Index.cshtml*, *Counter.cshtml* e *FetchData.cshtml*.)
+1. Passare a ognuna delle tre pagine dell'app nella cartella *Pages*: Home, Counter e Fetch data (Home, Contatore e Recupera dati). Queste pagine vengono implementate dai file dei componenti Razor *Index.razor*, *Counter.razor* e *FetchData.razor*.
 
 1. Nella pagina Counter selezionare il pulsante **Click me** per incrementare il contatore senza un aggiornamento della pagina. Per incrementare un contatore in una pagina Web è in genere richiesta la scrittura di codice JavaScript, ma Blazor offre un approccio migliore usando C#.
 
 1. Esaminare l'implementazione del componente Counter nel file *Counter.razor*.
 
-   *Components/Pages/Counter.razor* (*Pages/Counter.cshtml* in Blazor):
+   *Pages/Counter.razor*:
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Counter1.razor)]
 
    L'interfaccia utente del componente Counter viene definita tramite codice HTML. La logica di rendering dinamico (ad esempio, cicli, condizioni, espressioni) viene aggiunta usando una sintassi C# incorporata chiamata [Razor](xref:mvc/views/razor). Il markup HTML e la logica di rendering C# vengono convertiti un una classe del componente in fase di compilazione. Il nome della classe .NET generata corrisponde al nome del file.
 
-   I membri della classe del componente sono definiti in un blocco `@functions`. Nel blocco `@functions`, lo stato del componente (proprietà, campi) e i metodi vengono specificati per la gestione degli eventi o per definire la logica di altri componenti. Questi membri vengono quindi usati come parte della logica di rendering del componente e per la gestione degli eventi.
+   I membri della classe del componente vengono definiti in un blocco `@functions`. Nel blocco `@functions`, lo stato del componente (proprietà, campi) e i metodi vengono specificati per la gestione degli eventi o per definire la logica di altri componenti. Questi membri vengono quindi usati come parte della logica di rendering del componente e per la gestione degli eventi.
 
    Quando viene selezionato il pulsante **Click me**:
 
@@ -61,21 +49,21 @@ Per un'esperienza con Blazor:
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Counter2.razor?highlight=14)]
 
-1. Ricompilare ed eseguire l'app per visualizzare le modifiche. Selezionare il pulsante **Click me** e il contatore viene incrementato di due unità.
+1. Ricompilare ed eseguire l'app per visualizzare le modifiche. Selezionare il pulsante **Fare clic qui**. Il contatore viene incrementato di due.
 
 ## <a name="use-components"></a>Usare i componenti
 
-Includere un componente in un altro componente usando una sintassi simile a HTML.
+Includere un componente in un altro componente usando una sintassi HTML.
 
-1. Aggiungere il componente Counter al componente Index (Home) dell'app aggiungendo un elemento `<Counter />` al componente Index.
+1. Aggiungere il componente Counter al componente Index dell'app aggiungendo un elemento `<Counter />` al componente Index (*Index.razor*).
 
-   Se si usa Blazor per questa esperienza, il componente Index include un componente Survey Prompt (elemento `<SurveyPrompt>`). Sostituire l'elemento `<SurveyPrompt>` con l'elemento `<Counter>`.
+   Se si usa il lato client di Blazor per questa esperienza, il componente Index include un componente Survey Prompt (elemento `<SurveyPrompt>`). Sostituire l'elemento `<SurveyPrompt>` con l'elemento `<Counter>`. Se si usa un'app lato server Blazor per questa esperienza, aggiungere l'elemento `<Counter>` al componente Index:
 
-   *Components/Pages/Index.razor* (*Pages/Index.cshtml* in Blazor):
+   *Pages/Index.razor*:
 
-   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Index.razor?highlight=7)]
+   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Index1.razor?highlight=7)]
 
-1. Ricompilare ed eseguire l'app. La home page ha un contatore proprio.
+1. Ricompilare ed eseguire l'app. Il componente Index ha il proprio contatore.
 
 ## <a name="component-parameters"></a>Parametri del componente
 
@@ -86,36 +74,36 @@ I componenti possono avere anche parametri, che vengono definiti usando propriet
    * Aggiungere una proprietà `IncrementAmount` decorata con l'attributo `[Parameter]`.
    * Modificare il metodo `IncrementCount` per usare `IncrementAmount` quando si aumenta il valore di `currentCount`.
 
-   *Components/Pages/Counter.razor* (*Pages/Counter.cshtml* in Blazor):
+   *Pages/Counter.razor*:
 
-   [!code-cshtml[](build-your-first-blazor-app/samples/3.x/RazorComponents/Components/Pages/Counter.razor?highlight=12,16)]
+   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Counter.razor?highlight=13,17)]
 
 <!-- Add back when supported.
    > [!NOTE]
    > From Visual Studio, you can quickly add a component parameter by using the `para` snippet. Type `para` and press the `Tab` key twice.
 -->
 
-1. Specificare un parametro `IncrementAmount` nell'elemento `<Counter>` del componente Home usando un attributo. Impostare il valore per incrementare il contatore di dieci unità.
+1. Specificare un parametro `IncrementAmount` nell'elemento `<Counter>` del componente Index usando un attributo. Impostare il valore per incrementare il contatore di dieci unità.
 
-   *Components/Pages/Index.razor* (*Pages/Index.cshtml* in Blazor):
+   *Pages/Index.razor*:
 
-   [!code-cshtml[](build-your-first-blazor-app/samples/3.x/RazorComponents/Components/Pages/Index.razor?highlight=7)]
+   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Index2.razor?highlight=7)]
 
-1. Ricaricare la home page. Il contatore viene incrementato di dieci unità ogni volta che viene selezionato il pulsante **Click me**. Il contatore nella pagina Counter viene incrementato di un'unità.
+1. Ricaricare il componente Index. Il contatore viene incrementato di dieci unità ogni volta che viene selezionato il pulsante **Click me**. Il contatore nel componente Counter continua a essere incrementato di uno.
 
 ## <a name="route-to-components"></a>Indirizzare le richieste ai componenti
 
-La direttiva `@page` all'inizio del file *Counter.razor* specifica che questo componente è un endpoint di routing. Il componente Counter gestisce le richieste inviate a `/Counter`. Senza la direttiva `@page`, il componente non gestisce le richieste indirizzate, ma può ancora essere usato da altri componenti.
+La direttiva `@page` all'inizio del file *Counter.razor* specifica che il componente Counter è un endpoint di routing. Il componente Counter gestisce le richieste inviate a `/counter`. Senza la direttiva `@page`, un componente non gestisce le richieste instradate, ma può comunque essere usato da altri componenti.
 
 ## <a name="dependency-injection"></a>Inserimento di dipendenze
 
 I servizi registrati nel contenitore del servizio dell'app sono disponibili per i componenti tramite [inserimento delle dipendenze](xref:fundamentals/dependency-injection). Inserire i servizi in un componente usando la direttiva `@inject`.
 
-Esaminare le direttive del componente FetchData nell'app di esempio.
+Esaminare le direttive del componente FetchData.
 
-Nell'app di esempio Razor Components il servizio `WeatherForecastService` viene registrato come [singleton](xref:fundamentals/dependency-injection#service-lifetimes), in modo che un'istanza del servizio sia disponibile nell'intera app. La direttiva `@inject` viene usata per inserire l'istanza del servizio `WeatherForecastService` nel componente.
+Se si usa un'app lato server Blazor, il servizio `WeatherForecastService` viene registrato come [singleton](xref:fundamentals/dependency-injection#service-lifetimes), in modo che un'istanza del servizio sia disponibile nell'intera app. La direttiva `@inject` viene usata per inserire l'istanza del servizio `WeatherForecastService` nel componente.
 
-*Components/Pages/FetchData.razor*:
+*Pages/FetchData.razor*:
 
 [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData1.razor?highlight=3)]
 
@@ -123,24 +111,22 @@ Il componente FetchData usa il servizio inserito, come `ForecastService`, per re
 
 [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData2.razor?highlight=6)]
 
-Nella versione Blazor dell'app di esempio `HttpClient` viene inserito per ottenere i dati delle previsioni meteo dal file *weather.json* nella cartella *wwwroot/sample-data*:
+Se si usa un'app lato client Blazor, viene inserito `HttpClient` per ottenere i dati delle previsioni meteo dal file *weather.json* nella cartella *wwwroot/sample-data*:
 
-*Pages/FetchData.cshtml*:
+*Pages/FetchData.razor*:
 
-[!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData1.cshtml?highlight=7)]
+[!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData1_client.razor?highlight=7-8)]
 
-In entrambe le app di esempio viene usato un ciclo [@foreach](/dotnet/csharp/language-reference/keywords/foreach-in) per eseguire il rendering di ogni istanza di previsione come una riga della tabella dei dati meteo:
+Viene usato un ciclo [\@foreach](/dotnet/csharp/language-reference/keywords/foreach-in) per eseguire il rendering di ogni istanza di previsione come riga nella tabella dei dati meteo:
 
 [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData3.razor?highlight=11-19)]
+
 
 ## <a name="build-a-todo-list"></a>Compilare un elenco attività
 
 Aggiungere all'app un nuovo componente che implementa un semplice elenco attività.
 
-1. Aggiungere un file vuoto all'app di esempio:
-
-   * Per l'esperienza Razor Components aggiungere un file *Todo.razor* alla cartella *Components/Pages*.
-   * Per l'esperienza Blazor aggiungere un file *Todo.cshtml* alla cartella *Pages*.
+1. Aggiungere un file vuoto denominato *Todo.razor* all'app nella cartella *Pages*:
 
 1. Specificare il markup iniziale per il componente:
 
@@ -152,9 +138,9 @@ Aggiungere all'app un nuovo componente che implementa un semplice elenco attivit
 
 1. Aggiungere il componente Todo alla barra di spostamento.
 
-   Il componente NavMenu (*Components/Shared/NavMenu.razor* oppure *Shared/NavMenu.cshtml* in Blazor) viene usato nel layout dell'app. I layout sono componenti che consentono di evitare la duplicazione del contenuto nell'app. Per ulteriori informazioni, vedere <xref:blazor/layouts>.
+   Il componente NavMenu (*Shared/NavMenu.razor*) viene usato nel layout dell'app. I layout sono componenti che consentono di evitare la duplicazione del contenuto nell'app. Per ulteriori informazioni, vedere <xref:blazor/layouts>.
 
-   Aggiungere un elemento `<NavLink>` per il componente Todo aggiungendo il markup seguente per l'elemento di elenco sotto gli elementi di elenco esistenti nel file *Components/Shared/NavMenu.razor* (*Shared/NavMenu.cshtml* in Blazor):
+   Aggiungere un elemento `<NavLink>` per il componente Todo aggiungendo il markup seguente per la voce di elenco sotto le voci di elenco esistenti nel file *Shared/NavMenu.razor*:
 
    ```cshtml
    <li class="nav-item px-3">
@@ -168,16 +154,16 @@ Aggiungere all'app un nuovo componente che implementa un semplice elenco attivit
 
 1. Aggiungere un file *TodoItem.cs* nella radice del progetto per contenere una classe per rappresentare un elemento attività. Usare il codice C# seguente per la classe `TodoItem`:
 
-   [!code-cshtml[](build-your-first-blazor-app/samples/3.x/RazorComponents/TodoItem.cs)]
+   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/TodoItem.cs)]
 
-1. Tornare al componente Todo (*Components/Pages/Todo.razor* oppure *Pages/Todo.cshtml* in Blazor):
+1. Tornare al componente Todo (*Pages/Todo.razor*):
 
-   * Aggiungere un campo per le attività in un blocco `@functions`. Il componente Todo usa questo campo per mantenere lo stato dell'elenco attività.
+   * Aggiungere un campo per le voci todo in un blocco `@functions`. Il componente Todo usa questo campo per mantenere lo stato dell'elenco attività.
    * Aggiungere il markup per l'elenco non ordinato e un ciclo `foreach` per eseguire il rendering di ogni elemento attività come elemento di elenco.
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo4.razor?highlight=5-10,12-14)]
 
-1. L'app richiede elementi dell'interfaccia utente per l'aggiunta di attività all'elenco. Aggiungere un input di testo e un pulsante sotto l'elenco:
+1. L'app richiede elementi dell'interfaccia utente per l'aggiunta di voci todo all'elenco. Aggiungere un input di testo e un pulsante sotto l'elenco:
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo5.razor?highlight=12-13)]
 
@@ -201,7 +187,7 @@ Aggiungere all'app un nuovo componente che implementa un semplice elenco attivit
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo8.razor?highlight=19-26)]
 
-1. Ricompilare ed eseguire l'app. Aggiungere alcune attività all'elenco attività per testare il nuovo codice.
+1. Ricompilare ed eseguire l'app. Aggiungere alcune voci todo all'elenco todo per testare il nuovo codice.
 
 1. Il testo del titolo per ogni elemento attività può essere reso modificabile e una casella di controllo può consentire all'utente di tenere traccia degli elementi completati. Aggiungere un input casella di controllo per ogni elemento attività e associarne il valore alla proprietà `IsDone`. Modificare `@todo.Title` in un elemento `<input>` associato a `@todo.Title`:
 
@@ -213,9 +199,9 @@ Aggiungere all'app un nuovo componente che implementa un semplice elenco attivit
    <h1>Todo (@todos.Count(todo => !todo.IsDone))</h1>
    ```
 
-1. Il componente Todo completato (*Components/Pages/Todo.razor* oppure *Pages/Todo.cshtml* in Blazor):
+1. Componente Todo completato (*Pages/Todo.razor*):
 
-   [!code-cshtml[](build-your-first-blazor-app/samples/3.x/RazorComponents/Components/Pages/Todo.razor)]
+   [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/Todo.razor)]
 
 1. Ricompilare ed eseguire l'app. Aggiungere elementi attività per testare il nuovo codice.
 

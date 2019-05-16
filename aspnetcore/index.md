@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/07/2019
 uid: index
-ms.openlocfilehash: 9cb598c4068586e4e960ec40743c4f54f09995ad
-ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
+ms.openlocfilehash: 6dd722b3b78d2af81497bde9e0519feb9af84748
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59614372"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65086144"
 ---
 # <a name="introduction-to-aspnet-core"></a>Introduzione a ASP.NET Core
 
@@ -24,7 +24,7 @@ ASP.NET Core è un framework multipiattaforma, ad alte prestazioni, [open source
 * Distribuire nel cloud o in locale.
 * Eseguire in [.NET Core o .NET Framework](/dotnet/articles/standard/choosing-core-framework-server).
 
-## <a name="why-to-use-aspnet-core"></a>Perché usare ASP.NET Core
+## <a name="why-choose-aspnet-core"></a>Perché scegliere ASP.NET Core?
 
 Milioni di sviluppatori hanno usato, e continuano a usare, [ASP.NET 4.x](/aspnet/overview) per creare app Web. ASP.NET Core è una riprogettazione di ASP.NET 4.x, con modifiche a livello di architettura che comportano un framework più efficiente e modulare.
 
@@ -101,7 +101,7 @@ Per un'introduzione allo sviluppo delle app ASP.NET Core, è consigliabile esegu
 
 Molti articoli ed esercitazioni includono collegamenti al codice di esempio.
 
-1. [Scaricare il file ZIP del repository ASP.NET](https://codeload.github.com/aspnet/Docs/zip/master).
+1. [Scaricare il file ZIP del repository ASP.NET](https://codeload.github.com/aspnet/AspNetCore.Docs/zip/master).
 1. Decomprimere il file *Docs-master.zip*.
 1. Usare l'URL nel collegamento di esempio per passare alla directory di esempio.
 
@@ -148,7 +148,7 @@ Il file markdown dell'argomento fa riferimento al frammento di codice C# precede
 
 È possibile ignorare o rimuovere le istruzioni `#region` e `#endregion` che racchiudono il codice. Non modificare il codice all'interno di queste istruzioni se si prevede di eseguire gli scenari di esempio descritti nell'argomento. È possibile modificare il codice durante la sperimentazione con altri scenari.
 
-Per altre informazioni, vedere [Contribuire alla documentazione ASP.NET: Frammenti di codice](https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md#code-snippets).
+Per altre informazioni, vedere [Contribuire alla documentazione ASP.NET: Frammenti di codice](https://github.com/aspnet/AspNetCore.Docs/blob/master/CONTRIBUTING.md#code-snippets).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

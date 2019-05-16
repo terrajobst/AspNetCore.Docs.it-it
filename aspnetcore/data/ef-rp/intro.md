@@ -6,18 +6,14 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 11/22/2018
 uid: data/ef-rp/intro
-ms.openlocfilehash: b16d1b67b3b501811ab34330851e6cacc76f2ed0
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: dea178d169cb8f2ae807caa2ef495d4243b1f59f
+ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64886406"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65516894"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>Razor Pages con Entity Framework Core in ASP.NET Core: esercitazione 1 di 8
-
-[!INCLUDE[2.0 version](~/includes/RP-EF/20-pdf.md)]
-
-::: moniker range=">= aspnetcore-2.1"
 
 Di [Tom Dykstra](https://github.com/tdykstra) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -158,7 +154,7 @@ In questa sezione viene eseguito lo scaffolding del modello Student (Studente). 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella *Pages/Students* > **Aggiungi** > **Nuovo elemento di scaffolding**.
-* Nella finestra di dialogo **Aggiungi scaffolding** selezionare **Pagine Razor che usano Entity Framework (CRUD)** > **Aggiungi**.
+* Nella finestra di dialogo **Aggiungi scaffolding** selezionare **Pagine Razor che usano Entity Framework (CRUD)** > **AGGIUNGI**.
 
 Completare la finestra di dialogo **Pagine Razor che usano Entity Framework (CRUD)**:
 
@@ -316,7 +312,7 @@ Per altre informazioni sulla programmazione asincrona in .NET, vedere [Panoramic
 
 Nella prossima esercitazione, vengono esaminate le operazioni CRUD per creare, leggere, aggiornare, eliminare ed elencare.
 
-::: moniker-end
+
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

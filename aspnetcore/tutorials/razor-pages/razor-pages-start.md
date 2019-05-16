@@ -3,14 +3,14 @@ title: "Esercitazione: Introduzione all'uso di pagine Razor in ASP.NET Core"
 author: rick-anderson
 description: Questa serie di esercitazioni illustra come usare Razor Pages in ASP.NET Core. Offre informazioni su come creare un modello, generare codice per Razor Pages, usare Entity Framework Core e SQL Server per l'accesso ai dati, aggiungere funzionalità di ricerca, aggiungere la convalida dell'input e usare le migrazioni per aggiornare il modello.
 ms.author: riande
-ms.date: 12/5/2018
+ms.date: 05/09/2019
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 1d264ca4a605d8291e273a8f054c92e7eefa5548
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 9307291756baf1bef714d6dae2f8d25d3aa6f922
+ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64891156"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65517097"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Esercitazione: Introduzione all'uso di pagine Razor in ASP.NET Core
 
@@ -59,7 +59,7 @@ Alla fine di questa esercitazione si avrà un'app Web Razor Pages, che verrà co
 
 * Aprire il [terminale integrato](https://code.visualstudio.com/docs/editor/integrated-terminal).
 
-* Cambiare directory (`cd`) e passare alla cartella che conterrà il progetto.
+* Passare alla directory (`cd`) che conterrà il progetto.
 
 * Eseguire i comandi seguenti:
 
@@ -69,7 +69,7 @@ Alla fine di questa esercitazione si avrà un'app Web Razor Pages, che verrà co
   ```
 
   * Il comando `dotnet new` crea un nuovo progetto Razor Pages nella cartella *RazorPagesMovie*.
-  * Il comando `code` visualizza la cartella *RazorPagesMovie* in una nuova istanza di Visual Studio Code.
+  * Il comando `code` apre la cartella *RazorPagesMovie* nell'istanza corrente di Visual Studio Code.
 
   Viene visualizzata una finestra di dialogo con **Required assets to build and debug are missing from 'RazorPagesMovie'. Add them?** (Risorse di compilazione e debug mancanti da "RazorPagesMovie". Aggiungerle?)
 

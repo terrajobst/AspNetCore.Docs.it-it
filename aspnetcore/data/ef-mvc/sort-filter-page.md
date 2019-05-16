@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: dff5a5b1ba3c8ed07ccc8d134f8cfeb25b9f6689
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: 921e27bf56587813f835357c9090c91a155c087b
+ms.sourcegitcommit: b508b115107e0f8d7f62b25cfcc8ad45e1373459
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58751043"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65212558"
 ---
 # <a name="tutorial-add-sorting-filtering-and-paging---aspnet-mvc-with-ef-core"></a>Esercitazione: Aggiungere funzionalità di ordinamento, filtro e suddivisione in pagine - ASP.NET MVC con EF Core
 
@@ -211,10 +211,8 @@ Fare clic sui collegamenti di suddivisione in pagine in diversi tipi di ordiname
 Per la pagina **About** (Informazioni) del sito Web Contoso University verrà visualizzato il numero di studenti iscritti per ogni data di iscrizione. Questa operazione richiede calcoli di raggruppamento e semplici sui gruppi. Per completare questa procedura, è necessario eseguire le operazioni seguenti:
 
 * Creare una classe modello di visualizzazione per i dati che è necessario passare alla visualizzazione.
-
-* Modificare il metodo About nel controller Home.
-
-* Modificare la visualizzazione About (Informazioni).
+* Creare il metodo About nel controller Home.
+* Creare la visualizzazione About.
 
 ### <a name="create-the-view-model"></a>Creare il modello di visualizzazione
 
@@ -239,10 +237,8 @@ Aggiungere un metodo `About` con il codice seguente:
 [!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseDbSet)]
 
 L'istruzione LINQ raggruppa le entità di studenti per data di registrazione, calcola il numero di entità in ogni gruppo e archivia i risultati in una raccolta di oggetti di modello della visualizzazione `EnrollmentDateGroup`.
-> [!NOTE]
-> Nella versione 1.0 di Entity Framework Core, l'intero set di risultati viene restituito al client e il raggruppamento avviene sul client. In alcuni scenari questo potrebbe creare problemi di prestazioni. Testare le prestazioni con volumi di produzione di dati e, se necessario, usare SQL non elaborato per eseguire il raggruppamento nel server. Per informazioni sull'uso di SQL non elaborato, vedere l'[ultima esercitazione di questa serie](advanced.md).
 
-### <a name="modify-the-about-view"></a>Modificare la visualizzazione della pagina About (Informazioni)
+### <a name="create-the-about-view"></a>Creare la visualizzazione About
 
 Aggiungere un file *Views/Home/About.cshtml* con il codice seguente:
 
@@ -252,7 +248,7 @@ Eseguire l'app e passare alla pagina About. Il numero di studenti per ogni data 
 
 ## <a name="get-the-code"></a>Ottenere il codice
 
-[Scaricare o visualizzare l'applicazione completata.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[Scaricare o visualizzare l'applicazione completata.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

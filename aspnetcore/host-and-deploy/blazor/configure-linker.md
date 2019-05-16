@@ -5,22 +5,20 @@ description: Informazioni su come controllare il linker del linguaggio intermedi
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/15/2019
+ms.date: 04/24/2019
 uid: host-and-deploy/blazor/configure-linker
-ms.openlocfilehash: 01e18498a16e86392755b02b92ffda929669cb7d
-ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
+ms.openlocfilehash: 00676d4311f8955c3c1ef38d31219d62ea9f4a25
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59614686"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64887776"
 ---
 # <a name="configure-the-linker-for-blazor"></a>Configurare il linker per Blazor
 
 Di [Luke Latham](https://github.com/guardrex)
 
-[!INCLUDE[](~/includes/razor-components-preview-notice.md)]
-
-Blazor esegue il collegamento del [linguaggio intermedio (IL)](/dotnet/standard/managed-code#intermediate-language--execution) durante ogni compilazione in modalità versione per rimuovere IL non necessario dagli assembly di output dell'app.
+Blazor esegue il collegamento del [linguaggio intermedio (IL)](/dotnet/standard/managed-code#intermediate-language--execution) durante ogni compilazione in modalità versione per rimuovere il livello intermedio non necessario dagli assembly di output dell'app.
 
 Controllare il collegamento degli assembly adottando uno degli approcci seguenti:
 

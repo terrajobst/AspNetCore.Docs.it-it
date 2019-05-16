@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/02/2019
 uid: mvc/views/view-compilation
-ms.openlocfilehash: 11195f00e922f6817a0fa0988fad9d8082dea30a
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: eba9de26e1af8c4df06b846748d8aa9380fc1862
+ms.sourcegitcommit: a3926eae3f687013027a2828830c12a89add701f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64883696"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65450877"
 ---
 # <a name="razor-file-compilation-in-aspnet-core"></a>Compilazione del file Razor in ASP.NET Core
 
@@ -133,9 +133,9 @@ La compilazione in fase runtime si abilita usando il pacchetto `Microsoft.AspNet
       .AddRazorRuntimeCompilation()
   ```
 
-Per il corretto funzionamento della compilazione in fase di runtime durante la distribuzione, le app devono inoltre modificare i file di progetto per impostare `PreserveCompilationReferences` su `true`.
+Per il corretto funzionamento della compilazione del runtime durante la distribuzione, le app devono modificare i file di progetto in modo da impostare `PreserveCompilationReferences` su `true`:
 
-[!code-xml[](view-compilation/sample/RuntimeCompilation.csproj?highlight=3)]
+[!code-xml[](view-compilation/sample/RuntimeCompilation.csproj?highlight=4)]
 
 ::: moniker-end
 

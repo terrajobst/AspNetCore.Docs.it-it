@@ -4,15 +4,15 @@ description: In questa esercitazione si aggiungono altre entità e relazioni e s
 author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/05/2019
+ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 5ab893dd77ff2cc9a735702eb3a547ed8bcb2197
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 2776e3357941d0e7932882c39af121f85d037d62
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264854"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64887246"
 ---
 # <a name="tutorial-create-a-complex-data-model---aspnet-mvc-with-ef-core"></a>Esercitazione: Creare un modello di dati complesso - ASP.NET MVC con EF Core
 
@@ -40,7 +40,7 @@ Le attività di questa esercitazione sono le seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Uso della funzionalità delle migrazioni EF Core per ASP.NET Core in un'app web MVC](migrations.md)
+* [Uso di migrazioni EF Core](migrations.md)
 
 ## <a name="customize-the-data-model"></a>Personalizzare il modello di dati
 
@@ -320,7 +320,7 @@ public ICollection<Course> Courses { get; set; }
 ```
 
 > [!NOTE]
-> Per convenzione, Entity Framework consente l'eliminazione a catena per le chiavi esterne non nullable e per le relazioni molti-a-molti. Ciò può determinare regole di eliminazione a catena circolari, che generano un'eccezione quando si prova ad aggiungere una migrazione. Se ad esempio la proprietà Department.InstructorID non è stata definita come nullable, EF configura una regola di eliminazione a catena per eliminare l'insegnante quando si elimina il reparto, un risultato indesiderato. Se le regole business richiedono che la proprietà `InstructorID` sia non nullable, è necessario usare la seguente istruzione API Fluent per disattivare l'eliminazione a catena nella relazione:
+> Per convenzione, Entity Framework consente l'eliminazione a catena per le chiavi esterne non nullable e per le relazioni molti-a-molti. Ciò può determinare regole di eliminazione a catena circolari, che generano un'eccezione quando si prova ad aggiungere una migrazione. Ad esempio, se la proprietà Department.InstructorID non è stata definita come nullable, EF configura una regola di eliminazione a catena per eliminare il reparto quando si elimina l'insegnante, che non è il risultato desiderato. Se le regole business richiedono che la proprietà `InstructorID` sia non nullable, è necessario usare la seguente istruzione API Fluent per disattivare l'eliminazione a catena nella relazione:
 >
 > ```csharp
 > modelBuilder.Entity<Department>()
@@ -509,7 +509,7 @@ Fare clic con il pulsante destro del mouse sulla tabella **CourseAssignment** e 
 
 ## <a name="get-the-code"></a>Ottenere il codice
 
-[Scaricare o visualizzare l'applicazione completata.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[Scaricare o visualizzare l'applicazione completata.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -529,6 +529,7 @@ Le attività di questa esercitazione sono le seguenti:
 > * Modifica della stringa di connessione
 > * Aggiornamento del database
 
-Passare all'articolo successivo per altre informazioni su come accedere ai dati correlati.
+Passare all'esercitazione successiva per altre informazioni su come accedere ai dati correlati.
+
 > [!div class="nextstepaction"]
-> [Accedere ai dati correlati](read-related-data.md)
+> [Successivo: Accedere ai dati correlati](read-related-data.md)

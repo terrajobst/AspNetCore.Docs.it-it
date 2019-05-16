@@ -7,11 +7,11 @@ ms.author: tdykstra
 ms.date: 11/13/2018
 uid: mvc/models/model-binding
 ms.openlocfilehash: 1dc9b41328ed78440622acc1865b6f088d394403
-ms.sourcegitcommit: 1d6ab43eed9cb3df6211c22b97bb3a9351ec4419
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51597784"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64883146"
 ---
 # <a name="model-binding-in-aspnet-core"></a>Associazione di modelli in ASP.NET Core
 
@@ -37,7 +37,7 @@ Nota: le stringhe nella route dell'URL non fanno distinzione tra maiuscole e min
 
 MVC tenta di associare i dati della richiesta ai parametri dell'azione in base al nome. MVC cerca i valori per ogni parametro usando il nome del parametro e i nomi delle proprietà impostabili pubbliche. Nell'esempio precedente, l'unico parametro di azione, denominato `id`, viene associato da MVC al valore con lo stesso nome nei valori di route. Oltre ai valori di route, MVC associa dati da varie parti della richiesta ed esegue l'operazione in un ordine stabilito. Di seguito è riportato un elenco delle origini dati nell'ordine in cui vengono esaminate dall'associazione di modelli:
 
-1. `Form values`: si tratta di valori di form inseriti nella richiesta HTTP con il metodo POST, incluse le richieste POST jQuery.
+1. `Form values`: si tratta di valori di modulo inseriti nella richiesta HTTP con il metodo POST, incluse le richieste POST jQuery.
 
 2. `Route values`: set di valori di route resi disponibili dal [routing](xref:fundamentals/routing)
 
@@ -49,7 +49,7 @@ The link works but generates an error when building with DocFX
 [Routing](xref:fundamentals/routing)
 -->
 
-Nota: i valori di form, i dati di route e le stringhe di query vengono tutti archiviati come coppie nome-valore.
+Nota: i valori di modulo, i dati di route e le stringhe di query vengono tutti archiviati come coppie nome/valore.
 
 Poiché l'associazione di modelli ha richiesto una chiave denominata `id` e nei valori del form nessun elemento è denominato `id`, l'associazione di modelli cerca tale chiave passando ai valori della route. In questo esempio, esiste una corrispondenza. L'associazione viene eseguita e il valore viene convertito nell'integer 2. Se nella stessa richiesta fosse usata l'espressione Edit(string id), il risultato della conversione sarebbe la stringa "2".
 
@@ -65,11 +65,11 @@ Quando un parametro viene associato, l'associazione di modelli interrompe la ric
 
 * Tipi nullable: i tipi nullable vengono impostati su `null`. Nell'esempio precedente, l'associazione di modelli imposta `id` su `null`, perché è di tipo `int?`.
 
-* Tipi: valore: i tipi valore non-nullable di tipo `T` vengono impostati su `default(T)`. L'associazione di modelli, ad esempio, imposta un parametro `int id` su 0. Anziché basarsi sui valori predefiniti, è consigliabile usare la convalida del modello o tipi nullable.
+* Tipi valore: i tipi valore non nullable di tipo `T` vengono impostati su `default(T)`. L'associazione di modelli, ad esempio, imposta un parametro `int id` su 0. Anziché basarsi sui valori predefiniti, è consigliabile usare la convalida del modello o tipi nullable.
 
 Se l'associazione non riesce, MVC non genera un errore. Tutte le azioni che accettano input utente devono controllare la proprietà `ModelState.IsValid`.
 
-Nota: ogni voce della proprietà `ModelState` del controller è una `ModelStateEntry` contenente una proprietà `Errors`. È raro che sia necessario eseguire query in questa raccolta personalmente. In alternativa, usare `ModelState.IsValid`.
+Nota: ogni voce della proprietà `ModelState` del controller è un oggetto `ModelStateEntry` contenente una proprietà `Errors`. È raro che sia necessario eseguire query in questa raccolta personalmente. In alternativa, utilizzare `ModelState.IsValid`.
 
 Esistono anche alcuni tipi di dati speciali che MVC deve prendere in considerazione quando esegue l'associazione di modelli:
 
@@ -87,9 +87,9 @@ MVC contiene diversi attributi che è possibile usare per indirizzare il comport
 
 * `[BindRequired]`: se non è possibile eseguire l'associazione, questo attributo aggiunge un errore dello stato del modello.
 
-* `[BindNever]`: indica allo strumento di associazione di modelli di non eseguire mai associazioni al parametro in questione.
+* `[BindNever]`: indica allo strumento di associazione di modelli di non eseguire mai associazioni a questo parametro.
 
-* `[FromHeader]`, `[FromQuery]`, `[FromRoute]`, `[FromForm]`: usare questi attributi per specificare l'origine di associazione precisa che si vuole applicare.
+* `[FromHeader]`, `[FromQuery]`, `[FromRoute]`, `[FromForm]`: usare questi attributi per specificare l'esatta origine di associazione che si vuole applicare.
 
 * `[FromServices]`: questo attributo usa l'[inserimento di dipendenze](../../fundamentals/dependency-injection.md) per associare parametri da servizi.
 

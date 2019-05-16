@@ -6,18 +6,14 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 311f72699b6291996a43d56247bd3d2bfab596e6
-ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
+ms.openlocfilehash: a65543f805b197031bd46ef1974d4d4a5018b2d1
+ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58320248"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65516909"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Modello di dati - 5 di 8
-
-[!INCLUDE[2.0 version](~/includes/RP-EF/20-pdf.md)]
-
-::: moniker range=">= aspnetcore-2.1"
 
 Di [Tom Dykstra](https://github.com/tdykstra) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -33,7 +29,7 @@ Le classi di entità per il modello di dati completato sono visualizzate nella f
 ![Diagramma dell'entità](complex-data-model/_static/diagram.png)
 
 Se si verificano problemi che non si è in grado di risolvere, scaricare l'[app completa](
-https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).
+https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).
 
 ## <a name="customize-the-data-model-with-attributes"></a>Personalizzare il modello di dati usando gli attributi
 
@@ -385,19 +381,18 @@ public ICollection<Course> Courses { get; set; }
 
 Nota: per convenzione, EF Core abilita l'eliminazione a catena per le chiavi esterne non nullable e per le relazioni molti-a-molti. L'eliminazione a catena può generare regole di eliminazione a catena circolari. Quando viene aggiunta una migrazione, le regole di eliminazione a catena circolari determinano un'eccezione.
 
-Se ad esempio la proprietà `Department.InstructorID` non è stata definita come nullable:
+Ad esempio, se la proprietà `Department.InstructorID` è stata definita come nullable:
 
-* EF Core configura una regola di eliminazione a catena per eliminare l'insegnante quando viene eliminato il reparto.
-* L'eliminazione dell'insegnante quando viene eliminato il reparto non è il comportamento atteso.
+* EF Core configura una regola di eliminazione a catena per eliminare il reparto quando viene eliminato l'insegnante.
+* L'eliminazione del reparto quando viene eliminato l'insegnante non è il comportamento previsto.
+* L'API Fluent seguente potrebbe impostare una regola restrict anziché cascade.
 
-Se le regole business richiedevano che la proprietà `InstructorID` fosse non nullable, usare l'istruzione API Fluent seguente:
-
- ```csharp
- modelBuilder.Entity<Department>()
-    .HasOne(d => d.Administrator)
-    .WithMany()
-    .OnDelete(DeleteBehavior.Restrict)
- ```
+   ```csharp
+   modelBuilder.Entity<Department>()
+      .HasOne(d => d.Administrator)
+      .WithMany()
+      .OnDelete(DeleteBehavior.Restrict)
+  ```
 
 Il codice precedente disabilita l'eliminazione a catena per la relazione reparto-insegnante.
 
@@ -671,7 +666,7 @@ L'esercitazione successiva illustra i dati correlati.
 * [Versione YouTube dell'esercitazione (parte 1)](https://www.youtube.com/watch?v=0n2f0ObgCoA)
 * [Versione YouTube dell'esercitazione (parte 2)](https://www.youtube.com/watch?v=Je0Z5K1TNmY)
 
-::: moniker-end
+
 
 > [!div class="step-by-step"]
 > [Precedente](xref:data/ef-rp/migrations)

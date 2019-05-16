@@ -6,27 +6,27 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 09/12/2018
 uid: host-and-deploy/docker/visual-studio-tools-for-docker
-ms.openlocfilehash: 42f8071eadabba3eb8cb738be1720f4c6195808c
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 3bf3d8d0a627d97090e3ce9fef7e380f03c7626d
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207238"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64888366"
 ---
 # <a name="visual-studio-tools-for-docker-with-aspnet-core"></a>Visual Studio Tools per Docker con ASP.NET Core
 
 Visual Studio 2017 supporta la compilazione, il debug e l'esecuzione di app ASP.NET Core incluse in contenitori destinate a .NET Core. Sono supportati sia contenitori Windows che contenitori Linux.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/docker/visual-studio-tools-for-docker/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/docker/visual-studio-tools-for-docker/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * [Docker per Windows](https://docs.docker.com/docker-for-windows/install/)
-* [Visual Studio 2017](https://www.visualstudio.com/) con il carico di lavoro **Sviluppo multipiattaforma .NET Core**
+* [Visual Studio 2017](https://visualstudio.microsoft.com) con il carico di lavoro **Sviluppo multipiattaforma .NET Core**
 
 ## <a name="installation-and-setup"></a>Installazione e configurazione
 
-Per l'installazione di Docker, rivedere prima le informazioni riportate in [Docker for Windows: What to know before you install](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install) (Docker per Windows: informazioni da conoscere prima dell'installazione). Installare quindi [Docker per Windows](https://docs.docker.com/docker-for-windows/install/).
+Per l'installazione di Docker, esaminare prima di tutto le informazioni contenute in [Docker for Windows: What to know before you install](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install) (Docker Desktop per Windows: Informazioni da conoscere prima dell'installazione). Installare quindi [Docker per Windows](https://docs.docker.com/docker-for-windows/install/).
 
 **[Le unità condivise](https://docs.docker.com/docker-for-windows/#shared-drives)**  in Docker per Windows devono essere configurate per supportare il mapping e il debug del volume. Fare clic con il pulsante destro del mouse sull'icona di Docker sulla barra delle applicazioni, selezionare **Settings** (Impostazioni) e quindi selezionare **Shared Drives** (Unità condivise). Selezionare l'unità in cui Docker archivia i file. Fare clic su **Applica**.
 

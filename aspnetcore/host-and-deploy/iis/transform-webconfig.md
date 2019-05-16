@@ -8,11 +8,11 @@ ms.custom: mvc
 ms.date: 02/07/2019
 uid: host-and-deploy/iis/transform-webconfig
 ms.openlocfilehash: bd8cf7d8515e874eefd2c326727f56d0a4b502a7
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248603"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65087075"
 ---
 # <a name="transform-webconfig"></a>Trasformare web.config
 
@@ -21,7 +21,7 @@ Di [Vijay Ramakrishnan](https://github.com/vijayrkn) e [Luke Latham](https://git
 Le trasformazioni per il file *web.config* possono essere applicate automaticamente quando viene pubblicata un'app in base a:
 
 * [Configurazione della build](#build-configuration)
-* [Profilo](#profile)
+* [Profile](#profile)
 * [Ambiente](#environment)
 * [Personalizzato](#custom)
 
@@ -30,7 +30,7 @@ Queste trasformazioni si verificano per uno degli scenari di generazione di *web
 * Generati automaticamente dall'SDK `Microsoft.NET.Sdk.Web`.
 * Forniti dallo sviluppatore nella radice del contenuto dell'app.
 
-## <a name="build-configuration"></a>Configurazione della compilazione
+## <a name="build-configuration"></a>Configurazione della build
 
 Le trasformazioni di configurazione della build vengono eseguite per prime.
 

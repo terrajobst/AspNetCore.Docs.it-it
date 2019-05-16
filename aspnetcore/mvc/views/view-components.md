@@ -5,18 +5,18 @@ description: Informazioni sull'uso dei componenti di visualizzazione in ASP.NET 
 ms.author: riande
 ms.date: 1/30/2019
 uid: mvc/views/view-components
-ms.openlocfilehash: b18473c6a76c4dc9030f0a032db1aff733f5acb7
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 2bcf6411933b884c2f96d926827079dfbc25ca74
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264775"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64891276"
 ---
 # <a name="view-components-in-aspnet-core"></a>Componenti di visualizzazione in ASP.NET Core
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/view-components/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="view-components"></a>Componenti di visualizzazione
 
@@ -144,7 +144,7 @@ In questo esempio il componente di visualizzazione viene chiamato direttamente d
 
 ## <a name="walkthrough-creating-a-simple-view-component"></a>Procedura dettagliata: Creazione di un componente di visualizzazione semplice
 
-[Scaricare](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample), compilare e testare il codice di avvio. Si tratta di un progetto semplice con un controller `ToDo` che visualizza un elenco di elementi *ToDo*.
+[Scaricare](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/view-components/sample), compilare e testare il codice di avvio. Si tratta di un progetto semplice con un controller `ToDo` che visualizza un elenco di elementi *ToDo*.
 
 ![Elenco di elementi ToDo](view-components/_static/2dos.png)
 
@@ -176,7 +176,10 @@ Note riguardanti il codice:
 
 * Creare la cartella *Views/Shared/Components/PriorityList*. Il nome di questa cartella deve corrispondere al nome della classe del componente di visualizzazione oppure al nome della classe privato del suffisso (se è stata adottata la convenzione ed è stato usato il suffisso *ViewComponent* nel nome della classe). Se è stato usato l'attributo `ViewComponent`, il nome della classe dovrà corrispondere alla designazione dell'attributo.
 
-* Creare una visualizzazione Razor *Views/Shared/Components/PriorityList/Default.cshtml*:[!code-cshtml[](view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/Default1.cshtml)]
+* Creare una visualizzazione Razor *Views/Shared/Components/PriorityList/Default.cshtml*:
+
+
+  [!code-cshtml[](view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/Default1.cshtml)]
 
    La visualizzazione Razor accetta un elenco di oggetti `TodoItem` e li visualizza. Se il metodo `InvokeAsync` del componente di visualizzazione non passa il nome della visualizzazione (come in questo esempio), per convenzione viene usato *Default* come nome della visualizzazione. Più avanti nell'esercitazione viene illustrato come passare il nome della visualizzazione. Per sostituire lo stile predefinito per un controller specifico, aggiungere una visualizzazione alla cartella di visualizzazione specifica del controller, ad esempio *Views/ToDo/Components/PriorityList/Default.cshtml*.
 

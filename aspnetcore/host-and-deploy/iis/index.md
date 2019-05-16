@@ -4,14 +4,14 @@ author: guardrex
 description: Informazioni su come ospitare app ASP.NET Core in Windows Server Internet Information Services (IIS).
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/16/2019
+ms.date: 05/07/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 65721a734cb35a2b20fd283ad54237eb896083a9
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: c8e742047230339434b910de9a8a2492bc4da1ff
+ms.sourcegitcommit: a3926eae3f687013027a2828830c12a89add701f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64882616"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65450977"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host ASP.NET Core in Windows con IIS
 
@@ -158,6 +158,23 @@ services.Configure<IISServerOptions>(options =>
     options.AutomaticAuthentication = false;
 });
 ```
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+| Opzione                         | Impostazione predefinita | Impostazione |
+| ------------------------------ | :-----: | ------- |
+| `AutomaticAuthentication`      | `true`  | Se `true`, IIS Server imposta l'utente `HttpContext.User` autenticato tramite l'[autenticazione di Windows](xref:security/authentication/windowsauth). Se `false`, il server fornisce solo un'identità per `HttpContext.User` e risponde alle richieste esplicite di `AuthenticationScheme`. Per il funzionamento di `AutomaticAuthentication` l’autenticazione di Windows deve essere abilitata in IIS. Per altre informazioni, vedere [Autenticazione di Windows](xref:security/authentication/windowsauth). |
+| `AuthenticationDisplayName`    | `null`  | Imposta il nome visualizzato dagli utenti nelle pagine di accesso. |
+| `AllowSynchronousIO`           | `false` | Indica se l'I/O sincrono è consentito per `HttpContext.Request` e `HttpContext.Response`. |
+| `MaxRequestBodySize`           | `30000000`  | Ottiene o imposta la dimensione massima del corpo della richiesta per `HttpRequest`. Notare che IIS stesso include il limite `maxAllowedContentLength`, che verrà elaborato prima del set `MaxRequestBodySize` in `IISServerOptions`. La modifica di `MaxRequestBodySize` non influisce su `maxAllowedContentLength`. Per aumentare `maxAllowedContentLength`, aggiungere una voce in *web.config* per impostare `maxAllowedContentLength` su un valore superiore. Per ulteriori informazioni, vedere [Configurazione](/iis/configuration/system.webServer/security/requestFiltering/requestLimits/#configuration). |
+
+**Modello di hosting out-of-process**
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.2"
 
 | Opzione                         | Impostazione predefinita | Impostazione |
 | ------------------------------ | :-----: | ------- |

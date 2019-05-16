@@ -5,14 +5,14 @@ description: Informazioni di base sulla creazione di un'API Web in ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 04/11/2019
+ms.date: 05/07/2019
 uid: web-api/index
-ms.openlocfilehash: d804a7f1b4f0e89f433a3674116c97804705f7cc
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 593fd33babc81cddfc4db2150a37e5ec3bc1a0be
+ms.sourcegitcommit: a3926eae3f687013027a2828830c12a89add701f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64882956"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65450844"
 ---
 # <a name="create-web-apis-with-aspnet-core"></a>Creare API Web con ASP.NET Core
 
@@ -137,6 +137,10 @@ Per modificare la risposta predefinita per <xref:Microsoft.AspNetCore.Mvc.Serial
 Per personalizzare la risposta risultante da un errore di convalida, usare <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.InvalidModelStateResponseFactory>. Aggiungere il codice evidenziato seguente dopo `services.AddMvc().SetCompatibilityVersion`:
 
 [!code-csharp[](index/samples/2.x/Startup.cs?name=snippet_ConfigureBadRequestResponse&highlight=3-20)]
+
+### <a name="log-automatic-400-responses"></a>Registrare le risposte 400 automatiche
+
+Vedere [How to log automatic 400 responses on model validation errors (aspnet/AspNetCore.Docs #12157)](https://github.com/aspnet/AspNetCore.Docs/issues/12157) (Come registrare le risposte 400 automatiche negli errori di convalida del modello - aspnet/AspNetCore.Docs 12157).
 
 ### <a name="disable-automatic-400"></a>Disabilitare il comportamento automatico per gli errori 400
 

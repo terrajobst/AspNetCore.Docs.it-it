@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/25/2018
 uid: fundamentals/metapackage
-ms.openlocfilehash: d95bafd412969bb8db38499bd2ff01af510d872c
-ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
+ms.openlocfilehash: 5d49213e6d694f121d8301c94ba71782b2dc45cf
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50148850"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65086942"
 ---
 # <a name="microsoftaspnetcoreall-metapackage-for-aspnet-core-20"></a>Metapacchetto Microsoft.AspNetCore.All per ASP.NET Core 2.0
 
@@ -21,7 +21,9 @@ ms.locfileid: "50148850"
 
 Questa funzionalità richiede ASP.NET Core 2.x con destinazione .NET Core 2.x.
 
-Il metapacchetto [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) per ASP.NET include:
+[Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) è un metapacchetto che fa riferimento a un framework condiviso. Un *framework condiviso* è un set di assembly (file *DLL*) che non sono presenti nelle cartelle dell'app. Il framework condiviso deve essere installato nel computer per eseguire l'app. Per altre informazioni, vedere [The shared framework](https://natemcmaster.com/blog/2018/08/29/netcore-primitives-2/) (Il framework condiviso).
+
+Il framework condiviso cui fa riferimento `Microsoft.AspNetCore.All` include:
 
 * Tutti i pacchetti supportati dal team ASP.NET Core.
 * Tutti i pacchetti supportati da Entity Framework Core.
@@ -29,11 +31,7 @@ Il metapacchetto [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Micro
 
 Tutte le funzionalità di ASP.NET Core 2.x e Entity Framework Core 2.x sono incluse nel pacchetto `Microsoft.AspNetCore.All`. I modelli di progetto predefiniti destinati ad ASP.NET Core 2.0 usano questo pacchetto.
 
-Il numero di versione del metapacchetto `Microsoft.AspNetCore.All` rappresenta la versione di ASP.NET Core e la versione di Entity Framework Core.
-
-Le applicazioni che usano il metapacchetto `Microsoft.AspNetCore.All` sfruttano automaticamente l'[archivio di runtime di .NET Core](/dotnet/core/deploying/runtime-store). L'archivio di runtime contiene tutti gli asset di runtime necessari per eseguire le applicazioni ASP.NET Core 2.x. Quando si usa il metapacchetto `Microsoft.AspNetCore.All`, con l'applicazione **non** vengono distribuiti asset dai pacchetti NuGet di riferimento di ASP.NET Core. Questi asset sono infatti inclusi nell'archivio di runtime di .NET Core. Gli asset contenuti nell'archivio di runtime sono precompilati per migliorare i tempi di avvio dell'applicazione.
-
-Per rimuovere i pacchetti che non vengono usati è possibile usare il processo di trimming dei pacchetti. I pacchetti di cui è stato eseguito il trimming sono esclusi dall'output dell'applicazione pubblicata.
+Il numero di versione del metapacchetto `Microsoft.AspNetCore.All` rappresenta le versioni minime di ASP.NET Core e di Entity Framework Core.
 
 Il file con estensione *csproj* seguente fa riferimento al metapacchetto `Microsoft.AspNetCore.All` per ASP.NET Core:
 
@@ -43,7 +41,7 @@ Il file con estensione *csproj* seguente fa riferimento al metapacchetto `Micros
 
 ## <a name="implicit-versioning"></a>Controllo delle versioni implicito
 
-In ASP.NET Core 2.1 o versioni successive è possibile specificare il riferimento al pacchetto `Microsoft.AspNetCore.All` senza la versione. Quando la versione non è specificata, il SDK specifica una versione implicita (`Microsoft.NET.Sdk.Web`). È consigliabile basarsi sulla versione implicita specificata dall'SDK e non impostando in modo esplicito il numero di versione sul riferimento al pacchetto. In caso di domande su questo approccio, lasciare un commento GitHub nella pagina della [discussione per la versione implicita Microsoft.AspNetCore.App](https://github.com/aspnet/Docs/issues/6430).
+In ASP.NET Core 2.1 o versioni successive è possibile specificare il riferimento al pacchetto `Microsoft.AspNetCore.All` senza la versione. Quando la versione non è specificata, il SDK specifica una versione implicita (`Microsoft.NET.Sdk.Web`). È consigliabile basarsi sulla versione implicita specificata dall'SDK e non impostando in modo esplicito il numero di versione sul riferimento al pacchetto. In caso di domande su questo approccio, lasciare un commento GitHub nella pagina della [discussione per la versione implicita Microsoft.AspNetCore.App](https://github.com/aspnet/AspNetCore.Docs/issues/6430).
 
 La versione implicita è impostata su `major.minor.0` per le app portabili. Il meccanismo di roll forward del framework condiviso esegue l'app sulla versione compatibile più recente tra i framework condivisi installati. Per garantire che venga usata la stessa versione in fase di sviluppo, test e produzione, verificare che in tutti gli ambienti sia installata la stessa versione del framework condiviso. Per le app autonome, il numero di versione implicita è impostato sul valore `major.minor.patch` del framework condiviso nel bundle nell'SDK installato.
 
@@ -51,7 +49,7 @@ Il fatto di specificare un numero di versione nel riferimento del pacchetto `Mic
 
 Il SDK del progetto deve essere impostato su `Microsoft.NET.Sdk.Web` nel file di progetto perché venga usata la versione implicita di `Microsoft.AspNetCore.All`. Se è specificato il SDK `Microsoft.NET.Sdk` (`<Project Sdk="Microsoft.NET.Sdk">` nella parte superiore del file di progetto), viene generato l'avviso seguente:
 
-*Avviso NU1604: la dipendenza Microsoft.AspNetCore.All del progetto non contiene un limite inferiore inclusivo. Includere un limite inferiore nella versione della dipendenza per garantire risultati di ripristino coerenti.*
+*Avviso NU1604: La dipendenza Microsoft.AspNetCore.All del progetto non contiene un limite inferiore inclusivo. Includere un limite inferiore nella versione della dipendenza per garantire risultati di ripristino coerenti.*
 
 Si tratta di un problema noto con .NET Core 2.1 SDK, che verrà risolto in .NET Core 2.2 SDK.
 
@@ -90,6 +88,6 @@ Tutte le dipendenze dei pacchetti precedenti che non sono in altro modo dipenden
 
 È consigliabile eseguire la migrazione al metapacchetto `Microsoft.AspNetCore.App` per la versione 2.1 e versioni successive. Per continuare a usare il metapacchetto `Microsoft.AspNetCore.All` e assicurarsi che venga distribuita la versione della patch più recente:
 
-* Nei computer di sviluppo e nei server di compilazione: installare il [.NET Core SDK](https://www.microsoft.com/net/download) più recente.
-* Nei server di distribuzione: installare il [runtime di .NET Core](https://www.microsoft.com/net/download) più recente.
+* Nei computer di sviluppo e nei server di compilazione: installare la versione più recente di [.NET Core SDK](https://www.microsoft.com/net/download).
+* Nei server di distribuzione: installare la versione più recente del [runtime .NET Core](https://www.microsoft.com/net/download).
  L'app eseguirà il roll forward all'ultima versione installata al riavvio dell'applicazione.

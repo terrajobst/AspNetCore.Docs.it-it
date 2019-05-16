@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 4/19/2019
 uid: security/authentication/social/index
-ms.openlocfilehash: 61482481358256dc9ddd1a0a894541040a8a452f
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: e2d68ac93bdcfa2fc015e8447ea38626787cdb02
+ms.sourcegitcommit: a3926eae3f687013027a2828830c12a89add701f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64882006"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65451052"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Autenticazione dei provider Facebook, Google ed esterni in ASP.NET Core
 
@@ -47,11 +47,13 @@ Per degli esempi di come gli account di accesso ai social possano risultare util
 * Eseguire i comandi seguenti:
 
   ```console
-  dotnet new webapp -o WebApp1
+  dotnet new webapp -o WebApp1 -au Individual -uld
   code -r WebApp1
   ```
 
   * Il comando `dotnet new` crea un nuovo progetto Razor Pages nella cartella *WebApp1*.
+  * `-uld` usa LocalDB invece di SQLite. Omettere `-uld` per usare SQLite.
+  * `-au Individual` crea il codice per l'autenticazione individuale.
   * Il comando `code` apre la cartella *WebApp1* in una nuova istanza di Visual Studio Code.
 
   Viene visualizzata una finestra di dialogo con **Required assets to build and debug are missing from 'WebApp1'. Add them?** (Risorse di compilazione e debug mancanti da "RazorPagesMovie". Aggiungerle?)
@@ -65,7 +67,7 @@ Da un terminale eseguire il comando seguente:
 <!-- TODO: update these instruction once mac support 2.2 projects -->
 
 ```console
-dotnet new webapp -o WebApp1
+dotnet new webapp -o WebApp1 -au Individual
 ```
 
 I comandi precedenti usano l'[interfaccia della riga di comando di .NET Core](/dotnet/core/tools/dotnet) per creare un progetto Razor Pages.
