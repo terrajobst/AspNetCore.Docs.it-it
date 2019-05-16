@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/29/2019
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: 37e39ac93e7b67184dfc238d58e12c2be8d84f91
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: d7a5656131189ffafb60a7b1db0b8d93a3787ae2
+ms.sourcegitcommit: 3ee6ee0051c3d2c8d47a58cb17eef1a84a4c46a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087338"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65621055"
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>Creare helper tag in ASP.NET Core
 
@@ -313,3 +313,12 @@ Gli helper tag mettono a disposizione diverse proprietà per recuperare il conte
 [!code-csharp[](../../views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinkerCopy.cs?highlight=5,6,10&range=8-21)]
 
 * Più chiamate al metodo `GetChildContentAsync` restituiscono lo stesso valore e rieseguono nuovamente il corpo di `TagHelper` solo se viene passato un parametro false per indicare di non usare il risultato memorizzato nella cache.
+
+## <a name="load-minified-partial-view-taghelper"></a>TagHelper per caricare visualizzazioni parziali minimizzate
+
+Negli ambienti di produzione le prestazioni possono essere migliorate caricando visualizzazioni parziali minimizzate. Per sfruttare i vantaggi della visualizzazione parziale minimizzata nell'ambiente di produzione:
+
+* Creare/configurare un processo di pre-compilazione che minimizza visualizzazioni parziali.
+* Usare il codice seguente per caricare le visualizzazioni parziali minimizzate in ambienti non di sviluppo.
+
+[!code-csharp[](authoring/sample/AuthoringTagHelpers/src/MinifiedVersionTagHelper.cs?name=snippet)]

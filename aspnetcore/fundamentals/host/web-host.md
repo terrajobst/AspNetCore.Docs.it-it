@@ -4,14 +4,14 @@ author: guardrex
 description: Informazioni sull'host Web in ASP.NET Core, responsabile della gestione dell'avvio e della durata delle app.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 05/11/2019
 uid: fundamentals/host/web-host
-ms.openlocfilehash: b391b5e514e750f64f30d33cf4eb91e489242eba
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 48f3b664d901bdfb27cdf9e798fa60c0587d1def
+ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64888976"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610285"
 ---
 # <a name="aspnet-core-web-host"></a>Host Web ASP.NET Core
 
@@ -39,7 +39,9 @@ Questo articolo descrive l'host Web ASP.NET Core ([IWebHostBuilder](/dotnet/api/
 
 ## <a name="set-up-a-host"></a>Configurare un host
 
-Creare un host usando un'istanza di [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder). Questa operazione viene in genere eseguita nel punto di ingresso dell'app, il metodo `Main`. Nei modelli di progetto `Main` si trova in *Program.cs*. Un file *Program.cs* tipico chiama [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) per avviare la configurazione di un host:
+Creare un host usando un'istanza di [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder). Questa operazione viene in genere eseguita nel punto di ingresso dell'app, il metodo `Main`. Il nome del metodo del generatore `CreateWebHostBuilder` è un nome speciale che identifica il metodo del generatore per i componenti esterni, ad esempio [Entity Framework](/ef/core/).
+
+Nei modelli di progetto `Main` si trova in *Program.cs*. Un'app tipica chiama [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) per avviare la configurazione di un host:
 
 ```csharp
 public class Program
