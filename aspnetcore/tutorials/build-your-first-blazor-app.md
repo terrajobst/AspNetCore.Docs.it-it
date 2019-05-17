@@ -5,14 +5,14 @@ description: Istruzioni dettagliate per creare un'app Blazor.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/18/2019
+ms.date: 05/14/2019
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: d235fec4e128ad8622a06d301eeac15c4862c159
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: c1b142ebdbd85eb10ddf8c8b70edd9782732a4f1
+ms.sourcegitcommit: 3ee6ee0051c3d2c8d47a58cb17eef1a84a4c46a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087754"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65621098"
 ---
 # <a name="build-your-first-blazor-app"></a>Creare la prima app Blazor
 
@@ -151,6 +151,14 @@ Aggiungere all'app un nuovo componente che implementa un semplice elenco attivit
    ```
 
 1. Ricompilare ed eseguire l'app. Visitare la nuova pagina Todo per confermare che il collegamento al componente Todo funzioni correttamente.
+
+1. Se si compila un'app lato server Blazor, aggiungere lo spazio dei nomi dell'app al file *\_Imports.razor*. L'istruzione `@using` seguente presuppone che lo spazio dei nomi dell'app sia `WebApplication`:
+
+   ```cshtml
+   @using WebApplication
+   ```
+   
+   Le app lato client Blazor includono lo spazio dei nomi dell'app per impostazione predefinita nel file *\_Imports.razor*.
 
 1. Aggiungere un file *TodoItem.cs* nella radice del progetto per contenere una classe per rappresentare un elemento attività. Usare il codice C# seguente per la classe `TodoItem`:
 

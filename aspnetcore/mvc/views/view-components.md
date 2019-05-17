@@ -3,14 +3,15 @@ title: Componenti di visualizzazione in ASP.NET Core
 author: rick-anderson
 description: Informazioni sull'uso dei componenti di visualizzazione in ASP.NET Core e su come aggiungere tali componenti alle app.
 ms.author: riande
-ms.date: 1/30/2019
+ms.custom: mvc
+ms.date: 5/14/2019
 uid: mvc/views/view-components
-ms.openlocfilehash: 2bcf6411933b884c2f96d926827079dfbc25ca74
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 17fd7aa977868d522df9f27e0c23d07b016bfb7c
+ms.sourcegitcommit: 3ee6ee0051c3d2c8d47a58cb17eef1a84a4c46a0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64891276"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65621081"
 ---
 # <a name="view-components-in-aspnet-core"></a>Componenti di visualizzazione in ASP.NET Core
 
@@ -40,6 +41,8 @@ I componenti di visualizzazione possono essere impiegati in un punto qualsiasi d
 * Pannello di accesso che viene eseguito in ogni pagina e che visualizza il collegamento di accesso o di disconnessione, a seconda dello stato di accesso dell'utente
 
 Un componente di visualizzazione è costituito da due parti: la classe (in genere derivata da [ViewComponent](/dotnet/api/microsoft.aspnetcore.mvc.viewcomponent)) e il risultato restituito (in genere una visualizzazione). Come per i controller, un componente di visualizzazione può essere un oggetto POCO. Molti sviluppatori preferiscono tuttavia sfruttare i metodi e le proprietà disponibili derivando da `ViewComponent`.
+
+Quando si valuta se i componenti di visualizzazione soddisfano le specifiche di un'app, provare a usare Componenti Razor. Componenti Razor inoltre combina markup con codice C# per produrre unità riutilizzabili dell'interfaccia utente. Componenti Razor è progettato per la produttività degli sviluppatori quando si fornisce la composizione e la logica dell'interfaccia utente lato client. Per ulteriori informazioni, vedere <xref:blazor/components>.
 
 ## <a name="creating-a-view-component"></a>Creazione di un componente di visualizzazione
 

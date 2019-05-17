@@ -6,23 +6,23 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 09/12/2018
 uid: host-and-deploy/docker/visual-studio-tools-for-docker
-ms.openlocfilehash: 3bf3d8d0a627d97090e3ce9fef7e380f03c7626d
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: b0d884fe2fe56f267ad70c388a08cd3fe6256364
+ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64888366"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610374"
 ---
 # <a name="visual-studio-tools-for-docker-with-aspnet-core"></a>Visual Studio Tools per Docker con ASP.NET Core
 
-Visual Studio 2017 supporta la compilazione, il debug e l'esecuzione di app ASP.NET Core incluse in contenitori destinate a .NET Core. Sono supportati sia contenitori Windows che contenitori Linux.
+Visual Studio 2017 e versioni successive supporta la compilazione, il debug e l'esecuzione di app ASP.NET Core incluse in contenitori destinate a .NET Core. Sono supportati sia contenitori Windows che contenitori Linux.
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/docker/visual-studio-tools-for-docker/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * [Docker per Windows](https://docs.docker.com/docker-for-windows/install/)
-* [Visual Studio 2017](https://visualstudio.microsoft.com) con il carico di lavoro **Sviluppo multipiattaforma .NET Core**
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) con il carico di lavoro **Sviluppo multipiattaforma .NET Core**
 
 ## <a name="installation-and-setup"></a>Installazione e configurazione
 
@@ -112,7 +112,7 @@ Usando i file di override specifici della configurazione, è possibile specifica
 Oltre ai [prerequisiti](#prerequisites) di base, la soluzione di orchestrazione [Service Fabric](/azure/service-fabric/) richiede i prerequisiti seguenti:
 
 * [Microsoft Azure Service Fabric SDK](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK) versione 2.6 o successiva
-* Carico di lavoro **Sviluppo di Azure** di Visual Studio 2017
+* Carico di lavoro **Sviluppo di Azure** di Visual Studio
 
 Service Fabric non supporta l'esecuzione di contenitori Linux nel cluster di sviluppo locale in Windows. Se il progetto usa già un contenitore Linux, Visual Studio richiede di passare a contenitori Windows.
 
