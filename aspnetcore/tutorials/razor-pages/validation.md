@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/5/2018
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: e9214139c0e6e958445feb13b6350bad376a0152
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 38e1fff9c7a212af992951dbf57e124cae69d36f
+ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64884166"
+ms.lasthandoff: 05/19/2019
+ms.locfileid: "65874980"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Aggiungere la convalida a una pagina Razor ASP.NET Core
 
@@ -28,22 +28,7 @@ Un concetto di base dello sviluppo del software si chiama [DRY](https://wikipedi
 
 Il supporto della convalida fornito dalle pagine di Razor e da Entity Framework è un buon esempio del principio di DRY. Le regole di convalida vengono specificate in modo dichiarativo in un'unica posizione (nella classe del modello) e le regole vengono applicate ovunque nell'app.
 
-### <a name="adding-validation-rules-to-the-movie-model"></a>Aggiunta di regole di convalida al modello movie
-
-Aprire il file *Models/Movie.cs*. [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) fornisce un set incorporato di attributi di convalida che si applicano in modo dichiarativo a una classe o proprietà. DataAnnotations contiene anche gli attributi di formattazione, come `DataType`, che guidano nella formattazione e non forniscono la convalida.
-
-Aggiornamento della classe `Movie` per poter sfruttare gli attributi di convalida `Required`, `StringLength`, `RegularExpression`, e `Range`.
-
-[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Models/MovieDateRatingDA.cs?name=snippet1)]
-
-Gli attributi di convalida specificano il comportamento che viene applicato alle proprietà del modello:
-
-* Gli attributi `Required` e `MinimumLength` indicano che una proprietà deve avere un valore. Tuttavia, niente impedisce a un utente di immettere spazi vuoti per soddisfare il vincolo di convalida per un tipo nullable. I [tipi valore](/dotnet/csharp/language-reference/keywords/value-types) non nullable (ad esempio `decimal`, `int`, `float` e `DateTime`) sono intrinsecamente necessari e non richiedono l'attributo `Required`.
-* L'attributo `RegularExpression` limita i caratteri che può immettere l'utente. Nel codice precedente `Genre` deve iniziare con una o più lettere maiuscole seguite da zero o più lettere, virgolette singole o doppie, spazi vuoti o trattini. `Rating` deve iniziare con una o più lettere maiuscole seguite da zero o più lettere, numeri, virgolette singole o doppie, spazi vuoti o trattini.
-* L'attributo `Range` vincola un valore a un intervallo specificato.
-* L'attributo `StringLength` imposta la lunghezza massima di una stringa e, facoltativamente, la lunghezza minima. 
-
-Il possesso di regole di convalida applicate automaticamente da ASP.NET Core consente di rendere un'app più solida. La convalida automatica sui modelli consente di proteggere l'app perché non è necessario ricordarsi di applicarli quando viene aggiunto nuovo codice.
+[!INCLUDE[](~/includes/RP-MVC/validation.md)]
 
 ### <a name="validation-error-ui-in-razor-pages"></a>Errore di convalida dell'interfaccia utente nelle pagine Razor
 
