@@ -5,12 +5,12 @@ description: Come aggiungere la convalida a un'app ASP.NET Core.
 ms.author: riande
 ms.date: 04/13/2017
 uid: tutorials/first-mvc-app/validation
-ms.openlocfilehash: 49db8d7c1d3e54f416c66685c19b3a2e3b14251c
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: 6c59d0188f67872c7dd5599967551d7d390bfdcf
+ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665444"
+ms.lasthandoff: 05/19/2019
+ms.locfileid: "65875019"
 ---
 # <a name="add-validation-to-an-aspnet-core-mvc-app"></a>Aggiungere la funzionalità di convalida a un'app ASP.NET Core MVC
 
@@ -27,25 +27,9 @@ Uno dei principi di progettazione MVC è [DRY](https://wikipedia.org/wiki/Don%27
 
 Il supporto della convalida fornito da MVC ed Entity Framework Core Code First è un valido esempio pratico del principio DRY. È possibile specificare in modo dichiarativo le regole di convalida in un'unica posizione (nella classe del modello) e le regole vengono applicate ovunque nell'app.
 
-## <a name="adding-validation-rules-to-the-movie-model"></a>Aggiunta di regole di convalida al modello movie
+[!INCLUDE[](~/includes/RP-MVC/validation.md)]
 
-Aprire il file *Movie.cs*. DataAnnotations fornisce un set predefinito di attributi di convalida che si applicano in modo dichiarativo a qualsiasi classe o proprietà. Contiene anche gli attributi di formattazione come `DataType` che guidano nella formattazione e non forniscono la convalida.
-
-Aggiornare la classe `Movie` per poter sfruttare gli attributi di convalida `Required`, `StringLength`, `RegularExpression` e `Range` predefiniti.
-
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie22/Models/MovieDateRatingDA.cs?name=snippet1)]
-
-Gli attributi di convalida specificano il comportamento da implementare nelle proprietà del modello a cui vengono applicati:
-
-* Gli attributi `Required` e `MinimumLength` indicano che una proprietà deve avere un valore, ma nulla impedisce all'utente di inserire spazi vuoti per soddisfare questa convalida. 
-* L'attributo `RegularExpression` viene usato per limitare i caratteri che possono essere inseriti. Nel codice precedente, per `Genre` e `Rating` è necessario usare solo lettere. Prima lettera in maiuscolo, spazi vuoti, numeri e caratteri speciali non sono consentiti.
-* L'attributo `Range` vincola un valore all'interno di un intervallo specificato. 
-* L'attributo `StringLength` consente di impostare la lunghezza massima di una proprietà stringa e, facoltativamente, la lunghezza minima. 
-* I tipi di valore, ad esempio `decimal`, `int`, `float` e `DateTime`, sono intrinsecamente necessari e non richiedono l'attributo `[Required]`.
-
-L'applicazione automatica di regole di convalida da ASP.NET Core è utile per rendere un'app più solida. In questo modo inoltre non è possibile omettere la convalida di un elemento e quindi inserire involontariamente dati errati nel database.
-
-## <a name="validation-error-ui-in-mvc"></a>Interfaccia utente dell'errore di convalida in MVC
+## <a name="validation-error-ui"></a>Interfaccia utente dell'errore di convalida
 
 Eseguire l'app e passare al controller di film.
 

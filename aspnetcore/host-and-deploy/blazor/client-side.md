@@ -5,24 +5,22 @@ description: Informazioni su come ospitare e distribuire un'app Blazor con ASP.N
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/15/2019
+ms.date: 05/13/2019
 uid: host-and-deploy/blazor/client-side
-ms.openlocfilehash: 01a612029f415f583908c3bf2adc2e6d35167acb
-ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
+ms.openlocfilehash: ea8ece266809913e32ac212bc55cb3c2499c234f
+ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59614718"
+ms.lasthandoff: 05/19/2019
+ms.locfileid: "65874970"
 ---
 # <a name="host-and-deploy-blazor-client-side"></a>Ospitare e distribuire Blazor sul lato client
 
 Di [Luke Latham](https://github.com/guardrex), [Rainer Stropek](https://www.timecockpit.com) e [Daniel Roth](https://github.com/danroth27)
 
-[!INCLUDE[](~/includes/razor-components-preview-notice.md)]
-
 ## <a name="host-configuration-values"></a>Valori di configurazione dell'host
 
-Le app Blazor che usano il [modello di hosting sul lato client](xref:blazor/hosting-models#client-side-hosting-model) possono accettare i valori di configurazione dell'host seguenti come argomenti della riga di comando in fase di esecuzione nell'ambiente di sviluppo.
+Le app Blazor che usano il [modello di hosting sul lato client](xref:blazor/hosting-models#client-side) possono accettare i valori di configurazione dell'host seguenti come argomenti della riga di comando in fase di esecuzione nell'ambiente di sviluppo.
 
 ### <a name="content-root"></a>Radice del contenuto
 
@@ -95,7 +93,7 @@ L'argomento `--urls` imposta gli indirizzi IP o gli indirizzi host con le porte 
 
 ## <a name="deployment"></a>Distribuzione
 
-Con il [modello di hosting sul lato client](xref:blazor/hosting-models#client-side-hosting-model):
+Con il [modello di hosting sul lato client](xref:blazor/hosting-models#client-side):
 
 * L'app Blazor, le relative dipendenze e il runtime .NET vengono scaricati nel browser.
 * L'app viene eseguita direttamente nel thread dell'interfaccia utente del browser. È supportata una delle strategie seguenti:
@@ -110,15 +108,15 @@ Blazor esegue il collegamento di linguaggio intermedio (IL) in ogni build per ri
 
 Il routing delle richieste per i componenti di pagina in un'app sul lato client non è semplice come il routing delle richieste a un'app ospitata sul lato server. Si consideri un'app sul lato client con due pagine:
 
-* **_Main.cshtml_** &ndash; Viene caricata nella radice dell'app e contiene un collegamento alla pagina About (`href="About"`).
-* **_About.cshtml_** &ndash; Pagina About (Informazioni su).
+* **_Main.razor**&ndash; Viene caricata nella radice dell'app e contiene un collegamento alla pagina About (`href="About"`).
+* **_About.Razor** &ndash; Pagina About.
 
 Quando viene richiesto il documento predefinito dell'app usando la barra degli indirizzi del browser (ad esempio, `https://www.contoso.com/`):
 
 1. Il browser invia una richiesta.
 1. Viene restituita la pagina predefinita, di solito *index.html*.
 1. *index.html* esegue il bootstrap dell'app.
-1. Il router di Blazor viene caricato e viene visualizzata la pagina principale di Razor (*Main.cshtml*).
+1. Il router di Blazor viene caricato e viene visualizzata la pagina principale di Razor (*Main.razor*).
 
 Nella pagina principale, se si seleziona il collegamento alla pagina About viene caricata tale pagina. La selezione del collegamento alla pagina About funziona nel client perché il router Blazor impedisce al browser di inviare una richiesta su Internet a `www.contoso.com` per `About` e fornisce la pagina About autonomamente. Tutte le richieste di pagine interne *all'interno dell'app sul lato client* funzionano allo stesso modo: Le richieste non attivano richieste basate su browser a risorse ospitate nel server su Internet. Le richieste vengono gestite internamente dal router.
 
@@ -128,13 +126,19 @@ Dato che i browser inviano le richieste agli host basati su Internet per le pagi
 
 ## <a name="app-base-path"></a>Percorso di base dell'app
 
-Il *percorso di base dell'app* è il percorso radice dell'app virtuale nel server. Ad esempio, un'app che si trova nel server di Contoso in una cartella virtuale in `/CoolApp/` è raggiungibile all'indirizzo `https://www.contoso.com/CoolApp` e ha un percorso virtuale di base `/CoolApp/`. Impostando il percorso di base dell'app su `CoolApp/`, l'app è a conoscenza della posizione in cui risiede virtualmente nel server. L'app può usare il percorso di base dell'app per costruire URL relativi rispetto alla radice dell'app da un componente che non si trova nella directory radice. In questo modo i componenti presenti a diversi livelli della struttura di directory possono creare collegamenti ad altre risorse in varie posizioni in tutta l'app. Il percorso di base dell'app viene anche usato per intercettare i clic su collegamenti ipertestuali in cui la destinazione del collegamento `href` si trova all'interno dello spazio URI del percorso di base dell'app. Il router Blazor gestisce la navigazione interna.
+Il *percorso di base dell'app* è il percorso radice dell'app virtuale nel server. Ad esempio, un'app che si trova nel server di Contoso in una cartella virtuale in `/CoolApp/` è raggiungibile all'indirizzo `https://www.contoso.com/CoolApp` e ha un percorso virtuale di base `/CoolApp/`. Impostando il percorso di base dell'app sul percorso virtuale (`<base href="/CoolApp/">`), l'app viene informata della posizione in cui risiede virtualmente nel server. L'app può usare il percorso di base dell'app per costruire URL relativi rispetto alla radice dell'app da un componente che non si trova nella directory radice. In questo modo i componenti presenti a diversi livelli della struttura di directory possono creare collegamenti ad altre risorse in varie posizioni in tutta l'app. Il percorso di base dell'app viene anche usato per intercettare i clic su collegamenti ipertestuali in cui la destinazione del collegamento `href` si trova all'interno dello spazio URI del percorso di base dell'app. Il router Blazor gestisce la navigazione interna.
 
-In molti scenari di hosting, il percorso virtuale del server per l'app è la radice dell'app. In questi casi, il percorso di base dell'app è una barra (`<base href="/" />`), ovvero la configurazione predefinita per un'app. In altri scenari di hosting, ad esempio le pagine di GitHub, le directory virtuali di IIS e o le sottoapplicazioni, è necessario impostare il percorso di base dell'app sul percorso virtuale del server per l'app. Per impostare il percorso di base dell'app, aggiungere o aggiornare il tag `<base>` nel file *index.html* all'interno degli elementi del tag `<head>`. Impostare il valore dell'attributo `href` su `virtual-path/` (la barra finale è obbligatoria), dove `virtual-path/` è il percorso radice dell'app virtuale completo nel server per l'app. Nell'esempio precedente, il percorso virtuale è impostato su `CoolApp/`: `<base href="CoolApp/">`.
+In molti scenari di hosting, il percorso virtuale del server per l'app è la radice dell'app. In questi casi, il percorso di base dell'app è una barra (`<base href="/" />`), ovvero la configurazione predefinita per un'app. In altri scenari di hosting, ad esempio le pagine di GitHub, le directory virtuali di IIS e o le sottoapplicazioni, è necessario impostare il percorso di base dell'app sul percorso virtuale del server per l'app. Per impostare il percorso di base dell'app, aggiornare il tag `<base>` all'interno degli elementi del tag `<head>` del file*wwwroot/index.html*. Impostare il valore dell'attributo `href` su `/virtual-path/` (la barra finale è obbligatoria), dove `/virtual-path/` è il percorso radice dell'app virtuale completo nel server per l'app. Nell'esempio precedente, il percorso virtuale è impostato su `/CoolApp/`: `<base href="/CoolApp/">`.
 
-Per un'app con un percorso virtuale non radice configurato (ad esempio, `<base href="CoolApp/">`), l'app non riesce a trovare le relative risorse *quando viene eseguita in locale*. Per risolvere questo problema durante sviluppo e test locali, è possibile specificare un argomento *base del percorso* corrispondente al valore `href` del tag `<base>` in fase di esecuzione.
+Per un'app con un percorso virtuale non radice configurato (ad esempio, `<base href="/CoolApp/">`), l'app non riesce a trovare le relative risorse *quando viene eseguita in locale*. Per risolvere questo problema durante sviluppo e test locali, è possibile specificare un argomento *base del percorso* corrispondente al valore `href` del tag `<base>` in fase di esecuzione.
 
-Per passare l'argomento di base del percorso con il percorso radice (`/`) quando si esegue l'app in locale, eseguire il comando seguente dalla directory dell'app:
+Per passare l'argomento di base del percorso con il percorso radice (`/`) quando si esegue l'app in locale, eseguire il comando `dotnet run` dalla directory dell'app usando l'opzione `--pathbase`:
+
+```console
+dotnet run --pathbase=/{Virtual Path (no trailing slash)}
+```
+
+Per un'app con un percorso virtuale di base di `/CoolApp/` (`<base href="/CoolApp/">`), il comando è:
 
 ```console
 dotnet run --pathbase=/CoolApp
@@ -144,7 +148,7 @@ L'app risponde in locale all'indirizzo `http://localhost:port/CoolApp`.
 
 Per altre informazioni, vedere la sezione sul [valore di configurazione dell'host della base del percorso](#path-base).
 
-Se un'app usa il [modello di hosting sul lato client](xref:blazor/hosting-models#client-side-hosting-model) (basato sul modello di progetto **Blazor**) ed è ospitata come sottoapplicazione IIS in un'app ASP.NET Core, è importante disabilitare il gestore del modulo ASP.NET Core ereditato o assicurarsi che la sezione `<handlers>` dell'app radice (padre) nel file *web.config* non venga ereditata dalla sottoapplicazione.
+Se un'app usa il [modello di hosting sul lato client](xref:blazor/hosting-models#client-side) (basato sul modello di progetto **Blazor**, il modello `blazor` quando si usa il comando [dotnet new](/dotnet/core/tools/dotnet-new)) ed è ospitata come sottoapplicazione IIS in un'app ASP.NET Core, è importante disabilitare il gestore del modulo ASP.NET Core ereditato o assicurarsi che la sezione `<handlers>` dell'app radice (padre) nel file *web.config* non venga ereditata dalla sottoapplicazione.
 
 Rimuovere il gestore nel file *web.config* pubblicato dell'app aggiungendo una sezione `<handlers>` al file:
 
