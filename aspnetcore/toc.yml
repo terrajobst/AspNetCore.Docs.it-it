@@ -277,6 +277,8 @@
       items:
         - name: Panoramica
           uid: blazor/index
+        - name: Piattaforme supportate
+          uid: blazor/supported-platforms
         - name: Introduzione
           uid: blazor/get-started
         - name: Modelli di hosting
