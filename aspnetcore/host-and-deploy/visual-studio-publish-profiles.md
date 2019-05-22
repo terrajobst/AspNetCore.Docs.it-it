@@ -2,26 +2,21 @@
 title: Profili di pubblicazione di Visual Studio per la distribuzione di app ASP.NET Core
 author: rick-anderson
 description: Informazioni su come creare profili di pubblicazione in Visual Studio e usarli per la gestione delle distribuzioni di app ASP.NET Core in varie destinazioni.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/22/2019
+ms.date: 05/12/2019
 uid: host-and-deploy/visual-studio-publish-profiles
-ms.openlocfilehash: e1e8f99be18d6f395a146bda805f71c46cd0346d
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: be5d1a79b7f4437d04586ae4ce24df94547d8a3c
+ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64889456"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969981"
 ---
 # <a name="visual-studio-publish-profiles-for-aspnet-core-app-deployment"></a>Profili di pubblicazione di Visual Studio per la distribuzione di app ASP.NET Core
 
 Di [Sayed Ibrahim Hashimi](https://github.com/sayedihashimi) e [Rick Anderson](https://twitter.com/RickAndMSFT)
-
-::: moniker range="<= aspnetcore-1.1"
-
-Per la versione 1.1 di questo argomento, scaricare [Profili di pubblicazione di Visual Studio per la distribuzione di app ASP.NET Core (versione 1.1, PDF)](https://webpifeed.blob.core.windows.net/webpifeed/Partners/VS_Publish_Profiles_1.1.pdf).
-
-::: moniker-end
 
 Questo documento descrive come usare Visual Studio 2017 o versioni successive per la creazione e l'uso di profili di pubblicazione. I profili di pubblicazione creati con Visual Studio possono essere eseguiti da MSBuild e Visual Studio. Per istruzioni sulla pubblicazione in Azure, vedere [Pubblicare un'app Web ASP.NET Core in Servizio app di Azure con Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs).
 
@@ -128,11 +123,11 @@ C:\Webs\Web1>dotnet publish
 Microsoft (R) Build Engine version 15.3.409.57025 for .NET Core
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-  Web1 -> C:\Webs\Web1\bin\Debug\netcoreapp2.0\Web1.dll
-  Web1 -> C:\Webs\Web1\bin\Debug\netcoreapp2.0\publish\
+  Web1 -> C:\Webs\Web1\bin\Debug\netcoreapp{X.Y}\Web1.dll
+  Web1 -> C:\Webs\Web1\bin\Debug\netcoreapp{X.Y}\publish\
 ```
 
-La cartella di pubblicazione predefinita è `bin\$(Configuration)\netcoreapp<version>\publish`. Il valore predefinito per `$(Configuration)` è *Debug*. Nell'esempio precedente, `<TargetFramework>` è `netcoreapp2.0`.
+La cartella di pubblicazione predefinita è `bin\$(Configuration)\netcoreapp<version>\publish`. Il valore predefinito per `$(Configuration)` è *Debug*. Nell'esempio precedente, `<TargetFramework>` è `netcoreapp{X.Y}`.
 
 `dotnet publish -h` visualizza informazioni della Guida per la pubblicazione.
 
