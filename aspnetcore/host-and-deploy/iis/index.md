@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/19/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: aff4b857394c554e94dd8929dca809eb1a4387f2
-ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
+ms.openlocfilehash: 6ba4da913ef712ef897a4c8418263e3060ea85ac
+ms.sourcegitcommit: e67356f5e643a5d43f6d567c5c998ce6002bdeb4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65970038"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004972"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host ASP.NET Core in Windows con IIS
 
@@ -33,11 +33,13 @@ Per informazioni sull'hosting in Azure, vedere <xref:host-and-deploy/azure-apps/
 
 ## <a name="supported-platforms"></a>Piattaforme supportate
 
-Sono supportate le app pubblicate per la distribuzione a 32 bit (x86) e a 64 bit (x64). Distribuire un'app a 32 bit, a meno che l'app:
+Sono supportate le app pubblicate per la distribuzione a 32 bit (x86) o a 64 bit (x64). Distribuire un'app a 32 bit con .NET Core SDK a 32 bit (x86), a meno che l'app:
 
 * Non richieda lo spazio indirizzi di memoria virtuale più grande disponibile per un'app a 64 bit.
 * Non richieda le dimensioni maggiori dello stack IIS.
 * Non abbia dipendenze native a 64 bit.
+
+Usare .NET Core SDK a 64 bit (x64) per pubblicare un'app a 64 bit. Un runtime a 64 bit deve essere presente nel sistema host.
 
 ## <a name="application-configuration"></a>Configurazione dell'applicazione
 
