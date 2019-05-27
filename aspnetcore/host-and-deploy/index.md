@@ -2,16 +2,17 @@
 title: Hosting e distribuzione di ASP.NET Core
 author: guardrex
 description: Informazioni sulla configurazione degli ambienti host e sulla distribuzione delle app ASP.NET Core.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/06/2018
+ms.date: 05/12/2019
 uid: host-and-deploy/index
-ms.openlocfilehash: f443a8ee28a859b5075a8bb03016407af9a3ddb1
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 068c5f357b8010d78493a78a10c353e3317f3867
+ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64882106"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969891"
 ---
 # <a name="host-and-deploy-aspnet-core"></a>Hosting e distribuzione di ASP.NET Core
 
@@ -46,19 +47,9 @@ Un'app ASP.NET Core è un'app console che deve essere avviata all'avvio di un se
 
 ## <a name="set-up-a-reverse-proxy"></a>Configurare un proxy inverso
 
-::: moniker range=">= aspnetcore-2.0"
-
 Se l'app usa il server [Kestrel](xref:fundamentals/servers/kestrel) è possibile usare come server proxy inverso [Nginx](xref:host-and-deploy/linux-nginx), [Apache](xref:host-and-deploy/linux-apache) o [IIS](xref:host-and-deploy/iis/index). Il server proxy inverso riceve le richieste HTTP da Internet e le inoltra a Kestrel.
 
-Entrambe le configurazioni &mdash;con o senza un server proxy inverso&mdash; sono configurazioni di hosting supportate per le app ASP.NET Core 2.0 o versioni successive. Per altre informazioni, vedere [When to use Kestrel with a reverse proxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy) (Quando usare Kestrel con un proxy inverso).
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-Se l'app usa il server [Kestrel](xref:fundamentals/servers/kestrel) e sarà esposta a Internet, usare [Nginx](xref:host-and-deploy/linux-nginx), [Apache](xref:host-and-deploy/linux-apache) o [IIS](xref:host-and-deploy/iis/index) come server proxy inverso. Il server proxy inverso riceve le richieste HTTP da Internet e le inoltra a Kestrel. Il motivo principale per l'uso di un proxy inverso è la sicurezza. Per altre informazioni, vedere [When to use Kestrel with a reverse proxy](xref:fundamentals/servers/kestrel?tabs=aspnetcore1x#when-to-use-kestrel-with-a-reverse-proxy) (Quando usare Kestrel con un proxy inverso).
-
-::: moniker-end
+Entrambe le configurazioni &mdash;con o senza un server proxy inverso&mdash; sono configurazioni di hosting supportate. Per altre informazioni, vedere [When to use Kestrel with a reverse proxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy) (Quando usare Kestrel con un proxy inverso).
 
 ## <a name="proxy-server-and-load-balancer-scenarios"></a>Scenari con server proxy e servizi di bilanciamento del carico
 
