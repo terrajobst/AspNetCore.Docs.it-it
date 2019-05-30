@@ -98,7 +98,7 @@ Il lato client di Blazor è un framework per app a pagina singola per la compila
 
 L'esecuzione di codice .NET all'interno di Web browser è resa possibile da [WebAssembly](http://webassembly.org) (tecnologia nota anche con l'abbreviazione *wasm*). WebAssembly è un standard Web aperto ed è supportato nei Web browser senza plug-in. WebAssembly è un formato bytecode compatto ottimizzato per il download veloce e la velocità massima di esecuzione.
 
-Il codice WebAssembly può accedere a tutte le funzionalità del browser tramite l'*interoperabilità JavaScript***. Il codice .NET eseguito tramite WebAssembly nel browser viene eseguito nella stessa sandbox attendibile di JavaScript e questo comportamento elimina praticamente la possibilità per un'app di eseguire azioni dannose nel computer client.
+Il codice WebAssembly può accedere a tutte le funzionalità del browser tramite l'*interoperabilità JavaScript* (*JavaScript interop*). Il codice .NET eseguito tramite WebAssembly nel browser viene eseguito nella stessa sandbox attendibile di JavaScript e questo comportamento elimina praticamente la possibilità per un'app di eseguire azioni dannose nel computer client.
 
 ![Blazor sul lato client esegue codice .NET nel browser con WebAssembly.](index/_static/blazor-client-side.png)
 

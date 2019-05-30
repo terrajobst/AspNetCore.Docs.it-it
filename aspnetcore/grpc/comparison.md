@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
 ms.date: 03/31/2019
 uid: grpc/comparison
-ms.openlocfilehash: 655c921788deb30f3c0f3b47f4440dc8701c0f59
-ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
+ms.openlocfilehash: 712010f62b418fc8964b48648e35698c7bd3b395
+ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2019
-ms.locfileid: "65874930"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66376419"
 ---
 # <a name="comparing-grpc-services-with-http-apis"></a>Confronto tra servizi gRPC e API HTTP
 
@@ -78,7 +78,7 @@ gRPC è particolarmente adatto agli scenari seguenti:
 
 * **I Microservizi** &ndash; gRPC è progettato per una latenza bassa e comunicazioni a velocità elevata. gRPC è ideale per i microservizi leggeri in cui l'efficienza è fondamentale.
 * **Comunicazione in tempo reale da punto a punto** &ndash; gRPC ha un supporto eccellente per la trasmissione bidirezionali. gRPC servizi possono push in tempo reale senza il polling dei messaggi.
-* **Gli ambienti Polygot** &ndash; gRPC strumenti supporta tutti i linguaggi di sviluppo più diffusi, rendendo la scelta ideale per ambienti multilingue gRPC.
+* **Ambienti polyglot** &ndash; gRPC strumenti supporta tutti i linguaggi di sviluppo più diffusi, rendendo la scelta ideale per ambienti multilingue gRPC.
 * **Rete ambienti vincolati** &ndash; gRPC messaggi serializzati con Protobuf, un formato di messaggi leggero. Un messaggio gRPC è sempre minore di un equivalente messaggio JSON.
 
 ## <a name="grpc-weaknesses"></a>punti di debolezza gRPC
