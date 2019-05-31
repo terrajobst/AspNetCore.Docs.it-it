@@ -5,14 +5,14 @@ description: Informazioni sulla compilazione dei file Razor in un'app ASP.NET Co
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/02/2019
+ms.date: 05/30/2019
 uid: mvc/views/view-compilation
-ms.openlocfilehash: df25c9ad03ff52c43aac1a761462772547b3b954
-ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
+ms.openlocfilehash: b78831dd95a721e35d4bf5b44cdd8823472f6aa2
+ms.sourcegitcommit: 06c4f2910dd54ded25e1b8750e09c66578748bc9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610139"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66395884"
 ---
 # <a name="razor-file-compilation-in-aspnet-core"></a>Compilazione del file Razor in ASP.NET Core
 

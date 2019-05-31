@@ -3,14 +3,14 @@ title: "Esercitazione: Introduzione all'uso di pagine Razor in ASP.NET Core"
 author: rick-anderson
 description: Questa serie di esercitazioni illustra come usare Razor Pages in ASP.NET Core. Offre informazioni su come creare un modello, generare codice per Razor Pages, usare Entity Framework Core e SQL Server per l'accesso ai dati, aggiungere funzionalità di ricerca, aggiungere la convalida dell'input e usare le migrazioni per aggiornare il modello.
 ms.author: riande
-ms.date: 05/09/2019
+ms.date: 05/30/2019
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 9307291756baf1bef714d6dae2f8d25d3aa6f922
-ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
+ms.openlocfilehash: e9f11f68aa138ab74a0ffbbd0e32067bc984606d
+ms.sourcegitcommit: 9ae1fd11f39b0a72b2ae42f0b450345e6e306bc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65517097"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66415670"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Esercitazione: Introduzione all'uso di pagine Razor in ASP.NET Core
 
@@ -31,7 +31,7 @@ Le attività di questa esercitazione sono le seguenti:
 > * Eseguire l'app.
 > * Esaminare i file di progetto.
 
-Alla fine di questa esercitazione si avrà un'app Web Razor Pages, che verrà compilata in esercitazioni successive.
+Alla fine di questa esercitazione si avrà un'app Web Razor Pages funzionante, che verrà compilata in esercitazioni successive.
 
 ![Pagina Home o di indice](razor-pages-start/_static/home2.2.png)
 
@@ -71,9 +71,9 @@ Alla fine di questa esercitazione si avrà un'app Web Razor Pages, che verrà co
   * Il comando `dotnet new` crea un nuovo progetto Razor Pages nella cartella *RazorPagesMovie*.
   * Il comando `code` apre la cartella *RazorPagesMovie* nell'istanza corrente di Visual Studio Code.
 
-  Viene visualizzata una finestra di dialogo con **Required assets to build and debug are missing from 'RazorPagesMovie'. Add them?** (Risorse di compilazione e debug mancanti da "RazorPagesMovie". Aggiungerle?)
+* Quando l'icona a forma di fiamma di OmniSharp sulla barra di stato diventa verde, viene visualizzata una finestra di dialogo con la richiesta **Required assets to build and debug are missing from 'RazorPagesMovie'. Add them?** (Risorse di compilazione e debug mancanti da "RazorPagesMovie". Aggiungerle?) Selezionare **Sì**.
 
-* Selezionare **Sì**.
+  Una directory *.vscode* che contiene i file *launch.json* e *tasks.json* viene aggiunta alla directory radice del progetto.
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
