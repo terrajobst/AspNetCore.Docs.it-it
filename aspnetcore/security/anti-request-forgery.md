@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/11/2018
 uid: security/anti-request-forgery
-ms.openlocfilehash: 4498bd88e7188ea6c0063aeec054bc20e13ed5f1
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: a32e0e2dbd7fab95562a562cb88767d4c1e8049d
+ms.sourcegitcommit: c5339594101d30b189f61761275b7d310e80d18a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65086433"
+ms.lasthandoff: 06/02/2019
+ms.locfileid: "66458489"
 ---
 # <a name="prevent-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>Evitare attacchi Cross-Site Request Forgery (XSRF/CSRF) in ASP.NET Core
 
 Dal [Steve Smith](https://ardalis.com/), [Fiyaz Hasan](https://twitter.com/FiyazBinHasan), e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Richiesta intersito falsa (nota anche come XSRF o CSRF, pronunciato *vedere entrando*) è un attacco contro applicazioni ospitate sul web in base al quale un'app web dannoso può influenzare l'interazione tra un browser client e un'app web che considera attendibile che Browser. Questi attacchi sono possibili in quanto i browser web inviano alcuni tipi di token di autenticazione automaticamente con ogni richiesta a un sito Web. Questa forma di attacco è noto anche come un *attacco di un solo clic* oppure *sessione puntato* perché l'attacco sfrutta l'utente autenticato del precedentemente sessione.
+Richiesta intersito falsa (nota anche come XSRF o CSRF) è un attacco contro applicazioni ospitate sul web in base al quale un'app web dannoso può influenzare l'interazione tra un browser client e un'app web che considera attendibile tale browser. Questi attacchi sono possibili in quanto i browser web inviano alcuni tipi di token di autenticazione automaticamente con ogni richiesta a un sito Web. Questa forma di attacco è noto anche come un *attacco di un solo clic* oppure *sessione puntato* perché l'attacco sfrutta l'utente autenticato del precedentemente sessione.
 
 Un esempio di un attacco CSRF:
 
