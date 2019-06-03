@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/21/2019
 uid: host-and-deploy/blazor/client-side
-ms.openlocfilehash: b572067e688d7e7f7c654a7a25703009c1a7e855
-ms.sourcegitcommit: e1623d8279b27ff83d8ad67a1e7ef439259decdf
+ms.openlocfilehash: b50516b4dce28a6b105b2ab8b9386060d5392983
+ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66223194"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66376398"
 ---
 # <a name="host-and-deploy-blazor-client-side"></a>Ospitare e distribuire Blazor sul lato client
 
@@ -188,7 +188,9 @@ Per informazioni sulla distribuzione in Servizio app di Azure, vedere <xref:tuto
 
 ## <a name="standalone-deployment"></a>Distribuzione autonoma
 
-Una *distribuzione autonoma* serve l'app Blazor sul lato client come un set di file statici richiesti direttamente dai client. Non viene usato un server Web per fornire l'app Blazor.
+Una *distribuzione autonoma* serve l'app Blazor sul lato client come un set di file statici richiesti direttamente dai client. Qualsiasi file server statico è in grado di servire l'app Blazor.
+
+Gli asset di distribuzione autonoma vengono pubblicati nella cartella */bin/Release/{FRAMEWORK DI DESTINAZIONE}/publish/{NOME ASSEMBLY}/dist*.
 
 ### <a name="iis"></a>IIS
 
@@ -210,8 +212,8 @@ Quando viene pubblicato un progetto Blazor, viene creato un file *web.config* co
   * `application/octet-stream`
   * `application/wasm`
 * Vengono stabilite le regole URL Rewrite Module:
-  * Specificare la sottodirectory in cui risiedono gli asset statici dell'app (*{NOME ASSEMBLY}/dist/{PERCORSO RICHIESTO}*).
-  * Creare routing di fallback SPA in modo che le richieste per gli asset non file vengano reindirizzate al documento predefinito dell'app nella relativa cartella degli asset statici (*{NOME ASSEMBLY}/dist/index.html*).
+  * Specificare la sottodirectory in cui risiedono gli asset statici dell'app ( *{NOME ASSEMBLY}/dist/{PERCORSO RICHIESTO}* ).
+  * Creare routing di fallback SPA in modo che le richieste per gli asset non file vengano reindirizzate al documento predefinito dell'app nella relativa cartella degli asset statici ( *{NOME ASSEMBLY}/dist/index.html*).
 
 #### <a name="install-the-url-rewrite-module"></a>Installare URL Rewrite Module
 

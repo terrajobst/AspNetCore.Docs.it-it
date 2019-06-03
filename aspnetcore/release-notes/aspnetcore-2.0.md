@@ -3,14 +3,15 @@ title: Novità di ASP.NET Core 2.0
 author: rick-anderson
 description: Informazioni sulle nuove funzionalità in ASP.NET Core 2.0.
 ms.author: riande
-ms.date: 07/10/2017
+ms.custom: mvc
+ms.date: 05/28/2019
 uid: aspnetcore-2.0
-ms.openlocfilehash: 07e490fd844f0f9044afce37651ef680ed0c894d
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 5cf7b9aa7ccf86f1a89e6145cfc185c5ef803e66
+ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64883096"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66376403"
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>Novità di ASP.NET Core 2.0
 
@@ -75,7 +76,7 @@ Per altre informazioni sulle modifiche apportate all'autenticazione nella versio
 
 ## <a name="spa-templates"></a>Modelli SPA
 
-Sono disponibili modelli di progetto di applicazione a pagina singola, o SPA (Single-Page Application), per Angular, Aurelia, Knockout.js, React.js e React.js con Redux. Il modello Angular è stato aggiornato alla versione 4. I modelli Angular e React sono disponibili per impostazione predefinita. Per informazioni su come ottenere gli altri modelli, vedere [Creare un nuovo progetto di applicazione a pagina singola](xref:client-side/spa-services#creating-a-new-project). Per informazioni su come compilare un'applicazione a pagina singola in ASP.NET Core, vedere [Usare JavaScriptServices per la creazione di applicazioni a pagina singola](xref:client-side/spa-services).
+Sono disponibili modelli di progetto di applicazione a pagina singola, o SPA (Single-Page Application), per Angular, Aurelia, Knockout.js, React.js e React.js con Redux. Il modello Angular è stato aggiornato alla versione 4. I modelli Angular e React sono disponibili per impostazione predefinita. Per informazioni su come ottenere gli altri modelli, vedere [Creare un nuovo progetto di applicazione a pagina singola](xref:client-side/spa-services#create-a-new-project). Per informazioni su come compilare un'applicazione a pagina singola in ASP.NET Core, vedere <xref:client-side/spa-services>.
 
 ## <a name="kestrel-improvements"></a>Miglioramenti di Kestrel
 
