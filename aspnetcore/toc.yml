@@ -91,7 +91,7 @@
           uid: tutorials/signalr-typescript-webpack
     - name: App RPC
       items:
-        - name: Introduzione all'uso del servizio gRPC in ASP.NET Core
+        - name: Introduzione all'uso del servizio gRPC
           uid: tutorials/grpc/grpc-start
     - name: Accesso ai dati
       items:
