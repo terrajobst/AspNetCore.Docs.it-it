@@ -5,14 +5,14 @@ description: Informazioni su come i test di integrazione garantiscono che i comp
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/25/2019
+ms.date: 06/05/2019
 uid: test/integration-tests
-ms.openlocfilehash: 46c3b227ca0b3def5ab7d527a2f6ef2497d55f83
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 3af2a1f7c6a65d7ff42597972ee151a50fc95fb6
+ms.sourcegitcommit: c716ea9155a6b404c1f3d3d34e2388454cd276d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64892068"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66716369"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Test di integrazione in ASP.NET Core
 
@@ -84,7 +84,7 @@ Componenti dell'infrastruttura, ad esempio l'host web di test e il server di pro
 
 Il `Microsoft.AspNetCore.Mvc.Testing` pacchetto gestisce le attività seguenti:
 
-* Copia il file delle dipendenze (*\*.deps*) dal SUT nel progetto di test *bin* cartella.
+* Copia il file delle dipendenze ( *\*.deps*) dal SUT nel progetto di test *bin* directory.
 * Imposta la radice del contenuto alla radice di progetto del SUT in modo che i file statici e pagine/visualizzazioni sono disponibili quando vengono eseguiti i test.
 * Fornisce il [WebApplicationFactory](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1) classe per semplificare il bootstrap di SUT con `TestServer`.
 
@@ -127,6 +127,8 @@ Il seguente test (classe), `BasicTests`, viene utilizzato il `WebApplicationFact
 [Createclient utile](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.createclient) crea un'istanza di `HttpClient` che automaticamente segue i reindirizzamenti e gestisce i cookie.
 
 [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/BasicTests.cs?name=snippet1)]
+
+Per impostazione predefinita, i cookie non essenziali non vengono mantenuti tra le richieste quando la [criteri di consenso al GDPR](xref:security/gdpr) è abilitata. Per conservare i cookie non essenziali, come quelli usati dal provider TempData, contrassegnarli come essenziale per i test. Per istruzioni su come contrassegnare un cookie come essenziali, vedere [cookie essenziali](xref:security/gdpr#essential-cookies).
 
 ### <a name="test-a-secure-endpoint"></a>Testare un endpoint protetto
 
@@ -270,7 +272,7 @@ Il markup generato durante l'esecuzione del test corrisponde al testo offerta fo
 
 ## <a name="how-the-test-infrastructure-infers-the-app-content-root-path"></a>Come l'infrastruttura di test viene dedotto il percorso radice del contenuto dell'app
 
-Il `WebApplicationFactory` costruttore deduce che il percorso radice del contenuto dell'app eseguendo una ricerca di un [WebApplicationFactoryContentRootAttribute](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactorycontentrootattribute) nell'assembly che contiene i test di integrazione con una chiave uguale al `TEntryPoint` assembly `System.Reflection.Assembly.FullName`. Nel caso in cui non viene trovato un attributo con la chiave corretta, `WebApplicationFactory` opta per la ricerca di un file di soluzione (*\*sln*) e aggiunge il `TEntryPoint` nome dell'assembly alla directory della soluzione. Directory radice dell'app (il percorso radice del contenuto) viene usata per individuare le visualizzazioni e i file di contenuto.
+Il `WebApplicationFactory` costruttore deduce che il percorso radice del contenuto dell'app eseguendo una ricerca di un [WebApplicationFactoryContentRootAttribute](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactorycontentrootattribute) nell'assembly che contiene i test di integrazione con una chiave uguale al `TEntryPoint` assembly `System.Reflection.Assembly.FullName`. Nel caso in cui non viene trovato un attributo con la chiave corretta, `WebApplicationFactory` opta per la ricerca di un file di soluzione ( *\*sln*) e aggiunge il `TEntryPoint` nome dell'assembly alla directory della soluzione. Directory radice dell'app (il percorso radice del contenuto) viene usata per individuare le visualizzazioni e i file di contenuto.
 
 Nella maggior parte dei casi, non è necessario impostare in modo esplicito la radice del contenuto di app, come la logica di ricerca in genere trova la radice del contenuto corretta in fase di esecuzione. Negli scenari speciali in cui non viene trovata la radice del contenuto usando l'algoritmo di ricerca predefinite, l'app contenuto radice può essere specificato in modo esplicito o tramite logica personalizzata. Per impostare la radice del contenuto dell'applicazione in tali scenari, chiamare il `UseSolutionRelativeContentRoot` metodo di estensione dal [testhost](https://www.nuget.org/packages/Microsoft.AspNetCore.TestHost) pacchetto. Specificare percorso relativo della soluzione e il criterio glob o nome file soluzione facoltativo (impostazione predefinita = `*.sln`).
 
@@ -311,7 +313,7 @@ Chiamare il [UseSolutionRelativeContentRoot](/dotnet/api/microsoft.aspnetcore.te
 
 ## <a name="disable-shadow-copying"></a>Disabilitare la creazione di copie shadow
 
-Creazione di copie shadow fa sì che i test da eseguire in una cartella diversa da quella cartella di output. Per i test per il corretto funzionamento, è necessario disabilitare la copia shadow. Il [app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) Usa xUnit e disabilita la creazione di copie shadow per xUnit includendo un' *xunit.runner.json* file con l'impostazione di configurazione corretto. Per altre informazioni, vedere [configurazione xUnit con JSON](https://xunit.github.io/docs/configuring-with-json.html).
+Creazione di copie shadow fa sì che i test da eseguire in una directory diversa rispetto alla directory di output. Per i test per il corretto funzionamento, è necessario disabilitare la copia shadow. Il [app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) Usa xUnit e disabilita la creazione di copie shadow per xUnit includendo un' *xunit.runner.json* file con l'impostazione di configurazione corretto. Per altre informazioni, vedere [configurazione xUnit con JSON](https://xunit.github.io/docs/configuring-with-json.html).
 
 Aggiungere il *xunit.runner.json* file alla radice del progetto di test con il contenuto seguente:
 
@@ -329,12 +331,12 @@ Dopo aver effettuato i test del `IClassFixture` vengono eseguite attuazione, [Te
 
 Il [app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) è costituito da due App:
 
-| App | Cartella del progetto | Descrizione |
-| --- | -------------- | ----------- |
+| App | Directory del progetto | Descrizione |
+| --- | ----------------- | ----------- |
 | App di messaggio (il SUT) | *src/RazorPagesProject* | Consente all'utente di aggiungere, eliminare uno, eliminare tutti e analizzare i messaggi. |
 | Testare l'app | *tests/RazorPagesProject.Tests* | Usato per test di integrazione di SUT. |
 
-I test possono essere eseguiti usando le funzionalità di test predefinito di un ambiente IDE, ad esempio [Visual Studio](https://visualstudio.microsoft.com). Se si usa [Visual Studio Code](https://code.visualstudio.com/) o la riga di comando, eseguire il comando seguente al prompt dei comandi nel *tests/RazorPagesProject.Tests* cartella:
+I test possono essere eseguiti usando le funzionalità di test predefinito di un ambiente IDE, ad esempio [Visual Studio](https://visualstudio.microsoft.com). Se si usa [Visual Studio Code](https://code.visualstudio.com/) o la riga di comando, eseguire il comando seguente al prompt dei comandi nel *tests/RazorPagesProject.Tests* directory:
 
 ```console
 dotnet test
@@ -357,10 +359,10 @@ Anche se l'app non usa il modello di repository e non è un esempio efficace del
 
 ### <a name="test-app-organization"></a>Organizzazione dei test app
 
-L'app di test è un'app console all'interno di *tests/RazorPagesProject.Tests* cartella.
+L'app di test è un'app console all'interno di *tests/RazorPagesProject.Tests* directory.
 
-| Cartella di app di test | Descrizione |
-| --------------- | ----------- |
+| Directory di app di test | Descrizione |
+| ------------------ | ----------- |
 | *BasicTests* | *BasicTests.cs* contiene metodi di test per il routing, l'accesso a una pagina protetta da un utente non autenticato e ottenere un profilo utente di GitHub e il controllo di accesso utente del profilo. |
 | *IntegrationTests* | *IndexPageTests.cs* contiene i test di integrazione per la pagina di indice usando custom `WebApplicationFactory` classe. |
 | *Gli helper/Utilities* | <ul><li>*Utilities.cs* contiene il `InitializeDbForTests` metodo usato per effettuare il seeding del database con dati di test.</li><li>*HtmlHelpers.cs* fornisce un metodo per restituire un AngleSharp `IHtmlDocument` per l'uso da metodi di test.</li><li>*HttpClientExtensions.cs* forniscono overload per `SendAsync` per inviare le richieste di SUT.</li></ul> |

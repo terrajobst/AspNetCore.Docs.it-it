@@ -5,14 +5,14 @@ description: Informazioni su come accedere ai punti di estensione al GDPR in un'
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/29/2018
+ms.date: 06/05/2019
 uid: security/gdpr
-ms.openlocfilehash: c5c13dbd1006d10aba0f54b0b9d72b527ee98945
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 967f3246836c93a1af56f7109edb056220606b58
+ms.sourcegitcommit: c716ea9155a6b404c1f3d3d34e2388454cd276d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64894108"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66716345"
 ---
 # <a name="eu-general-data-protection-regulation-gdpr-support-in-aspnet-core"></a>Supporto dell'Unione europea protezione il regolamento GDPR (General Data) in ASP.NET Core
 
@@ -30,13 +30,13 @@ Il [app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetco
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/security/gdpr/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
 
-## <a name="aspnet-core-gdpr-support-in-template-generated-code"></a>Supporto per GDPR ASP.NET Core nel codice del modello generato
+## <a name="aspnet-core-gdpr-support-in-template-generated-code"></a>ASP.NET Core GDPR supportano nel codice modello generato
 
 Razor Pages ed MVC i progetti creati con i modelli di progetto includono il supporto al GDPR:
 
-* [CookiePolicyOptions](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions) e [UseCookiePolicy](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyappbuilderextensions.usecookiepolicy) vengono impostate `Startup`.
-* Il *_CookieConsentPartial.cshtml* [visualizzazione parziale](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper).
-* Il *Pages/Privacy.cshtml* pagina oppure *Views/Home/Privacy.cshtml* Vista fornisce una pagina di dettagli sulla privacy del sito. Il *_CookieConsentPartial.cshtml* file genera un collegamento alla pagina della Privacy.
+* [CookiePolicyOptions](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions) e [UseCookiePolicy](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyappbuilderextensions.usecookiepolicy) vengono impostate `Startup` classe.
+* Il  *\_CookieConsentPartial.cshtml* [visualizzazione parziale](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper). Un' **Accept** pulsante è incluso in questo file. Quando l'utente sceglie il **Accept** pulsante, il consenso per archiviare i cookie viene fornito.
+* Il *Pages/Privacy.cshtml* pagina oppure *Views/Home/Privacy.cshtml* Vista fornisce una pagina di dettagli sulla privacy del sito. Il  *\_CookieConsentPartial.cshtml* file genera un collegamento alla pagina della Privacy.
 * Per le app create con singoli account utente, la pagina di gestione vengono forniti collegamenti per scaricare ed eliminare [i dati personali dell'utente](#pd).
 
 ### <a name="cookiepolicyoptions-and-usecookiepolicy"></a>CookiePolicyOptions e UseCookiePolicy
@@ -49,29 +49,29 @@ Razor Pages ed MVC i progetti creati con i modelli di progetto includono il supp
 
 [!code-csharp[](gdpr/sample/Startup.cs?name=snippet1&highlight=51)]
 
-### <a name="cookieconsentpartialcshtml-partial-view"></a>Visualizzazione parziale _CookieConsentPartial.cshtml
+### <a name="cookieconsentpartialcshtml-partial-view"></a>\_Visualizzazione parziale CookieConsentPartial.cshtml
 
-Il *_CookieConsentPartial.cshtml* visualizzazione parziale:
+Il  *\_CookieConsentPartial.cshtml* visualizzazione parziale:
 
 [!code-html[](gdpr/sample/RP/Pages/Shared/_CookieConsentPartial.cshtml)]
 
 Questo parziale:
 
-* Ottiene lo stato di rilevamento per l'utente. Se l'app è configurato per richiedere il consenso, l'utente deve acconsentire prima che sia possibile rilevare i cookie. Se è necessario il consenso, il cookie consenso dei pannelli è fissato nella parte superiore della barra di spostamento creata per il *layout. cshtml* file.
+* Ottiene lo stato di rilevamento per l'utente. Se l'app è configurato per richiedere il consenso, l'utente deve acconsentire prima che sia possibile rilevare i cookie. Se è necessario il consenso, il cookie consenso dei pannelli è fissato nella parte superiore della barra di spostamento creata per il  *\_layout. cshtml* file.
 * Fornisce un elemento HTML `<p>` elemento per riepilogare la privacy e cookie utilizzare criteri.
 * Fornisce un collegamento alla pagina Privacy o alla vista in cui è possibile descrivere in dettaglio informativa sulla privacy del sito.
 
 ## <a name="essential-cookies"></a>Cookie essenziali
 
-Se il consenso non è stato assegnato, vengono inviati solo i cookie contrassegnati essenziali nel browser. Il codice seguente effettua un cookie essenziali:
+Se il consenso per archiviare i cookie non è stata fornita, solo i cookie contrassegnati essenziali vengono inviati al browser. Il codice seguente effettua un cookie essenziali:
 
 [!code-csharp[Main](gdpr/sample/RP/Pages/Cookie.cshtml.cs?name=snippet1&highlight=5)]
 
 <a name="tempdata"></a>
 
-## <a name="tempdata-provider-and-session-state-cookies-are-not-essential"></a>Cookie di stato sessione e provider TempData non sono essenziali
+### <a name="tempdata-provider-and-session-state-cookies-arent-essential"></a>Cookie di stato sessione e provider TempData non sono indispensabili
 
-Il [provider Tempdata](xref:fundamentals/app-state#tempdata) cookie non è essenziale. Se la verifica è disabilitata, il provider Tempdata non è funzionale. Per abilitare il provider Tempdata quando la verifica è disabilitata, contrassegnare il cookie TempData come essenziale `Startup.ConfigureServices`:
+Il [provider TempData](xref:fundamentals/app-state#tempdata) cookie non è essenziale. Se la verifica è disabilitata, il provider TempData non è funzionale. Per abilitare il provider TempData quando la verifica è disabilitata, contrassegnare il cookie TempData come essenziale `Startup.ConfigureServices`:
 
 [!code-csharp[Main](gdpr/sample/RP/Startup.cs?name=snippet1)]
 
