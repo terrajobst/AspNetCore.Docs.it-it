@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 01/04/2019
 uid: web-api/action-return-types
-ms.openlocfilehash: 180d76c2c2e53dbf64b8fcc5cdc6d2b6f4dab6eb
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: b89ead55cd46ef62a3bc28b1cfc9077d3ce9aba2
+ms.sourcegitcommit: a04eb20e81243930ec829a9db5dd5de49f669450
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64887116"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66470405"
 ---
 # <a name="controller-action-return-types-in-aspnet-core-web-api"></a>Tipi restituiti per le azioni del controller nell'API Web di ASP.NET Core
 
@@ -106,7 +106,7 @@ La maggior parte delle azioni presenta un tipo restituito specifico. Durante l'e
 
 Si consideri un'azione sincrona che prevede due possibili tipi restituiti:
 
-[!code-csharp[](../web-api/action-return-types/samples/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_GetById&highlight=8,11)]
+[!code-csharp[](../web-api/action-return-types/samples/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_GetById&highlight=7,10)]
 
 Nel codice precedente, viene restituito un codice di stato 404 quando il prodotto non esiste nel database. Se il prodotto esiste, viene restituito l'oggetto `Product` corrispondente. Prima di ASP.NET Core 2.1, la riga `return product;` sarebbe stata `return Ok(product);`.
 
