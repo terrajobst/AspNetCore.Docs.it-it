@@ -5,14 +5,14 @@ description: Informazioni su come Razor Pages in ASP.NET Core semplifica e rende
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 10/25/2018
+ms.date: 06/05/2019
 uid: razor-pages/sdk
-ms.openlocfilehash: de51c9443e639cd64c234b6975cf7252bb7a2b9a
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 8c4e882af93b043afaa0bcf86fd1583405f84be9
+ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64895298"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66750183"
 ---
 # <a name="aspnet-core-razor-sdk"></a>ASP.NET Core Razor SDK
 
@@ -105,3 +105,13 @@ Il Razor SDK definisce due obiettivi principali:
 * Per impostazione predefinita, Razor SDK non pubblica gli assembly di riferimento necessari per eseguire la compilazione runtime. Vengono pertanto generati errori di compilazione nel caso in cui il modello di applicazione si basi su una compilazione runtime&mdash;ad esempio, l'app usa visualizzazioni incorporate o modifica le visualizzazioni dopo aver pubblicato l'app. Impostare `CopyRefAssembliesToPublishDirectory` su `true` per continuare con la pubblicazione degli assembly di riferimento.
 
 * Per un'app web, assicurarsi che l'app è destinata al `Microsoft.NET.Sdk.Web` SDK.
+
+## <a name="razor-language-version"></a>Versione del linguaggio Razor
+
+Quando la destinazione è il `Microsoft.NET.Sdk.Web` SDK, la versione del linguaggio Razor viene dedotto dalla versione di framework di destinazione dell'app. Per i progetti destinati al `Microsoft.NET.Sdk.Razor` SDK o nel raro caso che l'app richiede una versione di linguaggio Razor diversa rispetto al valore derivato, una versione può essere configurata impostando il `<RazorLangVersion>` proprietà nel file di progetto dell'app:
+
+```xml
+<PropertyGroup>
+  <RazorLangVersion>{VERSION}</RazorLangVersion>
+</PropertyGroup>
+```
