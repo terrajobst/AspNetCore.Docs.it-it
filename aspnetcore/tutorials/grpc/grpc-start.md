@@ -4,14 +4,14 @@ author: juntaoluo
 description: Questa esercitazione illustra come creare un servizio gRPC e un client gRPC in ASP.NET Core. Informazioni su come creare un progetto di servizio gRPC, modificare un file con estensione proto e aggiungere una chiamata con flusso bidirezionale.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
-ms.date: 5/30/2019
+ms.date: 06/05/2019
 uid: tutorials/grpc/grpc-start
-ms.openlocfilehash: 2b4325d2413e335a3061a7695def88a1b23ee52b
-ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
+ms.openlocfilehash: 71e3321819eb7169f0896abe3e07849f59ea6fc7
+ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66376367"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692525"
 ---
 # <a name="tutorial-create-a-grpc-client-and-server-in-aspnet-core"></a>Esercitazione: Creare un client e un server gRPC in ASP.NET Core
 
@@ -161,7 +161,7 @@ Aggiungere i pacchetti seguenti nel progetto client gRPC:
 
 Installare i pacchetti tramite la Console di gestione pacchetti (PMC) o Gestisci pacchetti NuGet
 
-####  <a name="pmc-option-to-install-packages"></a>Opzione con la console di Gestione pacchetti per installare i pacchetti
+#### <a name="pmc-option-to-install-packages"></a>Opzione con la console di Gestione pacchetti per installare i pacchetti
 
 * Da Visual Studio selezionare **Strumenti** > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**
 * Dalla finestra **Console di Gestione pacchetti** passare alla directory in cui si trova il file *GrpcGreeterClient.csproj*.
@@ -169,7 +169,7 @@ Installare i pacchetti tramite la Console di gestione pacchetti (PMC) o Gestisci
 
  ```powershell
 Install-Package Grpc.Core
-Install-Package Grpc.Protobuf
+Install-Package Google.Protobuf
 Install-Package Grpc.Tools
 ```
 
@@ -218,7 +218,7 @@ dotnet add GrpcGreeterClient.csproj package Grpc.Tools
 
   Fare clic con il pulsante destro del mouse sul progetto e selezionare **Strumenti > Modifica File**.
 
-  ------
+  ---
 
 * Aggiungere il file **greet.proto** al gruppo di elementi `<Protobuf>` del file di progetto GrpcGreeterClient:
 
@@ -230,7 +230,7 @@ dotnet add GrpcGreeterClient.csproj package Grpc.Tools
 
 Compilare il progetto client per attivare la generazione degli asset client C#.
 
-### <a name="create-the-greater-client"></a>Creare il client Greeter
+### <a name="create-the-greeter-client"></a>Creare il client Greeter
 
 Compilare il progetto per creare i tipi nello spazio dei nomi **Greeter**. I tipi `Greeter` vengono generati automaticamente dal processo di compilazione.
 

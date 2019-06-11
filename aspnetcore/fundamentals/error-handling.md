@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 05/03/2019
 uid: fundamentals/error-handling
-ms.openlocfilehash: 36cd9fdac0b9159900e82327705a73d561e7ce6b
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 6b92cb6b68b1c70d67f42284d548729e598f9a8b
+ms.sourcegitcommit: c5339594101d30b189f61761275b7d310e80d18a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65086977"
+ms.lasthandoff: 06/02/2019
+ms.locfileid: "66458443"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Gestire gli errori in ASP.NET Core
 
@@ -53,7 +53,7 @@ Nell'esempio seguente <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensi
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_DevPageAndHandlerPage&highlight=5-9)]
 
-Il modello di app Razor Pages fornisce una pagina di errore (*.cshtml*) e una classe <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> (`ErrorModel`) nella cartella *Pages*. Per un'app MVC, il modello di progetto include un metodo di azione Error e una visualizzazione degli errori. Ecco il metodo di azione:
+Il modello di app Razor Pages fornisce una pagina di errore ( *.cshtml*) e una classe <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> (`ErrorModel`) nella cartella *Pages*. Per un'app MVC, il modello di progetto include un metodo di azione Error e una visualizzazione degli errori. Ecco il metodo di azione:
 
 ```csharp
 [AllowAnonymous]
@@ -166,7 +166,9 @@ L'endpoint che elabora l'errore può ottenere l'URL originale che ha generato l'
 
 ## <a name="disable-status-code-pages"></a>Disabilitare le tabelle codici di stato
 
-Le tabelle codici di stato possono essere disabilitate per richieste specifiche in un metodo del gestore Razor Pages o in un controller MVC. Per disabilitare le tabelle codici di stato, usare <xref:Microsoft.AspNetCore.Diagnostics.IStatusCodePagesFeature>:
+Per disabilitare le tabelle codici di stato per un controller MVC o un metodo di azione, usare l'attributo [[SkipStatusCodePages]](xref:Microsoft.AspNetCore.Mvc.SkipStatusCodePagesAttribute).
+
+Per disabilitare le tabelle codici di stato per richieste specifiche in un metodo del gestore Razor Pages o in un controller MVC, usare <xref:Microsoft.AspNetCore.Diagnostics.IStatusCodePagesFeature>:
 
 ```csharp
 var statusCodePagesFeature = HttpContext.Features.Get<IStatusCodePagesFeature>();

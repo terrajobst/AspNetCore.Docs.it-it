@@ -3,14 +3,14 @@ title: Introduzione ad ASP.NET Core MVC
 author: rick-anderson
 description: Informazioni introduttive su ASP.NET Core MVC.
 ms.author: riande
-ms.date: 12/12/2018
+ms.date: 04/24/2019
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: dbc07558d7d7672e60e8834dc3e4e9d8aab437e3
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: dc3499c89860190b76d6be7b8abeeaef827880d6
+ms.sourcegitcommit: a1364109d11d414121a6337b611bee61d6e489e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58265281"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66491257"
 ---
 # <a name="get-started-with-aspnet-core-mvc"></a>Introduzione ad ASP.NET Core MVC
 
@@ -38,28 +38,22 @@ Al termine di queste operazioni si ottiene un'app che può gestire e visualizzar
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-In Visual Studio selezionare **File > Nuovo > Progetto**.
+* Dal menu di Visual Studio selezionare **Crea un nuovo progetto**.
 
-![File > Nuovo > Progetto](start-mvc/_static/alt_new_project.png)
+* Selezionare **Applicazione Web ASP.NET Core** e quindi selezionare **Avanti**.
 
-Completare la finestra di dialogo **Nuovo progetto**:
+![nuova applicazione Web ASP.NET Core](start-mvc/_static/np_2.1.png)
 
-* Nel riquadro a sinistra selezionare **.NET Core**.
-* Nel riquadro al centro selezionare **Applicazione Web ASP.NET Core (.NET Core)**.
-* Denominare il progetto "MvcMovie" (è importante denominare il progetto "MvcMovie" in modo che quando si copia il codice lo spazio dei nomi corrisponda).
-* Scegliere **OK**.
+* Assegnare al progetto il nome **MvcMovie** e selezionare **Crea**. È importante assegnare al progetto il nome **MvcMovie**, in modo che quando si copia il codice lo spazio dei nomi corrisponda.
 
-![Finestra di dialogo Nuovo progetto, .NET Core nel riquadro sinistro, Web ASP.NET Core ](start-mvc/_static/new_project2-21.png)
+  ![nuova applicazione Web ASP.NET Core](start-mvc/_static/config.png)
 
-Completare la finestra di dialogo **Nuova Applicazione Web ASP.NET Core (.NET Core) - MvcMovie**:
 
-* Nella casella di riepilogo a discesa del selettore di versione selezionare **ASP.NET Core 2.2**.
-* Selezionare **Applicazione Web (Model-View-Controller)**
-* Scegliere **OK**.
+* Selezionare **Applicazione Web (MVC)** e quindi selezionare **Crea**.
 
 ![Finestra di dialogo Nuovo progetto, .NET Core nel riquadro sinistro, Web ASP.NET Core ](start-mvc/_static/new_project22-21.png)
 
-Visual Studio ha usato un modello predefinito per il progetto MVC appena creato. Ora è possibile disporre di un'app funzionante immettendo un nome progetto e selezionando alcune opzioni. Si tratta di un progetto iniziale di base che rappresenta un ottimo punto di partenza.
+Per il progetto MVC appena creato Visual Studio ha usato il modello predefinito. Ora è possibile disporre di un'app funzionante immettendo un nome progetto e selezionando alcune opzioni. Si tratta di un progetto iniziale di base che rappresenta un ottimo punto di partenza.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -83,13 +77,15 @@ Nell'esercitazione si presuppone una familarità con Visual Studio Code. Vedere 
 
 * Selezionare **File** > **Nuova soluzione**.
 
-  ![Nuova soluzione macOS](~/tutorials/first-web-api-mac/_static/sln.png)
+  ![Nuova soluzione macOS](./start-mvc/_static/new_project_vsmac.png)
 
-* Selezionare **.NET Core App (App .NET Core)** > **ASP.NET Core** > **App Web ASP.NET Core (MVC)** > **Avanti**.
+* Selezionare **.NET Core** > **App** > **Applicazione Web (MVC)**  > **Avanti**.
 
-  ![Finestra di dialogo Nuovo progetto di macOS](~/tutorials/first-mvc-app-mac/start-mvc/1.png)
+  ![Finestra di dialogo Nuovo progetto di macOS](./start-mvc/_static/new_project_mvc_vsmac.png)
 
-* Nella finestra di dialogo **Configure your new ASP.NET Core Web API** (Configura la nuova API Web ASP.NET Core), accettare l'impostazione predefinita di **Framework di destinazione**, ovvero **.NET Core 2.2*.
+* Nella finestra di dialogo **Configura la nuova API Web ASP.NET Core** accettare l'impostazione predefinita di **Framework di destinazione**, ovvero **.NET Core 2.2**.
+
+  ![Selezione di .NET Core 2.2 per macOS](./start-mvc/_static/new_project_22_vsmac.png)
 
 * Denominare il progetto **MvcMovie**, quindi selezionare **Crea**.
 
@@ -113,6 +109,14 @@ Selezionare **CTRL+F5** per eseguire l'app in modalità non di debug.
 
   ![IIS Express](start-mvc/_static/iis_express.png)
 
+* Selezionare **Accept** (Accetto) per autorizzare il rilevamento. Questa app non rileva informazioni personali. Il codice generato del modello include asset che consentono di soddisfare il [Regolamento generale sulla protezione dei dati (GDPR)](xref:security/gdpr).
+
+  ![Pagina Home o di indice](start-mvc/_static/privacy.png)
+
+  La figura seguente illustra l'app dopo aver accettato il rilevamento:
+
+  ![Pagina Home o di indice](start-mvc/_static/home2.2.png)
+
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Premere CTRL+F5 per l'esecuzione senza il debugger.
@@ -123,6 +127,14 @@ Premere CTRL+F5 per l'esecuzione senza il debugger.
 
   Se si avvia l'app con CTRL+F5 (modalità non di debug) sarà possibile apportare modifiche al codice, salvare il file, aggiornare il browser e visualizzare le modifiche del codice. Molti sviluppatori preferiscono usare la modalità non di debug per aggiornare la pagina e visualizzare le modifiche.
 
+* Selezionare **Accept** (Accetto) per autorizzare il rilevamento. Questa app non rileva informazioni personali. Il codice generato del modello include asset che consentono di soddisfare il [Regolamento generale sulla protezione dei dati (GDPR)](xref:security/gdpr).
+
+  ![Pagina Home o di indice](start-mvc/_static/privacy.png)
+
+  La figura seguente illustra l'app dopo aver accettato il rilevamento:
+
+  ![Pagina Home o di indice](start-mvc/_static/home2.2.png)
+
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 Per avviare l'app, selezionare **Esegui** > **Avvia senza eseguire debug**. Visual Studio per Mac avvia il server [Kestrel](xref:fundamentals/servers/index#kestrel), apre un browser e naviga all'indirizzo `http://localhost:port`, dove *port* è un numero di porta selezionato a caso.
@@ -132,15 +144,15 @@ Per avviare l'app, selezionare **Esegui** > **Avvia senza eseguire debug**. Visu
 * La barra degli indirizzi visualizza `localhost:port#` e non `example.com` o simili. Ciò accade perché `localhost` è il nome host standard per il computer locale. Quando Visual Studio crea un progetto Web, per il server Web viene usata una porta casuale. Quando si esegue l'app verrà visualizzato un numero di porta diverso.
 * È possibile scegliere se avviare l'app in modalità di debug o non di dal menu **Esegui**.
 
----
-
 * Selezionare **Accept** (Accetto) per autorizzare il rilevamento. Questa app non rileva informazioni personali. Il codice generato del modello include asset che consentono di soddisfare il [Regolamento generale sulla protezione dei dati (GDPR)](xref:security/gdpr).
 
-  ![Pagina Home o di indice](start-mvc/_static/privacy.png)
+  ![Pagina Home o di indice](./start-mvc/_static/output_privacy_macos.png)
 
   La figura seguente illustra l'app dopo aver accettato il rilevamento:
 
-  ![Pagina Home o di indice](start-mvc/_static/home2.2.png)
+  ![Pagina Home o di indice](./start-mvc/_static/output_macos.png)
+
+---
 
 [!INCLUDE[](~/includes/vs-vsc-vsmac-help.md)]
 
