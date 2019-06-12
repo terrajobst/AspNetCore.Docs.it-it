@@ -3,14 +3,14 @@ title: Panoramica delle API consumer per ASP.NET Core
 author: rick-anderson
 description: Ricevere una breve panoramica del consumer di varie API disponibili all'interno della libreria di protezione dei dati di ASP.NET Core.
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 06/11/2019
 uid: security/data-protection/consumer-apis/overview
-ms.openlocfilehash: b0d11d097ee2d448b6781f6fa84445f6400fbc76
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: ff9badb55813cae0aa72d3a95dc53792332f109b
+ms.sourcegitcommit: 1bb3f3f1905b4e7d4ca1b314f2ce6ee5dd8be75f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087545"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66837371"
 ---
 # <a name="consumer-apis-overview-for-aspnet-core"></a>Panoramica delle API consumer per ASP.NET Core
 
@@ -32,7 +32,7 @@ Il concetto di uguale e diversi `IDataProtector` ties indietro al concetto di ut
 
 ## <a name="consuming-these-interfaces"></a>Utilizzo di queste interfacce
 
-Per un componente compatibile con l'inserimento delle dipendenze, l'utilizzo previsto è che il componente di richiedere un `IDataProtectionProvider` parametro nel relativo costruttore e che il sistema di inserimento delle dipendenze offre questo servizio automaticamente quando viene creata un'istanza al componente.
+Per un componente compatibile con l'inserimento delle dipendenze, l'utilizzo previsto è che il componente accetta un `IDataProtectionProvider` parametro nel relativo costruttore e che il sistema di inserimento delle dipendenze offre questo servizio automaticamente quando viene creata un'istanza al componente.
 
 > [!NOTE]
 > Alcune applicazioni (ad esempio applicazioni console o applicazioni ASP.NET 4.x) potrebbero non essere l'inserimento delle dipendenze in grado di riconoscere in modo che non è possibile utilizzare il meccanismo descritto di seguito. Per questi scenari, consultare il [scenari Non compatibili con](xref:security/data-protection/configuration/non-di-scenarios) documento per altre informazioni su come ottenere un'istanza di un `IDataProtection` provider senza passare attraverso l'inserimento delle dipendenze.

@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 05/01/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: ee7d4b2ae04b5f6c262acc5da0f86f90ab50585f
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 435f06b85af4a1a5a78a870c2add3e15ff1ffe89
+ms.sourcegitcommit: 1bb3f3f1905b4e7d4ca1b314f2ce6ee5dd8be75f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65085666"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66837267"
 ---
 # <a name="logging-in-aspnet-core"></a>Registrazione in ASP.NET Core
 
@@ -823,9 +823,10 @@ Per configurare le impostazioni del provider, usare <xref:Microsoft.Extensions.L
 
 ::: moniker-end
 
-Quando si distribuisce un'app del servizio app, l'applicazione rispetta le impostazioni della sezione [Log di diagnostica](/azure/app-service/web-sites-enable-diagnostic-log/#enablediag) della pagina **Servizio app** del portale di Azure. Quando queste impostazioni vengono aggiornate, le modifiche hanno effetto immediato senza richiedere un riavvio o la ridistribuzione dell'app.
+Quando si distribuisce un'app del servizio app, l'applicazione applica le impostazioni della sezione [Log del servizio app](/azure/app-service/web-sites-enable-diagnostic-log/#enablediag) della pagina **Servizio app** del portale di Azure. Quando le impostazioni seguenti vengono aggiornate, le modifiche hanno effetto immediatamente senza richiedere un riavvio o la ridistribuzione dell'app.
 
-![Impostazioni di registrazione di Azure](index/_static/azure-logging-settings.png)
+* **Registrazione applicazioni (file system)**
+* **Registrazione applicazione (BLOB)**
 
 Il percorso predefinito per i file di log è nella cartella *D:\\home\\LogFiles\\Application* e il nome di file predefinito è *diagnostics-aaaammgg.txt*. Il limite predefinito per le dimensioni del file è 10 MB e il numero massimo predefinito di file conservati è 2. Il nome BLOB predefinito è *{nome-app}{timestamp}/aaaa/mm/gg/hh/{guid}-applicationLog.txt*.
 
@@ -841,14 +842,11 @@ Il flusso di registrazione di Azure consente di visualizzare l'attività di regi
 
 Per configurare il flusso di registrazione di Azure:
 
-* Passare alla pagina **Log di diagnostica** dalla pagina del portale dell'app.
+* Passare alla pagina **Log del servizio app** dalla pagina del portale dell'app.
 * Impostare **Registrazione applicazioni (file system)** su **Sì**.
-
-![Pagina dei log di diagnostica del portale di Azure](index/_static/azure-diagnostic-logs.png)
+* Scegliere il livello di registrazione in **Livello**.
 
 Passare alla pagina **Flusso di registrazione** per visualizzare i messaggi dell'app. I messaggi vengono registrati dall'app tramite l'interfaccia `ILogger`.
-
-![Flusso di registrazione dell'applicazione nel portale di Azure](index/_static/azure-log-streaming.png)
 
 ::: moniker range=">= aspnetcore-1.1"
 
