@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/11/2019
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: ee43427fa1e82a365d49df50567b4ca7afb5a5d3
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 65a927b6288ca6cc41ee1bedd1080e52ffe0d3e1
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64897298"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034932"
 ---
 # <a name="configure-aspnet-core-data-protection"></a>Configurare la protezione dei dati di ASP.NET Core
 
@@ -23,7 +23,7 @@ Quando il sistema di protezione dei dati viene inizializzato, viene applicato [l
 Per questi scenari, il sistema di protezione dei dati offre un'API di configurazione avanzate.
 
 > [!WARNING]
-> Analogamente ai file di configurazione, il gruppo di chiavi di protezione dati devono essere protetti usando le autorizzazioni appropriate. È possibile scegliere di crittografare le chiavi a riposo, ma ciò non impedisce agli utenti malintenzionati di creazione di nuove chiavi. Di conseguenza, la sicurezza dell'app è interessata. Il percorso di archiviazione configurato con la protezione dei dati deve avere l'accesso limitato all'app stessa, simile al modo in cui che si proteggono i file di configurazione. Ad esempio, se si sceglie di archiviare il gruppo di chiavi su disco, usare le autorizzazioni del file. Assicurarsi che solo l'identità con cui eseguire l'app web ha leggere, scrivere e creare l'accesso a tale directory. Se si Usa archiviazione tabelle di Azure, solo l'app web deve avere la possibilità di leggere, scrivere o creare nuove voci nell'archivio tabelle di e così via.
+> Analogamente ai file di configurazione, il gruppo di chiavi di protezione dati devono essere protetti usando le autorizzazioni appropriate. È possibile scegliere di crittografare le chiavi a riposo, ma ciò non impedisce agli utenti malintenzionati di creazione di nuove chiavi. Di conseguenza, la sicurezza dell'app è interessata. Il percorso di archiviazione configurato con la protezione dei dati deve avere l'accesso limitato all'app stessa, simile al modo in cui che si proteggono i file di configurazione. Ad esempio, se si sceglie di archiviare il gruppo di chiavi su disco, usare le autorizzazioni del file. Assicurarsi che solo l'identità con cui eseguire l'app web ha leggere, scrivere e creare l'accesso a tale directory. Se si Usa archiviazione Blob di Azure, solo l'app web deve avere la possibilità di leggere, scrivere o creare nuove voci nell'archivio blob di e così via.
 >
 > Il metodo di estensione [AddDataProtection](/dotnet/api/microsoft.extensions.dependencyinjection.dataprotectionservicecollectionextensions.adddataprotection) restituisce un [IDataProtectionBuilder](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotectionbuilder). `IDataProtectionBuilder` espone i metodi di estensione che è possibile concatenare per configurare la protezione dati opzioni.
 
@@ -42,7 +42,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Impostare il percorso di archiviazione chiavi (ad esempio, [PersistKeysToAzureBlobStorage](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.persistkeystoazureblobstorage)). Il percorso deve essere impostato perché la chiamata `ProtectKeysWithAzureKeyVault` implementa un' [IXmlEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmlencryptor) che disattiva le impostazioni di protezione automatica dei dati, tra cui la posizione di archiviazione del gruppo di chiavi. L'esempio precedente Usa l'archiviazione Blob di Azure per rendere persistente il gruppo di chiavi. Per altre informazioni, vedere [provider archiviazione chiavi: Azure e Redis](xref:security/data-protection/implementation/key-storage-providers#azure-and-redis). È anche possibile salvare il gruppo di chiavi in locale con [PersistKeysToFileSystem](xref:security/data-protection/implementation/key-storage-providers#file-system).
+Impostare il percorso di archiviazione chiavi (ad esempio, [PersistKeysToAzureBlobStorage](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.persistkeystoazureblobstorage)). Il percorso deve essere impostato perché la chiamata `ProtectKeysWithAzureKeyVault` implementa un' [IXmlEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmlencryptor) che disattiva le impostazioni di protezione automatica dei dati, tra cui la posizione di archiviazione del gruppo di chiavi. L'esempio precedente Usa l'archiviazione Blob di Azure per rendere persistente il gruppo di chiavi. Per altre informazioni, vedere [provider archiviazione chiavi: Archiviazione di Azure](xref:security/data-protection/implementation/key-storage-providers#azure-storage). È anche possibile salvare il gruppo di chiavi in locale con [PersistKeysToFileSystem](xref:security/data-protection/implementation/key-storage-providers#file-system).
 
 Il `keyIdentifier` è l'identificatore di chiave di insieme di credenziali delle chiavi usato per la chiave di crittografia. Ad esempio, una chiave creata in insieme di credenziali delle chiavi denominato `dataprotection` nella `contosokeyvault` è l'identificatore di chiave `https://contosokeyvault.vault.azure.net/keys/dataprotection/`. L'App disponga **Unwrap Key** e **Wrap Key** delle autorizzazioni per l'insieme di credenziali delle chiavi.
 
@@ -170,7 +170,7 @@ Quando il sistema di protezione dei dati viene fornito da un host ASP.NET Core, 
 
 Il meccanismo di isolamento funziona da prendere in considerazione ogni app nel computer locale come tenant univoco, pertanto il <xref:Microsoft.AspNetCore.DataProtection.IDataProtector> rooted per un'app include automaticamente l'ID dell'app come discriminatore. ID univoco dell'app è percorso fisico dell'app:
 
-* Per le app ospitate nei [IIS](xref:fundamentals/servers/index#iis-http-server), l'ID univoco è il percorso fisico IIS dell'app. Se un'app viene distribuita in un ambiente web farm, questo valore è stabile, presupponendo che gli ambienti di IIS vengono configurati in modo analogo tra tutte le macchine nella web farm.
+* Per le app ospitate in IIS, l'ID univoco è il percorso fisico IIS dell'app. Se un'app viene distribuita in un ambiente web farm, questo valore è stabile, presupponendo che gli ambienti di IIS vengono configurati in modo analogo tra tutte le macchine nella web farm.
 * Per le app self-hosted in esecuzione sul [server Kestrel](xref:fundamentals/servers/index#kestrel), l'ID univoco è il percorso fisico per l'app sul disco.
 
 L'identificatore univoco è progettato per sopravvivere alle reimpostazioni&mdash;dell'app per le singole e della macchina stessa.
