@@ -5,12 +5,12 @@ description: Questa serie di esercitazioni illustra come usare Razor Pages in AS
 ms.author: riande
 ms.date: 6/3/2019
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: d843e47ccb5180fab34b4c4c4a4b5cbda21289bf
-ms.sourcegitcommit: a1364109d11d414121a6337b611bee61d6e489e9
+ms.openlocfilehash: e7d0312bd4b54586f4a3d403f464ded1aa49bcac
+ms.sourcegitcommit: 9691b742134563b662948b0ed63f54ef7186801e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66491213"
+ms.lasthandoff: 06/10/2019
+ms.locfileid: "66824708"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Esercitazione: Introduzione all'uso di pagine Razor in ASP.NET Core
 
@@ -47,7 +47,7 @@ Alla fine di questa esercitazione si avrà un'app Web Razor Pages funzionante, c
 
   ![nuova applicazione Web ASP.NET Core](razor-pages-start/_static/np_2.1.png)
 
-* Denominare il progetto **RazorPagesMovie**. È importante assegnare al progetto il nome *RazorPagesMovie* in modo che gli spazi dei nomi corrispondano quando si copia e incolla codice.
+* Denominare il progetto **RazorPagesMovie**. È importante denominare il progetto *RazorPagesMovie* in modo che gli spazi dei nomi corrispondano nell'operazione copia/incolla del codice.
 
   ![nuova applicazione Web ASP.NET Core](razor-pages-start/_static/config.png)
 

@@ -5,12 +5,12 @@ description: Illustra come creare, leggere, aggiornare ed eliminare con EF Core
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/crud
-ms.openlocfilehash: 43d133c61c0387ebcb4bcb2d22c800588d8534c3
-ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
+ms.openlocfilehash: ec22c82b3b70399017b5b9aa61896440db647062
+ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65516914"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66750023"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>Razor Pages con EF Core in ASP.NET Core - CRUD - 2 di 8
 
@@ -123,7 +123,7 @@ Nel codice precedente `TryUpdateModelAsync<Student>` tenta di aggiornare l'ogget
 Nell'esempio precedente:
 
 * Il secondo argomento (`"student", // Prefix`) è il prefisso usato per cercare i valori. Non viene fatta distinzione tra maiuscole e minuscole.
-* I valori di modulo inviati sono convertiti nei tipi nel modello `Student` usando l'[associazione di modelli](xref:mvc/models/model-binding#how-model-binding-works).
+* I valori di modulo inviati sono convertiti nei tipi nel modello `Student` usando l'[associazione di modelli](xref:mvc/models/model-binding).
 
 <a id="overpost"></a>
 

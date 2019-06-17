@@ -5,12 +5,12 @@ description: Informazioni sulle nuove funzionalità in ASP.NET Core 1.1.
 ms.author: riande
 ms.date: 12/18/2018
 uid: aspnetcore-1.1
-ms.openlocfilehash: a21b2b82bfefb5b24898cf58ef97284a143e2e4a
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 167842a7376a6bb0a88e6f41159730f076bb2bdb
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65086407"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034712"
 ---
 # <a name="whats-new-in-aspnet-core-11"></a>Novità di ASP.NET Core 1.1
 
@@ -23,7 +23,7 @@ ASP.NET Core 1.1 include le nuove funzionalità seguenti:
 - [Cookie-based TempData provider](xref:fundamentals/app-state#tempdata) (Provider TempData basato su cookie)
 - [Azure App Service logging provider](xref:fundamentals/logging/index#azure-app-service-provider) (Provider di registrazione del Servizio app di Azure)
 - [Azure Key Vault configuration provider](xref:security/key-vault-configuration) (Provider di configurazione di Azure Key Vault)
-- [Repository della chiave di protezione dei dati di archiviazione di Azure e Redis](xref:security/data-protection/implementation/key-storage-providers#azure-and-redis)
+- [Repository della chiave di protezione dei dati di archiviazione di Azure e Redis](xref:security/data-protection/implementation/key-storage-providers)
 - Server WebListener per Windows
 - [Supporto di WebSocket](xref:fundamentals/websockets)
 

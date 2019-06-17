@@ -5,14 +5,14 @@ description: Istruzioni dettagliate per creare un'app Blazor.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/19/2019
+ms.date: 06/12/2019
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: d48b891127f4db929b631c0ddf199c07658e604c
-ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
+ms.openlocfilehash: df27dad17133f287b1c73dc308b4cc69426e0a63
+ms.sourcegitcommit: 739a3d7ca4fd2908ea0984940eca589a96359482
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65970127"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67040718"
 ---
 # <a name="build-your-first-blazor-app"></a>Creare la prima app Blazor
 
@@ -36,7 +36,7 @@ Seguire le indicazioni contenute nell'articolo <xref:blazor/get-started> per cre
 
    L'interfaccia utente del componente Counter viene definita tramite codice HTML. La logica di rendering dinamico (ad esempio, cicli, condizioni, espressioni) viene aggiunta usando una sintassi C# incorporata chiamata [Razor](xref:mvc/views/razor). Il markup HTML e la logica di rendering C# vengono convertiti un una classe del componente in fase di compilazione. Il nome della classe .NET generata corrisponde al nome del file.
 
-   I membri della classe del componente vengono definiti in un blocco `@functions`. Nel blocco `@functions`, lo stato del componente (proprietà, campi) e i metodi vengono specificati per la gestione degli eventi o per definire la logica di altri componenti. Questi membri vengono quindi usati come parte della logica di rendering del componente e per la gestione degli eventi.
+   I membri della classe del componente vengono definiti in un blocco `@code`. Nel blocco `@code`, lo stato del componente (proprietà, campi) e i metodi vengono specificati per la gestione degli eventi o per definire la logica di altri componenti. Questi membri vengono quindi usati come parte della logica di rendering del componente e per la gestione degli eventi.
 
    Quando viene selezionato il pulsante **Click me**:
 
@@ -69,7 +69,7 @@ Includere un componente in un altro componente usando una sintassi HTML.
 
 I componenti possono avere anche parametri, che vengono definiti usando proprietà non pubbliche nella classe del componente decorata con `[Parameter]`. Usare gli attributi per specificare gli argomenti per un componente nel markup.
 
-1. Aggiornare il codice C# `@functions` del componente:
+1. Aggiornare il codice C# `@code` del componente:
 
    * Aggiungere una proprietà `IncrementAmount` decorata con l'attributo `[Parameter]`.
    * Modificare il metodo `IncrementCount` per usare `IncrementAmount` quando si aumenta il valore di `currentCount`.
@@ -152,21 +152,13 @@ Aggiungere all'app un nuovo componente che implementa un semplice elenco attivit
 
 1. Ricompilare ed eseguire l'app. Visitare la nuova pagina Todo per confermare che il collegamento al componente Todo funzioni correttamente.
 
-1. Se si compila un'app lato server Blazor, aggiungere lo spazio dei nomi dell'app al file *\_Imports.razor*. L'istruzione `@using` seguente presuppone che lo spazio dei nomi dell'app sia `WebApplication`:
-
-   ```cshtml
-   @using WebApplication
-   ```
-   
-   Le app lato client Blazor includono lo spazio dei nomi dell'app per impostazione predefinita nel file *\_Imports.razor*.
-
 1. Aggiungere un file *TodoItem.cs* nella radice del progetto per contenere una classe per rappresentare un elemento attività. Usare il codice C# seguente per la classe `TodoItem`:
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/TodoItem.cs)]
 
 1. Tornare al componente Todo (*Pages/Todo.razor*):
 
-   * Aggiungere un campo per le voci todo in un blocco `@functions`. Il componente Todo usa questo campo per mantenere lo stato dell'elenco attività.
+   * Aggiungere un campo per le voci todo in un blocco `@code`. Il componente Todo usa questo campo per mantenere lo stato dell'elenco attività.
    * Aggiungere il markup per l'elenco non ordinato e un ciclo `foreach` per eseguire il rendering di ogni elemento attività come elemento di elenco.
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo4.razor?highlight=5-10,12-14)]
@@ -177,7 +169,7 @@ Aggiungere all'app un nuovo componente che implementa un semplice elenco attivit
 
 1. Ricompilare ed eseguire l'app. Quando viene selezionato il pulsante **Add todo** non accade nulla perché al pulsante non è associato un gestore eventi.
 
-1. Aggiungere un metodo `AddTodo` al componente Todo e registrarlo per i clic sul pulsante con l'attributo `onclick`:
+1. Aggiungere un metodo `AddTodo` al componente Todo e registrarlo per i clic sul pulsante con l'attributo `@onclick`:
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo6.razor?highlight=2,7-10)]
 
@@ -188,7 +180,7 @@ Aggiungere all'app un nuovo componente che implementa un semplice elenco attivit
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo7.razor?highlight=2)]
 
    ```cshtml
-   <input placeholder="Something todo" bind="@newTodo" />
+   <input placeholder="Something todo" @bind="@newTodo" />
    ```
 
 1. Aggiornare il metodo `AddTodo` per aggiungere l'elemento `TodoItem` con il titolo specificato all'elenco. Cancellare il valore dell'input di testo impostando `newTodo` su una stringa vuota:

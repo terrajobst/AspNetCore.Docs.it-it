@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 02/04/2019
 ms.topic: tutorial
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 61669dca24b552012ee057b89de28b7de1702c2b
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 442570cdc79fe7c496392ffbcbc527cf841aefa9
+ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64886166"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66750074"
 ---
 # <a name="tutorial-implement-crud-functionality---aspnet-mvc-with-ef-core"></a>Esercitazione: Implementare la funzionalità CRUD - ASP.NET MVC con EF Core
 
@@ -177,7 +177,7 @@ Sostituire il metodo di azione HttpPost Edit con il codice seguente.
 
 Queste modifiche implementano una procedura di sicurezza consigliata per impedire l'overposting. Lo scaffolder ha generato un attributo `Bind` e aggiunto l'entità creata dallo strumento di associazione di modelli all'entità impostata con un flag `Modified`. L'uso di un codice simile non è consigliabile in molti scenari poiché l'attributo `Bind` cancella tutti i dati esistenti nei campi non elencati nel parametro `Include`.
 
-Il nuovo codice legge l'entità esistente e chiama `TryUpdateModel` per aggiornare i campi nell'entità recuperata [in base all'input dell'utente nei dati del modulo inviati](xref:mvc/models/model-binding#how-model-binding-works). Il rilevamento modifiche automatico di Entity Framework imposta il flag `Modified` nei campi modificati dall'input del modulo. Quando viene chiamato il metodo `SaveChanges`, Entity Framework crea le istruzioni SQL per aggiornare la riga del database. I conflitti di concorrenza vengono ignorati e vengono aggiornate solo le colonne della tabella che sono state aggiornate dall'utente nel database. (Un'esercitazione successiva illustra come gestire i conflitti di concorrenza).
+Il nuovo codice legge l'entità esistente e chiama `TryUpdateModel` per aggiornare i campi nell'entità recuperata [in base all'input dell'utente nei dati del modulo inviati](xref:mvc/models/model-binding). Il rilevamento modifiche automatico di Entity Framework imposta il flag `Modified` nei campi modificati dall'input del modulo. Quando viene chiamato il metodo `SaveChanges`, Entity Framework crea le istruzioni SQL per aggiornare la riga del database. I conflitti di concorrenza vengono ignorati e vengono aggiornate solo le colonne della tabella che sono state aggiornate dall'utente nel database. (Un'esercitazione successiva illustra come gestire i conflitti di concorrenza).
 
 Per evitare l'overposting, è consigliabile che i campi che devono essere aggiornati dalla pagina **Edit** siano consentiti nei parametri `TryUpdateModel`. (La stringa vuota che precede l'elenco dei campi nell'elenco dei parametri è disponibile per il prefisso da usare con i nomi dei campi del modulo). Sebbene attualmente non siano presenti campi aggiuntivi da proteggere, la creazione di un elenco dei campi che devono essere associati dallo strumento di associazione di modelli garantisce che eventuali campi aggiunti in seguito al modello di dati vengano protetti automaticamente fino a quando non vengono aggiunti in modo esplicito in questa posizione.
 
