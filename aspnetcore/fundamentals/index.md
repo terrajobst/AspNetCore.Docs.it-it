@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/11/2019
 uid: fundamentals/index
-ms.openlocfilehash: 9c7bc25d813ad17825ef03f5176882993cc2dd63
-ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
+ms.openlocfilehash: 3cf311f8e6be4ed12c79ceecc15ccc1babfb0117
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610324"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034864"
 ---
 # <a name="aspnet-core-fundamentals"></a>Nozioni fondamentali su ASP.NET Core
 
@@ -22,11 +22,12 @@ Questo articolo contiene una panoramica degli argomenti chiave necessari per com
 
 All'interno della classe `Startup`:
 
-* Viene eseguita la configurazione di tutti i servizi necessari per l'app.
+* Vengono configurati i servizi necessari per l'app.
 * Viene definita la pipeline di gestione delle richieste.
 
-* Il codice per configurare o *registrare* i servizi viene aggiunto al metodo `Startup.ConfigureServices`. I *servizi* sono componenti usati dall'app. Un oggetto di contesto Entity Framework Core, ad esempio, è un servizio.
-* Il codice per configurare la pipeline di gestione delle richieste viene aggiunto al metodo `Startup.Configure`. La pipeline è strutturata come una serie di componenti *middleware*. Un componente middleware, ad esempio, potrebbe gestire le richieste per i file statici o reindirizzare le richieste HTTP a HTTPS. Ogni componente middleware esegue operazioni asincrone su un `HttpContext`, quindi richiama il componente middleware successivo della pipeline oppure termina la richiesta.
+I *servizi* sono componenti usati dall'app. Ad esempio, un componente di registrazione è un servizio. Il codice per configurare o *registrare* i servizi viene aggiunto al metodo `Startup.ConfigureServices`.
+
+La pipeline di gestione delle richieste è strutturata come una serie di componenti *middleware*. Un componente middleware, ad esempio, potrebbe gestire le richieste per i file statici o reindirizzare le richieste HTTP a HTTPS. Ogni componente middleware esegue operazioni asincrone su un `HttpContext`, quindi richiama il componente middleware successivo della pipeline oppure termina la richiesta. Il codice per configurare la pipeline di gestione delle richieste viene aggiunto al metodo `Startup.Configure`.
 
 Ecco un esempio di classe `Startup`:
 
@@ -60,9 +61,7 @@ ASP.NET Core include un ampio set di middleware predefiniti, ma consente anche d
 
 Per ulteriori informazioni, vedere <xref:fundamentals/middleware/index>.
 
-<a id="host"/>
-
-## <a name="the-host"></a>L'host
+## <a name="host"></a>Host
 
 Un'app ASP.NET Core crea un *host* all'avvio. L'host è un oggetto che incapsula tutte le risorse dell'app, ad esempio:
 
@@ -74,61 +73,45 @@ Un'app ASP.NET Core crea un *host* all'avvio. L'host è un oggetto che incapsula
 
 Il motivo principale per cui tutte le risorse interdipendenti dell'app sono incluse in un unico oggetto è la gestione del ciclo di vita, vale a dire il controllo sull'avvio dell'app e sull'arresto normale.
 
-Il codice usato per creare un host si trova in `Program.Main` e segue il pattern [Builder](https://wikipedia.org/wiki/Builder_pattern). Per configurare ogni risorsa che fa parte dell'host vengono chiamati dei metodi. Un metodo builder viene chiamato per combinare il tutto e creare un'istanza dell'oggetto host.
-
 ::: moniker range=">= aspnetcore-3.0"
 
-`CreateHostBuilder` è un nome speciale che identifica il metodo del generatore per i componenti esterni, ad esempio [Entity Framework](/ef/core/).
+Sono disponibili due host: l'host generico e l'host Web. È consigliato l'uso dell'host generico, mentre l'host Web è disponibile solo per compatibilità con le versioni precedenti.
 
-In ASP.NET Core 3.0 o versioni successive è possibile usare un host generico (classe `Host`) o un host Web (classe `WebHost`) in un'app Web. È consigliato l'uso di un host generico, mentre l'host Web è disponibile per garantire la compatibilità con le versioni precedenti.
+Il codice per creare un host si trova in `Program.Main`:
 
-Il framework offre i metodi `CreateDefaultBuilder` e `ConfigureWebHostDefaults` per configurare un host con le opzioni usate comunemente, ad esempio:
+[!code-csharp[](index/snapshots/3.x/Program1.cs)]
+
+I metodi `CreateDefaultBuilder` e `ConfigureWebHostDefaults` configurano un host con le opzioni usate comunemente, ad esempio:
 
 * Usare [Kestrel](#servers) come server Web e abilitare l'integrazione IIS.
 * Caricare la configurazione da *appsettings.json*, *appsettings.[EnvironmentName].json*, variabili di ambiente, argomenti della riga di comando e altri origini di configurazione.
 * Inviare l'output di registrazione alla console e ai provider di debug.
 
-Ecco un esempio di codice per creare un host. I metodi che configurano l'host con le opzioni usate comunemente sono evidenziati:
-
-[!code-csharp[](index/snapshots/3.x/Program1.cs?highlight=9-10)]
-
-Per altre informazioni, vedere <xref:fundamentals/host/generic-host> e <xref:fundamentals/host/web-host>.
+Per ulteriori informazioni, vedere <xref:fundamentals/host/generic-host>.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-`CreateWebHostBuilder` è un nome speciale che identifica il metodo del generatore per i componenti esterni, ad esempio [Entity Framework](/ef/core/).
+Sono disponibili due host: l'host Web e l'host generico. In ASP.NET Core 2.x, l'host generico è destinato solo agli scenari non Web.
 
-ASP.NET Core 2.x usa un host Web (classe `WebHost`) per le app Web. Il framework offre `CreateDefaultBuilder` per configurare un host con le opzioni usate comunemente, ad esempio:
+Il codice per creare un host si trova in `Program.Main`:
+
+[!code-csharp[](index/snapshots/2.x/Program1.cs)]
+
+Il metodo `CreateDefaultBuilder` configura un host con le opzioni usate comunemente, ad esempio:
 
 * Usare [Kestrel](#servers) come server Web e abilitare l'integrazione IIS.
 * Caricare la configurazione da *appsettings.json*, *appsettings.[EnvironmentName].json*, variabili di ambiente, argomenti della riga di comando e altri origini di configurazione.
 * Inviare l'output di registrazione alla console e ai provider di debug.
-
-Ecco un esempio di codice per creare un host:
-
-[!code-csharp[](index/snapshots/2.x/Program1.cs?highlight=9)]
 
 Per ulteriori informazioni, vedere <xref:fundamentals/host/web-host>.
 
 ::: moniker-end
 
-### <a name="advanced-host-scenarios"></a>Scenari host avanzati
+### <a name="non-web-scenarios"></a>Scenari non Web
 
-::: moniker range=">= aspnetcore-3.0"
-
-L'host generico è disponibile per qualsiasi app .NET Core, non solo per le app ASP.NET Core. L'host generico (classe `Host`) consente ad altri tipi di app di usare estensioni del framework trasversali quali la registrazione, l'inserimento delle dipendenze, la configurazione e la gestione del ciclo di vita delle app. Per ulteriori informazioni, vedere <xref:fundamentals/host/generic-host>.
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.0"
-
-L'host Web è progettato per includere un'implementazione del server HTTP che non è richiesta per altri tipi di app .NET. A partire da ASP.NET Core 2.1, l'host generico (classe `Host`) è disponibile per qualsiasi app .NET Core e non solo per le app ASP.NET Core. L'host generico consente ad altri tipi di app di usare estensioni del framework trasversali quali la registrazione, l'inserimento delle dipendenze, la configurazione e la gestione del ciclo di vita delle app. Per ulteriori informazioni, vedere <xref:fundamentals/host/generic-host>.
-
-::: moniker-end
-
-È anche possibile usare l'host per eseguire attività in background. Per ulteriori informazioni, vedere <xref:fundamentals/host/hosted-services>.
+L'host generico consente ad altri tipi di app di usare estensioni del framework trasversali quali la registrazione, l'inserimento delle dipendenze, la configurazione e la gestione del ciclo di vita delle app. Per altre informazioni, vedere <xref:fundamentals/host/generic-host> e <xref:fundamentals/host/hosted-services>.
 
 ## <a name="servers"></a>Server
 
