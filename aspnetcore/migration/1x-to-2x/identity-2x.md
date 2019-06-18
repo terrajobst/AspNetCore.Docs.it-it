@@ -3,20 +3,26 @@ title: Eseguire la migrazione di autenticazione e identità ad ASP.NET Core 2.0
 author: scottaddie
 description: Questo articolo illustra i passaggi più comuni per la migrazione di ASP.NET Core 1.x autenticazione e identità ad ASP.NET Core 2.0.
 ms.author: scaddie
-ms.date: 12/18/2018
+ms.date: 06/13/2019
 uid: migration/1x-to-2x/identity-2x
-ms.openlocfilehash: 086deac51af186012315d5b6a1236c92c8980037
-ms.sourcegitcommit: 5d384db2fa9373a93b5d15e985fb34430e49ad7a
+ms.openlocfilehash: 3e8bc75b87a85159c9668b52eea32bb7d700be6c
+ms.sourcegitcommit: 516f166c5f7cec54edf3d9c71e6e2ba53fb3b0e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66039247"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67196374"
 ---
 # <a name="migrate-authentication-and-identity-to-aspnet-core-20"></a>Eseguire la migrazione di autenticazione e identità ad ASP.NET Core 2.0
 
 Dal [Scott Addie](https://github.com/scottaddie) e [Hao Kung](https://github.com/HaoK)
 
 ASP.NET Core 2.0 include un nuovo modello per l'autenticazione e [identità](xref:security/authentication/identity) che semplifica la configurazione mediante i servizi. Applicazioni ASP.NET Core 1.x che usano l'autenticazione o identità possono essere aggiornate per usare il nuovo modello, come indicato di seguito.
+
+## <a name="update-namespaces"></a>Aggiornare gli spazi dei nomi
+
+Nella versione 1.x, le classi quali `IdentityRole` e `IdentityUser` sono stati trovati nel `Microsoft.AspNetCore.Identity.EntityFrameworkCore` dello spazio dei nomi.
+
+2\.0, il <xref:Microsoft.AspNetCore.Identity> dello spazio dei nomi è diventata la nuova home page per molti di tali classi. Con il codice di identità predefiniti, le classi interessate includono `ApplicationUser` e `Startup`. Regolare la `using` istruzioni per risolvere i riferimenti interessati.
 
 <a name="auth-middleware"></a>
 
@@ -68,7 +74,7 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerfactory) {
 }
 ```
 
-Il `UseAuthentication` metodo aggiunge un componente middleware di autenticazione single che è responsabile per l'autenticazione automatica e la gestione delle richieste di autenticazione remota. Sostituisce tutti i componenti middleware singole con un componente del middleware comune.
+Il `UseAuthentication` metodo aggiunge un componente middleware di autenticazione single, che è responsabile per l'autenticazione automatica e la gestione delle richieste di autenticazione remota. Sostituisce tutti i componenti middleware singole con un componente del middleware comune.
 
 Di seguito sono 2.0 istruzioni relative alla migrazione per ogni schema di autenticazione principale.
 
@@ -255,7 +261,7 @@ Apportare le modifiche seguenti nel *Startup.cs*:
 
 Nella versione 1.x, la `AutomaticAuthenticate` e `AutomaticChallenge` delle proprietà delle [AuthenticationOptions](/dotnet/api/Microsoft.AspNetCore.Builder.AuthenticationOptions?view=aspnetcore-1.1) classe di base sono state deve essere impostata su uno schema di autenticazione single. Si è verificato alcun efficace per applicare questo comportamento.
 
-2.0, queste due proprietà sono stati rimossi come proprietà nelle singole `AuthenticationOptions` istanza. Può essere configurati nel `AddAuthentication` chiamata al metodo all'interno di `ConfigureServices` metodo di *Startup.cs*:
+2\.0, queste due proprietà sono stati rimossi come proprietà nelle singole `AuthenticationOptions` istanza. Può essere configurati nel `AddAuthentication` chiamata al metodo all'interno di `ConfigureServices` metodo di *Startup.cs*:
 
 ```csharp
 services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme);
@@ -303,13 +309,13 @@ Esistono due varianti di autenticazione di Windows:
 
 Non è interessata dalle 2.0 modifiche prima variante descritta in precedenza.
 
-La seconda variante descritta in precedenza è interessata dalle modifiche 2.0. Ad esempio, si potrebbero essere che consente agli utenti anonimi nella tua app in IIS o [HTTP. sys](xref:fundamentals/servers/httpsys) utenti ma per l'autorizzazione a livello di Controller di livello. In questo scenario, impostare lo schema predefinito `IISDefaults.AuthenticationScheme` nella `Startup.ConfigureServices` metodo:
+La seconda variante descritta in precedenza è interessata dalle modifiche 2.0. Ad esempio, potrebbe consentire agli utenti anonimi nella tua app in IIS o [HTTP. sys](xref:fundamentals/servers/httpsys) utenti ma per l'autorizzazione a livello di Controller di livello. In questo scenario, impostare lo schema predefinito `IISDefaults.AuthenticationScheme` nella `Startup.ConfigureServices` metodo:
 
 ```csharp
 services.AddAuthentication(IISDefaults.AuthenticationScheme);
 ```
 
-Impossibile impostare lo schema predefinito di conseguenza impedisce la richiesta di autorizzazione per fare in modo da in esecuzione.
+Impossibile impostare lo schema predefinito impedisce la richiesta di autorizzazione per fare in modo da in esecuzione.
 
 <a name="identity-cookie-options"></a>
 
@@ -317,7 +323,7 @@ Impossibile impostare lo schema predefinito di conseguenza impedisce la richiest
 
 Un effetto collaterale delle 2.0 modifiche è l'opzione per l'utilizzo denominate opzioni anziché le istanze delle opzioni cookie. La possibilità di personalizzare i nomi di schema di cookie di identità viene rimosso.
 
-Progetti di 1.x, ad esempio, usare [inserimento del costruttore](xref:mvc/controllers/dependency-injection#constructor-injection) per passare un `IdentityCookieOptions` parametri in *AccountController.cs*. Lo schema di autenticazione esterni cookie è accessibile dall'istanza fornita:
+Progetti di 1.x, ad esempio, usare [inserimento del costruttore](xref:mvc/controllers/dependency-injection#constructor-injection) per passare un `IdentityCookieOptions` parametri in *AccountController.cs* e *ManageController.cs*. Lo schema di autenticazione esterni cookie è accessibile dall'istanza fornita:
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Controllers/AccountController.cs?name=snippet_AccountControllerConstructor&highlight=4,11)]
 
@@ -325,9 +331,17 @@ L'inserimento del costruttore menzionati in precedenza non è più necessario ne
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Controllers/AccountController.cs?name=snippet_AccountControllerConstructor)]
 
-Il `IdentityConstants.ExternalScheme` costante può essere utilizzata direttamente:
+i progetti di 1.x utilizzati il `_externalCookieScheme` campo come indicato di seguito:
+
+[!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Controllers/AccountController.cs?name=snippet_AuthenticationProperty)]
+
+Nei 2.0 progetti, sostituire il codice precedente con il codice seguente. Il `IdentityConstants.ExternalScheme` costante può essere utilizzata direttamente.
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Controllers/AccountController.cs?name=snippet_AuthenticationProperty)]
+
+Risolvere appena aggiunta `SignOutAsync` chiamare importando lo spazio dei nomi seguente:
+
+[!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Controllers/AccountController.cs?name=snippet_AuthenticationImport)]
 
 <a name="navigation-properties"></a>
 
@@ -389,21 +403,21 @@ protected override void OnModelCreating(ModelBuilder builder)
 
 ## <a name="replace-getexternalauthenticationschemes"></a>Sostituire GetExternalAuthenticationSchemes
 
-Metodo sincrono `GetExternalAuthenticationSchemes` è stato rimosso a favore di una versione asincrona. i progetti di 1.x avere il codice seguente *ManageController.cs*:
+Metodo sincrono `GetExternalAuthenticationSchemes` è stato rimosso a favore di una versione asincrona. i progetti di 1.x avere il codice seguente *Controllers/ManageController.cs*:
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Controllers/ManageController.cs?name=snippet_GetExternalAuthenticationSchemes)]
 
-Questo metodo viene visualizzato nella *cshtml* troppo:
+Questo metodo viene visualizzato nella *Views/Account/Login.cshtml* troppo:
 
-[!code-cshtml[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Views/Account/Login.cshtml?range=62,75-84)]
+[!code-cshtml[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Views/Account/Login.cshtml?name=snippet_GetExtAuthNSchemes&highlight=2)]
 
-Nei 2.0 progetti, usare il `GetExternalAuthenticationSchemesAsync` metodo:
+Nei 2.0 progetti, usare il <xref:Microsoft.AspNetCore.Identity.SignInManager`1.GetExternalAuthenticationSchemesAsync*> (metodo). La variazione *ManageController.cs* è simile al codice seguente:
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Controllers/ManageController.cs?name=snippet_GetExternalAuthenticationSchemesAsync)]
 
 In *cshtml*, il `AuthenticationScheme` proprietà a cui accede nel `foreach` ciclo diventa `Name`:
 
-[!code-cshtml[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Views/Account/Login.cshtml?range=62,75-84)]
+[!code-cshtml[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Views/Account/Login.cshtml?name=snippet_GetExtAuthNSchemesAsync&highlight=2,19)]
 
 <a name="property-change"></a>
 
@@ -421,4 +435,4 @@ Nei 2.0 progetti, il tipo restituito viene impostato su `IList<AuthenticationSch
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-Per ulteriori informazioni e discussione, vedere la [discussione per 2.0 Auth](https://github.com/aspnet/Security/issues/1338) problema in GitHub.
+Per altre informazioni, vedere la [discussione per 2.0 Auth](https://github.com/aspnet/Security/issues/1338) problema in GitHub.

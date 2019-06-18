@@ -5,14 +5,14 @@ description: Informazioni sulla configurazione per le app ospitate dietro server
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/24/2019
+ms.date: 06/11/2019
 uid: host-and-deploy/proxy-load-balancer
-ms.openlocfilehash: 2423b5bed760ad879d1c47c5e64b0f815b50397e
-ms.sourcegitcommit: b8ed594ab9f47fa32510574f3e1b210cff000967
+ms.openlocfilehash: ab48d80c9cb1c09b5164ed732e76a59687683e97
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66251390"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034737"
 ---
 # <a name="configure-aspnet-core-to-work-with-proxy-servers-and-load-balancers"></a>Configurare ASP.NET Core per l'uso di server proxy e servizi di bilanciamento del carico
 
@@ -53,11 +53,11 @@ Non tutte le appliance di rete aggiungono le intestazioni `X-Forwarded-For` e `X
 
 ## <a name="iisiis-express-and-aspnet-core-module"></a>IIS/IIS Express e modulo Core ASP.NET
 
-Il middleware delle intestazioni inoltrate è abilitato per impostazione predefinita dal [middleware di integrazione IIS](xref:host-and-deploy/iis/index#enable-the-iisintegration-components) quando l'app è ospitata [out-of-process](xref:fundamentals/servers/index#out-of-process-hosting-model) dietro IIS e il modulo ASP.NET Core. Il middleware delle intestazioni inoltrate viene attivato per l'esecuzione prima nella pipeline del middleware con una configurazione con restrizioni specifica per il modulo ASP.NET Core per motivi di attendibilità delle intestazioni inoltrate, ad esempio lo [spoofing degli indirizzi IP](https://www.iplocation.net/ip-spoofing). Il middleware è configurato per inoltrare le intestazioni `X-Forwarded-For` e `X-Forwarded-Proto` ed è limitato a un singolo proxy localhost. Se è richiesta una configurazione aggiuntiva, vedere [Opzioni del middleware delle intestazioni inoltrate](#forwarded-headers-middleware-options).
+Il middleware delle intestazioni inoltrate è abilitato per impostazione predefinita dal [middleware di integrazione IIS](xref:host-and-deploy/iis/index#enable-the-iisintegration-components) quando l'app è ospitata [out-of-process](xref:host-and-deploy/iis/index#out-of-process-hosting-model) dietro IIS e il modulo ASP.NET Core. Il middleware delle intestazioni inoltrate viene attivato per l'esecuzione prima nella pipeline del middleware con una configurazione con restrizioni specifica per il modulo ASP.NET Core per motivi di attendibilità delle intestazioni inoltrate, ad esempio lo [spoofing degli indirizzi IP](https://www.iplocation.net/ip-spoofing). Il middleware è configurato per inoltrare le intestazioni `X-Forwarded-For` e `X-Forwarded-Proto` ed è limitato a un singolo proxy localhost. Se è richiesta una configurazione aggiuntiva, vedere [Opzioni del middleware delle intestazioni inoltrate](#forwarded-headers-middleware-options).
 
 ## <a name="other-proxy-server-and-load-balancer-scenarios"></a>Altri scenari con server proxy e servizi di bilanciamento del carico
 
-Se non si usa il [middleware di integrazione IIS](xref:host-and-deploy/iis/index#enable-the-iisintegration-components) per l'hosting [out-of-process](xref:fundamentals/servers/index#out-of-process-hosting-model), il middleware delle intestazioni inoltrate non è abilitato per impostazione predefinita. Il middleware delle intestazioni inoltrate deve essere abilitato per consentire a un'app di inoltrare le intestazioni inoltrate del processo con <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*>. Dopo aver abilitato il middleware, se non sono specificate opzioni <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions> per il middleware, le intestazioni [ForwardedHeadersOptions.ForwardedHeaders](xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedHeaders) predefinite sono [ForwardedHeaders.None](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders).
+Se non si usa il [middleware di integrazione IIS](xref:host-and-deploy/iis/index#enable-the-iisintegration-components) per l'hosting [out-of-process](xref:host-and-deploy/iis/index#out-of-process-hosting-model), il middleware delle intestazioni inoltrate non è abilitato per impostazione predefinita. Il middleware delle intestazioni inoltrate deve essere abilitato per consentire a un'app di inoltrare le intestazioni inoltrate del processo con <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*>. Dopo aver abilitato il middleware, se non sono specificate opzioni <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions> per il middleware, le intestazioni [ForwardedHeadersOptions.ForwardedHeaders](xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedHeaders) predefinite sono [ForwardedHeaders.None](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders).
 
 Configurare il middleware con <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions> per l'inoltro delle intestazioni `X-Forwarded-For` e `X-Forwarded-Proto` in `Startup.ConfigureServices`. Richiamare il metodo <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*> in `Startup.Configure` prima di chiamare altro middleware:
 
@@ -226,6 +226,38 @@ services.Configure<ForwardedHeadersOptions>(options =>
 });
 ```
 
+::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
+
+## <a name="forward-the-scheme-for-linux-and-non-iis-reverse-proxies"></a>Inoltrare lo schema per Linux e proxy inversi non IIS
+
+I modelli di .NET Core chiamano <xref:Microsoft.AspNetCore.Builder.HttpsPolicyBuilderExtensions.UseHttpsRedirection*> e <xref:Microsoft.AspNetCore.Builder.HstsBuilderExtensions.UseHsts*>. Con questi metodi il sito si ritrova in un ciclo infinito se distribuito in un servizio app di Azure di Linux, in una macchina virtuale Linux di Azure o dietro eventuali altri proxy inversi diversi da IIS. TLS viene terminato dal proxy inverso e Kestrel non viene a conoscenza dello schema di richiesta corretto. Si verificano errori anche per OAuth e OIDC in questa configurazione perché generano reindirizzamenti non corretti. <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> aggiunge e configura il middleware delle intestazioni inoltrate in caso di esecuzione dietro IIS, ma non esiste alcuna configurazione automatica corrispondente per Linux (integrazione di Apache o Nginx).
+
+Per inoltrare lo schema dal proxy in scenari non IIS, aggiungere e configurare il middleware delle intestazioni inoltrate. In `Startup.ConfigureServices` usare il codice seguente:
+
+```csharp
+// using Microsoft.AspNetCore.HttpOverrides;
+
+if (string.Equals(
+    Environment.GetEnvironmentVariable("ASPNETCORE_FORWARDEDHEADERS_ENABLED"), 
+    "true", StringComparison.OrdinalIgnoreCase))
+{
+    services.Configure<ForwardedHeadersOptions>(options =>
+    {
+        options.ForwardedHeaders = ForwardedHeaders.XForwardedFor | 
+            ForwardedHeaders.XForwardedProto;
+        // Only loopback proxies are allowed by default.
+        // Clear that restriction because forwarders are enabled by explicit 
+        // configuration.
+        options.KnownNetworks.Clear();
+        options.KnownProxies.Clear();
+    });
+}
+```
+
+Fino a quando non vengono fornite nuove immagini del contenitore in Azure, è necessario creare un'impostazione dell'app (variabile di ambiente) per `ASPNETCORE_FORWARDEDHEADERS_ENABLED` impostata su `true`. Per altre informazioni, vedere [Templates do not work in Antares Linux due to missing scheme forwarders (aspnet/AspNetCore #4135)](https://github.com/aspnet/AspNetCore/issues/4135) (I modelli non funzionano in Antares Linux a causa della mancanza di strumenti di inoltro dello schema - aspnet/AspNetCore #4135).
+
+::: moniker-end
+
 ## <a name="troubleshoot"></a>Risolvere i problemi
 
 Quando le intestazioni non vengono inoltrate come previsto, abilitare la [registrazione](xref:fundamentals/logging/index). Se i log non forniscono informazioni sufficienti per risolvere il problema, enumerare le intestazioni delle richieste ricevute dal server. Usare il middleware inline per scrivere le intestazioni di richiesta in una risposta dell'app o per registrare le intestazioni. 
@@ -310,6 +342,53 @@ services.Configure<ForwardedHeadersOptions>(options =>
 
 > [!IMPORTANT]
 > Consentire solo a reti e proxy attendibili di inoltrare le intestazioni. In caso contrario, possono verificarsi attacchi di [spoofing degli indirizzi IP](https://www.iplocation.net/ip-spoofing).
+
+## <a name="certificate-forwarding"></a>Inoltro di certificati 
+
+### <a name="on-azure"></a>In Azure
+
+Vedere la [documentazione di Azure](/azure/app-service/app-service-web-configure-tls-mutual-auth) per configurare le app Web di Azure. Nel metodo `Startup.Configure` dell'app aggiungere il codice seguente prima della chiamata a `app.UseAuthentication();`:
+
+```csharp
+app.UseCertificateForwarding();
+```
+
+Sarà anche necessario configurare il middleware di inoltro dei certificati per specificare il nome dell'intestazione usata da Azure. Nel metodo `Startup.ConfigureServices` dell'app aggiungere il codice seguente per configurare l'intestazione da cui il middleware crea un certificato:
+
+```csharp
+services.AddCertificateForwarding(options =>
+    options.CertificateHeader = "X-ARR-ClientCert");
+```
+
+### <a name="with-other-web-proxies"></a>Con altri proxy Web
+
+Se si usa un proxy che non sia IIS o Application Request Routing per app Web di Azure, configurare il proxy per inoltrare il certificato ricevuto in un'intestazione HTTP. Nel metodo `Startup.Configure` dell'app aggiungere il codice seguente prima della chiamata a `app.UseAuthentication();`:
+
+```csharp
+app.UseCertificateForwarding();
+```
+
+Sarà anche necessario configurare il middleware di inoltro dei certificati per specificare il nome dell'intestazione. Nel metodo `Startup.ConfigureServices` dell'app aggiungere il codice seguente per configurare l'intestazione da cui il middleware crea un certificato:
+
+```csharp
+services.AddCertificateForwarding(options =>
+    options.CertificateHeader = "YOUR_CERTIFICATE_HEADER_NAME");
+```
+
+Infine, se il proxy esegue operazioni diverse dalla codifica base64 del certificato (come nel caso di Nginx), impostare l'opzione `HeaderConverter`. Si consideri l'esempio seguente in `Startup.ConfigureServices`:
+
+```csharp
+services.AddCertificateForwarding(options =>
+{
+    options.CertificateHeader = "YOUR_CUSTOM_HEADER_NAME";
+    options.HeaderConverter = (headerValue) => 
+    {
+        var clientCertificate = 
+           /* some conversion logic to create an X509Certificate2 */
+        return clientCertificate;
+    }
+});
+```
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 03/08/2019
 uid: grpc/aspnetcore
-ms.openlocfilehash: 190004de8b70a463f9f58a25164d5a86ecc266d6
-ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
+ms.openlocfilehash: ca06478e6168c59d9abf43d99213fa8a7091e178
+ms.sourcegitcommit: 756114cab5e24e99ec23de62b0c1c16b15197ac2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66376360"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67169527"
 ---
 # <a name="grpc-services-with-aspnet-core"></a>Servizi gRPC con ASP.NET Core
 
@@ -45,11 +45,11 @@ gRPC richiede i pacchetti seguenti:
 
 gRPC è abilitata con la `AddGrpc` metodo:
 
-[!code-cs[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/Startup.cs?name=snippet&highlight=5)]
+[!code-cs[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/Startup.cs?name=snippet&highlight=7)]
 
 Ogni servizio gRPC viene aggiunto alla pipeline di routing tramite il `MapGrpcService` metodo:
 
-[!code-cs[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/Startup.cs?name=snippet&highlight=21)]
+[!code-cs[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/Startup.cs?name=snippet&highlight=24)]
 
 Le funzionalità e il middleware di ASP.NET Core condividono la pipeline di routing, pertanto è possibile configurare un'app per servire i gestori di richiesta aggiuntivi. I gestori di richiesta aggiuntivi, ad esempio i controller MVC, operare in parallelo con i servizi configurati gRPC.
 
@@ -76,7 +76,7 @@ GRPC API fornisce l'accesso ad alcuni dati di messaggio HTTP/2, ad esempio il me
 
 `ServerCallContext` non fornisce accesso completo a `HttpContext` tutti APIs ASP.NET. Il `GetHttpContext` metodo di estensione fornisce accesso completo per il `HttpContext` che rappresenta il messaggio HTTP/2 sottostante in APIs ASP.NET:
 
-[!code-cs[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/Services/GreeterService.cs?name=snippet1)]
+[!code-cs[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/Services/GreeterService.cs?name=snippet)]
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

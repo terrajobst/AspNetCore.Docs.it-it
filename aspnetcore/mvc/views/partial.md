@@ -4,14 +4,14 @@ author: ardalis
 description: Informazioni su come usare le visualizzazioni parziali per suddividere file di markup di grandi dimensioni e ridurre la duplicazione del markup comune nelle pagine Web nelle app ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/06/2019
+ms.date: 06/12/2019
 uid: mvc/views/partial
-ms.openlocfilehash: e13b2ea974697bb12c121d1a70fb5079d6aadb2d
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 901fd52f89969141713e443890781a77308bd901
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64887466"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034908"
 ---
 # <a name="partial-views-in-aspnet-core"></a>Visualizzazioni parziali in ASP.NET Core
 
@@ -48,7 +48,7 @@ Non usare una visualizzazione parziale in cui per il rendering del markup è nec
 
 Una visualizzazione parziale è un file di markup con estensione *cshtml* che si trova nella cartella *Views* (MVC) o *Pages* (Razor Pages).
 
-In ASP.NET Core MVC, l'elemento <xref:Microsoft.AspNetCore.Mvc.ViewResult> di un controller è in grado di restituire una visualizzazione o una visualizzazione parziale. Una capacità analoga è pianificata per Razor Pages in ASP.NET Core 2.2. In Razor Pages <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> può restituire un <xref:Microsoft.AspNetCore.Mvc.PartialViewResult>. Il riferimento e il rendering delle visualizzazioni parziali sono descritti nella sezione [Riferimento a una visualizzazione parziale](#reference-a-partial-view).
+In ASP.NET Core MVC, l'elemento <xref:Microsoft.AspNetCore.Mvc.ViewResult> di un controller è in grado di restituire una visualizzazione o una visualizzazione parziale. In Razor Pages un <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> può restituire una visualizzazione parziale rappresentata come oggetto <xref:Microsoft.AspNetCore.Mvc.PartialViewResult>. Il riferimento e il rendering delle visualizzazioni parziali sono descritti nella sezione [Riferimento a una visualizzazione parziale](#reference-a-partial-view).
 
 A differenza del rendering di pagine o visualizzazioni MVC, una visualizzazione parziale non esegue *_ViewStart.cshtml*. Per altre informazioni su *_ViewStart.cshtml*, vedere <xref:mvc/views/layout>.
 
@@ -60,7 +60,7 @@ I nomi dei file di visualizzazione parziale iniziano spesso con un carattere di 
 
 Una visualizzazione parziale è un file di markup con estensione *cshtml* che si trova nella cartella *Views*.
 
-L'elemento <xref:Microsoft.AspNetCore.Mvc.ViewResult> di un controller è in grado di restituire una visualizzazione o una visualizzazione parziale.
+L'elemento <xref:Microsoft.AspNetCore.Mvc.ViewResult> di un controller è in grado di restituire una visualizzazione o una visualizzazione parziale. Il riferimento e il rendering delle visualizzazioni parziali sono descritti nella sezione [Riferimento a una visualizzazione parziale](#reference-a-partial-view).
 
 A differenza del rendering di visualizzazioni MVC, una visualizzazione parziale non esegue *_ViewStart.cshtml*. Per altre informazioni su *_ViewStart.cshtml*, vedere <xref:mvc/views/layout>.
 
@@ -69,6 +69,33 @@ I nomi dei file di visualizzazione parziale iniziano spesso con un carattere di 
 ::: moniker-end
 
 ## <a name="reference-a-partial-view"></a>Riferimento a una visualizzazione parziale
+
+::: moniker range=">= aspnetcore-2.0"
+
+### <a name="use-a-partial-view-in-a-razor-pages-pagemodel"></a>Usare una visualizzazione parziale in un PageModel di Razor Pages
+
+In ASP.NET Core 2.0 o 2.1, il metodo del gestore seguente esegue il rendering della visualizzazione parziale *\_AuthorPartialRP.cshtml* nella risposta:
+
+```csharp
+public IActionResult OnGetPartial() =>
+    new PartialViewResult
+    {
+        ViewName = "_AuthorPartialRP",
+        ViewData = ViewData,
+    };
+```
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+In ASP.NET Core 2.2 o versioni successive, un metodo del gestore può chiamare in alternativa il metodo <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageBase.Partial*> per produrre un oggetto `PartialViewResult`:
+
+[!code-csharp[](partial/sample/PartialViewsSample/Pages/DiscoveryRP.cshtml.cs?name=snippet_OnGetPartial)]
+
+::: moniker-end
+
+### <a name="use-a-partial-view-in-a-markup-file"></a>Usare una visualizzazione parziale in un file di markup
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -263,7 +290,7 @@ L'esempio seguente mostra come passare un'istanza di [ViewDataDictionary](/dotne
 
 Il markup seguente nella pagina di esempio è tratto dalla pagina *Pages/ArticlesRP/ReadRP.cshtml*. La pagina contiene due visualizzazioni parziali. La seconda visualizzazione parziale viene trasmessa a un modello e `ViewData` viene trasmesso alla visualizzazione parziale. L'overload del costruttore `ViewDataDictionary` viene usato per passare un nuovo dizionario `ViewData` mantenendo il dizionario `ViewData` esistente.
 
-[!code-cshtml[](partial/sample/PartialViewsSample/Pages/ArticlesRP/ReadRP.cshtml?name=snippet_ReadPartialViewRP&highlight=5,15-19)]
+[!code-cshtml[](partial/sample/PartialViewsSample/Pages/ArticlesRP/ReadRP.cshtml?name=snippet_ReadPartialViewRP&highlight=5,15-20)]
 
 *Pages/Shared/_AuthorPartialRP.cshtml* è la prima visualizzazione parziale a cui fa riferimento il file di markup *ReadRP.cshtml*:
 
@@ -279,7 +306,7 @@ Il markup seguente nella pagina di esempio è tratto dalla pagina *Pages/Article
 
 Il markup seguente nell'app di esempio mostra la visualizzazione *Views/Articles/ReadRP.cshtml*. La visualizzazione contiene due visualizzazioni parziali. La seconda visualizzazione parziale viene trasmessa a un modello e `ViewData` viene trasmesso alla visualizzazione parziale. L'overload del costruttore `ViewDataDictionary` viene usato per passare un nuovo dizionario `ViewData` mantenendo il dizionario `ViewData` esistente.
 
-[!code-cshtml[](partial/sample/PartialViewsSample/Views/Articles/Read.cshtml?name=snippet_ReadPartialView&highlight=5,15-19)]
+[!code-cshtml[](partial/sample/PartialViewsSample/Views/Articles/Read.cshtml?name=snippet_ReadPartialView&highlight=5,15-20)]
 
 *Views/Shared/_AuthorPartial.cshtml* è la prima visualizzazione parziale a cui fa riferimento il file di markup *ReadRP.cshtml*:
 

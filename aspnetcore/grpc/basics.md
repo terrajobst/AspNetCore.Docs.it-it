@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 03/31/2019
 uid: grpc/basics
-ms.openlocfilehash: 5a88bd0e9f789058b3606691c5ebd9a74325ac9b
-ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
+ms.openlocfilehash: 00772144cb484b78a256f178642463577d316be2
+ms.sourcegitcommit: 516f166c5f7cec54edf3d9c71e6e2ba53fb3b0e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66376349"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67196357"
 ---
 # <a name="grpc-services-with-c"></a>servizi gRPC con C\#
 
@@ -38,7 +38,7 @@ Si consideri, ad esempio, il *greet.proto* file utilizzato nelle [iniziare a usa
 
 Il *.proto* file è incluso in un progetto, aggiungerlo al `<Protobuf>` gruppo di elementi:
 
-[!code-xml[](~/tutorials//grpc/grpc-start/sample/GrpcGreeter/GrpcGreeter.csproj?highlight=2&range=7-11)]
+[!code-xml[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/GrpcGreeter.csproj?highlight=2&range=7-9)]
 
 ## <a name="c-tooling-support-for-proto-files"></a>C#Supporto per i file .proto degli strumenti
 
@@ -50,7 +50,7 @@ Il pacchetto degli strumenti [Grpc.Tools](https://www.nuget.org/packages/Grpc.To
 
 Questo pacchetto è obbligatoria per i progetti server e client. `Grpc.Tools` possono essere aggiunti con la gestione dei pacchetti in Visual Studio o aggiungendo un `<PackageReference>` al file di progetto:
 
-[!code-xml[](~/tutorials//grpc/grpc-start/sample/GrpcGreeter/GrpcGreeter.csproj?highlight=1&range=17)]
+[!code-xml[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/GrpcGreeter.csproj?highlight=1&range=15)]
 
 Il pacchetto di strumenti non è necessario in fase di esecuzione, quindi la dipendenza è contrassegnata come `PrivateAssets="All"`.
 
@@ -68,7 +68,7 @@ Per le risorse lato client, viene generato un tipo concreto di client. Chiama il
 
 Per impostazione predefinita, gli asset di server e client vengono generati per ogni *.proto* incluso nel file di `<Protobuf>` gruppo di elementi. Per assicurarsi che solo le risorse server vengono generate in un progetto server, il `GrpcServices` attributo è impostato su `Server`.
 
-[!code-xml[](~/tutorials//grpc/grpc-start/sample/GrpcGreeter/GrpcGreeter.csproj?highlight=2&range=7-11)]
+[!code-xml[](~/tutorials//grpc/grpc-start/sample/GrpcGreeter/GrpcGreeter.csproj?highlight=2&range=7-9)]
 
 Analogamente, l'attributo è impostato su `Client` nei progetti client.
 

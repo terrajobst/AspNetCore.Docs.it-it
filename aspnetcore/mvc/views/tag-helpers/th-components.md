@@ -4,14 +4,14 @@ author: scottaddie
 description: Informazioni sui componenti helper tag e su come usarli in ASP.NET Core.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: scaddie
-ms.date: 04/06/2019
+ms.date: 06/12/2019
 uid: mvc/views/tag-helpers/th-components
-ms.openlocfilehash: 777bbcca3d1c2f03f386fa62df2a2e0b00409318
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: b5b3abea6492cfaa7d6acd0e54073a8db12eb2a5
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64889736"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034757"
 ---
 # <a name="tag-helper-components-in-aspnet-core"></a>Componenti helper tag in ASP.NET Core
 
@@ -62,9 +62,16 @@ Il codice precedente associa un [widget tooltip Boostrap](https://getbootstrap.c
 
 Un componente helper tag deve essere aggiunto alla raccolta di componenti helper tag. È possibile farlo in tre modi:
 
-1. [Registrazione tramite un contenitore di servizi](#registration-via-services-container)
-1. [Registrazione tramite un file Razor](#registration-via-razor-file)
-1. [Registrazione tramite un modello di pagina o un controller](#registration-via-page-model-or-controller)
+* [Componenti helper tag in ASP.NET Core](#tag-helper-components-in-aspnet-core)
+  * [Casi d'uso](#use-cases)
+    * [Inserire in un elemento HTML head](#inject-into-html-head-element)
+    * [Inserire in un elemento HTML body](#inject-into-html-body-element)
+  * [Registrare un componente](#register-a-component)
+    * [Registrazione tramite un contenitore di servizi](#registration-via-services-container)
+    * [Registrazione tramite un file Razor](#registration-via-razor-file)
+    * [Registrazione tramite un modello di pagina o un controller](#registration-via-page-model-or-controller)
+  * [Creare un componente](#create-a-component)
+  * [Risorse aggiuntive](#additional-resources)
 
 ### <a name="registration-via-services-container"></a>Registrazione tramite un contenitore di servizi
 
