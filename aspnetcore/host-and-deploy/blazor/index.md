@@ -1,20 +1,20 @@
 ---
-title: Ospitare e distribuire Blazor
+title: Hosting e distribuzione di ASP.NET Core Blazor
 author: guardrex
 description: Informazioni su come ospitare e distribuire app Blazor.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/23/2019
+ms.date: 06/14/2019
 uid: host-and-deploy/blazor/index
-ms.openlocfilehash: 0fc7643c65b93a63d7a594d35e4013eab76e9db8
-ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
+ms.openlocfilehash: 8a5ac5c58e7ceab07e55da8b61ebb01f7ac984bc
+ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66376378"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67153206"
 ---
-# <a name="host-and-deploy-blazor"></a>Ospitare e distribuire Blazor
+# <a name="host-and-deploy-aspnet-core-blazor"></a>Hosting e distribuzione di ASP.NET Core Blazor
 
 Di [Luke Latham](https://github.com/guardrex), [Rainer Stropek](https://www.timecockpit.com) e [Daniel Roth](https://github.com/danroth27)
 
@@ -55,4 +55,4 @@ Per indicazioni sulla distribuzione, vedere gli argomenti seguenti:
 
 Le app Blazor sul lato client possono essere rese disponibili da [Archiviazione di Azure](https://azure.microsoft.com/services/storage/) come contenuto statico direttamente da un contenitore di archiviazione.
 
-Per altre informazioni, vedere [Ospitare e distribuire Blazor sul lato client (distribuzione autonoma): Archiviazione di Azure](xref:host-and-deploy/blazor/client-side#azure-storage).
+Per altre informazioni, vedere [Ospitare e distribuire ASP.NET Core Blazor sul lato client (distribuzione autonoma): Archiviazione di Azure](xref:host-and-deploy/blazor/client-side#azure-storage).
