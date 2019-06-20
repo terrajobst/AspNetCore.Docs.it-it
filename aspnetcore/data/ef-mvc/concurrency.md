@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: d3954800f4f1358565a627768e34465215dc4f6e
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: bfe417a6153f74cf0ca2d9bcde4db1bba8453b3b
+ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64886656"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152895"
 ---
 # <a name="tutorial-handle-concurrency---aspnet-mvc-with-ef-core"></a>Esercitazione: Gestire la concorrenza - ASP.NET MVC con EF Core
 
@@ -154,7 +154,7 @@ Sostituire il codice esistente del metodo HttpPost `Edit` con il codice seguente
 
 [!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EditPost)]
 
-Il codice inizia con la lettura del reparto da aggiornare. Se il metodo `SingleOrDefaultAsync` restituisce null, il reparto è stato eliminato da un altro utente. In questo caso il codice usa i valori del modulo registrato per creare un'entità reparto, in modo che la pagina di modifica possa essere visualizzata nuovamente con un messaggio di errore. In alternativa, non è necessario creare nuovamente l'entità del reparto se si visualizza solo un messaggio di errore senza visualizzare di nuovo i campi del reparto.
+Il codice inizia con la lettura del reparto da aggiornare. Se il metodo `FirstOrDefaultAsync` restituisce null, il reparto è stato eliminato da un altro utente. In questo caso il codice usa i valori del modulo registrato per creare un'entità reparto, in modo che la pagina di modifica possa essere visualizzata nuovamente con un messaggio di errore. In alternativa, non è necessario creare nuovamente l'entità del reparto se si visualizza solo un messaggio di errore senza visualizzare di nuovo i campi del reparto.
 
 La visualizzazione archivia il valore `RowVersion` originale in un campo nascosto e questo metodo riceve il valore nel parametro `rowVersion`. Prima della chiamata di `SaveChanges` è necessario inserire il valore originale della proprietà `RowVersion` nella raccolta `OriginalValues` dell'entità.
 
