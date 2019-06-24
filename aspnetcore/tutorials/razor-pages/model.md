@@ -28,7 +28,7 @@ Le classi di modello sono dette classi POCO (da "plain-old CLR objects") perché
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Fare clic con il pulsante destro del mouse sul progetto **RazorPagesMovie** > **Aggiungi** > **Nuova cartella**. Assegnare il nome *Modelli* alla cartella.
+Fare clic con il pulsante destro del mouse sul progetto **RazorPagesMovie** > **Aggiungi** > **Nuova cartella**. Assegnare il nome *Models* alla cartella.
 
 Fare clic con il pulsante destro del mouse sulla cartella *Models*. Selezionare **Aggiungi** > **Classe**. Denominare la classe **Movie**.
 
@@ -61,9 +61,9 @@ Fare clic con il pulsante destro del mouse sulla cartella *Models*. Selezionare 
 
 Compilare il progetto per verificare che non siano presenti errori di compilazione.
 
-## <a name="scaffold-the-movie-model"></a>Eseguire lo scaffolding del modello *Movie*
+## <a name="scaffold-the-movie-model"></a>Eseguire lo scaffolding del modello di filmato
 
-In questa sezione viene eseguito lo scaffolding del modello *Movie*. Lo strumento di scaffolding crea quindi le pagine per le operazioni CRUD (creazione, lettura, aggiornamento ed eliminazione) per il modello *Movie*.
+In questa sezione viene eseguito lo scaffolding del modello di filmato. Lo strumento di scaffolding crea quindi le pagine per le operazioni CRUD (creazione, lettura, aggiornamento ed eliminazione) per il modello di filmato.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -76,13 +76,13 @@ Fare clic con il pulsante destro del mouse sulla cartella *Pages* > **Aggiungi**
 
 ![Immagine relativa alle istruzioni precedenti.](model/_static/sca.png)
 
-Nella finestra di dialogo **Aggiungi scaffolding** selezionare **Pagine Razor che usano Entity Framework (CRUD)** > **Aggiungi**.
+Nella finestra di dialogo **Aggiungi scaffolding** selezionare **Pagine Razor che usano Entity Framework (CRUD)**  > **Aggiungi**.
 
 ![Immagine relativa alle istruzioni precedenti.](model/_static/add_scaffold.png)
 
-Completare la finestra di dialogo **Pagine Razor che usano Entity Framework (CRUD)**:
+Completare la finestra di dialogo **Pagine Razor che usano Entity Framework (CRUD)** :
 
-* Nel menu a discesa **Classe modello** selezionare **Movie (RazorPagesMovie.Models)**.
+* Nel menu a discesa **Classe modello** selezionare **Movie (RazorPagesMovie.Models)** .
 * Nella riga **Classe contesto di dati** selezionare il segno più **+** e accettare il nome generato **RazorPagesMovie.Models.RazorPagesMovieContext**.
 * Selezionare **Aggiungi**.
 
@@ -139,7 +139,7 @@ Il processo di scaffolding crea e aggiorna i file seguenti:
 
 ### <a name="files-created"></a>File creati
 
-* *Pages/Movies*: Crea, Elimina, Dettagli, Modifica e Indice.
+* *Pagine/filmati*: Crea, Elimina, Dettagli, Modifica e Indice.
 * *Data/RazorPagesMovieContext.cs*
 
 ### <a name="file-updated"></a>File aggiornato
@@ -242,7 +242,7 @@ Non è stato eseguita la [migrazione](#pmc).
   ![Pagina Crea](model/_static/conan.png)
 
   > [!NOTE]
-  > Potrebbe non essere possibile immettere virgole decimali nel campo `Price`. Per supportare la [convalida jQuery](https://jqueryvalidation.org/) per impostazioni locali diverse dall'inglese che usano la virgola (",") come separatore decimale e per formati di data diversi da quello dell'inglese (Stati Uniti), è necessario localizzare l'app. Per istruzioni sulla localizzazione, vedere [questo problema su GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420).
+  > Potrebbe non essere possibile immettere virgole decimali nel campo `Price`. Per supportare la [convalida jQuery](https://jqueryvalidation.org/) per impostazioni locali diverse dall'inglese che usano la virgola (",") come separatore decimale e per formati di data diversi da quello dell'inglese (Stati Uniti), è necessario globalizzare l'app. Per istruzioni sulla globalizzazione, vedere [questo problema su GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420).
 
 * Eseguire il test dei collegamenti **Modifica**, **Dettagli** e **Elimina**.
 
