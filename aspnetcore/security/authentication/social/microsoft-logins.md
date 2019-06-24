@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 5/11/2019
 uid: security/authentication/microsoft-logins
-ms.openlocfilehash: 1c78cc957b6ff77c91c8ca4aef59a1cacd85a8ca
-ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
+ms.openlocfilehash: 16ec2d5f2bccc59958b884869ef42af9cfa13df0
+ms.sourcegitcommit: 06a455d63ff7d6b571ca832e8117f4ac9d646baf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65517093"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67316595"
 ---
 # <a name="microsoft-account-external-login-setup-with-aspnet-core"></a>Configurazione accesso esterno dell'Account Microsoft con ASP.NET Core
 
@@ -59,7 +59,7 @@ Collegare le impostazioni sensibili, ad esempio Microsoft `ClientId` e `ClientSe
 
 ## <a name="configure-microsoft-account-authentication"></a>Configurare l'autenticazione Account Microsoft
 
-Aggiungere il servizio Account Microsoft nel `ConfigureServices` nel metodo *Startup.cs* file:
+Aggiungere il servizio Account Microsoft a `Startup.ConfigureServices`:
 
 [!code-csharp[](~/security/authentication/social/social-code/StartupMS.cs?name=snippet&highlight=10-14)]
 
@@ -84,7 +84,7 @@ A questo punto si è connessi con le credenziali di Microsoft:
 * Se il provider dell'Account di Microsoft si viene reindirizzati a una pagina di errore di accesso, si noti l'errore title e description parametri stringa di query che seguono direttamente il `#` (hashtag) nell'Uri.
 
   Anche se sembra che il messaggio di errore per indicare un problema con l'autenticazione di Microsoft, la causa più comune è l'Uri non corrisponda a uno di applicazione la **Redirect URIs** specificato per il **Web** piattaforma .
-* Se Identity non è configurato tramite la chiamata `services.AddIdentity` nel `ConfigureServices`, il tentativo di eseguire l'autenticazione comporterà *ArgumentException: È necessario specificare l'opzione 'SignInScheme'*. Il modello di progetto usato in questo esempio garantisce che questa operazione viene eseguita.
+* Se Identity non è configurato tramite la chiamata `services.AddIdentity` nel `ConfigureServices`, il tentativo di eseguire l'autenticazione comporterà *ArgumentException: È necessario specificare l'opzione 'SignInScheme'* . Il modello di progetto usato in questo esempio garantisce che questa operazione viene eseguita.
 * Se il database del sito non è stato creato applicando la migrazione iniziale, si otterrà *un'operazione di database non riuscita durante l'elaborazione della richiesta* errore. Toccare **applicare le migrazioni** per creare il database e di aggiornamento per continuare oltre l'errore.
 
 ## <a name="next-steps"></a>Passaggi successivi
