@@ -46,7 +46,7 @@ Un vantaggio significativo è che non c'era **nessuna** modifica del codice nece
 
 I dati del modulo non vengono registrati nel server fino a quando non sono presenti errori di convalida nel lato client. Verificare che i dati del modulo non siano stati registrati da uno o più degli approcci seguenti:
 
-* Inserire un breakpoint nel metodo `OnPostAsync`. Inviare il modulo (selezionare **Crea** o **Salva**). Il punto di interruzione non viene mai raggiunto.
+* Inserire un punto di interruzione nel metodo `OnPostAsync`. Inviare il modulo (selezionare **Crea** o **Salva**). Il punto di interruzione non viene mai raggiunto.
 * Usare lo [Strumento Fiddler](http://www.telerik.com/fiddler).
 * Usare gli strumenti di sviluppo del browser per monitorare il traffico di rete.
 
@@ -57,7 +57,7 @@ Quando JavaScript è disabilitato nel browser, l'invio del modulo con errori ver
 Facoltativo, convalida sul lato server del test:
 
 * Disabilitare JavaScript nel browser. Per eseguire questa operazione, usare gli strumenti di sviluppo del browser. Se non è possibile disabilitare JavaScript nel browser, provare un altro browser.
-* Impostare un breakpoint nel metodo `OnPostAsync` della pagina Create o Edit.
+* Impostare un punto di interruzione nel metodo `OnPostAsync` della pagina Crea o Modifica.
 * Invio di un form con errori di convalida.
 * Verificare che lo stato del modello non sia valido:
 
