@@ -71,10 +71,10 @@ Una richiesta alla pagina con il modello di route "{id: int}" che **non** includ
 Per testare il comportamento di `@page "{id:int?}"`:
 
 * Impostare la direttiva page in *Pages/Movies/Details.cshtml* su `@page "{id:int?}"`.
-* Impostare un brakpoint in `public async Task<IActionResult> OnGetAsync(int? id)` (in *Pages/Movies/Details.cshtml.cs*).
+* Impostare un punto di interruzione in `public async Task<IActionResult> OnGetAsync(int? id)` (in *Pages/Movies/Details.cshtml.cs*).
 * Passare a `https://localhost:5001/Movies/Details/`.
 
-Con l'istruzione `@page "{id:int}"`, il breakpoint non viene mai raggiunto. Il motore di routing restituisce HTTP 404. Se si utilizza `@page "{id:int?}"`, il metodo `OnGetAsync` restituisce `NotFound` (HTTP 404).
+Con l'istruzione `@page "{id:int}"`, il punto di interruzione non viene mai raggiunto. Il motore di routing restituisce HTTP 404. Se si utilizza `@page "{id:int?}"`, il metodo `OnGetAsync` restituisce `NotFound` (HTTP 404).
 
 Anche se non è consigliabile, è possibile scrivere il metodo `OnGetAsync` (in *Pages/Movies/Delete.cshtml.cs*) come:
 
@@ -96,7 +96,7 @@ Il codice precedente rileva le eccezioni di concorrenza quando un client elimina
 
 Per testare il blocco `catch`:
 
-* Impostare un breakpoint su `catch (DbUpdateConcurrencyException)`
+* Impostare un punto di interruzione su `catch (DbUpdateConcurrencyException)`
 * Selezionare **Edit** (Modifica) per un film, apportare modifiche, ma non immettere **Save** (Salva).
 * In un'altra finestra del browser, selezionare il collegamento **Delete** (Elimina) per lo stesso film e quindi eliminare il film.
 * Nella finestra del browser precedente inviare le modifiche al film.
