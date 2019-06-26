@@ -220,8 +220,6 @@
               uid: tutorials/razor-pages/validation
         - name: Filtri
           uid: razor-pages/filter
-        - name: Librerie di classi Razor
-          uid: razor-pages/ui-class
         - name: Convenzioni di route e app
           uid: razor-pages/razor-pages-conventions
         - name: Caricare file
@@ -344,6 +342,8 @@
       uid: mvc/views/layout
     - name: Sintassi Razor
       uid: mvc/views/razor
+    - name: Librerie di classi Razor
+      uid: razor-pages/ui-class
     - name: Helper tag
       uid: mvc/views/tag-helpers/builtin-th/Index
       items:
