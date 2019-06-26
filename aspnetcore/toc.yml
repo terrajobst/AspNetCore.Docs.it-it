@@ -298,6 +298,8 @@
           uid: blazor/javascript-interop
         - name: Debug
           uid: blazor/debug
+        - name: Chiamare un'API Web
+          uid: blazor/call-web-api
         - name: Ospitare e distribuire
           items:
             - name: Panoramica
