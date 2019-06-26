@@ -22,7 +22,7 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 In questa sezione vengono usate le Migrazioni Code First di [Entity Framework](/ef/core/get-started/aspnetcore/new-db) per:
 
 * Aggiungere un nuovo campo al modello.
-* Eseguire la migrazione del nuovo schema del campo nel database della modifica.
+* Eseguire la migrazione nel database della modifica al nuovo schema del campo.
 
 Quando si usa Code First di Entity Framework per creare automaticamente un database, Code First:
 
@@ -126,7 +126,7 @@ dotnet ef database update
 
 ---
 
-Eseguire l'app e verificare che sia possibile creare/modificare/visualizzare i film con un campo `Rating`. Se il database non è inizializzato, impostare un breakpoint nel metodo `SeedData.Initialize`.
+Eseguire l'app e verificare che sia possibile creare/modificare/visualizzare i film con un campo `Rating`. Se il database non è inizializzato, impostare un punto di interruzione nel metodo `SeedData.Initialize`.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
