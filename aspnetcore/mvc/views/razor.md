@@ -224,7 +224,7 @@ Usare questo approccio per eseguire il rendering di HTML che non è racchiuso tr
 
 Il tag **\<text>** è utile per controllare gli spazi vuoti durante il rendering del contenuto:
 
-* Solo il contenuto tra il tag **\<text>** viene sottoposto a rendering.
+* Solo il contenuto all'interno del tag **\<text>** viene sottoposto a rendering.
 * Non vengono visualizzati spazi vuoti prima o dopo il tag **\<text>** nell'output HTML.
 
 ### <a name="explicit-line-transition-with-"></a>Transizione riga esplicita con @:
@@ -383,7 +383,7 @@ La gestione delle eccezioni è simile a C#:
 
 ### <a name="lock"></a>@lock
 
-Razor è in grado di proteggere le sezioni critiche con le istruzioni di blocco:
+Razor è in grado di proteggere le sezioni critiche con le istruzioni di lock:
 
 ```cshtml
 @lock (SomeLock)
@@ -464,7 +464,7 @@ La direttiva `@model` specifica il tipo del modello passato a una visualizzazion
 @model TypeNameOfModel
 ```
 
-In un'app ASP.NET MVC di base creata con account utente individuali, la visualizzazione *Views/Account/Login.cshtml* contiene la dichiarazione di modello seguente:
+In un'app ASP.NET Core MVC creata con account utente individuali, la visualizzazione *Views/Account/Login.cshtml* contiene la dichiarazione di modello seguente:
 
 ```cshtml
 @model LoginViewModel
@@ -723,9 +723,9 @@ Esistono tre direttive che riguardano gli [helper tag](xref:mvc/views/tag-helper
 
 * page (richiede ASP.NET Core 2.0 e versioni successive)
 * namespace
-* funzioni
-* eredita
-* modello
+* functions
+* inherits
+* model
 * section
 * helper (attualmente non supportata da ASP.NET Core)
 
@@ -733,19 +733,19 @@ Le parole chiave Razor sono precedute dal carattere di escape `@(Razor Keyword)`
 
 ### <a name="c-razor-keywords"></a>Parole chiave Razor C#
 
-* maiuscole e minuscole
+* case
 * do
 * default
 * for
 * foreach
 * if
 * else
-* blocco
+* lock
 * switch
 * try
 * catch
 * finally
-* utilizzo
+* using
 * while
 
 Le parole chiave Razor C# devono essere precedute dal doppio carattere di escape `@(@C# Razor Keyword)` (ad esempio, `@(@case)`). Il primo `@` è il carattere di escape del parser Razor. Il secondo `@` è il carattere di escape del parser C#.
