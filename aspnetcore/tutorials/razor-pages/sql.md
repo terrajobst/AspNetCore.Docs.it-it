@@ -100,7 +100,7 @@ Creare una nuova classe denominata `SeedData` nella cartella *Models* usando il 
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Models/SeedData.cs?name=snippet_1)]
 
-Se sono presenti eventuali film nel database, l'inizializzatore ritorna e non vengono aggiunti film.
+Se sono presenti eventuali film nel database, l'inizializzatore del valore di inizializzazione viene restituito e non vengono aggiunti film.
 
 ```csharp
 if (context.Movie.Any())
@@ -111,11 +111,11 @@ if (context.Movie.Any())
 
 <a name="si"></a>
 
-### <a name="add-the-seed-initializer"></a>Aggiungere l'inizializzatore 
+### <a name="add-the-seed-initializer"></a>Aggiungere l'inizializzatore del valore di inizializzazione
 
 In *Program.cs* modificare il metodo `Main` per eseguire le operazioni seguenti:
 
-* Ottenere un'istanza del contesto di database tramite la dependency injection.
+* Ottenere un'istanza del contesto di database dal contenitore di inserimento delle dipendenze.
 * Chiamare il metodo di inizializzazione, passandolo al contesto.
 * Eliminare il contesto dopo che il metodo di inizializzazione è stato completato.
 
