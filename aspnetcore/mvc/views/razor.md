@@ -373,7 +373,7 @@ In C# viene usata un'istruzione `using` per verificare che un oggetto sia stato 
 }
 ```
 
-Con gli [helper tag](xref:mvc/views/tag-helpers/intro) è possibile eseguire azioni a livello di contesto.
+Con gli [helper tag](xref:mvc/views/tag-helpers/intro) è possibile eseguire azioni a livello di ambito.
 
 ### <a name="try-catch-finally"></a>@try, catch, finally
 
