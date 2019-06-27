@@ -16,7 +16,7 @@ ms.locfileid: "64884076"
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Le operazioni iniziali con l'app creata con scaffolding per i film sono state efficaci, ma la presentazione non è ottimale. **ReleaseDate** deve essere **Release Date** (due parole).
+Le operazioni iniziali con l'app per i film creata con scaffolding sono state efficaci, ma la presentazione non è ottimale. **ReleaseDate** deve essere **Release Date** (due parole).
 
 ![App per i film aperta in Chrome](sql/_static/m55.png)
 
@@ -84,7 +84,7 @@ Per testare il codice precedente:
 
 * Selezionare un collegamento **Delete**.
 * Rimuovere l'ID dall'URL. Ad esempio, modificare `https://localhost:5001/Movies/Delete/8` in `https://localhost:5001/Movies/Delete`.
-* Eseguire un'istruzione alla volta del codice nel debugger.
+* Eseguire il codice un'istruzione alla volta nel debugger.
 
 ### <a name="review-concurrency-exception-handling"></a>Verificare la gestione delle eccezioni di concorrenza
 
