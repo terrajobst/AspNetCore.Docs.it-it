@@ -32,7 +32,7 @@ Il supporto della convalida fornito dalle pagine di Razor e da Entity Framework 
 
 ### <a name="validation-error-ui-in-razor-pages"></a>Errore di convalida dell'interfaccia utente nelle pagine Razor
 
-Eseguire l'app e passare a pagine/film.
+Eseguire l'app e passare a Pages/Movies.
 
 Selezionare il collegamento **Crea nuovo**. Completare il modulo con alcuni valori non validi. Quando la convalida del lato client jQuery rileva l'errore, viene visualizzato un messaggio di errore.
 
@@ -42,7 +42,7 @@ Selezionare il collegamento **Crea nuovo**. Completare il modulo con alcuni valo
 
 Si noti come il modulo ha eseguito automaticamente il rendering di un messaggio di errore di convalida in ogni campo che contiene un valore non valido. Gli errori vengono applicati sia sul lato client (uso di JavaScript e jQuery) sia sul lato server (quando un utente ha JavaScript disabilitato).
 
-Un vantaggio significativo è che non c'era **nessuna** modifica del codice necessaria nelle pagine Crea o Modifica. Una volta che le DataAnnotations sono state applicate al modello, è stata abilitata la convalida dell'interfaccia utente. Le pagine Razor create in questa esercitazione hanno selezionato automaticamente le regole di convalida (usando gli attributi di convalida delle proprietà della classe `Movie` del modello). Convalida del test tramite la pagina Modifica, viene applicata la stessa convalida.
+Un vantaggio significativo è che non c'era **nessuna** modifica del codice necessaria nelle pagine Create o Edit. Una volta che le DataAnnotations sono state applicate al modello, è stata abilitata la convalida dell'interfaccia utente. Le pagine Razor create in questa esercitazione hanno selezionato automaticamente le regole di convalida (usando gli attributi di convalida delle proprietà della classe `Movie` del modello). Testa la convalida tramite la pagina Edit: viene applicata la stessa convalida.
 
 I dati del modulo non vengono registrati nel server fino a quando non sono presenti errori di convalida nel lato client. Verificare che i dati del modulo non siano stati registrati da uno o più degli approcci seguenti:
 
@@ -68,13 +68,13 @@ Facoltativo, convalida sul lato server del test:
    }
   ```
 
-Il codice seguente mostra una porzione della pagina *Create.cshtml* di cui è stato eseguito lo scaffolding in precedenza nell'esercitazione. Viene usato dalle pagine Creazione e Modifica per visualizzare il modulo iniziale e per visualizzare nuovamente il modulo in caso di errore.
+Il codice seguente mostra una porzione della pagina *Create.cshtml* di cui è stato eseguito lo scaffolding in precedenza nell'esercitazione. Viene usato dalle pagine Create e Edit per visualizzare il modulo iniziale e per visualizzare nuovamente il modulo in caso di errore.
 
 [!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Create.cshtml?range=14-20)]
 
 L'[helper tag di input](xref:mvc/views/working-with-forms) usa gli attributi [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) e produce gli attributi HTML necessari per la convalida jQuery sul lato client. L'[helper tag di convalida](xref:mvc/views/working-with-forms#the-validation-tag-helpers) visualizza gli errori di convalida. Per altre informazioni, vedere [Convalida](xref:mvc/models/validation).
 
-Le pagine Crea e Modifica non dispongono di nessuna regola di convalida. Le regole di convalida e le stringhe di errore vengono specificate solo nella classe `Movie`. Queste regole di convalida vengono applicate automaticamente alle pagine Razor che modificano il modello `Movie`.
+Le pagine Create e Edit non dispongono di nessuna regola di convalida. Le regole di convalida e le stringhe di errore vengono specificate solo nella classe `Movie`. Queste regole di convalida vengono applicate automaticamente alle pagine Razor che modificano il modello `Movie`.
 
 Quando la logica di convalida deve cambiare, avviene solo nel modello. La convalida viene applicata in modo coerente in tutta l'applicazione (la logica di convalida è definita in un'unica posizione). La convalida in un'unica posizione consente di mantenere il codice pulito e rende più semplice la gestione e l'aggiornamento.
 

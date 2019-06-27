@@ -224,7 +224,7 @@ Usare questo approccio per eseguire il rendering di HTML che non è racchiuso tr
 
 Il tag **\<text>** è utile per controllare gli spazi vuoti durante il rendering del contenuto:
 
-* Solo il contenuto all'interno del tag **\<text>** viene sottoposto a rendering.
+* Solo il contenuto tra il tag **\<text>** viene sottoposto a rendering.
 * Non vengono visualizzati spazi vuoti prima o dopo il tag **\<text>** nell'output HTML.
 
 ### <a name="explicit-line-transition-with-"></a>Transizione riga esplicita con @:

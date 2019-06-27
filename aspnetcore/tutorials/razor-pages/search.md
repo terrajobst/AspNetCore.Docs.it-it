@@ -94,7 +94,7 @@ Il codice seguente è una query LINQ che recupera tutti i generi dal database.
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Index.cshtml.cs?name=snippet_LINQ)]
 
-L'elenco `SelectList` di generi viene creato presentando generi distinti.
+L'elenco `SelectList` di generi viene creato selezionando generi distinti.
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Index.cshtml.cs?name=snippet_SelectList)]
 
