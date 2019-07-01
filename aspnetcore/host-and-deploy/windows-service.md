@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/03/2019
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 4cfca4b38543ff073bb98dc09b483d96096928ae
-ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
+ms.openlocfilehash: 3a254af4d56cb4abc7004a67b0d0b42de2b878b1
+ms.sourcegitcommit: 47cc13ab90913af9a2887cef0896bb4e9aba4dd5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66692564"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67399110"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Ospitare ASP.NET Core in un servizio Windows
 
@@ -42,11 +42,11 @@ Il modello di servizio di ruolo di lavoro di ASP.NET Core rappresenta un punto d
 1. Selezionare **Applicazione Web ASP.NET Core**. Scegliere **Avanti**.
 1. Specificare il nome di un progetto nel campo **Nome progetto** oppure accettare il nome predefinito. Scegliere **Crea**.
 1. Nella finestra di dialogo **Crea una nuova applicazione Web ASP.NET Core** verificare che siano selezionati **.NET Core** e **ASP.NET Core 3.0**.
-1. Selezionare il modello **Servizio di ruolo di lavoro**. Scegliere **Crea**.
+1. Selezionare il modello del **Servizio di ruolo di lavoro**. Scegliere **Crea**.
 
 # <a name="visual-studio-code--net-core-clitabvisual-studio-codenetcore-cli"></a>[Visual Studio Code/Interfaccia della riga di comando di .NET Core](#tab/visual-studio-code+netcore-cli)
 
-Usare il modello di servizio di ruolo di lavoro (`worker`) con il comando[dotnet new](/dotnet/core/tools/dotnet-new) da una shell dei comandi. Nell'esempio seguente viene creata un'app di servizio di ruolo di lavoro denominata `ContosoWorkerService`. Una cartella per l'app `ContosoWorkerService` viene creata automaticamente quando viene eseguito il comando.
+Usare il servizio di ruolo di lavoro (`worker`) con il comando[dotnet new](/dotnet/core/tools/dotnet-new) da una shell dei comandi. Nell'esempio seguente viene creata un'app del servizio di ruolo di lavoro denominata `ContosoWorkerService`. Una cartella per l'app `ContosoWorkerService` viene creata automaticamente quando viene eseguito il comando.
 
 ```console
 dotnet new worker -o ContosoWorkerService
@@ -211,7 +211,7 @@ Un approccio alternativo per la gestione degli utenti quando si usa Active Direc
 
 Per stabilire i diritti *Accesso come servizio* per un account utente di servizio:
 
-1. Aprire l'editor Criteri di sicurezza locali eseguendo *secpool.msc*.
+1. Aprire l'editor Criteri di sicurezza locali eseguendo *secpol.msc*.
 1. Espandere il nodo **Criteri locali** e selezionare **Assegnazione diritti utente**.
 1. Aprire il criterio **Accesso come servizio**.
 1. Selezionare **Aggiungi utente o gruppo**.
@@ -310,7 +310,7 @@ Per gestire gli eventi <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHos
 
 ## <a name="proxy-server-and-load-balancer-scenarios"></a>Scenari con server proxy e servizi di bilanciamento del carico
 
-I servizi che interagiscono con le richieste da Internet o da una rete aziendale e si trovano dietro un proxy o un servizio di bilanciamento del carico potrebbero richiedere una configurazione aggiuntiva. Per ulteriori informazioni, vedere <xref:host-and-deploy/proxy-load-balancer>.
+I servizi che interagiscono con le richieste da Internet o da una rete aziendale e si trovano dietro un proxy o un servizio di bilanciamento del carico potrebbero richiedere una configurazione aggiuntiva. Per altre informazioni, vedere <xref:host-and-deploy/proxy-load-balancer>.
 
 ## <a name="configure-https"></a>Configurare HTTPS
 

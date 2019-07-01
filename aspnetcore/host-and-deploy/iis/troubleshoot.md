@@ -5,14 +5,14 @@ description: Informazioni su come diagnosticare i problemi delle distribuzioni I
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/28/2019
+ms.date: 06/19/2019
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: cb42a262c89c27fa350e936184f8ddb3a02788f0
-ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
+ms.openlocfilehash: 4df370dd9b1a5a651bcf767b8b9ace4220bdc345
+ms.sourcegitcommit: 9f11685382eb1f4dd0fb694dea797adacedf9e20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67034747"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67313648"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>Risolvere i problemi di ASP.NET Core in IIS
 
@@ -20,189 +20,14 @@ Di [Luke Latham](https://github.com/guardrex)
 
 In questo articolo vengono fornite istruzioni su come diagnosticare un problema di avvio di un'app ASP.NET Core durante l'hosting con [Internet Information Services (IIS)](/iis). Le informazioni in questo articolo si applicano all'hosting in IIS su Windows Server e Windows Desktop.
 
-::: moniker range=">= aspnetcore-2.2"
-
-In Visual Studio, per impostazione predefinita un progetto ASP.NET Core usa l'hosting in [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) durante il debug. È possibile risolvere un codice *502.5 - Errore del processo* o *500.30 - Errore di avvio* che si verifica nel corso del debug in locale usando le indicazioni riportate in questo argomento.
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.2"
-
-In Visual Studio, per impostazione predefinita un progetto ASP.NET Core usa l'hosting in [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) durante il debug. È possibile risolvere un codice *502.5 Errore del processo* che si verifica nel corso del debug in locale usando le indicazioni riportate in questo argomento.
-
-::: moniker-end
-
 Altri argomenti sulla risoluzione dei problemi:
 
-<xref:host-and-deploy/azure-apps/troubleshoot>Anche se Servizio app usa il [modulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module) e IIS per ospitare le app, vedere l'argomento dedicato per istruzioni specifiche su Servizio app.
-
-<xref:fundamentals/error-handling>Informazioni su come gestire gli errori nelle app ASP.NET Core durante lo sviluppo in un sistema locale.
-
-[Informazioni su come eseguire il debug con Visual Studio](/visualstudio/debugger/getting-started-with-the-debugger) Questo argomento presenta le funzionalità del debugger di Visual Studio.
-
-[Debug con Visual Studio Code](https://code.visualstudio.com/docs/editor/debugging) Informazioni sul supporto del debug incorporato in Visual Studio Code.
-
-## <a name="app-startup-errors"></a>Errori di avvio delle app
-
-### <a name="5025-process-failure"></a>502.5 Errore del processo
-
-Il processo di lavoro ha esito negativo. L'app non viene avviata.
-
-Il modulo ASP.NET Core prova ad avviare il processo dotnet back-end, ma l'avvio non riesce. In genere è possibile determinare la causa di un errore di avvio del processo dalle voci nel [log eventi dell'applicazione](#application-event-log) e nel [log stdout del modulo ASP.NET Core](#aspnet-core-module-stdout-log).
-
-Una condizione di errore comune è dovuta alla configurazione non corretta dell'app perché come destinazione viene specificata una versione del framework condiviso ASP.NET Core, che non è presente. Controllare le versioni del framework condiviso ASP.NET Core installate nel computer di destinazione. Il *framework condiviso* è il set di assembly (file *DLL*) che vengono installati nel computer e cui fa riferimento un metapacchetto, ad esempio `Microsoft.AspNetCore.App`. Il riferimento del metapacchetto può specificare una versione minima richiesta. Per altre informazioni, vedere [The shared framework](https://natemcmaster.com/blog/2018/08/29/netcore-primitives-2/) (Il framework condiviso).
-
-La pagina di errore *502.5 Errore del processo* viene restituita quando il processo di lavoro ha esito negativo a causa di un errore di configurazione dell'hosting o dell'app:
-
-![Finestra del browser con la pagina 502.5 Errore del processo](troubleshoot/_static/process-failure-page.png)
-
-::: moniker range="= aspnetcore-2.2"
-
-### <a name="50030-in-process-startup-failure"></a>500.30 Errore di avvio in-process
-
-Il processo di lavoro ha esito negativo. L'app non viene avviata.
-
-Il modulo ASP.NET Core prova ad avviare .NET Core CLR In-Process, ma l'avvio non riesce. In genere è possibile determinare la causa di un errore di avvio del processo dalle voci nel [log eventi dell'applicazione](#application-event-log) e nel [log stdout del modulo ASP.NET Core](#aspnet-core-module-stdout-log).
-
-Una condizione di errore comune è dovuta alla configurazione non corretta dell'app perché come destinazione viene specificata una versione del framework condiviso ASP.NET Core, che non è presente. Controllare le versioni del framework condiviso ASP.NET Core installate nel computer di destinazione.
-
-### <a name="5000-in-process-handler-load-failure"></a>500.0 Errore di caricamento del gestore in-process
-
-Il processo di lavoro ha esito negativo. L'app non viene avviata.
-
-Il modulo ASP.NET Core non riesce a trovare .NET Core CLR e trova il gestore richieste In-Process (*aspnetcorev2_inprocess.dll*). Controllare che:
-
-* L'app specifichi come destinazione il pacchetto NuGet [Microsoft.AspNetCore.Server.IIS](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IIS) o il [metapacchetto Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
-* Le versione del framework condiviso ASP.NET Core specificata come destinazione dall'app sia installata nel computer di destinazione.
-
-### <a name="5000-out-of-process-handler-load-failure"></a>500.0 Errore di caricamento del gestore out-of-process
-
-Il processo di lavoro ha esito negativo. L'app non viene avviata.
-
-Il modulo ASP.NET Core non riesce a trovare il gestore richieste di hosting out-of-process. Verificare che *aspnetcorev2_outofprocess.dll* sia presente in una sottocartella accanto ad *aspnetcorev2.dll*.
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-3.0"
-
-### <a name="50031-ancm-failed-to-find-native-dependencies"></a>500.31 ANCM Failed to Find Native Dependencies (500.31 Il modulo ASP.NET Core non è riuscito a trovare le dipendenze native)
-
-Il processo di lavoro ha esito negativo. L'app non viene avviata.
-
-Il modulo ASP.NET Core prova ad avviare il runtime di .NET Core In-Process, ma l'avvio non riesce. La causa più comune di questo errore di avvio è la mancata installazione del runtime di `Microsoft.NETCore.App` o di `Microsoft.AspNetCore.App`. Se l'app viene distribuita per ASP.NET Core 3.0 e tale versione non esiste nel computer, si verifica questo errore. Ecco un esempio di messaggio di errore:
-
-```
-The specified framework 'Microsoft.NETCore.App', version '3.0.0' was not found.
-  - The following frameworks were found:
-      2.2.1 at [C:\Program Files\dotnet\x64\shared\Microsoft.NETCore.App]
-      3.0.0-preview5-27626-15 at [C:\Program Files\dotnet\x64\shared\Microsoft.NETCore.App]
-      3.0.0-preview6-27713-13 at [C:\Program Files\dotnet\x64\shared\Microsoft.NETCore.App]
-      3.0.0-preview6-27714-15 at [C:\Program Files\dotnet\x64\shared\Microsoft.NETCore.App]
-      3.0.0-preview6-27723-08 at [C:\Program Files\dotnet\x64\shared\Microsoft.NETCore.App]
-```
-
-Il messaggio di errore elenca tutte le versioni di .NET Core installate e la versione richiesta dall'app. Per correggere l'errore, eseguire una delle operazioni seguenti:
-
-* Installare la versione appropriata di .NET Core nel computer.
-* Modificare l'app in modo che usi una versione di .NET Core presente nel computer.
-* Pubblicare l'app come [distribuzione autonoma](/dotnet/core/deploying/#self-contained-deployments-scd).
-
-Durante l'esecuzione in fase di sviluppo (con la variabile di ambiente `ASPNETCORE_ENVIRONMENT` impostata su `Development`), l'errore specifico viene scritto nella risposta HTTP. La causa di un errore di avvio del processo è disponibile anche nel [log eventi dell'applicazione](#application-event-log).
-
-### <a name="50032-ancm-failed-to-load-dll"></a>500.32 ANCM Failed to Load dll (500.32 Il modulo ASP.NET Core non è riuscito a caricare la DLL)
-
-Il processo di lavoro ha esito negativo. L'app non viene avviata.
-
-La causa più comune di questo errore è la pubblicazione dell'app per processori con architettura non compatibile. Se il processo di lavoro è in esecuzione come app a 32 bit e l'app è stata pubblicata per un'architettura a 64 bit, si verifica questo errore.
-
-Per correggere l'errore, eseguire una delle operazioni seguenti:
-
-* Ripubblicare l'app per processori con la stessa architettura del processo di lavoro.
-* Pubblicare l'app come [distribuzione dipendente dal framework](/dotnet/core/deploying/#framework-dependent-executables-fde).
-
-### <a name="50033-ancm-request-handler-load-failure"></a>500.33 ANCM Request Handler Load Failure (500.33 Errore di caricamento del gestore della richiesta del modulo ASP.Net Core)
-
-Il processo di lavoro ha esito negativo. L'app non viene avviata.
-
-L'app non fa riferimento al framework `Microsoft.AspNetCore.App`. Solo le app destinate al framework `Microsoft.AspNetCore.App` possono essere ospitate dal modulo ASP.NET Core.
-
-Per correggere questo errore, verificare che l'app sia destinata al framework `Microsoft.AspNetCore.App`. Controllare il framework di destinazione dell'app nel file `.runtimeconfig.json`.
-
-### <a name="50034-ancm-mixed-hosting-models-not-supported"></a>500.34 ANCM Mixed Hosting Models Not Supported (500.34 Modelli di hosting misto non supportati nel modulo ASP.NET Core)
-
-Il processo di lavoro non è in grado di eseguire un'app In-Process e un'app Out-of-process nello stesso processo.
-
-Per correggere questo errore, eseguire le app in pool di applicazioni IIS separati.
-
-### <a name="50035-ancm-multiple-in-process-applications-in-same-process"></a>500.35 ANCM Multiple In-Process Applications in same Process (500.35 Modulo ASP.NET Core: più applicazioni In-Process nello stesso processo)
-
-Il processo di lavoro non è in grado di eseguire un'app In-Process e un'app Out-of-process nello stesso processo.
-
-Per correggere questo errore, eseguire le app in pool di applicazioni IIS separati.
-
-### <a name="50036-ancm-out-of-process-handler-load-failure"></a>500.36 ANCM Out-Of-Process Handler Load Failure (500.36 Modulo ASP.NET Core: Errore di caricamento del gestore Out-of-process)
-
-Il gestore delle richieste Out-of-process, *aspnetcorev2_outofprocess.dll*, non è accanto al file *aspnetcorev2.dll*. Questo indica un'installazione danneggiata del modulo ASP.NET Core.
-
-Per correggere questo errore, riparare l'installazione del [bundle di hosting di .NET Core](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle) (per IIS) o di Visual Studio (per IIS Express).
-
-### <a name="50037-ancm-failed-to-start-within-startup-time-limit"></a>500.37 ANCM Failed to Start Within Startup Time Limit (500.37 Avvio del modulo ASP.NET Core non riuscito entro il limite di tempo stabilito)
-
-Il modulo ASP.NET Core non è stato avviato entro il limite di tempo specificato. Per impostazione predefinita, il timeout è di 120 secondi.
-
-Questo errore può verificarsi quando si avvia un numero elevato di app nello stesso computer. Controllare i picchi di utilizzo della CPU e della memoria nel server durante l'avvio. Può essere necessario scaglionare il processo di avvio di più app.
-
-### <a name="50030-in-process-startup-failure"></a>500.30 Errore di avvio in-process
-
-Il processo di lavoro ha esito negativo. L'app non viene avviata.
-
-Il modulo ASP.NET Core prova ad avviare il runtime di .NET Core In-Process, ma l'avvio non riesce. La causa di un errore di avvio di un processo viene in genere determinata osservando le voci nel [log eventi dell'applicazione](#application-event-log) e nel [log stdout del modulo ASP.NET Core](#aspnet-core-module-stdout-log).
-
-### <a name="5000-in-process-handler-load-failure"></a>500.0 Errore di caricamento del gestore in-process
-
-Il processo di lavoro ha esito negativo. L'app non viene avviata.
-
-Si è verificato un errore sconosciuto durante il caricamento dei componenti del modulo ASP.NET Core. Eseguire una delle azioni seguenti:
-
-* Contattare il [supporto tecnico Microsoft](https://support.microsoft.com/oas/default.aspx?prid=15832). Selezionare **Strumenti di sviluppo** e quindi **ASP.NET Core**.
-* Porre una domanda in Stack Overflow.
-* Segnalare il problema nel [repository GitHub](https://github.com/aspnet/AspNetCore) di ASP.NET Core.
-
-::: moniker-end
-
-### <a name="500-internal-server-error"></a>500 Errore interno del server
-
-L'app viene avviata, ma un errore impedisce al server di soddisfare la richiesta.
-
-Questo errore si verifica all'interno del codice dell'app durante l'avvio o durante la creazione di una risposta. La risposta potrebbe non avere alcun contenuto o essere visualizzata nel browser come un codice *500 Errore interno del server*. Il log eventi dell'applicazione in genere indica che l'app è stata avviata normalmente. Dal punto di vista del server, questo è corretto. L'app è stata effettivamente avviata, ma non può generare una risposta valida. Per risolvere il problema, [eseguire l'app dal prompt dei comandi](#run-the-app-at-a-command-prompt) nel server o [abilitare il log stdout del modulo ASP.NET Core](#aspnet-core-module-stdout-log).
-
-### <a name="failed-to-start-application-errorcode-0x800700c1"></a>Non è stato possibile avviare l'aggiornamento dell'applicazione. Errore: 0x800700c1
-
-```
-EventID: 1010
-Source: IIS AspNetCore Module V2
-Failed to start application '/LM/W3SVC/6/ROOT/', ErrorCode '0x800700c1'.
-```
-
-L'app non è stata avviata perché non è stato possibile caricarne l'assembly ( *.dll*).
-
-Questo errore si verifica quando è presente una mancata corrispondenza del numero di bit tra l'app pubblicata e il processo w3wp/iisexpress.
-
-Verificare che l'impostazione del pool di app a 32 bit sia corretta:
-
-1. Selezionare il pool di app in **Pool di applicazioni** di Gestione IIS.
-1. Selezionare **Impostazioni avanzate** in **Modifica pool di applicazioni** nel pannello **Azioni**.
-1. Impostare **Attiva applicazioni a 32 bit**:
-   * Se si sta sviluppando un'app a 32 bit (x86), impostare il valore su `True`.
-   * Se si sta sviluppando un'app a 64 bit (x64), impostare il valore su `False`.
-
-### <a name="connection-reset"></a>Reimpostazione della connessione
-
-Se si verifica un errore dopo l'invio delle intestazioni, è troppo tardi perché il server possa inviare un codice **500 Errore interno del server** quando si verifica un errore. Questo spesso accade quando si verifica un errore durante la serializzazione di oggetti complessi per una risposta. Questo tipo di errore viene visualizzato come un errore di *reimpostazione della connessione* nel client. La [registrazione delle applicazioni](xref:fundamentals/logging/index) può consentire di risolvere questi tipi di errori.
-
-## <a name="default-startup-limits"></a>Limiti di avvio predefiniti
-
-Il modulo ASP.NET Core è configurato con un valore predefinito *startupTimeLimit* di 120 secondi. Quando si mantiene il valore predefinito, l'avvio di un'app potrebbe richiedere fino a due minuti prima che il modulo registri un errore del processo. Per informazioni sulla configurazione del modulo, vedere [Attributi dell'elemento aspNetCore](xref:host-and-deploy/aspnet-core-module#attributes-of-the-aspnetcore-element).
+* Servizio app di Azure usa anche il [modulo di ASP.NET Core](xref:host-and-deploy/aspnet-core-module) e IIS per ospitare le app. Per consigli per la risoluzione dei problemi relativi in particolare a Servizio app di Azure, vedere <xref:host-and-deploy/azure-apps/troubleshoot>.
+* <xref:fundamentals/error-handling> offre informazioni su come gestire gli errori nelle app ASP.NET Core durante lo sviluppo in un sistema locale.
+* [Informazioni su come eseguire il debug con Visual Studio](/visualstudio/debugger/getting-started-with-the-debugger) presenta le funzionalità del debugger di Visual Studio.
+* [Debug con Visual Studio Code](https://code.visualstudio.com/docs/editor/debugging) descrive il supporto del debug incorporato in Visual Studio Code.
+
+[!INCLUDE[](~/includes/azure-iis-startup-errors.md)]
 
 ## <a name="troubleshoot-app-startup-errors"></a>Risolvere gli errori di avvio delle app
 

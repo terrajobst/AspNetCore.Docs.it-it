@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 05/02/2019
 uid: fundamentals/choose-between-aspnet-and-aspnetcore
-ms.openlocfilehash: a51d9946c9e65bd1665c610153f724c6087c9f7f
-ms.sourcegitcommit: b8ed594ab9f47fa32510574f3e1b210cff000967
+ms.openlocfilehash: 97d65df8df1e27694d818098958288874e8ab92e
+ms.sourcegitcommit: 47cc13ab90913af9a2887cef0896bb4e9aba4dd5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66251372"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67399172"
 ---
 # <a name="choose-between-aspnet-4x-and-aspnet-core"></a>Scegliere tra ASP.NET 4.x e ASP.NET Core
 
@@ -36,7 +36,7 @@ La tabella seguente mette a confronto ASP.NET Core e ASP.NET 4.x.
 |Compilare per Windows, Mac OS o Linux|Compilare per Windows|
 |[Razor Pages](xref:razor-pages/index) è l'approccio consigliato per la creazione di un'interfaccia utente Web da ASP.NET Core 2.x. Vedere anche [MVC](xref:mvc/overview), [API Web](xref:tutorials/first-web-api) e [SignalR](xref:signalr/introduction).|Use [Web Forms](/aspnet/web-forms), [SignalR](/aspnet/signalr), [MVC](/aspnet/mvc), [Web API](/aspnet/web-api/), [WebHooks](/aspnet/webhooks/) o [Pagine Web](/aspnet/web-pages)|
 |Più versioni per computer|Una versione per computer|
-|Sviluppare con Visual Studio, [Visual Studio per Mac](https://visualstudio.microsoft.com/vs/mac/), o [Visual Studio Code](https://code.visualstudio.com/) tramite C# o F#|Sviluppare con Visual Studio tramite C#, VB o F#|
+|Sviluppare con [Visual Studio](https://visualstudio.microsoft.com/vs/), [Visual Studio per Mac](https://visualstudio.microsoft.com/vs/mac/) o [Visual Studio Code](https://code.visualstudio.com/) tramite C# o F#|Sviluppare con [Visual Studio](https://visualstudio.microsoft.com/vs/) tramite C#, VB o F#|
 |Prestazioni più elevate rispetto ad ASP.NET 4.x|Buone prestazioni|
 |[Scegliere .NET Framework o Runtime di .NET Core](/dotnet/standard/choosing-core-framework-server)|Usare runtime .NET Framework|
 

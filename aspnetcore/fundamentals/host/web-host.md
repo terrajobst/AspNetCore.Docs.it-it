@@ -4,14 +4,14 @@ author: guardrex
 description: Informazioni sull'host Web in ASP.NET Core, responsabile della gestione dell'avvio e della durata delle app.
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/11/2019
+ms.date: 06/14/2019
 uid: fundamentals/host/web-host
-ms.openlocfilehash: 48f3b664d901bdfb27cdf9e798fa60c0587d1def
-ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
+ms.openlocfilehash: c5d5b723b31a5c211a47e378e50be858fda0b2bd
+ms.sourcegitcommit: 9f11685382eb1f4dd0fb694dea797adacedf9e20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610285"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67313789"
 ---
 # <a name="aspnet-core-web-host"></a>Host Web ASP.NET Core
 
@@ -19,27 +19,21 @@ Di [Luke Latham](https://github.com/guardrex)
 
 Le app ASP.NET Core configurano e avviano un *host*. L'host è responsabile della gestione dell'avvio e della durata delle app. L'host configura almeno un server e una pipeline di elaborazione delle richieste. L'host può anche configurare la registrazione, l'inserimento delle dipendenze e la configurazione.
 
-::: moniker range="<= aspnetcore-1.1"
+::: moniker range=">= aspnetcore-3.0"
 
-Per la versione 1.1 di questo argomento, scaricare [ASP.NET Core Web Host (version 1.1, PDF)](https://webpifeed.blob.core.windows.net/webpifeed/Partners/Web-Host_1.1.pdf) (Host Web ASP.NET Core - Versione 1.1, PDF).
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
-
-Questo articolo descrive l'host Web ASP.NET Core (<xref:Microsoft.AspNetCore.Hosting.IWebHostBuilder>), che serve per l'hosting di app web. Per informazioni sull'host generico .NET ([IHostBuilder](/dotnet/api/microsoft.extensions.hosting.ihostbuilder)), vedere <xref:fundamentals/host/generic-host>.
+Questo articolo descrive l'host Web, che rimane disponibile solo per compatibilità con le versioni precedenti. L'[host generico](xref:fundamentals/host/generic-host) è consigliato per tutti i tipi di app.
 
 ::: moniker-end
 
-::: moniker range="> aspnetcore-2.2"
+::: moniker range="<= aspnetcore-2.2"
 
-Questo articolo descrive l'host Web ASP.NET Core ([IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder)). In ASP.NET Core 3.0, l'host generico sostituisce l'host Web. Per altre informazioni, vedere [L'host](xref:fundamentals/index#host).
+Questo articolo descrive l'host Web destinato all'hosting di app Web. Per altri tipi di app, usare l'[host generico](xref:fundamentals/host/generic-host).
 
 ::: moniker-end
 
 ## <a name="set-up-a-host"></a>Configurare un host
 
-Creare un host usando un'istanza di [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder). Questa operazione viene in genere eseguita nel punto di ingresso dell'app, il metodo `Main`. Il nome del metodo del generatore `CreateWebHostBuilder` è un nome speciale che identifica il metodo del generatore per i componenti esterni, ad esempio [Entity Framework](/ef/core/).
+Creare un host usando un'istanza di [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder). Questa operazione viene in genere eseguita nel punto di ingresso dell'app, il metodo `Main`.
 
 Nei modelli di progetto `Main` si trova in *Program.cs*. Un'app tipica chiama [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) per avviare la configurazione di un host:
 
@@ -56,6 +50,8 @@ public class Program
             .UseStartup<Startup>();
 }
 ```
+
+Il codice che chiama `CreateDefaultBuilder` è incluso in un metodo denominato `CreateWebHostBuilder`, che lo separa dal codice in `Main` che chiama `Run` per l'oggetto generatore. Questa separazione è necessaria se si usano gli [strumenti di Entity Framework Core](/ef/core/miscellaneous/cli/). Gli strumenti si aspettano di trovare un metodo `CreateWebHostBuilder` che possono chiamare in fase di progettazione per configurare l'host senza eseguire l'app. Un'alternativa consiste nell'implementare `IDesignTimeDbContextFactory`. Per altre informazioni, vedere [Creazione DbContext in fase di progettazione](/ef/core/miscellaneous/cli/dbcontext-creation).
 
 `CreateDefaultBuilder` esegue le attività seguenti:
 
@@ -131,9 +127,9 @@ La *radice del contenuto* determina la posizione in cui l'host cerca i file dei 
 Per altre informazioni sulla configurazione dell'app, vedere <xref:fundamentals/configuration/index>.
 
 > [!NOTE]
-> In alternativa all'uso del metodo `CreateDefaultBuilder` statico, un approccio supportato in ASP.NET Core 2.x consiste nel creare un host da [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder). Per altre informazioni, vedere la scheda ASP.NET Core 1.x.
+> In alternativa all'uso del metodo `CreateDefaultBuilder` statico, un approccio supportato in ASP.NET Core 2.x consiste nel creare un host da [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder).
 
-Quando si configura un host, è possibile specificare i metodi [Configure](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configure?view=aspnetcore-1.1) e [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder.configureservices?view=aspnetcore-1.1). Se viene specificata una classe `Startup`, la classe deve definire un metodo `Configure`. Per ulteriori informazioni, vedere <xref:fundamentals/startup>. Se vengono effettuate più chiamate a `ConfigureServices`, le chiamate vengono aggiunte l'una all'altra. Più chiamate a `Configure` o `UseStartup` in `WebHostBuilder` sostituiscono le impostazioni precedenti.
+Quando si configura un host, è possibile specificare i metodi [Configure](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configure) e [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder.configureservices). Se viene specificata una classe `Startup`, la classe deve definire un metodo `Configure`. Per altre informazioni, vedere <xref:fundamentals/startup>. Se vengono effettuate più chiamate a `ConfigureServices`, le chiamate vengono aggiunte l'una all'altra. Più chiamate a `Configure` o `UseStartup` in `WebHostBuilder` sostituiscono le impostazioni precedenti.
 
 ## <a name="host-configuration-values"></a>Valori di configurazione dell'host
 
@@ -221,7 +217,7 @@ Imposta l'ambiente dell'app.
 **Impostare usando**: `UseEnvironment`  
 **Variabile di ambiente**: `ASPNETCORE_ENVIRONMENT`
 
-L'ambiente può essere impostato su qualsiasi valore. I valori definiti dal framework includono `Development`, `Staging` e `Production`. Nei valori non viene fatta distinzione tra maiuscole e minuscole. Per impostazione predefinita, l'*ambiente* viene letto dalla variabile di ambiente `ASPNETCORE_ENVIRONMENT`. Quando si usa [Visual Studio](https://visualstudio.microsoft.com), le variabili di ambiente possono essere impostate nel file *launchSettings.json*. Per ulteriori informazioni, vedere <xref:fundamentals/environments>.
+L'ambiente può essere impostato su qualsiasi valore. I valori definiti dal framework includono `Development`, `Staging` e `Production`. Nei valori non viene fatta distinzione tra maiuscole e minuscole. Per impostazione predefinita, l'*ambiente* viene letto dalla variabile di ambiente `ASPNETCORE_ENVIRONMENT`. Quando si usa [Visual Studio](https://visualstudio.microsoft.com), le variabili di ambiente possono essere impostate nel file *launchSettings.json*. Per altre informazioni, vedere <xref:fundamentals/environments>.
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)
@@ -293,7 +289,7 @@ WebHost.CreateDefaultBuilder(args)
 
 ### <a name="prevent-hosting-startup"></a>Impedire l'avvio dell'hosting
 
-Impedisce il caricamento automatico degli assembly di avvio dell'hosting, inclusi gli assembly di avvio dell'hosting configurati dall'assembly dell'app. Per ulteriori informazioni, vedere <xref:fundamentals/configuration/platform-specific-configuration>.
+Impedisce il caricamento automatico degli assembly di avvio dell'hosting, inclusi gli assembly di avvio dell'hosting configurati dall'assembly dell'app. Per altre informazioni, vedere <xref:fundamentals/configuration/platform-specific-configuration>.
 
 **Chiave**: preventHostingStartup  
 **Tipo**: *bool* (`true` o `1`)  
@@ -323,7 +319,7 @@ WebHost.CreateDefaultBuilder(args)
     .UseUrls("http://*:5000;http://localhost:5001;https://hostname:5002")
 ```
 
-Kestrel ha una propria API di configurazione degli endpoint. Per ulteriori informazioni, vedere <xref:fundamentals/servers/kestrel#endpoint-configuration>.
+Kestrel ha una propria API di configurazione degli endpoint. Per altre informazioni, vedere <xref:fundamentals/servers/kestrel#endpoint-configuration>.
 
 ### <a name="shutdown-timeout"></a>Timeout di arresto
 
@@ -509,7 +505,7 @@ using (var host = WebHost.Start("http://localhost:8080", app => app.Response.Wri
 }
 ```
 
-Produce lo stesso risultato di **Start(app RequestDelegate)**, ad eccezione del fatto che l'app risponde su `http://localhost:8080`.
+Produce lo stesso risultato di **Start(app RequestDelegate)** , ad eccezione del fatto che l'app risponde su `http://localhost:8080`.
 
 **Start(Action&lt;IRouteBuilder&gt; routeBuilder)**
 
@@ -566,7 +562,7 @@ using (var host = WebHost.Start("http://localhost:8080", router => router
 }
 ```
 
-Produce lo stesso risultato di **Start(Action&lt;IRouteBuilder&gt; routeBuilder)**, ad eccezione del fatto che l'app risponde in `http://localhost:8080`.
+Produce lo stesso risultato di **Start(Action&lt;IRouteBuilder&gt; routeBuilder)** , ad eccezione del fatto che l'app risponde in `http://localhost:8080`.
 
 **StartWith(Action&lt;IApplicationBuilder&gt; app)**
 
@@ -608,7 +604,7 @@ using (var host = WebHost.StartWith("http://localhost:8080", app =>
 }
 ```
 
-Produce lo stesso risultato di **StartWith(Action&lt;IApplicationBuilder&gt; app)**, ad eccezione del fatto che l'app risponde su `http://localhost:8080`.
+Produce lo stesso risultato di **StartWith(Action&lt;IApplicationBuilder&gt; app)** , ad eccezione del fatto che l'app risponde su `http://localhost:8080`.
 
 ## <a name="ihostingenvironment-interface"></a>Interfaccia IHostingEnvironment
 
@@ -661,7 +657,7 @@ public class Startup
 ```
 
 > [!NOTE]
-> Oltre al metodo di estensione `IsDevelopment`, `IHostingEnvironment` offre i metodi `IsStaging`, `IsProduction` e `IsEnvironment(string environmentName)`. Per ulteriori informazioni, vedere <xref:fundamentals/environments>.
+> Oltre al metodo di estensione `IsDevelopment`, `IHostingEnvironment` offre i metodi `IsStaging`, `IsProduction` e `IsEnvironment(string environmentName)`. Per altre informazioni, vedere <xref:fundamentals/environments>.
 
 Il servizio `IHostingEnvironment` può anche essere inserito direttamente nel metodo `Configure` per configurare la pipeline di elaborazione:
 
