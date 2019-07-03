@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 04/06/2019
 uid: razor-pages/index
-ms.openlocfilehash: 93796fa1edfa316790794d3775342147ea28ae2e
-ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
+ms.openlocfilehash: 419355d670536fef1a38fbcb8ce1fd880c0e9b0d
+ms.sourcegitcommit: d6e51c60439f03a8992bda70cc982ddb15d3f100
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66692535"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67555735"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introduzione a Razor Pages in ASP.NET Core
 
@@ -23,7 +23,21 @@ Se si sta cercando un'esercitazione in cui si usa l'approccio Model-View-Control
 
 Questo documento offre un'introduzione a Razor Pages. Non è un'esercitazione dettagliata. Se alcune sezioni risultano troppo avanzate, vedere [Introduzione a Razor Pages](xref:tutorials/razor-pages/razor-pages-start). Per una panoramica di ASP.NET Core, vedere [Introduzione a ASP.NET Core](xref:index).
 
-[!INCLUDE[](~/includes/net-core-prereqs-all-2.2.md)]
+## <a name="prerequisites"></a>Prerequisiti
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+[!INCLUDE[](~/includes/net-core-prereqs-vs2019-2.2.md)]
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+[!INCLUDE[](~/includes/net-core-prereqs-vsc-2.2.md)]
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
+
+[!INCLUDE[](~/includes/net-core-prereqs-mac-2.2.md)]
+
+---
 
 <a name="rpvs17"></a>
 
@@ -171,7 +185,7 @@ Il file *Index.cshtml* contiene il markup seguente per creare un collegamento di
 
 [!code-cshtml[](index/sample/RazorPagesContacts/Pages/Index.cshtml?range=21)]
 
-[Anchor Tag Helper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) ha usato l'attributo `asp-route-{value}` per generare un collegamento alla pagina di modifica. Il collegamento contiene i dati della route con l'ID contatto. Ad esempio `http://localhost:5000/Edit/1`. Usare l'attributo `asp-area` per specificare un'area. Per ulteriori informazioni, vedere <xref:mvc/controllers/areas>.
+[Anchor Tag Helper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) ha usato l'attributo `asp-route-{value}` per generare un collegamento alla pagina di modifica. Il collegamento contiene i dati della route con l'ID contatto. Ad esempio `http://localhost:5000/Edit/1`. Usare l'attributo `asp-area` per specificare un'area. Per altre informazioni, vedere <xref:mvc/controllers/areas>.
 
 Il file *Pages/Edit.cshtml*:
 
@@ -406,7 +420,7 @@ Per reindirizzare la pagina a un'[Area](xref:mvc/controllers/areas) diversa, spe
 RedirectToPage("/Index", new { area = "Services" });
 ```
 
-Per ulteriori informazioni, vedere <xref:mvc/controllers/areas>.
+Per altre informazioni, vedere <xref:mvc/controllers/areas>.
 
 ## <a name="viewdata-attribute"></a>Attributo viewData
 
