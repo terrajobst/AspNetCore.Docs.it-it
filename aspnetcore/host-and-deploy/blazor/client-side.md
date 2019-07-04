@@ -1,20 +1,20 @@
 ---
-title: Ospitare e distribuire Blazor sul lato client
+title: Ospitare e distribuire ASP.NET Core Blazor sul lato client
 author: guardrex
 description: Informazioni su come ospitare e distribuire un'app Blazor con ASP.NET Core, reti per la distribuzione di contenuti (CDN), file server e pagine di GitHub.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/21/2019
+ms.date: 06/14/2019
 uid: host-and-deploy/blazor/client-side
-ms.openlocfilehash: b50516b4dce28a6b105b2ab8b9386060d5392983
-ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
+ms.openlocfilehash: 7567473ae8acd9e1072954907f0fe9c7beea29ad
+ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66376398"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67153185"
 ---
-# <a name="host-and-deploy-blazor-client-side"></a>Ospitare e distribuire Blazor sul lato client
+# <a name="host-and-deploy-aspnet-core-blazor-client-side"></a>Ospitare e distribuire ASP.NET Core Blazor sul lato client
 
 Di [Luke Latham](https://github.com/guardrex), [Rainer Stropek](https://www.timecockpit.com) e [Daniel Roth](https://github.com/danroth27)
 
@@ -102,7 +102,7 @@ Con il [modello di hosting sul lato client](xref:blazor/hosting-models#client-si
 
 ## <a name="configure-the-linker"></a>Configurare il linker
 
-Blazor esegue il collegamento di linguaggio intermedio (IL) in ogni build per rimuovere IL non necessario dagli assembly di output. Il collegamento degli assembly può essere controllato in fase di compilazione. Per ulteriori informazioni, vedere <xref:host-and-deploy/blazor/configure-linker>.
+Blazor esegue il collegamento di linguaggio intermedio (IL) in ogni build per rimuovere IL non necessario dagli assembly di output. Il collegamento degli assembly può essere controllato in fase di compilazione. Per altre informazioni, vedere <xref:host-and-deploy/blazor/configure-linker>.
 
 ## <a name="rewrite-urls-for-correct-routing"></a>Riscrivere gli URL per il routing corretto
 

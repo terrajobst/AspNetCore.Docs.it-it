@@ -1,19 +1,19 @@
 ---
-title: "Esercitazione: Creare un'API Web con ASP.NET Core MVC"
+title: "Esercitazione: Creare un'API Web con ASP.NET Core"
 author: rick-anderson
-description: Creare un'API Web con ASP.NET Core MVC
+description: Informazioni su come creare un'API Web con ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/4/2019
+ms.date: 06/18/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: dce2926e3cb19d6ac8d2af0e9b96c31dee1d92fd
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 17e8ee08fca775b8fccc3f2e6cd6067caca9c79f
+ms.sourcegitcommit: a1283d486ac1dcedfc7ea302e1cc882833e2c515
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087516"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67207777"
 ---
-# <a name="tutorial-create-a-web-api-with-aspnet-core-mvc"></a>Esercitazione: Creare un'API Web con ASP.NET Core MVC
+# <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Esercitazione: Creare un'API Web con ASP.NET Core
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT) e [Mike Wasson](https://github.com/mikewasson)
 
@@ -39,7 +39,7 @@ Al termine si dispone di un'API web che può gestire gli elementi di tipo "attiv
 
 Questa esercitazione consente di creare l'API seguente:
 
-|API | Description | Corpo della richiesta | Corpo della risposta |
+|API | DESCRIZIONE | Corpo della richiesta | Corpo della risposta |
 |--- | ---- | ---- | ---- |
 |GET /api/todo | Ottiene tutti gli elementi attività | nessuno | Matrice di elementi attività|
 |GET /api/todo/{id} | Ottiene un elemento in base all'ID | nessuno | Elemento attività|
@@ -88,7 +88,7 @@ Il diagramma seguente visualizza la struttura dell'app.
 
   ![Finestra di dialogo Nuovo progetto di macOS](first-web-api-mac/_static/1.png)
   
-* Nella finestra di dialogo **Configure your new ASP.NET Core Web API** (Configura la nuova API Web ASP.NET Core), accettare l'impostazione predefinita di **Framework di destinazione**, ovvero **.NET Core 2.2*.
+* Nella finestra di dialogo **Configure your new ASP.NET Core Web API** (Configura la nuova API Web ASP.NET Core), accettare l'impostazione predefinita di **Framework di destinazione**, ovvero * *.NET Core 2.2*.
 
 * Immettere *TodoApi* in **Nome progetto**, quindi selezionare **Crea**.
 
@@ -276,7 +276,7 @@ I tipi restituiti `ActionResult` possono rappresentare un ampio intervallo di co
 
 Questa esercitazione usa Postman per testare l'API Web.
 
-* Installare [Postman](https://www.getpostman.com/apps)
+* Installare [Postman](https://www.getpostman.com/downloads/)
 * Avviare l'app Web.
 * Avviare Postman.
 * Disattivare **SSL certificate verification** (Verifica certificato SSL)
@@ -315,7 +315,7 @@ Il metodo `CreatedAtAction`:
 * In Postman impostare il metodo HTTP su `POST`.
 * Fare clic sulla scheda **Body** (Corpo).
 * Selezionare il pulsante di opzione **raw** (non elaborato).
-* Impostare il tipo su **JSON (application/json)**.
+* Impostare il tipo su **JSON (application/json)** .
 * Nel corpo della richiesta immettere codice JSON per un elemento attività:
 
     ```json

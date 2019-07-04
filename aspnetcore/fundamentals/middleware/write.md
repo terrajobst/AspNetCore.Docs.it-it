@@ -2,16 +2,17 @@
 title: Scrivere middleware di ASP.NET Core personalizzato
 author: rick-anderson
 description: Informazioni su come scrivere middleware di ASP.NET Core personalizzato.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/14/2019
+ms.date: 06/17/2019
 uid: fundamentals/middleware/write
-ms.openlocfilehash: 2c5577394a10370d92c8a83f9d806b63f3245c8b
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 352db93dd7061070c76e34f6c03883f68e2041ee
+ms.sourcegitcommit: 28a2874765cefe9eaa068dceb989a978ba2096aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64889166"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67167101"
 ---
 # <a name="write-custom-aspnet-core-middleware"></a>Scrivere middleware di ASP.NET Core personalizzato
 
@@ -27,33 +28,28 @@ Il middleware è in genere incapsulato in una classe ed esposto con un metodo di
 
 Il codice di esempio precedente viene usato per illustrare la creazione di un componente middleware. Per il supporto di localizzazione incorporato di ASP.NET Core, vedere <xref:fundamentals/localization>.
 
-È possibile testare il middleware passando le impostazioni cultura. Ad esempio `http://localhost:7997/?culture=no`.
+Testare il middleware passando le impostazioni cultura. Ad esempio, richiedere `https://localhost:5001/?culture=no`.
 
 Il codice seguente sposta il delegato middleware in una classe:
 
 [!code-csharp[](index/snapshot/Culture/RequestCultureMiddleware.cs)]
 
-::: moniker range="< aspnetcore-2.0"
+La classe middleware deve includere:
 
-Il nome del metodo `Task` del middleware deve essere `Invoke`. In ASP.NET Core 2.0 o versioni successive il nome può essere `Invoke` o `InvokeAsync`.
+* Un costruttore pubblico con un parametro di tipo <xref:Microsoft.AspNetCore.Http.RequestDelegate>.
+* Un metodo pubblico denominato `Invoke` o `InvokeAsync`. Questo metodo deve:
+  * Restituire `Task`.
+  * Accettare un primo parametro di tipo <xref:Microsoft.AspNetCore.Http.HttpContext>.
+  
+I parametri aggiuntivi per il costruttore e `Invoke`/`InvokeAsync` vengono popolati dall'[inserimento delle dipendenze](xref:fundamentals/dependency-injection).
 
-::: moniker-end
+## <a name="middleware-dependencies"></a>Dipendenze del middleware
 
-## <a name="middleware-extension-method"></a>Metodo di estensione del middleware
-
-Il metodo di estensione seguente espone il middleware tramite <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder>:
-
-[!code-csharp[](index/snapshot/Culture/RequestCultureMiddlewareExtensions.cs)]
-
-Il codice seguente chiama il middleware da `Startup.Configure`:
-
-[!code-csharp[](index/snapshot/Culture/Startup.cs?name=snippet1&highlight=5)]
-
-Il middleware deve seguire il [principio delle dipendenze esplicite](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies) esponendo le dipendenze nel costruttore. Il middleware viene costruito una volta per ogni *durata applicazione*. Se è necessario condividere servizi con il middleware all'interno di una richiesta, vedere la sezione [Dipendenze per richiesta](#per-request-dependencies).
+Il middleware deve seguire il [principio delle dipendenze esplicite](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies) esponendo le dipendenze nel costruttore. Il middleware viene costruito una volta per ogni *durata applicazione*. Se è necessario condividere servizi con il middleware all'interno di una richiesta, vedere la sezione [Dipendenze del middleware per richiesta](#per-request-middleware-dependencies).
 
 I componenti middleware possono risolvere le dipendenze dall'[inserimento di dipendenze](xref:fundamentals/dependency-injection) mediante i parametri del costruttore. [UseMiddleware&lt;T&gt;](/dotnet/api/microsoft.aspnetcore.builder.usemiddlewareextensions.usemiddleware#Microsoft_AspNetCore_Builder_UseMiddlewareExtensions_UseMiddleware_Microsoft_AspNetCore_Builder_IApplicationBuilder_System_Type_System_Object___) può anche accettare direttamente parametri aggiuntivi.
 
-## <a name="per-request-dependencies"></a>Dipendenze per richiesta
+## <a name="per-request-middleware-dependencies"></a>Dipendenze del middleware per richiesta
 
 Poiché il middleware viene creato all'avvio dell'app e non per richiesta, i servizi di durata *con ambito* usati dai costruttori del middleware non vengono condivisi con altri tipi di inserimento di dipendenze durante ogni richiesta. Se è necessario condividere un servizio *con ambito* tra il proprio middleware e altri tipi, aggiungere i servizi alla firma del metodo `Invoke`. Il metodo `Invoke` può accettare parametri aggiuntivi popolati dall'inserimento delle dipendenze:
 
@@ -75,6 +71,16 @@ public class CustomMiddleware
     }
 }
 ```
+
+## <a name="middleware-extension-method"></a>Metodo di estensione del middleware
+
+Il metodo di estensione seguente espone il middleware tramite <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder>:
+
+[!code-csharp[](index/snapshot/Culture/RequestCultureMiddlewareExtensions.cs)]
+
+Il codice seguente chiama il middleware da `Startup.Configure`:
+
+[!code-csharp[](index/snapshot/Culture/Startup.cs?name=snippet1&highlight=5)]
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

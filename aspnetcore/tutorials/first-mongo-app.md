@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc, seodec18
 ms.date: 06/10/2019
 uid: tutorials/first-mongo-app
-ms.openlocfilehash: 5e3bdb10f0e192ba98df442959ceb68dc7c7adc5
-ms.sourcegitcommit: 9691b742134563b662948b0ed63f54ef7186801e
+ms.openlocfilehash: 426b4c0dee290153b9b1bf83deec14fa728183cb
+ms.sourcegitcommit: f5762967df3be8b8c868229e679301f2f7954679
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/10/2019
-ms.locfileid: "66824775"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048087"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a>Creare un'API Web con ASP.NET Core e MongoDB
 
@@ -270,7 +270,7 @@ La classe `BookService` usa i membri `MongoDB.Driver` seguenti per eseguire oper
 
     [!code-csharp[](first-mongo-app/sample/BooksApi/Services/BookService.cs?name=snippet_BookServiceConstructor&highlight=3)]
 
-* [IMongoDatabase](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_IMongoDatabase.htm) &ndash; Rappresenta il database di Mongo per l'esecuzione delle operazioni. Questa esercitazione usa il metodo [GetCollection<TDocument>(collection)](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoDatabase_GetCollection__1.htm) generico sull'interfaccia per ottenere l'accesso ai dati in una raccolta specifica. Eseguire le operazioni CRUD sulla raccolta dopo la chiamata a questo metodo. Nella chiamata del metodo `GetCollection<TDocument>(collection)`:
+* [IMongoDatabase](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_IMongoDatabase.htm) &ndash; Rappresenta il database di Mongo per l'esecuzione delle operazioni. Questa esercitazione usa il metodo [GetCollection\<TDocument>(collection)](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoDatabase_GetCollection__1.htm) generico sull'interfaccia per ottenere l'accesso ai dati in una raccolta specifica. Eseguire le operazioni CRUD sulla raccolta dopo la chiamata a questo metodo. Nella chiamata del metodo `GetCollection<TDocument>(collection)`:
   * `collection` rappresenta il nome della raccolta.
   * `TDocument` rappresenta il tipo di oggetto CLR archiviato nella raccolta.
 

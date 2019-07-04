@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni su come il routing di ASP.NET Core è responsabile del mapping degli URI delle richieste nei selettori degli endpoint e dell'invio delle richieste agli endpoint.
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 06/17/2019
 uid: fundamentals/routing
-ms.openlocfilehash: 2a7a942f43de94326e84977f09dc9a2e24dd00f0
-ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
+ms.openlocfilehash: 71cb7215651a263e588531c9be644326c0b6eda6
+ms.sourcegitcommit: 28a2874765cefe9eaa068dceb989a978ba2096aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66692585"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67167086"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing in ASP.NET Core
 
@@ -141,6 +141,21 @@ Il routing è connesso alla pipeline [middleware](xref:fundamentals/middleware/i
 
 La corrispondenza dell'URL è il processo con cui il routing invia una richiesta in ingresso a un *endpoint*. Questo processo si basa sui dati presenti nel percorso URL, ma può essere esteso in modo da prendere in considerazione tutti i dati della richiesta. La possibilità di inviare le richieste a gestori separati è fondamentale per ridurre le dimensioni e la complessità di un'app.
 
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+Quando viene eseguito un middleware di routing, viene impostato un endpoint (`Endpoint`) e i valori di route vengono impostati su una funzionalità in <xref:Microsoft.AspNetCore.Http.HttpContext>. Per la richiesta corrente:
+
+* La chiamata di `HttpContext.GetEndpoint` ottiene l'endpoint.
+* `HttpRequest.RouteValues` ottiene la raccolta dei valori di route.
+
+Il middleware in esecuzione dopo il middleware di routing può visualizzare l'endpoint e agire. Ad esempio, un middleware di autorizzazione può interrogare la raccolta di metadati dell'endpoint per ottenere un criterio di autorizzazione. Dopo l'esecuzione di tutto il middleware nella pipeline di elaborazione della richiesta, viene richiamato il delegato dell'endpoint selezionato.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
 Il sistema di routing nell'endpoint di routing è responsabile di tutte le decisioni relative all'invio. Poiché il middleware applica i criteri in base all'endpoint selezionato, è importante che qualsiasi decisione che può influire sull'invio o l'applicazione dei criteri di sicurezza venga effettuata all'interno del sistema di routing.
 
 Quando viene eseguito il delegato dell'endpoint, le proprietà di [RouteContext.RouteData](xref:Microsoft.AspNetCore.Routing.RouteContext.RouteData) vengono impostate sui valori appropriati in base all'elaborazione della richiesta eseguita fino a quel punto.
@@ -195,7 +210,7 @@ I metodi `GetPath*` sono più simili a `Url.Action` e `Url.Page` poiché generan
 
 I metodi forniti da <xref:Microsoft.AspNetCore.Routing.LinkGenerator> supportano le funzionalità di generazione di collegamenti standard per tutti i tipi di indirizzi. È consigliabile usare il generatore di collegamenti tramite i metodi di estensione che eseguono le operazioni per un tipo di indirizzo specifico.
 
-| Metodo di estensione   | Description                                                         |
+| Metodo di estensione   | DESCRIZIONE                                                         |
 | ------------------ | ------------------------------------------------------------------- |
 | <xref:Microsoft.AspNetCore.Routing.LinkGenerator.GetPathByAddress*> | Genera un URI con un percorso assoluto in base ai valori specificati. |
 | <xref:Microsoft.AspNetCore.Routing.LinkGenerator.GetUriByAddress*> | Genera un URI assoluto in base ai valori specificati.             |

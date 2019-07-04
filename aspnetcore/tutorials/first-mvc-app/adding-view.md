@@ -5,12 +5,12 @@ description: Aggiunta di una vista a una semplice app ASP.NET Core MVC
 ms.author: riande
 ms.date: 03/04/2017
 uid: tutorials/first-mvc-app/adding-view
-ms.openlocfilehash: 6ff706012dabbf9500a805708c1f058b59ebc610
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 70c96b4838b37ea2c193c328f00a410642338369
+ms.sourcegitcommit: 28a2874765cefe9eaa068dceb989a978ba2096aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64890916"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67167073"
 ---
 # <a name="add-a-view-to-an-aspnet-core-mvc-app"></a>Aggiungere una vista a un'app ASP.NET Core MVC
 
@@ -72,7 +72,7 @@ Sostituire il contenuto del file di vista Razor *Views/HelloWorld/Index.cshtml* 
 
 [!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/HelloWorld/Index1.cshtml?highlight=7)]
 
-Passare a `https://localhost:xxxx/HelloWorld`. Il metodo `Index` in `HelloWorldController` non ha eseguito molte operazioni; ha eseguito l'istruzione `return View();` che ha specificato che il metodo deve usare un file di modello della vista per eseguire il rendering di una risposta al browser. Poiché non è stato specificato in modo esplicito il nome del file di modello della vista, MVC imposta come predefinito il file della vista *Index.cshtml* nella cartella */Views/HelloWorld*. L'immagine seguente mostra la stringa "Hello from our View Template!" hardcoded nella vista.
+Passare a `https://localhost:xxxx/HelloWorld`. Il metodo `Index` in `HelloWorldController` non ha eseguito molte operazioni; ha eseguito l'istruzione `return View();` che ha specificato che il metodo deve usare un file di modello della vista per eseguire il rendering di una risposta al browser. Poiché non è stato specificato un nome di file di modello di visualizzazione, per impostazione predefinita MVC usa il file di visualizzazione predefinito. Il file di visualizzazione predefinito ha lo stesso nome del metodo (`Index`), quindi viene usato */Views/HelloWorld/Index.cshtml*. L'immagine seguente mostra la stringa "Hello from our View Template!" hardcoded nella vista.
 
 ![Finestra del browser](~/tutorials/first-mvc-app/adding-view/_static/hell_template.png)
 

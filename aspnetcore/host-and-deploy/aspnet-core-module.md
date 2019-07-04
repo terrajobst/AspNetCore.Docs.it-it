@@ -5,14 +5,14 @@ description: Informazioni su come configurare il modulo di ASP.NET Core per l'ho
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/05/2019
+ms.date: 06/17/2019
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: f287a9bad623c5ff5c41868c7c4408b572b39000
-ms.sourcegitcommit: c716ea9155a6b404c1f3d3d34e2388454cd276d7
+ms.openlocfilehash: d5392ff6b15eeb3a4502df578665538b936aae6f
+ms.sourcegitcommit: 28a2874765cefe9eaa068dceb989a978ba2096aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66716362"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67167062"
 ---
 # <a name="aspnet-core-module"></a>Modulo ASP.NET Core
 
@@ -256,7 +256,7 @@ Per informazioni sulla configurazione delle applicazioni secondarie IIS, vedere 
 
 ::: moniker range=">= aspnetcore-2.2"
 
-| Attributo | Description | Impostazione predefinita |
+| Attributo | DESCRIZIONE | Impostazione predefinita |
 | --------- | ----------- | :-----: |
 | `arguments` | <p>Attributo stringa facoltativo.</p><p>Argomenti per l'eseguibile specificato in **processPath**.</p> | |
 | `disableStartUpErrorPage` | <p>Attributo booleano facoltativo.</p><p>Se true, la pagina **502.5 - Errore del processo** non viene visualizzata e la tabella codici di stato 502 configurata in *web.config* ha la precedenza.</p> | `false` |
@@ -275,7 +275,7 @@ Per informazioni sulla configurazione delle applicazioni secondarie IIS, vedere 
 
 ::: moniker range="< aspnetcore-2.2"
 
-| Attributo | Description | Impostazione predefinita |
+| Attributo | DESCRIZIONE | Impostazione predefinita |
 | --------- | ----------- | :-----: |
 | `arguments` | <p>Attributo stringa facoltativo.</p><p>Argomenti per l'eseguibile specificato in **processPath**.</p>| |
 | `disableStartUpErrorPage` | <p>Attributo booleano facoltativo.</p><p>Se true, la pagina **502.5 - Errore del processo** non viene visualizzata e la tabella codici di stato 502 configurata in *web.config* ha la precedenza.</p> | `false` |
@@ -451,11 +451,27 @@ Il modulo ASP.NET Core può essere configurato per restituire log di diagnostica
     stdoutLogFile="\\?\%home%\LogFiles\stdout"
     hostingModel="InProcess">
   <handlerSettings>
-    <handlerSetting name="debugFile" value="aspnetcore-debug.log" />
+    <handlerSetting name="debugFile" value=".\logs\aspnetcore-debug.log" />
     <handlerSetting name="debugLevel" value="FILE,TRACE" />
   </handlerSettings>
 </aspNetCore>
 ```
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+Le eventuali cartelle nel percorso (*logs* nell'esempio precedente) vengono create dal modulo quando viene creato il file di log. Il pool di app deve avere accesso in scrittura alla posizione in cui vengono scritti i log (usare `IIS AppPool\<app_pool_name>` per specificare l'autorizzazione di scrittura).
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+Le cartelle nel percorso specificato per il valore `<handlerSetting>` (*logs* nell'esempio precedente) non vengono create automaticamente dal modulo e devono essere già presenti nella distribuzione. Il pool di app deve avere accesso in scrittura alla posizione in cui vengono scritti i log (usare `IIS AppPool\<app_pool_name>` per specificare l'autorizzazione di scrittura).
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
 
 I valori di livello debug (`debugLevel`) possono includere sia il livello che il percorso.
 
