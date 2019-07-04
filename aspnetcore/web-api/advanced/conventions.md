@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/13/2018
 uid: web-api/advanced/conventions
-ms.openlocfilehash: 671e39ded50e50bbfe6d12879895bee74367f754
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: ae409158defe15ffaa7454039b302cf3c6437e54
+ms.sourcegitcommit: 6d9cf728465cdb0de1037633a8b7df9a8989cccb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64890776"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67463285"
 ---
 # <a name="use-web-api-conventions"></a>Usare le convenzioni dell'API Web
 
@@ -50,7 +50,7 @@ Le convenzioni non sono componibili; ogni azione può essere associata a una sol
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     ```
 
-Per altre informazioni su `[ProducesDefaultResponseType]`, vedere [Default Response](https://swagger.io/docs/specification/describing-responses/#default) (Risposta predefinita).
+    Per altre informazioni su `[ProducesDefaultResponseType]`, vedere [Default Response](https://swagger.io/docs/specification/describing-responses/#default) (Risposta predefinita).
 
 1. `Microsoft.AspNetCore.Mvc.ApiConventionTypeAttribute` applicato a un controller &mdash; Applica il tipo di convenzione specificato a tutte le azioni del controller. Un metodo della convenzione è completato da hint che determinano le azioni alle quali si applica il metodo della convenzione. Per altre informazioni sugli hint, vedere [Creare convenzioni dell'API Web](#create-web-api-conventions).
 

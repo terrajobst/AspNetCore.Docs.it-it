@@ -7,10 +7,10 @@ ms.custom: mvc
 ms.date: 12/06/2018
 uid: tutorials/publish-to-azure-webapp-using-vs
 ms.openlocfilehash: c0251032d83349d4d3925d1ec594c9230ed6ad2d
-ms.sourcegitcommit: a1283d486ac1dcedfc7ea302e1cc882833e2c515
+ms.sourcegitcommit: 6d9cf728465cdb0de1037633a8b7df9a8989cccb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 07/01/2019
 ms.locfileid: "67207651"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio"></a>Pubblicare un'app ASP.NET Core in Azure con Visual Studio
@@ -79,7 +79,7 @@ L'app visualizza l'indirizzo di posta elettronica usato per registrare il nuovo 
 
 ## <a name="deploy-the-app-to-azure"></a>Distribuire l'app in Azure
 
-In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto e selezionare **Pubblica...**.
+In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto e selezionare **Pubblica...** .
 
 ![Menu di scelta rapida con il collegamento per la pubblicazione evidenziato](publish-to-azure-webapp-using-vs/_static/pub.png)
 

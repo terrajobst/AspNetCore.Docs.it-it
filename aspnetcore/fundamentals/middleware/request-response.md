@@ -3,16 +3,16 @@ title: Operazioni di richiesta e risposta in ASP.NET Core
 author: jkotalik
 description: Informazioni su come leggere il corpo della richiesta e scrivere il corpo della risposta in ASP.NET Core.
 monikerRange: '>= aspnetcore-3.0'
-ms.author: jkotalik
+ms.author: jukotali
 ms.custom: mvc
 ms.date: 02/26/2019
 uid: fundamentals/middleware/request-response
-ms.openlocfilehash: b6e3cd4b79e0c062b271c65cd5ecbdb4ef80c3a1
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 0c321dad256e239b61907980c09d2c088c1407ff
+ms.sourcegitcommit: 0b9e767a09beaaaa4301915cdda9ef69daaf3ff2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65085505"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538581"
 ---
 # <a name="request-and-response-operations-in-aspnet-core"></a>Operazioni di richiesta e risposta in ASP.NET Core
 

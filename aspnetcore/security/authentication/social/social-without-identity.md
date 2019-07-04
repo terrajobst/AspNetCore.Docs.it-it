@@ -5,12 +5,12 @@ description: Spiegazione dell'uso di Facebook, Google, Twitter, autenticazione u
 ms.author: riande
 ms.date: 07/04/2019
 uid: security/authentication/social/social-without-identity
-ms.openlocfilehash: e67da513fef1ce453110c465b08e9c7965e71df5
-ms.sourcegitcommit: d6e51c60439f03a8992bda70cc982ddb15d3f100
+ms.openlocfilehash: 1e7124e8b07c0faf2d005ec3ef55c0414a697d64
+ms.sourcegitcommit: f6e6730872a7d6f039f97d1df762f0d0bd5e34cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67557650"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561574"
 ---
 # <a name="use-social-sign-in-provider-authentication-without-aspnet-core-identity"></a>Usare l'autenticazione tramite social provider Accedi senza ASP.NET Core Identity
 
@@ -47,7 +47,7 @@ Nel `Configure` metodo, chiamare il `UseAuthentication` metodo da richiamare il 
 
 Per altre informazioni su schemi di autenticazione e l'autenticazione tramite cookie, vedere <xref:security/authentication/cookie>.
 
-## <a name="applying-basic-authorization"></a>Applicazione di autorizzazione di base
+## <a name="applying-authorization"></a>Autorizzazione applicazione
 
 Testare la configurazione di autenticazione dell'app applicando i `AuthorizeAttribute` attributo un controller, azioni o pagina. Il codice riportato di seguito limitano l'accesso per il *Privacy* pagina per gli utenti che sono stati autenticati:
 

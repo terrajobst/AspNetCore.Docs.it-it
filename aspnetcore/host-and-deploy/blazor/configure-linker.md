@@ -5,14 +5,14 @@ description: Informazioni su come controllare il linker del linguaggio intermedi
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/14/2019
+ms.date: 07/02/2019
 uid: host-and-deploy/blazor/configure-linker
-ms.openlocfilehash: bdddae16885f45df2c10e4d98b1c33eb11dfdf24
-ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
+ms.openlocfilehash: 03be18e7ee6ca8103e1a666da9e693ff67267d83
+ms.sourcegitcommit: 0b9e767a09beaaaa4301915cdda9ef69daaf3ff2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67153208"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538624"
 ---
 # <a name="configure-the-linker-for-aspnet-core-blazor"></a>Configurare il linker per ASP.NET Core Blazor
 
@@ -27,7 +27,7 @@ Controllare il collegamento degli assembly adottando uno degli approcci seguenti
 
 ## <a name="disable-linking-with-a-msbuild-property"></a>Disabilitare il collegamento con una proprietà di MSBuild
 
-Il collegamento è abilitato per impostazione predefinita in modalità versione quando viene compilata un'app, operazione che include la pubblicazione. Per disabilitare il collegamento per tutti gli assembly, impostare la proprietà di MSBuild `<BlazorLinkOnBuild>` su `false` nel file di progetto:
+Il collegamento è abilitato per impostazione predefinita in modalità versione quando viene compilata un'app, operazione che include la pubblicazione. Per disabilitare il collegamento per tutti gli assembly, impostare la proprietà di MSBuild `BlazorLinkOnBuild` su `false` nel file di progetto:
 
 ```xml
 <PropertyGroup>

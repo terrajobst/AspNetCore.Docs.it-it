@@ -5,14 +5,14 @@ description: Informazioni su come ASP.NET Core implementa l'inserimento delle di
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/07/2019
+ms.date: 07/01/2019
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: f4be1559c3b4c17cd09f1360d954c837d84d5058
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 815838e72bc51c70ca1d3d3c1fc6c196bd08ee70
+ms.sourcegitcommit: eb3e51d58dd713eefc242148f45bd9486be3a78a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65085592"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67500457"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Inserimento delle dipendenze in ASP.NET Core
 
@@ -171,7 +171,7 @@ I servizi con durata temporanea vengono creati ogni volta che vengono richiesti 
 I servizi con durata con ambito vengono creati una volta per ogni richiesta client (connessione).
 
 > [!WARNING]
-> Quando si usa un servizio con ambito in un middleware, inserire il servizio nel metodo `Invoke` o `InvokeAsync`. Evitare l'inserimento tramite il costruttore, che impone al servizio il comportamento singleton. Per ulteriori informazioni, vedere <xref:fundamentals/middleware/index>.
+> Quando si usa un servizio con ambito in un middleware, inserire il servizio nel metodo `Invoke` o `InvokeAsync`. Evitare l'inserimento tramite il costruttore, che impone al servizio il comportamento singleton. Per altre informazioni, vedere <xref:fundamentals/middleware/index>.
 
 **Singleton**
 
@@ -305,7 +305,7 @@ Il provider di servizi radice venga creato con la chiamata di [BuildServiceProvi
 
 I servizi con ambito vengono eliminati dal contenitore che li ha creati. Se un servizio con ambito viene creato nel contenitore radice, la durata del servizio viene di fatto convertita in singleton, perché il servizio viene eliminato solo dal contenitore radice alla chiusura dell'app/server. La convalida degli ambiti servizio rileva queste situazioni nel contesto della chiamata di `BuildServiceProvider`.
 
-Per ulteriori informazioni, vedere <xref:fundamentals/host/web-host#scope-validation>.
+Per altre informazioni, vedere <xref:fundamentals/host/web-host#scope-validation>.
 
 ## <a name="request-services"></a>Servizi di richiesta
 
@@ -468,6 +468,7 @@ L'inserimento di dipendenze è un'*alternativa* ai modelli di accesso agli ogget
 * <xref:mvc/views/dependency-injection>
 * <xref:mvc/controllers/dependency-injection>
 * <xref:security/authorization/dependencyinjection>
+* <xref:blazor/dependency-injection>
 * <xref:fundamentals/startup>
 * <xref:fundamentals/middleware/extensibility>
 * [Scrittura di codice pulito in ASP.NET Core con inserimento delle dipendenze (MSDN)](https://msdn.microsoft.com/magazine/mt703433.aspx)
