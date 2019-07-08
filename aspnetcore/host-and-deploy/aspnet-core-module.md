@@ -5,14 +5,14 @@ description: Informazioni su come configurare il modulo di ASP.NET Core per l'ho
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/17/2019
+ms.date: 07/01/2019
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: d5392ff6b15eeb3a4502df578665538b936aae6f
-ms.sourcegitcommit: 28a2874765cefe9eaa068dceb989a978ba2096aa
+ms.openlocfilehash: 4a360023cc7fab2f066d490f7f368fc35815703a
+ms.sourcegitcommit: eb3e51d58dd713eefc242148f45bd9486be3a78a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67167062"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67500446"
 ---
 # <a name="aspnet-core-module"></a>Modulo ASP.NET Core
 
@@ -108,6 +108,29 @@ Per out-of-process, [CreateDefaultBuilder](xref:fundamentals/host/web-host#set-u
 
 * Configurare la porta e il percorso di base su cui il server deve eseguire l'ascolto in caso di esecuzione dietro il modulo ASP.NET Core.
 * Configurare l'host per l'acquisizione degli errori di avvio.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+In caso di hosting out-of-process, <xref:Microsoft.AspNetCore.Authentication.AuthenticationService.AuthenticateAsync*> non viene chiamato internamente per inizializzare un utente. Pertanto, un'implementazione di <xref:Microsoft.AspNetCore.Authentication.IClaimsTransformation> usate per trasformare le attestazioni dopo ogni autenticazione non viene attivata per impostazione predefinita. Quando si trasformano le attestazioni con un'implementazione di <xref:Microsoft.AspNetCore.Authentication.IClaimsTransformation>, chiamare <xref:Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication*> per aggiungere i servizi di autenticazione:
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddTransient<IClaimsTransformation, ClaimsTransformer>();
+    services.AddAuthentication(IISDefaults.AuthenticationScheme);
+}
+
+public void Configure(IApplicationBuilder app)
+{
+    app.UseAuthentication();
+}
+```
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
 
 ### <a name="hosting-model-changes"></a>Modifiche del modello di hosting
 

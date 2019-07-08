@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni su come creare un'API Web con ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/18/2019
+ms.date: 06/23/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 17e8ee08fca775b8fccc3f2e6cd6067caca9c79f
-ms.sourcegitcommit: a1283d486ac1dcedfc7ea302e1cc882833e2c515
+ms.openlocfilehash: a53f7019c1079296f073e743ddbf9d90fc5abad3
+ms.sourcegitcommit: d6e51c60439f03a8992bda70cc982ddb15d3f100
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67207777"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67555882"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Esercitazione: Creare un'API Web con ASP.NET Core
 
@@ -49,17 +49,32 @@ Questa esercitazione consente di creare l'API seguente:
 
 Il diagramma seguente visualizza la struttura dell'app.
 
-![Il client è rappresentato da una casella a sinistra e invia una richiesta e riceve una risposta dall'applicazione, una casella a destra. Nella riquadro dell'applicazione tre caselle rappresentano il controller, il modello e il livello di accesso ai dati. La richiesta viene ricevuta dal controller dell'applicazione e vengono eseguite operazioni di lettura/scrittura tra il controller e il livello di accesso ai dati. Il modello viene serializzato e restituito al client nella risposta.](first-web-api/_static/architecture.png)
+![Il client è rappresentato da una casella a sinistra. Invia una richiesta e riceve una risposta dall'applicazione, una casella disegnata a destra. Nella riquadro dell'applicazione tre caselle rappresentano il controller, il modello e il livello di accesso ai dati. La richiesta viene ricevuta dal controller dell'applicazione e vengono eseguite operazioni di lettura/scrittura tra il controller e il livello di accesso ai dati. Il modello viene serializzato e restituito al client nella risposta.](first-web-api/_static/architecture.png)
 
-[!INCLUDE[](~/includes/net-core-prereqs-all-2.2.md)]
+## <a name="prerequisites"></a>Prerequisiti
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+[!INCLUDE[](~/includes/net-core-prereqs-vs2019-2.2.md)]
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+[!INCLUDE[](~/includes/net-core-prereqs-vsc-2.2.md)]
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
+
+[!INCLUDE[](~/includes/net-core-prereqs-mac-2.2.md)]
+
+---
 
 ## <a name="create-a-web-project"></a>Creare un progetto Web
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Scegliere **Nuovo** > **Progetto** dal menu **File**.
-* Selezionare il modello **Applicazione Web ASP.NET Core**. Assegnare al progetto il nome *TodoApi* e fare clic su **OK**.
-* Nella finestra di dialogo **Nuova Applicazione Web ASP.NET Core - TodoApi** scegliere la versione per ASP.NET Core. Selezionare il modello **API**, quindi scegliere **OK**. **Non** selezionare **Abilita supporto Docker**.
+* Selezionare il modello **Applicazione Web ASP.NET Core** e fare clic su **Avanti**.
+* Assegnare al progetto il nome *TodoApi* e fare clic su **Crea**.
+* Nella finestra di dialogo **Crea una nuova applicazione Web ASP.NET Core** verificare che siano selezionati **.NET Core** e **ASP.NET Core 2.2**. Selezionare il modello **API** e fare clic su **Crea**. **Non** selezionare **Abilita supporto Docker**.
 
 ![Finestra di dialogo Nuovo progetto di Visual Studio](first-web-api/_static/vs.png)
 
@@ -128,7 +143,7 @@ Un *modello* è un set di classi che rappresentano i dati gestiti dall'app. Il m
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto. Selezionare **Aggiungi** > **Nuova cartella**. Assegnare il nome *Modelli* alla cartella.
+* In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto. Selezionare **Aggiungi** > **Nuova cartella**. Assegnare il nome *Models* alla cartella.
 
 * Fare clic con il pulsante destro del mouse sulla cartella *Models* e scegliere **Aggiungi** > **Classe**. Assegnare alla classe il nome *TodoItem* e selezionare **Aggiungi**.
 
@@ -136,7 +151,7 @@ Un *modello* è un set di classi che rappresentano i dati gestiti dall'app. Il m
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-* Aggiungere una cartella denominata *Modelli*.
+* Aggiungere una cartella denominata *Models*.
 
 * Aggiungere una classe `TodoItem` alla cartella *Models* con il codice seguente:
 
@@ -386,13 +401,13 @@ Usare Postman per eliminare un elemento attività:
 * Impostare l'URI dell'oggetto da eliminare, ad esempio `https://localhost:5001/api/todo/1`
 * Selezionare **Send** (Invia).
 
-L'app di esempio consente di eliminare tutti gli elementi, ma quando viene eliminato l'ultimo elemento, ne viene creato uno nuovo dal costruttore della classe modello alla successiva chiamata dell'API.
+L'app di esempio consente di eliminare tutti gli elementi. Quando viene eliminato l'ultimo elemento, tuttavia, ne viene creato uno nuovo dal costruttore della classe modello alla successiva chiamata dell'API.
 
 ## <a name="call-the-api-with-jquery"></a>Chiamare l'API con jQuery
 
 In questa sezione viene aggiunta una pagina HTML che usa jQuery per chiamare l'API Web. jQuery avvia la richiesta e aggiorna la pagina con i dettagli ottenuti dalla risposta dell'API.
 
-Configurare l'app in modo che [gestisca i file statici](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions.usestaticfiles#Microsoft_AspNetCore_Builder_StaticFileExtensions_UseStaticFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) e [consenta il mapping di file predefinito](/dotnet/api/microsoft.aspnetcore.builder.defaultfilesextensions.usedefaultfiles#Microsoft_AspNetCore_Builder_DefaultFilesExtensions_UseDefaultFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_):
+Configurare l'app per [servire file statici](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions.usestaticfiles#Microsoft_AspNetCore_Builder_StaticFileExtensions_UseStaticFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) e [abilitare il mapping del file predefinito](/dotnet/api/microsoft.aspnetcore.builder.defaultfilesextensions.usedefaultfiles#Microsoft_AspNetCore_Builder_DefaultFilesExtensions_UseDefaultFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) aggiornando *Startup.cs* con il codice evidenziato seguente:
 
 [!code-csharp[](first-web-api/samples/2.2/TodoApi/Startup.cs?highlight=14-15&name=snippet_configure)]
 

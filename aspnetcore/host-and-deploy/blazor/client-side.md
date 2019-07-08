@@ -5,14 +5,14 @@ description: Informazioni su come ospitare e distribuire un'app Blazor con ASP.N
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/14/2019
+ms.date: 07/02/2019
 uid: host-and-deploy/blazor/client-side
-ms.openlocfilehash: 7567473ae8acd9e1072954907f0fe9c7beea29ad
-ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
+ms.openlocfilehash: 46c99364098557557bff0c38cab5a91ee2d3979b
+ms.sourcegitcommit: 0b9e767a09beaaaa4301915cdda9ef69daaf3ff2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67153185"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538642"
 ---
 # <a name="host-and-deploy-aspnet-core-blazor-client-side"></a>Ospitare e distribuire ASP.NET Core Blazor sul lato client
 
@@ -106,19 +106,19 @@ Blazor esegue il collegamento di linguaggio intermedio (IL) in ogni build per ri
 
 ## <a name="rewrite-urls-for-correct-routing"></a>Riscrivere gli URL per il routing corretto
 
-Il routing delle richieste per i componenti di pagina in un'app sul lato client non è semplice come il routing delle richieste a un'app ospitata sul lato server. Si consideri un'app sul lato client con due pagine:
+Il routing delle richieste per i componenti di pagina in un'app sul lato client non è semplice come il routing delle richieste a un'app ospitata sul lato server. Si consideri un'app sul lato client con due componenti:
 
-* **_Main.razor**&ndash; Viene caricata nella radice dell'app e contiene un collegamento alla pagina About (`href="About"`).
-* **_About.Razor** &ndash; Pagina About.
+* *Main.razor*&ndash; Viene caricato nella radice dell'app e contiene un collegamento al componente `About` (`href="About"`).
+* *About.Razor* &ndash; Componente `About`.
 
 Quando viene richiesto il documento predefinito dell'app usando la barra degli indirizzi del browser (ad esempio, `https://www.contoso.com/`):
 
 1. Il browser invia una richiesta.
 1. Viene restituita la pagina predefinita, di solito *index.html*.
 1. *index.html* esegue il bootstrap dell'app.
-1. Il router di Blazor viene caricato e viene visualizzata la pagina principale di Razor (*Main.razor*).
+1. Viene caricato il router di Blazor e viene eseguito il rendering del componente `Main` Razor.
 
-Nella pagina principale, se si seleziona il collegamento alla pagina About viene caricata tale pagina. La selezione del collegamento alla pagina About funziona nel client perché il router Blazor impedisce al browser di inviare una richiesta su Internet a `www.contoso.com` per `About` e fornisce la pagina About autonomamente. Tutte le richieste di pagine interne *all'interno dell'app sul lato client* funzionano allo stesso modo: Le richieste non attivano richieste basate su browser a risorse ospitate nel server su Internet. Le richieste vengono gestite internamente dal router.
+Nella pagina principale, la selezione del collegamento al componente `About` funziona nel client perché il router Blazor impedisce al browser di inviare una richiesta su Internet a `www.contoso.com` per `About` e fornisce il componente `About` sottoposto a rendering. Tutte le richieste di endpoint interni, *all'interno dell'app sul lato client*, funzionano allo stesso modo: Le richieste non attivano richieste basate su browser a risorse ospitate nel server su Internet. Le richieste vengono gestite internamente dal router.
 
 Se una richiesta viene effettuata usando la barra degli indirizzi del browser per `www.contoso.com/About`, la richiesta ha esito negativo. La risorsa non esiste nell'host Internet dell'app, quindi viene restituita la risposta *404 non trovato*.
 
@@ -148,7 +148,7 @@ L'app risponde in locale all'indirizzo `http://localhost:port/CoolApp`.
 
 Per altre informazioni, vedere la sezione sul [valore di configurazione dell'host della base del percorso](#path-base).
 
-Se un'app usa il [modello di hosting sul lato client](xref:blazor/hosting-models#client-side) (basato sul modello di progetto **Blazor**, il modello `blazor` quando si usa il comando [dotnet new](/dotnet/core/tools/dotnet-new)) ed è ospitata come sottoapplicazione IIS in un'app ASP.NET Core, è importante disabilitare il gestore del modulo ASP.NET Core ereditato o assicurarsi che la sezione `<handlers>` dell'app radice (padre) nel file *web.config* non venga ereditata dalla sottoapplicazione.
+Se un'app usa il [modello di hosting sul lato client](xref:blazor/hosting-models#client-side) (basato sul modello di progetto **Blazor (lato client)**, il modello `blazor` quando si usa il comando [dotnet new](/dotnet/core/tools/dotnet-new)) ed è ospitata come sottoapplicazione IIS in un'app ASP.NET Core, è importante disabilitare il gestore del modulo ASP.NET Core ereditato o assicurarsi che la sezione `<handlers>` dell'app radice (padre) nel file *web.config* non venga ereditata dalla sottoapplicazione.
 
 Rimuovere il gestore nel file *web.config* pubblicato dell'app aggiungendo una sezione `<handlers>` al file:
 
@@ -178,7 +178,7 @@ La rimozione del gestore o la disabilitazione dell'ereditarietà viene eseguita 
 
 ## <a name="hosted-deployment-with-aspnet-core"></a>Distribuzione ospitata con ASP.NET Core
 
-Una *distribuzione ospitata* fornisce l'app Blazor sul lato client ai browser da un'[app ASP.NET Core](xref:index) eseguita in un server.
+Una *distribuzione ospitata* fornisce l'app sul lato client Blazor ai browser da un'[app ASP.NET Core](xref:index) eseguita in un server Web.
 
 L'app Blazor è inclusa con l'app ASP.NET Core nell'output pubblicato in modo che le due app vengano distribuite insieme. È necessario un server Web in grado di ospitare un'app ASP.NET Core. Per una distribuzione ospitata, Visual Studio include il modello di progetto **Blazor (ospitato in ASP.NET Core)** (modello `blazorhosted` quando si usa il comando [dotnet new](/dotnet/core/tools/dotnet-new)).
 
@@ -188,7 +188,7 @@ Per informazioni sulla distribuzione in Servizio app di Azure, vedere <xref:tuto
 
 ## <a name="standalone-deployment"></a>Distribuzione autonoma
 
-Una *distribuzione autonoma* serve l'app Blazor sul lato client come un set di file statici richiesti direttamente dai client. Qualsiasi file server statico è in grado di servire l'app Blazor.
+Una *distribuzione autonoma* serve l'app sul lato client Blazor come un set di file statici richiesti direttamente dai client. Qualsiasi file server statico è in grado di servire l'app Blazor.
 
 Gli asset di distribuzione autonoma vengono pubblicati nella cartella */bin/Release/{FRAMEWORK DI DESTINAZIONE}/publish/{NOME ASSEMBLY}/dist*.
 
@@ -212,8 +212,8 @@ Quando viene pubblicato un progetto Blazor, viene creato un file *web.config* co
   * `application/octet-stream`
   * `application/wasm`
 * Vengono stabilite le regole URL Rewrite Module:
-  * Specificare la sottodirectory in cui risiedono gli asset statici dell'app ( *{NOME ASSEMBLY}/dist/{PERCORSO RICHIESTO}* ).
-  * Creare routing di fallback SPA in modo che le richieste per gli asset non file vengano reindirizzate al documento predefinito dell'app nella relativa cartella degli asset statici ( *{NOME ASSEMBLY}/dist/index.html*).
+  * Specificare la sottodirectory in cui risiedono gli asset statici dell'app (*{NOME ASSEMBLY}/dist/{PERCORSO RICHIESTO}*).
+  * Creare routing di fallback SPA in modo che le richieste per gli asset non file vengano reindirizzate al documento predefinito dell'app nella relativa cartella degli asset statici (*{NOME ASSEMBLY}/dist/index.html*).
 
 #### <a name="install-the-url-rewrite-module"></a>Installare URL Rewrite Module
 
