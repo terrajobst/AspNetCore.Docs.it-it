@@ -5,14 +5,14 @@ description: Informazioni di base sulla creazione di un'API Web in ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 05/07/2019
+ms.date: 07/08/2019
 uid: web-api/index
-ms.openlocfilehash: 593fd33babc81cddfc4db2150a37e5ec3bc1a0be
-ms.sourcegitcommit: a3926eae3f687013027a2828830c12a89add701f
+ms.openlocfilehash: 4f9c334f74dd2a8b7c31c7a42703fa361ccf9139
+ms.sourcegitcommit: 91cc1f07ef178ab709ea42f8b3a10399c970496e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65450844"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67622792"
 ---
 # <a name="create-web-apis-with-aspnet-core"></a>Creare API Web con ASP.NET Core
 
@@ -28,7 +28,7 @@ Un'API Web include una o più classi controller che derivano da <xref:Microsoft.
 
 [!code-csharp[](index/samples/2.x/Controllers/ValuesController.cs?name=snippet_Signature&highlight=3)]
 
-Non creare un controller API Web tramite derivazione dalla classe di base <xref:Microsoft.AspNetCore.Mvc.Controller>. La classe `Controller` deriva da `ControllerBase` e aggiunge il supporto per le visualizzazioni, pertanto è progettata per la gestione delle pagine Web e non per le richieste di API Web.  Esiste un'eccezione a questa regola: quando si prevede di usare lo stesso controller sia per le API che per le visualizzazioni, derivarlo da `Controller`.
+Non creare un controller API Web tramite derivazione dalla classe <xref:Microsoft.AspNetCore.Mvc.Controller>. La classe `Controller` deriva da `ControllerBase` e aggiunge il supporto per le visualizzazioni, pertanto è progettata per la gestione delle pagine Web e non per le richieste di API Web.  Esiste un'eccezione a questa regola: quando si prevede di usare lo stesso controller sia per le API che per le visualizzazioni, derivarlo da `Controller`.
 
 La classe `ControllerBase` offre molti metodi e proprietà utili per la gestione delle richieste HTTP. Ad esempio, `ControllerBase.CreatedAtAction` restituisce un codice di stato 201:
 
