@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/07/2019
 uid: razor-pages/razor-pages-conventions
-ms.openlocfilehash: 4e07b5803adbce94982584212fa65afbfd427b64
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 59c8af648b50deb51f3762c14348d08acd48886e
+ms.sourcegitcommit: bee530454ae2b3c25dc7ffebf93536f479a14460
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64893508"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67724455"
 ---
 # <a name="razor-pages-route-and-app-conventions-in-aspnet-core"></a>Convenzioni di route e app per Razor Pages in ASP.NET Core
 
@@ -270,7 +270,7 @@ Richiedere la pagina di informazioni dell'esempio in `localhost:5000/About` ed e
 
 Viene usato il modello di app della pagina per verificare il percorso relativo per i segmenti che portano alla pagina Page2 nella cartella *OtherPages*. Se la condizione viene superata, viene aggiunta un'intestazione. In caso contrario, viene applicato `EmptyFilter`.
 
-`EmptyFilter` è un [filtro azione](xref:mvc/controllers/filters#action-filters). Poiché i filtri azione vengono ignorati da Razor Pages, `EmptyFilter` non esegue nessuna operazione come previsto se il percorso non contiene `OtherPages/Page2`.
+`EmptyFilter` è un [filtro azione](xref:mvc/controllers/filters#action-filters). Poiché i filtri azione vengono ignorati da Razor Pages, il `EmptyFilter` come previsto se non contiene il percorso non ha alcun effetto `OtherPages/Page2`.
 
 Richiedere la pagina Page2 dell'esempio in `localhost:5000/OtherPages/Page2` ed esaminare le intestazioni per visualizzare il risultato:
 
