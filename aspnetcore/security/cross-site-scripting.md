@@ -5,12 +5,12 @@ description: Informazioni su Cross-Site Scripting (XSS) e le tecniche per risolv
 ms.author: riande
 ms.date: 10/02/2018
 uid: security/cross-site-scripting
-ms.openlocfilehash: 50f0211a2c64708d9b788dd10ce9064e66014d55
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 1e9e988be68313cfd493832519c1be89335d6e48
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64895348"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815214"
 ---
 # <a name="prevent-cross-site-scripting-xss-in-aspnet-core"></a>Evitare il Cross-Site Scripting (XSS) in ASP.NET Core
 
@@ -214,7 +214,7 @@ In questo esempio può ampliarsi nel tipo nell'elenco per includere il CjkUnifie
 <p>This link text is in Chinese: <a href="/">汉语/漢語</a></p>
    ```
 
-Gli intervalli di elenco elementi attendibili vengono specificati come tabelle di codici Unicode, non i linguaggi. Il [standard Unicode](http://unicode.org/) contiene un elenco delle [codice grafici](http://www.unicode.org/charts/index.html) è possibile usare per trovare il grafico contenente i caratteri. Ogni codificatore, Html, JavaScript e Url, deve essere configurato separatamente.
+Gli intervalli di elenco elementi attendibili vengono specificati come tabelle di codici Unicode, non i linguaggi. Il [standard Unicode](https://unicode.org/) contiene un elenco delle [codice grafici](https://www.unicode.org/charts/index.html) è possibile usare per trovare il grafico contenente i caratteri. Ogni codificatore, Html, JavaScript e Url, deve essere configurato separatamente.
 
 > [!NOTE]
 > Personalizzazione dell'elenco elementi attendibili influisce solo sui codificatori originati tramite l'inserimento delle dipendenze. Se si accede direttamente a un codificatore tramite `System.Text.Encodings.Web.*Encoder.Default` quindi l'impostazione predefinita, latino di base verranno utilizzato solo dell'elenco indirizzi attendibili.

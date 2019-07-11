@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/05/2019
 uid: test/integration-tests
-ms.openlocfilehash: 3af2a1f7c6a65d7ff42597972ee151a50fc95fb6
-ms.sourcegitcommit: c716ea9155a6b404c1f3d3d34e2388454cd276d7
+ms.openlocfilehash: a4e22e53b4658a7c6da3c9e15671a355b212f559
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66716369"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815360"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Test di integrazione in ASP.NET Core
 
@@ -184,7 +184,7 @@ Il `SendAsync` metodi di estensione helper (*Helpers/HttpClientExtensions.cs*) e
   * Pulsante di invio (`IHtmlElement`) e i valori del modulo (`IEnumerable<KeyValuePair<string, string>>`)
 
 > [!NOTE]
-> [AngleSharp](https://anglesharp.github.io/) sono libreria usata a scopo dimostrativo in questo argomento e l'app di esempio di analisi terze parti. AngleSharp non è supportato o necessario per il test di integrazione delle App ASP.NET Core. Altro parser può essere utilizzato, ad esempio la [Html agilità Pack (HAP)](http://html-agility-pack.net/). Un altro approccio consiste nello scrivere codice per gestire direttamente i token di verifica della richiesta e il cookie antifalsificazione il sistema antifalsificazione.
+> [AngleSharp](https://anglesharp.github.io/) sono libreria usata a scopo dimostrativo in questo argomento e l'app di esempio di analisi terze parti. AngleSharp non è supportato o necessario per il test di integrazione delle App ASP.NET Core. Altro parser può essere utilizzato, ad esempio la [Html agilità Pack (HAP)](https://html-agility-pack.net/). Un altro approccio consiste nello scrivere codice per gestire direttamente i token di verifica della richiesta e il cookie antifalsificazione il sistema antifalsificazione.
 
 ## <a name="customize-the-client-with-withwebhostbuilder"></a>Personalizzare il client con WithWebHostBuilder
 
@@ -200,7 +200,7 @@ Perché un altro test nel `IndexPageTests` classe esegue un'operazione che elimi
 
 La tabella seguente mostra il valore predefinito [WebApplicationFactoryClientOptions](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions) disponibili durante la creazione di `HttpClient` istanze.
 
-| Opzione | Descrizione | Impostazione predefinita |
+| Opzione | Descrizione | Predefinito |
 | ------ | ----------- | ------- |
 | [AllowAutoRedirect](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.allowautoredirect) | Ottiene o imposta se `HttpClient` istanze devono seguire automaticamente le risposte di reindirizzamento. | `true` |
 | [BaseAddress](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.baseaddress) | Ottiene o imposta l'indirizzo di base di `HttpClient` istanze. | `http://localhost` |
@@ -361,7 +361,7 @@ Anche se l'app non usa il modello di repository e non è un esempio efficace del
 
 L'app di test è un'app console all'interno di *tests/RazorPagesProject.Tests* directory.
 
-| Directory di app di test | Descrizione |
+| Directory di app di test | DESCRIZIONE |
 | ------------------ | ----------- |
 | *BasicTests* | *BasicTests.cs* contiene metodi di test per il routing, l'accesso a una pagina protetta da un utente non autenticato e ottenere un profilo utente di GitHub e il controllo di accesso utente del profilo. |
 | *IntegrationTests* | *IndexPageTests.cs* contiene i test di integrazione per la pagina di indice usando custom `WebApplicationFactory` classe. |

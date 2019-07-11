@@ -5,12 +5,12 @@ description: Scopri i dettagli di implementazione delle intestazioni di contesto
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/implementation/context-headers
-ms.openlocfilehash: 2b8fd594672bf623d38bfae90d05a984f92ce6a3
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 518423f5df93924d3df144994e4beb1755cd0bfc
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087557"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67814019"
 ---
 # <a name="context-headers-in-aspnet-core"></a>Intestazioni di contesto in ASP.NET Core
 
@@ -48,7 +48,7 @@ L'intestazione del contesto include i componenti seguenti:
 
 In teoria, è possibile passare tutti zero vettori per K_E e K_H. Tuttavia, si vuole evitare la situazione in cui l'algoritmo sottostante verifica l'esistenza delle chiavi vulnerabili prima di eseguire qualsiasi operazione (in particolare DES e 3DES), che impedisce l'uso di un modello semplice o ripetibile, ad esempio un vettore tutti zero.
 
-Invece, utilizziamo il KDF SP800 108 NIST in modalità contatore (vedere [NIST SP800-108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), 5.1 sec.) con una chiave a lunghezza zero, l'etichetta e contesto e HMACSHA512 come il PRF sottostante. Si dedurrà | K_E | + | K_H | byte di output, quindi scomporre il risultato in K_E e K_H autonomamente. Matematica, ciò è rappresentato come indicato di seguito.
+Invece, utilizziamo il KDF SP800 108 NIST in modalità contatore (vedere [NIST SP800-108](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), 5.1 sec.) con una chiave a lunghezza zero, l'etichetta e contesto e HMACSHA512 come il PRF sottostante. Si dedurrà | K_E | + | K_H | byte di output, quindi scomporre il risultato in K_E e K_H autonomamente. Matematica, ciò è rappresentato come indicato di seguito.
 
 ( K_E || K_H ) = SP800_108_CTR(prf = HMACSHA512, key = "", label = "", context = "")
 

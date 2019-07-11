@@ -17,6 +17,6 @@ Quando la richiesta include il `Accept-Encoding` intestazione, l'esempio aggiung
 
 ## <a name="using-the-sample"></a>Utilizzo dell'esempio
 
-1. Effettuare una richiesta usando [Fiddler](http://www.telerik.com/fiddler), [Firebug](http://getfirebug.com/), o [Postman](https://www.getpostman.com/) all'applicazione senza un `Accept-Encoding` intestazione e annotare il payload di risposta, le dimensioni di risposta, e intestazioni della risposta.
+1. Effettuare una richiesta usando [Fiddler](https://www.telerik.com/fiddler), [Firebug](https://getfirebug.com/), o [Postman](https://www.getpostman.com/) all'applicazione senza un `Accept-Encoding` intestazione e annotare il payload di risposta, le dimensioni di risposta, e intestazioni della risposta.
 1. Aggiungere un `Accept-Encoding: gzip` intestazione e tenere presenti le dimensioni delle risposte compresso e le intestazioni di risposta. Noterete che la dimensione della risposta, eliminare e `Content-Encoding: gzip` è inclusa un'intestazione di risposta per l'app di esempio. Quando si esamina il corpo della risposta per il Lorem Ipsum oppure **testfile1kb.txt** risposta, si noterà che il testo è leggibile e non compressi.
 1. Aggiungere un `Accept-Encoding: mycustomcompression` intestazione e annotare le intestazioni della risposta. Il `CustomCompressionProvider` è un'implementazione vuota che in realtà non comprime la risposta, ma è possibile creare un wrapper di flusso di compressione personalizzato per il `CreateStream()` (metodo).

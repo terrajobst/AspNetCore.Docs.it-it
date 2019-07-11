@@ -6,12 +6,12 @@ ms.author: casoper
 ms.date: 09/21/2018
 ms.custom: mvc, seodec18
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: 0eb8b533f44a1f72cfc3c4ec5ec060adb37eed6c
-ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
+ms.openlocfilehash: c917a5130857165716bd801ac19dad0f53a7d214
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610362"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815372"
 ---
 # <a name="authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Autenticazione nell'API web con Azure Active Directory B2C in ASP.NET Core
 
@@ -46,11 +46,11 @@ Creare un tenant di Azure AD B2C [come descritto nella documentazione di](/azure
 
 ## <a name="configure-a-sign-up-or-sign-in-policy"></a>Configurare un criterio di iscrizione o accesso
 
-Usare i passaggi descritti nella documentazione di Azure AD B2C per [creare un criterio di iscrizione o accesso](/azure/active-directory-b2c/active-directory-b2c-reference-policies#create-a-sign-up-or-sign-in-policy). Denomina il criterio **SiUpIn**.  Usare i valori di esempio forniti nella documentazione relativa a **provider di identità**, **attributi di iscrizione**, e **attestazioni dell'applicazione**. Usando il **Esegui adesso** pulsante per testare il criterio, come descritto nella documentazione è facoltativo.
+Usare i passaggi descritti nella documentazione di Azure AD B2C per [creare un criterio di iscrizione o accesso](/azure/active-directory-b2c/active-directory-b2c-reference-policies#user-flow-versions). Denomina il criterio **SiUpIn**.  Usare i valori di esempio forniti nella documentazione relativa a **provider di identità**, **attributi di iscrizione**, e **attestazioni dell'applicazione**. Usando il **Esegui adesso** pulsante per testare il criterio, come descritto nella documentazione è facoltativo.
 
 ## <a name="register-the-api-in-azure-ad-b2c"></a>Registrare l'API in Azure AD B2C
 
-Nel tenant di Azure AD B2C appena creato, registrare l'API usando [i passaggi nella documentazione sullo](/azure/active-directory-b2c/active-directory-b2c-app-registration#register-a-web-api) sotto il **registrare un'API web** sezione.
+Nel tenant di Azure AD B2C appena creato, registrare l'API usando [i passaggi nella documentazione sullo](/azure/active-directory-b2c/tutorial-register-applications#register-a-web-application) sotto il **registrare un'API web** sezione.
 
 Usare i valori seguenti:
 
@@ -106,7 +106,7 @@ In Visual Studio, eseguire l'API. Visual Studio avvia un browser che puntano all
 
 ### <a name="register-postman-as-a-web-app"></a>Registrare Postman come un'app web
 
-Poiché Postman Simula un'app web che consente di ottenere i token dal tenant Azure AD B2C, deve essere registrato nel tenant come app web. Registrare usando Postman [i passaggi nella documentazione sullo](/azure/active-directory-b2c/active-directory-b2c-app-registration#register-a-web-app) sotto il **registrare un'app web** sezione. Termina la **creare un segreto client dell'app web** sezione. Un segreto client non è necessario per questa esercitazione. 
+Poiché Postman Simula un'app web che consente di ottenere i token dal tenant Azure AD B2C, deve essere registrato nel tenant come app web. Registrare usando Postman [i passaggi nella documentazione sullo](/azure/active-directory-b2c/tutorial-register-applications#register-a-web-application) sotto il **registrare un'app web** sezione. Termina la **creare un segreto client dell'app web** sezione. Un segreto client non è necessario per questa esercitazione. 
 
 Usare i valori seguenti:
 

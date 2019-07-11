@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 06/17/2019
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: c3ec67d9f5c2b8eb44b5ced911ccfd0fa40a52a7
-ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
+ms.openlocfilehash: 6254a74fd0a11669706a2a89b156a3223e300d1c
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152773"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67813503"
 ---
 # <a name="bundle-and-minify-static-assets-in-aspnet-core"></a>Aggregare e minimizzare asset statici in ASP.NET Core
 
@@ -53,7 +53,7 @@ Originale | Ridenominazione
 
 La tabella seguente descrive le differenze tra il caricamento di asset e utilizzo di creazione di bundle e minimizzazione singolarmente:
 
-Operazione | Con B/M | Senza B/M | Modifica
+Azione | Con B/M | Senza B/M | Modifica
 --- | :---: | :---: | :---:
 Richieste di file  | 7   | 18     | 157%
 KB trasferiti | 156 | 264.68 | 70%
@@ -86,7 +86,7 @@ Il *bundleconfig.json* file definisce le opzioni per ogni aggregazione. Nell'ese
 Opzioni di configurazione includono:
 
 * `outputFileName`: Il nome del file di bundle per l'output. Può contenere un percorso relativo di *bundleconfig.json* file. **required**
-* `inputFiles`: Matrice di file da raccogliere. Questi sono i percorsi relativi nel file di configurazione. **facoltativo**, * restituisce un valore vuoto in un file di output vuoto. [glob](http://www.tldp.org/LDP/abs/html/globbingref.html) sono supportati i modelli.
+* `inputFiles`: Matrice di file da raccogliere. Questi sono i percorsi relativi nel file di configurazione. **facoltativo**, * restituisce un valore vuoto in un file di output vuoto. [glob](https://www.tldp.org/LDP/abs/html/globbingref.html) sono supportati i modelli.
 * `minify`: Le opzioni di minimizzazione per il tipo di output. **optional**, *default - `minify: { enabled: true }`*
   * Opzioni di configurazione sono disponibili per ogni tipo di file di output.
     * [CSS Minifier](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/13/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: 78c63cf135ca92f0b5f6c6828b2ae34a44a7b36c
-ms.sourcegitcommit: 3ee6ee0051c3d2c8d47a58cb17eef1a84a4c46a0
+ms.openlocfilehash: be176ed612be0773c4a5b52607c023da3856ac14
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65621006"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815321"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Azure Key Vault Configuration Provider in ASP.NET Core
 
@@ -34,7 +34,7 @@ Per usare Azure Key Vault Configuration Provider, aggiungere un riferimento al p
 Adottare il [gestite le identità per le risorse di Azure](/azure/active-directory/managed-identities-azure-resources/overview) scenario, aggiungere un riferimento al pacchetto le [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) pacchetto.
 
 > [!NOTE]
-> Al momento della scrittura, la versione stabile più recente di `Microsoft.Azure.Services.AppAuthentication`, versione `1.0.3`, fornisce il supporto per [assegnato dal sistema gestito identità](/azure/active-directory/managed-identities-azure-resources/overview#how-does-the-managed-identities-for-azure-resources-worka-namehow-does-it-worka). Supporto per *assegnata dall'utente gestite delle identità* è disponibile nel `1.2.0-preview2` pacchetto. In questo argomento viene illustrato l'utilizzo delle identità gestite dal sistema e l'app di esempio fornito utilizza la versione `1.0.3` del `Microsoft.Azure.Services.AppAuthentication` pacchetto.
+> Al momento della scrittura, la versione stabile più recente di `Microsoft.Azure.Services.AppAuthentication`, versione `1.0.3`, fornisce il supporto per [assegnato dal sistema gestito identità](/azure/active-directory/managed-identities-azure-resources/overview#how-does-the-managed-identities-for-azure-resources-work). Supporto per *assegnata dall'utente gestite delle identità* è disponibile nel `1.2.0-preview2` pacchetto. In questo argomento viene illustrato l'utilizzo delle identità gestite dal sistema e l'app di esempio fornito utilizza la versione `1.0.3` del `Microsoft.Azure.Services.AppAuthentication` pacchetto.
 
 ## <a name="sample-app"></a>App di esempio
 
@@ -135,7 +135,7 @@ L'app di esempio Usa un ID applicazione e certificati X.509 quando le `#define` 
 1. Selezionare **Aggiungi nuovo**.
 1. Selezionare **selezionare un'entità** e selezionare l'app registrata in base al nome. Selezionare il **seleziona** pulsante.
 1. Aprire **autorizzazioni segrete** e l'App disponga **ottenere** e **elenco** autorizzazioni.
-1. Scegliere **OK**.
+1. Selezionare **OK**.
 1. Selezionare **Salva**.
 1. Distribuire l'app.
 
@@ -308,7 +308,7 @@ Configuration.Reload();
 
 I segreti scaduti e disabilitati generano un `KeyVaultClientException`. Per evitare che l'app generi, sostituire l'app o aggiornare il segreto disabilitato o scaduto.
 
-## <a name="troubleshoot"></a>Risolvere i problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 L'app non riesce a caricare la configurazione utilizzando il provider, viene scritto un messaggio di errore per il [registrazione di ASP.NET Core infrastructure](xref:fundamentals/logging/index). Configurazione del caricamento impedire che le condizioni seguenti:
 

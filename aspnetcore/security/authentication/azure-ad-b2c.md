@@ -6,12 +6,12 @@ ms.author: casoper
 ms.custom: mvc
 ms.date: 02/27/2019
 uid: security/authentication/azure-ad-b2c
-ms.openlocfilehash: 3cb878aff7bf0c6c8efe7f3f0c0f06c74acef477
-ms.sourcegitcommit: 0b9e767a09beaaaa4301915cdda9ef69daaf3ff2
+ms.openlocfilehash: 54117bf0dd45305d060eef5fecfb98ed45f8ecdb
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538737"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815296"
 ---
 # <a name="cloud-authentication-with-azure-active-directory-b2c-in-aspnet-core"></a>Autenticazione cloud con Azure Active Directory B2C in ASP.NET Core
 
@@ -43,13 +43,13 @@ Creare un tenant di Azure Active Directory B2C [come descritto nella documentazi
 
 ## <a name="register-the-app-in-azure-ad-b2c"></a>Registrare l'app in Azure AD B2C
 
-Nel tenant di Azure AD B2C appena creato, registrare l'app usando [i passaggi nella documentazione sullo](/azure/active-directory-b2c/active-directory-b2c-app-registration#register-a-web-app) sotto il **registrare un'app web** sezione. Termina la **creare un segreto client dell'app web** sezione. Un segreto client non è necessario per questa esercitazione. 
+Nel tenant di Azure AD B2C appena creato, registrare l'app usando [i passaggi nella documentazione sullo](/azure/active-directory-b2c/tutorial-register-applications#register-a-web-application) sotto il **registrare un'app web** sezione. Termina la **creare un segreto client dell'app web** sezione. Un segreto client non è necessario per questa esercitazione. 
 
 Usare i valori seguenti:
 
 | Impostazione                       | Value                     | Note                                                                                                                                                                                              |
 |-------------------------------|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Name**                      | *&lt;Nome dell'App&gt;*        | Immettere un **nome** per le app che descrive l'app agli utenti.                                                                                                                                 |
+| **Nome**                      | *&lt;Nome dell'App&gt;*        | Immettere un **nome** per le app che descrive l'app agli utenti.                                                                                                                                 |
 | **Includi app web / API web** | Yes                       |                                                                                                                                                                                                    |
 | **Consenti flusso implicito**       | Yes                       |                                                                                                                                                                                                    |
 | **URL di risposta**                 | `https://localhost:44300/signin-oidc` | Gli URL di risposta sono gli endpoint in cui Azure AD B2C restituisce eventuali token richiesti dall'app. Visual Studio fornisce l'URL di risposta da utilizzare. Per ora immettere `https://localhost:44300/signin-oidc` per completare il modulo. |
@@ -57,7 +57,7 @@ Usare i valori seguenti:
 | **Includi client nativo**     | No                        |                                                                                                                                                                                                    |
 
 > [!WARNING]
-> Se l'impostazione di un URL di risposta diversi da localhost, tenere presenti le [vincoli su ciò che è consentito nell'elenco URL di risposta](/azure/active-directory-b2c/active-directory-b2c-app-registration#choosing-a-web-app-or-api-reply-url). 
+> Se l'impostazione di un URL di risposta diversi da localhost, tenere presenti le [vincoli su ciò che è consentito nell'elenco URL di risposta](/azure/active-directory-b2c/tutorial-register-applications#register-a-web-application). 
 
 Dopo aver registrato l'app, viene visualizzato l'elenco di App nel tenant. Selezionare l'app che è stato appena registrato. Selezionare il **copia** a destra dell'icona le **ID applicazione** campo per copiarlo negli Appunti.
 
@@ -101,7 +101,7 @@ Tornare alla finestra del browser con le proprietà dell'app B2C ancora aperta. 
 
 ## <a name="configure-policies"></a>Configurare i criteri
 
-Usare i passaggi descritti nella documentazione di Azure AD B2C per [creare un criterio di iscrizione o accesso](/azure/active-directory-b2c/active-directory-b2c-reference-policies#create-a-sign-up-or-sign-in-policy)e quindi [creare un criterio di reimpostazione della password](/azure/active-directory-b2c/active-directory-b2c-reference-policies#create-a-password-reset-policy). Usare i valori di esempio forniti nella documentazione relativa a **provider di identità**, **attributi di iscrizione**, e **attestazioni dell'applicazione**. Usando il **Esegui adesso** pulsante per testare i criteri, come descritto nella documentazione è facoltativo.
+Usare i passaggi descritti nella documentazione di Azure AD B2C per [creare un criterio di iscrizione o accesso](/azure/active-directory-b2c/active-directory-b2c-reference-policies#user-flow-versions)e quindi [creare un criterio di reimpostazione della password](/azure/active-directory-b2c/active-directory-b2c-reference-policies#user-flow-versions). Usare i valori di esempio forniti nella documentazione relativa a **provider di identità**, **attributi di iscrizione**, e **attestazioni dell'applicazione**. Usando il **Esegui adesso** pulsante per testare i criteri, come descritto nella documentazione è facoltativo.
 
 > [!WARNING]
 > Verificare che i nomi dei criteri sono esattamente come descritto nella documentazione, come tali criteri sono stati usati durante la **Modifica autenticazione** finestra di dialogo in Visual Studio. I nomi dei criteri può essere verificati nel *appSettings. JSON*.

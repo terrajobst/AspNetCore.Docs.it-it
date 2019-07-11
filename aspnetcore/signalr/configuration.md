@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 06/03/2019
 uid: signalr/configuration
-ms.openlocfilehash: 662565e537fa0eb13ed80e558949740739a63558
-ms.sourcegitcommit: eb3e51d58dd713eefc242148f45bd9486be3a78a
+ms.openlocfilehash: 8c9fcaecb04555718f5da6a42a8e56c258e795af
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67500381"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67813444"
 ---
 # <a name="aspnet-core-signalr-configuration"></a>Configurazione di ASP.NET Core SignalR
 
@@ -63,7 +63,7 @@ La tabella seguente descrive le opzioni per la configurazione degli hub SignalR:
 
 ::: moniker range=">= aspnetcore-3.0"
 
-| Opzione | Valore predefinito | Descrizione |
+| Opzione | Default Value | Descrizione |
 | ------ | ------------- | ----------- |
 | `ClientTimeoutInterval` | 30 secondi | Il server considererà il client disconnesso se non è stato ricevuto un messaggio (incluso keep-alive) in questo intervallo. Potrebbero richiedere più tempo rispetto a questo intervallo di timeout per il client deve essere contrassegnato effettivamente disconnessi, a causa di questa modalità di implementazione. Il valore consigliato è double il `KeepAliveInterval` valore.|
 | `HandshakeTimeout` | 15 secondi | Se il client non invia un messaggio di handshake iniziale all'interno di questo intervallo di tempo, la connessione viene chiusa. Si tratta di un'impostazione avanzata che deve essere modificata solo se si verificano a causa della latenza di rete gravi errori di timeout di handshake. Per informazioni dettagliate sul processo di handshake, vedere la [specifica del protocollo dell'Hub SignalR](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md). |
@@ -76,7 +76,7 @@ La tabella seguente descrive le opzioni per la configurazione degli hub SignalR:
 
 ::: moniker range="= aspnetcore-2.2"
 
-| Opzione | Valore predefinito | Descrizione |
+| Opzione | Default Value | Descrizione |
 | ------ | ------------- | ----------- |
 | `ClientTimeoutInterval` | 30 secondi | Il server considererà il client disconnesso se non è stato ricevuto un messaggio (incluso keep-alive) in questo intervallo. Potrebbero richiedere più tempo rispetto a questo intervallo di timeout per il client deve essere contrassegnato effettivamente disconnessi, a causa di questa modalità di implementazione. Il valore consigliato è double il `KeepAliveInterval` valore.|
 | `HandshakeTimeout` | 15 secondi | Se il client non invia un messaggio di handshake iniziale all'interno di questo intervallo di tempo, la connessione viene chiusa. Si tratta di un'impostazione avanzata che deve essere modificata solo se si verificano a causa della latenza di rete gravi errori di timeout di handshake. Per informazioni dettagliate sul processo di handshake, vedere la [specifica del protocollo dell'Hub SignalR](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md). |
@@ -88,7 +88,7 @@ La tabella seguente descrive le opzioni per la configurazione degli hub SignalR:
 
 ::: moniker range="= aspnetcore-2.1"
 
-| Opzione | Valore predefinito | Descrizione |
+| Opzione | Default Value | DESCRIZIONE |
 | ------ | ------------- | ----------- |
 | `HandshakeTimeout` | 15 secondi | Se il client non invia un messaggio di handshake iniziale all'interno di questo intervallo di tempo, la connessione viene chiusa. Si tratta di un'impostazione avanzata che deve essere modificata solo se si verificano a causa della latenza di rete gravi errori di timeout di handshake. Per informazioni dettagliate sul processo di handshake, vedere la [specifica del protocollo dell'Hub SignalR](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md). |
 | `KeepAliveInterval` | 15 secondi | Se il server non ha inviato un messaggio all'interno di questo intervallo, un messaggio ping viene inviato automaticamente a mantenere aperta la connessione. Quando si modificano `KeepAliveInterval`, modificare il `ServerTimeout` / `serverTimeoutInMilliseconds` impostazione sul client. L'elemento consigliato `ServerTimeout` / `serverTimeoutInMilliseconds` valore è double il `KeepAliveInterval` valore.  |
@@ -142,7 +142,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 La tabella seguente descrive le opzioni per la configurazione delle opzioni di HTTP avanzate del ASP.NET Core SignalR:
 
-| Opzione | Valore predefinito | Descrizione |
+| Opzione | Default Value | DESCRIZIONE |
 | ------ | ------------- | ----------- |
 | `ApplicationMaxBufferSize` | 32 KB | Il numero massimo di byte ricevuti dal client che il buffer del server. Se si aumenta questo valore consente al server ricevere messaggi di grandi dimensioni, ma può influire negativamente sul consumo di memoria. |
 | `AuthorizationData` | Dati raccolti automaticamente dal `Authorize` gli attributi applicati alla classe dell'Hub. | Un elenco delle [IAuthorizeData](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizedata) oggetti utilizzati per determinare se un client è autorizzato a connettersi all'hub. |
@@ -153,13 +153,13 @@ La tabella seguente descrive le opzioni per la configurazione delle opzioni di H
 
 Il trasporto di Polling lungo è presenti opzioni aggiuntive che possono essere configurate usando il `LongPolling` proprietà:
 
-| Opzione | Valore predefinito | Descrizione |
+| Opzione | Default Value | Descrizione |
 | ------ | ------------- | ----------- |
 | `PollTimeout` | 90 secondi | La quantità massima di tempo il server attende un messaggio da inviare al client prima di terminare una richiesta di poll singolo. Riduzione di questo valore fa sì che il client inviare nuove richieste di polling più frequente. |
 
 Il trasporto WebSocket è presenti opzioni aggiuntive che possono essere configurate usando il `WebSockets` proprietà:
 
-| Opzione | Valore predefinito | Descrizione |
+| Opzione | Default Value | Descrizione |
 | ------ | ------------- | ----------- |
 | `CloseTimeout` | 5 secondi | Dopo aver chiuso il server, se il client non riesce a chiudere entro questo intervallo di tempo, la connessione viene terminata. |
 | `SubProtocolSelector` | `null` | Un delegato che può essere utilizzato per impostare il `Sec-WebSocket-Protocol` intestazione su un valore personalizzato. Il delegato riceve i valori richiesti dal client come input e deve restituire il valore desiderato. |
@@ -313,7 +313,7 @@ let connection = new signalR.HubConnectionBuilder()
     .build();
 ```
 
-Nel client Java di SignalR, è possibile configurare un token di connessione da utilizzare per l'autenticazione, fornendo una factory di token di accesso per il [HttpHubConnectionBuilder](/java/api/com.microsoft.signalr._http_hub_connection_builder?view=aspnet-signalr-java). Uso [withAccessTokenFactory](/java/api/com.microsoft.signalr._http_hub_connection_builder.withaccesstokenprovider?view=aspnet-signalr-java#com_microsoft_signalr__http_hub_connection_builder_withAccessTokenProvider_Single_String__) per fornire un' [RxJava](https://github.com/ReactiveX/RxJava) [singolo\<String >](http://reactivex.io/documentation/single.html). Con una chiamata a [Single.defer](http://reactivex.io/RxJava/javadoc/io/reactivex/Single.html#defer-java.util.concurrent.Callable-), è possibile scrivere la logica per produrre i token di accesso per il client.
+Nel client Java di SignalR, è possibile configurare un token di connessione da utilizzare per l'autenticazione, fornendo una factory di token di accesso per il [HttpHubConnectionBuilder](/java/api/com.microsoft.signalr._http_hub_connection_builder?view=aspnet-signalr-java). Uso [withAccessTokenFactory](/java/api/com.microsoft.signalr._http_hub_connection_builder.withaccesstokenprovider?view=aspnet-signalr-java#com_microsoft_signalr__http_hub_connection_builder_withAccessTokenProvider_Single_String__) per fornire un' [RxJava](https://github.com/ReactiveX/RxJava) [singolo\<String >](https://reactivex.io/documentation/single.html). Con una chiamata a [Single.defer](https://reactivex.io/RxJava/javadoc/io/reactivex/Single.html#defer-java.util.concurrent.Callable-), è possibile scrivere la logica per produrre i token di accesso per il client.
 
 ```java
 HubConnection hubConnection = HubConnectionBuilder.create("https://example.com/myhub")
@@ -338,13 +338,13 @@ Nel Client .NET, i valori di timeout vengono specificati come `TimeSpan` valori.
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-| Opzione | Valore predefinito | Descrizione |
+| Opzione | Valore predefinito | DESCRIZIONE |
 | ------ | ------------- | ----------- |
 | `serverTimeoutInMilliseconds` | 30 secondi (30.000 millisecondi) | Timeout per l'attività del server. Se il server non ha inviato un messaggio in questo intervallo, il client considera i server disconnesso e i trigger di `onclose` evento. Questo valore deve essere sufficientemente grande essere inviati dal server di un messaggio ping **e** ricevuti dal client entro l'intervallo di timeout. Il valore consigliato è un numero almeno il doppio server `KeepAliveInterval` valore, per consentire tempo perché ping in arrivo. |
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-| Opzione | Valore predefinito | Descrizione |
+| Opzione | Valore predefinito | DESCRIZIONE |
 | ----------- | ------------- | ----------- |
 |`getServerTimeout` `setServerTimeout` | 30 secondi (30.000 millisecondi) | Timeout per l'attività del server. Se il server non ha inviato un messaggio in questo intervallo, il client considera i server disconnesso e i trigger di `onClose` evento. Questo valore deve essere sufficientemente grande essere inviati dal server di un messaggio ping **e** ricevuti dal client entro l'intervallo di timeout. Il valore consigliato è un numero almeno il doppio server `KeepAliveInterval` valore, per consentire tempo perché ping in arrivo. |
 | `withHandshakeResponseTimeout` | 15 secondi | Timeout per l'handshake iniziale del server. Se il server non invia una risposta di handshake in questo intervallo, il client viene annullata l'handshake e trigger di `onClose` evento. Si tratta di un'impostazione avanzata che deve essere modificata solo se si verificano a causa della latenza di rete gravi errori di timeout di handshake. Per informazioni dettagliate sul processo di Handshake, vedere la [specifica del protocollo dell'Hub SignalR](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md). |
@@ -373,14 +373,14 @@ Opzioni aggiuntive possono essere configurate nel `WithUrl` (`withUrl` in JavaSc
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-| Opzione di JavaScript | Valore predefinito | Descrizione |
+| Opzione di JavaScript | Default Value | DESCRIZIONE |
 | ----------------- | ------------- | ----------- |
 | `accessTokenFactory` | `null` | Una funzione che restituisce una stringa che viene fornita come un token di autenticazione nelle richieste HTTP. |
 | `skipNegotiation` | `false` | Impostare questa proprietà su `true` per ignorare la fase di negoziazione. **Supportato solo quando il trasporto abilitato solo il trasporto WebSocket**. Questa impostazione non può essere abilitata quando si usa il servizio Azure SignalR. |
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-| Opzione Java | Valore predefinito | Descrizione |
+| Opzione Java | Default Value | Descrizione |
 | ----------- | ------------- | ----------- |
 | `withAccessTokenProvider` | `null` | Una funzione che restituisce una stringa che viene fornita come un token di autenticazione nelle richieste HTTP. |
 | `shouldSkipNegotiate` | `false` | Impostare questa proprietà su `true` per ignorare la fase di negoziazione. **Supportato solo quando il trasporto abilitato solo il trasporto WebSocket**. Questa impostazione non può essere abilitata quando si usa il servizio Azure SignalR. |

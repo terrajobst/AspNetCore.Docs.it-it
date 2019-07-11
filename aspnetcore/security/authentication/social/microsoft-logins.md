@@ -4,14 +4,14 @@ author: rick-anderson
 description: Questo esempio illustra l'integrazione dell'autenticazione di Microsoft account utente in un'app ASP.NET Core esistente.
 ms.author: riande
 ms.custom: mvc
-ms.date: 5/11/2019
+ms.date: 05/11/2019
 uid: security/authentication/microsoft-logins
-ms.openlocfilehash: 16ec2d5f2bccc59958b884869ef42af9cfa13df0
-ms.sourcegitcommit: 06a455d63ff7d6b571ca832e8117f4ac9d646baf
+ms.openlocfilehash: 2c690e5bd8465806d42091616917cfdd747ef8f0
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67316595"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815566"
 ---
 # <a name="microsoft-account-external-login-setup-with-aspnet-core"></a>Configurazione accesso esterno dell'Account Microsoft con ASP.NET Core
 
@@ -79,7 +79,7 @@ A questo punto si è connessi con le credenziali di Microsoft:
 
 [!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 * Se il provider dell'Account di Microsoft si viene reindirizzati a una pagina di errore di accesso, si noti l'errore title e description parametri stringa di query che seguono direttamente il `#` (hashtag) nell'Uri.
 

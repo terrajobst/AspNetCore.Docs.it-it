@@ -5,12 +5,12 @@ description: Scopri i dettagli di implementazione della protezione dei dati di A
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/implementation/subkeyderivation
-ms.openlocfilehash: 37e7b01700e8a6b755b5ed16a9d7d75a9eeb970e
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: bbfde378755b09cd5b1217b8cf66249b9fa1d6ad
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64891838"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67814379"
 ---
 # <a name="subkey-derivation-and-authenticated-encryption-in-aspnet-core"></a>Derivazione di sottochiavi e crittografia autenticata in ASP.NET Core
 
@@ -37,7 +37,7 @@ Poiché Azure ad è univoco per la tupla di tre componenti, è possibile usarlo 
 
 ( K_E, K_H ) = SP800_108_CTR_HMACSHA512(K_M, AAD, contextHeader || keyModifier)
 
-In questo caso, stiamo chiamando il KDF SP800 108 NIST in modalità contatore (vedere [NIST SP800-108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), 5.1 sec.) con i parametri seguenti:
+In questo caso, stiamo chiamando il KDF SP800 108 NIST in modalità contatore (vedere [NIST SP800-108](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), 5.1 sec.) con i parametri seguenti:
 
 * Chiave di derivazione della chiave (KDK) = K_M
 

@@ -5,12 +5,12 @@ description: Usare Grunt in ASP.NET Core
 ms.author: riande
 ms.date: 06/18/2019
 uid: client-side/using-grunt
-ms.openlocfilehash: 851ce3b50e88fee597518aef23276800f4b50f06
-ms.sourcegitcommit: a1283d486ac1dcedfc7ea302e1cc882833e2c515
+ms.openlocfilehash: f3832bd1fe5721fbda114103ac11a8d55312bcb2
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67207747"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67813555"
 ---
 # <a name="use-grunt-in-aspnet-core"></a>Usare Grunt in ASP.NET Core
 
@@ -94,7 +94,7 @@ A questo punto, configurare NPM per scaricare grunt e attività di grunt.
     ![grunt Intellisense](using-grunt/_static/devdependencies-grunt.png)
 
     > [!NOTE]
-    > NPM Usa [versionamento semantico](http://semver.org/) per organizzare le dipendenze. Versionamento semantico, noto anche come SemVer, identifica i pacchetti con lo schema di numerazione \<principale >.\< secondaria >. \<patch >. IntelliSense semplifica versionamento semantico mostrando solo alcune opzioni comuni. Il primo elemento nell'elenco di Intellisense (0.4.5 nell'esempio precedente) viene considerato la versione stabile più recente del pacchetto. Il simbolo di accento circonflesso (^) corrisponde alla versione principale più recente e la tilde (~) corrisponde alla versione secondaria più recente. Vedere le [riferimenti ai parser versione di NPM semver](https://www.npmjs.com/package/semver) come guida per l'espressività completa che fornisce SemVer.
+    > NPM Usa [versionamento semantico](https://semver.org/) per organizzare le dipendenze. Versionamento semantico, noto anche come SemVer, identifica i pacchetti con lo schema di numerazione \<principale >.\< secondaria >. \<patch >. IntelliSense semplifica versionamento semantico mostrando solo alcune opzioni comuni. Il primo elemento nell'elenco di Intellisense (0.4.5 nell'esempio precedente) viene considerato la versione stabile più recente del pacchetto. Il simbolo di accento circonflesso (^) corrisponde alla versione principale più recente e la tilde (~) corrisponde alla versione secondaria più recente. Vedere le [riferimenti ai parser versione di NPM semver](https://www.npmjs.com/package/semver) come guida per l'espressività completa che fornisce SemVer.
 
 3. Aggiungere altre dipendenze per caricare grunt-contrib -\* pacchetti relativi *pulita*, *jshint*, *concat*, *uglify*e *watch* come illustrato nell'esempio seguente. Le versioni non necessario in base all'esempio.
 

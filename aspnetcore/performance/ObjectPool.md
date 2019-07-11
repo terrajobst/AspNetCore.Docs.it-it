@@ -4,14 +4,14 @@ author: rick-anderson
 description: Suggerimenti per migliorare le prestazioni delle App ASP.NET Core con l'avvio.
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
-ms.date: 4/11/2019
+ms.date: 04/11/2019
 uid: performance/ObjectPool
-ms.openlocfilehash: 92106d5add7dbda36e451614429baa0db420f0e8
-ms.sourcegitcommit: bee530454ae2b3c25dc7ffebf93536f479a14460
+ms.openlocfilehash: 771f19e54a908b8b2cd85ff72f368f16e94a2310
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67724835"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815516"
 ---
 # <a name="object-reuse-with-objectpool-in-aspnet-core"></a>Riutilizzo di oggetti con avvio in ASP.NET Core
 
@@ -42,7 +42,7 @@ Usare il pooling degli oggetti solo dopo aver raccolto i dati sulle prestazioni 
 
 <xref:Microsoft.Extensions.ObjectPool.ObjectPool`1> -l'astrazione di pool di oggetti di base. Utilizzato per ottenere e restituire oggetti.
 
-<xref:Microsoft.Extensions.ObjectPool.PooledObjectPolicy%601> -implementare questo metodo per personalizzare la modalità di creazione di un oggetto e sulla sua *reimpostare* quando restituite al pool. Questo può essere passato in un pool di oggetti che si costruisce direttamente... OR
+<xref:Microsoft.Extensions.ObjectPool.PooledObjectPolicy%601> -implementare questo metodo per personalizzare la modalità di creazione di un oggetto e sulla sua *reimpostare* quando restituite al pool. Questo può essere passato in un pool di oggetti che si costruisce direttamente... Oppure
 
 <xref:Microsoft.Extensions.ObjectPool.ObjectPoolProvider.Create*> si comporta come una factory per la creazione di pool di oggetti.
 <!-- REview, there is no ObjectPoolProvider<T> -->

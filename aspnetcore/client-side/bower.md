@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 08/09/2018
 uid: client-side/bower
-ms.openlocfilehash: 08e6daa537c6c6f92a1cf80d70745e8ef606f580
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 1292b75bdfe1cea56d9c8bc282b0dd90fc945a33
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64892998"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67813526"
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>Gestire i pacchetti lato client con Bower in ASP.NET Core
 
@@ -22,9 +22,9 @@ Dal [Rick Anderson](https://twitter.com/RickAndMSFT), [Noel riso](https://twitte
 >
 > Yarn con Webpack è una diffusa alternativa per il quale [istruzioni relative alla migrazione](https://bower.io/blog/2017/how-to-migrate-away-from-bower/) sono disponibili.
 
-[Bower](https://bower.io/) chiama se stessa "Gestione pacchetti per il web". All'interno dell'ecosistema .NET, riempie il vuoto a sinistra di impossibilità di NuGet per recapitare i file di contenuto statici. Per i progetti ASP.NET Core, sono inerenti alle librerie lato client, ad esempio i file statici [jQuery](http://jquery.com/) e [Bootstrap](http://getbootstrap.com/). Per le librerie .NET, è comunque usare [NuGet](https://www.nuget.org/) Gestione pacchetti.
+[Bower](https://bower.io/) chiama se stessa "Gestione pacchetti per il web". All'interno dell'ecosistema .NET, riempie il vuoto a sinistra di impossibilità di NuGet per recapitare i file di contenuto statici. Per i progetti ASP.NET Core, sono inerenti alle librerie lato client, ad esempio i file statici [jQuery](https://jquery.com/) e [Bootstrap](https://getbootstrap.com/). Per le librerie .NET, è comunque usare [NuGet](https://www.nuget.org/) Gestione pacchetti.
 
-Processo di compilazione di nuovi progetti creati con i modelli di progetto ASP.NET Core configurare lato client. [jQuery](http://jquery.com/) e [Bootstrap](http://getbootstrap.com/) sono installati, e Bower è supportata.
+Processo di compilazione di nuovi progetti creati con i modelli di progetto ASP.NET Core configurare lato client. [jQuery](https://jquery.com/) e [Bootstrap](https://getbootstrap.com/) sono installati, e Bower è supportata.
 
 Vengono elencati i pacchetti lato client nel *bower. JSON* file. Consente di configurare i modelli di progetto ASP.NET Core *bower. JSON* con jQuery, la convalida di jQuery e Bootstrap.
 
@@ -50,7 +50,7 @@ Aprire il *bower. JSON* file e aggiungere "font awesome" alle dipendenze. Intell
 
 ![versione bower IntelliSense](bower/_static/version-intelliSense.png)
 
-Viene utilizzato per bower [versionamento semantico](http://semver.org/) per organizzare le dipendenze. Versionamento semantico, noto anche come SemVer, identifica i pacchetti con lo schema di numerazione \<principale >.\< secondaria >. \<patch >. IntelliSense semplifica versionamento semantico mostrando solo alcune opzioni comuni. Il primo elemento nell'elenco di IntelliSense (4.6.3 nell'esempio precedente) viene considerato la versione stabile più recente del pacchetto. Il simbolo di accento circonflesso (^) corrisponde alla versione principale più recente e la tilde (~) corrisponde alla versione secondaria più recente.
+Viene utilizzato per bower [versionamento semantico](https://semver.org/) per organizzare le dipendenze. Versionamento semantico, noto anche come SemVer, identifica i pacchetti con lo schema di numerazione \<principale >.\< secondaria >. \<patch >. IntelliSense semplifica versionamento semantico mostrando solo alcune opzioni comuni. Il primo elemento nell'elenco di IntelliSense (4.6.3 nell'esempio precedente) viene considerato la versione stabile più recente del pacchetto. Il simbolo di accento circonflesso (^) corrisponde alla versione principale più recente e la tilde (~) corrisponde alla versione secondaria più recente.
 
 Salvare il *bower. JSON* file. Visual Studio controlla le *bower. JSON* file per le modifiche. Al momento del salvataggio, il *bower install* comando viene eseguito. Vedere la finestra di Output **npm/Bower** visualizzazione per il comando esatto eseguito.
 

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/13/2019
 uid: performance/response-compression
-ms.openlocfilehash: e312d43fb62106f6ecb98367c29daa377bb227c9
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: d5d2da3dc0a8a452de97d98161d429389d2f7638
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64893348"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815609"
 ---
 # <a name="response-compression-in-aspnet-core"></a>Compressione delle risposte in ASP.NET Core
 
@@ -30,7 +30,7 @@ Usare il Middleware di compressione delle risposte quando si è:
 
 * Non è possibile usare le tecnologie di compressione basati su server seguenti:
   * [Modulo di compressione dinamica di IIS](https://www.iis.net/overview/reliability/dynamiccachingandcompression)
-  * [Modulo Apache mod_deflate](http://httpd.apache.org/docs/current/mod/mod_deflate.html)
+  * [Modulo Apache mod_deflate](https://httpd.apache.org/docs/current/mod/mod_deflate.html)
   * [La decompressione e la compressione di Nginx](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)
 * Hosting direttamente in:
   * [Server HTTP. sys](xref:fundamentals/servers/httpsys) (precedentemente denominato WebListener)
@@ -44,33 +44,33 @@ Quando un client riesce a elaborare il contenuto compresso, il client deve infor
 
 ::: moniker range=">= aspnetcore-2.2"
 
-| `Accept-Encoding` valori di intestazione | Middleware supportati | Descrizione |
+| `Accept-Encoding` valori di intestazione | Middleware supportati | DESCRIZIONE |
 | ------------------------------- | :------------------: | ----------- |
 | `br`                            | Sì (impostazione predefinita)        | [Formato di dati compressi Brotli](https://tools.ietf.org/html/rfc7932) |
 | `deflate`                       | No                   | [Formato di dati compressi DEFLATE](https://tools.ietf.org/html/rfc1951) |
 | `exi`                           | No                   | [W3C XML efficiente interscambio](https://tools.ietf.org/id/draft-varga-netconf-exi-capability-00.html) |
 | `gzip`                          | Yes                  | [Formato del file gzip](https://tools.ietf.org/html/rfc1952) |
-| `identity`                      | Yes                  | Identificatore "Alcuna codifica": La risposta non deve essere codificata. |
+| `identity`                      | Sì                  | Identificatore "Alcuna codifica": La risposta non deve essere codificata. |
 | `pack200-gzip`                  | No                   | [Formato di trasferimento di rete per gli archivi Java](https://jcp.org/aboutJava/communityprocess/review/jsr200/index.html) |
-| `*`                             | Yes                  | Qualsiasi contenuto disponibile la codifica non è richiesto in modo esplicito |
+| `*`                             | Sì                  | Qualsiasi contenuto disponibile la codifica non è richiesto in modo esplicito |
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.2"
 
-| `Accept-Encoding` valori di intestazione | Middleware supportati | Descrizione |
+| `Accept-Encoding` valori di intestazione | Middleware supportati | DESCRIZIONE |
 | ------------------------------- | :------------------: | ----------- |
 | `br`                            | No                   | [Formato di dati compressi Brotli](https://tools.ietf.org/html/rfc7932) |
 | `deflate`                       | No                   | [Formato di dati compressi DEFLATE](https://tools.ietf.org/html/rfc1951) |
 | `exi`                           | No                   | [W3C XML efficiente interscambio](https://tools.ietf.org/id/draft-varga-netconf-exi-capability-00.html) |
 | `gzip`                          | Sì (impostazione predefinita)        | [Formato del file gzip](https://tools.ietf.org/html/rfc1952) |
-| `identity`                      | Yes                  | Identificatore "Alcuna codifica": La risposta non deve essere codificata. |
+| `identity`                      | Sì                  | Identificatore "Alcuna codifica": La risposta non deve essere codificata. |
 | `pack200-gzip`                  | No                   | [Formato di trasferimento di rete per gli archivi Java](https://jcp.org/aboutJava/communityprocess/review/jsr200/index.html) |
 | `*`                             | Yes                  | Qualsiasi contenuto disponibile la codifica non è richiesto in modo esplicito |
 
 ::: moniker-end
 
-Per altre informazioni, vedere la [IANA contenuto codifica elenco ufficiale](http://www.iana.org/assignments/http-parameters/http-parameters.xml#http-content-coding-registry).
+Per altre informazioni, vedere la [IANA contenuto codifica elenco ufficiale](https://www.iana.org/assignments/http-parameters/http-parameters.xml#http-content-coding-registry).
 
 Il middleware consente di aggiungere i provider di compressione aggiuntiva per l'installazione personalizzata `Accept-Encoding` i valori di intestazione. Per altre informazioni, vedere [provider personalizzati](#custom-providers) sotto.
 
@@ -80,7 +80,7 @@ Algoritmi di compressione sono soggetti a raggiungere un compromesso tra velocit
 
 Le intestazioni coinvolti nella richiesta, l'invio, la memorizzazione nella cache e la ricezione di contenuto compresso sono descritti nella tabella seguente.
 
-| Intestazione             | Ruolo |
+| Intestazione             | Role |
 | ------------------ | ---- |
 | `Accept-Encoding`  | Inviato dal client al server per indicare gli schemi accettabili per il client di codifica del contenuto. |
 | `Content-Encoding` | Inviato dal server al client per indicare la codifica del contenuto nel payload. |
@@ -146,7 +146,7 @@ public class Startup
 Note:
 
 * `app.UseResponseCompression` deve essere chiamato prima `app.UseMvc`.
-* Usare uno strumento, ad esempio [Fiddler](http://www.telerik.com/fiddler), [Firebug](http://getfirebug.com/), o [Postman](https://www.getpostman.com/) impostare il `Accept-Encoding` intestazione della richiesta e studiare le intestazioni di risposta, dimensioni e corpo.
+* Usare uno strumento, ad esempio [Fiddler](https://www.telerik.com/fiddler), [Firebug](https://getfirebug.com/), o [Postman](https://www.getpostman.com/) impostare il `Accept-Encoding` intestazione della richiesta e studiare le intestazioni di risposta, dimensioni e corpo.
 
 Inviare una richiesta all'app di esempio senza il `Accept-Encoding` intestazione e osservare che la risposta non è compressa. Il `Content-Encoding` e `Vary` intestazioni non sono presenti nella risposta.
 
@@ -194,7 +194,7 @@ Il Provider di compressione Brotoli deve essere aggiunto quando vengono aggiunti
 
 Impostare il livello con la compressione <xref:Microsoft.AspNetCore.ResponseCompression.BrotliCompressionProviderOptions>. Il Provider di compressione Brotli per impostazione predefinita il livello di compressione più veloce ([CompressionLevel.Fastest](xref:System.IO.Compression.CompressionLevel)), che potrebbe non produrre la compressione più efficiente. Se si desidera usare la compressione più efficiente, configurare il middleware di compressione non ottimale.
 
-| Livello di compressione | Descrizione |
+| Livello di compressione | DESCRIZIONE |
 | ----------------- | ----------- |
 | [CompressionLevel.Fastest](xref:System.IO.Compression.CompressionLevel) | La compressione deve completare più rapidamente possibile, anche se l'output risultante non viene compresso in modo ottimale. |
 | [CompressionLevel.NoCompression](xref:System.IO.Compression.CompressionLevel) | Non deve essere eseguita alcuna compressione. |
@@ -257,7 +257,7 @@ Il Provider di compressione Gzip deve essere aggiunto quando vengono aggiunti es
 
 Impostare il livello con la compressione <xref:Microsoft.AspNetCore.ResponseCompression.GzipCompressionProviderOptions>. Il Provider di compressione Gzip per impostazione predefinita il livello di compressione più veloce ([CompressionLevel.Fastest](xref:System.IO.Compression.CompressionLevel)), che potrebbe non produrre la compressione più efficiente. Se si desidera usare la compressione più efficiente, configurare il middleware di compressione non ottimale.
 
-| Livello di compressione | Descrizione |
+| Livello di compressione | DESCRIZIONE |
 | ----------------- | ----------- |
 | [CompressionLevel.Fastest](xref:System.IO.Compression.CompressionLevel) | La compressione deve completare più rapidamente possibile, anche se l'output risultante non viene compresso in modo ottimale. |
 | [CompressionLevel.NoCompression](xref:System.IO.Compression.CompressionLevel) | Non deve essere eseguita alcuna compressione. |
@@ -356,7 +356,7 @@ Quando una richiesta viene trasmessa tramite proxy da Nginx, il `Accept-Encoding
 
 Se si dispone di un active modulo di compressione dinamica IIS configurata a livello di server che si vuole disabilitare per un'app, disabilitare il modulo con un componente aggiuntivo per il *Web. config* file. Per altre informazioni, vedere [Disabling IIS modules](xref:host-and-deploy/iis/modules#disabling-iis-modules) (Disabilitazione di moduli IIS).
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Usare uno strumento come [Fiddler](https://www.telerik.com/fiddler), [Firebug](https://getfirebug.com/), o [Postman](https://www.getpostman.com/), che consentono di impostare il `Accept-Encoding` intestazione della richiesta e studiare le intestazioni di risposta, dimensioni e corpo. Per impostazione predefinita, Middleware di compressione delle risposte comprime le risposte che soddisfano le condizioni seguenti:
 
@@ -385,4 +385,4 @@ Usare uno strumento come [Fiddler](https://www.telerik.com/fiddler), [Firebug](h
 * [Mozilla Developer Network: Accept-Encoding](https://developer.mozilla.org/docs/Web/HTTP/Headers/Accept-Encoding)
 * [RFC 7231 Section 3.1.2.1: Chiaramente tutti i codici del contenuto](https://tools.ietf.org/html/rfc7231#section-3.1.2.1)
 * [RFC 7230 sezione 4.2.3: Codifica gzip](https://tools.ietf.org/html/rfc7230#section-4.2.3)
-* [Versione specifica del formato file GZIP 4.3](http://www.ietf.org/rfc/rfc1952.txt)
+* [Versione specifica del formato file GZIP 4.3](https://www.ietf.org/rfc/rfc1952.txt)

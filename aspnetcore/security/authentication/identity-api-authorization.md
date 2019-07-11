@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 03/07/2019
 uid: security/authentication/identity/spa
-ms.openlocfilehash: 4afc9ac0a3c54b452c6a1b23e4de31d7e2fc5284
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 302a5e10a70e40e75ab9fe4b3e5a98c4e847b822
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64894148"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815226"
 ---
 # <a name="authentication-and-authorization-for-spas"></a>Autenticazione e autorizzazione per SPAs
 
@@ -251,7 +251,7 @@ Questa sezione descrive la distribuzione dell'app per siti Web di Azure usando u
 
 Per distribuire siti Web di Azure, distribuire l'app seguendo la procedura descritta in [distribuire l'app in Azure](xref:tutorials/publish-to-azure-webapp-using-vs#deploy-the-app-to-azure) per creare le risorse di Azure necessarie e distribuire l'app nell'ambiente di produzione.
 
-Dopo aver seguito le istruzioni precedenti, l'app viene distribuita in Azure ma non è ancora attiva. Il certificato usato dall'app deve comunque essere configurati. Individuare l'identificazione personale del certificato da usare e seguire i passaggi descritti [caricare i certificati](/azure/app-service/app-service-web-ssl-cert-load#load-your-certificates).
+Dopo aver seguito le istruzioni precedenti, l'app viene distribuita in Azure ma non è ancora attiva. Il certificato usato dall'app deve comunque essere configurati. Individuare l'identificazione personale del certificato da usare e seguire i passaggi descritti [caricare i certificati](/azure/app-service/app-service-web-ssl-cert-load#load-the-certificate-in-code).
 
 Mentre questi passaggi menzionare SSL, non vi è una **certificati privati** sezione nel portale in cui è possibile caricare il certificato di provisioning da usare con l'app.
 

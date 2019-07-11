@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/20/2018
 uid: client-side/libman/libman-vs
-ms.openlocfilehash: d0494b96447ad2b256acbde7748209ff430ae7c1
-ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
+ms.openlocfilehash: ebfb405516d968bf5d5b8cff956a9892457027f2
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610177"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67813467"
 ---
 # <a name="use-libman-with-aspnet-core-in-visual-studio"></a>Usare LibMan con ASP.NET Core in Visual Studio
 
@@ -28,7 +28,7 @@ Visual Studio offre supporto predefinito per [LibMan](xref:client-side/libman/in
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) con il **sviluppo ASP.NET e web** carico di lavoro
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) con il carico di lavoro **Sviluppo ASP.NET e Web**
 
 ## <a name="add-library-files"></a>Aggiungere i file di libreria
 
@@ -94,13 +94,13 @@ Per aprire *libman.json* per la modifica, esistono le seguenti opzioni:
 
 **&#8224;** Se il *libman.json* file non esiste già nella radice del progetto, verrà creato con il contenuto del modello di elemento predefinito.
 
-Visual Studio offre JSON completo, supporto, ad esempio la colorazione di modifica, formattazione, IntelliSense e convalida dello schema. Schema JSON del manifesto LibMan si trova in corrispondenza [ http://json.schemastore.org/libman ](http://json.schemastore.org/libman).
+Visual Studio offre JSON completo, supporto, ad esempio la colorazione di modifica, formattazione, IntelliSense e convalida dello schema. Schema JSON del manifesto LibMan si trova in corrispondenza [ https://json.schemastore.org/libman ](https://json.schemastore.org/libman).
 
 Con il file di manifesto seguente, LibMan recupera i file per la configurazione definita nel `libraries` proprietà. Una spiegazione dei valori letterali di oggetto definiti all'interno di `libraries` segue:
 
 * Un subset delle [jQuery](https://jquery.com/) versione 3.3.1 viene recuperato dal provider CDNJS. Il subset è definito nel `files` proprietà&mdash;*jquery.min.js*, *jquery.js*, e *jquery.min.map*. I file vengono inseriti del progetto *wwwroot/lib/jquery* cartella.
 * Nella sua totalità [Bootstrap](https://getbootstrap.com/) versione 4.1.3 viene recuperato e inserita in un *wwwroot/lib/bootstrap* cartella. Del valore letterale di oggetto `provider` override delle proprietà di `defaultProvider` valore della proprietà. LibMan recupera i file Bootstrap del provider unpkg.
-* Un subset delle [Lodash](https://lodash.com/) è stata approvata da un corpo che implementano la governance all'interno dell'organizzazione. Il *lodash.js* e *lodash.min.js* i file vengono recuperati dal file system locale a *c:\\temp\\lodash\\*. I file vengono copiati nel progetto *wwwroot/lib/lodash* cartella.
+* Un subset delle [Lodash](https://lodash.com/) è stata approvata da un corpo che implementano la governance all'interno dell'organizzazione. Il *lodash.js* e *lodash.min.js* i file vengono recuperati dal file system locale a *c:\\temp\\lodash\\* . I file vengono copiati nel progetto *wwwroot/lib/lodash* cartella.
 
 [!code-json[](samples/LibManSample/libman.json)]
 
@@ -201,7 +201,7 @@ Per disinstallare i file di libreria:
 
 * Aprire *libman.json*.
 * Posizionare il cursore all'interno di corrispondente `libraries` valore letterale di oggetto.
-* Scegliere l'icona lampadina visualizzata nel margine sinistro e selezionare **disinstallazione \<library_name > @\<library_version >**:
+* Scegliere l'icona lampadina visualizzata nel margine sinistro e selezionare **disinstallazione \<library_name > @\<library_version >** :
 
   ![Disinstallare l'opzione del menu di scelta rapida della libreria](_static/uninstall-menu-option.png)
 
