@@ -6,12 +6,12 @@ ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: tdykstra
 ms.date: 05/31/2019
 uid: mvc/models/model-binding
-ms.openlocfilehash: 7d62ccecdacbd34a38a1fd8c58979a9b09cf86e8
-ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
+ms.openlocfilehash: 10a9f8327bf16d11ec1e04ac3888d701f1ab1778
+ms.sourcegitcommit: bee530454ae2b3c25dc7ffebf93536f479a14460
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66750206"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67724534"
 ---
 # <a name="model-binding-in-aspnet-core"></a>Associazione di modelli in ASP.NET Core
 
@@ -326,7 +326,7 @@ Per le destinazioni che sono raccolte di tipi semplici, l'associazione di modell
 
 Per le destinazioni `Dictionary`, l'associazione di modelli cerca le corrispondenze per *nome_parametro* oppure *nome_proprietà*. Se non viene trovata alcuna corrispondenza, viene cercato uno dei formati supportati senza il prefisso. Ad esempio:
 
-* Si supponga che il parametro di destinazione sia un elemento `Dictionary<string, string>` denominato `selectedCourses`:
+* Si supponga che il parametro di destinazione sia un elemento `Dictionary<int, string>` denominato `selectedCourses`:
 
   ```csharp
   public IActionResult OnPost(int? id, Dictionary<int, string> selectedCourses)

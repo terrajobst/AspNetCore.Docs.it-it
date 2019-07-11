@@ -7,12 +7,12 @@ ms.author: jukotali
 ms.custom: mvc
 ms.date: 02/26/2019
 uid: fundamentals/middleware/request-response
-ms.openlocfilehash: 0c321dad256e239b61907980c09d2c088c1407ff
-ms.sourcegitcommit: 0b9e767a09beaaaa4301915cdda9ef69daaf3ff2
+ms.openlocfilehash: c9f6509738ef6290666a58268fbb0584913db9d6
+ms.sourcegitcommit: 357a7120632b20465801c093e4e5bd4a315496a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538581"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67649233"
 ---
 # <a name="request-and-response-operations-in-aspnet-core"></a>Operazioni di richiesta e risposta in ASP.NET Core
 
@@ -26,7 +26,7 @@ Si consiglia di preferire le pipeline rispetto ai flussi. I flussi possono esser
 
 - `FormReader`
 - `TextReader`
-- `TexWriter`
+- `TextWriter`
 - `HttpResponse.WriteAsync`
 
 I flussi sono destinati a rimanere e continuano a essere usati in tutto .NET. Per molti tipi di flussi non esistono equivalenti pipe, ad esempio `FileStreams` e `ResponseCompression`.
