@@ -4,14 +4,14 @@ author: prkhandelwal
 description: Questa esercitazione illustra come creare un'API Web ASP.NET Core con un database NoSQL MongoDB.
 ms.author: scaddie
 ms.custom: mvc, seodec18
-ms.date: 06/10/2019
+ms.date: 07/10/2019
 uid: tutorials/first-mongo-app
-ms.openlocfilehash: 426b4c0dee290153b9b1bf83deec14fa728183cb
-ms.sourcegitcommit: f5762967df3be8b8c868229e679301f2f7954679
+ms.openlocfilehash: c64f6e69a19e294a18cc72c860af0a03ef70d444
+ms.sourcegitcommit: 357a7120632b20465801c093e4e5bd4a315496a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048087"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67649186"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a>Creare un'API Web con ASP.NET Core e MongoDB
 
@@ -109,6 +109,9 @@ Usare la shell mongo nelle procedure seguenti per creare un database, creare le 
       ]
     }
     ```
+  
+  > [!NOTE]
+  > L'ID illustrato in questo articolo non corrisponde agli ID quando si esegue questo campione.
 
 1. Visualizzare i documenti nel database usando il comando seguente:
 
@@ -318,11 +321,11 @@ Il controller dell'API Web precedente:
     ]
     ```
 
-1. Passare a `http://localhost:<port>/api/books/5bfd996f7b8e48dc15ff215e` per testare il metodo dell'azione `Get` in overload del controller. Viene visualizzata la risposta JSON seguente:
+1. Passare a `http://localhost:<port>/api/books/{id here}` per testare il metodo dell'azione `Get` in overload del controller. Viene visualizzata la risposta JSON seguente:
 
     ```json
     {
-      "id":"5bfd996f7b8e48dc15ff215e",
+      "id":"{ID}",
       "bookName":"Clean Code",
       "price":43.15,
       "category":"Computers",

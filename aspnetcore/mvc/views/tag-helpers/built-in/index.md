@@ -6,59 +6,22 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/Index
-ms.openlocfilehash: 9cca912f43159e778a4c9419e6171f06b4037b8b
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: f19cfa5b843bde8a8633ce778562707e566bebb9
+ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346013"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67856099"
 ---
 # <a name="aspnet-core-built-in-tag-helpers"></a>Helper per tag predefiniti di ASP.NET Core
 
-Di [Peter Kellner](http://peterkellner.net)
+Di [Peter Kellner](https://peterkellner.net)
 
 Per una panoramica degli helper tag, vedere <xref:mvc/views/tag-helpers/intro>.
 
-> [!NOTE]
-> Esistono helper per tag predefiniti che non sono descritti nella documentazione. Questi helper per tag vengono usati internamente dal motore di visualizzazione [Razor](xref:mvc/views/razor). È incluso anche un helper per tag per il carattere `~` (tilde), che si espande nel percorso radice del sito Web.
+Sono presenti helper di tag non elencati nel documento. Questi helper di tag non elencati vengono usati internamente dal motore di visualizzazione [Razor](xref:mvc/views/razor). L'helper di tag per il carattere `~` (tilde) è stato rimosso dall'elenco. L'helper di tag tilde si espande al percorso radice del sito Web.
 
-## <a name="built-in-aspnet-core-tag-helpers"></a>Helper per tag incorporati di ASP.NET Core
-
-**[Helper per tag di ancoraggio](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper)**
-
-**[Helper per tag di cache](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)**
-
-**[Helper per tag di cache distribuita](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)**
-
-**[Helper per tag di ambiente](xref:mvc/views/tag-helpers/builtin-th/environment-tag-helper)**
-
-[comment]: **[FormActionTagHelper](xref:mvc/views/tag-helpers/builtin-th/form-action-tag-helper)**
-
-**[Helper per tag di modulo](xref:mvc/views/working-with-forms#the-form-tag-helper)**
-
-**[Helper per tag di azione modulo](xref:mvc/views/working-with-forms#the-form-action-tag-helper)**
-
-**[Helper per tag di immagine](xref:mvc/views/tag-helpers/builtin-th/image-tag-helper)**
-
-**[Helper per tag di input](xref:mvc/views/working-with-forms#the-input-tag-helper)**
-
-**[Helper per tag di etichetta](xref:mvc/views/working-with-forms#the-label-tag-helper)**
-
-[comment]: **[LinkTagHelper](xref:mvc/views/tag-helpers/builtin-th/link-tag-helper)**
-
-[comment]: **[OptionTagHelper](xref:mvc/views/tag-helpers/builtin-th/option-tag-helper)**
-
-[comment]: **[ScriptTagHelper](xref:mvc/views/tag-helpers/builtin-th/script-tag-helper)**
-
-**[Helper per tag parziale](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper)**
-
-**[Helper per tag di selezione](xref:mvc/views/working-with-forms#the-select-tag-helper)**
-
-**[Helper per tag area di testo](xref:mvc/views/working-with-forms#the-textarea-tag-helper)**
-
-**[Helper per tag messaggio di convalida](xref:mvc/views/working-with-forms#the-validation-message-tag-helper)**
-
-**[Helper per tag riepilogo di convalida](xref:mvc/views/working-with-forms#the-validation-summary-tag-helper)**
+[!INCLUDE[](~/includes/built-in-TH.md)]
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
