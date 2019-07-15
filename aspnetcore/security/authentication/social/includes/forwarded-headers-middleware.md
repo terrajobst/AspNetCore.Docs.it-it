@@ -6,4 +6,4 @@ Lo schema viene usato nella generazione di collegamenti che influisce sul flusso
 
 Usare il middleware delle intestazioni inoltrate per rendere disponibili per l'app le informazioni della richiesta originale per l'elaborazione delle richieste.
 
-Per ulteriori informazioni, vedere <xref:host-and-deploy/proxy-load-balancer>.
+Per altre informazioni, vedere <xref:host-and-deploy/proxy-load-balancer>.
