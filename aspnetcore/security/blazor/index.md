@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/26/2019
 uid: security/blazor/index
-ms.openlocfilehash: b3bca26e7088a8353084a065f9b9593c9d8e08e6
-ms.sourcegitcommit: 9bb29f9ba6f0645ee8b9cabda07e3a5aa52cd659
+ms.openlocfilehash: 097a747f68729109922af5c68dfd918024ee6146
+ms.sourcegitcommit: 040aedca220ed24ee1726e6886daf6906f95a028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67406184"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67893619"
 ---
 # <a name="aspnet-core-blazor-authentication-and-authorization"></a>Autenticazione e autorizzazione per ASP.NET Core Blazor
 
@@ -41,7 +41,7 @@ Il modello di progetto sul lato server Blazor può configurare l'autenticazione 
 
 Seguire le istruzioni per Visual Studio nell'articolo <xref:blazor/get-started> per creare un nuovo progetto sul lato server Blazor con un meccanismo di autenticazione.
 
-Dopo aver scelto il modello **Blazor (lato server)** nella finestra di dialogo **Crea una nuova applicazione Web ASP.NET Core**, selezionare **Modifica** in **Autenticazione** .
+Dopo aver scelto il modello **App server Blazor** nella finestra di dialogo **Crea una nuova applicazione Web ASP.NET Core**, selezionare **Modifica** in **Autenticazione** .
 
 Viene visualizzata una finestra di dialogo che offre lo stesso set di meccanismi di autenticazione disponibili per altri progetti ASP.NET Core:
 
