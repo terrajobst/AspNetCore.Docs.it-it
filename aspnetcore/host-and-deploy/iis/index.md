@@ -5,14 +5,14 @@ description: Informazioni su come ospitare app ASP.NET Core in Windows Server In
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/28/2019
+ms.date: 07/16/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 2dab8b4839d6778d5dc6a3daf96c1719eecfe0fb
-ms.sourcegitcommit: 763af2cbdab0da62d1f1cfef4bcf787f251dfb5c
+ms.openlocfilehash: 644d84f9adba650b3ef10ba69cc75c22845be211
+ms.sourcegitcommit: 7e00e8236ca4eabf058f07020a5a3882daf7564f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67394630"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68239259"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host ASP.NET Core in Windows con IIS
 
@@ -338,7 +338,7 @@ Quando si distribuiscono app ai server con [Distribuzione Web](/iis/install/inst
 
 ## <a name="create-the-iis-site"></a>Creare il sito IIS
 
-1. Nel sistema host creare una cartella per contenere le cartelle e i file pubblicati dell'app. Un layout di distribuzione di un'app è descritto nell'argomento [Struttura della directory](xref:host-and-deploy/directory-structure).
+1. Nel sistema host creare una cartella per contenere le cartelle e i file pubblicati dell'app. In un passaggio successivo, il percorso della cartella viene fornito a IIS come percorso fisico dell'app. Per altre informazioni sulla cartella di distribuzione e il layout dei file di un'app, vedere <xref:host-and-deploy/directory-structure>.
 
 1. In Gestione IIS aprire il nodo del server nel pannello **Connessioni**. Fare clic con il pulsante destro del mouse sulla cartella **Siti**. Scegliere **Aggiungi sito Web** dal menu di scelta rapida.
 
@@ -372,11 +372,11 @@ Per altre informazioni, vedere [Configurare l'autenticazione Windows](xref:secur
 
 ## <a name="deploy-the-app"></a>Distribuire l'app
 
-Distribuire l'app nella cartella creata nel sistema host. Il metodo consigliato per la distribuzione è [Distribuzione Web](/iis/publish/using-web-deploy/introduction-to-web-deploy).
+Distribuire l'app nella cartella **Percorso fisico** di IIS specificata nella sezione [Creare il sito IIS](#create-the-iis-site). [Distribuzione Web](/iis/publish/using-web-deploy/introduction-to-web-deploy) è il meccanismo consigliato per la distribuzione, ma esistono diverse opzioni per spostare l'app dalla cartella di *pubblicazione* del progetto alla cartella di distribuzione del sistema di hosting.
 
 ### <a name="web-deploy-with-visual-studio"></a>Distribuzione web con Visual Studio
 
-Vedere l'argomento [Visual Studio publish profiles for ASP.NET Core app deployment](xref:host-and-deploy/visual-studio-publish-profiles#publish-profiles) (Profili di pubblicazione Visual Studio per la distribuzione di app ASP.NET Core) per informazioni su come creare un profilo di pubblicazione da usare con Distribuzione Web. Se il provider di hosting fornisce un profilo di pubblicazione o il supporto per crearne uno, scaricare il profilo e importarlo usando la finestra di dialogo **Pubblica** di Visual Studio.
+Vedere l'argomento [Visual Studio publish profiles for ASP.NET Core app deployment](xref:host-and-deploy/visual-studio-publish-profiles#publish-profiles) (Profili di pubblicazione Visual Studio per la distribuzione di app ASP.NET Core) per informazioni su come creare un profilo di pubblicazione da usare con Distribuzione Web. Se il provider di hosting fornisce un profilo di pubblicazione o il supporto per crearne uno, scaricare il profilo e importarlo usando la finestra di dialogo **Pubblica** di Visual Studio:
 
 ![Pagina della finestra di dialogo Pubblica](index/_static/pub-dialog.png)
 
@@ -386,11 +386,15 @@ Vedere l'argomento [Visual Studio publish profiles for ASP.NET Core app deployme
 
 ### <a name="alternatives-to-web-deploy"></a>Alternative a Distribuzione web
 
-Usare uno dei metodi disponibili, ad esempio la copia manuale, Xcopy, Robocopy o PowerShell, per spostare l'app nel sistema host.
+Usare uno dei metodi disponibili, ad esempio la copia manuale, [Xcopy](/windows-server/administration/windows-commands/xcopy), [Robocopy](/windows-server/administration/windows-commands/robocopy) o [PowerShell](/powershell/), per spostare l'app nel sistema di hosting.
 
 Per altre informazioni sulla distribuzione di ASP.NET Core in IIS, vedere la sezione [Risorse di distribuzione per amministratori IIS](#deployment-resources-for-iis-administrators).
 
 ## <a name="browse-the-website"></a>Esplorare il sito Web
+
+Dopo aver distribuito l'app nel sistema di hosting, effettuare una richiesta a uno degli endpoint pubblici dell'app.
+
+Nell'esempio seguente il sito è associato al **nome host** di IIS `www.mysite.com` sulla **porta** `80`. Viene effettuata una richiesta a `http://www.mysite.com`:
 
 ![Il browser Microsoft Edge ha caricato la pagina di avvio IIS.](index/_static/browsewebsite.png)
 
