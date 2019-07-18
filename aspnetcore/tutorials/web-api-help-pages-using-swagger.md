@@ -6,16 +6,16 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 09/20/2018
 uid: tutorials/web-api-help-pages-using-swagger
-ms.openlocfilehash: fb65b84b781b5c19040b559f0d7635ceb00cf4a0
-ms.sourcegitcommit: 06a455d63ff7d6b571ca832e8117f4ac9d646baf
+ms.openlocfilehash: 06a942ca213c7c0a58932494be0ed23cb6896d48
+ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67316571"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67856098"
 ---
 # <a name="aspnet-core-web-api-help-pages-with-swagger--openapi"></a>Pagine della Guida dell'API Web ASP.NET Core con Swagger/OpenAPI
 
-Di [Christoph Nienaber](https://twitter.com/zuckerthoben) e [Rico Suter](http://rsuter.com)
+Di [Christoph Nienaber](https://twitter.com/zuckerthoben) e [Rico Suter](https://blog.rsuter.com/)
 
 Quando si usa un'API Web, la comprensione dei vari metodi che la compongono può risultare complessa per gli sviluppatori. [Swagger](https://swagger.io/), detto anche [OpenAPI](https://www.openapis.org/), risolve il problema della generazione di pagine della Guida e della documentazione utili per le API Web. Offre vantaggi quali la documentazione interattiva, la generazione di SDK client e l'individuabilità delle API.
 
@@ -113,7 +113,7 @@ Ogni metodo di azione pubblico nei controller può essere testato dall'interfacc
 ![Esempio test GET di Swagger](web-api-help-pages-using-swagger/_static/get-try-it-out.png)
 
 > [!NOTE]
-> La versione di Swagger UI usata per le schermate è la versione 2. Per un esempio con la versione 3, vedere l'[esempio Petstore](http://petstore.swagger.io/).
+> La versione di Swagger UI usata per le schermate è la versione 2. Per un esempio con la versione 3, vedere l'[esempio Petstore](https://petstore.swagger.io/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

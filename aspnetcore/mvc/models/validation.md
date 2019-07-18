@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 04/06/2019
 monikerRange: '>= aspnetcore-2.1'
 uid: mvc/models/validation
-ms.openlocfilehash: 9737e45729b4e5abd9a33824c4d6610ca21681c0
-ms.sourcegitcommit: c5339594101d30b189f61761275b7d310e80d18a
+ms.openlocfilehash: 43b69e9b7588ad575f203200c5bc59a4272d0066
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/02/2019
-ms.locfileid: "66458482"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67814105"
 ---
 # <a name="model-validation-in-aspnet-core-mvc-and-razor-pages"></a>Convalida del modello in ASP.NET Core MVC e in Razor Pages
 
@@ -315,7 +315,7 @@ La convalida lato client personalizzata viene eseguita generando attributi `data
 
 [!code-javascript[](validation/sample/wwwroot/js/classicMovieValidator.js?name=snippet_UnobtrusiveValidation)]
 
-Per informazioni sulla scrittura degli adapter, vedere la [documentazione di jQuery Validate](http://jqueryvalidation.org/documentation/).
+Per informazioni sulla scrittura degli adapter, vedere la [documentazione di jQuery Validate](https://jqueryvalidation.org/documentation/).
 
 L'uso di un adapter per un determinato campo viene attivato dagli attributi `data-`, i quali eseguono le operazioni seguenti:
 

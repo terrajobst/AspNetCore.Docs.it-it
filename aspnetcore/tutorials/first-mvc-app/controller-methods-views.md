@@ -5,12 +5,12 @@ description: Informazioni su come usare metodi, visualizzazioni e DataAnnotation
 ms.author: riande
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/controller-methods-views
-ms.openlocfilehash: 36c8141ba5827366572dabcfd0fdf9600c745706
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 6d960da5acecbb95893bd339b4391560bedffb3d
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64889766"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815421"
 ---
 # <a name="controller-methods-and-views-in-aspnet-core"></a>Metodi e viste del controller in ASP.NET Core
 
@@ -76,7 +76,7 @@ Il codice seguente illustra il metodo `HTTP POST Edit`, che elabora i valori di 
 
 ::: moniker-end
 
-L'attributo `[Bind]` è un modo per proteggersi dall'[overposting](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost). È necessario includere solo le proprietà nell'attributo `[Bind]` che si vuole modificare. Per altre informazioni, vedere [Proteggere il controller dall'overposting](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application). [ViewModel](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) offre un approccio alternativo per evitare l'overposting.
+L'attributo `[Bind]` è un modo per proteggersi dall'[overposting](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost). È necessario includere solo le proprietà nell'attributo `[Bind]` che si vuole modificare. Per altre informazioni, vedere [Proteggere il controller dall'overposting](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application). [ViewModel](https://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) offre un approccio alternativo per evitare l'overposting.
 
 Si noti che il secondo metodo di azione `Edit` è preceduto dall'attributo `[HttpPost]`.
 
@@ -151,7 +151,7 @@ Tutti i metodi `HttpGet` nel controller di film seguono un pattern simile. Ricev
 * [Creare helper tag](xref:mvc/views/tag-helpers/authoring)
 * [Richiesta intersito falsa](xref:security/anti-request-forgery)
 * Proteggere il controller dall'[dall'overposting](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application).
-* [ViewModels](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/)
+* [ViewModels](https://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/)
 * [Helper tag di modulo](xref:mvc/views/working-with-forms)
 * [Helper tag di input](xref:mvc/views/working-with-forms)
 * [Helper tag di etichetta](xref:mvc/views/working-with-forms)

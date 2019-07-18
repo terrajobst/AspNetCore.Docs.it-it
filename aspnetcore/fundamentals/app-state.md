@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/12/2019
 uid: fundamentals/app-state
-ms.openlocfilehash: 3d878a389462aa7f3932f374034fb7cf11fd191c
-ms.sourcegitcommit: c716ea9155a6b404c1f3d3d34e2388454cd276d7
+ms.openlocfilehash: 4b02a9b5867559da493054bb128aabed4d920ace
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66716337"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67813614"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>Stato di sessioni e app in ASP.NET Core
 
@@ -65,23 +65,23 @@ Lo stato della sessione presenta i comportamenti seguenti:
 * L'app conserva una sessione per un periodo di tempo limitato dopo l'ultima richiesta. L'app imposta il timeout della sessione o usa il valore predefinito, pari a 20 minuti. Lo stato sessione è ideale per archiviare i dati utente specifici per una determinata sessione, ma nel caso in cui i dati non richiedano un'archiviazione permanente tra le sessioni.
 * I dati della sessione vengono eliminati quando viene chiamata l'implementazione [ISession.Clear](/dotnet/api/microsoft.aspnetcore.http.isession.clear) o alla scadenza della sessione.
 * Non esiste un meccanismo predefinito per indicare al codice app che un browser client è stato chiuso o che il cookie di sessione viene eliminato o è scaduto nel client.
-* I modelli di pagina ASP.NET Core MVC e Razor includono il supporto del Regolamento generale sulla protezione dei dati (GDPR). I cookie di stato della sessione non sono contrassegnati come fondamentali per impostazione predefinita, pertanto lo stato della sessione non è funzionale, a meno che il rilevamento non sia consentito dal visitatore del sito. Per ulteriori informazioni, vedere <xref:security/gdpr#tempdata-provider-and-session-state-cookies-arent-essential>.
+* I modelli di pagina ASP.NET Core MVC e Razor includono il supporto del Regolamento generale sulla protezione dei dati (GDPR). I cookie di stato della sessione non sono contrassegnati come fondamentali per impostazione predefinita, pertanto lo stato della sessione non è funzionale, a meno che il rilevamento non sia consentito dal visitatore del sito. Per altre informazioni, vedere <xref:security/gdpr#tempdata-provider-and-session-state-cookies-arent-essential>.
 
 > [!WARNING]
 > Evitare di archiviare dati sensibili nello stato della sessione. L'utente potrebbe non chiudere il browser e cancellare il cookie di sessione. Alcuni browser mantengono i cookie di sessione validi tra diverse finestre del browser. Una sessione può non essere limitata a un solo utente: in tal caso l'utente successivo potrebbe continuare a sfogliare l'app usando lo stesso cookie di sessione.
 
 Il provider di cache in memoria archivia i dati della sessione nella memoria del server in cui si trova l'app. In uno scenario di server farm:
 
-* Usare *sessioni permanenti* per associare ogni sessione a un'istanza specifica dell'app in un singolo server. Il [Servizio app di Azure](https://azure.microsoft.com/services/app-service/) usa il modulo [Application Request Routing (ARR)](/iis/extensions/planning-for-arr/using-the-application-request-routing-module) per applicare le sessioni permanenti per impostazione predefinita. Tuttavia le sessioni permanenti possono compromettere la scalabilità e complicare gli aggiornamenti delle app Web. Un approccio migliore è usare la cache distribuita Redis o SQL Server, che non richiede sessioni permanenti. Per ulteriori informazioni, vedere <xref:performance/caching/distributed>.
+* Usare *sessioni permanenti* per associare ogni sessione a un'istanza specifica dell'app in un singolo server. Il [Servizio app di Azure](https://azure.microsoft.com/services/app-service/) usa il modulo [Application Request Routing (ARR)](/iis/extensions/planning-for-arr/using-the-application-request-routing-module) per applicare le sessioni permanenti per impostazione predefinita. Tuttavia le sessioni permanenti possono compromettere la scalabilità e complicare gli aggiornamenti delle app Web. Un approccio migliore è usare la cache distribuita Redis o SQL Server, che non richiede sessioni permanenti. Per altre informazioni, vedere <xref:performance/caching/distributed>.
 * Il cookie di sessione viene crittografato con [IDataProtector](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotector). La protezione dati deve essere configurata correttamente in modo da leggere i cookie di sessione in ogni computer. Per altre informazioni, vedere <xref:security/data-protection/introduction> e [Provider di archiviazione chiavi](xref:security/data-protection/implementation/key-storage-providers).
 
 ### <a name="configure-session-state"></a>Configurare lo stato della sessione
 
 Con il pacchetto [Microsoft.AspNetCore.Session](https://www.nuget.org/packages/Microsoft.AspNetCore.Session/), incluso nel [metapacchetto Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app), è disponibile il middleware per la gestione dello stato della sessione. Per abilitare il middleware della sessione, `Startup` deve contenere:
 
-* Una delle cache di memoria [IDistributedCache](/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache). L'implementazione `IDistributedCache` viene usata come archivio di backup per la sessione. Per ulteriori informazioni, vedere <xref:performance/caching/distributed>.
+* Una delle cache di memoria [IDistributedCache](/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache). L'implementazione `IDistributedCache` viene usata come archivio di backup per la sessione. Per altre informazioni, vedere <xref:performance/caching/distributed>.
 * Una chiamata ad [AddSession](/dotnet/api/microsoft.extensions.dependencyinjection.sessionservicecollectionextensions.addsession) in `ConfigureServices`.
-* Una chiamata a [UseSession](/dotnet/api/microsoft.aspnetcore.builder.sessionmiddlewareextensions#methods_) in `Configure`.
+* Una chiamata a [UseSession](/dotnet/api/microsoft.aspnetcore.builder.sessionmiddlewareextensions.usesession#Microsoft_AspNetCore_Builder_SessionMiddlewareExtensions_UseSession_Microsoft_AspNetCore_Builder_IApplicationBuilder_) in `Configure`.
 
 Il codice seguente indica come configurare il provider della sessione in memoria con un'implementazione in memoria predefinita di `IDistributedCache`:
 
@@ -105,7 +105,7 @@ Per fare in modo che le app implementino questo criterio, eseguire il wrapping d
 
 Per eseguire l'override delle impostazioni predefinite di sessione, usare [SessionOptions](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions).
 
-| Opzione | Description |
+| Opzione | DESCRIZIONE |
 | ------ | ----------- |
 | [Cookie](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.cookie) | Determina le impostazioni usate per creare il cookie. Per impostazione predefinita, [Name](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.name) è [SessionDefaults.CookieName](/dotnet/api/microsoft.aspnetcore.session.sessiondefaults.cookiename) (`.AspNetCore.Session`). Per impostazione predefinita, [Path](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.path) è [SessionDefaults.CookiePath](/dotnet/api/microsoft.aspnetcore.session.sessiondefaults.cookiepath) (`/`). [SameSite](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.samesite) per impostazione predefinita è [SameSiteMode.Lax](/dotnet/api/microsoft.aspnetcore.http.samesitemode) (`1`). Per [HttpOnly](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.httponly) il valore predefinito è `true`. Per [IsEssential](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.isessential) il valore predefinito è `false`. |
 | [IdleTimeout](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.idletimeout) | Il valore `IdleTimeout` indica quanto tempo la sessione può rimanere inattiva prima che il relativo contenuto venga abbandonato. Ogni accesso alla sessione reimposta il timeout. Si noti che questa impostazione vale solo per il contenuto della sessione, non per il cookie. Il valore predefinito è 20 minuti. |
@@ -245,7 +245,7 @@ La memorizzazione nella cache è un modo efficiente per archiviare e recuperare 
 
 I dati memorizzati nella cache non sono associati a una richiesta, un utente o una sessione specifici. **Prestare attenzione a non memorizzare nella cache i dati specifici dell'utente che possono essere recuperati dalle richieste di altri utenti.**
 
-Per ulteriori informazioni, vedere <xref:performance/caching/response>.
+Per altre informazioni, vedere <xref:performance/caching/response>.
 
 ## <a name="dependency-injection"></a>Inserimento di dipendenze
 

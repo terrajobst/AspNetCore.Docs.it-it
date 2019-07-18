@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 2776e3357941d0e7932882c39af121f85d037d62
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 8ef458108e60850d0d54e7b1e6472c5b92984ccc
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64887246"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67813538"
 ---
 # <a name="tutorial-create-a-complex-data-model---aspnet-mvc-with-ef-core"></a>Esercitazione: Creare un modello di dati complesso - ASP.NET MVC con EF Core
 
@@ -397,7 +397,7 @@ Questo codice aggiunge le nuove entità e configura la chiave primaria composta 
 
 ## <a name="about-a-fluent-api-alternative"></a>Informazioni su un'alternativa API Fluent
 
-Il codice nel metodo `OnModelCreating` della classe `DbContext` usa l'*API Fluent* per configurare il comportamento di Entity Framework. L'API è denominata "API Fluent" perché viene spesso usata unendo una serie di chiamate di metodi in un'unica istruzione, come in questo esempio tratto dalla [documentazione di EF Core](/ef/core/modeling/#methods-of-configuration):
+Il codice nel metodo `OnModelCreating` della classe `DbContext` usa l'*API Fluent* per configurare il comportamento di Entity Framework. L'API è denominata "API Fluent" perché viene spesso usata unendo una serie di chiamate di metodi in un'unica istruzione, come in questo esempio tratto dalla [documentazione di EF Core](/ef/core/modeling/#use-fluent-api-to-configure-a-model):
 
 ```csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -412,7 +412,7 @@ In questa esercitazione si usa l'API Fluent solo per operazioni di mapping del d
 
 Alcuni sviluppatori preferiscono usare solo l'API Fluent, per dare un aspetto "ordinato" alle classi di entità. È possibile usare un misto di attributi e API Fluent e alcune personalizzazioni sono eseguibili solo mediante l'API Fluent, ma in generale è consigliabile scegliere uno dei due approcci e usarlo in modo il più possibile coerente. Se si usano entrambi gli approcci, tenere presente che ogni volta che si verifica un conflitto l'API Fluent esegue l'override degli attributi.
 
-Per altre informazioni sul confronto tra attributi e API Fluent, vedere [Metodi di configurazione](/ef/core/modeling/#methods-of-configuration).
+Per altre informazioni sul confronto tra attributi e API Fluent, vedere [Metodi di configurazione](/ef/core/modeling/).
 
 ## <a name="entity-diagram-showing-relationships"></a>Diagramma dell'entità che visualizza le relazioni
 

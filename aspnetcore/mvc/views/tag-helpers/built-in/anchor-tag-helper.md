@@ -4,18 +4,18 @@ author: pkellner
 description: Informazioni sugli attributi dell'helper tag di ancoraggio ASP.NET Core e sul ruolo di ogni attributo per l'estensione del comportamento del tag di ancoraggio HTML.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 4/18/2019
+ms.date: 04/18/2019
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: de45c99194d4825c1e404aa193b0f076ba659748
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 44fc4ff6334e33630974181021aa1a6880a89917
+ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64883426"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67856220"
 ---
 # <a name="anchor-tag-helper-in-aspnet-core"></a>Helper tag di ancoraggio in ASP.NET Core
 
-Di [Peter Kellner](http://peterkellner.net) e [Scott Addie](https://github.com/scottaddie)
+Di [Peter Kellner](https://peterkellner.net) e [Scott Addie](https://github.com/scottaddie)
 
 L'[helper tag](xref:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper) di ancoraggio migliora il tag di ancoraggio HTML standard (`<a ... ></a>`) con l'aggiunta di nuovi attributi. Per convenzione, i nomi di attributo hanno il prefisso `asp-`. Il valore dell'attributo `href` dell'elemento di ancoraggio visualizzato dipende dai valori degli attributi `asp-`.
 
@@ -41,7 +41,7 @@ Codice HTML generato:
 <a href="/Speaker">All Speakers</a>
 ```
 
-Se si specifica l'attributo `asp-controller` e l'attributo `asp-action` viene omesso, il valore `asp-action` predefinito è l'azione del controller associata alla visualizzazione di esecuzione corrente. Se `asp-action` viene omesso dal markup precedente e viene usato l'helper tag di ancoraggio nella visualizzazione *Index* di *HomeController* (*/Home*), il codice HTML generato è:
+Se si specifica l'attributo `asp-controller` e l'attributo `asp-action` viene omesso, il valore `asp-action` predefinito è l'azione del controller associata alla visualizzazione di esecuzione corrente. Se `asp-action` viene omesso dal markup precedente e viene usato l'helper tag di ancoraggio nella visualizzazione *Index* di *HomeController* ( */Home*), il codice HTML generato è:
 
 ```html
 <a href="/Home">All Speakers</a>

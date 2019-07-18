@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
-ms.openlocfilehash: fb69584f6e9d4756e175bbd6f3deb1f413b80fc5
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 0273a9805dd5db5450f57dcf3fd4d952308df074
+ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64890466"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67856203"
 ---
 # <a name="cache-tag-helper-in-aspnet-core-mvc"></a>Helper tag di cache in ASP.NET Core MVC
 
-Di [Peter Kellner](http://peterkellner.net) e [Luke Latham](https://github.com/guardrex) 
+Di [Peter Kellner](https://peterkellner.net) e [Luke Latham](https://github.com/guardrex) 
 
 L'helper tag di cache consente di migliorare le prestazioni dell'app ASP.NET Core memorizzandone il contenuto nel provider di cache ASP.NET Core interno.
 

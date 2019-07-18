@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/20/2019
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: eefe507efadb5ef0a03854d931402f9eaa23a266
-ms.sourcegitcommit: 763af2cbdab0da62d1f1cfef4bcf787f251dfb5c
+ms.openlocfilehash: 3f48cda8f89d3f3dcce220cad4e405472b510df4
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67394765"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67814883"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>Implementazione del server Web HTTP.sys in ASP.NET Core
 
@@ -195,7 +195,7 @@ Per la delega all'autenticazione in modalità kernel, HTTP.sys usa il protocollo
    * **.NET Core** &ndash; Se l'app richiede .NET Core, ottenere ed eseguire il programma di installazione di **.NET Core Runtime** dalla [pagina di download per .NET Core](https://dotnet.microsoft.com/download). Non installare l'SDK completo nel server.
    * **.NET Framework** &ndash; Se l'app richiede .NET Framework, vedere la [guida all'installazione di .NET Framework](/dotnet/framework/install/). Installare la versione di .NET Framework richiesta. Il programma di installazione per la versione più recente di .NET Framework è disponibile dalla pagina di [download per .NET Core](https://dotnet.microsoft.com/download).
 
-   Se l'app è una [distribuzione autonoma](/dotnet/core/deploying/#framework-dependent-deployments-scd) include il runtime nella distribuzione. Non è richiesta l'installazione di un framework nel server.
+   Se l'app è una [distribuzione autonoma](/dotnet/core/deploying/#self-contained-deployments-scd) include il runtime nella distribuzione. Non è richiesta l'installazione di un framework nel server.
 
 1. Configurare gli URL e le porte nell'app.
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/29/2019
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: d7a5656131189ffafb60a7b1db0b8d93a3787ae2
-ms.sourcegitcommit: 3ee6ee0051c3d2c8d47a58cb17eef1a84a4c46a0
+ms.openlocfilehash: c13e63725298975fc882aa45c4e75de53e1d66a8
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65621055"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815154"
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>Creare helper tag in ASP.NET Core
 
@@ -193,7 +193,7 @@ Se si aggiungono più attributi alla stessa istruzione, il runtime li gestisce c
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/WebsiteInformationTagHelper.cs)]
 
-   * Come affermato in precedenza, gli helper tag convertono i nomi delle relative classi e proprietà C#, definiti secondo la convenzione Pascal, in formato [kebab case](http://wiki.c2.com/?KebabCase). Per usare `WebsiteInformationTagHelper` in Razor, quindi, è necessario scrivere `<website-information />`.
+   * Come affermato in precedenza, gli helper tag convertono i nomi delle relative classi e proprietà C#, definiti secondo la convenzione Pascal, in formato [kebab case](https://wiki.c2.com/?KebabCase). Per usare `WebsiteInformationTagHelper` in Razor, quindi, è necessario scrivere `<website-information />`.
 
    * Non si sta identificando in modo esplicito l'elemento di destinazione con l'attributo `[HtmlTargetElement]` e quindi verrà considerato come destinazione il valore predefinito di `website-information`. Se è stato applicato l'attributo seguente (si noti che non è nel formato kebab case ma corrisponde al nome della classe):
 
@@ -207,7 +207,7 @@ Se si aggiungono più attributi alla stessa istruzione, il runtime li gestisce c
    [HtmlTargetElement("Website-Information")]
    ```
 
-   * Gli elementi a chiusura automatica non hanno contenuto. Per questo esempio, il markup Razor userà un tag a chiusura automatica, ma l'helper tag creerà un elemento [section](http://www.w3.org/TR/html5/sections.html#the-section-element), che non è a chiusura automatica, e si sta scrivendo contenuto all'interno dell'elemento `section`. Per scrivere output, è pertanto necessario impostare `TagMode` su `StartTagAndEndTag`. In alternativa, è possibile impostare come commento la riga che imposta `TagMode` e scrivere markup con un tag di chiusura. Del markup di esempio viene fornito più avanti in questa esercitazione.
+   * Gli elementi a chiusura automatica non hanno contenuto. Per questo esempio, il markup Razor userà un tag a chiusura automatica, ma l'helper tag creerà un elemento [section](https://www.w3.org/TR/html5/sections.html#the-section-element), che non è a chiusura automatica, e si sta scrivendo contenuto all'interno dell'elemento `section`. Per scrivere output, è pertanto necessario impostare `TagMode` su `StartTagAndEndTag`. In alternativa, è possibile impostare come commento la riga che imposta `TagMode` e scrivere markup con un tag di chiusura. Del markup di esempio viene fornito più avanti in questa esercitazione.
 
    * Il simbolo `$` (segno di dollaro) nella riga seguente usa una [stringa interpolata](/dotnet/csharp/language-reference/keywords/interpolated-strings):
 

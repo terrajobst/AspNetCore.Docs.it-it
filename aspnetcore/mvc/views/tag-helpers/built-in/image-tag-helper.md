@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/06/2019
 uid: mvc/views/tag-helpers/builtin-th/image-tag-helper
-ms.openlocfilehash: 916a68c187cbf516a59d3c5d7578cdb6ada01b86
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 964072ad276f7e3e411ee41cb03a2efb9d05c585
+ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64887666"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67856122"
 ---
 # <a name="image-tag-helper-in-aspnet-core"></a>Helper tag di immagine in ASP.NET Core
 
-Di [Peter Kellner](http://peterkellner.net)
+Di [Peter Kellner](https://peterkellner.net)
 
 L'helper tag di immagine migliora il tag `<img>` per rendere disponibile il comportamento di cache-busting per i file di immagine statici.
 

@@ -5,12 +5,12 @@ description: Come aggiungere la convalida a un'app ASP.NET Core.
 ms.author: riande
 ms.date: 04/13/2017
 uid: tutorials/first-mvc-app/validation
-ms.openlocfilehash: 6c59d0188f67872c7dd5599967551d7d390bfdcf
-ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
+ms.openlocfilehash: f94d1003732b8ff04ec8aba3005f8c95a876cd67
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "65875019"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815124"
 ---
 # <a name="add-validation-to-an-aspnet-core-mvc-app"></a>Aggiungere la funzionalità di convalida a un'app ASP.NET Core MVC
 
@@ -43,7 +43,7 @@ Si noti come il modulo ha eseguito automaticamente il rendering di un messaggio 
 
 Un vantaggio significativo è che non è necessario modificare una singola riga di codice nella classe `MoviesController` oppure nella vista *Create.cshtml* per abilitare l'interfaccia utente di convalida. Il controller e le viste creati in una fase precedente di questa esercitazione hanno selezionato automaticamente le regole di convalida specificate usando gli attributi di convalida delle proprietà della classe `Movie` del modello. Eseguire il test della convalida usando il metodo di azione `Edit` e viene applicata la stessa convalida.
 
-I dati del modulo non vengono inviati al server fino a quando non sono più presenti errori di convalida sul lato client. È possibile verificare questa condizione inserendo un punto di interruzione nel metodo `HTTP Post` usando lo [strumento Fiddler](http://www.telerik.com/fiddler) o gli [strumenti di sviluppo F12](/microsoft-edge/devtools-guide).
+I dati del modulo non vengono inviati al server fino a quando non sono più presenti errori di convalida sul lato client. È possibile verificare questa condizione inserendo un punto di interruzione nel metodo `HTTP Post` usando lo [strumento Fiddler](https://www.telerik.com/fiddler) o gli [strumenti di sviluppo F12](/microsoft-edge/devtools-guide).
 
 ## <a name="how-validation-works"></a>Funzionamento della convalida
 

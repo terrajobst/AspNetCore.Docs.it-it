@@ -5,12 +5,12 @@ description: Scoprire come aggiungere classi per la gestione dei film in un data
 ms.author: riande
 ms.date: 02/12/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 44e6f53d517b0470c5e6fa785a4061e59cda9ce6
-ms.sourcegitcommit: 20ca93d72cb0b3998637724b44523e57b089c8fd
+ms.openlocfilehash: be9f515178d0169a69487f917c7d39c6f11f1292
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473603"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815056"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Aggiungere un modello a un'app Razor Pages in ASP.NET Core
 
@@ -81,6 +81,10 @@ Nella finestra di dialogo **Aggiungi scaffolding** selezionare **Pagine Razor ch
 ![Immagine relativa alle istruzioni precedenti.](model/_static/add_scaffold.png)
 
 Completare la finestra di dialogo **Pagine Razor che usano Entity Framework (CRUD)** :
+<!-- In the next section, change 
+(plus) sign and accept the generated name 
+to use Data, it should not use models. That will make the namespace the same for the VS version and the CLI version
+-->
 
 * Nel menu a discesa **Classe modello** selezionare **Movie (RazorPagesMovie.Models)** .
 * Nella riga **Classe contesto di dati** selezionare il segno più **+** e accettare il nome generato **RazorPagesMovie.Models.RazorPagesMovieContext**.
@@ -218,7 +222,7 @@ Esaminare il metodo `Up`.
 
 ---
 
-Il comando `Add-Migration` genera un codice per creare lo schema del database iniziale. Lo schema è basato sul modello specificato in `RazorPagesMovieContext` (nel file *Data/RazorPagesMovieContext.cs*). L'argomento `Initial` viene usato per denominare le migrazioni. È possibile usare qualsiasi nome, ma per convenzione viene usato un nome che descrive la migrazione. Per ulteriori informazioni, vedere <xref:data/ef-mvc/migrations>.
+Il comando `Add-Migration` genera un codice per creare lo schema del database iniziale. Lo schema è basato sul modello specificato in `RazorPagesMovieContext` (nel file *Data/RazorPagesMovieContext.cs*). L'argomento `Initial` viene usato per denominare le migrazioni. È possibile usare qualsiasi nome, ma per convenzione viene usato un nome che descrive la migrazione. Per altre informazioni, vedere <xref:data/ef-mvc/migrations>.
 
 Il comando `Update-Database` esegue il metodo `Up` nel file *Migrations/{time-stamp}_InitialCreate.cs*, che crea il database.
 

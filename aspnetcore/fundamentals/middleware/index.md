@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/09/2019
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 74ecc1fa099d2d33ceb066decc912978da53bfb3
-ms.sourcegitcommit: bee530454ae2b3c25dc7ffebf93536f479a14460
+ms.openlocfilehash: 89cd505810eefeeeb8f708ab82244bbd2e341f38
+ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67724458"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308179"
 ---
 # <a name="aspnet-core-middleware"></a>Middleware di ASP.NET Core
 
@@ -124,7 +124,7 @@ public void Configure(IApplicationBuilder app)
 
 Configurare la pipeline HTTP usando <xref:Microsoft.AspNetCore.Builder.UseExtensions.Use*>,<xref:Microsoft.AspNetCore.Builder.RunExtensions.Run*> e <xref:Microsoft.AspNetCore.Builder.MapExtensions.Map*>. Il metodo `Use` può eseguire il corto circuito della pipeline, ovvero non chiamare un delegato di richiesta `next`. `Run` è una convenzione e alcuni componenti del middleware possono esporre metodi `Run[Middleware]` che vengono eseguiti al termine della pipeline.
 
-Le estensioni <xref:Microsoft.AspNetCore.Builder.MapExtensions.Map*> vengono usate come convenzione per la diramazione della pipeline. `Map*` crea un ramo nella pipeline delle richieste in base alle corrispondenze del percorso della richiesta specificato. Se il percorso della richiesta inizia con il percorso specificato, il ramo viene eseguito.
+Le estensioni <xref:Microsoft.AspNetCore.Builder.MapExtensions.Map*> vengono usate come convenzione per la diramazione della pipeline. `Map` crea un ramo nella pipeline delle richieste in base alle corrispondenze del percorso della richiesta specificato. Se il percorso della richiesta inizia con il percorso specificato, il ramo viene eseguito.
 
 [!code-csharp[](index/snapshot/Chain/StartupMap.cs?name=snippet1)]
 

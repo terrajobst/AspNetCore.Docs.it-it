@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/08/2019
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: d2b2456c7ab6b72f2270b6edc17000695061cc2b
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: f2d5dbbdc80eec035616ddea234ee5d3343eeae8
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64887756"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815183"
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Supporto di IIS in fase di sviluppo in Visual Studio per ASP.NET Core
 
@@ -58,7 +58,7 @@ IIS deve disporre di un sito Web configurato con gli elementi seguenti:
 
 Per un nuovo progetto che richiede HTTPS, selezionare la casella di controllo **Configura per HTTPS** nella finestra **Crea una nuova applicazione Web ASP.NET Core**. Selezionando questa casella di controllo viene aggiunto il [middleware di reindirizzamento HTTPS e HSTS](xref:security/enforcing-ssl) all'app quando viene creata.
 
-Per un progetto esistente che richiede HTTPS, usare il middleware di reindirizzamento HTTPS e HSTS in `Startup.Configure`. Per ulteriori informazioni, vedere <xref:security/enforcing-ssl>.
+Per un progetto esistente che richiede HTTPS, usare il middleware di reindirizzamento HTTPS e HSTS in `Startup.Configure`. Per altre informazioni, vedere <xref:security/enforcing-ssl>.
 
 Per un progetto che usa HTTP, il [middleware di reindirizzamento HTTPS e HSTS](xref:security/enforcing-ssl) non viene aggiunto all'app. Non è richiesta alcuna configurazione dell'app.
 
@@ -108,7 +108,7 @@ Creare un nuovo profilo di avvio per aggiungere il supporto IIS in fase di svilu
 
 ::: moniker-end
 
-Se non si usa Visual Studio, aggiungere manualmente un profilo di avvio al file [launchSettings.json](http://json.schemastore.org/launchsettings) nella cartella *Proprietà*. L'esempio seguente configura il profilo per usare il protocollo HTTPS:
+Se non si usa Visual Studio, aggiungere manualmente un profilo di avvio al file [launchSettings.json](https://json.schemastore.org/launchsettings) nella cartella *Proprietà*. L'esempio seguente configura il profilo per usare il protocollo HTTPS:
 
 ```json
 {

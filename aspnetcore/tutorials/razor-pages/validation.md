@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni su come aggiungere la convalida a una pagina Razor in ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/5/2018
+ms.date: 12/05/2018
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 38e1fff9c7a212af992951dbf57e124cae69d36f
-ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
+ms.openlocfilehash: 8495849c89ca3d6fd2b2006b61ce2ec75ff504a5
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2019
-ms.locfileid: "65874980"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815668"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Aggiungere la convalida a una pagina Razor ASP.NET Core
 
@@ -47,7 +47,7 @@ Un vantaggio significativo è che non c'era **nessuna** modifica del codice nece
 I dati del modulo non vengono registrati nel server fino a quando non sono presenti errori di convalida nel lato client. Verificare che i dati del modulo non siano stati registrati da uno o più degli approcci seguenti:
 
 * Inserire un punto di interruzione nel metodo `OnPostAsync`. Inviare il modulo (selezionare **Crea** o **Salva**). Il punto di interruzione non viene mai raggiunto.
-* Usare lo [Strumento Fiddler](http://www.telerik.com/fiddler).
+* Usare lo [Strumento Fiddler](https://www.telerik.com/fiddler).
 * Usare gli strumenti di sviluppo del browser per monitorare il traffico di rete.
 
 ### <a name="server-side-validation"></a>Convalida sul lato server

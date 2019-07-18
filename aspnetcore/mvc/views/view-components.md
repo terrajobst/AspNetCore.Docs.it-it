@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni sull'uso dei componenti di visualizzazione in ASP.NET Core e su come aggiungere tali componenti alle app.
 ms.author: riande
 ms.custom: mvc
-ms.date: 5/14/2019
+ms.date: 05/14/2019
 uid: mvc/views/view-components
-ms.openlocfilehash: 17fd7aa977868d522df9f27e0c23d07b016bfb7c
-ms.sourcegitcommit: 3ee6ee0051c3d2c8d47a58cb17eef1a84a4c46a0
+ms.openlocfilehash: ff84abf9e0c682d22196a0a0f5f377990c80a6ae
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65621081"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815268"
 ---
 # <a name="view-components-in-aspnet-core"></a>Componenti di visualizzazione in ASP.NET Core
 
@@ -42,7 +42,7 @@ I componenti di visualizzazione possono essere impiegati in un punto qualsiasi d
 
 Un componente di visualizzazione è costituito da due parti: la classe (in genere derivata da [ViewComponent](/dotnet/api/microsoft.aspnetcore.mvc.viewcomponent)) e il risultato restituito (in genere una visualizzazione). Come per i controller, un componente di visualizzazione può essere un oggetto POCO. Molti sviluppatori preferiscono tuttavia sfruttare i metodi e le proprietà disponibili derivando da `ViewComponent`.
 
-Quando si valuta se i componenti di visualizzazione soddisfano le specifiche di un'app, provare a usare Componenti Razor. Componenti Razor inoltre combina markup con codice C# per produrre unità riutilizzabili dell'interfaccia utente. Componenti Razor è progettato per la produttività degli sviluppatori quando si fornisce la composizione e la logica dell'interfaccia utente lato client. Per ulteriori informazioni, vedere <xref:blazor/components>.
+Quando si valuta se i componenti di visualizzazione soddisfano le specifiche di un'app, provare a usare Componenti Razor. Componenti Razor inoltre combina markup con codice C# per produrre unità riutilizzabili dell'interfaccia utente. Componenti Razor è progettato per la produttività degli sviluppatori quando si fornisce la composizione e la logica dell'interfaccia utente lato client. Per altre informazioni, vedere <xref:blazor/components>.
 
 ## <a name="creating-a-view-component"></a>Creazione di un componente di visualizzazione
 
@@ -86,7 +86,7 @@ Il percorso di ricerca si applica ai progetti che usano controller e visualizzaz
 
 Il nome di visualizzazione predefinito per un componente di visualizzazione è *Default*, quindi il file della visualizzazione viene solitamente denominato *Default.cshtml*. È possibile specificare un nome di visualizzazione diverso quando si crea il risultato del componente di visualizzazione o quando si chiama il metodo `View`.
 
-Si consiglia di denominare il file della visualizzazione *Default.cshtml* e usare il percorso *Views/Shared/Components/{Nome componente visualizzazione}/{Nome visualizzazione}*. Il componente di visualizzazione `PriorityList` in questo esempio usa *Views/Shared/Components/PriorityList/Default.cshtml* per la visualizzazione del componente di visualizzazione.
+Si consiglia di denominare il file della visualizzazione *Default.cshtml* e usare il percorso *Views/Shared/Components/{Nome componente visualizzazione}/{Nome visualizzazione}* . Il componente di visualizzazione `PriorityList` in questo esempio usa *Views/Shared/Components/PriorityList/Default.cshtml* per la visualizzazione del componente di visualizzazione.
 
 ## <a name="invoking-a-view-component"></a>Chiamata di un componente di visualizzazione
 

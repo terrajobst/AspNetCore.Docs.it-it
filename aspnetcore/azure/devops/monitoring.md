@@ -4,14 +4,14 @@ author: CamSoper
 description: Monitoraggio e debug del codice come parte di una soluzione DevOps con ASP.NET Core e Azure
 ms.author: casoper
 ms.custom: mvc, seodec18
-ms.date: 10/24/2018
+ms.date: 07/10/2019
 uid: azure/devops/monitor
-ms.openlocfilehash: 00489bd92dfff8fd80bd24c2e60193d32031d7c4
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 1d8ed99f4387dbc99929164c558cc2ce14bd9ea0
+ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64893068"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68307950"
 ---
 # <a name="monitor-and-debug"></a>Monitoraggio e debug
 
@@ -37,11 +37,11 @@ App web del servizio App sono facilità di monitoraggio in tempo reale. Il porta
 
     ![Screenshot che Mostra pannello della panoramica](./media/monitoring/overview.png)
 
-    * **Http 5xx**: Numero di errori sul lato server, in genere eccezioni nel codice ASP.NET Core.
-    * **I dati In**: Inserimento dei dati in arrivo nella tua app web.
-    * **Dati in uscita**: I dati in uscita dall'app web ai client.
-    * **Le richieste**: Conteggio delle richieste HTTP.
-    * **Tempo medio di risposta**: Tempo medio per l'app web rispondere alle richieste HTTP.
+    * **5Xx http**: Numero di errori sul lato server, in genere eccezioni nel codice ASP.NET Core.
+    * **Dati in**: Dati in ingresso nell'app Web.
+    * **Dati in uscita**: Dati in uscita dall'app Web ai client.
+    * **Richieste**: Conteggio delle richieste HTTP.
+    * **Tempo di risposta medio**: Tempo medio per l'app Web per rispondere alle richieste HTTP.
 
     Alcuni strumenti self-service per la risoluzione dei problemi e ottimizzazione sono disponibili anche in questa pagina.
 
@@ -89,7 +89,7 @@ I log del server e app Web sono disabilitati per impostazione predefinita nel se
 
     ![Collegamento di log di diagnostica](./media/monitoring/logging.png)
 
-1. Accendere **registrazione applicazioni (file System)**. Se richiesto, selezionare la casella per installare le estensioni per abilitare la registrazione nell'app web dell'app.
+1. Accendere **registrazione applicazioni (file System)** . Se richiesto, selezionare la casella per installare le estensioni per abilitare la registrazione nell'app web dell'app.
 1. Impostare **la registrazione del server Web** al **File System**.
 1. Immettere il **periodo di conservazione** in giorni. Ad esempio, 30.
 1. Fare clic su **Salva**.
@@ -111,7 +111,7 @@ I log possono rivelarsi [trasmessi tramite la CLI di Azure o Azure PowerShell](/
 
 Monitoraggio di Azure offre inoltre [avvisi in tempo reale](/azure/monitoring-and-diagnostics/insights-alerts-portal) basato sulle metriche, gli eventi amministrativi e altri criteri.
 
-> *Nota: Attualmente gli avvisi sulle metriche di app web è disponibili solo nel servizio avvisi (versione classico).*
+> *Nota: Attualmente gli avvisi sulle metriche dell'app Web sono disponibili solo nel servizio avvisi (versione classica).*
 
 Il [avvisi (versione classico) del servizio](/azure/monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal) sono disponibili in Monitoraggio di Azure o nel **Monitoring** sezione delle impostazioni del servizio App.
 
@@ -135,7 +135,7 @@ In questa sezione sono completate le attività seguenti:
 
 ## <a name="additional-reading"></a>Altre informazioni
 
-* <xref:host-and-deploy/azure-apps/troubleshoot>
+* <xref:test/troubleshoot-azure-iis>
 * <xref:host-and-deploy/azure-iis-errors-reference>
 * [Monitorare le prestazioni di app web di Azure con Application Insights](/azure/application-insights/app-insights-azure-web-apps)
 * [Abilitare la registrazione diagnostica per le app Web nel servizio app di Azure](/azure/app-service/web-sites-enable-diagnostic-log)

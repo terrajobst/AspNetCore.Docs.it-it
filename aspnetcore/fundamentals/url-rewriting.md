@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/18/2018
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 72d5b2e902a95442ccffb7a149b917c50373775b
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 5be53baf4b9eb8774501fbf7f781370f7f687d0c
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64889926"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67814945"
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Middleware Riscrittura URL in ASP.NET Core
 
@@ -205,7 +205,7 @@ La regola di riscrittura, `^rewrite-rule/(\d+)/(\d+)`, rileva la corrispondenza 
 | `/my-cool-rewrite-rule/1234/5678` | No    |
 | `/anotherrewrite-rule/1234/5678`  | No    |
 
-Dopo la parte `^rewrite-rule/` dell'espressione sono presenti due gruppi Capture, `(\d+)/(\d+)`. `\d` indica *corrispondenza con una cifra (numero)*. Il segno più (`+`) indica *corrispondenza con uno o più dei caratteri precedenti*. Di conseguenza l'URL deve contenere un numero seguito da una barra seguita a sua volta da un altro numero. Questi gruppi Capture vengono inseriti nell'URL riscritto come `$1` e `$2`. La stringa di sostituzione della regola di riscrittura inserisce i gruppi acquisiti nella stringa di query. Il percorso richiesto `/rewrite-rule/1234/5678` viene riscritto per ottenere la risorsa in `/rewritten?var1=1234&var2=5678`. Se nella richiesta originale è presente una stringa di query, la stringa viene mantenuta quando l'URL viene riscritto.
+Dopo la parte `^rewrite-rule/` dell'espressione sono presenti due gruppi Capture, `(\d+)/(\d+)`. `\d` indica *corrispondenza con una cifra (numero)* . Il segno più (`+`) indica *corrispondenza con uno o più dei caratteri precedenti*. Di conseguenza l'URL deve contenere un numero seguito da una barra seguita a sua volta da un altro numero. Questi gruppi Capture vengono inseriti nell'URL riscritto come `$1` e `$2`. La stringa di sostituzione della regola di riscrittura inserisce i gruppi acquisiti nella stringa di query. Il percorso richiesto `/rewrite-rule/1234/5678` viene riscritto per ottenere la risorsa in `/rewritten?var1=1234&var2=5678`. Se nella richiesta originale è presente una stringa di query, la stringa viene mantenuta quando l'URL viene riscritto.
 
 Non viene eseguito alcun round trip al server per ottenere la risorsa. Se la risorsa esiste, viene recuperata e restituita al client con il codice di stato *200 - OK*. Poiché il client non è reindirizzato, l'URL nella barra degli indirizzi del browser non cambia. I client non sono in grado di rilevare che si è verificata un'operazione di riscrittura URL nel server.
 
@@ -384,5 +384,5 @@ Richiesta originale: `/image.jpg`
 * [URL Rewrite Module Configuration Reference](/iis/extensions/url-rewrite-module/url-rewrite-module-configuration-reference) (Guida di riferimento per la configurazione di URL Rewrite Module)
 * [Forum di IIS URL Rewrite Module](https://forums.iis.net/1152.aspx)
 * [Keep a simple URL structure](https://support.google.com/webmasters/answer/76329?hl=en) (Mantenere una struttura URL semplice)
-* [10 URL Rewriting Tips and Tricks](http://ruslany.net/2009/04/10-url-rewriting-tips-and-tricks/) (10 suggerimenti e consigli per la riscrittura URL)
+* [10 URL Rewriting Tips and Tricks](https://ruslany.net/2009/04/10-url-rewriting-tips-and-tricks/) (10 suggerimenti e consigli per la riscrittura URL)
 * [To slash or not to slash](https://webmasters.googleblog.com/2010/04/to-slash-or-not-to-slash.html) (Uso del carattere barra)

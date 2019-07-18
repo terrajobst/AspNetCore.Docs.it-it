@@ -5,14 +5,14 @@ description: Ottenere suggerimenti per la risoluzione degli errori comuni dell'h
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/12/2019
+ms.date: 07/10/2019
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: 0191460f8c3dab98e6f977a29eacf0396b6789d8
-ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
+ms.openlocfilehash: 3030bc57be113d9034123c96403742442b9240bb
+ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65970065"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308093"
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Errori comuni di Servizio app di Azure e IIS con ASP.NET Core
 
@@ -24,12 +24,12 @@ Raccogliere le seguenti informazioni:
 
 * Comportamento del browser (codice di stato e messaggio di errore)
 * Voci del log eventi dell'applicazione
-  * Servizio app di Azure &ndash; Vedere <xref:host-and-deploy/azure-apps/troubleshoot>.
+  * Servizio app di Azure &ndash; Vedere <xref:test/troubleshoot-azure-iis>.
   * IIS
     1. Selezionare **Start** nel menu di **Windows**, digitare *Visualizzatore eventi* e premere **INVIO**.
     1. Dopo l'apertura di **Visualizzatore eventi**, espandere **Registri di Windows** > **Applicazione** nella barra laterale.
 * Voci del log per debug e stdout di ASP.NET Core
-  * Servizio app di Azure &ndash; Vedere <xref:host-and-deploy/azure-apps/troubleshoot>.
+  * Servizio app di Azure &ndash; Vedere <xref:test/troubleshoot-azure-iis>.
   * IIS &ndash; Seguire le istruzioni nelle sezioni [Creazione e reindirizzamento dei log](xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection) e [Log di diagnostica avanzati](xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs) dell'argomento Modulo ASP.NET Core.
 
 Confrontare le informazioni sugli errori con gli errori comuni seguenti. Se viene trovata una corrispondenza, seguire le indicazioni per la risoluzione dei problemi.
@@ -89,7 +89,7 @@ Risoluzione dei problemi:
 
 * Verificare che la **piattaforma** dell'app in **Impostazioni applicazione** corrisponda al numero di bit dell'app.
 
-Per ulteriori informazioni, vedere <xref:host-and-deploy/azure-apps/index#install-the-preview-site-extension>.
+Per altre informazioni, vedere <xref:host-and-deploy/azure-apps/index#install-the-preview-site-extension>.
 
 ## <a name="an-x86-app-is-deployed-but-the-app-pool-isnt-enabled-for-32-bit-apps"></a>Un'app x86 viene distribuita, ma il pool di app non è abilitato per le app a 32 bit
 
@@ -121,7 +121,7 @@ Per una distribuzione dipendente dal framework x86 (`<PlatformTarget>x86</Platfo
 
 Risoluzione dei problemi:
 
-* Confermare che l'app sia eseguita in locale su Kestrel. Un errore del processo può essere causato da un problema interno dell'applicazione. Per altre informazioni, vedere [Risolvere i problemi di ASP.NET Core in IIS](xref:host-and-deploy/iis/troubleshoot) oppure [Risolvere i problemi di ASP.NET Core in Servizio app di Azure](xref:host-and-deploy/azure-apps/troubleshoot).
+* Confermare che l'app sia eseguita in locale su Kestrel. Un errore del processo può essere causato da un problema interno dell'applicazione. Per altre informazioni, vedere <xref:test/troubleshoot-azure-iis>.
 
 * Se questa eccezione si verifica per una distribuzione di App di Azure durante l'aggiornamento di un'app e la distribuzione di assembly più recenti, eliminare manualmente tutti i file dalla distribuzione precedente. Le assembly incompatibili con il tempo di ritardo possono causare una eccezione `System.BadImageFormatException` quando si distribuisce un'app aggiornata.
 
@@ -231,7 +231,7 @@ Risoluzione dei problemi:
 
 Risoluzione dei problemi:
 
-* Confermare che l'app sia eseguita in locale su Kestrel. Un errore del processo può essere causato da un problema interno dell'applicazione. Per altre informazioni, vedere [Risolvere i problemi di ASP.NET Core in IIS](xref:host-and-deploy/iis/troubleshoot) oppure [Risolvere i problemi di ASP.NET Core in Servizio app di Azure](xref:host-and-deploy/azure-apps/troubleshoot).
+* Confermare che l'app sia eseguita in locale su Kestrel. Un errore del processo può essere causato da un problema interno dell'applicazione. Per altre informazioni, vedere <xref:test/troubleshoot-azure-iis>.
 
 * Verificare che l'attributo *processPath* dell'elemento `<aspNetCore>` in *web.config* sia `dotnet` per una distribuzione dipendente da framework (FDD, Framework-Dependent Deployment) o `.\{ASSEMBLY}.exe` per una [distribuzione autonoma (SCD, Self-Contained Deployment)](/dotnet/core/deploying/#self-contained-deployments-scd).
 
@@ -277,7 +277,7 @@ Risoluzione dei problemi:
 
 Risoluzione dei problemi:
 
-* Confermare che l'app sia eseguita in locale su Kestrel. Un errore del processo può essere causato da un problema interno dell'applicazione. Per altre informazioni, vedere [Risolvere i problemi di ASP.NET Core in IIS](xref:host-and-deploy/iis/troubleshoot) oppure [Risolvere i problemi di ASP.NET Core in Servizio app di Azure](xref:host-and-deploy/azure-apps/troubleshoot).
+* Confermare che l'app sia eseguita in locale su Kestrel. Un errore del processo può essere causato da un problema interno dell'applicazione. Per altre informazioni, vedere <xref:test/troubleshoot-azure-iis>.
 
 * Verificare che l'attributo *arguments* dell'elemento `<aspNetCore>` in *web.config* sia (a) `.\{ASSEMBLY}.dll` per una distribuzione dipendente da framework (FDD) o (b) non disponibile, una stringa vuota (`arguments=""`) o un elenco degli argomenti dell'app (`arguments="{ARGUMENT_1}, {ARGUMENT_2}, ... {ARGUMENT_X}"`) per una distribuzione autonoma (SCD).
 
@@ -339,7 +339,7 @@ Risoluzione dei problemi:
 
 Verificare che il file *web.config* dell'app secondaria non includa una sezione `<handlers>` o che l'app secondaria non erediti i gestori dell'app padre.
 
-La sezione `<system.webServer>` dell'app padre di *web.config* viene inserita all'interno di un elemento `<location>`. La proprietà <xref:System.Configuration.SectionInformation.InheritInChildApplications*> è impostata su `false` per indicare che le impostazioni specificate nell'elemento [\<location>](/iis/manage/managing-your-configuration-settings/understanding-iis-configuration-delegation#the-concept-of-location) non sono ereditate da app che risiedono in una sottodirectory dell'app padre. Per ulteriori informazioni, vedere <xref:host-and-deploy/aspnet-core-module>.
+La sezione `<system.webServer>` dell'app padre di *web.config* viene inserita all'interno di un elemento `<location>`. La proprietà <xref:System.Configuration.SectionInformation.InheritInChildApplications*> è impostata su `false` per indicare che le impostazioni specificate nell'elemento [\<location>](/iis/manage/managing-your-configuration-settings/understanding-iis-configuration-delegation#the-concept-of-location) non sono ereditate da app che risiedono in una sottodirectory dell'app padre. Per altre informazioni, vedere <xref:host-and-deploy/aspnet-core-module>.
 
 ::: moniker-end
 
@@ -407,6 +407,5 @@ non è stato possibile avviare il processo, molto probabilmente a causa di un pr
 
 Per altre informazioni, vedere i seguenti argomenti:
 
-* <xref:host-and-deploy/iis/troubleshoot>
-* <xref:host-and-deploy/azure-apps/troubleshoot>
+* <xref:test/troubleshoot-azure-iis>
 * <xref:test/troubleshoot>

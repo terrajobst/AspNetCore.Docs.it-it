@@ -5,12 +5,12 @@ description: Informazioni sul framework avanzato di ASP.NET Core MVC per la crea
 ms.author: riande
 ms.date: 01/08/2018
 uid: mvc/overview
-ms.openlocfilehash: eb636616ab952f506993ae5f4692e5e966bb20f4
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 819bc93a7580626bf586b984b0ce169306df56d9
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087313"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815347"
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Panoramica di ASP.NET MVC
 
@@ -179,7 +179,7 @@ Oltre a essere una piattaforma ideale per la creazione di siti Web, ASP.NET Core
 
 Il framework include il supporto per la negoziazione del contenuto HTTP con il supporto predefinito per la [formattazione dei dati](xref:web-api/advanced/formatting) come JSON o XML. È possibile scrivere [formattatori personalizzati](xref:web-api/advanced/custom-formatters) per aggiungere il supporto per i propri formati.
 
-Usare la generazione di collegamenti per abilitare il supporto per l'ipermedia. È possibile abilitare facilmente il supporto per la [Condivisione di risorse tra le origini (CORS)](http://www.w3.org/TR/cors/) in modo da poter condividere le proprie API Web tra più applicazioni Web.
+Usare la generazione di collegamenti per abilitare il supporto per l'ipermedia. È possibile abilitare facilmente il supporto per la [Condivisione di risorse tra le origini (CORS)](https://www.w3.org/TR/cors/) in modo da poter condividere le proprie API Web tra più applicazioni Web.
 
 ### <a name="testability"></a>Testabilità
 
@@ -252,4 +252,4 @@ I [componenti di visualizzazione](views/view-components.md) consentono di creare
 
 Il metodo <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> consente a un'app di acconsentire o rifiutare esplicitamente modifiche potenzialmente importanti del comportamento introdotte in ASP.NET Core MVC 2.1 o versioni successive.
 
-Per ulteriori informazioni, vedere <xref:mvc/compatibility-version>.
+Per altre informazioni, vedere <xref:mvc/compatibility-version>.
