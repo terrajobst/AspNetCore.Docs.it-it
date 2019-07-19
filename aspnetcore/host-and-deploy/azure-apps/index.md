@@ -5,14 +5,14 @@ description: Questo articolo contiene collegamenti a risorse di hosting e distri
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/28/2019
+ms.date: 07/16/2019
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 5daefde13310ebeb232ef4c8886b12ad78182e50
-ms.sourcegitcommit: f5762967df3be8b8c868229e679301f2f7954679
+ms.openlocfilehash: bbdb3e92b6b8afb44d9c0c95c240002c7b7c17db
+ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048247"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308150"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Distribuire le app ASP.NET Core in Servizio app di Azure
 
@@ -48,7 +48,7 @@ Individuare le limitazioni di esecuzione di runtime di Servizio app di Azure app
 
 ::: moniker range=">= aspnetcore-2.2"
 
-I runtime per le app a 64 bit (x64) e a 32 bit (x86) sono disponibili in Servizio app di Azure. La versione di [.NET Core SDK](/dotnet/core/sdk) disponibile nel servizio app è a 32 bit, ma è possibile distribuire app a 64 bit usando la console [Kudu](https://github.com/projectkudu/kudu/wiki) o tramite [MSDeploy con un profilo di pubblicazione di Visual Studio o un comando dell'interfaccia della riga di comando](xref:host-and-deploy/visual-studio-publish-profiles).
+I runtime per le app a 64 bit (x64) e a 32 bit (x86) sono disponibili in Servizio app di Azure. [.NET Core SDK](/dotnet/core/sdk) disponibile nel servizio app è a 32 bit, ma è possibile distribuire app a 64 bit compilate in locale usando la console [Kudu](https://github.com/projectkudu/kudu/wiki) o il processo di pubblicazione di Visual Studio. Per altre informazioni, vedere la sezione [Pubblicare e distribuire l'app](#publish-and-deploy-the-app).
 
 ::: moniker-end
 
@@ -57,6 +57,8 @@ I runtime per le app a 64 bit (x64) e a 32 bit (x86) sono disponibili in Servizi
 Per le app con dipendenze native, i runtime per le app a 32 bit (x86) sono disponibili in Servizio app di Azure. La versione di [.NET Core SDK](/dotnet/core/sdk) disponibile nel servizio app è a 32 bit.
 
 ::: moniker-end
+
+Per altre informazioni sui componenti e sui metodi di distribuzione del framework .NET Core, ad esempio informazioni sul runtime di .NET Core e su .NET Core SDK, vedere [Informazioni su .NET Core: Composizione](/dotnet/core/about#composition).
 
 ### <a name="packages"></a>Pacchetti
 
@@ -80,7 +82,7 @@ Quando un'app usa l'[host generico](xref:fundamentals/host/generic-host), le var
 
 ::: moniker-end
 
-::: moniker range=">= aspnetcore-2.0 <= aspnetcore-2.2"
+::: moniker range="< aspnetcore-3.0"
 
 Quando un'app compila l'host con [WebHost.CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder), le variabili di ambiente che configurano l'host usano il prefisso `ASPNETCORE_`. Per altre informazioni, vedere <xref:fundamentals/host/web-host> e il [provider di configurazione delle variabili di ambiente](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
 
@@ -115,7 +117,7 @@ Informazioni su come abilitare e accedere alla registrazione diagnostica per i c
 <xref:fundamentals/error-handling>  
 Riconoscimento degli approcci comuni di gestione degli errori nelle app ASP.NET Core.
 
-<xref:host-and-deploy/azure-apps/troubleshoot>  
+<xref:test/troubleshoot-azure-iis>  
 Informazioni su come diagnosticare i problemi delle distribuzioni del servizio app di Azure con le app ASP.NET Core.
 
 <xref:host-and-deploy/azure-iis-errors-reference>  
@@ -132,14 +134,14 @@ Nel passaggio da uno slot di distribuzione all'altro, tutti i sistemi che usano 
 * Archivio SQL
 * Cache Redis
 
-Per ulteriori informazioni, vedere <xref:security/data-protection/implementation/key-storage-providers>.
+Per altre informazioni, vedere <xref:security/data-protection/implementation/key-storage-providers>.
 
 ## <a name="deploy-aspnet-core-preview-release-to-azure-app-service"></a>Distribuire la versione di anteprima di ASP.NET Core in Servizio app di Azure
 
-Adottare uno degli approcci seguenti:
+Usare uno degli approcci seguenti se l'app si basa su una versione di anteprima di .NET Core:
 
 * [Installare l'estensione del sito di anteprima](#install-the-preview-site-extension).
-* [Distribuire l'app autonoma](#deploy-the-app-self-contained).
+* [Distribuire un'app di anteprima completa](#deploy-a-self-contained-preview-app).
 * [Usare Docker con app Web per contenitori](#use-docker-with-web-apps-for-containers).
 
 ### <a name="install-the-preview-site-extension"></a>Installare l'estensione del sito di anteprima
@@ -188,7 +190,7 @@ Se per creare e distribuire le app si usa un modello ARM, è possibile usare il 
 
 [!code-json[](index/sample/arm.json?highlight=2)]
 
-### <a name="deploy-the-app-self-contained"></a>Distribuire l'app autonoma
+### <a name="deploy-a-self-contained-preview-app"></a>Distribuire un'app di anteprima autonoma
 
 Una [distribuzione autonoma](/dotnet/core/deploying/#self-contained-deployments-scd) che ha come destinazione un runtime di anteprima include il runtime di anteprima nella distribuzione.
 
@@ -197,9 +199,59 @@ Per la distribuzione di un'app autonoma:
 * Il sito nel Servizio app di Azure non richiede l'[estensione del sito di anteprima](#install-the-preview-site-extension).
 * L'app deve essere pubblicata seguendo un approccio diverso rispetto alla procedura di pubblicazione per una [distribuzione dipendente dal framework](/dotnet/core/deploying#framework-dependent-deployments-fdd).
 
-#### <a name="publish-from-visual-studio"></a>Pubblicare da Visual Studio
+Seguire le istruzioni riportate nella sezione [Distribuire l'app autonoma](#deploy-the-app-self-contained).
 
-1. Selezionare **Compila** > **Pubblica {nome applicazione}** sulla barra degli strumenti di Visual Studio.
+### <a name="use-docker-with-web-apps-for-containers"></a>Usare Docker con app Web per contenitori
+
+L'[hub Docker](https://hub.docker.com/r/microsoft/aspnetcore/) contiene le immagini di Docker più recenti per la versione di anteprima. Le immagini possono essere usate come immagini di base. Usare l'immagine e distribuirla alle app Web per i contenitori normalmente.
+
+## <a name="publish-and-deploy-the-app"></a>Pubblicare e distribuire l'app
+
+### <a name="deploy-the-app-framework-dependent"></a>Distribuire l'app in modo dipendente dal framework
+
+::: moniker range=">= aspnetcore-2.2"
+
+Per una [distribuzione dipendente dal framework](/dotnet/core/deploying/#framework-dependent-deployments-fdd) a 64-bit :
+
+* Usare .NET Core SDK a 64 bit per compilare un'app a 64 bit.
+* Impostare **Piattaforma** su **64 bit** in **Configurazione** > **Impostazioni generali** nel servizio app. L'app deve usare un piano di servizio Basic o superiore per abilitare la scelta del numero di bit della piattaforma.
+
+::: moniker-end
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+1. Selezionare **Compila** > **Pubblica {nome applicazione}** dalla barra degli strumenti di Visual Studio oppure fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e selezionare **Pubblica**.
+1. Nella finestra di dialogo **Selezionare una destinazione di pubblicazione.** verificare che sia selezionata la voce **Servizio app**.
+1. Selezionare **Avanzate**. Viene visualizzata la finestra di dialogo **Pubblica**.
+1. Nella finestra di dialogo **Pubblica**:
+   * Verificare che sia selezionata la configurazione **Rilascio**.
+   * Aprire l'elenco a discesa **Modalità di distribuzione** e selezionare **Dipendente dal framework**.
+   * Selezionare **Portabile** come **Runtime di destinazione**.
+   * Se durante la distribuzione è necessario rimuovere i file aggiuntivi, aprire **Opzioni pubblicazione file** e selezionare la casella di controllo che consente di rimuovere i file aggiuntivi nella destinazione.
+   * Selezionare **Salva**.
+1. Creare un nuovo sito o aggiornare un sito esistente seguendo le istruzioni rimanenti della pubblicazione guidata.
+
+# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli/)
+
+1. Nel file di progetto non specificare un [Identificatore runtime](/dotnet/core/rid-catalog).
+
+1. Da una shell dei comandi pubblicare l'app nella configurazione di versione con il comando [dotnet publish](/dotnet/core/tools/dotnet-publish). Nell'esempio seguente l'app viene pubblicata come app dipendente dal framework:
+
+   ```console
+   dotnet publish --configuration Release
+   ```
+
+1. Spostare il contenuto della directory *bin/Release/{TARGET FRAMEWORK}/publish* nel sito nel servizio app. Se il contenuto della cartella *publish* viene trascinato dal disco rigido locale o dalla condivisione di rete direttamente nel servizio app nella console [Kudu](https://github.com/projectkudu/kudu/wiki), trascinare i file nella cartella `D:\home\site\wwwroot` nella console Kudu.
+
+---
+
+### <a name="deploy-the-app-self-contained"></a>Distribuire l'app autonoma
+
+Usare Visual Studio o gli strumenti dell'interfaccia della riga di comando (CLI) per una [distribuzione autonoma (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd).
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+1. Selezionare **Compila** > **Pubblica {nome applicazione}** dalla barra degli strumenti di Visual Studio oppure fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e selezionare **Pubblica**.
 1. Nella finestra di dialogo **Selezionare una destinazione di pubblicazione.** verificare che sia selezionata la voce **Servizio app**.
 1. Selezionare **Avanzate**. Viene visualizzata la finestra di dialogo **Pubblica**.
 1. Nella finestra di dialogo **Pubblica**:
@@ -210,13 +262,13 @@ Per la distribuzione di un'app autonoma:
    * Selezionare **Salva**.
 1. Creare un nuovo sito o aggiornare un sito esistente seguendo le istruzioni rimanenti della pubblicazione guidata.
 
-#### <a name="publish-using-command-line-interface-cli-tools"></a>Pubblicare usando gli strumenti dell'interfaccia della riga di comando
+# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli/)
 
 1. Nel file di progetto specificare uno o più [identificatori di runtime (RID)](/dotnet/core/rid-catalog). Usare `<RuntimeIdentifier>` (singolare) per un unico RID o `<RuntimeIdentifiers>` (plurale) per specificare un elenco di RID delimitato da punto e virgola. Nell'esempio seguente è specificato il RID `win-x86`:
 
    ```xml
    <PropertyGroup>
-     <TargetFramework>netcoreapp2.1</TargetFramework>
+     <TargetFramework>{TARGET FRAMEWORK}</TargetFramework>
      <RuntimeIdentifier>win-x86</RuntimeIdentifier>
    </PropertyGroup>
    ```
@@ -227,11 +279,9 @@ Per la distribuzione di un'app autonoma:
    dotnet publish --configuration Release --runtime win-x86
    ```
 
-1. Spostare il contenuto della directory *bin/Release/{TARGET FRAMEWORK}/{RUNTIME IDENTIFIER}/publish* nel sito del Servizio app.
+1. Spostare il contenuto della directory *bin/Release/{TARGET FRAMEWORK}/{RUNTIME IDENTIFIER}/publish* nel sito del Servizio app. Se il contenuto della cartella *publish* viene trascinato dal disco rigido locale o dalla condivisione di rete direttamente nel servizio app nella console Kudu, trascinare i file nella cartella `D:\home\site\wwwroot` nella console Kudu.
 
-### <a name="use-docker-with-web-apps-for-containers"></a>Usare Docker con app Web per contenitori
-
-L'[hub Docker](https://hub.docker.com/r/microsoft/aspnetcore/) contiene le immagini di Docker più recenti per la versione di anteprima. Le immagini possono essere usate come immagini di base. Usare l'immagine e distribuirla alle app Web per i contenitori normalmente.
+---
 
 ## <a name="protocol-settings-https"></a>Impostazioni del protocollo (HTTPS)
 
