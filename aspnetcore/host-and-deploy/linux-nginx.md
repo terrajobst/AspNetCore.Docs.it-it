@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/31/2019
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: 29b80b59f474f6a775d1eba315597e55e1e37781
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: d9db2a251820d0dab26f8a6bd2eb755090154165
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64884196"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67813337"
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Hosting di ASP.NET Core in Linux con Nginx
 
@@ -104,7 +104,7 @@ services.Configure<ForwardedHeadersOptions>(options =>
 });
 ```
 
-Per ulteriori informazioni, vedere <xref:host-and-deploy/proxy-load-balancer>.
+Per altre informazioni, vedere <xref:host-and-deploy/proxy-load-balancer>.
 
 ### <a name="install-nginx"></a>Installare Nginx
 
@@ -308,7 +308,7 @@ Linux Security Modules (LSM) è un framework che fa parte del kernel Linux a par
 Chiudere tutte le porte esterne che non sono in uso. Il firewall UFW (Uncomplicated Firewall) offre un front-end per `iptables` attraverso un'interfaccia della riga di comando per la configurazione del firewall.
 
 > [!WARNING]
-> Se non è configurato correttamente, un firewall impedisce l'accesso all'intero sistema. Se non si specifica la porta SSH corretta, non sarà possibile accedere al sistema se si usa SSH per la connessione. Il numero di porta predefinito è 22. Per altre informazioni, vedere l'[introduzione a ufw](https://help.ubuntu.com/community/UFW) e il [manuale](http://manpages.ubuntu.com/manpages/bionic/man8/ufw.8.html).
+> Se non è configurato correttamente, un firewall impedisce l'accesso all'intero sistema. Se non si specifica la porta SSH corretta, non sarà possibile accedere al sistema se si usa SSH per la connessione. Il numero di porta predefinito è 22. Per altre informazioni, vedere l'[introduzione a ufw](https://help.ubuntu.com/community/UFW) e il [manuale](https://manpages.ubuntu.com/manpages/bionic/man8/ufw.8.html).
 
 Installare `ufw` e configurarlo per consentire il traffico su tutte le porte necessarie.
 
@@ -341,7 +341,7 @@ Configurare il server con moduli aggiuntivi obbligatori. Può essere utile usare
 
 **Configurare l'app per connessioni locali sicure (HTTPS)**
 
-Il comando [dotnet run](/dotnet/core/tools/dotnet-run) usa il file *Properties/launchSettings.json* dell'app, che configura l'app per l'ascolto negli URL specificati dalla proprietà `applicationUrl` , ad esempio `https://localhost:5001; http://localhost:5000`.
+Il comando [dotnet run](/dotnet/core/tools/dotnet-run) usa il file *Properties/launchSettings.json* dell'app, che configura l'app per l'ascolto negli URL specificati dalla proprietà `applicationUrl` , ad esempio `https://localhost:5001;http://localhost:5000`.
 
 Configurare l'app per l'uso di un certificato nello sviluppo per il comando `dotnet run` o l'ambiente di sviluppo (F5 o CTRL+F5 in Visual Studio Code) usando uno degli approcci seguenti:
 
