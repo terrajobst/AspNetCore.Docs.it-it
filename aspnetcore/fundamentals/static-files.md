@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni sull'uso, sulla protezione di file statici e sulla configurazione dei comportamenti del middleware che ospita i file statici nell'app Web ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/08/2019
+ms.date: 07/8/2019
 uid: fundamentals/static-files
-ms.openlocfilehash: bcd179bd89b90d80fc81645b24296a1fa70cca0a
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 1c665d1206e984fe41e9f57bb5356839c354dde2
+ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64888386"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308191"
 ---
 # <a name="static-files-in-aspnet-core"></a>File statici in ASP.NET Core
 
@@ -50,7 +50,7 @@ I file statici sono accessibili tramite un percorso relativo alla radice Web. Ad
   * **images**
   * **js**
 
-Il formato dell'URI per accedere a un file nella sottocartella *images* (immagini) è *http://\<indirizzo_server > /images/\<nome_file_immagine >*. Ad esempio: *http://localhost:9189/images/banner3.svg*.
+Il formato dell'URI per accedere a un file nella sottocartella *images* (immagini) è *http://\<indirizzo_server > /images/\<nome_file_immagine >* . Ad esempio: *http://localhost:9189/images/banner3.svg* .
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -224,7 +224,7 @@ La classe [FileExtensionContentTypeProvider](/dotnet/api/microsoft.aspnetcore.st
 
 [!code-csharp[](static-files/samples/1x/StartupFileExtensionContentTypeProvider.cs?name=snippet_ConfigureMethod&highlight=3-12,19)]
 
-Vedere [Tipi di contenuto MIME](http://www.iana.org/assignments/media-types/media-types.xhtml).
+Vedere [Tipi di contenuto MIME](https://www.iana.org/assignments/media-types/media-types.xhtml).
 
 ## <a name="non-standard-content-types"></a>Tipi di contenuto non standard
 

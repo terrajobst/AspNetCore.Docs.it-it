@@ -5,14 +5,14 @@ description: Informazioni su come gestire gli errori nelle app ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 05/03/2019
+ms.date: 07/10/2019
 uid: fundamentals/error-handling
-ms.openlocfilehash: 6b92cb6b68b1c70d67f42284d548729e598f9a8b
-ms.sourcegitcommit: c5339594101d30b189f61761275b7d310e80d18a
+ms.openlocfilehash: f9f91455b273b99608ca6f1524df6cb748a26669
+ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/02/2019
-ms.locfileid: "66458443"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308200"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Gestire gli errori in ASP.NET Core
 
@@ -204,7 +204,7 @@ Il livello di hosting può visualizzare una pagina di errore per un errore di av
 * Si verifica un arresto anomalo del processo di dotnet.
 * Non viene visualizzata alcuna pagina di errore quando il server HTTP è [Kestrel](xref:fundamentals/servers/kestrel).
 
-Se durante l'esecuzione su [IIS](/iis) o [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) il processo non può essere avviato, viene restituito un codice *502.5 Errore del processo* dal [modulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module). Per ulteriori informazioni, vedere <xref:host-and-deploy/iis/troubleshoot>. Per informazioni sulla risoluzione dei problemi di avvio con il servizio app di Azure, vedere <xref:host-and-deploy/azure-apps/troubleshoot>.
+Se durante l'esecuzione in [IIS](/iis) (o servizio app di Azure) o in [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) il processo non può essere avviato, viene restituito l'errore *502.5 Errore del processo* dal [modulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module). Per altre informazioni, vedere <xref:test/troubleshoot-azure-iis>.
 
 ## <a name="database-error-page"></a>Pagina di errore di database
 
@@ -219,7 +219,7 @@ if (env.IsDevelopment())
 
 ## <a name="exception-filters"></a>Filtri eccezioni
 
-Nelle app MVC i filtri delle eccezioni possono essere configurati a livello globale o per ogni controller o azione singolarmente. Nelle app Razor Pages è possibile configurarli a livello globale o per ogni modello di pagina. Questi filtri gestiscono tutte le eccezioni non gestite che si verificano durante l'esecuzione di un'azione del controller o di un altro filtro Per ulteriori informazioni, vedere <xref:mvc/controllers/filters#exception-filters>.
+Nelle app MVC i filtri delle eccezioni possono essere configurati a livello globale o per ogni controller o azione singolarmente. Nelle app Razor Pages è possibile configurarli a livello globale o per ogni modello di pagina. Questi filtri gestiscono tutte le eccezioni non gestite che si verificano durante l'esecuzione di un'azione del controller o di un altro filtro Per altre informazioni, vedere <xref:mvc/controllers/filters#exception-filters>.
 
 > [!TIP]
 > I filtri delle eccezioni sono utili per intercettare le eccezioni che si verificano all'interno di azioni MVC, ma non sono flessibili come il middleware di gestione degli errori. È consigliabile usare il middleware. Usare i filtri solo quando è necessario eseguire la gestione degli errori in modo diverso in base all'azione MVC scelta.
@@ -230,6 +230,5 @@ Per informazioni su come gestire gli errori dello stato del modello, vedere [Ass
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
+* <xref:test/troubleshoot-azure-iis>
 * <xref:host-and-deploy/azure-iis-errors-reference>
-* <xref:host-and-deploy/iis/troubleshoot>
-* <xref:host-and-deploy/azure-apps/troubleshoot>

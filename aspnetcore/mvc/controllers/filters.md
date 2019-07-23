@@ -4,14 +4,14 @@ author: ardalis
 description: Informazioni sul funzionamento dei filtri e su come usarli in ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 5/08/2019
+ms.date: 05/08/2019
 uid: mvc/controllers/filters
-ms.openlocfilehash: cdf121b97396cb23103d49cd141b9ef19b8c0cc6
-ms.sourcegitcommit: e1623d8279b27ff83d8ad67a1e7ef439259decdf
+ms.openlocfilehash: 50b199744f32ad19335080da406db69665ec1ae9
+ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66223028"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67856152"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtri in ASP.NET Core
 
@@ -190,7 +190,7 @@ La proprietà `Order` può essere impostata con un parametro del costruttore:
 
 Prendere in considerazione gli stessi tre filtri di azione illustrati nell'esempio precedente. Se la proprietà `Order` del controller e dei filtri globali è impostata, rispettivamente, su 1 e su 2, l'ordine di esecuzione viene invertito.
 
-| Sequence | Ambito del filtro | Proprietà`Order`  | Metodo del filtro |
+| Sequence | Ambito del filtro | Proprietà`Order` | Metodo del filtro |
 |:--------:|:------------:|:-----------------:|:-------------:|
 | 1 | Metodo | 0 | `OnActionExecuting` |
 | 2 | Controller | 1  | `OnActionExecuting` |
@@ -259,7 +259,7 @@ Nel codice seguente l'attributo `ServiceFilter` recupera un'istanza del filtro `
 
 [!code-csharp[](./filters/sample/FiltersSample/Controllers/HomeController.cs?name=snippet_ServiceFilter&highlight=1)]
 
-[ServiceFilterAttribute.IsReusable](xref:Microsoft.AspNetCore.Mvc.ServiceFilterAttribute.IsReusable):
+Quando si usa l'impostazione `ServiceFilterAttribute`, [ServiceFilterAttribute.IsReusable](xref:Microsoft.AspNetCore.Mvc.ServiceFilterAttribute.IsReusable):
 
 * Indica che l'istanza del filtro *può* essere riutilizzata all'esterno dell'ambito della richiesta in cui è stata creata. Il runtime di ASP.NET Core non garantisce:
 
@@ -279,7 +279,10 @@ Poiché i tipi `TypeFilterAttribute` non vengono risolti direttamente dal conten
 * Non è necessario che i tipi a cui viene fatto riferimento tramite `TypeFilterAttribute` siano registrati nel contenitore di inserimento delle dipendenze.  Le loro dipendenze vengono soddisfatte dal contenitore di inserimento delle dipendenze.
 * In via facoltativa, `TypeFilterAttribute` può anche accettare gli argomenti del costruttore per il tipo.
 
-Quando si usa `TypeFilterAttribute`, l'impostazione di `IsReusable` indica che l'istanza del filtro *potrebbe* essere riutilizzata all'esterno dell'ambito della richiesta in cui è stata creata. Il runtime di ASP.NET Core non fornisce alcuna garanzia che venga creata una singola istanza del filtro. Non si deve usare `IsReusable` con un filtro che dipende da servizi con una durata diversa da singleton.
+Quando si usa l'impostazione `TypeFilterAttribute`, [TypeFilterAttribute.IsReusable](xref:Microsoft.AspNetCore.Mvc.TypeFilterAttribute.IsReusable):
+* Indica che l'istanza del filtro *può* essere riutilizzata all'esterno dell'ambito della richiesta in cui è stata creata. Il runtime di ASP.NET Core non fornisce alcuna garanzia che venga creata una singola istanza del filtro.
+
+* Non si deve usare con un filtro che dipende da servizi con una durata diversa da singleton.
 
 L'esempio seguente illustra come passare argomenti a un tipo usando `TypeFilterAttribute`:
 

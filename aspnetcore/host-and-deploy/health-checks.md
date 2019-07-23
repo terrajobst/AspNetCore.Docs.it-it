@@ -5,14 +5,14 @@ description: Informazioni su come configurare i controlli di integrità per l'in
 monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/23/2019
+ms.date: 07/11/2019
 uid: host-and-deploy/health-checks
-ms.openlocfilehash: 5119267a8da5c950989b14b7c2e818aa22806506
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 43b6c3b55170eaf3a989d0f2779edac5290df823
+ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64887926"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67855915"
 ---
 # <a name="health-checks-in-aspnet-core"></a>Controlli di integrità in ASP.NET Core
 
@@ -684,3 +684,20 @@ Nell'esempio di `LivenessProbeStartup` dell'app di esempio, il controllo di conf
 > [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) include i server di pubblicazione per diversi sistemi, tra cui [Application Insights](/azure/application-insights/app-insights-overview).
 >
 > [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) è una porta di [BeatPulse](https://github.com/xabaril/beatpulse) che non viene gestita o supportata da Microsoft.
+
+## <a name="restrict-health-checks-with-mapwhen"></a>Limitare i controlli integrità con MapWhen
+
+Usare <xref:Microsoft.AspNetCore.Builder.MapWhenExtensions.MapWhen*> per creare un ramo condizionale della pipeline delle richieste per gli endpoint di controllo integrità.
+
+Nell'esempio seguente `MapWhen` crea un ramo condizionale della pipeline delle richieste per attivare il middleware di controllo integrità se viene ricevuta una richiesta GET per l'endpoint `api/HealthCheck`:
+
+```csharp
+app.MapWhen(
+    context => context.Request.Method == HttpMethod.Get.Method && 
+        context.Request.Path.StartsWith("/api/HealthCheck"),
+    builder => builder.UseHealthChecks());
+
+app.UseMvc();
+```
+
+Per altre informazioni, vedere <xref:fundamentals/middleware/index#use-run-and-map>.

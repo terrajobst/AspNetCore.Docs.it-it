@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni su come creare un'API Web con ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/23/2019
+ms.date: 07/11/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: a53f7019c1079296f073e743ddbf9d90fc5abad3
-ms.sourcegitcommit: d6e51c60439f03a8992bda70cc982ddb15d3f100
+ms.openlocfilehash: 95410cef9753fbb0eda6136320b59682e0553ea7
+ms.sourcegitcommit: 040aedca220ed24ee1726e6886daf6906f95a028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67555882"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67893126"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Esercitazione: Creare un'API Web con ASP.NET Core
 
@@ -99,7 +99,7 @@ Il diagramma seguente visualizza la struttura dell'app.
 
   ![Nuova soluzione macOS](first-web-api-mac/_static/sln.png)
 
-* Selezionare **.NET Core App** > **ASP.NET Core Web API** > **Next**.
+* Selezionare **.NET Core** > **App** > **API** > **Avanti**.
 
   ![Finestra di dialogo Nuovo progetto di macOS](first-web-api-mac/_static/1.png)
   
@@ -127,7 +127,7 @@ Premere CTRL+F5 per eseguire l'app. In un browser passare all'URL seguente: [htt
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
-Selezionare **Esegui** > **Avvia eseguendo il debug** per avviare l'app. Visual Studio per Mac apre un browser e naviga all'indirizzo `https://localhost:<port>`, dove `<port>` è un numero di porta selezionato a caso. Viene restituito un errore HTTP 404 (Non trovato). Accodare `/api/values` all'URL (impostare l'URL su `https://localhost:<port>/api/values`).
+Selezionare **Esegui** > **Avvia debug** per avviare l'app. Visual Studio per Mac apre un browser e naviga all'indirizzo `https://localhost:<port>`, dove `<port>` è un numero di porta selezionato a caso. Viene restituito un errore HTTP 404 (Non trovato). Accodare `/api/values` all'URL (impostare l'URL su `https://localhost:<port>/api/values`).
 
 ---
 
@@ -245,6 +245,8 @@ Questi metodi implementano due metodi GET:
 
 * `GET /api/todo`
 * `GET /api/todo/{id}`
+
+Arrestare l'app se è ancora in esecuzione. Quindi eseguirla di nuovo per includere le modifiche più recenti.
 
 Testare l'app chiamando i due endpoint da un browser. Ad esempio:
 

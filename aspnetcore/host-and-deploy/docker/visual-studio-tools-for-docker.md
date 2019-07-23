@@ -1,19 +1,19 @@
 ---
-title: Visual Studio Tools per Docker con ASP.NET Core
+title: Strumenti contenitore di Visual Studio con ASP.NET Core
 author: spboyer
-description: Informazioni su come usare gli strumenti di Visual Studio 2017 e Docker per Windows per aggiungere un'app ASP.NET Core in un contenitore.
+description: Informazioni su come usare gli strumenti di Visual Studio e Docker per Windows per aggiungere un'app ASP.NET Core in un contenitore.
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 09/12/2018
 uid: host-and-deploy/docker/visual-studio-tools-for-docker
-ms.openlocfilehash: b0d884fe2fe56f267ad70c388a08cd3fe6256364
-ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
+ms.openlocfilehash: 5faf0be19448d8272901bf018357da63bbe22d4b
+ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610374"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308078"
 ---
-# <a name="visual-studio-tools-for-docker-with-aspnet-core"></a>Visual Studio Tools per Docker con ASP.NET Core
+# <a name="visual-studio-container-tools-with-aspnet-core"></a>Strumenti contenitore di Visual Studio con ASP.NET Core
 
 Visual Studio 2017 e versioni successive supporta la compilazione, il debug e l'esecuzione di app ASP.NET Core incluse in contenitori destinate a .NET Core. Sono supportati sia contenitori Windows che contenitori Linux.
 
@@ -56,7 +56,7 @@ Per i progetti ASP.NET Core destinati a .NET Core, esistono due opzioni per l'ag
 * Scegliere **Supporto Docker** dal menu **Progetto**.
 * Fare clic con il pulsante destro del mouse su **Esplora soluzioni** e selezionare **Aggiungi** > **Supporto Docker**.
 
-Visual Studio Tools per Docker non supporta l'aggiunta di Docker a un progetto esistente di ASP.NET Core destinato a .NET Framework.
+Gli strumenti contenitore in Visual Studio non supportano l'aggiunta di Docker a un progetto di ASP.NET Core esistente destinato a .NET Framework.
 
 ## <a name="dockerfile-overview"></a>Panoramica di Dockerfile
 
@@ -88,7 +88,7 @@ Visual Studio 2017 versione 15.8 e successive aggiunge una soluzione di orchestr
 
 ### <a name="docker-compose"></a>Docker Compose
 
-Visual Studio Tools per Docker aggiunge un progetto *docker-compose* alla soluzione, con i file seguenti:
+Gli strumenti contenitore in Visual Studio aggiungono un progetto *docker-compose* alla soluzione con i file seguenti:
 
 * *docker-compose. dcproj* &ndash; File che rappresenta il progetto. Include un elemento `<DockerTargetOS>` che specifica il sistema operativo da usare.
 * File con estensione *dockerignore* &ndash; Elenca i modelli di file e directory da escludere durante la generazione di un contesto di compilazione.
@@ -116,7 +116,7 @@ Oltre ai [prerequisiti](#prerequisites) di base, la soluzione di orchestrazione 
 
 Service Fabric non supporta l'esecuzione di contenitori Linux nel cluster di sviluppo locale in Windows. Se il progetto usa già un contenitore Linux, Visual Studio richiede di passare a contenitori Windows.
 
-Visual Studio Tools per Docker esegue le attività seguenti:
+Gli strumenti contenitore in Visual Studio eseguono le attività seguenti:
 
 * Aggiunge il progetto di **applicazione di Service Fabric** *&lt;nome_progetto&gt;Application* alla soluzione.
 * Aggiunge un *Dockerfile* e un file con estensione *dockerignore* al progetto ASP.NET Core. Se nel progetto ASP.NET Core è già presente un *Dockerfile*, questo viene rinominato in *Dockerfile.original*. Viene creato un nuovo *Dockerfile* simile al seguente:
@@ -194,7 +194,7 @@ baf9a678c88d        hellodockertools:dev   "C:\\remote_debugge..."   10 minutes 
 
 ## <a name="publish-docker-images"></a>Pubblicare immagini Docker
 
-Dopo il completamento del ciclo di sviluppo e debug dell'app, Visual Studio Tools per Docker consente di creare l'immagine di produzione dell'app stessa. Selezionare **Versione** nell'elenco a discesa della configurazione ed eseguire l'app. Gli strumenti acquisiscono l'immagine di compilazione/pubblicazione dall'hub Docker, se non è già presente nella cache. Viene generata un'immagine con il tag *latest*. È possibile effettuare il push dell'immagine nel registro privato o nell'hub Docker.
+Dopo il completamento del ciclo di sviluppo e debug dell'app, gli strumenti contenitore in Visual Studio consentono di creare l'immagine di produzione dell'app. Selezionare **Versione** nell'elenco a discesa della configurazione ed eseguire l'app. Gli strumenti acquisiscono l'immagine di compilazione/pubblicazione dall'hub Docker, se non è già presente nella cache. Viene generata un'immagine con il tag *latest*. È possibile effettuare il push dell'immagine nel registro privato o nell'hub Docker.
 
 Eseguire il comando `docker images` nella Console di Gestione pacchetti per visualizzare l'elenco delle immagini. Viene visualizzato output simile al seguente:
 
@@ -234,5 +234,5 @@ Ci si potrebbe aspettare che l'immagine di produzione o di versione abbia dimens
 * [Sviluppare con i contenitori in Visual Studio](/visualstudio/containers)
 * [Azure Service Fabric: preparare l'ambiente di sviluppo](/azure/service-fabric/service-fabric-get-started)
 * [Distribuire un'app .NET in un contenitore Windows in Azure Service Fabric](/azure/service-fabric/service-fabric-host-app-in-a-container)
-* [Risolvere i problemi di sviluppo di Visual Studio 2017 con Docker](/azure/vs-azure-tools-docker-troubleshooting-docker-errors)
-* [Visual Studio Tools for Docker GitHub repository](https://github.com/Microsoft/DockerTools) (Repository GitHub di Visual Studio Tools per Docker)
+* [Risolvere i problemi di sviluppo di Visual Studio con Docker](/azure/vs-azure-tools-docker-troubleshooting-docker-errors)
+* [Repository GitHub degli strumenti contenitore di Visual Studio](https://github.com/Microsoft/DockerTools)
