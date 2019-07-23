@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 07/11/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: cdb5cad2302cc8ec02107021005b8590efce7533
-ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
+ms.openlocfilehash: 4fe677e69478284db2ccab655c35b5744b6f63f9
+ms.sourcegitcommit: 059ab380744fa3be3b69aa90d431b563c57092cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308211"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68410919"
 ---
 # <a name="logging-in-aspnet-core"></a>Registrazione in ASP.NET Core
 
@@ -865,14 +865,11 @@ Non usare il pacchetto [Microsoft.ApplicationInsights.Web](https://www.nuget.org
 Per altre informazioni, vedere le seguenti risorse:
 
 * [Panoramica di Application Insights](/azure/application-insights/app-insights-overview)
-* [Application Insights per applicazioni ASP.NET Core](/azure/azure-monitor/app/asp-net-core-no-visualstudio): iniziare da qui se si vuole implementare l'intervallo completo dei dati di telemetria di Application Insights insieme alla registrazione.
+* [Application Insights per applicazioni ASP.NET Core](/azure/azure-monitor/app/asp-net-core): iniziare da qui se si vuole implementare l'intervallo completo dei dati di telemetria di Application Insights insieme alla registrazione.
 * [ApplicationInsightsLoggerProvider per log ILogger .NET Core](/azure/azure-monitor/app/ilogger): iniziare da qui se si vuole implementare il provider di registrazione senza gli altri dati di telemetria di Application Insights.
-* [Adattatori di registrazione di Application Insights](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/blob/develop/README.md).
+* [Adattatori di registrazione di Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-trace-logs).
 * [Installare, configurare e inizializzare Application Insights SDK](/learn/modules/instrument-web-app-code-with-application-insights): esercitazione interattiva nel sito Microsoft Learn.
 ::: moniker-end
-
-> [!NOTE]
-> Dal 1° maggio 2019 l'articolo intitolato [Application Insights per ASP.NET Core](/azure/azure-monitor/app/asp-net-core) non è aggiornato e i passaggi dell'esercitazione non funzionano. Vedere invece [Application Insights per applicazioni ASP.NET Core](/azure/azure-monitor/app/asp-net-core-no-visualstudio). Microsoft è a conoscenza del problema e sta lavorando per risolverlo.
 
 ## <a name="third-party-logging-providers"></a>Provider di registrazione di terze parti
 
