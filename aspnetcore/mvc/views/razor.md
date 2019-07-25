@@ -5,12 +5,12 @@ description: Informazioni sulla sintassi di markup Razor per l'incorporamento di
 ms.author: riande
 ms.date: 06/12/2019
 uid: mvc/views/razor
-ms.openlocfilehash: 87c5b97a653c139b8b79f4270e0d9d0081815433
-ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
+ms.openlocfilehash: 634623aa6df860a2ff728da4e65d277326db37e2
+ms.sourcegitcommit: 051f068c78931432e030b60094c38376d64d013e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67034933"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68440365"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Guida di riferimento della sintassi Razor per ASP.NET Core
 
@@ -224,7 +224,7 @@ Usare questo approccio per eseguire il rendering di HTML che non è racchiuso tr
 
 Il tag **\<text>** è utile per controllare gli spazi vuoti durante il rendering del contenuto:
 
-* Solo il contenuto tra il tag **\<text>** viene sottoposto a rendering.
+* Solo il contenuto all'interno del tag **\<text>** viene sottoposto a rendering.
 * Non vengono visualizzati spazi vuoti prima o dopo il tag **\<text>** nell'output HTML.
 
 ### <a name="explicit-line-transition-with-"></a>Transizione riga esplicita con @:
@@ -581,9 +581,6 @@ La direttiva `@attribute` aggiunge l'attributo specificato alla classe della pag
 ```cshtml
 @attribute [Authorize]
 ```
-
-> [!WARNING]
-> Nella versione di ASP.NET Core 3.0 Preview 6 esiste un problema noto a causa del quale le direttive `@attribute` non funzionano nei file *\_Imports.razor* e *\_ViewImports.cshtml*. Questo problema verrà risolto nella versione Preview 7.
 
 ### <a name="namespace"></a>@namespace
 
