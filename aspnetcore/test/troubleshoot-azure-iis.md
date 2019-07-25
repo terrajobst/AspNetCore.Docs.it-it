@@ -5,14 +5,14 @@ description: Informazioni su come diagnosticare i problemi relativi alle distrib
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/17/2019
+ms.date: 07/18/2019
 uid: test/troubleshoot-azure-iis
-ms.openlocfilehash: 46d4a11c594844e059fa8555255d7321f7b48631
-ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
+ms.openlocfilehash: deae568a6ba88c9a8365b9d7f2df629899bc64a1
+ms.sourcegitcommit: 16502797ea749e2690feaa5e652a65b89c007c89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308794"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68483314"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service-and-iis"></a>Risolvere i problemi relativi a ASP.NET Core in app Azure servizio e IIS
 
@@ -48,6 +48,31 @@ In Visual Studio, per impostazione predefinita un progetto ASP.NET Core usa l'ho
 In Visual Studio, per impostazione predefinita un progetto ASP.NET Core usa l'hosting in [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) durante il debug. Un *errore del processo 502,5* che si verifica quando è possibile diagnosticare localmente il debug usando i consigli in questo argomento.
 
 ::: moniker-end
+
+### <a name="40314-forbidden"></a>403,14 non consentito
+
+Non è possibile avviare l'app. Viene registrato l'errore seguente:
+
+```
+The Web server is configured to not list the contents of this directory.
+```
+
+L'errore è in genere causato da una distribuzione interruppe sul sistema host, che include uno degli scenari seguenti:
+
+* L'app viene distribuita nella cartella errata del sistema di hosting.
+* Il processo di distribuzione non è riuscito a spostare tutti i file e le cartelle dell'app nella cartella di distribuzione nel sistema di hosting.
+* Il file *Web. config* non è presente nella distribuzione oppure il contenuto del file *Web. config* non è valido.
+
+Eseguire la procedura seguente:
+
+1. Eliminare tutti i file e le cartelle dalla cartella di distribuzione nel sistema di hosting.
+1. Ridistribuire il contenuto della cartella di *pubblicazione* dell'app nel sistema host usando il normale metodo di distribuzione, ad esempio Visual Studio, PowerShell o la distribuzione manuale:
+   * Verificare che il file *Web. config* sia presente nella distribuzione e che il contenuto sia corretto.
+   * Quando si esegue l'hosting in app Azure servizio, verificare che l'app venga `D:\home\site\wwwroot` distribuita nella cartella.
+   * Quando l'app è ospitata da IIS, verificare che l'app venga distribuita nel **percorso fisico** IIS visualizzato nelle impostazioni di **base**di **Gestione IIS**.
+1. Verificare che tutti i file e le cartelle dell'app vengano distribuiti confrontando la distribuzione nel sistema di hosting con il contenuto della cartella di *pubblicazione* del progetto.
+
+Per ulteriori informazioni sul layout di un'app ASP.NET Core pubblicata, vedere <xref:host-and-deploy/directory-structure>. Per ulteriori informazioni sul file *Web. config* , vedere <xref:host-and-deploy/aspnet-core-module#configuration-with-webconfig>.
 
 ### <a name="500-internal-server-error"></a>500 Errore interno del server
 
@@ -192,6 +217,8 @@ Verificare che l'impostazione del pool di app a 32 bit sia corretta:
 1. Impostare **Attiva applicazioni a 32 bit**:
    * Se si sta sviluppando un'app a 32 bit (x86), impostare il valore su `True`.
    * Se si sta sviluppando un'app a 64 bit (x64), impostare il valore su `False`.
+
+Verificare che non esista un conflitto tra una `<Platform>` proprietà di MSBuild nel file di progetto e il bit pubblicato dell'app.
 
 ### <a name="connection-reset"></a>Reimpostazione della connessione
 
