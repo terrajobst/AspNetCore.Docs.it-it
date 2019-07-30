@@ -4,13 +4,14 @@
 >
 >La soluzione per ovviare alle limitazioni di SQLite consiste nello scrivere manualmente il codice delle migrazioni per eseguire una ricompilazione della tabella in caso di modifiche nella tabella. La ricompilazione della tabella comporta:
 >
->* Ridenominazione della tabella esistente.
 >* Creazione di una nuova tabella.
 >* Copia dei dati dalla vecchia tabella alla nuova tabella.
 >* Eliminazione della tabella precedente.
+>* Ridenominazione della nuova tabella.
 >
 >Per altre informazioni, vedere le seguenti risorse:
 >
 > * [Limitazioni del provider di database SQLite per EF Core](/ef/core/providers/sqlite/limitations)
 > * [Personalizzare il codice di migrazione](/ef/core/managing-schemas/migrations/#customize-migration-code)
 > * [Seeding dei dati](/ef/core/modeling/data-seeding)
+  * [Istruzione ALTER TABLE di SQLite](https://sqlite.org/lang_altertable.html)
