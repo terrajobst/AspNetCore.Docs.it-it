@@ -3,14 +3,14 @@ title: Panoramica di ASP.NET MVC
 author: ardalis
 description: Informazioni sul framework avanzato di ASP.NET Core MVC per la creazione di app Web e API tramite lo schema progettuale MVC (Model-View-Controller).
 ms.author: riande
-ms.date: 01/08/2018
+ms.date: 08/01/2019
 uid: mvc/overview
-ms.openlocfilehash: 819bc93a7580626bf586b984b0ce169306df56d9
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 7f09751850cbfa7bb3dc79656d4530445a9767b1
+ms.sourcegitcommit: 3204bc89ae6354b61ee0a9b2770ebe5214b7790c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815347"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707815"
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Panoramica di ASP.NET MVC
 
@@ -88,11 +88,11 @@ Il *routing di attributi* consente di specificare informazioni di routing assegn
 [Route("api/[controller]")]
 public class ProductsController : Controller
 {
-  [HttpGet("{id}")]
-  public IActionResult GetProduct(int id)
-  {
-    ...
-  }
+    [HttpGet("{id}")]
+    public IActionResult GetProduct(int id)
+    {
+      ...
+    }
 }
 ```
 
@@ -102,7 +102,7 @@ L'[associazione di modelli](models/model-binding.md) di ASP.NET Core MVC convert
 
 ```csharp
 public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null) { ... }
-   ```
+```
 
 ### <a name="model-validation"></a>Convalida modello
 
@@ -149,6 +149,7 @@ L'app può inoltre usare l'[inserimento di dipendenze nei file di visualizzazion
 
 ```cshtml
 @inject SomeService ServiceName
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -189,11 +190,11 @@ L'uso delle interfacce e dell'inserimento di dipendenze rende il framework adatt
 
 Le [visualizzazioni ASP.NET Core MVC](views/overview.md) usano il [motore di visualizzazione Razor](views/razor.md) per il rendering delle visualizzazioni. Razor è un linguaggio TML (Template Markup Language) compatto, espressivo e fluido per la definizione delle visualizzazioni tramite l'uso di codice C# incorporato. Razor viene usato per generare in modo dinamico il contenuto Web nel server. È possibile combinare correttamente il codice server con il contenuto e il codice sul lato client.
 
-```text
+```cshtml
 <ul>
-  @for (int i = 0; i < 5; i++) {
-    <li>List item @i</li>
-  }
+    @for (int i = 0; i < 5; i++) {
+        <li>List item @i</li>
+    }
 </ul>
 ```
 
