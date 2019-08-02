@@ -5,12 +5,12 @@ description: Illustra come aggiungere la funzionalità di ricerca a un'app ASP.N
 ms.author: riande
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/search
-ms.openlocfilehash: fbec03d71e247c58fb5968290c4baf6b28120e1c
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: ed6c7a095143670b7d06e43db3a428dec9bf97ad
+ms.sourcegitcommit: 3204bc89ae6354b61ee0a9b2770ebe5214b7790c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815060"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707835"
 ---
 # <a name="add-search-to-an-aspnet-core-mvc-app"></a>Aggiungere la funzionalità di ricerca a un'app ASP.NET Core MVC
 
@@ -18,7 +18,7 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 In questa sezione si aggiunge la funzionalità di ricerca al metodo di azione `Index` che consente di cercare film in base al *genere* o al *nome*.
 
-Aggiornare il metodo `Index` con il codice seguente:
+Aggiornare il metodo `Index` all'interno di *Controllers/MoviesController.cs* con il codice seguente:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_1stSearch)]
 
@@ -91,7 +91,7 @@ Tuttavia, anche se si aggiunge questa versione `[HttpPost]` del metodo `Index`, 
 
 È possibile esaminare il parametro di ricerca e il token [XSRF](xref:security/anti-request-forgery) nel corpo della richiesta. Si noti, come indicato nell'esercitazione precedente, che l'[helper tag del modulo](xref:mvc/views/working-with-forms) genera un token antifalsificazione [XSRF](xref:security/anti-request-forgery). Poiché non si stanno modificando i dati, non è necessario convalidare il token nel metodo del controller.
 
-Poiché il parametro di ricerca si trova nel corpo della richiesta e non nell'URL, non è possibile acquisire queste informazioni sulla ricerca da usare come segnalibro o condividerle con altri utenti. Risolvere il problema specificando che la richiesta deve essere `HTTP GET`:
+Poiché il parametro di ricerca si trova nel corpo della richiesta e non nell'URL, non è possibile acquisire queste informazioni sulla ricerca da usare come segnalibro o condividerle con altri utenti. Per risolvere il problema, specificare che la richiesta deve essere `HTTP GET` nel file *Views/Movies/Index.cshtml*.
 
 [!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/Movies/IndexGet.cshtml?highlight=12&range=1-23)]
 
@@ -132,7 +132,7 @@ Quando l'utente cerca l'elemento, viene mantenuto il valore di ricerca nella cas
 
 ## <a name="add-search-by-genre-to-the-index-view"></a>Aggiungere la funzionalità di ricerca in base al genere alla vista Index
 
-Aggiornare `Index.cshtml` come indicato di seguito:
+Aggiornare `Index.cshtml` in *Views/Movies/* come segue:
 
 [!code-cshtml[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/Movies/IndexFormGenreNoRating.cshtml?highlight=1,15,16,17,19,28,31,34,37,43)]
 
