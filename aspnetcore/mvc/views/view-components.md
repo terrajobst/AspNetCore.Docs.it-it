@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/14/2019
 uid: mvc/views/view-components
-ms.openlocfilehash: ff84abf9e0c682d22196a0a0f5f377990c80a6ae
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: e6990368519857a27b291d7d565c09072f23f1b0
+ms.sourcegitcommit: 7001657c00358b082734ba4273693b9b3ed35d2a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815268"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68670090"
 ---
 # <a name="view-components-in-aspnet-core"></a>Componenti di visualizzazione in ASP.NET Core
 
@@ -326,6 +326,14 @@ Usare l'helper tag del componente di visualizzazione nel file di markup Razor:
 ::: moniker-end
 
 La firma del metodo di `PriorityList.Invoke` è sincrona, ma Razor trova e chiama il metodo con `Component.InvokeAsync` nel file di markup.
+
+## <a name="all-view-component-parameters-are-required"></a>Tutti i parametri del componente di visualizzazione sono obbligatori
+
+Ogni parametro in un componente di visualizzazione è un attributo obbligatorio. Vedere [il problema in GitHub](https://github.com/aspnet/AspNetCore/issues/5011). Se un parametro viene omesso:
+
+* La firma del metodo `InvokeAsync` non corrisponde, quindi il metodo non verrà eseguito.
+* ViewComponent non esegue il rendering dei markup.
+* Non vengono generati errori.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

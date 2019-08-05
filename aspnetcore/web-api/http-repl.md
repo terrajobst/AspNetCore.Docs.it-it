@@ -5,14 +5,14 @@ description: Informazioni su come usare lo strumento globale REPL HTTP .NET Core
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 07/23/2019
+ms.date: 07/25/2019
 uid: web-api/http-repl
-ms.openlocfilehash: 1ceda6182c62bb1be06cd95f14e6a46a1809253e
-ms.sourcegitcommit: 059ab380744fa3be3b69aa90d431b563c57092cf
+ms.openlocfilehash: e719d599545810d723840b0800cd6a2b4f96b123
+ms.sourcegitcommit: fbc66827e319d28bebed678ea5fd42f582fe3c34
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68410883"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68493578"
 ---
 # <a name="test-web-apis-with-the-http-repl"></a>Testare le API Web con il ciclo Read-Eval-Print (REPL) HTTP
 
@@ -21,7 +21,8 @@ Di [Scott Addie](https://twitter.com/Scott_Addie)
 Il ciclo Read-Eval-Print (REPL) HTTP:
 
 * È un strumento da riga di comando multipiattaforma leggero supportato ovunque sia supportato .NET Core.
-* Consente di eseguire richieste HTTP per testare le API Web ASP.NET Core e visualizzare i relativi risultati.
+* Consente di eseguire richieste HTTP per testare le API Web ASP.NET Core (e le API Web non ASP.NET Core) e visualizzare i relativi risultati.
+* Riesce a testare le API Web ospitate in qualsiasi ambiente, inclusi localhost e Servizio app di Azure.
 
 Sono supportati i [verbi HTTP](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#74-supported-methods) seguenti:
 
@@ -44,7 +45,7 @@ Per continuare, [visualizzare o scaricare l'API Web ASP.NET Core di esempio](htt
 Per installare il ciclo Read-Eval-Print HTTP, eseguire il comando seguente:
 
 ```console
-dotnet tool install -g Microsoft.dotnet-httprepl --version 3.0.0-*
+dotnet tool install -g Microsoft.dotnet-httprepl --version "3.0.0-*"
 ```
 
 Viene installato uno [strumento globale .NET Core](/dotnet/core/tools/global-tools#install-a-global-tool) dal pacchetto NuGet [Microsoft.dotnet-httprepl](https://www.nuget.org/packages/Microsoft.dotnet-httprepl).

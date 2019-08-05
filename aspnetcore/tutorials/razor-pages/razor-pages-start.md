@@ -5,12 +5,12 @@ description: Questa serie di esercitazioni illustra come usare Razor Pages in AS
 ms.author: riande
 ms.date: 07/25/2019
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 1605197188d97f27a884739a72400da2d5818b1a
-ms.sourcegitcommit: 849af69ee3c94cdb9fd8fa1f1bb8f5a5dda7b9eb
+ms.openlocfilehash: 57a10895c718c539ece280afcb27cb4033c7fb45
+ms.sourcegitcommit: 979dbfc5e9ce09b9470789989cddfcfb57079d94
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371971"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68682799"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Esercitazione: Introduzione all'uso di pagine Razor in ASP.NET Core
 
@@ -133,7 +133,7 @@ Da Visual Studio, selezionare **File > Apri**, quindi selezionare il file *Razor
 
   [!INCLUDE[](~/includes/trustCertMac.md)]
 
-* Premere **Cmd-Opt-F5** per l'esecuzione senza il debugger.
+* Premere **ALT+CMD+INVIO** per l'esecuzione senza il debugger. In alternativa, passare alla barra dei menu e andare a Esegui>Avvia senza eseguire debug.
 
   Visual Studio avvia [Kestrel](xref:fundamentals/servers/kestrel), avvia un browser e passa a `http://localhost:5001`.
 

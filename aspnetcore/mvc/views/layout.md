@@ -3,14 +3,14 @@ title: Layout in ASP.NET Core
 author: ardalis
 description: Informazioni su come usare layout comuni, condividere direttive ed eseguire codice comune prima di eseguire il rendering delle visualizzazioni in un'applicazione ASP.NET Core.
 ms.author: riande
-ms.date: 02/26/2019
+ms.date: 07/30/2019
 uid: mvc/views/layout
-ms.openlocfilehash: 7a60ee15e688d6f0e531302457604fa759213758
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 6bd9dfc65c026ee524277aaaa21333d299c8981e
+ms.sourcegitcommit: 7001657c00358b082734ba4273693b9b3ed35d2a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56899242"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68670005"
 ---
 # <a name="layout-in-aspnet-core"></a>Layout in ASP.NET Core
 
@@ -35,7 +35,7 @@ La maggior parte delle applicazioni web presenta un layout comune che fornisce a
 
 Molte pagine all'interno di un'app utilizzano anche strutture HTML comuni, come script e fogli di stile. Tutti questi elementi condivisi possono essere definiti in un file di *layout*, cui è possibile fare riferimento da qualsiasi visualizzazione utilizzata all'interno dell'app. I layout riducono il codice duplicato nelle visualizzazioni.
 
-Per convenzione, il layout predefinito per un'app ASP.NET Core è denominato *_Layout.cshtml*. File di layout per i nuovi progetti ASP.NET Core creati con i modelli:
+Per convenzione, il layout predefinito per un'app ASP.NET Core è denominato *_Layout.cshtml*. I file di layout per i nuovi progetti ASP.NET Core creati con i modelli sono:
 
 * Razor Pages: *Pages/Shared/_Layout.cshtml*
 
@@ -43,7 +43,7 @@ Per convenzione, il layout predefinito per un'app ASP.NET Core è denominato *_L
 
 * Controller con visualizzazioni: *Views/Shared/_Layout.cshtml*
 
- ![cartella visualizzazioni in Esplora soluzioni](layout/_static/mvc-web-project-views.png)
+  ![Cartella Views in Esplora soluzioni](layout/_static/mvc-web-project-views.png)
 
 Il layout definisce un modello di primo livello per le visualizzazioni nell'app. Le app non richiedono un layout. Le app possono definire più di un layout, con visualizzazioni diverse che specificano layout differenti.
 
