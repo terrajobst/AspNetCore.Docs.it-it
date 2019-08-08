@@ -5,14 +5,14 @@ description: Informazioni sul test della logica dei controller in ASP.NET Core c
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/06/2019
+ms.date: 08/03/2019
 uid: mvc/controllers/testing
-ms.openlocfilehash: 8dd2fc5d581dbcb11afbcdc0c154c0e2640f9259
-ms.sourcegitcommit: 91cc1f07ef178ab709ea42f8b3a10399c970496e
+ms.openlocfilehash: 6238454b4fb809179d78d4e743e79abadb994e5c
+ms.sourcegitcommit: 4fe3ae892f54dc540859bff78741a28c2daa9a38
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67622731"
+ms.lasthandoff: 08/04/2019
+ms.locfileid: "68776595"
 ---
 # <a name="test-controller-logic-in-aspnet-core"></a>Test della logica dei controller in ASP.NET Core
 
@@ -20,7 +20,7 @@ Di [Steve Smith](https://ardalis.com/)
 
 I [controller](xref:mvc/controllers/actions) hanno un ruolo centrale in qualsiasi app ASP.NET Core MVC. Di conseguenza, è importante essere certi che funzionino nel modo previsto. I test automatizzati possono rilevare eventuali errori prima che l'app venga distribuita in un ambiente di produzione.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/testing/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/testing/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="unit-tests-of-controller-logic"></a>Unit test della logica dei controller
 
