@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 07/03/2019
 uid: grpc/basics
-ms.openlocfilehash: 700fe9463317f9ee30dfe4ebf5201c7b9c0c5ad6
-ms.sourcegitcommit: f30b18442ed12831c7e86b0db249183ccd749f59
+ms.openlocfilehash: b236fe6914cf7b780a9d02398ec9c92660dc1063
+ms.sourcegitcommit: 2719c70cd15a430479ab4007ff3e197fbf5dfee0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68412477"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68862863"
 ---
 # <a name="grpc-services-with-c"></a>Servizi gRPC con C\#
 
@@ -52,9 +52,9 @@ Questo pacchetto è necessario per i progetti server e client. Il `Grpc.AspNetCo
 
 [!code-xml[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/GrpcGreeter.csproj?highlight=1&range=12)]
 
-I progetti client devono `Grpc.Tools` fare riferimento direttamente a. Il pacchetto di strumenti non è necessario in fase di esecuzione, quindi la dipendenza `PrivateAssets="All"`è contrassegnata con:
+I progetti client devono fare `Grpc.Tools` riferimento direttamente a insieme agli altri pacchetti necessari per usare il client gRPC. Il pacchetto di strumenti non è necessario in fase di esecuzione, quindi la dipendenza `PrivateAssets="All"`è contrassegnata con:
 
-[!code-xml[](~/tutorials/grpc/grpc-start/sample/GrpcGreeterClient/GrpcGreeterClient.csproj?highlight=1&range=11)]
+[!code-xml[](~/tutorials/grpc/grpc-start/sample/GrpcGreeterClient/GrpcGreeterClient.csproj?highlight=3&range=9-11)]
 
 ## <a name="generated-c-assets"></a>Asset C# generati
 
@@ -64,7 +64,7 @@ Per gli asset lato server, viene generato un tipo di base del servizio abstract.
 
 [!code-csharp[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/Services/GreeterService.cs?name=snippet)]
 
-Per gli asset lato client viene generato un tipo di client concreto. Le chiamate gRPC nel file *. proto* vengono convertite in metodi sul tipo concreto, che può essere chiamato. Per l' `greet.proto`esempio descritto in precedenza, viene generato un `GreeterClient` tipo concreto. Chiamare `GreeterClient.SayHello` per avviare una chiamata gRPC al server.
+Per gli asset lato client viene generato un tipo di client concreto. Le chiamate gRPC nel file *. proto* vengono convertite in metodi sul tipo concreto, che può essere chiamato. Per l' `greet.proto`esempio descritto in precedenza, viene generato un `GreeterClient` tipo concreto. Chiamare `GreeterClient.SayHelloAsync` per avviare una chiamata gRPC al server.
 
 [!code-csharp[](~/tutorials/grpc/grpc-start/sample/GrpcGreeterClient/Program.cs?highlight=3-6&name=snippet)]
 
