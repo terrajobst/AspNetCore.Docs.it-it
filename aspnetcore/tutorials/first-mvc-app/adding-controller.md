@@ -3,14 +3,14 @@ title: Aggiungere un controller a un'app ASP.NET Core MVC
 author: rick-anderson
 description: Informazioni su come aggiungere un controller a una semplice app ASP.NET Core MVC.
 ms.author: riande
-ms.date: 02/28/2017
+ms.date: 08/05/2017
 uid: tutorials/first-mvc-app/adding-controller
-ms.openlocfilehash: ab97b875956ec262623ed9862ace6a930331d80d
-ms.sourcegitcommit: 979dbfc5e9ce09b9470789989cddfcfb57079d94
+ms.openlocfilehash: 1c54959130f3a9959d4d4fdb8dcaa0d37ee2f046
+ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68682317"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68820059"
 ---
 # <a name="add-a-controller-to-an-aspnet-core-mvc-app"></a>Aggiungere un controller a un'app ASP.NET Core MVC
 
@@ -86,9 +86,9 @@ Il formato per il routing viene impostato nel metodo `Configure` nel file *Start
 
 Quando si sceglie l'app e non si forniscono i segmenti di URL, i valori predefiniti sono il controller "Home" e il metodo "Index" specificati nella riga del modello evidenziata sopra.
 
-Il primo segmento di URL determina la classe di controller da eseguire. `localhost:xxxx/HelloWorld` esegue quindi il mapping alla classe di controller **HelloWorld**. La seconda parte del segmento URL determina il metodo di azione per la classe. Pertanto `localhost:xxxx/HelloWorld/Index` causa l'esecuzione del metodo `Index` della classe `HelloWorldController`. Si noti che è necessario solo passare a `localhost:xxxx/HelloWorld` e il metodo `Index` viene chiamato per impostazione predefinita. In questo modo `Index` è il metodo predefinito che verrà chiamato per un controller, se non viene specificato un nome di metodo in modo esplicito. La terza parte del segmento di URL ( `id`) è relativa ai dati di route. I dati della route vengono spiegati in seguito nell'esercitazione.
+Il primo segmento di URL determina la classe di controller da eseguire. `localhost:{PORT}/HelloWorld` esegue quindi il mapping alla classe di controller **HelloWorld**. La seconda parte del segmento URL determina il metodo di azione per la classe. Pertanto `localhost:{PORT}/HelloWorld/Index` causa l'esecuzione del metodo `Index` della classe `HelloWorldController`. Si noti che è necessario solo passare a `localhost:{PORT}/HelloWorld` e il metodo `Index` viene chiamato per impostazione predefinita. In questo modo `Index` è il metodo predefinito che verrà chiamato per un controller, se non viene specificato un nome di metodo in modo esplicito. La terza parte del segmento di URL ( `id`) è relativa ai dati di route. I dati della route vengono spiegati in seguito nell'esercitazione.
 
-Passare a `https://localhost:xxxx/HelloWorld/Welcome`. Il metodo `Welcome` viene eseguito e restituisce la stringa `This is the Welcome action method...`. Per questo URL, il controller è `HelloWorld` e il metodo di azione è `Welcome`. Non è stata ancora usata la parte `[Parameters]` dell'URL.
+Passare a `https://localhost:{PORT}/HelloWorld/Welcome`. Il metodo `Welcome` viene eseguito e restituisce la stringa `This is the Welcome action method...`. Per questo URL, il controller è `HelloWorld` e il metodo di azione è `Welcome`. Non è stata ancora usata la parte `[Parameters]` dell'URL.
 
 ![Finestra del browser con una risposta dell'applicazione, This is the Welcome action method](~/tutorials/first-mvc-app/adding-controller/_static/welcome.png)
 
@@ -104,9 +104,9 @@ Il codice precedente:
 
 Eseguire l'app e passare a:
 
-   `https://localhost:xxxx/HelloWorld/Welcome?name=Rick&numtimes=4`
+   `https://localhost:{PORT}/HelloWorld/Welcome?name=Rick&numtimes=4`
 
-Sostituire xxxx con il numero di porta. È possibile provare diversi valori per `name` e `numtimes` nell'URL. Il sistema di [associazione di modelli](xref:mvc/models/model-binding) MVC esegue il mapping dei parametri denominati dalla stringa di query nella barra degli indirizzi ai parametri nel metodo. Per altre informazioni, vedere [Associazione di modelli](xref:mvc/models/model-binding).
+Sostituire `{PORT}` con il numero di porta. È possibile provare diversi valori per `name` e `numtimes` nell'URL. Il sistema di [associazione di modelli](xref:mvc/models/model-binding) MVC esegue il mapping dei parametri denominati dalla stringa di query nella barra degli indirizzi ai parametri nel metodo. Per altre informazioni, vedere [Associazione di modelli](xref:mvc/models/model-binding).
 
 ![Finestra del browser con una risposta dell'applicazione, Hello Rick, NumTimes is: 4](~/tutorials/first-mvc-app/adding-controller/_static/rick4.png)
 
@@ -116,7 +116,7 @@ Sostituire il metodo `Welcome` con il codice seguente:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_3)]
 
-Eseguire l'app e immettere l'URL seguente: `https://localhost:xxx/HelloWorld/Welcome/3?name=Rick`
+Eseguire l'app e immettere l'URL seguente: `https://localhost:{PORT}/HelloWorld/Welcome/3?name=Rick`
 
 Questa volta il terzo segmento di URL corrisponde al parametro di route `id`. Il metodo `Welcome` contiene un parametro `id` che corrisponde al modello di URL nel metodo `MapControllerRoute`. Il carattere finale `?` (in `id?`) indica che il parametro `id` è facoltativo.
 
@@ -205,9 +205,9 @@ Remove link for simplified tutorial.
 
 Quando si sceglie l'app e non si forniscono i segmenti di URL, i valori predefiniti sono il controller "Home" e il metodo "Index" specificati nella riga del modello evidenziata sopra.
 
-Il primo segmento di URL determina la classe di controller da eseguire. `localhost:xxxx/HelloWorld` esegue quindi il mapping alla classe `HelloWorldController`. La seconda parte del segmento URL determina il metodo di azione per la classe. Pertanto `localhost:xxxx/HelloWorld/Index` causa l'esecuzione del metodo `Index` della classe `HelloWorldController`. Si noti che è necessario solo passare a `localhost:xxxx/HelloWorld` e il metodo `Index` viene chiamato per impostazione predefinita. In questo modo `Index` è il metodo predefinito che verrà chiamato per un controller, se non viene specificato un nome di metodo in modo esplicito. La terza parte del segmento di URL ( `id`) è relativa ai dati di route. I dati della route vengono spiegati in seguito nell'esercitazione.
+Il primo segmento di URL determina la classe di controller da eseguire. `localhost:{PORT}/HelloWorld` esegue quindi il mapping alla classe `HelloWorldController`. La seconda parte del segmento URL determina il metodo di azione per la classe. Pertanto `localhost:{PORT}/HelloWorld/Index` causa l'esecuzione del metodo `Index` della classe `HelloWorldController`. Si noti che è necessario solo passare a `localhost:{PORT}/HelloWorld` e il metodo `Index` viene chiamato per impostazione predefinita. In questo modo `Index` è il metodo predefinito che verrà chiamato per un controller, se non viene specificato un nome di metodo in modo esplicito. La terza parte del segmento di URL ( `id`) è relativa ai dati di route. I dati della route vengono spiegati in seguito nell'esercitazione.
 
-Passare a `https://localhost:xxxx/HelloWorld/Welcome`. Il metodo `Welcome` viene eseguito e restituisce la stringa `This is the Welcome action method...`. Per questo URL, il controller è `HelloWorld` e il metodo di azione è `Welcome`. Non è stata ancora usata la parte `[Parameters]` dell'URL.
+Passare a `https://localhost:{PORT}/HelloWorld/Welcome`. Il metodo `Welcome` viene eseguito e restituisce la stringa `This is the Welcome action method...`. Per questo URL, il controller è `HelloWorld` e il metodo di azione è `Welcome`. Non è stata ancora usata la parte `[Parameters]` dell'URL.
 
 ![Finestra del browser con una risposta dell'applicazione, This is the Welcome action method](~/tutorials/first-mvc-app/adding-controller/_static/welcome.png)
 
@@ -223,9 +223,9 @@ Il codice precedente:
 
 Eseguire l'app e passare a:
 
-   `https://localhost:xxxx/HelloWorld/Welcome?name=Rick&numtimes=4`
+   `https://localhost:{PORT}/HelloWorld/Welcome?name=Rick&numtimes=4`
 
-Sostituire xxxx con il numero di porta. È possibile provare diversi valori per `name` e `numtimes` nell'URL. Il sistema di [associazione di modelli](xref:mvc/models/model-binding) MVC esegue il mapping dei parametri denominati dalla stringa di query nella barra degli indirizzi ai parametri nel metodo. Per altre informazioni, vedere [Associazione di modelli](xref:mvc/models/model-binding).
+Sostituire `{PORT}` con il numero di porta. È possibile provare diversi valori per `name` e `numtimes` nell'URL. Il sistema di [associazione di modelli](xref:mvc/models/model-binding) MVC esegue il mapping dei parametri denominati dalla stringa di query nella barra degli indirizzi ai parametri nel metodo. Per altre informazioni, vedere [Associazione di modelli](xref:mvc/models/model-binding).
 
 ![Finestra del browser con una risposta dell'applicazione, Hello Rick, NumTimes is: 4](~/tutorials/first-mvc-app/adding-controller/_static/rick4.png)
 
@@ -235,7 +235,7 @@ Sostituire il metodo `Welcome` con il codice seguente:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_3)]
 
-Eseguire l'app e immettere l'URL seguente: `https://localhost:xxx/HelloWorld/Welcome/3?name=Rick`
+Eseguire l'app e immettere l'URL seguente: `https://localhost:{PORT}/HelloWorld/Welcome/3?name=Rick`
 
 Questa volta il terzo segmento di URL corrisponde al parametro di route `id`. Il metodo `Welcome` contiene un parametro `id` che corrisponde al modello di URL nel metodo `MapRoute`. Il carattere finale `?` (in `id?`) indica che il parametro `id` è facoltativo.
 

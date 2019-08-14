@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni su come creare un'API Web con ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/11/2019
+ms.date: 08/05/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 60235af56077127093ac1d77338bc228a6edf073
-ms.sourcegitcommit: 0efb9e219fef481dee35f7b763165e488aa6cf9c
+ms.openlocfilehash: 855d05fa2b9c1a7572212c40adbe61bb396f4bac
+ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68602489"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819841"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Esercitazione: Creare un'API Web con ASP.NET Core
 
@@ -728,6 +728,7 @@ I tipi restituiti `ActionResult` possono rappresentare un ampio intervallo di co
 * Se nessun elemento corrisponde all'ID richiesto, il metodo restituisce un codice di errore 404 [NotFound](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.notfound).
 * In caso contrario, il metodo restituisce il codice 200 con un corpo della risposta JSON. La restituzione di `item` risulta in una risposta HTTP 200.
 
+
 ## <a name="test-the-gettodoitems-method"></a>Testare il metodo GetTodoItems
 
 Questa esercitazione usa Postman per testare l'API Web.
@@ -736,10 +737,19 @@ Questa esercitazione usa Postman per testare l'API Web.
 * Avviare l'app Web.
 * Avviare Postman.
 * Disattivare **SSL certificate verification** (Verifica certificato SSL)
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+* Da **File** > **Settings** (Impostazioni) (scheda **General** (Generale)) disabilitare **SSL certificate verification** (Verifica certificato SSL).
+
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio per Mac](#tab/visual-studio-code+visual-studio-mac)
+
+* Da **Postman**  >  **Preferences** (Preferenze) (scheda **General** (Generale)) disabilitare **SSL certificate verification** (Verifica certificato SSL). In alternativa, selezionare la chiave inglese e selezionare **Settings** (Impostazioni), quindi disabilitare la verifica del certificato SSL.
+
+---
   
-  * From  **File > Settings** (File > Impostazioni) (scheda **General* (Generale)), disattivare **SSL certificate verification** (Verifica certificato SSL).
-    > [!WARNING]
-    > Riattivare la verifica dei certificati SSL al termine del test del controller.
+> [!WARNING]
+> Riattivare la verifica dei certificati SSL al termine del test del controller.
 
 * Creare una nuova richiesta.
   * Impostare il metodo HTTP su **GET**.
@@ -751,7 +761,7 @@ Questa esercitazione usa Postman per testare l'API Web.
 
 ## <a name="add-a-create-method"></a>Aggiungere un metodo Create
 
-Aggiungere il metodo `PostTodoItem` seguente:
+Aggiungere il metodo `PostTodoItem` seguente in *Controllers/TodoController.cs*: 
 
 [!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
 

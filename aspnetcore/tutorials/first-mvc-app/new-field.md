@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/new-field
-ms.openlocfilehash: 45506d071c90c91a61e6912ff51350b43e8ae136
-ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
+ms.openlocfilehash: f22a90dd7662bfb34e2f7adb87fa611012d78533
+ms.sourcegitcommit: b5e63714afc26e94be49a92619586df5189ed93a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67034791"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68739587"
 ---
 # <a name="add-a-new-field-to-an-aspnet-core-mvc-app"></a>Aggiungere un nuovo campo a un'app ASP.NET Core MVC
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-In questa sezione viene usato Migrazioni Code First di [Entity Framework](/ef/core/get-started/aspnetcore/new-db) per:
+In questa sezione vengono usate le Migrazioni Code First di [Entity Framework](/ef/core/get-started/aspnetcore/new-db) per:
 
 * Aggiungere un nuovo campo al modello.
 * Eseguire la migrazione del nuovo campo al database.
@@ -33,7 +33,21 @@ Aggiungere una proprietà `Rating` a *Models/Movie.cs*:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Models/MovieDateRating.cs?highlight=13&name=snippet)]
 
-Compilare l'app (CTRL+MAIUSC+B).
+Compilare l'applicazione
+
+### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+ CTRL+MAIUSC+B
+
+### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+`dotnet build`
+
+### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
+
+Comando ⌘ + B
+
+------
 
 Poiché è stato aggiunto un nuovo campo alla classe `Movie`, è necessario aggiornare l'elenco di elementi di associazione consentiti per includere questa nuova proprietà. In *MoviesController.cs* aggiornare l'attributo `[Bind]` per i metodi di azione `Create` e `Edit` in modo da includere la proprietà `Rating`:
 
@@ -60,6 +74,8 @@ Aggiornare */Views/Movies/Create.cshtml* con un campo `Rating`.
 <!-- This tab intentionally left blank. -->
 
 ---
+
+Aggiornare i modelli rimanenti.
 
 Aggiornare la classe `SeedData` in modo che fornisca un valore per la nuova colonna. Di seguito viene illustrata una modifica di esempio, ma si apporterà questa modifica per ogni `new Movie`.
 

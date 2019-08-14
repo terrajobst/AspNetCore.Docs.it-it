@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: 5b45ced4fe6ed220c9a63bc6480c8c8520b36ed4
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 20f801e23f3e75d7915bcb7c095060b68d9cb03f
+ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64886366"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819784"
 ---
 # <a name="tutorial-read-related-data---aspnet-mvc-with-ef-core"></a>Esercitazione: Leggere dati correlati - ASP.NET MVC con EF Core
 
@@ -188,7 +188,7 @@ Al codice esistente sono state apportate le modifiche seguenti:
   }
   ```
 
-* È stata aggiunta la colonna **Courses** (Corsi) che visualizza i corsi tenuti da ogni insegnante. Per altre informazioni su questa sintassi Razor, vedere [Transizione riga esplicita con `@:` ](xref:mvc/views/razor#explicit-line-transition-with-) .
+* È stata aggiunta la colonna **Courses** (Corsi) che visualizza i corsi tenuti da ogni insegnante. Per altre informazioni, vedere la sezione [Transizione riga esplicita con @:](xref:mvc/views/razor#explicit-line-transition-with-) dell'articolo sulla sintassi Razor.
 
 * È stato aggiunto codice che aggiunge `class="success"` in modo dinamico all'elemento `tr` dell'insegnante selezionato. In questo modo viene impostato un colore di sfondo per la riga selezionata tramite una classe Bootstrap.
 

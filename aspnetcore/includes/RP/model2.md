@@ -2,7 +2,7 @@
 
 ### <a name="add-a-database-context-class"></a>Aggiungere una classe di contesto dei dati
 
-Aggiungere la classe `RazorPagesMovieContext` seguente alla cartella *Data*:
+Nel progetto RazorPagesMovie creare una nuova cartella denominata *Data*. Aggiungere la classe `RazorPagesMovieContext` seguente alla cartella *Data*:
 
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Data/RazorPagesMovieContext.cs)]
 
@@ -18,18 +18,19 @@ Aggiungere una stringa di connessione al file *appsettings.json* come illustrato
 
 [!code-json[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie30/appsettings_SQLite.json?highlight=10-12)]
 
-### <a name="add-required-nuget-packages"></a>Aggiungere i pacchetti NuGet necessari
+### <a name="add-nuget-packages-and-ef-tools"></a>Aggiungere i pacchetti NuGet e gli strumenti EF
 
-Eseguire il comando seguente dell'interfaccia della riga di comando di .NET Core per aggiungere SQLite, Entity Framework Core e CodeGeneration.Design al progetto:
+Aprire un terminale per il progetto RazorPagesMovie.  Fare clic con il pulsante destro del mouse sul nome del progetto nella barra di progettazione/layout e passare a **Strumenti > Apri** nel terminale. Eseguire i comandi seguenti dell'interfaccia della riga di comando di .NET Core nel terminale:
 
 ```console
+dotnet tool install --global dotnet-ef --version 3.0.0-*
 dotnet add package Microsoft.EntityFrameworkCore.SQLite --version 3.0.0-*
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 3.0.0-*
 dotnet add package Microsoft.EntityFrameworkCore.Design --version 3.0.0-*
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 3.0.0-*
 ```
 
-Il pacchetto `Microsoft.VisualStudio.Web.CodeGeneration.Design` è necessario per lo scaffolding.
+I comandi precedenti aggiungono al progetto gli strumenti di Entity Framework Core per l'interfaccia della riga di comando di .NET e diversi pacchetti. Il pacchetto `Microsoft.VisualStudio.Web.CodeGeneration.Design` è necessario per lo scaffolding.
 
 <a name="reg"></a>
 

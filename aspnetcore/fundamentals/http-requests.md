@@ -5,14 +5,14 @@ description: Informazioni sull'uso dell'interfaccia IHttpClientFactory per gesti
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 05/10/2019
+ms.date: 08/01/2019
 uid: fundamentals/http-requests
-ms.openlocfilehash: 8b95f63c0e06a2b7d1d66064def192f91b8ffbb4
-ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
+ms.openlocfilehash: bcf2a2eaf6910222d274c38bac343c92fab9cb5b
+ms.sourcegitcommit: b5e63714afc26e94be49a92619586df5189ed93a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2019
-ms.locfileid: "65874955"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68739529"
 ---
 # <a name="make-http-requests-using-ihttpclientfactory-in-aspnet-core"></a>Effettuare richieste HTTP usando IHttpClientFactory in ASP.NET Core
 
@@ -76,7 +76,12 @@ Nel codice precedente non è necessario che la richiesta specifichi un nome host
 
 ### <a name="typed-clients"></a>Client tipizzati
 
-I client tipizzati offrono le stesse funzionalità dei client denominati senza la necessità di usare le stringhe come chiavi. L'approccio basato su client tipizzati offre l'aiuto di IntelliSense e del compilatore quando si usano i client. La configurazione e l'interazione con un particolare `HttpClient` può avvenire in un'unica posizione. Per un singolo endpoint back-end è ad esempio possibile usare un unico client tipizzato che incapsuli tutta la logica relativa all'endpoint. Un altro vantaggio è rappresentato dalla possibilità di usare l'inserimento di dipendenze e di inserirli dove necessario nell'app.
+Client tipizzati:
+
+* Offrono le stesse funzionalità dei client denominati senza la necessità di usare le stringhe come chiavi.
+* Offrono l'aiuto di IntelliSense e del compilatore quando si usano i client.
+* La configurazione e l'interazione con un particolare `HttpClient` può avvenire in un'unica posizione. Per un singolo endpoint back-end è ad esempio possibile usare un unico client tipizzato che incapsuli tutta la logica relativa all'endpoint.
+* Usano l'inserimento di dipendenze e possono essere inseriti dove necessario nell'app.
 
 Un client tipizzato accetta il parametro `HttpClient` nel proprio costruttore:
 
@@ -163,7 +168,7 @@ public class ValuesController : ControllerBase
 
 Per creare un gestore, definire una classe che deriva da <xref:System.Net.Http.DelegatingHandler>. Eseguire l'override del metodo `SendAsync` per eseguire il codice prima di passare la richiesta al gestore successivo nella pipeline:
 
-[!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Handlers/ValidateHeaderHandler.cs?name=snippet1)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Handlers/ValidateHeaderHandler.cs?name=snippet1)]
 
 Il codice precedente definisce un gestore di base. Verifica se un'intestazione `X-API-KEY` è stata inclusa nella richiesta. Se l'intestazione non è presente, può evitare la chiamata HTTP e restituire una risposta appropriata.
 
@@ -181,7 +186,10 @@ Dopo la registrazione è possibile chiamare <xref:Microsoft.Extensions.Dependenc
 
 ::: moniker range="< aspnetcore-2.2"
 
-Nel codice precedente `ValidateHeaderHandler` viene registrato nell'inserimento di dipendenze. Il gestore **deve** essere registrato nell'inserimento di dipendenze come servizio temporaneo, senza definizione di ambito. Se il gestore è registrato come servizio con ambito e i servizi da cui dipende sono eliminabili, i servizi del gestore potrebbero essere eliminati prima che questo esca dall'ambito, generando così un errore.
+Nel codice precedente `ValidateHeaderHandler` viene registrato nell'inserimento di dipendenze. Il gestore **deve** essere registrato nell'inserimento di dipendenze come servizio temporaneo, senza definizione di ambito. Se il gestore viene registrato come un servizio con ambito e i servizi da cui dipende il gestore sono eliminabili:
+
+* I servizi del gestore potrebbero essere eliminati prima che il gestore esca dall'ambito.
+* I servizi del gestore eliminati causano un errore del gestore.
 
 Dopo la registrazione è possibile chiamare <xref:Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions.AddHttpMessageHandler*>, passando il tipo di gestore.
 
@@ -212,7 +220,7 @@ La maggior parte degli errori comuni si verifica quando le chiamate HTTP esterne
 
 L'estensione `AddTransientHttpErrorPolicy` può essere usata all'interno di `Startup.ConfigureServices`. L'estensione consente l'accesso a un oggetto `PolicyBuilder` configurato per gestire gli errori che rappresentano un possibile errore temporaneo:
 
-[!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet7)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet7)]
 
 Nel codice precedente viene definito un criterio `WaitAndRetryAsync`. Le richieste non riuscite vengono ritentate fino a tre volte con un ritardo di 600 millisecondi tra i tentativi.
 
@@ -220,7 +228,7 @@ Nel codice precedente viene definito un criterio `WaitAndRetryAsync`. Le richies
 
 Per aggiungere gestori basati su Polly è possibile usare altri metodi di estensione. Una di queste estensioni è `AddPolicyHandler`, che include più overload. Un overload consente l'ispezione della richiesta al momento della definizione del criterio da applicare:
 
-[!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet8)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet8)]
 
 Nel codice precedente, se la richiesta in uscita è una richiesta HTTP GET viene applicato un timeout di 10 secondi. Per qualsiasi altro metodo HTTP viene usato un timeout di 30 secondi.
 
@@ -228,7 +236,7 @@ Nel codice precedente, se la richiesta in uscita è una richiesta HTTP GET viene
 
 In molti casi i criteri Polly vengono annidati per offrire funzionalità avanzate:
 
-[!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet9)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet9)]
 
 Nell'esempio precedente vengono aggiunti due gestori. Il primo usa l'estensione `AddTransientHttpErrorPolicy` per aggiungere criteri di ripetizione. Le richieste non riuscite vengono ritentate fino a tre volte. La seconda chiamata a `AddTransientHttpErrorPolicy` aggiunge criteri dell'interruttore di circuito. Ulteriori richieste esterne vengono bloccate per 30 secondi nel caso si verifichino cinque tentativi non riusciti consecutivi. I criteri dell'interruttore di circuito sono con stato. Tutte le chiamate tramite questo client condividono lo stesso stato di circuito.
 
@@ -236,7 +244,7 @@ Nell'esempio precedente vengono aggiunti due gestori. Il primo usa l'estensione 
 
 Un approccio alla gestione dei criteri usati di frequente consiste nel definirli una volta e registrarli in un elemento `PolicyRegistry`. Per aggiungere un gestore usando un criterio del registro è disponibile un metodo di estensione:
 
-[!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet10)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet10)]
 
 Nel codice precedente vengono registrati due criteri quando si aggiunge `PolicyRegistry` a `ServiceCollection`. Per usare un criterio dal registro viene usato il metodo `AddPolicyHandlerFromRegistry` passando il nome del criterio da applicare.
 
@@ -252,7 +260,7 @@ Il pooling dei gestori è consigliabile in quanto ogni gestore gestisce in gener
 
 La durata del gestore predefinito è di due minuti. Il valore predefinito può essere sottoposto a override per ogni client denominato. Per eseguire l'override, chiamare <xref:Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions.SetHandlerLifetime*> nell'elemento `IHttpClientBuilder` restituito al momento della creazione del client:
 
-[!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet11)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet11)]
 
 L'eliminazione del client non è obbligatoria. L'eliminazione annulla le richieste in uscita e garantisce che l'istanza di `HttpClient` specificata non possa essere usata dopo la chiamata a <xref:System.IDisposable.Dispose*>. `IHttpClientFactory` tiene traccia ed elimina le risorse usate dalle istanze di `HttpClient`. Le istanze di `HttpClient` possono essere considerate a livello generale come oggetti .NET che non richiedono l'eliminazione.
 
@@ -276,7 +284,32 @@ Può essere necessario controllare la configurazione dell'elemento `HttpMessageH
 
 Quando si aggiungono client denominati o tipizzati viene restituito un elemento `IHttpClientBuilder`. È possibile usare il metodo di estensione <xref:Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions.ConfigurePrimaryHttpMessageHandler*> per definire un delegato. Il delegato viene usato per creare e configurare l'elemento `HttpMessageHandler` primario usato dal client:
 
-[!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet12)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet12)]
+
+## <a name="use-ihttpclientfactory-in-a-console-app"></a>Usare IHttpClientFactory in un'app console
+
+In un'app console aggiungere al progetto i riferimenti ai pacchetti seguenti:
+
+* [Microsoft.Extensions.Hosting](https://www.nuget.org/packages/Microsoft.Extensions.Hosting)
+* [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http)
+
+Nell'esempio seguente:
+
+* <xref:System.Net.Http.IHttpClientFactory> è registrato nel contenitore di servizi dell'[host generico](xref:fundamentals/host/generic-host).
+* `MyService` crea un'istanza della factory client dal servizio, che viene usata per creare una classe `HttpClient`. `HttpClient` viene usato per recuperare una pagina Web.
+* `Main` crea un ambito per eseguire il metodo `GetPage` del servizio e scrivere i primi 500 caratteri del contenuto della pagina Web nella console.
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](http-requests/samples/3.x/HttpClientFactoryConsoleSample/Program.cs?highlight=14-15,20,26-27,59-62)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactoryConsoleSample/Program.cs?highlight=14-15,20,26-27,59-62)]
+
+::: moniker-end
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
