@@ -5,14 +5,14 @@ description: Inizia a usare Blazer compilando un'app Blazer con gli strumenti ch
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/23/2019
+ms.date: 08/13/2019
 uid: blazor/get-started
-ms.openlocfilehash: b4609858be43acf9d1b2d8be5eff4879fd56f49f
-ms.sourcegitcommit: 051f068c78931432e030b60094c38376d64d013e
+ms.openlocfilehash: 1358a2e92af9d9104e565718692b1ca1940b9d9e
+ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68948331"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68993397"
 ---
 # <a name="get-started-with-aspnet-core-blazor"></a>Introduzione a ASP.NET Core Blazer
 
@@ -25,7 +25,7 @@ Introduzione a Blazer:
 1. Installare i modelli Blazer eseguendo il comando seguente in una shell dei comandi:
 
    ```console
-   dotnet new -i Microsoft.AspNetCore.Blazor.Templates::3.0.0-preview7.19365.7
+   dotnet new -i Microsoft.AspNetCore.Blazor.Templates::3.0.0-preview8.19405.7
    ```
 
 1. Seguire le istruzioni per la scelta degli strumenti:
@@ -40,12 +40,12 @@ Introduzione a Blazer:
 
    4 \. Specificare il nome di un progetto nel campo **Nome progetto** oppure accettare il nome predefinito. Confermare che la voce relativa al **percorso** sia corretta o specificare un percorso per il progetto. Selezionare **Create**.
 
-   5 \. Per un'esperienza del lato client blazer, scegliere il modello **blazer (lato client)** . Per un'esperienza sul lato server di Blazer, scegliere il modello di **app del server Blazer** . Selezionare **Create**. Per informazioni sui due modelli di hosting blazer, lato server e lato client, vedere <xref:blazor/hosting-models>.
+   5 \. Per un'esperienza del lato client blazer, scegliere il modello **app Webassembly Blazer** . Per un'esperienza sul lato server di Blazer, scegliere il modello di **app del server Blazer** . Selezionare **Create**. Per informazioni sui due modelli di hosting blazer, lato server e lato client, vedere <xref:blazor/hosting-models>.
 
    6 \. Premere **F5** per eseguire l'app.
 
    > [!NOTE]
-   > Se è stata installata l'estensione di Visual Studio blazer per una versione di anteprima precedente di ASP.NET Core blazer (Preview 6 o versioni precedenti), è possibile disinstallare l'estensione in anteprima 7. L'installazione dei modelli di Blazer in una shell dei comandi è ora sufficiente per esporre i modelli in Visual Studio.
+   > Se è stata installata l'estensione di Visual Studio blazer per una versione di anteprima precedente di ASP.NET Core blazer (anteprima 6 o precedente), è possibile disinstallare l'estensione. L'installazione dei modelli di Blazer in una shell dei comandi è ora sufficiente per esporre i modelli in Visual Studio.
 
    # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -56,13 +56,13 @@ Introduzione a Blazer:
    3 \. Per un'esperienza del lato client di Blazer, eseguire il comando seguente in una shell dei comandi:
 
       ```console
-      dotnet new blazor -o WebApplication1
+      dotnet new blazorwasm -o WebApplication1
       ```
 
       Per un'esperienza sul lato server di Blaze, eseguire il comando seguente in una shell dei comandi:
 
       ```console
-      dotnet new blazorserverside -o WebApplication1
+      dotnet new blazorserver -o WebApplication1
       ```
 
       Per informazioni sui due modelli di hosting blazer, lato server e lato client, vedere <xref:blazor/hosting-models>.
@@ -85,7 +85,7 @@ Introduzione a Blazer:
 
    3\. In the sidebar, select **.NET Core** > **App**.
 
-   4\. For a Blazor server-side experience, select the **ASP.NET Core Blazor Server App** template. For a Blazor client-side experience, select the **ASP.NET Core Blazor WebAssembly App** template. Select **Next**. For information on the two Blazor hosting models, server-side and client-side, see <xref:blazor/hosting-models>.
+   4\. For a Blazor server-side experience, select the **Blazor Server App** template. For a Blazor client-side experience, select the **Blazor WebAssembly App** template. Select **Next**. For information on the two Blazor hosting models, server-side and client-side, see <xref:blazor/hosting-models>.
 
    5\. The **Target Framework** defaults to **.NET Core 3.0**. Select **Next**.
 
@@ -100,7 +100,7 @@ Introduzione a Blazer:
    Per un'esperienza del lato client di Blazer, eseguire i comandi seguenti in una shell dei comandi:
 
    ```console
-   dotnet new blazor -o WebApplication1
+   dotnet new blazorwasm -o WebApplication1
    cd WebApplication1
    dotnet run
    ```
@@ -108,7 +108,7 @@ Introduzione a Blazer:
    Per un'esperienza sul lato server di Blazer, eseguire i comandi seguenti in una shell dei comandi:
 
    ```console
-   dotnet new blazorserverside -o WebApplication1
+   dotnet new blazorserver -o WebApplication1
    cd WebApplication1
    dotnet run
    ```
@@ -152,7 +152,7 @@ Eseguire l'app. La Home page presenta il proprio contatore fornito dal `Counter`
 
 I parametri del componente vengono specificati utilizzando attributi o [contenuto figlio](xref:blazor/components#child-content), che consentono di impostare le proprietà per il componente figlio. Per aggiungere un parametro al `Counter` componente, aggiornare il `@code` blocco del componente:
 
-* Aggiungere una proprietà per `IncrementAmount` con un `[Parameter]` attributo.
+* Aggiungere una proprietà pubblica per `IncrementAmount` con un `[Parameter]` attributo.
 * Modificare il metodo `IncrementCount` per usare `IncrementAmount` quando si aumenta il valore di `currentCount`.
 
 *Pages/Counter.razor*:

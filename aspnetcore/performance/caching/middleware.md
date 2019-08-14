@@ -5,14 +5,14 @@ description: Informazioni su come configurare e usare il middleware di memorizza
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/08/2019
+ms.date: 08/09/2019
 uid: performance/caching/middleware
-ms.openlocfilehash: 6371f42b100f70c6042064a6372c7b9e41fd5c73
-ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
+ms.openlocfilehash: 838a08c12316d218501f26d5905f9e31ab93dfc9
+ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68914984"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68994234"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Middleware di memorizzazione nella cache delle risposte in ASP.NET Core
 
@@ -24,63 +24,63 @@ Questo articolo illustra come configurare il middleware di memorizzazione nella 
 
 ## <a name="configuration"></a>Configurazione
 
-Usare il [metapacchetto Microsoft. AspNetCore. app](xref:fundamentals/metapackage-app) o aggiungere un riferimento al pacchetto [Microsoft. AspNetCore. ResponseCaching](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCaching/) .
+::: moniker range=">= aspnetcore-3.0"
+
+Il middleware di memorizzazione nella cache delle risposte è reso disponibile dal pacchetto [Microsoft. AspNetCore. ResponseCaching](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCaching/) , che viene aggiunto in modo implicito alle app ASP.NET Core.
 
 In `Startup.ConfigureServices`aggiungere il middleware di caching della risposta alla raccolta di servizi:
 
-::: moniker range=">= aspnetcore-3.0"
-
 [!code-csharp[](middleware/samples/3.x/ResponseCachingMiddleware/Startup.cs?name=snippet1&highlight=3)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.0"
-
-[!code-csharp[](middleware/samples/2.x/ResponseCachingMiddleware/Startup.cs?name=snippet1&highlight=3)]
-
-::: moniker-end
 
 Configurare l'app per l'uso del middleware con <xref:Microsoft.AspNetCore.Builder.ResponseCachingExtensions.UseResponseCaching*> il metodo di estensione, che aggiunge il middleware alla pipeline di elaborazione `Startup.Configure`delle richieste in:
 
-::: moniker range=">= aspnetcore-3.0"
-
 [!code-csharp[](middleware/samples/3.x/ResponseCachingMiddleware/Startup.cs?name=snippet2&highlight=16)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.0"
-
-[!code-csharp[](middleware/samples/2.x/ResponseCachingMiddleware/Startup.cs?name=snippet2&highlight=14)]
-
-::: moniker-end
 
 L'app di esempio aggiunge intestazioni per controllare la memorizzazione nella cache nelle richieste successive:
 
 * [Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2) &ndash; Memorizza nella cache le risposte memorizzabili nella cache per un massimo di 10 secondi.
 * [Variazione](https://tools.ietf.org/html/rfc7231#section-7.1.4) Configura il middleware in modo da fornire una risposta memorizzata nella [`Accept-Encoding`](https://tools.ietf.org/html/rfc7231#section-5.3.4) cache solo se l'intestazione delle richieste successive corrisponde a quella della richiesta originale. &ndash;
 
-::: moniker range=">= aspnetcore-3.0"
-
 [!code-csharp[](middleware/samples_snippets/3.x/AddHeaders.cs)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.0"
-
-[!code-csharp[](middleware/samples_snippets/2.x/AddHeaders.cs)]
-
-::: moniker-end
 
 Il middleware di memorizzazione nella cache delle risposte memorizza nella cache solo le risposte del server che generano un codice di stato 200 (OK). Qualsiasi altra risposta, incluse le [pagine di errore](xref:fundamentals/error-handling), viene ignorata dal middleware.
 
 > [!WARNING]
 > Le risposte contenenti contenuto per i client autenticati devono essere contrassegnate come non memorizzabili nella cache per impedire al middleware di archiviare e servire tali risposte. Per informazioni dettagliate sul modo in cui il middleware determina se una risposta è memorizzabile nella cache, vedere [condizioni per la memorizzazione nella cache](#conditions-for-caching) .
 
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+Usare il [metapacchetto Microsoft. AspNetCore. app](xref:fundamentals/metapackage-app) o aggiungere un riferimento al pacchetto [Microsoft. AspNetCore. ResponseCaching](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCaching/) .
+
+In `Startup.ConfigureServices`aggiungere il middleware di caching della risposta alla raccolta di servizi:
+
+[!code-csharp[](middleware/samples/2.x/ResponseCachingMiddleware/Startup.cs?name=snippet1&highlight=3)]
+
+Configurare l'app per l'uso del middleware con <xref:Microsoft.AspNetCore.Builder.ResponseCachingExtensions.UseResponseCaching*> il metodo di estensione, che aggiunge il middleware alla pipeline di elaborazione `Startup.Configure`delle richieste in:
+
+[!code-csharp[](middleware/samples/2.x/ResponseCachingMiddleware/Startup.cs?name=snippet2&highlight=14)]
+
+L'app di esempio aggiunge intestazioni per controllare la memorizzazione nella cache nelle richieste successive:
+
+* [Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2) &ndash; Memorizza nella cache le risposte memorizzabili nella cache per un massimo di 10 secondi.
+* [Variazione](https://tools.ietf.org/html/rfc7231#section-7.1.4) Configura il middleware in modo da fornire una risposta memorizzata nella [`Accept-Encoding`](https://tools.ietf.org/html/rfc7231#section-5.3.4) cache solo se l'intestazione delle richieste successive corrisponde a quella della richiesta originale. &ndash;
+
+[!code-csharp[](middleware/samples_snippets/2.x/AddHeaders.cs)]
+
+Il middleware di memorizzazione nella cache delle risposte memorizza nella cache solo le risposte del server che generano un codice di stato 200 (OK). Qualsiasi altra risposta, incluse le [pagine di errore](xref:fundamentals/error-handling), viene ignorata dal middleware.
+
+> [!WARNING]
+> Le risposte contenenti contenuto per i client autenticati devono essere contrassegnate come non memorizzabili nella cache per impedire al middleware di archiviare e servire tali risposte. Per informazioni dettagliate sul modo in cui il middleware determina se una risposta è memorizzabile nella cache, vedere [condizioni per la memorizzazione nella cache](#conditions-for-caching) .
+
+::: moniker-end
+
 ## <a name="options"></a>Opzioni
 
 Le opzioni di memorizzazione nella cache delle risposte sono illustrate nella tabella seguente.
 
-| Opzione | DESCRIZIONE |
+| Opzione | Descrizione |
 | ------ | ----------- |
 | <xref:Microsoft.AspNetCore.ResponseCaching.ResponseCachingOptions.MaximumBodySize> | Dimensioni maggiori memorizzabili nella cache per il corpo della risposta in byte. Il valore predefinito è `64 * 1024 * 1024` (64 MB). |
 | <xref:Microsoft.AspNetCore.ResponseCaching.ResponseCachingOptions.SizeLimit> | Limite delle dimensioni per il middleware della cache di risposta in byte. Il valore predefinito è `100 * 1024 * 1024` (100 MB). |

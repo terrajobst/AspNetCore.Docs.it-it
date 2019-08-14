@@ -5,14 +5,14 @@ description: Informazioni su come creare e usare i componenti Razor, tra cui la 
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/02/2019
+ms.date: 08/13/2019
 uid: blazor/components
-ms.openlocfilehash: 43457bffd748ebba68cc86d33fdeb98dc419704b
-ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
+ms.openlocfilehash: a95c186d30eaf342f10ecbe6f7add242d4679a0f
+ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68948431"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68993420"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Creare e usare ASP.NET Core componenti Razor
 
@@ -26,7 +26,9 @@ Le app Blazer vengono compilate usando i *componenti*. Un componente è un blocc
 
 I componenti sono implementati in file di componente [Razor](xref:mvc/views/razor) (*Razor*) usando una C# combinazione di e markup HTML. Un componente in blazer viene definito formalmente come *componente Razor*.
 
-I componenti possono essere creati usando l'estensione di file *. cshtml* . Usare la `_RazorComponentInclude` proprietà MSBuild nel file di progetto per identificare i file Component *. cshtml* . Ad esempio, un'app che specifica che tutti i file con *estensione cshtml* nella cartella *pages* devono essere considerati come file di componenti Razor:
+Il nome di un componente deve iniziare con un carattere maiuscolo. Ad esempio, *MyCoolComponent. Razor* è valido e *MyCoolComponent. Razor* non è valido.
+
+I componenti possono essere creati usando l'estensione di file *cshtml* , purché i file vengano identificati come file del componente Razor usando `_RazorComponentInclude` la proprietà MSBuild. Ad esempio, un'app che specifica che tutti i file con *estensione cshtml* nella cartella *pages* devono essere considerati come file di componenti Razor:
 
 ```xml
 <PropertyGroup>
@@ -79,9 +81,11 @@ Mentre le pagine e le visualizzazioni possono usare i componenti, il contrario n
 
 Per altre informazioni su come viene eseguito il rendering dei componenti e lo stato del componente viene gestito nelle app sul lato server <xref:blazor/hosting-models> di Blazer, vedere l'articolo.
 
-## <a name="using-components"></a>Uso dei componenti
+## <a name="use-components"></a>Usare i componenti
 
 I componenti possono includere altri componenti dichiarando questi ultimi usando la sintassi degli elementi HTML. Il markup per l'uso di un componente è simile a un tag HTML, in cui il nome del tag è il tipo di componente.
+
+L'associazione di attributi distingue tra maiuscole e minuscole. Ad esempio, `@bind` è valido e `@Bind` non è valido.
 
 Il markup seguente in *index. Razor* esegue il rendering `HeadingComponent` di un'istanza:
 
@@ -91,9 +95,11 @@ Il markup seguente in *index. Razor* esegue il rendering `HeadingComponent` di u
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Components/HeadingComponent.razor)]
 
+Se un componente contiene un elemento HTML con una prima lettera maiuscola che non corrisponde a un nome di componente, viene emesso un avviso che indica che l'elemento ha un nome imprevisto. L'aggiunta `@using` di un'istruzione per lo spazio dei nomi del componente rende disponibile il componente, che rimuove l'avviso.
+
 ## <a name="component-parameters"></a>Parametri del componente
 
-I componenti possono avere *parametri del componente*, che vengono definiti usando proprietà (in genere *non pubbliche*) nella classe Component con `[Parameter]` l'attributo. Usare gli attributi per specificare gli argomenti per un componente nel markup.
+I componenti possono avere *parametri del componente*, che vengono definiti usando proprietà pubbliche nella classe Component con `[Parameter]` l'attributo. Usare gli attributi per specificare gli argomenti per un componente nel markup.
 
 *Components/ChildComponent. Razor*:
 
@@ -142,19 +148,19 @@ Nell'esempio seguente `<input>` , il primo elemento (`id="useIndividualParams"`)
 
 @code {
     [Parameter]
-    private string Maxlength { get; set; } = "10";
+    public string Maxlength { get; set; } = "10";
 
     [Parameter]
-    private string Placeholder { get; set; } = "Input placeholder text";
+    public string Placeholder { get; set; } = "Input placeholder text";
 
     [Parameter]
-    private string Required { get; set; } = "required";
+    public string Required { get; set; } = "required";
 
     [Parameter]
-    private string Size { get; set; } = "50";
+    public string Size { get; set; } = "50";
 
     [Parameter]
-    private Dictionary<string, object> InputAttributes { get; set; } =
+    public Dictionary<string, object> InputAttributes { get; set; } =
         new Dictionary<string, object>()
         {
             { "maxlength", "10" },
@@ -187,8 +193,8 @@ Per accettare attributi arbitrari, definire un parametro component usando l' `[P
 
 ```cshtml
 @code {
-    [Parameter(CaptureUnmatchedValues = true)]
-    private Dictionary<string, object> InputAttributes { get; set; }
+    [Parameter(CaptureUnmatchedAttributes = true)]
+    public Dictionary<string, object> InputAttributes { get; set; }
 }
 ```
 
@@ -224,6 +230,33 @@ Quando viene eseguito il rendering del componente `value` , l'oggetto dell'eleme
 
 Diversamente `onchange`da, che viene attivato quando l'elemento perde lo `oninput` stato attivo, viene attivato quando viene modificato il valore della casella di testo.
 
+**Globalizzazione**
+
+`@bind`i valori vengono formattati per la visualizzazione e l'analisi usando le regole delle impostazioni cultura correnti.
+
+È possibile accedere alle impostazioni cultura correnti dalla <xref:System.Globalization.CultureInfo.CurrentCulture?displayProperty=fullName> proprietà.
+
+[CultureInfo. InvariantCulture](xref:System.Globalization.CultureInfo.InvariantCulture) viene usato per i tipi di campo seguenti`<input type="{TYPE}" />`():
+
+* `date`
+* `number`
+
+I tipi di campo precedenti:
+
+* Vengono visualizzati utilizzando le regole di formattazione appropriate basate su browser.
+* Non può contenere testo in formato libero.
+* Fornire le caratteristiche di interazione utente in base all'implementazione del browser.
+
+I tipi di campo seguenti hanno requisiti di formattazione specifici e non sono attualmente supportati da Blazer perché non sono supportati da tutti i browser principali:
+
+* `datetime-local`
+* `month`
+* `week`
+
+`@bind`supporta il `@bind:culture` parametro per fornire un <xref:System.Globalization.CultureInfo?displayProperty=fullName> oggetto per l'analisi e la formattazione di un valore. Non è consigliabile specificare impostazioni cultura quando si `date` usano `number` i tipi di campo e. `date`e `number` hanno il supporto predefinito di blazer che fornisce le impostazioni cultura richieste.
+
+Per informazioni su come impostare le impostazioni cultura dell'utente, vedere la sezione [localizzazione](#localization) .
+
 **Stringhe di formato**
 
 Il data binding funziona <xref:System.DateTime> con stringhe di [@bind:format](xref:mvc/views/razor#bind)formato usando. Altre espressioni di formato, ad esempio i formati di valuta o numerici, non sono disponibili in questo momento.
@@ -233,11 +266,20 @@ Il data binding funziona <xref:System.DateTime> con stringhe di [@bind:format](x
 
 @code {
     [Parameter]
-    private DateTime StartDate { get; set; } = new DateTime(2020, 1, 1);
+    public DateTime StartDate { get; set; } = new DateTime(2020, 1, 1);
 }
 ```
 
+Nel codice precedente, il valore `<input>` predefinito `text`del tipo di campo`type`dell'elemento () è. `@bind:format`è supportato per l'associazione dei tipi .NET seguenti:
+
+* <xref:System.DateTime?displayProperty=fullName>
+* <xref:System.DateTime?displayProperty=fullName>?
+* <xref:System.DateTimeOffset?displayProperty=fullName>
+* <xref:System.DateTimeOffset?displayProperty=fullName>?
+
 L' `@bind:format` attributo specifica il formato di data da applicare all' `value` oggetto dell' `<input>` elemento. Il formato viene usato anche per analizzare il valore quando si `onchange` verifica un evento.
+
+La specifica di un formato `date` per il tipo di campo non è consigliata perché Blazer dispone del supporto incorporato per formattare le date.
 
 **Parametri dei componenti**
 
@@ -252,10 +294,10 @@ Il componente figlio seguente (`ChildComponent`) ha un `Year` parametro del comp
 
 @code {
     [Parameter]
-    private int Year { get; set; }
+    public int Year { get; set; }
 
     [Parameter]
-    private EventCallback<int> YearChanged { get; set; }
+    public EventCallback<int> YearChanged { get; set; }
 }
 ```
 
@@ -278,7 +320,7 @@ Il componente padre seguente utilizza `ChildComponent` e associa il `ParentYear`
 
 @code {
     [Parameter]
-    private int ParentYear { get; set; } = 1978;
+    public int ParentYear { get; set; } = 1978;
 
     private void ChangeTheYear()
     {
@@ -516,7 +558,7 @@ Si consideri l'esempio seguente:
 
 @code {
     [Parameter]
-    private IEnumerable<Person> People { get; set; }
+    public IEnumerable<Person> People { get; set; }
 }
 ```
 
@@ -532,7 +574,7 @@ Il contenuto della `People` raccolta può cambiare con le voci inserite, elimina
 
 @code {
     [Parameter]
-    private IEnumerable<Person> People { get; set; }
+    public IEnumerable<Person> People { get; set; }
 }
 ```
 
@@ -574,7 +616,7 @@ In genere, è opportuno fornire uno dei seguenti tipi di valore per `@key`:
 * Istanze di oggetti modello (ad esempio, `Person` un'istanza come nell'esempio precedente). In questo modo si garantisce la conservazione in base all'uguaglianza del riferimento all'oggetto.
 * Identificatori univoci, ad esempio valori di chiave primaria di `int`tipo `string`, o `Guid`.
 
-Evitare di fornire un valore che può scontrarsi in modo imprevisto. Se `@key="@someObject.GetHashCode()"` viene fornito, possono verificarsi conflitti imprevisti perché i codici hash degli oggetti non correlati possono essere uguali. Se vengono richiesti `@key` valori in conflitto all'interno dello stesso elemento padre `@key` , i valori non verranno rispettati.
+Verificare che i valori usati `@key` per non siano in conflitto. Se vengono rilevati valori in conflitto all'interno dello stesso elemento padre, blazer genera un'eccezione perché non è in grado di eseguire il mapping deterministico di elementi o componenti precedenti a nuovi elementi o componenti. Utilizzare solo valori distinti, ad esempio istanze di oggetti o valori di chiave primaria.
 
 ## <a name="lifecycle-methods"></a>Metodi del ciclo di vita
 
@@ -765,7 +807,7 @@ Nell'esempio seguente, `IsCompleted` determina se `checked` viene eseguito il re
 
 @code {
     [Parameter]
-    private bool IsCompleted { get; set; }
+    public bool IsCompleted { get; set; }
 }
 ```
 
@@ -1063,7 +1105,7 @@ Si consideri il componente seguente `PetDetails` , che può essere incorporato m
 @code
 {
     [Parameter]
-    private string PetDetailsQuote { get; set; }
+    public string PetDetailsQuote { get; set; }
 }
 ```
 
@@ -1191,3 +1233,123 @@ Questo è un esempio semplice. Nei casi più realistici con strutture complesse 
 * Non scrivere blocchi lunghi di logica implementata `RenderTreeBuilder` manualmente. Preferire `.razor` i file e consentire al compilatore di gestire i numeri di sequenza.
 * Se i numeri di sequenza sono hardcoded, l'algoritmo Diff richiede solo che i numeri di sequenza aumentino nel valore. Il valore iniziale e i gap sono irrilevanti. Una delle opzioni legittime consiste nell'usare il numero di riga del codice come numero di sequenza oppure iniziare da zero e aumentare di uno o di centinaia (o qualsiasi intervallo preferito). 
 * Blazer usa i numeri di sequenza, mentre altri Framework dell'interfaccia utente con differenze tra gli alberi non li usano. La diffing è molto più veloce quando si usano i numeri di sequenza e Blazer ha il vantaggio di un passaggio di compilazione che riguarda automaticamente i numeri di `.razor` sequenza per gli sviluppatori che creano file.
+
+## <a name="localization"></a>Localizzazione
+
+Le app sul lato server di Blaze sono localizzate usando il [middleware di localizzazione](xref:fundamentals/localization#localization-middleware). Il middleware seleziona le impostazioni cultura appropriate per gli utenti che richiedono risorse dall'app.
+
+Le impostazioni cultura possono essere impostate utilizzando uno degli approcci seguenti:
+
+* [Cookie](#cookies)
+* [Fornire l'interfaccia utente per scegliere le impostazioni cultura](#provide-ui-to-choose-the-culture)
+
+Per altre informazioni ed esempi, vedere <xref:fundamentals/localization>.
+
+### <a name="cookies"></a>Cookie
+
+Un cookie di impostazioni cultura di localizzazione può salvare in maniera permanente le impostazioni cultura dell'utente. Il cookie viene creato tramite il `OnGet` metodo della pagina host dell'app (*pages/host. cshtml. cs*). Il middleware di localizzazione legge il cookie nelle richieste successive per impostare le impostazioni cultura dell'utente. 
+
+L'uso di un cookie garantisce che la connessione WebSocket possa propagare correttamente le impostazioni cultura. Se gli schemi di localizzazione sono basati sul percorso dell'URL o sulla stringa di query, lo schema potrebbe non essere in grado di funzionare con WebSocket, quindi non è possibile salvare in modo permanente le impostazioni cultura. Pertanto, l'utilizzo di un cookie di impostazioni cultura di localizzazione è l'approccio consigliato.
+
+Qualsiasi tecnica può essere utilizzata per assegnare impostazioni cultura se le impostazioni cultura vengono rese permanente in un cookie di localizzazione. Se l'app dispone già di uno schema di localizzazione stabilito per ASP.NET Core lato server, continuare a usare l'infrastruttura di localizzazione esistente dell'app e impostare il cookie delle impostazioni cultura di localizzazione nello schema dell'app.
+
+Nell'esempio seguente viene illustrato come impostare le impostazioni cultura correnti in un cookie che può essere letto dal middleware di localizzazione. Creare un file *pages/host. cshtml. cs* con il contenuto seguente nell'app del lato server di Blaze:
+
+```csharp
+public class HostModel : PageModel
+{
+    public void OnGet()
+    {
+        HttpContext.Response.Cookies.Append(
+            CookieRequestCultureProvider.DefaultCookieName,
+            CookieRequestCultureProvider.MakeCookieValue(
+                new RequestCulture(
+                    CultureInfo.CurrentCulture,
+                    CultureInfo.CurrentUICulture)));
+    }
+}
+```
+
+La localizzazione viene gestita nell'app:
+
+1. Il browser invia una richiesta HTTP iniziale all'app.
+1. Le impostazioni cultura vengono assegnate dal middleware di localizzazione.
+1. Il `OnGet` metodo in *_Host. cshtml. cs* rende permanente le impostazioni cultura di un cookie come parte della risposta.
+1. Il browser apre una connessione WebSocket per creare una sessione Interactive Blazer sul lato server.
+1. Il middleware di localizzazione legge il cookie e assegna le impostazioni cultura.
+1. La sessione del lato server Blaze inizia con le impostazioni cultura corrette.
+
+## <a name="provide-ui-to-choose-the-culture"></a>Fornire l'interfaccia utente per scegliere le impostazioni cultura
+
+Per consentire a un utente di selezionare le impostazioni cultura, è consigliabile un *approccio basato su Reindirizzamento* . Il processo è simile a quello che accade in un'app Web quando un utente tenta di accedere a una&mdash;risorsa protetta che l'utente viene reindirizzato a una pagina di accesso e quindi viene reindirizzato di nuovo alla risorsa originale. 
+
+L'app rende permanente le impostazioni cultura selezionate dall'utente tramite un reindirizzamento a un controller. Il controller imposta le impostazioni cultura selezionate dall'utente in un cookie e reindirizza di nuovo l'utente all'URI originale.
+
+Stabilire un endpoint HTTP nel server per impostare le impostazioni cultura selezionate dall'utente in un cookie ed eseguire di nuovo il reindirizzamento all'URI originale:
+
+```csharp
+[Route("[controller]/[action]")]
+public class CultureController : Controller
+{
+    public IActionResult SetCulture(string culture, string redirectUri)
+    {
+        if (culture != null)
+        {
+            HttpContext.Response.Cookies.Append(
+                CookieRequestCultureProvider.DefaultCookieName,
+                CookieRequestCultureProvider.MakeCookieValue(
+                    new RequestCulture(culture)));
+        }
+
+        return LocalRedirect(redirectUri);
+    }
+}
+```
+
+> [!WARNING]
+> Usare il `LocalRedirect` risultato dell'azione per impedire gli attacchi di reindirizzamento aperti. Per altre informazioni, vedere <xref:security/preventing-open-redirects>.
+
+Il componente seguente mostra un esempio di come eseguire il reindirizzamento iniziale quando l'utente seleziona le impostazioni cultura:
+
+```cshtml
+@inject IUriHelper UriHelper
+
+<h3>Select your language</h3>
+
+<select @onchange="OnSelected">
+    <option>Select...</option>
+    <option value="en-US">English</option>
+    <option value="fr-FR">Français</option>
+</select>
+
+@code {
+    private double textNumber;
+
+    private void OnSelected(UIChangeEventArgs e)
+    {
+        var culture = (string)e.Value;
+        var uri = new Uri(UriHelper.GetAbsoluteUri())
+            .GetComponents(UriComponents.PathAndQuery, UriFormat.Unescaped);
+        var query = $"?culture={Uri.EscapeDataString(culture)}&" +
+            $"redirectUri={Uri.EscapeDataString(uri)}";
+
+        UriHelper.NavigateTo("/Culture/SetCulture" + query, forceLoad: true);
+    }
+}
+```
+
+### <a name="use-net-localization-scenarios-in-blazor-apps"></a>Usare scenari di localizzazione .NET in app Blazer
+
+All'interno delle app blazer sono disponibili i seguenti scenari di globalizzazione e localizzazione di .NET:
+
+* . Sistema di risorse di NET
+* Formattazione di numeri e date specifiche delle impostazioni cultura
+
+La funzionalità di `@bind` Blazer esegue la globalizzazione in base alle impostazioni cultura correnti dell'utente. Per ulteriori informazioni, vedere la sezione [Data Binding](#data-binding) .
+
+Sono attualmente supportati un set limitato di scenari di localizzazione di ASP.NET Core:
+
+* `IStringLocalizer<>`*è supportato* nelle app blazer.
+* `IHtmlLocalizer<>`la `IViewLocalizer<>`localizzazione delle annotazioni dei dati, e è ASP.NET Core scenari MVC e **non è supportata** nelle app blazer.
+
+Per altre informazioni, vedere <xref:fundamentals/localization>.
