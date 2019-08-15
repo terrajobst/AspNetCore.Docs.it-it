@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: scaddie
 ms.date: 06/12/2019
 uid: mvc/views/tag-helpers/th-components
-ms.openlocfilehash: b5b3abea6492cfaa7d6acd0e54073a8db12eb2a5
-ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
+ms.openlocfilehash: 23e244649350b41e4112d10df63139864e5b4381
+ms.sourcegitcommit: 476ea5ad86a680b7b017c6f32098acd3414c0f6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67034757"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69022222"
 ---
 # <a name="tag-helper-components-in-aspnet-core"></a>Componenti helper tag in ASP.NET Core
 
@@ -62,16 +62,9 @@ Il codice precedente associa un [widget tooltip Boostrap](https://getbootstrap.c
 
 Un componente helper tag deve essere aggiunto alla raccolta di componenti helper tag. È possibile farlo in tre modi:
 
-* [Componenti helper tag in ASP.NET Core](#tag-helper-components-in-aspnet-core)
-  * [Casi d'uso](#use-cases)
-    * [Inserire in un elemento HTML head](#inject-into-html-head-element)
-    * [Inserire in un elemento HTML body](#inject-into-html-body-element)
-  * [Registrare un componente](#register-a-component)
-    * [Registrazione tramite un contenitore di servizi](#registration-via-services-container)
-    * [Registrazione tramite un file Razor](#registration-via-razor-file)
-    * [Registrazione tramite un modello di pagina o un controller](#registration-via-page-model-or-controller)
-  * [Creare un componente](#create-a-component)
-  * [Risorse aggiuntive](#additional-resources)
+* [Registrazione tramite un contenitore di servizi](#registration-via-services-container)
+* [Registrazione tramite un file Razor](#registration-via-razor-file)
+* [Registrazione tramite un modello di pagina o un controller](#registration-via-page-model-or-controller)
 
 ### <a name="registration-via-services-container"></a>Registrazione tramite un contenitore di servizi
 

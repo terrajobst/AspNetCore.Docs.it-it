@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: caa821d36c192a06891a7b3d47c47436aea25a30
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 7b25ccad560d00801c1f6cb93d86163a8212bc12
+ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64886006"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68993436"
 ---
 # <a name="tutorial-learn-about-advanced-scenarios---aspnet-mvc-with-ef-core"></a>Esercitazione: Informazioni sugli scenari avanzati - ASP.NET MVC con EF Core
 
@@ -279,4 +279,4 @@ Le attività di questa esercitazione sono le seguenti:
 Questa esercitazione completa la serie di esercitazioni sull'uso di Entity Framework Core in un'applicazione ASP.NET Core MVC. In questa serie di esercitazioni è stato usato un nuovo database; in alternativa, è possibile decompilare un modello di un database esistente.
 
 > [!div class="nextstepaction"]
-> [Esercitazione: EF Core con MVC, database esistente](/ef/core/get-started/aspnetcore/new-db?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json)
+> [Esercitazione: EF Core con MVC, database esistente](/ef/core/get-started/aspnetcore/existing-db?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json)
