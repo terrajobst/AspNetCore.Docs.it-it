@@ -547,6 +547,8 @@
       uid: grpc/migration
     - name: Confronto tra servizi gRPC e API HTTP
       uid: grpc/comparison
+    - name: Risolvere i problemi
+      uid: grpc/troubleshoot
 - name: 'Test, debug e risoluzione dei problemi'
   items:
     - name: Unit test
