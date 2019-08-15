@@ -5,14 +5,14 @@ description: Informazioni su come instradare le richieste nelle app e sul compon
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/02/2019
+ms.date: 08/13/2019
 uid: blazor/routing
-ms.openlocfilehash: 70cae6b3a21fe3537d6841a6716398a5fc45db62
-ms.sourcegitcommit: f30b18442ed12831c7e86b0db249183ccd749f59
+ms.openlocfilehash: 197b1a91b3540d21639c3ee775b2c490da7b23fe
+ms.sourcegitcommit: f5f0ff65d4e2a961939762fb00e654491a2c772a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68948311"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69030397"
 ---
 # <a name="aspnet-core-blazor-routing"></a>Routing di ASP.NET Core Blazer
 
@@ -93,11 +93,11 @@ Sono disponibili i vincoli di route indicati nella tabella seguente. Per ulterio
 | ---------- | ----------------- | -------------------------------------------------------------------------------- | :------------------------------: |
 | `bool`     | `{active:bool}`   | `true`, `FALSE`                                                                  | No                               |
 | `datetime` | `{dob:datetime}`  | `2016-12-31`, `2016-12-31 7:32pm`                                                | Sì                              |
-| `decimal`  | `{price:decimal}` | `49.99`, `-1,000.01`                                                             | Yes                              |
+| `decimal`  | `{price:decimal}` | `49.99`, `-1,000.01`                                                             | Sì                              |
 | `double`   | `{weight:double}` | `1.234`, `-1,001.01e8`                                                           | Sì                              |
 | `float`    | `{weight:float}`  | `1.234`, `-1,001.01e8`                                                           | Yes                              |
 | `guid`     | `{id:guid}`       | `CD2C1638-1638-72D5-1638-DEADBEEF1638`, `{CD2C1638-1638-72D5-1638-DEADBEEF1638}` | No                               |
-| `int`      | `{id:int}`        | `123456789`, `-123456789`                                                        | Yes                              |
+| `int`      | `{id:int}`        | `123456789`, `-123456789`                                                        | Sì                              |
 | `long`     | `{ticks:long}`    | `123456789`, `-123456789`                                                        | Sì                              |
 
 > [!WARNING]
@@ -117,6 +117,18 @@ Sono disponibili due `NavLinkMatch` opzioni che è possibile assegnare `Match` a
 * `NavLinkMatch.Prefix`(*impostazione predefinita*) L' oggetto`NavLink` è attivo quando corrisponde a qualsiasi prefisso dell'URL corrente. &ndash;
 
 Nell' `NavLink` esempio precedente la Home `href=""` corrisponde all'URL Home e riceve solo la `active` classe CSS nell'URL del percorso di base predefinito dell'app (ad esempio, `https://localhost:5001/`). Il secondo `NavLink` riceve la `active` classe quando l'utente visita un URL con un `MyComponent` prefisso, `https://localhost:5001/MyComponent` ad esempio e `https://localhost:5001/MyComponent/AnotherSegment`.
+
+Gli `NavLink` attributi dei componenti aggiuntivi vengono passati al tag di ancoraggio sottoposto a rendering. Nell'esempio seguente il `NavLink` componente include l' `target` attributo:
+
+```cshtml
+<NavLink href="my-page" target="_blank">My page</NavLink>
+```
+
+Viene eseguito il rendering del markup HTML seguente:
+
+```html
+<a href="my-page" target="_blank" rel="noopener noreferrer">My page</a>
+```
 
 ## <a name="uri-and-navigation-state-helpers"></a>Helper per lo stato di navigazione e URI
 

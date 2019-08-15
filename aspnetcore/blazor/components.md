@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/13/2019
 uid: blazor/components
-ms.openlocfilehash: a95c186d30eaf342f10ecbe6f7add242d4679a0f
-ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
+ms.openlocfilehash: 8cb2dc4c3cd22fe71fe15c22762948f9dcd3c08f
+ms.sourcegitcommit: f5f0ff65d4e2a961939762fb00e654491a2c772a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68993420"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69030362"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Creare e usare ASP.NET Core componenti Razor
 
@@ -38,7 +38,7 @@ I componenti possono essere creati usando l'estensione di file *cshtml* , purch�
 
 L'interfaccia utente per un componente viene definita utilizzando HTML. La logica di rendering dinamico (ad esempio, cicli, condizioni, espressioni) viene aggiunta usando una sintassi C# incorporata chiamata [Razor](xref:mvc/views/razor). Quando viene compilata un'app, il markup C# HTML e la logica di rendering vengono convertiti in una classe Component. Il nome della classe generata corrisponde al nome del file.
 
-I membri della classe del componente vengono definiti in un blocco `@code`. Nel blocco `@code` , lo stato del componente (proprietà, campi) viene specificato con i metodi per la gestione degli eventi o per la definizione di altre logiche dei componenti. È consentito più `@code` di un blocco.
+I membri della classe del componente vengono definiti in un blocco `@code`. Nel blocco `@code` , lo stato del componente (proprietà, campi) viene specificato con i metodi per la gestione degli eventi o per la definizione di altre logiche dei componenti. È consentito più di un blocco `@code`.
 
 > [!NOTE]
 > Nelle anteprime precedenti di ASP.NET Core 3,0, `@functions` i blocchi venivano usati per lo stesso `@code` scopo dei blocchi nei componenti Razor. `@functions`i blocchi continuano a funzionare nei componenti Razor, ma è consigliabile usare `@code` il blocco in ASP.NET Core 3,0 Preview 6 o versione successiva.
@@ -519,7 +519,10 @@ Preferisci l'oggetto `EventCallback<T>` fortemente `EventCallback`tipizzato. `Ev
 
 ## <a name="capture-references-to-components"></a>Acquisisci riferimenti ai componenti
 
-I riferimenti ai componenti forniscono un modo per fare riferimento a un'istanza del componente in modo da poter emettere comandi per `Show` tale `Reset`istanza, ad esempio o. Per acquisire un riferimento a un componente, [@ref](xref:mvc/views/razor#ref) aggiungere un attributo al componente figlio e quindi definire un campo con lo stesso nome e lo stesso tipo del componente figlio.
+I riferimenti ai componenti forniscono un modo per fare riferimento a un'istanza del componente in modo da poter emettere comandi per `Show` tale `Reset`istanza, ad esempio o. Per acquisire un riferimento a un componente:
+
+* Aggiungere un [@ref](xref:mvc/views/razor#ref) attributo al componente figlio.
+* Definire un campo con lo stesso tipo del componente figlio.
 
 ```cshtml
 <MyLoginDialog @ref="loginDialog" ... />
@@ -538,6 +541,30 @@ Quando viene eseguito il rendering del componente `loginDialog` , il campo viene
 
 > [!IMPORTANT]
 > La `loginDialog` variabile viene popolata solo dopo il rendering del componente e l'output include `MyLoginDialog` l'elemento. Fino a quel momento, non c'è niente a cui fare riferimento. Per modificare i riferimenti ai componenti dopo che il componente ha terminato il `OnAfterRenderAsync` rendering `OnAfterRender` , usare i metodi o.
+
+<!-- HOLD https://github.com/aspnet/AspNetCore.Docs/pull/13818
+Component references provide a way to reference a component instance so that you can issue commands to that instance, such as `Show` or `Reset`.
+
+The Razor compiler automatically generates a backing field for element and component references when using [@ref](xref:mvc/views/razor#ref). In the following example, there's no need to create a `myLoginDialog` field for the `LoginDialog` component:
+
+```cshtml
+<LoginDialog @ref="myLoginDialog" ... />
+
+@code {
+    private void OnSomething()
+    {
+        myLoginDialog.Show();
+    }
+}
+```
+
+When the component is rendered, the generated `myLoginDialog` field is populated with the `LoginDialog` component instance. You can then invoke .NET methods on the component instance.
+
+In some cases, a backing field is required. For example, declare a backing field when referencing generic components. To suppress backing field generation, specify the `@ref:suppressField` parameter.
+
+> [!IMPORTANT]
+> The generated `myLoginDialog` variable is only populated after the component is rendered and its output includes the `LoginDialog` element. Until that point, there's nothing to reference. To manipulate components references after the component has finished rendering, use the `OnAfterRenderAsync` or `OnAfterRender` methods.
+-->
 
 Mentre l'acquisizione di riferimenti ai componenti usa una sintassi simile per l' [acquisizione di riferimenti a elementi](xref:blazor/javascript-interop#capture-references-to-elements), non è una funzionalità di interoperabilità di [JavaScript](xref:blazor/javascript-interop) . I riferimenti ai componenti non vengono passati&mdash;al codice JavaScript che vengono usati solo nel codice .NET.
 
@@ -620,19 +647,19 @@ Verificare che i valori usati `@key` per non siano in conflitto. Se vengono rile
 
 ## <a name="lifecycle-methods"></a>Metodi del ciclo di vita
 
-`OnInitAsync`ed `OnInit` eseguono il codice per inizializzare il componente. Per eseguire un'operazione asincrona, usare `OnInitAsync` e la `await` parola chiave sull'operazione:
+`OnInitializedAsync`ed `OnInitialized` eseguono il codice per inizializzare il componente. Per eseguire un'operazione asincrona, usare `OnInitializedAsync` e la `await` parola chiave sull'operazione:
 
 ```csharp
-protected override async Task OnInitAsync()
+protected override async Task OnInitializedAsync()
 {
     await ...
 }
 ```
 
-Per un'operazione sincrona, `OnInit`usare:
+Per un'operazione sincrona, `OnInitialized`usare:
 
 ```csharp
-protected override void OnInit()
+protected override void OnInitialized()
 {
     ...
 }
@@ -674,7 +701,7 @@ protected override void OnAfterRender()
 
 Le azioni asincrone eseguite negli eventi del ciclo di vita potrebbero non essere state completate prima del rendering del componente. Gli oggetti possono `null` essere o compilati in modo non completo con i dati mentre è in esecuzione il metodo del ciclo di vita. Fornire la logica di rendering per confermare che gli oggetti vengono inizializzati. Esegue il rendering degli elementi dell'interfaccia utente segnaposto (ad esempio, un `null`messaggio di caricamento) mentre gli oggetti sono.
 
-Nel componente `FetchData` dei `OnInitAsync` modelli di Blazer viene eseguito l'override di asincrono Receive forecast data (`forecasts`). Quando `forecasts` è`null`, all'utente viene visualizzato un messaggio di caricamento. Quando l' `Task` oggetto restituito `OnInitAsync` da viene completato, viene eseguito il rendering del componente con lo stato aggiornato.
+Nel componente `FetchData` dei `OnInitializedAsync` modelli di Blazer viene eseguito l'override di asincrono Receive forecast data (`forecasts`). Quando `forecasts` è`null`, all'utente viene visualizzato un messaggio di caricamento. Quando l' `Task` oggetto restituito `OnInitializedAsync` da viene completato, viene eseguito il rendering del componente con lo stato aggiornato.
 
 *Pages/FetchData.razor*:
 
@@ -685,7 +712,7 @@ Nel componente `FetchData` dei `OnInitAsync` modelli di Blazer viene eseguito l'
 `SetParameters`è possibile eseguire l'override del codice prima di impostare i parametri:
 
 ```csharp
-public override void SetParameters(ParameterCollection parameters)
+public override void SetParameters(ParameterView parameters)
 {
     ...
 
