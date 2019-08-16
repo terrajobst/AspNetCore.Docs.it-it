@@ -1,1 +1,1 @@
-Quando si usano chiavi gerarchiche in variabili di ambiente, il separatore due punti (`:`) potrebbe non funzionare in tutte le piattaforme (ad esempio in Bash). Il doppio carattere di sottolineatura (`__`) è supportato da tutte le piattaforme e viene sostituito con due punti.
+Quando si usano chiavi gerarchiche in variabili di ambiente, il separatore due punti (`:`) potrebbe non funzionare in tutte le piattaforme (ad esempio in Bash). Il doppio carattere di sottolineatura (`__`) è supportato da tutte le piattaforme e viene sostituito automaticamente con i due punti.
