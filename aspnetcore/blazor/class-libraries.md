@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/13/2019
 uid: blazor/class-libraries
-ms.openlocfilehash: 6e93d48bbc684845952c3db8935ccc8b190044b7
-ms.sourcegitcommit: f5f0ff65d4e2a961939762fb00e654491a2c772a
+ms.openlocfilehash: b5857f2cf22bde801deeeaf227817fdf99862f4a
+ms.sourcegitcommit: 4cb0c7e74355f2e87c60e2a196f842b937247a99
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030339"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69545779"
 ---
 # <a name="aspnet-core-razor-components-class-libraries"></a>Librerie di classi dei componenti di ASP.NET Core Razor
 
@@ -60,16 +60,6 @@ Per configurare l'ambiente per <xref:blazor/get-started> blazer, seguire le istr
 
 ---
 
-## <a name="rcls-not-supported-for-client-side-apps"></a>RCL non supportato per le app sul lato client
-
-Nell'anteprima corrente di ASP.NET Core 3,0, le librerie di classi Razor non sono compatibili con le app lato client di Blazer. Per le `blazorlib` app Blazer sul lato client, usare una libreria di componenti Blazer creata dal modello in una shell dei comandi:
-
-```console
-dotnet new blazorlib -o MyComponentLib1
-```
-
-Le librerie dei componenti `blazorlib` che usano il modello possono includere file statici, ad esempio immagini, JavaScript e fogli di stile. In fase di compilazione, i file statici vengono incorporati nel file di assembly compilato ( *. dll*), che consente l'utilizzo dei componenti senza doversi preoccupare di includere le risorse. Tutti i file inclusi nella `content` directory sono contrassegnati come una risorsa incorporata.
-
 ## <a name="consume-a-library-component"></a>Utilizzare un componente di libreria
 
 Per utilizzare i componenti definiti in una raccolta in un altro progetto, utilizzare uno degli approcci seguenti:
@@ -116,8 +106,6 @@ Caricare il pacchetto in NuGet usando il comando [DotNet NuGet Publish](/dotnet/
 ```console
 dotnet nuget publish
 ```
-
-Quando si usa `blazorlib` il modello, le risorse statiche sono incluse nel pacchetto NuGet. I consumer di librerie ricevono automaticamente script e fogli di stile, pertanto non è necessario che gli utenti installino manualmente le risorse.
 
 ## <a name="create-a-razor-components-class-library-with-static-assets"></a>Creare una libreria di classi di componenti Razor con asset statici
 
