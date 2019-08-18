@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/13/2019
 uid: blazor/components
-ms.openlocfilehash: 752f49f020acf26efcb304ed5e28e27c478dac83
-ms.sourcegitcommit: 7a46973998623aead757ad386fe33602b1658793
+ms.openlocfilehash: 5361c506f112cbb74865c3819f0b3bd578a1705a
+ms.sourcegitcommit: 38cac2552029fc19428722bb204ff9e16eb94225
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69487588"
+ms.lasthandoff: 08/18/2019
+ms.locfileid: "69573094"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Creare e usare ASP.NET Core componenti Razor
 
@@ -165,7 +165,7 @@ Nell'esempio seguente `<input>` , il primo elemento (`id="useIndividualParams"`)
         {
             { "maxlength", "10" },
             { "placeholder", "Input placeholder text" },
-            { "required", "true" },
+            { "required", "required" },
             { "size", "50" }
         };
 }
@@ -185,7 +185,7 @@ Gli elementi `<input>` sottoposti a rendering usando entrambi gli approcci sono 
 <input id="useAttributesDict"
        maxlength="10"
        placeholder="Input placeholder text"
-       required="true"
+       required="required"
        size="50">
 ```
 
