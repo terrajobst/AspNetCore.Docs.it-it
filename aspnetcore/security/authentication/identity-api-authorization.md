@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/05/2019
 uid: security/authentication/identity/spa
-ms.openlocfilehash: 6b8818cc89a87e66ecec445ff8071348aacde64a
-ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
+ms.openlocfilehash: cb51df0267a5eabd4a2694727e9c896d0554265e
+ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819927"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69583605"
 ---
 # <a name="authentication-and-authorization-for-spas"></a>Autenticazione e autorizzazione per le ZPS
 
@@ -93,9 +93,9 @@ Questo metodo helper configura IdentityServer in modo da usare la configurazione
 
 Questo metodo helper configura uno schema di criteri per l'app come gestore di autenticazione predefinito. Il criterio è configurato in modo da consentire all'identità di gestire tutte le richieste indirizzate a qualsiasi sottopercorso nello spazio URL identità "/Identity". `JwtBearerHandler` Gestisce tutte le altre richieste. Questo metodo registra inoltre una `<<ApplicationName>>API` risorsa API con IdentityServer con un `<<ApplicationName>>API` ambito predefinito e configura il middleware del token di porta JWT per convalidare i token emessi da IdentityServer per l'app.
 
-### <a name="sampledatacontroller"></a>SampleDataController
+### <a name="weatherforecastcontroller"></a>WeatherForecastController
 
-Nel file *Controllers\SampleDataController.cs* , si noti l' `[Authorize]` attributo applicato alla classe che indica che l'utente deve essere autorizzato in base ai criteri predefiniti per accedere alla risorsa. I criteri di autorizzazione predefiniti vengono configurati per l'utilizzo dello schema di autenticazione predefinito, impostato da `AddIdentityServerJwt` sullo schema dei criteri menzionato in precedenza, `JwtBearerHandler` rendendo configurato da tale metodo helper il gestore predefinito per richieste all'app.
+Nel file *Controllers\WeatherForecastController.cs* , si noti l' `[Authorize]` attributo applicato alla classe che indica che l'utente deve essere autorizzato in base ai criteri predefiniti per accedere alla risorsa. I criteri di autorizzazione predefiniti vengono configurati per l'utilizzo dello schema di autenticazione predefinito, impostato da `AddIdentityServerJwt` sullo schema dei criteri menzionato in precedenza, `JwtBearerHandler` rendendo configurato da tale metodo helper il gestore predefinito per richieste all'app.
 
 ### <a name="applicationdbcontext"></a>ApplicationDbContext
 
