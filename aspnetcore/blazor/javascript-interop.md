@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/13/2019
 uid: blazor/javascript-interop
-ms.openlocfilehash: ffd25fe0288159681f7fc052fc09e1f6fc425404
-ms.sourcegitcommit: f5f0ff65d4e2a961939762fb00e654491a2c772a
-ms.translationtype: HT
+ms.openlocfilehash: 00ea14ca95c328b5f8779785a92aa0720a96eb05
+ms.sourcegitcommit: 7a46973998623aead757ad386fe33602b1658793
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030308"
+ms.locfileid: "69487572"
 ---
 # <a name="aspnet-core-blazor-javascript-interop"></a>Interoperabilità JavaScript di ASP.NET Core Blazer
 
@@ -125,11 +125,12 @@ Acquisire i riferimenti agli elementi HTML in un componente usando l'approccio s
 
 * Aggiungere un `@ref` attributo all'elemento HTML.
 * Definire un campo di tipo `ElementReference` il cui nome corrisponde al valore `@ref` dell'attributo.
+* Fornire il `@ref:suppressField` parametro, che evita la generazione dei campi di supporto. Per ulteriori informazioni, vedere la pagina relativa alla [rimozione del supporto @ref dei campi di supporto automatico per in 3.0.0-preview9](https://github.com/aspnet/Announcements/issues/381).
 
 Nell'esempio seguente viene illustrata l'acquisizione di `username` un riferimento all' `<input>` elemento:
 
 ```cshtml
-<input @ref="username" ... />
+<input @ref="username" @ref:suppressField ... />
 
 @code {
     ElementReference username;
@@ -158,7 +159,7 @@ Usare `IJSRuntime.InvokeAsync<T>` e chiamare `exampleJsFunctions.focusElement` c
 ```cshtml
 @inject IJSRuntime JSRuntime
 
-<input @ref="username" />
+<input @ref="username" @ref:suppressField />
 <button @onclick="SetFocus">Set focus on username</button>
 
 @code {
@@ -188,7 +189,7 @@ Il metodo viene chiamato direttamente nell'oggetto. Nell'esempio seguente si pre
 @inject IJSRuntime JSRuntime
 @using JsInteropClasses
 
-<input @ref="username" />
+<input @ref="username" @ref:suppressField />
 <button @onclick="SetFocus">Set focus on username</button>
 
 @code {
