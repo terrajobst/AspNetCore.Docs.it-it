@@ -1,7 +1,12 @@
-Questa esercitazione illustra ASP.NET Core MVC ed Entity Framework Core con i controller e le viste. Le pagine Razor sono una nuova alternativa in ASP.NET Core 2.0, un modello di programmazione basato su pagine che rende più semplice ed efficace la creazione di un'interfaccia utente Web. È consigliabile eseguire l'esercitazione sulle [pagine Razor](xref:data/ef-rp/intro) rispetto alla versione MVC. L'esercitazione sulle pagine Razor:
+Questa esercitazione illustra ASP.NET Core MVC ed Entity Framework Core con i controller e le viste. [Razor Pages](xref:razor-pages/index) è un modello di programmazione alternativo introdotto in ASP.NET Core 2.0. Per le nuove attività di sviluppo, è consigliabile usare Razor Pages rispetto a MVC con controller e visualizzazioni. È disponibile una versione di questa esercitazione per [Razor Pages](xref:data/ef-rp/intro). Ogni esercitazione illustra alcuni materiali che l'altra versione non contiene:
 
-* È più semplice da seguire.
-* Offre un maggior numero di procedure consigliate per EF Core.
-* Usa query più efficienti.
-* È più aggiornata con le API più recenti.
-* Riguarda più funzionalità.
+Alcuni elementi presenti in questa esercitazione su MVC, ma che non sono contenuti nell'esercitazione su Razor Pages:
+
+* Implementare l'ereditarietà nel modello di dati
+* Eseguire query SQL non elaborate
+* Usare LINQ dinamico per semplificare il codice
+ 
+Alcuni elementi presenti nell'esercitazione su Razor Pages, ma che non sono contenuti in questa esercitazione:
+
+* Usare il metodo Select per caricare i dati correlati
+* Versione disponibile per ASP.NET Core 3.0
