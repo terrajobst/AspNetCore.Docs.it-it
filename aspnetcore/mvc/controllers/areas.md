@@ -3,14 +3,14 @@ title: Aree in ASP.NET Core
 author: rick-anderson
 description: Informazioni sulle aree, una funzionalità di ASP.NET MVC che consente di organizzare le funzioni correlate in un gruppo come spazio dei nomi separato (per il routing) e struttura di cartelle (per le visualizzazioni).
 ms.author: riande
-ms.date: 05/10/2019
+ms.date: 08/07/2019
 uid: mvc/controllers/areas
-ms.openlocfilehash: f3a75bc307a206e43241b421f448b09011868d08
-ms.sourcegitcommit: ffe3ed7921ec6c7c70abaac1d10703ec9a43374c
+ms.openlocfilehash: e44c726c47caa3dd0c8c92e3a2502a590bee82d1
+ms.sourcegitcommit: 2719c70cd15a430479ab4007ff3e197fbf5dfee0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65535965"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68862787"
 ---
 # <a name="areas-in-aspnet-core"></a>Aree in ASP.NET Core
 
@@ -116,9 +116,13 @@ Quando l'area o il controller non sono specificati, il routing dipende dai valor
 
 Per altre informazioni, vedere [Routing ad azioni del controller](xref:mvc/controllers/routing).
 
-### <a name="shared-layout-for-areas-using-the-viewstartcshtml-file"></a>Layout condiviso per le aree tramite il file _ViewStart.cshtml
+### <a name="shared-layout-for-areas-using-the-_viewstartcshtml-file"></a>Layout condiviso per le aree tramite il file _ViewStart.cshtml
 
 Per condividere un layout comune per l'intera app, spostare *_ViewStart.cshtml* nella cartella radice dell'applicazione.
+
+### <a name="_viewimportscshtml"></a>_ViewImports.cshtml
+
+Nella posizione standard */Views/_ViewImports.cshtml* non si applica alle aree. Per usare gli [helper tag](xref:mvc/views/tag-helpers/intro) comuni, `@using` o `@inject` nella propria area, assicurarsi che un file *_ViewImports.cshtml* appropriato venga [applicato alle visualizzazioni dell'area](xref:mvc/views/layout#importing-shared-directives). Se si vuole lo stesso comportamento in tutte le visualizzazioni, spostare */Views/_ViewImports.cshtml* nella radice dell'applicazione.
 
 <a name="rename"></a>
 
@@ -167,7 +171,7 @@ Per il codice precedente:
 * Il collegamento generato da `<a asp-page="/About">` è corretto solo quando l'ultima richiesta riguarda una pagina in `/Home`.
 * Il codice deriva dal [download di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/areas/samples/RPareas).
 
-### <a name="import-namespace-and-tag-helpers-with-viewimports-file"></a>Importare lo spazio dei nomi e gli helper tag con il file _ViewImports
+### <a name="import-namespace-and-tag-helpers-with-_viewimports-file"></a>Importare lo spazio dei nomi e gli helper tag con il file _ViewImports
 
 È possibile aggiungere un file *_ViewImports.cshtml* nella cartella *Pages* di ogni area per importare lo spazio dei nomi e gli helper tag in ogni pagina Razor nella cartella.
 

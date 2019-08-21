@@ -5,12 +5,12 @@ description: Scoprire come aggiungere classi per la gestione dei film in un data
 ms.author: riande
 ms.date: 07/22/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 6132f7b907014b4f57bb9ae0300e00b6ecb23f1a
-ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
+ms.openlocfilehash: 39e2a38e0b91b7dbecf05c084ca0be5e312dcb0d
+ms.sourcegitcommit: 2719c70cd15a430479ab4007ff3e197fbf5dfee0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68820072"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68862876"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Aggiungere un modello a un'app Razor Pages in ASP.NET Core
 
@@ -135,18 +135,30 @@ Il file *appsettings.json* è stato aggiornato con la stringa di connessione usa
 
 ---
 
-Il processo di scaffolding crea e aggiorna i file seguenti:
-
 ### <a name="files-created"></a>File creati
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+Il processo di scaffolding crea e aggiorna i file seguenti:
 
 * *Pages/Movies*: Crea, Elimina, Dettagli, Modifica e Indice.
 * *Data/RazorPagesMovieContext.cs*
 
-### <a name="file-updated"></a>File aggiornato
+### <a name="updated"></a>File aggiornati
 
 * *Startup.cs*
 
 I file creati e aggiornati sono illustrati nella sezione successiva.
+
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio per Mac](#tab/visual-studio-code+visual-studio-mac)
+
+Il processo di scaffolding crea i file seguenti:
+
+* *Pages/Movies*: Crea, Elimina, Dettagli, Modifica e Indice.
+
+I file creati sono illustrati nella sezione successiva.
+
+---
 
 <a name="pmc"></a>
 

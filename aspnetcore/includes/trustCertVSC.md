@@ -3,6 +3,8 @@
   ```console
   dotnet dev-certs https --trust
   ```
+  
+  Il comando precedente non funziona in Linux. Vedere la documentazione della distribuzione di Linux per l'attendibilità di un certificato.
 
   Il comando precedente consente di visualizzare la finestra di dialogo seguente:
 

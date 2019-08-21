@@ -1,23 +1,273 @@
 ---
 title: Razor Pages con EF Core in ASP.NET Core - Ordinamento, filtro, suddivisione in pagine - 3 di 8
 author: rick-anderson
-description: In questa esercitazione viene spiegato come aggiungere alla pagina le funzionalità di ordinamento, filtro e suddivisione in pagine tramite ASP.NET Core e Entity Framework.
+description: In questa esercitazione viene spiegato come aggiungere a una pagina Razor le funzionalità di ordinamento, filtro e suddivisione in pagine tramite ASP.NET Core ed Entity Framework Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 07/22/2019
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 06de728096b91b128c6bc3eb7791609d2161cd9b
-ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
+ms.openlocfilehash: 70f4220674502265963410b928b9340aa20e0cea
+ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65516992"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68914095"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Ordinamento, filtro, suddivisione in pagine - 3 di 8
 
 Di [Tom Dykstra](https://github.com/tdykstra), [Rick Anderson](https://twitter.com/RickAndMSFT) e [Jon P Smith](https://twitter.com/thereformedprog)
 
 [!INCLUDE [about the series](~/includes/RP-EF/intro.md)]
+
+::: moniker range=">= aspnetcore-3.0"
+
+In questa esercitazione si vedrà come aggiungere le funzionalità di ordinamento, filtro e suddivisione in pagine alla pagina Students.
+
+La figura seguente illustra una pagina completata. Le intestazioni di colonna sono collegamenti selezionabili per ordinare la colonna. Fare clic più volte su un'intestazione di colonna per passare dall'ordinamento crescente a quello decrescente e viceversa.
+
+![Pagina Student Index (Indice degli studenti)](sort-filter-page/_static/paging30.png)
+
+## <a name="add-sorting"></a>Aggiungere l'ordinamento
+
+Sostituire il codice in *Pages/Students/Index.cshtml.cs* con il codice seguente per aggiungere l'ordinamento.
+
+[!code-csharp[Main](intro/samples/cu30snapshots/3-sorting/Pages/Students/Index1.cshtml.cs?name=snippet_All&highlight=21-24,26,28-52)]
+
+Il codice precedente:
+
+* Aggiunge le proprietà che contengono i parametri di ordinamento.
+* Modifica il nome della proprietà `Student` in `Students`.
+* Sostituisce il codice nel metodo `OnGetAsync`.
+
+Il metodo `OnGetAsync` riceve un parametro `sortOrder` dalla stringa di query nell'URL. L'URL (inclusa la stringa di query) viene generato dall'[helper tag di ancoraggio](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper).
+
+Il parametro `sortOrder` è "Name" o "Data". Il parametro `sortOrder` è facoltativamente seguito da "_desc" per specificare l'ordine decrescente. L'ordinamento predefinito è crescente.
+
+Quando la pagina Index (Indice) viene richiesta dal collegamento **Students** (Studenti), non è presente alcuna stringa di query. Gli studenti vengono visualizzati in ordine crescente in base al cognome. L'ordine crescente in base al cognome è l'impostazione predefinita (caso di fallthrough) nell'istruzione `switch`. Quando l'utente fa clic sul collegamento di un'intestazione di colonna, nel valore della stringa di query viene specificato il valore `sortOrder` appropriato.
+
+Gli elementi `NameSort` e `DateSort` vengono usati dalla pagina Razor per configurare i collegamenti ipertestuali sull'intestazione di colonna con i valori della stringa di query appropriata:
+
+[!code-csharp[Main](intro/samples/cu30snapshots/3-sorting/Pages/Students/Index1.cshtml.cs?name=snippet_Ternary)]
+
+Il codice usa l'operatore condizionale C# [?:](/dotnet/csharp/language-reference/operators/conditional-operator). L'operatore `?:` è un operatore ternario (accetta tre operandi). La prima riga specifica che quando `sortOrder` è Null o vuoto, `NameSort` è impostato su "name_desc". Se `sortOrder` **non** è Null o vuoto, `NameSort` è impostato su una stringa vuota.
+
+Queste due istruzioni consentono alla pagina di impostare i collegamenti ipertestuali delle intestazioni di colonna come indicato di seguito:
+
+| Ordinamento corrente   | Collegamento ipertestuale cognome | Collegamento ipertestuale data |
+|:--------------------:|:-------------------:|:--------------:|
+| Cognome in ordine crescente  | descending          | ascending      |
+| Cognome in ordine decrescente | ascending           | ascending      |
+| Data in ordine crescente       | ascending           | descending     |
+| Data in ordine decrescente      | ascending           | ascending      |
+
+Il metodo usa LINQ to Entities per specificare la colonna in base alla quale eseguire l'ordinamento. Il codice inizializza un elemento `IQueryable<Student>` prima dell'istruzione switch e lo modifica nell'istruzione switch:
+
+[!code-csharp[Main](intro/samples/cu30snapshots/3-sorting/Pages/Students/Index1.cshtml.cs?name=snippet_IQueryable)]
+
+Quando viene creato o modificato un elemento `IQueryable`, non viene inviata alcuna query al database. La query non viene eseguita finché l'oggetto `IQueryable` non viene convertito in una raccolta. Gli elementi `IQueryable` vengono convertiti in una raccolta chiamando un metodo come ad esempio `ToListAsync`. Il codice `IQueryable` genera pertanto una singola query che non viene eseguita fino all'istruzione seguente:
+
+[!code-csharp[Main](intro/samples/cu30snapshots/3-sorting/Pages/Students/Index1.cshtml.cs?name=snippet_SortOnlyRtn)]
+
+`OnGetAsync` può essere reso dettagliato con un numero elevato di colonne ordinabili. Per informazioni su un modo alternativo per scrivere il codice per questa funzionalità, vedere [Usare LINQ dinamico per semplificare il codice](xref:data/ef-mvc/advanced#dynamic-linq) nella versione MVC di questa serie di esercitazioni.
+
+### <a name="add-column-heading-hyperlinks-to-the-student-index-page"></a>Aggiungere collegamenti ipertestuali delle intestazioni di colonna alla pagina Student Index (Indice degli studenti)
+
+Sostituire il codice in *Students/Index.cshtml* con il codice seguente. Le modifiche vengono evidenziate.
+
+[!code-cshtml[Main](intro/samples/cu30snapshots/3-sorting/Pages/Students/Index1.cshtml?highlight=5,8,17-19,22,25-27,33)]
+
+Il codice precedente:
+
+* Aggiunge collegamenti ipertestuali alle intestazioni di colonna `LastName` e `EnrollmentDate`.
+* Usa le informazioni contenute in `NameSort` e `DateSort` per impostare i collegamenti ipertestuali con i valori di ordinamento corrente.
+* Modifica l'intestazione di pagina da Index a Students.
+* Cambia `Model.Student` in `Model.Students`.
+
+Per verificare il corretto funzionamento dell'ordinamento:
+
+* Eseguire l'app e selezionare la scheda **Students** (Studenti).
+* Fare clic sulle intestazioni di colonna.
+
+## <a name="add-filtering"></a>Aggiungere un filtro
+
+Per aggiungere un filtro alla pagina Students Index (Indice degli studenti):
+
+* Alla pagina Razor vengono aggiunti una casella di testo e un pulsante di invio. La casella di testo specifica una stringa di ricerca sul nome o cognome.
+* Il modello di pagina viene aggiornato in modo da usare il valore della casella di testo.
+
+### <a name="update-the-ongetasync-method"></a>Aggiornare il metodo OnGetAsync
+
+Sostituire il codice in *Students/Index.cshtml.cs* con il codice seguente per aggiungere il filtro:
+
+[!code-csharp[Main](intro/samples/cu30snapshots/3-sorting/Pages/Students/Index2.cshtml.cs?name=snippet_All&highlight=28,33,37-41)]
+
+Il codice precedente:
+
+* Aggiunge il parametro `searchString` al metodo `OnGetAsync` e salva il valore del parametro nella proprietà `CurrentFilter`. Il valore della stringa di ricerca viene ricevuto da una casella di testo che verrà aggiunta nella sezione seguente.
+* Aggiunge una clausola `Where` all'istruzione LINQ. La clausola `Where` seleziona solo gli studenti il cui nome o cognome contiene la stringa di ricerca. L'istruzione LINQ viene eseguita solo se è presente un valore per la ricerca.
+
+### <a name="iqueryable-vs-ienumerable"></a>IQueryable o IEnumerable
+
+Il codice chiama il metodo `Where` su un oggetto `IQueryable` e il filtro viene elaborato nel server. In alcuni scenari l'app potrebbe chiamare il metodo `Where` come metodo di estensione per una raccolta in memoria. Si supponga ad esempio che `_context.Students` cambi da `DbSet`Entity Framework Core a un metodo di repository che restituisce una raccolta `IEnumerable`. Il risultato sarebbe in genere lo stesso, ma in alcuni casi potrebbe essere diverso.
+
+Ad esempio, l'implementazione di .NET Framework di `Contains` esegue un confronto tra maiuscole e minuscole per impostazione predefinita. In SQL Server, la distinzione tra maiuscole e minuscole di `Contains` è determinata dall'impostazione delle regole di confronto dell'istanza di SQL Server. SQL Server usa come valore predefinito la non applicazione della distinzione tra maiuscole e minuscole. Per impostazione predefinita, SQLite fa distinzione tra maiuscole e minuscole. È possibile chiamare `ToUpper` per fare in modo che il test non applichi in modo esplicito la distinzione tra maiuscole e minuscole:
+
+```csharp
+Where(s => s.LastName.ToUpper().Contains(searchString.ToUpper())`
+```
+
+Il codice precedente garantisce che il filtro non faccia distinzione tra maiuscole e minuscole anche se il metodo `Where` viene chiamato su un oggetto `IEnumerable` o viene eseguito in SQLite.
+
+Quando viene chiamato `Contains` su una raccolta `IEnumerable`, viene usata l'implementazione di .NET Core. Quando viene chiamato `Contains` su un oggetto `IQueryable`, viene usata l'implementazione di database.
+
+La chiamata di `Contains` su un oggetto `IQueryable` è in genere preferibile per motivi di prestazioni. Con `IQueryable`, il filtro viene applicato dal server di database. Se si crea per primo un `IEnumerable`, tutte le righe devono essere restituite dal server di database.
+
+Si verifica una riduzione delle prestazioni per la chiamata di `ToUpper`. Il codice `ToUpper` aggiunge una funzione nella clausola WHERE dell'istruzione TSQL SELECT. La funzione aggiunta impedisce all'ottimizzazione di usare un indice. Dato che SQL viene installato con l'impostazione che non fa distinzione tra maiuscole e minuscole, è consigliabile evitare di chiamare `ToUpper` quando non è necessario.
+
+Per altre informazioni, vedere [How to use case-insensitive query with Sqlite provider](https://github.com/aspnet/EntityFrameworkCore/issues/11414) (Come usare una query senza distinzione tra maiuscole e minuscole con il provider SQLite).
+
+### <a name="update-the-razor-page"></a>Aggiornare la pagina Razor
+
+Sostituire il codice in *Pages/Students/Index.cshtml* per creare un pulsante **Cerca** e riquadri diversi.
+
+[!code-cshtml[Main](intro/samples/cu30snapshots/3-sorting/Pages/Students/Index2.cshtml?highlight=14-23)]
+
+Il codice precedente usa l'[helper tag](xref:mvc/views/tag-helpers/intro) `<form>` per aggiungere la casella di testo e il pulsante di ricerca. Per impostazione predefinita, l'helper tag `<form>` invia i dati del modulo con POST. Con POST, i parametri vengono passati nel corpo del messaggio HTTP e non nell'URL. Quando viene usato HTTP GET, i dati del modulo vengono passati nell'URL come stringhe di query. Il passaggio di dati con le stringhe di query consente agli utenti di inserire l'URL nei segnalibri. Le [linee guida W3C](https://www.w3.org/2001/tag/doc/whenToUseGet.html) consigliano di usare l'istruzione GET quando l'azione non risulta in un aggiornamento.
+
+Eseguire il test dell'app:
+
+* Selezionare la scheda **Students** (Studenti) e immettere una stringa di ricerca. Se si usa SQLite, il filtro non fa distinzione tra maiuscole e minuscole solo se è stato implementato il codice `ToUpper` facoltativo illustrato in precedenza.
+
+* Selezionare **Search** (Ricerca).
+
+Si noti che l'URL contiene la stringa di ricerca. Ad esempio:
+
+```
+https://localhost:<port>/Students?SearchString=an
+```
+
+Se la pagina è inserita nei segnalibri, il segnalibro contiene l'URL alla pagina e la stringa di query `SearchString`. L'elemento `method="get"` nel tag `form` è ciò che ha determinato la generazione della stringa di query.
+
+Attualmente, quando si seleziona un collegamento di ordinamento di un'intestazione di colonna, il valore del filtro dalla casella **Search** (Ricerca) viene perso. Il valore del filtro perso viene risolto nella sezione successiva.
+
+## <a name="add-paging"></a>Aggiungere la suddivisione in pagine
+
+In questa sezione viene creata una classe `PaginatedList` per supportare la suddivisione in pagine. La classe `PaginatedList` usa le istruzioni `Skip` e `Take` per filtrare i dati sul server invece di recuperare tutte le righe della tabella. Nella figura seguente vengono illustrati i pulsanti di suddivisione in pagine.
+
+![Pagina Student Index (Indice degli studenti) con collegamenti di suddivisione in pagine](sort-filter-page/_static/paging30.png)
+
+### <a name="create-the-paginatedlist-class"></a>Creare la classe PaginatedList
+
+Nella cartella del progetto, creare `PaginatedList.cs` con il codice seguente:
+
+[!code-csharp[Main](intro/samples/cu30/PaginatedList.cs)]
+
+Il metodo `CreateAsync` nel codice precedente accetta le dimensioni di pagina e il numero delle pagine e applica le istruzioni `Skip` e `Take` appropriate a `IQueryable`. Quando `ToListAsync` viene chiamato su `IQueryable`, restituisce un elenco contenente solo la pagina richiesta. Le proprietà `HasPreviousPage` e `HasNextPage` vengono usate per abilitare o disabilitare i pulsanti di suddivisione in pagine **Previous** (Indietro) e **Next** (Avanti).
+
+Il metodo `CreateAsync` viene usato per creare l'elemento `PaginatedList<T>`. Un costruttore non può creare l'oggetto `PaginatedList<T>`, perché i costruttori non possono eseguire codice asincrono.
+
+### <a name="add-paging-to-the-pagemodel-class"></a>Aggiungere la suddivisione in pagine alla classe PageModel
+
+Sostituire il codice in *Students/Index.cshtml.cs* per aggiungere la suddivisione in pagine.
+
+[!code-csharp[Main](intro/samples/cu30/Pages/Students/Index.cshtml.cs?name=snippet_All&highlight=26,28-29,31,34-41,68-70)]
+
+Il codice precedente:
+
+* Modifica il tipo della proprietà `Students` da `IList<Student>` a `PaginatedList<Student>`.
+* Aggiunge l'indice della pagina, l'elemento `sortOrder` corrente e l'elemento `currentFilter` alla firma del metodo `OnGetAsync`.
+* Salva l'ordinamento nella proprietà CurrentSort.
+* Reimposta l'indice della pagina su 1 quando è presente una nuova stringa di ricerca.
+* Usa la classe `PaginatedList` per ottenere entità Student.
+
+Tutti i parametri ricevuti `OnGetAsync` da sono Null quando:
+
+* La pagina viene chiamata dal collegamento **Students** (Studenti).
+* L'utente non ha selezionato un collegamento di suddivisione in pagine o di ordinamento.
+
+Se si seleziona un collegamento di suddivisione in pagine, la variabile dell'indice di pagina contiene il numero di pagina da visualizzare.
+
+La proprietà `CurrentSort` indica la pagina Razor con il criterio di ordinamento corrente. L'ordinamento corrente deve essere incluso nei collegamenti di suddivisione in pagine per mantenere l'ordinamento nella suddivisione in pagine.
+
+La proprietà `CurrentFilter` indica la pagina Razor con la stringa di filtro corrente. Il valore `CurrentFilter`:
+
+* Deve essere incluso nei collegamenti di suddivisione in pagine per mantenere le impostazioni di filtro nella suddivisione in pagine.
+* Deve essere ripristinato nella casella di testo quando viene nuovamente visualizzata la pagina.
+
+Se la stringa di ricerca viene modificata durante la suddivisione in pagine, la pagina viene reimpostata su 1. La pagina deve essere reimpostata su 1, poiché il nuovo filtro può comportare la visualizzazione di dati diversi. Quando viene immesso un valore di ricerca e si seleziona **Submit** (Invia):
+
+  * La stringa di ricerca viene modificata.
+  * Il parametro `searchString` non è Null.
+
+  Il metodo `PaginatedList.CreateAsync` converte la query degli studenti in una pagina singola di studenti in un tipo di raccolta che supporta la suddivisione in pagine. La pagina singola di studenti viene quindi passata alla pagina Razor.
+
+  I due punti interrogativi dopo `pageIndex` nella chiamata di `PaginatedList.CreateAsync` rappresentano l'[operatore null-coalescing](/dotnet/csharp/language-reference/operators/null-conditional-operator). L'operatore null-coalescing definisce un valore predefinito per un tipo nullable. L'espressione `(pageIndex ?? 1)` restituisce il valore di `pageIndex` se ha un valore. Se `pageIndex` non ha un valore, restituisce 1.
+
+### <a name="add-paging-links-to-the-razor-page"></a>Aggiungere collegamenti di suddivisione in pagine alla pagina Razor
+
+Sostituire il codice in *Students/Index.cshtml*, con il codice seguente. Le modifiche sono evidenziate:
+
+[!code-cshtml[Main](intro/samples/cu30/Pages/Students/Index.cshtml?highlight=29-32,38-41,69-87)]
+
+I collegamenti delle intestazioni di colonna usano la stringa di query per passare la stringa di ricerca corrente al metodo `OnGetAsync`:
+
+[!code-cshtml[Main](intro/samples/cu30/Pages/Students/Index.cshtml?range=29-32)]
+
+I pulsanti di suddivisione in pagine vengono visualizzati dagli helper tag:
+
+[!code-cshtml[Main](intro/samples/cu30/Pages/Students/Index.cshtml?range=73-87)]
+
+Eseguire l'app e passare alla pagina degli studenti.
+
+* Per verificare che la suddivisione in pagine funzioni correttamente, fare clic sui collegamenti di suddivisione in pagine in ordinamenti diversi.
+* Per verificare che la suddivisione in pagine funzioni correttamente con l'ordinamento e il filtro, immettere una stringa di ricerca e provare nuovamente la suddivisione in pagine.
+
+![pagina Student Index (Indice degli studenti) con collegamenti di suddivisione in pagine](sort-filter-page/_static/paging30.png)
+
+## <a name="add-grouping"></a>Aggiungere un raggruppamento
+
+Questa sezione crea una pagina About (Informazioni) che visualizza il numero di studenti iscritti per ogni data di iscrizione. L'aggiornamento usa il raggruppamento e include i passaggi seguenti:
+
+* Creare un modello di visualizzazione per i dati usati dalla pagina **About**.
+* Aggiornare la pagina About in modo che usi il modello di visualizzazione.
+
+### <a name="create-the-view-model"></a>Creare il modello di visualizzazione
+
+Creare una cartella *Models/SchoolViewModels*.
+
+Creare *SchoolViewModels/EnrollmentDateGroup.cs* con il codice seguente:
+
+[!code-csharp[Main](intro/samples/cu30/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
+
+### <a name="create-the-razor-page"></a>Creare la pagina Razor
+
+Aggiungere un file *Pages/About.cshtml* con il codice seguente:
+
+[!code-cshtml[Main](intro/samples/cu30/Pages/About.cshtml)]
+
+### <a name="create-the-page-model"></a>Creare il modello di pagina
+
+Creare il file *Pages/About.cshtml.cs* con il codice seguente:
+
+[!code-csharp[Main](intro/samples/cu30/Pages/About.cshtml.cs)]
+
+L'istruzione LINQ raggruppa le entità di studenti per data di registrazione, calcola il numero di entità in ogni gruppo e archivia i risultati in una raccolta di oggetti di modello della visualizzazione `EnrollmentDateGroup`.
+
+Eseguire l'app e passare alla pagina About (Informazioni). Il numero di studenti per ogni data di registrazione viene visualizzato in una tabella.
+
+![Pagina About (Informazioni)](sort-filter-page/_static/about30.png)
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Nella prossima esercitazione, l'app usa le migrazioni per aggiornare il modello di dati.
+
+> [!div class="step-by-step"]
+> [Esercitazione precedente](xref:data/ef-rp/crud)
+> [Esercitazione successiva](xref:data/ef-rp/migrations)
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 In questa esercitazione viene aggiunta la funzionalità di ordinamento, filtro, suddivisione in pagine e raggruppamento.
 
@@ -282,8 +532,9 @@ Se si verificano problemi che non è possibile risolvere, scaricare l'[app compl
 
 Nella prossima esercitazione, l'app usa le migrazioni per aggiornare il modello di dati.
 
-
-
 > [!div class="step-by-step"]
 > [Precedente](xref:data/ef-rp/crud)
 > [Successivo](xref:data/ef-rp/migrations)
+
+::: moniker-end
+

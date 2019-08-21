@@ -1,0 +1,1 @@
+Per altre informazioni sugli strumenti dell'interfaccia della riga di comando per EF Core, vedere [Informazioni di riferimento sugli strumenti EF Core per l'interfaccia della riga di comando .NET](/ef/core/miscellaneous/cli/dotnet).

@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 06/21/2019
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: 0ffd437bbb48ef1c7a9159fbf3ac41441613f434
-ms.sourcegitcommit: 849af69ee3c94cdb9fd8fa1f1bb8f5a5dda7b9eb
+ms.openlocfilehash: 606be317318eafa170d926aaace1f752d3a25510
+ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68372055"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68994296"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Introduzione a Swashbuckle e ad ASP.NET Core
 
@@ -115,6 +115,8 @@ Se si usano le directory con ISS o il proxy inverso, impostare l'endpoint Swagge
 ## <a name="customize-and-extend"></a>Personalizzare ed estendere
 
 Swagger offre opzioni per documentare il modello a oggetti e personalizzare l'interfaccia utente in modo che corrisponda al tema.
+
+Nella classe Startup aggiungere gli spazi dei nomi seguenti: [!code-csharp[](~/tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup2.cs?name=snippet_PreReqNamespaces)]
 
 ### <a name="api-info-and-description"></a>Informazioni e descrizione API
 
@@ -423,11 +425,11 @@ Creare un file *custom.css* in *wwwroot/swagger/ui*, con il CSS riportato di seg
 
 [!code-css[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/wwwroot/swagger/ui/custom.css)]
 
-Creare il riferimento a *custom.css* nel file *index.html* dopo tutti gli altri file CSS:
+Creare il riferimento a *custom.css* nel file *index.html* all'interno della cartella ui dopo tutti gli altri file CSS:
 
 [!code-html[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/wwwroot/swagger/ui/index.html?name=snippet_SwaggerUiCss&highlight=3)]
 
-Passare alla pagina *index.html* all'indirizzo `http://localhost:<port>/swagger/ui/index.html`. Immettere `http://localhost:<port>/swagger/v1/swagger.json` nella casella di testo dell'intestazione e scegliere il pulsante **Explore** (Esplora). La pagina risultante è simile alla seguente:
+Passare alla pagina *index.html* all'indirizzo `http://localhost:<port>/swagger/ui/index.html`. Immettere `https://localhost:<port>/swagger/v1/swagger.json` nella casella di testo dell'intestazione e scegliere il pulsante **Explore** (Esplora). La pagina risultante è simile alla seguente:
 
 ![Interfaccia utente di Swagger con il titolo dell'intestazione personalizzato](web-api-help-pages-using-swagger/_static/custom-header.png)
 
