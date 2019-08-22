@@ -2,21 +2,20 @@
 title: Avvio dell'app in ASP.NET Core
 author: tdykstra
 description: Informazioni su come la classe Startup in ASP.NET Core configura i servizi e la pipeline delle richieste dell'app.
-monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 01/17/2019
+ms.date: 8/7/2019
 uid: fundamentals/startup
-ms.openlocfilehash: 7e1741d2bed15f36a967713a2f9bd0d93801c8d0
-ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
+ms.openlocfilehash: 0ee1a972bf2b94119767e79c2f4ea18d3265e356
+ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2019
-ms.locfileid: "65874946"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913987"
 ---
 # <a name="app-startup-in-aspnet-core"></a>Avvio dell'app in ASP.NET Core
 
-Di [Tom Dykstra](https://github.com/tdykstra), [Luke Latham](https://github.com/guardrex) e [Steve Smith](https://ardalis.com)
+Di [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://github.com/tdykstra), [Luke Latham](https://github.com/guardrex) e [Steve Smith](https://ardalis.com)
 
 La classe `Startup` configura i servizi e la pipeline delle richieste dell'app.
 
@@ -29,11 +28,47 @@ Le app ASP.NET Core usano una classe `Startup` denominata `Startup` per convenzi
 
 `ConfigureServices` e `Configure` sono chiamate dal runtime di ASP.NET Core all'avvio dell'app:
 
-[!code-csharp[](startup/sample_snapshot/Startup1.cs?highlight=4,10)]
+::: moniker range=">= aspnetcore-3.0"
 
-La classe `Startup` viene specificata per l'app al momento della compilazione dell'[host](xref:fundamentals/index#host) dell'app. L'host dell'app viene compilato quando si chiama `Build` per il generatore di host nella classe `Program`. La classe `Startup` viene in genere specificata chiamando il metodo [WebHostBuilderExtensions.UseStartup\<TStartup>](xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*) sul generatore di host:
+[!code-csharp[](startup/3.0_samples/StartupFilterSample/Startup.cs?name=snippet)]
 
-[!code-csharp[](startup/sample_snapshot/Program3.cs?name=snippet_Program&highlight=10)]
+L'esempio precedente è per [Razor Pages](xref:razor-pages/index). La versione per MVC è simile.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+[!code-csharp[](startup/sample_snapshot/Startup1.cs)]
+
+::: moniker-end
+
+La classe `Startup` viene specificata al momento della compilazione dell'[host](xref:fundamentals/index#host) dell'app. La classe `Startup` viene in genere specificata chiamando il metodo [`WebHostBuilderExtensions.UseStartup<TStartup>`](xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*) nel generatore host:
+
+::: moniker range="< aspnetcore-3.0"
+
+[!code-csharp[](startup/sample_snapshot/Program3.cs?name=snippet_Program&highlight=12)]
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](startup/3.0_samples/Program3.cs?name=snippet_Program&highlight=12)]
+
+L'host fornisce i servizi disponibili al costruttore della classe `Startup`. L'app aggiunge servizi aggiuntivi tramite `ConfigureServices`. I servizi dell'host e dell'app saranno disponibili in `Configure` e nell'app.
+
+Quando si usa <xref:Microsoft.Extensions.Hosting.IHostBuilder> è possibile inserire nel costruttore `Startup` solo i tipi di servizio seguenti:
+
+* `IWebHostEnvironment`
+* `IHostEnvironment`
+* <xref:Microsoft.Extensions.Configuration.IConfiguration>
+
+[!code-csharp[](startup/3.0_samples/StartupFilterSample/StartUp2.cs?name=snippet)]
+
+La maggior parte dei servizi non è disponibile fino a quando non viene chiamato il metodo `Configure`.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 L'host fornisce i servizi disponibili al costruttore della classe `Startup`. L'app aggiunge servizi aggiuntivi tramite `ConfigureServices`. I servizi dell'host e dell'app saranno quindi disponibili in `Configure` e nell'app.
 
@@ -45,7 +80,17 @@ Un uso comune dell'[inserimento di dipendenze](xref:fundamentals/dependency-inje
 
 [!code-csharp[](startup/sample_snapshot/Startup2.cs?highlight=7-8)]
 
-Un'alternativa all'inserimento di `IHostingEnvironment` è l'uso di un approccio basato sulle convenzioni. Quando l'app definisce classi `Startup` separate per i diversi ambienti (ad esempio `StartupDevelopment`), la classe `Startup` appropriata viene selezionata durante il runtime. La classe il cui suffisso di nome corrisponde all'ambiente corrente ha la priorità. Se l'app viene eseguita nell'ambiente di sviluppo e include sia una classe `Startup` che una classe `StartupDevelopment`, viene usata la classe `StartupDevelopment`. Per altre informazioni, vedere [Usare più ambienti](xref:fundamentals/environments#environment-based-startup-class-and-methods).
+::: moniker-end
+Un'alternativa all'inserimento di `IWebHostEnvironment` è l'uso di un approccio basato sulle convenzioni.
+::: moniker range=">= aspnetcore-3.0"
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+Un'alternativa all'inserimento di `IHostingEnvironment` è l'uso di un approccio basato sulle convenzioni.
+::: moniker-end
+
+Quando l'app definisce classi `Startup` separate per i diversi ambienti (ad esempio `StartupDevelopment`), la classe `Startup` appropriata viene selezionata durante il runtime. La classe il cui suffisso di nome corrisponde all'ambiente corrente ha la priorità. Se l'app viene eseguita nell'ambiente di sviluppo e include sia una classe `Startup` che una classe `StartupDevelopment`, viene usata la classe `StartupDevelopment`. Per altre informazioni, vedere [Usare più ambienti](xref:fundamentals/environments#environment-based-startup-class-and-methods).
 
 Per altre informazioni sull'host, vedere [L'host](xref:fundamentals/index#host). Per informazioni sulla gestione degli errori durante l'avvio, vedere [Gestione delle eccezioni durante l'avvio](xref:fundamentals/error-handling#startup-exception-handling).
 
@@ -53,21 +98,33 @@ Per altre informazioni sull'host, vedere [L'host](xref:fundamentals/index#host).
 
 Il metodo <xref:Microsoft.AspNetCore.Hosting.StartupBase.ConfigureServices*> è:
 
-* Facoltativo.
+* facoltativo.
 * Chiamato dall'host prima del metodo `Configure` per configurare i servizi dell'app.
 * Dove le [opzioni di configurazione](xref:fundamentals/configuration/index) sono impostate per convenzione.
 
-Il modello tipico consiste nel chiamare tutti i metodi `Add{Service}` e quindi chiamare tutti i metodi `services.Configure{Service}`. Per un esempio, vedere [Configurare i servizi di identità](xref:security/authentication/identity#pw).
-
 L'host può configurare alcuni servizi prima che vengano chiamati i metodi `Startup`. Per altre informazioni, vedere [L'host](xref:fundamentals/index#host).
 
-Per le funzionalità che richiedono l'installazione sostanziale, sono disponibili i metodi di estensione `Add{Service}` in <xref:Microsoft.Extensions.DependencyInjection.IServiceCollection>. Un'app ASP.NET Core tipica registra i servizi per Entity Framework, Identity e MVC:
+Per le funzionalità che richiedono l'installazione sostanziale, sono disponibili i metodi di estensione `Add{Service}` in <xref:Microsoft.Extensions.DependencyInjection.IServiceCollection>. Ad esempio, **Add**DbContext, **Add**DefaultIdentity, **Add**EntityFrameworkStores e **Add**RazorPages:
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](startup/3.0_samples/StartupFilterSample/StartupIdentity.cs ?name=snippet)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](startup/sample_snapshot/Startup3.cs)]
 
+::: moniker-end
+
 L'aggiunta dei servizi al contenitore dei servizi li rende disponibili all'interno dell'app e nel metodo `Configure`. I servizi vengono risolti tramite [inserimento delle dipendenze](xref:fundamentals/dependency-injection) o da <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder.ApplicationServices*>.
 
+::: moniker range="< aspnetcore-3.0"
+
 Vedere [SetCompatibilityVersion](xref:mvc/compatibility-version) per altre informazioni su `SetCompatibilityVersion`.
+
+::: moniker-end
 
 ## <a name="the-configure-method"></a>Metodo Configure
 
@@ -80,36 +137,84 @@ I [modelli ASP.NET Core](/dotnet/core/tools/dotnet-new) configurano la pipeline 
 * [Protocollo HTTP Strict Transport Security (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts)
 * [Reindirizzamento HTTPS](xref:security/enforcing-ssl)
 * [File statici](xref:fundamentals/static-files)
-* [Regolamento generale sulla protezione dei dati (GDPR)](xref:security/gdpr)
 * ASP.NET Core [MVC](xref:mvc/overview) e [Razor Pages](xref:razor-pages/index)
+
+::: moniker range="< aspnetcore-3.0"
+
+* [Regolamento generale sulla protezione dei dati (GDPR)](xref:security/gdpr)
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](startup/3.0_samples/StartupFilterSample/Startup.cs?name=snippet)]
+
+L'esempio precedente è per [Razor Pages](xref:razor-pages/index). La versione per MVC è simile.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](startup/sample_snapshot/Startup4.cs)]
 
-Ogni metodo di estensione `Use` aggiunge uno o più componenti middleware alla pipeline delle richieste. Ad esempio, il metodo di estensione `UseMvc` aggiunge il [middleware di routing](xref:fundamentals/routing) alla pipeline delle richieste e configura [MVC](xref:mvc/overview) come gestore predefinito.
+::: moniker-end
 
-Ogni componente del middleware è responsabile della chiamata del componente seguente nella pipeline o del corto circuito della catena, se necessario. Se non si verifica un corto circuito lungo la catena del middleware, ogni middleware ha una seconda possibilità di elaborare la richiesta prima che venga inviata al client.
+Ogni metodo di estensione `Use` aggiunge uno o più componenti middleware alla pipeline delle richieste. Ad esempio, <xref:Microsoft.AspNetCore.Builder.StaticFileExtensions.UseStaticFiles*> configura il [middleware](xref:fundamentals/middleware/index) per fornire i [file statici](xref:fundamentals/static-files).
 
-È anche possibile specificare servizi aggiuntivi, ad esempio `IHostingEnvironment` e `ILoggerFactory`, nella firma del metodo `Configure`. Quando vengono specificati, i servizi aggiuntivi vengono inseriti se disponibili.
+Ogni componente del middleware è responsabile della chiamata del componente seguente nella pipeline o del corto circuito della catena, se necessario.
+
+::: moniker range=">= aspnetcore-3.0"
+
+I servizi aggiuntivi, ad esempio `IWebHostEnvironment`, `ILoggerFactory` o qualsiasi elemento definito in `ConfigureServices`, possono essere specificati nella firma del metodo `Configure`. Questi servizi vengono inseriti se sono disponibili.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+I servizi aggiuntivi, ad esempio `IHostingEnvironment` e `ILoggerFactory` o qualsiasi elemento definito in `ConfigureServices`, possono essere specificati nella firma del metodo `Configure`. Questi servizi vengono inseriti se sono disponibili.
+
+::: moniker-end
 
 Per altre informazioni su come usare `IApplicationBuilder` e sull'ordine di elaborazione del middleware, vedere <xref:fundamentals/middleware/index>.
 
-## <a name="convenience-methods"></a>Metodi pratici
+<a name="convenience-methods"></a>
+
+## <a name="configure-services-without-startup"></a>Configurare i servizi senza Startup
 
 Per configurare i servizi e la pipeline di elaborazione delle richieste senza usare una classe `Startup`, chiamare i metodi pratici `ConfigureServices` e `Configure` sul generatore di host. Se vengono effettuate più chiamate a `ConfigureServices`, le chiamate vengono aggiunte l'una all'altra. In presenza di più chiamate del metodo `Configure` viene usata l'ultima chiamata di `Configure`.
 
+::: moniker range=">= aspnetcore-3.0"
+[!code-csharp[](startup/3.0_samples/StartupFilterSample/Program1.cs?name=snippet)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 [!code-csharp[](startup/sample_snapshot/Program1.cs?highlight=16,20)]
+
+::: moniker-end
 
 ## <a name="extend-startup-with-startup-filters"></a>Estendere l'avvio con filtri di avvio
 
-Usare <xref:Microsoft.AspNetCore.Hosting.IStartupFilter> per configurare il middleware all'inizio e alla fine della pipeline del middleware [Configure](#the-configure-method) di un'app. `IStartupFilter` è utile per assicurarsi che un middleware venga eseguito prima o dopo il middleware aggiunto dalle librerie all'inizio o alla fine della pipeline di elaborazione delle richieste dell'app.
+Usare <xref:Microsoft.AspNetCore.Hosting.IStartupFilter> per configurare il middleware all'inizio e alla fine della pipeline del middleware [Configure](#the-configure-method) di un'app. L'interfaccia `IStartupFilter` viene usata per creare una pipeline di metodi `Configure`. [IStartupFilter.Configure](xref:Microsoft.AspNetCore.Hosting.IStartupFilter.Configure*) può impostare un middleware da eseguire prima o dopo l'aggiunta del middleware dalle librerie.
 
-`IStartupFilter` implementa un singolo metodo, <xref:Microsoft.AspNetCore.Hosting.StartupBase.Configure*>, che riceve e restituisce `Action<IApplicationBuilder>`. <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder> definisce una classe per configurare la pipeline delle richieste di un'app. Per altre informazioni, vedere [Creare una pipeline middleware con IApplicationBuilder](xref:fundamentals/middleware/index#create-a-middleware-pipeline-with-iapplicationbuilder).
+`IStartupFilter` implementa <xref:Microsoft.AspNetCore.Hosting.StartupBase.Configure*>, che riceve e restituisce un `Action<IApplicationBuilder>`. <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder> definisce una classe per configurare la pipeline delle richieste di un'app. Per altre informazioni, vedere [Creare una pipeline middleware con IApplicationBuilder](xref:fundamentals/middleware/index#create-a-middleware-pipeline-with-iapplicationbuilder).
 
-Ogni `IStartupFilter` implementa uno o più middleware nella pipeline delle richieste. I filtri vengono richiamati nell'ordine in cui sono stati aggiunti al contenitore di servizi. Poiché i filtri possono aggiungere il middleware prima o dopo il passaggio del controllo al filtro successivo, i filtri vengono aggiunti all'inizio o alla fine della pipeline dell'app.
+Ogni `IStartupFilter` può aggiungere uno o più middleware nella pipeline delle richieste. I filtri vengono richiamati nell'ordine in cui sono stati aggiunti al contenitore di servizi. Poiché i filtri possono aggiungere il middleware prima o dopo il passaggio del controllo al filtro successivo, i filtri vengono aggiunti all'inizio o alla fine della pipeline dell'app.
 
-L'esempio seguente dimostra come registrare un middleware con `IStartupFilter`.
+L'esempio seguente dimostra come registrare un middleware con `IStartupFilter`. Il middleware `RequestSetOptionsMiddleware` imposta un valore di opzioni da un parametro di stringa di query:
 
-Il middleware `RequestSetOptionsMiddleware` imposta un valore di opzioni da un parametro di stringa di query:
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](startup/3.0_samples/StartupFilterSample/RequestSetOptionsMiddleware.cs?name=snippet1)]
+
+`RequestSetOptionsMiddleware` è configurato nella classe `RequestSetOptionsStartupFilter`:
+
+[!code-csharp[](startup/3.0_samples/StartupFilterSample/RequestSetOptionsStartupFilter.cs?name=snippet1&highlight=7)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](startup/sample_snapshot/RequestSetOptionsMiddleware.cs?name=snippet1&highlight=21)]
 
@@ -117,22 +222,35 @@ Il middleware `RequestSetOptionsMiddleware` imposta un valore di opzioni da un p
 
 [!code-csharp[](startup/sample_snapshot/RequestSetOptionsStartupFilter.cs?name=snippet1&highlight=7)]
 
-`IStartupFilter` viene registrato nel contenitore del servizio in <xref:Microsoft.AspNetCore.Hosting.StartupBase.ConfigureServices*> e aumenta `Startup` dall'esterno della classe `Startup`:
+::: moniker-end
+
+`IStartupFilter` è registrato nel contenitore di servizi in <xref:Microsoft.AspNetCore.Hosting.StartupBase.ConfigureServices*>.
+
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](startup/3.0_samples/StartupFilterSample/Program.cs?name=snippet&highlight=19-20)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 [!code-csharp[](startup/sample_snapshot/Program2.cs?name=snippet1&highlight=4-5)]
 
-Quando viene specificato un parametro di stringa di query per `option`, il middleware elabora l'assegnazione del valore prima che il middleware MVC esegua il rendering della risposta:
+::: moniker-end
 
-![Finestra del browser con la pagine di indice di cui è stato eseguito il rendering. Il valore dell'opzione viene visualizzato come 'From Middleware' in base alla richiesta della pagina con il parametro di stringa di query e al valore dell'opzione impostato su 'From Middleware'.](startup/_static/index.png)
+Quando viene specificato un parametro di stringa di query per `option`, il middleware elabora l'assegnazione del valore prima che il middleware ASP.NET Core esegua il rendering della risposta.
 
 L'ordine di esecuzione del middleware viene impostato in base all'ordine delle registrazioni `IStartupFilter`:
 
 * Più implementazioni `IStartupFilter` possono interagire con gli stessi oggetti. Se l'ordinamento è un fattore importante, ordinare le registrazioni di servizio `IStartupFilter` in un ordine corrispondente a quello di esecuzione dei relativi middleware.
-* Le librerie possono aggiungere middleware con una o più implementazioni `IStartupFilter` che viene eseguito prima o dopo altri middleware dell'app registrati con `IStartupFilter`. Per richiamare un middleware `IStartupFilter` prima di un middleware aggiunto da `IStartupFilter` di una libreria, posizionare la registrazione dei servizi prima dell'aggiunta della libreria al contenitore di servizi. Per richiamarlo in un secondo momento, posizionare la registrazione dei servizi dopo l'aggiunta della libreria.
+* Le librerie possono aggiungere middleware con una o più implementazioni `IStartupFilter` che viene eseguito prima o dopo altri middleware dell'app registrati con `IStartupFilter`. Per richiamare un middleware `IStartupFilter` prima che un middleware venga aggiunto da `IStartupFilter` di una libreria:
+
+  * Posizionare la registrazione del servizio prima che la libreria venga aggiunta al contenitore di servizi.
+  * Per richiamarlo in un secondo momento, posizionare la registrazione dei servizi dopo l'aggiunta della libreria.
 
 ## <a name="add-configuration-at-startup-from-an-external-assembly"></a>Aggiungere elementi di configurazione all'avvio da un assembly esterno
 
-Un'implementazione <xref:Microsoft.AspNetCore.Hosting.IHostingStartup> consente l'aggiunta di miglioramenti a un'app all'avvio, da un assembly esterno alla classe `Startup` dell'app. Per ulteriori informazioni, vedere <xref:fundamentals/configuration/platform-specific-configuration>.
+Un'implementazione <xref:Microsoft.AspNetCore.Hosting.IHostingStartup> consente l'aggiunta di miglioramenti a un'app all'avvio, da un assembly esterno alla classe `Startup` dell'app. Per altre informazioni, vedere <xref:fundamentals/configuration/platform-specific-configuration>.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
