@@ -1,18 +1,18 @@
 ---
 title: "Esercitazione: Introduzione a EF Core in un'app Web ASP.NET MVC"
 description: Questa è la prima di una serie di esercitazioni che illustrano come compilare da zero l'app di esempio di Contoso University.
-author: rick-anderson
+author: tdykstra
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 02/06/2019
 ms.topic: tutorial
 uid: data/ef-mvc/intro
-ms.openlocfilehash: a93d5af314f1ff679a8df636297a0d5849ebdb8d
-ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
+ms.openlocfilehash: 1b68c20ba206a5afe36f307525879f91d03d95d1
+ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610206"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69583337"
 ---
 # <a name="tutorial-get-started-with-ef-core-in-an-aspnet-mvc-web-app"></a>Esercitazione: Introduzione a EF Core in un'app Web ASP.NET MVC
 
@@ -75,7 +75,7 @@ Gli utenti possono visualizzare e aggiornare le informazioni che riguardano stud
 
 * Attendere che venga visualizzata la finestra di dialogo **Nuova applicazione Web ASP.NET Core**.
 
-* Selezionare **.NET Core**, **ASP.NET Core 2.2** e il modello **Applicazione Web (MVC)**.
+* Selezionare **.NET Core**, **ASP.NET Core 2.2** e il modello **Applicazione Web (MVC)** .
 
 * Assicurarsi che per **Autenticazione** sia impostata l'opzione **Nessuna autenticazione**.
 
@@ -305,7 +305,7 @@ Fare clic con il pulsante destro del mouse sulla tabella **Student** (Studente) 
 
 ![Tabella Student (Studente) in Esplora oggetti di SQL Server](intro/_static/ssox-student-table.png)
 
-I file di database con estensione *mdf* e *ldf* sono contenuti nella cartella *C:\Utenti\\\<nomeutente>*.
+I file di database con estensione *mdf* e *ldf* sono contenuti nella cartella *C:\Utenti\\\<nomeutente>* .
 
 Poiché si sta chiamando `EnsureCreated` nel metodo di inizializzatore che viene eseguito all'avvio dell'app, è ora possibile modificare la classe `Student`, eliminare il database ed eseguire nuovamente l'applicazione. Il database sarà automaticamente ricreato e rispecchierà la modifica. Ad esempio, se si aggiunge una proprietà `EmailAddress` alla classe `Student`, una nuova colonna `EmailAddress` sarà visualizzata nella tabella ricreata.
 
@@ -319,7 +319,7 @@ Grazie all'uso di convenzioni o di ipotesi di Entity Framework, la quantità di 
 
 * Le proprietà dell'entità vengono denominate ID o classnameID e vengono riconosciute come proprietà della chiave primaria.
 
-* Una proprietà viene interpretata come proprietà di una chiave esterna se è denominata *\<nome della proprietà di navigazione>\<nome della proprietà della chiave primaria>*, ad esempio `StudentID` per la proprietà di navigazione `Student` poiché la chiave primaria dell'entità `Student` è `ID`. Le proprietà di una chiave esterna possono anche essere denominate semplicemente *\<nome della proprietà della chiave primaria>*, ad esempio `EnrollmentID` poiché la chiave primaria dell'entità `Enrollment` è `EnrollmentID`.
+* Una proprietà viene interpretata come proprietà di una chiave esterna se è denominata *\<nome della proprietà di navigazione>\<nome della proprietà della chiave primaria>* , ad esempio `StudentID` per la proprietà di navigazione `Student` poiché la chiave primaria dell'entità `Student` è `ID`. Le proprietà di una chiave esterna possono anche essere denominate semplicemente *\<nome della proprietà della chiave primaria>* , ad esempio `EnrollmentID` poiché la chiave primaria dell'entità `Enrollment` è `EnrollmentID`.
 
 È possibile eseguire l'override del comportamento convenzionale. Ad esempio, è possibile specificare in modo esplicito i nomi di tabella, come illustrato in precedenza in questa esercitazione. È anche possibile impostare i nomi delle colonne e impostare qualsiasi proprietà come chiave primaria o chiave esterna, come sarà spiegato in un'[esercitazione successiva](complex-data-model.md) di questa serie.
 

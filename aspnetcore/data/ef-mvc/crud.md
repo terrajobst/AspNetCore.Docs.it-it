@@ -1,18 +1,18 @@
 ---
 title: 'Esercitazione: Implementare la funzionalità CRUD - ASP.NET MVC con EF Core'
 description: In questa esercitazione verrà esaminato e personalizzato il codice CRUD (Create, Read, Update, Delete) che lo scaffolding di MVC crea automaticamente nei controller e nelle visualizzazioni.
-author: rick-anderson
+author: tdykstra
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 02/04/2019
 ms.topic: tutorial
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 442570cdc79fe7c496392ffbcbc527cf841aefa9
-ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
+ms.openlocfilehash: 975738200f9ea621c38b395be123b1d05c78298e
+ms.sourcegitcommit: 41f2c1a6b316e6e368a4fd27a8b18d157cef91e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66750074"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69886313"
 ---
 # <a name="tutorial-implement-crud-functionality---aspnet-mvc-with-ef-core"></a>Esercitazione: Implementare la funzionalità CRUD - ASP.NET MVC con EF Core
 
@@ -58,7 +58,7 @@ Nell'URL seguente la route predefinita mappa Instructor come controller, Index c
 http://localhost:1230/Instructor/Index/1?courseID=2021
 ```
 
-L'ultima parte dell'URL ("?courseID=2021") è un valore di stringa di query. Lo strumento di associazione di modelli passa anche il valore ID al parametro `id` del metodo `Details` se viene passato come un valore di stringa di query:
+L'ultima parte dell'URL ("?courseID=2021") è un valore di stringa di query. Lo strumento di associazione di modelli passa anche il valore ID al parametro `id` del metodo `Index` se viene passato come un valore di stringa di query:
 
 ```
 http://localhost:1230/Instructor/Index?id=1&CourseID=2021

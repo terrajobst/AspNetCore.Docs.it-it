@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/30/2019
 uid: fundamentals/file-providers
-ms.openlocfilehash: 93eb48d81a853061a874641e84b4875849690a93
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: b93b2df7fad7c173f43ad69aec865f09de6c9c34
+ms.sourcegitcommit: 7a46973998623aead757ad386fe33602b1658793
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64886616"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69487582"
 ---
 # <a name="file-providers-in-aspnet-core"></a>Provider di file in ASP.NET Core
 
@@ -51,7 +51,7 @@ L'app di esempio dimostra come configurare un provider di file in `Startup.Confi
 
 Sono disponibili tre implementazioni di `IFileProvider`.
 
-| Implementazione | Description |
+| Implementazione | DESCRIZIONE |
 | -------------- | ----------- |
 | [PhysicalFileProvider](#physicalfileprovider) | Il provider fisico viene usato per accedere ai file fisici del sistema. |
 | [ManifestEmbeddedFileProvider](#manifestembeddedfileprovider) | Il provider incorporato nel manifesto viene usato per accedere ai file incorporati negli assembly. |
@@ -107,7 +107,7 @@ Viene eseguita l'iterazione di `IDirectoryContents` nella pagina.
 
 Per generare un manifesto dei file incorporati, impostare la proprietà `<GenerateEmbeddedFilesManifest>` su `true`. Specificare i file da incorporare con [&lt;EmbeddedResource&gt;](/dotnet/core/tools/csproj#default-compilation-includes-in-net-core-projects):
 
-[!code-csharp[](file-providers/samples/2.x/FileProviderSample/FileProviderSample.csproj?highlight=5,13)]
+[!code-csharp[](file-providers/samples/2.x/FileProviderSample/FileProviderSample.csproj?highlight=6,14)]
 
 Usare [modelli GLOB](#glob-patterns) per specificare uno o più file da incorporare nell'assembly.
 
@@ -126,7 +126,7 @@ Overload aggiuntivi consentono di:
 * Definire la data dell'ultima modifica come ambito dei file.
 * Assegnare un nome alla risorsa incorporata contenente il manifesto dei file incorporati.
 
-| Overload | Description |
+| Overload | DESCRIZIONE |
 | -------- | ----------- |
 | [ManifestEmbeddedFileProvider(Assembly, String)](/dotnet/api/microsoft.extensions.fileproviders.manifestembeddedfileprovider.-ctor#Microsoft_Extensions_FileProviders_ManifestEmbeddedFileProvider__ctor_System_Reflection_Assembly_System_String_) | Accetta un parametro di percorso relativo `root` facoltativo. Specificare `root` per definire come ambito delle chiamate a [GetDirectoryContents](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider.getdirectorycontents) le risorse incluse nel percorso specificato. |
 | [ManifestEmbeddedFileProvider(Assembly, String, DateTimeOffset)](/dotnet/api/microsoft.extensions.fileproviders.manifestembeddedfileprovider.-ctor#Microsoft_Extensions_FileProviders_ManifestEmbeddedFileProvider__ctor_System_Reflection_Assembly_System_String_System_DateTimeOffset_) | Accetta un parametro di percorso relativo `root` facoltativo e un parametro di data `lastModified` ([DateTimeOffset](/dotnet/api/system.datetimeoffset)). La data `lastModified` definisce la data dell'ultima modifica come ambito per le istanze [IFileInfo](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo) restituite da [IFileProvider](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider). |
@@ -155,7 +155,7 @@ Nell'app di esempio, l'app console *WatchConsole* viene configurata per visualiz
 
 ## <a name="glob-patterns"></a>Modelli GLOB
 
-Nei percorsi del file system vengono usati criteri con caratteri jolly chiamati *criteri GLOB (o globbing)*. Specificare gruppi di file con questi criteri. I due caratteri jolly sono `*` e `**`:
+Nei percorsi del file system vengono usati criteri con caratteri jolly chiamati *criteri GLOB (o globbing)* . Specificare gruppi di file con questi criteri. I due caratteri jolly sono `*` e `**`:
 
 **`*`**  
 Cerca qualsiasi elemento a livello della cartella corrente, qualsiasi nome di file o qualsiasi estensione di file. Le corrispondenze vengono terminate con i caratteri `/` e `.` nel percorso dei file.

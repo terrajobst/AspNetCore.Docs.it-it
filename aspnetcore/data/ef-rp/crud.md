@@ -1,16 +1,16 @@
 ---
 title: Razor Pages con EF Core in ASP.NET Core - CRUD - 2 di 8
-author: rick-anderson
+author: tdykstra
 description: Illustra come eseguire operazioni CRUD (creazione, lettura, aggiornamento ed eliminazione) con EF Core.
 ms.author: riande
 ms.date: 07/22/2019
 uid: data/ef-rp/crud
-ms.openlocfilehash: 8dad964826fbf020d250eaec1dbf2845d356ae91
-ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
+ms.openlocfilehash: 57c4a1789d54c29a28ba7e67a1d15815415a461c
+ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68914766"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69583125"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>Razor Pages con EF Core in ASP.NET Core - CRUD - 2 di 8
 
