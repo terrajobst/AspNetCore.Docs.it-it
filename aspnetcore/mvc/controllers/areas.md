@@ -3,14 +3,14 @@ title: Aree in ASP.NET Core
 author: rick-anderson
 description: Informazioni sulle aree, una funzionalità di ASP.NET MVC che consente di organizzare le funzioni correlate in un gruppo come spazio dei nomi separato (per il routing) e struttura di cartelle (per le visualizzazioni).
 ms.author: riande
-ms.date: 08/07/2019
+ms.date: 08/16/2019
 uid: mvc/controllers/areas
-ms.openlocfilehash: e44c726c47caa3dd0c8c92e3a2502a590bee82d1
-ms.sourcegitcommit: 2719c70cd15a430479ab4007ff3e197fbf5dfee0
+ms.openlocfilehash: d0af3092776ee09469c879fffd3047c50b1a59b4
+ms.sourcegitcommit: 4cb0c7e74355f2e87c60e2a196f842b937247a99
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68862787"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69545798"
 ---
 # <a name="areas-in-aspnet-core"></a>Aree in ASP.NET Core
 
@@ -136,7 +136,7 @@ Il codice seguente modifica la cartella dell'area predefinita da `"Areas"` a `"M
 
 ## <a name="areas-with-razor-pages"></a>Aree con pagine Razor
 
-Per le aree con pagine Razor è richiesta una cartella *Areas/&lt;nome area&gt;/Pages* nella radice dell'app. La struttura di cartelle seguente viene usata con il [download di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/areas/samples)
+Per le aree con pagine Razor è richiesta una cartella *Areas/<area name>/Pages* nella radice dell'app. La struttura di cartelle seguente viene usata con l'[app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/areas/samples):
 
 * Nome progetto
   * Aree
