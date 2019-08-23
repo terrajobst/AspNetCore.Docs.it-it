@@ -5,14 +5,14 @@ description: Informazioni su come eseguire il debug di app blazer.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/31/2019
+ms.date: 08/22/2019
 uid: blazor/debug
-ms.openlocfilehash: 37c6009727a4f62b61793adca0d83cdd53be4b9a
-ms.sourcegitcommit: 3204bc89ae6354b61ee0a9b2770ebe5214b7790c
+ms.openlocfilehash: c3188a1fe1b699b787f7a95630f3918d295d0f68
+ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68948371"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69974903"
 ---
 # <a name="debug-aspnet-core-blazor"></a>Debug ASP.NET Core Blazer
 
@@ -51,6 +51,10 @@ Il debug richiede uno dei seguenti browser:
 1. Accedere all'app nel browser.
 1. Posizionare lo stato attivo della tastiera sull'app, non sul pannello strumenti di sviluppo. Il pannello strumenti di sviluppo può essere chiuso al momento dell'avvio del debug.
 1. Selezionare il seguente tasto di scelta rapida specifico di Blazer:
+   * `Shift+Alt+D`in Windows/Linux
+   * `Shift+Cmd+D`in macOS
+1. Seguire i passaggi elencati sullo schermo per riavviare il browser con il debug remoto abilitato.
+1. Per avviare la sessione di debug, selezionare di nuovo il seguente tasto di scelta rapida specifico di Blazer:
    * `Shift+Alt+D`in Windows/Linux
    * `Shift+Cmd+D`in macOS
 

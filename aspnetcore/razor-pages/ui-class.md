@@ -4,15 +4,15 @@ author: Rick-Anderson
 description: Viene illustrato come creare un'interfaccia Razor riutilizzabili tramite le visualizzazioni parziali in una libreria di classi in ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 08/20/2019
+ms.date: 08/22/2019
 ms.custom: mvc, seodec18
 uid: razor-pages/ui-class
-ms.openlocfilehash: 468d961c291810ca4dfbe615acd972cfd6e7572a
-ms.sourcegitcommit: 41f2c1a6b316e6e368a4fd27a8b18d157cef91e1
+ms.openlocfilehash: 5b83cb44302a5900ec7b2ccc049790b4c1ca57e5
+ms.sourcegitcommit: 6189b0ced9c115248c6ede02efcd0b29d31f2115
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69886399"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69985377"
 ---
 # <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>Creare un'interfaccia utente riutilizzabile usando il progetto libreria di classi Razor in ASP.NET Core
 
@@ -237,6 +237,39 @@ Un RCL può richiedere risorse statiche complementari a cui è possibile fare ri
 Per includere asset complementari come parte di un RCL, creare una cartella *wwwroot* nella libreria di classi e includere tutti i file necessari in tale cartella.
 
 Quando si esegue la compressione di un RCL, tutti gli asset complementari nella cartella *wwwroot* vengono inclusi automaticamente nel pacchetto.
+
+### <a name="exclude-static-assets"></a>Escludi asset statici
+
+Per escludere asset statici, aggiungere il percorso di esclusione desiderato `$(DefaultItemExcludes)` al gruppo di proprietà nel file di progetto. Separare le voci con un punto`;`e virgola ().
+
+Nell'esempio seguente, il foglio di stile *lib. CSS* nella cartella *wwwroot* non è considerato un asset statico e non è incluso nel RCL pubblicato:
+
+```xml
+<PropertyGroup>
+  <DefaultItemExcludes>$(DefaultItemExcludes);wwwroot\lib.css</DefaultItemExcludes>
+</PropertyGroup>
+```
+
+### <a name="typescript-integration"></a>Integrazione typescript
+
+Per includere i file TypeScript in un RCL:
+
+1. Inserire i file TypeScript ( *. TS*) all'esterno della cartella *wwwroot* Inserire, ad esempio, i file in una cartella *client* .
+
+1. Configurare l'output di compilazione TypeScript per la cartella *wwwroot* . Impostare la `TypescriptOutDir` proprietà all'interno di `PropertyGroup` un oggetto nel file di progetto:
+
+   ```xml
+   <TypescriptOutDir>wwwroot</TypescriptOutDir>
+   ```
+
+1. Includere la destinazione typescript come dipendenza della `ResolveCurrentProjectStaticWebAssets` destinazione aggiungendo la destinazione seguente all'interno di un oggetto `PropertyGroup` nel file di progetto:
+
+   ```xml
+   <ResolveCurrentProjectStaticWebAssetsInputsDependsOn>
+     TypeScriptCompile;
+     $(ResolveCurrentProjectStaticWebAssetsInputs)
+   </ResolveCurrentProjectStaticWebAssetsInputsDependsOn>
+   ```
 
 ### <a name="consume-content-from-a-referenced-rcl"></a>Utilizzare il contenuto da un RCL a cui si fa riferimento
 
