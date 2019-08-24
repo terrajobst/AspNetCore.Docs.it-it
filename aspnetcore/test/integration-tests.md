@@ -5,14 +5,14 @@ description: Informazioni su come i test di integrazione garantiscono che i comp
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/05/2019
+ms.date: 08/23/2019
 uid: test/integration-tests
-ms.openlocfilehash: a86bf2b183a81f0b903a12f9d1660fb32faa6c03
-ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
+ms.openlocfilehash: 195acd3e03f3de63ebd61767f2c86d1c0f38fca5
+ms.sourcegitcommit: 983b31449fe398e6e922eb13e9eb6f4287ec91e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819937"
+ms.lasthandoff: 08/24/2019
+ms.locfileid: "70017442"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Test di integrazione in ASP.NET Core
 
@@ -284,6 +284,16 @@ Aggiungere il file *xUnit. Runner. JSON* alla radice del progetto di test con il
 {
   "shadowCopy": false
 }
+```
+
+Se si usa Visual Studio, impostare la proprietà **copia nella directory di output** del file su **copia sempre**. Se non si usa Visual Studio, aggiungere `Content` una destinazione al file di progetto dell'app di test:
+
+```xml
+<ItemGroup>
+  <Content Update="xunit.runner.json">
+    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+  </Content>
+</ItemGroup>
 ```
 
 ## <a name="disposal-of-objects"></a>Eliminazione di oggetti
