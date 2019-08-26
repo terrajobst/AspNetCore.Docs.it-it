@@ -45,7 +45,7 @@ Ogni cartella di un'app può contenere facoltativamente un file modello denomina
 
 Il file *_Imports. Razor* seguente importa:
 
-* [https://login.microsoftonline.com/common/](`MainLayout`).
+* `MainLayout`.
 * Tutti i componenti Razor nella stessa cartella e in tutte le sottocartelle.
 * Spazio dei nomi `BlazorApp1.Data` .
  
