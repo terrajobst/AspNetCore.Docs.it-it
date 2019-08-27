@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 8/22/2019
 uid: performance/caching/memory
-ms.openlocfilehash: 3005adec9ffe41859d05a3f61c7c45b8e7bfeefc
-ms.sourcegitcommit: bdaee0e8c657fe7546fd6b7990db9c03c2af04df
+ms.openlocfilehash: 1519abbca6430063f037372a4927f5818f160457
+ms.sourcegitcommit: 776598f71da0d1e4c9e923b3b395d3c3b5825796
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69908380"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70024791"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>Memorizzare nella cache in memoria ASP.NET Core
 
@@ -85,15 +85,15 @@ Il codice seguente ottiene o crea un elemento memorizzato nella cache con scaden
 
 [!code-csharp[](memory/3.0sample/WebCacheSample/Controllers/HomeController.cs?name=snippet99)]
 
-Un set di elementi memorizzato nella cache con scadenza variabile è a rischio di diventare obsoleto perché non esiste alcun limite alla scadenza. Usare una scadenza assoluta con una scadenza variabile per garantire che l'elemento memorizzato nella cache non diventi più obsoleto rispetto alla scadenza assoluta. Quando la scadenza assoluta viene combinata con la variabile scorrevole, la scadenza assoluta imposta un limite superiore per quanto tempo l'elemento può essere memorizzato nella cache. Diversamente dall'ora di scadenza assoluta, se l'elemento non viene richiesto dalla cache entro l'intervallo di scadenza variabile, l'elemento viene rimosso dalla cache. Quando si specifica la scadenza assoluta e variabile, le scadenze sono logicamente ORed.
+Un set di elementi memorizzato nella cache con una scadenza variabile è a rischio di diventare obsoleto. Se si accede con maggiore frequenza rispetto all'intervallo di scadenza variabile, l'elemento non scadrà mai. Combinare una scadenza variabile con una scadenza assoluta per garantire che l'elemento scada al termine del periodo di scadenza assoluto. La scadenza assoluta imposta un limite superiore per quanto tempo l'elemento può essere memorizzato nella cache, consentendo comunque la scadenza dell'elemento in un momento precedente se non è richiesto entro l'intervallo di scadenza variabile. Quando vengono specificate sia la scadenza assoluta che quella variabile, le scadenze sono logicamente ORed. Se l'intervallo di scadenza variabile *o* l'ora di scadenza assoluta passano, l'elemento viene rimosso dalla cache.
 
-Il codice seguente ottiene o crea un elemento memorizzato nella cache con scadenza variabile e scorrevole:
+Il codice seguente ottiene o crea un elemento memorizzato nella cache con una scadenza scorrevole *e* assoluta:
 
 [!code-csharp[](memory/3.0sample/WebCacheSample/Controllers/HomeController.cs?name=snippet9)]
 
 Il codice precedente garantisce che i dati non verranno memorizzati nella cache più a lungo del tempo assoluto.
 
-<xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.GetOrCreate*>, <xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.GetOrCreateAsync*> <xref:Microsoft.Extensions.Caching.Memory.CacheExtensions> <xref:Microsoft.Extensions.Caching.Memory.IMemoryCache>e <xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.Get*> sono metodi di estensione che fanno parte della classe che estende la funzionalità di. Vedere [Metodi IMemoryCache](/dotnet/api/microsoft.extensions.caching.memory.imemorycache) e [Metodi CacheExtensions](/dotnet/api/microsoft.extensions.caching.memory.cacheextensions) per una descrizione di altri metodi della cache.
+<xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.GetOrCreate*>, <xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.GetOrCreateAsync*>e <xref:Microsoft.Extensions.Caching.Memory.CacheExtensions.Get*> sonometodidi<xref:Microsoft.Extensions.Caching.Memory.CacheExtensions> estensione nella classe. Questi metodi estendono le funzionalità <xref:Microsoft.Extensions.Caching.Memory.IMemoryCache>di.
 
 ## <a name="memorycacheentryoptions"></a>MemoryCacheEntryOptions
 
