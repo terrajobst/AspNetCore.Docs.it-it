@@ -5,18 +5,20 @@ description: Risolvere gli errori quando si usa gRPC in .NET Core.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
 ms.custom: mvc
-ms.date: 08/17/2019
+ms.date: 08/26/2019
 uid: grpc/troubleshoot
-ms.openlocfilehash: 7621266dfe26b7126d1607e195dd5dcaab4efa55
-ms.sourcegitcommit: 41f2c1a6b316e6e368a4fd27a8b18d157cef91e1
+ms.openlocfilehash: 49bde2792f0fd7910de02d75f5f443000916dec7
+ms.sourcegitcommit: de17150e5ec7507d7114dde0e5dbc2e45a66ef53
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69886485"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70112745"
 ---
 # <a name="troubleshoot-grpc-on-net-core"></a>Risolvere i problemi di gRPC in .NET Core
 
 Di [James Newton-King](https://twitter.com/jamesnk)
+
+Questo documento illustra i problemi comuni riscontrati durante lo sviluppo di app gRPC in .NET.
 
 ## <a name="mismatch-between-client-and-service-ssltls-configuration"></a>Mancata corrispondenza tra la configurazione SSL/TLS del client e del servizio
 
@@ -47,6 +49,30 @@ static async Task Main(string[] args)
 
 Tutte le implementazioni client di gRPC supportano TLS. i client gRPC di altri linguaggi richiedono in genere il canale `SslCredentials`configurato con. `SslCredentials`Specifica il certificato che verrà utilizzato dal client e deve essere utilizzato al posto di credenziali non sicure. Per esempi di configurazione delle diverse implementazioni client di gRPC per l'uso di TLS, vedere [autenticazione gRPC](https://www.grpc.io/docs/guides/auth/).
 
+## <a name="call-a-grpc-service-with-an-untrustedinvalid-certificate"></a>Chiamare un servizio gRPC con un certificato non attendibile/non valido
+
+Il client gRPC .NET richiede che il servizio disponga di un certificato attendibile. Quando si chiama un servizio gRPC senza un certificato attendibile, viene restituito il messaggio di errore seguente:
+
+> Eccezione non gestita. System .NET. http. HttpRequestexception: Non è stato possibile stabilire la connessione SSL. vedere l'eccezione interna.
+> ---> System. Security. Authentication. AuthenticationException: Il certificato remoto non è valido in base alla procedura di convalida.
+
+Questo errore può essere visualizzato se si sta testando l'app in locale e il certificato di sviluppo HTTPS ASP.NET Core non è attendibile. Per istruzioni su come risolvere questo problema, vedere [considerare attendibile il certificato di sviluppo HTTPS ASP.NET Core in Windows e MacOS](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos).
+
+Se si chiama un servizio gRPC in un altro computer e non è possibile considerare attendibile il certificato, il client gRPC può essere configurato in modo da ignorare il certificato non valido. Il codice seguente usa [HttpClientHandler. ServerCertificateCustomValidationCallback](/dotnet/api/system.net.http.httpclienthandler.servercertificatecustomvalidationcallback) per consentire le chiamate senza un certificato attendibile:
+
+```csharp
+var httpClientHandler = new HttpClientHandler();
+// Return `true` to allow certificates that are untrusted/invalid
+httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true;
+
+var httpClient = new HttpClient(httpClientHandler);
+httpClient.BaseAddress = new Uri("https://localhost:5001");
+var client = GrpcClient.Create<Greeter.GreeterClient>(httpClient);
+```
+
+> [!WARNING]
+> I certificati non attendibili devono essere usati solo durante lo sviluppo di app. Le app di produzione devono sempre usare certificati validi.
+
 ## <a name="call-insecure-grpc-services-with-net-core-client"></a>Chiamare i servizi gRPC non sicuri con il client .NET Core
 
 È necessaria una configurazione aggiuntiva per chiamare i servizi gRPC non protetti con il client .NET Core. Il client gRPC deve impostare l' `System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport` opzione su `true` e usare `http` nell'indirizzo del server:
@@ -56,7 +82,7 @@ Tutte le implementazioni client di gRPC supportano TLS. i client gRPC di altri l
 AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
 
 var httpClient = new HttpClient();
-// The port number(5000) must match the port of the gRPC server.
+// The address starts with "http://"
 httpClient.BaseAddress = new Uri("http://localhost:5000");
 var client = GrpcClient.Create<Greeter.GreeterClient>(httpClient);
 ```
