@@ -3,16 +3,16 @@ title: Host generico .NET
 author: tdykstra
 description: Informazioni sull'host generico .NET Core, che gestisce l'avvio e la durata delle app.
 monikerRange: '>= aspnetcore-2.1'
-ms.author: tdykstra
+ms.author: riande
 ms.custom: mvc
 ms.date: 07/01/2019
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: d787559eaecd6d4d6cfe01e37baf28774a90c5c3
-ms.sourcegitcommit: bee530454ae2b3c25dc7ffebf93536f479a14460
+ms.openlocfilehash: 9f5ecc7840fc7ffd9432a3bb67d0418efb7e8fd6
+ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67724422"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69975622"
 ---
 # <a name="net-generic-host"></a>Host generico .NET
 
@@ -308,7 +308,7 @@ Per impostare questo valore, usare la configurazione o chiamare `UseSetting`:
 webBuilder.UseSetting(WebHostDefaults.HostingStartupExcludeAssembliesKey, "assembly1;assembly2");
 ```
 
-### <a name="httpsport"></a>HTTPS_Port
+### <a name="https_port"></a>HTTPS_Port
 
 Porta di reindirizzamento HTTPS. Usata per [imporre HTTPS](xref:security/enforcing-ssl).
 

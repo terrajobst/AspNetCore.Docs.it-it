@@ -5,12 +5,12 @@ description: Informazioni sulle aree, una funzionalità di ASP.NET MVC che conse
 ms.author: riande
 ms.date: 08/16/2019
 uid: mvc/controllers/areas
-ms.openlocfilehash: d0af3092776ee09469c879fffd3047c50b1a59b4
-ms.sourcegitcommit: 4cb0c7e74355f2e87c60e2a196f842b937247a99
+ms.openlocfilehash: 9065aa23a537add5a9376472e4f4478e9d4149bd
+ms.sourcegitcommit: 776598f71da0d1e4c9e923b3b395d3c3b5825796
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69545798"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70024736"
 ---
 # <a name="areas-in-aspnet-core"></a>Aree in ASP.NET Core
 
@@ -72,9 +72,7 @@ Anche se il layout precedente è tipico quando si usano le aree, per usare quest
 /Areas/<Area-Name>/Views/Shared/<Action-Name>.cshtml
 /Views/Shared/<Action-Name>.cshtml
 /Pages/Shared/<Action-Name>.cshtml
-   ```
-
-Il percorso delle cartelle non di visualizzazioni, come *Controller* e *Modelli* **non** è rilevante. Ad esempio, le cartelle *Controller* e *Modelli* non sono necessarie. Il contenuto di *Controller* e *Modelli* è codice che viene compilato in un file DLL. Il contenuto di *Visualizzazioni* non viene compilato finché non viene effettuata una richiesta a tale visualizzazione.
+```
 
 <a name="attribute"></a>
 

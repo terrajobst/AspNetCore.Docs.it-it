@@ -1,17 +1,17 @@
 ---
 title: Associazione di modelli in ASP.NET Core
-author: tdykstra
+author: rick-anderson
 description: Informazioni su come funziona l'associazione di modelli in ASP.NET Core e su come personalizzarne il comportamento.
 ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
-ms.author: tdykstra
+ms.author: riande
 ms.date: 05/31/2019
 uid: mvc/models/model-binding
-ms.openlocfilehash: 10a9f8327bf16d11ec1e04ac3888d701f1ab1778
-ms.sourcegitcommit: bee530454ae2b3c25dc7ffebf93536f479a14460
+ms.openlocfilehash: 298e305cf918117ec2d313060a7420a1e721a365
+ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67724534"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69975300"
 ---
 # <a name="model-binding-in-aspnet-core"></a>Associazione di modelli in ASP.NET Core
 

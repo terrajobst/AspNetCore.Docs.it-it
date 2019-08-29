@@ -2,16 +2,16 @@
 title: 'Esercitazione: Aggiungere funzionalità di ordinamento, filtro e suddivisione in pagine - ASP.NET MVC con EF Core'
 description: In questa esercitazione si aggiungeranno le funzionalità di ordinamento, filtro e suddivisione in pagine alla pagina Student Index (Indice degli studenti). Verrà anche creata una pagina che esegue il raggruppamento semplice.
 author: tdykstra
-ms.author: tdykstra
+ms.author: riande
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: 4e52a3d3f56c4cf6f396ee9ff1c18061a2364c77
-ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
+ms.openlocfilehash: 7a5f617b00cceb007f37ca1e585c4c7ff1831b56
+ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69583399"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69975219"
 ---
 # <a name="tutorial-add-sorting-filtering-and-paging---aspnet-mvc-with-ef-core"></a>Esercitazione: Aggiungere funzionalità di ordinamento, filtro e suddivisione in pagine - ASP.NET MVC con EF Core
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/22/2019
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: c9da404b1bbd072d3e033f18a7366169082dac06
-ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
+ms.openlocfilehash: 62224312aa9b7f3e0164b5300e491f59b0832acd
+ms.sourcegitcommit: 776598f71da0d1e4c9e923b3b395d3c3b5825796
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69583542"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70024727"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Leggere dati correlati - 6 di 8
 
@@ -384,7 +384,7 @@ Per visualizzare il nome del dipartimento assegnato in un elenco dei corsi:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
-Seguire le istruzioni in [Eseguire lo scaffolding del modello Student (Studente)](xref:data/ef-rp/intro#scaffold-student-pages) e usare `Course` per la classe modello.
+Seguire le istruzioni in [Eseguire lo scaffolding del modello Student (Studente)](xref:data/ef-rp/intro#scaffold-the-student-model) e usare `Course` per la classe modello.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -471,7 +471,7 @@ Nella cartella *SchoolViewModels* creare *InstructorIndexData.cs* con il codice 
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
-Seguire le istruzioni in [Eseguire lo scaffolding del modello Student (Studente)](xref:data/ef-rp/intro#scaffold-student-pages) e usare `Instructor` per la classe modello.
+Seguire le istruzioni in [Eseguire lo scaffolding del modello Student (Studente)](xref:data/ef-rp/intro#scaffold-the-student-model) e usare `Instructor` per la classe modello.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
