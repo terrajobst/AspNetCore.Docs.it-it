@@ -4,14 +4,14 @@ author: juntaoluo
 description: Informazioni sui concetti di base per la scrittura di servizi gRPC con ASP.NET Core.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
-ms.date: 08/07/2019
+ms.date: 08/28/2019
 uid: grpc/aspnetcore
-ms.openlocfilehash: 38111c152c581c50767f9cd4e5fa257bd3fd804e
-ms.sourcegitcommit: 476ea5ad86a680b7b017c6f32098acd3414c0f6c
+ms.openlocfilehash: 128f5b36eac9112460c33693db5537134a077476
+ms.sourcegitcommit: 23f79bd71d49c4efddb56377c1f553cc993d781b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69022307"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70130710"
 ---
 # <a name="grpc-services-with-aspnet-core"></a>Servizi gRPC con ASP.NET Core
 
@@ -53,15 +53,76 @@ gRPC richiede il pacchetto [gRPC. AspNetCore](https://www.nuget.org/packages/Grp
 
 ### <a name="configure-grpc"></a>Configurare gRPC
 
-gRPC è abilitato con il `AddGrpc` metodo:
+In *Startup.cs*:
 
-[!code-csharp[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/Startup.cs?name=snippet&highlight=7)]
+* gRPC è abilitato con il `AddGrpc` metodo.
+* Ogni servizio gRPC viene aggiunto alla pipeline di routing tramite il `MapGrpcService` metodo.
 
-Ogni servizio gRPC viene aggiunto alla pipeline di routing tramite il `MapGrpcService` metodo:
-
-[!code-csharp[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/Startup.cs?name=snippet&highlight=24)]
+[!code-csharp[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/Startup.cs?name=snippet&highlight=7,24)]
 
 ASP.NET Core middleware e funzionalità condividono la pipeline di routing, di conseguenza è possibile configurare un'app per gestire gestori di richieste aggiuntivi. I gestori di richieste aggiuntivi, ad esempio i controller MVC, funzionano in parallelo con i servizi gRPC configurati.
+
+### <a name="configure-kestrel"></a>Configurare gheppio
+
+Endpoint gRPC di Gheppio:
+
+* Richiedi HTTP/2.
+* Deve essere protetto con HTTPS.
+
+#### <a name="http2"></a>HTTP/2
+
+Gheppio [supporta http/2](xref:fundamentals/servers/kestrel#http2-support) nei sistemi operativi più recenti. Per impostazione predefinita, gli endpoint gheppio sono configurati per supportare connessioni HTTP/1.1 e HTTP/2.
+
+> [!NOTE]
+> macOS non supporta ASP.NET Core gRPC con [Transport Layer Security (TLS)](https://tools.ietf.org/html/rfc5246). Per eseguire correttamente i servizi gRPC in macOS, è necessaria una configurazione aggiuntiva. Per altre informazioni, vedere [Non è possibile avviare un'app ASP.NET Core gRPC in macOS](xref:grpc/troubleshoot#unable-to-start-aspnet-core-grpc-app-on-macos).
+
+#### <a name="https"></a>HTTPS
+
+Gli endpoint gheppio usati per gRPC devono essere protetti con HTTPS. Durante lo sviluppo, viene creato automaticamente un endpoint HTTPS `https://localhost:5001` quando è presente il certificato di sviluppo ASP.NET Core. Non è necessaria alcuna configurazione.
+
+Nell'ambiente di produzione, HTTPS deve essere configurato in modo esplicito. Nell'esempio *appSettings. JSON* seguente viene fornito un endpoint HTTP/2 protetto con https:
+
+```json
+{
+  "Kestrel": {
+    "Endpoints": {
+      "HttpsDefaultCert": {
+        "Url": "https://localhost:5001",
+        "Protocols": "Http2"
+      }
+    },
+    "Certificates": {
+      "Default": {
+        "Path": "<path to .pfx file>",
+        "Password": "<certificate password>"
+      }
+    }
+  }
+}
+```
+
+In alternativa, è possibile configurare gheppio endspoints in *Program.cs*:
+
+```csharp
+public static IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
+        {
+            webBuilder.ConfigureKestrel(options =>
+            {
+                // This endpoint will use HTTP/2 and HTTPS on port 5001.
+                options.Listen(IPAddress.Any, 5001, listenOptions =>
+                {
+                    listenOptions.Protocols = HttpProtocols.Http2;
+                    listenOptions.UseHttps("<path to .pfx file>", 
+                        "<certificate password>");
+                });
+            });
+            webBuilder.UseStartup<Startup>();
+        });
+```
+
+Per ulteriori informazioni sull'abilitazione di HTTP/2 e HTTPS con gheppio, vedere la pagina relativa alla [configurazione dell'endpoint gheppio](xref:fundamentals/servers/kestrel#endpoint-configuration).
 
 ## <a name="integration-with-aspnet-core-apis"></a>Integrazione con API ASP.NET Core
 
@@ -93,4 +154,4 @@ L'API gRPC consente di accedere ad alcuni dati del messaggio HTTP/2, ad esempio 
 * <xref:tutorials/grpc/grpc-start>
 * <xref:grpc/index>
 * <xref:grpc/basics>
-* <xref:grpc/migration>
+* <xref:fundamentals/servers/kestrel>
