@@ -4,68 +4,129 @@ author: juntaoluo
 description: Informazioni sui concetti di base per la scrittura di servizi gRPC con ASP.NET Core.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
-ms.date: 08/07/2019
+ms.date: 08/28/2019
 uid: grpc/aspnetcore
-ms.openlocfilehash: 38111c152c581c50767f9cd4e5fa257bd3fd804e
-ms.sourcegitcommit: 476ea5ad86a680b7b017c6f32098acd3414c0f6c
+ms.openlocfilehash: 128f5b36eac9112460c33693db5537134a077476
+ms.sourcegitcommit: 23f79bd71d49c4efddb56377c1f553cc993d781b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69022307"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70130710"
 ---
-# <a name="grpc-services-with-aspnet-core"></a><span data-ttu-id="63ee2-103">Servizi gRPC con ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="63ee2-103">gRPC services with ASP.NET Core</span></span>
+# <a name="grpc-services-with-aspnet-core"></a><span data-ttu-id="64fbc-103">Servizi gRPC con ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="64fbc-103">gRPC services with ASP.NET Core</span></span>
 
-<span data-ttu-id="63ee2-104">Questo documento illustra come iniziare a usare i servizi di gRPC con ASP.NET Core.</span><span class="sxs-lookup"><span data-stu-id="63ee2-104">This document shows how to get started with gRPC services using ASP.NET Core.</span></span>
+<span data-ttu-id="64fbc-104">Questo documento illustra come iniziare a usare i servizi di gRPC con ASP.NET Core.</span><span class="sxs-lookup"><span data-stu-id="64fbc-104">This document shows how to get started with gRPC services using ASP.NET Core.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="63ee2-105">Prerequisiti</span><span class="sxs-lookup"><span data-stu-id="63ee2-105">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="64fbc-105">Prerequisiti</span><span class="sxs-lookup"><span data-stu-id="64fbc-105">Prerequisites</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="63ee2-106">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="63ee2-106">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="64fbc-106">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="64fbc-106">Visual Studio</span></span>](#tab/visual-studio)
 
 [!INCLUDE[](~/includes/net-core-prereqs-vs-3.0.md)]
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="63ee2-107">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="63ee2-107">Visual Studio Code</span></span>](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="64fbc-107">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="64fbc-107">Visual Studio Code</span></span>](#tab/visual-studio-code)
 
 [!INCLUDE[](~/includes/net-core-prereqs-vsc-3.0.md)]
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="63ee2-108">Visual Studio per Mac</span><span class="sxs-lookup"><span data-stu-id="63ee2-108">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="64fbc-108">Visual Studio per Mac</span><span class="sxs-lookup"><span data-stu-id="64fbc-108">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
 
 [!INCLUDE[](~/includes/net-core-prereqs-mac-3.0.md)]
 
 ---
 
-## <a name="get-started-with-grpc-service-in-aspnet-core"></a><span data-ttu-id="63ee2-109">Introduzione all'uso del servizio gRPC in ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="63ee2-109">Get started with gRPC service in ASP.NET Core</span></span>
+## <a name="get-started-with-grpc-service-in-aspnet-core"></a><span data-ttu-id="64fbc-109">Introduzione all'uso del servizio gRPC in ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="64fbc-109">Get started with gRPC service in ASP.NET Core</span></span>
 
-<span data-ttu-id="63ee2-110">[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/grpc/grpc-start/sample) ([procedura per il download](xref:index#how-to-download-a-sample)).</span><span class="sxs-lookup"><span data-stu-id="63ee2-110">[View or download sample code](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/grpc/grpc-start/sample) ([how to download](xref:index#how-to-download-a-sample)).</span></span>
+<span data-ttu-id="64fbc-110">[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/grpc/grpc-start/sample) ([procedura per il download](xref:index#how-to-download-a-sample)).</span><span class="sxs-lookup"><span data-stu-id="64fbc-110">[View or download sample code](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/grpc/grpc-start/sample) ([how to download](xref:index#how-to-download-a-sample)).</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="63ee2-111">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="63ee2-111">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="64fbc-111">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="64fbc-111">Visual Studio</span></span>](#tab/visual-studio)
 
-<span data-ttu-id="63ee2-112">Per istruzioni dettagliate su come creare un progetto gRPC, vedere [Introduzione ai servizi gRPC](xref:tutorials/grpc/grpc-start) .</span><span class="sxs-lookup"><span data-stu-id="63ee2-112">See [Get started with gRPC services](xref:tutorials/grpc/grpc-start) for detailed instructions on how to create a gRPC project.</span></span>
+<span data-ttu-id="64fbc-112">Per istruzioni dettagliate su come creare un progetto gRPC, vedere [Introduzione ai servizi gRPC](xref:tutorials/grpc/grpc-start) .</span><span class="sxs-lookup"><span data-stu-id="64fbc-112">See [Get started with gRPC services](xref:tutorials/grpc/grpc-start) for detailed instructions on how to create a gRPC project.</span></span>
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[<span data-ttu-id="63ee2-113">Visual Studio Code/Visual Studio per Mac</span><span class="sxs-lookup"><span data-stu-id="63ee2-113">Visual Studio Code / Visual Studio for Mac</span></span>](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[<span data-ttu-id="64fbc-113">Visual Studio Code/Visual Studio per Mac</span><span class="sxs-lookup"><span data-stu-id="64fbc-113">Visual Studio Code / Visual Studio for Mac</span></span>](#tab/visual-studio-code+visual-studio-mac)
 
-<span data-ttu-id="63ee2-114">Eseguire `dotnet new grpc -o GrpcGreeter` dalla riga di comando.</span><span class="sxs-lookup"><span data-stu-id="63ee2-114">Run `dotnet new grpc -o GrpcGreeter` from the command line.</span></span>
+<span data-ttu-id="64fbc-114">Eseguire `dotnet new grpc -o GrpcGreeter` dalla riga di comando.</span><span class="sxs-lookup"><span data-stu-id="64fbc-114">Run `dotnet new grpc -o GrpcGreeter` from the command line.</span></span>
 
 ---
 
-## <a name="add-grpc-services-to-an-aspnet-core-app"></a><span data-ttu-id="63ee2-115">Aggiungere servizi gRPC a un'app ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="63ee2-115">Add gRPC services to an ASP.NET Core app</span></span>
+## <a name="add-grpc-services-to-an-aspnet-core-app"></a><span data-ttu-id="64fbc-115">Aggiungere servizi gRPC a un'app ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="64fbc-115">Add gRPC services to an ASP.NET Core app</span></span>
 
-<span data-ttu-id="63ee2-116">gRPC richiede il pacchetto [gRPC. AspNetCore](https://www.nuget.org/packages/Grpc.AspNetCore) .</span><span class="sxs-lookup"><span data-stu-id="63ee2-116">gRPC requires the [Grpc.AspNetCore](https://www.nuget.org/packages/Grpc.AspNetCore) package.</span></span>
+<span data-ttu-id="64fbc-116">gRPC richiede il pacchetto [gRPC. AspNetCore](https://www.nuget.org/packages/Grpc.AspNetCore) .</span><span class="sxs-lookup"><span data-stu-id="64fbc-116">gRPC requires the [Grpc.AspNetCore](https://www.nuget.org/packages/Grpc.AspNetCore) package.</span></span>
 
-### <a name="configure-grpc"></a><span data-ttu-id="63ee2-117">Configurare gRPC</span><span class="sxs-lookup"><span data-stu-id="63ee2-117">Configure gRPC</span></span>
+### <a name="configure-grpc"></a><span data-ttu-id="64fbc-117">Configurare gRPC</span><span class="sxs-lookup"><span data-stu-id="64fbc-117">Configure gRPC</span></span>
 
-<span data-ttu-id="63ee2-118">gRPC è abilitato con il `AddGrpc` metodo:</span><span class="sxs-lookup"><span data-stu-id="63ee2-118">gRPC is enabled with the `AddGrpc` method:</span></span>
+<span data-ttu-id="64fbc-118">In *Startup.cs*:</span><span class="sxs-lookup"><span data-stu-id="64fbc-118">In *Startup.cs*:</span></span>
 
-[!code-csharp[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/Startup.cs?name=snippet&highlight=7)]
+* <span data-ttu-id="64fbc-119">gRPC è abilitato con il `AddGrpc` metodo.</span><span class="sxs-lookup"><span data-stu-id="64fbc-119">gRPC is enabled with the `AddGrpc` method.</span></span>
+* <span data-ttu-id="64fbc-120">Ogni servizio gRPC viene aggiunto alla pipeline di routing tramite il `MapGrpcService` metodo.</span><span class="sxs-lookup"><span data-stu-id="64fbc-120">Each gRPC service is added to the routing pipeline through the `MapGrpcService` method.</span></span>
 
-<span data-ttu-id="63ee2-119">Ogni servizio gRPC viene aggiunto alla pipeline di routing tramite il `MapGrpcService` metodo:</span><span class="sxs-lookup"><span data-stu-id="63ee2-119">Each gRPC service is added to the routing pipeline through the `MapGrpcService` method:</span></span>
+[!code-csharp[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/Startup.cs?name=snippet&highlight=7,24)]
 
-[!code-csharp[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/Startup.cs?name=snippet&highlight=24)]
+<span data-ttu-id="64fbc-121">ASP.NET Core middleware e funzionalità condividono la pipeline di routing, di conseguenza è possibile configurare un'app per gestire gestori di richieste aggiuntivi.</span><span class="sxs-lookup"><span data-stu-id="64fbc-121">ASP.NET Core middlewares and features share the routing pipeline, therefore an app can be configured to serve additional request handlers.</span></span> <span data-ttu-id="64fbc-122">I gestori di richieste aggiuntivi, ad esempio i controller MVC, funzionano in parallelo con i servizi gRPC configurati.</span><span class="sxs-lookup"><span data-stu-id="64fbc-122">The additional request handlers, such as MVC controllers, work in parallel with the configured gRPC services.</span></span>
 
-<span data-ttu-id="63ee2-120">ASP.NET Core middleware e funzionalità condividono la pipeline di routing, di conseguenza è possibile configurare un'app per gestire gestori di richieste aggiuntivi.</span><span class="sxs-lookup"><span data-stu-id="63ee2-120">ASP.NET Core middlewares and features share the routing pipeline, therefore an app can be configured to serve additional request handlers.</span></span> <span data-ttu-id="63ee2-121">I gestori di richieste aggiuntivi, ad esempio i controller MVC, funzionano in parallelo con i servizi gRPC configurati.</span><span class="sxs-lookup"><span data-stu-id="63ee2-121">The additional request handlers, such as MVC controllers, work in parallel with the configured gRPC services.</span></span>
+### <a name="configure-kestrel"></a><span data-ttu-id="64fbc-123">Configurare gheppio</span><span class="sxs-lookup"><span data-stu-id="64fbc-123">Configure Kestrel</span></span>
 
-## <a name="integration-with-aspnet-core-apis"></a><span data-ttu-id="63ee2-122">Integrazione con API ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="63ee2-122">Integration with ASP.NET Core APIs</span></span>
+<span data-ttu-id="64fbc-124">Endpoint gRPC di Gheppio:</span><span class="sxs-lookup"><span data-stu-id="64fbc-124">Kestrel gRPC endpoints:</span></span>
 
-<span data-ttu-id="63ee2-123">i servizi gRPC hanno accesso completo alle funzionalità di ASP.NET Core come l' [inserimento](xref:fundamentals/dependency-injection) delle dipendenze e la [registrazione](xref:fundamentals/logging/index).</span><span class="sxs-lookup"><span data-stu-id="63ee2-123">gRPC services have full access to the ASP.NET Core features such as [Dependency Injection](xref:fundamentals/dependency-injection) (DI) and [Logging](xref:fundamentals/logging/index).</span></span> <span data-ttu-id="63ee2-124">Ad esempio, l'implementazione del servizio può risolvere un servizio logger dal contenitore DI inserimento delle dipendenze tramite il costruttore:</span><span class="sxs-lookup"><span data-stu-id="63ee2-124">For example, the service implementation can resolve a logger service from the DI container via the constructor:</span></span>
+* <span data-ttu-id="64fbc-125">Richiedi HTTP/2.</span><span class="sxs-lookup"><span data-stu-id="64fbc-125">Require HTTP/2.</span></span>
+* <span data-ttu-id="64fbc-126">Deve essere protetto con HTTPS.</span><span class="sxs-lookup"><span data-stu-id="64fbc-126">Should be secured with HTTPS.</span></span>
+
+#### <a name="http2"></a><span data-ttu-id="64fbc-127">HTTP/2</span><span class="sxs-lookup"><span data-stu-id="64fbc-127">HTTP/2</span></span>
+
+<span data-ttu-id="64fbc-128">Gheppio [supporta http/2](xref:fundamentals/servers/kestrel#http2-support) nei sistemi operativi più recenti.</span><span class="sxs-lookup"><span data-stu-id="64fbc-128">Kestrel [supports HTTP/2](xref:fundamentals/servers/kestrel#http2-support) on most modern operating systems.</span></span> <span data-ttu-id="64fbc-129">Per impostazione predefinita, gli endpoint gheppio sono configurati per supportare connessioni HTTP/1.1 e HTTP/2.</span><span class="sxs-lookup"><span data-stu-id="64fbc-129">Kestrel endpoints are configured to support HTTP/1.1 and HTTP/2 connections by default.</span></span>
+
+> [!NOTE]
+> <span data-ttu-id="64fbc-130">macOS non supporta ASP.NET Core gRPC con [Transport Layer Security (TLS)](https://tools.ietf.org/html/rfc5246).</span><span class="sxs-lookup"><span data-stu-id="64fbc-130">macOS doesn't support ASP.NET Core gRPC with [Transport Layer Security (TLS)](https://tools.ietf.org/html/rfc5246).</span></span> <span data-ttu-id="64fbc-131">Per eseguire correttamente i servizi gRPC in macOS, è necessaria una configurazione aggiuntiva.</span><span class="sxs-lookup"><span data-stu-id="64fbc-131">Additional configuration is required to successfully run gRPC services on macOS.</span></span> <span data-ttu-id="64fbc-132">Per altre informazioni, vedere [Non è possibile avviare un'app ASP.NET Core gRPC in macOS](xref:grpc/troubleshoot#unable-to-start-aspnet-core-grpc-app-on-macos).</span><span class="sxs-lookup"><span data-stu-id="64fbc-132">For more information, see [Unable to start ASP.NET Core gRPC app on macOS](xref:grpc/troubleshoot#unable-to-start-aspnet-core-grpc-app-on-macos).</span></span>
+
+#### <a name="https"></a><span data-ttu-id="64fbc-133">HTTPS</span><span class="sxs-lookup"><span data-stu-id="64fbc-133">HTTPS</span></span>
+
+<span data-ttu-id="64fbc-134">Gli endpoint gheppio usati per gRPC devono essere protetti con HTTPS.</span><span class="sxs-lookup"><span data-stu-id="64fbc-134">Kestrel endpoints used for gRPC should be secured with HTTPS.</span></span> <span data-ttu-id="64fbc-135">Durante lo sviluppo, viene creato automaticamente un endpoint HTTPS `https://localhost:5001` quando è presente il certificato di sviluppo ASP.NET Core.</span><span class="sxs-lookup"><span data-stu-id="64fbc-135">In development, an HTTPS endpoint is automatically created at `https://localhost:5001` when the ASP.NET Core development certificate is present.</span></span> <span data-ttu-id="64fbc-136">Non è necessaria alcuna configurazione.</span><span class="sxs-lookup"><span data-stu-id="64fbc-136">No configuration is required.</span></span>
+
+<span data-ttu-id="64fbc-137">Nell'ambiente di produzione, HTTPS deve essere configurato in modo esplicito.</span><span class="sxs-lookup"><span data-stu-id="64fbc-137">In production, HTTPS must be explicitly configured.</span></span> <span data-ttu-id="64fbc-138">Nell'esempio *appSettings. JSON* seguente viene fornito un endpoint HTTP/2 protetto con https:</span><span class="sxs-lookup"><span data-stu-id="64fbc-138">In the following *appsettings.json* example, an HTTP/2 endpoint secured with HTTPS is provided:</span></span>
+
+```json
+{
+  "Kestrel": {
+    "Endpoints": {
+      "HttpsDefaultCert": {
+        "Url": "https://localhost:5001",
+        "Protocols": "Http2"
+      }
+    },
+    "Certificates": {
+      "Default": {
+        "Path": "<path to .pfx file>",
+        "Password": "<certificate password>"
+      }
+    }
+  }
+}
+```
+
+<span data-ttu-id="64fbc-139">In alternativa, è possibile configurare gheppio endspoints in *Program.cs*:</span><span class="sxs-lookup"><span data-stu-id="64fbc-139">Alternatively, Kestrel endspoints can be configured in *Program.cs*:</span></span>
+
+```csharp
+public static IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
+        {
+            webBuilder.ConfigureKestrel(options =>
+            {
+                // This endpoint will use HTTP/2 and HTTPS on port 5001.
+                options.Listen(IPAddress.Any, 5001, listenOptions =>
+                {
+                    listenOptions.Protocols = HttpProtocols.Http2;
+                    listenOptions.UseHttps("<path to .pfx file>", 
+                        "<certificate password>");
+                });
+            });
+            webBuilder.UseStartup<Startup>();
+        });
+```
+
+<span data-ttu-id="64fbc-140">Per ulteriori informazioni sull'abilitazione di HTTP/2 e HTTPS con gheppio, vedere la pagina relativa alla [configurazione dell'endpoint gheppio](xref:fundamentals/servers/kestrel#endpoint-configuration).</span><span class="sxs-lookup"><span data-stu-id="64fbc-140">For more information on enabling HTTP/2 and HTTPS with Kestrel, see [Kestrel endpoint configuration](xref:fundamentals/servers/kestrel#endpoint-configuration).</span></span>
+
+## <a name="integration-with-aspnet-core-apis"></a><span data-ttu-id="64fbc-141">Integrazione con API ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="64fbc-141">Integration with ASP.NET Core APIs</span></span>
+
+<span data-ttu-id="64fbc-142">i servizi gRPC hanno accesso completo alle funzionalità di ASP.NET Core come l' [inserimento](xref:fundamentals/dependency-injection) delle dipendenze e la [registrazione](xref:fundamentals/logging/index).</span><span class="sxs-lookup"><span data-stu-id="64fbc-142">gRPC services have full access to the ASP.NET Core features such as [Dependency Injection](xref:fundamentals/dependency-injection) (DI) and [Logging](xref:fundamentals/logging/index).</span></span> <span data-ttu-id="64fbc-143">Ad esempio, l'implementazione del servizio può risolvere un servizio logger dal contenitore DI inserimento delle dipendenze tramite il costruttore:</span><span class="sxs-lookup"><span data-stu-id="64fbc-143">For example, the service implementation can resolve a logger service from the DI container via the constructor:</span></span>
 
 ```csharp
 public class GreeterService : Greeter.GreeterBase
@@ -76,21 +137,21 @@ public class GreeterService : Greeter.GreeterBase
 }
 ```
 
-<span data-ttu-id="63ee2-125">Per impostazione predefinita, l'implementazione del servizio gRPC è in grado di risolvere altri servizi DI con qualsiasi durata (singleton, ambito o temporaneo).</span><span class="sxs-lookup"><span data-stu-id="63ee2-125">By default, the gRPC service implementation can resolve other DI services with any lifetime (Singleton, Scoped, or Transient).</span></span>
+<span data-ttu-id="64fbc-144">Per impostazione predefinita, l'implementazione del servizio gRPC è in grado di risolvere altri servizi DI con qualsiasi durata (singleton, ambito o temporaneo).</span><span class="sxs-lookup"><span data-stu-id="64fbc-144">By default, the gRPC service implementation can resolve other DI services with any lifetime (Singleton, Scoped, or Transient).</span></span>
 
-### <a name="resolve-httpcontext-in-grpc-methods"></a><span data-ttu-id="63ee2-126">Risolvere HttpContext nei metodi gRPC</span><span class="sxs-lookup"><span data-stu-id="63ee2-126">Resolve HttpContext in gRPC methods</span></span>
+### <a name="resolve-httpcontext-in-grpc-methods"></a><span data-ttu-id="64fbc-145">Risolvere HttpContext nei metodi gRPC</span><span class="sxs-lookup"><span data-stu-id="64fbc-145">Resolve HttpContext in gRPC methods</span></span>
 
-<span data-ttu-id="63ee2-127">L'API gRPC consente di accedere ad alcuni dati del messaggio HTTP/2, ad esempio il metodo, l'host, l'intestazione e i trailer.</span><span class="sxs-lookup"><span data-stu-id="63ee2-127">The gRPC API provides access to some HTTP/2 message data, such as the method, host, header, and trailers.</span></span> <span data-ttu-id="63ee2-128">L'accesso avviene tramite `ServerCallContext` l'argomento passato a ogni metodo gRPC:</span><span class="sxs-lookup"><span data-stu-id="63ee2-128">Access is through the `ServerCallContext` argument passed to each gRPC method:</span></span>
+<span data-ttu-id="64fbc-146">L'API gRPC consente di accedere ad alcuni dati del messaggio HTTP/2, ad esempio il metodo, l'host, l'intestazione e i trailer.</span><span class="sxs-lookup"><span data-stu-id="64fbc-146">The gRPC API provides access to some HTTP/2 message data, such as the method, host, header, and trailers.</span></span> <span data-ttu-id="64fbc-147">L'accesso avviene tramite `ServerCallContext` l'argomento passato a ogni metodo gRPC:</span><span class="sxs-lookup"><span data-stu-id="64fbc-147">Access is through the `ServerCallContext` argument passed to each gRPC method:</span></span>
 
 [!code-csharp[](~/grpc/aspnetcore/sample/GrcpService/GreeterService.cs?highlight=3-4&name=snippet)]
 
-<span data-ttu-id="63ee2-129">`ServerCallContext`non fornisce l'accesso completo a `HttpContext` in tutte le API ASP.NET.</span><span class="sxs-lookup"><span data-stu-id="63ee2-129">`ServerCallContext` does not provide full access to `HttpContext` in all ASP.NET APIs.</span></span> <span data-ttu-id="63ee2-130">Il `GetHttpContext` metodo`HttpContext` di estensione fornisce accesso completo a che rappresenta il messaggio http/2 sottostante nelle API ASP.NET:</span><span class="sxs-lookup"><span data-stu-id="63ee2-130">The `GetHttpContext` extension method provides full access to the `HttpContext` representing the underlying HTTP/2 message in ASP.NET APIs:</span></span>
+<span data-ttu-id="64fbc-148">`ServerCallContext`non fornisce l'accesso completo a `HttpContext` in tutte le API ASP.NET.</span><span class="sxs-lookup"><span data-stu-id="64fbc-148">`ServerCallContext` does not provide full access to `HttpContext` in all ASP.NET APIs.</span></span> <span data-ttu-id="64fbc-149">Il `GetHttpContext` metodo`HttpContext` di estensione fornisce accesso completo a che rappresenta il messaggio http/2 sottostante nelle API ASP.NET:</span><span class="sxs-lookup"><span data-stu-id="64fbc-149">The `GetHttpContext` extension method provides full access to the `HttpContext` representing the underlying HTTP/2 message in ASP.NET APIs:</span></span>
 
 [!code-csharp[](~/grpc/aspnetcore/sample/GrcpService/GreeterService2.cs?highlight=6-7&name=snippet)]
 
-## <a name="additional-resources"></a><span data-ttu-id="63ee2-131">Risorse aggiuntive</span><span class="sxs-lookup"><span data-stu-id="63ee2-131">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="64fbc-150">Risorse aggiuntive</span><span class="sxs-lookup"><span data-stu-id="64fbc-150">Additional resources</span></span>
 
 * <xref:tutorials/grpc/grpc-start>
 * <xref:grpc/index>
 * <xref:grpc/basics>
-* <xref:grpc/migration>
+* <xref:fundamentals/servers/kestrel>
