@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 07/22/2019
 uid: data/ef-rp/intro
-ms.openlocfilehash: 5e81b58ebec2d9a50784facd5425f0e7c3524e10
-ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
+ms.openlocfilehash: c5347049151aed90f453f0ead2fc06649d9cf949
+ms.sourcegitcommit: bdaee0e8c657fe7546fd6b7990db9c03c2af04df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69583450"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69908406"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>Razor Pages con Entity Framework Core in ASP.NET Core: esercitazione 1 di 8
 
@@ -378,7 +378,11 @@ Creare *Data/DbInitializer.cs* con il codice seguente:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Eseguire l'app, eliminare eventuali record degli studenti creati in precedenza e arrestare l'app.
+Arrestare l'app se è in esecuzione ed eseguire il comando seguente nella **console di Gestione pacchetti**:
+
+```powershell
+Drop-Database
+```
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -700,7 +704,19 @@ In *Program.cs* modificare il metodo `Main` per chiamare `Initialize`:
 
 [!code-csharp[](intro/samples/cu21/Program.cs?name=snippet2&highlight=14-15)]
 
-Eliminare tutti i record degli studenti e riavviare l'app. Se il database non è inizializzato, impostare un punto di interruzione in `Initialize` per diagnosticare il problema.
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+Arrestare l'app se è in esecuzione ed eseguire il comando seguente nella **console di Gestione pacchetti**:
+
+```powershell
+Drop-Database
+```
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+* Arrestare l'app se è in esecuzione ed eliminare il file *CU.db*.
+
+---
 
 ## <a name="view-the-db"></a>Visualizzare il database
 

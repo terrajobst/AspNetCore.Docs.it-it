@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni su come creare un'API Web con ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/14/2019
+ms.date: 08/27/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 99985e9fb1134c2ba808434f8d24c4a768773268
-ms.sourcegitcommit: 476ea5ad86a680b7b017c6f32098acd3414c0f6c
+ms.openlocfilehash: 25bfccb136d875b454034bd011828c9f3b6cd3d8
+ms.sourcegitcommit: de17150e5ec7507d7114dde0e5dbc2e45a66ef53
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69022602"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70113292"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Esercitazione: Creare un'API Web con ASP.NET Core
 
@@ -462,9 +462,9 @@ Usare Postman per eliminare un elemento attività:
 * Impostare l'URI dell'oggetto da eliminare, ad esempio `https://localhost:5001/api/TodoItems/1`
 * Selezionare **Send** (Invia).
 
-## <a name="call-the-api-from-jquery"></a>Chiamare l'API da jQuery
+## <a name="call-the-web-api-with-javascript"></a>Chiamare l'API Web con JavaScript
 
-Per istruzioni dettagliate, vedere [Esercitazione: Chiamare un'app API Web ASP.NET Core con jQuery](xref:tutorials/web-api-jquery).
+Per istruzioni dettagliate, vedere [Esercitazione: Chiamare un'API Web ASP.NET Core con JavaScript](xref:tutorials/web-api-javascript).
 
 ::: moniker-end
 
@@ -480,9 +480,10 @@ In questa esercitazione si imparerà a:
 > * Configurare routing e percorsi URL.
 > * Specificare valori restituiti.
 > * Chiamare l'API Web con Postman.
-> * Chiamare l'API Web con jQuery.
+> * Chiamare l'API Web con JavaScript.
 
 Al termine si dispone di un'API web che può gestire gli elementi di tipo "attività" archiviati in un database relazionale.
+
 ## <a name="overview"></a>Panoramica
 
 Questa esercitazione consente di creare l'API seguente:
@@ -737,7 +738,6 @@ I tipi restituiti `ActionResult` possono rappresentare un ampio intervallo di co
 * Se nessun elemento corrisponde all'ID richiesto, il metodo restituisce un codice di errore 404 [NotFound](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.notfound).
 * In caso contrario, il metodo restituisce il codice 200 con un corpo della risposta JSON. La restituzione di `item` risulta in una risposta HTTP 200.
 
-
 ## <a name="test-the-gettodoitems-method"></a>Testare il metodo GetTodoItems
 
 Questa esercitazione usa Postman per testare l'API Web.
@@ -863,9 +863,9 @@ Usare Postman per eliminare un elemento attività:
 
 L'app di esempio consente di eliminare tutti gli elementi. Quando viene eliminato l'ultimo elemento, tuttavia, ne viene creato uno nuovo dal costruttore della classe modello alla successiva chiamata dell'API.
 
-## <a name="call-the-api-with-jquery"></a>Chiamare l'API con jQuery
+## <a name="call-the-web-api-with-javascript"></a>Chiamare l'API Web con JavaScript
 
-In questa sezione viene aggiunta una pagina HTML che usa jQuery per chiamare l'API Web. jQuery avvia la richiesta e aggiorna la pagina con i dettagli ottenuti dalla risposta dell'API.
+In questa sezione viene aggiunta una pagina HTML che usa JavaScript per chiamare l'API Web. L'API Fetch avvia la richiesta. JavaScript aggiorna la pagina con i dettagli della risposta dell'API Web.
 
 Configurare l'app per [servire file statici](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions.usestaticfiles#Microsoft_AspNetCore_Builder_StaticFileExtensions_UseStaticFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) e [abilitare il mapping del file predefinito](/dotnet/api/microsoft.aspnetcore.builder.defaultfilesextensions.usedefaultfiles#Microsoft_AspNetCore_Builder_DefaultFilesExtensions_UseDefaultFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) aggiornando *Startup.cs* con il codice evidenziato seguente:
 
@@ -886,19 +886,17 @@ Può essere necessario modificare le impostazioni di avvio del progetto ASP.NET 
 * Aprire *Properties\launchSettings.json*.
 * Rimuovere la proprietà `launchUrl` per forzare l'app ad aprire *index.html*, il file predefinito del progetto.
 
-È possibile ottenere jQuery in vari modi. Nel frammento precedente la libreria viene caricata da una rete CDN.
-
-In questo esempio vengono chiamati tutti i metodi CRUD dell'API. Di seguito sono incluse le spiegazioni delle chiamate all'API.
+In questo esempio vengono chiamati tutti i metodi CRUD dell'API Web. Di seguito sono incluse le spiegazioni delle chiamate all'API.
 
 ### <a name="get-a-list-of-to-do-items"></a>Ottenere un elenco di elementi attività
 
-La funzione [ajax](https://api.jquery.com/jquery.ajax/) di jQuery invia una richiesta `GET` all'API, la quale restituisce codice JSON che rappresenta una matrice di elementi attività. La funzione di callback `success` viene chiamata se la richiesta ha esito positivo. Nel callback il modello DOM viene aggiornato con le informazioni dell'elemento attività.
+Fetch invia una richiesta HTTP GET all'API Web, la quale restituisce codice JSON che rappresenta una matrice di elementi attività. La funzione di callback `success` viene chiamata se la richiesta ha esito positivo. Nel callback il modello DOM viene aggiornato con le informazioni dell'elemento attività.
 
 [!code-javascript[](first-web-api/samples/2.2/TodoApi/wwwroot/site.js?name=snippet_GetData)]
 
 ### <a name="add-a-to-do-item"></a>Aggiungere un elemento attività
 
-La funzione [ajax](https://api.jquery.com/jquery.ajax/) invia una richiesta `POST` con l'elemento attività nel corpo della richiesta. Le opzioni `accepts` e `contentType` sono impostate su `application/json` per specificare il tipo di supporto ricevuto e inviato. L'elemento attività viene convertito in JSON usando [JSON.stringify](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify). Quando l'API restituisce un codice di stato di esecuzione riuscita, viene chiamata la funzione `getData` per aggiornare la tabella HTML.
+Fetch invia una richiesta HTTP POST con l'elemento attività nel corpo della richiesta. Le opzioni `accepts` e `contentType` sono impostate su `application/json` per specificare il tipo di supporto ricevuto e inviato. L'elemento attività viene convertito in JSON usando [JSON.stringify](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify). Quando l'API restituisce un codice di stato di esecuzione riuscita, viene chiamata la funzione `getData` per aggiornare la tabella HTML.
 
 [!code-javascript[](first-web-api/samples/2.2/TodoApi/wwwroot/site.js?name=snippet_AddItem)]
 

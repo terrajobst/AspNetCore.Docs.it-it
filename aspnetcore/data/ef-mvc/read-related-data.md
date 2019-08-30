@@ -2,16 +2,16 @@
 title: 'Esercitazione: Leggere dati correlati - ASP.NET MVC con EF Core'
 description: In questa esercitazione verranno letti e visualizzati dati correlati, ovvero dati che Entity Framework carica all'interno delle proprietà di navigazione.
 author: tdykstra
-ms.author: tdykstra
+ms.author: riande
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: 43d05d0a5f938e60cdb54a0025d8bc277059c2e3
-ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
+ms.openlocfilehash: 2bf556dae5d30819c54ecc3f0dadfbd3316db1cc
+ms.sourcegitcommit: 0774a61a3a6c1412a7da0e7d932dc60c506441fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69583426"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70059105"
 ---
 # <a name="tutorial-read-related-data---aspnet-mvc-with-ef-core"></a>Esercitazione: Leggere dati correlati - ASP.NET MVC con EF Core
 
@@ -239,7 +239,7 @@ Si supponga che gli utenti vogliano visualizzare solo raramente le iscrizioni pe
 
 [!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ExplicitLoading&highlight=23-29)]
 
-Il nuovo codice rilascia le chiamate al metodo *ThenInclude* per i dati delle iscrizioni dal codice che recupera entità Instructor. Se sono selezionati un insegnante e un corso, il codice evidenziato recupera le entità Enrollment per il corso selezionato e le entità Student per ogni Enrollment.
+Il nuovo codice rilascia le chiamate al metodo *ThenInclude* per i dati delle iscrizioni dal codice che recupera entità Instructor. Elimina anche `AsNoTracking`.  Se sono selezionati un insegnante e un corso, il codice evidenziato recupera le entità Enrollment per il corso selezionato e le entità Student per ogni Enrollment.
 
 Eseguire l'app e passare alla pagina di indice degli insegnanti. Non si noterà alcuna differenza in ciò che viene visualizzato nella pagina, anche se è stata modificata la modalità di recupero dei dati.
 
