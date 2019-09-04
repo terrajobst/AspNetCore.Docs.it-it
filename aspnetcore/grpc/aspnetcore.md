@@ -4,14 +4,14 @@ author: juntaoluo
 description: Informazioni sui concetti di base per la scrittura di servizi gRPC con ASP.NET Core.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
-ms.date: 08/28/2019
+ms.date: 09/03/2019
 uid: grpc/aspnetcore
-ms.openlocfilehash: 128f5b36eac9112460c33693db5537134a077476
-ms.sourcegitcommit: 23f79bd71d49c4efddb56377c1f553cc993d781b
+ms.openlocfilehash: 28e6b8589bbe0b6a3723b64736c723c883302571
+ms.sourcegitcommit: e6bd2bbe5683e9a7dbbc2f2eab644986e6dc8a87
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70130710"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70238167"
 ---
 # <a name="grpc-services-with-aspnet-core"></a>Servizi gRPC con ASP.NET Core
 
@@ -71,10 +71,9 @@ Endpoint gRPC di Gheppio:
 
 #### <a name="http2"></a>HTTP/2
 
-Gheppio [supporta http/2](xref:fundamentals/servers/kestrel#http2-support) nei sistemi operativi più recenti. Per impostazione predefinita, gli endpoint gheppio sono configurati per supportare connessioni HTTP/1.1 e HTTP/2.
+gRPC richiede HTTP/2. gRPC per ASP.NET Core convalida [HttpRequest. Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) è `HTTP/2`.
 
-> [!NOTE]
-> macOS non supporta ASP.NET Core gRPC con [Transport Layer Security (TLS)](https://tools.ietf.org/html/rfc5246). Per eseguire correttamente i servizi gRPC in macOS, è necessaria una configurazione aggiuntiva. Per altre informazioni, vedere [Non è possibile avviare un'app ASP.NET Core gRPC in macOS](xref:grpc/troubleshoot#unable-to-start-aspnet-core-grpc-app-on-macos).
+Gheppio [supporta http/2](xref:fundamentals/servers/kestrel#http2-support) nei sistemi operativi più recenti. Per impostazione predefinita, gli endpoint gheppio sono configurati per supportare connessioni HTTP/1.1 e HTTP/2.
 
 #### <a name="https"></a>HTTPS
 
@@ -101,7 +100,7 @@ Nell'ambiente di produzione, HTTPS deve essere configurato in modo esplicito. Ne
 }
 ```
 
-In alternativa, è possibile configurare gheppio endspoints in *Program.cs*:
+In alternativa, è possibile configurare gli endpoint gheppio in *Program.cs*:
 
 ```csharp
 public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -122,11 +121,16 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
         });
 ```
 
+Quando un endpoint HTTP/2 viene configurato senza HTTPS, l'endpoint [ListenOptions. Protocols](xref:fundamentals/servers/kestrel#listenoptionsprotocols) deve essere impostato su `HttpProtocols.Http2`. `HttpProtocols.Http1AndHttp2`non può essere usato perché HTTPS è necessario per negoziare HTTP/2. Senza HTTPS, tutte le connessioni all'endpoint vengono predefinite a HTTP/1.1 e le chiamate a gRPC hanno esito negativo.
+
 Per ulteriori informazioni sull'abilitazione di HTTP/2 e HTTPS con gheppio, vedere la pagina relativa alla [configurazione dell'endpoint gheppio](xref:fundamentals/servers/kestrel#endpoint-configuration).
+
+> [!NOTE]
+> macOS non supporta ASP.NET Core gRPC con [Transport Layer Security (TLS)](https://tools.ietf.org/html/rfc5246). Per eseguire correttamente i servizi gRPC in macOS, è necessaria una configurazione aggiuntiva. Per altre informazioni, vedere [Non è possibile avviare un'app ASP.NET Core gRPC in macOS](xref:grpc/troubleshoot#unable-to-start-aspnet-core-grpc-app-on-macos).
 
 ## <a name="integration-with-aspnet-core-apis"></a>Integrazione con API ASP.NET Core
 
-i servizi gRPC hanno accesso completo alle funzionalità di ASP.NET Core come l' [inserimento](xref:fundamentals/dependency-injection) delle dipendenze e la [registrazione](xref:fundamentals/logging/index). Ad esempio, l'implementazione del servizio può risolvere un servizio logger dal contenitore DI inserimento delle dipendenze tramite il costruttore:
+i servizi gRPC hanno accesso completo alle funzionalità di ASP.NET Core come l' [inserimento delle dipendenze](xref:fundamentals/dependency-injection) e la [registrazione](xref:fundamentals/logging/index). Ad esempio, l'implementazione del servizio può risolvere un servizio logger dal contenitore DI inserimento delle dipendenze tramite il costruttore:
 
 ```csharp
 public class GreeterService : Greeter.GreeterBase

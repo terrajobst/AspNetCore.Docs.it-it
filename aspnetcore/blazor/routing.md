@@ -5,14 +5,14 @@ description: Informazioni su come instradare le richieste nelle app e sul compon
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/13/2019
+ms.date: 08/23/2019
 uid: blazor/routing
-ms.openlocfilehash: 197b1a91b3540d21639c3ee775b2c490da7b23fe
-ms.sourcegitcommit: f5f0ff65d4e2a961939762fb00e654491a2c772a
+ms.openlocfilehash: 067dad657c1e89a31fac45fdfa095cce4b10798d
+ms.sourcegitcommit: e6bd2bbe5683e9a7dbbc2f2eab644986e6dc8a87
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030397"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70238056"
 ---
 # <a name="aspnet-core-blazor-routing"></a>Routing di ASP.NET Core Blazer
 
@@ -92,7 +92,7 @@ Sono disponibili i vincoli di route indicati nella tabella seguente. Per ulterio
 | Vincolo | Esempio           | Esempi di corrispondenza                                                                  | Invariante<br>culture<br>corrispondenti |
 | ---------- | ----------------- | -------------------------------------------------------------------------------- | :------------------------------: |
 | `bool`     | `{active:bool}`   | `true`, `FALSE`                                                                  | No                               |
-| `datetime` | `{dob:datetime}`  | `2016-12-31`, `2016-12-31 7:32pm`                                                | Sì                              |
+| `datetime` | `{dob:datetime}`  | `2016-12-31`, `2016-12-31 7:32pm`                                                | Yes                              |
 | `decimal`  | `{price:decimal}` | `49.99`, `-1,000.01`                                                             | Sì                              |
 | `double`   | `{weight:double}` | `1.234`, `-1,001.01e8`                                                           | Sì                              |
 | `float`    | `{weight:float}`  | `1.234`, `-1,001.01e8`                                                           | Yes                              |
@@ -102,6 +102,21 @@ Sono disponibili i vincoli di route indicati nella tabella seguente. Per ulterio
 
 > [!WARNING]
 > I vincoli di route che verificano l'URL e vengono convertiti in un tipo CLR, ad esempio `int` o `DateTime`, usano sempre le impostazioni cultura inglese non dipendenti da paese/area geografica, presupponendo che l'URL sia non localizzabile.
+
+### <a name="routing-with-urls-that-contain-dots"></a>Routing con URL contenenti punti
+
+Nelle app del lato server di Blaze la route predefinita in *_Host. cshtml* è `/` (`@page "/"`). Un URL di richiesta che contiene un punto`.`() non corrisponde alla route predefinita perché l'URL viene visualizzato per richiedere un file. Un'app Blazer restituisce una risposta *404 non trovata* per un file statico che non esiste. Per usare le route che contengono un punto, configurare *_Host. cshtml* con il modello di route seguente:
+
+```cshtml
+@page "/{**path}"
+```
+
+Il `"/{**path}"` modello include:
+
+* Double-asterisco *catch-all* Syntax (`**`) per acquisire il percorso tra più limiti di cartelle senza codificare le barre`/`().
+* Nome `path` di un parametro di route.
+
+Per altre informazioni, vedere <xref:fundamentals/routing>.
 
 ## <a name="navlink-component"></a>Componente NavLink
 
@@ -134,7 +149,7 @@ Viene eseguito il rendering del markup HTML seguente:
 
 Usare `Microsoft.AspNetCore.Components.IUriHelper` per lavorare con gli URI e la C# navigazione nel codice. `IUriHelper`fornisce l'evento e i metodi illustrati nella tabella seguente.
 
-| Member | DESCRIZIONE |
+| Member | Descrizione |
 | ------ | ----------- |
 | `GetAbsoluteUri` | Ottiene l'URI assoluto corrente. |
 | `GetBaseUri` | Ottiene l'URI di base (con una barra finale) che può essere anteposto ai percorsi URI relativi per produrre un URI assoluto. `GetBaseUri` Corrisponde in genere `href` all'`<base>` attributo sull'elemento del documento in *wwwroot/index.html* (lato client Blazer) o *pages/_Host. cshtml* (lato server Blaze). |
@@ -163,3 +178,4 @@ Quando si seleziona il pulsante, il componente seguente `Counter` passa al compo
     }
 }
 ```
+
