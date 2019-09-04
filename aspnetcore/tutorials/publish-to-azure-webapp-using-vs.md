@@ -6,18 +6,22 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/10/2019
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: dbb8229a52c8c93da94406ad64d03eff9631afb4
-ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
-ms.translationtype: HT
+ms.openlocfilehash: 802d5c65423227e5fb7ccf39d692df2f0178ad34
+ms.sourcegitcommit: e6bd2bbe5683e9a7dbbc2f2eab644986e6dc8a87
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308329"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70238195"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio"></a>Pubblicare un'app ASP.NET Core in Azure con Visual Studio
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
+::: moniker range=">= aspnetcore-3.0"
 
 [!INCLUDE [Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
+
+::: moniker-end
+
 
 Se si lavora in macOS, vedere [Publish to Azure from Visual Studio for Mac](https://blog.xamarin.com/publish-azure-visual-studio-mac/) (Pubblicare in Azure da Visual Studio per Mac).
 
@@ -37,7 +41,7 @@ Completare la finestra di dialogo **Nuovo progetto**:
 
 * Nel riquadro a sinistra selezionare **.NET Core**.
 * Nel riquadro al centro selezionare **Applicazione Web ASP.NET Core**.
-* Scegliere **OK**.
+* Selezionare **OK**.
 
 ![Finestra di dialogo Nuovo progetto](publish-to-azure-webapp-using-vs/_static/new_prj.png)
 
@@ -57,7 +61,7 @@ Viene visualizzata la finestra di dialogo **Modifica autenticazione**.
 
 Visual Studio crea la soluzione.
 
-## <a name="run-the-app"></a>Eseguire l'app
+## <a name="run-the-app"></a>Esecuzione dell'app
 
 * Premere CTRL+F5 per eseguire il progetto.
 * Eseguire il test dei collegamenti **About** (Informazioni su) e **Contact** (Contatto).
@@ -119,7 +123,7 @@ Viene visualizzata la finestra di dialogo **Configura SQL Server**.
 
 ![Finestra di dialogo Configura SQL Server](publish-to-azure-webapp-using-vs/_static/conf_servername.png)
 
-* Scegliere **OK**.
+* Selezionare **OK**.
 
 Visual Studio torna alla finestra di dialogo **Crea servizio app**.
 
