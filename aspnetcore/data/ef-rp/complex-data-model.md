@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/22/2019
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 34b977f70f3e7e58e4ab6fcf3d8f69800896a65d
-ms.sourcegitcommit: 0774a61a3a6c1412a7da0e7d932dc60c506441fc
-ms.translationtype: HT
+ms.openlocfilehash: ab29cf687c80551d275cae69f28b7576016bfff6
+ms.sourcegitcommit: e6bd2bbe5683e9a7dbbc2f2eab644986e6dc8a87
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70059116"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70238130"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Modello di dati - 5 di 8
 
@@ -390,7 +390,7 @@ public ICollection<Course> Courses { get; set; }
 
 per convenzione, EF Core abilita l'eliminazione a catena per le chiavi esterne non nullable e per le relazioni molti-a-molti. Questo comportamento predefinito può generare regole di eliminazione a catena circolari. Quando viene aggiunta una migrazione, le regole di eliminazione a catena circolari causano un'eccezione.
 
-Ad esempio, se la definizione della proprietà `Department.InstructorID` specifica che non ammette valori Null, EF Core configurerebbe una regola di eliminazione a catena. In tal caso, il dipartimento verrebbe eliminato in seguito all'eliminazione dell'insegnante assegnato come amministratore. In questo scenario, una regola Restrict potrebbe essere più sensata. L'API Fluent seguente imposta una regola Restrict e disabilita l'eliminazione a catena.
+Ad esempio, se la definizione della proprietà `Department.InstructorID` specifica che non ammette valori Null, EF Core configurerebbe una regola di eliminazione a catena. In tal caso, il dipartimento verrebbe eliminato in seguito all'eliminazione dell'insegnante assegnato come amministratore. In questo scenario, una regola Restrict potrebbe essere più sensata. L' [API Fluent](#fluent-api-alternative-to-attributes) seguente imposta una regola di limitazione e Disabilita l'eliminazione a catena.
 
   ```csharp
   modelBuilder.Entity<Department>()
@@ -1091,7 +1091,7 @@ Ad esempio, se la proprietà `Department.InstructorID` è stata definita come nu
 
 * EF Core configura una regola di eliminazione a catena per eliminare il reparto quando viene eliminato l'insegnante.
 * L'eliminazione del reparto quando viene eliminato l'insegnante non è il comportamento previsto.
-* L'API Fluent seguente potrebbe impostare una regola restrict anziché cascade.
+* L' [API Fluent](#fluent-api-alternative-to-attributes) seguente imposta una regola di limitazione anziché Cascade.
 
    ```csharp
    modelBuilder.Entity<Department>()
