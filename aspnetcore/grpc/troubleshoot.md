@@ -7,12 +7,12 @@ ms.author: jamesnk
 ms.custom: mvc
 ms.date: 08/26/2019
 uid: grpc/troubleshoot
-ms.openlocfilehash: 49bde2792f0fd7910de02d75f5f443000916dec7
-ms.sourcegitcommit: de17150e5ec7507d7114dde0e5dbc2e45a66ef53
+ms.openlocfilehash: e0c12aac083bc2e13f66831e756f2a93b7ee76b0
+ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70112745"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310439"
 ---
 # <a name="troubleshoot-grpc-on-net-core"></a>Risolvere i problemi di gRPC in .NET Core
 
@@ -40,10 +40,9 @@ Il client .NET Core deve usare `https` nell'indirizzo del server per effettuare 
 ```csharp
 static async Task Main(string[] args)
 {
-    var httpClient = new HttpClient();
     // The port number(5001) must match the port of the gRPC server.
-    httpClient.BaseAddress = new Uri("https://localhost:5001");
-    var client = GrpcClient.Create<Greeter.GreeterClient>(httpClient);
+    var channel = GrpcChannel.ForAddress("https://localhost:5001");
+    var client = new Greet.GreeterClient(channel);
 }
 ```
 
@@ -56,7 +55,7 @@ Il client gRPC .NET richiede che il servizio disponga di un certificato attendib
 > Eccezione non gestita. System .NET. http. HttpRequestexception: Non è stato possibile stabilire la connessione SSL. vedere l'eccezione interna.
 > ---> System. Security. Authentication. AuthenticationException: Il certificato remoto non è valido in base alla procedura di convalida.
 
-Questo errore può essere visualizzato se si sta testando l'app in locale e il certificato di sviluppo HTTPS ASP.NET Core non è attendibile. Per istruzioni su come risolvere questo problema, vedere [considerare attendibile il certificato di sviluppo HTTPS ASP.NET Core in Windows e MacOS](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos).
+Questo errore può essere visualizzato se si sta testando l'app in locale e il certificato di sviluppo HTTPS ASP.NET Core non è attendibile. Per istruzioni su come risolvere questo problema, vedere [Considerare attendibile il certificato di sviluppo di ASP.NET Core HTTPS in Windows e macOS](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos).
 
 Se si chiama un servizio gRPC in un altro computer e non è possibile considerare attendibile il certificato, il client gRPC può essere configurato in modo da ignorare il certificato non valido. Il codice seguente usa [HttpClientHandler. ServerCertificateCustomValidationCallback](/dotnet/api/system.net.http.httpclienthandler.servercertificatecustomvalidationcallback) per consentire le chiamate senza un certificato attendibile:
 
@@ -78,13 +77,12 @@ var client = GrpcClient.Create<Greeter.GreeterClient>(httpClient);
 È necessaria una configurazione aggiuntiva per chiamare i servizi gRPC non protetti con il client .NET Core. Il client gRPC deve impostare l' `System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport` opzione su `true` e usare `http` nell'indirizzo del server:
 
 ```csharp
-// This switch must be set before creating the HttpClient.
+// This switch must be set before creating the GrpcChannel/HttpClient.
 AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
 
-var httpClient = new HttpClient();
-// The address starts with "http://"
-httpClient.BaseAddress = new Uri("http://localhost:5000");
-var client = GrpcClient.Create<Greeter.GreeterClient>(httpClient);
+// The port number(5000) must match the port of the gRPC server.
+var channel = GrpcChannel.ForAddress("https://localhost:5001");
+var client = new Greet.GreeterClient(channel);
 ```
 
 ## <a name="unable-to-start-aspnet-core-grpc-app-on-macos"></a>Non è possibile avviare ASP.NET Core app gRPC in macOS
@@ -122,7 +120,7 @@ Il client di gRPC deve essere configurato anche per non usare TLS. Per altre inf
 
 per la generazione di codice gRPC di client concreti e classi di base del servizio è necessario fare riferimento a file e strumenti protobuf da un progetto. È necessario includere:
 
-* file con *estensione proto* che si desidera utilizzare nel `<Protobuf>` gruppo di elementi. Il progetto deve fare riferimento ai [file *. proto* ](https://developers.google.com/protocol-buffers/docs/proto3#importing-definitions) importati.
+* file con *estensione proto* che si desidera utilizzare nel `<Protobuf>` gruppo di elementi. Il progetto deve fare riferimento ai [file *. proto* importati](https://developers.google.com/protocol-buffers/docs/proto3#importing-definitions) .
 * Riferimento al pacchetto per il pacchetto di [strumenti GRPC gRPC. Tools](https://www.nuget.org/packages/Grpc.Tools/).
 
 Per ulteriori informazioni sulla generazione di C# asset gRPC, <xref:grpc/basics>vedere.

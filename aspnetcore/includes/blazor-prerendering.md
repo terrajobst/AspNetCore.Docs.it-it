@@ -6,7 +6,7 @@ Per ritardare le chiamate di interoperabilità JavaScript finché non viene stab
 @using Microsoft.JSInterop
 @inject IJSRuntime JSRuntime
 
-<input @ref="myInput" @ref:suppressField value="Value set during render" />
+<input @ref="myInput" value="Value set during render" />
 
 @code {
     private ElementReference myInput;
@@ -39,7 +39,7 @@ Dove `JSRuntime.InvokeAsync` viene chiamato, `ElementRef` viene usato solo in `O
 
 <p>
     Set value via JS interop call:
-    <input id="val-set-by-interop" @ref="myElem" @ref:suppressField />
+    <input id="val-set-by-interop" @ref="myElem" />
 </p>
 
 @code {

@@ -5,14 +5,14 @@ description: Informazioni sugli scenari di autenticazione e autorizzazione per B
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/26/2019
+ms.date: 08/29/2019
 uid: security/blazor/index
-ms.openlocfilehash: 87d61a7ccda209243a62bc54467b8f02dad92c24
-ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
-ms.translationtype: HT
+ms.openlocfilehash: 8714acbeb6e8a00992a601030811b24f53426b82
+ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68994191"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310519"
 ---
 # <a name="aspnet-core-blazor-authentication-and-authorization"></a>Autenticazione e autorizzazione per ASP.NET Core Blazor
 
@@ -27,7 +27,7 @@ Gli scenari di sicurezza sono diversi per le app Blazor sul lato server e sul la
 
 Le app sul lato client Blazor eseguite nel client. L'autorizzazione viene usata *solo* per determinare quali opzioni dell'interfaccia utente visualizzare. Dato che i controlli sul lato client possono essere modificati o ignorati dall'utente, un'app sul lato client Blazor non può imporre regole di accesso di autorizzazione.
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 
 Blazor usa i meccanismi di autenticazione di ASP.NET Core esistenti per stabilire l'identità dell'utente. Il meccanismo esatto dipende dal modo in cui è ospitata l'app Blazor, ovvero sul lato server o sul lato client.
 
@@ -219,20 +219,24 @@ Se i dati dello stato di autenticazione sono necessari per la logica procedurale
 
 Se `user.Identity.IsAuthenticated` è `true`, è possibile enumerare le attestazioni e valutare l'appartenenza ai ruoli.
 
-Configurare il parametro a catena `Task<AuthenticationState>` usando il componente `CascadingAuthenticationState`:
+Configurare il `Task<AuthenticationState>` parametro di propagazione utilizzando `AuthorizeRouteView` i `CascadingAuthenticationState` componenti e:
 
 ```cshtml
-<CascadingAuthenticationState>
-    <Router AppAssembly="typeof(Startup).Assembly">
-        <NotFoundContent>
-            <h1>Sorry</h1>
-            <p>Sorry, there's nothing at this address.</p>
-        </NotFoundContent>
-    </Router>
-</CascadingAuthenticationState>
+<Router AppAssembly="@typeof(Program).Assembly">
+    <Found Context="routeData">
+        <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+    </Found>
+    <NotFound>
+        <CascadingAuthenticationState>
+            <LayoutView Layout="@typeof(MainLayout)">
+                <p>Sorry, there's nothing at this address.</p>
+            </LayoutView>
+        </CascadingAuthenticationState>
+    </NotFound>
+</Router>
 ```
 
-## <a name="authorization"></a>Autorizzazione
+## <a name="authorization"></a>Authorization
 
 Dopo l'autenticazione di un utente, vengono applicate le regole di *autorizzazione* per controllare le operazioni consentite per un utente.
 
@@ -372,7 +376,7 @@ Se non si specifica `Roles` o `Policy`, `[Authorize]` usa i criteri predefiniti,
 
 ## <a name="customize-unauthorized-content-with-the-router-component"></a>Personalizzare il contenuto non autorizzato con il componente Router
 
-Il componente `Router` consente all'app di specificare contenuto personalizzato se:
+Il `Router` componente, insieme `AuthorizeRouteView` al componente, consente all'app di specificare contenuto personalizzato se:
 
 * Non viene trovato contenuto.
 * L'utente non supera una condizione `[Authorize]` applicata al componente. L'attributo `[Authorize]` viene presentato nella sezione [Attributo [Authorize]](#authorize-attribute).
@@ -381,28 +385,34 @@ Il componente `Router` consente all'app di specificare contenuto personalizzato 
 Nel modello di progetto sul lato server Blazor predefinito, il file *App.razor* dimostra come impostare il contenuto personalizzato:
 
 ```cshtml
-<CascadingAuthenticationState>
-    <Router AppAssembly="typeof(Startup).Assembly">
-        <NotFoundContent>
-            <h1>Sorry</h1>
-            <p>Sorry, there's nothing at this address.</p>
-        </NotFoundContent>
-        <NotAuthorizedContent>
-            <h1>Sorry</h1>
-            <p>You're not authorized to reach this page.</p>
-            <p>You may need to log in as a different user.</p>
-        </NotAuthorizedContent>
-        <AuthorizingContent>
-            <h1>Authentication in progress</h1>
-            <p>Only visible while authentication is in progress.</p>
-        </AuthorizingContent>
-    </Router>
-</CascadingAuthenticationState>
+<Router AppAssembly="@typeof(Program).Assembly">
+    <Found Context="routeData">
+        <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
+            <NotAuthorized>
+                <h1>Sorry</h1>
+                <p>You're not authorized to reach this page.</p>
+                <p>You may need to log in as a different user.</p>
+            </NotAuthorized>
+            <Authorizing>
+                <h1>Authentication in progress</h1>
+                <p>Only visible while authentication is in progress.</p>
+            </Authorizing>
+        </AuthorizeRouteView>
+    </Found>
+    <NotFound>
+        <CascadingAuthenticationState>
+            <LayoutView Layout="@typeof(MainLayout)">
+                <h1>Sorry</h1>
+                <p>Sorry, there's nothing at this address.</p>
+            </LayoutView>
+        </CascadingAuthenticationState>
+    </NotFound>
+</Router>
 ```
 
-Il contenuto di `<NotFoundContent>`, `<NotAuthorizedContent>` e `<AuthorizingContent>` può includere elementi arbitrari, ad esempio altri componenti interattivi.
+Il contenuto di `<NotFound>`, `<NotAuthorized>` e `<Authorizing>` può includere elementi arbitrari, ad esempio altri componenti interattivi.
 
-Se non si specifica `<NotAuthorizedContent>`, il router usa il messaggio di fallback seguente:
+Se `<NotAuthorized>` non è specificato `<AuthorizeRouteView>` , utilizza il seguente messaggio di fallback:
 
 ```html
 Not authorized.
@@ -478,4 +488,5 @@ Errori comuni:
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * <xref:security/index>
+* <xref:security/blazor/server-side>
 * <xref:security/authentication/windowsauth>

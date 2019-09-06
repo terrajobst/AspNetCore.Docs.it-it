@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/23/2019
 uid: blazor/routing
-ms.openlocfilehash: 067dad657c1e89a31fac45fdfa095cce4b10798d
-ms.sourcegitcommit: e6bd2bbe5683e9a7dbbc2f2eab644986e6dc8a87
+ms.openlocfilehash: ae3d7ab01185dd6f2e8e0f59b78c2e693fe464b0
+ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70238056"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310335"
 ---
 # <a name="aspnet-core-blazor-routing"></a>Routing di ASP.NET Core Blazer
 
@@ -30,16 +30,17 @@ Il lato server di Blazer è integrato in [ASP.net core routing degli endpoint](x
 
 Il `Router` componente Abilita il routing e viene fornito un modello di route a ogni componente accessibile. Il `Router` componente viene visualizzato nel file *app. Razor* :
 
-In un'app Blazer sul lato server:
+In un'app Blazer sul lato server o sul lato client:
 
 ```cshtml
-<Router AppAssembly="typeof(Startup).Assembly" />
-```
-
-In un'app Blazer sul lato client:
-
-```cshtml
-<Router AppAssembly="typeof(Program).Assembly" />
+<Router AppAssembly="typeof(Startup).Assembly">
+    <Found Context="routeData">
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+    </Found>
+    <NotFound>
+        <p>Sorry, there's nothing at this address.</p>
+    </NotFound>
+</Router>
 ```
 
 Quando viene compilato un file *Razor* con `@page` una direttiva, alla classe generata viene fornito un oggetto <xref:Microsoft.AspNetCore.Mvc.RouteAttribute> che specifica il modello di route. In fase di esecuzione, il router cerca le classi di `RouteAttribute` componenti con un oggetto ed esegue il rendering del componente con un modello di route corrispondente all'URL richiesto.
@@ -49,24 +50,27 @@ Quando viene compilato un file *Razor* con `@page` una direttiva, alla classe ge
 [!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRoute.razor?name=snippet_BlazorRoute)]
 
 > [!IMPORTANT]
-> Per generare correttamente le route, l'app deve includere `<base>` un tag nel file *wwwroot/index.html* (lato client Blazer) o nel file *pages/_Host. cshtml* (lato server fiammeggiar) con il percorso di base dell' `href` app specificato nell'attributo ( `<base href="/">`). Per altre informazioni, vedere <xref:host-and-deploy/blazor/client-side#app-base-path>.
+> Per la corretta risoluzione degli URL, l'app deve includere `<base>` un tag nel file *wwwroot/index.html* (lato client Blazer) o nel file *pages/_Host. cshtml* (lato server fiammeggiar) con il percorso di base dell' `href` applicazione specificato nell'attributo ( `<base href="/">`). Per altre informazioni, vedere <xref:host-and-deploy/blazor/client-side#app-base-path>.
 
 ## <a name="provide-custom-content-when-content-isnt-found"></a>Fornire contenuto personalizzato quando il contenuto non è stato trovato
 
 Il `Router` componente consente all'app di specificare contenuto personalizzato se non viene trovato contenuto per la route richiesta.
 
-Nel file *app. Razor* impostare il contenuto personalizzato nell' `<NotFoundContent>` elemento del `Router` componente:
+Nel file *app. Razor* impostare il contenuto personalizzato nel `<NotFound>` parametro del `Router` modello del componente:
 
 ```cshtml
 <Router AppAssembly="typeof(Startup).Assembly">
-    <NotFoundContent>
+    <Found Context="routeData">
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+    </Found>
+    <NotFound>
         <h1>Sorry</h1>
         <p>Sorry, there's nothing at this address.</p> b
-    </NotFoundContent>
+    </NotFound>
 </Router>
 ```
 
-Il contenuto di `<NotFoundContent>` può includere elementi arbitrari, ad esempio altri componenti interattivi.
+Il contenuto di `<NotFound>` può includere elementi arbitrari, ad esempio altri componenti interattivi.
 
 ## <a name="route-parameters"></a>Parametri di route
 
@@ -92,13 +96,13 @@ Sono disponibili i vincoli di route indicati nella tabella seguente. Per ulterio
 | Vincolo | Esempio           | Esempi di corrispondenza                                                                  | Invariante<br>culture<br>corrispondenti |
 | ---------- | ----------------- | -------------------------------------------------------------------------------- | :------------------------------: |
 | `bool`     | `{active:bool}`   | `true`, `FALSE`                                                                  | No                               |
-| `datetime` | `{dob:datetime}`  | `2016-12-31`, `2016-12-31 7:32pm`                                                | Yes                              |
+| `datetime` | `{dob:datetime}`  | `2016-12-31`, `2016-12-31 7:32pm`                                                | Sì                              |
 | `decimal`  | `{price:decimal}` | `49.99`, `-1,000.01`                                                             | Sì                              |
 | `double`   | `{weight:double}` | `1.234`, `-1,001.01e8`                                                           | Sì                              |
 | `float`    | `{weight:float}`  | `1.234`, `-1,001.01e8`                                                           | Yes                              |
 | `guid`     | `{id:guid}`       | `CD2C1638-1638-72D5-1638-DEADBEEF1638`, `{CD2C1638-1638-72D5-1638-DEADBEEF1638}` | No                               |
-| `int`      | `{id:int}`        | `123456789`, `-123456789`                                                        | Sì                              |
-| `long`     | `{ticks:long}`    | `123456789`, `-123456789`                                                        | Sì                              |
+| `int`      | `{id:int}`        | `123456789`, `-123456789`                                                        | Yes                              |
+| `long`     | `{ticks:long}`    | `123456789`, `-123456789`                                                        | Yes                              |
 
 > [!WARNING]
 > I vincoli di route che verificano l'URL e vengono convertiti in un tipo CLR, ad esempio `int` o `DateTime`, usano sempre le impostazioni cultura inglese non dipendenti da paese/area geografica, presupponendo che l'URL sia non localizzabile.
@@ -147,14 +151,14 @@ Viene eseguito il rendering del markup HTML seguente:
 
 ## <a name="uri-and-navigation-state-helpers"></a>Helper per lo stato di navigazione e URI
 
-Usare `Microsoft.AspNetCore.Components.IUriHelper` per lavorare con gli URI e la C# navigazione nel codice. `IUriHelper`fornisce l'evento e i metodi illustrati nella tabella seguente.
+Usare `Microsoft.AspNetCore.Components.NavigationManager` per lavorare con gli URI e la C# navigazione nel codice. `NavigationManager`fornisce l'evento e i metodi illustrati nella tabella seguente.
 
 | Member | Descrizione |
 | ------ | ----------- |
-| `GetAbsoluteUri` | Ottiene l'URI assoluto corrente. |
-| `GetBaseUri` | Ottiene l'URI di base (con una barra finale) che può essere anteposto ai percorsi URI relativi per produrre un URI assoluto. `GetBaseUri` Corrisponde in genere `href` all'`<base>` attributo sull'elemento del documento in *wwwroot/index.html* (lato client Blazer) o *pages/_Host. cshtml* (lato server Blaze). |
+| `Uri` | Ottiene l'URI assoluto corrente. |
+| `BaseUri` | Ottiene l'URI di base (con una barra finale) che può essere anteposto ai percorsi URI relativi per produrre un URI assoluto. `BaseUri` Corrisponde in genere `href` all'`<base>` attributo sull'elemento del documento in *wwwroot/index.html* (lato client Blazer) o *pages/_Host. cshtml* (lato server Blaze). |
 | `NavigateTo` | Passa all'URI specificato. Se `forceLoad` è `true`:<ul><li>Il routing lato client viene ignorato.</li><li>Il browser è forzato a caricare la nuova pagina dal server, indipendentemente dal fatto che l'URI venga normalmente gestito dal router lato client.</li></ul> |
-| `OnLocationChanged` | Un evento che viene attivato quando il percorso di navigazione viene modificato. |
+| `LocationChanged` | Un evento che viene attivato quando il percorso di navigazione viene modificato. |
 | `ToAbsoluteUri` | Converte un URI relativo in un URI assoluto. |
 | `ToBaseRelativePath` | Dato un URI di base (ad esempio, un URI restituito in `GetBaseUri`precedenza da), converte un URI assoluto in un URI relativo al prefisso URI di base. |
 
@@ -162,8 +166,7 @@ Quando si seleziona il pulsante, il componente seguente `Counter` passa al compo
 
 ```cshtml
 @page "/navigate"
-@using Microsoft.AspNetCore.Components
-@inject IUriHelper UriHelper
+@inject NavigationManager NavigationManager
 
 <h1>Navigate in Code Example</h1>
 
@@ -174,7 +177,7 @@ Quando si seleziona il pulsante, il componente seguente `Counter` passa al compo
 @code {
     private void NavigateToCounterComponent()
     {
-        UriHelper.NavigateTo("counter");
+        NavigationManager.NavigateTo("counter");
     }
 }
 ```

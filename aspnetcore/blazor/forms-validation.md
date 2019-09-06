@@ -5,20 +5,20 @@ description: Informazioni su come usare i moduli e gli scenari di convalida del 
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/13/2019
+ms.date: 09/04/2019
 uid: blazor/forms-validation
-ms.openlocfilehash: 0b2e38cdbd974a28960b917fb6b5ce370f8c4659
-ms.sourcegitcommit: f5f0ff65d4e2a961939762fb00e654491a2c772a
+ms.openlocfilehash: 4531ef44a7df3951f3bebdf88e597165fa75f06e
+ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030336"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310333"
 ---
 # <a name="aspnet-core-blazor-forms-and-validation"></a>Moduli e convalida di ASP.NET Core Blazer
 
 Di [Daniel Roth](https://github.com/danroth27) e [Luke Latham](https://github.com/guardrex)
 
-I moduli e la convalida sono supportati in blazer usando le annotazioni [dei dati](xref:mvc/models/validation).
+I moduli e la convalida sono supportati in blazer usando le [annotazioni dei dati](xref:mvc/models/validation).
 
 > [!NOTE]
 > È probabile che i moduli e gli scenari di convalida cambino a ogni versione di anteprima.
@@ -175,6 +175,25 @@ Il form seguente convalida l'input dell'utente utilizzando la convalida definita
 
 `EditForm` crea un oggetto `EditContext` come [valore di propagazione](xref:blazor/components#cascading-values-and-parameters) che tiene traccia dei metadati relativi al processo di modifica, inclusi i campi modificati e i messaggi di convalida correnti. Fornisce inoltre eventi pratici per invii validi e non validi (`OnValidSubmit`, `OnInvalidSubmit`). `EditForm` In alternativa, usare `OnSubmit` per attivare la convalida e verificare i valori dei campi con il codice di convalida personalizzato.
 
+## <a name="inputtext-based-on-the-input-event"></a>InputText basato sull'evento di input
+
+Utilizzare il `InputText` componente per creare un componente personalizzato che utilizza l' `input` evento anziché l' `change` evento.
+
+Creare un componente con il markup seguente e usare il componente Analogamente a `InputText` quanto viene usato:
+
+```cshtml
+@inherits InputText
+
+<input 
+    @attributes="AdditionalAttributes" 
+    class="@CssClass" 
+    value="@CurrentValue" 
+    @oninput="EventCallback.Factory.CreateBinder<string>(
+        this, __value => CurrentValueAsString = __value, CurrentValueAsString)" />
+```
+
+## <a name="validation-support"></a>Supporto della convalida
+
 Il `DataAnnotationsValidator` componente connette il supporto di convalida usando le annotazioni dei dati `EditContext`a a cascata. L'abilitazione del supporto per la convalida usando le annotazioni dei dati richiede attualmente questo gesto esplicito, ma si sta valutando come il comportamento predefinito che sarà quindi possibile eseguire l'override. Per usare un sistema di convalida diverso rispetto alle annotazioni dei `DataAnnotationsValidator` dati, sostituire con un'implementazione personalizzata. L'implementazione del ASP.NET Core è disponibile per l'ispezione nell'origine riferimento: [DataAnnotationsValidator](https://github.com/aspnet/AspNetCore/blob/master/src/Components/Components/src/Forms/DataAnnotationsValidator.cs)/[AddDataAnnotationsValidation](https://github.com/aspnet/AspNetCore/blob/master/src/Components/Components/src/Forms/EditContextDataAnnotationsExtensions.cs). *L'implementazione del ASP.NET Core è soggetta a aggiornamenti rapidi durante il periodo di versione di anteprima.*
 
 Il `ValidationSummary` componente riepiloga tutti i messaggi di convalida, che è simile all' [Helper tag di riepilogo della convalida](xref:mvc/views/working-with-forms#the-validation-summary-tag-helper).
@@ -186,3 +205,7 @@ Il `ValidationMessage` componente Visualizza i messaggi di convalida per un camp
 ```
 
 I `ValidationMessage` componenti `ValidationSummary` e supportano attributi arbitrari. Qualsiasi attributo che non corrisponde a un parametro component viene aggiunto all'elemento `<div>` generato `<ul>` o.
+
+### <a name="validation-of-complex-or-collection-type-properties"></a>Convalida di proprietà di tipo complesso o di raccolta
+
+Gli attributi di convalida applicati alle proprietà di un modello vengono convalidati quando viene inviato il modulo. Tuttavia, le proprietà delle raccolte o dei tipi di dati complessi di un modello non vengono convalidate durante l'invio del modulo. Per rispettare gli attributi di convalida annidati in questo scenario, usare un componente di convalida personalizzato. Per un esempio, vedere l' [esempio di convalida di Blazer nel repository GitHub ASPNET/Samples](https://github.com/aspnet/samples/tree/master/samples/aspnetcore/blazor/Validation).

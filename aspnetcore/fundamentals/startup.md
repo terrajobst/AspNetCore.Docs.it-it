@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 8/7/2019
 uid: fundamentals/startup
-ms.openlocfilehash: 8866ee9210a91754d8050d0b91ff52c3d3fe0836
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
-ms.translationtype: HT
+ms.openlocfilehash: 9407de4ee91ba43b2c95fa98f0cf479bf8539cab
+ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975444"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310503"
 ---
 # <a name="app-startup-in-aspnet-core"></a>Avvio dell'app in ASP.NET Core
 
@@ -80,15 +80,11 @@ Un uso comune dell'[inserimento di dipendenze](xref:fundamentals/dependency-inje
 
 [!code-csharp[](startup/sample_snapshot/Startup2.cs?highlight=7-8)]
 
-::: moniker-end
-Un'alternativa all'inserimento di `IWebHostEnvironment` è l'uso di un approccio basato sulle convenzioni.
-::: moniker range=">= aspnetcore-3.0"
+La maggior parte dei servizi non è disponibile fino a quando non viene chiamato il metodo `Configure`.
 
 ::: moniker-end
 
-::: moniker range="< aspnetcore-3.0"
-Un'alternativa all'inserimento di `IHostingEnvironment` è l'uso di un approccio basato sulle convenzioni.
-::: moniker-end
+### <a name="multiple-startup"></a>Avvio multiplo
 
 Quando l'app definisce classi `Startup` separate per i diversi ambienti (ad esempio `StartupDevelopment`), la classe `Startup` appropriata viene selezionata durante il runtime. La classe il cui suffisso di nome corrisponde all'ambiente corrente ha la priorità. Se l'app viene eseguita nell'ambiente di sviluppo e include sia una classe `Startup` che una classe `StartupDevelopment`, viene usata la classe `StartupDevelopment`. Per altre informazioni, vedere [Usare più ambienti](xref:fundamentals/environments#environment-based-startup-class-and-methods).
 

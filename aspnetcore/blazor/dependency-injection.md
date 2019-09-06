@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/02/2019
 uid: blazor/dependency-injection
-ms.openlocfilehash: a9330caa81eec0910206312283b3424c70cd1289
-ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
+ms.openlocfilehash: a2bfa0cbe951e817ed6264f1a151d5a716cd795c
+ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68948391"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310345"
 ---
 # <a name="aspnet-core-blazor-dependency-injection"></a>Inserimento delle dipendenze di ASP.NET Core Blazer
 
@@ -33,7 +33,7 @@ I servizi predefiniti vengono aggiunti automaticamente alla raccolta di servizi 
 | ------- | -------- | ----------- |
 | <xref:System.Net.Http.HttpClient> | Singleton | Fornisce metodi per l'invio di richieste HTTP e la ricezione di risposte HTTP da una risorsa identificata da un URI. Si noti che questa istanza `HttpClient` di usa il browser per gestire il traffico HTTP in background. [HttpClient. BaseAddress](xref:System.Net.Http.HttpClient.BaseAddress) viene impostato automaticamente sul prefisso URI di base dell'app. Per altre informazioni, vedere <xref:blazor/call-web-api>. |
 | `IJSRuntime` | Singleton | Rappresenta un'istanza di un runtime JavaScript in cui vengono inviate le chiamate a JavaScript. Per altre informazioni, vedere <xref:blazor/javascript-interop>. |
-| `IUriHelper` | Singleton | Contiene gli helper per lavorare con gli URI e lo stato di navigazione. Per ulteriori informazioni, vedere [URI e Helper dello stato di navigazione](xref:blazor/routing#uri-and-navigation-state-helpers). |
+| `NavigationManager` | Singleton | Contiene gli helper per lavorare con gli URI e lo stato di navigazione. Per ulteriori informazioni, vedere [URI e Helper dello stato di navigazione](xref:blazor/routing#uri-and-navigation-state-helpers). |
 
 Un provider di servizi personalizzato non fornisce automaticamente i servizi predefiniti elencati nella tabella. Se si usa un provider di servizi personalizzato e si richiede uno dei servizi indicati nella tabella, aggiungere i servizi necessari al nuovo provider di servizi.
 

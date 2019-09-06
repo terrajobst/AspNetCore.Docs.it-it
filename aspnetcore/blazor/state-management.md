@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/13/2019
 uid: blazor/state-management
-ms.openlocfilehash: af040635302fbf2dae8192dcf37d55bfcfedfcec
-ms.sourcegitcommit: f5f0ff65d4e2a961939762fb00e654491a2c772a
+ms.openlocfilehash: 01f32130e43b7235cb438ad71321256882f53573
+ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030376"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70310299"
 ---
 # <a name="aspnet-core-blazor-state-management"></a>Gestione dello stato di ASP.NET Core Blazer
 
@@ -24,7 +24,7 @@ Di seguito sono riportati alcuni esempi di stato utilizzati per il circuito di u
 
 * Interfaccia utente&mdash;di cui è stato eseguito il rendering la gerarchia delle istanze dei componenti e l'output di rendering più recente.
 * Valori dei campi e delle proprietà nelle istanze del componente.
-* Dati contenuti nelle istanze del servizio [di inserimento](xref:fundamentals/dependency-injection) delle dipendenze che hanno come ambito il circuito.
+* Dati contenuti nelle istanze del servizio [di inserimento delle dipendenze](xref:fundamentals/dependency-injection) che hanno come ambito il circuito.
 
 > [!NOTE]
 > Questo articolo illustra la persistenza dello stato nelle app del lato server di Blaze. Le app sul lato client di Blazer possono sfruttare la [persistenza dello stato sul lato client nel browser](#client-side-in-the-browser) , ma richiedono soluzioni personalizzate o pacchetti di terze parti oltre l'ambito di questo articolo.
@@ -237,10 +237,7 @@ Durante il prerendering:
 
 Un modo per risolvere l'errore consiste nel disabilitare il prerendering. Questa è in genere la scelta migliore se l'app usa in modo intensivo l'archiviazione basata su browser. Il prerendering aggiunge complessità e non è vantaggioso per l'app perché l'app non può prerenderizzare `sessionStorage` contenuti utili fino a quando `localStorage` non sono disponibili o.
 
-Per disabilitare il prerendering:
-
-1. Aprire il file *pages/_Host. cshtml* e rimuovere la chiamata `Html.RenderComponentAsync`a.
-1. Aprire il `Startup.cs` file e sostituire la chiamata a `endpoints.MapBlazorHub()` con `endpoints.MapBlazorHub<App>("app")`. `App`tipo del componente radice. `"app"`è un selettore CSS che specifica la posizione del componente radice.
+Per disabilitare il prerendering, aprire il file *pages/_Host. cshtml* e modificare la `Html.RenderComponentAsync<App>(RenderMode.Server)`chiamata a.
 
 Il prerendering può essere utile per altre pagine che non `localStorage` utilizzano `sessionStorage`o. Per rendere abilitato il prerendering, rinviare l'operazione di caricamento finché il browser non è connesso al circuito. Di seguito è riportato un esempio per l'archiviazione di un valore del contatore:
 
