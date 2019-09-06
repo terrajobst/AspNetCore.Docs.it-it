@@ -1,33 +1,42 @@
 ---
 title: Configurare l'autenticazione del certificato in ASP.NET Core
 author: blowdart
-description: Informazioni su come configurare l'autenticazione del certificato in ASP.NET Core per HTTP. sys e IIS.
+description: Informazioni su come configurare l'autenticazione del certificato in ASP.NET Core per IIS e HTTP. sys.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: bdorrans
-ms.date: 06/11/2019
+ms.date: 08/19/2019
 uid: security/authentication/certauth
-ms.openlocfilehash: 8609c58265340da1d618135795915d6c49e750a3
-ms.sourcegitcommit: 0b9e767a09beaaaa4301915cdda9ef69daaf3ff2
+ms.openlocfilehash: ce7bcdbfb8ce0f1febf34b49786e92c917be139c
+ms.sourcegitcommit: 116bfaeab72122fa7d586cdb2e5b8f456a2dc92a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538716"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70384842"
 ---
 # <a name="overview"></a>Panoramica
 
-`Microsoft.AspNetCore.Authentication.Certificate` contiene un'implementazione simile a [l'autenticazione del certificato](https://tools.ietf.org/html/rfc5246#section-7.4.4) per ASP.NET Core. L'autenticazione del certificato si verifica a livello TLS, lungo prima che diventi mai ad ASP.NET Core. Più precisamente, questo è un gestore di autenticazione che convalida il certificato e quindi ti offre un evento in cui è possibile risolvere tale certificato per un `ClaimsPrincipal`. 
+`Microsoft.AspNetCore.Authentication.Certificate`contiene un'implementazione simile all' [autenticazione del certificato](https://tools.ietf.org/html/rfc5246#section-7.4.4) per ASP.NET Core. L'autenticazione del certificato viene eseguita a livello di TLS, molto prima che venga mai ASP.NET Core. Più precisamente, si tratta di un gestore di autenticazione che convalida il certificato e quindi fornisce un evento in cui è possibile risolvere il certificato in `ClaimsPrincipal`un. 
 
-[Configurare l'host](#configure-your-host-to-require-certificates) per l'autenticazione del certificato, sia esso IIS, Kestrel, App Web di Azure o qualsiasi altro componente in uso.
+[Configurare l'host](#configure-your-host-to-require-certificates) per l'autenticazione del certificato, essere IIS, gheppio, app Web di Azure o qualsiasi altro elemento in uso.
 
-## <a name="get-started"></a>Introduzione
+## <a name="proxy-and-load-balancer-scenarios"></a>Scenari di proxy e bilanciamento del carico
 
-Acquisire un certificato HTTPS, metterle in pratica, e [configurare l'host](#configure-your-host-to-require-certificates) per richiedere i certificati.
+L'autenticazione del certificato è uno scenario con stato usato principalmente quando un proxy o un servizio di bilanciamento del carico non gestisce il traffico tra client e server. Se si usa un proxy o un servizio di bilanciamento del carico, l'autenticazione del certificato funziona solo se il proxy o il servizio di bilanciamento del carico:
 
-Nell'app web, aggiungere un riferimento al `Microsoft.AspNetCore.Authentication.Certificate` pacchetto. Quindi nel `Startup.Configure` metodo, chiamare `app.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme).UseCertificateAuthentication(...);` le opzioni, che fornisce un delegato per `OnCertificateValidated` eseguire alcuna convalida del certificato client inviato con le richieste supplementare. Attivare tali informazioni in un `ClaimsPrincipal` e impostarlo sul `context.Principal` proprietà.
+* Gestisce l'autenticazione.
+* Passa le informazioni di autenticazione utente all'app, ad esempio in un'intestazione di richiesta, che agisce sulle informazioni di autenticazione.
 
-Se l'autenticazione ha esito negativo, il gestore restituisce un `403 (Forbidden)` risposta anziché una `401 (Unauthorized)`, come è prevedibile. Il concetto di base è che l'autenticazione dovrebbe verificarsi durante la connessione TLS iniziale. Per il tempo di che raggiunge il gestore è troppo tardi. Non è possibile eseguire l'aggiornamento della connessione da una connessione anonima a uno con un certificato.
+Un'alternativa all'autenticazione del certificato negli ambienti in cui vengono usati proxy e servizi di bilanciamento del carico è Active Directory servizi federati (ADFS) con OpenID Connect (OIDC).
 
-Aggiungere inoltre `app.UseAuthentication();` nella `Startup.Configure` (metodo). In caso contrario, HttpContext non essere impostato su `ClaimsPrincipal` creato dal certificato. Ad esempio:
+## <a name="get-started"></a>Attività iniziali
+
+Acquisire un certificato HTTPS, applicarlo e [configurare l'host](#configure-your-host-to-require-certificates) per richiedere i certificati.
+
+Nell'app Web aggiungere un riferimento al `Microsoft.AspNetCore.Authentication.Certificate` pacchetto. Quindi, nel `Startup.Configure` metodo chiamare `app.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme).UseCertificateAuthentication(...);` con le opzioni, fornendo un delegato per `OnCertificateValidated` per eseguire qualsiasi convalida supplementare sul certificato client inviato con le richieste. Trasformare le `ClaimsPrincipal` `context.Principal` informazioni in un oggetto e impostarle sulla proprietà.
+
+Se l'autenticazione ha esito negativo, `403 (Forbidden)` questo gestore restituisce `401 (Unauthorized)`una risposta anziché un, come si può immaginare. Il motivo è che l'autenticazione deve verificarsi durante la connessione TLS iniziale. Quando raggiunge il gestore, è troppo tardi. Non è possibile aggiornare la connessione da una connessione anonima a un'altra con un certificato.
+
+Aggiungere `app.UseAuthentication();` anche il `Startup.Configure` metodo. In caso contrario, HttpContext. User non verrà impostato su `ClaimsPrincipal` creato dal certificato. Ad esempio:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -46,50 +55,50 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-L'esempio precedente dimostra la modalità predefinita per aggiungere l'autenticazione del certificato. Il gestore costruisce un'entità utente usando le proprietà comuni del certificato.
+Nell'esempio precedente viene illustrata la modalità predefinita per aggiungere l'autenticazione del certificato. Il gestore crea un'entità utente usando le proprietà comuni del certificato.
 
-## <a name="configure-certificate-validation"></a>Configurazione della convalida del certificato
+## <a name="configure-certificate-validation"></a>Configurare la convalida del certificato
 
-Il `CertificateAuthenticationOptions` gestore ha alcune convalide incorporate che fanno le convalide minime è consigliabile eseguire in un certificato. Ognuna di queste impostazioni è abilitata per impostazione predefinita.
+Il `CertificateAuthenticationOptions` gestore dispone di alcune convalide predefinite che rappresentano le convalide minime che è necessario eseguire su un certificato. Ognuna di queste impostazioni è abilitata per impostazione predefinita.
 
-### <a name="allowedcertificatetypes--chained-selfsigned-or-all-chained--selfsigned"></a>AllowedCertificateTypes = concatenate, SelfSigned oppure tutti (concatenate | SelfSigned)
+### <a name="allowedcertificatetypes--chained-selfsigned-or-all-chained--selfsigned"></a>AllowedCertificateTypes = concatenato, SelfSigned o tutti (concatenato | SelfSigned)
 
-Questo controllo verifica che sia consentito solo il tipo di certificato appropriato.
+Questo controllo consente di verificare che sia consentito solo il tipo di certificato appropriato.
 
 ### <a name="validatecertificateuse"></a>ValidateCertificateUse
 
-Questo controllo verifica che il certificato presentato dal client con l'autenticazione Client esteso per l'uso delle chiavi (EKU), o nessun EKU affatto. Come dice le specifiche, se non viene specificato alcun utilizzo chiavi avanzato, tutti gli EKU vengono ritenuti validi.
+Questo controllo verifica che il certificato presentato dal client disponga dell'utilizzo chiavi avanzato (EKU) di autenticazione client o non EKU affatto. Come le specifiche dicono, se non è specificato alcun EKU, tutti i EKU vengono considerati validi.
 
 ### <a name="validatevalidityperiod"></a>ValidateValidityPeriod
 
-Questo controllo verifica che il certificato sia entro il relativo periodo di validità. Per ogni richiesta, il gestore assicura che non sia scaduto un certificato che era valido quando viene presentato durante la sessione corrente.
+Questo controllo verifica che il certificato sia entro il periodo di validità. Per ogni richiesta, il gestore garantisce che un certificato valido al momento della presentazione non sia scaduto durante la sessione corrente.
 
 ### <a name="revocationflag"></a>RevocationFlag
 
-Un flag che specifica quali certificati nella catena è controllato per la revoca.
+Flag che specifica i certificati nella catena controllati per la revoca.
 
-Controlli di revoche di certificati vengono eseguiti solo quando il certificato sia concatenato a un certificato radice.
+I controlli di revoca vengono eseguiti solo quando il certificato è concatenato a un certificato radice.
 
 ### <a name="revocationmode"></a>RevocationMode
 
-Flag che specifica come vengono eseguiti i controlli di revoche di certificati.
+Flag che specifica la modalità di esecuzione dei controlli di revoca.
 
-Specifica di un controllo in linea può comportare un ritardo prolungato mentre viene contattato l'autorità di certificazione.
+La specifica di un controllo online può comportare un ritardo prolungato mentre viene contattata l'autorità di certificazione.
 
-Controlli di revoche di certificati vengono eseguiti solo quando il certificato sia concatenato a un certificato radice.
+I controlli di revoca vengono eseguiti solo quando il certificato è concatenato a un certificato radice.
 
-### <a name="can-i-configure-my-app-to-require-a-certificate-only-on-certain-paths"></a>È possibile configurare l'app per richiedere un certificato solo in determinati percorsi?
+### <a name="can-i-configure-my-app-to-require-a-certificate-only-on-certain-paths"></a>È possibile configurare l'app in modo che richieda un certificato solo su determinati percorsi?
 
-Questo non è possibile. Tenere presente che lo scambio del certificato viene eseguito l'avvio della conversazione HTTPS, il termine dal server prima che venga ricevuta la prima richiesta su tale connessione in modo che non è possibile all'ambito basato su tutti i campi di richiesta.
+Questa operazione non è possibile. Tenere presente che lo scambio di certificati è stato eseguito dall'avvio della conversazione HTTPS, che viene eseguito dal server prima che la prima richiesta venga ricevuta sulla connessione, quindi non è possibile definire l'ambito in base a qualsiasi campo di richiesta.
 
-## <a name="handler-events"></a>Eventi del gestore
+## <a name="handler-events"></a>Eventi gestore
 
-Il gestore ha due eventi:
+Il gestore dispone di due eventi:
 
-* `OnAuthenticationFailed` &ndash; Chiamata eseguita se un'eccezione si verifica durante l'autenticazione e consente di rispondere.
-* `OnCertificateValidated` &ndash; Chiamato dopo che il certificato è stato convalidato, ha superato la convalida e sia stata creata un'entità di sicurezza predefinita. Questo evento consente di eseguire la propria convalida e migliorare o sostituire l'entità. Per alcuni esempi includono:
-  * Determinare se il certificato è noto ai tuoi servizi.
-  * Costruzione di propria entità. Si consideri l'esempio seguente in `Startup.ConfigureServices`:
+* `OnAuthenticationFailed`&ndash; Viene chiamato se si verifica un'eccezione durante l'autenticazione e consente di rispondere.
+* `OnCertificateValidated`&ndash; Chiamato dopo che il certificato è stato convalidato, è stata passata la convalida ed è stata creata un'entità predefinita. Questo evento consente di eseguire una convalida personalizzata e di aumentare o sostituire l'entità di protezione. Gli esempi includono:
+  * Determinare se il certificato è noto ai servizi.
+  * Creazione di un'entità personalizzata. Si consideri l'esempio seguente in `Startup.ConfigureServices`:
 
 ```csharp
 services.AddAuthentication(
@@ -123,9 +132,9 @@ services.AddAuthentication(
     });
 ```
 
-Se si trova il certificato in ingresso non soddisfa la convalida aggiuntiva, chiamare `context.Fail("failure reason")` con un motivo dell'errore.
+Se il certificato in ingresso non soddisfa la convalida aggiuntiva, chiamare `context.Fail("failure reason")` con un motivo dell'errore.
 
-La funzionalità per il real, si sarà probabilmente necessario chiamare un servizio registrato nell'inserimento delle dipendenze che si connette a un database o di altro tipo di archivio dell'utente. Accedere al servizio utilizzando il contesto passato al delegato. Si consideri l'esempio seguente in `Startup.ConfigureServices`:
+Per le funzionalità reali, è probabile che si voglia chiamare un servizio registrato nell'inserimento delle dipendenze che si connette a un database o a un altro tipo di archivio utente. Accedere al servizio usando il contesto passato al delegato. Si consideri l'esempio seguente in `Startup.ConfigureServices`:
 
 ```csharp
 services.AddAuthentication(
@@ -168,13 +177,13 @@ services.AddAuthentication(
     });
 ```
 
-Concettualmente, la convalida del certificato è un problema di autorizzazione. L'aggiunta di un controllo, ad esempio, un'autorità di certificazione o identificazione personale in un criterio di autorizzazione, anziché all'interno `OnCertificateValidated`, è perfettamente accettabile.
+Concettualmente, la convalida del certificato è un problema di autorizzazione. L'aggiunta di un controllo, ad esempio, di un'autorità emittente o di un'identificazione personale in un criterio `OnCertificateValidated`di autorizzazione, anziché all'interno di, è perfettamente accettabile.
 
 ## <a name="configure-your-host-to-require-certificates"></a>Configurare l'host per richiedere i certificati
 
 ### <a name="kestrel"></a>Kestrel
 
-Nelle *Program.cs*, configurare Kestrel come indicato di seguito:
+In *Program.cs*configurare gheppio come segue:
 
 ```csharp
 public static IWebHost BuildWebHost(string[] args) =>
@@ -191,14 +200,14 @@ public static IWebHost BuildWebHost(string[] args) =>
 
 ### <a name="iis"></a>IIS
 
-Completare i passaggi seguenti In Gestione IIS:
+Completare i passaggi seguenti in Gestione IIS:
 
-1. Selezionare il sito dal **connessioni** scheda.
-1. Fare doppio clic il **impostazioni SSL** opzione il **visualizzazione funzionalità** finestra.
-1. Controllare la **Richiedi SSL** casella di controllo e selezionare il **richiedono** pulsante di opzione nel **certificati Client** sezione.
+1. Selezionare il sito dalla scheda **connessioni** .
+1. Fare doppio clic sull'opzione **Impostazioni SSL** nella finestra **visualizzazione funzionalità** .
+1. Selezionare la casella di controllo **Richiedi SSL** e selezionare il pulsante di opzione **Richiedi** nella sezione **certificati client** .
 
 ![Impostazioni del certificato client in IIS](README-IISConfig.png)
 
-### <a name="azure-and-custom-web-proxies"></a>Azure e i proxy web personalizzata
+### <a name="azure-and-custom-web-proxies"></a>Azure e proxy Web personalizzati
 
-Vedere le [ospitare e distribuire la documentazione](xref:host-and-deploy/proxy-load-balancer#certificate-forwarding) per informazioni su come configurare il certificato del middleware di inoltro.
+Vedere l' [host e distribuire la documentazione](xref:host-and-deploy/proxy-load-balancer#certificate-forwarding) per informazioni su come configurare il middleware di invio del certificato.

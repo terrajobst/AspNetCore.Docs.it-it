@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/12/2019
 uid: fundamentals/app-state
-ms.openlocfilehash: 4b02a9b5867559da493054bb128aabed4d920ace
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
-ms.translationtype: HT
+ms.openlocfilehash: 578be568b58dc630e8aabf8cb355266766741b9e
+ms.sourcegitcommit: 116bfaeab72122fa7d586cdb2e5b8f456a2dc92a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67813614"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70384731"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>Stato di sessioni e app in ASP.NET Core
 
@@ -105,7 +105,7 @@ Per fare in modo che le app implementino questo criterio, eseguire il wrapping d
 
 Per eseguire l'override delle impostazioni predefinite di sessione, usare [SessionOptions](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions).
 
-| Opzione | DESCRIZIONE |
+| Opzione | Descrizione |
 | ------ | ----------- |
 | [Cookie](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.cookie) | Determina le impostazioni usate per creare il cookie. Per impostazione predefinita, [Name](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.name) è [SessionDefaults.CookieName](/dotnet/api/microsoft.aspnetcore.session.sessiondefaults.cookiename) (`.AspNetCore.Session`). Per impostazione predefinita, [Path](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.path) è [SessionDefaults.CookiePath](/dotnet/api/microsoft.aspnetcore.session.sessiondefaults.cookiepath) (`/`). [SameSite](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.samesite) per impostazione predefinita è [SameSiteMode.Lax](/dotnet/api/microsoft.aspnetcore.http.samesitemode) (`1`). Per [HttpOnly](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.httponly) il valore predefinito è `true`. Per [IsEssential](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.isessential) il valore predefinito è `false`. |
 | [IdleTimeout](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.idletimeout) | Il valore `IdleTimeout` indica quanto tempo la sessione può rimanere inattiva prima che il relativo contenuto venga abbandonato. Ogni accesso alla sessione reimposta il timeout. Si noti che questa impostazione vale solo per il contenuto della sessione, non per il cookie. Il valore predefinito è 20 minuti. |
@@ -163,7 +163,29 @@ L'esempio seguente illustra come impostare e ottenere un oggetto serializzabile 
 
 ## <a name="tempdata"></a>TempData
 
-ASP.NET Core espone la [proprietà TempData di un modello di pagina di Razor Pages](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel.tempdata) o la proprietà [TempData di un controller MVC](/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata). Questa proprietà archivia i dati finché non viene letta. I metodi [Keep](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.itempdatadictionary.keep) e [Peek](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.itempdatadictionary.peek) possono essere usati per esaminare i dati senza eliminazione. TempData è particolarmente utile per il reindirizzamento quando i dati sono necessari per più di una richiesta singola. La proprietà TempData viene implementata dai provider TempData usando i cookie o lo stato sessione.
+ASP.NET Core espone l'Razor Pages [TempData](xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel.TempData) o il <xref:Microsoft.AspNetCore.Mvc.Controller.TempData>controller. Questa proprietà archivia i dati finché non viene letta in un'altra richiesta. È possibile utilizzare i metodi [Keep (String)](xref:Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionary.Keep*) e [Peek (String)](xref:Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionary.Peek*) per esaminare i dati senza eliminarli alla fine della richiesta. [Keep ()](xref:Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionary.Keep*) contrassegna tutti gli elementi nel dizionario per la memorizzazione. `TempData`è particolarmente utile per il reindirizzamento quando i dati sono necessari per più di una singola richiesta. `TempData`viene implementato dai `TempData` provider utilizzando cookie o lo stato della sessione.
+
+## <a name="tempdata-samples"></a>Esempi di TempData
+
+Si consideri la seguente pagina che consente di creare un cliente:
+
+[!code-csharp[](app-state/3.0samples/RazorPagesContacts/Pages/Customers/Create.cshtml.cs?name=snippet&highlight=15-16,30)]
+
+Viene visualizzata `TempData["Message"]`la pagina seguente:
+
+[!code-cshtml[](app-state/3.0samples/RazorPagesContacts/Pages/Customers/IndexPeek.cshtml?range=1-14)]
+
+Nel markup precedente, alla fine della richiesta, `TempData["Message"]` **non** viene eliminato perché `Peek` viene usato. Verrà visualizzato `TempData["Message"]`l'aggiornamento della pagina.
+
+Il markup seguente è simile al codice precedente, ma usa `Keep` per conservare i dati alla fine della richiesta:
+
+[!code-cshtml[](app-state/3.0samples/RazorPagesContacts/Pages/Customers/IndexKeep.cshtml?range=1-14)]
+
+L'esplorazione tra le pagine *IndexPeek* e *IndexKeep* non verrà `TempData["Message"]`eliminata.
+
+Il codice seguente visualizza `TempData["Message"]`, ma alla fine della richiesta, `TempData["Message"]` viene eliminato:
+
+[!code-cshtml[](app-state/3.0samples/RazorPagesContacts/Pages/Customers/Index.cshtml?range=1-14)]
 
 ### <a name="tempdata-providers"></a>Provider TempData
 
