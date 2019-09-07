@@ -5,14 +5,14 @@ description: Informazioni su come scrivere middleware di ASP.NET Core personaliz
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/17/2019
+ms.date: 08/22/2019
 uid: fundamentals/middleware/write
-ms.openlocfilehash: 352db93dd7061070c76e34f6c03883f68e2041ee
-ms.sourcegitcommit: 28a2874765cefe9eaa068dceb989a978ba2096aa
-ms.translationtype: HT
+ms.openlocfilehash: e74bba9e1bd826d4f493b0ee642a198f984daada
+ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67167101"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773721"
 ---
 # <a name="write-custom-aspnet-core-middleware"></a>Scrivere middleware di ASP.NET Core personalizzato
 
@@ -24,7 +24,7 @@ Il middleware è un software che viene assemblato in una pipeline dell'app per g
 
 Il middleware è in genere incapsulato in una classe ed esposto con un metodo di estensione. Si consideri il middleware seguente, che specifica le impostazioni cultura per la richiesta corrente da una stringa di query:
 
-[!code-csharp[](index/snapshot/Culture/StartupCulture.cs?name=snippet1)]
+[!code-csharp[](write/snapshot/StartupCulture.cs)]
 
 Il codice di esempio precedente viene usato per illustrare la creazione di un componente middleware. Per il supporto di localizzazione incorporato di ASP.NET Core, vedere <xref:fundamentals/localization>.
 
@@ -32,7 +32,7 @@ Testare il middleware passando le impostazioni cultura. Ad esempio, richiedere `
 
 Il codice seguente sposta il delegato middleware in una classe:
 
-[!code-csharp[](index/snapshot/Culture/RequestCultureMiddleware.cs)]
+[!code-csharp[](write/snapshot/RequestCultureMiddleware.cs)]
 
 La classe middleware deve includere:
 
@@ -76,11 +76,11 @@ public class CustomMiddleware
 
 Il metodo di estensione seguente espone il middleware tramite <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder>:
 
-[!code-csharp[](index/snapshot/Culture/RequestCultureMiddlewareExtensions.cs)]
+[!code-csharp[](write/snapshot/RequestCultureMiddlewareExtensions.cs)]
 
 Il codice seguente chiama il middleware da `Startup.Configure`:
 
-[!code-csharp[](index/snapshot/Culture/Startup.cs?name=snippet1&highlight=5)]
+[!code-csharp[](write/snapshot/Startup.cs?highlight=5)]
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

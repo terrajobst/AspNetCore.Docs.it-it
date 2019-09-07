@@ -5,12 +5,12 @@ description: Informazioni su come l'associazione di modelli consente alle azioni
 ms.author: riande
 ms.date: 11/13/2018
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: 3623a29976a2e2a7b1bdb22d35716b8a3b448958
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
-ms.translationtype: HT
+ms.openlocfilehash: 27e19012b6f878f5e3d08846593a7513bd584a4c
+ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64891226"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773504"
 ---
 # <a name="custom-model-binding-in-aspnet-core"></a>Associazione di modelli personalizzata in ASP.NET Core
 
@@ -104,7 +104,7 @@ L'attributo `ModelBinder` può essere usato per applicare gli elementi `AuthorEn
 
 [!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Controllers/BoundAuthorsController.cs?name=demo1&highlight=2)]
 
-In questo esempio, dato che il nome dell'argomento non è il valore `authorId` predefinito, viene specificato nel parametro usando l'attributo `ModelBinder`. Si noti che sia controller sia il metodo di azione risultano più semplici rispetto alla ricerca dell'entità nel metodo di azione. La logica per recuperare l'autore usando Entity Framework Core viene spostata nello strumento di associazione di modelli. Ciò può rappresentare una semplificazione notevole in presenza di vari metodi associati al modello `Author`.
+In questo esempio, dato che il nome dell'argomento non è il valore `authorId` predefinito, viene specificato nel parametro usando l'attributo `ModelBinder`. Il controller e il metodo di azione sono semplificati rispetto alla ricerca dell'entità nel metodo di azione. La logica per recuperare l'autore usando Entity Framework Core viene spostata nello strumento di associazione di modelli. Ciò può rappresentare una semplificazione notevole in presenza di vari metodi associati al modello `Author`.
 
 È possibile applicare l'attributo `ModelBinder` a singole proprietà del modello (ad esempio a ViewModel) o a parametri del metodo di azione per specificare un determinato strumento di associazione di modelli o nome di modello solo per quel determinato tipo o azione.
 
@@ -129,6 +129,12 @@ La figura seguente visualizza gli strumenti di associazione di modelli predefini
 Se il provider personalizzato viene aggiunto alla fine della raccolta, è possibile che uno strumento di associazione di modelli incorporato venga chiamato prima dello strumento di associazione di modelli personalizzato. In questo esempio il provider personalizzato viene aggiunto all'inizio della raccolta, per garantire che venga usato per gli argomenti dell'azione `Author`.
 
 [!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Startup.cs?name=callout&highlight=5-9)]
+
+### <a name="polymorphic-model-binding"></a>Associazione di modelli polimorfici
+
+L'associazione a modelli diversi di tipi derivati è nota come associazione di modelli polimorfici. L'associazione di modelli personalizzati è obbligatoria quando il valore della richiesta deve essere associato al tipo di modello derivato specifico. A meno che non sia necessario questo approccio, è consigliabile evitare l'associazione di modelli polimorfici. L'associazione di modelli polimorfici rende difficile la motivazione dei modelli associati. Tuttavia, se un'app richiede l'associazione di modelli polimorfici, un'implementazione potrebbe avere un aspetto simile al codice seguente:
+
+[!code-csharp[](custom-model-binding/3.0sample/PolymorphicModelBinding/ModelBinders/PolymorphicModelBinder.cs?name=snippet)]
 
 ## <a name="recommendations-and-best-practices"></a>Suggerimenti e procedure ottimali
 

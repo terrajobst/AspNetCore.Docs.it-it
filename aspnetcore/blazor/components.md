@@ -5,14 +5,14 @@ description: Informazioni su come creare e usare i componenti Razor, tra cui la 
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/04/2019
+ms.date: 09/06/2019
 uid: blazor/components
-ms.openlocfilehash: ce9da14bbe19cbee960d215f6167a0e760bd607a
-ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
+ms.openlocfilehash: e877abfb568f71046c3603cac5e888e99ffc8d15
+ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310368"
+ms.lasthandoff: 09/07/2019
+ms.locfileid: "70800416"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Creare e usare ASP.NET Core componenti Razor
 
@@ -716,17 +716,30 @@ protected override void OnParametersSet()
 
 `OnAfterRenderAsync`e `OnAfterRender` vengono chiamati dopo che un componente ha terminato il rendering. I riferimenti a elementi e componenti vengono popolati a questo punto. Usare questa fase per eseguire passaggi di inizializzazione aggiuntivi usando il contenuto sottoposto a rendering, ad esempio l'attivazione di librerie JavaScript di terze parti che operano sugli elementi DOM sottoposti a rendering.
 
+`OnAfterRender`*non viene chiamato quando si esegue il prerendering sul server.*
+
+Il `firstRender` parametro per `OnAfterRenderAsync` e `OnAfterRender` è:
+
+* `true` Impostare la prima volta che l'istanza del componente viene richiamata.
+* Garantisce che il lavoro di inizializzazione venga eseguito una sola volta.
+
 ```csharp
-protected override async Task OnAfterRenderAsync()
+protected override async Task OnAfterRenderAsync(bool firstRender)
 {
-    await ...
+    if (firstRender)
+    {
+        await ...
+    }
 }
 ```
 
 ```csharp
-protected override void OnAfterRender()
+protected override void OnAfterRender(bool firstRender)
 {
-    ...
+    if (firstRender)
+    {
+        ...
+    }
 }
 ```
 

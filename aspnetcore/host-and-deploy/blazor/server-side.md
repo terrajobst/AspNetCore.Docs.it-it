@@ -5,14 +5,14 @@ description: Informazioni su come ospitare e distribuire un'app sul lato server 
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/11/2019
+ms.date: 09/05/2019
 uid: host-and-deploy/blazor/server-side
-ms.openlocfilehash: 56a03ff583bf85497e2b3bacc70123845a046e3d
-ms.sourcegitcommit: 040aedca220ed24ee1726e6886daf6906f95a028
-ms.translationtype: HT
+ms.openlocfilehash: 8da71faf6abc5929d6cd43d42fd896e378d99ef6
+ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67892693"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773578"
 ---
 # <a name="host-and-deploy-blazor-server-side"></a>Ospitare e distribuire Blazor sul lato server
 

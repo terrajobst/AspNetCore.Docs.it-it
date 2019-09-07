@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 08/05/2019
 uid: signalr/configuration
-ms.openlocfilehash: 475d9664c588c06bfcd816959be8a425ee01c023
-ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
+ms.openlocfilehash: 156ffac83fbdf61fd88ad8acc307c2c701c46bca
+ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68915076"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773922"
 ---
 # <a name="aspnet-core-signalr-configuration"></a>Configurazione di ASP.NET Core SignalR
 
@@ -122,6 +122,30 @@ services.AddSignalR().AddHubOptions<MyHub>(options =>
 
 ### <a name="advanced-http-configuration-options"></a>Opzioni di configurazione HTTP avanzate
 
+::: moniker range=">= aspnetcore-3.0"
+
+Utilizzare `HttpConnectionDispatcherOptions` per configurare le impostazioni avanzate relative ai trasporti e alla gestione dei buffer di memoria. Queste opzioni vengono configurate passando un delegato [a\<MapHub T >](/dotnet/api/microsoft.aspnetcore.builder.hubendpointroutebuilderextensions.maphub) in. `Startup.Configure`
+
+```csharp
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+    app.UseRouting();
+
+    app.UseEndpoints(endpoints =>
+    {
+        endpoints.MapHub<MyHub>("/myhub", options =>
+        {
+            options.Transports =
+                HttpTransportType.WebSockets |
+                HttpTransportType.LongPolling;
+        });
+    });
+}
+```
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.2"
+
 Utilizzare `HttpConnectionDispatcherOptions` per configurare le impostazioni avanzate relative ai trasporti e alla gestione dei buffer di memoria. Queste opzioni vengono configurate passando un delegato [a\<MapHub T >](/dotnet/api/microsoft.aspnetcore.signalr.hubroutebuilder.maphub) in. `Startup.Configure`
 
 ```csharp
@@ -141,11 +165,13 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
+::: moniker-end
+
 La tabella seguente descrive le opzioni per la configurazione delle opzioni HTTP avanzate di ASP.NET Core SignalR:
 
 ::: moniker range=">= aspnetcore-3.0"
 
-| Opzione | Default Value | Descrizione |
+| Opzione | Default Value | DESCRIZIONE |
 | ------ | ------------- | ----------- |
 | `ApplicationMaxBufferSize` | 32 KB | Il numero massimo di byte ricevuti dal client che il server memorizza nel buffer prima di applicare la contropressione. L'aumento di questo valore consente al server di ricevere più rapidamente messaggi di dimensioni maggiori senza applicare la sovrapressione, ma può aumentare l'utilizzo della memoria. |
 | `AuthorizationData` | Dati raccolti automaticamente dagli `Authorize` attributi applicati alla classe Hub. | Elenco di oggetti [IAuthorizeData](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizedata) usati per determinare se un client è autorizzato a connettersi all'hub. |
@@ -242,7 +268,7 @@ Nella tabella seguente sono elencati i livelli di log disponibili. Il valore for
 > [!NOTE]
 > Per disabilitare completamente la `signalR.LogLevel.None` `configureLogging` registrazione, specificare nel metodo.
 
-Per ulteriori informazioni sulla registrazione, vedere la [documentazione di diagnostica](xref:signalr/diagnostics)di SignalR.
+Per ulteriori informazioni sulla registrazione, vedere la [documentazione di diagnostica di SignalR](xref:signalr/diagnostics).
 
 Il client Java SignalR usa la libreria [SLF4J](https://www.slf4j.org/) per la registrazione. Si tratta di un'API di registrazione di alto livello che consente agli utenti della libreria di scegliere una propria implementazione di registrazione specifica inserendo una dipendenza di registrazione specifica. Il frammento di codice seguente illustra come `java.util.logging` usare con il client Java SignalR.
 
@@ -360,14 +386,14 @@ Nel client .NET i valori di timeout vengono specificati come `TimeSpan` valori.
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-| Opzione | Valore predefinito | DESCRIZIONE |
+| Opzione | Valore predefinito | Descrizione |
 | ------ | ------------- | ----------- |
 | `serverTimeoutInMilliseconds` | 30 secondi (30.000 millisecondi) | Timeout per l'attività del server. Se il server non ha inviato un messaggio in questo intervallo, il client considera il server disconnesso e `onclose` attiva l'evento. Questo valore deve essere sufficientemente grande da consentire l'invio del messaggio ping dal server **e** la ricezione da parte del client entro l'intervallo di timeout. Il valore consigliato è un numero almeno il doppio del `KeepAliveInterval` valore del server per consentire l'arrivo dei ping. |
 | `keepAliveIntervalInMilliseconds` | 15 secondi (15.000 millisecondi) | Determina l'intervallo in corrispondenza del quale il client invia messaggi ping. L'invio di messaggi dal client Reimposta il timer all'inizio dell'intervallo. Se il client non ha inviato un messaggio nel `ClientTimeoutInterval` set nel server, il server considera il client disconnesso. |
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-| Opzione | Valore predefinito | DESCRIZIONE |
+| Opzione | Valore predefinito | Descrizione |
 | ------ | ------------- | ----------- |
 | `getServerTimeout` / `setServerTimeout` | 30 secondi (30.000 millisecondi) | Timeout per l'attività del server. Se il server non ha inviato un messaggio in questo intervallo, il client considera il server disconnesso e `onClose` attiva l'evento. Questo valore deve essere sufficientemente grande da consentire l'invio del messaggio ping dal server **e** la ricezione da parte del client entro l'intervallo di timeout. Il valore consigliato è un numero almeno il doppio del `KeepAliveInterval` valore del server per consentire l'arrivo dei ping. |
 | `withHandshakeResponseTimeout` | 15 secondi | Timeout per l'handshake iniziale del server. Se il server non invia una risposta di handshake in questo intervallo, il client Annulla l'handshake e attiva l' `onClose` evento. Si tratta di un'impostazione avanzata che deve essere modificata solo se si verificano errori di timeout dell'handshake a causa di una latenza di rete grave. Per informazioni dettagliate sul processo di handshake, vedere la [specifica del protocollo dell'hub SignalR](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md). |
@@ -388,7 +414,7 @@ Nel client .NET i valori di timeout vengono specificati come `TimeSpan` valori.
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-| Opzione | Valore predefinito | DESCRIZIONE |
+| Opzione | Valore predefinito | Descrizione |
 | ------ | ------------- | ----------- |
 | `serverTimeoutInMilliseconds` | 30 secondi (30.000 millisecondi) | Timeout per l'attività del server. Se il server non ha inviato un messaggio in questo intervallo, il client considera il server disconnesso e `onclose` attiva l'evento. Questo valore deve essere sufficientemente grande da consentire l'invio del messaggio ping dal server **e** la ricezione da parte del client entro l'intervallo di timeout. Il valore consigliato è un numero almeno il doppio del `KeepAliveInterval` valore del server per consentire l'arrivo dei ping. |
 

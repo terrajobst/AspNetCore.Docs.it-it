@@ -5,14 +5,14 @@ description: Informazioni sugli scenari di autenticazione e autorizzazione per B
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/29/2019
+ms.date: 09/05/2019
 uid: security/blazor/index
-ms.openlocfilehash: 8714acbeb6e8a00992a601030811b24f53426b82
-ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
+ms.openlocfilehash: 2ba7b0612c2be50ae0797c50dc3cb0d63c0f0c2d
+ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310519"
+ms.lasthandoff: 09/07/2019
+ms.locfileid: "70800504"
 ---
 # <a name="aspnet-core-blazor-authentication-and-authorization"></a>Autenticazione e autorizzazione per ASP.NET Core Blazor
 
@@ -277,7 +277,7 @@ Se l'utente non è autenticato, è anche possibile fornire un contenuto diverso 
 </AuthorizeView>
 ```
 
-Il contenuto di `<Authorized>` e `<NotAuthorized>` può includere elementi arbitrari, ad esempio altri componenti interattivi.
+Il contenuto dei `<Authorized>` tag `<NotAuthorized>` e può includere elementi arbitrari, ad esempio altri componenti interattivi.
 
 Le condizioni di autorizzazione, ad esempio i ruoli o i criteri che consentono di controllare le opzioni dell'interfaccia utente o l'accesso, sono presentate nella sezione [Autorizzazione](#authorization).
 
@@ -410,9 +410,9 @@ Nel modello di progetto sul lato server Blazor predefinito, il file *App.razor* 
 </Router>
 ```
 
-Il contenuto di `<NotFound>`, `<NotAuthorized>` e `<Authorizing>` può includere elementi arbitrari, ad esempio altri componenti interattivi.
+Il contenuto dei `<NotFound>`tag `<NotAuthorized>`, e `<Authorizing>` può includere elementi arbitrari, ad esempio altri componenti interattivi.
 
-Se `<NotAuthorized>` non è specificato `<AuthorizeRouteView>` , utilizza il seguente messaggio di fallback:
+Se l' `<NotAuthorized>` elemento non è specificato `AuthorizeRouteView` , utilizza il seguente messaggio di fallback:
 
 ```html
 Not authorized.

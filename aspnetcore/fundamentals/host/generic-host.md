@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/01/2019
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: 9f5ecc7840fc7ffd9432a3bb67d0418efb7e8fd6
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
-ms.translationtype: HT
+ms.openlocfilehash: 261abae499a0d5f807a14aebd224949881067bc7
+ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975622"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773807"
 ---
 # <a name="net-generic-host"></a>Host generico .NET
 
@@ -170,6 +170,8 @@ Per altre informazioni, vedere [Configurazione in ASP.NET Core](xref:fundamental
 
 Questa sezione elenca le impostazioni dell'host che si applicano ai carichi di lavoro HTTP e non-HTTP. Per impostazione predefinita, le variabili di ambiente usate per configurare queste impostazioni possono avere un prefisso `DOTNET_` o `ASPNETCORE_`.
 
+<!-- In the following sections, two spaces at end of line are used to force line breaks in the rendered page. -->
+
 ### <a name="applicationname"></a>ApplicationName
 
 La proprietà [IHostEnvironment.ApplicationName](xref:Microsoft.Extensions.Hosting.IHostEnvironment.ApplicationName*) viene impostata dalla configurazione dell'host durante la costruzione dell'host.
@@ -312,8 +314,9 @@ webBuilder.UseSetting(WebHostDefaults.HostingStartupExcludeAssembliesKey, "assem
 
 Porta di reindirizzamento HTTPS. Usata per [imporre HTTPS](xref:security/enforcing-ssl).
 
-**Chiave**: https_port **Tipo**: *string*
-**Impostazione predefinita**: non è impostato nessun valore predefinito.
+**Chiave**: https_port  
+**Tipo**: *string*  
+**Predefinito**: non è impostato nessun valore predefinito.  
 **Variabile di ambiente**: `<PREFIX_>HTTPS_PORT`
 
 Per impostare questo valore, usare la configurazione o chiamare `UseSetting`:
@@ -356,8 +359,9 @@ webBuilder.UseSetting(WebHostDefaults.PreventHostingStartupKey, "true");
 
 L'assembly per la ricerca della classe `Startup`.
 
-**Chiave**: startupAssembly **Tipo**: *stringa*  
-**Predefinito**: assembly dell'app  
+**Chiave**: startupAssembly  
+**Tipo**: *string*  
+**Impostazione predefinita**: assembly dell'app  
 **Variabile di ambiente**: `<PREFIX_>STARTUPASSEMBLY`
 
 Per impostare questo valore, usare la variabile di ambiente o chiamare `UseStartup`. `UseStartup` può richiedere un nome di assembly (`string`) o un tipo (`TStartup`). Se vengono chiamati più metodi `UseStartup`, l'ultimo metodo ha la precedenza.
@@ -376,7 +380,7 @@ Elenco delimitato da punto e virgola degli indirizzi IP o gli indirizzi host con
 
 **Chiave**: urls  
 **Tipo**: *string*  
-**Predefinito**: `http://localhost:5000` e `https://localhost:5001`
+**Impostazione predefinita**: `http://localhost:5000` e`https://localhost:5001`  
 **Variabile di ambiente**: `<PREFIX_>URLS`
 
 Per impostare questo valore, usare la variabile di ambiente o chiamare `UseUrls`:
@@ -418,7 +422,7 @@ Chiamare metodi sull'implementazione <xref:Microsoft.Extensions.Hosting.IHost> i
 
 <xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.RunConsoleAsync*> abilita il supporto della console, compila e avvia l'host e resta in ascolto di CTRL+C/SIGINT o SIGTERM per eseguire l'arresto.
 
-### <a name="start"></a>Inizia
+### <a name="start"></a>Start
 
 <xref:Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Start*> avvia l'host in modo sincrono.
 

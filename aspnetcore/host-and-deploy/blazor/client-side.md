@@ -5,108 +5,32 @@ description: Informazioni su come ospitare e distribuire un'app Blazor con ASP.N
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/10/2019
+ms.date: 09/05/2019
 uid: host-and-deploy/blazor/client-side
-ms.openlocfilehash: e9a42bd4e8511d426761746047fed2d4f7dfc6dd
-ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
-ms.translationtype: HT
+ms.openlocfilehash: c9822205d38f765cf80748bc2b379c11ec7c1c57
+ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68994084"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773595"
 ---
 # <a name="host-and-deploy-aspnet-core-blazor-client-side"></a>Ospitare e distribuire ASP.NET Core Blazor sul lato client
 
 Di [Luke Latham](https://github.com/guardrex), [Rainer Stropek](https://www.timecockpit.com) e [Daniel Roth](https://github.com/danroth27)
 
-## <a name="host-configuration-values"></a>Valori di configurazione dell'host
-
-Le app Blazor che usano il [modello di hosting sul lato client](xref:blazor/hosting-models#client-side) possono accettare i valori di configurazione dell'host seguenti come argomenti della riga di comando in fase di esecuzione nell'ambiente di sviluppo.
-
-### <a name="content-root"></a>Radice del contenuto
-
-L'argomento `--contentroot` imposta il percorso assoluto sulla directory che contiene i file di contenuto dell'app. Negli esempi seguenti `/content-root-path` è il percorso radice del contenuto dell'app.
-
-* Passare l'argomento quando si esegue localmente l'app a un prompt dei comandi. Dalla directory dell'app, eseguire:
-
-  ```console
-  dotnet run --contentroot=/content-root-path
-  ```
-
-* Aggiungere una voce al file *launchSettings.json* dell'app nel profilo **IIS Express**. Questa impostazione viene usata quando l'app viene eseguita con il debugger di Visual Studio e da un prompt dei comandi con `dotnet run`.
-
-  ```json
-  "commandLineArgs": "--contentroot=/content-root-path"
-  ```
-
-* In Visual Studio specificare l'argomento in **Proprietà** > **Debug** > **Argomenti applicazione**. Impostando l'argomento nella pagina delle proprietà di Visual Studio, si aggiunge l'argomento al file *launchSettings.json*.
-
-  ```console
-  --contentroot=/content-root-path
-  ```
-
-### <a name="path-base"></a>Base del percorso
-
-L'argomento `--pathbase` imposta il percorso di base dell'app per un'app eseguita in locale con un percorso virtuale non radice (il tag `<base>` `href` è impostato su un percorso diverso da `/` per staging e produzione). Negli esempi seguenti `/virtual-path` è la base del percorso dell'app. Per altre informazioni, vedere la sezione [Percorso di base dell'app](#app-base-path).
-
-> [!IMPORTANT]
-> A differenza del percorso specificato per `href` del tag `<base>`, non includere una barra finale (`/`) quando si passa il valore dell'argomento `--pathbase`. Se il percorso di base dell'app non viene specificato nel tag `<base>` come `<base href="/CoolApp/">` (include una barra finale), passare il valore dell'argomento della riga di comando come `--pathbase=/CoolApp` (senza barra finale).
-
-* Passare l'argomento quando si esegue localmente l'app a un prompt dei comandi. Dalla directory dell'app, eseguire:
-
-  ```console
-  dotnet run --pathbase=/virtual-path
-  ```
-
-* Aggiungere una voce al file *launchSettings.json* dell'app nel profilo **IIS Express**. Questa impostazione viene usata quando l'app viene eseguita con il debugger di Visual Studio e da un prompt dei comandi con `dotnet run`.
-
-  ```json
-  "commandLineArgs": "--pathbase=/virtual-path"
-  ```
-
-* In Visual Studio specificare l'argomento in **Proprietà** > **Debug** > **Argomenti applicazione**. Impostando l'argomento nella pagina delle proprietà di Visual Studio, si aggiunge l'argomento al file *launchSettings.json*.
-
-  ```console
-  --pathbase=/virtual-path
-  ```
-
-### <a name="urls"></a>URL
-
-L'argomento `--urls` imposta gli indirizzi IP o gli indirizzi host con le porte e i protocolli su cui eseguire l'ascolto per le richieste.
-
-* Passare l'argomento quando si esegue localmente l'app a un prompt dei comandi. Dalla directory dell'app, eseguire:
-
-  ```console
-  dotnet run --urls=http://127.0.0.1:0
-  ```
-
-* Aggiungere una voce al file *launchSettings.json* dell'app nel profilo **IIS Express**. Questa impostazione viene usata quando l'app viene eseguita con il debugger di Visual Studio e da un prompt dei comandi con `dotnet run`.
-
-  ```json
-  "commandLineArgs": "--urls=http://127.0.0.1:0"
-  ```
-
-* In Visual Studio specificare l'argomento in **Proprietà** > **Debug** > **Argomenti applicazione**. Impostando l'argomento nella pagina delle proprietà di Visual Studio, si aggiunge l'argomento al file *launchSettings.json*.
-
-  ```console
-  --urls=http://127.0.0.1:0
-  ```
-
-## <a name="deployment"></a>Distribuzione
-
 Con il [modello di hosting sul lato client](xref:blazor/hosting-models#client-side):
 
 * L'app Blazor, le relative dipendenze e il runtime .NET vengono scaricati nel browser.
-* L'app viene eseguita direttamente nel thread dell'interfaccia utente del browser. È supportata una delle strategie seguenti:
-  * L'app Blazor viene fornita da un'app ASP.NET Core. Questa strategia viene trattata nella sezione [Distribuzione ospitata con ASP.NET Core](#hosted-deployment-with-aspnet-core).
-  * L'app Blazor viene posizionata in un server o un servizio Web di hosting statico, in cui non viene usato .NET per fornire l'app Blazor. Questa strategia viene trattata nella sezione [Distribuzione autonoma](#standalone-deployment).
+* L'app viene eseguita direttamente nel thread dell'interfaccia utente del browser.
 
-## <a name="configure-the-linker"></a>Configurare il linker
+Sono supportate le strategie di distribuzione seguenti:
 
-Blazor esegue il collegamento di linguaggio intermedio (IL) in ogni build per rimuovere IL non necessario dagli assembly di output. Il collegamento degli assembly può essere controllato in fase di compilazione. Per altre informazioni, vedere <xref:host-and-deploy/blazor/configure-linker>.
+* L'app Blazor viene fornita da un'app ASP.NET Core. Questa strategia viene trattata nella sezione [Distribuzione ospitata con ASP.NET Core](#hosted-deployment-with-aspnet-core).
+* L'app Blazor viene posizionata in un server o un servizio Web di hosting statico, in cui non viene usato .NET per fornire l'app Blazor. Questa strategia è illustrata nella sezione relativa alla [distribuzione autonoma](#standalone-deployment) , che include informazioni sull'hosting di un'app Blazer sul lato client come sottoapp IIS.
 
 ## <a name="rewrite-urls-for-correct-routing"></a>Riscrivere gli URL per il routing corretto
 
-Il routing delle richieste per i componenti di pagina in un'app sul lato client non è semplice come il routing delle richieste a un'app ospitata sul lato server. Si consideri un'app sul lato client con due componenti:
+Il routing delle richieste per i componenti della pagina in un'app sul lato client non è semplice come le richieste di routing in un'app ospitata sul lato server. Si consideri un'app sul lato client con due componenti:
 
 * *Main.razor*&ndash; Viene caricato nella radice dell'app e contiene un collegamento al componente `About` (`href="About"`).
 * *About.Razor* &ndash; Componente `About`.
@@ -124,57 +48,7 @@ Se una richiesta viene effettuata usando la barra degli indirizzi del browser pe
 
 Dato che i browser inviano le richieste agli host basati su Internet per le pagine sul lato client, i server Web e i servizi di hosting devono riscrivere tutte le richieste per le risorse che non si trovano fisicamente nel server per la pagina *index.html*. Quando viene restituita la pagina *index.html*, il router sul lato client dell'app subentra e risponde con la risorsa corretta.
 
-## <a name="app-base-path"></a>Percorso di base dell'app
-
-Il *percorso di base dell'app* è il percorso radice dell'app virtuale nel server. Ad esempio, un'app che si trova nel server di Contoso in una cartella virtuale in `/CoolApp/` è raggiungibile all'indirizzo `https://www.contoso.com/CoolApp` e ha un percorso virtuale di base `/CoolApp/`. Impostando il percorso di base dell'app sul percorso virtuale (`<base href="/CoolApp/">`), l'app viene informata della posizione in cui risiede virtualmente nel server. L'app può usare il percorso di base dell'app per costruire URL relativi rispetto alla radice dell'app da un componente che non si trova nella directory radice. In questo modo i componenti presenti a diversi livelli della struttura di directory possono creare collegamenti ad altre risorse in varie posizioni in tutta l'app. Il percorso di base dell'app viene anche usato per intercettare i clic su collegamenti ipertestuali in cui la destinazione del collegamento `href` si trova all'interno dello spazio URI del percorso di base dell'app. Il router Blazor gestisce la navigazione interna.
-
-In molti scenari di hosting, il percorso virtuale del server per l'app è la radice dell'app. In questi casi, il percorso di base dell'app è una barra (`<base href="/" />`), ovvero la configurazione predefinita per un'app. In altri scenari di hosting, ad esempio le pagine di GitHub, le directory virtuali di IIS e o le sottoapplicazioni, è necessario impostare il percorso di base dell'app sul percorso virtuale del server per l'app. Per impostare il percorso di base dell'app, aggiornare il tag `<base>` all'interno degli elementi del tag `<head>` del file*wwwroot/index.html*. Impostare il valore dell'attributo `href` su `/virtual-path/` (la barra finale è obbligatoria), dove `/virtual-path/` è il percorso radice dell'app virtuale completo nel server per l'app. Nell'esempio precedente, il percorso virtuale è impostato su `/CoolApp/`: `<base href="/CoolApp/">`.
-
-Per un'app con un percorso virtuale non radice configurato (ad esempio, `<base href="/CoolApp/">`), l'app non riesce a trovare le relative risorse *quando viene eseguita in locale*. Per risolvere questo problema durante sviluppo e test locali, è possibile specificare un argomento *base del percorso* corrispondente al valore `href` del tag `<base>` in fase di esecuzione.
-
-Per passare l'argomento di base del percorso con il percorso radice (`/`) quando si esegue l'app in locale, eseguire il comando `dotnet run` dalla directory dell'app usando l'opzione `--pathbase`:
-
-```console
-dotnet run --pathbase=/{Virtual Path (no trailing slash)}
-```
-
-Per un'app con un percorso virtuale di base di `/CoolApp/` (`<base href="/CoolApp/">`), il comando è:
-
-```console
-dotnet run --pathbase=/CoolApp
-```
-
-L'app risponde in locale all'indirizzo `http://localhost:port/CoolApp`.
-
-Per altre informazioni, vedere la sezione sul [valore di configurazione dell'host della base del percorso](#path-base).
-
-Se un'app usa il [modello di hosting sul lato client](xref:blazor/hosting-models#client-side) (basato sul modello di progetto **App WebAssembly Blazor**, il modello `blazorwasm` quando si usa il comando [dotnet new](/dotnet/core/tools/dotnet-new)) ed è ospitata come sottoapplicazione IIS in un'app ASP.NET Core, è importante disabilitare il gestore del modulo ASP.NET Core ereditato o assicurarsi che la sezione `<handlers>` dell'app radice (padre) nel file *web.config* non venga ereditata dalla sottoapplicazione.
-
-Rimuovere il gestore nel file *web.config* pubblicato dell'app aggiungendo una sezione `<handlers>` al file:
-
-```xml
-<handlers>
-  <remove name="aspNetCore" />
-</handlers>
-```
-
-In alternativa, disabilitare l'ereditarietà della sezione `<system.webServer>` dell'app radice (padre) usando un elemento `<location>` con `inheritInChildApplications` impostato su `false`:
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<configuration>
-  <location path="." inheritInChildApplications="false">
-    <system.webServer>
-      <handlers>
-        <add name="aspNetCore" ... />
-      </handlers>
-      <aspNetCore ... />
-    </system.webServer>
-  </location>
-</configuration>
-```
-
-La rimozione del gestore o la disabilitazione dell'ereditarietà viene eseguita in aggiunta alla configurazione del percorso di base dell'app come descritto in questa sezione. Impostare il percorso di base dell'app nel file *index.html* dell'app sull'alias IIS usato durante la configurazione della sottoapp in IIS.
+Quando si esegue la distribuzione in un server IIS, è possibile usare il modulo URL Rewrite con il file *Web. config* pubblicato dall'app. Per ulteriori informazioni, vedere la sezione [IIS](#iis) .
 
 ## <a name="hosted-deployment-with-aspnet-core"></a>Distribuzione ospitata con ASP.NET Core
 
@@ -229,6 +103,38 @@ Impostare il **percorso fisico** del sito Web sulla cartella dell'app. La cartel
 * Il file *web.config* usato da IIS per configurare il sito Web, inclusi le regole di reindirizzamento richieste e i tipi di contenuto di file.
 * Cartella degli asset statici dell'app.
 
+#### <a name="host-as-an-iis-sub-app"></a>Ospitare come applicazione secondaria IIS
+
+Se un'app autonoma è ospitata come una sub-app IIS, eseguire una delle operazioni seguenti:
+
+* Disabilitare il gestore del modulo ASP.NET Core ereditato.
+
+  Rimuovere il gestore nel file *Web. config* pubblicato dell'app Blaze aggiungendo una `<handlers>` sezione al file:
+
+  ```xml
+  <handlers>
+    <remove name="aspNetCore" />
+  </handlers>
+  ```
+
+* `<system.webServer>` Disabilitare l'ereditarietà della sezione radice (padre) dell'app usando un `<location>` elemento con `inheritInChildApplications` impostato su: `false`
+
+  ```xml
+  <?xml version="1.0" encoding="utf-8"?>
+  <configuration>
+    <location path="." inheritInChildApplications="false">
+      <system.webServer>
+        <handlers>
+          <add name="aspNetCore" ... />
+        </handlers>
+        <aspNetCore ... />
+      </system.webServer>
+    </location>
+  </configuration>
+  ```
+
+La rimozione del gestore o la disabilitazione dell'ereditarietà viene eseguita oltre alla [configurazione del percorso di base dell'applicazione](xref:host-and-deploy/blazor/index#app-base-path). Impostare il percorso di base dell'app nel file *index.html* dell'app sull'alias IIS usato durante la configurazione della sottoapp in IIS.
+
 #### <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se si riceve un *errore interno del server 500* e Gestione IIS genera errori durante il tentativo di accedere alla configurazione del sito Web, verificare che sia installato URL Rewrite Module. Quando il modulo non è installato, il file *web.config* non può essere analizzato da IIS. Ciò impedisce a Gestione IIS di caricare la configurazione del sito Web e al sito Web di fornire i file statici di Blazor.
@@ -237,7 +143,7 @@ Per altre informazioni sulla risoluzione dei problemi relativi alle distribuzion
 
 ### <a name="azure-storage"></a>Archiviazione di Azure
 
-L'hosting di file statici di Archiviazione di Azure consente l'hosting di app Blazor serverless. Sono supportati nomi di dominio personalizzati, la rete per la distribuzione di contenuti (rete CDN) di Azure e HTTPS.
+L'hosting di file statici di [archiviazione di Azure](/azure/storage/) consente l'hosting di app blazer senza server. Sono supportati nomi di dominio personalizzati, la rete per la distribuzione di contenuti (rete CDN) di Azure e HTTPS.
 
 Quando il servizio BLOB è abilitato per l'hosting di siti Web statici in un account di archiviazione:
 
@@ -283,3 +189,80 @@ COPY nginx.conf /etc/nginx/nginx.conf
 Per gestire le riscritture degli URL, aggiungere un file *404.html* con uno script che gestisce il reindirizzamento della richiesta alla pagina *index.html*. Per un esempio di implementazione fornito dalla community, vedere [Single Page Apps for GitHub Pages](https://spa-github-pages.rafrex.com/) (App a pagina singola per pagine GitHub) ([rafrex/spa-github-pages on GitHub](https://github.com/rafrex/spa-github-pages#readme)). È possibile visualizzare un esempio d'uso dell'approccio della community in [blazor-demo/blazor-demo.github.io su GitHub](https://github.com/blazor-demo/blazor-demo.github.io) ([sito live](https://blazor-demo.github.io/)).
 
 Quando si usa un sito di progetto anziché un sito dell'organizzazione, aggiungere o aggiornare il tag `<base>` in *index.html*. Impostare il valore dell'attributo `href` sul nome del repository GitHub con una barra finale (ad esempio, `my-repository/`.
+
+## <a name="host-configuration-values"></a>Valori di configurazione dell'host
+
+Le app Blazor che usano il [modello di hosting sul lato client](xref:blazor/hosting-models#client-side) possono accettare i valori di configurazione dell'host seguenti come argomenti della riga di comando in fase di esecuzione nell'ambiente di sviluppo.
+
+### <a name="content-root"></a>Radice del contenuto
+
+L'argomento `--contentroot` imposta il percorso assoluto sulla directory che contiene i file di contenuto dell'app. Negli esempi seguenti `/content-root-path` è il percorso radice del contenuto dell'app.
+
+* Passare l'argomento quando si esegue localmente l'app a un prompt dei comandi. Dalla directory dell'app, eseguire:
+
+  ```console
+  dotnet run --contentroot=/content-root-path
+  ```
+
+* Aggiungere una voce al file *launchSettings.json* dell'app nel profilo **IIS Express**. Questa impostazione viene usata quando l'app viene eseguita con il debugger di Visual Studio e da un prompt dei comandi con `dotnet run`.
+
+  ```json
+  "commandLineArgs": "--contentroot=/content-root-path"
+  ```
+
+* In Visual Studio specificare l'argomento in **Proprietà** > **Debug** > **Argomenti applicazione**. Impostando l'argomento nella pagina delle proprietà di Visual Studio, si aggiunge l'argomento al file *launchSettings.json*.
+
+  ```console
+  --contentroot=/content-root-path
+  ```
+
+### <a name="path-base"></a>Base del percorso
+
+L' `--pathbase` argomento imposta il percorso di base dell'app per un'app eseguita localmente con un percorso URL relativo non radice ( `<base>` il `href` tag è impostato su un percorso diverso `/` da per la gestione temporanea e la produzione). Negli esempi seguenti `/relative-URL-path` è la base del percorso dell'app. Per altre informazioni, vedere [percorso di base dell'app](xref:host-and-deploy/blazor/index#app-base-path).
+
+> [!IMPORTANT]
+> A differenza del percorso specificato per `href` del tag `<base>`, non includere una barra finale (`/`) quando si passa il valore dell'argomento `--pathbase`. Se il percorso di base dell'app non viene specificato nel tag `<base>` come `<base href="/CoolApp/">` (include una barra finale), passare il valore dell'argomento della riga di comando come `--pathbase=/CoolApp` (senza barra finale).
+
+* Passare l'argomento quando si esegue localmente l'app a un prompt dei comandi. Dalla directory dell'app, eseguire:
+
+  ```console
+  dotnet run --pathbase=/relative-URL-path
+  ```
+
+* Aggiungere una voce al file *launchSettings.json* dell'app nel profilo **IIS Express**. Questa impostazione viene usata quando l'app viene eseguita con il debugger di Visual Studio e da un prompt dei comandi con `dotnet run`.
+
+  ```json
+  "commandLineArgs": "--pathbase=/relative-URL-path"
+  ```
+
+* In Visual Studio specificare l'argomento in **Proprietà** > **Debug** > **Argomenti applicazione**. Impostando l'argomento nella pagina delle proprietà di Visual Studio, si aggiunge l'argomento al file *launchSettings.json*.
+
+  ```console
+  --pathbase=/relative-URL-path
+  ```
+
+### <a name="urls"></a>URL
+
+L'argomento `--urls` imposta gli indirizzi IP o gli indirizzi host con le porte e i protocolli su cui eseguire l'ascolto per le richieste.
+
+* Passare l'argomento quando si esegue localmente l'app a un prompt dei comandi. Dalla directory dell'app, eseguire:
+
+  ```console
+  dotnet run --urls=http://127.0.0.1:0
+  ```
+
+* Aggiungere una voce al file *launchSettings.json* dell'app nel profilo **IIS Express**. Questa impostazione viene usata quando l'app viene eseguita con il debugger di Visual Studio e da un prompt dei comandi con `dotnet run`.
+
+  ```json
+  "commandLineArgs": "--urls=http://127.0.0.1:0"
+  ```
+
+* In Visual Studio specificare l'argomento in **Proprietà** > **Debug** > **Argomenti applicazione**. Impostando l'argomento nella pagina delle proprietà di Visual Studio, si aggiunge l'argomento al file *launchSettings.json*.
+
+  ```console
+  --urls=http://127.0.0.1:0
+  ```
+
+## <a name="configure-the-linker"></a>Configurare il linker
+
+Blazor esegue il collegamento di linguaggio intermedio (IL) in ogni build per rimuovere IL non necessario dagli assembly di output. Il collegamento degli assembly può essere controllato in fase di compilazione. Per altre informazioni, vedere <xref:host-and-deploy/blazor/configure-linker>.
