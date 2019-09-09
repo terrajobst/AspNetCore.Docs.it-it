@@ -5,14 +5,14 @@ description: Informazioni su come ospitare un'app ASP.NET Core in un servizio Wi
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/03/2019
+ms.date: 09/09/2019
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 308a8bd10371cc70c431b8858ef7d82c1bb624da
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
-ms.translationtype: HT
+ms.openlocfilehash: c2a2941f2a4e27218c90cf47453c69149da8e766
+ms.sourcegitcommit: 2d4c1732c4866ed26b83da35f7bc2ad021a9c701
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975425"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815707"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Ospitare ASP.NET Core in un servizio Windows
 
@@ -39,10 +39,10 @@ Il modello di servizio di ruolo di lavoro di ASP.NET Core rappresenta un punto d
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 1. Creare un nuovo progetto.
-1. Selezionare **Applicazione Web ASP.NET Core**. Scegliere **Avanti**.
-1. Specificare il nome di un progetto nel campo **Nome progetto** oppure accettare il nome predefinito. Scegliere **Crea**.
+1. Selezionare **Applicazione Web ASP.NET Core**. Selezionare **Avanti**.
+1. Specificare il nome di un progetto nel campo **Nome progetto** oppure accettare il nome predefinito. Selezionare **Create**.
 1. Nella finestra di dialogo **Crea una nuova applicazione Web ASP.NET Core** verificare che siano selezionati **.NET Core** e **ASP.NET Core 3.0**.
-1. Selezionare il modello del **Servizio di ruolo di lavoro**. Scegliere **Crea**.
+1. Selezionare il modello del **Servizio di ruolo di lavoro**. Selezionare **Create**.
 
 # <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 
@@ -217,7 +217,7 @@ Per stabilire i diritti *Accesso come servizio* per un account utente di servizi
 1. Selezionare **Aggiungi utente o gruppo**.
 1. Specificare il nome oggetto (account utente) in uno dei modi seguenti:
    1. Digitare l'account utente (`{DOMAIN OR COMPUTER NAME\USER}`) nel campo del nome oggetto e scegliere **OK** per aggiungere l'utente al criterio.
-   1. Selezionare **Avanzate**. Selezionare **Trova**. Selezionare l'account utente dall'elenco. Scegliere **OK**. Scegliere di nuovo **OK** per aggiungere l'utente al criterio.
+   1. Selezionare **Avanzate**. Selezionare **Trova**. Selezionare l'account utente dall'elenco. Selezionare **OK**. Scegliere di nuovo **OK** per aggiungere l'utente al criterio.
 1. Scegliere **OK** o **Applica** per accettare le modifiche.
 
 ## <a name="create-and-manage-the-windows-service"></a>Creare e gestire il servizio di Windows
@@ -312,15 +312,17 @@ Per gestire gli eventi <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHos
 
 I servizi che interagiscono con le richieste da Internet o da una rete aziendale e si trovano dietro un proxy o un servizio di bilanciamento del carico potrebbero richiedere una configurazione aggiuntiva. Per altre informazioni, vedere <xref:host-and-deploy/proxy-load-balancer>.
 
-## <a name="configure-https"></a>Configurare HTTPS
+## <a name="configure-endpoints"></a>Configurare gli endpoint
 
-Per configurare un servizio con un endpoint sicuro:
+Per impostazione predefinita, ASP.NET Core è associato a `http://localhost:5000`. Configurare l'URL e la porta impostando `ASPNETCORE_URLS` la variabile di ambiente.
 
-1. Creare un certificato X.509 per il sistema di hosting usando i meccanismi di acquisizione e distribuzione dei certificati della piattaforma.
+Per ulteriori approcci alla configurazione di porte e URL, incluso il supporto per gli endpoint HTTPS, vedere gli argomenti seguenti:
 
-1. Specificare una [configurazione dell'endpoint HTTPS del server Kestrel](xref:fundamentals/servers/kestrel#endpoint-configuration) per usare il certificato.
+* <xref:fundamentals/servers/kestrel#endpoint-configuration>Kestrel
+* <xref:fundamentals/servers/httpsys#configure-windows-server>(HTTP. sys)
 
-L'uso del certificato di sviluppo ASP.NET Core HTTPS per proteggere un endpoint del servizio non è supportato.
+> [!NOTE]
+> L'uso del certificato di sviluppo ASP.NET Core HTTPS per proteggere un endpoint del servizio non è supportato.
 
 ## <a name="current-directory-and-content-root"></a>Directory corrente e radice del contenuto
 

@@ -5,14 +5,14 @@ description: Informazioni sui concetti fondamentali per la compilazione di app A
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/02/2019
+ms.date: 09/06/2019
 uid: fundamentals/index
-ms.openlocfilehash: 7e2901919c8b0165d0f169abf74fe5bc0edd8be4
-ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
+ms.openlocfilehash: cff2afd62ed60648dc689d408dde56ecda18c261
+ms.sourcegitcommit: 2d4c1732c4866ed26b83da35f7bc2ad021a9c701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773751"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815644"
 ---
 # <a name="aspnet-core-fundamentals"></a>Nozioni fondamentali su ASP.NET Core
 
@@ -272,7 +272,7 @@ La radice Web, nota anche come *webroot*, è il percorso di base per le risorse 
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Per ulteriori informazioni, vedere [ContentRootPath](/aspnet/core/fundamentals/host/generic-host?view=aspnetcore-3.0#contentrootpath)
+Per ulteriori informazioni, vedere [Webroot](/aspnet/core/fundamentals/host/generic-host?view=aspnetcore-3.0#webroot)
 
 ::: moniker-end
 

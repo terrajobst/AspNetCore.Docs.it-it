@@ -5,14 +5,14 @@ description: Questo articolo contiene collegamenti a risorse di hosting e distri
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/28/2019
+ms.date: 09/07/2019
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 5035a31526e0290964e0fdee05753aeaf6cb3790
-ms.sourcegitcommit: 0efb9e219fef481dee35f7b763165e488aa6cf9c
-ms.translationtype: HT
+ms.openlocfilehash: 5da32b5fd1026263f721db442b2676d45b239b8d
+ms.sourcegitcommit: 2d4c1732c4866ed26b83da35f7bc2ad021a9c701
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68602444"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815594"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Distribuire le app ASP.NET Core in Servizio app di Azure
 
@@ -97,17 +97,7 @@ Il [middleware di integrazione IIS](xref:host-and-deploy/iis/index#enable-the-ii
 
 ## <a name="monitoring-and-logging"></a>Monitoraggio e registrazione
 
-::: moniker range=">= aspnetcore-3.0"
-
-Le app ASP.NET Core distribuite in Servizio app di Azure ricevono automaticamente l'estensione di Servizio app **ASP.NET Core Logging Integration** (Integrazione di registrazione ASP.NET Core). L'estensione abilita l'integrazione della registrazione per le app ASP.NET Core in Servizio app di Azure.
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.0"
-
-Le app ASP.NET Core distribuite in Servizio app ricevono automaticamente un'estensione di Servizio app, ovvero le **estensioni di registrazione di ASP.NET Core**. L'estensione abilita l'integrazione della registrazione per le app ASP.NET Core in Servizio app di Azure.
-
-::: moniker-end
+App Azure servizio offre le **estensioni di registrazione ASP.NET Core**, che consentono l'integrazione della registrazione per ASP.NET Core app. Per aggiungere automaticamente l'estensione a un servizio app, usare il processo di **pubblicazione** di Visual Studio con un profilo di pubblicazione del **servizio app** . Quando non si usa Visual Studio per distribuire un'app, installare manualmente l'estensione nel portale di Azure tramite la finestra di dialogo**estensioni** **degli strumenti** > di sviluppo del servizio app.
 
 Per informazioni sul monitoraggio, la registrazione e la risoluzione dei problemi, vedere gli articoli seguenti:
 
