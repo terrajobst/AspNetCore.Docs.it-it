@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/29/2019
 uid: web-api/http-repl
-ms.openlocfilehash: 7121670856da4b123b1c3e780a7952da0fb696a1
-ms.sourcegitcommit: e6bd2bbe5683e9a7dbbc2f2eab644986e6dc8a87
+ms.openlocfilehash: b93641c96ad093b40aaa887f19409d4c2e1490df
+ms.sourcegitcommit: efb9c16321b34f8ede802822b26eb983de16479b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70238042"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70842272"
 ---
 # <a name="test-web-apis-with-the-http-repl"></a>Testare le API Web con il ciclo Read-Eval-Print (REPL) HTTP
 
@@ -55,24 +55,24 @@ Viene installato uno [strumento globale .NET Core](/dotnet/core/tools/global-too
 Dopo aver completato l'installazione dello strumento, eseguire il comando seguente per avviare il ciclo Read-Eval-Print HTTP:
 
 ```console
-dotnet httprepl
+httprepl
 ```
 
 Per visualizzare i comandi del ciclo Read-Eval-Print HTTP disponibili, eseguire uno dei comandi seguenti:
 
 ```console
-dotnet httprepl -h
+httprepl -h
 ```
 
 ```console
-dotnet httprepl --help
+httprepl --help
 ```
 
 Verrà visualizzato l'output seguente:
 
 ```console
 Usage:
-  dotnet httprepl [<BASE_ADDRESS>] [options]
+  httprepl [<BASE_ADDRESS>] [options]
 
 Arguments:
   <BASE_ADDRESS> - The initial base address for the REPL.
@@ -131,13 +131,13 @@ Il ciclo Read-Eval-Print HTTP offre il completamento del comando. Premendo il ta
 Connettersi all'API Web eseguendo il comando seguente:
 
 ```console
-dotnet httprepl <ROOT URI>
+httprepl <ROOT URI>
 ```
 
 `<ROOT URI>` è l'URI di base dell'API Web. Ad esempio:
 
 ```console
-dotnet httprepl https://localhost:5001
+httprepl https://localhost:5001
 ```
 
 In alternativa, eseguire il comando seguente in qualsiasi momento mentre è in esecuzione il ciclo Read-Eval-Print HTTP:
@@ -928,7 +928,7 @@ Se si esegue spesso lo stesso set di comandi del ciclo Read-Eval-Print HTTP, pu�
 Per rimuovere l'intero output scritto nella shell dei comandi dallo strumento del ciclo Read-Eval-Print HTTP, eseguire il comando `clear` o `cls`. Si supponga ad esempio che la shell dei comandi includa l'output seguente:
 
 ```console
-dotnet httprepl https://localhost:5001
+httprepl https://localhost:5001
 (Disconnected)~ set base "https://localhost:5001"
 Using swagger metadata from https://localhost:5001/swagger/v1/swagger.json
 
