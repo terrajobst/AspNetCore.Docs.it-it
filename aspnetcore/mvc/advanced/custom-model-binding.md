@@ -5,12 +5,12 @@ description: Informazioni su come l'associazione di modelli consente alle azioni
 ms.author: riande
 ms.date: 11/13/2018
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: 64429d3d9a64219216f3432924dbd0977dd6e1bb
-ms.sourcegitcommit: 2d4c1732c4866ed26b83da35f7bc2ad021a9c701
+ms.openlocfilehash: 91f42393ffee3249f9167e10eaea7b279a7cb70b
+ms.sourcegitcommit: e7c56e8da5419bbc20b437c2dd531dedf9b0dc6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70815627"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70878407"
 ---
 # <a name="custom-model-binding-in-aspnet-core"></a>Associazione di modelli personalizzata in ASP.NET Core
 
@@ -133,6 +133,13 @@ Se il provider personalizzato viene aggiunto alla fine della raccolta, è possib
 ### <a name="polymorphic-model-binding"></a>Associazione di modelli polimorfici
 
 L'associazione a modelli diversi di tipi derivati è nota come associazione di modelli polimorfici. L'associazione di modelli personalizzati è obbligatoria quando il valore della richiesta deve essere associato al tipo di modello derivato specifico. A meno che non sia necessario questo approccio, è consigliabile evitare l'associazione di modelli polimorfici. L'associazione di modelli polimorfici rende difficile la motivazione dei modelli associati. Tuttavia, se un'app richiede l'associazione di modelli polimorfici, un'implementazione potrebbe avere un aspetto simile al codice seguente:
+
+L'associazione a modelli diversi di tipi derivati è nota come associazione di modelli polimorfici. L'associazione di modelli personalizzati è obbligatoria quando il valore della richiesta deve essere associato al tipo di modello derivato specifico. Associazione di modelli polimorfici:
+
+* Non è tipico per un'API REST progettata per interagire con tutti i linguaggi.
+* Rende difficile la motivazione dei modelli associati.
+
+Tuttavia, se un'app richiede l'associazione di modelli polimorfici, un'implementazione potrebbe avere un aspetto simile al codice seguente:
 
 [!code-csharp[](custom-model-binding/3.0sample/PolymorphicModelBinding/ModelBinders/PolymorphicModelBinder.cs?name=snippet)]
 

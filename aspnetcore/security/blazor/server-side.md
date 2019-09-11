@@ -5,14 +5,14 @@ description: Informazioni su come ridurre le minacce per la sicurezza alle app s
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/05/2019
+ms.date: 09/07/2019
 uid: security/blazor/server-side
-ms.openlocfilehash: 13bb4475b4beac78cf489d83fb59a3e0d6d8f2d9
-ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
+ms.openlocfilehash: d30f19bfbbcdb6c142f03a6e0cc6e1fc154c2091
+ms.sourcegitcommit: e7c56e8da5419bbc20b437c2dd531dedf9b0dc6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70800499"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70878521"
 ---
 # <a name="secure-aspnet-core-blazor-server-side-apps"></a>App sicure del lato server di ASP.NET Core Blaze
 
@@ -115,7 +115,7 @@ Un client interagisce con il server tramite l'invio di eventi di interoperabilit
 Per le chiamate da metodi .NET a JavaScript:
 
 * Tutte le chiamate hanno un timeout configurabile dopo il quale hanno esito negativo <xref:System.OperationCanceledException> , restituendo un oggetto al chiamante.
-  * È previsto un timeout predefinito per le chiamate (`CircuitOptions.JSInteropDefaultCallTimeout`) di un minuto.
+  * È previsto un timeout predefinito per le chiamate (`CircuitOptions.JSInteropDefaultCallTimeout`) di un minuto. Per configurare questo limite, vedere <xref:blazor/javascript-interop#harden-js-interop-calls>.
   * È possibile fornire un token di annullamento per controllare l'annullamento in base a ogni chiamata. Si basano sul timeout di chiamata predefinito, dove possibile e con associazione temporale qualsiasi chiamata al client se viene fornito un token di annullamento.
 * Il risultato di una chiamata JavaScript non può essere considerato attendibile. Il client dell'app Blazer in esecuzione nel browser cerca la funzione JavaScript da richiamare. La funzione viene richiamata e viene generato il risultato o un errore. Un client dannoso può tentare di eseguire le operazioni seguenti:
   * Causa un problema nell'app restituendo un errore dalla funzione JavaScript.
@@ -201,6 +201,72 @@ Un client può inviare uno o più eventi di incremento prima che il Framework pr
 
 Aggiungendo il `if (count < 3) { ... }` controllo all'interno del gestore, la decisione di incremento `count` si basa sullo stato corrente dell'app. La decisione non è basata sullo stato dell'interfaccia utente come nell'esempio precedente, che potrebbe essere temporaneamente obsoleto.
 
+### <a name="guard-against-multiple-dispatches"></a>Protezione da più invii
+
+Se un callback di evento richiama un'operazione a esecuzione prolungata, ad esempio il recupero di dati da un servizio o da un database esterno, è consigliabile usare una protezione. Il Guard può impedire all'utente di accodare più operazioni mentre è in corso l'operazione con commenti visivi. Il codice componente seguente imposta `isLoading` su `true` mentre `GetForecastAsync` ottiene i dati dal server. Mentre `isLoading` è`true`, il pulsante è disabilitato nell'interfaccia utente:
+
+```cshtml
+@page "/fetchdata"
+@using BlazorServerSample.Data
+@inject WeatherForecastService ForecastService
+
+<button disabled="@isLoading" @onclick="UpdateForecasts">Update</button>
+
+@code {
+    private bool isLoading;
+    private WeatherForecast[] forecasts;
+
+    private async Task UpdateForecasts()
+    {
+        if (!isLoading)
+        {
+            isLoading = true;
+            forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+            isLoading = false;
+        }
+    }
+}
+```
+
+### <a name="cancel-early-and-avoid-use-after-dispose"></a>Annulla anticipatamente ed evita l'uso di After-Dispose
+
+Oltre a usare un GUARD come descritto nella sezione [Guard da più invii](#guard-against-multiple-dispatches) , provare a usare un <xref:System.Threading.CancellationToken> per annullare le operazioni a esecuzione prolungata quando il componente viene eliminato. Questo approccio offre il vantaggio aggiuntivo di evitare *use-after-Dispose* nei componenti:
+
+```cshtml
+@implements IDisposable
+
+...
+
+@code {
+    private readonly CancellationTokenSource TokenSource = 
+        new CancellationTokenSource();
+
+    private async Task UpdateForecasts()
+    {
+        ...
+
+        forecasts = await ForecastService.GetForecastAsync(DateTime.Now, 
+            TokenSource.Token);
+
+        if (TokenSource.Token.IsCancellationRequested)
+        {
+           return;
+        }
+
+        ...
+    }
+
+    public void Dispose()
+    {
+        CancellationTokenSource.Cancel();
+    }
+}
+```
+
+### <a name="avoid-events-that-produce-large-amounts-of-data"></a>Evitare eventi che producono grandi quantità di dati
+
+Alcuni eventi DOM, ad esempio `oninput` o `onscroll`, possono produrre una grande quantità di dati. Evitare di usare questi eventi nelle app del server blazer.
+
 ## <a name="additional-security-guidance"></a>Ulteriori indicazioni sulla sicurezza
 
 Le linee guida per la protezione delle app ASP.NET Core si applicano alle app lato server Blaze e sono descritte nelle sezioni seguenti:
@@ -222,7 +288,7 @@ L'errore sul lato client non include il stack e non fornisce dettagli sulla ragi
 
 Abilitare gli errori dettagliati con:
 
-* `CircuitOptions.DetailedErrors`.
+* [https://login.microsoftonline.com/consumers/](`CircuitOptions.DetailedErrors`).
 * `DetailedErrors`chiave di configurazione. Ad esempio, impostare la `ASPNETCORE_DETAILEDERRORS` variabile di ambiente su un valore `true`di.
 
 > [!WARNING]
@@ -330,6 +396,9 @@ Il seguente elenco di considerazioni sulla sicurezza non è completo:
 * Impedire al client di allocare una quantità di memoria non associata.
   * Dati all'interno del componente.
   * `DotNetObject`riferimenti restituiti al client.
+* Proteggersi da più invii.
+* Annulla le operazioni a esecuzione prolungata quando il componente viene eliminato.
+* Evitare eventi che producono grandi quantità di dati.
 * Evitare di usare l'input dell'utente come parte `NavigationManager.Navigate` delle chiamate a e convalidare l'input dell'utente per gli URL rispetto a un set di origini consentite prima se non è possibile evitare
 * Non prendere decisioni di autorizzazione in base allo stato dell'interfaccia utente, ma solo dallo stato del componente.
 * Prendere in considerazione l'uso dei [criteri di sicurezza del contenuto (CSP)](https://developer.mozilla.org/docs/Web/HTTP/CSP) per la protezione da attacchi XSS.

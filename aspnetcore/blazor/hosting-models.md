@@ -5,14 +5,14 @@ description: Informazioni sui modelli di hosting lato client e lato server di Bl
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/05/2019
+ms.date: 09/07/2019
 uid: blazor/hosting-models
-ms.openlocfilehash: f7a16d64e1f874a4f6b3c8db5217810b13c7c6ff
-ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
+ms.openlocfilehash: 7880affa59af1fa4fc47aee3dc98ae9aa53729af
+ms.sourcegitcommit: e7c56e8da5419bbc20b437c2dd531dedf9b0dc6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70800434"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70878339"
 ---
 # <a name="aspnet-core-blazor-hosting-models"></a>Modelli di hosting di ASP.NET Core Blazer
 
@@ -83,24 +83,68 @@ Ci sono svantaggi per l'hosting lato server:
 
 &dagger;Lo script *blazer. Server. js* viene servito da una risorsa incorporata nel framework condiviso ASP.NET Core.
 
+### <a name="comparison-to-server-rendered-ui"></a>Confronto con interfaccia utente sottoposta a rendering server
+
+Un modo per comprendere le app del server blazer è comprendere come si differenzia dai modelli tradizionali per il rendering dell'interfaccia utente nelle app ASP.NET Core usando le visualizzazioni Razor o Razor Pages. Entrambi i modelli utilizzano il linguaggio Razor per descrivere il contenuto HTML, ma presentano differenze significative per il rendering del markup.
+
+Quando viene eseguito il rendering di una pagina o di una visualizzazione Razor, ogni riga di codice Razor emette HTML in formato testo. Dopo il rendering, il server Elimina l'istanza della pagina o della vista, incluso qualsiasi stato prodotto. Quando si verifica un'altra richiesta della pagina, ad esempio quando la convalida del server non riesce e viene visualizzato il riepilogo di convalida:
+
+* Viene nuovamente eseguito il rendering dell'intera pagina in testo HTML.
+* La pagina viene inviata al client.
+
+Un'app blazer è costituita da elementi riutilizzabili di un'interfaccia utente denominata *Components*. Un componente contiene C# codice, markup e altri componenti. Quando viene eseguito il rendering di un componente, blazer produce un grafico dei componenti inclusi in modo simile a un codice HTML o XML Document Object Model (DOM). Questo grafico include lo stato del componente contenuto in proprietà e campi. Blazer valuta il grafico dei componenti per produrre una rappresentazione binaria del markup. Il formato binario può essere:
+
+* Trasformato in testo HTML (durante il prerendering).
+* Utilizzato per aggiornare in modo efficiente il markup durante il normale rendering.
+
+Un aggiornamento dell'interfaccia utente in blazer viene attivato da:
+
+* Interazione dell'utente, ad esempio la selezione di un pulsante.
+* Trigger dell'app, ad esempio un timer.
+
+Viene eseguito il rendering del grafico e viene calcolata *una differenza dell'interfaccia utente* (differenza). Questa differenza è il set più piccolo di modifiche DOM necessarie per aggiornare l'interfaccia utente nel client. Il diff viene inviato al client in un formato binario e applicato dal browser.
+
+Un componente viene eliminato dopo che l'utente si è spostato dal client. Mentre un utente interagisce con un componente, lo stato del componente (servizi, risorse) deve essere mantenuto nella memoria del server. Poiché lo stato di molti componenti può essere gestito simultaneamente dal server, l'esaurimento della memoria è un problema che deve essere risolto. Per istruzioni su come creare un'app del server blazer per garantire l'utilizzo ottimale della memoria del server, <xref:security/blazor/server-side>vedere.
+
+### <a name="circuits"></a>Circuiti
+
+Un'app Server Blazer si basa su [ASP.NET Core SignalR](xref:signalr/introduction). Ogni client comunica al server tramite una o più connessioni SignalR dette *circuito*. Un circuito è l'astrazione di Blazer sulle connessioni SignalR che possono tollerare interruzioni di rete temporanee. Quando un client Blaze rileva che la connessione SignalR è disconnessa, tenta di riconnettersi al server usando una nuova connessione SignalR.
+
+Ogni schermata del browser (scheda del browser o iframe) connessa a un'app del server Blazer usa una connessione SignalR. Si tratta ancora di un'altra distinzione importante rispetto alle app tipiche sottoposte a rendering server. In un'app sottoposta a rendering server, l'apertura della stessa app in più schermate del browser in genere non viene convertita in richieste di risorse aggiuntive sul server. In un'app Server blazer, ogni schermata del browser richiede un circuito separato e istanze separate dello stato dei componenti che devono essere gestite dal server.
+
+Blazer considera la chiusura di una scheda del browser o l'esplorazione di un URL esterno a una chiusura *normale* . In caso di chiusura normale, il circuito e le risorse associate vengono immediatamente rilasciati. Un client può anche disconnettersi in modo non corretto, ad esempio a causa di un'interruzione della rete. Il server Blazer archivia circuiti disconnessi per un intervallo configurabile in modo da consentire la riconnessione del client. Per ulteriori informazioni, vedere la sezione [riconnessione allo stesso server](#reconnection-to-the-same-server) .
+
+### <a name="ui-latency"></a>Latenza interfaccia utente
+
+La latenza dell'interfaccia utente è il tempo necessario da un'azione iniziata al momento dell'aggiornamento dell'interfaccia utente. I valori più bassi per la latenza dell'interfaccia utente sono imperativi perché un'app risponda a un utente. In un'app Server Blazer ogni azione viene inviata al server, elaborata e viene restituita una diff dell'interfaccia utente. Di conseguenza, la latenza dell'interfaccia utente è la somma della latenza di rete e la latenza del server nell'elaborazione dell'azione.
+
+Per un'app line-of-business limitata a una rete aziendale privata, l'effetto sulle percezioni utente della latenza a causa della latenza di rete è in genere impercettibile. Per un'app distribuita su Internet, la latenza può diventare evidente per gli utenti, in particolare se gli utenti sono ampiamente distribuiti geograficamente.
+
+L'utilizzo della memoria può anche contribuire alla latenza dell'app. Un aumento dell'utilizzo della memoria comporta un frequente Garbage Collection o il paging della memoria su disco, che comportano una riduzione delle prestazioni dell'app e quindi aumentano la latenza dell'interfaccia Per altre informazioni, vedere <xref:security/blazor/server-side>.
+
+Le app del server Blazer devono essere ottimizzate per ridurre la latenza dell'interfaccia utente riducendo la latenza di rete e l'utilizzo della memoria Per un approccio alla misurazione della latenza di <xref:host-and-deploy/blazor/server-side#measure-network-latency>rete, vedere. Per ulteriori informazioni su SignalR e blazer, vedere:
+
+* <xref:host-and-deploy/blazor/server-side>
+* <xref:security/blazor/server-side>
+
 ### <a name="reconnection-to-the-same-server"></a>Riconnessione allo stesso server
 
 Le app sul lato server di Blazer richiedono una connessione SignalR attiva al server. Se la connessione viene persa, l'app tenta di riconnettersi al server. Fino a quando lo stato del client è ancora in memoria, la sessione client riprende senza perdere lo stato.
- 
+
 Quando il client rileva che la connessione è stata persa, viene visualizzata un'interfaccia utente predefinita quando il client tenta di riconnettersi. Se la riconnessione non riesce, all'utente viene offerta l'opzione per riprovare. Per personalizzare l'interfaccia utente, definire un elemento `components-reconnect-modal` con `id` come nella pagina Razor *_Host. cshtml* . Il client aggiorna questo elemento con una delle seguenti classi CSS in base allo stato della connessione:
- 
+
 * `components-reconnect-show`&ndash; Mostra l'interfaccia utente per indicare che la connessione è stata persa e il client sta tentando di riconnettersi.
 * `components-reconnect-hide`&ndash; Il client ha una connessione attiva e nasconde l'interfaccia utente.
 * `components-reconnect-failed`&ndash; Riconnessione non riuscita. Per ritentare la riconnessione `window.Blazor.reconnect()`, chiamare.
 
 ### <a name="stateful-reconnection-after-prerendering"></a>Riconnessione con stato dopo il rendering preliminare
- 
+
 Per impostazione predefinita, le app lato server di Blaze sono impostate per eseguire il prerendering dell'interfaccia utente nel server prima che venga stabilita la connessione client al server. Questa impostazione è configurata nella pagina Razor *_Host. cshtml* :
- 
+
 ```cshtml
 <body>
     <app>@(await Html.RenderComponentAsync<App>(RenderMode.ServerPrerendered))</app>
- 
+
     <script src="_framework/blazor.server.js"></script>
 </body>
 ```
@@ -117,11 +161,11 @@ Per impostazione predefinita, le app lato server di Blaze sono impostate per ese
 | `Static`            | Esegue il rendering del componente in HTML statico. I parametri sono supportati. |
 
 Il rendering dei componenti server da una pagina HTML statica non è supportato.
- 
+
 Il client si riconnette al server con lo stesso stato usato per eseguire il prerendering dell'app. Se lo stato dell'app è ancora in memoria, lo stato del componente non viene sottoposto a rendering dopo che è stata stabilita la connessione SignalR.
 
 ### <a name="render-stateful-interactive-components-from-razor-pages-and-views"></a>Eseguire il rendering di componenti interattivi con stato da pagine e visualizzazioni Razor
- 
+
 I componenti interattivi con stato possono essere aggiunti a una pagina o a una visualizzazione Razor.
 
 Quando viene eseguito il rendering della pagina o della visualizzazione:
@@ -129,19 +173,19 @@ Quando viene eseguito il rendering della pagina o della visualizzazione:
 * Il componente viene preeseguito con la pagina o la visualizzazione.
 * Lo stato iniziale del componente utilizzato per il prerendering viene perso.
 * Quando viene stabilita la connessione SignalR, viene creato il nuovo stato del componente.
- 
+
 La pagina Razor seguente esegue il rendering `Counter` di un componente:
 
 ```cshtml
 <h1>My Razor Page</h1>
- 
+
 @(await Html.RenderComponentAsync<Counter>(RenderMode.ServerPrerendered))
 ```
 
 ### <a name="render-noninteractive-components-from-razor-pages-and-views"></a>Eseguire il rendering di componenti non interattivi da pagine e visualizzazioni Razor
 
 Nella pagina Razor seguente il `MyComponent` componente viene sottoposto a rendering statico con un valore iniziale specificato usando un form:
- 
+
 ```cshtml
 <h1>My Razor Page</h1>
 
@@ -149,10 +193,10 @@ Nella pagina Razor seguente il `MyComponent` componente viene sottoposto a rende
     <input type="number" asp-for="InitialValue" />
     <button type="submit">Set initial value</button>
 </form>
- 
+
 @(await Html.RenderComponentAsync<MyComponent>(RenderMode.Static, 
     new { InitialValue = InitialValue }))
- 
+
 @code {
     [BindProperty(SupportsGet=true)]
     public int InitialValue { get; set; }
@@ -162,18 +206,18 @@ Nella pagina Razor seguente il `MyComponent` componente viene sottoposto a rende
 Poiché `MyComponent` viene sottoposto a rendering statico, il componente non può essere interattivo.
 
 ### <a name="detect-when-the-app-is-prerendering"></a>Rilevare il momento in cui viene eseguito il prerendering dell'app
- 
+
 [!INCLUDE[](~/includes/blazor-prerendering.md)]
 
 ### <a name="configure-the-signalr-client-for-blazor-server-side-apps"></a>Configurare il client SignalR per le app del lato server di Blaze
- 
+
 In alcuni casi, è necessario configurare il client SignalR usato dalle app del lato server di Blazer. Ad esempio, potrebbe essere necessario configurare la registrazione nel client SignalR per diagnosticare un problema di connessione.
- 
+
 Per configurare il client SignalR nel file *pages/_Host. cshtml* :
 
 * Aggiungere un `autostart="false"` attributo `<script>` al tag per lo script *blazer. Server. js* .
 * Chiamare `Blazor.start` e passare un oggetto di configurazione che specifichi il generatore SignalR.
- 
+
 ```html
 <script src="_framework/blazor.server.js" autostart="false"></script>
 <script>
