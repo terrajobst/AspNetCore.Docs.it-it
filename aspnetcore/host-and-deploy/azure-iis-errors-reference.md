@@ -5,20 +5,22 @@ description: Ottenere suggerimenti per la risoluzione degli errori comuni dell'h
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/10/2019
+ms.date: 09/11/2019
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: 3030bc57be113d9034123c96403742442b9240bb
-ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
-ms.translationtype: HT
+ms.openlocfilehash: f6afd6491181830f4d79486fa26a64423cd4a0ac
+ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308093"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70963668"
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Errori comuni di Servizio app di Azure e IIS con ASP.NET Core
 
 Di [Luke Latham](https://github.com/guardrex)
 
-Questo argomento include suggerimenti per la risoluzione degli errori comuni dell'hosting di app ASP.NET Core in Servizio app di Azure e IIS.
+Questo argomento descrive gli errori comuni e fornisce consigli per la risoluzione di errori specifici quando si ospitano ASP.NET Core app nel servizio app di Azure e in IIS.
+
+Per indicazioni generali sulla risoluzione dei problemi <xref:test/troubleshoot-azure-iis>, vedere.
 
 Raccogliere le seguenti informazioni:
 

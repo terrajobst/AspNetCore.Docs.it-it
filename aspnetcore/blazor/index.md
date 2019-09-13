@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc, seoapril2019
 ms.date: 09/05/2019
 uid: blazor/index
-ms.openlocfilehash: 6b62eb372d642c1ad9df880a4b71e5d5a8e40b60
-ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
+ms.openlocfilehash: 767ec8f106bebb92cf13a10eb63fab4905715d3d
+ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70800330"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70964123"
 ---
 # <a name="introduction-to-blazor"></a>Introduzione a Blazor
 
@@ -101,37 +101,37 @@ Quando questo componente viene usato nell'app, IntelliSense in [Visual Studio](/
 
 Il rendering dei componenti viene eseguito in una rappresentazione in memoria del modello DOM (Document Object Model) del browser denominata *albero di rendering*, usato per aggiornare l'interfaccia utente in modo flessibile ed efficiente.
 
-## <a name="blazor-client-side"></a>Blazor sul lato client
+## <a name="blazor-webassembly"></a>Webassembly Blazer
 
-Il lato client di Blazor è un framework per app a pagina singola per la compilazione di app Web lato client interattive con .NET. Il lato client di Blazor usa standard Web aperti senza plug-in o transpile del codice e funziona in tutti i Web browser moderni, inclusi quelli per dispositivi mobili.
+Blazer webassembly è un Framework di app a singola pagina per la creazione di app Web interattive sul lato client con .NET. Blazer webassembly USA standard Web aperti senza plug-in o transpilazione di codice e funziona in tutti i Web browser moderni, inclusi i browser per dispositivi mobili.
 
 L'esecuzione di codice .NET all'interno di Web browser è resa possibile da [WebAssembly](https://webassembly.org) (tecnologia nota anche con l'abbreviazione *wasm*). WebAssembly è un formato bytecode compatto ottimizzato per il download veloce e la velocità massima di esecuzione. WebAssembly è un standard Web aperto ed è supportato nei Web browser senza plug-in.
 
 Il codice WebAssembly può accedere a tutte le funzionalità del browser tramite l'*interoperabilità JavaScript* (*JavaScript interop*). Il codice .NET eseguito tramite WebAssembly nel browser viene eseguito nella sandbox JavaScript del browser con le misure di sicurezza offerte dalla sandbox per la protezione da azioni dannose nel computer client.
 
-![Blazor sul lato client esegue codice .NET nel browser con WebAssembly.](index/_static/blazor-client-side.png)
+![Webassembly Blazer esegue il codice .NET nel browser con webassembly.](index/_static/blazor-webassembly.png)
 
-Quando un'app Blazor sul lato client viene compilata ed eseguita in un browser:
+Quando viene compilata ed eseguita un'app webassembly Blazer in un browser:
 
 * I file di codice C# e i file Razor vengono compilati in assembly .NET.
 * Gli assembly e il runtime .NET vengono scaricati nel browser.
-* Blazor sul lato client esegue il bootstrap del runtime .NET e configura il runtime per caricare gli assembly per l'app. Il runtime lato client di Blazor usa l'interoperabilità JavaScript per gestire la modifica di modelli DOM e chiamate API del browser.
+* Blazer webassembly avvia il Runtime .NET e configura il runtime per caricare gli assembly per l'app. Il runtime di webassembly di Blazer usa l'interoperabilità JavaScript per gestire la manipolazione DOM e le chiamate API del browser.
 
-La dimensione dell'app pubblicata, ovvero la *dimensione del payload*, è un fattore cruciale per le prestazioni ai fini dell'usabilità dell'app. Un'app di grandi dimensioni impiega relativamente molto tempo a essere scaricata in un browser, influendo negativamente sull'esperienza utente. Blazor sul lato client ottimizza le dimensioni del payload per ridurre i tempi di download:
+La dimensione dell'app pubblicata, ovvero la *dimensione del payload*, è un fattore cruciale per le prestazioni ai fini dell'usabilità dell'app. Un'app di grandi dimensioni impiega relativamente molto tempo a essere scaricata in un browser, influendo negativamente sull'esperienza utente. Blazer webassembly ottimizza le dimensioni del payload per ridurre i tempi di download:
 
 * Il codice non usato viene rimosso dall'app quando questa viene pubblicata dal [linker del linguaggio intermedio](xref:host-and-deploy/blazor/configure-linker).
 * Le risposte HTTP vengono compresse.
 * Il runtime e gli assembly .NET vengono memorizzati nella cache nel browser.
 
-## <a name="blazor-server-side"></a>Blazor sul lato server
+## <a name="blazor-server"></a>Server Blazer
 
-Blazor separa la logica di rendering dei componenti dal modo in cui vengono applicati gli aggiornamenti dell'interfaccia utente. Blazor sul lato server fornisce il supporto per l'hosting di componenti Razor nel server in un'app ASP.NET Core. Gli aggiornamenti dell'interfaccia utente vengono gestiti tramite una connessione [SignalR](xref:signalr/introduction).
+Blazor separa la logica di rendering dei componenti dal modo in cui vengono applicati gli aggiornamenti dell'interfaccia utente. Il server Blazer fornisce il supporto per l'hosting di componenti Razor sul server in un'app ASP.NET Core. Gli aggiornamenti dell'interfaccia utente vengono gestiti tramite una connessione [SignalR](xref:signalr/introduction).
 
 Il runtime gestisce l'invio di eventi dell'interfaccia utente dal browser al server e quindi applica gli aggiornamenti dell'interfaccia utente inviati dal server di nuovo al browser dopo l'esecuzione dei componenti.
 
-La connessione usata da Blazor sul lato server per comunicare con il browser viene usata anche per gestire le chiamate di interoperabilità JavaScript.
+Per gestire le chiamate di interoperabilità JavaScript, viene usata anche la connessione utilizzata dal server Blaze per comunicare con il browser.
 
-![Blazor sul lato server esegue codice .NET sul server e interagisce con il modello DOM (Document Object Model) nel client tramite una connessione SignalR](index/_static/blazor-server-side.png)
+![Il server Blaze esegue il codice .NET sul server e interagisce con il Document Object Model sul client tramite una connessione SignalR](index/_static/blazor-server.png)
 
 ## <a name="javascript-interop"></a>Interoperabilità JavaScript
 

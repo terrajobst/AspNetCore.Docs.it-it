@@ -1,4 +1,4 @@
-# <a name="blazor-client-side-sample-app"></a>App di esempio blazer (lato client)
+# <a name="blazor-webassembly-sample-app"></a>App di esempio webassembly Blazer
 
 Questo esempio illustra l'uso degli scenari di Blazer descritti nella documentazione di Blazer.
 

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/06/2019
 uid: blazor/dependency-injection
-ms.openlocfilehash: 0b48cd0cbe14d2b07627f56ab78611bbd3209fa1
-ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
+ms.openlocfilehash: 6c01fdc390cc9150cf81673c717b73c4b10c31f1
+ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70800389"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70963973"
 ---
 # <a name="aspnet-core-blazor-dependency-injection"></a>Inserimento delle dipendenze di ASP.NET Core Blazer
 
@@ -61,7 +61,7 @@ I servizi possono essere configurati con le durate mostrate nella tabella seguen
 
 | Durata | Descrizione |
 | -------- | ----------- |
-| <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Scoped*> | Le app webassembly Blazer attualmente non dispongono di un concetto di ambiti di. `Scoped`-i servizi registrati si `Singleton` comportano come servizi. Tuttavia, il modello di hosting lato server supporta il `Scoped` ciclo di vita. Nelle app del server blazer, una registrazione del servizio con ambito ha come ambito la *connessione*. Per questo motivo, è preferibile usare i servizi con ambito per i servizi che devono avere come ambito l'utente corrente, anche se l'obiettivo corrente è eseguire sul lato client nel browser. |
+| <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Scoped*> | Le app webassembly Blazer attualmente non dispongono di un concetto di ambiti di. `Scoped`-i servizi registrati si `Singleton` comportano come servizi. Tuttavia, il modello di hosting del server Blazer `Scoped` supporta il ciclo di vita. Nelle app del server blazer, una registrazione del servizio con ambito ha come ambito la *connessione*. Per questo motivo, è preferibile usare i servizi con ambito per i servizi che devono avere come ambito l'utente corrente, anche se l'obiettivo corrente è eseguire sul lato client nel browser. |
 | <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Singleton*> | La creazione di una *singola istanza* del servizio. Tutti i componenti che richiedono `Singleton` un servizio ricevono un'istanza dello stesso servizio. |
 | <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Transient*> | Ogni volta che un componente ottiene un'istanza di `Transient` un servizio dal contenitore del servizio, riceve una *nuova istanza* del servizio. |
 

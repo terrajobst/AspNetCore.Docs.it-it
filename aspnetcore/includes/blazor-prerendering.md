@@ -1,4 +1,4 @@
-Mentre un'app del lato server Blaze è prerendering, alcune azioni, ad esempio la chiamata a JavaScript, non sono possibili perché non è stata stabilita una connessione con il browser. I componenti potrebbero dover eseguire il rendering in modo diverso quando ne viene eseguito il rendering.
+Mentre un'app del server blazer è prerendering, alcune azioni, ad esempio la chiamata a JavaScript, non sono possibili perché non è stata stabilita una connessione con il browser. I componenti potrebbero dover eseguire il rendering in modo diverso quando ne viene eseguito il rendering.
 
 Per ritardare le chiamate di interoperabilità JavaScript finché non viene stabilita la connessione con il `OnAfterRenderAsync` browser, è possibile usare l'evento ciclo di vita dei componenti. Questo evento viene chiamato solo dopo che viene eseguito il rendering completo dell'app e viene stabilita la connessione client.
 
@@ -62,7 +62,7 @@ Dove `JSRuntime.InvokeAsync` viene chiamato, `ElementRef` viene usato solo in `O
 }
 ```
 
-Per eseguire il rendering condizionale di contenuto diverso a seconda che l'app stia attualmente eseguendo il rendering `IsConnected` del contenuto, `IComponentContext` usare la proprietà nel servizio. Quando si esegue il lato server `IsConnected` , restituisce `true` solo se è presente una connessione attiva al client. Viene sempre restituito `true` quando si esegue il lato client.
+Per eseguire il rendering condizionale di contenuto diverso a seconda che l'app stia attualmente eseguendo il rendering `IsConnected` del contenuto, `IComponentContext` usare la proprietà nel servizio. Per le app del server Blazer `IsConnected` , `true` restituisce solo se è presente una connessione attiva al client. Restituisce `true` sempre nelle app webassembly blazer.
 
 ```cshtml
 @page "/isconnected-example"

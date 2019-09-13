@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/05/2019
 uid: blazor/get-started
-ms.openlocfilehash: 7bff1d38de77adfa1835ee37f4e5f8912ba629cc
-ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
+ms.openlocfilehash: e33ca421676caa20c823faf635442eda2a40ba65
+ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70800320"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70964017"
 ---
 # <a name="get-started-with-aspnet-core-blazor"></a>Introduzione a ASP.NET Core Blazer
 
@@ -40,7 +40,7 @@ Introduzione a Blazer:
 
    4 \. Specificare il nome di un progetto nel campo **Nome progetto** oppure accettare il nome predefinito. Confermare che la voce relativa al **percorso** sia corretta o specificare un percorso per il progetto. Selezionare **Create**.
 
-   5 \. Per un'esperienza del lato client blazer, scegliere il modello **app Webassembly Blazer** . Per un'esperienza sul lato server di Blazer, scegliere il modello di **app del server Blazer** . Selezionare **Create**. Per informazioni sui due modelli di hosting blazer, lato server e lato client, vedere <xref:blazor/hosting-models>.
+   5 \. Per un'esperienza di webassembly blazer, scegliere il modello **app Webassembly Blazer** . Per un'esperienza del server blazer, scegliere il modello di **app del server Blazer** . Selezionare **Create**. Per informazioni sui due modelli di hosting blazer, *Server Blazer* e *webassembly Blazer*, vedere <xref:blazor/hosting-models>.
 
    6 \. Premere **F5** per eseguire l'app.
 
@@ -53,25 +53,25 @@ Introduzione a Blazer:
 
    2 \. Installare la versione più recente [ C# di per l'estensione Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 
-   3 \. Per un'esperienza del lato client di Blazer, eseguire il comando seguente in una shell dei comandi:
+   3 \. Per un'esperienza di webassembly blazer, eseguire il comando seguente in una shell dei comandi:
 
       ```console
       dotnet new blazorwasm -o WebApplication1
       ```
 
-      Per un'esperienza sul lato server di Blaze, eseguire il comando seguente in una shell dei comandi:
+      Per un'esperienza del server blazer, eseguire il comando seguente in una shell dei comandi:
 
       ```console
       dotnet new blazorserver -o WebApplication1
       ```
 
-      Per informazioni sui due modelli di hosting blazer, lato server e lato client, vedere <xref:blazor/hosting-models>.
+      Per informazioni sui due modelli di hosting blazer, *Server Blazer* e *webassembly Blazer*, vedere <xref:blazor/hosting-models>.
 
    4 \. Aprire la cartella *WebApplication1* in Visual Studio Code.
 
-   5 \. Per un progetto Blazer sul lato server, l'IDE richiede l'aggiunta di asset per compilare ed eseguire il debug del progetto. Selezionare **Sì**.
+   5 \. Per un progetto server blazer, l'IDE richiede l'aggiunta di asset per compilare ed eseguire il debug del progetto. Selezionare **Sì**.
 
-   6 \. Se si usa un'app del lato server blazer, eseguire l'app usando il debugger Visual Studio Code. Se si usa un'app del lato client blazer, `dotnet run` eseguire dalla cartella del progetto dell'app.
+   6 \. Se si usa un'app del server blazer, eseguire l'app usando il debugger Visual Studio Code. Se si usa un'app webassembly blazer, `dotnet run` eseguire dalla cartella del progetto dell'app.
 
    7 \. In un browser passare a `https://localhost:5001`.
 
@@ -85,7 +85,7 @@ Introduzione a Blazer:
 
    3\. In the sidebar, select **.NET Core** > **App**.
 
-   4\. For a Blazor server-side experience, select the **Blazor Server App** template. For a Blazor client-side experience, select the **Blazor WebAssembly App** template. Select **Next**. For information on the two Blazor hosting models, server-side and client-side, see <xref:blazor/hosting-models>.
+   4\. For a Blazor Server experience, select the **Blazor Server App** template. For a Blazor WebAssembly experience, select the **Blazor WebAssembly App** template. Select **Next**. For information on the two Blazor hosting models, *Blazor Server* and *Blazor WebAssembly*, see <xref:blazor/hosting-models>.
 
    5\. The **Target Framework** defaults to **.NET Core 3.0**. Select **Next**.
 
@@ -97,7 +97,7 @@ Introduzione a Blazer:
 
    # <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli/)
 
-   Per un'esperienza del lato client di Blazer, eseguire i comandi seguenti in una shell dei comandi:
+   Per un'esperienza di webassembly blazer, eseguire i comandi seguenti in una shell dei comandi:
 
    ```console
    dotnet new blazorwasm -o WebApplication1
@@ -105,7 +105,7 @@ Introduzione a Blazer:
    dotnet run
    ```
 
-   Per un'esperienza sul lato server di Blazer, eseguire i comandi seguenti in una shell dei comandi:
+   Per un'esperienza del server blazer, eseguire i comandi seguenti in una shell dei comandi:
 
    ```console
    dotnet new blazorserver -o WebApplication1
@@ -113,7 +113,7 @@ Introduzione a Blazer:
    dotnet run
    ```
 
-   Per informazioni sui due modelli di hosting blazer, lato server e lato client, vedere <xref:blazor/hosting-models>.
+   Per informazioni sui due modelli di hosting blazer, *Server Blazer* e *webassembly Blazer*, vedere <xref:blazor/hosting-models>.
 
    In un browser passare a `https://localhost:5001`.
 

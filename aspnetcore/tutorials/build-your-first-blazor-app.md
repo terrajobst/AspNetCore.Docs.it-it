@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/23/2019
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: ea1111f43b6b8b4f47061056e8ad8d505f92dba6
-ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
+ms.openlocfilehash: ffbdf6991830d554fc508d1d2fe8e4b9586210df
+ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70800486"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70964187"
 ---
 # <a name="build-your-first-blazor-app"></a>Creare la prima app Blazor
 
@@ -57,7 +57,7 @@ Includere un componente in un altro componente usando una sintassi HTML.
 
 1. Aggiungere il componente `Counter` al componente `Index` dell'app aggiungendo un elemento `<Counter />` al componente `Index` (*Index.razor*).
 
-   Se si usa Blazor sul lato client per questa esperienza, viene usato un componente `SurveyPrompt` dal componente `Index`. Sostituire l'elemento `<SurveyPrompt>` con un elemento `<Counter />`. Se si usa un'app sul lato server Blazor per questa esperienza, aggiungere l'elemento `<Counter />` al componente `Index`:
+   Se si usa webassembly blazer per questa esperienza, un `SurveyPrompt` componente viene utilizzato `Index` dal componente. Sostituire l'elemento `<SurveyPrompt>` con un elemento `<Counter />`. Se si usa un'app del server blazer per questa esperienza, aggiungere l' `<Counter />` elemento `Index` al componente:
 
    *Pages/Index.razor*:
 
@@ -101,7 +101,7 @@ I servizi registrati nel contenitore del servizio dell'app sono disponibili per 
 
 Esaminare le direttive del componente `FetchData`.
 
-Se si usa un'app lato server Blazor, il servizio `WeatherForecastService` viene registrato come [singleton](xref:fundamentals/dependency-injection#service-lifetimes), in modo che un'istanza del servizio sia disponibile nell'intera app. La direttiva `@inject` viene usata per inserire l'istanza del servizio `WeatherForecastService` nel componente.
+Se si usa un'app del server blazer, `WeatherForecastService` il servizio viene registrato come [singleton](xref:fundamentals/dependency-injection#service-lifetimes), quindi un'istanza del servizio è disponibile nell'app. La direttiva `@inject` viene usata per inserire l'istanza del servizio `WeatherForecastService` nel componente.
 
 *Pages/FetchData.razor*:
 
@@ -111,7 +111,7 @@ Il componente `FetchData` usa il servizio inserito, come `ForecastService`, per 
 
 [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData2.razor?highlight=6)]
 
-Se si usa un'app lato client Blazor, viene inserito `HttpClient` per ottenere i dati delle previsioni meteo dal file *weather.json* nella cartella *wwwroot/sample-data*:
+Se si usa un'app webassembly blazer, `HttpClient` viene inserito per ottenere i dati delle previsioni meteo dal file *Weather. JSON* nella cartella *wwwroot/Sample-Data* :
 
 *Pages/FetchData.razor*:
 

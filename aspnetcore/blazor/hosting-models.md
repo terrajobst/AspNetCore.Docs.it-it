@@ -1,63 +1,63 @@
 ---
 title: Modelli di hosting di ASP.NET Core Blazer
 author: guardrex
-description: Informazioni sui modelli di hosting lato client e lato server di Blazer.
+description: Informazioni sui modelli di hosting di webassembly e blazer server blazer.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 09/07/2019
 uid: blazor/hosting-models
-ms.openlocfilehash: 7880affa59af1fa4fc47aee3dc98ae9aa53729af
-ms.sourcegitcommit: e7c56e8da5419bbc20b437c2dd531dedf9b0dc6b
+ms.openlocfilehash: 6e225e490e54e44877fa27573ff9b513c8dcd9a3
+ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70878339"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70964070"
 ---
 # <a name="aspnet-core-blazor-hosting-models"></a>Modelli di hosting di ASP.NET Core Blazer
 
 Di [Daniel Roth](https://github.com/danroth27)
 
-Blazer è un framework web progettato per l'esecuzione sul lato client nel browser in un Runtime .NET basato su [webassembly](https://webassembly.org/) (*lato client Blazer*) o sul lato server in ASP.NET Core (*lato server Blaze*). Indipendentemente dal modello di hosting, i modelli di app e componenti *sono gli stessi*.
+Blazer è un framework web progettato per l'esecuzione sul lato client nel browser in un Runtime .NET basato su [webassembly](https://webassembly.org/)(*Blazer webassembly*) o sul lato server in ASP.NET Core (*Server Blazer*). Indipendentemente dal modello di hosting, i modelli di app e componenti *sono gli stessi*.
 
 Per creare un progetto per i modelli di hosting descritti in questo articolo, <xref:blazor/get-started>vedere.
 
-## <a name="client-side"></a>Lato client
+## <a name="blazor-webassembly"></a>Webassembly Blazer
 
 Il modello di hosting principale per blazer è in esecuzione sul lato client nel browser del webassembly. L'app Blazor, le relative dipendenze e il runtime .NET vengono scaricati nel browser. L'app viene eseguita direttamente nel thread dell'interfaccia utente del browser. Gli aggiornamenti dell'interfaccia utente e la gestione degli eventi si verificano nello stesso processo. Le risorse dell'app vengono distribuite come file statici in un server Web o in un servizio in grado di servire contenuto statico ai client.
 
-![Lato client Blazer: L'app Blazer viene eseguita su un thread dell'interfaccia utente all'interno del browser.](hosting-models/_static/client-side.png)
+![Webassembly Blazer: L'app Blazer viene eseguita su un thread dell'interfaccia utente all'interno del browser.](hosting-models/_static/blazor-webassembly.png)
 
 Per creare un'app Blazer usando il modello di hosting lato client, usare il modello di **app Webassembly Blazer** ([DotNet New blazorwasm](/dotnet/core/tools/dotnet-new)).
 
-Dopo aver selezionato il modello di **applicazione Webassembly Blazer** , è possibile configurare l'app per l'uso di un back-end ASP.NET Core selezionando la casella di controllo **ASP.NET Core Hosted** ([DotNet New blazorwasm--Hosted](/dotnet/core/tools/dotnet-new)). L'app ASP.NET Core serve l'app Blazer ai client. L'app del lato client blazer può interagire con il server tramite la rete usando chiamate API Web o [SignalR](xref:signalr/introduction).
+Dopo aver selezionato il modello di **applicazione Webassembly Blazer** , è possibile configurare l'app per l'uso di un back-end ASP.NET Core selezionando la casella di controllo **ASP.NET Core Hosted** ([DotNet New blazorwasm--Hosted](/dotnet/core/tools/dotnet-new)). L'app ASP.NET Core serve l'app Blazer ai client. L'app webassembly blazer può interagire con il server tramite la rete usando chiamate API Web o [SignalR](xref:signalr/introduction).
 
 I modelli includono lo script *blazer. webassembly. js* che gestisce:
 
 * Download del runtime .NET, dell'app e delle dipendenze dell'app.
 * Inizializzazione del runtime per l'esecuzione dell'app.
 
-Il modello di hosting lato client offre diversi vantaggi:
+Il modello di hosting webassembly Blazer offre diversi vantaggi:
 
 * Non esiste alcuna dipendenza lato server .NET. L'app funziona completamente dopo il download nel client.
 * Le risorse e le funzionalità client sono completamente sfruttate.
 * Il lavoro viene scaricato dal server al client.
 * Non è necessario un server Web ASP.NET Core per ospitare l'app. Gli scenari di distribuzione senza server sono possibili, ad esempio per servire l'app da una rete CDN.
 
-Ci sono svantaggi per l'hosting lato client:
+Ci sono svantaggi per l'hosting di Blazer webassembly:
 
 * L'app è limitata alle funzionalità del browser.
 * È necessario disporre di hardware e software client idonei (ad esempio, il supporto di webassembly).
 * Le dimensioni del download sono maggiori e le app importano più tempo per il caricamento.
 * Il supporto di runtime e strumenti .NET è meno maturo. Ad esempio, esistono limitazioni in [.NET standard](/dotnet/standard/net-standard) supporto e debug.
 
-## <a name="server-side"></a>Lato server
+## <a name="blazor-server"></a>Server Blazer
 
-Con il modello di hosting lato server, l'app viene eseguita nel server dall'interno di un'app ASP.NET Core. Gli aggiornamenti dell'interfaccia utente, la gestione degli eventi e le chiamate JavaScript vengono gestite tramite una connessione [SignalR](xref:signalr/introduction).
+Con il modello di hosting del server blazer, l'app viene eseguita sul server dall'interno di un'app ASP.NET Core. Gli aggiornamenti dell'interfaccia utente, la gestione degli eventi e le chiamate JavaScript vengono gestite tramite una connessione [SignalR](xref:signalr/introduction).
 
-![Il browser interagisce con l'app (ospitata all'interno di un'app ASP.NET Core) sul server tramite una connessione SignalR.](hosting-models/_static/server-side.png)
+![Il browser interagisce con l'app (ospitata all'interno di un'app ASP.NET Core) sul server tramite una connessione SignalR.](hosting-models/_static/blazor-server.png)
 
-Per creare un'app Blazer usando il modello di hosting lato server, usare il modello di **app del server ASP.NET Core Blazer** ([DotNet New blazorserver](/dotnet/core/tools/dotnet-new)). L'app ASP.NET Core ospita l'app sul lato server e crea l'endpoint SignalR a cui si connettono i client.
+Per creare un'app Blazer usando il modello di hosting del server blazer, usare il modello di **app del server ASP.NET Core Blazer** ([DotNet New blazorserver](/dotnet/core/tools/dotnet-new)). L'app ASP.NET Core ospita l'app Server blazer e crea l'endpoint SignalR a cui si connettono i client.
 
 L'app ASP.NET Core fa riferimento alla `Startup` classe dell'app per aggiungere:
 
@@ -66,15 +66,15 @@ L'app ASP.NET Core fa riferimento alla `Startup` classe dell'app per aggiungere:
 
 Lo script&dagger; *blazer. Server. js* stabilisce la connessione client. È responsabilità dell'app salvare in modo permanente e ripristinare lo stato dell'app come richiesto, ad esempio in caso di perdita di una connessione di rete.
 
-Il modello di hosting lato server offre diversi vantaggi:
+Il modello di hosting del server Blazer offre diversi vantaggi:
 
-* Le dimensioni del download sono notevolmente inferiori rispetto a un'app sul lato client e l'app viene caricata molto più velocemente.
+* Le dimensioni del download sono notevolmente inferiori rispetto a un'app webassembly blazer e l'app viene caricata molto più velocemente.
 * L'app sfrutta appieno le funzionalità del server, incluso l'uso di tutte le API compatibili con .NET Core.
 * .NET Core nel server viene usato per eseguire l'app, in modo che gli strumenti .NET esistenti, ad esempio il debug, funzionino come previsto.
-* Sono supportati i thin client. Ad esempio, le app sul lato server funzionano con i browser che non supportano webassembly e nei dispositivi con vincoli di risorse.
+* Sono supportati i thin client. Ad esempio, le app del server Blazer funzionano con i browser che non supportano webassembly e nei dispositivi con vincoli di risorse.
 * La codebase .NET/C# code dell'app, incluso il codice componente dell'app, non viene servita ai client.
 
-Ci sono svantaggi per l'hosting lato server:
+Ci sono svantaggi per l'hosting del server Blazer:
 
 * In genere esiste una latenza più elevata. Ogni interazione dell'utente comporta un hop di rete.
 * Non è disponibile alcun supporto offline. Se la connessione client non riesce, l'app smette di funzionare.
@@ -104,7 +104,7 @@ Un aggiornamento dell'interfaccia utente in blazer viene attivato da:
 
 Viene eseguito il rendering del grafico e viene calcolata *una differenza dell'interfaccia utente* (differenza). Questa differenza è il set più piccolo di modifiche DOM necessarie per aggiornare l'interfaccia utente nel client. Il diff viene inviato al client in un formato binario e applicato dal browser.
 
-Un componente viene eliminato dopo che l'utente si è spostato dal client. Mentre un utente interagisce con un componente, lo stato del componente (servizi, risorse) deve essere mantenuto nella memoria del server. Poiché lo stato di molti componenti può essere gestito simultaneamente dal server, l'esaurimento della memoria è un problema che deve essere risolto. Per istruzioni su come creare un'app del server blazer per garantire l'utilizzo ottimale della memoria del server, <xref:security/blazor/server-side>vedere.
+Un componente viene eliminato dopo che l'utente si è spostato dal client. Mentre un utente interagisce con un componente, lo stato del componente (servizi, risorse) deve essere mantenuto nella memoria del server. Poiché lo stato di molti componenti può essere gestito simultaneamente dal server, l'esaurimento della memoria è un problema che deve essere risolto. Per istruzioni su come creare un'app del server blazer per garantire l'utilizzo ottimale della memoria del server, <xref:security/blazor/server>vedere.
 
 ### <a name="circuits"></a>Circuiti
 
@@ -120,16 +120,16 @@ La latenza dell'interfaccia utente è il tempo necessario da un'azione iniziata 
 
 Per un'app line-of-business limitata a una rete aziendale privata, l'effetto sulle percezioni utente della latenza a causa della latenza di rete è in genere impercettibile. Per un'app distribuita su Internet, la latenza può diventare evidente per gli utenti, in particolare se gli utenti sono ampiamente distribuiti geograficamente.
 
-L'utilizzo della memoria può anche contribuire alla latenza dell'app. Un aumento dell'utilizzo della memoria comporta un frequente Garbage Collection o il paging della memoria su disco, che comportano una riduzione delle prestazioni dell'app e quindi aumentano la latenza dell'interfaccia Per altre informazioni, vedere <xref:security/blazor/server-side>.
+L'utilizzo della memoria può anche contribuire alla latenza dell'app. Un aumento dell'utilizzo della memoria comporta un frequente Garbage Collection o il paging della memoria su disco, che comportano una riduzione delle prestazioni dell'app e quindi aumentano la latenza dell'interfaccia Per altre informazioni, vedere <xref:security/blazor/server>.
 
-Le app del server Blazer devono essere ottimizzate per ridurre la latenza dell'interfaccia utente riducendo la latenza di rete e l'utilizzo della memoria Per un approccio alla misurazione della latenza di <xref:host-and-deploy/blazor/server-side#measure-network-latency>rete, vedere. Per ulteriori informazioni su SignalR e blazer, vedere:
+Le app del server Blazer devono essere ottimizzate per ridurre la latenza dell'interfaccia utente riducendo la latenza di rete e l'utilizzo della memoria Per un approccio alla misurazione della latenza di <xref:host-and-deploy/blazor/server#measure-network-latency>rete, vedere. Per ulteriori informazioni su SignalR e blazer, vedere:
 
-* <xref:host-and-deploy/blazor/server-side>
-* <xref:security/blazor/server-side>
+* <xref:host-and-deploy/blazor/server>
+* <xref:security/blazor/server>
 
 ### <a name="reconnection-to-the-same-server"></a>Riconnessione allo stesso server
 
-Le app sul lato server di Blazer richiedono una connessione SignalR attiva al server. Se la connessione viene persa, l'app tenta di riconnettersi al server. Fino a quando lo stato del client è ancora in memoria, la sessione client riprende senza perdere lo stato.
+Le app del server Blazer richiedono una connessione SignalR attiva al server. Se la connessione viene persa, l'app tenta di riconnettersi al server. Fino a quando lo stato del client è ancora in memoria, la sessione client riprende senza perdere lo stato.
 
 Quando il client rileva che la connessione è stata persa, viene visualizzata un'interfaccia utente predefinita quando il client tenta di riconnettersi. Se la riconnessione non riesce, all'utente viene offerta l'opzione per riprovare. Per personalizzare l'interfaccia utente, definire un elemento `components-reconnect-modal` con `id` come nella pagina Razor *_Host. cshtml* . Il client aggiorna questo elemento con una delle seguenti classi CSS in base allo stato della connessione:
 
@@ -139,7 +139,7 @@ Quando il client rileva che la connessione è stata persa, viene visualizzata un
 
 ### <a name="stateful-reconnection-after-prerendering"></a>Riconnessione con stato dopo il rendering preliminare
 
-Per impostazione predefinita, le app lato server di Blaze sono impostate per eseguire il prerendering dell'interfaccia utente nel server prima che venga stabilita la connessione client al server. Questa impostazione è configurata nella pagina Razor *_Host. cshtml* :
+Per impostazione predefinita, le app del server Blaze sono configurate per eseguire il prerendering dell'interfaccia utente nel server prima che venga stabilita la connessione client al server. Questa impostazione è configurata nella pagina Razor *_Host. cshtml* :
 
 ```cshtml
 <body>
@@ -156,8 +156,8 @@ Per impostazione predefinita, le app lato server di Blaze sono impostate per ese
 
 | `RenderMode`        | Descrizione |
 | ------------------- | ----------- |
-| `ServerPrerendered` | Esegue il rendering del componente in HTML statico e include un marcatore per un'app Blazer sul lato server. Quando l'agente utente viene avviato, questo marcatore viene usato per il bootstrap di un'app blazer. I parametri non sono supportati. |
-| `Server`            | Esegue il rendering di un marcatore per un'app del lato server Blaze. L'output del componente non è incluso. Quando l'agente utente viene avviato, questo marcatore viene usato per il bootstrap di un'app blazer. I parametri non sono supportati. |
+| `ServerPrerendered` | Esegue il rendering del componente in HTML statico e include un marcatore per un'app del server blazer. Quando l'agente utente viene avviato, questo marcatore viene usato per il bootstrap di un'app blazer. I parametri non sono supportati. |
+| `Server`            | Esegue il rendering di un marcatore per un'app del server blazer. L'output del componente non è incluso. Quando l'agente utente viene avviato, questo marcatore viene usato per il bootstrap di un'app blazer. I parametri non sono supportati. |
 | `Static`            | Esegue il rendering del componente in HTML statico. I parametri sono supportati. |
 
 Il rendering dei componenti server da una pagina HTML statica non è supportato.
@@ -209,9 +209,9 @@ Poiché `MyComponent` viene sottoposto a rendering statico, il componente non pu
 
 [!INCLUDE[](~/includes/blazor-prerendering.md)]
 
-### <a name="configure-the-signalr-client-for-blazor-server-side-apps"></a>Configurare il client SignalR per le app del lato server di Blaze
+### <a name="configure-the-signalr-client-for-blazor-server-apps"></a>Configurare il client SignalR per le app del server Blazer
 
-In alcuni casi, è necessario configurare il client SignalR usato dalle app del lato server di Blazer. Ad esempio, potrebbe essere necessario configurare la registrazione nel client SignalR per diagnosticare un problema di connessione.
+In alcuni casi, è necessario configurare il client SignalR usato dalle app del server blazer. Ad esempio, potrebbe essere necessario configurare la registrazione nel client SignalR per diagnosticare un problema di connessione.
 
 Per configurare il client SignalR nel file *pages/_Host. cshtml* :
 

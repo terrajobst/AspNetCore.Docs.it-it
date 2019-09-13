@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/05/2019
 uid: host-and-deploy/blazor/index
-ms.openlocfilehash: 5a56bbda5bb7727c7dbeaed7f2a91d0dcb6e7e71
-ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
+ms.openlocfilehash: 26c8fcf56ab8ca68aeca93560785fc6c1144ab86
+ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773593"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70963682"
 ---
 # <a name="host-and-deploy-aspnet-core-blazor"></a>Hosting e distribuzione di ASP.NET Core Blazor
 
@@ -40,7 +40,7 @@ dotnet publish -c Release
 
 La pubblicazione dell'app attiva un [ripristino](/dotnet/core/tools/dotnet-restore) delle dipendenze del progetto e [compila](/dotnet/core/tools/dotnet-build) il progetto prima di creare gli asset per la distribuzione. Come parte del processo di compilazione, vengono rimossi gli assembly e i metodi non usati per ridurre le dimensioni del download e i tempi di caricamento dell'app.
 
-Un'app lato client Blazor viene pubblicata nella cartella */bin/Release/{FRAMEWORK DI DESTINAZIONE}/publish/{NOME ASSEMBLY}/dist*. Un'app lato server Blazor viene pubblicata nella cartella */bin/Release/{FRAMEWORK DI DESTINAZIONE}/publish*.
+Un'app webassembly Blazer viene pubblicata nella cartella */bin/Release/{Target Framework}/Publish/{assembly nome}/dist* . Viene pubblicata un'app del server Blazer nella cartella */bin/Release/{Target Framework}/Publish*
 
 Gli asset nella cartella vengono distribuiti nel server Web. La distribuzione potrebbe essere un processo manuale o automatizzato a seconda degli strumenti di sviluppo in uso.
 
@@ -87,5 +87,5 @@ L'app risponde in locale all'indirizzo `http://localhost:port/CoolApp`.
 
 Per indicazioni sulla distribuzione, vedere gli argomenti seguenti:
 
-* <xref:host-and-deploy/blazor/client-side>
-* <xref:host-and-deploy/blazor/server-side>
+* <xref:host-and-deploy/blazor/webassembly>
+* <xref:host-and-deploy/blazor/server>

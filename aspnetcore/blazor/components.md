@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/06/2019
 uid: blazor/components
-ms.openlocfilehash: dbd0879d200061151e8307346adef784967bf123
-ms.sourcegitcommit: e7c56e8da5419bbc20b437c2dd531dedf9b0dc6b
+ms.openlocfilehash: bc9fa06e5acccb773717fe87bf4aabb971b8dee5
+ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70878391"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70963775"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Creare e usare ASP.NET Core componenti Razor
 
@@ -79,7 +79,7 @@ Per eseguire il rendering di un componente da una pagina o da `RenderComponentAs
 
 Mentre le pagine e le visualizzazioni possono usare i componenti, il contrario non è vero. I componenti non possono usare scenari di visualizzazione e di pagina specifici, ad esempio visualizzazioni parziali e sezioni. Per usare la logica dalla visualizzazione parziale in un componente, scomporre la logica di visualizzazione parziale in un componente.
 
-Per altre informazioni su come viene eseguito il rendering dei componenti e lo stato del componente viene gestito nelle app sul lato server <xref:blazor/hosting-models> di Blazer, vedere l'articolo.
+Per altre informazioni su come viene eseguito il rendering dei componenti e lo stato del componente viene gestito nelle app del <xref:blazor/hosting-models> server blazer, vedere l'articolo.
 
 ## <a name="use-components"></a>Usare i componenti
 
@@ -217,7 +217,7 @@ L' `@bind` utilizzo di `CurrentValue` con una`<input @bind="CurrentValue" />`pro
 
 ```cshtml
 <input value="@CurrentValue"
-    @onchange="@((UIChangeEventArgs __e) => CurrentValue = __e.Value)" />
+    @onchange="@((ChangeEventArgs __e) => CurrentValue = __e.Value)" />
 ```
 
 Quando viene eseguito il rendering del componente `value` , l'oggetto dell'elemento di input `CurrentValue` deriva dalla proprietà. Quando l'utente digita nella casella di testo, l' `onchange` evento viene generato e la `CurrentValue` proprietà viene impostata sul valore modificato. In realtà, la generazione del codice è un po' più complessa `@bind` perché gestisce alcuni casi in cui vengono eseguite le conversioni dei tipi. In linea di `@bind` principio, associa il valore corrente di un'espressione `value` a un attributo e gestisce le modifiche utilizzando il gestore registrato.
@@ -379,7 +379,7 @@ Il codice seguente chiama il `UpdateHeading` metodo quando si seleziona il pulsa
 </button>
 
 @code {
-    private void UpdateHeading(UIMouseEventArgs e)
+    private void UpdateHeading(MouseEventArgs e)
     {
         ...
     }
@@ -409,7 +409,7 @@ Nell'esempio seguente, `UpdateHeading` viene chiamato in modo asincrono quando s
 </button>
 
 @code {
-    private async Task UpdateHeading(UIMouseEventArgs e)
+    private async Task UpdateHeading(MouseEventArgs e)
     {
         ...
     }
@@ -446,7 +446,7 @@ Per informazioni sulle proprietà e sul comportamento di gestione degli eventi d
 <button @onclick="@(e => Console.WriteLine("Hello, world!"))">Say hello</button>
 ```
 
-Spesso è consigliabile chiudere i valori aggiuntivi, ad esempio quando si esegue l'iterazione su un set di elementi. Nell'esempio seguente vengono creati tre pulsanti, ciascuno dei quali `UpdateHeading` chiama il passaggio di un`UIMouseEventArgs`argomento di evento () e`buttonNumber`il relativo numero di pulsante () quando vengono selezionati nell'interfaccia utente:
+Spesso è consigliabile chiudere i valori aggiuntivi, ad esempio quando si esegue l'iterazione su un set di elementi. Nell'esempio seguente vengono creati tre pulsanti, ciascuno dei quali `UpdateHeading` chiama il passaggio di un`MouseEventArgs`argomento di evento () e`buttonNumber`il relativo numero di pulsante () quando vengono selezionati nell'interfaccia utente:
 
 ```cshtml
 <h2>@message</h2>
@@ -464,7 +464,7 @@ Spesso è consigliabile chiudere i valori aggiuntivi, ad esempio quando si esegu
 @code {
     private string message = "Select a button to learn its position.";
 
-    private void UpdateHeading(UIMouseEventArgs e, int buttonNumber)
+    private void UpdateHeading(MouseEventArgs e, int buttonNumber)
     {
         message = $"You selected Button #{buttonNumber} at " +
             $"mouse position: {e.ClientX} X {e.ClientY}.";
@@ -479,7 +479,7 @@ Spesso è consigliabile chiudere i valori aggiuntivi, ad esempio quando si esegu
 
 Uno scenario comune con i componenti annidati è la volontà di eseguire il metodo di un componente padre quando si verifica&mdash;un evento del componente figlio `onclick` , ad esempio, quando si verifica un evento nell'elemento figlio. Per esporre gli eventi tra i componenti, `EventCallback`usare un oggetto. Un componente padre può assegnare un metodo di callback a un componente `EventCallback`figlio.
 
-Nell'app di esempio illustra come viene configurato il `onclick` gestore di un pulsante per ricevere un `EventCallback` delegato dall'oggetto dell'esempio `ParentComponent`. `ChildComponent` Viene digitato `UIMouseEventArgs`con, appropriato per un `onclick` evento da un dispositivo periferico: `EventCallback`
+Nell'app di esempio illustra come viene configurato il `onclick` gestore di un pulsante per ricevere un `EventCallback` delegato dall'oggetto dell'esempio `ParentComponent`. `ChildComponent` Viene digitato `MouseEventArgs`con, appropriato per un `onclick` evento da un dispositivo periferico: `EventCallback`
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Components/ChildComponent.razor?highlight=5-7,17-18)]
 
@@ -516,6 +516,126 @@ await callback.InvokeAsync(arg);
 Usare `EventCallback` e`EventCallback<T>` per la gestione degli eventi e i parametri del componente di associazione.
 
 Preferisci l'oggetto `EventCallback<T>` fortemente `EventCallback`tipizzato. `EventCallback<T>`fornisce un migliore feedback sugli errori agli utenti del componente. Analogamente ad altri gestori di eventi dell'interfaccia utente, la specifica del parametro dell'evento è facoltativa. Usare `EventCallback` quando non è stato passato alcun valore al callback.
+
+## <a name="chained-bind"></a>Binding concatenato
+
+Uno scenario comune consiste nel concatenare un parametro associato a dati a un elemento Page nell'output del componente. Questo scenario è denominato *Binding concatenato* perché si verificano simultaneamente più livelli di associazione.
+
+Un binding concatenato non può essere `@bind` implementato con la sintassi nell'elemento della pagina. Il gestore eventi e il valore devono essere specificati separatamente. Un componente padre, tuttavia, può utilizzare `@bind` la sintassi con il parametro del componente.
+
+Il componente `PasswordField` seguente (*PasswordField. Razor*):
+
+* Imposta il `<input>` valore di un elemento su `Password` una proprietà.
+* Espone le modifiche della `Password` proprietà a un componente padre con un [EventCallback](#eventcallback).
+
+```cshtml
+Password: 
+
+<input @oninput="OnPasswordChanged" 
+       required 
+       type="@(showPassword ? "text" : "password")" 
+       value="@Password" />
+
+<button class="btn btn-primary" @onclick="ToggleShowPassword">
+    Show password
+</button>
+
+@code {
+    private bool showPassword;
+
+    [Parameter]
+    public string Password { get; set; }
+
+    [Parameter]
+    public EventCallback<string> PasswordChanged { get; set; }
+
+    private Task OnPasswordChanged(ChangeEventArgs e)
+    {
+        Password = e.Value.ToString();
+
+        return PasswordChanged.InvokeAsync(Password);
+    }
+
+    private void ToggleShowPassword()
+    {
+        showPassword = !showPassword;
+    }
+}
+```
+
+Il `PasswordField` componente viene usato in un altro componente:
+
+```cshtml
+<PasswordField @bind-Password="password" />
+
+@code {
+    private string password;
+}
+```
+
+Per eseguire controlli o intercettare gli errori sulla password nell'esempio precedente:
+
+* Creare un campo di supporto per `Password` (`password` nell'esempio di codice seguente).
+* Eseguire i controlli o gli errori di trap `Password` nel Setter.
+
+Nell'esempio seguente viene fornito un feedback immediato all'utente se viene utilizzato uno spazio nel valore della password:
+
+```cshtml
+Password: 
+
+<input @oninput="OnPasswordChanged" 
+       required 
+       type="@(showPassword ? "text" : "password")" 
+       value="@Password" />
+
+<button class="btn btn-primary" @onclick="ToggleShowPassword">
+    Show password
+</button>
+
+<span class="text-danger">@validationMessage</span>
+
+@code {
+    private bool showPassword;
+    private string password;
+    private string validationMessage;
+
+    [Parameter]
+    public string Password
+    {
+        get { return password ?? string.Empty; }
+        set
+        {
+            if (password != value)
+            {
+                if (value.Contains(' '))
+                {
+                    validationMessage = "Spaces not allowed!";
+                }
+                else
+                {
+                    password = value;
+                    validationMessage = string.Empty;
+                }
+            }
+        }
+    }
+
+    [Parameter]
+    public EventCallback<string> PasswordChanged { get; set; }
+
+    private Task OnPasswordChanged(ChangeEventArgs e)
+    {
+        Password = e.Value.ToString();
+
+        return PasswordChanged.InvokeAsync(Password);
+    }
+
+    private void ToggleShowPassword()
+    {
+        showPassword = !showPassword;
+    }
+}
+```
 
 ## <a name="capture-references-to-components"></a>Acquisisci riferimenti ai componenti
 
@@ -565,7 +685,7 @@ public class NotifierService
         }
     }
 
-    public event Action<string, int, Task> Notify;
+    public event Func<string, int, Task> Notify;
 }
 ```
 
@@ -613,7 +733,7 @@ Si consideri l'esempio seguente:
 ```csharp
 @foreach (var person in People)
 {
-    <DetailsEditor Details="@person.Details" />
+    <DetailsEditor Details="person.Details" />
 }
 
 @code {
@@ -629,7 +749,7 @@ Il contenuto della `People` raccolta può cambiare con le voci inserite, elimina
 ```csharp
 @foreach (var person in People)
 {
-    <DetailsEditor @key="@person" Details="@person.Details" />
+    <DetailsEditor @key="person" Details="person.Details" />
 }
 
 @code {
@@ -656,8 +776,8 @@ In genere, è opportuno usare `@key` ogni volta che viene eseguito il rendering 
 È anche possibile usare `@key` per impedire a blazer di mantenere un sottoalbero di elementi o componenti quando un oggetto viene modificato:
 
 ```cshtml
-<div @key="@currentPerson">
-    ... content that depends on @currentPerson ...
+<div @key="currentPerson">
+    ... content that depends on currentPerson ...
 </div>
 ```
 
@@ -934,7 +1054,7 @@ Un componente basato su modelli viene definito specificando uno o più parametri
 Quando si usa un componente basato su modelli, i parametri del modello possono essere specificati usando gli elementi figlio che corrispondono ai nomi`TableHeader` dei `RowTemplate` parametri (e nell'esempio seguente):
 
 ```cshtml
-<TableTemplate Items="@pets">
+<TableTemplate Items="pets">
     <TableHeader>
         <th>ID</th>
         <th>Name</th>
@@ -951,7 +1071,7 @@ Quando si usa un componente basato su modelli, i parametri del modello possono e
 Gli argomenti del componente `RenderFragment<T>` di tipo passati come elementi hanno un parametro `context` implicito denominato (ad esempio, nell'esempio `@context.PetId`di codice precedente,), ma è possibile modificare il `Context` nome del parametro usando l'attributo nell'elemento figlio elemento. Nell'esempio seguente, l' `RowTemplate` `Context` attributo dell'elemento specifica il `pet` parametro:
 
 ```cshtml
-<TableTemplate Items="@pets">
+<TableTemplate Items="pets">
     <TableHeader>
         <th>ID</th>
         <th>Name</th>
@@ -966,7 +1086,7 @@ Gli argomenti del componente `RenderFragment<T>` di tipo passati come elementi h
 In alternativa, è possibile specificare l' `Context` attributo sull'elemento Component. L'attributo `Context` specificato si applica a tutti i parametri di modello specificati. Questa operazione può essere utile quando si desidera specificare il nome del parametro di contenuto per il contenuto figlio implicito (senza alcun elemento figlio di wrapping). Nell'esempio seguente l' `Context` attributo viene visualizzato `TableTemplate` nell'elemento e si applica a tutti i parametri del modello:
 
 ```cshtml
-<TableTemplate Items="@pets" Context="pet">
+<TableTemplate Items="pets" Context="pet">
     <TableHeader>
         <th>ID</th>
         <th>Name</th>
@@ -987,7 +1107,7 @@ I componenti basati su modelli spesso sono tipizzati in modo generico. È ad ese
 Quando si usano componenti tipizzati generici, il parametro di tipo viene dedotto, se possibile:
 
 ```cshtml
-<ListViewTemplate Items="@pets">
+<ListViewTemplate Items="pets">
     <ItemTemplate Context="pet">
         <li>@pet.Name</li>
     </ItemTemplate>
@@ -997,7 +1117,7 @@ Quando si usano componenti tipizzati generici, il parametro di tipo viene dedott
 In caso contrario, il parametro di tipo deve essere specificato in modo esplicito utilizzando un attributo che corrisponde al nome del parametro di tipo. Nell'esempio seguente viene `TItem="Pet"` specificato il tipo:
 
 ```cshtml
-<ListViewTemplate Items="@pets" TItem="Pet">
+<ListViewTemplate Items="pets" TItem="Pet">
     <ItemTemplate Context="pet">
         <li>@pet.Name</li>
     </ItemTemplate>
@@ -1037,7 +1157,7 @@ Ad esempio, l'app di esempio specifica le informazioni`ThemeInfo`sul tema () in 
             <NavMenu />
         </div>
         <div class="col-sm-9">
-            <CascadingValue Value="@theme">
+            <CascadingValue Value="theme">
                 <div class="content px-4">
                     @Body
                 </div>
@@ -1331,7 +1451,7 @@ Questo è un esempio semplice. Nei casi più realistici con strutture complesse 
 
 ## <a name="localization"></a>Localizzazione
 
-Le app sul lato server di Blaze sono localizzate usando il [middleware di localizzazione](xref:fundamentals/localization#localization-middleware). Il middleware seleziona le impostazioni cultura appropriate per gli utenti che richiedono risorse dall'app.
+Le app del server Blazer vengono localizzate usando il [middleware di localizzazione](xref:fundamentals/localization#localization-middleware). Il middleware seleziona le impostazioni cultura appropriate per gli utenti che richiedono risorse dall'app.
 
 Le impostazioni cultura possono essere impostate utilizzando uno degli approcci seguenti:
 
@@ -1348,7 +1468,7 @@ L'uso di un cookie garantisce che la connessione WebSocket possa propagare corre
 
 Qualsiasi tecnica può essere utilizzata per assegnare impostazioni cultura se le impostazioni cultura vengono rese permanente in un cookie di localizzazione. Se l'app dispone già di uno schema di localizzazione stabilito per ASP.NET Core lato server, continuare a usare l'infrastruttura di localizzazione esistente dell'app e impostare il cookie delle impostazioni cultura di localizzazione nello schema dell'app.
 
-Nell'esempio seguente viene illustrato come impostare le impostazioni cultura correnti in un cookie che può essere letto dal middleware di localizzazione. Creare un file *pages/host. cshtml. cs* con il contenuto seguente nell'app del lato server di Blaze:
+Nell'esempio seguente viene illustrato come impostare le impostazioni cultura correnti in un cookie che può essere letto dal middleware di localizzazione. Creare un file *pages/host. cshtml. cs* con il contenuto seguente nell'app del server Blazer:
 
 ```csharp
 public class HostModel : PageModel
@@ -1370,9 +1490,9 @@ La localizzazione viene gestita nell'app:
 1. Il browser invia una richiesta HTTP iniziale all'app.
 1. Le impostazioni cultura vengono assegnate dal middleware di localizzazione.
 1. Il `OnGet` metodo in *_Host. cshtml. cs* rende permanente le impostazioni cultura di un cookie come parte della risposta.
-1. Il browser apre una connessione WebSocket per creare una sessione Interactive Blazer sul lato server.
+1. Il browser apre una connessione WebSocket per creare una sessione del server Interactive Blaze.
 1. Il middleware di localizzazione legge il cookie e assegna le impostazioni cultura.
-1. La sessione del lato server Blaze inizia con le impostazioni cultura corrette.
+1. La sessione del server Blaze inizia con le impostazioni cultura corrette.
 
 ## <a name="provide-ui-to-choose-the-culture"></a>Fornire l'interfaccia utente per scegliere le impostazioni cultura
 
@@ -1420,7 +1540,7 @@ Il componente seguente mostra un esempio di come eseguire il reindirizzamento in
 @code {
     private double textNumber;
 
-    private void OnSelected(UIChangeEventArgs e)
+    private void OnSelected(ChangeEventArgs e)
     {
         var culture = (string)e.Value;
         var uri = new Uri(NavigationManager.Uri())
@@ -1469,4 +1589,4 @@ Tuttavia, il markup SVG inline non è supportato in tutti gli scenari. Se si ins
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* <xref:security/blazor/server-side>&ndash; Include informazioni aggiuntive sulla creazione di app Blazer sul lato server che devono essere confrontate con l'esaurimento delle risorse.
+* <xref:security/blazor/server>&ndash; Include informazioni aggiuntive sulla creazione di app del server blazer che devono essere confrontate con l'esaurimento delle risorse.

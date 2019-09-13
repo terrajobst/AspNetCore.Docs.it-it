@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/06/2019
 uid: blazor/routing
-ms.openlocfilehash: d348908261c51b477aa698a407266d05c0df5a33
-ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
+ms.openlocfilehash: 1c61eedf7dbf0bbc8796eaa11360783b9d7aba6c
+ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70800334"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70963864"
 ---
 # <a name="aspnet-core-blazor-routing"></a>Routing di ASP.NET Core Blazer
 
@@ -22,7 +22,7 @@ Informazioni su come instradare le richieste e su `NavLink` come usare il compon
 
 ## <a name="aspnet-core-endpoint-routing-integration"></a>Integrazione di routing endpoint ASP.NET Core
 
-Il lato server di Blazer è integrato in [ASP.net core routing degli endpoint](xref:fundamentals/routing). Un'app ASP.NET Core è configurata in modo da accettare le connessioni in `MapBlazorHub` ingresso `Startup.Configure`per i componenti interattivi con in:
+Il server blazer è integrato nel [Routing ASP.NET Core endpoint](xref:fundamentals/routing). Un'app ASP.NET Core è configurata in modo da accettare le connessioni in `MapBlazorHub` ingresso `Startup.Configure`per i componenti interattivi con in:
 
 [!code-csharp[](routing/samples_snapshot/3.x/Startup.cs?highlight=5)]
 
@@ -55,7 +55,7 @@ Facoltativamente, è possibile specificare `DefaultLayout` un parametro con una 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRoute.razor?name=snippet_BlazorRoute)]
 
 > [!IMPORTANT]
-> Per la corretta risoluzione degli URL, l'app deve includere `<base>` un tag nel file *wwwroot/index.html* (lato client Blazer) o nel file *pages/_Host. cshtml* (lato server fiammeggiar) con il percorso di base dell' `href` applicazione specificato nell'attributo ( `<base href="/">`). Per altre informazioni, vedere <xref:host-and-deploy/blazor/index#app-base-path>.
+> Per la corretta risoluzione degli URL, l'app deve includere `<base>` un tag nel file *wwwroot/index.html* (webassembly Blazer) o nel file *pages/_Host. cshtml* (server Blazer) con il percorso di base dell' `href` app specificato nell'attributo (`<base href="/">`). Per altre informazioni, vedere <xref:host-and-deploy/blazor/index#app-base-path>.
 
 ## <a name="provide-custom-content-when-content-isnt-found"></a>Fornire contenuto personalizzato quando il contenuto non è stato trovato
 
@@ -108,11 +108,11 @@ Sono disponibili i vincoli di route indicati nella tabella seguente. Per ulterio
 | ---------- | ----------------- | -------------------------------------------------------------------------------- | :------------------------------: |
 | `bool`     | `{active:bool}`   | `true`, `FALSE`                                                                  | No                               |
 | `datetime` | `{dob:datetime}`  | `2016-12-31`, `2016-12-31 7:32pm`                                                | Sì                              |
-| `decimal`  | `{price:decimal}` | `49.99`, `-1,000.01`                                                             | Yes                              |
+| `decimal`  | `{price:decimal}` | `49.99`, `-1,000.01`                                                             | Sì                              |
 | `double`   | `{weight:double}` | `1.234`, `-1,001.01e8`                                                           | Sì                              |
-| `float`    | `{weight:float}`  | `1.234`, `-1,001.01e8`                                                           | Sì                              |
+| `float`    | `{weight:float}`  | `1.234`, `-1,001.01e8`                                                           | Yes                              |
 | `guid`     | `{id:guid}`       | `CD2C1638-1638-72D5-1638-DEADBEEF1638`, `{CD2C1638-1638-72D5-1638-DEADBEEF1638}` | No                               |
-| `int`      | `{id:int}`        | `123456789`, `-123456789`                                                        | Sì                              |
+| `int`      | `{id:int}`        | `123456789`, `-123456789`                                                        | Yes                              |
 | `long`     | `{ticks:long}`    | `123456789`, `-123456789`                                                        | Sì                              |
 
 > [!WARNING]
@@ -120,7 +120,7 @@ Sono disponibili i vincoli di route indicati nella tabella seguente. Per ulterio
 
 ### <a name="routing-with-urls-that-contain-dots"></a>Routing con URL contenenti punti
 
-Nelle app del lato server di Blaze la route predefinita in *_Host. cshtml* è `/` (`@page "/"`). Un URL di richiesta che contiene un punto`.`() non corrisponde alla route predefinita perché l'URL viene visualizzato per richiedere un file. Un'app Blazer restituisce una risposta *404 non trovata* per un file statico che non esiste. Per usare le route che contengono un punto, configurare *_Host. cshtml* con il modello di route seguente:
+Nelle app del server Blazer la route predefinita in *_Host. cshtml* è `/` (`@page "/"`). Un URL di richiesta che contiene un punto`.`() non corrisponde alla route predefinita perché l'URL viene visualizzato per richiedere un file. Un'app Blazer restituisce una risposta *404 non trovata* per un file statico che non esiste. Per usare le route che contengono un punto, configurare *_Host. cshtml* con il modello di route seguente:
 
 ```cshtml
 @page "/{**path}"
@@ -164,10 +164,10 @@ Viene eseguito il rendering del markup HTML seguente:
 
 Usare `Microsoft.AspNetCore.Components.NavigationManager` per lavorare con gli URI e la C# navigazione nel codice. `NavigationManager`fornisce l'evento e i metodi illustrati nella tabella seguente.
 
-| Member | Descrizione |
+| Member | DESCRIZIONE |
 | ------ | ----------- |
 | `Uri` | Ottiene l'URI assoluto corrente. |
-| `BaseUri` | Ottiene l'URI di base (con una barra finale) che può essere anteposto ai percorsi URI relativi per produrre un URI assoluto. `BaseUri` Corrisponde in genere `href` all'`<base>` attributo sull'elemento del documento in *wwwroot/index.html* (lato client Blazer) o *pages/_Host. cshtml* (lato server Blaze). |
+| `BaseUri` | Ottiene l'URI di base (con una barra finale) che può essere anteposto ai percorsi URI relativi per produrre un URI assoluto. `BaseUri` Corrisponde in genere `href` all'`<base>` attributo sull'elemento del documento in *wwwroot/index.html* (Blazer webassembly) o *pages/_Host. cshtml* (server Blazer). |
 | `NavigateTo` | Passa all'URI specificato. Se `forceLoad` è `true`:<ul><li>Il routing lato client viene ignorato.</li><li>Il browser è forzato a caricare la nuova pagina dal server, indipendentemente dal fatto che l'URI venga normalmente gestito dal router lato client.</li></ul> |
 | `LocationChanged` | Un evento che viene attivato quando il percorso di navigazione viene modificato. |
 | `ToAbsoluteUri` | Converte un URI relativo in un URI assoluto. |
