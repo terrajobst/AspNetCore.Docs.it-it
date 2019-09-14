@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/12/2019
 uid: mvc/views/partial
-ms.openlocfilehash: 901fd52f89969141713e443890781a77308bd901
-ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
-ms.translationtype: HT
+ms.openlocfilehash: 50c4f41d5d3099184aa3992ed7e176b74c488d2a
+ms.sourcegitcommit: 805f625d16d74e77f02f5f37326e5aceafcb78e3
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67034908"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70985562"
 ---
 # <a name="partial-views-in-aspnet-core"></a>Visualizzazioni parziali in ASP.NET Core
 
@@ -157,7 +157,7 @@ L'esempio seguente fa riferimento a una visualizzazione parziale con un percorso
 <partial name="../Account/_PartialName.cshtml" />
 ```
 
-Per ulteriori informazioni, vedere <xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper>.
+Per altre informazioni, vedere <xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper>.
 
 ::: moniker-end
 
@@ -308,7 +308,7 @@ Il markup seguente nell'app di esempio mostra la visualizzazione *Views/Articles
 
 [!code-cshtml[](partial/sample/PartialViewsSample/Views/Articles/Read.cshtml?name=snippet_ReadPartialView&highlight=5,15-20)]
 
-*Views/Shared/_AuthorPartial.cshtml* è la prima visualizzazione parziale a cui fa riferimento il file di markup *ReadRP.cshtml*:
+*Views/Shared/_AuthorPartial. cshtml* è la prima visualizzazione parziale a cui fa riferimento il file di markup *Read. cshtml* :
 
 [!code-cshtml[](partial/sample/PartialViewsSample/Views/Shared/_AuthorPartial.cshtml)]
 
