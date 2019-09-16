@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 07/22/2019
 uid: data/ef-rp/intro
-ms.openlocfilehash: c5347049151aed90f453f0ead2fc06649d9cf949
-ms.sourcegitcommit: bdaee0e8c657fe7546fd6b7990db9c03c2af04df
-ms.translationtype: HT
+ms.openlocfilehash: 3b3f159382bba82cf1b55ca34f52d3db38c5dc7c
+ms.sourcegitcommit: dc5b293e08336dc236de66ed1834f7ef78359531
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69908406"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71011114"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>Razor Pages con Entity Framework Core in ASP.NET Core: esercitazione 1 di 8
 
@@ -131,7 +131,7 @@ Per impostare l'intestazione, il piè di pagina e il menu del sito, aggiornare *
 
 * Eliminare le voci di menu **Home** e **Privacy**, quindi aggiungere le voci per **About** (Informazioni su), **Students** (Studenti), **Courses** (Corsi), **Instructors** (Insegnanti) e **Departments** (Dipartimenti).
 
-Le modifiche vengono evidenziate.
+Le modifiche sono evidenziate.
 
 [!code-cshtml[Main](intro/samples/cu30/Pages/Shared/_Layout.cshtml?highlight=6,14,21-35,49)]
 
@@ -633,7 +633,7 @@ Lo strumento di scaffolding ha creato automaticamente un contesto del database e
 
 Esaminare il metodo `ConfigureServices` in *Startup.cs*. La riga evidenziata è stata aggiunta dallo scaffolder:
 
-[!code-csharp[](intro/samples/cu21/Startup.cs?name=snippet_SchoolContext&highlight=5-6)]
+[!code-csharp[](intro/samples/cu21/Startup.cs?name=snippet_SchoolContext&highlight=13-14)]
 
 Il nome della stringa di connessione viene passato al contesto chiamando un metodo in un oggetto [DbContextOptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions). Per lo sviluppo locale, il [sistema di configurazione di ASP.NET Core](xref:fundamentals/configuration/index) legge la stringa di connessione dal file *appsettings.json*.
 

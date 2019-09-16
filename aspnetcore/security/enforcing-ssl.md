@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni su come richiedere HTTPS/TLS in un'app Web ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/06/2019
+ms.date: 09/14/2019
 uid: security/enforcing-ssl
-ms.openlocfilehash: 654b083a0dade2fc8df5cccf9fa434f30627794b
-ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
+ms.openlocfilehash: 8474b8f12d3e08e47a4cc9b20543d2a9e6e91998
+ms.sourcegitcommit: dc5b293e08336dc236de66ed1834f7ef78359531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773992"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71011080"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Applicare HTTPS in ASP.NET Core
 
@@ -232,7 +232,7 @@ Quando si reindirizza a HTTPS senza la necessità di altre regole di reindirizza
 
 ## <a name="http-strict-transport-security-protocol-hsts"></a>Protocollo di sicurezza del trasporto HTTP Strict (HSTS)
 
-Per [OWASP](https://www.owasp.org/index.php/About_The_Open_Web_Application_Security_Project), [http Strict Transport Security (HSTS)](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) è un miglioramento della sicurezza esplicito che viene specificato da un'app Web tramite l'uso di un'intestazione di risposta. Quando un [browser che supporta HSTS](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet#Browser_Support) riceve questa intestazione:
+Per [OWASP](https://www.owasp.org/index.php/About_The_Open_Web_Application_Security_Project), [http Strict Transport Security (HSTS)](https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html) è un miglioramento della sicurezza esplicito che viene specificato da un'app Web tramite l'uso di un'intestazione di risposta. Quando un [browser che supporta HSTS](https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html#browser-support) riceve questa intestazione:
 
 * Il browser archivia la configurazione per il dominio che impedisce l'invio di comunicazioni tramite HTTP. Il browser forza tutte le comunicazioni su HTTPS.
 * Il browser impedisce all'utente di usare certificati non attendibili o non validi. Il browser Disabilita i prompt che consentono a un utente di considerare temporaneamente attendibile tale certificato.

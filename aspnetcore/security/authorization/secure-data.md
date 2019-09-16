@@ -6,12 +6,12 @@ ms.author: riande
 ms.date: 12/18/2018
 ms.custom: mvc, seodec18
 uid: security/authorization/secure-data
-ms.openlocfilehash: 225d0e3aa51745253d03e614b1c8568b3a6ba731
-ms.sourcegitcommit: 983b31449fe398e6e922eb13e9eb6f4287ec91e8
+ms.openlocfilehash: d95f44394d6ecc3c3896b45c5bebc73fa2d92445
+ms.sourcegitcommit: dc5b293e08336dc236de66ed1834f7ef78359531
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2019
-ms.locfileid: "70017491"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71011194"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Creare un'app ASP.NET Core con i dati utente protetti da autorizzazione
 
@@ -475,7 +475,7 @@ Aggiungere l'ID di utente amministratore e `ContactStatus` ai contatti. Rendere 
 
 ## <a name="create-owner-manager-and-administrator-authorization-handlers"></a>Creare proprietario, manager e i gestori di autorizzazione di amministratore
 
-Creare un `ContactIsOwnerAuthorizationHandler` classe la *autorizzazione* cartella. Il `ContactIsOwnerAuthorizationHandler` verifica che l'utente che agisce su una risorsa proprietario della risorsa.
+Creare una cartella di *autorizzazione* e crearvi una `ContactIsOwnerAuthorizationHandler` classe. Il `ContactIsOwnerAuthorizationHandler` verifica che l'utente che agisce su una risorsa proprietario della risorsa.
 
 [!code-csharp[](secure-data/samples/final2.1/Authorization/ContactIsOwnerAuthorizationHandler.cs)]
 
