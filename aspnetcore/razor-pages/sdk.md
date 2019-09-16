@@ -5,14 +5,14 @@ description: Informazioni su come Razor Pages in ASP.NET Core semplifica e rende
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 06/18/2019
+ms.date: 08/23/2019
 uid: razor-pages/sdk
-ms.openlocfilehash: 1dc001c7c5fe320629835e06fe6db7fadabff94d
-ms.sourcegitcommit: 6189b0ced9c115248c6ede02efcd0b29d31f2115
+ms.openlocfilehash: 81025c14ba68971ca5d3cfc9387c2f50dd247654
+ms.sourcegitcommit: 983b31449fe398e6e922eb13e9eb6f4287ec91e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69985397"
+ms.lasthandoff: 08/24/2019
+ms.locfileid: "70017404"
 ---
 # <a name="aspnet-core-razor-sdk"></a>ASP.NET Core Razor SDK
 
@@ -22,26 +22,21 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Il [!INCLUDE[](~/includes/2.1-SDK.md)] include il `Microsoft.NET.Sdk.Razor` MSBuild SDK (SDK di Razor). Il Razor SDK:
 
-::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
+::: moniker range=">= aspnetcore-3.0"
+
+* È necessario per compilare, creare un pacchetto e pubblicare progetti contenenti file [Razor](xref:mvc/views/razor) per ASP.NET Core progetti basati su MVC o [Blazer](xref:blazor/index) .
+* Include un set di destinazioni, proprietà ed elementi predefiniti che consentono di personalizzare la compilazione dei file Razor ( *. cshtml* o *. Razor*).
+
+Razor SDK include `Content` gli elementi con `Include` attributi impostati sui `**\*.cshtml` modelli glob `**\*.razor` e. I file corrispondenti vengono pubblicati.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 * Consente di standardizzare l'esperienza in termini di compilazione, creazione dei pacchetti e pubblicazione dei progetti contenenti file [Razor](xref:mvc/views/razor) per i progetti ASP.NET Core basati su MVC.
 * Include un set di destinazioni, proprietà e di elementi predefiniti che consentono di personalizzare la compilazione dei file Razor.
-::: moniker-end
 
-::: moniker range=">= aspnetcore-3.0"
-* è necessario per la compilazione, il creazione di pacchetti e la pubblicazione di progetti contenenti file [Razor](xref:mvc/views/razor) per ASP.NET Core progetti basati su MVC o progetti [Blazer](xref:blazor/index)
-* Include un set di destinazioni, proprietà ed elementi predefiniti che consentono di personalizzare la compilazione dei file Razor (. cshtml o. Razor).
-::: moniker-end
-
-
-::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
-
-Razor SDK include un `<Content>` elemento con un `Include` attributo impostato sul `**\*.cshtml` modello glob. I file corrispondenti vengono pubblicati.
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-3.0"
-
-Razor SDK include `<Content>` elementi con `Include` attributi impostati sui `**\*.cshtml` modelli glob e `**\*.razor` . I file corrispondenti vengono pubblicati.
+Razor SDK include un `Content` elemento con un `Include` attributo impostato sul `**\*.cshtml` modello glob. I file corrispondenti vengono pubblicati.
 
 ::: moniker-end
 
@@ -53,7 +48,14 @@ Razor SDK include `<Content>` elementi con `Include` attributi impostati sui `**
 
 La maggior parte delle App web non è necessario fare riferimento esplicitamente al SDK di Razor.
 
-::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
+::: moniker range=">= aspnetcore-3.0"
+
+Per usare Razor SDK per compilare librerie di classi contenenti visualizzazioni Razor o Razor Pages, è consigliabile iniziare con il modello di progetto libreria di classi Razor (RCL). Un RCL usato per compilare file blazer (*Razor*) richiede almeno un riferimento al pacchetto [Microsoft. AspNetCore. Components](https://www.nuget.org/packages/Microsoft.AspNetCore.Components) . Un RCL usato per compilare visualizzazioni o pagine Razor (file con*estensione cshtml* ) richiede almeno la destinazione `netcoreapp3.0` o una versione successiva e dispone di un oggetto `FrameworkReference` nel [metapacchetto Microsoft. AspNetCore. app](xref:fundamentals/metapackage-app) nel file di progetto.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 Per usare il Razor SDK per compilare librerie di classi contenenti visualizzazioni Razor o Razor Pages:
 
 * Usare `Microsoft.NET.Sdk.Razor` anziché `Microsoft.NET.Sdk`:
@@ -78,11 +80,6 @@ Per usare il Razor SDK per compilare librerie di classi contenenti visualizzazio
   
 ::: moniker-end
 
-::: moniker range=">= aspnetcore-3.0"
-Per usare Razor SDK per compilare librerie di classi contenenti visualizzazioni Razor o Razor Pages è consigliabile iniziare con il modello di progetto libreria di classi Razor. Una libreria di classi Razor utilizzata per compilare file blazer (Razor) richiede almeno un riferimento al `Microsoft.AspNetCore.Components` pacchetto. Una libreria di classi Razor usata per creare visualizzazioni o pagine Razor (file con estensione cshtml) richiederà la destinazione `netcoreapp3.0` o una `FrameworkReference` versione più recente e avrà `Microsoft.AspNetCore.App`a.
-
-::: moniker-end
-
 ::: moniker range="= aspnetcore-2.1"
 
 > [!WARNING]
@@ -100,15 +97,16 @@ Le proprietà seguenti controllano il comportamento del Razor SDK come parte del
 Le proprietà e gli elementi nella tabella seguente vengono utilizzati per configurare input e output per il SDK di Razor.
 
 ::: moniker range=">= aspnetcore-3.0"
+
 > [!WARNING]
-A partire da ASP.NET Core 3,0, le visualizzazioni MVC o Razor Pages non verranno gestite per impostazione `RazorCompileOnBuild` predefinita `RazorCompileOnPublish` se o è disabilitato. Le applicazioni devono aggiungere un riferimento esplicito al `Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation` pacchetto per aggiungere il supporto per la compilazione di runtime se si basano sulla compilazione di runtime per elaborare i file cshtml.
+> A partire da ASP.NET Core 3,0, le visualizzazioni MVC o Razor Pages non vengono gestite per `RazorCompileOnBuild` impostazione `RazorCompileOnPublish` predefinita se le proprietà o MSBuild nel file di progetto sono disabilitate. Le applicazioni devono aggiungere un riferimento esplicito al pacchetto [Microsoft. AspNetCore. Mvc. Razor. RuntimeCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation) se l'app si basa sulla compilazione di runtime per elaborare i file con *estensione cshtml* .
+
 ::: moniker-end
 
-
-| Elementi | DESCRIZIONE |
+| Elementi | Descrizione |
 | ----- | ----------- |
 | `RazorGenerate` | Elementi Item (file con*estensione cshtml* ) che sono input per la generazione di codice. |
-| `RazorComponent` | Elementi elemento (file*Razor* ) che sono input per la generazione di codice componente.
+| `RazorComponent` | Elementi elemento (file*Razor* ) che sono input per la generazione di codice del componente Razor. |
 | `RazorCompile` | Elementi Item (file con*estensione cs* ) che sono input per le destinazioni di compilazione Razor. Usare questa `ItemGroup` impostazione per specificare i file aggiuntivi da compilare nell'assembly Razor. |
 | `RazorTargetAssemblyAttribute` | Elementi della voce usati per attributi di generazione del codice per l'assembly Razor. Ad esempio:  <br>`RazorAssemblyAttribute`<br>`Include="System.Reflection.AssemblyMetadataAttribute"`<br>`_Parameter1="BuildSource" _Parameter2="https://docs.microsoft.com/">` |
 | `RazorEmbeddedResource` | Elementi aggiunti come risorse incorporate nell'assembly generato Razor. |
@@ -135,9 +133,9 @@ Per altre informazioni sulle proprietà, vedere [Proprietà di MSBuild](/visuals
 
 Il Razor SDK definisce due obiettivi principali:
 
-* `RazorGenerate` &ndash; Genera codice *cs* dei file dalla `RazorGenerate` elementi item. Usa la proprietà `RazorGenerateDependsOn` per specificare le altre destinazioni che possono essere eseguite prima o dopo questa destinazione.
-* `RazorCompile` &ndash; Le compilazioni generate *cs* i file un assembly di Razor. Usare `RazorCompileDependsOn` per specificare le altre destinazioni che possono eseguite prima o dopo questa destinazione.
-* `RazorComponentGenerate`Il codice genera file con *estensione cs* per `RazorComponent` gli elementi Item. &ndash; Usa la proprietà `RazorComponentGenerateDependsOn` per specificare le altre destinazioni che possono essere eseguite prima o dopo questa destinazione.
+* `RazorGenerate` &ndash; Genera codice *cs* dei file dalla `RazorGenerate` elementi item. Utilizzare la `RazorGenerateDependsOn` proprietà per specificare destinazioni aggiuntive che possono essere eseguite prima o dopo questa destinazione.
+* `RazorCompile` &ndash; Le compilazioni generate *cs* i file un assembly di Razor. `RazorCompileDependsOn` Usare per specificare destinazioni aggiuntive che possono essere eseguite prima o dopo questa destinazione.
+* `RazorComponentGenerate`Il codice genera file con *estensione cs* per `RazorComponent` gli elementi Item. &ndash; Utilizzare la `RazorComponentGenerateDependsOn` proprietà per specificare destinazioni aggiuntive che possono essere eseguite prima o dopo questa destinazione.
 
 ### <a name="runtime-compilation-of-razor-views"></a>Compilazione runtime di visualizzazioni Razor
 
