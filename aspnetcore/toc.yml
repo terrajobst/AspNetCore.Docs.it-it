@@ -97,7 +97,7 @@
           uid: tutorials/signalr-typescript-webpack
     - name: App RPC
       items:
-        - name: Introduzione all'uso del servizio gRPC
+        - name: Introduzione all'uso di un servizio gRPC
           uid: tutorials/grpc/grpc-start
     - name: Accesso ai dati
       items:
@@ -545,6 +545,10 @@
   items:
     - name: Introduzione ai servizi gRPC
       uid: grpc/index
+    - name: Esercitazioni
+      items:
+        - name: Introduzione all'uso di un servizio gRPC
+          uid: tutorials/grpc/grpc-start
     - name: 'Servizi gRPC con C#'
       uid: grpc/basics
     - name: Servizi gRPC con ASP.NET Core
@@ -563,6 +567,8 @@
       uid: grpc/migration
     - name: Confronto tra servizi gRPC e API HTTP
       uid: grpc/comparison
+    - name: Esempi
+      href: 'https://github.com/grpc/grpc-dotnet/tree/master/examples'
     - name: Risolvere i problemi
       uid: grpc/troubleshoot
 - name: 'Test, debug e risoluzione dei problemi'
@@ -999,7 +1005,7 @@
     - name: Elenco di indirizzi IP attendibili
       uid: security/ip-safelist
     - name: Sicurezza dell'applicazione - OWASP
-      href: 'https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/DotNet_Security_Cheat_Sheet.md'
+      href: 'https://cheatsheetseries.owasp.org/cheatsheets/DotNet_Security_Cheat_Sheet.html'
     - name: Blazor
       items:
         - name: Panoramica
