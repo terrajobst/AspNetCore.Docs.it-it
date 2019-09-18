@@ -1,2 +1,2 @@
-* [<span data-ttu-id="215f2-101">Visual Studio per Mac versione 8.0 o successiva</span><span class="sxs-lookup"><span data-stu-id="215f2-101">Visual Studio for Mac version 8.0 or later</span></span>](https://visualstudio.microsoft.com/vs/mac/)
-* [<span data-ttu-id="215f2-102">.NET Core SDK 3.0</span><span class="sxs-lookup"><span data-stu-id="215f2-102">.NET Core SDK 3.0</span></span>](https://dotnet.microsoft.com/download/dotnet-core/3.0)
+* [<span data-ttu-id="e07ee-101">Visual Studio per Mac versione 8.0 o successiva</span><span class="sxs-lookup"><span data-stu-id="e07ee-101">Visual Studio for Mac version 8.0 or later</span></span>](https://visualstudio.microsoft.com/vs/mac/)
+* [!INCLUDE [](~/includes/3.0-SDK.md)]
