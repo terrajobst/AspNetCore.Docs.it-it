@@ -7,32 +7,32 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/05/2019
 uid: security/authentication/identity/spa
-ms.openlocfilehash: cb51df0267a5eabd4a2694727e9c896d0554265e
-ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
+ms.openlocfilehash: 4f6e3a4922c0a8a74b0e13edf1f00fe5f7bb76ba
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69583605"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082322"
 ---
 # <a name="authentication-and-authorization-for-spas"></a>Autenticazione e autorizzazione per le ZPS
 
 ASP.NET Core 3,0 o versione successiva offre l'autenticazione in app a pagina singola (Spa) usando il supporto per l'autorizzazione dell'API. ASP.NET Core identità per l'autenticazione e l'archiviazione degli utenti viene combinata con [IdentityServer](https://identityserver.io/) per l'implementazione di Open ID Connect.
 
-Un parametro di autenticazione è stato aggiunto ai modelli di progetto angolari e **React** che è simile al parametro di autenticazione nell' **applicazione Web (** MVC) e nell' **applicazione Web** (Razor Pages) modelli di progetto. I valori dei parametri consentiti sono **None** e **individual**. Il modello di progetto **React. js e Redux** non supporta il parametro Authentication al momento.
+Un parametro di autenticazione è stato aggiunto ai modelli di progetto **angolari** e **React** che è simile al parametro di autenticazione nell' **applicazione Web (** MVC) e nell' **applicazione Web** (Razor Pages) modelli di progetto. I valori dei parametri consentiti sono **None** e **individual**. Il modello di progetto **React. js e Redux** non supporta il parametro Authentication al momento.
 
 ## <a name="create-an-app-with-api-authorization-support"></a>Creare un'app con supporto per l'autorizzazione API
 
 L'autenticazione e l'autorizzazione degli utenti possono essere usate sia con le ZPS angolari che React. Aprire una shell dei comandi ed eseguire il comando seguente:
 
-Angolare:
+**Angolare**:
 
-```console
+```dotnetcli
 dotnet new angular -o <output_directory_name> -au Individual
 ```
 
 **Reagire**:
 
-```console
+```dotnetcli
 dotnet new react -o <output_directory_name> -au Individual
 ```
 

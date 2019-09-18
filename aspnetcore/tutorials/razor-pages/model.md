@@ -5,12 +5,12 @@ description: Scoprire come aggiungere classi per la gestione dei film in un data
 ms.author: riande
 ms.date: 07/22/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 39e2a38e0b91b7dbecf05c084ca0be5e312dcb0d
-ms.sourcegitcommit: 2719c70cd15a430479ab4007ff3e197fbf5dfee0
-ms.translationtype: HT
+ms.openlocfilehash: 18cf9aea930a7989bb844bc6c40dfa1ce84b7b4d
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68862876"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082612"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Aggiungere un modello a un'app Razor Pages in ASP.NET Core
 
@@ -98,19 +98,19 @@ Il file *appsettings.json* è stato aggiornato con la stringa di connessione usa
 * Aprire una finestra di comando nella directory del progetto (la directory che contiene i file *Program.cs*, *Startup.cs* e *csproj*).
 * Installare lo strumento di scaffolding:
 
-  ```console
+  ```dotnetcli
    dotnet tool install --global dotnet-aspnet-codegenerator --version 3.0.0-*
    ```
 
 * **Per Windows**: Eseguire il comando seguente:
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages\Movies --referenceScriptLibraries
   ```
 
 * **Per macOS e Linux**: Eseguire il comando seguente:
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
   ```
 
@@ -121,13 +121,13 @@ Il file *appsettings.json* è stato aggiornato con la stringa di connessione usa
 * Aprire una finestra di comando nella directory del progetto (la directory che contiene i file *Program.cs*, *Startup.cs* e *csproj*).
 * Installare lo strumento di scaffolding:
 
-  ```console
+  ```dotnetcli
    dotnet tool install --global dotnet-aspnet-codegenerator --version 3.0.0-*
    ```
 
 * Eseguire il comando seguente:
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
   ```
 
@@ -355,19 +355,19 @@ Il file *appsettings.json* è stato aggiornato con la stringa di connessione usa
 * Aprire una finestra di comando nella directory del progetto (la directory che contiene i file *Program.cs*, *Startup.cs* e *csproj*).
 * Installare lo strumento di scaffolding:
 
-  ```console
+  ```dotnetcli
    dotnet tool install --global dotnet-aspnet-codegenerator
    ```
 
 * **Per Windows**: Eseguire il comando seguente:
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages\Movies --referenceScriptLibraries
   ```
 
 * **Per macOS e Linux**: Eseguire il comando seguente:
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
   ```
 
@@ -378,13 +378,13 @@ Il file *appsettings.json* è stato aggiornato con la stringa di connessione usa
 * Aprire una finestra di comando nella directory del progetto (la directory che contiene i file *Program.cs*, *Startup.cs* e *csproj*).
 * Installare lo strumento di scaffolding:
 
-  ```console
+  ```dotnetcli
    dotnet tool install --global dotnet-aspnet-codegenerator
    ```
 
 * Eseguire il comando seguente:
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
   ```
 

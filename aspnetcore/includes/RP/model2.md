@@ -22,7 +22,7 @@ Aggiungere una stringa di connessione al file *appsettings.json* come illustrato
 
 Aprire un terminale per il progetto RazorPagesMovie.  Fare clic con il pulsante destro del mouse sul nome del progetto nella barra di progettazione/layout e passare a **Strumenti > Apri** nel terminale. Eseguire i comandi seguenti dell'interfaccia della riga di comando di .NET Core nel terminale:
 
-```console
+```dotnetcli
 dotnet tool install --global dotnet-ef --version 3.0.0-*
 dotnet add package Microsoft.EntityFrameworkCore.SQLite --version 3.0.0-*
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 3.0.0-*
@@ -57,11 +57,10 @@ Registrare il contesto del database con il contenitore di [inserimento delle dip
 
 Eseguire il comando seguente dell'interfaccia della riga di comando di .NET Core CLI per aggiungere SQLite e CodeGeneration.Design al progetto:
 
-```console
+```dotnetcli
 dotnet add package Microsoft.EntityFrameworkCore.SQLite
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet add package Microsoft.EntityFrameworkCore.Design
-
 ```
 
 Il pacchetto `Microsoft.VisualStudio.Web.CodeGeneration.Design` è necessario per lo scaffolding.

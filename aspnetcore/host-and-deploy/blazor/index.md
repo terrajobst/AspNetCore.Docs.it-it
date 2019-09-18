@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/05/2019
 uid: host-and-deploy/blazor/index
-ms.openlocfilehash: 26c8fcf56ab8ca68aeca93560785fc6c1144ab86
-ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
+ms.openlocfilehash: 0ded2979b8576f10812e20ae3385c94fd29689c2
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70963682"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081042"
 ---
 # <a name="host-and-deploy-aspnet-core-blazor"></a>Hosting e distribuzione di ASP.NET Core Blazor
 
@@ -32,7 +32,7 @@ Le app vengono pubblicate per la distribuzione nella configurazione per il rilas
 
 Usare il comando [dotnet publish](/dotnet/core/tools/dotnet-publish) per pubblicare l'app con una configurazione per il rilascio:
 
-```console
+```dotnetcli
 dotnet publish -c Release
 ```
 
@@ -71,13 +71,13 @@ Per impostare il percorso di base dell'app, aggiornare il tag `<base>` all'inter
 
 Per un'app con un percorso URL relativo non radice (ad esempio, `<base href="/CoolApp/">`), l'app non riesce a trovare le proprie risorse quando viene *eseguita localmente*. Per risolvere questo problema durante sviluppo e test locali, è possibile specificare un argomento *base del percorso* corrispondente al valore `href` del tag `<base>` in fase di esecuzione. Per passare l'argomento di base del percorso quando si esegue l'app in `dotnet run` locale, eseguire il comando dalla directory dell' `--pathbase` app con l'opzione:
 
-```console
+```dotnetcli
 dotnet run --pathbase=/{RELATIVE URL PATH (no trailing slash)}
 ```
 
 Per un'app con un percorso `/CoolApp/` URL relativo (`<base href="/CoolApp/">`), il comando è:
 
-```console
+```dotnetcli
 dotnet run --pathbase=/CoolApp
 ```
 

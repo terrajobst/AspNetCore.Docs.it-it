@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/07/2019
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 5da32b5fd1026263f721db442b2676d45b239b8d
-ms.sourcegitcommit: 2d4c1732c4866ed26b83da35f7bc2ad021a9c701
+ms.openlocfilehash: 7736888c43aafd2f64e3d7b079f2099fe548a825
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70815594"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081080"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Distribuire le app ASP.NET Core in Servizio app di Azure
 
@@ -230,7 +230,7 @@ Per una [distribuzione dipendente dal framework](/dotnet/core/deploying/#framewo
 
 1. Da una shell dei comandi pubblicare l'app nella configurazione di versione con il comando [dotnet publish](/dotnet/core/tools/dotnet-publish). Nell'esempio seguente l'app viene pubblicata come app dipendente dal framework:
 
-   ```console
+   ```dotnetcli
    dotnet publish --configuration Release
    ```
 
@@ -268,7 +268,7 @@ Usare Visual Studio o gli strumenti dell'interfaccia della riga di comando (CLI)
 
 1. Da una shell dei comandi eseguire il comando [dotnet publish](/dotnet/core/tools/dotnet-publish) per pubblicare l'app in configurazione Rilascio per il runtime dell'host. Nell'esempio seguente l'app viene pubblicata per il RID `win-x86`. Il RID fornito per l'opzione `--runtime` deve essere specificato nella proprietà `<RuntimeIdentifier>` (o `<RuntimeIdentifiers>`) del file di progetto.
 
-   ```console
+   ```dotnetcli
    dotnet publish --configuration Release --runtime win-x86
    ```
 

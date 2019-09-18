@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/05/2019
 uid: host-and-deploy/blazor/webassembly
-ms.openlocfilehash: 06316cacb02d9d7619ff7a210bd596696f86021b
-ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
+ms.openlocfilehash: f6c143cc17d08e0cada67ec831e090661c4fed56
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70964254"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081439"
 ---
 # <a name="host-and-deploy-aspnet-core-blazor-webassembly"></a>Ospitare e distribuire un webassembly ASP.NET Core Blazer
 
@@ -200,7 +200,7 @@ L'argomento `--contentroot` imposta il percorso assoluto sulla directory che con
 
 * Passare l'argomento quando si esegue localmente l'app a un prompt dei comandi. Dalla directory dell'app, eseguire:
 
-  ```console
+  ```dotnetcli
   dotnet run --contentroot=/content-root-path
   ```
 
@@ -225,7 +225,7 @@ L' `--pathbase` argomento imposta il percorso di base dell'app per un'app esegui
 
 * Passare l'argomento quando si esegue localmente l'app a un prompt dei comandi. Dalla directory dell'app, eseguire:
 
-  ```console
+  ```dotnetcli
   dotnet run --pathbase=/relative-URL-path
   ```
 
@@ -247,7 +247,7 @@ L'argomento `--urls` imposta gli indirizzi IP o gli indirizzi host con le porte 
 
 * Passare l'argomento quando si esegue localmente l'app a un prompt dei comandi. Dalla directory dell'app, eseguire:
 
-  ```console
+  ```dotnetcli
   dotnet run --urls=http://127.0.0.1:0
   ```
 

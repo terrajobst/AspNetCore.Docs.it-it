@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: 913511948def86cb2065459a3fcf5f16362a92d5
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
-ms.translationtype: HT
+ms.openlocfilehash: 7a67efad187f29773c1cac7a5a2457d02080114b
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975038"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71080539"
 ---
 # <a name="tutorial-learn-about-advanced-scenarios---aspnet-mvc-with-ef-core"></a>Esercitazione: Informazioni sugli scenari avanzati - ASP.NET MVC con EF Core
 
@@ -235,7 +235,7 @@ Per eliminare un database in SSOX, fare clic con il pulsante destro del mouse su
 
 Per eliminare un database tramite l'interfaccia CLI, eseguire il comando CLI `database drop`:
 
-```console
+```dotnetcli
 dotnet ef database drop
 ```
 

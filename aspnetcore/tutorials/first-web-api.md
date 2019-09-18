@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/27/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 25bfccb136d875b454034bd011828c9f3b6cd3d8
-ms.sourcegitcommit: de17150e5ec7507d7114dde0e5dbc2e45a66ef53
-ms.translationtype: HT
+ms.openlocfilehash: 1cc4fffc50978a3a958a96e1eb250cb85a8d2879
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70113292"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082073"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Esercitazione: Creare un'API Web con ASP.NET Core
 
@@ -38,11 +38,11 @@ Questa esercitazione consente di creare l'API seguente:
 
 |API | DESCRIZIONE | Corpo della richiesta | Corpo della risposta |
 |--- | ---- | ---- | ---- |
-|GET /api/TodoItems | Ottiene tutti gli elementi attività | nessuno | Matrice di elementi attività|
-|GET /api/TodoItems/{id} | Ottiene un elemento in base all'ID | nessuno | Elemento attività|
+|GET /api/TodoItems | Ottiene tutti gli elementi attività | Nessuna | Matrice di elementi attività|
+|GET /api/TodoItems/{id} | Ottiene un elemento in base all'ID | Nessuna | Elemento attività|
 |POST /api/TodoItems | Aggiunge un nuovo elemento | Elemento attività | Elemento attività |
-|PUT /api/TodoItems/{id} | Aggiorna un elemento esistente &nbsp; | Elemento attività | nessuno |
-|DELETE /api/TodoItems/{id} &nbsp; &nbsp; | Elimina un elemento &nbsp; &nbsp; | nessuno | nessuno|
+|PUT /api/TodoItems/{id} | Aggiorna un elemento esistente &nbsp; | Elemento attività | Nessuna |
+|DELETE /api/TodoItems/{id} &nbsp; &nbsp; | Elimina un elemento &nbsp; &nbsp; | Nessuna | Nessuna|
 
 Il diagramma seguente visualizza la struttura dell'app.
 
@@ -81,7 +81,7 @@ Il diagramma seguente visualizza la struttura dell'app.
 * Cambiare directory (`cd`) e passare alla cartella che conterrà la cartella del progetto.
 * Eseguire i comandi seguenti:
 
-   ```console
+   ```dotnetcli
    dotnet new webapi -o TodoApi
    cd TodoAPI
    dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 3.0.0-*
@@ -116,7 +116,7 @@ Il diagramma seguente visualizza la struttura dell'app.
 
 Aprire un terminale di comando nella cartella di progetto ed eseguire i comandi seguenti:
 
-   ```console
+   ```dotnetcli
    dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 3.0.0-*
    dotnet add package Microsoft.EntityFrameworkCore.InMemory --version 3.0.0-*
    ```
@@ -280,7 +280,7 @@ Il codice precedente:
 
 Eseguire i comandi seguenti:
 
-```console
+```dotnetcli
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 3.0.0-*
 dotnet add package Microsoft.EntityFrameworkCore.Design --version 3.0.0-*
 dotnet tool install --global dotnet-aspnet-codegenerator
@@ -488,13 +488,13 @@ Al termine si dispone di un'API web che può gestire gli elementi di tipo "attiv
 
 Questa esercitazione consente di creare l'API seguente:
 
-|API | DESCRIZIONE | Corpo della richiesta | Corpo della risposta |
+|API | Descrizione | Corpo della richiesta | Corpo della risposta |
 |--- | ---- | ---- | ---- |
-|GET /api/TodoItems | Ottiene tutti gli elementi attività | nessuno | Matrice di elementi attività|
-|GET /api/TodoItems/{id} | Ottiene un elemento in base all'ID | nessuno | Elemento attività|
+|GET /api/TodoItems | Ottiene tutti gli elementi attività | Nessuna | Matrice di elementi attività|
+|GET /api/TodoItems/{id} | Ottiene un elemento in base all'ID | Nessuna | Elemento attività|
 |POST /api/TodoItems | Aggiunge un nuovo elemento | Elemento attività | Elemento attività |
-|PUT /api/TodoItems/{id} | Aggiorna un elemento esistente &nbsp; | Elemento attività | nessuno |
-|DELETE /api/TodoItems/{id} &nbsp; &nbsp; | Elimina un elemento &nbsp; &nbsp; | nessuno | nessuno|
+|PUT /api/TodoItems/{id} | Aggiorna un elemento esistente &nbsp; | Elemento attività | Nessuna |
+|DELETE /api/TodoItems/{id} &nbsp; &nbsp; | Elimina un elemento &nbsp; &nbsp; | Nessuna | Nessuna|
 
 Il diagramma seguente visualizza la struttura dell'app.
 
@@ -533,7 +533,7 @@ Il diagramma seguente visualizza la struttura dell'app.
 * Cambiare directory (`cd`) e passare alla cartella che conterrà la cartella del progetto.
 * Eseguire i comandi seguenti:
 
-   ```console
+   ```dotnetcli
    dotnet new webapi -o TodoApi
    code -r TodoApi
    ```

@@ -1,6 +1,6 @@
 * Considerare attendibile il certificato di sviluppo HTTPS eseguendo il comando riportato di seguito:
 
-  ```console
+  ```dotnetcli
   dotnet dev-certs https --trust
   ```
   

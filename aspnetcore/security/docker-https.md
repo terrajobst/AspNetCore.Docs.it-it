@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/05/2019
 uid: security/docker-https
-ms.openlocfilehash: f17a3abe1b00b39b7b6787be5b20ce65771190b8
-ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
+ms.openlocfilehash: c13ba02845eef5c53a939feec2be8a01bc4ca128
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619696"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082537"
 ---
 # <a name="hosting-aspnet-core-images-with-docker-over-https"></a>Hosting di immagini ASP.NET Core con Docker su HTTPS
 
@@ -34,7 +34,7 @@ Per alcune istruzioni di questo documento è necessario [.NET Core 2,2 SDK](http
 
 Un certificato di un' [autorità di certificazione](https://en.wikipedia.org/wiki/Certificate_authority) è necessario per l' [hosting di produzione](https://blogs.msdn.microsoft.com/webdev/2017/11/29/configuring-https-in-asp-net-core-across-different-platforms/) per un dominio.  Verrà [ora crittografata](https://letsencrypt.org/) un'autorità di certificazione che offre certificati gratuiti.
 
-Questo documento usa [certificati di sviluppo](https://en.wikipedia.org/wiki/Self-signed_certificate) autofirmati per l'hosting di immagini predefinite `localhost`rispetto a. Le istruzioni sono simili all'uso dei certificati di produzione.
+Questo documento usa [certificati di sviluppo autofirmati](https://en.wikipedia.org/wiki/Self-signed_certificate) per l'hosting di immagini predefinite `localhost`rispetto a. Le istruzioni sono simili all'uso dei certificati di produzione.
 
 Per i certificati di produzione:
 
@@ -55,7 +55,7 @@ Usare le istruzioni seguenti per la configurazione del sistema operativo.
 
 Generare il certificato e configurare il computer locale:
 
-```console
+```dotnetcli
 dotnet dev-certs https -ep %USERPROFILE%\.aspnet\https\aspnetapp.pfx -p { password here }
 dotnet dev-certs https --trust
 ```
@@ -75,7 +75,7 @@ La password deve corrispondere alla password utilizzata per il certificato.
 
 Generare il certificato e configurare il computer locale:
 
-```console
+```dotnetcli
 dotnet dev-certs https -ep ${HOME}/.aspnet/https/aspnetapp.pfx -p { password here }
 dotnet dev-certs https --trust
 ```
@@ -97,7 +97,7 @@ La password deve corrispondere alla password utilizzata per il certificato.
 
 Generare il certificato e configurare il computer locale:
 
-```console
+```dotnetcli
 dotnet dev-certs https -ep %USERPROFILE%\.aspnet\https\aspnetapp.pfx -p { password here }
 dotnet dev-certs https --trust
 ```

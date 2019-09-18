@@ -5,14 +5,14 @@ description: Istruzioni dettagliate per creare un'app Blazor.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/23/2019
+ms.date: 09/15/2019
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: ffbdf6991830d554fc508d1d2fe8e4b9586210df
-ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
+ms.openlocfilehash: b433d793ae615bc4ece7c63bebd72d349adf43ee
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70964187"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081261"
 ---
 # <a name="build-your-first-blazor-app"></a>Creare la prima app Blazor
 
@@ -97,11 +97,11 @@ La direttiva `@page` all'inizio del file *Counter.razor* specifica che il compon
 
 ## <a name="dependency-injection"></a>Inserimento di dipendenze
 
-I servizi registrati nel contenitore del servizio dell'app sono disponibili per i componenti tramite [inserimento delle dipendenze](xref:fundamentals/dependency-injection). Inserire i servizi in un componente usando la direttiva `@inject`.
+Se si utilizza un'app del server blazer, `WeatherForecastService` il servizio viene registrato come [singleton](xref:fundamentals/dependency-injection#service-lifetimes) in `Startup.ConfigureServices`. Un'istanza del servizio è disponibile in tutte le app tramite l' [inserimento di dipendenze](xref:fundamentals/dependency-injection):
 
-Esaminare le direttive del componente `FetchData`.
+[!code-csharp[](build-your-first-blazor-app/samples_snapshot/3.x/Startup.cs?highlight=5)]
 
-Se si usa un'app del server blazer, `WeatherForecastService` il servizio viene registrato come [singleton](xref:fundamentals/dependency-injection#service-lifetimes), quindi un'istanza del servizio è disponibile nell'app. La direttiva `@inject` viene usata per inserire l'istanza del servizio `WeatherForecastService` nel componente.
+La `@inject` direttiva viene utilizzata per inserire l'istanza `WeatherForecastService` del servizio nel `FetchData` componente.
 
 *Pages/FetchData.razor*:
 
@@ -111,7 +111,7 @@ Il componente `FetchData` usa il servizio inserito, come `ForecastService`, per 
 
 [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData2.razor?highlight=6)]
 
-Se si usa un'app webassembly blazer, `HttpClient` viene inserito per ottenere i dati delle previsioni meteo dal file *Weather. JSON* nella cartella *wwwroot/Sample-Data* :
+Se si usa un'app webassembly blazer, `HttpClient` viene inserito per ottenere i dati delle previsioni meteo dal file *Weather. JSON* nella cartella *wwwroot/Sample-Data* .
 
 *Pages/FetchData.razor*:
 
@@ -120,7 +120,6 @@ Se si usa un'app webassembly blazer, `HttpClient` viene inserito per ottenere i 
 Viene usato un ciclo [\@foreach](/dotnet/csharp/language-reference/keywords/foreach-in) per eseguire il rendering di ogni istanza di previsione come riga nella tabella dei dati meteo:
 
 [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData3.razor?highlight=11-19)]
-
 
 ## <a name="build-a-todo-list"></a>Compilare un elenco attività
 

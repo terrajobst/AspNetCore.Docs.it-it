@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/01/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: 0d0b6e20a1901d4a2630ce263b5fd0cd7bcca8fe
-ms.sourcegitcommit: 4fe3ae892f54dc540859bff78741a28c2daa9a38
+ms.openlocfilehash: fe6cdca1f7180f9da26fe2838e529becb26ccd45
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2019
-ms.locfileid: "68776658"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081107"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Provider di configurazione di Azure Key Vault in ASP.NET Core
 
@@ -61,13 +61,13 @@ I segreti vengono creati come coppie nome/valore. I valori gerarchici (sezioni d
 
 Il gestore del segreto viene usato da una shell dei comandi aperta alla radice del contenuto del progetto `{SECRET NAME}` , dove è il `{SECRET VALUE}` nome e è il valore:
 
-```console
+```dotnetcli
 dotnet user-secrets set "{SECRET NAME}" "{SECRET VALUE}"
 ```
 
 Eseguire i comandi seguenti in una shell dei comandi dalla radice del contenuto del progetto per impostare i segreti per l'app di esempio:
 
-```console
+```dotnetcli
 dotnet user-secrets set "SecretName" "secret_value_1_dev"
 dotnet user-secrets set "Section:SecretName" "secret_value_2_dev"
 ```
@@ -233,7 +233,7 @@ Quando viene implementato questo approccio:
 
    Salvare i segreti seguenti localmente con lo [strumento di gestione dei segreti](xref:security/app-secrets):
 
-   ```console
+   ```dotnetcli
    dotnet user-secrets set "5000-AppSecret" "5.0.0.0_secret_value_dev"
    dotnet user-secrets set "5100-AppSecret" "5.1.0.0_secret_value_dev"
    ```

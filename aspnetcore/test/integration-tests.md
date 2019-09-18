@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/23/2019
 uid: test/integration-tests
-ms.openlocfilehash: 195acd3e03f3de63ebd61767f2c86d1c0f38fca5
-ms.sourcegitcommit: 983b31449fe398e6e922eb13e9eb6f4287ec91e8
+ms.openlocfilehash: 272f0f2140647dd31319f8feada0ec04c7ab4e44
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2019
-ms.locfileid: "70017442"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082497"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Test di integrazione in ASP.NET Core
 
@@ -44,7 +44,7 @@ Questi test più ampi vengono usati per testare l'infrastruttura dell'app e l'in
 * Appliance di rete
 * Pipeline richiesta-risposta
 
-Gli unit test utilizzano componenti fabbricati, noti come Fakes o *oggetti fittizi*, al posto dei componenti dell'infrastruttura.
+Gli unit test utilizzano componenti fabbricati, noti come *Fakes* o *oggetti fittizi*, al posto dei componenti dell'infrastruttura.
 
 Diversamente dagli unit test, i test di integrazione:
 
@@ -169,7 +169,7 @@ La configurazione dell'host Web può essere creata indipendentemente dalle class
 
    [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/IndexPageTests.cs?name=snippet2)]
 
-Qualsiasi richiesta POST a SUT deve soddisfare il controllo antifalsificazione creato automaticamente dal sistema antifalsificazione di [protezione dei dati](xref:security/data-protection/introduction)dell'app. Per disporre la richiesta POST di un test, l'app di test deve:
+Qualsiasi richiesta POST a SUT deve soddisfare il controllo antifalsificazione creato automaticamente dal [sistema antifalsificazione di protezione dei dati](xref:security/data-protection/introduction)dell'app. Per disporre la richiesta POST di un test, l'app di test deve:
 
 1. Effettuare una richiesta per la pagina.
 1. Analizzare il cookie antifalsificazione e richiedere il token di convalida dalla risposta.
@@ -311,7 +311,7 @@ L' [app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnet
 
 I test possono essere eseguiti usando le funzionalità di test predefinite di un IDE, ad esempio [Visual Studio](https://visualstudio.microsoft.com). Se si usa [Visual Studio Code](https://code.visualstudio.com/) o la riga di comando, eseguire il comando seguente al prompt dei comandi nella directory *tests/RazorPagesProject. tests* :
 
-```console
+```dotnetcli
 dotnet test
 ```
 
@@ -328,7 +328,7 @@ SUT è un sistema di messaggi di Razor Pages con le seguenti caratteristiche:
 
 &#8224;L'argomento EF, [test con InMemory](/ef/core/miscellaneous/testing/in-memory), spiega come usare un database in memoria per i test con MSTest. In questo argomento viene usato il Framework di test di [xUnit](https://xunit.github.io/) . I concetti di test e le implementazioni di test in diversi framework di test sono simili, ma non identici.
 
-Anche se l'app non usa il modello di repository e non è un esempio efficace del [modello di unità di lavoro (UOW)](https://martinfowler.com/eaaCatalog/unitOfWork.html), Razor Pages supporta questi modelli di sviluppo. Per altre informazioni, vedere [progettazione del livello](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design) di persistenza dell'infrastruttura e della [logica del controller di test](/aspnet/core/mvc/controllers/testing) (l'esempio implementa il modello di repository).
+Anche se l'app non usa il modello di repository e non è un esempio efficace del [modello di unità di lavoro (UOW)](https://martinfowler.com/eaaCatalog/unitOfWork.html), Razor Pages supporta questi modelli di sviluppo. Per altre informazioni, vedere [progettazione del livello di persistenza dell'infrastruttura](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design) e della [logica del controller di test](/aspnet/core/mvc/controllers/testing) (l'esempio implementa il modello di repository).
 
 ### <a name="test-app-organization"></a>Testare l'organizzazione dell'app
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/10/2019
 uid: security/authentication/social/index
-ms.openlocfilehash: 8dac8a8a2276388414b6bb1211e970617b001637
-ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
-ms.translationtype: HT
+ms.openlocfilehash: edaf9eeaf02879b2f7816bab0eb373a7de640c05
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2019
-ms.locfileid: "65874815"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082511"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Autenticazione dei provider Facebook, Google ed esterni in ASP.NET Core
 
@@ -35,9 +35,9 @@ Per degli esempi di come gli account di accesso ai social possano risultare util
 
 * Creare un nuovo progetto.
 * Selezionare **Applicazione Web ASP.NET Core** e **Avanti**.
-* Specificare un **Nome progetto** e confermare o modificare il **Percorso**. Scegliere **Crea**.
+* Specificare un **Nome progetto** e confermare o modificare il **Percorso**. Selezionare **Create**.
 * Selezionare **ASP.NET Core 2.2** nell'elenco a discesa. Selezionare **Applicazione Web** nell'elenco dei modelli.
-* In **Autenticazione** selezionare **Modifica** e impostare l'autenticazione su **Account utente individuali**. Scegliere **OK**.
+* In **Autenticazione** selezionare **Modifica** e impostare l'autenticazione su **Account utente individuali**. Selezionare **OK**.
 * Nella finestra **Crea una nuova applicazione Web ASP.NET Core** selezionare **Crea**.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
@@ -48,7 +48,7 @@ Per degli esempi di come gli account di accesso ai social possano risultare util
 
 * Eseguire i comandi seguenti:
 
-  ```console
+  ```dotnetcli
   dotnet new webapp -o WebApp1 -au Individual -uld
   code -r WebApp1
   ```
@@ -63,9 +63,9 @@ Per degli esempi di come gli account di accesso ai social possano risultare util
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 * Selezionare **File** > **Nuova soluzione**.
-* Selezionare **.NET Core** > **App** nella barra laterale. Selezionare il modello **Applicazione Web**. Scegliere **Avanti**.
-* Impostare l'elenco a discesa **Framework di destinazione** su **.NET Core 2.2**. Scegliere **Avanti**.
-* Specificare un **Nome progetto**. Confermare o modificare il **Percorso**. Scegliere **Crea**.
+* Selezionare **.NET Core** > **App** nella barra laterale. Selezionare il modello **Applicazione Web**. Selezionare **Avanti**.
+* Impostare l'elenco a discesa **Framework di destinazione** su **.NET Core 2.2**. Selezionare **Avanti**.
+* Specificare un **Nome progetto**. Confermare o modificare il **Percorso**. Selezionare **Create**.
 
 ---
 
@@ -120,4 +120,4 @@ Per creare una password e accedere usando la posta elettronica impostata durante
 
 * Pagine di riferimento specifico del provider per configurare gli account di accesso per i provider richiesti dall'app.
 
-* Può essere opportuno salvare in modo permanente dati aggiuntivi sull'utente e il relativo accesso e i token di aggiornamento. Per ulteriori informazioni, vedere <xref:security/authentication/social/additional-claims>.
+* Può essere opportuno salvare in modo permanente dati aggiuntivi sull'utente e il relativo accesso e i token di aggiornamento. Per altre informazioni, vedere <xref:security/authentication/social/additional-claims>.

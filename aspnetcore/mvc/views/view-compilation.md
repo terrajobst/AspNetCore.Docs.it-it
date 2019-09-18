@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/20/2019
 uid: mvc/views/view-compilation
-ms.openlocfilehash: ff66148fc9aad2871f9f55ce76b5a0dacb0ad10c
-ms.sourcegitcommit: 9f11685382eb1f4dd0fb694dea797adacedf9e20
-ms.translationtype: HT
+ms.openlocfilehash: 0aa632bce32ef44f65d92639284c64c1d00e952e
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67313778"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71080817"
 ---
 # <a name="razor-file-compilation-in-aspnet-core"></a>Compilazione del file Razor in ASP.NET Core
 
@@ -89,7 +89,7 @@ Impostare la proprietà `MvcRazorCompileOnPublish` su `true`e installare il pacc
 
 Preparare l'app per una [distribuzione dipendente dal framework](/dotnet/core/deploying/#framework-dependent-deployments-fdd) con il [comando publish dell'interfaccia della riga di comando di .NET Core](/dotnet/core/tools/dotnet-publish). Ad esempio, eseguire il comando seguente nella radice del progetto:
 
-```console
+```dotnetcli
 dotnet publish -c Release
 ```
 

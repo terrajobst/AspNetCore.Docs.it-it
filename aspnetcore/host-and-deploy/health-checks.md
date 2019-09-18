@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/10/2019
 uid: host-and-deploy/health-checks
-ms.openlocfilehash: cc30b3fc67cec42eada20aed494642cf6d88b289
-ms.sourcegitcommit: e7c56e8da5419bbc20b437c2dd531dedf9b0dc6b
+ms.openlocfilehash: 8fdb1332882fd25bd61f5403a3b1f10e8a0bc7f7
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70878452"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081522"
 ---
 # <a name="health-checks-in-aspnet-core"></a>Controlli di integrità in ASP.NET Core
 
@@ -82,7 +82,7 @@ public class BasicStartup
 
 Per eseguire lo scenario di configurazione di base usando l'app di esempio, eseguire il comando seguente dalla cartella del progetto in una shell dei comandi:
 
-```console
+```dotnetcli
 dotnet run --scenario basic
 ```
 
@@ -332,7 +332,7 @@ app.UseEndpoints(endpoints =>
 
 Per eseguire lo scenario di probe del database di base usando l'app di esempio, eseguire il comando seguente dalla cartella del progetto in una shell dei comandi:
 
-```console
+```dotnetcli
 dotnet run --scenario db
 ```
 
@@ -370,7 +370,7 @@ Per eseguire lo scenario di probe `DbContext` usando l'app di esempio, verificar
 
 Eseguire il comando seguente dalla cartella del progetto in una shell dei comandi:
 
-```console
+```dotnetcli
 dotnet run --scenario dbcontext
 ```
 
@@ -456,7 +456,7 @@ app.UseEndpoints(endpoints =>
 
 Per eseguire lo scenario di configurazione di idoneità/attività usando l'app di esempio, eseguire il comando seguente dalla cartella del progetto in una shell dei comandi:
 
-```console
+```dotnetcli
 dotnet run --scenario liveness
 ```
 
@@ -519,7 +519,7 @@ Il metodo `WriteResponse` formatta `CompositeHealthCheckResult` in un oggetto JS
 
 Per eseguire lo scenario di probe basato sulle metriche con il writer di risposta personalizzata usando l'app di esempio, eseguire il comando seguente dalla cartella del progetto in una shell dei comandi:
 
-```console
+```dotnetcli
 dotnet run --scenario writer
 ```
 
@@ -615,7 +615,7 @@ app.UseEndpoints(endpoints =>
 
 Per eseguire lo scenario di configurazione della porta di gestione usando l'app di esempio, eseguire il comando seguente dalla cartella del progetto in una shell dei comandi:
 
-```console
+```dotnetcli
 dotnet run --scenario port
 ```
 
@@ -821,7 +821,7 @@ public class BasicStartup
 
 Per eseguire lo scenario di configurazione di base usando l'app di esempio, eseguire il comando seguente dalla cartella del progetto in una shell dei comandi:
 
-```console
+```dotnetcli
 dotnet run --scenario basic
 ```
 
@@ -1047,7 +1047,7 @@ app.UseHealthChecks("/health");
 
 Per eseguire lo scenario di probe del database di base usando l'app di esempio, eseguire il comando seguente dalla cartella del progetto in una shell dei comandi:
 
-```console
+```dotnetcli
 dotnet run --scenario db
 ```
 
@@ -1082,7 +1082,7 @@ Per eseguire lo scenario di probe `DbContext` usando l'app di esempio, verificar
 
 Eseguire il comando seguente dalla cartella del progetto in una shell dei comandi:
 
-```console
+```dotnetcli
 dotnet run --scenario dbcontext
 ```
 
@@ -1157,7 +1157,7 @@ app.UseHealthChecks("/health/live", new HealthCheckOptions()
 
 Per eseguire lo scenario di configurazione di idoneità/attività usando l'app di esempio, eseguire il comando seguente dalla cartella del progetto in una shell dei comandi:
 
-```console
+```dotnetcli
 dotnet run --scenario liveness
 ```
 
@@ -1221,7 +1221,7 @@ Il metodo `WriteResponse` formatta `CompositeHealthCheckResult` in un oggetto JS
 
 Per eseguire lo scenario di probe basato sulle metriche con il writer di risposta personalizzata usando l'app di esempio, eseguire il comando seguente dalla cartella del progetto in una shell dei comandi:
 
-```console
+```dotnetcli
 dotnet run --scenario writer
 ```
 
@@ -1290,7 +1290,7 @@ Registrare i servizi dei controlli di integrità con <xref:Microsoft.Extensions.
 
 Per eseguire lo scenario di configurazione della porta di gestione usando l'app di esempio, eseguire il comando seguente dalla cartella del progetto in una shell dei comandi:
 
-```console
+```dotnetcli
 dotnet run --scenario port
 ```
 

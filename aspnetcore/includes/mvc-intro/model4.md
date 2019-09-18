@@ -11,7 +11,7 @@ Nella tabella seguente sono specificati i parametri del generatore di codice ASP
 
 Utilizzare il commutatore `h` per ottenere assistenza sul comando `aspnet-codegenerator controller`:
 
-```console
+```dotnetcli
 dotnet aspnet-codegenerator controller -h
 ```
 

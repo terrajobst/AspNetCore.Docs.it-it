@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/14/2019
 uid: test/razor-pages-tests
-ms.openlocfilehash: 35feb5dd95fa79ceca7ff03523cef30d29ccbdd3
-ms.sourcegitcommit: 476ea5ad86a680b7b017c6f32098acd3414c0f6c
+ms.openlocfilehash: afac97d686ef190ebb92d20a55a15dd774b0d1de
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69022566"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081432"
 ---
 # <a name="razor-pages-unit-tests-in-aspnet-core"></a>Razor Pages unit test in ASP.NET Core
 
@@ -44,7 +44,7 @@ Il progetto di esempio è costituito da due app:
 
 I test possono essere eseguiti usando le funzionalità di test predefinite di un IDE, ad esempio [Visual Studio](/visualstudio/test/unit-test-your-code) o [Visual Studio per Mac](/dotnet/core/tutorials/using-on-mac-vs-full-solution). Se si usa [Visual Studio Code](https://code.visualstudio.com/) o la riga di comando, eseguire il comando seguente al prompt dei comandi nella cartella *tests/RazorPagesTestSample. tests* :
 
-```console
+```dotnetcli
 dotnet test
 ```
 
@@ -56,11 +56,11 @@ L'app Message è un sistema di messaggi di Razor Pages con le seguenti caratteri
 * Un messaggio `Message` viene descritto dalla classe (*Data/Message. cs*) con due proprietà: `Id` (chiave) e `Text` (messaggio). La `Text` proprietà è obbligatoria e limitata a 200 caratteri.
 * I messaggi vengono archiviati utilizzando&#8224; [il database in memoria di Entity Framework](/ef/core/providers/in-memory/).
 * L'app contiene un dal nella relativa classe del contesto di `AppDbContext` database, (*Data/AppDbContext. cs*). I metodi dal sono contrassegnati `virtual`, che consente di simulare i metodi da usare nei test.
-* Se il database è vuoto all'avvio dell'app, l'archivio messaggi viene inizializzato con tre messaggi. Questi *messaggi* con seeding vengono usati anche nei test.
+* Se il database è vuoto all'avvio dell'app, l'archivio messaggi viene inizializzato con tre messaggi. Questi *messaggi con seeding* vengono usati anche nei test.
 
 &#8224;L'argomento EF, [test con InMemory](/ef/core/miscellaneous/testing/in-memory), spiega come usare un database in memoria per i test con MSTest. In questo argomento viene usato il Framework di test di [xUnit](https://xunit.github.io/) . I concetti di test e le implementazioni di test in diversi framework di test sono simili, ma non identici.
 
-Sebbene l'app di esempio non usi il modello di repository e non sia un esempio efficace del [modello UOW (Unit of work)](https://martinfowler.com/eaaCatalog/unitOfWork.html), Razor Pages supporta questi modelli di sviluppo. Per ulteriori informazioni, vedere [progettazione del livello](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design) di persistenza <xref:mvc/controllers/testing> dell'infrastruttura e (l'esempio implementa il modello di repository).
+Sebbene l'app di esempio non usi il modello di repository e non sia un esempio efficace del [modello UOW (Unit of work)](https://martinfowler.com/eaaCatalog/unitOfWork.html), Razor Pages supporta questi modelli di sviluppo. Per ulteriori informazioni, vedere [progettazione del livello di persistenza dell'infrastruttura](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design) e <xref:mvc/controllers/testing> (l'esempio implementa il modello di repository).
 
 ## <a name="test-app-organization"></a>Testare l'organizzazione dell'app
 
@@ -228,7 +228,7 @@ Il progetto di esempio è costituito da due app:
 
 I test possono essere eseguiti usando le funzionalità di test predefinite di un IDE, ad esempio [Visual Studio](/visualstudio/test/unit-test-your-code) o [Visual Studio per Mac](/dotnet/core/tutorials/using-on-mac-vs-full-solution). Se si usa [Visual Studio Code](https://code.visualstudio.com/) o la riga di comando, eseguire il comando seguente al prompt dei comandi nella cartella *tests/RazorPagesTestSample. tests* :
 
-```console
+```dotnetcli
 dotnet test
 ```
 
@@ -240,11 +240,11 @@ L'app Message è un sistema di messaggi di Razor Pages con le seguenti caratteri
 * Un messaggio `Message` viene descritto dalla classe (*Data/Message. cs*) con due proprietà: `Id` (chiave) e `Text` (messaggio). La `Text` proprietà è obbligatoria e limitata a 200 caratteri.
 * I messaggi vengono archiviati utilizzando&#8224; [il database in memoria di Entity Framework](/ef/core/providers/in-memory/).
 * L'app contiene un dal nella relativa classe del contesto di `AppDbContext` database, (*Data/AppDbContext. cs*). I metodi dal sono contrassegnati `virtual`, che consente di simulare i metodi da usare nei test.
-* Se il database è vuoto all'avvio dell'app, l'archivio messaggi viene inizializzato con tre messaggi. Questi *messaggi* con seeding vengono usati anche nei test.
+* Se il database è vuoto all'avvio dell'app, l'archivio messaggi viene inizializzato con tre messaggi. Questi *messaggi con seeding* vengono usati anche nei test.
 
 &#8224;L'argomento EF, [test con InMemory](/ef/core/miscellaneous/testing/in-memory), spiega come usare un database in memoria per i test con MSTest. In questo argomento viene usato il Framework di test di [xUnit](https://xunit.github.io/) . I concetti di test e le implementazioni di test in diversi framework di test sono simili, ma non identici.
 
-Sebbene l'app di esempio non usi il modello di repository e non sia un esempio efficace del [modello UOW (Unit of work)](https://martinfowler.com/eaaCatalog/unitOfWork.html), Razor Pages supporta questi modelli di sviluppo. Per ulteriori informazioni, vedere [progettazione del livello](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design) di persistenza <xref:mvc/controllers/testing> dell'infrastruttura e (l'esempio implementa il modello di repository).
+Sebbene l'app di esempio non usi il modello di repository e non sia un esempio efficace del [modello UOW (Unit of work)](https://martinfowler.com/eaaCatalog/unitOfWork.html), Razor Pages supporta questi modelli di sviluppo. Per ulteriori informazioni, vedere [progettazione del livello di persistenza dell'infrastruttura](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design) e <xref:mvc/controllers/testing> (l'esempio implementa il modello di repository).
 
 ## <a name="test-app-organization"></a>Testare l'organizzazione dell'app
 

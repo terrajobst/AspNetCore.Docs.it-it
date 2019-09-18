@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/03/2019
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: 3d4279a291182da60c0cb2fbb93a3922ed673cde
-ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
-ms.translationtype: HT
+ms.openlocfilehash: 1db3ee1a9bcc0d41edf24df55bcd8d54fb0e9724
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68914015"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081785"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>Attività in background con servizi ospitati in ASP.NET Core
 
@@ -40,16 +40,16 @@ Il modello di servizio di ruolo di lavoro di ASP.NET Core rappresenta un punto d
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 1. Creare un nuovo progetto.
-1. Selezionare **Applicazione Web ASP.NET Core**. Scegliere **Avanti**.
-1. Specificare il nome di un progetto nel campo **Nome progetto** oppure accettare il nome predefinito. Scegliere **Crea**.
+1. Selezionare **Applicazione Web ASP.NET Core**. Selezionare **Avanti**.
+1. Specificare il nome di un progetto nel campo **Nome progetto** oppure accettare il nome predefinito. Selezionare **Create**.
 1. Nella finestra di dialogo **Crea una nuova applicazione Web ASP.NET Core** verificare che siano selezionati **.NET Core** e **ASP.NET Core 3.0**.
-1. Selezionare il modello del **Servizio di ruolo di lavoro**. Scegliere **Crea**.
+1. Selezionare il modello del **Servizio di ruolo di lavoro**. Selezionare **Create**.
 
 # <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 
 Usare il servizio di ruolo di lavoro (`worker`) con il comando[dotnet new](/dotnet/core/tools/dotnet-new) da una shell dei comandi. Nell'esempio seguente viene creata un'app del servizio di ruolo di lavoro denominata `ContosoWorkerService`. Una cartella per l'app `ContosoWorkerService` viene creata automaticamente quando viene eseguito il comando.
 
-```console
+```dotnetcli
 dotnet new worker -o ContosoWorkerService
 ```
 

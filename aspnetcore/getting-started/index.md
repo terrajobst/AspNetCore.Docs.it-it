@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/15/2019
 uid: getting-started
-ms.openlocfilehash: c35251a0e49fbbffee7b8f5ea6905322b9042261
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
-ms.translationtype: HT
+ms.openlocfilehash: d1edf91f1b37ba2b69732471dc6c1f306ac5ad24
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67814940"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081113"
 ---
 # <a name="tutorial-get-started-with-aspnet-core"></a>Esercitazione: Introduzione ad ASP.NET Core
 
@@ -37,7 +37,7 @@ Al termine, si avrà un'app Web funzionante che viene eseguita nel computer loca
 
 Aprire una shell dei comandi e immettere il comando seguente:
 
-```console
+```dotnetcli
 dotnet new webapp -o aspnetcoreapp
 ```
 
@@ -47,7 +47,7 @@ Considerare attendibile il certificato di sviluppo HTTPS:
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
-```console
+```dotnetcli
 dotnet dev-certs https --trust
 ```
 
@@ -59,7 +59,7 @@ Selezionare **Sì** se si accetta di considerare attendibile il certificato di s
 
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
-```console
+```dotnetcli
 dotnet dev-certs https --trust
 ```
 
@@ -79,11 +79,11 @@ Vedere la documentazione della distribuzione di Linux su come rendere attendibil
 
 Per altre informazioni, vedere [Considerare attendibile il certificato di sviluppo di ASP.NET Core HTTPS](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos)
 
-## <a name="run-the-app"></a>Eseguire l'app
+## <a name="run-the-app"></a>Esecuzione dell'app
 
 Eseguire i comandi seguenti:
 
-```console
+```dotnetcli
 cd aspnetcoreapp
 dotnet run
 ```

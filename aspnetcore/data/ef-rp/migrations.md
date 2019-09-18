@@ -5,12 +5,12 @@ description: In questa esercitazione si inizia a usare la funzionalità delle mi
 ms.author: riande
 ms.date: 07/22/2019
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 110ffa8ecea1fe6e55a2f979a4ce851ed59e1807
-ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
-ms.translationtype: HT
+ms.openlocfilehash: 8a4929a905c6a488231d7d29e1101f6fd887477f
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69583512"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082066"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Migrazioni - 4 di 8
 
@@ -44,7 +44,7 @@ Drop-Database
 
 * Eseguire il comando seguente al prompt dei comandi per installare gli strumenti dell'interfaccia della riga di comando EF:
 
-  ```console
+  ```dotnetcli
   dotnet tool install --global dotnet-ef --version 3.0.0-*
   ```
 
@@ -52,7 +52,7 @@ Drop-Database
 
 * Eliminare il file *CU.db* oppure eseguire il comando seguente:
 
-  ```console
+  ```dotnetcli
   dotnet ef database drop --force
   ```
 
@@ -73,7 +73,7 @@ Update-Database
 
 Assicurarsi che il prompt dei comandi si trovi nella cartella del progetto ed eseguire i comandi seguenti:
 
-```console
+```dotnetcli
 dotnet ef migrations add InitialCreate
 dotnet ef database update
 ```
@@ -192,7 +192,7 @@ Aprire una finestra di comando e passare alla cartella del progetto. La cartella
 
 Digitare quanto segue nella finestra di comando:
 
- ```console
+ ```dotnetcli
  dotnet ef database drop
  ```
 
@@ -211,7 +211,7 @@ Update-Database
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-```console
+```dotnetcli
 dotnet ef migrations add InitialCreate
 dotnet ef database update
 ```
@@ -249,7 +249,7 @@ Remove-Migration
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-```console
+```dotnetcli
 dotnet ef migrations remove
 ```
 

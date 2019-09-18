@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/14/2019
 uid: security/enforcing-ssl
-ms.openlocfilehash: 8474b8f12d3e08e47a4cc9b20543d2a9e6e91998
-ms.sourcegitcommit: dc5b293e08336dc236de66ed1834f7ef78359531
+ms.openlocfilehash: eafb06d181ca3f085cccb314749c8d4deba074fa
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71011080"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082566"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Applicare HTTPS in ASP.NET Core
 
@@ -315,7 +315,7 @@ Deselezionare la casella **di controllo Configura per HTTPS** .
 
 Usare l'opzione `--no-https`. Esempio:
 
-```console
+```dotnetcli
 dotnet new webapp --no-https
 ```
 
@@ -338,13 +338,13 @@ For more information on configuring HTTPS see https://go.microsoft.com/fwlink/?l
 
 L'installazione di .NET Core SDK include l'installazione del certificato di sviluppo HTTPS ASP.NET Core nell'archivio certificati utente locale. Il certificato è stato installato, ma non è attendibile. Per considerare attendibile il certificato, eseguire il passaggio unico per eseguire lo `dev-certs` strumento DotNet:
 
-```console
+```dotnetcli
 dotnet dev-certs https --trust
 ```
 
 Il comando seguente consente di visualizzare informazioni della Guida sullo strumento `dev-certs`:
 
-```console
+```dotnetcli
 dotnet dev-certs https --help
 ```
 

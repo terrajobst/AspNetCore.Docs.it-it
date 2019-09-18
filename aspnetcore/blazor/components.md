@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/06/2019
 uid: blazor/components
-ms.openlocfilehash: e51f6745f6e0c748e51d7f8a49193f3d81fd2a06
-ms.sourcegitcommit: 07cd66e367d080acb201c7296809541599c947d1
+ms.openlocfilehash: 521421ac413218c1f04dd9feade2a49dc1f7b918
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71039176"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71080537"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Creare e usare ASP.NET Core componenti Razor
 
@@ -1473,7 +1473,7 @@ Questo è un esempio semplice. Nei casi più realistici con strutture complesse 
 
 * Le prestazioni dell'app soffrono se i numeri di sequenza vengono generati dinamicamente.
 * Il Framework non è in grado di creare automaticamente i propri numeri di sequenza in fase di esecuzione perché le informazioni necessarie non esistono a meno che non vengano acquisite in fase di compilazione.
-* Non scrivere blocchi lunghi di logica implementata `RenderTreeBuilder` manualmente. Preferire `.razor` i file e consentire al compilatore di gestire i numeri di sequenza.
+* Non scrivere blocchi lunghi di logica implementata `RenderTreeBuilder` manualmente. Preferire `.razor` i file e consentire al compilatore di gestire i numeri di sequenza. Se non si è in grado di `RenderTreeBuilder` evitare la logica manuale, suddividere i blocchi di codice lunghi `OpenRegion` in parti più piccole racchiuse tra / `CloseRegion` le chiamate. Ogni area ha il proprio spazio separato dei numeri di sequenza, quindi è possibile riavviare da zero (o qualsiasi altro numero arbitrario) all'interno di ogni area.
 * Se i numeri di sequenza sono hardcoded, l'algoritmo Diff richiede solo che i numeri di sequenza aumentino nel valore. Il valore iniziale e i gap sono irrilevanti. Una delle opzioni legittime consiste nell'usare il numero di riga del codice come numero di sequenza oppure iniziare da zero e aumentare di uno o di centinaia (o qualsiasi intervallo preferito). 
 * Blazer usa i numeri di sequenza, mentre altri Framework dell'interfaccia utente con differenze tra gli alberi non li usano. La diffing è molto più veloce quando si usano i numeri di sequenza e Blazer ha il vantaggio di un passaggio di compilazione che riguarda automaticamente i numeri di `.razor` sequenza per gli sviluppatori che creano file.
 

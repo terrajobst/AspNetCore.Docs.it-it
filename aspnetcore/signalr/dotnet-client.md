@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 09/13/2019
 uid: signalr/dotnet-client
-ms.openlocfilehash: d2755f652e734bad6447ddeb9a82345dcde25b28
-ms.sourcegitcommit: 805f625d16d74e77f02f5f37326e5aceafcb78e3
+ms.openlocfilehash: 4419799ef11469413f813843a9d02ac0223d30c6
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70985488"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081289"
 ---
 # <a name="aspnet-core-signalr-net-client"></a>Client .NET di ASP.NET Core SignalR
 
@@ -38,7 +38,7 @@ Install-Package Microsoft.AspNetCore.SignalR.Client
 
 Per installare la libreria client, eseguire il comando seguente in una shell dei comandi:
 
-```console
+```dotnetcli
 dotnet add package Microsoft.AspNetCore.SignalR.Client
 ```
 

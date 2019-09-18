@@ -7,12 +7,12 @@ ms.author: riande
 ms.date: 08/22/2019
 ms.custom: mvc, seodec18
 uid: razor-pages/ui-class
-ms.openlocfilehash: 5b83cb44302a5900ec7b2ccc049790b4c1ca57e5
-ms.sourcegitcommit: 6189b0ced9c115248c6ede02efcd0b29d31f2115
+ms.openlocfilehash: 92c04c1ac4c70c6245accf272753bc914aaab860
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69985377"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081868"
 ---
 # <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>Creare un'interfaccia utente riutilizzabile usando il progetto libreria di classi Razor in ASP.NET Core
 
@@ -42,7 +42,7 @@ Un RCL ha il seguente file di progetto:
 
 Eseguire `dotnet new razorclasslib` dalla riga di comando. Ad esempio:
 
-```console
+```dotnetcli
 dotnet new razorclasslib -o RazorUIClassLib
 ```
 
@@ -77,13 +77,13 @@ Aprire il file con estensione *sln* in Visual Studio. Eseguire l'app.
 
 Al prompt dei comandi nella directory *cli*, compilare la libreria di classi Razor e l'app Web.
 
-```console
+```dotnetcli
 dotnet build
 ```
 
 Passare alla directory *WebApp1* ed eseguire l'app:
 
-```console
+```dotnetcli
 dotnet run
 ```
 
@@ -110,7 +110,7 @@ Creare il progetto di libreria di classi Razor:
 
 Eseguire il comando seguente dalla riga di comando:
 
-```console
+```dotnetcli
 dotnet new razorclasslib -o RazorUIClassLib
 dotnet new page -n _Message -np -o RazorUIClassLib/Areas/MyFeature/Pages/Shared
 dotnet new viewstart -o RazorUIClassLib/Areas/MyFeature/Pages
@@ -138,7 +138,7 @@ Il *viewstart. cshtml* file è necessario per usare il layout del progetto Razor
 
 `@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers` è necessario per usare la visualizzazione parziale (`<partial name="_Message" />`). Anziché includere la direttiva `@addTagHelper`, è possibile aggiungere un file *_ViewImports.cshtml*. Ad esempio:
 
-```console
+```dotnetcli
 dotnet new viewimports -o RazorUIClassLib/Areas/MyFeature/Pages
 ```
 
@@ -146,7 +146,7 @@ Per ulteriori informazioni sul *viewimports. cshtml*, vedere [importazione di di
 
 * Compilare la libreria di classi per verificare che non siano presenti errori del compilatore:
 
-```console
+```dotnetcli
 dotnet build RazorUIClassLib
 ```
 
@@ -176,7 +176,7 @@ Eseguire l'app.
 
 Creare un'app Web Razor Pages e un file di soluzione contenente l'app Razor Pages e il RCL:
 
-```console
+```dotnetcli
 dotnet new webapp -o WebApp1
 dotnet new sln
 dotnet sln add WebApp1
@@ -186,7 +186,7 @@ dotnet add WebApp1 reference RazorUIClassLib
 
 Compilare ed eseguire l'app Web:
 
-```console
+```dotnetcli
 cd WebApp1
 dotnet run
 ```

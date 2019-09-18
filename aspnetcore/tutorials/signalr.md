@@ -6,12 +6,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 07/08/2019
 uid: tutorials/signalr
-ms.openlocfilehash: 53d3763a93cc72b6bcf85b64a706500299b3597f
-ms.sourcegitcommit: 040aedca220ed24ee1726e6886daf6906f95a028
-ms.translationtype: HT
+ms.openlocfilehash: 2dfa994b9763a0139cb70cbf9847ac3b02b568e4
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67893726"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081976"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Esercitazione: Introduzione ad ASP.NET Core SignalR
 
@@ -68,7 +68,7 @@ Al termine, si disporrà di un'app di chat funzionante:
 
 * Eseguire i comandi seguenti:
 
-   ```console
+   ```dotnetcli
    dotnet new webapp -o SignalRChat
    code -r SignalRChat
    ```
@@ -110,7 +110,7 @@ La libreria server di SignalR è inclusa nel framework condiviso ASP.NET Core 3.
 
 * Eseguire il comando seguente nel terminale integrato per installare LibMan.
 
-  ```console
+  ```dotnetcli
   dotnet tool install -g Microsoft.Web.LibraryManager.Cli
   ```
 
@@ -137,7 +137,7 @@ La libreria server di SignalR è inclusa nel framework condiviso ASP.NET Core 3.
 
 * Nel **Terminale** eseguire il comando seguente per installare LibMan.
 
-  ```console
+  ```dotnetcli
   dotnet tool install -g Microsoft.Web.LibraryManager.Cli
   ```
 
@@ -210,7 +210,7 @@ Un *hub* è una classe usata come pipeline di alto livello che gestisce le comun
   * Aggiunge al pulsante di invio un gestore che invia messaggi all'hub.
   * Aggiunge all'oggetto connessione un gestore che riceve i messaggi dall'hub e li aggiunge all'elenco.
 
-## <a name="run-the-app"></a>Eseguire l'app
+## <a name="run-the-app"></a>Esecuzione dell'app
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -220,7 +220,7 @@ Un *hub* è una classe usata come pipeline di alto livello che gestisce le comun
 
 * Eseguire il comando seguente nel terminale integrato:
 
-  ```console
+  ```dotnetcli
   dotnet run -p SignalRChat.csproj
   ```
 
@@ -242,7 +242,8 @@ Un *hub* è una classe usata come pipeline di alto livello che gestisce le comun
 > * Se l'app non funziona, aprire gli strumenti di sviluppo (F12) del browser e passare alla console. È possibile che vengano visualizzati errori correlati al codice HTML e JavaScript. Ad esempio, si supponga di aver inserito *signalr.js* in una cartella diversa da quella indicata nelle istruzioni. In questo caso il riferimento a tale file non funzionerà e verrà visualizzato un errore 404 nella console.
 >   ![Errore di signalr.js non trovato](signalr/_static/3.x/f12-console.png)
 > * Se viene visualizzato l'errore ERR_SPDY_INADEQUATE_TRANSPORT_SECURITY in Chrome o NS_ERROR_NET_INADEQUATE_SECURITY in Firefox, eseguire questi comandi per aggiornare il proprio certificato di sviluppo:
->   ```
+>
+>   ```dotnetcli
 >   dotnet dev-certs https --clean
 >   dotnet dev-certs https --trust
 >   ```
@@ -309,7 +310,7 @@ Al termine, si disporrà di un'app di chat funzionante:
 
 * Eseguire i comandi seguenti:
 
-   ```console
+   ```dotnetcli
    dotnet new webapp -o SignalRChat
    code -r SignalRChat
    ```
@@ -320,7 +321,7 @@ Al termine, si disporrà di un'app di chat funzionante:
 
 * Selezionare **.NET Core > App > App Web ASP.NET Core** (non selezionare **App Web ASP.NET Core (MVC)** ).
 
-* Scegliere **Avanti**.
+* Selezionare **Avanti**.
 
 * Assegnare al progetto il nome *SignalRChat* e quindi selezionare **Crea**.
 
@@ -352,7 +353,7 @@ La libreria server di SignalR è inclusa nel metapacchetto `Microsoft.AspNetCore
 
 * Eseguire il comando seguente nel terminale integrato per installare LibMan.
 
-  ```console
+  ```dotnetcli
   dotnet tool install -g Microsoft.Web.LibraryManager.Cli
   ```
 
@@ -379,7 +380,7 @@ La libreria server di SignalR è inclusa nel metapacchetto `Microsoft.AspNetCore
 
 * Nel **Terminale** eseguire il comando seguente per installare LibMan.
 
-  ```console
+  ```dotnetcli
   dotnet tool install -g Microsoft.Web.LibraryManager.Cli
   ```
 
@@ -452,7 +453,7 @@ Un *hub* è una classe usata come pipeline di alto livello che gestisce le comun
   * Aggiunge al pulsante di invio un gestore che invia messaggi all'hub.
   * Aggiunge all'oggetto connessione un gestore che riceve i messaggi dall'hub e li aggiunge all'elenco.
 
-## <a name="run-the-app"></a>Eseguire l'app
+## <a name="run-the-app"></a>Esecuzione dell'app
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -462,7 +463,7 @@ Un *hub* è una classe usata come pipeline di alto livello che gestisce le comun
 
 * Eseguire il comando seguente nel terminale integrato:
 
-  ```console
+  ```dotnetcli
   dotnet run -p SignalRChat.csproj
   ```
 

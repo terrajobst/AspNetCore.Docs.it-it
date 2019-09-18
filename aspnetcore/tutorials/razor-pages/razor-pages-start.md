@@ -5,12 +5,12 @@ description: Questa serie di esercitazioni illustra come usare Razor Pages in AS
 ms.author: riande
 ms.date: 07/25/2019
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 67a5fcee0a37861fd39a018443edbc0b9e513213
-ms.sourcegitcommit: 7a46973998623aead757ad386fe33602b1658793
-ms.translationtype: HT
+ms.openlocfilehash: 0cc00cb85b6054752417b82c783cfd4c306aeda5
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69487681"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082568"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Esercitazione: Introduzione all'uso di pagine Razor in ASP.NET Core
 
@@ -78,7 +78,7 @@ Alla fine di questa esercitazione si avrà un'app Web Razor Pages funzionante, c
 
 * Eseguire i comandi seguenti:
 
-  ```console
+  ```dotnetcli
   dotnet new webapp -o RazorPagesMovie
   code -r RazorPagesMovie
   ```
@@ -117,7 +117,7 @@ Da Visual Studio, selezionare **File > Apri**, quindi selezionare il file *Razor
 
 ---
 
-## <a name="run-the-app"></a>Eseguire l'app
+## <a name="run-the-app"></a>Esecuzione dell'app
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -255,7 +255,7 @@ Alla fine di questa esercitazione si avrà un'app Web Razor Pages funzionante, c
 
 * Eseguire i comandi seguenti:
 
-  ```console
+  ```dotnetcli
   dotnet new webapp -o RazorPagesMovie
   code -r RazorPagesMovie
   ```
@@ -273,7 +273,7 @@ Da un terminale eseguire il comando seguente:
 
 <!-- TODO: update these instruction once mac support 2.2 projects -->
 
-```console
+```dotnetcli
 dotnet new webapp -o RazorPagesMovie
 ```
 
@@ -287,7 +287,7 @@ Da Visual Studio, selezionare **File > Apri**, quindi selezionare il file *Razor
 
 ---
 
-## <a name="run-the-app"></a>Eseguire l'app
+## <a name="run-the-app"></a>Esecuzione dell'app
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 

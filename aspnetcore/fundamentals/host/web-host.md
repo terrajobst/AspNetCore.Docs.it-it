@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2019
 uid: fundamentals/host/web-host
-ms.openlocfilehash: c5d5b723b31a5c211a47e378e50be858fda0b2bd
-ms.sourcegitcommit: 9f11685382eb1f4dd0fb694dea797adacedf9e20
-ms.translationtype: HT
+ms.openlocfilehash: d387098662cc832cc0e49b6a1636f0ebcc7308de
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67313789"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081694"
 ---
 # <a name="aspnet-core-web-host"></a>Host Web ASP.NET Core
 
@@ -431,7 +431,7 @@ public class Program
 
 Per specificare l'host eseguito in un URL specifico, il valore desiderato può essere passato da un prompt dei comandi durante l'esecuzione di [dotnet run](/dotnet/core/tools/dotnet-run). L'argomento della riga di comando esegue l'override del valore `urls` dal file *hostsettings.json*, mentre il server esegue l'ascolto sulla porta 8080:
 
-```console
+```dotnetcli
 dotnet run --urls "http://*:8080"
 ```
 

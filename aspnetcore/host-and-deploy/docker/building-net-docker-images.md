@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/18/2019
 uid: host-and-deploy/docker/building-net-docker-images
-ms.openlocfilehash: 38bdad7110a45538be01cf432aab773c4205980e
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
-ms.translationtype: HT
+ms.openlocfilehash: 24462b53525a38eb1bac82e8498d2d073b06a10f
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975416"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081737"
 ---
 # <a name="docker-images-for-aspnet-core"></a>Immagini Docker per ASP.NET Core
 
@@ -70,7 +70,7 @@ Il documento Dockerfile di esempio usa la [funzionalità di compilazione in più
 
 * Eseguire il comando seguente per compilare ed eseguire l'app in locale:
 
-  ```console
+  ```dotnetcli
   dotnet run
   ```
 
@@ -142,7 +142,7 @@ In alcuni scenari è necessario distribuire un'app in un contenitore copiandovi 
 
 * Eseguire il comando [dotnet publish](/dotnet/core/tools/dotnet-publish):
 
-  ```console
+  ```dotnetcli
   dotnet publish -c Release -o published
   ```
 
@@ -154,13 +154,13 @@ In alcuni scenari è necessario distribuire un'app in un contenitore copiandovi 
 
   * Windows:
 
-    ```console
+    ```dotnetcli
     dotnet published\aspnetapp.dll
     ```
 
   * Linux:
 
-    ```bash
+    ```dotnetcli
     dotnet published/aspnetapp.dll
     ```
 
@@ -177,9 +177,9 @@ ENTRYPOINT ["dotnet", "aspnetapp.dll"]
 
 ### <a name="the-dockerfile"></a>Dockerfile
 
-Ecco il documento Dockerfile usato dal comando `docker build` eseguito prima.  Usa `dotnet publish` allo stesso modo in cui è stato usato in questa sezione per la compilazione e la distribuzione.  
+Ecco il *Dockerfile* usato dal `docker build` comando che è stato eseguito in precedenza.  Usa `dotnet publish` allo stesso modo in cui è stato usato in questa sezione per la compilazione e la distribuzione.  
 
-```console
+```dockerfile
 FROM mcr.microsoft.com/dotnet/core/sdk:2.2 AS build
 WORKDIR /app
 

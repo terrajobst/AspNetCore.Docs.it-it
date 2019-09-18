@@ -6,12 +6,12 @@ ms.author: casoper
 ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: azure/devops/deploy-to-app-service
-ms.openlocfilehash: e09d03f1d30f128b1db1588aa92b28ec3e4ae626
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: df41f296e9c4e1eff6e31d45b29ec30ee1e20cf4
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64892638"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71080447"
 ---
 # <a name="deploy-an-app-to-app-service"></a>Distribuire un'app in servizio App
 
@@ -35,7 +35,7 @@ L'app usata in questa guida è un'app ASP.NET Core preesistente [semplice lettor
 
 Da una shell dei comandi, scaricare il codice, compilare il progetto ed eseguirlo come indicato di seguito.
 
-> *Nota: Gli utenti Linux/macOS devono apportare le modifiche appropriate per i percorsi, ad esempio, con barra rovesciata (`/`) anziché una barra rovesciata (`\`).*
+> *Nota: Gli utenti Linux/MacOS devono apportare le modifiche appropriate per i percorsi, ad esempio usando la`/`barra () anziché la barra`\`rovesciata ().*
 
 1. Clonare il codice in una cartella nel computer locale.
 
@@ -51,13 +51,13 @@ Da una shell dei comandi, scaricare il codice, compilare il progetto ed eseguirl
 
 3. Ripristinare i pacchetti e compilare la soluzione.
 
-    ```console
+    ```dotnetcli
     dotnet build
     ```
 
 4. Eseguire l'app.
 
-    ```console
+    ```dotnetcli
     dotnet run
     ```
 
@@ -73,7 +73,7 @@ Da una shell dei comandi, scaricare il codice, compilare il progetto ed eseguirl
 
 Per distribuire l'app, è necessario creare un servizio App [App Web](/azure/app-service/app-service-web-overview). Dopo la creazione dell'App Web, verrà distribuita a esso dal computer locale tramite Git.
 
-1. Accedi per il [Azure Cloud Shell](https://shell.azure.com/bash). Nota: Quando si accede per la prima volta, Cloud Shell chiede di creare un account di archiviazione per i file di configurazione. Accettare le impostazioni predefinite oppure specificare un nome univoco.
+1. Accedi per il [Azure Cloud Shell](https://shell.azure.com/bash). Nota: Quando si accede per la prima volta, Cloud Shell richiede di creare un account di archiviazione per i file di configurazione. Accettare le impostazioni predefinite oppure specificare un nome univoco.
 
 2. Usare Cloud Shell per i passaggi seguenti.
 
@@ -141,7 +141,7 @@ Per distribuire l'app, è necessario creare un servizio App [App Web](/azure/app
 
 ## <a name="deployment-with-visual-studio"></a>Distribuzione con Visual Studio
 
-> *Nota: In questa sezione si applica solo a Windows. Gli utenti di Linux e macOS è necessario apportare la modifica descritta nel passaggio 2 di seguito. Salvare il file ed eseguire il commit della modifica nel repository locale con `git commit`. Infine, il push della modifica con `git push`, come nella prima sezione.*
+> *Nota: Questa sezione si applica solo a Windows. Gli utenti di Linux e macOS è necessario apportare la modifica descritta nel passaggio 2 di seguito. Salvare il file ed eseguire il commit della modifica nel repository locale con `git commit`. Infine, il push della modifica con `git push`, come nella prima sezione.*
 
 L'app è già stata distribuita dalla shell dei comandi. Utilizziamo gli strumenti integrati di Visual Studio per distribuire un aggiornamento all'app. Dietro le quinte, Visual Studio esegue la stessa operazione come la riga di comando degli strumenti, ma all'interno dell'interfaccia utente familiare di Visual Studio.
 

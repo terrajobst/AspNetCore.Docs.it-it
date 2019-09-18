@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 7/23/2019
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: 4af41422288847c5e77057215390b901d1074c88
-ms.sourcegitcommit: 7001657c00358b082734ba4273693b9b3ed35d2a
-ms.translationtype: HT
+ms.openlocfilehash: 0629605f4d5597a9694cb20ce00b91ff4a768468
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68670092"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082475"
 ---
 # <a name="add-a-new-field-to-a-razor-page-in-aspnet-core"></a>Aggiungere un nuovo campo a una pagina Razor in ASP.NET Core
 
@@ -107,7 +107,7 @@ Un'altra opzione è quella di eliminare il database e usare le migrazioni per ri
 * Selezionare il database in SSOX.
 * Fare clic con il pulsante destro del mouse sul database e selezionare *Elimina*.
 * Selezionare **Chiudi connessioni esistenti**.
-* Scegliere **OK**.
+* Selezionare **OK**.
 * Nella [Console di Gestione pacchetti](xref:tutorials/razor-pages/new-field#pmc) aggiornare il database:
 
   ```powershell
@@ -122,7 +122,7 @@ Un'altra opzione è quella di eliminare il database e usare le migrazioni per ri
 
 Eliminare la cartella della migrazione.  Usare i comandi seguenti per ricreare il database.
 
-```console
+```dotnetcli
 dotnet ef database drop
 dotnet ef migrations add InitialCreate
 dotnet ef database update
@@ -232,7 +232,7 @@ Un'altra opzione è quella di eliminare il database e usare le migrazioni per ri
 * Selezionare il database in SSOX.
 * Fare clic con il pulsante destro del mouse sul database e selezionare *Elimina*.
 * Selezionare **Chiudi connessioni esistenti**.
-* Scegliere **OK**.
+* Selezionare **OK**.
 * Nella [Console di Gestione pacchetti](xref:tutorials/razor-pages/new-field#pmc) aggiornare il database:
 
   ```powershell
@@ -247,7 +247,7 @@ Un'altra opzione è quella di eliminare il database e usare le migrazioni per ri
 
 Eliminare il database e usare le migrazioni per ricreare il database. Per eliminare il database, eliminare il file di database (*MvcMovie.db*). Quindi eseguire il comando `ef database update`:
 
-```console
+```dotnetcli
 dotnet ef database update
 ```
 

@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: a69f1fdd38fec35dec6bb8125bf29859a437a891
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
-ms.translationtype: HT
+ms.openlocfilehash: 85a11ba082fc8f6b364019f6cefcd5b1fe5a9215
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975085"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71080470"
 ---
 # <a name="tutorial-create-a-complex-data-model---aspnet-mvc-with-ef-core"></a>Esercitazione: Creare un modello di dati complesso - ASP.NET MVC con EF Core
 
@@ -98,11 +98,11 @@ La modifica apportata al modello di database ora richiede un aggiornamento dello
 
 Salvare le modifiche e compilare il progetto. Quindi aprire una finestra dei comandi nella cartella di progetto ed eseguire i comandi seguenti:
 
-```console
+```dotnetcli
 dotnet ef migrations add MaxLengthOnNames
 ```
 
-```console
+```dotnetcli
 dotnet ef database update
 ```
 
@@ -126,11 +126,11 @@ L'aggiunta dell'attributo `Column` modifica il modello che supporta `SchoolConte
 
 Salvare le modifiche e compilare il progetto. Quindi aprire una finestra dei comandi nella cartella di progetto ed eseguire i comandi seguenti per creare un'altra migrazione:
 
-```console
+```dotnetcli
 dotnet ef migrations add ColumnFirstName
 ```
 
-```console
+```dotnetcli
 dotnet ef database update
 ```
 
@@ -434,7 +434,7 @@ Come si è visto nella prima esercitazione, la maggior parte di questo codice cr
 
 Salvare le modifiche e compilare il progetto. Quindi aprire la finestra di comando nella cartella del progetto e immettere il comando `migrations add` (non eseguire ancora il comando update-database):
 
-```console
+```dotnetcli
 dotnet ef migrations add ComplexDataModel
 ```
 
@@ -483,7 +483,7 @@ Salvare le modifiche apportate ad *appsettings.json*.
 > [!NOTE]
 > In alternativa alla modifica del nome del database, è possibile eliminare il database. Usare **Esplora oggetti di SQL Server** o il comando della CLI `database drop`:
 >
-> ```console
+> ```dotnetcli
 > dotnet ef database drop
 > ```
 
@@ -491,7 +491,7 @@ Salvare le modifiche apportate ad *appsettings.json*.
 
 Dopo aver modificato il nome del database o eliminato il database, eseguire il comando `database update` nella finestra di comando per eseguire le migrazioni.
 
-```console
+```dotnetcli
 dotnet ef database update
 ```
 

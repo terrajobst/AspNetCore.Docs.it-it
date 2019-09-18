@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/22/2019
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: da57633c345ec087b1a4f24ddc7771e7a2d04720
-ms.sourcegitcommit: 0774a61a3a6c1412a7da0e7d932dc60c506441fc
-ms.translationtype: HT
+ms.openlocfilehash: c9cbf8fd3ed85f32b3c166bf2df702fd26df4fc3
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70059088"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71080981"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Concorrenza - 8 di 8
 
@@ -156,7 +156,7 @@ Compilare il progetto.
 
 * Eseguire il comando seguente in un terminale:
 
-  ```console
+  ```dotnetcli
   dotnet ef migrations add RowVersion
   ```
 
@@ -190,7 +190,7 @@ Questo comando:
 
 * Eseguire il comando seguente in un terminale:
 
-  ```console
+  ```dotnetcli
   dotnet ef database update
   ```
 
@@ -216,13 +216,13 @@ Questo comando:
 
   **In Windows:**
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Department -dc SchoolContext -udl -outDir Pages\Departments --referenceScriptLibraries
   ```
 
   **In Linux o macOS:**
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Department -dc SchoolContext -udl -outDir Pages/Departments --referenceScriptLibraries
   ```
 
@@ -307,7 +307,7 @@ Modificare un altro campo nella seconda scheda del browser.
 
 ![Pagina Department Edit (Modifica - Reparto) 2 dopo la modifica](concurrency/_static/edit-after-change-230.png)
 
-Fare clic su **Salva**. Vengono visualizzati messaggi di errore per tutti i campi che non corrispondono ai valori del database:
+Fare clic su **Save**. Vengono visualizzati messaggi di errore per tutti i campi che non corrispondono ai valori del database:
 
 ![Messaggio di errore della pagina Department Edit (Modifica - Reparto)](concurrency/_static/edit-error30.png)
 
@@ -494,7 +494,7 @@ L'aggiunta della proprietà `RowVersion` cambia il modello di database e ciò ri
 
 Compilare il progetto. Digitare quanto segue in una finestra di comando:
 
-```console
+```dotnetcli
 dotnet ef migrations add RowVersion
 dotnet ef database update
 ```
@@ -520,7 +520,7 @@ Seguire le istruzioni in [Eseguire lo scaffolding del modello Student (Studente)
 
  Eseguire il comando seguente:
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Department -dc SchoolContext -udl -outDir Pages\Departments --referenceScriptLibraries
   ```
 

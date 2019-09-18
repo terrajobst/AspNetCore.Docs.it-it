@@ -5,12 +5,12 @@ description: Creare un'app Web Razor Pages in Windows con Visual Studio, ASP.NET
 ms.author: riande
 ms.date: 08/09/2019
 uid: tutorials/razor-pages/index
-ms.openlocfilehash: 7c722a0992b9cf30731a11b31c839f183d40b9a0
-ms.sourcegitcommit: 89fcc6cb3e12790dca2b8b62f86609bed6335be9
-ms.translationtype: HT
+ms.openlocfilehash: 11a5f651aa3da0a01490d28d411a614cb2f355c2
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68994310"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082385"
 ---
 # <a name="tutorial-create-a-razor-pages-web-app-with-aspnet-core"></a>Esercitazione: Creare un'app web Razor Pages con ASP.NET Core
 
@@ -36,3 +36,4 @@ Al termine, si otterrà un'app che consente di visualizzare e gestire un databas
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Versione YouTube dell'esercitazione](https://www.youtube.com/watch?v=F0SP7Ry4flQ&feature=youtu.be)
+* [Versione di YouTube di questa esercitazione (turco)](https://www.youtube.com/watch?v=wqW8ayrA5-E)

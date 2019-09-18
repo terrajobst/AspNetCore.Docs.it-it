@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/22/2019
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: 62224312aa9b7f3e0164b5300e491f59b0832acd
-ms.sourcegitcommit: 776598f71da0d1e4c9e923b3b395d3c3b5825796
-ms.translationtype: HT
+ms.openlocfilehash: f53f8edef7fe8690d0e414bc094d81dc99ad198a
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70024727"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082095"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Leggere dati correlati - 6 di 8
 
@@ -85,13 +85,13 @@ Per visualizzare il nome del dipartimento assegnato per un corso:
 
   **In Windows:**
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Course -dc SchoolContext -udl -outDir Pages\Courses --referenceScriptLibraries
   ```
 
   **In Linux o macOS:**
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Course -dc SchoolContext -udl -outDir Pages/Courses --referenceScriptLibraries
   ```
 
@@ -182,13 +182,13 @@ Creare *SchoolViewModels/InstructorIndexData.cs* con il codice seguente:
 
   **In Windows:**
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Instructor -dc SchoolContext -udl -outDir Pages\Instructors --referenceScriptLibraries
   ```
 
   **In Linux o macOS:**
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Instructor -dc SchoolContext -udl -outDir Pages/Instructors --referenceScriptLibraries
   ```
 
@@ -390,7 +390,7 @@ Seguire le istruzioni in [Eseguire lo scaffolding del modello Student (Studente)
 
  Eseguire il comando seguente:
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Course -dc SchoolContext -udl -outDir Pages\Courses --referenceScriptLibraries
   ```
 
@@ -477,7 +477,7 @@ Seguire le istruzioni in [Eseguire lo scaffolding del modello Student (Studente)
 
  Eseguire il comando seguente:
 
-  ```console
+  ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Instructor -dc SchoolContext -udl -outDir Pages\Instructors --referenceScriptLibraries
   ```
 

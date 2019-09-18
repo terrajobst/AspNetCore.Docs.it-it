@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/13/2019
 uid: blazor/class-libraries
-ms.openlocfilehash: b5857f2cf22bde801deeeaf227817fdf99862f4a
-ms.sourcegitcommit: 4cb0c7e74355f2e87c60e2a196f842b937247a99
+ms.openlocfilehash: 91c4ffb29649c162fc15e5cb70dc60144b53afea
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69545779"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71080659"
 ---
 # <a name="aspnet-core-razor-components-class-libraries"></a>Librerie di classi dei componenti di ASP.NET Core Razor
 
@@ -48,13 +48,13 @@ Per configurare l'ambiente per <xref:blazor/get-started> blazer, seguire le istr
 
 1. Usare il modello di **libreria di classi Razor** (`razorclasslib`) con il comando [DotNet New](/dotnet/core/tools/dotnet-new) in una shell dei comandi. Nell'esempio seguente viene creato un RCL denominato `MyComponentLib1`. La cartella che include `MyComponentLib1` viene creata automaticamente quando si esegue il comando:
 
-   ```console
+   ```dotnetcli
    dotnet new razorclasslib -o MyComponentLib1
    ```
 
 1. Per aggiungere la libreria a un progetto esistente, usare il comando [DotNet Add Reference](/dotnet/core/tools/dotnet-add-reference) in una shell dei comandi. Nell'esempio seguente viene aggiunto RCL all'app. Eseguire il comando seguente dalla cartella del progetto dell'app con il percorso della libreria:
 
-   ```console
+   ```dotnetcli
    dotnet add reference {PATH TO LIBRARY}
    ```
 
@@ -97,13 +97,13 @@ Includere la `@using MyComponentLib1` direttiva nel file *_Import. Razor* di pri
 
 Poiché le librerie dei componenti sono librerie .NET standard, la creazione di pacchetti e la spedizione a NuGet non è diversa dalla creazione di pacchetti e dalla distribuzione di qualsiasi libreria a NuGet. La creazione di pacchetti viene eseguita usando il comando [DotNet Pack](/dotnet/core/tools/dotnet-pack) in una shell dei comandi:
 
-```console
+```dotnetcli
 dotnet pack
 ```
 
 Caricare il pacchetto in NuGet usando il comando [DotNet NuGet Publish](/dotnet/core/tools/dotnet-nuget-push) in una shell dei comandi:
 
-```console
+```dotnetcli
 dotnet nuget publish
 ```
 

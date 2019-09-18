@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 03/07/2019
 uid: spa/react
-ms.openlocfilehash: 91a71498574d6d96c2c06e896283fed801e8adb3
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 0e61c5b3e31a0b050d356b8f8e16306dc1e2a7f3
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64893698"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71080421"
 ---
 # <a name="use-the-react-project-template-with-aspnet-core"></a>Usare il modello di progetto per React con ASP.NET Core
 
@@ -26,7 +26,7 @@ Se ASP.NET Core 2.1 è installato, non è necessario installare il modello di pr
 
 Creare un nuovo progetto da un prompt dei comandi usando il comando `dotnet new react` in una directory vuota. Ad esempio, i comandi seguenti creano l'app in una directory *my-new-app* e passano a tale directory:
 
-```console
+```dotnetcli
 dotnet new react -o my-new-app
 cd my-new-app
 ```
@@ -80,13 +80,13 @@ Il progetto è configurato in modo da avviare la propria istanza del server di s
 
 Questa configurazione predefinita presenta tuttavia uno svantaggio. Ogni volta che si modifica il codice C# ed è necessario riavviare l'app ASP.NET Core, il server CRA viene riavviato. Per avviare il backup sono necessari alcuni secondi. Se si apportano frequentemente modifiche al codice C# e non si vuole attendere il riavvio del server CRA, eseguire il server CRA esternamente, in modo indipendente dal processo ASP.NET Core. A tale scopo:
 
-1. Aggiungere un *env* del file per il *ClientApp* sottodirectory con l'impostazione seguente:
+1. Aggiungere un file con *estensione ENV* alla sottodirectory *ClientApp* con l'impostazione seguente:
 
     ```
     BROWSER=none
     ```
 
-    Ciò impedirà il web browser di apertura, all'avvio del server CRA esternamente.
+    In questo modo si impedisce l'apertura del Web browser all'avvio esterno del server CRA.
 
 2. In un prompt dei comandi passare alla sottodirectory *ClientApp* e avviare il server di sviluppo CRA:
 
@@ -104,7 +104,7 @@ Questa configurazione predefinita presenta tuttavia uno svantaggio. Ogni volta c
 All'avvio dell'app ASP.NET Core, questa non avvierà un server CRA. Verrà invece usata l'istanza che è stata avviata manualmente. Ciò consente di velocizzare l'avvio e il riavvio. Non è più necessario attendere che l'app React venga ricompilata ogni volta.
 
 > [!IMPORTANT]
-> "Il rendering lato server" non è una funzionalità supportata di questo modello. Il nostro obiettivo con questo modello è per soddisfare la parità con "create-react-app". Di conseguenza, gli scenari e funzionalità non incluse in un progetto di "Creazione-react-app" (ad esempio SSR) non sono supportate e vengono lasciate come esercizio per l'utente.
+> "Il rendering lato server" non è una funzionalità supportata di questo modello. L'obiettivo di questo modello è soddisfare la parità con "create-React-app". Di conseguenza, gli scenari e le funzionalità non inclusi in un progetto "create-React-app" (ad esempio, SSR) non sono supportati e vengono lasciati come esercizio per l'utente.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

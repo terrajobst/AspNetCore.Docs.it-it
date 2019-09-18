@@ -1,23 +1,23 @@
 ---
 title: Configurazione dell'accesso esterno Facebook in ASP.NET Core
 author: rick-anderson
-description: Esercitazione con esempi di codice che illustra l'integrazione di autenticazione dell'utente account Facebook in un'app ASP.NET Core esistente.
+description: Esercitazione con esempi di codice che illustrano l'integrazione dell'autenticazione utente dell'account Facebook in un'app ASP.NET Core esistente.
 ms.author: riande
 ms.custom: seoapril2019, mvc, seodec18
 ms.date: 03/04/2019
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: 84b891f6cee71a26726d49a9d42ae45007d2b429
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: f7b21de7e5fe9d77804588280c3d8be9df8afee5
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64893588"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082542"
 ---
 # <a name="facebook-external-login-setup-in-aspnet-core"></a>Configurazione dell'accesso esterno Facebook in ASP.NET Core
 
 Da [Valeriy Novytskyy](https://github.com/01binary) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Questa esercitazione con esempi di codice illustra come consentire agli utenti di accedere con il proprio account Facebook usando un progetto ASP.NET Core 2.0 di esempio creato nel [pagina precedente](xref:security/authentication/social/index). Iniziamo creando un ID App Facebook seguendo le [passaggi ufficiali](https://developers.facebook.com).
+Questa esercitazione con esempi di codice Mostra come consentire agli utenti di accedere con il proprio account Facebook usando un progetto ASP.NET Core 2,0 di esempio creato nella [pagina precedente](xref:security/authentication/social/index). Iniziamo creando un ID App Facebook seguendo le [passaggi ufficiali](https://developers.facebook.com).
 
 ## <a name="create-the-app-in-facebook"></a>Creare l'app in Facebook
 
@@ -64,7 +64,7 @@ Collegare le impostazioni sensibili, ad esempio Facebook `App ID` e `App Secret`
 
 Eseguire i comandi seguenti per archiviare in modo sicuro `App ID` e `App Secret` con Secret Manager:
 
-```console
+```dotnetcli
 dotnet user-secrets set Authentication:Facebook:AppId <app-id>
 dotnet user-secrets set Authentication:Facebook:AppSecret <app-secret>
 ```
@@ -137,18 +137,18 @@ Dopo avere immesso le credenziali di Facebook si viene reindirizzati al sito in 
 
 A questo punto si è connessi con le credenziali di Facebook:
 
-![Applicazione Web: Autenticata utente](index/_static/Done.png)
+![Applicazione Web: Utente autenticato](index/_static/Done.png)
 
 [!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-* **ASP.NET Core 2.x solo:** Se Identity non è configurato tramite la chiamata `services.AddIdentity` nel `ConfigureServices`, il tentativo di eseguire l'autenticazione comporterà *ArgumentException: È necessario specificare l'opzione 'SignInScheme'*. Il modello di progetto usato in questa esercitazione garantisce che questa operazione viene eseguita.
+* **Solo ASP.NET Core 2. x:** Se l'identità non è configurata chiamando `services.AddIdentity` in `ConfigureServices`, il tentativo di *eseguire l'autenticazione comporterà l'eccezione ArgumentException: È necessario specificare l'opzione ' SignInScheme '* . Il modello di progetto usato in questa esercitazione garantisce che questa operazione viene eseguita.
 * Se il database del sito non è stato creato applicando la migrazione iniziale, si ottiene *un'operazione di database non riuscita durante l'elaborazione della richiesta* errore. Toccare **applicare le migrazioni** per creare il database e di aggiornamento per continuare oltre l'errore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Aggiungere il [Microsoft.AspNetCore.Authentication.Facebook](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Facebook) pacchetto NuGet al progetto per scenari avanzati di autenticazione Facebook. Questo pacchetto non è necessario integrare la funzionalità di accesso esterno di Facebook con l'app. 
+* Aggiungere il pacchetto NuGet [Microsoft. AspNetCore. Authentication. Facebook](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Facebook) al progetto per gli scenari avanzati di autenticazione di Facebook. Questo pacchetto non è necessario per integrare la funzionalità di accesso esterno a Facebook con l'app. 
 
 * Questo articolo ha illustrato come è possibile eseguire l'autenticazione con Facebook. È possibile seguire un approccio simile per l'autenticazione con altri provider di servizi elencati nella [pagina precedente](xref:security/authentication/social/index).
 

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/11/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 21e7ee144bdf0355cac8bd8a7706f100c15342da
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
-ms.translationtype: HT
+ms.openlocfilehash: 03734addcc0e063c2c216b26b59762d27d35d47c
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975500"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081150"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>Registrazione in .NET Core e ASP.NET Core
 
@@ -310,7 +310,7 @@ Il resto di questo articolo spiega alcuni dettagli e le opzioni per la registraz
 
 Le interfacce `ILogger` e `ILoggerFactory` si trovano in [Microsoft.Extensions.Logging.Abstractions](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Abstractions/) e le loro implementazioni predefinite si trovano in [Microsoft.Extensions.Logging](https://www.nuget.org/packages/microsoft.extensions.logging/).
 
-## <a name="log-category"></a>Categoria dei log
+## <a name="log-category"></a>Categoria di log
 
 Quando viene creato un oggetto `ILogger`, viene specificata la relativa *categoria*. La categoria è inclusa in ogni messaggio di log creato da tale istanza di `ILogger`. La categoria può essere qualsiasi stringa, ma per convenzione si usa il nome della classe, ad esempio "TodoApi.Controllers.TodoController".
 
@@ -619,16 +619,16 @@ Il secondo `AddFilter` specifica il provider Debug tramite il nome del tipo. Il 
 
 I dati di configurazione e il codice `AddFilter` illustrato negli esempi precedenti creano le regole indicate nella tabella seguente. I primi sei provengono dall'esempio di configurazione e gli ultimi due dall'esempio di codice.
 
-| Number | Provider      | Categorie che iniziano con...          | Livello di registrazione minimo |
+| NUMBER | Provider      | Categorie che iniziano con...          | Livello di registrazione minimo |
 | :----: | ------------- | --------------------------------------- | ----------------- |
 | 1      | Debug         | Tutte le categorie                          | Informazioni       |
 | 2      | Console       | Microsoft.AspNetCore.Mvc.Razor.Internal | Avviso           |
 | 3      | Console       | Microsoft.AspNetCore.Mvc.Razor.Razor    | Debug             |
-| 4      | Console       | Microsoft.AspNetCore.Mvc.Razor          | Error             |
+| 4      | Console       | Microsoft.AspNetCore.Mvc.Razor          | Errore             |
 | 5      | Console       | Tutte le categorie                          | Informazioni       |
 | 6      | Tutti i provider | Tutte le categorie                          | Debug             |
-| 7      | Tutti i provider | System                                  | Debug             |
-| 8      | Debug         | Microsoft                               | Traccia             |
+| 7      | Tutti i provider | Sistema                                  | Debug             |
+| 8      | Debug         | Microsoft                               | Trace             |
 
 Quando viene creato un oggetto `ILogger`, l'oggetto `ILoggerFactory` seleziona una singola regola per ogni provider da applicare al logger. Tutti i messaggi scritti da un'istanza di `ILogger` vengono filtrati in base alle regole selezionate. Tra le regole disponibili viene selezionata la regola più specifica possibile per ogni coppia di categoria e provider.
 
@@ -784,7 +784,7 @@ logging.AddConsole();
 
 Per visualizzare l'output di registrazione del provider Console, aprire un prompt dei comandi nella cartella del progetto ed eseguire il comando seguente:
 
-```console
+```dotnetcli
 dotnet run
 ```
 

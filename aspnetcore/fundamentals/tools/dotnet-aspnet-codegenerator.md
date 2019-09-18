@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 07/04/2019
 uid: fundamentals/tools/dotnet-aspnet-codegenerator
-ms.openlocfilehash: c2c815735ad1b4dcec761b26ea3992a4effebe62
-ms.sourcegitcommit: 979dbfc5e9ce09b9470789989cddfcfb57079d94
-ms.translationtype: HT
+ms.openlocfilehash: 1043a578f66d5bb57f4a81e9fe21afa5e3c37cb8
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68682695"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081505"
 ---
 # <a name="dotnet-aspnet-codegenerator"></a>dotnet aspnet-codegenerator
 
@@ -25,13 +25,13 @@ Questo articolo si applica a [.NET Core 2.1 SDK](https://dotnet.microsoft.com/do
 
 `dotnet-aspnet-codegenerator` è uno [strumento global](/dotnet/core/tools/global-tools) che deve essere installato. Il comando seguente installa l'ultima versione stabile dello strumento `dotnet-aspnet-codegenerator`:
 
-```console
+```dotnetcli
 dotnet tool install -g dotnet-aspnet-codegenerator
 ```
 
 Il comando seguente aggiorna `dotnet-aspnet-codegenerator` alla versione stabile più recente disponibile dai .NET Core SDK installati:
 
-```console
+```dotnetcli
 dotnet tool update -g dotnet-aspnet-codegenerator
 ```
 
@@ -42,7 +42,7 @@ dotnet aspnet-codegenerator [arguments] [-p|--project] [-n|--nuget-package-dir] 
 dotnet aspnet-codegenerator [-h|--help]
 ```
 
-## <a name="description"></a>DESCRIZIONE
+## <a name="description"></a>Descrizione
 
 Il comando globale `dotnet aspnet-codegenerator` esegue il generatore di codice e il motore di scaffolding di ASP.NET Core.
 
@@ -54,11 +54,11 @@ Il generatore di codice da eseguire. Sono disponibili i generatori seguenti:
 
 | Generator | Operazione |
 | ----------------- | ------------ | 
-| area      | [Esegue lo scaffolding di un'area](/aspnet/core/mvc/controllers/areas) |
+| Area      | [Esegue lo scaffolding di un'area](/aspnet/core/mvc/controllers/areas) |
   controller| [Esegue lo scaffolding di un controller](/aspnet/core/tutorials/first-mvc-app/adding-model) |
   identity  | [Esegue lo scaffolding dell'identità](/aspnet/core/security/authentication/scaffold-identity) |
   razorpage | [Esegue lo scaffolding di Razor Pages](/aspnet/core/tutorials/razor-pages/model) |
-  view      | [Esegue lo scaffolding di una visualizzazione](/aspnet/core/mvc/views/overview) |
+  visualizzazione      | [Esegue lo scaffolding di una visualizzazione](/aspnet/core/mvc/views/overview) |
 
 ## <a name="options"></a>Opzioni
 
@@ -127,7 +127,7 @@ La tabella seguente contiene un elenco di opzioni per `aspnet-codegenerator` `co
 
 La tabella seguente contiene un elenco di opzioni specifiche per `aspnet-codegenerator controller`:
 
-| Opzione               | DESCRIZIONE|
+| Opzione               | Descrizione|
 | ----------------- | ------------ |
 | --controllerName o -name | Nome del controller. |
 | --useAsyncActions o -async | Genera le azioni del controller asincrone. |
@@ -137,7 +137,7 @@ La tabella seguente contiene un elenco di opzioni specifiche per `aspnet-codegen
 
 Usare l'opzione `-h` per ottenere informazioni della Guida per il comando `aspnet-codegenerator controller`:
 
-```console
+```dotnetcli
 dotnet aspnet-codegenerator controller -h
 ```
 
@@ -158,7 +158,7 @@ Vedere [Eseguire lo scaffolding del modello di filmato](/aspnet/core/tutorials/r
 
 Ad esempio, il comando seguente usa il modello Edit per generare *MyEdit.cshtml* e *MyEdit.cshtml.cs*:
 
-```console
+```dotnetcli
 dotnet aspnet-codegenerator razorpage MyEdit Edit -m Movie -dc RazorPagesMovieContext -outDir Pages/Movies
 ```
 
@@ -176,7 +176,7 @@ La tabella seguente contiene un elenco di opzioni per `aspnet-codegenerator` `ra
 
 La tabella seguente contiene un elenco di opzioni specifiche per `aspnet-codegenerator razorpage`:
 
-| Opzione               | DESCRIZIONE|
+| Opzione               | Descrizione|
 | ----------------- | ------------ |
 |   --namespaceName o -namespace | Nome dello spazio dei nomi da usare per il PageModel generato |
 | --partialView o -partial | Genera una visualizzazione parziale. Le opzioni di layout -l e -udl vengono ignorate se viene specificata questa opzione. |
@@ -184,7 +184,7 @@ La tabella seguente contiene un elenco di opzioni specifiche per `aspnet-codegen
 
 Usare l'opzione `-h` per ottenere informazioni della Guida per il comando `aspnet-codegenerator razorpage`:
 
-```console
+```dotnetcli
 dotnet aspnet-codegenerator razorpage -h
 ```
 

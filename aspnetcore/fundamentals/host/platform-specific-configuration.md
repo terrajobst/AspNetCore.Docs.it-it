@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 08/02/2019
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: 3be036d9b4fc6c9898faf14e8a60a8cc7a8683b7
-ms.sourcegitcommit: b5e63714afc26e94be49a92619586df5189ed93a
-ms.translationtype: HT
+ms.openlocfilehash: f20f8c4e9b1089acca6689d14cdf84bef648d461
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68739541"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71081748"
 ---
 # <a name="use-hosting-startup-assemblies-in-aspnet-core"></a>Usare assembly di avvio dell'hosting in ASP.NET Core
 
@@ -203,13 +203,13 @@ L'implementazione dell'avvio dell'hosting viene inserita nell'[archivio di runti
 
 Dopo la compilazione dell'avvio dell'hosting, viene generato un archivio di runtime usando il file di progetto del manifesto e il comando [dotnet store](/dotnet/core/tools/dotnet-store).
 
-```console
+```dotnetcli
 dotnet store --manifest {MANIFEST FILE} --runtime {RUNTIME IDENTIFIER} --output {OUTPUT LOCATION} --skip-optimization
 ```
 
 Nell'app di esempio (progetto *RuntimeStore*) viene usato il comando seguente:
 
-``` console
+```dotnetcli
 dotnet store --manifest store.manifest.csproj --runtime win7-x64 --output ./deployment/store --skip-optimization
 ```
 
@@ -361,7 +361,7 @@ Per eseguire l'esempio:
 
 Se si apportano modifiche al progetto *HostingStartupPackage* e lo si ricompila, cancellare le cache del pacchetto NuGet locale per assicurarsi che *HostingStartupApp* riceva il pacchetto aggiornato e non un pacchetto non aggiornato proveniente dalla cache locale. Per cancellare le cache NuGet locali, eseguire il comando [dotnet nuget locals](/dotnet/core/tools/dotnet-nuget-locals) seguente:
 
-```console
+```dotnetcli
 dotnet nuget locals all --clear
 ```
 

@@ -5,12 +5,12 @@ description: Usare l'identità con un'app ASP.NET Core. Informazioni su come imp
 ms.author: riande
 ms.date: 03/26/2019
 uid: security/authentication/identity
-ms.openlocfilehash: 325a61e6038e79b9a0db72c8360a5cbff2c8ddae
-ms.sourcegitcommit: dc5b293e08336dc236de66ed1834f7ef78359531
+ms.openlocfilehash: 979681cfc196aca9fb5097583d99a086e1c597ba
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71011202"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082457"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Introduzione all'identità in ASP.NET Core
 
@@ -53,7 +53,7 @@ Creare un progetto di applicazione Web di ASP.NET Core con singoli account utent
 
 # <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 
-```cli
+```dotnetcli
 dotnet new webapp --auth Individual -o WebApp1
 ```
 
@@ -77,7 +77,7 @@ Eseguire il comando seguente nella console di gestione pacchetti (PMC):
 
 # <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 
-```cli
+```dotnetcli
 dotnet ef database update
 ```
 
@@ -145,7 +145,7 @@ Aggiungere i file di registro, di accesso e di disconnessione.
 
 Se il progetto è stato creato con il nome **app Web 1**, eseguire i comandi seguenti. In caso contrario, utilizzare lo spazio dei `ApplicationDbContext`nomi corretto per:
 
-```cli
+```dotnetcli
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet aspnet-codegenerator identity -dc WebApp1.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout"
 ```

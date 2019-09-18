@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 05/29/2019
 uid: web-api/advanced/formatting
-ms.openlocfilehash: e3417c9bfd3824133b86de2fe74f5f71367e1560
-ms.sourcegitcommit: 41f2c1a6b316e6e368a4fd27a8b18d157cef91e1
-ms.translationtype: HT
+ms.openlocfilehash: 8bee4efdae5341ddab5bd3aec278ecfef37f0c08
+ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69886526"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71082352"
 ---
 <!-- DO NOT EDIT BEFORE https://github.com/aspnet/AspNetCore.Docs/pull/12077 MERGES -->
 # <a name="format-response-data-in-aspnet-core-web-api"></a>Formattare i dati di risposta nell'API Web ASP.NET Core
@@ -106,13 +106,29 @@ Se oltre al formato JSON predefinito l'applicazione deve supportare formati aggi
 
 ### <a name="configure-systemtextjson-based-formatters"></a>Configurare i formattatori basati su System.Text.Json
 
-Le funzionalità per i formattatori basati su `System.Text.Json` possono essere configurate tramite `Microsoft.AspNetCore.Mvc.MvcOptions.SerializerOptions`.
+Le funzionalità per i formattatori basati su `System.Text.Json` possono essere configurate tramite `Microsoft.AspNetCore.Mvc.JsonOptions.SerializerOptions`.
 
 ```csharp
-services.AddMvc(options =>
+services.AddControllers().AddJsonOptions(options =>
 {
-    options.SerializerOptions.WriterSettings.Indented = true;
+    // Use the default property (Pascal) casing.
+    options.SerializerOptions.PropertyNamingPolicy = null;
+
+    // Configure a custom converter.
+    options.SerializerOptions.Converters.Add(new MyCustomJsonConverter());
 });
+```
+
+È possibile configurare le opzioni di serializzazione dell'output, in base alle singole `JsonResult`azioni, usando. Ad esempio:
+
+```csharp
+public IActionResult Get()
+{
+    return Json(model, new JsonSerializerOptions
+    {
+        options.WriteIndented = true,
+    });
+}
 ```
 
 ### <a name="add-newtonsoftjson-based-json-format-support"></a>Aggiungere il supporto del formato JSON basato su Newtonsoft.Json
@@ -120,7 +136,7 @@ services.AddMvc(options =>
 Prima di ASP.NET Core 3.0, per impostazione predefinita MVC usava formattatori JSON implementati tramite il pacchetto `Newtonsoft.Json`. In ASP.NET Core 3.0 o versione successiva, i formattatori JSON predefiniti sono basati su `System.Text.Json`. Il supporto per i formattatori e le funzionalità basati su `Newtonsoft.Json` è disponibile tramite l'installazione del pacchetto NuGet [Microsoft.AspNetCore.Mvc.NewtonsoftJson](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.NewtonsoftJson/) e la relativa configurazione in `Startup.ConfigureServices`.
 
 ```csharp
-services.AddMvc()
+services.AddControllers()
     .AddNewtonsoftJson();
 ```
 
@@ -129,6 +145,31 @@ Alcune funzionalità potrebbero non funzionare bene con i formattatori basati su
 * Usa attributi `Newtonsoft.Json` (ad esempio, `[JsonProperty]` oppure `[JsonIgnore]`), personalizza le impostazioni di serializzazione o si basa su funzionalità fornite da `Newtonsoft.Json`.
 * Configura `Microsoft.AspNetCore.Mvc.JsonResult.SerializerSettings`. Prima di ASP.NET Core 3.0 `JsonResult.SerializerSettings` accetta un'istanza di `JsonSerializerSettings` specifica di `Newtonsoft.Json`.
 * Genera documentazione [OpenAPI](<xref:tutorials/web-api-help-pages-using-swagger>).
+
+Le funzionalità per `Newtonsoft.Json`i formattatori basati su possono essere configurate utilizzando: `Microsoft.AspNetCore.Mvc.MvcNewtonsoftJsonOptions.SerializerSettings`
+
+```csharp
+services.AddControllers().AddNewtonsoftJson(options =>
+{
+    // Use the default property (Pascal) casing
+    options.SerializerSettings.ContractResolver = new DefautlContractResolver();
+
+    // Configure a custom converter
+    options.SerializerOptions.Converters.Add(new MyCustomJsonConverter());
+});
+```
+
+È possibile configurare le opzioni di serializzazione dell'output, in base alle singole `JsonResult`azioni, usando. Ad esempio:
+
+```csharp
+public IActionResult Get()
+{
+    return Json(model, new JsonSerializerSettings
+    {
+        options.Formatting = Formatting.Indented,
+    });
+}
+```
 
 ::: moniker-end
 
