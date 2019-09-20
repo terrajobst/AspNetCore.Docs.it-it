@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 09/12/2019
 uid: web-api/index
-ms.openlocfilehash: 6e1868690a2c384307a23c89467505d3ed8916db
-ms.sourcegitcommit: 805f625d16d74e77f02f5f37326e5aceafcb78e3
+ms.openlocfilehash: aab9b848eb6e69055b019c9253c716898e9847e2
+ms.sourcegitcommit: a11f09c10ef3d4eeab7ae9ce993e7f30427741c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70985467"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71149347"
 ---
 # <a name="create-web-apis-with-aspnet-core"></a>Creare API Web con ASP.NET Core
 
@@ -159,7 +159,7 @@ Le azioni non sono accessibili tramite le [route convenzionali](xref:mvc/control
 
 ::: moniker-end
 
-## <a name="automatic-http-400-responses"></a>Risposte HTTP 400 automatiche
+### <a name="automatic-http-400-responses"></a>Risposte HTTP 400 automatiche
 
 Con l'attributo `[ApiController]` gli errori di convalida del modello attivano automaticamente una risposta HTTP 400. Di conseguenza è necessario il codice seguente in un metodo di azione:
 
@@ -172,7 +172,7 @@ if (!ModelState.IsValid)
 
 ASP.NET Core MVC usa il <xref:Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter> filtro azioni per eseguire il controllo precedente.
 
-### <a name="default-badrequest-response"></a>Risposta BadRequest predefinita 
+### <a name="default-badrequest-response"></a>Risposta BadRequest predefinita
 
 Con una versione di compatibilità 2,1, il tipo di risposta predefinito per una risposta HTTP 400 <xref:Microsoft.AspNetCore.Mvc.SerializableError>è. Il corpo della richiesta seguente è un esempio del tipo serializzato:
 
@@ -206,36 +206,6 @@ Con una versione di compatibilità 2,2 o successiva, il tipo di risposta predefi
 
 * Fornisce un formato leggibile dal computer per specificare gli errori nelle risposte all'API Web.
 * È conforme alla [specifica RFC 7807](https://tools.ietf.org/html/rfc7807).
-
-Per modificare il tipo di `SerializableError`risposta predefinito in, applicare le modifiche evidenziate in: `Startup.ConfigureServices`
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-3.0"
-
-[!code-csharp[](index/samples/3.x/Startup.cs?name=snippet_DisableProblemDetailsInvalidModelStateResponseFactory&highlight=4-13)]
-
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.2"
-
-[!code-csharp[](index/samples/2.x/Startup.cs?name=snippet_DisableProblemDetailsInvalidModelStateResponseFactory&highlight=5-14)]
-
-::: moniker-end
-
-### <a name="customize-badrequest-response"></a>Personalizzare la risposta BadRequest
-
-Per personalizzare la risposta risultante da un errore di convalida, usare <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.InvalidModelStateResponseFactory>. Ad esempio:
-
-::: moniker range=">= aspnetcore-3.0"
-
-[!code-csharp[](index/samples/3.x/Startup.cs?name=snippet_ConfigureBadRequestResponse&highlight=4-20)]
-
-::: moniker-end
-
-::: moniker range="<= aspnetcore-2.2"
-
-[!code-csharp[](index/samples/2.x/Startup.cs?name=snippet_ConfigureBadRequestResponse&highlight=5-21)]
 
 ::: moniker-end
 
@@ -283,7 +253,7 @@ Nell'esempio seguente, l'attributo `[FromQuery]` indica che il valore del parame
 
 L'attributo `[ApiController]` applica le regole di inferenza per le origini dati predefinite dei parametri di azione. Queste regole consentono di evitare di dover identificare le origini di associazione manualmente applicando attributi ai parametri di azione. Il comportamento delle regole di inferenza per le origini di associazione è il seguente:
 
-* `[FromBody]` viene dedotto per i parametri di tipo complesso. Un'eccezione alla regola di inferenza `[FromBody]` è costituita dai tipi predefiniti complessi con un significato speciale, ad esempio <xref:Microsoft.AspNetCore.Http.IFormCollection> e <xref:System.Threading.CancellationToken>. Il codice di inferenza di origine di associazione ignora tali tipi speciali. 
+* `[FromBody]` viene dedotto per i parametri di tipo complesso. Un'eccezione alla regola di inferenza `[FromBody]` è costituita dai tipi predefiniti complessi con un significato speciale, ad esempio <xref:Microsoft.AspNetCore.Http.IFormCollection> e <xref:System.Threading.CancellationToken>. Il codice di inferenza di origine di associazione ignora tali tipi speciali.
 * `[FromForm]` viene dedotto per i parametri di azione di tipo <xref:Microsoft.AspNetCore.Http.IFormFile> e <xref:Microsoft.AspNetCore.Http.IFormFileCollection>. Non viene dedotto per i tipi semplici o definiti dall'utente.
 * `[FromRoute]` viene dedotto per i nomi di parametro di azione corrispondenti a un parametro nel modello di route. Quando più di una route corrisponde a un parametro di azione, tutti i valori di route vengono considerati `[FromRoute]`.
 * `[FromQuery]` viene dedotto per tutti gli altri parametri di azione.
@@ -375,22 +345,6 @@ Il `NotFound` metodo produce un codice di stato HTTP 404 con `ProblemDetails` un
 }
 ```
 
-### <a name="customize-problemdetails-response"></a>Personalizzare la risposta ProblemDetails
-
-Usare la proprietà <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.ClientErrorMapping*> per configurare il contenuto della risposta `ProblemDetails`. Ad esempio, il codice seguente aggiorna la proprietà `type` per le risposte 404:
-
-::: moniker range=">= aspnetcore-3.0"
-
-[!code-csharp[](index/samples/3.x/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=8-9)]
-
-::: moniker-end
-
-::: moniker range="<= aspnetcore-2.2"
-
-[!code-csharp[](index/samples/2.x/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=9-10)]
-
-::: moniker-end
-
 ### <a name="disable-problemdetails-response"></a>Disabilitare la risposta ProblemDetails
 
 La creazione automatica di un' `ProblemDetails` istanza è disabilitata quando <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressMapClientErrors*> la proprietà è impostata `true`su. Aggiungere il codice seguente a `Startup.ConfigureServices`:
@@ -407,9 +361,10 @@ La creazione automatica di un' `ProblemDetails` istanza è disabilitata quando <
 
 ::: moniker-end
 
-## <a name="additional-resources"></a>Risorse aggiuntive 
+## <a name="additional-resources"></a>Risorse aggiuntive
 
 * <xref:web-api/action-return-types>
+* <xref:web-api/handle-errors>
 * <xref:web-api/advanced/custom-formatters>
 * <xref:web-api/advanced/formatting>
 * <xref:tutorials/web-api-help-pages-using-swagger>
