@@ -7,22 +7,24 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/07/2019
 uid: blazor/hosting-models
-ms.openlocfilehash: 6e225e490e54e44877fa27573ff9b513c8dcd9a3
-ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
+ms.openlocfilehash: 47c546a086588919e4458d6aeeb39453cbc754e0
+ms.sourcegitcommit: e5a74f882c14eaa0e5639ff082355e130559ba83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70964070"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71168145"
 ---
 # <a name="aspnet-core-blazor-hosting-models"></a>Modelli di hosting di ASP.NET Core Blazer
 
 Di [Daniel Roth](https://github.com/danroth27)
 
+[!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
+
 Blazer è un framework web progettato per l'esecuzione sul lato client nel browser in un Runtime .NET basato su [webassembly](https://webassembly.org/)(*Blazer webassembly*) o sul lato server in ASP.NET Core (*Server Blazer*). Indipendentemente dal modello di hosting, i modelli di app e componenti *sono gli stessi*.
 
 Per creare un progetto per i modelli di hosting descritti in questo articolo, <xref:blazor/get-started>vedere.
 
-## <a name="blazor-webassembly"></a>Webassembly Blazer
+## <a name="blazor-webassembly"></a>WebAssembly Blazor
 
 Il modello di hosting principale per blazer è in esecuzione sul lato client nel browser del webassembly. L'app Blazor, le relative dipendenze e il runtime .NET vengono scaricati nel browser. L'app viene eseguita direttamente nel thread dell'interfaccia utente del browser. Gli aggiornamenti dell'interfaccia utente e la gestione degli eventi si verificano nello stesso processo. Le risorse dell'app vengono distribuite come file statici in un server Web o in un servizio in grado di servire contenuto statico ai client.
 
@@ -51,7 +53,7 @@ Ci sono svantaggi per l'hosting di Blazer webassembly:
 * Le dimensioni del download sono maggiori e le app importano più tempo per il caricamento.
 * Il supporto di runtime e strumenti .NET è meno maturo. Ad esempio, esistono limitazioni in [.NET standard](/dotnet/standard/net-standard) supporto e debug.
 
-## <a name="blazor-server"></a>Server Blazer
+## <a name="blazor-server"></a>Server Blazor
 
 Con il modello di hosting del server blazer, l'app viene eseguita sul server dall'interno di un'app ASP.NET Core. Gli aggiornamenti dell'interfaccia utente, la gestione degli eventi e le chiamate JavaScript vengono gestite tramite una connessione [SignalR](xref:signalr/introduction).
 

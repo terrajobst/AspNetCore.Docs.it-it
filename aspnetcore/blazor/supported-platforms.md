@@ -7,20 +7,22 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/01/2019
 uid: blazor/supported-platforms
-ms.openlocfilehash: 042fbb1b2c7f92b7dc6443319f3f195a12a55adc
-ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
+ms.openlocfilehash: 8730417f772c84ebcccc449a5826126aa5c64abb
+ms.sourcegitcommit: e5a74f882c14eaa0e5639ff082355e130559ba83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70963887"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71168162"
 ---
 # <a name="aspnet-core-blazor-supported-platforms"></a>Piattaforme supportate da ASP.NET Core Blazer
 
 Di [Luke Latham](https://github.com/guardrex)
 
+[!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
+
 ## <a name="browser-requirements"></a>Requisiti del browser
 
-### <a name="blazor-webassembly"></a>Webassembly Blazer
+### <a name="blazor-webassembly"></a>WebAssembly Blazor
 
 | Browser                          | Versione               |
 | -------------------------------- | :-------------------: |
@@ -32,7 +34,7 @@ Di [Luke Latham](https://github.com/guardrex)
 
 &dagger;Microsoft Internet Explorer non supporta [webassembly](https://webassembly.org).
 
-### <a name="blazor-server"></a>Server Blazer
+### <a name="blazor-server"></a>Server Blazor
 
 | Browser                          | Versione    |
 | -------------------------------- | :--------: |

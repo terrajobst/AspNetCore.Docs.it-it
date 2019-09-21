@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc, seoapril2019
 ms.date: 09/05/2019
 uid: blazor/index
-ms.openlocfilehash: 767ec8f106bebb92cf13a10eb63fab4905715d3d
-ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
+ms.openlocfilehash: 378892efafa6b979d7f92a5e559b2dc8bb12295d
+ms.sourcegitcommit: e5a74f882c14eaa0e5639ff082355e130559ba83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70964123"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71168263"
 ---
 # <a name="introduction-to-blazor"></a>Introduzione a Blazor
 
@@ -101,7 +101,9 @@ Quando questo componente viene usato nell'app, IntelliSense in [Visual Studio](/
 
 Il rendering dei componenti viene eseguito in una rappresentazione in memoria del modello DOM (Document Object Model) del browser denominata *albero di rendering*, usato per aggiornare l'interfaccia utente in modo flessibile ed efficiente.
 
-## <a name="blazor-webassembly"></a>Webassembly Blazer
+## <a name="blazor-webassembly"></a>WebAssembly Blazor
+
+[!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
 Blazer webassembly è un Framework di app a singola pagina per la creazione di app Web interattive sul lato client con .NET. Blazer webassembly USA standard Web aperti senza plug-in o transpilazione di codice e funziona in tutti i Web browser moderni, inclusi i browser per dispositivi mobili.
 
@@ -123,7 +125,7 @@ La dimensione dell'app pubblicata, ovvero la *dimensione del payload*, è un fat
 * Le risposte HTTP vengono compresse.
 * Il runtime e gli assembly .NET vengono memorizzati nella cache nel browser.
 
-## <a name="blazor-server"></a>Server Blazer
+## <a name="blazor-server"></a>Server Blazor
 
 Blazor separa la logica di rendering dei componenti dal modo in cui vengono applicati gli aggiornamenti dell'interfaccia utente. Il server Blazer fornisce il supporto per l'hosting di componenti Razor sul server in un'app ASP.NET Core. Gli aggiornamenti dell'interfaccia utente vengono gestiti tramite una connessione [SignalR](xref:signalr/introduction).
 

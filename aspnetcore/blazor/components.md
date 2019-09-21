@@ -5,14 +5,14 @@ description: Informazioni su come creare e usare i componenti Razor, tra cui la 
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/06/2019
+ms.date: 09/19/2019
 uid: blazor/components
-ms.openlocfilehash: 521421ac413218c1f04dd9feade2a49dc1f7b918
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 55b40bc640715bf4052fa99ed68f63250b67e8d1
+ms.sourcegitcommit: e5a74f882c14eaa0e5639ff082355e130559ba83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71080537"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71168216"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Creare e usare ASP.NET Core componenti Razor
 
@@ -454,14 +454,14 @@ Per alcuni eventi, i tipi di argomento dell'evento sono consentiti. Se l'accesso
 | ----- | ----- |
 | Appunti        | `ClipboardEventArgs` |
 | Trascinare             | `DragEventArgs`e contengono dati di`DataTransferItem` elementi trascinati. &ndash; `DataTransfer` |
-| Errore            | `ErrorEventArgs` |
+| Error            | `ErrorEventArgs` |
 | Stato attivo            | `FocusEventArgs`Non include il supporto `relatedTarget`per. &ndash; |
 | Modifica di`<input>` | `ChangeEventArgs` |
 | Tastiera         | `KeyboardEventArgs` |
 | Mouse            | `MouseEventArgs` |
 | Puntatore del mouse    | `PointerEventArgs` |
 | Rotellina del mouse      | `WheelEventArgs` |
-| Avanzamento         | `ProgressEventArgs` |
+| Stato         | `ProgressEventArgs` |
 | Tocco            | `TouchEventArgs`&ndash; rappresentaunsingolopuntodicontattosuun`TouchPoint` dispositivo sensibile al tocco. |
 
 Per informazioni sulle proprietà e sul comportamento di gestione degli eventi della tabella precedente, vedere [classi EventArgs nell'origine riferimento (ASPNET/AspNetCore Release/3.0-preview9 Branch)](https://github.com/aspnet/AspNetCore/tree/release/3.0-preview9/src/Components/Web/src/Web).
@@ -1128,7 +1128,7 @@ In alternativa, è possibile specificare l' `Context` attributo sull'elemento Co
 
 ### <a name="generic-typed-components"></a>Componenti tipizzati in modo generico
 
-I componenti basati su modelli spesso sono tipizzati in modo generico. È ad esempio possibile utilizzare `ListViewTemplate` un componente generico per eseguire il `IEnumerable<T>` rendering dei valori. Per definire un componente generico, usare la `@typeparam` direttiva per specificare i parametri di tipo:
+I componenti basati su modelli spesso sono tipizzati in modo generico. È ad esempio possibile utilizzare `ListViewTemplate` un componente generico per eseguire il `IEnumerable<T>` rendering dei valori. Per definire un componente generico, usare la [@typeparam](xref:mvc/views/razor#typeparam) direttiva per specificare i parametri di tipo:
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Components/ListViewTemplate.razor)]
 
@@ -1417,16 +1417,16 @@ builder.AddContent(1, "Second");
 
 Quando il codice viene eseguito per la prima volta, se `someFlag` è `true`, il generatore riceve:
 
-| Sequenza | Type      | Data   |
+| Sequence | Tipo      | Dati   |
 | :------: | --------- | :----: |
-| 0        | Nodo testo | Primo  |
-| 1        | Nodo testo | Secondo |
+| 0        | Nodo testo | First  |
+| 1        | Nodo testo | Second |
 
 Si supponga `someFlag` che `false`diventi e che venga eseguito nuovamente il rendering del markup. Questa volta, il generatore riceve:
 
-| Sequenza | Type       | Data   |
+| Sequence | Tipo       | Dati   |
 | :------: | ---------- | :----: |
-| 1        | Nodo testo  | Secondo |
+| 1        | Nodo testo  | Second |
 
 Quando il runtime esegue una diff, rileva che l'elemento in sequenza `0` è stato rimosso, quindi genera lo script di *modifica*semplice seguente:
 
@@ -1449,16 +1449,16 @@ builder.AddContent(seq++, "Second");
 
 A questo punto, il primo output è:
 
-| Sequenza | Type      | Data   |
+| Sequence | Tipo      | Dati   |
 | :------: | --------- | :----: |
-| 0        | Nodo testo | Primo  |
-| 1        | Nodo testo | Secondo |
+| 0        | Nodo testo | First  |
+| 1        | Nodo testo | Second |
 
 Questo risultato è identico al caso precedente, pertanto non esistono problemi negativi. `someFlag`si `false` trova nel secondo rendering e l'output è:
 
-| Sequenza | Type      | Data   |
+| Sequence | Tipo      | Dati   |
 | :------: | --------- | ------ |
-| 0        | Nodo testo | Secondo |
+| 0        | Nodo testo | Second |
 
 Questa volta, l'algoritmo Diff rileva che si sono verificate *due* modifiche e l'algoritmo genera lo script di modifica seguente:
 
