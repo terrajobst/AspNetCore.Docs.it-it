@@ -7,21 +7,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/15/2019
 uid: blazor/forms-validation
-ms.openlocfilehash: 2fd76db90a53e328cd2ac8f452fba58365db0384
-ms.sourcegitcommit: dc5b293e08336dc236de66ed1834f7ef78359531
+ms.openlocfilehash: c68ebf7f7bf07b6c243ab16307716cea13870446
+ms.sourcegitcommit: 04ce94b3c1b01d167f30eed60c1c95446dfe759d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71011068"
+ms.lasthandoff: 09/21/2019
+ms.locfileid: "71176352"
 ---
 # <a name="aspnet-core-blazor-forms-and-validation"></a>Moduli e convalida di ASP.NET Core Blazer
 
 Di [Daniel Roth](https://github.com/danroth27) e [Luke Latham](https://github.com/guardrex)
 
 I moduli e la convalida sono supportati in blazer usando le [annotazioni dei dati](xref:mvc/models/validation).
-
-> [!NOTE]
-> È probabile che i moduli e gli scenari di convalida cambino a ogni versione di anteprima.
 
 Il tipo `ExampleModel` seguente definisce la logica di convalida usando le annotazioni dei dati:
 

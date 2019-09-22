@@ -5,14 +5,14 @@ description: Informazioni su come instradare le richieste nelle app e sul compon
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/06/2019
+ms.date: 09/21/2019
 uid: blazor/routing
-ms.openlocfilehash: 6d9d1614b6e0cc9f4711de0db4513ada4841809f
-ms.sourcegitcommit: e5a74f882c14eaa0e5639ff082355e130559ba83
+ms.openlocfilehash: d6fb3f03be94ff99ac3ed434265e6cd6b752c625
+ms.sourcegitcommit: 04ce94b3c1b01d167f30eed60c1c95446dfe759d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168184"
+ms.lasthandoff: 09/21/2019
+ms.locfileid: "71176397"
 ---
 # <a name="aspnet-core-blazor-routing"></a>Routing di ASP.NET Core Blazer
 
@@ -27,6 +27,8 @@ Informazioni su come instradare le richieste e su `NavLink` come usare il compon
 Il server blazer è integrato nel [Routing ASP.NET Core endpoint](xref:fundamentals/routing). Un'app ASP.NET Core è configurata in modo da accettare le connessioni in `MapBlazorHub` ingresso `Startup.Configure`per i componenti interattivi con in:
 
 [!code-csharp[](routing/samples_snapshot/3.x/Startup.cs?highlight=5)]
+
+La configurazione più tipica consiste nel routing di tutte le richieste a una pagina Razor, che funge da host per la parte lato server dell'app del server Blaze. Per convenzione, la pagina *host* è in genere denominata *_Host. cshtml*. La route specificata nel file host viene chiamata route di *fallback* perché funziona con una priorità bassa nella corrispondenza della route. La route di fallback viene considerata quando altre route non corrispondono. Ciò consente all'app di usare altri controller e pagine senza interferire con l'app del server Blaze.
 
 ## <a name="route-templates"></a>Modelli di route
 

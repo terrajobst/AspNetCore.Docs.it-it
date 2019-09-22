@@ -5,14 +5,14 @@ description: Informazioni su come salvare in modo permanente lo stato nelle app 
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/05/2019
+ms.date: 09/21/2019
 uid: blazor/state-management
-ms.openlocfilehash: 2acb91785e8c5fc34070d5428b89119667945753
-ms.sourcegitcommit: e5a74f882c14eaa0e5639ff082355e130559ba83
+ms.openlocfilehash: 79676f606d31c435b54bdd8adb1c85c9e5c49bef
+ms.sourcegitcommit: 04ce94b3c1b01d167f30eed60c1c95446dfe759d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168212"
+ms.lasthandoff: 09/21/2019
+ms.locfileid: "71176417"
 ---
 # <a name="aspnet-core-blazor-state-management"></a>Gestione dello stato di ASP.NET Core Blazer
 
@@ -246,38 +246,20 @@ Il prerendering può essere utile per altre pagine che non `localStorage` utiliz
 ```cshtml
 @using Microsoft.AspNetCore.ProtectedBrowserStorage
 @inject ProtectedLocalStorage ProtectedLocalStore
-@inject IComponentContext ComponentContext
 
 ... rendering code goes here ...
 
 @code {
     private int? currentCount;
-    private bool isWaitingForConnection;
-
-    protected override async Task OnInitializedAsync()
-    {
-        if (ComponentContext.IsConnected)
-        {
-            // It looks like the app isn't prerendering, so the data can be
-            // immediately loaded from browser storage.
-            await LoadStateAsync();
-        }
-        else
-        {
-            // Prerendering is in progress, so the app defers the load operation
-            // until later.
-            isWaitingForConnection = true;
-        }
-    }
+    private bool isConnected = false;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        // By this stage, the client has connected back to the server, and
-        // browser services are available. If the app didn't load the data earlier,
-        // the app should do so now and then trigger a new render.
-        if (firstRender && isWaitingForConnection)
+        if (firstRender)
         {
-            isWaitingForConnection = false;
+            // When execution reaches this point, the first *interactive* render
+            // is complete. The component has an active connection to the browser.
+            isConnected = true;
             await LoadStateAsync();
             StateHasChanged();
         }

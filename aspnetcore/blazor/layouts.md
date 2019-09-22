@@ -5,14 +5,14 @@ description: Informazioni su come creare componenti di layout riutilizzabili per
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/06/2019
+ms.date: 09/21/2019
 uid: blazor/layouts
-ms.openlocfilehash: 05a38c10e18407d50422192ab1ddf3ff4b0f3a5b
-ms.sourcegitcommit: 43c6335b5859282f64d66a7696c5935a2bcdf966
+ms.openlocfilehash: 6ae795f720cd2cc1010ebec46bcee877b31d20c6
+ms.sourcegitcommit: 04ce94b3c1b01d167f30eed60c1c95446dfe759d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2019
-ms.locfileid: "70800370"
+ms.lasthandoff: 09/21/2019
+ms.locfileid: "71176430"
 ---
 # <a name="aspnet-core-blazor-layouts"></a>Layout di ASP.NET Core Blazer
 
@@ -45,6 +45,8 @@ Per fornire un layout predefinito per `NotFound` il contenuto, specificare `Layo
 
 Per ulteriori informazioni sul `Router` componente, vedere. <xref:blazor/routing>
 
+La specifica del layout come layout predefinito nel router è una procedura utile perché può essere sottoposta a override in base al singolo componente o alla cartella. Preferisci usare il router per impostare il layout predefinito dell'app perché è la tecnica più generale.
+
 ## <a name="specify-a-layout-in-a-component"></a>Specificare un layout in un componente
 
 Usare la direttiva `@layout` Razor per applicare un layout a un componente. Il compilatore esegue `@layout` la conversione `LayoutAttribute`in un oggetto, che viene applicato alla classe Component.
@@ -52,6 +54,8 @@ Usare la direttiva `@layout` Razor per applicare un layout a un componente. Il c
 Il contenuto del componente seguente `MasterList` viene inserito `MasterLayout` nella posizione di `@Body`:
 
 [!code-cshtml[](layouts/sample_snapshot/3.x/MasterList.razor?highlight=1)]
+
+La specifica del layout direttamente in un componente sostituisce un set di *layout predefinito* nel router o `@layout` una direttiva importata da *_Imports. Razor*.
 
 ## <a name="centralized-layout-selection"></a>Selezione layout centralizzata
 
@@ -66,6 +70,8 @@ Il file *_Imports. Razor* seguente importa:
 [!code-cshtml[](layouts/sample_snapshot/3.x/_Imports.razor)]
 
 Il file *_Imports. Razor* è simile al [file _ViewImports. cshtml per le visualizzazioni Razor e le pagine,](xref:mvc/views/layout#importing-shared-directives) ma viene applicato in modo specifico ai file del componente Razor.
+
+Se si specifica un layout in *_Imports. Razor* , viene eseguito l'override di un layout specificato come *layout predefinito*del router.
 
 ## <a name="nested-layouts"></a>Layout annidati
 

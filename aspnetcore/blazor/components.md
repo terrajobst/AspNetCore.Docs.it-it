@@ -5,14 +5,14 @@ description: Informazioni su come creare e usare i componenti Razor, tra cui la 
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/19/2019
+ms.date: 09/21/2019
 uid: blazor/components
-ms.openlocfilehash: 55b40bc640715bf4052fa99ed68f63250b67e8d1
-ms.sourcegitcommit: e5a74f882c14eaa0e5639ff082355e130559ba83
+ms.openlocfilehash: cf12be950043095b7e3e5eab897dd626021cb982
+ms.sourcegitcommit: 04ce94b3c1b01d167f30eed60c1c95446dfe759d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168216"
+ms.lasthandoff: 09/21/2019
+ms.locfileid: "71176384"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Creare e usare ASP.NET Core componenti Razor
 
@@ -27,14 +27,6 @@ Le app Blazer vengono compilate usando i *componenti*. Un componente è un blocc
 I componenti sono implementati in file di componente [Razor](xref:mvc/views/razor) (*Razor*) usando una C# combinazione di e markup HTML. Un componente in blazer viene definito formalmente come *componente Razor*.
 
 Il nome di un componente deve iniziare con un carattere maiuscolo. Ad esempio, *MyCoolComponent. Razor* è valido e *MyCoolComponent. Razor* non è valido.
-
-I componenti possono essere creati usando l'estensione di file *cshtml* , purché i file vengano identificati come file del componente Razor usando `_RazorComponentInclude` la proprietà MSBuild. Ad esempio, un'app che specifica che tutti i file con *estensione cshtml* nella cartella *pages* devono essere considerati come file di componenti Razor:
-
-```xml
-<PropertyGroup>
-  <_RazorComponentInclude>Pages\**\*.cshtml</_RazorComponentInclude>
-</PropertyGroup>
-```
 
 L'interfaccia utente per un componente viene definita utilizzando HTML. La logica di rendering dinamico (ad esempio, cicli, condizioni, espressioni) viene aggiunta usando una sintassi C# incorporata chiamata [Razor](xref:mvc/views/razor). Quando viene compilata un'app, il markup C# HTML e la logica di rendering vengono convertiti in una classe Component. Il nome della classe generata corrisponde al nome del file.
 
@@ -1046,6 +1038,9 @@ Se `IsCompleted` è`false`, viene eseguito il rendering della casella di control
 
 Per altre informazioni, vedere <xref:mvc/views/razor>.
 
+> [!WARNING]
+> Alcuni attributi HTML, ad esempio [aria-Pressed](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/button_role#Toggle_buttons), non funzionano correttamente quando il tipo .NET è `bool`. In questi casi, usare un `string` tipo anziché un. `bool`
+
 ## <a name="raw-html"></a>HTML non elaborato
 
 Le stringhe vengono in genere sottoposte a rendering usando i nodi di testo DOM, il che significa che qualsiasi markup che può contenere viene ignorato e considerato come testo letterale. Per eseguire il rendering del codice HTML non elaborato, eseguire `MarkupString` il wrapping del contenuto HTML in un valore. Il valore viene analizzato in formato HTML o SVG e inserito nel DOM.
@@ -1333,7 +1328,7 @@ Output del codice precedente sottoposto a rendering:
 
 ## <a name="manual-rendertreebuilder-logic"></a>Logica RenderTreeBuilder manuale
 
-`Microsoft.AspNetCore.Components.RenderTree`fornisce metodi per la modifica di componenti ed elementi, inclusa la compilazione manuale C# dei componenti nel codice.
+`Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder`fornisce metodi per la modifica di componenti ed elementi, inclusa la compilazione manuale C# dei componenti nel codice.
 
 > [!NOTE]
 > L'utilizzo `RenderTreeBuilder` di per la creazione di componenti è uno scenario avanzato. Un componente con formato non valido, ad esempio un tag di markup non chiuso, può causare un comportamento indefinito.
@@ -1386,6 +1381,8 @@ Nell'esempio seguente il ciclo nel `CreateComponent` metodo genera tre `PetDetai
     }
 }
 ```
+
+> ! AVVISO I tipi in `Microsoft.AspNetCore.Components.RenderTree` consentono l'elaborazione dei *risultati* delle operazioni di rendering. Questi sono i dettagli interni dell'implementazione del Framework blazer. Questi tipi devono essere considerati *instabili* e soggetti a modifiche nelle versioni future.
 
 ### <a name="sequence-numbers-relate-to-code-line-numbers-and-not-execution-order"></a>I numeri di sequenza sono correlati ai numeri di riga del codice e non all'ordine di esecuzione
 
