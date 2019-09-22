@@ -1,6 +1,6 @@
-<span data-ttu-id="427d1-101">Mentre un'app del server blazer è prerendering, alcune azioni, ad esempio la chiamata a JavaScript, non sono possibili perché non è stata stabilita una connessione con il browser.</span><span class="sxs-lookup"><span data-stu-id="427d1-101">While a Blazor Server app is prerendering, certain actions, such as calling into JavaScript, aren't possible because a connection with the browser hasn't been established.</span></span> <span data-ttu-id="427d1-102">I componenti potrebbero dover eseguire il rendering in modo diverso quando ne viene eseguito il rendering.</span><span class="sxs-lookup"><span data-stu-id="427d1-102">Components may need to render differently when prerendered.</span></span>
+<span data-ttu-id="a649f-101">Mentre un'app del server blazer è prerendering, alcune azioni, ad esempio la chiamata a JavaScript, non sono possibili perché non è stata stabilita una connessione con il browser.</span><span class="sxs-lookup"><span data-stu-id="a649f-101">While a Blazor Server app is prerendering, certain actions, such as calling into JavaScript, aren't possible because a connection with the browser hasn't been established.</span></span> <span data-ttu-id="a649f-102">I componenti potrebbero dover eseguire il rendering in modo diverso quando ne viene eseguito il rendering.</span><span class="sxs-lookup"><span data-stu-id="a649f-102">Components may need to render differently when prerendered.</span></span>
 
-<span data-ttu-id="427d1-103">Per ritardare le chiamate di interoperabilità JavaScript finché non viene stabilita la connessione con il `OnAfterRenderAsync` browser, è possibile usare l'evento ciclo di vita dei componenti.</span><span class="sxs-lookup"><span data-stu-id="427d1-103">To delay JavaScript interop calls until after the connection with the browser is established, you can use the `OnAfterRenderAsync` component lifecycle event.</span></span> <span data-ttu-id="427d1-104">Questo evento viene chiamato solo dopo che viene eseguito il rendering completo dell'app e viene stabilita la connessione client.</span><span class="sxs-lookup"><span data-stu-id="427d1-104">This event is only called after the app is fully rendered and the client connection is established.</span></span>
+<span data-ttu-id="a649f-103">Per ritardare le chiamate di interoperabilità JavaScript finché non viene stabilita la connessione con il `OnAfterRenderAsync` browser, è possibile usare l'evento ciclo di vita dei componenti.</span><span class="sxs-lookup"><span data-stu-id="a649f-103">To delay JavaScript interop calls until after the connection with the browser is established, you can use the `OnAfterRenderAsync` component lifecycle event.</span></span> <span data-ttu-id="a649f-104">Questo evento viene chiamato solo dopo che viene eseguito il rendering completo dell'app e viene stabilita la connessione client.</span><span class="sxs-lookup"><span data-stu-id="a649f-104">This event is only called after the app is fully rendered and the client connection is established.</span></span>
 
 ```cshtml
 @using Microsoft.JSInterop
@@ -22,17 +22,16 @@
 }
 ```
 
-<span data-ttu-id="427d1-105">Nel componente seguente viene illustrato come utilizzare l'interoperabilità JavaScript come parte della logica di inizializzazione di un componente in modo che sia compatibile con il prerendering.</span><span class="sxs-lookup"><span data-stu-id="427d1-105">The following component demonstrates how to use JavaScript interop as part of a component's initialization logic in a way that's compatible with prerendering.</span></span> <span data-ttu-id="427d1-106">Il componente indica che è possibile attivare un aggiornamento di rendering dall'interno `OnAfterRenderAsync`di.</span><span class="sxs-lookup"><span data-stu-id="427d1-106">The component shows that it's possible to trigger a rendering update from inside `OnAfterRenderAsync`.</span></span> <span data-ttu-id="427d1-107">Lo sviluppatore deve evitare di creare un ciclo infinito in questo scenario.</span><span class="sxs-lookup"><span data-stu-id="427d1-107">The developer must avoid creating an infinite loop in this scenario.</span></span>
+<span data-ttu-id="a649f-105">Nel componente seguente viene illustrato come utilizzare l'interoperabilità JavaScript come parte della logica di inizializzazione di un componente in modo che sia compatibile con il prerendering.</span><span class="sxs-lookup"><span data-stu-id="a649f-105">The following component demonstrates how to use JavaScript interop as part of a component's initialization logic in a way that's compatible with prerendering.</span></span> <span data-ttu-id="a649f-106">Il componente indica che è possibile attivare un aggiornamento di rendering dall'interno `OnAfterRenderAsync`di.</span><span class="sxs-lookup"><span data-stu-id="a649f-106">The component shows that it's possible to trigger a rendering update from inside `OnAfterRenderAsync`.</span></span> <span data-ttu-id="a649f-107">Lo sviluppatore deve evitare di creare un ciclo infinito in questo scenario.</span><span class="sxs-lookup"><span data-stu-id="a649f-107">The developer must avoid creating an infinite loop in this scenario.</span></span>
 
-<span data-ttu-id="427d1-108">Dove `JSRuntime.InvokeAsync` viene chiamato, `ElementRef` viene usato solo in `OnAfterRenderAsync` e non in nessun metodo del ciclo di vita precedente perché non è presente alcun elemento JavaScript finché non viene eseguito il rendering del componente.</span><span class="sxs-lookup"><span data-stu-id="427d1-108">Where `JSRuntime.InvokeAsync` is called, `ElementRef` is only used in `OnAfterRenderAsync` and not in any earlier lifecycle method because there's no JavaScript element until after the component is rendered.</span></span>
+<span data-ttu-id="a649f-108">Dove `JSRuntime.InvokeAsync` viene chiamato, `ElementRef` viene usato solo in `OnAfterRenderAsync` e non in nessun metodo del ciclo di vita precedente perché non è presente alcun elemento JavaScript finché non viene eseguito il rendering del componente.</span><span class="sxs-lookup"><span data-stu-id="a649f-108">Where `JSRuntime.InvokeAsync` is called, `ElementRef` is only used in `OnAfterRenderAsync` and not in any earlier lifecycle method because there's no JavaScript element until after the component is rendered.</span></span>
 
-<span data-ttu-id="427d1-109">`StateHasChanged`viene chiamato per eseguire il rendering del componente con il nuovo stato ottenuto dalla chiamata di interoperabilità JavaScript.</span><span class="sxs-lookup"><span data-stu-id="427d1-109">`StateHasChanged` is called to rerender the component with the new state obtained from the JavaScript interop call.</span></span> <span data-ttu-id="427d1-110">Il codice non crea un ciclo infinito perché `StateHasChanged` viene chiamato solo quando `infoFromJs` è `null`.</span><span class="sxs-lookup"><span data-stu-id="427d1-110">The code doesn't create an infinite loop because `StateHasChanged` is only called when `infoFromJs` is `null`.</span></span>
+<span data-ttu-id="a649f-109">`StateHasChanged`viene chiamato per eseguire il rendering del componente con il nuovo stato ottenuto dalla chiamata di interoperabilità JavaScript.</span><span class="sxs-lookup"><span data-stu-id="a649f-109">`StateHasChanged` is called to rerender the component with the new state obtained from the JavaScript interop call.</span></span> <span data-ttu-id="a649f-110">Il codice non crea un ciclo infinito perché `StateHasChanged` viene chiamato solo quando `infoFromJs` è `null`.</span><span class="sxs-lookup"><span data-stu-id="a649f-110">The code doesn't create an infinite loop because `StateHasChanged` is only called when `infoFromJs` is `null`.</span></span>
 
 ```cshtml
 @page "/prerendered-interop"
 @using Microsoft.AspNetCore.Components
 @using Microsoft.JSInterop
-@inject IComponentContext ComponentContext
 @inject IJSRuntime JSRuntime
 
 <p>
@@ -59,32 +58,5 @@
             StateHasChanged();
         }
     }
-}
-```
-
-<span data-ttu-id="427d1-111">Per eseguire il rendering condizionale di contenuto diverso a seconda che l'app stia attualmente eseguendo il rendering `IsConnected` del contenuto, `IComponentContext` usare la proprietà nel servizio.</span><span class="sxs-lookup"><span data-stu-id="427d1-111">To conditionally render different content based on whether the app is currently prerendering content, use the `IsConnected` property on the `IComponentContext` service.</span></span> <span data-ttu-id="427d1-112">Per le app del server Blazer `IsConnected` , `true` restituisce solo se è presente una connessione attiva al client.</span><span class="sxs-lookup"><span data-stu-id="427d1-112">For Blazor Server apps, `IsConnected` only returns `true` if there's an active connection to the client.</span></span> <span data-ttu-id="427d1-113">Restituisce `true` sempre nelle app webassembly blazer.</span><span class="sxs-lookup"><span data-stu-id="427d1-113">It always returns `true` in Blazor WebAssembly apps.</span></span>
-
-```cshtml
-@page "/isconnected-example"
-@using Microsoft.AspNetCore.Components.Services
-@inject IComponentContext ComponentContext
-
-<h1>IsConnected Example</h1>
-
-<p>
-    Current state:
-    <strong id="connected-state">
-        @(ComponentContext.IsConnected ? "connected" : "not connected")
-    </strong>
-</p>
-
-<p>
-    Clicks:
-    <strong id="count">@count</strong>
-    <button id="increment-count" @onclick="@(() => count++)">Click me</button>
-</p>
-
-@code {
-    private int count;
 }
 ```
