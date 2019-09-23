@@ -1,32 +1,32 @@
 ---
-title: Usare lo streaming in ASP.NET Core SignalR
+title: Usare il flusso in ASP.NET Core SignalR
 author: bradygaster
-description: Informazioni su come trasmettere dati tra il client e server.
+description: Informazioni su come trasmettere i dati tra il client e il server.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
 ms.date: 06/05/2019
 uid: signalr/streaming
-ms.openlocfilehash: a75156f398e113393ddb891d16eec3f09de80c09
-ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
+ms.openlocfilehash: d520c8eec3e777acb9604bdcb5969268deabf8da
+ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66750190"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71186937"
 ---
-# <a name="use-streaming-in-aspnet-core-signalr"></a>Usare lo streaming in ASP.NET Core SignalR
+# <a name="use-streaming-in-aspnet-core-signalr"></a>Usare il flusso in ASP.NET Core SignalR
 
-Da [Brennan Conroy](https://github.com/BrennanConroy)
+Di [Brennan Conroy](https://github.com/BrennanConroy)
 
 ::: moniker range=">= aspnetcore-3.0"
 
-ASP.NET Core SignalR supporta lo streaming dal client al server e dal server al client. Ciò è utile per scenari in cui frammenti di dati arrivano nel corso del tempo. Durante lo streaming, ogni frammento viene inviato al client o server, non appena diventa disponibile, anziché attendere che tutti i dati diventino disponibili.
+ASP.NET Core SignalR supporta lo streaming da client a server e da server a client. Questa operazione è utile per gli scenari in cui i frammenti di dati arrivano nel tempo. Quando si esegue il flusso, ogni frammento viene inviato al client o al server non appena diventa disponibile, anziché attendere che tutti i dati diventino disponibili.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-ASP.NET Core SignalR supporta streaming valori restituiti dei metodi del server. Ciò è utile per scenari in cui frammenti di dati arrivano nel corso del tempo. Quando un valore restituito viene trasmesso al client, ogni frammento viene inviato al client, non appena diventa disponibile, anziché attendere che tutti i dati diventino disponibili.
+ASP.NET Core SignalR supporta il flusso dei valori restituiti dei metodi del server. Questa operazione è utile per gli scenari in cui i frammenti di dati arrivano nel tempo. Quando un valore restituito viene trasmesso al client, ogni frammento viene inviato al client non appena diventa disponibile, anziché attendere che tutti i dati diventino disponibili.
 
 ::: moniker-end
 
@@ -36,21 +36,21 @@ ASP.NET Core SignalR supporta streaming valori restituiti dei metodi del server.
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Un metodo dell'hub diventa automaticamente un metodo dell'hub sul flusso quando viene restituito <xref:System.Collections.Generic.IAsyncEnumerable`1>, <xref:System.Threading.Channels.ChannelReader%601>, `Task<IAsyncEnumerable<T>>`, o `Task<ChannelReader<T>>`.
+Un metodo Hub diventa automaticamente un metodo dell'hub di flusso quando <xref:System.Collections.Generic.IAsyncEnumerable`1>restituisce <xref:System.Threading.Channels.ChannelReader%601>, `Task<IAsyncEnumerable<T>>`, o `Task<ChannelReader<T>>`.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-Un metodo dell'hub diventa automaticamente un metodo dell'hub sul flusso quando viene restituito un <xref:System.Threading.Channels.ChannelReader%601> o un `Task<ChannelReader<T>>`.
+Un metodo Hub diventa automaticamente un metodo dell'hub di flusso quando restituisce <xref:System.Threading.Channels.ChannelReader%601> `Task<ChannelReader<T>>`o.
 
 ::: moniker-end
 
-### <a name="server-to-client-streaming"></a>Streaming server a client
+### <a name="server-to-client-streaming"></a>Streaming da server a client
 
 ::: moniker range=">= aspnetcore-3.0"
 
-I metodi dell'hub di streaming può restituire `IAsyncEnumerable<T>` oltre a `ChannelReader<T>`. Il modo più semplice per restituire `IAsyncEnumerable<T>` consiste nel rendere un metodo iteratore asincrono del metodo dell'hub come illustrato nell'esempio seguente. Metodi iteratori async hub possono accettare un `CancellationToken` parametro che viene attivato quando il client annulla la sottoscrizione dal flusso. Metodi iteratori Async evitare problemi comuni con i canali, ad esempio per non restituire la `ChannelReader` iniziale in modo o metodo esistente senza completare la <xref:System.Threading.Channels.ChannelWriter`1>.
+I metodi dell'hub di `IAsyncEnumerable<T>` streaming possono restituire `ChannelReader<T>`oltre a. Il modo più semplice per restituire `IAsyncEnumerable<T>` consiste nel rendere il metodo dell'hub un metodo iteratore asincrono come illustrato nell'esempio seguente. I metodi iteratori asincroni dell'hub `CancellationToken` possono accettare un parametro che viene attivato quando il client Annulla la sottoscrizione dal flusso. I metodi iterator asincroni evitano problemi comuni con i canali, ad esempio `ChannelReader` la mancata restituzione del tempo sufficiente o l' <xref:System.Threading.Channels.ChannelWriter`1>uscita dal metodo senza completare.
 
 [!INCLUDE[](~/includes/csharp-8-required.md)]
 
@@ -58,12 +58,12 @@ I metodi dell'hub di streaming può restituire `IAsyncEnumerable<T>` oltre a `Ch
 
 ::: moniker-end
 
-L'esempio seguente illustra le nozioni di base dei dati al client utilizzando i canali di streaming. Ogni volta che un oggetto viene scritto il <xref:System.Threading.Channels.ChannelWriter%601>, l'oggetto viene inviato immediatamente al client. Al termine, il `ChannelWriter` sia completata per indicare al client il flusso è chiuso.
+Nell'esempio seguente vengono illustrate le nozioni di base per il flusso di dati al client tramite canali. Ogni volta che un oggetto viene scritto <xref:System.Threading.Channels.ChannelWriter%601>in, l'oggetto viene immediatamente inviato al client. Alla fine, `ChannelWriter` viene completata per indicare al client che il flusso è chiuso.
 
 > [!NOTE]
-> Scrivere il `ChannelWriter<T>` su un thread in background e restituire il `ChannelReader` appena possibile. Altre chiamate dell'hub sono bloccate fino a quando un `ChannelReader` viene restituito.
+> Scrivere in `ChannelReader` in un thread in background e restituire il appena possibile. `ChannelWriter<T>` Altre chiamate all'hub vengono bloccate fino a `ChannelReader` quando non viene restituito un oggetto.
 >
-> Eseguire il wrapping per la logica in un `try ... catch`. Completare la `Channel` nella `catch` esterno il `catch` per assicurarsi che l'hub di chiamata al metodo viene completata correttamente.
+> Eseguire il wrapping della `try ... catch`logica in un oggetto. Per assicurarsi `Channel` che la `catch` chiamata al metodo hub sia stata completata correttamente, completare il in e all'esterno di. `catch`
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -85,24 +85,24 @@ L'esempio seguente illustra le nozioni di base dei dati al client utilizzando i 
 
 ::: moniker range=">= aspnetcore-2.2"
 
-I metodi dell'hub di streaming server a client possono accettare un `CancellationToken` parametro che viene attivato quando il client annulla la sottoscrizione dal flusso. Usare questo token per l'operazione del server di arrestare e rilasciare le risorse se il client si disconnette prima della fine del flusso.
+I metodi dell'hub di streaming da server a client possono `CancellationToken` accettare un parametro che viene attivato quando il client Annulla la sottoscrizione dal flusso. Usare questo token per arrestare l'operazione server e rilasciare tutte le risorse se il client si disconnette prima della fine del flusso.
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-3.0"
 
-### <a name="client-to-server-streaming"></a>Client-server di streaming
+### <a name="client-to-server-streaming"></a>Streaming da client a server
 
-Un metodo dell'hub diventa automaticamente un metodo dell'hub sul flusso client-server quando si accetta uno o più oggetti di tipo <xref:System.Threading.Channels.ChannelReader%601> o <xref:System.Collections.Generic.IAsyncEnumerable%601>. L'esempio seguente illustra le nozioni di base di leggere i dati di streaming inviati dal client. Ogni volta che il client scrive per la <xref:System.Threading.Channels.ChannelWriter%601>, i dati vengono scritti nel `ChannelReader` sul server da cui sta leggendo il metodo dell'hub.
+Un metodo Hub diventa automaticamente un metodo dell'hub di streaming da client a server quando accetta uno o più oggetti di tipo <xref:System.Threading.Channels.ChannelReader%601> o <xref:System.Collections.Generic.IAsyncEnumerable%601>. Nell'esempio seguente vengono illustrate le nozioni di base per la lettura dei dati di streaming inviati dal client. Ogni volta che il client scrive <xref:System.Threading.Channels.ChannelWriter%601>in, i dati vengono scritti `ChannelReader` in sul server da cui viene letto il metodo dell'hub.
 
 [!code-csharp[Streaming upload hub method](streaming/samples/3.0/Hubs/StreamHub.cs?name=snippet2)]
 
-Un <xref:System.Collections.Generic.IAsyncEnumerable%601> segue versione del metodo.
+Segue <xref:System.Collections.Generic.IAsyncEnumerable%601> una versione del metodo.
 
 [!INCLUDE[](~/includes/csharp-8-required.md)]
 
 ```csharp
-public async Task UploadStream(IAsyncEnumerable<Stream> stream) 
+public async Task UploadStream(IAsyncEnumerable<string> stream)
 {
     await foreach (var item in stream)
     {
@@ -115,14 +115,14 @@ public async Task UploadStream(IAsyncEnumerable<Stream> stream)
 
 ## <a name="net-client"></a>Client .NET
 
-### <a name="server-to-client-streaming"></a>Streaming server a client
+### <a name="server-to-client-streaming"></a>Streaming da server a client
 
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Il `StreamAsync` e `StreamAsChannelAsync` metodi su `HubConnection` vengono utilizzati per richiamare i metodi di streaming server a client. Passare il nome del metodo dell'hub e gli argomenti definiti nel metodo dell'hub `StreamAsync` o `StreamAsChannelAsync`. Il parametro generico sul `StreamAsync<T>` e `StreamAsChannelAsync<T>` specifica il tipo di oggetti restituiti dal metodo di streaming. Un oggetto di tipo `IAsyncEnumerable<T>` o `ChannelReader<T>` viene restituito dalla chiamata del flusso e rappresenta il flusso nel client.
+I `StreamAsync` metodi `StreamAsChannelAsync` e su`HubConnection` vengono usati per richiamare i metodi di streaming da server a client. Passare il nome e gli argomenti del metodo Hub definiti nel metodo Hub `StreamAsync` a `StreamAsChannelAsync`o. Il parametro generico in `StreamAsync<T>` e `StreamAsChannelAsync<T>` specifica il tipo di oggetti restituiti dal metodo di streaming. Un oggetto di tipo `IAsyncEnumerable<T>` o `ChannelReader<T>` viene restituito dalla chiamata del flusso e rappresenta il flusso nel client.
 
-Oggetto `StreamAsync` esempio che restituisce `IAsyncEnumerable<int>`:
+Esempio che restituisce `IAsyncEnumerable<int>`: `StreamAsync`
 
 ```csharp
 // Call "Cancel" on this CancellationTokenSource to send a cancellation message to
@@ -139,7 +139,7 @@ await foreach (var count in stream)
 Console.WriteLine("Streaming completed");
 ```
 
-Un oggetto corrispondente `StreamAsChannelAsync` esempio che restituisce `ChannelReader<int>`:
+Un esempio `StreamAsChannelAsync` corrispondente che restituisce `ChannelReader<int>`:
 
 ```csharp
 // Call "Cancel" on this CancellationTokenSource to send a cancellation message to
@@ -165,7 +165,7 @@ Console.WriteLine("Streaming completed");
 
 ::: moniker range=">= aspnetcore-2.2"
 
-Il `StreamAsChannelAsync` metodo `HubConnection` viene utilizzato per richiamare un metodo di streaming server a client. Passare il nome del metodo dell'hub e gli argomenti definiti nel metodo dell'hub per `StreamAsChannelAsync`. Il parametro generico in `StreamAsChannelAsync<T>` specifica il tipo di oggetti restituiti dal metodo di streaming. Oggetto `ChannelReader<T>` viene restituito dalla chiamata del flusso e rappresenta il flusso nel client.
+Il `StreamAsChannelAsync` metodo su `HubConnection` viene usato per richiamare un metodo di streaming da server a client. Passare il nome e gli argomenti del metodo Hub definiti nel metodo Hub `StreamAsChannelAsync`a. Il parametro generico in `StreamAsChannelAsync<T>` specifica il tipo di oggetti restituiti dal metodo di streaming. Un `ChannelReader<T>` oggetto viene restituito dalla chiamata del flusso e rappresenta il flusso nel client.
 
 ```csharp
 // Call "Cancel" on this CancellationTokenSource to send a cancellation message to
@@ -191,7 +191,7 @@ Console.WriteLine("Streaming completed");
 
 ::: moniker range="= aspnetcore-2.1"
 
-Il `StreamAsChannelAsync` metodo `HubConnection` viene utilizzato per richiamare un metodo di streaming server a client. Passare il nome del metodo dell'hub e gli argomenti definiti nel metodo dell'hub per `StreamAsChannelAsync`. Il parametro generico in `StreamAsChannelAsync<T>` specifica il tipo di oggetti restituiti dal metodo di streaming. Oggetto `ChannelReader<T>` viene restituito dalla chiamata del flusso e rappresenta il flusso nel client.
+Il `StreamAsChannelAsync` metodo su `HubConnection` viene usato per richiamare un metodo di streaming da server a client. Passare il nome e gli argomenti del metodo Hub definiti nel metodo Hub `StreamAsChannelAsync`a. Il parametro generico in `StreamAsChannelAsync<T>` specifica il tipo di oggetti restituiti dal metodo di streaming. Un `ChannelReader<T>` oggetto viene restituito dalla chiamata del flusso e rappresenta il flusso nel client.
 
 ```csharp
 var channel = await hubConnection
@@ -214,13 +214,13 @@ Console.WriteLine("Streaming completed");
 
 ::: moniker range=">= aspnetcore-3.0"
 
-### <a name="client-to-server-streaming"></a>Client-server di streaming
+### <a name="client-to-server-streaming"></a>Streaming da client a server
 
-Esistono due modi per richiamare un metodo dell'hub sul flusso client-server dal client .NET. È possibile passare un `IAsyncEnumerable<T>` o un `ChannelReader` come argomento al `SendAsync`, `InvokeAsync`, o `StreamAsChannelAsync`, a seconda del metodo dell'hub richiamato.
+Esistono due modi per richiamare un metodo dell'hub di streaming da client a server dal client .NET. È possibile passare un `IAsyncEnumerable<T>` oggetto `ChannelReader` o come argomento a `SendAsync`, `InvokeAsync`o `StreamAsChannelAsync`, a seconda del metodo dell'hub richiamato.
 
-Ogni volta che i dati vengono scritti i `IAsyncEnumerable` o `ChannelWriter` dell'oggetto, il metodo dell'hub sul server riceve un nuovo elemento con i dati dal client.
+Ogni volta che i dati vengono `IAsyncEnumerable` scritti `ChannelWriter` nell'oggetto o, il metodo dell'hub sul server riceve un nuovo elemento con i dati del client.
 
-Se si usa un `IAsyncEnumerable` dell'oggetto, il flusso termina dopo il metodo che restituisce elementi di flusso viene chiuso.
+Se si usa `IAsyncEnumerable` un oggetto, il flusso termina dopo che il metodo che restituisce gli elementi del flusso viene chiuso.
 
 [!INCLUDE[](~/includes/csharp-8-required.md)]
 
@@ -238,7 +238,7 @@ async IAsyncEnumerable<string> clientStreamData()
 await connection.SendAsync("UploadStream", clientStreamData());
 ```
 
-O se si usa un' `ChannelWriter`, completare il canale con `channel.Writer.Complete()`:
+In alternativa, se si usa `ChannelWriter`un, è necessario completare il `channel.Writer.Complete()`canale con:
 
 ```csharp
 var channel = Channel.CreateBounded<string>(10);
@@ -252,20 +252,20 @@ channel.Writer.Complete();
 
 ## <a name="javascript-client"></a>Client JavaScript
 
-### <a name="server-to-client-streaming"></a>Streaming server a client
+### <a name="server-to-client-streaming"></a>Streaming da server a client
 
-I client JavaScript chiamano i metodi di streaming server a client sull'hub con `connection.stream`. Il `stream` metodo accetta due argomenti:
+I client JavaScript chiamano i metodi di streaming da server a client negli `connection.stream`Hub con. Il `stream` metodo accetta due argomenti:
 
-* Il nome del metodo dell'hub. Nell'esempio seguente, è il nome del metodo dell'hub `Counter`.
-* Argomenti definiti nel metodo dell'hub. Nell'esempio seguente, gli argomenti sono un conteggio per il numero di elementi del flusso di ricezione e il ritardo tra gli elementi di flusso.
+* Il nome del metodo dell'hub. Nell'esempio seguente il nome del metodo dell'hub è `Counter`.
+* Argomenti definiti nel metodo dell'hub. Nell'esempio seguente gli argomenti sono un conteggio per il numero di elementi del flusso da ricevere e il ritardo tra gli elementi del flusso.
 
-`connection.stream` Restituisce un `IStreamResult`, che contiene un `subscribe` (metodo). Passare un `IStreamSubscriber` al `subscribe` e impostare il `next`, `error`, e `complete` i callback per ricevere notifiche dal `stream` chiamata.
+`connection.stream`Restituisce un `IStreamResult`oggetto che contiene un `subscribe` metodo. Passare un `IStreamSubscriber` oggetto `subscribe` a e impostare `next`i `error`callback, `complete` e per ricevere notifiche dalla `stream` chiamata.
 
 ::: moniker range=">= aspnetcore-2.2"
 
 [!code-javascript[Streaming javascript](streaming/samples/2.2/wwwroot/js/stream.js?range=19-36)]
 
-Per terminare il flusso dal client, chiamare il `dispose` metodo sul `ISubscription` restituito dal `subscribe` (metodo). Chiamando questo metodo, l'annullamento del `CancellationToken` parametro del metodo dell'Hub, se è stato specificato uno.
+Per terminare il flusso dal client, chiamare il `dispose` metodo sull'oggetto `ISubscription` restituito dal `subscribe` metodo. La chiamata a questo metodo provoca l' `CancellationToken` annullamento del parametro del metodo Hub, se ne è stato specificato uno.
 
 ::: moniker-end
 
@@ -273,29 +273,29 @@ Per terminare il flusso dal client, chiamare il `dispose` metodo sul `ISubscript
 
 [!code-javascript[Streaming javascript](streaming/samples/2.1/wwwroot/js/stream.js?range=19-36)]
 
-Per terminare il flusso dal client, chiamare il `dispose` metodo sul `ISubscription` restituito dal `subscribe` (metodo).
+Per terminare il flusso dal client, chiamare il `dispose` metodo sull'oggetto `ISubscription` restituito dal `subscribe` metodo.
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-3.0"
 
-### <a name="client-to-server-streaming"></a>Client-server di streaming
+### <a name="client-to-server-streaming"></a>Streaming da client a server
 
-I client JavaScript chiamano metodi flusso client-server sugli hub passando un `Subject` come argomento al `send`, `invoke`, o `stream`, a seconda del metodo dell'hub richiamato. Il `Subject` è una classe che è simile a un `Subject`. Ad esempio in RxJS, è possibile usare la [soggetto](https://rxjs-dev.firebaseapp.com/api/index/class/Subject) classe da tale libreria.
+I client JavaScript chiamano i metodi di streaming da client a server negli hub passando un `Subject` come argomento a `send`, `invoke`o `stream`, a seconda del metodo dell'hub richiamato. È una classe che ha un aspetto simile `Subject`a. `Subject` Ad esempio, in RxJS è possibile usare la classe [Subject](https://rxjs-dev.firebaseapp.com/api/index/class/Subject) di tale libreria.
 
 [!code-javascript[Upload javascript](streaming/samples/3.0/wwwroot/js/stream.js?range=41-51)]
 
-La chiamata `subject.next(item)` con un elemento scrive l'elemento nel flusso e del metodo dell'hub riceve l'elemento nel server.
+La `subject.next(item)` chiamata a con un elemento scrive l'elemento nel flusso e il metodo Hub riceve l'elemento nel server.
 
 Per terminare il flusso, chiamare `subject.complete()`.
 
 ## <a name="java-client"></a>Client Java
 
-### <a name="server-to-client-streaming"></a>Streaming server a client
+### <a name="server-to-client-streaming"></a>Streaming da server a client
 
-Il client Java di SignalR utilizza i `stream` metodo per richiamare i metodi di streaming. `stream` accetta tre o più argomenti:
+Il client Java SignalR usa il `stream` metodo per richiamare i metodi di streaming. `stream`accetta tre o più argomenti:
 
-* Il tipo previsto degli elementi di flusso.
+* Tipo previsto degli elementi del flusso.
 * Il nome del metodo dell'hub.
 * Argomenti definiti nel metodo dell'hub.
 
@@ -307,7 +307,7 @@ hubConnection.stream(String.class, "ExampleStreamingHubMethod", "Arg1")
         () -> {/* Define your onCompleted handler here. */});
 ```
 
-Il `stream` metodo su `HubConnection` restituisce un oggetto osservabile del tipo di elemento flusso. Il tipo Observable `subscribe` metodo è dove `onNext`, `onError` e `onCompleted` sono stati definiti gestori.
+Il `stream` metodo su `HubConnection` restituisce un oggetto osservabile del tipo di elemento del flusso. Il `subscribe` metodo del tipo osservabile è `onNext` `onError` dove sono `onCompleted` definiti i gestori e.
 
 ::: moniker-end
 

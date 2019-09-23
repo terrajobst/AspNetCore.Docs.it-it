@@ -5,14 +5,14 @@ description: Questo articolo contiene collegamenti a risorse di hosting e distri
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/07/2019
+ms.date: 07/28/2019
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 7736888c43aafd2f64e3d7b079f2099fe548a825
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 4dc150ff4534e42e1995a185f650cea9df70ccc4
+ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71081080"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71187044"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Distribuire le app ASP.NET Core in Servizio app di Azure
 
@@ -97,7 +97,17 @@ Il [middleware di integrazione IIS](xref:host-and-deploy/iis/index#enable-the-ii
 
 ## <a name="monitoring-and-logging"></a>Monitoraggio e registrazione
 
-App Azure servizio offre le **estensioni di registrazione ASP.NET Core**, che consentono l'integrazione della registrazione per ASP.NET Core app. Per aggiungere automaticamente l'estensione a un servizio app, usare il processo di **pubblicazione** di Visual Studio con un profilo di pubblicazione del **servizio app** . Quando non si usa Visual Studio per distribuire un'app, installare manualmente l'estensione nel portale di Azure tramite la finestra di dialogo**estensioni** **degli strumenti** > di sviluppo del servizio app.
+::: moniker range=">= aspnetcore-3.0"
+
+Le app ASP.NET Core distribuite in Servizio app di Azure ricevono automaticamente l'estensione di Servizio app **ASP.NET Core Logging Integration** (Integrazione di registrazione ASP.NET Core). L'estensione abilita l'integrazione della registrazione per le app ASP.NET Core in Servizio app di Azure.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+Le app ASP.NET Core distribuite in Servizio app ricevono automaticamente un'estensione di Servizio app, ovvero le **estensioni di registrazione di ASP.NET Core**. L'estensione abilita l'integrazione della registrazione per le app ASP.NET Core in Servizio app di Azure.
+
+::: moniker-end
 
 Per informazioni sul monitoraggio, la registrazione e la risoluzione dei problemi, vedere gli articoli seguenti:
 
@@ -128,10 +138,21 @@ Nel passaggio da uno slot di distribuzione all'altro, tutti i sistemi che usano 
 * Cache Redis
 
 Per altre informazioni, vedere <xref:security/data-protection/implementation/key-storage-providers>.
+<a name="deploy-aspnet-core-preview-release-to-azure-app-service"></a>
+<!-- revert this after 3.0 supported
+## Deploy ASP.NET Core preview release to Azure App Service
 
-## <a name="deploy-aspnet-core-preview-release-to-azure-app-service"></a>Distribuire la versione di anteprima di ASP.NET Core in Servizio app di Azure
+Use one of the following approaches if the app relies on a preview release of .NET Core:
 
-Usare uno degli approcci seguenti se l'app si basa su una versione di anteprima di .NET Core:
+* [Install the preview site extension](#install-the-preview-site-extension).
+* [Deploy a self-contained preview app](#deploy-a-self-contained-preview-app).
+* [Use Docker with Web Apps for containers](#use-docker-with-web-apps-for-containers).
+-->
+## <a name="deploy-aspnet-core-30-to-azure-app-service"></a>Distribuire ASP.NET Core 3,0 al servizio app Azure
+
+Ci auguriamo che la disponibilità di ASP.NET Core 3,0 sul servizio app Azure a breve.
+
+Se l'app si basa su .NET Core 3,0, usare uno degli approcci seguenti:
 
 * [Installare l'estensione del sito di anteprima](#install-the-preview-site-extension).
 * [Distribuire un'app di anteprima completa](#deploy-a-self-contained-preview-app).
@@ -230,7 +251,7 @@ Per una [distribuzione dipendente dal framework](/dotnet/core/deploying/#framewo
 
 1. Da una shell dei comandi pubblicare l'app nella configurazione di versione con il comando [dotnet publish](/dotnet/core/tools/dotnet-publish). Nell'esempio seguente l'app viene pubblicata come app dipendente dal framework:
 
-   ```dotnetcli
+   ```console
    dotnet publish --configuration Release
    ```
 
@@ -268,7 +289,7 @@ Usare Visual Studio o gli strumenti dell'interfaccia della riga di comando (CLI)
 
 1. Da una shell dei comandi eseguire il comando [dotnet publish](/dotnet/core/tools/dotnet-publish) per pubblicare l'app in configurazione Rilascio per il runtime dell'host. Nell'esempio seguente l'app viene pubblicata per il RID `win-x86`. Il RID fornito per l'opzione `--runtime` deve essere specificato nella proprietà `<RuntimeIdentifier>` (o `<RuntimeIdentifiers>`) del file di progetto.
 
-   ```dotnetcli
+   ```console
    dotnet publish --configuration Release --runtime win-x86
    ```
 

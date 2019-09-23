@@ -4,14 +4,14 @@ author: rick-anderson
 description: Un'esercitazione rapida per creare ed eseguire una semplice app Hello World usando ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/15/2019
+ms.date: 09/22/2019
 uid: getting-started
-ms.openlocfilehash: d1edf91f1b37ba2b69732471dc6c1f306ac5ad24
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 0f05ab120d64832a4bc2fd70921efc7238ee9eac
+ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71081113"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71187066"
 ---
 # <a name="tutorial-get-started-with-aspnet-core"></a>Esercitazione: Introduzione ad ASP.NET Core
 
@@ -31,7 +31,7 @@ Al termine, si avrà un'app Web funzionante che viene eseguita nel computer loca
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [.NET Core 2.2 SDK](https://www.microsoft.com/net/download/all)
+[!INCLUDE[](~/includes/3.0-SDK.md)]
 
 ## <a name="create-a-web-app-project"></a>Creare un progetto di app Web
 
@@ -40,6 +40,11 @@ Aprire una shell dei comandi e immettere il comando seguente:
 ```dotnetcli
 dotnet new webapp -o aspnetcoreapp
 ```
+
+Il comando precedente:
+
+* Crea una nuova app Web.  
+* Il `-o` parametro crea una directory denominata *aspnetcoreapp* con i file di origine per l'app.
 
 ### <a name="trust-the-development-certificate"></a>Considerare attendibile il certificato di sviluppo
 
@@ -79,7 +84,7 @@ Vedere la documentazione della distribuzione di Linux su come rendere attendibil
 
 Per altre informazioni, vedere [Considerare attendibile il certificato di sviluppo di ASP.NET Core HTTPS](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos)
 
-## <a name="run-the-app"></a>Esecuzione dell'app
+## <a name="run-the-app"></a>Eseguire l'app
 
 Eseguire i comandi seguenti:
 

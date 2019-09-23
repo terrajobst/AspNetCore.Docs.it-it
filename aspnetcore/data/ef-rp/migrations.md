@@ -5,12 +5,12 @@ description: In questa esercitazione si inizia a usare la funzionalità delle mi
 ms.author: riande
 ms.date: 07/22/2019
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 8a4929a905c6a488231d7d29e1101f6fd887477f
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: efcf62d56a7b4cee4780d5f0475b4ef363fe1897
+ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082066"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71187080"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Migrazioni - 4 di 8
 
@@ -45,7 +45,7 @@ Drop-Database
 * Eseguire il comando seguente al prompt dei comandi per installare gli strumenti dell'interfaccia della riga di comando EF:
 
   ```dotnetcli
-  dotnet tool install --global dotnet-ef --version 3.0.0-*
+  dotnet tool install --global dotnet-ef
   ```
 
 * Al prompt dei comandi passare alla cartella del progetto. La cartella del progetto contiene il file *ContosoUniversity.csproj*.

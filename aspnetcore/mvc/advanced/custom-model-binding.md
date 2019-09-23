@@ -5,12 +5,12 @@ description: Informazioni su come l'associazione di modelli consente alle azioni
 ms.author: riande
 ms.date: 11/13/2018
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: 91f42393ffee3249f9167e10eaea7b279a7cb70b
-ms.sourcegitcommit: e7c56e8da5419bbc20b437c2dd531dedf9b0dc6b
+ms.openlocfilehash: b2fbe6a9f11315d1fb8863fbf62e8929c7ff3fc2
+ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70878407"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71186874"
 ---
 # <a name="custom-model-binding-in-aspnet-core"></a>Associazione di modelli personalizzata in ASP.NET Core
 
@@ -132,9 +132,7 @@ Se il provider personalizzato viene aggiunto alla fine della raccolta, è possib
 
 ### <a name="polymorphic-model-binding"></a>Associazione di modelli polimorfici
 
-L'associazione a modelli diversi di tipi derivati è nota come associazione di modelli polimorfici. L'associazione di modelli personalizzati è obbligatoria quando il valore della richiesta deve essere associato al tipo di modello derivato specifico. A meno che non sia necessario questo approccio, è consigliabile evitare l'associazione di modelli polimorfici. L'associazione di modelli polimorfici rende difficile la motivazione dei modelli associati. Tuttavia, se un'app richiede l'associazione di modelli polimorfici, un'implementazione potrebbe avere un aspetto simile al codice seguente:
-
-L'associazione a modelli diversi di tipi derivati è nota come associazione di modelli polimorfici. L'associazione di modelli personalizzati è obbligatoria quando il valore della richiesta deve essere associato al tipo di modello derivato specifico. Associazione di modelli polimorfici:
+L'associazione a modelli diversi di tipi derivati è nota come associazione di modelli polimorfici. L'associazione di modelli personalizzati polimorfici è obbligatoria quando il valore della richiesta deve essere associato al tipo di modello derivato specifico. Associazione di modelli polimorfici:
 
 * Non è tipico per un'API REST progettata per interagire con tutti i linguaggi.
 * Rende difficile la motivazione dei modelli associati.

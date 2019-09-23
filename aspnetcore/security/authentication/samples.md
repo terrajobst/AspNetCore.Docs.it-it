@@ -5,12 +5,12 @@ description: Fornisce collegamenti agli esempi di autenticazione nel repository 
 ms.author: riande
 ms.date: 01/31/2019
 uid: security/authentication/samples
-ms.openlocfilehash: efa177245faceddad4eb80de9e6f6d38e1a4261c
-ms.sourcegitcommit: 476ea5ad86a680b7b017c6f32098acd3414c0f6c
+ms.openlocfilehash: d49aef198e926d88f1a6727f84b06f0861c8812d
+ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69022416"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71187292"
 ---
 # <a name="authentication-samples-for-aspnet-core"></a>Esempi di autenticazione per ASP.NET Core
 
@@ -20,13 +20,13 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Il [repository ASP.NET Core](https://github.com/aspnet/AspNetCore) contiene gli esempi di autenticazione seguenti nella cartella *AspNetCore/SRC/Security/Samples* :
 
-* [Trasformazione delle attestazioni](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/Security/samples/ClaimsTransformation)
-* [Autenticazione cookie](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/Security/samples/Cookies)
-* [Provider di criteri personalizzati-IAuthorizationPolicyProvider](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/Security/samples/CustomPolicyProvider)
-* [Opzioni e schemi di autenticazione dinamici](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/Security/samples/DynamicSchemes)
-* [Attestazioni esterne](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/Security/samples/Identity.ExternalClaims)
-* [Selezione tra cookie e un altro schema di autenticazione in base alla richiesta](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/Security/samples/PathSchemeSelection)
-* [Limita l'accesso ai file statici](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/Security/samples/StaticFilesAuth)
+* [Trasformazione delle attestazioni](https://github.com/aspnet/AspNetCore/tree/release/3.0/src/Security/samples/ClaimsTransformation)
+* [Autenticazione cookie](https://github.com/aspnet/AspNetCore/tree/release/3.0/src/Security/samples/Cookies)
+* [Provider di criteri personalizzati-IAuthorizationPolicyProvider](https://github.com/aspnet/AspNetCore/tree/release/3.0/src/Security/samples/CustomPolicyProvider)
+* [Opzioni e schemi di autenticazione dinamici](https://github.com/aspnet/AspNetCore/tree/release/3.0/src/Security/samples/DynamicSchemes)
+* [Attestazioni esterne](https://github.com/aspnet/AspNetCore/tree/release/3.0/src/Security/samples/Identity.ExternalClaims)
+* [Selezione tra cookie e un altro schema di autenticazione in base alla richiesta](https://github.com/aspnet/AspNetCore/tree/release/3.0/src/Security/samples/PathSchemeSelection)
+* [Limita l'accesso ai file statici](https://github.com/aspnet/AspNetCore/tree/release/3.0/src/Security/samples/StaticFilesAuth)
 
 ## <a name="run-the-samples"></a>Eseguire gli esempi
 
