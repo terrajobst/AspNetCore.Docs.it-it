@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/11/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 03734addcc0e063c2c216b26b59762d27d35d47c
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 90b439603dd51ff02e40045b9420876d7200bef1
+ms.sourcegitcommit: 8a36be1bfee02eba3b07b7a86085ec25c38bae6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71081150"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219167"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>Registrazione in .NET Core e ASP.NET Core
 
@@ -310,7 +310,7 @@ Il resto di questo articolo spiega alcuni dettagli e le opzioni per la registraz
 
 Le interfacce `ILogger` e `ILoggerFactory` si trovano in [Microsoft.Extensions.Logging.Abstractions](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Abstractions/) e le loro implementazioni predefinite si trovano in [Microsoft.Extensions.Logging](https://www.nuget.org/packages/microsoft.extensions.logging/).
 
-## <a name="log-category"></a>Categoria di log
+## <a name="log-category"></a>Categoria dei log
 
 Quando viene creato un oggetto `ILogger`, viene specificata la relativa *categoria*. La categoria è inclusa in ogni messaggio di log creato da tale istanza di `ILogger`. La categoria può essere qualsiasi stringa, ma per convenzione si usa il nome della classe, ad esempio "TodoApi.Controllers.TodoController".
 
@@ -529,7 +529,7 @@ L'ordine dei segnaposto, non il loro nome, determina i parametri da usare per fo
 ```csharp
 string p1 = "parm1";
 string p2 = "parm2";
-_logger.LogInformation("Parameter values: {p2}, {p1}", p1, p2);
+_logger.LogInformation("Parameter values: {p1}, {p2}", p1, p2);
 ```
 
 Questo codice crea un messaggio di log con i valori dei parametri in sequenza:
@@ -541,7 +541,7 @@ Parameter values: parm1, parm2
 Il framework di registrazione funziona in questo modo per consentire ai provider di registrazione di implementare la [registrazione semantica, nota anche come registrazione strutturata](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging). Al sistema di registrazione vengono passati gli argomenti e non solo il modello di messaggio formattato. Queste informazioni consentono ai provider di registrazione di archiviare i valori dei parametri come campi. Si supponga, ad esempio, che il metodo logger esegua chiamate simili alla seguente:
 
 ```csharp
-_logger.LogInformation("Getting item {ID} at {RequestTime}", id, DateTime.Now);
+_logger.LogInformation("Getting item {Id} at {RequestTime}", id, DateTime.Now);
 ```
 
 Se si inviano i log all'archiviazione tabelle di Azure, ogni entità tabella di Azure può avere le proprietà `ID` e `RequestTime`, il che semplifica le query sui dati dei log. Una query può trovare tutti i log entro un determinato intervallo `RequestTime` senza che sia necessario analizzare il messaggio di testo per determinare l'intervallo di tempo.
@@ -619,16 +619,16 @@ Il secondo `AddFilter` specifica il provider Debug tramite il nome del tipo. Il 
 
 I dati di configurazione e il codice `AddFilter` illustrato negli esempi precedenti creano le regole indicate nella tabella seguente. I primi sei provengono dall'esempio di configurazione e gli ultimi due dall'esempio di codice.
 
-| NUMBER | Provider      | Categorie che iniziano con...          | Livello di registrazione minimo |
+| Number | Provider      | Categorie che iniziano con...          | Livello di registrazione minimo |
 | :----: | ------------- | --------------------------------------- | ----------------- |
 | 1      | Debug         | Tutte le categorie                          | Informazioni       |
 | 2      | Console       | Microsoft.AspNetCore.Mvc.Razor.Internal | Avviso           |
 | 3      | Console       | Microsoft.AspNetCore.Mvc.Razor.Razor    | Debug             |
-| 4      | Console       | Microsoft.AspNetCore.Mvc.Razor          | Errore             |
+| 4      | Console       | Microsoft.AspNetCore.Mvc.Razor          | Error             |
 | 5      | Console       | Tutte le categorie                          | Informazioni       |
 | 6      | Tutti i provider | Tutte le categorie                          | Debug             |
-| 7      | Tutti i provider | Sistema                                  | Debug             |
-| 8      | Debug         | Microsoft                               | Trace             |
+| 7      | Tutti i provider | System                                  | Debug             |
+| 8      | Debug         | Microsoft                               | Traccia             |
 
 Quando viene creato un oggetto `ILogger`, l'oggetto `ILoggerFactory` seleziona una singola regola per ogni provider da applicare al logger. Tutti i messaggi scritti da un'istanza di `ILogger` vengono filtrati in base alle regole selezionate. Tra le regole disponibili viene selezionata la regola più specifica possibile per ogni coppia di categoria e provider.
 

@@ -7,14 +7,20 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/25/2018
 uid: fundamentals/metapackage
-ms.openlocfilehash: 5d49213e6d694f121d8301c94ba71782b2dc45cf
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
-ms.translationtype: HT
+ms.openlocfilehash: 91f39fc59e5682fb19f8cbc6e9ebe5b30e5dcf3c
+ms.sourcegitcommit: 8a36be1bfee02eba3b07b7a86085ec25c38bae6b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65086942"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219142"
 ---
 # <a name="microsoftaspnetcoreall-metapackage-for-aspnet-core-20"></a>Metapacchetto Microsoft.AspNetCore.All per ASP.NET Core 2.0
+
+::: moniker range=">= aspnetcore-3.0"
+
+Il `Microsoft.AspNetCore.All` metapacchetto non è incluso in ASP.NET Core 3,0 e versioni successive. Per altre informazioni, vedere [questo problema su GitHub](https://github.com/aspnet/Announcements/issues/314).
+
+::: moniker-end
 
 > [!NOTE]
 > È consigliabile che le applicazioni destinate a ASP.NET Core 2.1 e versioni successive usino il [metapacchetto Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) invece di questo pacchetto. Vedere [Migrazione da Microsoft.AspNetCore.All a Microsoft.AspNetCore.App](#migrate) in questo articolo.

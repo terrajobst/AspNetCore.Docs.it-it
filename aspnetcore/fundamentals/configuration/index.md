@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/12/2019
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 0de2222e8072523ff0e5d261a9fe5ef8eb9a7606
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 357a3d89648086f0329cd16bc9d72863df9bdcd6
+ms.sourcegitcommit: 8a36be1bfee02eba3b07b7a86085ec25c38bae6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71081816"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71217793"
 ---
 # <a name="configuration-in-aspnet-core"></a>Configurazione in ASP.NET Core
 
@@ -98,7 +98,7 @@ La configurazione seguente si applica alle app che usano l'[host Web](xref:funda
 
 ::: moniker-end
 
-## <a name="security"></a>Security
+## <a name="security"></a>Sicurezza
 
 Per proteggere i dati di configurazione sensibili, adottare le pratiche seguenti:
 
@@ -168,7 +168,7 @@ public class IndexModel : PageModel
 
 I provider di configurazione non possono usare l'inserimento delle dipendenze, perché non è disponibile quando vengono configurati dall'host.
 
-### <a name="keys"></a>Chiavi
+### <a name="keys"></a>Tasti
 
 Le chiavi di configurazione adottano le convenzioni seguenti:
 
@@ -208,7 +208,7 @@ Le origini di configurazione vengono lette nell'ordine in cui vengono specificat
 Una sequenza tipica di provider di configurazione è:
 
 1. File (*appsettings.json*, *appsettings.{Environment}.json*, dove `{Environment}` è l'ambiente di hosting corrente dell'app)
-1. [Insieme di credenziali chiave Azure](xref:security/key-vault-configuration)
+1. [Insieme di credenziali delle chiavi di Azure](xref:security/key-vault-configuration)
 1. [Segreti utente (Secret Manager)](xref:security/app-secrets) (solo nell'ambiente di sviluppo)
 1. Variabili di ambiente
 1. Argomenti della riga di comando
@@ -226,7 +226,7 @@ Per configurare il generatore di host, chiamare <xref:Microsoft.Extensions.Hosti
 ```csharp
 public static IHostBuilder CreateHostBuilder(string[] args) =>
     Host.CreateDefaultBuilder(args)
-        .ConfigureHostConfiguration((hostingContext, config) =>
+        .ConfigureHostConfiguration(config =>
         {
             var dict = new Dictionary<string, string>
             {
@@ -621,7 +621,7 @@ L'app di esempio consente di sfruttare il metodo di servizio statico `CreateDefa
 | -------------------------- | :---------------: | :--------------: |
 | Logging:LogLevel:System    | Informazioni       | Informazioni      |
 | Logging:LogLevel:Microsoft | Informazioni       | Informazioni      |
-| Logging:LogLevel:Default   | Debug             | Errore            |
+| Logging:LogLevel:Default   | Debug             | Error            |
 | AllowedHosts               | *                 | *                |
 
 ### <a name="xml-configuration-provider"></a>Provider di configurazione XML
