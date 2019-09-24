@@ -5,17 +5,14 @@ description: Condividi controller, Visualizza, Razor Pages e altro con le parti 
 ms.author: riande
 ms.date: 05/14/2019
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: ad0372f25377115e6fc7c8ea42db75de56b3e6d2
-ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
+ms.openlocfilehash: 4b4c8c554a7045a180b56cf9998ab1a8496cde1b
+ms.sourcegitcommit: 79eeb17604b536e8f34641d1e6b697fb9a2ee21f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71187004"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71207345"
 ---
 # <a name="share-controllers-views-razor-pages-and-more-with-application-parts-in-aspnet-core"></a>Condividi controller, visualizzazioni, Razor Pages e altro con le parti dell'applicazione in ASP.NET Core
-=======
-
-<!-- DO NOT MAKE CHANGES BEFORE https://github.com/aspnet/AspNetCore.Docs/pull/12376 Merges -->
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -37,7 +34,7 @@ Il codice seguente offre un approccio alternativo alla configurazione `Applicati
 
 [!code-csharp[](./app-parts/sample1/WebAppParts/Startup2.cs?name=snippet)]
 
-I due esempi `SharedController` di codice precedenti caricano da un assembly. L' `SharedController` oggetto non è presente nel progetto di applicazione. Vedere il download dell'esempio di [soluzione WebAppParts](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample1/WebAppParts) .
+I due esempi `SharedController` di codice precedenti caricano da un assembly. L' `SharedController` oggetto non è presente nel progetto dell'applicazione. Vedere il download dell'esempio di [soluzione WebAppParts](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample1/WebAppParts) .
 
 ### <a name="include-views"></a>Includi visualizzazioni
 
@@ -46,14 +43,14 @@ Per includere le visualizzazioni nell'assembly:
 * Aggiungere il markup seguente al file di progetto condiviso:
 
   ```csproj
-    <ItemGroup>
-      <EmbeddedResource Include = "Views\**\*.cshtml" />
-    </ ItemGroup >
+  <ItemGroup>
+      <EmbeddedResource Include="Views\**\*.cshtml" />
+  </ItemGroup>
   ```
 
 * <xref:Microsoft.Extensions.FileProviders.EmbeddedFileProvider> Aggiungere<xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine>alla:
 
-[!code-csharp[](./app-parts/sample1/WebAppParts/StartupViews.cs?name=snippet&highlight=3-7)]
+  [!code-csharp[](./app-parts/sample1/WebAppParts/StartupViews.cs?name=snippet&highlight=3-7)]
 
 ### <a name="prevent-loading-resources"></a>Impedisci il caricamento delle risorse
 
@@ -63,8 +60,8 @@ Il codice seguente usa <xref:Microsoft.AspNetCore.Mvc.ApplicationParts> per rimu
 
 Include `ApplicationPartManager` le parti per:
 
-* Assembly di app e assembly dipendenti.
-* `Microsoft.AspNetCore.Mvc.TagHelpers`
+* Assembly dell'app e assembly dipendenti.
+* `Microsoft.AspNetCore.Mvc.TagHelpers`.
 * `Microsoft.AspNetCore.Mvc.Razor`.
 
 ## <a name="application-feature-providers"></a>Provider di funzionalità dell'applicazione
@@ -79,7 +76,7 @@ I provider di funzionalità ereditano da <xref:Microsoft.AspNetCore.Mvc.Applicat
 
 ### <a name="generic-controller-feature"></a>Funzionalità controller generico
 
-ASP.NET Core ignora i [controller generici](/dotnet/csharp/programming-guide/generics/generic-classes). Un controller generico ha un parametro di tipo (ad esempio `MyController<T>`,). Nell'esempio seguente vengono aggiunte istanze del controller generico per un elenco di tipi specificato.
+ASP.NET Core ignora i [controller generici](/dotnet/csharp/programming-guide/generics/generic-classes). Un controller generico ha un parametro di tipo (ad esempio `MyController<T>`,). Nell'esempio seguente vengono aggiunte istanze del controller generico per un elenco di tipi specificato:
 
 [!code-csharp[](./app-parts/sample2/AppPartsSample/GenericControllerFeatureProvider.cs?name=snippet)]
 
@@ -99,10 +96,34 @@ La classe `GenericController`:
 
 [!code-csharp[](./app-parts/sample2/AppPartsSample/GenericController.cs)]
 
+Ad esempio, la richiesta di un URL `https://localhost:5001/Sprocket` di restituisce la risposta seguente:
+
+```text
+Hello from a generic Sprocket controller.
+```
+
 ### <a name="display-available-features"></a>Visualizzare funzionalità disponibili
 
-Le funzionalità disponibili per un'app possono essere enumerate mediante la richiesta di un `ApplicationPartManager` [inserimento delle dipendenze](../../fundamentals/dependency-injection.md):
+Le funzionalità disponibili per un'app possono essere enumerate richiedendo un `ApplicationPartManager` inserimento delle [dipendenze](../../fundamentals/dependency-injection.md):
 
 [!code-csharp[](./app-parts/sample2/AppPartsSample/Controllers/FeaturesController.cs?highlight=16,25-27)]
 
-L' [esempio di download](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample2) usa il codice precedente per visualizzare le funzionalità dell'app.
+L' [esempio di download](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample2) usa il codice precedente per visualizzare le funzionalità dell'app:
+
+```text
+Controllers:
+    - FeaturesController
+    - HomeController
+    - HelloController
+    - GenericController`1
+    - GenericController`1
+Tag Helpers:
+    - PrerenderTagHelper
+    - AnchorTagHelper
+    - CacheTagHelper
+    - DistributedCacheTagHelper
+    - EnvironmentTagHelper
+    - Additional Tag Helpers omitted for brevity.
+View Components:
+    - SampleViewComponent
+```

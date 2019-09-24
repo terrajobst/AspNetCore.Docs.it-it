@@ -5,14 +5,14 @@ description: Scopri in che modo i componenti possono essere inclusi nelle app bl
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/13/2019
+ms.date: 09/23/2019
 uid: blazor/class-libraries
-ms.openlocfilehash: 91c4ffb29649c162fc15e5cb70dc60144b53afea
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: d9ef276357e95d97b7d89427c5e237aceea7a0d3
+ms.sourcegitcommit: 79eeb17604b536e8f34641d1e6b697fb9a2ee21f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71080659"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71207109"
 ---
 # <a name="aspnet-core-razor-components-class-libraries"></a>Librerie di classi dei componenti di ASP.NET Core Razor
 
@@ -33,16 +33,16 @@ Per configurare l'ambiente per <xref:blazor/get-started> blazer, seguire le istr
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 1. Creare un nuovo progetto.
-1. Selezionare **libreria di classi Razor**. Selezionare **Avanti**.
+1. Selezionare **libreria di classi Razor**. Scegliere **Avanti**.
 1. Nella finestra di dialogo **Crea una nuova libreria di classi Razor** selezionare **Crea**.
-1. Specificare il nome di un progetto nel campo **Nome progetto** oppure accettare il nome predefinito. Gli esempi in questo argomento usano il nome `MyComponentLib1`del progetto. Selezionare **Create**.
+1. Specificare il nome di un progetto nel campo **Nome progetto** oppure accettare il nome predefinito. Gli esempi in questo argomento usano il nome `MyComponentLib1`del progetto. Scegliere **Crea**.
 1. Aggiungere RCL a una soluzione:
    1. Fare clic con il pulsante destro del mouse sulla soluzione. Selezionare **Aggiungi** > **progetto esistente**.
    1. Passare al file di progetto di RCL.
    1. Selezionare il file di progetto di RCL (con*estensione csproj*).
 1. Aggiungere un riferimento a RCL dall'app:
    1. Fare clic con il pulsante destro del mouse sul progetto app. Selezionare **Aggiungi** > **riferimento**.
-   1. Selezionare il progetto RCL. Selezionare **OK**.
+   1. Selezionare il progetto RCL. Scegliere **OK**.
 
 # <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 

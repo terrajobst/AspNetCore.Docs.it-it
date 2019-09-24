@@ -5,14 +5,14 @@ description: Informazioni su come ridurre le minacce per la sicurezza alle app d
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/07/2019
+ms.date: 09/23/2019
 uid: security/blazor/server
-ms.openlocfilehash: 72788980ff7c7bd56f55e4e84d820a3684f7275e
-ms.sourcegitcommit: 092061c4f6ef46ed2165fa84de6273d3786fb97e
+ms.openlocfilehash: 706f504738d9c6e5af3c368c382424f2e206bcbf
+ms.sourcegitcommit: 79eeb17604b536e8f34641d1e6b697fb9a2ee21f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70964268"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211717"
 ---
 # <a name="secure-aspnet-core-blazor-server-apps"></a>Proteggere le app del server ASP.NET Core Blazer
 
@@ -91,7 +91,7 @@ Per impostazione predefinita, non esiste alcun limite al numero di connessioni p
 
 Gli attacchi di tipo Denial of Service (DoS) coinvolgono un client che induce il server a esaurire una o più risorse rendendo l'app non disponibile. Le app Server Blazer includono alcuni limiti predefiniti e si basano su altri limiti ASP.NET Core e SignalR per la protezione da attacchi DoS:
 
-| Limite app Server Blazer                            | DESCRIZIONE | Predefinito |
+| Limite app Server Blazer                            | Descrizione | Impostazione predefinita |
 | ------------------------------------------------------- | ----------- | ------- |
 | `CircuitOptions.DisconnectedCircuitMaxRetained`         | Numero massimo di circuiti disconnessi che un determinato server utilizza in memoria per volta. | 100 |
 | `CircuitOptions.DisconnectedCircuitRetentionPeriod`     | Quantità massima di tempo durante il quale un circuito disconnesso viene mantenuto in memoria prima di essere eliminato. | 3 minuti |
@@ -99,7 +99,7 @@ Gli attacchi di tipo Denial of Service (DoS) coinvolgono un client che induce il
 | `CircuitOptions.MaxBufferedUnacknowledgedRenderBatches` | Numero massimo di batch di rendering non riconosciuti che il server mantiene in memoria per ogni circuito in un determinato momento per supportare una riconnessione affidabile. Dopo aver raggiunto il limite, il server smette di produrre nuovi batch di rendering finché uno o più batch non sono stati riconosciuti dal client. | 10 |
 
 
-| SignalR e limite di ASP.NET Core             | Descrizione | Predefinito |
+| SignalR e limite di ASP.NET Core             | Descrizione | Impostazione predefinita |
 | ------------------------------------------ | ----------- | ------- |
 | `CircuitOptions.MaximumReceiveMessageSize` | Dimensioni del messaggio per un singolo messaggio. | 32 KB |
 
