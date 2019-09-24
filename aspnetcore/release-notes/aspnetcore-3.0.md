@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni sulle nuove funzionalità di ASP.NET Core 3,0.
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/20/2019
+ms.date: 09/23/2019
 uid: aspnetcore-3.0
-ms.openlocfilehash: 97703b8d67c148ef6b3ee4a93cdfc07ab970ecd4
-ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
+ms.openlocfilehash: 490d00da7282e2efe28fcc52e593dd71d7324d3f
+ms.sourcegitcommit: 0365af91518004c4a44a30dc3a8ac324558a399b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/23/2019
-ms.locfileid: "71187488"
+ms.locfileid: "71198984"
 ---
 # <a name="whats-new-in-aspnet-core-30"></a>Novità di ASP.NET Core 3,0
 
@@ -487,6 +487,17 @@ Per altre informazioni, vedere:
 Nelle versioni precedenti di ASP.NET Core, la <xref:Microsoft.AspNetCore.Builder.HstsBuilderExtensions.UseHsts*> chiamata <xref:Microsoft.AspNetCore.Builder.HttpsPolicyBuilderExtensions.UseHttpsRedirection*> di e risultava problematica quando veniva distribuita in un Linux di Azure o dietro qualsiasi proxy inverso diverso da IIS. La correzione per le versioni precedenti è documentata in [inoltro dello schema per i proxy inversi di Linux e non IIS](xref:host-and-deploy/proxy-load-balancer#forward-the-scheme-for-linux-and-non-iis-reverse-proxies).
 
 Questo scenario è stato risolto in ASP.NET Core 3,0. L'host Abilita il [middleware delle intestazioni con inoltri](xref:host-and-deploy/proxy-load-balancer#forwarded-headers-middleware-options) quando la `ASPNETCORE_FORWARDEDHEADERS_ENABLED` variabile di ambiente `true`è impostata su. `ASPNETCORE_FORWARDEDHEADERS_ENABLED`viene impostato su `true` nelle immagini del contenitore.
+
+## <a name="performance-improvements"></a>Miglioramenti delle prestazioni
+
+ASP.NET Core 3,0 include numerosi miglioramenti che consentono di ridurre l'utilizzo della memoria e migliorare la velocità effettiva:
+
+* Riduzione dell'utilizzo della memoria quando si utilizza il contenitore incorporato di inserimento delle dipendenze per i servizi con ambito.
+* Riduzione delle allocazioni nel Framework, inclusi gli scenari middleware e il routing.
+* Riduzione dell'utilizzo della memoria per le connessioni WebSocket.
+* Miglioramenti della velocità effettiva e della riduzione della memoria per le connessioni HTTPS.
+* Nuovo serializzatore JSON ottimizzato e completamente asincrono.
+* Riduzione dell'utilizzo della memoria e miglioramento della velocità effettiva nell'analisi dei moduli.
 
 ## <a name="aspnet-core-30-only-runs-on-net-core-30"></a>ASP.NET Core 3,0 viene eseguito solo in .NET Core 3,0
 
