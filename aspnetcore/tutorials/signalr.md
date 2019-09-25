@@ -4,14 +4,14 @@ author: bradygaster
 description: In questa esercitazione viene creata un'app di chat che usa ASP.NET Core SignalR.
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 07/08/2019
+ms.date: 09/24/2019
 uid: tutorials/signalr
-ms.openlocfilehash: 2dfa994b9763a0139cb70cbf9847ac3b02b568e4
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 7a6574bd3c463f0890f5dc076944f1ab0f0c919a
+ms.sourcegitcommit: e54672f5c493258dc449fac5b98faf47eb123b28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71081976"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71248403"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Esercitazione: Introduzione ad ASP.NET Core SignalR
 
@@ -210,7 +210,7 @@ Un *hub* è una classe usata come pipeline di alto livello che gestisce le comun
   * Aggiunge al pulsante di invio un gestore che invia messaggi all'hub.
   * Aggiunge all'oggetto connessione un gestore che riceve i messaggi dall'hub e li aggiunge all'elenco.
 
-## <a name="run-the-app"></a>Esecuzione dell'app
+## <a name="run-the-app"></a>Eseguire l'app
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -321,7 +321,7 @@ Al termine, si disporrà di un'app di chat funzionante:
 
 * Selezionare **.NET Core > App > App Web ASP.NET Core** (non selezionare **App Web ASP.NET Core (MVC)** ).
 
-* Selezionare **Avanti**.
+* Scegliere **Avanti**.
 
 * Assegnare al progetto il nome *SignalRChat* e quindi selezionare **Crea**.
 
@@ -453,7 +453,7 @@ Un *hub* è una classe usata come pipeline di alto livello che gestisce le comun
   * Aggiunge al pulsante di invio un gestore che invia messaggi all'hub.
   * Aggiunge all'oggetto connessione un gestore che riceve i messaggi dall'hub e li aggiunge all'elenco.
 
-## <a name="run-the-app"></a>Esecuzione dell'app
+## <a name="run-the-app"></a>Eseguire l'app
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -484,6 +484,10 @@ Un *hub* è una classe usata come pipeline di alto livello che gestisce le comun
 > [!TIP]
 > Se l'app non funziona, aprire gli strumenti di sviluppo (F12) del browser e passare alla console. È possibile che vengano visualizzati errori correlati al codice HTML e JavaScript. Ad esempio, si supponga di aver inserito *signalr.js* in una cartella diversa da quella indicata nelle istruzioni. In questo caso il riferimento a tale file non funzionerà e verrà visualizzato un errore 404 nella console.
 > ![Errore di signalr.js non trovato](signalr/_static/2.x/f12-console.png)
+
+## <a name="additional-resources"></a>Risorse aggiuntive
+
+* [Versione YouTube dell'esercitazione](https://www.youtube.com/watch?v=iKlVmu-r0JQ)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

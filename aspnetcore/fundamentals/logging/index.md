@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/11/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 90b439603dd51ff02e40045b9420876d7200bef1
-ms.sourcegitcommit: 8a36be1bfee02eba3b07b7a86085ec25c38bae6b
+ms.openlocfilehash: 2d517a89c6002b5c85e98128605f95585354f8db
+ms.sourcegitcommit: e54672f5c493258dc449fac5b98faf47eb123b28
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219167"
+ms.locfileid: "71248249"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>Registrazione in .NET Core e ASP.NET Core
 
@@ -936,7 +936,7 @@ Alcuni framework di terze parti possono eseguire la [registrazione semantica, no
 L'uso di un framework di terze parti è simile a quello di uno dei provider predefiniti:
 
 1. Aggiungere un pacchetto NuGet al progetto.
-1. Chiamare un oggetto `ILoggerFactory`.
+1. Chiamare un `ILoggerFactory` metodo di estensione fornito dal framework di registrazione.
 
 Per altre informazioni, vedere la documentazione di ogni provider. I provider di registrazione di terze parti non sono supportati da Microsoft.
 

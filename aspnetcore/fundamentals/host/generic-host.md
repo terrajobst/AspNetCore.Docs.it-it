@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/01/2019
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: 261abae499a0d5f807a14aebd224949881067bc7
-ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
+ms.openlocfilehash: 75af6dc58d31aaad888b14640268bf05c193272d
+ms.sourcegitcommit: e54672f5c493258dc449fac5b98faf47eb123b28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773807"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71248283"
 ---
 # <a name="net-generic-host"></a>Host generico .NET
 
@@ -113,7 +113,7 @@ I servizi che vengono registrati automaticamente includono:
 * [IHostLifetime](#ihostlifetime)
 * [IHostEnvironment / IWebHostEnvironment](#ihostenvironment)
 
-Per un elenco di tutti i servizi forniti dal framework, vedere <xref:fundamentals/dependency-injection#framework-provided-services>.
+Per ulteriori informazioni sui servizi forniti dal Framework, vedere <xref:fundamentals/dependency-injection#framework-provided-services>.
 
 ## <a name="ihostapplicationlifetime"></a>IHostApplicationLifetime
 
@@ -422,7 +422,7 @@ Chiamare metodi sull'implementazione <xref:Microsoft.Extensions.Hosting.IHost> i
 
 <xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.RunConsoleAsync*> abilita il supporto della console, compila e avvia l'host e resta in ascolto di CTRL+C/SIGINT o SIGTERM per eseguire l'arresto.
 
-### <a name="start"></a>Start
+### <a name="start"></a>Inizia
 
 <xref:Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Start*> avvia l'host in modo sincrono.
 
