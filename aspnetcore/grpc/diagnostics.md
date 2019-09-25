@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
 ms.date: 09/23/2019
 uid: grpc/diagnostics
-ms.openlocfilehash: ce6ad96d9e26c9cd3844093536745f8f9bea4a76
-ms.sourcegitcommit: 0365af91518004c4a44a30dc3a8ac324558a399b
+ms.openlocfilehash: 7194e91b40a08c4a7ee619b8f207900af2683aa1
+ms.sourcegitcommit: fae6f0e253f9d62d8f39de5884d2ba2b4b2a6050
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71204345"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71250729"
 ---
 # <a name="logging-and-diagnostics-in-grpc-on-net"></a>Registrazione e diagnostica in gRPC in .NET
 
@@ -28,11 +28,11 @@ Poiché i servizi gRPC sono ospitati in ASP.NET Core, viene usato il sistema di 
 
 gRPC aggiunge i `Grpc` log nella categoria. Per abilitare i log dettagliati da gRPC, `Grpc` configurare i prefissi `Debug` per il livello nel file *appSettings. JSON* aggiungendo gli elementi seguenti alla `LogLevel` sottosezione in: `Logging`
 
-[!code-json[](diagnostics/logging-config.json?highlight=7)]
+[!code-json[](diagnostics/sample/logging-config.json?highlight=7)]
 
 È anche possibile configurarlo in startup.cs `ConfigureLogging`con:
 
-[!code-csharp[](diagnostics/logging-config-code.cs?highlight=5)]
+[!code-csharp[](diagnostics/sample/logging-config-code.cs?highlight=5)]
 
 Se non si usa la configurazione basata su JSON, impostare il valore di configurazione seguente nel sistema di configurazione:
 
@@ -46,7 +46,7 @@ Controllare la documentazione del sistema di configurazione per determinare come
 
 Di seguito è riportato un esempio di output della `Debug` console al livello di un servizio gRPC:
 
-```
+```console
 info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
       Request starting HTTP/2 POST https://localhost:5001/Greet.Greeter/SayHello application/grpc
 info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
@@ -82,19 +82,19 @@ Se l'app viene distribuita in un altro ambiente, ad esempio Docker, Kubernetes o
 
 Per ottenere i log dal client .NET, è possibile impostare la `GrpcChannelOptions.LoggerFactory` proprietà quando viene creato il canale del client. Se si chiama un servizio gRPC da un'app ASP.NET Core, la factory del logger può essere risolta dall'inserimento delle dipendenze (DI):
 
-[!code-csharp[](diagnostics/net-client-dependency-injection.cs?highlight=7,16)]
+[!code-csharp[](diagnostics/sample/net-client-dependency-injection.cs?highlight=7,16)]
 
 Un modo alternativo per abilitare la registrazione client consiste nell'usare la [Factory client gRPC](xref:grpc/clientfactory) per creare il client. Un client DI gRPC registrato con la factory client ed è stato risolto da DI, userà automaticamente la registrazione configurata dell'app.
 
 Se l'app non USA di, è possibile creare una nuova `ILoggerFactory` istanza con [LoggerFactory. Create](xref:Microsoft.Extensions.Logging.LoggerFactory.Create*). Per accedere a questo metodo, aggiungere il pacchetto [Microsoft. Extensions. Logging](https://www.nuget.org/packages/microsoft.extensions.logging/) all'app.
 
-[!code-csharp[](diagnostics/net-client-loggerfactory-create.cs?highlight=1,8)]
+[!code-csharp[](diagnostics/sample/net-client-loggerfactory-create.cs?highlight=1,8)]
 
 ### <a name="sample-logging-output"></a>Esempio di output di registrazione
 
 Di seguito è riportato un esempio di output della `Debug` console a livello di client gRPC:
 
-```
+```console
 dbug: Grpc.Net.Client.Internal.GrpcCall[1]
       Starting gRPC call. Method type: 'Unary', URI: 'https://localhost:5001/Greet.Greeter/SayHello'.
 dbug: Grpc.Net.Client.Internal.GrpcCall[6]

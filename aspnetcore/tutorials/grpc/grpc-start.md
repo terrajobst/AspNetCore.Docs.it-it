@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 8/26/2019
 uid: tutorials/grpc/grpc-start
-ms.openlocfilehash: 924aa3880fc7f2aa777d4ab2e5ea3bed38e227d4
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 8c0f57e69d4cdee5b5f5510d7db04991ed6df475
+ms.sourcegitcommit: fae6f0e253f9d62d8f39de5884d2ba2b4b2a6050
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71081200"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71250830"
 ---
 # <a name="tutorial-create-a-grpc-client-and-server-in-aspnet-core"></a>Esercitazione: Creare un client e un server gRPC in ASP.NET Core
 
@@ -56,10 +56,10 @@ Le attività di questa esercitazione sono le seguenti:
   ![Finestra di dialogo **Crea un nuovo progetto**](~/tutorials/grpc/grpc-start/static/cnp.png)
 
 * Denominare il progetto **GrpcGreeter**. È importante denominare il progetto *GrpcGreeter* in modo che gli spazi dei nomi corrispondano nell'operazione copia/incolla del codice.
-* Selezionare **Create**.
+* Scegliere **Crea**.
 * Nella finestra di dialogo **Crea un nuovo servizio gRPC**:
   * È selezionato il modello **Servizio gRPC**.
-  * Selezionare **Create**.
+  * Scegliere **Crea**.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -183,9 +183,9 @@ Installare i pacchetti tramite la Console di gestione pacchetti (PMC) o Gestisci
 * Eseguire i comandi seguenti:
 
   ```powershell
-  Install-Package Grpc.Net.Client -prerelease
-  Install-Package Google.Protobuf -prerelease
-  Install-Package Grpc.Tools -prerelease
+  Install-Package Grpc.Net.Client
+  Install-Package Google.Protobuf
+  Install-Package Grpc.Tools
   ```
 
 #### <a name="manage-nuget-packages-option-to-install-packages"></a>Opzione Gestisci pacchetti NuGet per installare i pacchetti

@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 09/03/2019
 uid: grpc/aspnetcore
-ms.openlocfilehash: 28e6b8589bbe0b6a3723b64736c723c883302571
-ms.sourcegitcommit: e6bd2bbe5683e9a7dbbc2f2eab644986e6dc8a87
+ms.openlocfilehash: 18a6dd2ddd4f3c3c4466e3b96dd1748fd0972e39
+ms.sourcegitcommit: fae6f0e253f9d62d8f39de5884d2ba2b4b2a6050
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70238167"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71250794"
 ---
 # <a name="grpc-services-with-aspnet-core"></a>Servizi gRPC con ASP.NET Core
 
@@ -67,7 +67,7 @@ ASP.NET Core middleware e funzionalità condividono la pipeline di routing, di c
 Endpoint gRPC di Gheppio:
 
 * Richiedi HTTP/2.
-* Deve essere protetto con HTTPS.
+* Deve essere protetto con [Transport Layer Security (TLS)](https://tools.ietf.org/html/rfc5246).
 
 #### <a name="http2"></a>HTTP/2
 
@@ -75,62 +75,32 @@ gRPC richiede HTTP/2. gRPC per ASP.NET Core convalida [HttpRequest. Protocol](xr
 
 Gheppio [supporta http/2](xref:fundamentals/servers/kestrel#http2-support) nei sistemi operativi più recenti. Per impostazione predefinita, gli endpoint gheppio sono configurati per supportare connessioni HTTP/1.1 e HTTP/2.
 
-#### <a name="https"></a>HTTPS
+#### <a name="tls"></a>TLS
 
-Gli endpoint gheppio usati per gRPC devono essere protetti con HTTPS. Durante lo sviluppo, viene creato automaticamente un endpoint HTTPS `https://localhost:5001` quando è presente il certificato di sviluppo ASP.NET Core. Non è necessaria alcuna configurazione.
+Gli endpoint gheppio usati per gRPC devono essere protetti con TLS. In fase di sviluppo, un endpoint protetto con TLS viene creato `https://localhost:5001` automaticamente in corrispondenza del momento in cui è presente il certificato di sviluppo ASP.NET Core. Non è necessaria alcuna configurazione. Un `https` prefisso verifica che l'endpoint gheppio stia usando TLS.
 
-Nell'ambiente di produzione, HTTPS deve essere configurato in modo esplicito. Nell'esempio *appSettings. JSON* seguente viene fornito un endpoint HTTP/2 protetto con https:
+In produzione, è necessario configurare in modo esplicito TLS. Nell'esempio *appSettings. JSON* seguente viene fornito un endpoint HTTP/2 protetto con TLS:
 
-```json
-{
-  "Kestrel": {
-    "Endpoints": {
-      "HttpsDefaultCert": {
-        "Url": "https://localhost:5001",
-        "Protocols": "Http2"
-      }
-    },
-    "Certificates": {
-      "Default": {
-        "Path": "<path to .pfx file>",
-        "Password": "<certificate password>"
-      }
-    }
-  }
-}
-```
+[!code-json[](~/grpc/aspnetcore/sample/appsettings.json?highlight=4)]
 
 In alternativa, è possibile configurare gli endpoint gheppio in *Program.cs*:
 
-```csharp
-public static IHostBuilder CreateHostBuilder(string[] args) =>
-    Host.CreateDefaultBuilder(args)
-        .ConfigureWebHostDefaults(webBuilder =>
-        {
-            webBuilder.ConfigureKestrel(options =>
-            {
-                // This endpoint will use HTTP/2 and HTTPS on port 5001.
-                options.Listen(IPAddress.Any, 5001, listenOptions =>
-                {
-                    listenOptions.Protocols = HttpProtocols.Http2;
-                    listenOptions.UseHttps("<path to .pfx file>", 
-                        "<certificate password>");
-                });
-            });
-            webBuilder.UseStartup<Startup>();
-        });
-```
+[!code-csharp[](~/grpc/aspnetcore/sample/Program.cs?highlight=7&name=snippet)]
 
-Quando un endpoint HTTP/2 viene configurato senza HTTPS, l'endpoint [ListenOptions. Protocols](xref:fundamentals/servers/kestrel#listenoptionsprotocols) deve essere impostato su `HttpProtocols.Http2`. `HttpProtocols.Http1AndHttp2`non può essere usato perché HTTPS è necessario per negoziare HTTP/2. Senza HTTPS, tutte le connessioni all'endpoint vengono predefinite a HTTP/1.1 e le chiamate a gRPC hanno esito negativo.
+#### <a name="protocol-negotiation"></a>Negoziazione del protocollo
 
-Per ulteriori informazioni sull'abilitazione di HTTP/2 e HTTPS con gheppio, vedere la pagina relativa alla [configurazione dell'endpoint gheppio](xref:fundamentals/servers/kestrel#endpoint-configuration).
+TLS viene usato per una maggiore sicurezza della comunicazione. L'handshake TLS [(ALPN)](https://tools.ietf.org/html/rfc7301#section-3) viene utilizzato per negoziare il protocollo di connessione tra il client e il server quando un endpoint supporta più protocolli. Questa negoziazione determina se la connessione utilizza HTTP/1.1 o HTTP/2.
+
+Se un endpoint HTTP/2 viene configurato senza TLS, l'endpoint [ListenOptions. Protocols](xref:fundamentals/servers/kestrel#listenoptionsprotocols) deve essere impostato su `HttpProtocols.Http2`. Un endpoint con più protocolli (ad esempio, `HttpProtocols.Http1AndHttp2`) non può essere usato senza TLS perché non esiste alcuna negoziazione. Per impostazione predefinita, tutte le connessioni all'endpoint non protetto sono HTTP/1.1 e le chiamate a gRPC hanno esito negativo.
+
+Per ulteriori informazioni sull'abilitazione di HTTP/2 e TLS con gheppio, vedere la pagina relativa alla [configurazione dell'endpoint gheppio](xref:fundamentals/servers/kestrel#endpoint-configuration).
 
 > [!NOTE]
-> macOS non supporta ASP.NET Core gRPC con [Transport Layer Security (TLS)](https://tools.ietf.org/html/rfc5246). Per eseguire correttamente i servizi gRPC in macOS, è necessaria una configurazione aggiuntiva. Per altre informazioni, vedere [Non è possibile avviare un'app ASP.NET Core gRPC in macOS](xref:grpc/troubleshoot#unable-to-start-aspnet-core-grpc-app-on-macos).
+> macOS non supporta ASP.NET Core gRPC con TLS. Per eseguire correttamente i servizi gRPC in macOS, è necessaria una configurazione aggiuntiva. Per altre informazioni, vedere [Non è possibile avviare un'app ASP.NET Core gRPC in macOS](xref:grpc/troubleshoot#unable-to-start-aspnet-core-grpc-app-on-macos).
 
 ## <a name="integration-with-aspnet-core-apis"></a>Integrazione con API ASP.NET Core
 
-i servizi gRPC hanno accesso completo alle funzionalità di ASP.NET Core come l' [inserimento delle dipendenze](xref:fundamentals/dependency-injection) e la [registrazione](xref:fundamentals/logging/index). Ad esempio, l'implementazione del servizio può risolvere un servizio logger dal contenitore DI inserimento delle dipendenze tramite il costruttore:
+i servizi gRPC hanno accesso completo alle funzionalità di ASP.NET Core come l' [inserimento](xref:fundamentals/dependency-injection) delle dipendenze e la [registrazione](xref:fundamentals/logging/index). Ad esempio, l'implementazione del servizio può risolvere un servizio logger dal contenitore DI inserimento delle dipendenze tramite il costruttore:
 
 ```csharp
 public class GreeterService : Greeter.GreeterBase

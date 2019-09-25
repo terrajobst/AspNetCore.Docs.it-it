@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 09/19/2019
 uid: razor-pages/index
-ms.openlocfilehash: 7e27bbc84816bd282b2b8de936772eb5c597d74f
-ms.sourcegitcommit: 79eeb17604b536e8f34641d1e6b697fb9a2ee21f
+ms.openlocfilehash: bccdd7e5c1c90dd76ca1b788dbf09000c5cbe14b
+ms.sourcegitcommit: fae6f0e253f9d62d8f39de5884d2ba2b4b2a6050
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71207381"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71256184"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introduzione a Razor Pages in ASP.NET Core
 
@@ -281,7 +281,9 @@ Il codice precedente:
   * Convalida lato client.
   * Rendering degli errori di convalida.
 
-* Genera il codice HTML seguente:[!code-cshtml[](index/3.0sample/RazorPagesContacts/Pages/Customers/Create5.html)]
+* Viene generato il codice HTML seguente:
+
+  [!code-cshtml[](index/3.0sample/RazorPagesContacts/Pages/Customers/Create5.html)]
 
 Se si pubblica il modulo di creazione senza un valore di nome, viene visualizzato il messaggio di errore "il campo nome è obbligatorio". nel form. Se JavaScript è abilitato nel client, il browser Visualizza l'errore senza inviare al server.
 
@@ -396,7 +398,9 @@ Lo spazio dei nomi generato per la pagina Razor *Pages/Customers/Edit.cshtml* co
 
 `@namespace` *Funziona anche con le normali visualizzazioni Razor.*
 
-Si consideri il file di visualizzazione *pages/create. cshtml* :[!code-cshtml[](index/3.0sample/RazorPagesContacts/Pages/Customers/Create3.cshtml?highlight=2-3)]
+Si consideri il file di visualizzazione *pages/create. cshtml* :
+
+[!code-cshtml[](index/3.0sample/RazorPagesContacts/Pages/Customers/Create3.cshtml?highlight=2-3)]
 
 Il file di visualizzazione *pages/create. cshtml* aggiornato con *_ViewImports. cshtml* e il file di layout precedente:
 
