@@ -5,12 +5,12 @@ description: Illustra come aggiungere la funzionalità di ricerca alle pagine Ra
 ms.author: riande
 ms.date: 7/23/2019
 uid: tutorials/razor-pages/search
-ms.openlocfilehash: d1aa3f914ebcab4d095b6fca1dac3cf44855d516
-ms.sourcegitcommit: 16502797ea749e2690feaa5e652a65b89c007c89
-ms.translationtype: HT
+ms.openlocfilehash: fde99d8fab00265294bccb2ecdb380d02a8f3673
+ms.sourcegitcommit: a7813a776809a5029c94aa503ee71994f156231f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68483291"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71267759"
 ---
 # <a name="add-search-to-aspnet-core-razor-pages"></a>Aggiungere la funzionalità di ricerca a pagine Razor in ASP.NET Core
 
@@ -209,6 +209,7 @@ Aggiornare *Index.cshtml* come indicato di seguito:
 [!code-cshtml[](razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/IndexFormGenreNoRating.cshtml?highlight=16-18&range=1-26)]
 
 Eseguire il test dell'app effettuando una ricerca per genere, titolo del film e usando entrambi i filtri.
+Il codice precedente usa l'helper [tag SELECT](xref:mvc/views/working-with-forms#the-select-tag-helper) e l'helper tag option.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
