@@ -576,9 +576,9 @@
       uid: grpc/diagnostics
     - name: Considerazioni sulla sicurezza
       uid: grpc/security
-    - name: Eseguire la migrazione di servizi gRPC da C Core
+    - name: Eseguire la migrazione di servizi gRPC da C-core
       uid: grpc/migration
-    - name: Confronto tra servizi gRPC e API HTTP
+    - name: Confrontare servizi gRPC e API HTTP
       uid: grpc/comparison
     - name: Esempi
       href: 'https://github.com/grpc/grpc-dotnet/tree/master/examples'

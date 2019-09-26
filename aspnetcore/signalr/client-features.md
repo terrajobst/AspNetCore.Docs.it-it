@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 09/18/2019
 uid: signalr/client-features
-ms.openlocfilehash: 55086673e0c9f9b73f07730ea25c3fa322f7fd98
-ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
+ms.openlocfilehash: 2d6759a5484c37aee6db3d22b3127414231605ae
+ms.sourcegitcommit: 14b25156e34c82ed0495b4aff5776ac5b1950b5e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71187467"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71301182"
 ---
 # <a name="aspnet-core-signalr-client-features"></a>Funzionalità client di ASP.NET Core SignalR
 
@@ -20,11 +20,19 @@ ms.locfileid: "71187467"
 
 La tabella seguente illustra le funzionalità e il supporto per i client che offrono il supporto in tempo reale.
 
-| Funzionalità | .NET Core | JavaScript | Java |
+| Funzionalità | .NET | JavaScript | Java |
 | ---- | :-: | :-: | :-: |
+| Supporto del servizio Azure SignalR |✔|✔|✔|
 | [Streaming da server a client](xref:signalr/streaming)          |✔|✔|✔|
 | [Streaming da client a server](xref:signalr/streaming)          |✔|✔|✔|
 | Riconnessione automatica ([.NET](/aspnet/core/signalr/dotnet-client?view=aspnetcore-3.0&tabs=visual-studio#handle-lost-connection), [JavaScript](/aspnet/core/signalr/javascript-client?view=aspnetcore-3.0#reconnect-clients))          |✔|✔| |
+| Trasporto WebSocket |✔|✔|✔|
+| Trasporto eventi inviati dal server |✔|✔| |
+| Trasporto di polling prolungato |✔|✔|✔|
+| Protocollo dell'hub JSON |✔|✔|✔|
+| Protocollo hub MessagePack |✔|✔| |
+
+Il supporto per la riconnessione automatica nel client Java viene registrato nello strumento di [rilevamento dei problemi](https://github.com/aspnet/AspNetCore/issues/8711).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
