@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/27/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 6f6240084f6dee1fa4b9ae7efb7748a129d5ed37
-ms.sourcegitcommit: 14b25156e34c82ed0495b4aff5776ac5b1950b5e
-ms.translationtype: HT
+ms.openlocfilehash: 5e5215f246c6c7a805a4c99f485d51a2fb3c712d
+ms.sourcegitcommit: cf9ffcce4fe0b69fe795aae9ae06e99fdb18bdfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/26/2019
-ms.locfileid: "71301215"
+ms.locfileid: "71306670"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Esercitazione: Creare un'API Web con ASP.NET Core
 
@@ -71,7 +71,7 @@ Il diagramma seguente visualizza la struttura dell'app.
 * Scegliere **Nuovo** > **Progetto** dal menu **File**.
 * Selezionare il modello **Applicazione Web ASP.NET Core** e fare clic su **Avanti**.
 * Assegnare al progetto il nome *TodoApi* e fare clic su **Crea**.
-* Nella finestra di dialogo **Crea una nuova applicazione Web ASP.NET Core** verificare che siano selezionati **.NET Core** e **ASP.NET Core 3.0**. Selezionare il modello **API** e fare clic su **Crea**. **Non** selezionare **Abilita supporto Docker**.
+* Nella finestra di dialogo **Crea una nuova applicazione Web ASP.NET Core** verificare che siano selezionati **.NET Core** e **ASP.NET Core 3.0**. Selezionare il modello **API** e fare clic su **Crea**.
 
 ![Finestra di dialogo Nuovo progetto di Visual Studio](first-web-api/_static/vs3.png)
 
@@ -227,9 +227,8 @@ Il *contesto di database* è la classe principale che coordina le funzionalità 
 ### <a name="add-microsoftentityframeworkcoresqlserver"></a>Aggiungere Microsoft.EntityFrameworkCore.SqlServer
 
 * Dal menu **Strumenti** selezionare **Gestione pacchetti NuGet > Gestisci pacchetti NuGet per la soluzione**.
-* Selezionare la casella di controllo **Includi versione preliminare**.
 * Selezionare la scheda **Esplora** e quindi immettere **Microsoft.EntityFrameworkCore.SqlServer** nella casella di ricerca.
-* Selezionare **Microsoft.EntityFrameworkCore.SqlServer V3.0.0-preview** nel riquadro sinistro.
+* Nel riquadro sinistro selezionare **Microsoft. EntityFrameworkCore. SqlServer** .
 * Selezionare la casella di controllo **Progetto** nel riquadro di destra e quindi selezionare **Installa**.
 * Usare le istruzioni precedenti per aggiungere il pacchetto NuGet `Microsoft.EntityFrameworkCore.InMemory`.
 
