@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/14/2019
 uid: security/enforcing-ssl
-ms.openlocfilehash: eafb06d181ca3f085cccb314749c8d4deba074fa
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: aa42b1c7199e951714be809de9c9c5f857473485
+ms.sourcegitcommit: 994da92edb0abf856b1655c18880028b15a28897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082566"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71278759"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Applicare HTTPS in ASP.NET Core
 
@@ -362,6 +362,58 @@ Il sottosistema Windows per Linux (WSL) genera un certificato autofirmato HTTPS.
 * In una finestra di WSL eseguire il comando seguente:`ASPNETCORE_Kestrel__Certificates__Default__Password="<cryptic-password>" ASPNETCORE_Kestrel__Certificates__Default__Path=/mnt/c/Users/user-name/.aspnet/https/aspnetapp.pfx dotnet watch run`
 
   Il comando precedente imposta le variabili di ambiente in modo che Linux usi il certificato attendibile di Windows.
+
+## <a name="troubleshoot-certificate-problems"></a>Risolvere i problemi relativi ai certificati
+
+Questa sezione fornisce assistenza quando il certificato di sviluppo ASP.NET Core HTTPS è stato [installato e considerato attendibile](#trust), ma sono ancora presenti avvisi del browser che non sono attendibili per il certificato.
+
+### <a name="all-platforms---certificate-not-trusted"></a>Tutte le piattaforme-certificato non attendibile
+
+Eseguire i comandi seguenti:
+
+```dotnetcli
+dotnet devcerts https --clean
+dotnet devcerts https --trust
+```
+
+Chiude tutte le istanze del browser aperte. Aprire una nuova finestra del browser per l'app. Il trust tra certificati viene memorizzato nella cache dai browser.
+
+I comandi precedenti risolvono la maggior parte dei problemi di attendibilità del browser. Se il browser non considera ancora attendibile il certificato, attenersi ai suggerimenti specifici della piattaforma seguenti.
+
+### <a name="docker---certificate-not-trusted"></a>Docker: certificato non attendibile
+
+* Eliminare la *cartella\{C:\Users utente} \AppData\Roaming\ASP.NET\Https*
+* Pulire la soluzione. Eliminare le cartelle *bin* e *obj*.
+* Riavviare lo strumento di sviluppo. Ad esempio, Visual Studio, Visual Studio Code o Visual Studio per Mac.
+
+### <a name="windows---certificate-not-trusted"></a>Windows: certificato non attendibile
+
+* Controllare i certificati nell'archivio certificati. Deve essere presente un `localhost` certificato con il `ASP.NET Core HTTPS development certificate` nome descrittivo `Current User > Personal > Certificates` in e`Current User > Trusted root certification authorities > Certificates`
+* Rimuovere tutti i certificati trovati dalle autorità di certificazione radice personali e attendibili. Non **rimuovere il** certificato localhost IIS Express.
+* Eseguire i comandi seguenti:
+
+```dotnetcli
+dotnet devcerts https --clean
+dotnet devcerts https --trust
+```
+
+Chiude tutte le istanze del browser aperte. Aprire una nuova finestra del browser per l'app.
+
+### <a name="os-x---certificate-not-trusted"></a>OS X-certificato non attendibile
+
+* Aprire l'accesso keychain.
+* Selezionare il keychain di sistema.
+* Verificare la presenza di un certificato localhost.
+* Verificare che contenga un `+` simbolo sull'icona per indicare l'attendibilità per tutti gli utenti.
+* Rimuovere il certificato dal keychain di sistema.
+* Eseguire i comandi seguenti:
+
+```dotnetcli
+dotnet devcerts https --clean
+dotnet devcerts https --trust
+```
+
+Chiude tutte le istanze del browser aperte. Aprire una nuova finestra del browser per l'app.
 
 ## <a name="additional-information"></a>Informazioni aggiuntive
 
