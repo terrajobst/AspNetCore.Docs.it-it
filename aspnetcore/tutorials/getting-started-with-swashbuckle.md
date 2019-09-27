@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/21/2019
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: f538b06d2245400e234dadc2fd93c8aef94743ff
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: b96d15e732b78fd834e16347739b5a3a2ba2e98d
+ms.sourcegitcommit: e644258c95dd50a82284f107b9bf3becbc43b2b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71081203"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71317781"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Introduzione a Swashbuckle e ad ASP.NET Core
 
@@ -39,7 +39,7 @@ Esistono tre componenti principali di Swashbuckle:
   * Eseguire il seguente comando:
 
     ```powershell
-    Install-Package Swashbuckle.AspNetCore -Version 5.0.0-rc2
+    Install-Package Swashbuckle.AspNetCore -Version 5.0.0-rc3
     ```
 
 * Dalla finestra di dialogo **Gestisci pacchetti NuGet**:
@@ -62,7 +62,7 @@ Esistono tre componenti principali di Swashbuckle:
 Eseguire il comando seguente da **Terminale integrato**:
 
 ```dotnetcli
-dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.0.0-rc2
+dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.0.0-rc3
 ```
 
 ### <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
@@ -70,7 +70,7 @@ dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.0.0-rc2
 Eseguire il comando seguente:
 
 ```dotnetcli
-dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.0.0-rc2
+dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.0.0-rc3
 ```
 
 ---

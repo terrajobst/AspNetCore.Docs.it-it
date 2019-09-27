@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/22/2019
 uid: getting-started
-ms.openlocfilehash: 0f05ab120d64832a4bc2fd70921efc7238ee9eac
-ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
+ms.openlocfilehash: c9cd5e05f52c8bdefa931adc654087dac91e2f05
+ms.sourcegitcommit: e644258c95dd50a82284f107b9bf3becbc43b2b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71187066"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71317757"
 ---
 # <a name="tutorial-get-started-with-aspnet-core"></a>Esercitazione: Introduzione ad ASP.NET Core
 
@@ -84,24 +84,24 @@ Vedere la documentazione della distribuzione di Linux su come rendere attendibil
 
 Per altre informazioni, vedere [Considerare attendibile il certificato di sviluppo di ASP.NET Core HTTPS](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos)
 
-## <a name="run-the-app"></a>Eseguire l'app
+## <a name="run-the-app"></a>Esecuzione dell'app
 
 Eseguire i comandi seguenti:
 
 ```dotnetcli
 cd aspnetcoreapp
-dotnet run
+dotnet watch run
 ```
 
 Dopo che la shell dei comandi indica che l'app è stata avviata, passare a [https://localhost:5001](https://localhost:5001). Fare clic su **Accept** (Accetto) per accettare l'informativa sulla privacy e la policy per i cookie. Questa app non memorizza informazioni personali.
 
 ## <a name="edit-a-razor-page"></a>Modificare una pagina Razor
 
-Aprire *Pages/Index.cshtml* e modificare la pagina con il markup evidenziato seguente:
+Aprire *pages/index. cshtml* e modificare e salvare la pagina con il markup evidenziato seguente:
 
 [!code-cshtml[](sample/index.cshtml?highlight=9)]
 
-Passare a [https://localhost:5001](https://localhost:5001) e verificare che le modifiche siano visualizzate.
+Passare a [https://localhost:5001](https://localhost:5001), aggiornare la pagina e verificare che le modifiche vengano visualizzate.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

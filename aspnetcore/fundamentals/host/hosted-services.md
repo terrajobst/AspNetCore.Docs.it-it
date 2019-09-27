@@ -5,14 +5,14 @@ description: Informazioni su come implementare attività in background con servi
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/18/2019
+ms.date: 09/26/2019
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: 8df86b10d7ba853edb3265df0e02eabbf8a2c058
-ms.sourcegitcommit: fa61d882be9d0c48bd681f2efcb97e05522051d0
+ms.openlocfilehash: 5a29952c4e50edb953fa03c6ea1a1ae27b728bb0
+ms.sourcegitcommit: e644258c95dd50a82284f107b9bf3becbc43b2b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71205706"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71317727"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>Attività in background con servizi ospitati in ASP.NET Core
 
@@ -40,18 +40,18 @@ Il modello di servizio di ruolo di lavoro di ASP.NET Core rappresenta un punto d
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 1. Creare un nuovo progetto.
-1. Selezionare **Applicazione Web ASP.NET Core**. Scegliere **Avanti**.
-1. Specificare il nome di un progetto nel campo **Nome progetto** oppure accettare il nome predefinito. Scegliere **Crea**.
+1. Selezionare **Applicazione Web ASP.NET Core**. Selezionare **Avanti**.
+1. Specificare il nome di un progetto nel campo **Nome progetto** oppure accettare il nome predefinito. Selezionare **Create**.
 1. Nella finestra di dialogo **Crea una nuova applicazione Web ASP.NET Core** verificare che siano selezionati **.NET Core** e **ASP.NET Core 3.0**.
-1. Selezionare il modello del **Servizio di ruolo di lavoro**. Scegliere **Crea**.
+1. Selezionare il modello del **Servizio di ruolo di lavoro**. Selezionare **Create**.
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 1. Creare un nuovo progetto.
 1. Selezionare **app** in **.NET Core** nella barra laterale.
-1. Selezionare **Worker** in **ASP.NET Core**. Scegliere **Avanti**.
-1. Selezionare **.NET Core 3,0** per il **Framework di destinazione**. Scegliere **Avanti**.
-1. Specificare un nome nel campo **nome progetto** . Scegliere **Crea**.
+1. Selezionare **Worker** in **ASP.NET Core**. Selezionare **Avanti**.
+1. Selezionare **.NET Core 3,0** per il **Framework di destinazione**. Selezionare **Avanti**.
+1. Specificare un nome nel campo **nome progetto** . Selezionare **Create**.
 
 # <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 
@@ -123,10 +123,12 @@ Il servizio ospitato viene attivato una volta all'avvio dell'app e arrestato nor
 
 ## <a name="backgroundservice"></a>BackgroundService
 
-`BackgroundService`è una classe di base per l'implementazione di <xref:Microsoft.Extensions.Hosting.IHostedService>un oggetto a esecuzione prolungata. `BackgroundService`definisce due metodi per le operazioni in background:
+`BackgroundService`è una classe di base per l'implementazione di <xref:Microsoft.Extensions.Hosting.IHostedService>un oggetto a esecuzione prolungata. `BackgroundService`fornisce il `ExecuteAsync(CancellationToken stoppingToken)` metodo astratto per contenere la logica del servizio. Viene attivato quando viene chiamato [IHostedService. StopAsync.](xref:Microsoft.Extensions.Hosting.IHostedService.StopAsync*) `stoppingToken` L'implementazione di questo metodo restituisce un `Task` oggetto che rappresenta l'intera durata del servizio in background.
 
-* `ExecuteAsync(CancellationToken stoppingToken)`Viene chiamato all' <xref:Microsoft.Extensions.Hosting.IHostedService> avvio di. &ndash; `ExecuteAsync` L'implementazione deve restituire un `Task` oggetto che rappresenta la durata delle operazioni a esecuzione prolungata eseguite. Oggetto `stoppingToken` attivato quando viene chiamato [IHostedService. StopAsync](xref:Microsoft.Extensions.Hosting.IHostedService.StopAsync*) .
-* `StopAsync(CancellationToken stoppingToken)`&ndash; vieneattivatoquandol'hostdell'applicazionesta`StopAsync` eseguendo un arresto normale. `stoppingToken` Indica che il processo di arresto non dovrebbe essere più normale.
+Inoltre, *facoltativamente* , eseguire l'override dei metodi `IHostedService` definiti in per eseguire il codice di avvio e arresto per il servizio:
+
+* `StopAsync(CancellationToken cancellationToken)`&ndash; vienechiamatoquandol'hostdell'applicazionesta`StopAsync` eseguendo un arresto normale. `cancellationToken` Viene segnalato quando l'host decide di terminare forzatamente il servizio. Se viene eseguito l'override di questo metodo, è **necessario** chiamare `await`(e) il metodo della classe di base per verificare che il servizio venga arrestato correttamente.
+* `StartAsync(CancellationToken cancellationToken)`&ndash; vienechiamatoperavviare`StartAsync` il servizio in background. `cancellationToken` Viene segnalato se il processo di avvio viene interrotto. L'implementazione restituisce un `Task` oggetto che rappresenta il processo di avvio per il servizio. Non vengono avviati altri servizi fino `Task` a quando l'operazione non viene completata. Se viene eseguito l'override di questo metodo, è **necessario** chiamare `await`(e) il metodo della classe di base per verificare che il servizio venga avviato correttamente.
 
 ## <a name="timed-background-tasks"></a>Attività in background programmate
 

@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni sulle nuove funzionalità di ASP.NET Core 3,0.
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/23/2019
+ms.date: 09/26/2019
 uid: aspnetcore-3.0
-ms.openlocfilehash: 490d00da7282e2efe28fcc52e593dd71d7324d3f
-ms.sourcegitcommit: 0365af91518004c4a44a30dc3a8ac324558a399b
+ms.openlocfilehash: c1b61fee7264b972c70dbfa8f1461e33e3645746
+ms.sourcegitcommit: e644258c95dd50a82284f107b9bf3becbc43b2b2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71198984"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71317650"
 ---
 # <a name="whats-new-in-aspnet-core-30"></a>Novità di ASP.NET Core 3,0
 
@@ -64,7 +64,7 @@ I componenti in blazer vengono in genere creati usando sintassi Razor, una combi
   * Formato di serializzazione binario.
 * Fornisce funzionalità come:
 
-  * Autenticazione
+  * Authentication
   * Flusso bidirezionale e controllo di flusso.
   * Annullamento e timeout.
 
@@ -319,6 +319,17 @@ L'elenco seguente contiene le nuove direttive Razor:
 * [@attribute](xref:mvc/views/razor#attribute)&ndash; La`@attribute` direttiva applica l'attributo specificato alla classe della pagina o della visualizzazione generata. Ad esempio `@attribute [Authorize]`.
 * [@implements](xref:mvc/views/razor#implements)&ndash; La`@implements` direttiva implementa un'interfaccia per la classe generata. Ad esempio `@implements IDisposable`.
 
+## <a name="identityserver4-supports-authentication-and-authorization-for-web-apis-and-spas"></a>IdentityServer4 supporta l'autenticazione e l'autorizzazione per le API Web e le Spa
+
+[IdentityServer4](https://identityserver.io) è un Framework di OpenID Connect e OAuth 2,0 per ASP.NET Core 3,0. IdentityServer4 Abilita le funzionalità di sicurezza seguenti:
+
+* Autenticazione come servizio (AaaS)
+* Single Sign-on/off (SSO) su più tipi di applicazione
+* Controllo di accesso per le API
+* Gateway federativo
+
+Per ulteriori informazioni, vedere [Welcome to IdentityServer4](http://docs.identityserver.io/en/latest/index.html).
+
 ## <a name="certificate-and-kerberos-authentication"></a>Certificato e autenticazione Kerberos
 
 L'autenticazione del certificato richiede:
@@ -420,9 +431,9 @@ Per altre informazioni, vedere <xref:migration/22-to-30#kestrel>.
 
 HTTP/2 è abilitato per impostazione predefinita in gheppio per gli endpoint HTTPS. Il supporto HTTP/2 per IIS o HTTP. sys è abilitato quando supportato dal sistema operativo.
 
-## <a name="request-counters"></a>Contatori delle richieste
+## <a name="eventcounters-on-request"></a>EventCounters su richiesta
 
-Il EventSource di hosting (Microsoft. AspNetCore. Hosting) genera le seguenti EventCounters correlate alle richieste in ingresso:
+Il EventSource di hosting `Microsoft.AspNetCore.Hosting`,, emette i nuovi <xref:System.Diagnostics.Tracing.EventCounter> tipi seguenti correlati alle richieste in ingresso:
 
 * `requests-per-second`
 * `total-requests`
