@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/14/2019
 uid: security/enforcing-ssl
-ms.openlocfilehash: aa42b1c7199e951714be809de9c9c5f857473485
-ms.sourcegitcommit: 994da92edb0abf856b1655c18880028b15a28897
+ms.openlocfilehash: 1d1bba6a1f1da2af959bc69b31f79bac53bf48b9
+ms.sourcegitcommit: fe3e556bf438fc4136fcf0bac61cf96e3e91caf5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71278759"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71341469"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Applicare HTTPS in ASP.NET Core
 
@@ -284,9 +284,9 @@ Il codice seguente:
 
 `UseHsts`esclude gli host di loopback seguenti:
 
-* `localhost`: Indirizzo di loopback IPv4.
-* `127.0.0.1`: Indirizzo di loopback IPv4.
-* `[::1]`: Indirizzo di loopback IPv6.
+* `localhost` : Indirizzo di loopback IPv4.
+* `127.0.0.1` : Indirizzo di loopback IPv4.
+* `[::1]` : Indirizzo di loopback IPv6.
 
 ## <a name="opt-out-of-httpshsts-on-project-creation"></a>Rifiutare esplicitamente il protocollo HTTPS/HSTS durante la creazione del progetto
 
@@ -393,8 +393,8 @@ I comandi precedenti risolvono la maggior parte dei problemi di attendibilità d
 * Eseguire i comandi seguenti:
 
 ```dotnetcli
-dotnet devcerts https --clean
-dotnet devcerts https --trust
+dotnet dev-certs https --clean
+dotnet dev-certs https --trust
 ```
 
 Chiude tutte le istanze del browser aperte. Aprire una nuova finestra del browser per l'app.
