@@ -3,15 +3,15 @@ title: 'Esercitazione: Leggere dati correlati - ASP.NET MVC con EF Core'
 description: In questa esercitazione verranno letti e visualizzati dati correlati, ovvero dati che Entity Framework carica all'interno delle proprietà di navigazione.
 author: tdykstra
 ms.author: riande
-ms.date: 03/27/2019
+ms.date: 09/28/2019
 ms.topic: tutorial
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: 2bf556dae5d30819c54ecc3f0dadfbd3316db1cc
-ms.sourcegitcommit: 0774a61a3a6c1412a7da0e7d932dc60c506441fc
-ms.translationtype: HT
+ms.openlocfilehash: cb691dce757a72a01bfd29717710d1be590c4150
+ms.sourcegitcommit: f62014bb558ff6f8fdaef2e96cb05986e216aacd
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70059105"
+ms.lasthandoff: 09/28/2019
+ms.locfileid: "71592281"
 ---
 # <a name="tutorial-read-related-data---aspnet-mvc-with-ef-core"></a>Esercitazione: Leggere dati correlati - ASP.NET MVC con EF Core
 
@@ -47,7 +47,7 @@ Il software ORM (Object-Relational Mapping), ad esempio Entity Framework, può c
 
   ![Esempio di query separate](read-related-data/_static/separate-queries.png)
 
-* Caricamento esplicito. Quando un'entità viene letta per la prima volta, i dati correlati non vengono recuperati. Il codice del caricamento consente di recuperare i dati correlati se sono necessari. Come nel caso del caricamento eager con query separate, il caricamento esplicito ha come risultato l'invio di più query al database. La differenza è che con il caricamento esplicito il codice specifica le proprietà di navigazione da caricare. In Entity Framework Core 1.1, per eseguire il caricamento esplicito è possibile usare il metodo `Load`. Ad esempio:
+* Caricamento esplicito. Quando un'entità viene letta per la prima volta, i dati correlati non vengono recuperati. Il codice del caricamento consente di recuperare i dati correlati se sono necessari. Come nel caso del caricamento eager con query separate, il caricamento esplicito ha come risultato l'invio di più query al database. La differenza è che con il caricamento esplicito il codice specifica le proprietà di navigazione da caricare. In Entity Framework Core 1.1, per eseguire il caricamento esplicito è possibile usare il metodo `Load`. Esempio:
 
   ![Esempio di caricamento esplicito](read-related-data/_static/explicit-loading.png)
 
@@ -188,7 +188,7 @@ Al codice esistente sono state apportate le modifiche seguenti:
   }
   ```
 
-* È stata aggiunta la colonna **Courses** (Corsi) che visualizza i corsi tenuti da ogni insegnante. Per altre informazioni, vedere la sezione [Transizione riga esplicita con @:](xref:mvc/views/razor#explicit-line-transition-with-) dell'articolo sulla sintassi Razor.
+* È stata aggiunta la colonna **Courses** (Corsi) che visualizza i corsi tenuti da ogni insegnante. Per ulteriori informazioni, vedere la sezione relativa alla [transizione di riga esplicita](xref:mvc/views/razor#explicit-line-transition) dell'articolo sintassi Razor.
 
 * È stato aggiunto codice che aggiunge `class="success"` in modo dinamico all'elemento `tr` dell'insegnante selezionato. In questo modo viene impostato un colore di sfondo per la riga selezionata tramite una classe Bootstrap.
 

@@ -3,14 +3,14 @@ title: Guida di riferimento della sintassi Razor per ASP.NET Core
 author: rick-anderson
 description: Informazioni sulla sintassi di markup Razor per l'incorporamento di codice basato su server in pagine Web.
 ms.author: riande
-ms.date: 09/19/2019
+ms.date: 09/28/2019
 uid: mvc/views/razor
-ms.openlocfilehash: 9a319f7efb6d879559afd9faca6955aba719fa2f
-ms.sourcegitcommit: e5a74f882c14eaa0e5639ff082355e130559ba83
+ms.openlocfilehash: 6f8835419dbf4c271617f57484c3408e0af30617
+ms.sourcegitcommit: f62014bb558ff6f8fdaef2e96cb05986e216aacd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168296"
+ms.lasthandoff: 09/28/2019
+ms.locfileid: "71592319"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Guida di riferimento della sintassi Razor per ASP.NET Core
 
@@ -227,7 +227,7 @@ Il tag `<text>` è utile per controllare gli spazi vuoti durante il rendering de
 * Solo il contenuto all'interno del tag `<text>` viene sottoposto a rendering.
 * Non vengono visualizzati spazi vuoti prima o dopo il tag `<text>` nell'output HTML.
 
-### <a name="explicit-line-transition-with-colon"></a>Transizione riga esplicita con \@&colon;
+### <a name="explicit-line-transition"></a>Transizione di riga esplicita
 
 Per eseguire il rendering del resto di un'intera riga come HTML all'interno di un blocco di codice, usare la sintassi `@:`:
 
@@ -487,7 +487,7 @@ Nei [componenti di Razor](xref:blazor/components) usare `@code` in `@functions` 
 
 ::: moniker-end
 
-Ad esempio:
+Esempio:
 
 [!code-cshtml[](razor/sample/Views/Home/Contact6.cshtml)]
 
