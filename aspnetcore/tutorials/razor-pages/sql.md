@@ -7,7 +7,7 @@ ms.date: 7/22/2019
 uid: tutorials/razor-pages/sql
 ms.openlocfilehash: 197697f28e9faa45c1ac2b7f993bde15994957e5
 ms.sourcegitcommit: 051f068c78931432e030b60094c38376d64d013e
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/24/2019
 ms.locfileid: "68440385"
@@ -84,7 +84,7 @@ Creare una nuova classe denominata `SeedData` nella cartella *Models* usando il 
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Models/SeedData.cs?name=snippet_1)]
 
-Se sono presenti eventuali film nel database, l'inizializzatore del valore di inizializzazione viene restituito e non vengono aggiunti film.
+Se sono presenti eventuali film nel database, l'inizializzatore di valore viene restituito e non vengono aggiunti film.
 
 ```csharp
 if (context.Movie.Any())
@@ -228,7 +228,7 @@ Creare una nuova classe denominata `SeedData` nella cartella *Models* usando il 
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Models/SeedData.cs?name=snippet_1)]
 
-Se sono presenti eventuali film nel database, l'inizializzatore del valore di inizializzazione viene restituito e non vengono aggiunti film.
+Se sono presenti eventuali film nel database, l'inizializzatore di valore viene restituito e non vengono aggiunti film.
 
 ```csharp
 if (context.Movie.Any())

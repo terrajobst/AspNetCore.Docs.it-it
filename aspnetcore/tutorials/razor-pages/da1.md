@@ -88,7 +88,7 @@ Il codice precedente rileva le eccezioni di concorrenza quando un client elimina
 
 Per testare il blocco `catch`:
 
-* Impostare un punto di interruzione su `catch (DbUpdateConcurrencyException)`
+* Impostare un breakpoint su `catch (DbUpdateConcurrencyException)`
 * Selezionare **Edit** (Modifica) per un film, apportare modifiche, ma non immettere **Save** (Salva).
 * In un'altra finestra del browser, selezionare il collegamento **Delete** (Elimina) per lo stesso film e quindi eliminare il film.
 * Nella finestra del browser precedente inviare le modifiche al film.
@@ -201,7 +201,7 @@ Il codice precedente rileva le eccezioni di concorrenza quando un client elimina
 
 Per testare il blocco `catch`:
 
-* Impostare un punto di interruzione su `catch (DbUpdateConcurrencyException)`
+* Impostare un breakpoint su `catch (DbUpdateConcurrencyException)`
 * Selezionare **Edit** (Modifica) per un film, apportare modifiche, ma non immettere **Save** (Salva).
 * In un'altra finestra del browser, selezionare il collegamento **Delete** (Elimina) per lo stesso film e quindi eliminare il film.
 * Nella finestra del browser precedente inviare le modifiche al film.
