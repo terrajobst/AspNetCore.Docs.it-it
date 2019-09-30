@@ -7,7 +7,7 @@ ms.date: 12/20/2018
 uid: tutorials/razor-pages/da1
 ms.openlocfilehash: f1f69b7facf584d46248405c808e75bdd8448d2b
 ms.sourcegitcommit: 051f068c78931432e030b60094c38376d64d013e
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/24/2019
 ms.locfileid: "68440318"
@@ -18,7 +18,7 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Le operazioni iniziali con l'app creata con scaffolding per i film sono state efficaci, ma la presentazione non è ottimale. **ReleaseDate** deve essere **Release Date** (due parole).
+Le operazioni iniziali con l'app per i film creata con scaffolding sono state efficaci, ma la presentazione non è ottimale. **ReleaseDate** deve essere **Release Date** (due parole).
 
 ![App per i film aperta in Chrome](sql/_static/m55.png)
 
@@ -131,7 +131,7 @@ I metodi HTTP GET nelle pagine Razor Index, Create e Delete seguono un criterio 
 
 ::: moniker range="< aspnetcore-3.0"
 
-Le operazioni iniziali con l'app creata con scaffolding per i film sono state efficaci, ma la presentazione non è ottimale. **ReleaseDate** deve essere **Release Date** (due parole).
+Le operazioni iniziali con l'app per i film creata con scaffolding sono state efficaci, ma la presentazione non è ottimale. **ReleaseDate** deve essere **Release Date** (due parole).
 
 ![App per i film aperta in Chrome](sql/_static/m55.png)
 
