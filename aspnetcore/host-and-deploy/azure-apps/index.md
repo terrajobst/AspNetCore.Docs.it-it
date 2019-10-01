@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/28/2019
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 4dc150ff4534e42e1995a185f650cea9df70ccc4
-ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
+ms.openlocfilehash: 7489868fac513948cbe6f48391e7260a34b2175e
+ms.sourcegitcommit: dc96d76f6b231de59586fcbb989a7fb5106d26a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71187044"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703760"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Distribuire le app ASP.NET Core in Servizio app di Azure
 
@@ -27,6 +27,8 @@ Usare Visual Studio per creare e distribuire un'app Web ASP.NET Core nel servizi
 
 [Creare un'app ASP.NET Core nel Servizio app in Linux](/azure/app-service/containers/quickstart-dotnetcore)  
 Usare la riga di comando per creare e distribuire un'app Web ASP.NET Core nel servizio app di Azure in Linux.
+
+Per la versione di ASP.NET Core disponibile nel servizio app Azure, vedere il [ASP.NET Core nel dashboard del servizio app](https://aspnetcoreon.azurewebsites.net/) .
 
 Gli articoli seguenti sono disponibili nella documentazione di ASP.NET Core:
 
@@ -200,7 +202,7 @@ Al termine dell'operazione, viene installata l'anteprima più recente di .NET Co
 
 **Usare l'estensione del sito di anteprima con un modello ARM**
 
-Se per creare e distribuire le app si usa un modello ARM, è possibile usare il tipo di risorsa `siteextensions` per aggiungere l'estensione del sito a un'app Web. Ad esempio:
+Se per creare e distribuire le app si usa un modello ARM, è possibile usare il tipo di risorsa `siteextensions` per aggiungere l'estensione del sito a un'app Web. Esempio:
 
 [!code-json[](index/sample/arm.json?highlight=2)]
 

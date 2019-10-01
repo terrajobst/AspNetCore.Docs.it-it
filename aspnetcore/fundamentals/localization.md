@@ -5,16 +5,18 @@ description: Informazioni su come ASP.NET Core offre servizi e middleware per la
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: ec78d35daf6823779fca491aca7b7b309db4b02e
-ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
-ms.translationtype: HT
+ms.openlocfilehash: 6dfbeae201a3586dfea6620917083130c4985b22
+ms.sourcegitcommit: dc96d76f6b231de59586fcbb989a7fb5106d26a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66750029"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703803"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalizzazione e localizzazione in ASP.NET Core
 
 [Rick Anderson](https://twitter.com/RickAndMSFT), [Damien Bowden](https://twitter.com/damien_bod), [Bart Calixto](https://twitter.com/bartmax), [Nadeem Afana](https://afana.me/) e [Hisham Bin Ateya](https://twitter.com/hishambinateya)
+
+Fino a quando questo documento non viene aggiornato per la ASP.NET Core 3,0, vedere la pagina relativa alle [novità della localizzazione in ASP.NET Core 3,0 nel](http://hishambinateya.com/what-is-new-in-localization-in-asp.net-core-3.0)Blog di Hisham.
 
 La creazione di un sito Web multilingue con ASP.NET Core consente al sito di raggiungere un pubblico più ampio. AP.NET Core offre servizi e middleware per la localizzazione in diverse lingue e culture.
 
@@ -151,7 +153,7 @@ Poiché nel progetto di esempio il metodo `ConfigureServices` imposta `Resources
 | Nome della risorsa | Denominazione con il punto o il percorso |
 | ------------   | ------------- |
 | Resources/Controllers.HomeController.fr.resx | Punto  |
-| Resources/Controllers/HomeController.fr.resx  | Path |
+| Resources/Controllers/HomeController.fr.resx  | `Path` |
 |    |     |
 
 I file di risorse che usano `@inject IViewLocalizer` nelle visualizzazioni Razor seguono un modello simile. Il file di risorse per una visualizzazione può essere denominato usando la denominazione con il punto o con il percorso. I file di risorse di visualizzazione Razor simulano il percorso del file di visualizzazione associato. Se `ResourcesPath` viene impostato su "Resources", il file di risorse francese associato alla visualizzazione *Views/Home/About.cshtml* sarà uno dei seguenti:
