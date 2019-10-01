@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni su come creare un'API Web con ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/27/2019
+ms.date: 09/29/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 366323416061bf729c092419f2f6a5912884252b
-ms.sourcegitcommit: 5d25a7f22c50ca6fdd0f8ecd8e525822e1b35b7a
+ms.openlocfilehash: 7bb98fe5befa8eea80885d246da31ad87d5cfc2d
+ms.sourcegitcommit: fe88748b762525cb490f7e39089a4760f6a73a24
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2019
-ms.locfileid: "71551723"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71691207"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Esercitazione: Creare un'API Web con ASP.NET Core
 
@@ -273,7 +273,7 @@ Il codice precedente:
 
   * Selezionare **TodoItem (TodoApi. Models)** nella **classe del modello**.
   * Selezionare **TodoContext (TodoApi. Models)** nella **classe del contesto dati**.
-  * Selezionare **Aggiungi**
+  * Selezionare **Aggiungi**.
 
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio per Mac](#tab/visual-studio-code+visual-studio-mac)
 
@@ -283,7 +283,7 @@ Eseguire i comandi seguenti:
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet add package Microsoft.EntityFrameworkCore.Design
 dotnet tool install --global dotnet-aspnet-codegenerator
-dotnet aspnet-codegenerator controller -name TodoItemsController -async -api -m TodoItem -dc TodoContext  -outDir Controllers
+dotnet aspnet-codegenerator controller -name TodoItemsController -async -api -m TodoItem -dc TodoContext -outDir Controllers
 ```
 
 I comandi precedenti:
@@ -322,7 +322,7 @@ Questa esercitazione usa Postman per testare l'API Web.
 * Avviare l'app Web.
 * Avviare Postman.
 * Disattivare **SSL certificate verification** (Verifica certificato SSL)
-* From  **File > Settings** (File > Impostazioni) (scheda **General* (Generale)), disattivare **SSL certificate verification** (Verifica certificato SSL).
+* Da **File** > **Settings** (Impostazioni) (scheda **General** (Generale)) disabilitare **SSL certificate verification** (Verifica certificato SSL).
     > [!WARNING]
     > Riattivare la verifica dei certificati SSL al termine del test del controller.
 
@@ -356,7 +356,7 @@ Questa esercitazione usa Postman per testare l'API Web.
   ![Scheda Headers (Intestazioni) della console Postman](first-web-api/_static/3/create.png)
 
 * Impostare il metodo su GET.
-* Incollare l'URI (ad esempio `https://localhost:5001/api/TodoItems/1`)
+* Incollare l'URI (ad esempio, `https://localhost:5001/api/TodoItems/1`).
 * Selezionare **Send** (Invia).
 
 ## <a name="examine-the-get-methods"></a>Esaminare i metodi GET
@@ -404,7 +404,7 @@ L'attributo [`[HttpGet]`](/dotnet/api/microsoft.aspnetcore.mvc.httpgetattribute)
 * Sostituire `[controller]` con il nome del controller, ovvero, per convenzione, il nome della classe controller meno il suffisso "Controller". In questo esempio il nome della classe controller è **TodoItems**Controller, quindi il nome del controller è "TodoItems". Il [routing](xref:mvc/controllers/routing) ASP.NET Core non fa distinzione tra maiuscole e minuscole.
 * Se l'attributo `[HttpGet]` ha un modello di route, ad esempio `[HttpGet("products")]`, aggiungerlo al percorso. In questo esempio non si usa un modello. Per altre informazioni, vedere [Routing con attributi Http[verb]](xref:mvc/controllers/routing#attribute-routing-with-httpverb-attributes).
 
-Nel metodo `GetTodoItem` seguente, `"{id}"` è una variabile segnaposto per l'identificatore univoco dell'elemento attività. Quando viene chiamato `GetTodoItem`, il valore di `"{id}"` viene specificato per il metodo nel rispettivo parametro `id`.
+Nel metodo `GetTodoItem` seguente, `"{id}"` è una variabile segnaposto per l'identificatore univoco dell'elemento attività. Quando viene richiamato `GetTodoItem`, il valore di `"{id}"` nell'URL viene fornito al metodo nel parametro `id`.
 
 [!code-csharp[](first-web-api/samples/3.0/TodoApi/Controllers/TodoItemsController.cs?name=snippet_GetByID&highlight=1-2)]
 
@@ -458,7 +458,7 @@ La risposta `DeleteTodoItem` è [204 (No Content)](https://www.w3.org/Protocols/
 Usare Postman per eliminare un elemento attività:
 
 * Impostare il metodo su `DELETE`.
-* Impostare l'URI dell'oggetto da eliminare, ad esempio `https://localhost:5001/api/TodoItems/1`
+* Impostare l'URI dell'oggetto da eliminare, ad esempio `https://localhost:5001/api/TodoItems/1`.
 * Selezionare **Send** (Invia).
 
 ## <a name="call-the-web-api-with-javascript"></a>Chiamare l'API Web con JavaScript
@@ -741,10 +741,10 @@ I tipi restituiti `ActionResult` possono rappresentare un ampio intervallo di co
 
 Questa esercitazione usa Postman per testare l'API Web.
 
-* Installare [Postman](https://www.getpostman.com/downloads/)
+* Installare il [post](https://www.getpostman.com/downloads/).
 * Avviare l'app Web.
 * Avviare Postman.
-* Disattivare **SSL certificate verification** (Verifica certificato SSL)
+* Disabilitare la **Verifica del certificato SSL**.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -813,7 +813,7 @@ Il metodo `CreatedAtAction`:
   ![Scheda Headers (Intestazioni) della console Postman](first-web-api/_static/pmc2.png)
 
 * Impostare il metodo su GET.
-* Incollare l'URI (ad esempio `https://localhost:5001/api/Todo/2`)
+* Incollare l'URI (ad esempio, `https://localhost:5001/api/Todo/2`).
 * Selezionare **Send** (Invia).
 
 ## <a name="add-a-puttodoitem-method"></a>Aggiungere un metodo PutTodoItem
@@ -857,7 +857,7 @@ La risposta `DeleteTodoItem` è [204 (No Content)](https://www.w3.org/Protocols/
 Usare Postman per eliminare un elemento attività:
 
 * Impostare il metodo su `DELETE`.
-* Impostare l'URI dell'oggetto da eliminare, ad esempio `https://localhost:5001/api/todo/1`
+* Impostare l'URI dell'oggetto da eliminare, ad esempio `https://localhost:5001/api/todo/1`.
 * Selezionare **Send** (Invia).
 
 L'app di esempio consente di eliminare tutti gli elementi. Quando viene eliminato l'ultimo elemento, tuttavia, ne viene creato uno nuovo dal costruttore della classe modello alla successiva chiamata dell'API.

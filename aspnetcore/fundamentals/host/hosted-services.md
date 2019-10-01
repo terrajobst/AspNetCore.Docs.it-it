@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/26/2019
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: 5a29952c4e50edb953fa03c6ea1a1ae27b728bb0
-ms.sourcegitcommit: e644258c95dd50a82284f107b9bf3becbc43b2b2
+ms.openlocfilehash: 0eaa3a62370c1e413840bb65f597dc664adafc38
+ms.sourcegitcommit: fe88748b762525cb490f7e39089a4760f6a73a24
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71317727"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71688111"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>Attività in background con servizi ospitati in ASP.NET Core
 
@@ -37,29 +37,7 @@ L'app di esempio è disponibile in due versioni:
 
 Il modello di servizio di ruolo di lavoro di ASP.NET Core rappresenta un punto di partenza per la scrittura di app di servizi a esecuzione prolungata. Per usare il modello come base per un'app di servizi ospitati:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-
-1. Creare un nuovo progetto.
-1. Selezionare **Applicazione Web ASP.NET Core**. Selezionare **Avanti**.
-1. Specificare il nome di un progetto nel campo **Nome progetto** oppure accettare il nome predefinito. Selezionare **Create**.
-1. Nella finestra di dialogo **Crea una nuova applicazione Web ASP.NET Core** verificare che siano selezionati **.NET Core** e **ASP.NET Core 3.0**.
-1. Selezionare il modello del **Servizio di ruolo di lavoro**. Selezionare **Create**.
-
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
-
-1. Creare un nuovo progetto.
-1. Selezionare **app** in **.NET Core** nella barra laterale.
-1. Selezionare **Worker** in **ASP.NET Core**. Selezionare **Avanti**.
-1. Selezionare **.NET Core 3,0** per il **Framework di destinazione**. Selezionare **Avanti**.
-1. Specificare un nome nel campo **nome progetto** . Selezionare **Create**.
-
-# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
-
-Usare il servizio di ruolo di lavoro (`worker`) con il comando[dotnet new](/dotnet/core/tools/dotnet-new) da una shell dei comandi. Nell'esempio seguente viene creata un'app del servizio di ruolo di lavoro denominata `ContosoWorker`. Una cartella per l'app `ContosoWorker` viene creata automaticamente quando viene eseguito il comando.
-
-```dotnetcli
-dotnet new worker -o ContosoWorker
-```
+[!INCLUDE[](~/includes/worker-template-instructions.md)]
 
 ---
 

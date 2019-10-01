@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/26/2019
 uid: aspnetcore-3.0
-ms.openlocfilehash: c1b61fee7264b972c70dbfa8f1461e33e3645746
-ms.sourcegitcommit: e644258c95dd50a82284f107b9bf3becbc43b2b2
+ms.openlocfilehash: a32307f6de01e03e548cbde2c38c9469db74b506
+ms.sourcegitcommit: fe88748b762525cb490f7e39089a4760f6a73a24
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71317650"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71688038"
 ---
 # <a name="whats-new-in-aspnet-core-30"></a>Novità di ASP.NET Core 3,0
 
@@ -423,7 +423,7 @@ Tutti i servizi possono comunque essere inseriti direttamente come argomenti per
 * Le schede di connessione sono state rimosse da gheppio e sostituite con il middleware di connessione, che è simile al middleware HTTP nella pipeline ASP.NET Core ma per le connessioni di livello inferiore.
 * Il livello trasporto gheppio è stato esposto come interfaccia pubblica in `Connections.Abstractions`.
 * L'ambiguità tra intestazioni e trailer è stata risolta spostando le intestazioni finali in una nuova raccolta.
-* Le API di i/o `HttpReqeuest.Body.Read`sincrone, ad esempio, sono un'origine comune di inedia dei thread che causa arresti anomali dell'app. In 3,0 `AllowSynchronousIO` è disabilitato per impostazione predefinita.
+* Le API di i/o `HttpRequest.Body.Read`sincrone, ad esempio, sono un'origine comune di inedia dei thread che causa arresti anomali dell'app. In 3,0 `AllowSynchronousIO` è disabilitato per impostazione predefinita.
 
 Per altre informazioni, vedere <xref:migration/22-to-30#kestrel>.
 

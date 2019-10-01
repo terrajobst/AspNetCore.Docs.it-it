@@ -5,14 +5,14 @@ description: Informazioni su come creare e usare i componenti Razor, tra cui la 
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/23/2019
+ms.date: 09/30/2019
 uid: blazor/components
-ms.openlocfilehash: 28e908968bd77c61da72d1bcc6032e580d15541b
-ms.sourcegitcommit: 79eeb17604b536e8f34641d1e6b697fb9a2ee21f
+ms.openlocfilehash: ea216e405e5be52b578e99a529d8c6a726ea9cdd
+ms.sourcegitcommit: fe88748b762525cb490f7e39089a4760f6a73a24
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71207276"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71688034"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Creare e usare ASP.NET Core componenti Razor
 
@@ -440,13 +440,13 @@ Nell'esempio seguente, `UpdateHeading` viene chiamato in modo asincrono quando s
 
 Per alcuni eventi, i tipi di argomento dell'evento sono consentiti. Se l'accesso a uno di questi tipi di evento non è necessario, non è obbligatorio nella chiamata al metodo.
 
-[EventArgs](https://github.com/aspnet/AspNetCore/tree/release/3.0-preview9/src/Components/Web/src/Web) supportati sono riportati nella tabella seguente.
+Nella tabella seguente sono riportati i `EventArgs` supportati.
 
 | event | Classe |
 | ----- | ----- |
 | Appunti        | `ClipboardEventArgs` |
 | Trascinare             | `DragEventArgs`e contengono dati di`DataTransferItem` elementi trascinati. &ndash; `DataTransfer` |
-| Error            | `ErrorEventArgs` |
+| Errore            | `ErrorEventArgs` |
 | Stato attivo            | `FocusEventArgs`Non include il supporto `relatedTarget`per. &ndash; |
 | Modifica di`<input>` | `ChangeEventArgs` |
 | Tastiera         | `KeyboardEventArgs` |
@@ -456,7 +456,7 @@ Per alcuni eventi, i tipi di argomento dell'evento sono consentiti. Se l'accesso
 | Stato         | `ProgressEventArgs` |
 | Tocco            | `TouchEventArgs`&ndash; rappresentaunsingolopuntodicontattosuun`TouchPoint` dispositivo sensibile al tocco. |
 
-Per informazioni sulle proprietà e sul comportamento di gestione degli eventi della tabella precedente, vedere [classi EventArgs nell'origine riferimento (ASPNET/AspNetCore Release/3.0-preview9 Branch)](https://github.com/aspnet/AspNetCore/tree/release/3.0-preview9/src/Components/Web/src/Web).
+Per informazioni sulle proprietà e sul comportamento di gestione degli eventi degli eventi nella tabella precedente, vedere le [classi EventArgs nell'origine riferimento (ASPNET/AspNetCore Release/3.0 Branch)](https://github.com/aspnet/AspNetCore/tree/release/3.0/src/Components/Web/src/Web).
 
 ### <a name="lambda-expressions"></a>Espressioni lambda
 
@@ -1414,16 +1414,16 @@ builder.AddContent(1, "Second");
 
 Quando il codice viene eseguito per la prima volta, se `someFlag` è `true`, il generatore riceve:
 
-| Sequence | Tipo      | Dati   |
+| Sequenza | Type      | Data   |
 | :------: | --------- | :----: |
-| 0        | Nodo testo | First  |
-| 1        | Nodo testo | Second |
+| 0        | Nodo testo | Primo  |
+| 1        | Nodo testo | Secondo |
 
 Si supponga `someFlag` che `false`diventi e che venga eseguito nuovamente il rendering del markup. Questa volta, il generatore riceve:
 
-| Sequence | Tipo       | Dati   |
+| Sequenza | Type       | Data   |
 | :------: | ---------- | :----: |
-| 1        | Nodo testo  | Second |
+| 1        | Nodo testo  | Secondo |
 
 Quando il runtime esegue una diff, rileva che l'elemento in sequenza `0` è stato rimosso, quindi genera lo script di *modifica*semplice seguente:
 
@@ -1446,16 +1446,16 @@ builder.AddContent(seq++, "Second");
 
 A questo punto, il primo output è:
 
-| Sequence | Tipo      | Dati   |
+| Sequenza | Type      | Data   |
 | :------: | --------- | :----: |
-| 0        | Nodo testo | First  |
-| 1        | Nodo testo | Second |
+| 0        | Nodo testo | Primo  |
+| 1        | Nodo testo | Secondo |
 
 Questo risultato è identico al caso precedente, pertanto non esistono problemi negativi. `someFlag`si `false` trova nel secondo rendering e l'output è:
 
-| Sequence | Tipo      | Dati   |
+| Sequenza | Type      | Data   |
 | :------: | --------- | ------ |
-| 0        | Nodo testo | Second |
+| 0        | Nodo testo | Secondo |
 
 Questa volta, l'algoritmo Diff rileva che si sono verificate *due* modifiche e l'algoritmo genera lo script di modifica seguente:
 
@@ -1514,7 +1514,7 @@ La localizzazione viene gestita nell'app:
 
 1. Il browser invia una richiesta HTTP iniziale all'app.
 1. Le impostazioni cultura vengono assegnate dal middleware di localizzazione.
-1. Il `OnGet` metodo in *_Host. cshtml. cs* rende permanente le impostazioni cultura di un cookie come parte della risposta.
+1. Il metodo `OnGet` in *_Host. cshtml. cs* rende permanente le impostazioni cultura di un cookie come parte della risposta.
 1. Il browser apre una connessione WebSocket per creare una sessione del server Interactive Blaze.
 1. Il middleware di localizzazione legge il cookie e assegna le impostazioni cultura.
 1. La sessione del server Blaze inizia con le impostazioni cultura corrette.
