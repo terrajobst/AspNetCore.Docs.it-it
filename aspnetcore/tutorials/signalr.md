@@ -6,12 +6,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 09/24/2019
 uid: tutorials/signalr
-ms.openlocfilehash: 7a6574bd3c463f0890f5dc076944f1ab0f0c919a
-ms.sourcegitcommit: e54672f5c493258dc449fac5b98faf47eb123b28
+ms.openlocfilehash: bec01adc2682f83b0225df66e221bd2e4ea9feb4
+ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71248403"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71925323"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Esercitazione: Introduzione ad ASP.NET Core SignalR
 
@@ -95,16 +95,15 @@ La libreria server di SignalR è inclusa nel framework condiviso ASP.NET Core 3.
 
 * Nella finestra di dialogo **Add Client-Side Library** (Aggiungi libreria lato client) selezionare **unpkg** in **Provider**.
 
-* Per la **Library**, immettere `@aspnet/signalr@next`.
-<!-- when 3.0 is released, change @next to @latest -->
+* Per la **Library**, immettere `@microsoft/signalr@latest`.
 
 * Selezionare **Choose specific files** (Scegli file specifici), espandere la cartella *dist/browser* e selezionare *signalr.js* e *signalr.min.js*.
 
-* Impostare **Percorso di destinazione** su *wwwroot/lib/signalr/* e selezionare **Installa**.
+* Impostare **percorso di destinazione** su *wwwroot/JS/SignalR/* e selezionare **Installa**.
 
-  ![Finestra di dialogo Add Client-Side Library (Aggiungi libreria lato client) - selezione della libreria](signalr/_static/3.x/libman1.png)
+  ![Finestra di dialogo Add Client-Side Library (Aggiungi libreria lato client) - selezione della libreria](signalr/_static/3.x/find-signalr-client-libs-select-files.png)
 
-  LibMan crea una cartella *wwwroot/lib/signalr* e copia i file selezionati in tale cartella.
+  LibMan crea una cartella *wwwroot/JS/SignalR* e ne copia i file selezionati.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 
@@ -117,20 +116,20 @@ La libreria server di SignalR è inclusa nel framework condiviso ASP.NET Core 3.
 * Eseguire il comando seguente per ottenere la libreria client di SignalR con LibMan. Potrebbe essere necessario attendere alcuni secondi prima di visualizzare l'output.
 
   ```console
-  libman install @aspnet/signalr@next -p unpkg -d wwwroot/lib/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js
+  libman install @microsoft/signalr@latest -p unpkg -d wwwroot/lib/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js
   ```
 
   I parametri specificano le opzioni seguenti:
   * Usare il provider unpkg.
-  * Copiare i file nella destinazione *wwwroot/lib/signalr*.
+  * Copiare i file nella destinazione *wwwroot/JS/SignalR* .
   * Copiare solo i file specificati.
 
   L'output è simile all'esempio seguente:
 
   ```console
-  wwwroot/lib/signalr/dist/browser/signalr.js written to disk
-  wwwroot/lib/signalr/dist/browser/signalr.min.js written to disk
-  Installed library "@aspnet/signalr@next" to "wwwroot/lib/signalr"
+  wwwroot/js/signalr/dist/browser/signalr.js written to disk
+  wwwroot/js/signalr/dist/browser/signalr.min.js written to disk
+  Installed library "@microsoft/signalr@latest" to "wwwroot/js/signalr"
   ```
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
@@ -146,20 +145,20 @@ La libreria server di SignalR è inclusa nel framework condiviso ASP.NET Core 3.
 * Eseguire il comando seguente per ottenere la libreria client di SignalR con LibMan.
 
   ```console
-  libman install @aspnet/signalr@next -p unpkg -d wwwroot/lib/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js
+  libman install @microsoft/signalr@latest -p unpkg -d wwwroot/js/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js
   ```
 
   I parametri specificano le opzioni seguenti:
   * Usare il provider unpkg.
-  * Copiare i file nella destinazione *wwwroot/lib/signalr*.
+  * Copiare i file nella destinazione *wwwroot/JS/SignalR* .
   * Copiare solo i file specificati.
 
   L'output è simile all'esempio seguente:
 
   ```console
-  wwwroot/lib/signalr/dist/browser/signalr.js written to disk
-  wwwroot/lib/signalr/dist/browser/signalr.min.js written to disk
-  Installed library "@aspnet/signalr@next" to "wwwroot/lib/signalr"
+  wwwroot/js/signalr/dist/browser/signalr.js written to disk
+  wwwroot/js/signalr/dist/browser/signalr.min.js written to disk
+  Installed library "@microsoft/signalr@latest" to "wwwroot/js/signalr"
   ```
 
 ---
@@ -210,7 +209,7 @@ Un *hub* è una classe usata come pipeline di alto livello che gestisce le comun
   * Aggiunge al pulsante di invio un gestore che invia messaggi all'hub.
   * Aggiunge all'oggetto connessione un gestore che riceve i messaggi dall'hub e li aggiunge all'elenco.
 
-## <a name="run-the-app"></a>Eseguire l'app
+## <a name="run-the-app"></a>Esecuzione dell'app
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -241,7 +240,7 @@ Un *hub* è una classe usata come pipeline di alto livello che gestisce le comun
 > [!TIP]
 > * Se l'app non funziona, aprire gli strumenti di sviluppo (F12) del browser e passare alla console. È possibile che vengano visualizzati errori correlati al codice HTML e JavaScript. Ad esempio, si supponga di aver inserito *signalr.js* in una cartella diversa da quella indicata nelle istruzioni. In questo caso il riferimento a tale file non funzionerà e verrà visualizzato un errore 404 nella console.
 >   ![Errore di signalr.js non trovato](signalr/_static/3.x/f12-console.png)
-> * Se viene visualizzato l'errore ERR_SPDY_INADEQUATE_TRANSPORT_SECURITY in Chrome o NS_ERROR_NET_INADEQUATE_SECURITY in Firefox, eseguire questi comandi per aggiornare il proprio certificato di sviluppo:
+> * Se si riceve l'errore ERR_SPDY_INADEQUATE_TRANSPORT_SECURITY in Chrome, eseguire questi comandi per aggiornare il certificato di sviluppo:
 >
 >   ```dotnetcli
 >   dotnet dev-certs https --clean
@@ -321,7 +320,7 @@ Al termine, si disporrà di un'app di chat funzionante:
 
 * Selezionare **.NET Core > App > App Web ASP.NET Core** (non selezionare **App Web ASP.NET Core (MVC)** ).
 
-* Scegliere **Avanti**.
+* Selezionare **Avanti**.
 
 * Assegnare al progetto il nome *SignalRChat* e quindi selezionare **Crea**.
 
@@ -453,7 +452,7 @@ Un *hub* è una classe usata come pipeline di alto livello che gestisce le comun
   * Aggiunge al pulsante di invio un gestore che invia messaggi all'hub.
   * Aggiunge all'oggetto connessione un gestore che riceve i messaggi dall'hub e li aggiunge all'elenco.
 
-## <a name="run-the-app"></a>Eseguire l'app
+## <a name="run-the-app"></a>Esecuzione dell'app
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 

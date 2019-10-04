@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/23/2019
 uid: blazor/javascript-interop
-ms.openlocfilehash: 2b5d1433fce6e09adf3caa58e55e678b00ad98ee
-ms.sourcegitcommit: 79eeb17604b536e8f34641d1e6b697fb9a2ee21f
+ms.openlocfilehash: b30bce6ef3ebf1cd2f4f3fe8d046e1db9b6929d5
+ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211652"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71924639"
 ---
 # <a name="aspnet-core-blazor-javascript-interop"></a>Interoperabilità JavaScript di ASP.NET Core Blazer
 
@@ -38,7 +38,7 @@ Per le app del server Blazer:
 
 L'esempio seguente è basato su [TextDecoder](https://developer.mozilla.org/docs/Web/API/TextDecoder), un decodificatore basato su JavaScript sperimentale. Nell'esempio viene illustrato come richiamare una funzione JavaScript da un C# metodo. La funzione JavaScript accetta una matrice di byte da C# un metodo, decodifica la matrice e restituisce il testo al componente per la visualizzazione.
 
-All'interno `<head>` dell'elemento di *wwwroot/index.html* (Blazer webassembly) o *pages/_Host. cshtml* (server Blazer), fornire una funzione `TextDecoder` che usi per decodificare una matrice passata:
+All'interno dell'elemento `<head>` di *wwwroot/index.html* (Blazer webassembly) o *pages/_Host. cshtml* (server Blazer), fornire una funzione che usa `TextDecoder` per decodificare una matrice passata:
 
 [!code-html[](javascript-interop/samples_snapshot/index-script.html)]
 
@@ -81,13 +81,13 @@ Nell'app di esempio lato client che accompagna questo argomento sono disponibili
 
 [!code-javascript[](./common/samples/3.x/BlazorSample/wwwroot/exampleJsInterop.js?highlight=2-7)]
 
-Inserire il `<script>` Tag che fa riferimento al file JavaScript nel file *wwwroot/index.html* (webassembly Blazer) o nel file *pages/_Host. cshtml* (server fiammeggiar).
+Inserire il tag `<script>` che fa riferimento al file JavaScript nel file *wwwroot/index.html* (Webassembly Blazer) o nel file *pages/_Host. cshtml* (server Blazer).
 
 *wwwroot/index.html* (Webassembly Blazer):
 
 [!code-html[](./common/samples/3.x/BlazorSample/wwwroot/index.html?highlight=15)]
 
-*Pages/_Host. cshtml* (Server Blazer):
+*Pages/_Host. cshtml* (server Blazer):
 
 [!code-cshtml[](javascript-interop/samples_snapshot/_Host.cshtml?highlight=29)]
 
@@ -139,7 +139,7 @@ Nell'esempio seguente viene illustrata l'acquisizione di `username` un riferimen
 ```
 
 > [!NOTE]
-> **Non** usare i riferimenti agli elementi acquisiti come modo per popolare o modificare il Dom quando il blazer interagisce con gli elementi a cui si fa riferimento. Questa operazione può interferire con il modello di rendering dichiarativo.
+> **Non** usare i riferimenti agli elementi acquisiti come modo per popolare il Dom. Questa operazione può interferire con il modello di rendering dichiarativo.
 
 Per quanto riguarda il codice .NET, un `ElementReference` è un handle opaco. L' *unica* cosa che è possibile fare `ElementReference` con è passarla al codice JavaScript tramite l'interoperabilità JavaScript. Quando si esegue questa operazione, il codice sul lato JavaScript riceve `HTMLElement` un'istanza, che può essere usata con le API DOM normali.
 

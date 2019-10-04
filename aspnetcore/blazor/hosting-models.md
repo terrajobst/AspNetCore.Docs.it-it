@@ -5,14 +5,14 @@ description: Informazioni sui modelli di hosting di webassembly e blazer server 
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/23/2019
+ms.date: 10/03/2019
 uid: blazor/hosting-models
-ms.openlocfilehash: 766b52df82f75ea1223e20d8471faa5732311f91
-ms.sourcegitcommit: 79eeb17604b536e8f34641d1e6b697fb9a2ee21f
+ms.openlocfilehash: bc3ad9c7c4731b685fc161844d9f55e51722c0ea
+ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71207237"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71924665"
 ---
 # <a name="aspnet-core-blazor-hosting-models"></a>Modelli di hosting di ASP.NET Core Blazer
 
@@ -133,11 +133,14 @@ Le app del server Blazer devono essere ottimizzate per ridurre la latenza dell'i
 
 Le app del server Blazer richiedono una connessione SignalR attiva al server. Se la connessione viene persa, l'app tenta di riconnettersi al server. Fino a quando lo stato del client è ancora in memoria, la sessione client riprende senza perdere lo stato.
 
-Quando il client rileva che la connessione è stata persa, viene visualizzata un'interfaccia utente predefinita quando il client tenta di riconnettersi. Se la riconnessione non riesce, all'utente viene offerta l'opzione per riprovare. Per personalizzare l'interfaccia utente, definire un elemento `components-reconnect-modal` con `id` come nella pagina Razor *_Host. cshtml* . Il client aggiorna questo elemento con una delle seguenti classi CSS in base allo stato della connessione:
+Quando il client rileva che la connessione è stata persa, viene visualizzata un'interfaccia utente predefinita quando il client tenta di riconnettersi. Se la riconnessione non riesce, all'utente viene offerta l'opzione per riprovare. Per personalizzare l'interfaccia utente, definire un elemento con `components-reconnect-modal` come `id` nella pagina Razor *_Host. cshtml* . Il client aggiorna questo elemento con una delle seguenti classi CSS in base allo stato della connessione:
 
-* `components-reconnect-show`&ndash; Mostra l'interfaccia utente per indicare che la connessione è stata persa e il client sta tentando di riconnettersi.
+* `components-reconnect-show` &ndash; Mostra l'interfaccia utente per indicare una connessione persa e il client sta tentando di riconnettersi.
 * `components-reconnect-hide`&ndash; Il client ha una connessione attiva e nasconde l'interfaccia utente.
-* `components-reconnect-failed`&ndash; Riconnessione non riuscita. Per ritentare la riconnessione `window.Blazor.reconnect()`, chiamare.
+* riconnessione `components-reconnect-failed` &ndash; non riuscita, probabilmente a causa di un errore di rete. Per tentare la riconnessione, chiamare `window.Blazor.reconnect()`.
+* riconnessione `components-reconnect-rejected` &ndash; rifiutata. Il server è stato raggiunto ma ha rifiutato la connessione e lo stato dell'utente sul server è andato perso. Per ricaricare l'app, chiamare `location.reload()`. Questo stato di connessione può verificarsi nei casi seguenti:
+  * Si verifica un arresto anomalo del circuito (codice sul lato server).
+  * Il client viene disconnesso abbastanza a lungo da consentire al server di eliminare lo stato dell'utente. Vengono eliminate le istanze dei componenti con cui l'utente interagisce.
 
 ### <a name="stateful-reconnection-after-prerendering"></a>Riconnessione con stato dopo il rendering preliminare
 

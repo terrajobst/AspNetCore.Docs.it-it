@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 09/20/2019
 uid: grpc/index
-ms.openlocfilehash: 88ceeba329ff2c7d764b7a5eabd5413da6ace765
-ms.sourcegitcommit: 8a36be1bfee02eba3b07b7a86085ec25c38bae6b
+ms.openlocfilehash: 2f32bf6e8df2c5b3574c337682cdc2845991630c
+ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219126"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71925166"
 ---
 # <a name="introduction-to-grpc-on-net-core"></a>Introduzione a gRPC in .NET Core
 
@@ -20,7 +20,7 @@ Di [John Luo](https://github.com/juntaoluo) e [James Newton-King](https://twitte
 [gRPC](https://grpc.io/docs/guides/) è un framework RPC indipendente dal linguaggio a elevate prestazioni.
 
 I principali vantaggi di gRPC sono:
-* Framework RPC leggero e moderno ad alte prestazioni.
+* Framework RPC moderno, ad alte prestazioni e leggero.
 * Sviluppo di API con priorità al contratto usando i buffer del protocollo per impostazione predefinita e implementazioni indipendenti dal linguaggio.
 * Strumenti disponibili per molte linguaggi consentono di generare client e server fortemente tipizzati.
 * Supporto per chiamate client, server e di streaming bidirezionale.
@@ -120,6 +120,8 @@ Console.WriteLine(response.Message);
 Un client gRPC viene creato usando un canale che rappresenta una connessione di lunga durata a un servizio gRPC. Un canale può essere creato usando `GrpcChannel.ForAddress`.
 
 Per ulteriori informazioni sulla creazione di client e sulla chiamata di diversi metodi di <xref:grpc/client>servizio, vedere.
+
+[!INCLUDE[](~/includes/gRPCazure.md)]
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

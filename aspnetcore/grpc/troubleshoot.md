@@ -7,12 +7,12 @@ ms.author: jamesnk
 ms.custom: mvc
 ms.date: 09/21/2019
 uid: grpc/troubleshoot
-ms.openlocfilehash: 15377ba4b31ce9319df300b23e5a95c67bca7db4
-ms.sourcegitcommit: 04ce94b3c1b01d167f30eed60c1c95446dfe759d
+ms.openlocfilehash: c31f499b008cdec9d759e804b18965156ca99f30
+ms.sourcegitcommit: d8b12cc1716ee329d7bd2300e201b61e15d506ac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/21/2019
-ms.locfileid: "71176502"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71942895"
 ---
 # <a name="troubleshoot-grpc-on-net-core"></a>Risolvere i problemi di gRPC in .NET Core
 
@@ -151,3 +151,21 @@ Un'app client gRPC che effettua chiamate gRPC richiede solo il client concreto g
   <Protobuf Include="Protos\greet.proto" GrpcServices="Client" />
 </ItemGroup>
 ```
+
+## <a name="wpf-projects-unable-to-generated-grpc-c-assets-from-proto-files"></a>I progetti WPF non sono in C# grado di generare asset gRPC da *@no__t file 2. proto*
+
+I progetti WPF presentano un [problema noto](https://github.com/dotnet/wpf/issues/810) che impedisce il corretto funzionamento della generazione del codice gRPC. Tutti i tipi di gRPC generati in un progetto WPF facendo riferimento a `Grpc.Tools` e i file *. proto* creeranno errori di compilazione quando vengono utilizzati:
+
+> errore CS0246: Impossibile trovare il tipo o il nome dello spazio dei nomi ' MyGrpcServices '. manca una direttiva using o un riferimento a un assembly.
+
+Per aggirare questo problema, è possibile:
+
+1. Creare un nuovo progetto libreria di classi .NET Core.
+2. Nel nuovo progetto aggiungere i riferimenti per abilitare [ C# la generazione di codice dai file *@no__t 3. proto* :
+    * Aggiungere un riferimento al pacchetto [Grpc. Tools](https://www.nuget.org/packages/Grpc.Tools/) .
+    * `<Protobuf>` Aggiungere  *\*i file. proto* al gruppo di elementi.
+3. Nell'applicazione WPF aggiungere un riferimento al nuovo progetto.
+
+L'applicazione WPF può utilizzare i tipi generati da gRPC dal nuovo progetto libreria di classi.
+
+[!INCLUDE[](~/includes/gRPCazure.md)]
