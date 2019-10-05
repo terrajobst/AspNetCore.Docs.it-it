@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/31/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: df4d74a2800ef586091347289561a03b31e33f44
-ms.sourcegitcommit: 776367717e990bdd600cb3c9148ffb905d56862d
-ms.translationtype: HT
+ms.openlocfilehash: 4cc25cba95b476f1d14aad87564f9777a0530f86
+ms.sourcegitcommit: 4649814d1ae32248419da4e8f8242850fd8679a5
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68913937"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71975662"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host ASP.NET Core in Windows con IIS
 
@@ -297,7 +297,7 @@ Abilitare **Console di gestione IIS** e **Servizi Web**.
 
 ## <a name="install-the-net-core-hosting-bundle"></a>Installare il bundle di hosting .NET Core
 
-Installare il *bundle di hosting .NET Core* nel sistema di hosting. L'aggregazione installa il runtime di .NET Core, la libreria di .NET Core e il [modulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module). Il modulo consente l'esecuzione delle app ASP.NET Core dietro IIS. Se il sistema non ha una connessione Internet, ottenere e installare [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840) prima di installare il bundle di hosting .NET Core.
+Installare il *bundle di hosting .NET Core* nel sistema di hosting. L'aggregazione installa il runtime di .NET Core, la libreria di .NET Core e il [modulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module). Il modulo consente l'esecuzione delle app ASP.NET Core dietro IIS.
 
 > [!IMPORTANT]
 > Se il bundle di hosting viene installato prima di IIS, è necessario riparare l'installazione del bundle. Eseguire di nuovo il programma di installazione del bundle di hosting dopo l'installazione di IIS.

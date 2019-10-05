@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/22/2019
 uid: getting-started
-ms.openlocfilehash: 798f1ee87c05d886d8991e3f0230c8ebc6341ba8
-ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
+ms.openlocfilehash: 116a22bce80257948bfcc02c03a74a4b5568b8b5
+ms.sourcegitcommit: 4649814d1ae32248419da4e8f8242850fd8679a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71925108"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71975697"
 ---
 # <a name="tutorial-get-started-with-aspnet-core"></a>Esercitazione: Introduzione ad ASP.NET Core
 
@@ -44,7 +44,7 @@ dotnet new webapp -o aspnetcoreapp
 Il comando precedente:
 
 * Crea una nuova app Web.  
-* Il `-o aspnetcoreapp` parametro crea una directory denominata *aspnetcoreapp* con i file di origine per l'app.
+* Il parametro `-o aspnetcoreapp` crea una directory denominata *aspnetcoreapp* con i file di origine per l'app.
 
 ### <a name="trust-the-development-certificate"></a>Considerare attendibile il certificato di sviluppo
 
@@ -75,8 +75,6 @@ Il comando precedente consente di visualizzare il messaggio seguente:
 Questo comando potrebbe richiedere la password per installare il certificato nel keychain di sistema. Inserire la password se si accetta di considerare attendibile il certificato di sviluppo.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
-
-Per il sottosistema Windows per Linux, vedere [Considerare attendibile il certificato HTTPS dal sottosistema Windows per Linux](xref:security/enforcing-ssl#wsl).
 
 Vedere la documentazione della distribuzione di Linux su come rendere attendibile il certificato di sviluppo HTTPS.
 
