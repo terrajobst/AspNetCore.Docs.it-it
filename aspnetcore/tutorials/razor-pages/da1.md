@@ -73,7 +73,7 @@ Una richiesta alla pagina con il modello di route "{id: int}" che **non** includ
 Per testare il comportamento di `@page "{id:int?}"`:
 
 * Impostare la direttiva page in *Pages/Movies/Details.cshtml* su `@page "{id:int?}"`.
-* Impostare un punto di interruzione in `public async Task<IActionResult> OnGetAsync(int? id)` (in *Pages/Movies/Details.cshtml.cs*).
+* Impostare un breakpoint in `public async Task<IActionResult> OnGetAsync(int? id)` (in *Pages/Movies/Details.cshtml.cs*).
 * Passare a `https://localhost:5001/Movies/Details/`.
 
 Con l'istruzione `@page "{id:int}"`, il breakpoint non viene mai raggiunto. Il motore di routing restituisce HTTP 404. Se si utilizza `@page "{id:int?}"`, il metodo `OnGetAsync` restituisce `NotFound` (HTTP 404).
@@ -186,7 +186,7 @@ Una richiesta alla pagina con il modello di route "{id: int}" che **non** includ
 Per testare il comportamento di `@page "{id:int?}"`:
 
 * Impostare la direttiva page in *Pages/Movies/Details.cshtml* su `@page "{id:int?}"`.
-* Impostare un punto di interruzione in `public async Task<IActionResult> OnGetAsync(int? id)` (in *Pages/Movies/Details.cshtml.cs*).
+* Impostare un breakpoint in `public async Task<IActionResult> OnGetAsync(int? id)` (in *Pages/Movies/Details.cshtml.cs*).
 * Passare a `https://localhost:5001/Movies/Details/`.
 
 Con l'istruzione `@page "{id:int}"`, il breakpoint non viene mai raggiunto. Il motore di routing restituisce HTTP 404. Se si utilizza `@page "{id:int?}"`, il metodo `OnGetAsync` restituisce `NotFound` (HTTP 404).
