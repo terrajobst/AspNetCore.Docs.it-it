@@ -5,14 +5,14 @@ description: Informazioni sull'host generico .NET Core, che gestisce l'avvio e l
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/01/2019
+ms.date: 10/05/2019
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: 75af6dc58d31aaad888b14640268bf05c193272d
-ms.sourcegitcommit: e54672f5c493258dc449fac5b98faf47eb123b28
+ms.openlocfilehash: bd6e01697900b93d5b98122c726e1f8c8b89c0fc
+ms.sourcegitcommit: 4115bf0e850c13d4e655beb5ab5e8ff431173cb6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71248283"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981920"
 ---
 # <a name="net-generic-host"></a>Host generico .NET
 
@@ -119,7 +119,7 @@ Per ulteriori informazioni sui servizi forniti dal Framework, vedere <xref:funda
 
 Inserire il servizio <xref:Microsoft.Extensions.Hosting.IHostApplicationLifetime> (in precedenza `IApplicationLifetime`) in qualsiasi classe per gestire le attività post-avvio e di arresto normale. Tre proprietà nell'interfaccia sono token di annullamento usati per registrare i metodi del gestore dell'evento di avvio e di arresto. L'interfaccia include anche un metodo `StopApplication`.
 
-L'esempio seguente è un'implementazione `IHostedService` che registra gli eventi `IApplicationLifetime`:
+L'esempio seguente è un'implementazione di `IHostedService` che registra gli eventi `IHostApplicationLifetime`:
 
 [!code-csharp[](generic-host/samples-snapshot/3.x/LifetimeEventsHostedService.cs?name=snippet_LifetimeEvents)]
 
@@ -380,7 +380,7 @@ Elenco delimitato da punto e virgola degli indirizzi IP o gli indirizzi host con
 
 **Chiave**: urls  
 **Tipo**: *string*  
-**Impostazione predefinita**: `http://localhost:5000` e`https://localhost:5001`  
+**Impostazione predefinita**: `http://localhost:5000` e `https://localhost:5001`  
 **Variabile di ambiente**: `<PREFIX_>URLS`
 
 Per impostare questo valore, usare la variabile di ambiente o chiamare `UseUrls`:
@@ -422,7 +422,7 @@ Chiamare metodi sull'implementazione <xref:Microsoft.Extensions.Hosting.IHost> i
 
 <xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.RunConsoleAsync*> abilita il supporto della console, compila e avvia l'host e resta in ascolto di CTRL+C/SIGINT o SIGTERM per eseguire l'arresto.
 
-### <a name="start"></a>Inizia
+### <a name="start"></a>Start
 
 <xref:Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Start*> avvia l'host in modo sincrono.
 

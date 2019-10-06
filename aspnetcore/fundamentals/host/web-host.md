@@ -1,21 +1,19 @@
 ---
 title: Host Web ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Informazioni sull'host Web in ASP.NET Core, responsabile della gestione dell'avvio e della durata delle app.
 ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2019
 uid: fundamentals/host/web-host
-ms.openlocfilehash: d387098662cc832cc0e49b6a1636f0ebcc7308de
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 977c1df67c2775870d630f3a1085d5e19cef58f5
+ms.sourcegitcommit: 4115bf0e850c13d4e655beb5ab5e8ff431173cb6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71081694"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981903"
 ---
 # <a name="aspnet-core-web-host"></a>Host Web ASP.NET Core
-
-Di [Luke Latham](https://github.com/guardrex)
 
 Le app ASP.NET Core configurano e avviano un *host*. L'host è responsabile della gestione dell'avvio e della durata delle app. L'host configura almeno un server e una pipeline di elaborazione delle richieste. L'host può anche configurare la registrazione, l'inserimento delle dipendenze e la configurazione.
 
