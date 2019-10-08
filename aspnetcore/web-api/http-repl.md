@@ -5,14 +5,14 @@ description: Informazioni su come usare lo strumento globale REPL HTTP .NET Core
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 08/29/2019
+ms.date: 10/07/2019
 uid: web-api/http-repl
-ms.openlocfilehash: 086ac141a04ab4a560f2c26fb049ef8a5493dc97
-ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
+ms.openlocfilehash: c845c28210d6defcb70a520f176b64986ae3d4a6
+ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71187250"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72007441"
 ---
 # <a name="test-web-apis-with-the-http-repl"></a>Testare le API Web con il ciclo Read-Eval-Print (REPL) HTTP
 
@@ -134,7 +134,7 @@ Connettersi all'API Web eseguendo il comando seguente:
 httprepl <ROOT URI>
 ```
 
-`<ROOT URI>` è l'URI di base dell'API Web. Ad esempio:
+`<ROOT URI>` è l'URI di base dell'API Web. Esempio:
 
 ```console
 httprepl https://localhost:5001
@@ -146,7 +146,7 @@ In alternativa, eseguire il comando seguente in qualsiasi momento mentre è in e
 connect <ROOT URI>
 ```
 
-Ad esempio:
+Esempio:
 
 ```console
 (Disconnected)~ connect https://localhost:5001
@@ -160,7 +160,7 @@ Il comando connect precedente tenterà di individuare automaticamente il documen
 connect <ROOT URI> --swagger <SWAGGER URI>
 ```
 
-Ad esempio:
+Esempio:
 
 ```console
 (Disconnected)~ connect https://localhost:5001 --swagger /swagger/v1/swagger.json
@@ -199,7 +199,7 @@ https://localhost:5001/fruits~ ls
 https://localhost:5001/fruits~
 ```
 
-In alternativa, eseguire il comando `ui` per aprire la pagina dell'interfaccia utente di Swagger dell'API Web in un browser. Ad esempio:
+In alternativa, eseguire il comando `ui` per aprire la pagina dell'interfaccia utente di Swagger dell'API Web in un browser. Esempio:
 
 ```console
 https://localhost:5001/~ ui
@@ -243,7 +243,7 @@ Il file con estensione *httpreplprefs* viene caricato all'avvio e non viene moni
 
 ### <a name="view-the-settings"></a>Visualizzare le impostazioni
 
-Per visualizzare le impostazioni disponibili, eseguire il comando `pref get`. Ad esempio:
+Per visualizzare le impostazioni disponibili, eseguire il comando `pref get`. Esempio:
 
 ```console
 https://localhost:5001/~ pref get
@@ -281,7 +281,7 @@ Quando non sono impostate chiavi di colore specifiche, vengono considerate chiav
 
 ### <a name="set-indentation-size"></a>Impostare la dimensione del rientro
 
-La personalizzazione della dimensione del rientro delle risposte è attualmente supportata solo per JSON. La dimensione del rientro predefinita è di due spazi. Ad esempio:
+La personalizzazione della dimensione del rientro delle risposte è attualmente supportata solo per JSON. La dimensione del rientro predefinita è di due spazi. Esempio:
 
 ```json
 [
@@ -370,7 +370,7 @@ Per impostazione predefinita, HTTP REPL ha un set di percorsi relativi che usa p
 - */swagger.json*
 - */swagger/v1/swagger.json*
 
-Per usare un set di percorsi di ricerca diverso nell'ambiente in uso, impostare la preferenza `swagger.searchPaths`. Il valore deve essere un elenco di percorsi relativi delimitati da pipe. Ad esempio:
+Per usare un set di percorsi di ricerca diverso nell'ambiente in uso, impostare la preferenza `swagger.searchPaths`. Il valore deve essere un elenco di percorsi relativi delimitati da pipe. Esempio:
 
 ```console
 pref set swagger.searchPaths "swagger/v2/swagger.json|swagger/v3/swagger.json"
@@ -490,7 +490,7 @@ Per inviare una richiesta HTTP POST:
     https://localhost:5001/people~ post -h Content-Type=application/json
     ```
 
-    Nel comando precedente l'intestazione della richiesta HTTP `Content-Type` è impostata per indicare un tipo di supporto del corpo della richiesta JSON. L'editor di testo predefinito apre un file con estensione *tmp* con un modello JSON che rappresenta il corpo della richiesta HTTP. Ad esempio:
+    Nel comando precedente l'intestazione della richiesta HTTP `Content-Type` è impostata per indicare un tipo di supporto del corpo della richiesta JSON. L'editor di testo predefinito apre un file con estensione *tmp* con un modello JSON che rappresenta il corpo della richiesta HTTP. Esempio:
 
     ```json
     {
@@ -585,7 +585,7 @@ Per inviare una richiesta HTTP PUT:
     https://localhost:5001/fruits~ put 2 -h Content-Type=application/json
     ```
 
-    Nel comando precedente l'intestazione della richiesta HTTP `Content-Type` è impostata per indicare un tipo di supporto del corpo della richiesta JSON. L'editor di testo predefinito apre un file con estensione *tmp* con un modello JSON che rappresenta il corpo della richiesta HTTP. Ad esempio:
+    Nel comando precedente l'intestazione della richiesta HTTP `Content-Type` è impostata per indicare un tipo di supporto del corpo della richiesta JSON. L'editor di testo predefinito apre un file con estensione *tmp* con un modello JSON che rappresenta il corpo della richiesta HTTP. Esempio:
 
     ```json
     {
@@ -790,7 +790,7 @@ Parametro di route, se presente, previsto dal metodo di azione del controller as
 
 Per impostare l'intestazione di una richiesta HTTP, usare uno degli approcci seguenti:
 
-1. Impostare inline con la richiesta HTTP. Ad esempio:
+1. Impostare inline con la richiesta HTTP. Esempio:
 
   ```console
   https://localhost:5001/people~ post -h Content-Type=application/json
@@ -798,17 +798,99 @@ Per impostare l'intestazione di una richiesta HTTP, usare uno degli approcci seg
 
   Con l'approccio precedente, ogni singola intestazione di richiesta HTTP richiede una propria opzione `-h`.
 
-1. Impostare prima di inviare la richiesta HTTP. Ad esempio:
+1. Impostare prima di inviare la richiesta HTTP. Esempio:
 
   ```console
   https://localhost:5001/people~ set header Content-Type application/json
   ```
 
-  Quando si imposta l'intestazione prima di inviare una richiesta, l'intestazione rimane impostata per la durata della sessione della shell dei comandi. Per cancellare l'intestazione, specificare un valore vuoto. Ad esempio:
+  Quando si imposta l'intestazione prima di inviare una richiesta, l'intestazione rimane impostata per la durata della sessione della shell dei comandi. Per cancellare l'intestazione, specificare un valore vuoto. Esempio:
 
   ```console
   https://localhost:5001/people~ set header Content-Type
   ```
+
+## <a name="test-secured-endpoints"></a>Testare endpoint protetti
+
+Il REPL HTTP supporta il test degli endpoint protetti tramite l'uso di intestazioni di richiesta HTTP. Esempi di schemi di autenticazione e autorizzazione supportati includono l'autenticazione di base, i token di porta JWT e l'autenticazione del digest. Ad esempio, è possibile inviare un bearer token a un endpoint con il comando seguente:
+
+```console
+set header Authorization "bearer <TOKEN VALUE>"
+```
+
+Per accedere a un endpoint ospitato da Azure o per usare l' [API REST di Azure](/rest/api/azure/), è necessario un Bearer token. Usare la procedura seguente per ottenere un bearer token per la sottoscrizione di Azure tramite l'interfaccia della riga di comando di [Azure](/cli/azure/). Il REPL HTTP imposta la bearer token in un'intestazione di richiesta HTTP e recupera un elenco di app Azure app Web del servizio.
+
+1. Accedere ad Azure:
+
+    ```azcli
+    az login
+    ```
+
+1. Ottenere l'ID sottoscrizione con il comando seguente:
+
+    ```azcli
+    az account show --query id
+    ```
+
+1. Copiare l'ID sottoscrizione ed eseguire il comando seguente:
+
+    ```azcli
+    az account set --subscription "<SUBSCRIPTION ID>"
+    ```
+
+1. Ottenere il bearer token con il comando seguente:
+
+    ```azcli
+    az account get-access-token --query accessToken
+    ```
+
+1. Connettersi all'API REST di Azure tramite il REPL HTTP:
+
+    ```console
+    httprepl https://management.azure.com
+    ```
+
+1. Impostare l'intestazione della richiesta HTTP `Authorization`:
+
+    ```console
+    https://management.azure.com/> set header Authorization "bearer <ACCESS TOKEN>"
+    ```
+
+1. Passare alla sottoscrizione:
+
+    ```console
+    https://management.azure.com/> cd subscriptions/<SUBSCRIPTION ID>
+    ```
+
+1. Ottenere un elenco delle app Web del servizio app Azure della sottoscrizione:
+
+    ```console
+    https://management.azure.com/subscriptions/{SUBSCRIPTION ID}> get providers/Microsoft.Web/sites?api-version=2016-08-01
+    ```
+
+    Viene visualizzata la risposta seguente:
+
+    ```console
+    HTTP/1.1 200 OK
+    Cache-Control: no-cache
+    Content-Length: 35948
+    Content-Type: application/json; charset=utf-8
+    Date: Thu, 19 Sep 2019 23:04:03 GMT
+    Expires: -1
+    Pragma: no-cache
+    Strict-Transport-Security: max-age=31536000; includeSubDomains
+    X-Content-Type-Options: nosniff
+    x-ms-correlation-request-id: <em>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</em>
+    x-ms-original-request-ids: <em>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</em>
+    x-ms-ratelimit-remaining-subscription-reads: 11999
+    x-ms-request-id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    x-ms-routing-request-id: WESTUS:xxxxxxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx
+    {
+      "value": [
+        <AZURE RESOURCES LIST>
+      ]
+    }
+    ```
 
 ## <a name="toggle-http-request-display"></a>Attivare o disattivare la visualizzazione delle richieste HTTP
 
@@ -816,14 +898,14 @@ Per impostazione predefinita, la visualizzazione della richiesta HTTP inviata vi
 
 ### <a name="enable-request-display"></a>Abilitare la visualizzazione delle richieste
 
-Visualizzare la richiesta HTTP inviata eseguendo il comando `echo on`. Ad esempio:
+Visualizzare la richiesta HTTP inviata eseguendo il comando `echo on`. Esempio:
 
 ```console
 https://localhost:5001/people~ echo on
 Request echoing is on
 ```
 
-Le richieste HTTP successive della sessione corrente visualizzano le intestazioni delle richieste. Ad esempio:
+Le richieste HTTP successive della sessione corrente visualizzano le intestazioni delle richieste. Esempio:
 
 ```console
 https://localhost:5001/people~ post
@@ -861,7 +943,7 @@ https://localhost:5001/people~
 
 ### <a name="disable-request-display"></a>Disabilitare la visualizzazione delle richieste
 
-Eliminare la visualizzazione della richiesta HTTP inviata eseguendo il comando `echo off`. Ad esempio:
+Eliminare la visualizzazione della richiesta HTTP inviata eseguendo il comando `echo off`. Esempio:
 
 ```console
 https://localhost:5001/people~ echo off
@@ -870,7 +952,7 @@ Request echoing is off
 
 ## <a name="run-a-script"></a>Eseguire uno script
 
-Se si esegue spesso lo stesso set di comandi del ciclo Read-Eval-Print HTTP, può essere utile archiviarlo in un file di testo. I comandi nel file hanno lo stesso formato di quelli eseguiti manualmente nella riga di comando. I comandi possono essere eseguiti in modalità batch usando il comando `run`. Ad esempio:
+Se si esegue spesso lo stesso set di comandi del ciclo Read-Eval-Print HTTP, può essere utile archiviarlo in un file di testo. I comandi nel file hanno lo stesso formato di quelli eseguiti manualmente nella riga di comando. I comandi possono essere eseguiti in modalità batch usando il comando `run`. Esempio:
 
 1. Creare un file di testo contenente un set di comandi delimitati da una nuova riga. Si consideri ad esempio un file *people-script.txt* contenente i comandi seguenti:
 
@@ -882,7 +964,7 @@ Se si esegue spesso lo stesso set di comandi del ciclo Read-Eval-Print HTTP, pu�
     get 1
     ```
 
-1. Eseguire il comando `run` passando il percorso del file di testo. Ad esempio:
+1. Eseguire il comando `run` passando il percorso del file di testo. Esempio:
 
     ```console
     https://localhost:5001/~ run C:\http-repl-scripts\people-script.txt

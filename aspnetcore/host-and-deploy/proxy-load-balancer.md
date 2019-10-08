@@ -5,14 +5,14 @@ description: Informazioni sulla configurazione per le app ospitate dietro server
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/12/2019
+ms.date: 10/07/2019
 uid: host-and-deploy/proxy-load-balancer
-ms.openlocfilehash: 3243f5d3254e6585ff9ca48900a3326aa9b6f502
-ms.sourcegitcommit: 8a36be1bfee02eba3b07b7a86085ec25c38bae6b
+ms.openlocfilehash: 5eb69c2a253d1b8c42edd39b64b595898e6fb948
+ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219171"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72007285"
 ---
 # <a name="configure-aspnet-core-to-work-with-proxy-servers-and-load-balancers"></a>Configurare ASP.NET Core per l'uso di server proxy e servizi di bilanciamento del carico
 
@@ -29,7 +29,7 @@ Queste informazioni potrebbero essere importanti per l'elaborazione delle richie
 
 Per convenzione, i proxy inoltrano le informazioni nelle intestazioni HTTP.
 
-| Header | Descrizione |
+| Intestazione | Descrizione |
 | ------ | ----------- |
 | X-Forwarded-For | Contiene informazioni sul client che ha avviato la richiesta e sui proxy successivi in una catena di proxy. Questo parametro può contenere indirizzi IP (e, facoltativamente, numeri di porta). In una catena di server proxy, il primo parametro indica il client in cui è stata eseguita inizialmente la richiesta. Seguono gli identificatori dei proxy successivi. L'ultimo proxy della catena non è incluso nell'elenco dei parametri. L'indirizzo IP dell'ultimo proxy e, facoltativamente, un numero di porta sono disponibili come indirizzo IP remoto a livello di trasporto. |
 | X-Forwarded-Proto | Il valore dello schema di origine (HTTP/HTTPS). Il valore può essere anche un elenco di schemi, se la richiesta ha attraversato più proxy. |
@@ -252,7 +252,61 @@ if (string.Equals(
 }
 ```
 
-## <a name="troubleshoot"></a>Risolvere i problemi
+::: moniker range=">= aspnetcore-3.0"
+
+## <a name="certificate-forwarding"></a>Inoltro di certificati 
+
+### <a name="azure"></a>Azure
+
+Per configurare app Azure servizio per l'invio di certificati, vedere [configurare l'autenticazione reciproca TLS per il servizio app Azure](/azure/app-service/app-service-web-configure-tls-mutual-auth). Le linee guida seguenti riguardano la configurazione dell'app ASP.NET Core.
+
+In `Startup.Configure` aggiungere il codice seguente prima della chiamata a `app.UseAuthentication();`:
+
+```csharp
+app.UseCertificateForwarding();
+```
+
+
+Configurare il middleware di invio del certificato per specificare il nome dell'intestazione usato da Azure. In `Startup.ConfigureServices` aggiungere il codice seguente per configurare l'intestazione da cui il middleware compila un certificato:
+
+```csharp
+services.AddCertificateForwarding(options =>
+    options.CertificateHeader = "X-ARR-ClientCert");
+```
+
+### <a name="other-web-proxies"></a>Altri proxy Web
+
+Se viene usato un proxy che non è IIS o app Azure Application Request Routing (ARR) del servizio, configurare il proxy in modo che inoltri il certificato ricevuto in un'intestazione HTTP. In `Startup.Configure` aggiungere il codice seguente prima della chiamata a `app.UseAuthentication();`:
+
+```csharp
+app.UseCertificateForwarding();
+```
+
+Configurare il middleware di invio del certificato per specificare il nome dell'intestazione. In `Startup.ConfigureServices` aggiungere il codice seguente per configurare l'intestazione da cui il middleware compila un certificato:
+
+```csharp
+services.AddCertificateForwarding(options =>
+    options.CertificateHeader = "YOUR_CERTIFICATE_HEADER_NAME");
+```
+
+Se il proxy non prevede la codifica Base64 del certificato (come nel caso di nginx), impostare l'opzione `HeaderConverter`. Si consideri l'esempio seguente in `Startup.ConfigureServices`:
+
+```csharp
+services.AddCertificateForwarding(options =>
+{
+    options.CertificateHeader = "YOUR_CUSTOM_HEADER_NAME";
+    options.HeaderConverter = (headerValue) => 
+    {
+        var clientCertificate = 
+           /* some conversion logic to create an X509Certificate2 */
+        return clientCertificate;
+    }
+});
+```
+
+::: moniker-end
+
+## <a name="troubleshoot"></a>Risolvere problemi
 
 Quando le intestazioni non vengono inoltrate come previsto, abilitare la [registrazione](xref:fundamentals/logging/index). Se i log non forniscono informazioni sufficienti per risolvere il problema, enumerare le intestazioni delle richieste ricevute dal server. Usare il middleware inline per scrivere le intestazioni di richiesta in una risposta dell'app o per registrare le intestazioni. 
 
@@ -336,53 +390,6 @@ services.Configure<ForwardedHeadersOptions>(options =>
 
 > [!IMPORTANT]
 > Consentire solo a reti e proxy attendibili di inoltrare le intestazioni. In caso contrario, possono verificarsi attacchi di [spoofing degli indirizzi IP](https://www.iplocation.net/ip-spoofing).
-
-## <a name="certificate-forwarding"></a>Inoltro di certificati 
-
-### <a name="on-azure"></a>In Azure
-
-Vedere la [documentazione di Azure](/azure/app-service/app-service-web-configure-tls-mutual-auth) per configurare le app Web di Azure. Nel metodo `Startup.Configure` dell'app aggiungere il codice seguente prima della chiamata a `app.UseAuthentication();`:
-
-```csharp
-app.UseCertificateForwarding();
-```
-
-Sarà anche necessario configurare il middleware di inoltro dei certificati per specificare il nome dell'intestazione usata da Azure. Nel metodo `Startup.ConfigureServices` dell'app aggiungere il codice seguente per configurare l'intestazione da cui il middleware crea un certificato:
-
-```csharp
-services.AddCertificateForwarding(options =>
-    options.CertificateHeader = "X-ARR-ClientCert");
-```
-
-### <a name="with-other-web-proxies"></a>Con altri proxy Web
-
-Se si usa un proxy che non sia IIS o Application Request Routing per app Web di Azure, configurare il proxy per inoltrare il certificato ricevuto in un'intestazione HTTP. Nel metodo `Startup.Configure` dell'app aggiungere il codice seguente prima della chiamata a `app.UseAuthentication();`:
-
-```csharp
-app.UseCertificateForwarding();
-```
-
-Sarà anche necessario configurare il middleware di inoltro dei certificati per specificare il nome dell'intestazione. Nel metodo `Startup.ConfigureServices` dell'app aggiungere il codice seguente per configurare l'intestazione da cui il middleware crea un certificato:
-
-```csharp
-services.AddCertificateForwarding(options =>
-    options.CertificateHeader = "YOUR_CERTIFICATE_HEADER_NAME");
-```
-
-Infine, se il proxy esegue operazioni diverse dalla codifica base64 del certificato (come nel caso di Nginx), impostare l'opzione `HeaderConverter`. Si consideri l'esempio seguente in `Startup.ConfigureServices`:
-
-```csharp
-services.AddCertificateForwarding(options =>
-{
-    options.CertificateHeader = "YOUR_CUSTOM_HEADER_NAME";
-    options.HeaderConverter = (headerValue) => 
-    {
-        var clientCertificate = 
-           /* some conversion logic to create an X509Certificate2 */
-        return clientCertificate;
-    }
-});
-```
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

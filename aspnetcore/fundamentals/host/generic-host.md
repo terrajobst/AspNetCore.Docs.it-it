@@ -5,14 +5,14 @@ description: Informazioni sull'host generico .NET Core, che gestisce l'avvio e l
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/05/2019
+ms.date: 10/07/2019
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: bd6e01697900b93d5b98122c726e1f8c8b89c0fc
-ms.sourcegitcommit: 4115bf0e850c13d4e655beb5ab5e8ff431173cb6
+ms.openlocfilehash: 1582955cd18e6739111af05c9a892cd5cb4e270d
+ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981920"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72007235"
 ---
 # <a name="net-generic-host"></a>Host generico .NET
 
@@ -78,7 +78,7 @@ Se l'app usa Entity Framework Core, non modificare il nome o la firma del metodo
 
 Il metodo <xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder*>:
 
-* Imposta la radice del contenuto sul percorso restituito da <xref:System.IO.Directory.GetCurrentDirectory*>.
+* Imposta la [radice del contenuto](xref:fundamentals/index#content-root) sul percorso restituito da <xref:System.IO.Directory.GetCurrentDirectory*>.
 * Carica la configurazione dell'host da:
   * Le variabili di ambiente con prefisso "DOTNET_".
   * Argomenti della riga di comando.
@@ -199,6 +199,11 @@ Host.CreateDefaultBuilder(args)
     .UseContentRoot("c:\\content-root")
     //...
 ```
+
+Per altre informazioni, vedere:
+
+* [Fundamentals: Radice del contenuto @ no__t-0
+* [WebRoot](#webroot)
 
 ### <a name="environmentname"></a>EnvironmentName
 
@@ -397,7 +402,7 @@ Il percorso relativo degli asset statici dell'app.
 
 **Chiave**: webroot  
 **Tipo**: *string*  
-**Predefinito**: *(Radice del contenuto)/wwwroot*, se il percorso esiste. Se il percorso non esiste, viene usato un provider di file no-op.  
+**Predefinito**: Il valore predefinito è `wwwroot`. Il percorso di *{radice del contenuto}/wwwroot* deve esistere. Se il percorso non esiste, viene usato un provider di file no-op.  
 **Variabile di ambiente**: `<PREFIX_>WEBROOT`
 
 Per impostare questo valore, usare la variabile di ambiente o chiamare `UseWebRoot`:
@@ -405,6 +410,11 @@ Per impostare questo valore, usare la variabile di ambiente o chiamare `UseWebRo
 ```csharp
 webBuilder.UseWebRoot("public");
 ```
+
+Per altre informazioni, vedere:
+
+* [Fundamentals: Radice Web @ no__t-0
+* [ContentRootPath](#contentrootpath)
 
 ## <a name="manage-the-host-lifetime"></a>Gestire la durata dell'host
 
@@ -574,6 +584,8 @@ Questa impostazione determina la posizione da cui l'host inizia la ricerca dei f
 Se il percorso non esiste, l'host non verrà avviato.
 
 [!code-csharp[](generic-host/samples-snapshot/2.x/GenericHostSample/Program.cs?name=snippet_UseContentRoot)]
+
+Per ulteriori informazioni, vedere [Fundamentals: Radice del contenuto @ no__t-0.
 
 ### <a name="environment"></a>Ambiente
 

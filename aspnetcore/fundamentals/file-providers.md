@@ -5,14 +5,14 @@ description: Informazioni su come ASP.NET Core astrae l'accesso al file system t
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/26/2019
+ms.date: 10/07/2019
 uid: fundamentals/file-providers
-ms.openlocfilehash: 44c439dce893d486668bf8ac3f20cdf7952c5186
-ms.sourcegitcommit: 0774a61a3a6c1412a7da0e7d932dc60c506441fc
-ms.translationtype: HT
+ms.openlocfilehash: 3a92b44efc70d156596ee9fe80b4f6a65266e73d
+ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70059095"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72007175"
 ---
 # <a name="file-providers-in-aspnet-core"></a>Provider di file in ASP.NET Core
 
@@ -22,7 +22,7 @@ Di [Steve Smith](https://ardalis.com/) e [Luke Latham](https://github.com/guardr
 
 ASP.NET Core astrae l'accesso al file system tramite l'utilizzo di provider di file. I provider di file vengono usati in tutto il framework di ASP.NET Core:
 
-* `IWebHostEnvironment` espone la radice del contenuto dell'app e la radice Web come tipi `IFileProvider`.
+* `IWebHostEnvironment` espone la radice del [contenuto](xref:fundamentals/index#content-root) dell'app e la [radice web](xref:fundamentals/index#web-root) come tipi `IFileProvider`.
 * Il [middleware dei file statici](xref:fundamentals/static-files) usa i provider di file per trovare i file statici.
 * [Razor](xref:mvc/views/razor) usa i provider di file per individuare pagine e viste.
 * Gli strumenti .NET Core usano i provider di file e i criteri GLOB per specificare i file da pubblicare.
@@ -53,7 +53,7 @@ L'app di esempio dimostra come configurare un provider di file in `Startup.Confi
 
 Sono disponibili tre implementazioni di `IFileProvider`.
 
-| Implementazione | DESCRIZIONE |
+| Implementazione | Descrizione |
 | -------------- | ----------- |
 | [PhysicalFileProvider](#physicalfileprovider) | Il provider fisico viene usato per accedere ai file fisici del sistema. |
 | [ManifestEmbeddedFileProvider](#manifestembeddedfileprovider) | Il provider incorporato nel manifesto viene usato per accedere ai file incorporati negli assembly. |
@@ -114,7 +114,7 @@ Overload aggiuntivi consentono di:
 * Definire la data dell'ultima modifica come ambito dei file.
 * Assegnare un nome alla risorsa incorporata contenente il manifesto dei file incorporati.
 
-| Overload | DESCRIZIONE |
+| Overload | Descrizione |
 | -------- | ----------- |
 | `ManifestEmbeddedFileProvider(Assembly, String)` | Accetta un parametro di percorso relativo `root` facoltativo. Specificare `root` per definire come ambito delle chiamate a <xref:Microsoft.Extensions.FileProviders.IFileProvider.GetDirectoryContents*> le risorse incluse nel percorso specificato. |
 | `ManifestEmbeddedFileProvider(Assembly, String, DateTimeOffset)` | Accetta un parametro di percorso relativo `root` facoltativo e un parametro di data `lastModified` (<xref:System.DateTimeOffset>). La data `lastModified` definisce la data dell'ultima modifica come ambito per le istanze di <xref:Microsoft.Extensions.FileProviders.IFileInfo> restituite da <xref:Microsoft.Extensions.FileProviders.IFileProvider>. |
@@ -171,7 +171,7 @@ Cerca tutti i file con estensione *txt* che si trovano in qualsiasi posizione ne
 
 ASP.NET Core astrae l'accesso al file system tramite l'utilizzo di provider di file. I provider di file vengono usati in tutto il framework di ASP.NET Core:
 
-* <xref:Microsoft.Extensions.Hosting.IHostingEnvironment> espone la radice del contenuto dell'app e la radice Web come tipi `IFileProvider`.
+* <xref:Microsoft.Extensions.Hosting.IHostingEnvironment> espone la radice del [contenuto](xref:fundamentals/index#content-root) dell'app e la [radice web](xref:fundamentals/index#web-root) come tipi `IFileProvider`.
 * Il [middleware dei file statici](xref:fundamentals/static-files) usa i provider di file per trovare i file statici.
 * [Razor](xref:mvc/views/razor) usa i provider di file per individuare pagine e viste.
 * Gli strumenti .NET Core usano i provider di file e i criteri GLOB per specificare i file da pubblicare.
@@ -202,7 +202,7 @@ L'app di esempio dimostra come configurare un provider di file in `Startup.Confi
 
 Sono disponibili tre implementazioni di `IFileProvider`.
 
-| Implementazione | DESCRIZIONE |
+| Implementazione | Descrizione |
 | -------------- | ----------- |
 | [PhysicalFileProvider](#physicalfileprovider) | Il provider fisico viene usato per accedere ai file fisici del sistema. |
 | [ManifestEmbeddedFileProvider](#manifestembeddedfileprovider) | Il provider incorporato nel manifesto viene usato per accedere ai file incorporati negli assembly. |
@@ -261,7 +261,7 @@ Overload aggiuntivi consentono di:
 * Definire la data dell'ultima modifica come ambito dei file.
 * Assegnare un nome alla risorsa incorporata contenente il manifesto dei file incorporati.
 
-| Overload | DESCRIZIONE |
+| Overload | Descrizione |
 | -------- | ----------- |
 | `ManifestEmbeddedFileProvider(Assembly, String)` | Accetta un parametro di percorso relativo `root` facoltativo. Specificare `root` per definire come ambito delle chiamate a <xref:Microsoft.Extensions.FileProviders.IFileProvider.GetDirectoryContents*> le risorse incluse nel percorso specificato. |
 | `ManifestEmbeddedFileProvider(Assembly, String, DateTimeOffset)` | Accetta un parametro di percorso relativo `root` facoltativo e un parametro di data `lastModified` (<xref:System.DateTimeOffset>). La data `lastModified` definisce la data dell'ultima modifica come ambito per le istanze di <xref:Microsoft.Extensions.FileProviders.IFileInfo> restituite da <xref:Microsoft.Extensions.FileProviders.IFileProvider>. |

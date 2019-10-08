@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/23/2019
 uid: blazor/class-libraries
-ms.openlocfilehash: d9ef276357e95d97b7d89427c5e237aceea7a0d3
-ms.sourcegitcommit: 79eeb17604b536e8f34641d1e6b697fb9a2ee21f
+ms.openlocfilehash: 2e042b43c6db24e0ecac727be100575fe1275e17
+ms.sourcegitcommit: 6d26ab647ede4f8e57465e29b03be5cb130fc872
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71207109"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71999783"
 ---
 # <a name="aspnet-core-razor-components-class-libraries"></a>Librerie di classi dei componenti di ASP.NET Core Razor
 
@@ -28,20 +28,20 @@ Così come i componenti sono tipi .NET normali, i componenti forniti da un RCL s
 
 ## <a name="create-an-rcl"></a>Creare un RCL
 
-Per configurare l'ambiente per <xref:blazor/get-started> blazer, seguire le istruzioni riportate nell'articolo.
+Per configurare l'ambiente per blazer, seguire le istruzioni riportate nell'articolo <xref:blazor/get-started>.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 1. Creare un nuovo progetto.
-1. Selezionare **libreria di classi Razor**. Scegliere **Avanti**.
+1. Selezionare **libreria di classi Razor**. Selezionare **Avanti**.
 1. Nella finestra di dialogo **Crea una nuova libreria di classi Razor** selezionare **Crea**.
-1. Specificare il nome di un progetto nel campo **Nome progetto** oppure accettare il nome predefinito. Gli esempi in questo argomento usano il nome `MyComponentLib1`del progetto. Scegliere **Crea**.
+1. Specificare il nome di un progetto nel campo **Nome progetto** oppure accettare il nome predefinito. Negli esempi di questo argomento viene usato il nome del progetto `MyComponentLib1`. Selezionare **Create**.
 1. Aggiungere RCL a una soluzione:
-   1. Fare clic con il pulsante destro del mouse sulla soluzione. Selezionare **Aggiungi** > **progetto esistente**.
+   1. Fare clic con il pulsante destro del mouse sulla soluzione. Selezionare **aggiungi** > **progetto esistente**.
    1. Passare al file di progetto di RCL.
    1. Selezionare il file di progetto di RCL (con*estensione csproj*).
 1. Aggiungere un riferimento a RCL dall'app:
-   1. Fare clic con il pulsante destro del mouse sul progetto app. Selezionare **Aggiungi** > **riferimento**.
+   1. Fare clic con il pulsante destro del mouse sul progetto app. Selezionare **Aggiungi** **riferimento** > .
    1. Selezionare il progetto RCL. Scegliere **OK**.
 
 # <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
@@ -65,11 +65,11 @@ Per configurare l'ambiente per <xref:blazor/get-started> blazer, seguire le istr
 Per utilizzare i componenti definiti in una raccolta in un altro progetto, utilizzare uno degli approcci seguenti:
 
 * Usare il nome completo del tipo con lo spazio dei nomi.
-* Usare la direttiva [ \@using](xref:mvc/views/razor#using) di Razor. I singoli componenti possono essere aggiunti in base al nome.
+* Usare la direttiva [\@using](xref:mvc/views/razor#using) di Razor. I singoli componenti possono essere aggiunti in base al nome.
 
-Negli esempi `MyComponentLib1` seguenti è una libreria di componenti contenente un `SalesReport` componente di.
+Negli esempi seguenti `MyComponentLib1` è una libreria di componenti contenente un componente `SalesReport`.
 
-È `SalesReport` possibile fare riferimento al componente usando il nome completo del tipo con lo spazio dei nomi:
+È possibile fare riferimento al componente `SalesReport` usando il nome completo del tipo con lo spazio dei nomi:
 
 ```cshtml
 <h1>Hello, world!</h1>
@@ -79,7 +79,7 @@ Welcome to your new app.
 <MyComponentLib1.SalesReport />
 ```
 
-È possibile fare riferimento al componente anche se la libreria viene inserita nell'ambito con una `@using` direttiva:
+È possibile fare riferimento al componente anche se la libreria viene inserita nell'ambito con una direttiva `@using`:
 
 ```cshtml
 @using MyComponentLib1
@@ -91,7 +91,7 @@ Welcome to your new app.
 <SalesReport />
 ```
 
-Includere la `@using MyComponentLib1` direttiva nel file *_Import. Razor* di primo livello per rendere disponibili i componenti della libreria a un intero progetto. Aggiungere la direttiva a un file *_Import. Razor* a qualsiasi livello per applicare lo spazio dei nomi a una singola pagina o a un set di pagine all'interno di una cartella.
+Includere la direttiva `@using MyComponentLib1` nel file *_Import. Razor* di primo livello per rendere disponibili i componenti della libreria a un intero progetto. Aggiungere la direttiva a un file *_Import. Razor* a qualsiasi livello per applicare lo spazio dei nomi a una singola pagina o a un set di pagine all'interno di una cartella.
 
 ## <a name="build-pack-and-ship-to-nuget"></a>Compilare, comprimere e spedire a NuGet
 
@@ -101,11 +101,7 @@ Poiché le librerie dei componenti sono librerie .NET standard, la creazione di 
 dotnet pack
 ```
 
-Caricare il pacchetto in NuGet usando il comando [DotNet NuGet Publish](/dotnet/core/tools/dotnet-nuget-push) in una shell dei comandi:
-
-```dotnetcli
-dotnet nuget publish
-```
+Caricare il pacchetto in NuGet usando il comando [DotNet NuGet push](/dotnet/core/tools/dotnet-nuget-push) in una shell dei comandi.
 
 ## <a name="create-a-razor-components-class-library-with-static-assets"></a>Creare una libreria di classi di componenti Razor con asset statici
 

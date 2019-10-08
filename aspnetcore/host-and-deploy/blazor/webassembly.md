@@ -5,14 +5,14 @@ description: Informazioni su come ospitare e distribuire un'app Blazor con ASP.N
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/23/2019
+ms.date: 10/07/2019
 uid: host-and-deploy/blazor/webassembly
-ms.openlocfilehash: cdb424137d80b280873347c1352fc43d23b4aec3
-ms.sourcegitcommit: 79eeb17604b536e8f34641d1e6b697fb9a2ee21f
+ms.openlocfilehash: a0a11f3aed9035000e79844fbec7cdd17b73fdaa
+ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211616"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72007344"
 ---
 # <a name="host-and-deploy-aspnet-core-blazor-webassembly"></a>Ospitare e distribuire un webassembly ASP.NET Core Blazer
 
@@ -111,7 +111,7 @@ Se un'app autonoma è ospitata come una sub-app IIS, eseguire una delle operazio
 
 * Disabilitare il gestore del modulo ASP.NET Core ereditato.
 
-  Rimuovere il gestore nel file *Web. config* pubblicato dell'app Blaze aggiungendo una `<handlers>` sezione al file:
+  Rimuovere il gestore nel file *Web. config* pubblicato dell'app Blaze aggiungendo una sezione `<handlers>` al file:
 
   ```xml
   <handlers>
@@ -119,7 +119,7 @@ Se un'app autonoma è ospitata come una sub-app IIS, eseguire una delle operazio
   </handlers>
   ```
 
-* `<system.webServer>` Disabilitare l'ereditarietà della sezione radice (padre) dell'app usando un `<location>` elemento con `inheritInChildApplications` impostato su: `false`
+* Disabilitare l'ereditarietà della sezione `<system.webServer>` dell'app radice (padre) usando un elemento `<location>` con `inheritInChildApplications` impostato su `false`:
 
   ```xml
   <?xml version="1.0" encoding="utf-8"?>
@@ -198,7 +198,7 @@ Le [app Webassembly Blazer](xref:blazor/hosting-models#blazor-webassembly) posso
 
 ### <a name="content-root"></a>Radice del contenuto
 
-L'argomento `--contentroot` imposta il percorso assoluto sulla directory che contiene i file di contenuto dell'app. Negli esempi seguenti `/content-root-path` è il percorso radice del contenuto dell'app.
+L'argomento `--contentroot` imposta il percorso assoluto della directory che contiene i file di contenuto dell'app ([radice del contenuto](xref:fundamentals/index#content-root)). Negli esempi seguenti `/content-root-path` è il percorso radice del contenuto dell'app.
 
 * Passare l'argomento quando si esegue localmente l'app a un prompt dei comandi. Dalla directory dell'app, eseguire:
 
@@ -220,7 +220,7 @@ L'argomento `--contentroot` imposta il percorso assoluto sulla directory che con
 
 ### <a name="path-base"></a>Base del percorso
 
-L' `--pathbase` argomento imposta il percorso di base dell'app per un'app eseguita localmente con un percorso URL relativo non radice ( `<base>` il `href` tag è impostato su un percorso diverso `/` da per la gestione temporanea e la produzione). Negli esempi seguenti `/relative-URL-path` è la base del percorso dell'app. Per altre informazioni, vedere [percorso di base dell'app](xref:host-and-deploy/blazor/index#app-base-path).
+L'argomento `--pathbase` imposta il percorso di base dell'app per un'app eseguita localmente con un percorso URL relativo non radice (il tag `<base>` `href` è impostato su un percorso diverso da `/` per la gestione temporanea e la produzione). Negli esempi seguenti `/relative-URL-path` è la base del percorso dell'app. Per altre informazioni, vedere [percorso di base dell'app](xref:host-and-deploy/blazor/index#app-base-path).
 
 > [!IMPORTANT]
 > A differenza del percorso specificato per `href` del tag `<base>`, non includere una barra finale (`/`) quando si passa il valore dell'argomento `--pathbase`. Se il percorso di base dell'app non viene specificato nel tag `<base>` come `<base href="/CoolApp/">` (include una barra finale), passare il valore dell'argomento della riga di comando come `--pathbase=/CoolApp` (senza barra finale).

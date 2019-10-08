@@ -5,14 +5,14 @@ description: Informazioni sui concetti fondamentali per la compilazione di app A
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/06/2019
+ms.date: 10/07/2019
 uid: fundamentals/index
-ms.openlocfilehash: cff2afd62ed60648dc689d408dde56ecda18c261
-ms.sourcegitcommit: 2d4c1732c4866ed26b83da35f7bc2ad021a9c701
+ms.openlocfilehash: a70d6aa05a2c92d19076b8d6e4ea24d7554368b6
+ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70815644"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72007121"
 ---
 # <a name="aspnet-core-fundamentals"></a>Nozioni fondamentali su ASP.NET Core
 
@@ -252,36 +252,57 @@ Per altre informazioni, vedere <xref:fundamentals/http-requests>.
 
 ## <a name="content-root"></a>Radice del contenuto
 
-La radice del contenuto è il percorso di base per i contenuti privati usati dall'app, ad esempio i relativi file Razor. Per impostazione predefinita, la radice del contenuto è il percorso di base per il file eseguibile che ospita l'app. È possibile specificare un percorso alternativo in fase di [creazione dell'host](#host).
+La radice del contenuto è il percorso di base di:
+
+* Eseguibile che ospita l'app (*exe*).
+* Assembly compilati che costituiscono l'app ( *. dll*).
+* File di contenuto non di codice usati dall'app, ad esempio:
+  * File Razor ( *. cshtml*, *. Razor*)
+  * File di configurazione (con*estensione JSON*, *XML*)
+  * File di dati ( *. DB*)
+* [Radice Web](#web-root), in genere la cartella *wwwroot* pubblicata.
+
+Durante lo sviluppo:
+
+* Per impostazione predefinita, la radice del contenuto è la directory radice del progetto.
+* La directory radice del progetto viene utilizzata per creare:
+  * Percorso dei file di contenuto non di codice dell'app nella directory radice del progetto.
+  * [Radice Web](#web-root), in genere la cartella *wwwroot* nella directory radice del progetto.
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Per altre informazioni, vedere [Radice del contenuto](xref:fundamentals/host/generic-host#content-root).
+Quando si [Compila l'host](#host), è possibile specificare un percorso radice del contenuto alternativo. Per altre informazioni, vedere <xref:fundamentals/host/generic-host#contentrootpath>.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-Per altre informazioni, vedere [Radice del contenuto](xref:fundamentals/host/web-host#content-root).
+Quando si [Compila l'host](#host), è possibile specificare un percorso radice del contenuto alternativo. Per altre informazioni, vedere <xref:fundamentals/host/web-host#content-root>.
 
 ::: moniker-end
 
 ## <a name="web-root"></a>Radice Web
 
-La radice Web, nota anche come *webroot*, è il percorso di base per le risorse statiche pubbliche, ad esempio CSS, JavaScript e i file di immagine. Per impostazione predefinita, il middleware dei file statici verrà usato solo dai file della radice Web e dalle relative sottodirectory. Il percorso della radice Web è, per impostazione predefinita, *{Radice contenuto}/wwwroot*, ma è possibile impostare un percorso diverso in fase di [creazione dell'host](#host).
+La radice Web è il percorso di base per i file di risorse pubblici, non di codice, statici, ad esempio:
+
+* Fogli di stile ( *. CSS*)
+* JavaScript ( *. js*)
+* Immagini ( *. png*, *. jpg*)
+
+I file statici vengono serviti per impostazione predefinita solo dalla directory radice Web (e dalle sottodirectory).
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Per ulteriori informazioni, vedere [Webroot](/aspnet/core/fundamentals/host/generic-host?view=aspnetcore-3.0#webroot)
+Per impostazione predefinita, il percorso radice Web è *{Content root}/wwwroot*, ma è possibile specificare una radice Web diversa durante [la compilazione dell'host](#host). Per altre informazioni, vedere <xref:fundamentals/host/generic-host#webroot>.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-Per altre informazioni, vedere [Web root](/aspnet/core/fundamentals/host/web-host#webroot) (Radice Web).
+Per impostazione predefinita, il percorso radice Web è *{Content root}/wwwroot*, ma è possibile specificare una radice Web diversa durante [la compilazione dell'host](#host). Per altre informazioni, vedere [Web root](xref:fundamentals/host/web-host#web-root) (Radice Web).
 
 ::: moniker-end
 
-Per i file Razor (file con estensione  *CSHTML*), il carattere tilde-barra `~/` punta alla radice Web. I percorsi che iniziano con `~/` sono indicati come percorsi virtuali.
+Nei file Razor (con*estensione cshtml*) la barra tilde (`~/`) punta alla radice Web. Un percorso che inizia con `~/` viene definito *percorso virtuale*.
 
 Per altre informazioni, vedere <xref:fundamentals/static-files>.

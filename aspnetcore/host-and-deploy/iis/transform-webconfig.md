@@ -5,14 +5,14 @@ description: Informazioni su come trasformare il file web.config quando si pubbl
 monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/07/2019
+ms.date: 10/07/2019
 uid: host-and-deploy/iis/transform-webconfig
-ms.openlocfilehash: 32e66007d527f7f7b7cfd88d3bebc9b808251941
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: d28c362a200ad433e316bc1af710231a169a30a4
+ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71081455"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72007309"
 ---
 # <a name="transform-webconfig"></a>Trasformare web.config
 
@@ -23,14 +23,14 @@ Le trasformazioni per il file *web.config* possono essere applicate automaticame
 * [Configurazione della build](#build-configuration)
 * [Profile](#profile)
 * [Ambiente](#environment)
-* [Impostazione personalizzata](#custom)
+* [Personalizzato](#custom)
 
 Queste trasformazioni si verificano per uno degli scenari di generazione di *web.config* seguenti:
 
 * Generati automaticamente dall'SDK `Microsoft.NET.Sdk.Web`.
-* Forniti dallo sviluppatore nella radice del contenuto dell'app.
+* Fornito dallo sviluppatore nella radice del [contenuto](xref:fundamentals/index#content-root) dell'app.
 
-## <a name="build-configuration"></a>Configurazione della build
+## <a name="build-configuration"></a>Configurazione della compilazione
 
 Le trasformazioni di configurazione della build vengono eseguite per prime.
 

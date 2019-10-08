@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni sull'uso, sulla protezione di file statici e sulla configurazione dei comportamenti del middleware che ospita i file statici nell'app Web ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/8/2019
+ms.date: 10/07/2019
 uid: fundamentals/static-files
-ms.openlocfilehash: 1c665d1206e984fe41e9f57bb5356839c354dde2
-ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
-ms.translationtype: HT
+ms.openlocfilehash: 2f153551a86860616469200862723528e4a8cc1c
+ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308191"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72007324"
 ---
 # <a name="static-files-in-aspnet-core"></a>File statici in ASP.NET Core
 
@@ -23,7 +23,7 @@ I file statici, ad esempio HTML, CSS, immagini e JavaScript, sono asset che un'a
 
 ## <a name="serve-static-files"></a>Usare i file statici
 
-I file statici vengono archiviati nella directory radice Web del progetto. La directory predefinita è *\<radice_contenuto > / wwwroot*, ma può essere modificata tramite il metodo [UseWebRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usewebroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseWebRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_). Vedere [Radice del contenuto](xref:fundamentals/index#content-root) e [Radice Web](xref:fundamentals/index#web-root) per altre informazioni.
+I file statici vengono archiviati nella directory [radice Web](xref:fundamentals/index#web-root) del progetto. La directory predefinita è *{Content root}/wwwroot*, ma può essere modificata tramite il metodo [UseWebRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usewebroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseWebRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_) . Vedere [Radice del contenuto](xref:fundamentals/index#content-root) e [Radice Web](xref:fundamentals/index#web-root) per altre informazioni.
 
 L'host Web dell'app deve conoscere la directory radice del contenuto.
 
@@ -43,7 +43,7 @@ Impostare la radice del contenuto nella directory corrente richiamando [UseConte
 
 ::: moniker-end
 
-I file statici sono accessibili tramite un percorso relativo alla radice Web. Ad esempio, il modello di progetto **Applicazione Web** contiene varie cartelle all'interno della cartella *wwwroot*:
+I file statici sono accessibili tramite un percorso relativo alla [radice Web](xref:fundamentals/index#web-root). Ad esempio, il modello di progetto **Applicazione Web** contiene varie cartelle all'interno della cartella *wwwroot*:
 
 * **wwwroot**
   * **css**
@@ -78,15 +78,15 @@ Richiamare il metodo [UseStaticFiles](/dotnet/api/microsoft.aspnetcore.builder.s
 
 [!code-csharp[](static-files/samples/1x/StartupStaticFiles.cs?name=snippet_ConfigureMethod&highlight=3)]
 
-L'overload del metodo `UseStaticFiles` senza parametri contrassegna i file nella radice Web come utilizzabili. Il markup seguente si riferisce a *wwwroot/images/banner1.svg*:
+L'overload del metodo `UseStaticFiles` senza parametri contrassegna i file nella [radice Web](xref:fundamentals/index#web-root) come servable. Il markup seguente si riferisce a *wwwroot/images/banner1.svg*:
 
 [!code-cshtml[](static-files/samples/1x/Views/Home/Index.cshtml?name=snippet_static_file_wwwroot)]
 
-Nel codice precedente, il carattere tilde `~/` indica una radice Web. Per altre informazioni, vedere [Web root](xref:fundamentals/index#web-root) (Radice Web).
+Nel codice precedente, il carattere tilde `~/` punta alla [radice Web](xref:fundamentals/index#web-root).
 
 ### <a name="serve-files-outside-of-web-root"></a>Usare i file all'esterno della radice Web
 
-Considerare una gerarchia di directory in cui si trovano i file statici da usare all'esterno della radice Web:
+Si consideri una gerarchia di directory in cui i file statici da servire si trovano all'esterno della [radice Web](xref:fundamentals/index#web-root):
 
 * **wwwroot**
   * **css**
@@ -108,7 +108,7 @@ Il markup seguente si riferisce a *MyStaticFiles/images/banner1.svg*:
 
 ### <a name="set-http-response-headers"></a>Impostare le intestazioni della risposta HTTP
 
-Per impostare le intestazioni della risposta HTTP, è possibile usare un oggetto [StaticFileOptions](/dotnet/api/microsoft.aspnetcore.builder.staticfileoptions). Oltre a configurare l'uso del file statico della radice Web, il codice seguente imposta l'intestazione `Cache-Control`:
+Per impostare le intestazioni della risposta HTTP, è possibile usare un oggetto [StaticFileOptions](/dotnet/api/microsoft.aspnetcore.builder.staticfileoptions). Oltre alla configurazione del file statico che funge dalla [radice Web](xref:fundamentals/index#web-root), il codice seguente imposta l'intestazione `Cache-Control`:
 
 [!code-csharp[](static-files/samples/1x/StartupAddHeader.cs?name=snippet_ConfigureMethod)]
 
@@ -208,7 +208,7 @@ Dall'uso della gerarchia di file e del codice precedente ne deriva quanto segue:
 
 | URI            |                             Risposta  |
 | ------- | ------|
-| *http://\<indirizzo_server>/StaticFiles/images/banner1.svg*    |      MyStaticFiles/images/banner1.svg |
+| *http://\<server_address>/StaticFiles/images/banner1.svg*    |      MyStaticFiles/images/banner1.svg |
 | *http://\<indirizzo_server>/StaticFiles*             |     MyStaticFiles/default.html |
 
 Se non esiste un file predefinito nella directory *MyStaticFiles*, *http://\<indirizzo_server > / StaticFiles* restituisce l'elenco di directory con i collegamenti su cui è possibile fare clic:
@@ -218,7 +218,7 @@ Se non esiste un file predefinito nella directory *MyStaticFiles*, *http://\<ind
 > [!NOTE]
 > <xref:Microsoft.AspNetCore.Builder.DefaultFilesExtensions.UseDefaultFiles*> e <xref:Microsoft.AspNetCore.Builder.DirectoryBrowserExtensions.UseDirectoryBrowser*> eseguono un reindirizzamento sul lato client da `http://{SERVER ADDRESS}/StaticFiles` (senza barra rovesciata) a `http://{SERVER ADDRESS}/StaticFiles/` (con barra rovesciata). Gli URL relativi all'interno della directory *StaticFiles* non sono validi senza barra finale.
 
-## <a name="fileextensioncontenttypeprovider"></a>Classe FileExtensionContentTypeProvider
+## <a name="fileextensioncontenttypeprovider"></a>FileExtensionContentTypeProvider
 
 La classe [FileExtensionContentTypeProvider](/dotnet/api/microsoft.aspnetcore.staticfiles.fileextensioncontenttypeprovider) contiene una proprietà `Mappings` che può essere usata come mapping di estensioni di file nei tipi di contenuto MIME. Nell'esempio seguente varie estensioni di file vengono registrate in tipi MIME noti. L'estensione *rtf* viene sostituita e l'estensione *mp4* viene rimossa.
 
@@ -256,7 +256,7 @@ Con il codice precedente, una richiesta per un file con un tipo di contenuto sco
 > [!WARNING]
 > Se il gestore di file statici di IIS è abilitato **e** il modulo ASP.NET Core non è configurato correttamente, vengono usati i file statici. Tale scenario si verifica ad esempio se il file *web.config* non è stato distribuito.
 
-* Inserire i file di codice (inclusi i file con estensione *cs* e *cshtml*) all'esterno della radice Web del progetto dell'app. Si crea quindi un separazione logica tra il contenuto sul lato client dell'app e il codice basato su server. In questo modo si impedisce la perdita del codice sul lato server.
+* Inserire i file di codice (incluso *. cs* e *. cshtml*) all'esterno della [radice Web](xref:fundamentals/index#web-root)del progetto dell'app. Si crea quindi un separazione logica tra il contenuto sul lato client dell'app e il codice basato su server. In questo modo si impedisce la perdita del codice sul lato server.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
