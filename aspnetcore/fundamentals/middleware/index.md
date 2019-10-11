@@ -5,14 +5,14 @@ description: Informazioni sul middelware di ASP.NET Core e la pipeline delle ric
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/22/2019
+ms.date: 10/08/2019
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 674e89cd22ce113474dfbba44b57d9255446fc3e
-ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
-ms.translationtype: MT
+ms.openlocfilehash: 5d02e1eb37693881d5b1855e1ed163590d8a44d3
+ms.sourcegitcommit: fcdf9aaa6c45c1a926bd870ed8f893bdb4935152
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773787"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72165314"
 ---
 # <a name="aspnet-core-middleware"></a>Middleware di ASP.NET Core
 
@@ -68,18 +68,30 @@ Il metodo `Startup.Configure` seguente aggiunge componenti del middleware per gl
 1. Gestione errori/eccezioni
    * Quando l'app viene eseguita nell'ambiente di sviluppo:
      * Il middleware della pagina delle eccezioni per gli sviluppatori (<xref:Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions.UseDeveloperExceptionPage*>) segnala gli errori di runtime delle app.
-     * Il middleware della pagina degli errori del database (<xref:Microsoft.AspNetCore.Builder.DatabaseErrorPageExtensions.UseDatabaseErrorPage*>) segnala gli errori di runtime del database.
+     * Il middleware della pagina di errore del database segnala gli errori di runtime del database.
    * Quando l'app viene eseguita nell'ambiente di produzione:
      * Il middleware del gestore delle eccezioni (<xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*>) intercetta le eccezioni generate nei middleware seguenti.
      * Il middleware del protocollo HSTS (HTTP Strict Transport Security) (<xref:Microsoft.AspNetCore.Builder.HstsBuilderExtensions.UseHsts*>) aggiunge l'intestazione `Strict-Transport-Security`.
 1. Il middleware di reindirizzamento HTTPS (<xref:Microsoft.AspNetCore.Builder.HttpsPolicyBuilderExtensions.UseHttpsRedirection*>) reindirizza le richieste HTTP a HTTPS.
 1. Il middleware dei file statici (<xref:Microsoft.AspNetCore.Builder.StaticFileExtensions.UseStaticFiles*>) restituisce i file statici e impedisce ulteriori elaborazioni della richiesta.
 1. Il middleware dei criteri per i cookie (<xref:Microsoft.AspNetCore.Builder.CookiePolicyAppBuilderExtensions.UseCookiePolicy*>) rende l'app conforme al Regolamento generale sulla protezione dei dati (GDPR).
-1. Middleware di routing`UseRouting`() per indirizzare le richieste.
+1. Middleware di routing (`UseRouting`) per indirizzare le richieste.
 1. Il middleware di autenticazione (<xref:Microsoft.AspNetCore.Builder.AuthAppBuilderExtensions.UseAuthentication*>) tenta di autenticare l'utente prima che sia autorizzato ad accedere a risorse protette.
-1. Il middleware di`UseAuthorization`autorizzazione () autorizza un utente ad accedere a risorse protette.
+1. Il middleware di autorizzazione (`UseAuthorization`) autorizza un utente ad accedere a risorse protette.
 1. Il middleware di sessione (<xref:Microsoft.AspNetCore.Builder.SessionMiddlewareExtensions.UseSession*>) stabilisce e mantiene aggiornato lo stato sessione. Se l'app usa lo stato sessione, chiamare il middleware della sessione dopo il middleware dei criteri per i cookie e prima del middleware MVC.
-1. Middleware di routing dell'`UseEndpoints` endpoint `MapRazorPages`(con) per aggiungere Razor Pages endpoint alla pipeline di richieste.
+1. Middleware di routing degli endpoint (`UseEndpoints` con `MapRazorPages`) per aggiungere Razor Pages endpoint alla pipeline di richieste.
+
+<!--
+
+FUTURE UPDATE
+
+On the next topic overhaul/release update, add API crosslink to "Database Error Page Middleware" in Item 1 of the list ...
+
+Microsoft.AspNetCore.Builder.DatabaseErrorPageExtensions.UseDatabaseErrorPage*
+
+... when available via the API docs.
+
+-->
 
 ```csharp
 public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -251,7 +263,7 @@ app.Map("/level1", level1App => {
 
 ASP.NET Core include i componenti middleware seguenti. Nella colonna *Ordinamento* sono disponibili note sul posizionamento del middleware nella pipeline di elaborazione delle richieste e indicazioni sulle condizioni nelle quali il middleware può terminare l'elaborazione delle richieste. Quando un middleware esegue un corto circuito della pipeline di elaborazione delle richieste e impedisce al middleware a valle di elaborare una richiesta, viene denominato *middleware terminale*. Per altre informazioni sul corto circuito, vedere la sezione [Creare una pipeline middleware con IApplicationBuilder](#create-a-middleware-pipeline-with-iapplicationbuilder).
 
-| Middleware | DESCRIZIONE | Ordine |
+| Middleware | Descrizione | Ordine |
 | ---------- | ----------- | ----- |
 | [Autenticazione](xref:security/authentication/identity) | Offre il supporto dell'autenticazione. | Prima di `HttpContext.User`. Terminale per i callback OAuth. |
 | [Criteri per i cookie](xref:security/gdpr) | Registra il consenso degli utenti per l'archiviazione delle informazioni personali e applica gli standard minimi per i campi dei cookie, come `secure` e `SameSite`. | Prima del middleware che emette i cookie. Esempi: Autenticazione, Sessione, MVC (TempData). |

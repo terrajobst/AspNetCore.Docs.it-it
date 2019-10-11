@@ -1,7 +1,7 @@
 ---
 title: Librerie di classi dei componenti di ASP.NET Core Razor
 author: guardrex
-description: Scopri in che modo i componenti possono essere inclusi nelle app blazer da una libreria di componenti esterna.
+description: Scopri in che modo i componenti possono essere inclusi nelle app Blazor da una libreria di componenti esterna.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc

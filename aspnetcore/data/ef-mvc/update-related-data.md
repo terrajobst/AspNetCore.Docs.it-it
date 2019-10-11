@@ -1,18 +1,18 @@
 ---
 title: 'Esercitazione: Aggiornare i dati correlati - ASP.NET MVC con EF Core'
 description: In questa esercitazione verrà effettuato l'aggiornamento di dati correlati tramite l'aggiornamento di campi di chiave esterna e proprietà di navigazione.
-author: tdykstra
+author: rick-anderson
 ms.author: riande
 ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: 85849cfbb6f453103c4013ce49be4afbf506d7b5
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
-ms.translationtype: HT
+ms.openlocfilehash: 98f9f780c5814c0bd6e33052ee812b01a2bce306
+ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975157"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72259356"
 ---
 # <a name="tutorial-update-related-data---aspnet-mvc-with-ef-core"></a>Esercitazione: Aggiornare i dati correlati - ASP.NET MVC con EF Core
 
@@ -101,7 +101,7 @@ Eseguire l'app, selezionare la scheda **Courses** (Corsi), fare clic su **Create
 
 ![Pagina di creazione del corso](update-related-data/_static/course-create.png)
 
-Scegliere **Crea**. La pagina di indice dei corsi viene visualizzata con il nuovo corso aggiunto all'elenco. Il nome del dipartimento nell'elenco della pagina di indice deriva dalla proprietà di navigazione, che mostra che la relazione è stata stabilita correttamente.
+Fare clic su **Create**(Crea). La pagina di indice dei corsi viene visualizzata con il nuovo corso aggiunto all'elenco. Il nome del dipartimento nell'elenco della pagina di indice deriva dalla proprietà di navigazione, che mostra che la relazione è stata stabilita correttamente.
 
 Fare clic su **Edit** (Modifica) per un corso nella pagina di indice dei corsi.
 

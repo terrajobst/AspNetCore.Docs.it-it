@@ -1,18 +1,18 @@
 ---
 title: Registrazione in .NET Core e ASP.NET Core
-author: tdykstra
+author: rick-anderson
 description: Informazioni su come usare il framework di registrazione fornito dal pacchetto NuGet Microsoft.Extensions.Logging.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/07/2019
+ms.date: 10/08/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 9f7b39cc1c557356b75608817db4e8d6f61af794
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: 697e6cf0cd1b51ad6c2942e21bc084d1fe6bfa4e
+ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007032"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72259739"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>Registrazione in .NET Core e ASP.NET Core
 
@@ -22,7 +22,7 @@ Di [Tom Dykstra](https://github.com/tdykstra) e [Steve Smith](https://ardalis.co
 
 ::: moniker range=">= aspnetcore-3.0"
 
-La maggior parte degli esempi di codice illustrati in questo articolo proviene da app ASP.NET Core. Le parti relative alla registrazione di questi frammenti di codice si applicano alle app .NET Core che usano l'[host generico](xref:fundamentals/host/generic-host). Per informazioni su come usare l'host generico nelle app console non Web, vedere [Servizi ospitati](xref:fundamentals/host/hosted-services).
+La maggior parte degli esempi di codice illustrati in questo articolo proviene da app ASP.NET Core. Le parti specifiche per la registrazione di questi frammenti di codice si applicano a qualsiasi app .NET Core che usa l' [host generico](xref:fundamentals/host/generic-host). Per informazioni su come usare l'host generico nelle app console non Web, vedere [Servizi ospitati](xref:fundamentals/host/hosted-services).
 
 Il codice di registrazione per le app senza host generico differisce per il modo in cui vengono [aggiunti i provider](#add-providers) e [creati i logger](#create-logs). Gli esempi di codice non host sono illustrati nelle sezioni dell'articolo in cui sono riportate queste procedure.
 
@@ -394,8 +394,12 @@ ASP.NET Core definisce i livelli di registrazione seguenti, ordinati dal meno gr
 
 Usare il livello di registrazione per controllare la quantità di output di log scritto in un supporto di archiviazione specifico o in una finestra. Esempio:
 
-* Nell'ambiente di produzione, inviare i messaggi con livello da `Trace` a `Information` a un archivio dati per grandi volumi. Inviare i messaggi con livello da `Warning` a `Critical` a un archivio dati di valore.
-* Durante lo sviluppo, inviare i messaggi con livello da `Warning` a `Critical` alla console e aggiungere il livello da `Trace` a `Information` quando si svolgono attività di risoluzione dei problemi.
+* In produzione:
+  * La registrazione al @no__t da 0 a livelli `Information` genera un volume elevato di messaggi di log dettagliati. Per controllare i costi e non superare i limiti di archiviazione dei dati, registrare `Trace` tramite messaggi di livello `Information` in un archivio dati a volume elevato e a basso costo.
+  * La registrazione da `Warning` a livelli `Critical` in genere produce un minor numero di messaggi di log più piccoli. Pertanto, i costi e i limiti di archiviazione in genere non rappresentano un problema, il che comporta una maggiore flessibilità di scelta dell'archivio dati.
+* Durante lo sviluppo:
+  * Registra `Warning` tramite messaggi `Critical` alla console.
+  * Quando si esegue la risoluzione dei problemi, aggiungere `Trace` a messaggi `Information`.
 
 La sezione [Filtro dei log](#log-filtering) più avanti in questo articolo descrive come controllare quali livelli di registrazione gestisce un provider.
 

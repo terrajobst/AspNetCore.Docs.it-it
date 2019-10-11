@@ -1,18 +1,18 @@
 ---
 title: 'Esercitazione: Implementare la funzionalità CRUD - ASP.NET MVC con EF Core'
 description: In questa esercitazione verrà esaminato e personalizzato il codice CRUD (Create, Read, Update, Delete) che lo scaffolding di MVC crea automaticamente nei controller e nelle visualizzazioni.
-author: tdykstra
+author: rick-anderson
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/04/2019
 ms.topic: tutorial
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 843ac3523f3ab4bd43f8970ff8e8e2f997fec4d2
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
-ms.translationtype: HT
+ms.openlocfilehash: f0c5bcff4c4b0808f9b4703e1429c3a6d1a7a2d7
+ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975068"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72259728"
 ---
 # <a name="tutorial-implement-crud-functionality---aspnet-mvc-with-ef-core"></a>Esercitazione: Implementare la funzionalità CRUD - ASP.NET MVC con EF Core
 
@@ -199,15 +199,15 @@ Il contesto del database rileva se le entità in memoria sono sincronizzate con 
 
 Le entità possono essere in uno dei seguenti stati:
 
-* `Added`. L'entità non esiste ancora nel database. Il metodo `SaveChanges` genera un'istruzione INSERT.
+* `Added` (Indici per tabelle con ottimizzazione per la memoria). L'entità non esiste ancora nel database. Il metodo `SaveChanges` genera un'istruzione INSERT.
 
-* `Unchanged`. Il metodo `SaveChanges` non deve eseguire alcuna operazione con l'entità. Quando un'entità viene letta dal database, l'entità ha inizialmente questo stato.
+* `Unchanged` (Indici per tabelle con ottimizzazione per la memoria). Il metodo `SaveChanges` non deve eseguire alcuna operazione con l'entità. Quando un'entità viene letta dal database, l'entità ha inizialmente questo stato.
 
-* `Modified`. Sono stati modificati alcuni o tutti i valori di proprietà dell'entità. Il metodo `SaveChanges` genera un'istruzione UPDATE.
+* `Modified` (Indici per tabelle con ottimizzazione per la memoria). Sono stati modificati alcuni o tutti i valori di proprietà dell'entità. Il metodo `SaveChanges` genera un'istruzione UPDATE.
 
-* `Deleted`. L'entità è stata contrassegnata per l'eliminazione. Il metodo `SaveChanges` genera un'istruzione DELETE.
+* `Deleted` (Indici per tabelle con ottimizzazione per la memoria). L'entità è stata contrassegnata per l'eliminazione. Il metodo `SaveChanges` genera un'istruzione DELETE.
 
-* `Detached`. L'entità non viene registrata dal contesto del database.
+* `Detached` (Indici per tabelle con ottimizzazione per la memoria). L'entità non viene registrata dal contesto del database.
 
 In un'applicazione desktop le modifiche dello stato vengono in genere impostate automaticamente. Viene letta un'entità e vengono apportate modifiche ad alcuni valori delle proprietà. In questo modo lo stato dell'entità viene modificato automaticamente in `Modified`. Quando in seguito viene chiamato `SaveChanges`, Entity Framework genera un'istruzione SQL UPDATE che aggiorna solo le proprietà modificate.
 

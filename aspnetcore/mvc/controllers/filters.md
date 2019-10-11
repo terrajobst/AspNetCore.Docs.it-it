@@ -4,14 +4,14 @@ author: ardalis
 description: Informazioni sul funzionamento dei filtri e su come usarli in ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/08/2019
+ms.date: 09/28/2019
 uid: mvc/controllers/filters
-ms.openlocfilehash: 50b199744f32ad19335080da406db69665ec1ae9
-ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
-ms.translationtype: HT
+ms.openlocfilehash: ed48c2074360768b8d8c5af7057b353b00592394
+ms.sourcegitcommit: 73a451e9a58ac7102f90b608d661d8c23dd9bbaf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67856152"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72037686"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtri in ASP.NET Core
 
@@ -130,7 +130,7 @@ Come risultato dell'annidamento dei filtri, il codice *after* dei filtri viene e
   
 L'esempio seguente illustra l'ordine in cui i metodi dei filtri vengono chiamati per i filtri di azione sincroni.
 
-| Sequence | Ambito del filtro | Metodo del filtro |
+| Sequenza | Ambito del filtro | Metodo del filtro |
 |:--------:|:------------:|:-------------:|
 | 1 | Global | `OnActionExecuting` |
 | 2 | Controller | `OnActionExecuting` |
@@ -190,7 +190,7 @@ La proprietà `Order` può essere impostata con un parametro del costruttore:
 
 Prendere in considerazione gli stessi tre filtri di azione illustrati nell'esempio precedente. Se la proprietà `Order` del controller e dei filtri globali è impostata, rispettivamente, su 1 e su 2, l'ordine di esecuzione viene invertito.
 
-| Sequence | Ambito del filtro | Proprietà`Order` | Metodo del filtro |
+| Sequenza | Ambito del filtro | Proprietà `Order` | Metodo del filtro |
 |:--------:|:------------:|:-----------------:|:-------------:|
 | 1 | Metodo | 0 | `OnActionExecuting` |
 | 2 | Controller | 1  | `OnActionExecuting` |
@@ -437,9 +437,12 @@ Il codice seguente illustra un filtro dei risultati che aggiunge un'intestazione
 
 [!code-csharp[](./filters/sample/FiltersSample/Filters/LoggingAddHeaderFilter.cs?name=snippet_ResultFilter)]
 
-Il tipo di risultato eseguito dipende dall'azione. Un'azione che restituisce una visualizzazione include tutte le elaborazioni Razor come parte dell'elemento <xref:Microsoft.AspNetCore.Mvc.ViewResult> eseguito. Un metodo API può eseguire la serializzazione in quanto parte dell'esecuzione del risultato. Altre informazioni sui [risultati dell'azione](xref:mvc/controllers/actions)
+Il tipo di risultato eseguito dipende dall'azione. Un'azione che restituisce una visualizzazione include tutte le elaborazioni Razor come parte dell'elemento <xref:Microsoft.AspNetCore.Mvc.ViewResult> eseguito. Un metodo API può eseguire la serializzazione in quanto parte dell'esecuzione del risultato. Altre informazioni sui [risultati dell'azione](xref:mvc/controllers/actions).
 
-I filtri risultato vengono eseguiti solo per i risultati corretti, ovvero quando l'azione o i filtri azione producono un risultato dell'azione. I filtri risultato non vengono eseguiti quando i filtri eccezioni gestiscono un'eccezione.
+I filtri dei risultati vengono eseguiti solo quando un filtro azione o azione produce un risultato di azione. I filtri dei risultati non vengono eseguiti nei casi seguenti:
+
+* Un filtro di autorizzazione o un filtro risorse cortocircui la pipeline.
+* Un filtro di eccezione non gestisca un'eccezione producendo un risultato dell'azione.
 
 Il metodo <xref:Microsoft.AspNetCore.Mvc.Filters.IResultFilter.OnResultExecuting*?displayProperty=fullName> può causare il corto circuito dell'esecuzione del risultato dell'azione e dei filtri dei risultati successivi se si imposta <xref:Microsoft.AspNetCore.Mvc.Filters.ResultExecutingContext.Cancel?displayProperty=fullName> su `true`. In caso di corto circuito, scrivere nell'oggetto risposta per evitare di generare una risposta vuota. La generazione di un'eccezione in `IResultFilter.OnResultExecuting`:
 
@@ -471,12 +474,10 @@ Il framework fornisce un oggetto `ResultFilterAttribute` astratto che è possibi
 
 ### <a name="ialwaysrunresultfilter-and-iasyncalwaysrunresultfilter"></a>IAlwaysRunResultFilter e IAsyncAlwaysRunResultFilter
 
-Le interfacce <xref:Microsoft.AspNetCore.Mvc.Filters.IAlwaysRunResultFilter> e <xref:Microsoft.AspNetCore.Mvc.Filters.IAsyncAlwaysRunResultFilter> dichiarano un'implementazione di <xref:Microsoft.AspNetCore.Mvc.Filters.IResultFilter> eseguita per tutti i risultati dell'azione. Il filtro viene applicato a tutti i risultati dell'azione, a meno che:
+Le interfacce <xref:Microsoft.AspNetCore.Mvc.Filters.IAlwaysRunResultFilter> e <xref:Microsoft.AspNetCore.Mvc.Filters.IAsyncAlwaysRunResultFilter> dichiarano un'implementazione di <xref:Microsoft.AspNetCore.Mvc.Filters.IResultFilter> eseguita per tutti i risultati dell'azione. Sono inclusi i risultati dell'azione prodotti da:
 
-* Non venga applicato un oggetto <xref:Microsoft.AspNetCore.Mvc.Filters.IExceptionFilter> o <xref:Microsoft.AspNetCore.Mvc.Filters.IAuthorizationFilter> che causa il corto circuito della risposta.
-* Un filtro di eccezione non gestisca un'eccezione producendo un risultato dell'azione.
-
-I filtri diversi da `IExceptionFilter` e `IAuthorizationFilter` non causano il corto circuito di `IAlwaysRunResultFilter` e `IAsyncAlwaysRunResultFilter`.
+* Filtri di autorizzazione e filtri delle risorse che interessano il cortocircuito.
+* Filtri eccezioni.
 
 Ad esempio, il filtro seguente viene eseguito sempre e imposta un risultato dell'azione (<xref:Microsoft.AspNetCore.Mvc.ObjectResult>) con un codice di stato *422 Entità non elaborabile* quando la negoziazione del contenuto ha esito negativo:
 

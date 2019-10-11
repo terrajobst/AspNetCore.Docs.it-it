@@ -1,17 +1,17 @@
 ---
 title: 'Esercitazione: Leggere dati correlati - ASP.NET MVC con EF Core'
 description: In questa esercitazione verranno letti e visualizzati dati correlati, ovvero dati che Entity Framework carica all'interno delle proprietà di navigazione.
-author: tdykstra
+author: rick-anderson
 ms.author: riande
 ms.date: 09/28/2019
 ms.topic: tutorial
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: cb691dce757a72a01bfd29717710d1be590c4150
-ms.sourcegitcommit: f62014bb558ff6f8fdaef2e96cb05986e216aacd
+ms.openlocfilehash: 1a16f905669d0192d713cbba9bfc6e3e75008b5d
+ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2019
-ms.locfileid: "71592281"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72259430"
 ---
 # <a name="tutorial-read-related-data---aspnet-mvc-with-ef-core"></a>Esercitazione: Leggere dati correlati - ASP.NET MVC con EF Core
 

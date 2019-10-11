@@ -1,20 +1,20 @@
 ---
-title: Routing di ASP.NET Core Blazer
+title: Routing di ASP.NET Core Blazor
 author: guardrex
 description: Informazioni su come instradare le richieste nelle app e sul componente NavLink.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/23/2019
+ms.date: 10/09/2019
 uid: blazor/routing
-ms.openlocfilehash: 76266aedd4655161f1f50a8beb0936660d452912
-ms.sourcegitcommit: 6d26ab647ede4f8e57465e29b03be5cb130fc872
+ms.openlocfilehash: 8f48112237e6dd3fed88404c53b8d7d9137ef6ff
+ms.sourcegitcommit: 0b8a7571bf7acf85bf16118acb2435001cbe4b5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71999822"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72236538"
 ---
-# <a name="aspnet-core-blazor-routing"></a>Routing di ASP.NET Core Blazer
+# <a name="aspnet-core-blazor-routing"></a>Routing di ASP.NET Core Blazor
 
 Di [Luke Latham](https://github.com/guardrex)
 
@@ -24,7 +24,7 @@ Informazioni su come instradare le richieste e su come usare il componente `NavL
 
 ## <a name="aspnet-core-endpoint-routing-integration"></a>Integrazione di routing endpoint ASP.NET Core
 
-Il server blazer è integrato nel [Routing ASP.NET Core endpoint](xref:fundamentals/routing). Un'app ASP.NET Core è configurata in modo da accettare le connessioni in ingresso per i componenti interattivi con `MapBlazorHub` in `Startup.Configure`:
+Il server Blazor è integrato nel [Routing ASP.NET Core endpoint](xref:fundamentals/routing). Un'app ASP.NET Core è configurata in modo da accettare le connessioni in ingresso per i componenti interattivi con `MapBlazorHub` in `Startup.Configure`:
 
 [!code-csharp[](routing/samples_snapshot/3.x/Startup.cs?highlight=5)]
 
@@ -85,7 +85,13 @@ Il contenuto dei tag `<NotFound>` può includere elementi arbitrari, ad esempio 
 
 Usare il parametro `AdditionalAssemblies` per specificare gli assembly aggiuntivi per il componente `Router` da considerare durante la ricerca di componenti instradabili. Gli assembly specificati sono considerati oltre all'assembly `AppAssembly` specificato. Nell'esempio seguente `Component1` è un componente instradabile definito in una libreria di classi a cui si fa riferimento. Nell'esempio `AdditionalAssemblies` seguente viene restituito il supporto del routing per `Component1`:
 
-< router AppAssembly = "typeof (Program). Assembly "AdditionalAssemblies =" New [] {typeof (Component1). Assembly} >... </Router>
+```cshtml
+<Router
+    AppAssembly="typeof(Program).Assembly"
+    AdditionalAssemblies="new[] { typeof(Component1).Assembly }>
+    ...
+</Router>
+```
 
 ## <a name="route-parameters"></a>Parametri di route
 

@@ -1,18 +1,18 @@
 ---
 title: 'Esercitazione: Gestire la concorrenza - ASP.NET MVC con EF Core'
 description: Questa esercitazione descrive la gestione dei conflitti quando più utenti aggiornano la stessa entità contemporaneamente.
-author: tdykstra
+author: rick-anderson
 ms.author: riande
 ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: e8c88ed2811ad221d94c963c6e14fea9bc1607ea
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 227128607460f9b5821bd0697fde3f393cf6daa9
+ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71080449"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72259435"
 ---
 # <a name="tutorial-handle-concurrency---aspnet-mvc-with-ef-core"></a>Esercitazione: Gestire la concorrenza - ASP.NET MVC con EF Core
 
@@ -206,7 +206,7 @@ Modificare un campo nella seconda scheda del browser.
 
 ![Pagina Department Edit (Modifica - Reparto) 2 dopo la modifica](concurrency/_static/edit-after-change-2.png)
 
-Fare clic su **Save**. Viene visualizzato un messaggio di errore:
+Fare clic su **Salva**. Viene visualizzato un messaggio di errore:
 
 ![Messaggio di errore della pagina Department Edit (Modifica - Reparto)](concurrency/_static/edit-error.png)
 

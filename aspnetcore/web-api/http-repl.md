@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 10/07/2019
 uid: web-api/http-repl
-ms.openlocfilehash: c845c28210d6defcb70a520f176b64986ae3d4a6
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: bb3757f51487a307ebfb97452b80995f84e95e4b
+ms.sourcegitcommit: 73a451e9a58ac7102f90b608d661d8c23dd9bbaf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007441"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72037718"
 ---
 # <a name="test-web-apis-with-the-http-repl"></a>Testare le API Web con il ciclo Read-Eval-Print (REPL) HTTP
 
@@ -790,25 +790,25 @@ Parametro di route, se presente, previsto dal metodo di azione del controller as
 
 Per impostare l'intestazione di una richiesta HTTP, usare uno degli approcci seguenti:
 
-1. Impostare inline con la richiesta HTTP. Esempio:
+* Impostare inline con la richiesta HTTP. Esempio:
 
-  ```console
-  https://localhost:5001/people~ post -h Content-Type=application/json
-  ```
+    ```console
+    https://localhost:5001/people~ post -h Content-Type=application/json
+    ```
+    
+    Con l'approccio precedente, ogni singola intestazione di richiesta HTTP richiede una propria opzione `-h`.
 
-  Con l'approccio precedente, ogni singola intestazione di richiesta HTTP richiede una propria opzione `-h`.
+* Impostare prima di inviare la richiesta HTTP. Esempio:
 
-1. Impostare prima di inviare la richiesta HTTP. Esempio:
-
-  ```console
-  https://localhost:5001/people~ set header Content-Type application/json
-  ```
-
-  Quando si imposta l'intestazione prima di inviare una richiesta, l'intestazione rimane impostata per la durata della sessione della shell dei comandi. Per cancellare l'intestazione, specificare un valore vuoto. Esempio:
-
-  ```console
-  https://localhost:5001/people~ set header Content-Type
-  ```
+    ```console
+    https://localhost:5001/people~ set header Content-Type application/json
+    ```
+    
+    Quando si imposta l'intestazione prima di inviare una richiesta, l'intestazione rimane impostata per la durata della sessione della shell dei comandi. Per cancellare l'intestazione, specificare un valore vuoto. Esempio:
+    
+    ```console
+    https://localhost:5001/people~ set header Content-Type
+    ```
 
 ## <a name="test-secured-endpoints"></a>Testare endpoint protetti
 

@@ -1,18 +1,18 @@
 ---
 title: 'Esercitazione: Informazioni sugli scenari avanzati - ASP.NET MVC con EF Core'
 description: Questa esercitazione presenta argomenti utili dopo aver appreso le nozioni di base sullo sviluppo di applicazioni Web ASP.NET Core che usano Entity Framework Core.
-author: tdykstra
+author: rick-anderson
 ms.author: riande
 ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: 7a67efad187f29773c1cac7a5a2457d02080114b
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: d4a2aad6d93cc9a53c730323620de59fead6d5ab
+ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71080539"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72259597"
 ---
 # <a name="tutorial-learn-about-advanced-scenarios---aspnet-mvc-with-ef-core"></a>Esercitazione: Informazioni sugli scenari avanzati - ASP.NET MVC con EF Core
 
@@ -173,7 +173,7 @@ Entity Framework determina come è stata modificata un'entità (e di conseguenza
 
 * ChangeTracker.Entries
 
-Se viene registrato un numero elevato di entità e uno solo di questi metodi viene chiamato più volte in un ciclo, è possibile ottenere miglioramenti significativi delle prestazioni disattivando temporaneamente il rilevamento automatico delle modifiche usando la proprietà `ChangeTracker.AutoDetectChangesEnabled`. Ad esempio:
+Se viene registrato un numero elevato di entità e uno solo di questi metodi viene chiamato più volte in un ciclo, è possibile ottenere miglioramenti significativi delle prestazioni disattivando temporaneamente il rilevamento automatico delle modifiche usando la proprietà `ChangeTracker.AutoDetectChangesEnabled`. Esempio:
 
 ```csharp
 _context.ChangeTracker.AutoDetectChangesEnabled = false;

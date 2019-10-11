@@ -5,14 +5,14 @@ description: Informazioni su come creare e usare i componenti Razor, tra cui la 
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/30/2019
+ms.date: 10/05/2019
 uid: blazor/components
-ms.openlocfilehash: ea216e405e5be52b578e99a529d8c6a726ea9cdd
-ms.sourcegitcommit: fe88748b762525cb490f7e39089a4760f6a73a24
-ms.translationtype: MT
+ms.openlocfilehash: 438b3802087e2ac3df4cbe69a700b878c1cbbf63
+ms.sourcegitcommit: 73a451e9a58ac7102f90b608d661d8c23dd9bbaf
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71688034"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72037427"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Creare e usare ASP.NET Core componenti Razor
 
@@ -20,25 +20,25 @@ Di [Luke Latham](https://github.com/guardrex) e [Daniel Roth](https://github.com
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
 
-Le app Blazer vengono compilate usando i *componenti*. Un componente è un blocco di interfaccia utente (UI) autonomo, ad esempio una pagina, una finestra di dialogo o un form. Un componente include il markup HTML e la logica di elaborazione necessaria per inserire i dati o rispondere agli eventi dell'interfaccia utente. I componenti sono flessibili e leggeri. Possono essere annidati, riutilizzati e condivisi tra i progetti.
+Le app Blazor vengono compilate usando i *componenti*. Un componente è un blocco di interfaccia utente (UI) autonomo, ad esempio una pagina, una finestra di dialogo o un form. Un componente include il markup HTML e la logica di elaborazione necessaria per inserire i dati o rispondere agli eventi dell'interfaccia utente. I componenti sono flessibili e leggeri. Possono essere annidati, riutilizzati e condivisi tra i progetti.
 
 ## <a name="component-classes"></a>Classi di componenti
 
-I componenti sono implementati in file di componente [Razor](xref:mvc/views/razor) (*Razor*) usando una C# combinazione di e markup HTML. Un componente in blazer viene definito formalmente come *componente Razor*.
+I componenti sono implementati in file di componente [Razor](xref:mvc/views/razor) (*Razor*) usando una C# combinazione di e markup HTML. Un componente in Blazor viene definito formalmente come *componente Razor*.
 
 Il nome di un componente deve iniziare con un carattere maiuscolo. Ad esempio, *MyCoolComponent. Razor* è valido e *MyCoolComponent. Razor* non è valido.
 
 L'interfaccia utente per un componente viene definita utilizzando HTML. La logica di rendering dinamico (ad esempio, cicli, condizioni, espressioni) viene aggiunta usando una sintassi C# incorporata chiamata [Razor](xref:mvc/views/razor). Quando viene compilata un'app, il markup C# HTML e la logica di rendering vengono convertiti in una classe Component. Il nome della classe generata corrisponde al nome del file.
 
-I membri della classe del componente vengono definiti in un blocco `@code`. Nel blocco `@code` , lo stato del componente (proprietà, campi) viene specificato con i metodi per la gestione degli eventi o per la definizione di altre logiche dei componenti. È consentito più di un blocco `@code`.
+I membri della classe del componente vengono definiti in un blocco `@code`. Nel blocco `@code`, lo stato del componente (proprietà, campi) viene specificato con i metodi per la gestione degli eventi o per la definizione di altre logiche dei componenti. È consentito più di un blocco `@code`.
 
 > [!NOTE]
-> Nelle anteprime precedenti di ASP.NET Core 3,0, `@functions` i blocchi venivano usati per lo stesso `@code` scopo dei blocchi nei componenti Razor. `@functions`i blocchi continuano a funzionare nei componenti Razor, ma è consigliabile usare `@code` il blocco in ASP.NET Core 3,0 Preview 6 o versione successiva.
+> Nelle anteprime precedenti di ASP.NET Core 3,0, i blocchi `@functions` venivano usati per lo stesso scopo dei blocchi `@code` nei componenti Razor. i blocchi `@functions` continuano a funzionare nei componenti Razor, ma è consigliabile usare il blocco `@code` in ASP.NET Core 3,0 Preview 6 o versione successiva.
 
-I membri dei componenti possono essere usati come parte della logica di rendering del C# componente usando espressioni che `@`iniziano con. Ad esempio, viene C# eseguito il rendering di un campo `@` anteponendo il nome del campo. Nell'esempio seguente viene valutato ed eseguito il rendering:
+I membri dei componenti possono essere usati come parte della logica di rendering del C# componente usando espressioni che iniziano con `@`. Il rendering di un C# campo, ad esempio, viene eseguito anteponendo il prefisso `@` al nome del campo. Nell'esempio seguente viene valutato ed eseguito il rendering:
 
-* `_headingFontStyle`al valore della proprietà CSS per `font-style`.
-* `_headingText`al contenuto dell' `<h1>` elemento.
+* `_headingFontStyle` al valore della proprietà CSS per `font-style`.
+* `_headingText` al contenuto dell'elemento `<h1>`.
 
 ```cshtml
 <h1 style="font-style:@_headingFontStyle">@_headingText</h1>
@@ -49,9 +49,9 @@ I membri dei componenti possono essere usati come parte della logica di renderin
 }
 ```
 
-Una volta eseguito il rendering iniziale del componente, il componente rigenera l'albero di rendering in risposta agli eventi. Blazer confronta quindi il nuovo albero di rendering con quello precedente e applica le modifiche apportate all'Document Object Model (DOM) del browser.
+Una volta eseguito il rendering iniziale del componente, il componente rigenera l'albero di rendering in risposta agli eventi. Blazor confronta quindi il nuovo albero di rendering con quello precedente e applica le modifiche apportate all'Document Object Model (DOM) del browser.
 
-I componenti sono C# classi ordinarie e possono essere inseriti in qualsiasi punto all'interno di un progetto. I componenti che producono pagine Web in genere risiedono nella cartella *pages* . I componenti non di pagina vengono spesso inseriti nella cartella *condivisa* o in una cartella personalizzata aggiunta al progetto. Per usare una cartella personalizzata, aggiungere lo spazio dei nomi della cartella personalizzata al componente padre o al file *_Imports. Razor* dell'app. Lo spazio dei nomi seguente, ad esempio, rende disponibili i componenti in una cartella di *componenti* quando lo `WebApplication`spazio dei nomi radice dell'app è:
+I componenti sono C# classi ordinarie e possono essere inseriti in qualsiasi punto all'interno di un progetto. I componenti che producono pagine Web in genere risiedono nella cartella *pages* . I componenti non di pagina vengono spesso inseriti nella cartella *condivisa* o in una cartella personalizzata aggiunta al progetto. Per usare una cartella personalizzata, aggiungere lo spazio dei nomi della cartella personalizzata al componente padre o al file *_Imports. Razor* dell'app. Lo spazio dei nomi seguente, ad esempio, rende disponibili i componenti in una cartella di *componenti* quando lo spazio dei nomi radice dell'app è `WebApplication`:
 
 ```cshtml
 @using WebApplication.Components
@@ -61,7 +61,7 @@ I componenti sono C# classi ordinarie e possono essere inseriti in qualsiasi pun
 
 Usare i componenti con le app Razor Pages e MVC esistenti. Non è necessario riscrivere le pagine o le visualizzazioni esistenti per usare i componenti Razor. Quando viene eseguito il rendering della pagina o della vista, i componenti vengono prerenderizzati contemporaneamente.
 
-Per eseguire il rendering di un componente da una pagina o da `RenderComponentAsync<TComponent>` una vista, usare il metodo helper HTML:
+Per eseguire il rendering di un componente da una pagina o da una vista, usare il metodo helper HTML `RenderComponentAsync<TComponent>`:
 
 ```cshtml
 <div id="MyComponent">
@@ -71,7 +71,7 @@ Per eseguire il rendering di un componente da una pagina o da `RenderComponentAs
 
 Mentre le pagine e le visualizzazioni possono usare i componenti, il contrario non è vero. I componenti non possono usare scenari di visualizzazione e di pagina specifici, ad esempio visualizzazioni parziali e sezioni. Per usare la logica dalla visualizzazione parziale in un componente, scomporre la logica di visualizzazione parziale in un componente.
 
-Per altre informazioni su come viene eseguito il rendering dei componenti e lo stato del componente viene gestito nelle app del <xref:blazor/hosting-models> server blazer, vedere l'articolo.
+Per altre informazioni su come viene eseguito il rendering dei componenti e lo stato del componente viene gestito nelle app del server blazer, vedere l'articolo <xref:blazor/hosting-models>.
 
 ## <a name="use-components"></a>Usare i componenti
 
@@ -79,7 +79,7 @@ I componenti possono includere altri componenti dichiarando questi ultimi usando
 
 L'associazione di attributi distingue tra maiuscole e minuscole. Ad esempio, `@bind` è valido e `@Bind` non è valido.
 
-Il markup seguente in *index. Razor* esegue il rendering `HeadingComponent` di un'istanza:
+Il markup seguente in *index. Razor* esegue il rendering di un'istanza `HeadingComponent`:
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Pages/Index.razor?name=snippet_HeadingComponent)]
 
@@ -87,17 +87,17 @@ Il markup seguente in *index. Razor* esegue il rendering `HeadingComponent` di u
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Components/HeadingComponent.razor)]
 
-Se un componente contiene un elemento HTML con una prima lettera maiuscola che non corrisponde a un nome di componente, viene emesso un avviso che indica che l'elemento ha un nome imprevisto. L'aggiunta `@using` di un'istruzione per lo spazio dei nomi del componente rende disponibile il componente, che rimuove l'avviso.
+Se un componente contiene un elemento HTML con una prima lettera maiuscola che non corrisponde a un nome di componente, viene emesso un avviso che indica che l'elemento ha un nome imprevisto. L'aggiunta di un'istruzione `@using` per lo spazio dei nomi del componente rende disponibile il componente, che rimuove l'avviso.
 
 ## <a name="component-parameters"></a>Parametri del componente
 
-I componenti possono avere *parametri del componente*, che vengono definiti usando proprietà pubbliche nella classe Component con `[Parameter]` l'attributo. Usare gli attributi per specificare gli argomenti per un componente nel markup.
+I componenti possono avere *parametri del componente*, che vengono definiti usando proprietà pubbliche nella classe Component con l'attributo `[Parameter]`. Usare gli attributi per specificare gli argomenti per un componente nel markup.
 
 *Components/ChildComponent. Razor*:
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Components/ChildComponent.razor?highlight=11-12)]
 
-Nell'esempio seguente, `ParentComponent` imposta il valore `Title` della proprietà dell'oggetto `ChildComponent`.
+Nell'esempio seguente, il `ParentComponent` imposta il valore della proprietà `Title` del `ChildComponent`.
 
 *Pages/ParentComponent. Razor*:
 
@@ -107,16 +107,16 @@ Nell'esempio seguente, `ParentComponent` imposta il valore `Title` della proprie
 
 I componenti possono impostare il contenuto di un altro componente. Il componente di assegnazione fornisce il contenuto tra i tag che specificano il componente di destinazione.
 
-Nell'esempio seguente, `ChildComponent` ha una `ChildContent` proprietà che rappresenta un oggetto `RenderFragment`, che rappresenta un segmento di interfaccia utente di cui eseguire il rendering. Il valore di `ChildContent` viene posizionato nel markup del componente in cui deve essere eseguito il rendering del contenuto. Il valore di `ChildContent` viene ricevuto dal componente padre e ne viene eseguito il rendering all'interno `panel-body`del pannello bootstrap.
+Nell'esempio seguente, il `ChildComponent` ha una proprietà `ChildContent` che rappresenta un `RenderFragment`, che rappresenta un segmento di interfaccia utente di cui eseguire il rendering. Il valore di `ChildContent` è posizionato nel markup del componente in cui deve essere eseguito il rendering del contenuto. Il valore di `ChildContent` viene ricevuto dal componente padre e ne viene eseguito il rendering all'interno del `panel-body` del pannello bootstrap.
 
 *Components/ChildComponent. Razor*:
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Components/ChildComponent.razor?highlight=3,14-15)]
 
 > [!NOTE]
-> La proprietà che riceve `RenderFragment` il contenuto deve essere `ChildContent` denominata per convenzione.
+> La proprietà che riceve il contenuto `RenderFragment` deve essere denominata `ChildContent` per convenzione.
 
-Gli elementi `ParentComponent` seguenti possono fornire contenuto per il `ChildComponent` rendering di inserendo il contenuto all' `<ChildComponent>` interno dei tag.
+Il `ParentComponent` seguente può fornire contenuti per il rendering del `ChildComponent` inserendo il contenuto all'interno dei tag `<ChildComponent>`.
 
 *Pages/ParentComponent. Razor*:
 
@@ -124,9 +124,9 @@ Gli elementi `ParentComponent` seguenti possono fornire contenuto per il `ChildC
 
 ## <a name="attribute-splatting-and-arbitrary-parameters"></a>Attributo splatting e parametri arbitrari
 
-I componenti possono acquisire ed eseguire il rendering di attributi aggiuntivi oltre ai parametri dichiarati del componente. È possibile acquisire attributi aggiuntivi in un dizionario e quindi *Splatted* su un elemento quando il componente viene sottoposto a [@attributes](xref:mvc/views/razor#attributes) rendering usando la direttiva Razor. Questo scenario è utile quando si definisce un componente che produce un elemento di markup che supporta un'ampia gamma di personalizzazioni. Ad esempio, può essere noioso definire gli attributi separatamente per un `<input>` che supporta molti parametri.
+I componenti possono acquisire ed eseguire il rendering di attributi aggiuntivi oltre ai parametri dichiarati del componente. È possibile acquisire attributi aggiuntivi in un dizionario e quindi *Splatted* su un elemento quando il componente viene sottoposto a rendering usando la direttiva Razor [@attributes](xref:mvc/views/razor#attributes) . Questo scenario è utile quando si definisce un componente che produce un elemento di markup che supporta un'ampia gamma di personalizzazioni. Ad esempio, può essere noioso definire gli attributi separatamente per un `<input>` che supporta molti parametri.
 
-Nell'esempio seguente `<input>` , il primo elemento (`id="useIndividualParams"`) USA parametri dei singoli componenti, mentre il secondo `<input>` elemento (`id="useAttributesDict"`) usa l'attributo splatting:
+Nell'esempio seguente, il primo elemento `<input>` (`id="useIndividualParams"`) USA parametri dei singoli componenti, mentre il secondo elemento `<input>` (`id="useAttributesDict"`) usa l'attributo splatting:
 
 ```cshtml
 <input id="useIndividualParams"
@@ -163,9 +163,9 @@ Nell'esempio seguente `<input>` , il primo elemento (`id="useIndividualParams"`)
 }
 ```
 
-Il tipo del parametro deve implementare `IEnumerable<KeyValuePair<string, object>>` con chiavi di stringa. L' `IReadOnlyDictionary<string, object>` uso di è anche un'opzione in questo scenario.
+Il tipo del parametro deve implementare `IEnumerable<KeyValuePair<string, object>>` con chiavi di stringa. In questo scenario è inoltre possibile utilizzare `IReadOnlyDictionary<string, object>`.
 
-Gli elementi `<input>` sottoposti a rendering usando entrambi gli approcci sono identici:
+Gli elementi @no__t 0 sottoposti a rendering usando entrambi gli approcci sono identici:
 
 ```html
 <input id="useIndividualParams"
@@ -181,7 +181,7 @@ Gli elementi `<input>` sottoposti a rendering usando entrambi gli approcci sono 
        size="50">
 ```
 
-Per accettare attributi arbitrari, definire un parametro component usando l' `[Parameter]` attributo con la `CaptureUnmatchedValues` proprietà impostata su `true`:
+Per accettare attributi arbitrari, definire un parametro component usando l'attributo `[Parameter]` con la proprietà `CaptureUnmatchedValues` impostata su `true`:
 
 ```cshtml
 @code {
@@ -190,37 +190,37 @@ Per accettare attributi arbitrari, definire un parametro component usando l' `[P
 }
 ```
 
-La `CaptureUnmatchedValues` proprietà su `[Parameter]` consente al parametro di trovare la corrispondenza con tutti gli attributi che non corrispondono ad altri parametri. Un componente può definire solo un singolo parametro con `CaptureUnmatchedValues`. Il tipo di proprietà utilizzato `CaptureUnmatchedValues` con deve essere assegnabile `Dictionary<string, object>` da con chiavi di stringa. `IEnumerable<KeyValuePair<string, object>>`o `IReadOnlyDictionary<string, object>` sono anche opzioni in questo scenario.
+La proprietà `CaptureUnmatchedValues` su `[Parameter]` consente al parametro di trovare la corrispondenza con tutti gli attributi che non corrispondono ad altri parametri. Un componente può definire un solo parametro con `CaptureUnmatchedValues`. Il tipo di proprietà utilizzato con `CaptureUnmatchedValues` deve essere assegnabile da `Dictionary<string, object>` con chiavi di stringa. in questo scenario sono inoltre disponibili le opzioni `IEnumerable<KeyValuePair<string, object>>` o `IReadOnlyDictionary<string, object>`.
 
 ## <a name="data-binding"></a>Associazione dati
 
-L'associazione dati a entrambi i componenti e gli elementi DOM viene [@bind](xref:mvc/views/razor#bind) eseguita con l'attributo. Nell'esempio seguente il `_italicsCheck` campo viene associato allo stato di selezione della casella di controllo:
+L'associazione dati a entrambi i componenti e gli elementi DOM viene eseguita con l'attributo [@bind](xref:mvc/views/razor#bind) . Nell'esempio seguente il campo `_italicsCheck` viene associato allo stato di selezione della casella di controllo:
 
 ```cshtml
 <input type="checkbox" class="form-check-input" id="italicsCheck" 
     @bind="_italicsCheck" />
 ```
 
-Quando la casella di controllo è selezionata e deselezionata, il valore della proprietà `true` viene `false`aggiornato rispettivamente a e.
+Quando la casella di controllo è selezionata e deselezionata, il valore della proprietà viene aggiornato rispettivamente a `true` e `false`.
 
 La casella di controllo viene aggiornata nell'interfaccia utente solo quando viene eseguito il rendering del componente, non in risposta alla modifica del valore della proprietà. Poiché i componenti eseguono il rendering dopo l'esecuzione del codice del gestore eventi, gli aggiornamenti delle proprietà vengono in genere riflessi immediatamente nell'interfaccia utente.
 
-L' `@bind` utilizzo di `CurrentValue` con una`<input @bind="CurrentValue" />`proprietà () è essenzialmente equivalente a quanto segue:
+L'uso di `@bind` con una proprietà `CurrentValue` (`<input @bind="CurrentValue" />`) equivale essenzialmente a quanto segue:
 
 ```cshtml
 <input value="@CurrentValue"
     @onchange="@((ChangeEventArgs __e) => CurrentValue = __e.Value)" />
 ```
 
-Quando viene eseguito il rendering del componente `value` , l'oggetto dell'elemento di input `CurrentValue` deriva dalla proprietà. Quando l'utente digita nella casella di testo, l' `onchange` evento viene generato e la `CurrentValue` proprietà viene impostata sul valore modificato. In realtà, la generazione del codice è un po' più complessa `@bind` perché gestisce alcuni casi in cui vengono eseguite le conversioni dei tipi. In linea di `@bind` principio, associa il valore corrente di un'espressione `value` a un attributo e gestisce le modifiche utilizzando il gestore registrato.
+Quando viene eseguito il rendering del componente, il `value` dell'elemento di input deriva dalla proprietà `CurrentValue`. Quando l'utente digita nella casella di testo, viene generato l'evento `onchange` e la proprietà `CurrentValue` viene impostata sul valore modificato. In realtà, la generazione del codice è un po' più complessa perché `@bind` gestisce alcuni casi in cui vengono eseguite le conversioni dei tipi. In teoria, `@bind` associa il valore corrente di un'espressione a un attributo `value` e gestisce le modifiche utilizzando il gestore registrato.
 
-`onchange` Oltre a gestire gli eventi con `@bind` la sintassi, una proprietà o un campo può essere associato utilizzando altri eventi specificando un [@bind-value](xref:mvc/views/razor#bind) attributo `event` con un[@bind-value:event](xref:mvc/views/razor#bind)parametro (). Nell'esempio seguente viene associata la `CurrentValue` proprietà per l' `oninput` evento:
+Oltre a gestire gli eventi `onchange` con la sintassi `@bind`, è possibile associare una proprietà o un campo usando altri eventi specificando un attributo [@bind-value](xref:mvc/views/razor#bind) con un parametro `event` ([@bind-value:event](xref:mvc/views/razor#bind)). Nell'esempio seguente viene associata la proprietà `CurrentValue` per l'evento `oninput`:
 
 ```cshtml
 <input @bind-value="CurrentValue" @bind-value:event="oninput" />
 ```
 
-Diversamente `onchange`da, che viene attivato quando l'elemento perde lo `oninput` stato attivo, viene attivato quando viene modificato il valore della casella di testo.
+Diversamente da `onchange`, che viene attivato quando l'elemento perde lo stato attivo, `oninput` viene attivato quando viene modificato il valore della casella di testo.
 
 **Valori non analizzabili**
 
@@ -228,7 +228,7 @@ Quando un utente fornisce un valore non analizzabile a un elemento associato a u
 
 Si consideri lo scenario seguente:
 
-* Un `<input>` elemento è associato a un `int` tipo con un valore iniziale di `123`:
+* Un elemento `<input>` è associato a un tipo `int` con un valore iniziale di `123`:
 
   ```cshtml
   <input @bind="MyProperty" />
@@ -240,23 +240,23 @@ Si consideri lo scenario seguente:
   ```
 * L'utente aggiorna il valore dell'elemento a `123.45` nella pagina e modifica lo stato attivo dell'elemento.
 
-Nello scenario precedente, il valore dell'elemento viene ripristinato `123`in. Quando il valore `123.45` viene rifiutato a favore del valore originale di `123`, l'utente riconosce che il relativo valore non è stato accettato.
+Nello scenario precedente, il valore dell'elemento viene ripristinato `123`. Quando il valore `123.45` viene rifiutato a favore del valore originale di `123`, l'utente riconosce che il relativo valore non è stato accettato.
 
-Per impostazione predefinita, l'associazione si applica all' `onchange` evento dell'`@bind="{PROPERTY OR FIELD}"`elemento (). Utilizzare `@bind-value="{PROPERTY OR FIELD}" @bind-value:event={EVENT}` per impostare un evento diverso. Per l' `oninput` evento (`@bind-value:event="oninput"`), la riversione viene eseguita dopo qualsiasi sequenza di tasti che introduce un valore non analizzabile. Quando la destinazione è `oninput` l'evento con `int`un tipo associato a, a un utente viene impedito `.` di digitare un carattere. Un `.` carattere viene immediatamente rimosso, quindi l'utente riceve il feedback immediato che sono consentiti solo numeri interi. Esistono scenari in `oninput` cui il ripristino del valore dell'evento non è ideale, ad esempio quando l'utente deve essere autorizzato a cancellare un `<input>` valore non analizzabile. Le alternative includono:
+Per impostazione predefinita, l'associazione si applica all'evento `onchange` dell'elemento (`@bind="{PROPERTY OR FIELD}"`). Utilizzare `@bind-value="{PROPERTY OR FIELD}" @bind-value:event={EVENT}` per impostare un evento diverso. Per l'evento `oninput` (`@bind-value:event="oninput"`), la riversione viene eseguita dopo qualsiasi sequenza di tasti che introduce un valore non analizzabile. Quando la destinazione è l'evento `oninput` con un tipo associato a @no__t 1, a un utente viene impedito di digitare un carattere `.`. Un carattere `.` viene immediatamente rimosso, quindi l'utente riceve il feedback immediato che sono consentiti solo numeri interi. Esistono scenari in cui il ripristino del valore nell'evento `oninput` non è ideale, ad esempio quando l'utente deve essere autorizzato a cancellare un valore `<input>` non analizzabile. Le alternative includono:
 
-* Non usare l' `oninput` evento. Usare l'evento `onchange` predefinito (`@bind="{PROPERTY OR FIELD}"`), in cui un valore non valido non viene ripristinato fino a quando l'elemento non perde lo stato attivo.
-* Eseguire l'associazione a un tipo nullable, `int?` ad `string`esempio o, e fornire la logica personalizzata per gestire le voci non valide.
-* Utilizzare un [componente di convalida del modulo](xref:blazor/forms-validation), `InputNumber` ad `InputDate`esempio o. I componenti di convalida dei moduli includono il supporto predefinito per la gestione di input non validi. Componenti di convalida dei moduli:
-  * Consente all'utente di fornire un input non valido e di ricevere errori di `EditContext`convalida nell'oggetto associato.
+* Non usare l'evento `oninput`. Usare l'evento `onchange` predefinito (`@bind="{PROPERTY OR FIELD}"`), in cui un valore non valido non viene ripristinato fino a quando l'elemento non perde lo stato attivo.
+* Eseguire l'associazione a un tipo nullable, ad esempio `int?` o `string`, e fornire la logica personalizzata per gestire le voci non valide.
+* Usare un [componente di convalida del modulo](xref:blazor/forms-validation), ad esempio `InputNumber` o `InputDate`. I componenti di convalida dei moduli includono il supporto predefinito per la gestione di input non validi. Componenti di convalida dei moduli:
+  * Consente all'utente di fornire un input non valido e di ricevere errori di convalida nell'@no__t 0 associato.
   * Visualizzare gli errori di convalida nell'interfaccia utente senza interferire con l'utente che immette dati Web Form aggiuntivi.
 
 **Globalizzazione**
 
-`@bind`i valori vengono formattati per la visualizzazione e l'analisi usando le regole delle impostazioni cultura correnti.
+i valori `@bind` vengono formattati per la visualizzazione e l'analisi usando le regole delle impostazioni cultura correnti.
 
-È possibile accedere alle impostazioni cultura correnti dalla <xref:System.Globalization.CultureInfo.CurrentCulture?displayProperty=fullName> proprietà.
+È possibile accedere alle impostazioni cultura correnti dalla proprietà <xref:System.Globalization.CultureInfo.CurrentCulture?displayProperty=fullName>.
 
-[CultureInfo. InvariantCulture](xref:System.Globalization.CultureInfo.InvariantCulture) viene usato per i tipi di campo seguenti`<input type="{TYPE}" />`():
+[CultureInfo. InvariantCulture](xref:System.Globalization.CultureInfo.InvariantCulture) viene usato per i tipi di campo seguenti (`<input type="{TYPE}" />`):
 
 * `date`
 * `number`
@@ -267,19 +267,19 @@ I tipi di campo precedenti:
 * Non può contenere testo in formato libero.
 * Fornire le caratteristiche di interazione utente in base all'implementazione del browser.
 
-I tipi di campo seguenti hanno requisiti di formattazione specifici e non sono attualmente supportati da Blazer perché non sono supportati da tutti i browser principali:
+I tipi di campo seguenti hanno requisiti di formattazione specifici e non sono attualmente supportati da Blazor perché non sono supportati da tutti i browser principali:
 
 * `datetime-local`
 * `month`
 * `week`
 
-`@bind`supporta il `@bind:culture` parametro per fornire un <xref:System.Globalization.CultureInfo?displayProperty=fullName> oggetto per l'analisi e la formattazione di un valore. Non è consigliabile specificare impostazioni cultura quando si `date` usano `number` i tipi di campo e. `date`e `number` hanno il supporto predefinito di blazer che fornisce le impostazioni cultura richieste.
+`@bind` supporta il parametro `@bind:culture` per fornire un <xref:System.Globalization.CultureInfo?displayProperty=fullName> per l'analisi e la formattazione di un valore. Non è consigliabile specificare impostazioni cultura quando si usano i tipi di campo `date` e `number`. `date` e `number` includono il supporto predefinito di blazer che fornisce le impostazioni cultura richieste.
 
 Per informazioni su come impostare le impostazioni cultura dell'utente, vedere la sezione [localizzazione](#localization) .
 
 **Stringhe di formato**
 
-Il data binding funziona <xref:System.DateTime> con stringhe di [@bind:format](xref:mvc/views/razor#bind)formato usando. Altre espressioni di formato, ad esempio i formati di valuta o numerici, non sono disponibili in questo momento.
+Il data binding funziona con stringhe di formato <xref:System.DateTime> con [@bind:format](xref:mvc/views/razor#bind). Altre espressioni di formato, ad esempio i formati di valuta o numerici, non sono disponibili in questo momento.
 
 ```cshtml
 <input @bind="StartDate" @bind:format="yyyy-MM-dd" />
@@ -290,22 +290,22 @@ Il data binding funziona <xref:System.DateTime> con stringhe di [@bind:format](x
 }
 ```
 
-Nel codice precedente, il valore `<input>` predefinito `text`del tipo di campo`type`dell'elemento () è. `@bind:format`è supportato per l'associazione dei tipi .NET seguenti:
+Nel codice precedente, il tipo di campo dell'elemento `<input>` (`type`) viene impostato sul valore predefinito `text`. `@bind:format` è supportato per l'associazione dei tipi .NET seguenti:
 
 * <xref:System.DateTime?displayProperty=fullName>
 * <xref:System.DateTime?displayProperty=fullName>?
 * <xref:System.DateTimeOffset?displayProperty=fullName>
 * <xref:System.DateTimeOffset?displayProperty=fullName>?
 
-L' `@bind:format` attributo specifica il formato di data da applicare all' `value` oggetto dell' `<input>` elemento. Il formato viene usato anche per analizzare il valore quando si `onchange` verifica un evento.
+L'attributo `@bind:format` specifica il formato della data da applicare al `value` dell'elemento `<input>`. Il formato viene usato anche per analizzare il valore quando si verifica un evento `onchange`.
 
-La specifica di un formato `date` per il tipo di campo non è consigliata perché Blazer dispone del supporto incorporato per formattare le date.
+La specifica di un formato per il tipo di campo `date` non è consigliata perché con il supporto incorporato per formattare le date.
 
 **Parametri dei componenti**
 
-Il binding riconosce i parametri del `@bind-{property}` componente, dove può associare un valore di proprietà tra i componenti.
+Il binding riconosce i parametri del componente, dove `@bind-{property}` può associare un valore della proprietà tra i componenti.
 
-Il componente figlio seguente (`ChildComponent`) ha un `Year` parametro del componente `YearChanged` e un callback:
+Il componente figlio seguente (`ChildComponent`) ha un parametro del componente `Year` e un callback di `YearChanged`:
 
 ```cshtml
 <h2>Child Component</h2>
@@ -321,9 +321,9 @@ Il componente figlio seguente (`ChildComponent`) ha un `Year` parametro del comp
 }
 ```
 
-`EventCallback<T>`viene illustrato nella sezione [EventCallback](#eventcallback) .
+`EventCallback<T>` è descritto nella sezione [EventCallback](#eventcallback) .
 
-Il componente padre seguente utilizza `ChildComponent` e associa il `ParentYear` parametro `Year` dall'elemento padre al parametro nel componente figlio:
+Il componente padre seguente utilizza `ChildComponent` e associa il parametro `ParentYear` dall'elemento padre al parametro `Year` sul componente figlio:
 
 ```cshtml
 @page "/ParentComponent"
@@ -349,7 +349,7 @@ Il componente padre seguente utilizza `ChildComponent` e associa il `ParentYear`
 }
 ```
 
-Il caricamento `ParentComponent` di produce il markup seguente:
+Il caricamento del `ParentComponent` produce il markup seguente:
 
 ```html
 <h1>Parent Component</h1>
@@ -361,7 +361,7 @@ Il caricamento `ParentComponent` di produce il markup seguente:
 <p>Year: 1978</p>
 ```
 
-`ParentYear` Se il valore della proprietà viene modificato selezionando il pulsante `ParentComponent`in, viene aggiornata la `Year` proprietà dell'oggetto `ChildComponent` . Viene eseguito il rendering `Year` del nuovo valore di nell'interfaccia utente `ParentComponent` quando viene eseguito il rendering dell'oggetto:
+Se il valore della proprietà `ParentYear` viene modificato selezionando il pulsante nell'`ParentComponent`, viene aggiornata la proprietà `Year` del `ChildComponent`. Viene eseguito il rendering del nuovo valore di `Year` nell'interfaccia utente quando viene eseguito il rendering del `ParentComponent`:
 
 ```html
 <h1>Parent Component</h1>
@@ -373,15 +373,15 @@ Il caricamento `ParentComponent` di produce il markup seguente:
 <p>Year: 1986</p>
 ```
 
-Il `Year` parametro è associabile perché contiene un evento `YearChanged` complementare che `Year` corrisponde al tipo del parametro.
+Il parametro `Year` è associabile perché contiene un evento `YearChanged` complementare che corrisponde al tipo del parametro `Year`.
 
-Per convenzione, `<ChildComponent @bind-Year="ParentYear" />` equivale essenzialmente alla scrittura:
+Per convenzione, `<ChildComponent @bind-Year="ParentYear" />` è essenzialmente equivalente alla scrittura:
 
 ```cshtml
 <ChildComponent @bind-Year="ParentYear" @bind-Year:event="YearChanged" />
 ```
 
-In generale, una proprietà può essere associata a un gestore eventi corrispondente usando `@bind-property:event` l'attributo. Ad esempio, la proprietà `MyProp` può essere associata a `MyEventHandler` utilizzando i due attributi seguenti:
+In generale, una proprietà può essere associata a un gestore eventi corrispondente usando l'attributo `@bind-property:event`. Ad esempio, la proprietà `MyProp` può essere associata a `MyEventHandler` usando i due attributi seguenti:
 
 ```cshtml
 <MyComponent @bind-MyProp="MyValue" @bind-MyProp:event="MyEventHandler" />
@@ -389,9 +389,9 @@ In generale, una proprietà può essere associata a un gestore eventi corrispond
 
 ## <a name="event-handling"></a>Gestione di eventi
 
-I componenti Razor forniscono funzionalità di gestione degli eventi. Per un attributo dell'elemento HTML `on{event}` denominato (ad esempio `onclick` , `onsubmit`e) con un valore tipizzato da un delegato, i componenti Razor considera il valore dell'attributo come un gestore eventi. Il nome dell'attributo è sempre formattato [ @on{Event}](xref:mvc/views/razor#onevent).
+I componenti Razor forniscono funzionalità di gestione degli eventi. Per un attributo dell'elemento HTML denominato `on{event}` (ad esempio, `onclick` e `onsubmit`) con un valore tipizzato da un delegato, i componenti Razor considera il valore dell'attributo come un gestore eventi. Il nome dell'attributo è sempre formattato [@on {Event}](xref:mvc/views/razor#onevent).
 
-Il codice seguente chiama il `UpdateHeading` metodo quando si seleziona il pulsante nell'interfaccia utente:
+Il codice seguente chiama il metodo `UpdateHeading` quando si seleziona il pulsante nell'interfaccia utente:
 
 ```cshtml
 <button class="btn btn-primary" @onclick="UpdateHeading">
@@ -406,7 +406,7 @@ Il codice seguente chiama il `UpdateHeading` metodo quando si seleziona il pulsa
 }
 ```
 
-Il codice seguente chiama il `CheckChanged` metodo quando la casella di controllo viene modificata nell'interfaccia utente:
+Il codice seguente chiama il metodo `CheckChanged` quando la casella di controllo viene modificata nell'interfaccia utente:
 
 ```cshtml
 <input type="checkbox" class="form-check-input" @onchange="CheckChanged" />
@@ -419,9 +419,9 @@ Il codice seguente chiama il `CheckChanged` metodo quando la casella di controll
 }
 ```
 
-I gestori di eventi possono anche essere asincroni e restituire <xref:System.Threading.Tasks.Task>un oggetto. Non è necessario chiamare `StateHasChanged()`manualmente. Le eccezioni vengono registrate quando si verificano.
+I gestori di eventi possono anche essere asincroni e restituire un <xref:System.Threading.Tasks.Task>. Non è necessario chiamare manualmente `StateHasChanged()`. Le eccezioni vengono registrate quando si verificano.
 
-Nell'esempio seguente, `UpdateHeading` viene chiamato in modo asincrono quando si seleziona il pulsante:
+Nell'esempio seguente `UpdateHeading` viene chiamato in modo asincrono quando si seleziona il pulsante:
 
 ```cshtml
 <button class="btn btn-primary" @onclick="UpdateHeading">
@@ -445,16 +445,16 @@ Nella tabella seguente sono riportati i `EventArgs` supportati.
 | event | Classe |
 | ----- | ----- |
 | Appunti        | `ClipboardEventArgs` |
-| Trascinare             | `DragEventArgs`e contengono dati di`DataTransferItem` elementi trascinati. &ndash; `DataTransfer` |
+| Trascinare             | `DragEventArgs` &ndash; `DataTransfer` e `DataTransferItem` contengono dati di elementi trascinati. |
 | Errore            | `ErrorEventArgs` |
-| Stato attivo            | `FocusEventArgs`Non include il supporto `relatedTarget`per. &ndash; |
+| Stato attivo            | `FocusEventArgs` &ndash; non include il supporto per `relatedTarget`. |
 | Modifica di`<input>` | `ChangeEventArgs` |
 | Tastiera         | `KeyboardEventArgs` |
 | Mouse            | `MouseEventArgs` |
 | Puntatore del mouse    | `PointerEventArgs` |
 | Rotellina del mouse      | `WheelEventArgs` |
 | Stato         | `ProgressEventArgs` |
-| Tocco            | `TouchEventArgs`&ndash; rappresentaunsingolopuntodicontattosuun`TouchPoint` dispositivo sensibile al tocco. |
+| Tocco            | `TouchEventArgs` &ndash; `TouchPoint` rappresenta un singolo punto di contatto su un dispositivo sensibile al tocco. |
 
 Per informazioni sulle proprietà e sul comportamento di gestione degli eventi degli eventi nella tabella precedente, vedere le [classi EventArgs nell'origine riferimento (ASPNET/AspNetCore Release/3.0 Branch)](https://github.com/aspnet/AspNetCore/tree/release/3.0/src/Components/Web/src/Web).
 
@@ -466,7 +466,7 @@ Per informazioni sulle proprietà e sul comportamento di gestione degli eventi d
 <button @onclick="@(e => Console.WriteLine("Hello, world!"))">Say hello</button>
 ```
 
-Spesso è consigliabile chiudere i valori aggiuntivi, ad esempio quando si esegue l'iterazione su un set di elementi. Nell'esempio seguente vengono creati tre pulsanti, ciascuno dei quali `UpdateHeading` chiama il passaggio di un`MouseEventArgs`argomento di evento () e`buttonNumber`il relativo numero di pulsante () quando vengono selezionati nell'interfaccia utente:
+Spesso è consigliabile chiudere i valori aggiuntivi, ad esempio quando si esegue l'iterazione su un set di elementi. Nell'esempio seguente vengono creati tre pulsanti, ciascuno dei quali chiama `UpdateHeading` passando un argomento di evento (`MouseEventArgs`) e il relativo numero di pulsante (`buttonNumber`) se selezionato nell'interfaccia utente:
 
 ```cshtml
 <h2>@message</h2>
@@ -493,26 +493,26 @@ Spesso è consigliabile chiudere i valori aggiuntivi, ad esempio quando si esegu
 ```
 
 > [!NOTE]
-> **Non** usare la variabile di ciclo (`i`) in un `for` ciclo direttamente in un'espressione lambda. In caso contrario, la stessa variabile viene utilizzata da tutte `i`le espressioni lambda causando che il valore di sia lo stesso in tutte le espressioni lambda. Acquisire sempre il relativo valore in una variabile locale`buttonNumber` (nell'esempio precedente) e quindi usarlo.
+> Non **usare la** variabile loop (`i`) in un ciclo `for` direttamente in un'espressione lambda. In caso contrario, la stessa variabile viene utilizzata da tutte le espressioni lambda che fanno sì che il valore di `i` sia lo stesso in tutte le espressioni lambda. Acquisire sempre il relativo valore in una variabile locale (`buttonNumber` nell'esempio precedente) e quindi usarlo.
 
 ### <a name="eventcallback"></a>EventCallback
 
-Uno scenario comune con i componenti annidati è la volontà di eseguire il metodo di un componente padre quando si verifica&mdash;un evento del componente figlio `onclick` , ad esempio, quando si verifica un evento nell'elemento figlio. Per esporre gli eventi tra i componenti, `EventCallback`usare un oggetto. Un componente padre può assegnare un metodo di callback a un componente `EventCallback`figlio.
+Uno scenario comune con i componenti annidati è la volontà di eseguire il metodo di un componente padre quando si verifica un evento del componente figlio @ no__t-0per, quando si verifica un evento `onclick` nell'elemento figlio. Per esporre gli eventi tra i componenti, usare un `EventCallback`. Un componente padre può assegnare un metodo di callback a un componente figlio `EventCallback`.
 
-Nell'app di esempio illustra come viene configurato il `onclick` gestore di un pulsante per ricevere un `EventCallback` delegato dall'oggetto dell'esempio `ParentComponent`. `ChildComponent` Viene digitato `MouseEventArgs`con, appropriato per un `onclick` evento da un dispositivo periferico: `EventCallback`
+Il `ChildComponent` nell'app di esempio illustra come viene configurato un gestore `onclick` di un pulsante per ricevere un delegato `EventCallback` dal `ParentComponent` dell'esempio. Il `EventCallback` è tipizzato con `MouseEventArgs`, appropriato per un evento di @no__t 2 da un dispositivo periferico:
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Components/ChildComponent.razor?highlight=5-7,17-18)]
 
-Imposta l'oggetto `EventCallback<T>` figlio sul relativo `ShowMessage` metodo: `ParentComponent`
+Il `ParentComponent` imposta il `EventCallback<T>` del figlio sul relativo metodo `ShowMessage`:
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ParentComponent.razor?name=snippet_ParentComponent&highlight=6,16-19)]
 
 Quando il pulsante è selezionato in `ChildComponent`:
 
-* Viene `ParentComponent`chiamato `ShowMessage` il metodo di. `messageText`viene aggiornato e visualizzato nell'oggetto `ParentComponent`.
-* Una chiamata a `StateHasChanged` non è obbligatoria nel metodo del callback (`ShowMessage`). `StateHasChanged`viene chiamato automaticamente per eseguire il rendering `ParentComponent`di, proprio come gli eventi figlio attivano il rendering dei componenti nei gestori eventi che vengono eseguiti all'interno dell'elemento figlio.
+* Viene chiamato il metodo `ShowMessage` `ParentComponent`. `messageText` viene aggiornato e visualizzato nell'`ParentComponent`.
+* Una chiamata a `StateHasChanged` non è obbligatoria nel metodo del callback (`ShowMessage`). `StateHasChanged` viene chiamato automaticamente per eseguire il rendering del `ParentComponent`, così come gli eventi figlio attivano il rendering dei componenti nei gestori eventi che vengono eseguiti all'interno dell'elemento figlio.
 
-`EventCallback`e `EventCallback<T>` consentono delegati asincroni. `EventCallback<T>`è fortemente tipizzato e richiede un tipo di argomento specifico. `EventCallback`è debolmente tipizzato e consente qualsiasi tipo di argomento.
+`EventCallback` e `EventCallback<T>` consentono delegati asincroni. `EventCallback<T>` è fortemente tipizzato e richiede un tipo di argomento specifico. `EventCallback` è debolmente tipizzato e consente qualsiasi tipo di argomento.
 
 ```cshtml
 <p><b>@messageText</b></p>
@@ -527,26 +527,26 @@ Quando il pulsante è selezionato in `ChildComponent`:
 }
 ```
 
-`EventCallback` Richiamare o `EventCallback<T>` con e`InvokeAsync` attendere :<xref:System.Threading.Tasks.Task>
+Richiamare un `EventCallback` o `EventCallback<T>` con `InvokeAsync` e attendere il <xref:System.Threading.Tasks.Task>:
 
 ```csharp
 await callback.InvokeAsync(arg);
 ```
 
-Usare `EventCallback` e`EventCallback<T>` per la gestione degli eventi e i parametri del componente di associazione.
+Utilizzare `EventCallback` e `EventCallback<T>` per la gestione degli eventi e i parametri del componente di associazione.
 
-Preferisci l'oggetto `EventCallback<T>` fortemente `EventCallback`tipizzato. `EventCallback<T>`fornisce un migliore feedback sugli errori agli utenti del componente. Analogamente ad altri gestori di eventi dell'interfaccia utente, la specifica del parametro dell'evento è facoltativa. Usare `EventCallback` quando non è stato passato alcun valore al callback.
+Preferisci la `EventCallback<T>` fortemente tipizzata su `EventCallback`. `EventCallback<T>` fornisce un migliore feedback sugli errori agli utenti del componente. Analogamente ad altri gestori di eventi dell'interfaccia utente, la specifica del parametro dell'evento è facoltativa. Utilizzare `EventCallback` quando non viene passato alcun valore al callback.
 
 ## <a name="chained-bind"></a>Binding concatenato
 
 Uno scenario comune consiste nel concatenare un parametro associato a dati a un elemento Page nell'output del componente. Questo scenario è denominato *Binding concatenato* perché si verificano simultaneamente più livelli di associazione.
 
-Un binding concatenato non può essere `@bind` implementato con la sintassi nell'elemento della pagina. Il gestore eventi e il valore devono essere specificati separatamente. Un componente padre, tuttavia, può utilizzare `@bind` la sintassi con il parametro del componente.
+Un binding concatenato non può essere implementato con la sintassi `@bind` nell'elemento della pagina. Il gestore eventi e il valore devono essere specificati separatamente. Un componente padre, tuttavia, può utilizzare la sintassi `@bind` con il parametro del componente.
 
 Il componente `PasswordField` seguente (*PasswordField. Razor*):
 
-* Imposta il `<input>` valore di un elemento su `Password` una proprietà.
-* Espone le modifiche della `Password` proprietà a un componente padre con un [EventCallback](#eventcallback).
+* Imposta il valore di un elemento `<input>` su una proprietà `Password`.
+* Espone le modifiche della proprietà `Password` a un componente padre con un [EventCallback](#eventcallback).
 
 ```cshtml
 Password: 
@@ -583,7 +583,7 @@ Password:
 }
 ```
 
-Il `PasswordField` componente viene usato in un altro componente:
+Il componente `PasswordField` viene usato in un altro componente:
 
 ```cshtml
 <PasswordField @bind-Password="password" />
@@ -595,8 +595,8 @@ Il `PasswordField` componente viene usato in un altro componente:
 
 Per eseguire controlli o intercettare gli errori sulla password nell'esempio precedente:
 
-* Creare un campo di supporto per `Password` (`password` nell'esempio di codice seguente).
-* Eseguire i controlli o gli errori di trap `Password` nel Setter.
+* Creare un campo sottostante per `Password` (`password` nel codice di esempio seguente).
+* Eseguire i controlli o gli errori di trap nel Setter `Password`.
 
 Nell'esempio seguente viene fornito un feedback immediato all'utente se viene utilizzato uno spazio nel valore della password:
 
@@ -659,9 +659,9 @@ Password:
 
 ## <a name="capture-references-to-components"></a>Acquisisci riferimenti ai componenti
 
-I riferimenti ai componenti forniscono un modo per fare riferimento a un'istanza del componente in modo da poter emettere comandi per `Show` tale `Reset`istanza, ad esempio o. Per acquisire un riferimento a un componente:
+I riferimenti ai componenti forniscono un modo per fare riferimento a un'istanza del componente in modo da poter emettere comandi per tale istanza, ad esempio `Show` o `Reset`. Per acquisire un riferimento a un componente:
 
-* Aggiungere un [@ref](xref:mvc/views/razor#ref) attributo al componente figlio.
+* Aggiungere un attributo [@ref](xref:mvc/views/razor#ref) al componente figlio.
 * Definire un campo con lo stesso tipo del componente figlio.
 
 ```cshtml
@@ -677,19 +677,19 @@ I riferimenti ai componenti forniscono un modo per fare riferimento a un'istanza
 }
 ```
 
-Quando viene eseguito il rendering del componente `loginDialog` , il campo viene popolato con l'istanza del `MyLoginDialog` componente figlio. È quindi possibile richiamare i metodi .NET nell'istanza del componente.
+Quando viene eseguito il rendering del componente, il campo `loginDialog` viene popolato con l'istanza del componente figlio `MyLoginDialog`. È quindi possibile richiamare i metodi .NET nell'istanza del componente.
 
 > [!IMPORTANT]
-> La `loginDialog` variabile viene popolata solo dopo il rendering del componente e l'output include `MyLoginDialog` l'elemento. Fino a quel momento, non c'è niente a cui fare riferimento. Per modificare i riferimenti ai componenti dopo che il componente ha terminato il `OnAfterRenderAsync` rendering `OnAfterRender` , usare i metodi o.
+> La variabile `loginDialog` viene popolata solo dopo il rendering del componente e l'output include l'elemento `MyLoginDialog`. Fino a quel momento, non c'è niente a cui fare riferimento. Per modificare i riferimenti ai componenti dopo che il componente ha terminato il rendering, usare i metodi `OnAfterRenderAsync` o `OnAfterRender`.
 
-Mentre l'acquisizione di riferimenti ai componenti usa una sintassi simile per l' [acquisizione di riferimenti a elementi](xref:blazor/javascript-interop#capture-references-to-elements), non è una funzionalità di [interoperabilità di JavaScript](xref:blazor/javascript-interop) . I riferimenti ai componenti non vengono passati&mdash;al codice JavaScript che vengono usati solo nel codice .NET.
+Mentre l'acquisizione di riferimenti ai componenti usa una sintassi simile per l' [acquisizione di riferimenti a elementi](xref:blazor/javascript-interop#capture-references-to-elements), non è una funzionalità di [interoperabilità di JavaScript](xref:blazor/javascript-interop) . I riferimenti ai componenti non vengono passati al codice JavaScript @ no__t-0they're usato solo nel codice .NET.
 
 > [!NOTE]
 > **Non** usare i riferimenti ai componenti per mutare lo stato dei componenti figlio. Usare invece i normali parametri dichiarativi per passare i dati ai componenti figlio. L'utilizzo di normali parametri dichiarativi restituisce automaticamente i componenti figlio che eseguono il rendering alle ore corrette.
 
 ## <a name="invoke-component-methods-externally-to-update-state"></a>Richiama i metodi del componente esternamente per aggiornare lo stato
 
-Blazer usa un `SynchronizationContext` per applicare un singolo thread logico di esecuzione. I metodi del ciclo di vita di un componente e tutti i callback di evento generati da Blazer vengono `SynchronizationContext`eseguiti in questo oggetto. Nel caso in cui un componente deve essere aggiornato in base a un evento esterno, ad esempio un timer o altre notifiche, `InvokeAsync` usare il metodo, che invierà a blazer. `SynchronizationContext`
+Blazer usa un `SynchronizationContext` per applicare un singolo thread logico di esecuzione. I metodi del ciclo di vita di un componente e tutti i callback di evento generati da Blazer vengono eseguiti in questo `SynchronizationContext`. Nel caso in cui un componente deve essere aggiornato in base a un evento esterno, ad esempio un timer o altre notifiche, usare il metodo `InvokeAsync`, che verrà inviato al `SynchronizationContext` di Blazer.
 
 Si consideri ad esempio un *servizio Notifier* che può inviare notifiche a qualsiasi componente in ascolto dello stato aggiornato:
 
@@ -709,7 +709,7 @@ public class NotifierService
 }
 ```
 
-Utilizzo di `NotifierService` per aggiornare un componente:
+Utilizzo del `NotifierService` per aggiornare un componente:
 
 ```cshtml
 @page "/"
@@ -742,11 +742,11 @@ Utilizzo di `NotifierService` per aggiornare un componente:
 }
 ```
 
-Nell'esempio `NotifierService` precedente richiama il `OnNotify` metodo del componente `SynchronizationContext`all'esterno di Blazer. `InvokeAsync`viene usato per passare al contesto corretto e accodare un rendering.
+Nell'esempio precedente, `NotifierService` richiama il metodo `OnNotify` del componente all'esterno del `SynchronizationContext` di Blaze. `InvokeAsync` viene usato per passare al contesto corretto e accodare un rendering.
 
-## <a name="use-key-to-control-the-preservation-of-elements-and-components"></a>Usare \@la chiave per controllare la conservazione di elementi e componenti
+## <a name="use-key-to-control-the-preservation-of-elements-and-components"></a>Usare \@key per controllare la conservazione di elementi e componenti
 
-Quando si esegue il rendering di un elenco di elementi o componenti e gli elementi o i componenti successivamente cambiano, l'algoritmo di differenziazione di Blazer deve decidere quali elementi o componenti precedenti possono essere conservati e come eseguire il mapping degli oggetti modello. In genere, questo processo è automatico e può essere ignorato, ma in alcuni casi potrebbe essere necessario controllare il processo.
+Quando si esegue il rendering di un elenco di elementi o componenti e gli elementi o i componenti successivamente cambiano, l'algoritmo di differenziazione di Blazor deve decidere quali elementi o componenti precedenti possono essere conservati e come eseguire il mapping degli oggetti modello. In genere, questo processo è automatico e può essere ignorato, ma in alcuni casi potrebbe essere necessario controllare il processo.
 
 Si consideri l'esempio seguente:
 
@@ -762,9 +762,9 @@ Si consideri l'esempio seguente:
 }
 ```
 
-Il contenuto della `People` raccolta può cambiare con le voci inserite, eliminate o riordinate. Quando viene eseguito il rendering del componente, `<DetailsEditor>` è possibile che il componente venga `Details` modificato in modo da ricevere valori di parametro diversi. Questo può causare un rirendering più complesso del previsto. In alcuni casi, il rirendering può comportare differenze di comportamento visibili, ad esempio lo stato attivo degli elementi persi.
+Il contenuto della raccolta `People` può cambiare con le voci inserite, eliminate o riordinate. Quando viene eseguito il rendering del componente, il componente `<DetailsEditor>` può cambiare in modo da ricevere valori dei parametri `Details` diversi. Questo può causare un rirendering più complesso del previsto. In alcuni casi, il rirendering può comportare differenze di comportamento visibili, ad esempio lo stato attivo degli elementi persi.
 
-È possibile controllare il processo di mapping con `@key` l'attributo della direttiva. `@key`fa in modo che l'algoritmo di diffing garantisca la conservazione di elementi o componenti in base al valore della chiave:
+È possibile controllare il processo di mapping con l'attributo della direttiva `@key`. `@key` induce l'algoritmo diff a garantire la conservazione di elementi o componenti in base al valore della chiave:
 
 ```csharp
 @foreach (var person in People)
@@ -778,22 +778,22 @@ Il contenuto della `People` raccolta può cambiare con le voci inserite, elimina
 }
 ```
 
-Quando la `People` raccolta viene modificata, l'algoritmo diffing mantiene l'associazione tra `<DetailsEditor>` istanze e `person` istanze:
+Quando la raccolta `People` viene modificata, l'algoritmo diffing mantiene l'associazione tra le istanze di `<DetailsEditor>` e le istanze di `person`:
 
-* Se un `Person` oggetto viene eliminato `People` dall'elenco, solo l'istanza `<DetailsEditor>` corrispondente viene rimossa dall'interfaccia utente. Altre istanze rimangono invariate.
-* Se un `Person` oggetto viene inserito in una determinata posizione nell'elenco, viene `<DetailsEditor>` inserita una nuova istanza in corrispondenza della posizione corrispondente. Altre istanze rimangono invariate.
-* Se `Person` le voci vengono riordinate, le `<DetailsEditor>` istanze corrispondenti vengono mantenute e nuovamente ordinate nell'interfaccia utente.
+* Se un `Person` viene eliminato dall'elenco `People`, solo l'istanza corrispondente di `<DetailsEditor>` viene rimossa dall'interfaccia utente. Altre istanze rimangono invariate.
+* Se un `Person` viene inserito in una determinata posizione nell'elenco, viene inserita una nuova istanza di `<DetailsEditor>` nella posizione corrispondente. Altre istanze rimangono invariate.
+* Se le voci `Person` vengono riordinate, le istanze corrispondenti `<DetailsEditor>` vengono mantenute e riordinate nell'interfaccia utente.
 
-In alcuni scenari, l'utilizzo `@key` di riduce al minimo la complessità del rendering ed evita potenziali problemi con le parti con stato del DOM che cambiano, ad esempio la posizione dello stato attivo.
+In alcuni scenari, l'utilizzo di `@key` riduce al minimo la complessità del rendering ed evita potenziali problemi con le parti con stato del DOM che cambiano, ad esempio la posizione di messa a fuoco.
 
 > [!IMPORTANT]
 > Le chiavi sono locali per ogni elemento contenitore o componente. Le chiavi non vengono confrontate globalmente nell'intero documento.
 
-### <a name="when-to-use-key"></a>Quando usare \@la chiave
+### <a name="when-to-use-key"></a>Quando usare \@key
 
-In genere, è opportuno usare `@key` ogni volta che viene eseguito il rendering di un elenco (ad esempio, in un `@foreach` blocco) e un `@key`valore appropriato per definire.
+In genere, è opportuno usare `@key` ogni volta che viene eseguito il rendering di un elenco (ad esempio, in un blocco `@foreach`) e un valore appropriato per definire il `@key`.
 
-È anche possibile usare `@key` per impedire a blazer di mantenere un sottoalbero di elementi o componenti quando un oggetto viene modificato:
+È anche possibile usare `@key` per impedire a Blazor di mantenere un sottoalbero di elementi o componenti quando un oggetto viene modificato:
 
 ```cshtml
 <div @key="currentPerson">
@@ -801,26 +801,26 @@ In genere, è opportuno usare `@key` ogni volta che viene eseguito il rendering 
 </div>
 ```
 
-Se `@currentPerson` viene modificata, `@key` la direttiva attribute impone a blazer di rimuovere `<div>` l'intero oggetto e i relativi discendenti e di ricompilare il sottoalbero all'interno dell'interfaccia utente con nuovi elementi e componenti. Questo può essere utile se è necessario garantire che lo stato dell'interfaccia utente non venga `@currentPerson` mantenuto quando viene modificato.
+Se `@currentPerson` cambia, la direttiva degli attributi `@key` impone a blazer di rimuovere l'intero `<div>` e i relativi discendenti e ricompilare il sottoalbero all'interno dell'interfaccia utente con nuovi elementi e componenti. Questa operazione può essere utile se è necessario garantire che non venga mantenuto alcuno stato dell'interfaccia utente quando viene modificato `@currentPerson`.
 
-### <a name="when-not-to-use-key"></a>Quando non usare \@la chiave
+### <a name="when-not-to-use-key"></a>Quando non usare \@key
 
-Si verifica un costo in termini di prestazioni quando `@key`si verificano differenze con. Il costo delle prestazioni non è elevato, ma `@key` è sufficiente specificare solo se il controllo delle regole di conservazione degli elementi o dei componenti avvantaggia l'app.
+Si verifica un costo in termini di prestazioni in caso di differenze con `@key`. Il costo delle prestazioni non è elevato, ma è sufficiente specificare `@key` se il controllo delle regole di conservazione degli elementi o dei componenti avvantaggia l'app.
 
-Anche se `@key` non viene usato, blazer conserva il più possibile le istanze di elementi e componenti figlio. L'unico vantaggio dell'utilizzo `@key` di è il controllo sulla *modalità* di mapping delle istanze del modello alle istanze dei componenti mantenute, anziché sull'algoritmo di diffing che seleziona il mapping.
+Anche se non si usa `@key`, il più possibile le istanze di elementi figlio e componenti. L'unico vantaggio dell'utilizzo di `@key` è il controllo sulla *modalità* di mapping delle istanze del modello alle istanze dei componenti conservati, anziché sull'algoritmo di diffing che seleziona il mapping.
 
-### <a name="what-values-to-use-for-key"></a>Valori da usare per la \@chiave
+### <a name="what-values-to-use-for-key"></a>Valori da usare per \@key
 
 In genere, è opportuno fornire uno dei seguenti tipi di valore per `@key`:
 
-* Istanze di oggetti modello (ad esempio, `Person` un'istanza come nell'esempio precedente). In questo modo si garantisce la conservazione in base all'uguaglianza del riferimento all'oggetto.
-* Identificatori univoci, ad esempio valori di chiave primaria di `int`tipo `string`, o `Guid`.
+* Istanze di oggetti modello (ad esempio, un'istanza `Person` come nell'esempio precedente). In questo modo si garantisce la conservazione in base all'uguaglianza del riferimento all'oggetto.
+* Identificatori univoci (ad esempio, valori di chiave primaria di tipo `int`, `string` o `Guid`).
 
-Verificare che i valori usati `@key` per non siano in conflitto. Se vengono rilevati valori in conflitto all'interno dello stesso elemento padre, blazer genera un'eccezione perché non è in grado di eseguire il mapping deterministico di elementi o componenti precedenti a nuovi elementi o componenti. Utilizzare solo valori distinti, ad esempio istanze di oggetti o valori di chiave primaria.
+Assicurarsi che i valori usati per `@key` non siano in conflitto. Se vengono rilevati valori in conflitto all'interno dello stesso elemento padre, Blazor genera un'eccezione perché non è in grado di eseguire il mapping deterministico di elementi o componenti precedenti a nuovi elementi o componenti. Utilizzare solo valori distinti, ad esempio istanze di oggetti o valori di chiave primaria.
 
 ## <a name="lifecycle-methods"></a>Metodi del ciclo di vita
 
-`OnInitializedAsync`ed `OnInitialized` eseguono il codice per inizializzare il componente. Per eseguire un'operazione asincrona, usare `OnInitializedAsync` e la `await` parola chiave sull'operazione:
+`OnInitializedAsync` e `OnInitialized` eseguono il codice per inizializzare il componente. Per eseguire un'operazione asincrona, usare `OnInitializedAsync` e la parola chiave `await` nell'operazione:
 
 ```csharp
 protected override async Task OnInitializedAsync()
@@ -829,7 +829,7 @@ protected override async Task OnInitializedAsync()
 }
 ```
 
-Per un'operazione sincrona, `OnInitialized`usare:
+Per un'operazione sincrona, usare `OnInitialized`:
 
 ```csharp
 protected override void OnInitialized()
@@ -838,7 +838,7 @@ protected override void OnInitialized()
 }
 ```
 
-`OnParametersSetAsync`e `OnParametersSet` vengono chiamati quando un componente riceve parametri dal padre e i valori vengono assegnati alle proprietà. Questi metodi vengono eseguiti dopo l'inizializzazione del componente e ogni volta che viene eseguito il rendering del componente:
+`OnParametersSetAsync` e `OnParametersSet` vengono chiamati quando un componente riceve parametri dal padre e i valori vengono assegnati alle proprietà. Questi metodi vengono eseguiti dopo l'inizializzazione del componente e ogni volta che viene eseguito il rendering del componente:
 
 ```csharp
 protected override async Task OnParametersSetAsync()
@@ -854,13 +854,13 @@ protected override void OnParametersSet()
 }
 ```
 
-`OnAfterRenderAsync`e `OnAfterRender` vengono chiamati dopo che un componente ha terminato il rendering. I riferimenti a elementi e componenti vengono popolati a questo punto. Usare questa fase per eseguire passaggi di inizializzazione aggiuntivi usando il contenuto sottoposto a rendering, ad esempio l'attivazione di librerie JavaScript di terze parti che operano sugli elementi DOM sottoposti a rendering.
+`OnAfterRenderAsync` e `OnAfterRender` vengono chiamati dopo che un componente ha terminato il rendering. I riferimenti a elementi e componenti vengono popolati a questo punto. Usare questa fase per eseguire passaggi di inizializzazione aggiuntivi usando il contenuto sottoposto a rendering, ad esempio l'attivazione di librerie JavaScript di terze parti che operano sugli elementi DOM sottoposti a rendering.
 
-`OnAfterRender`*non viene chiamato quando si esegue il prerendering sul server.*
+`OnAfterRender` *non viene chiamato quando si esegue il prerendering sul server.*
 
-Il `firstRender` parametro per `OnAfterRenderAsync` e `OnAfterRender` è:
+Il parametro `firstRender` per `OnAfterRenderAsync` e `OnAfterRender` è:
 
-* `true` Impostare la prima volta che l'istanza del componente viene richiamata.
+* Impostare su `true` la prima volta che l'istanza del componente viene richiamata.
 * Garantisce che il lavoro di inizializzazione venga eseguito una sola volta.
 
 ```csharp
@@ -885,9 +885,9 @@ protected override void OnAfterRender(bool firstRender)
 
 ### <a name="handle-incomplete-async-actions-at-render"></a>Gestisci azioni asincrone incomplete durante il rendering
 
-Le azioni asincrone eseguite negli eventi del ciclo di vita potrebbero non essere state completate prima del rendering del componente. Gli oggetti possono `null` essere o compilati in modo non completo con i dati mentre è in esecuzione il metodo del ciclo di vita. Fornire la logica di rendering per confermare che gli oggetti vengono inizializzati. Esegue il rendering degli elementi dell'interfaccia utente segnaposto (ad esempio, un `null`messaggio di caricamento) mentre gli oggetti sono.
+Le azioni asincrone eseguite negli eventi del ciclo di vita potrebbero non essere state completate prima del rendering del componente. Gli oggetti potrebbero essere `null` o compilati in modo incompleto con i dati mentre è in esecuzione il metodo del ciclo di vita. Fornire la logica di rendering per confermare che gli oggetti vengono inizializzati. Esegue il rendering degli elementi dell'interfaccia utente segnaposto (ad esempio, un messaggio di caricamento) mentre gli oggetti sono `null`.
 
-Nel componente `FetchData` dei `OnInitializedAsync` modelli di Blazer viene eseguito l'override di asincrono Receive forecast data (`forecasts`). Quando `forecasts` è`null`, all'utente viene visualizzato un messaggio di caricamento. Quando l' `Task` oggetto restituito `OnInitializedAsync` da viene completato, viene eseguito il rendering del componente con lo stato aggiornato.
+Nel componente `FetchData` dei modelli di Blazer, viene eseguito l'override di `OnInitializedAsync` in asincrono ricevere i dati delle previsioni (`forecasts`). Quando `forecasts` è `null`, all'utente viene visualizzato un messaggio di caricamento. Al termine dell'`Task` restituito da `OnInitializedAsync`, il componente viene sottoposta a rendering con lo stato aggiornato.
 
 *Pages/FetchData.razor*:
 
@@ -895,7 +895,7 @@ Nel componente `FetchData` dei `OnInitializedAsync` modelli di Blazer viene eseg
 
 ### <a name="execute-code-before-parameters-are-set"></a>Esegui codice prima dell'impostazione dei parametri
 
-`SetParameters`è possibile eseguire l'override del codice prima di impostare i parametri:
+è possibile eseguire l'override di `SetParameters` per eseguire il codice prima di impostare i parametri:
 
 ```csharp
 public override void SetParameters(ParameterView parameters)
@@ -910,7 +910,7 @@ Se `base.SetParameters` non viene richiamato, il codice personalizzato può inte
 
 ### <a name="suppress-refreshing-of-the-ui"></a>Non aggiornare l'interfaccia utente
 
-`ShouldRender`è possibile eseguire l'override di per non aggiornare l'interfaccia utente. Se l'implementazione restituisce `true`, viene aggiornata l'interfaccia utente. Anche se `ShouldRender` viene sottoposto a override, il componente viene sempre sottoposto a rendering iniziale.
+è possibile eseguire l'override di `ShouldRender` per non aggiornare l'interfaccia utente. Se l'implementazione restituisce `true`, l'interfaccia utente viene aggiornata. Anche se `ShouldRender` viene sottoposto a override, il componente viene sempre sottoposto a rendering iniziale.
 
 ```csharp
 protected override bool ShouldRender()
@@ -923,7 +923,7 @@ protected override bool ShouldRender()
 
 ## <a name="component-disposal-with-idisposable"></a>Eliminazione di componenti con IDisposable
 
-Se un componente implementa <xref:System.IDisposable>, il [metodo Dispose](/dotnet/standard/garbage-collection/implementing-dispose) viene chiamato quando il componente viene rimosso dall'interfaccia utente. Il componente seguente utilizza `@implements IDisposable` e il `Dispose` metodo:
+Se un componente implementa <xref:System.IDisposable>, il [metodo Dispose](/dotnet/standard/garbage-collection/implementing-dispose) viene chiamato quando il componente viene rimosso dall'interfaccia utente. Il componente seguente usa `@implements IDisposable` e il metodo `Dispose`:
 
 ```csharp
 @using System
@@ -941,29 +941,29 @@ Se un componente implementa <xref:System.IDisposable>, il [metodo Dispose](/dotn
 
 ## <a name="routing"></a>Routing
 
-Il routing in blazer viene effettuato fornendo un modello di route a ogni componente accessibile nell'app.
+Il routing in Blazor viene effettuato fornendo un modello di route a ogni componente accessibile nell'app.
 
-Quando viene compilato un file Razor `@page` con una direttiva, alla classe generata viene assegnato un <xref:Microsoft.AspNetCore.Mvc.RouteAttribute> oggetto che specifica il modello di route. In fase di esecuzione, il router cerca le classi di `RouteAttribute` componenti con un oggetto ed esegue il rendering di qualsiasi componente con un modello di route corrispondente all'URL richiesto.
+Quando viene compilato un file Razor con una direttiva `@page`, alla classe generata viene assegnato un <xref:Microsoft.AspNetCore.Mvc.RouteAttribute> che specifica il modello di route. In fase di esecuzione, il router cerca le classi di componenti con un `RouteAttribute` ed esegue il rendering di qualsiasi componente con un modello di route corrispondente all'URL richiesto.
 
-È possibile applicare più modelli di route a un componente. Il componente seguente risponde alle richieste per `/BlazorRoute` e: `/DifferentBlazorRoute`
+È possibile applicare più modelli di route a un componente. Il componente seguente risponde alle richieste per `/BlazorRoute` e `/DifferentBlazorRoute`:
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRoute.razor?name=snippet_BlazorRoute)]
 
 ## <a name="route-parameters"></a>Parametri di route
 
-I componenti possono ricevere parametri di route dal modello di route fornito `@page` nella direttiva. Il router usa parametri di route per popolare i parametri del componente corrispondente.
+I componenti possono ricevere parametri di route dal modello di route fornito nella direttiva `@page`. Il router usa parametri di route per popolare i parametri del componente corrispondente.
 
 *Componente parametro di route*:
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Pages/RouteParameter.razor?name=snippet_RouteParameter)]
 
-I parametri facoltativi non sono supportati `@page` , quindi vengono applicate due direttive nell'esempio precedente. Il primo consente la navigazione al componente senza un parametro. La seconda `@page` direttiva accetta il `{text}` parametro Route e assegna il valore alla `Text` proprietà.
+I parametri facoltativi non sono supportati, quindi vengono applicate due direttive `@page` nell'esempio precedente. Il primo consente la navigazione al componente senza un parametro. La seconda direttiva `@page` accetta il parametro di route `{text}` e assegna il valore alla proprietà `Text`.
 
 ## <a name="base-class-inheritance-for-a-code-behind-experience"></a>Ereditarietà della classe base per un'esperienza di "code-behind"
 
-I file dei componenti combinano C# il markup HTML e il codice di elaborazione nello stesso file. La `@inherits` direttiva può essere usata per fornire alle app Blazer un'esperienza di "code-behind" che separa il markup dei componenti dal codice di elaborazione.
+I file dei componenti combinano C# il markup HTML e il codice di elaborazione nello stesso file. La direttiva `@inherits` può essere usata per fornire alle app Blazer un'esperienza di "code-behind" che separa il markup dei componenti dal codice di elaborazione.
 
-L' [app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) Mostra come un componente può ereditare una classe `BlazorRocksBase`base,, per fornire le proprietà e i metodi del componente.
+L' [app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) Mostra come un componente può ereditare una classe base, `BlazorRocksBase`, per fornire le proprietà e i metodi del componente.
 
 *Pages/BlazorRocks. Razor*:
 
@@ -973,47 +973,50 @@ L' [app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnet
 
 [!code-csharp[](common/samples/3.x/BlazorSample/Pages/BlazorRocksBase.cs)]
 
-La classe base deve derivare `ComponentBase`da.
+La classe base deve derivare da `ComponentBase`.
 
 ## <a name="import-components"></a>Importa componenti
 
-Lo spazio dei nomi di un componente creato con Razor si basa su:
+Lo spazio dei nomi di un componente creato con Razor si basa su (in ordine di priorità):
 
-* Oggetto del progetto `RootNamespace`.
-* Percorso dalla radice del progetto al componente. Ad esempio, `ComponentsSample/Pages/Index.razor` è nello spazio dei `ComponentsSample.Pages`nomi. I componenti C# seguono le regole di associazione dei nomi. Nel caso di *index. Razor*, tutti i componenti nella stessa cartella, le *pagine*e la cartella padre, *ComponentsSample*, rientrano nell'ambito.
+* designazione [@namespace](xref:mvc/views/razor#namespace) nel markup del file Razor (Razor) (@no__t-*3).*
+* @No__t-0 del progetto nel file di progetto (`<RootNamespace>BlazorSample</RootNamespace>`).
+* Il nome del progetto, tratto dal nome file del file di progetto (con*estensione csproj*), e il percorso dalla radice del progetto al componente. Ad esempio, il Framework risolve *{Project root}/pages/index.Razor* (*BlazorSample. csproj*) nello spazio dei nomi `BlazorSample.Pages`. I componenti C# seguono le regole di associazione dei nomi. Per il componente `Index` in questo esempio, i componenti nell'ambito sono tutti i componenti:
+  * Nella stessa cartella, *pagine*.
+  * Componenti nella radice del progetto che non specificano in modo esplicito uno spazio dei nomi diverso.
 
-I componenti definiti in uno spazio dei nomi diverso possono essere inseriti nell'ambito usando la direttiva [ \@using](xref:mvc/views/razor#using) di Razor.
+I componenti definiti in uno spazio dei nomi diverso vengono introdotti nell'ambito usando la direttiva [@using](xref:mvc/views/razor#using) Razor.
 
-Se nella cartella `ComponentsSample/Shared/`è `NavMenu.razor`presente un altro componente, il componente può essere utilizzato in `Index.razor` con l'istruzione seguente `@using` :
+Se un altro componente, `NavMenu.razor`, è presente nella cartella *BlazorSample/Shared/* , il componente può essere usato in `Index.razor` con l'istruzione `@using` seguente:
 
 ```cshtml
-@using ComponentsSample.Shared
+@using BlazorSample.Shared
 
 This is the Index page.
 
 <NavMenu></NavMenu>
 ```
 
-È anche possibile fare riferimento ai componenti usando i relativi nomi completi, che elimina la necessità della [ \@direttiva using](xref:mvc/views/razor#using) :
+È anche possibile fare riferimento ai componenti usando i relativi nomi completi, che non richiedono la direttiva [@using](xref:mvc/views/razor#using) :
 
 ```cshtml
 This is the Index page.
 
-<ComponentsSample.Shared.NavMenu></ComponentsSample.Shared.NavMenu>
+<BlazorSample.Shared.NavMenu></BlazorSample.Shared.NavMenu>
 ```
 
 > [!NOTE]
-> La `global::` qualificazione non è supportata.
+> La qualificazione `global::` non è supportata.
 >
-> L'importazione di componenti con `using` istruzioni con alias (ad `@using Foo = Bar`esempio,) non è supportata.
+> L'importazione di componenti con istruzioni `using` con alias, ad esempio `@using Foo = Bar`, non è supportata.
 >
-> I nomi parzialmente qualificati non sono supportati. Ad esempio, l' `@using ComponentsSample` aggiunta e `NavMenu.razor` il `<Shared.NavMenu></Shared.NavMenu>` riferimento a non sono supportate.
+> I nomi parzialmente qualificati non sono supportati. Ad esempio, l'aggiunta di `@using BlazorSample` e il riferimento `NavMenu.razor` con `<Shared.NavMenu></Shared.NavMenu>` non è supportata.
 
 ## <a name="conditional-html-element-attributes"></a>Attributi dell'elemento HTML condizionale
 
-Gli attributi degli elementi HTML vengono sottoposti a rendering in modo condizionale in base al valore .NET. Se il valore è `false` o `null`, l'attributo non viene sottoposto a rendering. Se il valore è `true`, l'attributo viene sottoposto a rendering ridotto a icona.
+Gli attributi degli elementi HTML vengono sottoposti a rendering in modo condizionale in base al valore .NET. Se il valore è `false` o `null`, non viene eseguito il rendering dell'attributo. Se il valore è `true`, l'attributo viene sottoposto a rendering ridotto a icona.
 
-Nell'esempio seguente, `IsCompleted` determina se `checked` viene eseguito il rendering nel markup dell'elemento:
+Nell'esempio seguente `IsCompleted` determina se viene eseguito il rendering di `checked` nel markup dell'elemento:
 
 ```cshtml
 <input type="checkbox" checked="@IsCompleted" />
@@ -1024,13 +1027,13 @@ Nell'esempio seguente, `IsCompleted` determina se `checked` viene eseguito il re
 }
 ```
 
-Se `IsCompleted` è`true`, viene eseguito il rendering della casella di controllo come segue:
+Se `IsCompleted` è `true`, viene eseguito il rendering della casella di controllo come segue:
 
 ```html
 <input type="checkbox" checked />
 ```
 
-Se `IsCompleted` è`false`, viene eseguito il rendering della casella di controllo come segue:
+Se `IsCompleted` è `false`, viene eseguito il rendering della casella di controllo come segue:
 
 ```html
 <input type="checkbox" />
@@ -1039,16 +1042,16 @@ Se `IsCompleted` è`false`, viene eseguito il rendering della casella di control
 Per altre informazioni, vedere <xref:mvc/views/razor>.
 
 > [!WARNING]
-> Alcuni attributi HTML, ad esempio [aria-Pressed](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/button_role#Toggle_buttons), non funzionano correttamente quando il tipo .NET è `bool`. In questi casi, usare un `string` tipo anziché un. `bool`
+> Alcuni attributi HTML, ad esempio [aria-premuti](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/button_role#Toggle_buttons), non funzionano correttamente quando il tipo .NET è un `bool`. In questi casi, usare un tipo `string` anziché un `bool`.
 
 ## <a name="raw-html"></a>HTML non elaborato
 
-Le stringhe vengono in genere sottoposte a rendering usando i nodi di testo DOM, il che significa che qualsiasi markup che può contenere viene ignorato e considerato come testo letterale. Per eseguire il rendering del codice HTML non elaborato, eseguire `MarkupString` il wrapping del contenuto HTML in un valore. Il valore viene analizzato in formato HTML o SVG e inserito nel DOM.
+Le stringhe vengono in genere sottoposte a rendering usando i nodi di testo DOM, il che significa che qualsiasi markup che può contenere viene ignorato e considerato come testo letterale. Per eseguire il rendering del codice HTML non elaborato, eseguire il wrapping del contenuto HTML in un valore `MarkupString`. Il valore viene analizzato in formato HTML o SVG e inserito nel DOM.
 
 > [!WARNING]
 > Il rendering di codice HTML non elaborato costruito da un'origine non attendibile costituisce un rischio per la **sicurezza** e deve essere evitato.
 
-Nell'esempio seguente viene illustrato l' `MarkupString` utilizzo del tipo per aggiungere un blocco di contenuto HTML statico all'output sottoposto a rendering di un componente:
+Nell'esempio seguente viene illustrato l'utilizzo del tipo `MarkupString` per aggiungere un blocco di contenuto HTML statico all'output sottoposto a rendering di un componente:
 
 ```html
 @((MarkupString)myMarkup)
@@ -1068,13 +1071,13 @@ I componenti basati su modelli sono componenti che accettano uno o più modelli 
 
 ### <a name="template-parameters"></a>Parametri di modelli
 
-Un componente basato su modelli viene definito specificando uno o più parametri del componente `RenderFragment` di `RenderFragment<T>`tipo o. Un frammento di rendering rappresenta un segmento di interfaccia utente di cui eseguire il rendering. `RenderFragment<T>`accetta un parametro di tipo che può essere specificato quando viene richiamato il frammento di rendering.
+Un componente basato su modelli viene definito specificando uno o più parametri del componente di tipo `RenderFragment` o `RenderFragment<T>`. Un frammento di rendering rappresenta un segmento di interfaccia utente di cui eseguire il rendering. `RenderFragment<T>` accetta un parametro di tipo che può essere specificato quando viene richiamato il frammento di rendering.
 
-`TableTemplate`componente
+componente `TableTemplate`:
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Components/TableTemplate.razor)]
 
-Quando si usa un componente basato su modelli, i parametri del modello possono essere specificati usando gli elementi figlio che corrispondono ai nomi`TableHeader` dei `RowTemplate` parametri (e nell'esempio seguente):
+Quando si usa un componente basato su modelli, è possibile specificare i parametri del modello usando gli elementi figlio che corrispondono ai nomi dei parametri (`TableHeader` e `RowTemplate` nell'esempio seguente):
 
 ```cshtml
 <TableTemplate Items="pets">
@@ -1091,7 +1094,7 @@ Quando si usa un componente basato su modelli, i parametri del modello possono e
 
 ### <a name="template-context-parameters"></a>Parametri di contesto del modello
 
-Gli argomenti del componente `RenderFragment<T>` di tipo passati come elementi hanno un parametro `context` implicito denominato (ad esempio, nell'esempio `@context.PetId`di codice precedente,), ma è possibile modificare il `Context` nome del parametro usando l'attributo nell'elemento figlio elemento. Nell'esempio seguente, l' `RowTemplate` `Context` attributo dell'elemento specifica il `pet` parametro:
+Gli argomenti del componente di tipo `RenderFragment<T>` passati come elementi hanno un parametro implicito denominato `context` (ad esempio, nell'esempio di codice precedente, `@context.PetId`), ma è possibile modificare il nome del parametro usando l'attributo `Context` sull'elemento figlio. Nell'esempio seguente, l'attributo `Context` dell'elemento `RowTemplate` specifica il parametro `pet`:
 
 ```cshtml
 <TableTemplate Items="pets">
@@ -1106,7 +1109,7 @@ Gli argomenti del componente `RenderFragment<T>` di tipo passati come elementi h
 </TableTemplate>
 ```
 
-In alternativa, è possibile specificare l' `Context` attributo sull'elemento Component. L'attributo `Context` specificato si applica a tutti i parametri di modello specificati. Questa operazione può essere utile quando si desidera specificare il nome del parametro di contenuto per il contenuto figlio implicito (senza alcun elemento figlio di wrapping). Nell'esempio seguente l' `Context` attributo viene visualizzato `TableTemplate` nell'elemento e si applica a tutti i parametri del modello:
+In alternativa, è possibile specificare l'attributo `Context` sull'elemento Component. L'attributo `Context` specificato si applica a tutti i parametri di modello specificati. Questa operazione può essere utile quando si desidera specificare il nome del parametro di contenuto per il contenuto figlio implicito (senza alcun elemento figlio di wrapping). Nell'esempio seguente l'attributo `Context` viene visualizzato nell'elemento `TableTemplate` e si applica a tutti i parametri del modello:
 
 ```cshtml
 <TableTemplate Items="pets" Context="pet">
@@ -1123,7 +1126,7 @@ In alternativa, è possibile specificare l' `Context` attributo sull'elemento Co
 
 ### <a name="generic-typed-components"></a>Componenti tipizzati in modo generico
 
-I componenti basati su modelli spesso sono tipizzati in modo generico. È ad esempio possibile utilizzare `ListViewTemplate` un componente generico per eseguire il `IEnumerable<T>` rendering dei valori. Per definire un componente generico, usare la [@typeparam](xref:mvc/views/razor#typeparam) direttiva per specificare i parametri di tipo:
+I componenti basati su modelli spesso sono tipizzati in modo generico. Ad esempio, è possibile usare un componente `ListViewTemplate` generico per eseguire il rendering di valori `IEnumerable<T>`. Per definire un componente generico, usare la direttiva [@typeparam](xref:mvc/views/razor#typeparam) per specificare i parametri di tipo:
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Components/ListViewTemplate.razor)]
 
@@ -1137,7 +1140,7 @@ Quando si usano componenti tipizzati generici, il parametro di tipo viene dedott
 </ListViewTemplate>
 ```
 
-In caso contrario, il parametro di tipo deve essere specificato in modo esplicito utilizzando un attributo che corrisponde al nome del parametro di tipo. Nell'esempio seguente viene `TItem="Pet"` specificato il tipo:
+In caso contrario, il parametro di tipo deve essere specificato in modo esplicito utilizzando un attributo che corrisponde al nome del parametro di tipo. Nell'esempio seguente `TItem="Pet"` specifica il tipo:
 
 ```cshtml
 <ListViewTemplate Items="pets" TItem="Pet">
@@ -1153,7 +1156,7 @@ In alcuni scenari, non è pratico eseguire il flusso dei dati da un componente p
 
 ### <a name="theme-example"></a>Esempio di tema
 
-Nell'esempio seguente dall'app di esempio, la `ThemeInfo` classe specifica le informazioni sul tema per scorrere la gerarchia dei componenti in modo che tutti i pulsanti all'interno di una determinata parte dell'app condividono lo stesso stile.
+Nell'esempio seguente dall'app di esempio, la classe `ThemeInfo` specifica le informazioni sul tema per scorrere la gerarchia dei componenti in modo che tutti i pulsanti all'interno di una determinata parte dell'app condividono lo stesso stile.
 
 *UIThemeClasses/themeinfo. cs*:
 
@@ -1164,11 +1167,11 @@ public class ThemeInfo
 }
 ```
 
-Un componente predecessore può fornire un valore di propagazione utilizzando il componente valore di propagazione. Il `CascadingValue` componente esegue il wrapping di un sottoalbero della gerarchia dei componenti e fornisce un singolo valore a tutti i componenti all'interno di tale sottoalbero.
+Un componente predecessore può fornire un valore di propagazione utilizzando il componente valore di propagazione. Il componente `CascadingValue` esegue il wrapping di un sottoalbero della gerarchia dei componenti e fornisce un singolo valore a tutti i componenti all'interno di tale sottoalbero.
 
-Ad esempio, l'app di esempio specifica le informazioni`ThemeInfo`sul tema () in uno dei layout dell'app come parametro di propagazione per tutti i componenti che costituiscono il corpo `@Body` del layout della proprietà. `ButtonClass`viene assegnato un valore di `btn-success` nel componente layout. Qualsiasi componente discendente può utilizzare questa proprietà tramite `ThemeInfo` l'oggetto a cascata.
+Ad esempio, l'app di esempio specifica le informazioni sul tema (`ThemeInfo`) in uno dei layout dell'app come parametro di propagazione per tutti i componenti che costituiscono il corpo del layout della proprietà `@Body`. a `ButtonClass` viene assegnato il valore `btn-success` nel componente layout. Qualsiasi componente discendente può utilizzare questa proprietà tramite l'oggetto a cascata `ThemeInfo`.
 
-`CascadingValuesParametersLayout`componente
+componente `CascadingValuesParametersLayout`:
 
 ```cshtml
 @inherits LayoutComponentBase
@@ -1194,11 +1197,11 @@ Ad esempio, l'app di esempio specifica le informazioni`ThemeInfo`sul tema () in 
 }
 ```
 
-Per utilizzare i valori di propagazione, i componenti dichiarano i `[CascadingParameter]` parametri di propagazione utilizzando l'attributo. I valori a cascata vengono associati ai parametri di propagazione per tipo.
+Per utilizzare i valori di propagazione, i componenti dichiarano parametri di propagazione utilizzando l'attributo `[CascadingParameter]`. I valori a cascata vengono associati ai parametri di propagazione per tipo.
 
-Nell'app di esempio, il `CascadingValuesParametersTheme` componente associa il `ThemeInfo` valore a cascata a un parametro di propagazione. Il parametro viene usato per impostare la classe CSS per uno dei pulsanti visualizzati dal componente.
+Nell'app di esempio, il componente `CascadingValuesParametersTheme` associa il valore a cascata `ThemeInfo` a un parametro di propagazione. Il parametro viene usato per impostare la classe CSS per uno dei pulsanti visualizzati dal componente.
 
-`CascadingValuesParametersTheme`componente
+componente `CascadingValuesParametersTheme`:
 
 ```cshtml
 @page "/cascadingvaluesparameterstheme"
@@ -1234,7 +1237,7 @@ Nell'app di esempio, il `CascadingValuesParametersTheme` componente associa il `
 }
 ```
 
-Per eseguire il propagazione di più valori dello stesso tipo all'interno dello stesso `Name` sottoalbero, `CascadingValue` fornire una stringa univoca a ogni componente e la corrispondente `CascadingParameter`. Nell'esempio seguente due `CascadingValue` componenti propagano istanze diverse di `MyCascadingType` per nome:
+Per eseguire la propagazione di più valori dello stesso tipo all'interno dello stesso sottoalbero, specificare una stringa `Name` univoca per ogni componente `CascadingValue` e il corrispondente `CascadingParameter`. Nell'esempio seguente due componenti `CascadingValue` propagano istanze diverse di `MyCascadingType` per nome:
 
 ```cshtml
 <CascadingValue Value=@ParentCascadeParameter1 Name="CascadeParam1">
@@ -1271,23 +1274,23 @@ In un componente discendente i parametri a cascata ricevono i rispettivi valori 
 
 I parametri di propagazione consentono inoltre ai componenti di collaborare attraverso la gerarchia dei componenti. Si consideri, ad esempio, l'esempio di *tabulazione* seguente nell'app di esempio.
 
-L'app di esempio ha `ITab` un'interfaccia implementata dalle schede:
+L'app di esempio dispone di un'interfaccia `ITab` che le schede implementano:
 
 [!code-csharp[](common/samples/3.x/BlazorSample/UIInterfaces/ITab.cs)]
 
-Il `CascadingValuesParametersTabSet` componente usa il `TabSet` componente, che contiene diversi `Tab` componenti:
+Il componente `CascadingValuesParametersTabSet` usa il componente `TabSet`, che contiene diversi componenti `Tab`:
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Pages/CascadingValuesParametersTabSet.razor?name=snippet_TabSet)]
 
-I componenti `Tab` figlio non vengono passati in modo esplicito come `TabSet`parametri a. Al contrario, i `Tab` componenti figlio fanno parte del contenuto figlio `TabSet`di. Tuttavia, `TabSet` è comunque necessario conoscere ogni `Tab` componente in modo che sia in grado di eseguire il rendering delle intestazioni e della scheda attiva. Per abilitare questo coordinamento senza richiedere codice aggiuntivo, il `TabSet` componente *può fornire se stesso come valore* di propagazione che viene quindi prelevato dai `Tab` componenti discendenti.
+I componenti figlio `Tab` non vengono passati in modo esplicito come parametri al `TabSet`. Al contrario, i componenti figlio `Tab` fanno parte del contenuto figlio della `TabSet`. Tuttavia, il `TabSet` deve comunque conoscere ogni componente `Tab`, in modo che sia in grado di eseguire il rendering delle intestazioni e della scheda attiva. Per abilitare questo coordinamento senza richiedere codice aggiuntivo, il componente `TabSet` *può fornire se stesso come valore* di propagazione che viene quindi prelevato dai componenti `Tab` discendenti.
 
-`TabSet`componente
+componente `TabSet`:
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Components/TabSet.razor)]
 
-I componenti `Tab` discendenti acquisiscono `TabSet` l'oggetto che contiene come parametro di propagazione, in modo `TabSet` che i `Tab` componenti si aggiungano alla coordinata e della scheda attiva.
+I componenti discendenti `Tab` acquisiscono la classe che contiene `TabSet` come parametro di propagazione, quindi i componenti `Tab` si aggiungono al `TabSet` e coordinano la scheda attiva.
 
-`Tab`componente
+componente `Tab`:
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Components/Tab.razor)]
 
@@ -1299,7 +1302,7 @@ I frammenti di rendering possono essere definiti usando la sintassi del modello 
 @<{HTML tag}>...</{HTML tag}>
 ```
 
-Nell'esempio seguente viene illustrato come specificare `RenderFragment` i valori e `RenderFragment<T>` ed eseguire il rendering dei modelli direttamente in un componente. I frammenti di rendering possono anche essere passati come argomenti ai [componenti basati su modelli](#templated-components).
+Nell'esempio seguente viene illustrato come specificare i valori `RenderFragment` e `RenderFragment<T>` ed eseguire il rendering dei modelli direttamente in un componente. I frammenti di rendering possono anche essere passati come argomenti ai [componenti basati su modelli](#templated-components).
 
 ```cshtml
 @timeTemplate
@@ -1328,12 +1331,12 @@ Output del codice precedente sottoposto a rendering:
 
 ## <a name="manual-rendertreebuilder-logic"></a>Logica RenderTreeBuilder manuale
 
-`Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder`fornisce metodi per la modifica di componenti ed elementi, inclusa la compilazione manuale C# dei componenti nel codice.
+`Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder` fornisce metodi per la modifica di componenti ed elementi, inclusa la compilazione manuale C# dei componenti nel codice.
 
 > [!NOTE]
-> L'utilizzo `RenderTreeBuilder` di per la creazione di componenti è uno scenario avanzato. Un componente con formato non valido, ad esempio un tag di markup non chiuso, può causare un comportamento indefinito.
+> L'uso di `RenderTreeBuilder` per creare componenti è uno scenario avanzato. Un componente con formato non valido, ad esempio un tag di markup non chiuso, può causare un comportamento indefinito.
 
-Si consideri il componente seguente `PetDetails` , che può essere incorporato manualmente in un altro componente:
+Si consideri il componente `PetDetails` seguente, che può essere incorporato manualmente in un altro componente:
 
 ```cshtml
 <h2>Pet Details Component</h2>
@@ -1347,9 +1350,9 @@ Si consideri il componente seguente `PetDetails` , che può essere incorporato m
 }
 ```
 
-Nell'esempio seguente il ciclo nel `CreateComponent` metodo genera tre `PetDetails` componenti. Quando si `RenderTreeBuilder` chiamano i metodi per creare i`OpenComponent` componenti `AddAttribute`(e), i numeri di sequenza sono numeri di riga del codice sorgente. L'algoritmo di differenza Blaze si basa sui numeri di sequenza corrispondenti a righe di codice distinte, non sulle chiamate di chiamata distinti. Quando si crea un componente `RenderTreeBuilder` con i metodi, impostare come hardcoded gli argomenti per i numeri di sequenza. **L'utilizzo di un calcolo o di un contatore per generare il numero di sequenza può causare un calo delle prestazioni.** Per ulteriori informazioni, vedere la sezione [numeri di sequenza correlati ai numeri di riga del codice e non all'ordine di esecuzione](#sequence-numbers-relate-to-code-line-numbers-and-not-execution-order) .
+Nell'esempio seguente il ciclo nel metodo `CreateComponent` genera tre componenti `PetDetails`. Quando si chiamano i metodi `RenderTreeBuilder` per creare i componenti (`OpenComponent` e `AddAttribute`), i numeri di sequenza sono numeri di riga del codice sorgente. L'algoritmo di differenza Blaze si basa sui numeri di sequenza corrispondenti a righe di codice distinte, non sulle chiamate di chiamata distinti. Quando si crea un componente con i metodi `RenderTreeBuilder`, impostare come hardcoded gli argomenti per i numeri di sequenza. **L'utilizzo di un calcolo o di un contatore per generare il numero di sequenza può causare un calo delle prestazioni.** Per ulteriori informazioni, vedere la sezione [numeri di sequenza correlati ai numeri di riga del codice e non all'ordine di esecuzione](#sequence-numbers-relate-to-code-line-numbers-and-not-execution-order) .
 
-`BuiltContent`componente
+componente `BuiltContent`:
 
 ```cshtml
 @page "/BuiltContent"
@@ -1382,15 +1385,15 @@ Nell'esempio seguente il ciclo nel `CreateComponent` metodo genera tre `PetDetai
 }
 ```
 
-> ! AVVISO I tipi in `Microsoft.AspNetCore.Components.RenderTree` consentono l'elaborazione dei *risultati* delle operazioni di rendering. Questi sono i dettagli interni dell'implementazione del Framework blazer. Questi tipi devono essere considerati *instabili* e soggetti a modifiche nelle versioni future.
+> ! AVVISO I tipi in `Microsoft.AspNetCore.Components.RenderTree` consentono l'elaborazione dei *risultati* delle operazioni di rendering. Questi sono i dettagli interni dell'implementazione del Framework Blazor. Questi tipi devono essere considerati *instabili* e soggetti a modifiche nelle versioni future.
 
 ### <a name="sequence-numbers-relate-to-code-line-numbers-and-not-execution-order"></a>I numeri di sequenza sono correlati ai numeri di riga del codice e non all'ordine di esecuzione
 
-`.razor` I file Blazer vengono sempre compilati. Questo è potenzialmente un ottimo vantaggio per `.razor` perché il passaggio di compilazione può essere usato per inserire informazioni che migliorano le prestazioni dell'app in fase di esecuzione.
+I file `.razor` Blazer vengono sempre compilati. Questo è potenzialmente un ottimo vantaggio per `.razor` perché il passaggio di compilazione può essere usato per inserire informazioni che migliorano le prestazioni dell'app in fase di esecuzione.
 
 Un esempio fondamentale di questi miglioramenti riguarda i *numeri di sequenza*. I numeri di sequenza indicano al runtime quali output provengono da righe di codice distinte e ordinate. Il runtime usa queste informazioni per generare differenze di albero efficienti nel tempo lineare, che è molto più veloce rispetto a quanto normalmente è possibile per un algoritmo diff della struttura ad albero generale.
 
-Si consideri `.razor` il seguente file semplice:
+Si consideri il seguente semplice file `.razor`:
 
 ```cshtml
 @if (someFlag)
@@ -1419,13 +1422,13 @@ Quando il codice viene eseguito per la prima volta, se `someFlag` è `true`, il 
 | 0        | Nodo testo | Primo  |
 | 1        | Nodo testo | Secondo |
 
-Si supponga `someFlag` che `false`diventi e che venga eseguito nuovamente il rendering del markup. Questa volta, il generatore riceve:
+Si supponga che `someFlag` diventi `false` e che venga eseguito nuovamente il rendering del markup. Questa volta, il generatore riceve:
 
 | Sequenza | Type       | Data   |
 | :------: | ---------- | :----: |
 | 1        | Nodo testo  | Secondo |
 
-Quando il runtime esegue una diff, rileva che l'elemento in sequenza `0` è stato rimosso, quindi genera lo script di *modifica*semplice seguente:
+Quando il runtime esegue una diff, rileva che l'elemento in sequenza `0` è stato rimosso, quindi genera lo *script di modifica*semplice seguente:
 
 * Rimuovere il primo nodo di testo.
 
@@ -1451,7 +1454,7 @@ A questo punto, il primo output è:
 | 0        | Nodo testo | Primo  |
 | 1        | Nodo testo | Secondo |
 
-Questo risultato è identico al caso precedente, pertanto non esistono problemi negativi. `someFlag`si `false` trova nel secondo rendering e l'output è:
+Questo risultato è identico al caso precedente, pertanto non esistono problemi negativi. `someFlag` è `false` nel secondo rendering e l'output è:
 
 | Sequenza | Type      | Data   |
 | :------: | --------- | ------ |
@@ -1462,7 +1465,7 @@ Questa volta, l'algoritmo Diff rileva che si sono verificate *due* modifiche e l
 * Modificare il valore del primo nodo di testo in `Second`.
 * Rimuovere il secondo nodo di testo.
 
-La generazione dei numeri di sequenza ha perso tutte le informazioni utili sul `if/else` punto in cui i rami e i cicli erano presenti nel codice originale. In questo modo si ottiene una differenza **due volte più a lungo** .
+La generazione dei numeri di sequenza ha perso tutte le informazioni utili sul punto in cui i rami e i cicli `if/else` erano presenti nel codice originale. In questo modo si ottiene una differenza **due volte più a lungo** .
 
 Questo è un esempio semplice. Nei casi più realistici con strutture complesse e profondamente annidate e soprattutto con i cicli, il costo delle prestazioni è più grave. Invece di identificare immediatamente i blocchi o i rami del ciclo che sono stati inseriti o rimossi, l'algoritmo Diff deve ripresentarsi in modo approfondito negli alberi di rendering e, in genere, compilare script di modifica molto più lunghi perché non è stato informato in modo indesiderato sul modo in cui le nuove strutture relazione tra loro.
 
@@ -1470,13 +1473,13 @@ Questo è un esempio semplice. Nei casi più realistici con strutture complesse 
 
 * Le prestazioni dell'app soffrono se i numeri di sequenza vengono generati dinamicamente.
 * Il Framework non è in grado di creare automaticamente i propri numeri di sequenza in fase di esecuzione perché le informazioni necessarie non esistono a meno che non vengano acquisite in fase di compilazione.
-* Non scrivere blocchi lunghi di logica implementata `RenderTreeBuilder` manualmente. Preferire `.razor` i file e consentire al compilatore di gestire i numeri di sequenza. Se non si è in grado di `RenderTreeBuilder` evitare la logica manuale, suddividere i blocchi di codice lunghi `OpenRegion` in parti più piccole racchiuse tra / `CloseRegion` le chiamate. Ogni area ha il proprio spazio separato dei numeri di sequenza, quindi è possibile riavviare da zero (o qualsiasi altro numero arbitrario) all'interno di ogni area.
+* Non scrivere blocchi lunghi per la logica `RenderTreeBuilder` implementata manualmente. Preferire i file `.razor` e consentire al compilatore di gestire i numeri di sequenza. Se non si è in grado di evitare la logica manuale `RenderTreeBuilder`, suddividere i blocchi di codice lunghi in parti più piccole racchiuse tra `OpenRegion` @ no__t-2 @ no__t-3 chiamate. Ogni area ha il proprio spazio separato dei numeri di sequenza, quindi è possibile riavviare da zero (o qualsiasi altro numero arbitrario) all'interno di ogni area.
 * Se i numeri di sequenza sono hardcoded, l'algoritmo Diff richiede solo che i numeri di sequenza aumentino nel valore. Il valore iniziale e i gap sono irrilevanti. Una delle opzioni legittime consiste nell'usare il numero di riga del codice come numero di sequenza oppure iniziare da zero e aumentare di uno o di centinaia (o qualsiasi intervallo preferito). 
-* Blazer usa i numeri di sequenza, mentre altri Framework dell'interfaccia utente con differenze tra gli alberi non li usano. La diffing è molto più veloce quando si usano i numeri di sequenza e Blazer ha il vantaggio di un passaggio di compilazione che riguarda automaticamente i numeri di `.razor` sequenza per gli sviluppatori che creano file.
+* Blazer usa i numeri di sequenza, mentre altri Framework dell'interfaccia utente con differenze tra gli alberi non li usano. La diffing è molto più veloce quando si usano i numeri di sequenza e Blazer ha il vantaggio di un passaggio di compilazione che riguarda automaticamente i numeri di sequenza per gli sviluppatori che creano file `.razor`.
 
 ## <a name="localization"></a>Localizzazione
 
-Le app del server Blazer vengono localizzate usando il [middleware di localizzazione](xref:fundamentals/localization#localization-middleware). Il middleware seleziona le impostazioni cultura appropriate per gli utenti che richiedono risorse dall'app.
+Le app del server Blazor vengono localizzate usando il [middleware di localizzazione](xref:fundamentals/localization#localization-middleware). Il middleware seleziona le impostazioni cultura appropriate per gli utenti che richiedono risorse dall'app.
 
 Le impostazioni cultura possono essere impostate utilizzando uno degli approcci seguenti:
 
@@ -1487,13 +1490,13 @@ Per altre informazioni ed esempi, vedere <xref:fundamentals/localization>.
 
 ### <a name="cookies"></a>Cookie
 
-Un cookie di impostazioni cultura di localizzazione può salvare in maniera permanente le impostazioni cultura dell'utente. Il cookie viene creato tramite il `OnGet` metodo della pagina host dell'app (*pages/host. cshtml. cs*). Il middleware di localizzazione legge il cookie nelle richieste successive per impostare le impostazioni cultura dell'utente. 
+Un cookie di impostazioni cultura di localizzazione può salvare in maniera permanente le impostazioni cultura dell'utente. Il cookie viene creato dal metodo `OnGet` della pagina host dell'app (*pages/host. cshtml. cs*). Il middleware di localizzazione legge il cookie nelle richieste successive per impostare le impostazioni cultura dell'utente. 
 
 L'uso di un cookie garantisce che la connessione WebSocket possa propagare correttamente le impostazioni cultura. Se gli schemi di localizzazione sono basati sul percorso dell'URL o sulla stringa di query, lo schema potrebbe non essere in grado di funzionare con WebSocket, quindi non è possibile salvare in modo permanente le impostazioni cultura. Pertanto, l'utilizzo di un cookie di impostazioni cultura di localizzazione è l'approccio consigliato.
 
 Qualsiasi tecnica può essere utilizzata per assegnare impostazioni cultura se le impostazioni cultura vengono rese permanente in un cookie di localizzazione. Se l'app dispone già di uno schema di localizzazione stabilito per ASP.NET Core lato server, continuare a usare l'infrastruttura di localizzazione esistente dell'app e impostare il cookie delle impostazioni cultura di localizzazione nello schema dell'app.
 
-Nell'esempio seguente viene illustrato come impostare le impostazioni cultura correnti in un cookie che può essere letto dal middleware di localizzazione. Creare un file *pages/host. cshtml. cs* con il contenuto seguente nell'app del server Blazer:
+Nell'esempio seguente viene illustrato come impostare le impostazioni cultura correnti in un cookie che può essere letto dal middleware di localizzazione. Creare un file *pages/host. cshtml. cs* con il contenuto seguente nell'app del server Blazor:
 
 ```csharp
 public class HostModel : PageModel
@@ -1521,7 +1524,7 @@ La localizzazione viene gestita nell'app:
 
 ## <a name="provide-ui-to-choose-the-culture"></a>Fornire l'interfaccia utente per scegliere le impostazioni cultura
 
-Per consentire a un utente di selezionare le impostazioni cultura, è consigliabile un *approccio basato su Reindirizzamento* . Il processo è simile a quello che accade in un'app Web quando un utente tenta di accedere a una&mdash;risorsa protetta che l'utente viene reindirizzato a una pagina di accesso e quindi viene reindirizzato di nuovo alla risorsa originale. 
+Per consentire a un utente di selezionare le impostazioni cultura, è consigliabile un *approccio basato su Reindirizzamento* . Il processo è simile a quello che accade in un'app Web quando un utente tenta di accedere a una risorsa protetta @ no__t-0The utente viene reindirizzato a una pagina di accesso e quindi reindirizzato di nuovo alla risorsa originale. 
 
 L'app rende permanente le impostazioni cultura selezionate dall'utente tramite un reindirizzamento a un controller. Il controller imposta le impostazioni cultura selezionate dall'utente in un cookie e reindirizza di nuovo l'utente all'URI originale.
 
@@ -1547,7 +1550,7 @@ public class CultureController : Controller
 ```
 
 > [!WARNING]
-> Usare il `LocalRedirect` risultato dell'azione per impedire gli attacchi di reindirizzamento aperti. Per altre informazioni, vedere <xref:security/preventing-open-redirects>.
+> Usare il risultato dell'azione `LocalRedirect` per impedire gli attacchi di reindirizzamento aperti. Per altre informazioni, vedere <xref:security/preventing-open-redirects>.
 
 Il componente seguente mostra un esempio di come eseguire il reindirizzamento iniziale quando l'utente seleziona le impostazioni cultura:
 
@@ -1578,25 +1581,25 @@ Il componente seguente mostra un esempio di come eseguire il reindirizzamento in
 }
 ```
 
-### <a name="use-net-localization-scenarios-in-blazor-apps"></a>Usare scenari di localizzazione .NET in app Blazer
+### <a name="use-net-localization-scenarios-in-blazor-apps"></a>Usare scenari di localizzazione .NET in app Blazor
 
-All'interno delle app blazer sono disponibili i seguenti scenari di globalizzazione e localizzazione di .NET:
+All'interno delle app Blazor sono disponibili i seguenti scenari di globalizzazione e localizzazione di .NET:
 
 * . Sistema di risorse di NET
 * Formattazione di numeri e date specifiche delle impostazioni cultura
 
-La funzionalità di `@bind` Blazer esegue la globalizzazione in base alle impostazioni cultura correnti dell'utente. Per ulteriori informazioni, vedere la sezione [Data Binding](#data-binding) .
+La funzionalità `@bind` di Blazer esegue la globalizzazione in base alle impostazioni cultura correnti dell'utente. Per ulteriori informazioni, vedere la sezione [Data Binding](#data-binding) .
 
 Sono attualmente supportati un set limitato di scenari di localizzazione di ASP.NET Core:
 
-* `IStringLocalizer<>`*è supportato* nelle app blazer.
-* `IHtmlLocalizer<>`la `IViewLocalizer<>`localizzazione delle annotazioni dei dati, e è ASP.NET Core scenari MVC e **non è supportata** nelle app blazer.
+* `IStringLocalizer<>` *è supportato* nelle app blazer.
+* `IHtmlLocalizer<>`, `IViewLocalizer<>` e la localizzazione delle annotazioni dei dati è ASP.NET Core scenari MVC e **non è supportata** nelle app blazer.
 
 Per altre informazioni, vedere <xref:fundamentals/localization>.
 
 ## <a name="scalable-vector-graphics-svg-images"></a>Immagini SVG (Scalable Vector Graphics)
 
-Poiché Blazer esegue il rendering di HTML, le immagini supportate dal browser, incluse le immagini SVG (Scalable Vector*Graphics),* sono supportate tramite `<img>` il tag:
+Poiché Blazer esegue il rendering di HTML, le immagini supportate dal browser, incluse le immagini SVG (Scalable Vector*Graphics),* sono supportate tramite il tag `<img>`:
 
 ```html
 <img alt="Example image" src="some-image.svg" />
@@ -1610,8 +1613,8 @@ Analogamente, le immagini SVG sono supportate nelle regole CSS di un file di fog
 }
 ```
 
-Tuttavia, il markup SVG inline non è supportato in tutti gli scenari. Se si inserisce un `<svg>` tag direttamente in un file di componente (*Razor*), il rendering delle immagini di base è supportato, ma molti scenari avanzati non sono ancora supportati. Ad esempio, `<use>` i tag non sono attualmente rispettati e `@bind` non possono essere usati con alcuni tag svg. Queste limitazioni verranno affrontate in una versione futura.
+Tuttavia, il markup SVG inline non è supportato in tutti gli scenari. Se si inserisce un tag `<svg>` direttamente in un file di componente (*Razor*), il rendering delle immagini di base è supportato, ma molti scenari avanzati non sono ancora supportati. Ad esempio, i tag `<use>` non sono attualmente rispettati e `@bind` non può essere usato con alcuni tag SVG. Queste limitazioni verranno affrontate in una versione futura.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* <xref:security/blazor/server>&ndash; Include informazioni aggiuntive sulla creazione di app del server blazer che devono essere confrontate con l'esaurimento delle risorse.
+* <xref:security/blazor/server> &ndash; include informazioni aggiuntive sulla creazione di app Server blazer che devono essere confrontate con l'esaurimento delle risorse.

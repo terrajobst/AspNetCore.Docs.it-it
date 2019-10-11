@@ -4,15 +4,15 @@ author: Rick-Anderson
 description: Viene illustrato come creare un'interfaccia Razor riutilizzabili tramite le visualizzazioni parziali in una libreria di classi in ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 09/21/2019
+ms.date: 10/08/2019
 ms.custom: mvc, seodec18
 uid: razor-pages/ui-class
-ms.openlocfilehash: 1b544e208be049f02d01e35daa6eb3bfba94265a
-ms.sourcegitcommit: 04ce94b3c1b01d167f30eed60c1c95446dfe759d
-ms.translationtype: MT
+ms.openlocfilehash: d656e924033f1b217cdd8c86f7d00411c5d71beb
+ms.sourcegitcommit: 73a451e9a58ac7102f90b608d661d8c23dd9bbaf
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/21/2019
-ms.locfileid: "71176474"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72037579"
 ---
 # <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>Creare un'interfaccia utente riutilizzabile usando il progetto libreria di classi Razor in ASP.NET Core
 
@@ -32,19 +32,19 @@ Le visualizzazioni Razor, le pagine, i controller, i modelli di pagina, i [compo
 * Selezionare **Applicazione Web ASP.NET Core**.
 * Assegnare un nome di libreria (ad esempio, "RazorClassLib") > **OK**. Per evitare un conflitto di nomi di file con la libreria di visualizzazione generata, verificare che il nome della libreria non finisca per `.Views`.
 * Verificare che sia selezionato **ASP.NET Core 3,0** o versione successiva.
-* Selezionare **libreria** > di classi Razor **OK**.
+* Selezionare la **libreria di classi Razor** > **OK**.
 
 Per impostazione predefinita, il modello RCL (Razor Class Library) per impostazione predefinita è lo sviluppo di componenti Razor. Un'opzione di modello in Visual Studio fornisce il supporto del modello per le pagine e le visualizzazioni.
 
 # <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 
-Eseguire `dotnet new razorclasslib` dalla riga di comando. Ad esempio:
+Eseguire `dotnet new razorclasslib` dalla riga di comando. Esempio:
 
 ```dotnetcli
 dotnet new razorclasslib -o RazorUIClassLib
 ```
 
-Per impostazione predefinita, il modello RCL (Razor Class Library) per impostazione predefinita è lo sviluppo di componenti Razor. Passare l' `-support-pages-and-views` opzione (`dotnet new razorclasslib -support-pages-and-views`) per fornire il supporto per le pagine e le visualizzazioni.
+Per impostazione predefinita, il modello RCL (Razor Class Library) per impostazione predefinita è lo sviluppo di componenti Razor. Passare l'opzione `--support-pages-and-views` (`dotnet new razorclasslib --support-pages-and-views`) per fornire il supporto per le pagine e le visualizzazioni.
 
 Per altre informazioni, vedere [dotnet new](/dotnet/core/tools/dotnet-new). Per evitare un conflitto di nomi di file con la libreria di visualizzazione generata, verificare che il nome della libreria non finisca per `.Views`.
 
@@ -52,7 +52,7 @@ Per altre informazioni, vedere [dotnet new](/dotnet/core/tools/dotnet-new). Per 
 
 Aggiungere i file Razor alla libreria di classi Razor.
 
-I modelli ASP.NET Core presuppongono il contenuto RCL sia impostato il *aree* cartella. Vedere [layout di pagine RCL](#rcl-pages-layout) per creare un RCL che espone il `~/Pages` contenuto in `~/Areas/Pages`anziché.
+I modelli ASP.NET Core presuppongono il contenuto RCL sia impostato il *aree* cartella. Vedere [layout di pagine RCL](#rcl-pages-layout) per creare un RCL che espone il contenuto in `~/Pages` anziché `~/Areas/Pages`.
 
 ## <a name="reference-rcl-content"></a>Contenuto RCL di riferimento
 
@@ -96,7 +96,7 @@ Quando si esegue la compressione di un RCL, tutti gli asset complementari nella 
 
 ### <a name="exclude-static-assets"></a>Escludi asset statici
 
-Per escludere asset statici, aggiungere il percorso di esclusione desiderato `$(DefaultItemExcludes)` al gruppo di proprietà nel file di progetto. Separare le voci con un punto`;`e virgola ().
+Per escludere asset statici, aggiungere il percorso di esclusione desiderato al gruppo di proprietà `$(DefaultItemExcludes)` nel file di progetto. Separa le voci con un punto e virgola (`;`).
 
 Nell'esempio seguente, il foglio di stile *lib. CSS* nella cartella *wwwroot* non è considerato un asset statico e non è incluso nel RCL pubblicato:
 
@@ -112,13 +112,13 @@ Per includere i file TypeScript in un RCL:
 
 1. Inserire i file TypeScript ( *. TS*) all'esterno della cartella *wwwroot* Inserire, ad esempio, i file in una cartella *client* .
 
-1. Configurare l'output di compilazione TypeScript per la cartella *wwwroot* . Impostare la `TypescriptOutDir` proprietà all'interno di `PropertyGroup` un oggetto nel file di progetto:
+1. Configurare l'output di compilazione TypeScript per la cartella *wwwroot* . Impostare la proprietà `TypescriptOutDir` all'interno di un `PropertyGroup` nel file di progetto:
 
    ```xml
    <TypescriptOutDir>wwwroot</TypescriptOutDir>
    ```
 
-1. Includere la destinazione typescript come dipendenza della `ResolveCurrentProjectStaticWebAssets` destinazione aggiungendo la destinazione seguente all'interno di un oggetto `PropertyGroup` nel file di progetto:
+1. Includere la destinazione TypeScript come dipendenza della destinazione `ResolveCurrentProjectStaticWebAssets` aggiungendo la destinazione seguente all'interno di un `PropertyGroup` nel file di progetto:
 
    ```xml
    <ResolveCurrentProjectStaticWebAssetsInputsDependsOn>
@@ -129,9 +129,9 @@ Per includere i file TypeScript in un RCL:
 
 ### <a name="consume-content-from-a-referenced-rcl"></a>Utilizzare il contenuto da un RCL a cui si fa riferimento
 
-I file inclusi nella cartella *wwwroot* di RCL vengono esposti all'app consumer sotto il prefisso `_content/{LIBRARY NAME}/`. Ad esempio, una libreria denominata *Razor. Class. lib* genera un percorso al contenuto statico in `_content/Razor.Class.Lib/`.
+I file inclusi nella cartella *wwwroot* di RCL vengono esposti all'app consumer nel prefisso `_content/{LIBRARY NAME}/`. Ad esempio, una libreria denominata *Razor. Class. lib* genera un percorso del contenuto statico in `_content/Razor.Class.Lib/`.
 
-L'app consumer fa riferimento a risorse statiche fornite dalla libreria `<script>`con `<style>` `<img>`,, e altri tag HTML. Per l'app consumer deve essere abilitato il [supporto file statico](xref:fundamentals/static-files) in `Startup.Configure`:
+L'app consumer fa riferimento a risorse statiche fornite dalla libreria con `<script>`, `<style>`, `<img>` e altri tag HTML. Per l'app consumer deve essere abilitato il [supporto dei file statici](xref:fundamentals/static-files) in `Startup.Configure`:
 
 ```csharp
 public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -144,7 +144,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 }
 ```
 
-Quando si esegue l'app consumer dall'output di`dotnet run`compilazione (), le risorse Web statiche sono abilitate per impostazione predefinita nell'ambiente di sviluppo. Per supportare asset in altri ambienti durante l'esecuzione dall'output di compilazione `UseStaticWebAssets` , chiamare sul generatore host in *Program.cs*:
+Quando si esegue l'app consumer dall'output di compilazione (`dotnet run`), gli asset Web statici sono abilitati per impostazione predefinita nell'ambiente di sviluppo. Per supportare asset in altri ambienti durante l'esecuzione dall'output di compilazione, chiamare `UseStaticWebAssets` nel generatore host in *Program.cs*:
 
 ```csharp
 using Microsoft.AspNetCore.Hosting;
@@ -167,7 +167,7 @@ public class Program
 }
 ```
 
-Quando `UseStaticWebAssets` si esegue un'app dall'output pubblicato (`dotnet publish`), la chiamata non è obbligatoria.
+Quando si esegue un'app dall'output pubblicato (`dotnet publish`), non è necessario chiamare `UseStaticWebAssets`.
 
 ### <a name="multi-project-development-flow"></a>Flusso di sviluppo per più progetti
 
@@ -180,7 +180,7 @@ Quando viene compilato il RCL, viene generato un manifesto che descrive i percor
 
 ### <a name="publish"></a>Pubblica
 
-Quando viene pubblicata l'app, gli asset complementari di tutti i progetti e i pacchetti a cui viene fatto riferimento vengono copiati nella cartella wwwroot `_content/{LIBRARY NAME}/`dell'app pubblicata in.
+Quando viene pubblicata l'app, gli asset complementari di tutti i progetti e i pacchetti a cui viene fatto riferimento vengono copiati nella cartella *wwwroot* dell'app pubblicata in `_content/{LIBRARY NAME}/`.
 
 ::: moniker-end
 
@@ -198,7 +198,7 @@ Le visualizzazioni Razor, le pagine, i controller, i modelli di pagina, i [compo
 * Selezionare **Applicazione Web ASP.NET Core**.
 * Assegnare un nome di libreria (ad esempio, "RazorClassLib") > **OK**. Per evitare un conflitto di nomi di file con la libreria di visualizzazione generata, verificare che il nome della libreria non finisca per `.Views`.
 * Verificare che sia selezionato **ASP.NET Core 2.1** o versioni successive.
-* Selezionare **libreria** > di classi Razor **OK**.
+* Selezionare la **libreria di classi Razor** > **OK**.
 
 Un RCL ha il seguente file di progetto:
 
@@ -218,7 +218,7 @@ Per altre informazioni, vedere [dotnet new](/dotnet/core/tools/dotnet-new). Per 
 
 Aggiungere i file Razor alla libreria di classi Razor.
 
-I modelli ASP.NET Core presuppongono il contenuto RCL sia impostato il *aree* cartella. Vedere [layout di pagine RCL](#rcl-pages-layout) per creare un RCL che espone il `~/Pages` contenuto in `~/Areas/Pages`anziché.
+I modelli ASP.NET Core presuppongono il contenuto RCL sia impostato il *aree* cartella. Vedere [layout di pagine RCL](#rcl-pages-layout) per creare un RCL che espone il contenuto in `~/Pages` anziché `~/Areas/Pages`.
 
 ## <a name="reference-rcl-content"></a>Contenuto RCL di riferimento
 
@@ -269,7 +269,7 @@ Creare il progetto di libreria di classi Razor:
 * Selezionare **Applicazione Web ASP.NET Core**.
 * Denominare l'app **RazorUIClassLib** > **OK**.
 * Verificare che sia selezionato **ASP.NET Core 2.1** o versioni successive.
-* Selezionare **libreria** > di classi Razor **OK**.
+* Selezionare la **libreria di classi Razor** > **OK**.
 * Aggiungere un file di visualizzazione parziale Razor denominato *RazorUIClassLib/Areas/MyFeature/Pages/Shared/_Message.cshtml*.
 
 # <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
@@ -284,7 +284,7 @@ dotnet new viewstart -o RazorUIClassLib/Areas/MyFeature/Pages
 
 I comandi precedenti:
 
-* Crea l' `RazorUIClassLib` oggetto RCL.
+* Crea il RCL `RazorUIClassLib`.
 * Crea una pagina Razor _Message e la aggiunge alla libreria di classi Razor. Il parametro `-np` crea la pagina senza un `PageModel`.
 * Crea una [viewstart. cshtml](xref:mvc/views/layout#running-code-before-each-view) file e lo aggiunge al RCL.
 
@@ -324,14 +324,14 @@ L'output di compilazione contiene *RazorUIClassLib.dll* e *RazorUIClassLib.Views
 
 Creare l'app Web di Razor Pages:
 
-* Da **Esplora soluzioni**, fare clic con il pulsante destro del mouse sulla soluzione > **Aggiungi** > **nuovo progetto**.
+* Da **Esplora soluzioni**, fare clic con il pulsante destro del mouse sulla soluzione > **aggiungere** >  **nuovo progetto**.
 * Selezionare **Applicazione Web ASP.NET Core**.
 * Denominare l'app **WebApp1**.
 * Verificare che sia selezionato **ASP.NET Core 2.1** o versioni successive.
-* Selezionare **applicazione** > Web **OK**.
+* Selezionare **applicazione Web** > **OK**.
 
 * In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **WebApp1** e selezionare **Imposta come progetto di avvio**.
-* Da **Esplora soluzioni**, fare clic con il pulsante destro del mouse su **app Web 1** e selezionare **compilazione dipendenze** > **progetto**dipendenze.
+* Da **Esplora soluzioni**, fare clic con il pulsante destro del mouse su **app Web 1** e scegliere dipendenze di **compilazione** > **Dipendenze progetto**.
 * Selezionare **RazorUIClassLib** come una dipendenza di **WebApp1**.
 * Da **Esplora soluzioni**, fare clic con il pulsante destro del mouse su **app Web 1** e scegliere **Aggiungi** > **riferimento**.
 * Nella finestra di dialogo **Gestione riferimenti** selezionare **RazorUIClassLib** > **OK**.

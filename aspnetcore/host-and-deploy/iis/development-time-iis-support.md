@@ -5,14 +5,14 @@ description: Informazioni sul supporto del debug di app ASP.NET Core durante l'e
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/08/2019
+ms.date: 10/10/2019
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: f2d5dbbdc80eec035616ddea234ee5d3343eeae8
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
-ms.translationtype: HT
+ms.openlocfilehash: e5da4f7202bf31e65c366d6f7de54212f5b0fed7
+ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815183"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72259805"
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Supporto di IIS in fase di sviluppo in Visual Studio per ASP.NET Core
 
@@ -140,7 +140,7 @@ Verificare che gli endpoint `applicationUrl` e `launchUrl` corrispondano e usare
 Eseguire Visual Studio come amministratore:
 
 * Verificare che l'elenco di riepilogo a discesa della configurazione della build sia impostato su **Debug**.
-* Impostare il pulsante Esegui sul profilo **IIS** e selezionare il pulsante per avviare l'app.
+* Impostare il [pulsante Avvia debug](/visualstudio/debugger/debugger-feature-tour) sul profilo **IIS** e selezionare il pulsante per avviare l'app.
 
 Visual Studio potrebbe richiedere un riavvio, se non si è in modalità amministratore. In tal caso riavviare Visual Studio.
 

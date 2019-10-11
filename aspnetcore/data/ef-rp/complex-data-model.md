@@ -1,17 +1,17 @@
 ---
 title: Razor Pages con EF Core in ASP.NET Core - Modello di dati - 5 di 8
-author: tdykstra
+author: rick-anderson
 description: In questa esercitazione si aggiungono altre entità e relazioni e si personalizza il modello di dati specificando regole di formattazione, convalida e mapping.
 ms.author: riande
 ms.custom: mvc
 ms.date: 07/22/2019
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 78ff36b291b3215460d9ae8e560f49871862d19f
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 2461bc398cd237dac04f4eb8832c70290663ff56
+ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71080975"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72259494"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Modello di dati - 5 di 8
 
@@ -59,7 +59,7 @@ Il codice precedente aggiunge una proprietà `FullName` e aggiunge gli attributi
 
 Per le date di iscrizione degli studenti, tutte le pagine visualizzano attualmente l'ora del giorno insieme alla data, anche se è pertinente solo la data. Mediante gli attributi di annotazione dei dati è possibile modificare il codice per correggere il formato di visualizzazione in tutte le pagine che visualizzano i dati. 
 
-L'attributo [DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) indica un tipo di dati più specifico rispetto al tipo intrinseco del database. In questo caso deve essere visualizzata solo la data e non la data e l'ora. L'enumerazione [DataType](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) offre molti tipi di dati, ad esempio Date, Time, PhoneNumber, Currency, EmailAddress e così via. L'attributo `DataType` può anche consentire all'app di offrire automaticamente funzionalità specifiche del tipo. Ad esempio:
+L'attributo [DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) indica un tipo di dati più specifico rispetto al tipo intrinseco del database. In questo caso deve essere visualizzata solo la data e non la data e l'ora. L'enumerazione [DataType](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) offre molti tipi di dati, ad esempio Date, Time, PhoneNumber, Currency, EmailAddress e così via. L'attributo `DataType` può anche consentire all'app di offrire automaticamente funzionalità specifiche del tipo. Esempio:
 
 * Il collegamento `mailto:` viene creato automaticamente per `DataType.EmailAddress`.
 * Il selettore data viene incluso per `DataType.Date` nella maggior parte dei browser.
@@ -749,7 +749,7 @@ Aggiornare *Models/Student.cs* con il codice evidenziato seguente:
 
 [!code-csharp[](intro/samples/cu21/Models/Student.cs?name=snippet_DataType&highlight=3,12-13)]
 
-L'attributo [DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) indica un tipo di dati più specifico rispetto al tipo intrinseco del database. In questo caso deve essere visualizzata solo la data e non la data e l'ora. L'enumerazione [DataType](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) offre molti tipi di dati, ad esempio Date, Time, PhoneNumber, Currency, EmailAddress e così via. L'attributo `DataType` può anche consentire all'app di offrire automaticamente funzionalità specifiche del tipo. Ad esempio:
+L'attributo [DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) indica un tipo di dati più specifico rispetto al tipo intrinseco del database. In questo caso deve essere visualizzata solo la data e non la data e l'ora. L'enumerazione [DataType](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) offre molti tipi di dati, ad esempio Date, Time, PhoneNumber, Currency, EmailAddress e così via. L'attributo `DataType` può anche consentire all'app di offrire automaticamente funzionalità specifiche del tipo. Esempio:
 
 * Il collegamento `mailto:` viene creato automaticamente per `DataType.EmailAddress`.
 * Il selettore data viene incluso per `DataType.Date` nella maggior parte dei browser.

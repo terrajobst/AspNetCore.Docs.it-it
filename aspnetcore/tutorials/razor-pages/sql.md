@@ -5,12 +5,12 @@ description: Questa sezione illustra l'utilizzo di un database e di ASP.NET Core
 ms.author: riande
 ms.date: 7/22/2019
 uid: tutorials/razor-pages/sql
-ms.openlocfilehash: 197697f28e9faa45c1ac2b7f993bde15994957e5
-ms.sourcegitcommit: 051f068c78931432e030b60094c38376d64d013e
+ms.openlocfilehash: 87d27b60940826e21b060f2e07d344b30ff75b27
+ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68440385"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72259790"
 ---
 # <a name="work-with-a-database-and-aspnet-core"></a>Usare un database e ASP.NET Core
 
@@ -107,10 +107,10 @@ Il codice seguente illustra il file *Program.cs* aggiornato.
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Program.cs)]
 
-Un'app di produzione non chiamerà `Database.Migrate`. Sarà aggiunto al codice precedente per evitare l'eccezione seguente quando `Update-Database` non è stato eseguito:
+Quando `Update-Database` non è stata eseguita, si verifica l'eccezione seguente:
 
-SqlException: Impossibile aprire il database "RazorPagesMovieContext-21" richiesto dall'account di accesso. Accesso non riuscito.
-Accesso non riuscito per l'utente "nome-utente".
+`SqlException: Cannot open database "RazorPagesMovieContext-" requested by the login. The login failed.`
+`Login failed for user 'user name'.`
 
 ### <a name="test-the-app"></a>Eseguire il test dell'app
 
