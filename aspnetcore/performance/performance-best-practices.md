@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 09/26/2019
 uid: performance/performance-best-practices
-ms.openlocfilehash: f056f692c59da1fb42c0487be97dfeef05d0ad05
-ms.sourcegitcommit: d81912782a8b0bd164f30a516ad80f8defb5d020
+ms.openlocfilehash: c239c6d86e460f8fb80dfc47b88c090a796c617d
+ms.sourcegitcommit: c452e6af92e130413106c4863193f377cde4cd9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72179627"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72246479"
 ---
 # <a name="aspnet-core-performance-best-practices"></a>Procedure consigliate per le prestazioni ASP.NET Core
 
@@ -175,7 +175,6 @@ Il codice precedente legge in modo asincrono l'intero corpo della richiesta HTTP
 > Se la richiesta è di grandi dimensioni, la lettura dell'intero corpo della richiesta HTTP in memoria potrebbe causare una condizione di memoria insufficiente. La memoria insufficiente può causare un attacco Denial of Service.  Per altre informazioni, vedere evitare di leggere i corpi delle [richieste di grandi dimensioni o i corpi di risposta in memoria](#arlb) in questo documento.
 
 ## <a name="prefer-readasformasync-over-requestform"></a>Preferisci ReadAsFormAsync su request. Form
-<!-- TODO Review required. I change all the API's here from original -->
 
 Usare `HttpContext.Request.ReadFormAsync` anziché `HttpContext.Request.Form`.
 `HttpContext.Request.Form` può essere letto in modo sicuro solo con le condizioni seguenti:
@@ -255,9 +254,6 @@ Il codice precedente acquisisce spesso un valore null o errato `HttpContext` nel
 
 ## <a name="do-not-use-the-httpcontext-after-the-request-is-complete"></a>Non usare HttpContext dopo il completamento della richiesta
 
-<!-- TODO Review, original uses `in flight`, which won't MT (Machine translate) 
-`HttpContext` is only valid as long as there is an active HTTP request `in flight`.
--->
 `HttpContext` è valido solo se nella pipeline ASP.NET Core è presente una richiesta HTTP attiva. L'intera pipeline di ASP.NET Core è una catena asincrona di delegati che esegue tutte le richieste. Quando il `Task` restituito da questa catena viene completato, il `HttpContext` viene riciclato.
 
 **Non eseguire questa operazione:** Nell'esempio seguente viene utilizzato `async void`:
@@ -290,7 +286,7 @@ Il codice precedente acquisisce spesso un valore null o errato `HttpContext` nel
 
 ## <a name="do-not-capture-services-injected-into-the-controllers-on-background-threads"></a>Non acquisire i servizi inseriti nei controller nei thread in background
 
-**Non eseguire questa operazione:** Nell'esempio seguente viene illustrata una chiusura che acquisisce il `DbContext` dal parametro di azione `Controller`. Si tratta di una procedura non valida.  L'elemento di lavoro può essere eseguito all'esterno dell'ambito della richiesta. Il `PokemonDbContext` ha come ambito la richiesta, ottenendo un `ObjectDisposedException`.
+**Non eseguire questa operazione:** Nell'esempio seguente viene illustrata una chiusura che acquisisce il `DbContext` dal parametro di azione `Controller`. Si tratta di una procedura non valida.  L'elemento di lavoro può essere eseguito all'esterno dell'ambito della richiesta. Il `ContosoDbContext` ha come ambito la richiesta, ottenendo un `ObjectDisposedException`.
 
 [!code-csharp[](performance-best-practices/samples/3.0/Controllers/FireAndForgetSecondController.cs?name=snippet1)]
 
@@ -299,14 +295,14 @@ Il codice precedente acquisisce spesso un valore null o errato `HttpContext` nel
 * Inserisce un <xref:Microsoft.Extensions.DependencyInjection.IServiceScopeFactory> per creare un ambito nell'elemento di lavoro in background. `IServiceScopeFactory` è un singleton.
 * Crea un nuovo ambito di inserimento delle dipendenze nel thread in background.
 * Non fa riferimento ad alcun elemento del controller.
-* Non acquisisce il `PokemonDbContext` dalla richiesta in ingresso.
+* Non acquisisce il `ContosoDbContext` dalla richiesta in ingresso.
 
 [!code-csharp[](performance-best-practices/samples/3.0/Controllers/FireAndForgetSecondController.cs?name=snippet2)]
 
 Il codice evidenziato seguente:
 
 * Crea un ambito per la durata dell'operazione in background e risolve i servizi.
-* USA `PokemonDbContext` dall'ambito corretto.
+* USA `ContosoDbContext` dall'ambito corretto.
 
 [!code-csharp[](performance-best-practices/samples/3.0/Controllers/FireAndForgetSecondController.cs?name=snippet2&highlight=9-16)]
 

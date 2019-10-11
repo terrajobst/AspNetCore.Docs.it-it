@@ -7,12 +7,12 @@ ms.author: riande
 ms.date: 10/08/2019
 ms.custom: mvc, seodec18
 uid: razor-pages/ui-class
-ms.openlocfilehash: d656e924033f1b217cdd8c86f7d00411c5d71beb
-ms.sourcegitcommit: 73a451e9a58ac7102f90b608d661d8c23dd9bbaf
-ms.translationtype: HT
+ms.openlocfilehash: dcd24f7dafd198f88cdf84d1ab67c84f45428a95
+ms.sourcegitcommit: d81912782a8b0bd164f30a516ad80f8defb5d020
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72037579"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72179326"
 ---
 # <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>Creare un'interfaccia utente riutilizzabile usando il progetto libreria di classi Razor in ASP.NET Core
 
@@ -121,10 +121,10 @@ Per includere i file TypeScript in un RCL:
 1. Includere la destinazione TypeScript come dipendenza della destinazione `ResolveCurrentProjectStaticWebAssets` aggiungendo la destinazione seguente all'interno di un `PropertyGroup` nel file di progetto:
 
    ```xml
-   <ResolveCurrentProjectStaticWebAssetsInputsDependsOn>
-     TypeScriptCompile;
-     $(ResolveCurrentProjectStaticWebAssetsInputs)
-   </ResolveCurrentProjectStaticWebAssetsInputsDependsOn>
+  <ResolveCurrentProjectStaticWebAssetsInputsDependsOn>
+    CompileTypeScript;
+    $(ResolveCurrentProjectStaticWebAssetsInputs)
+  </ResolveCurrentProjectStaticWebAssetsInputsDependsOn>
    ```
 
 ### <a name="consume-content-from-a-referenced-rcl"></a>Utilizzare il contenuto da un RCL a cui si fa riferimento
