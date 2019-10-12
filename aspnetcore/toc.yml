@@ -310,7 +310,7 @@
           uid: blazor/debug
         - name: Chiamare un'API Web
           uid: blazor/call-web-api
-        - name: Hosting e distribuzione
+        - name: Ospitare e distribuire
           items:
             - name: Panoramica
               uid: host-and-deploy/blazor/index
@@ -507,7 +507,7 @@
         - name: Informazioni di riferimento sulle API JavaScript
           href: /javascript/api/?view=signalr-js-latest
           displayName: signalr
-    - name: Hosting e ridimensionamento
+    - name: Host e scalabilità
       displayName: signalr
       items:
         - name: Panoramica
@@ -661,13 +661,13 @@
           href: /azure/visual-studio/vs-storage-aspnet5-getting-started-queues?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
         - name: Archiviazione - Tabelle
           href: /azure/visual-studio/vs-storage-aspnet5-getting-started-tables?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
-- name: Hosting e distribuzione
+- name: Ospitare e distribuire
   displayName: publish
   items:
     - name: Panoramica
       displayName: 'azure, deploy, publish'
       uid: host-and-deploy/index
-    - name: Host nel Servizio app di Azure
+    - name: Servizio app di Azure
       displayName: 'deploy, publish'
       items:
         - name: Panoramica
@@ -717,7 +717,7 @@
         - name: Passaggi successivi
           displayName: 'azure, deploy, publish'
           uid: azure/devops/next-steps
-    - name: Host in Windows con IIS
+    - name: IIS
       displayName: 'deploy, publish'
       items:
         - name: Panoramica
@@ -749,16 +749,16 @@
     - name: HTTP.sys
       displayName: 'deploy, publish, server'
       uid: fundamentals/servers/httpsys
-    - name: Host in un servizio Windows
+    - name: Servizio Windows
       displayName: 'deploy, publish'
       uid: host-and-deploy/windows-service
-    - name: Host in Linux con Nginx
+    - name: Linux con Nginx
       displayName: 'deploy, publish'
       uid: host-and-deploy/linux-nginx
-    - name: Host in Linux con Apache
+    - name: Linux con Apache
       displayName: 'deploy, publish'
       uid: host-and-deploy/linux-apache
-    - name: Host in Docker
+    - name: Docker
       displayName: 'deploy, publish'
       items:
         - name: Panoramica
@@ -779,7 +779,7 @@
     - name: Configurazione di proxy e bilanciamento del carico
       displayName: 'deploy, publish'
       uid: host-and-deploy/proxy-load-balancer
-    - name: Hosting in una Web farm
+    - name: Web farm
       displayName: 'deploy, publish'
       uid: host-and-deploy/web-farm
     - name: Profili di pubblicazione di Visual Studio
@@ -809,7 +809,7 @@
   items:
     - name: Panoramica
       uid: security/index
-    - name: Autenticazione
+    - name: Authentication
       items:
         - name: Introduzione all'identità
           uid: security/authentication/identity
