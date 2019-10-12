@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 09/26/2019
 uid: performance/performance-best-practices
-ms.openlocfilehash: a2952f5234cdef7f749a1af8dd4adcb887290629
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: 3484a0233a0d56811235192c4b64aa9296e72b58
+ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259781"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72289076"
 ---
 # <a name="aspnet-core-performance-best-practices"></a>Procedure consigliate per le prestazioni ASP.NET Core
 
@@ -178,10 +178,7 @@ Il codice precedente legge in modo asincrono l'intero corpo della richiesta HTTP
 
 [!code-csharp[](performance-best-practices/samples/3.0/Controllers/MyFirstController.cs?name=snippet3)]
 
-Il codice precedente legge in modo asincrono l'intero corpo della richiesta HTTP in memoria.
-
-> [!WARNING]
-> Se la richiesta è di grandi dimensioni, la lettura dell'intero corpo della richiesta HTTP in memoria potrebbe causare una condizione di memoria insufficiente. La memoria insufficiente può causare un attacco Denial of Service.  Per altre informazioni, vedere evitare di leggere i corpi delle [richieste di grandi dimensioni o i corpi di risposta in memoria](#arlb) in questo documento.
+Il codice precedente deserializza in modo asincrono il corpo della richiesta in un C# oggetto.
 
 ## <a name="prefer-readformasync-over-requestform"></a>Preferisci ReadFormAsync su request. Form
 
@@ -265,7 +262,7 @@ Il codice precedente acquisisce spesso un valore null o errato `HttpContext` nel
 
 `HttpContext` è valido solo se nella pipeline ASP.NET Core è presente una richiesta HTTP attiva. L'intera pipeline di ASP.NET Core è una catena asincrona di delegati che esegue tutte le richieste. Quando il `Task` restituito da questa catena viene completato, il `HttpContext` viene riciclato.
 
-**Non eseguire questa operazione:** Nell'esempio seguente viene utilizzato `async void`:
+**Non eseguire questa operazione:** Nell'esempio seguente viene utilizzato `async void` che rende il completamento della richiesta HTTP quando viene raggiunto il primo `await`:
 
 * Si tratta **sempre** di una procedura non valida nelle app ASP.NET Core.
 * Accede al `HttpResponse` dopo il completamento della richiesta HTTP.

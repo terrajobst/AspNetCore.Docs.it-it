@@ -7,6 +7,7 @@ ASP.NET Core offre i vantaggi seguenti:
 * Possibilità di sviluppo ed esecuzione in Windows, macOS e Linux.
 * Open-source e [incentrato sulle community](https://live.asp.net/).
 * Integrazione di [moderni framework lato client](xref:blazor/index) e di flussi di lavoro di sviluppo.
+* Supporto per l'hosting di servizi RPC (Remote Procedure Call) con [gRPC](xref:grpc/index).
 * Un [sistema di configurazione](xref:fundamentals/configuration/index) basato sull'ambiente, pronto per il cloud.
 * [Inserimento delle dipendenze](xref:fundamentals/dependency-injection) incorporato.
 * Una pipeline di richieste HTTP leggera, [ad alte prestazioni](https://github.com/aspnet/benchmarks) e modulare.

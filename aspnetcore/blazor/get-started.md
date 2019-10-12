@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/25/2019
 uid: blazor/get-started
-ms.openlocfilehash: 5aec91eff7de0732a47fec1aafa5e094c89c37a4
-ms.sourcegitcommit: 14b25156e34c82ed0495b4aff5776ac5b1950b5e
+ms.openlocfilehash: ef9113dbfdbbd5920c4358cdac0c77c60f40b7c8
+ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71295438"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72288792"
 ---
 # <a name="get-started-with-aspnet-core-blazor"></a>Introduzione a ASP.NET Core Blazor
 
@@ -38,11 +38,11 @@ Introduzione a Blazor:
 
    2 \. Creare un nuovo progetto.
 
-   3 \. Selezionare **app Blazer**. Scegliere **Avanti**.
+   3 \. Selezionare **app Blazer**. Selezionare **Avanti**.
 
-   4 \. Specificare il nome di un progetto nel campo **Nome progetto** oppure accettare il nome predefinito. Confermare che la voce relativa al **percorso** sia corretta o specificare un percorso per il progetto. Scegliere **Crea**.
+   4 \. Specificare il nome di un progetto nel campo **Nome progetto** oppure accettare il nome predefinito. Confermare che la voce relativa al **percorso** sia corretta o specificare un percorso per il progetto. Selezionare **Create**.
 
-   5 \. Per un'esperienza di webassembly blazer, scegliere il modello **app Webassembly Blazer** . Per un'esperienza del server blazer, scegliere il modello di **app del server Blazer** . Scegliere **Crea**. Per informazioni sui due modelli di hosting Blazor, *Server Blazor* e *webassembly Blazor*, vedere <xref:blazor/hosting-models>.
+   5 \. Per un'esperienza di webassembly blazer, scegliere il modello **app Webassembly Blazer** . Per un'esperienza del server blazer, scegliere il modello di **app del server Blazer** . Selezionare **Create**. Per informazioni sui due modelli di hosting Blazor, *Server Blazor* e *webassembly Blazor*, vedere <xref:blazor/hosting-models>.
 
    6 \. Premere **F5** per eseguire l'app.
 
@@ -73,7 +73,7 @@ Introduzione a Blazor:
 
    5 \. Per un progetto server blazer, l'IDE richiede l'aggiunta di asset per compilare ed eseguire il debug del progetto. Selezionare **Sì**.
 
-   6 \. Se si usa un'app del server blazer, eseguire l'app usando il debugger Visual Studio Code. Se si usa un'app webassembly blazer, `dotnet run` eseguire dalla cartella del progetto dell'app.
+   6 \. Se si usa un'app del server blazer, eseguire l'app usando il debugger Visual Studio Code. Se si usa un'app webassembly blazer, eseguire `dotnet run` dalla cartella del progetto dell'app.
 
    7 \. In un browser passare a `https://localhost:5001`.
 
@@ -127,47 +127,47 @@ Nelle schede della barra laterale sono disponibili più pagine:
 * Counter
 * Recuperare i dati
 
-Nella pagina Counter selezionare il pulsante **Click me** per incrementare il contatore senza un aggiornamento della pagina. Per incrementare un contatore in una pagina Web è in genere necessario scrivere JavaScript, ma i componenti Razor offrono C#un approccio migliore con.
+Nella pagina Counter selezionare il pulsante **Click me** per incrementare il contatore senza un aggiornamento della pagina. Per incrementare un contatore in una pagina Web è in genere necessario scrivere JavaScript, ma con blazer C#è possibile usare.
 
 *Pages/Counter.razor*:
 
 [!code-cshtml[](get-started/samples_snapshot/3.x/Counter1.razor?highlight=7,12-15)]
 
-Una richiesta `/counter` di nel browser, come specificato `@page` dalla direttiva nella parte superiore, determina il rendering del `Counter` contenuto da parte del componente. I componenti eseguono il rendering in una rappresentazione in memoria della struttura di rendering che può quindi essere utilizzata per aggiornare l'interfaccia utente in modo flessibile ed efficiente.
+Una richiesta per `/counter` nel browser, come specificato dalla direttiva `@page` nella parte superiore, causa il rendering del contenuto da parte del componente `Counter`. I componenti eseguono il rendering in una rappresentazione in memoria della struttura di rendering che può quindi essere utilizzata per aggiornare l'interfaccia utente in modo flessibile ed efficiente.
 
 Ogni volta che viene selezionato il pulsante **Click me** :
 
-* L' `onclick` evento viene generato.
+* Viene generato l'evento `onclick`.
 * Viene chiamato il metodo `IncrementCount` .
-* `currentCount` Viene incrementato.
+* Il `currentCount` viene incrementato.
 * Il rendering del componente viene eseguito nuovamente.
 
 Il runtime confronta il nuovo contenuto con il contenuto precedente e applica solo il contenuto modificato al Document Object Model (DOM).
 
-Aggiungere un componente a un altro componente usando la sintassi HTML. Ad esempio, aggiungere il `Counter` componente alla Home page dell'app aggiungendo un `<Counter />` elemento al `Index` componente.
+Aggiungere un componente a un altro componente usando la sintassi HTML. Ad esempio, aggiungere il componente `Counter` alla Home page dell'app aggiungendo un elemento `<Counter />` al componente `Index`.
 
 *Pages/Index.razor*:
 
 [!code-cshtml[](get-started/samples_snapshot/3.x/Index1.razor?highlight=7)]
 
-Eseguire l'app. La Home page presenta il proprio contatore fornito dal `Counter` componente.
+Eseguire l'app. Il contatore della Home page è fornito dal componente `Counter`.
 
-I parametri del componente vengono specificati utilizzando attributi o [contenuto figlio](xref:blazor/components#child-content), che consentono di impostare le proprietà per il componente figlio. Per aggiungere un parametro al `Counter` componente, aggiornare il `@code` blocco del componente:
+I parametri del componente vengono specificati utilizzando attributi o [contenuto figlio](xref:blazor/components#child-content), che consentono di impostare le proprietà per il componente figlio. Per aggiungere un parametro al componente `Counter`, aggiornare il blocco `@code` del componente:
 
-* Aggiungere una proprietà pubblica per `IncrementAmount` con un `[Parameter]` attributo.
+* Aggiungere una proprietà pubblica per `IncrementAmount` con un attributo `[Parameter]`.
 * Modificare il metodo `IncrementCount` per usare `IncrementAmount` quando si aumenta il valore di `currentCount`.
 
 *Pages/Counter.razor*:
 
 [!code-cshtml[](get-started/samples_snapshot/3.x/Counter2.razor?highlight=12-13,17)]
 
-`IncrementAmount` Specificare `<Counter>` nell'elemento del componente usando un attributo. `Index`
+Specificare il `IncrementAmount` nell'elemento `<Counter>` del componente `Index` usando un attributo.
 
 *Pages/Index.razor*:
 
 [!code-cshtml[](get-started/samples_snapshot/3.x/Index2.razor?highlight=7)]
 
-Eseguire l'app. Il `Index` componente dispone di un contatore specifico che aumenta di dieci ogni volta che viene selezionato il pulsante **Click me** . Il `Counter` componente (*Counter. Razor*) a `/counter` continua a incrementare di uno.
+Eseguire l'app. Il componente `Index` ha il proprio contatore che viene incrementato di dieci ogni volta che viene selezionato il pulsante **Click me** . Il componente `Counter` (*Counter. Razor*) in `/counter` continua a incrementare di uno.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

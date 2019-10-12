@@ -1,19 +1,19 @@
 ---
-title: Confrontare i servizi gRPC con le API HTTP
+title: Confrontare servizi gRPC e API HTTP
 author: jamesnk
 description: Informazioni sul confronto tra gRPC e API HTTP e gli scenari consigliati.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
 ms.date: 09/25/2019
 uid: grpc/comparison
-ms.openlocfilehash: 935078d890998fe6af366e3f6a7bf21f53c20cf7
-ms.sourcegitcommit: a7813a776809a5029c94aa503ee71994f156231f
+ms.openlocfilehash: 5c3ea7a78401e6483425fa0774b3051b3d20f516
+ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71267723"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72289043"
 ---
-# <a name="compare-grpc-services-with-http-apis"></a>Confrontare i servizi gRPC con le API HTTP
+# <a name="compare-grpc-services-with-http-apis"></a>Confrontare servizi gRPC e API HTTP
 
 Di [James Newton-King](https://twitter.com/jamesnk)
 
@@ -31,7 +31,7 @@ La tabella seguente offre un confronto di alto livello tra le funzionalità tra 
 | Prescriptiveness | [Specifica Strict](#strict-specification)      | Sciolto. Qualsiasi HTTP è valido.      |
 | Flusso        | [Client, server, bidirezionale](#streaming)       | Client, server                |
 | Supporto browser  | [No (richiede grpc-Web)](#limited-browser-support) | Yes                           |
-| Sicurezza         | Trasporto (HTTPS)                                  | Trasporto (HTTPS)             |
+| Security         | Trasporto (HTTPS)                                  | Trasporto (HTTPS)             |
 | Generazione di codice client | [Sì](#code-generation)                      | OpenAPI + strumenti di terze parti |
 
 ## <a name="grpc-strengths"></a>punti di forza di gRPC
@@ -55,7 +55,7 @@ Condividendo il file con *estensione proto* tra il server e il client, i messagg
 
 Una specifica formale per l'API HTTP con JSON non esiste. Gli sviluppatori discutono del formato migliore di URL, verbi HTTP e codici di risposta.
 
-La [specifica gRPC](https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md) è prescrittiva sul formato che deve essere seguito da un servizio gRPC. gRPC Elimina il dibattito e Risparmia tempo per gli sviluppatori perché gPRC è coerente tra piattaforme e implementazioni.
+La [specifica gRPC](https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md) è prescrittiva sul formato che deve essere seguito da un servizio gRPC. gRPC Elimina il dibattito e Risparmia tempo per gli sviluppatori perché gRPC è coerente tra piattaforme e implementazioni.
 
 ### <a name="streaming"></a>Flusso
 
@@ -80,8 +80,8 @@ gRPC è particolarmente adatto agli scenari seguenti:
 
 * **Microservizi** &ndash; gRPC è progettato per la comunicazione con bassa latenza e velocità effettiva elevata. gRPC è ideale per i microservizi leggeri in cui l'efficienza è fondamentale.
 * **Comunicazione in tempo reale da punto a punto** &ndash; gRPC offre un supporto eccellente per lo streaming bidirezionale. i servizi gRPC possono eseguire il push dei messaggi in tempo reale senza polling.
-* **Ambienti poliglotti** &ndash; gli strumenti gRPC supportano tutti i linguaggi di sviluppo più diffusi, rendendo gRPC una scelta ottimale per gli ambienti multilingue.
-* **Ambienti vincolati alla rete** &ndash; i messaggi gRPC vengono serializzati con protobuf, un formato di messaggio leggero. Un messaggio gRPC è sempre più piccolo di un messaggio JSON equivalente.
+* **Ambienti poliglotti** &ndash; strumenti gRPC supporta tutti i linguaggi di sviluppo più diffusi, rendendo gRPC una scelta ottimale per gli ambienti multilingue.
+* Gli **ambienti vincolati alla rete** &ndash; i messaggi gRPC vengono serializzati con protobuf, un formato di messaggio leggero. Un messaggio gRPC è sempre più piccolo di un messaggio JSON equivalente.
 
 ## <a name="grpc-weaknesses"></a>punti deboli gRPC
 
@@ -105,9 +105,9 @@ Sono disponibili funzionalità quali [Reflection server](https://github.com/grpc
 
 Gli altri Framework sono consigliati rispetto a gRPC negli scenari seguenti:
 
-* **API accessibili dal browser** &ndash; gRPC non è completamente supportato nel browser. gRPC-Web può offrire il supporto del browser, ma presenta limitazioni e introduce un proxy server.
-* **Trasmissione della comunicazione in tempo reale** &ndash; gRPC supporta la comunicazione in tempo reale tramite lo streaming, ma il concetto di trasmissione di un messaggio alle connessioni registrate non esiste. Ad esempio, in uno scenario di chat room in cui i nuovi messaggi di chat devono essere inviati a tutti i client nella chat room, ogni chiamata gRPC è necessaria per trasmettere singolarmente nuovi messaggi di chat al client. [SignalR](xref:signalr/introduction) è un Framework utile per questo scenario. SignalR ha il concetto di connessioni permanenti e il supporto incorporato per la trasmissione di messaggi.
-* **Comunicazione tra processi** &ndash; Un processo deve ospitare un server http/2 per accettare le chiamate gRPC in ingresso. Per Windows, le [pipe](/dotnet/standard/io/pipe-operations) di comunicazione tra processi sono un metodo di comunicazione rapido e leggero.
+* Le **API browser accessibili** &ndash; gRPC non sono completamente supportate nel browser. gRPC-Web può offrire il supporto del browser, ma presenta limitazioni e introduce un proxy server.
+* La **comunicazione in tempo reale** &ndash; gRPC supporta la comunicazione in tempo reale tramite trasmissione, ma il concetto di trasmissione di un messaggio alle connessioni registrate non esiste. Ad esempio, in uno scenario di chat room in cui i nuovi messaggi di chat devono essere inviati a tutti i client nella chat room, ogni chiamata gRPC è necessaria per trasmettere singolarmente nuovi messaggi di chat al client. [SignalR](xref:signalr/introduction) è un Framework utile per questo scenario. SignalR ha il concetto di connessioni permanenti e il supporto incorporato per la trasmissione di messaggi.
+* **Comunicazione tra processi** &ndash; un processo deve ospitare un server http/2 per accettare le chiamate gRPC in ingresso. Per Windows, le [pipe](/dotnet/standard/io/pipe-operations) di comunicazione tra processi sono un metodo di comunicazione rapido e leggero.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

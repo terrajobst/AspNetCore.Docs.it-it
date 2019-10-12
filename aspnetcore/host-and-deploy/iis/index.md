@@ -5,14 +5,14 @@ description: Informazioni su come ospitare app ASP.NET Core in Windows Server In
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/07/2019
+ms.date: 10/11/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 8131e9b8e6a3bb3643f41a9be57c5bd2e511476c
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: c11a46220f0055f4d3d14c84065281f642a4cbe7
+ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007362"
+ms.lasthandoff: 10/12/2019
+ms.locfileid: "72289030"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host ASP.NET Core in Windows con IIS
 
@@ -408,7 +408,7 @@ I file nella cartella di distribuzione sono bloccati durante l'esecuzione dell'a
 
 * Usare Distribuzione Web e fare riferimento a `Microsoft.NET.Sdk.Web` nel file di progetto. Nella radice della directory dell'app web viene posizionato un file *app_offline.htm*. Quando il file è presente, il modulo ASP.NET Core arresta normalmente l'app e rende disponibile il file *app_offline.htm* durante la distribuzione. Per altre informazioni, vedere la [Guida di riferimento per la configurazione del modulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module#app_offlinehtm).
 * Arrestare manualmente il pool di applicazioni in Gestione IIS sul server.
-* Usare PowerShell per eliminare *app_offline.html* (è richiesto PowerShell 5 o versione successiva):
+* Usare PowerShell per eliminare *App_offline. htm* (richiede PowerShell 5 o versione successiva):
 
   ```PowerShell
   $pathToApp = 'PATH_TO_APP'
