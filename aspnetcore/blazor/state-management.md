@@ -102,7 +102,7 @@ Per informazioni sulla definizione di modelli URL con `@page` la direttiva, <xre
 Per i dati temporanei che l'utente sta creando attivamente, un archivio di `localStorage` backup comune è costituito dalle raccolte e `sessionStorage` del browser. L'app non è necessaria per gestire o cancellare lo stato archiviato se il circuito viene abbandonato, il che rappresenta un vantaggio rispetto all'archiviazione sul lato server.
 
 > [!NOTE]
-> "Lato client" in questa sezione si riferisce agli scenari lato client nel browser, non al [modello di hosting Webassembly Blazer](xref:blazor/hosting-models#blazor-webassembly). `localStorage`e `sessionStorage` possono essere usati nelle app webassembly blazer, ma solo scrivendo codice personalizzato o usando un pacchetto di terze parti.
+> "Lato client" in questa sezione si riferisce agli scenari lato client nel browser, non al [modello di hosting Webassembly Blazor](xref:blazor/hosting-models#blazor-webassembly). `localStorage`e `sessionStorage` possono essere usati nelle app webassembly Blazor, ma solo scrivendo codice personalizzato o usando un pacchetto di terze parti.
 
 `localStorage`e `sessionStorage` si differenziano nel modo seguente:
 
