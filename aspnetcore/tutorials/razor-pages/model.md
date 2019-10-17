@@ -5,12 +5,12 @@ description: Scoprire come aggiungere classi per la gestione dei film in un data
 ms.author: riande
 ms.date: 9/22/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: dcbcf37dfd95d784ebe249ec6e9e4184a8853d3d
-ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
+ms.openlocfilehash: 4f8b80cb51bd10eb3b136a780dc123c41d61c0a5
+ms.sourcegitcommit: e71b6a85b0e94a600af607107e298f932924c849
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71187192"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72519081"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Aggiungere un modello a un'app Razor Pages in ASP.NET Core
 
@@ -36,7 +36,7 @@ Fare clic con il pulsante destro del mouse sulla cartella *Models*. Selezionare 
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-* Aggiungere una cartella denominata *Models*.
+* Aggiungere una cartella denominata *Modelli*.
 * Aggiungere una classe alla cartella *Models* denominata *Movie.cs*.
 
 [!INCLUDE [model 1b](~/includes/RP/model1b.md)]
@@ -102,13 +102,13 @@ Il file *appsettings.json* è stato aggiornato con la stringa di connessione usa
    dotnet tool install --global dotnet-aspnet-codegenerator
    ```
 
-* **Per Windows**: Eseguire il comando seguente:
+* **Per Windows**: eseguire il comando seguente:
 
   ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages\Movies --referenceScriptLibraries
   ```
 
-* **Per macOS e Linux**: Eseguire il comando seguente:
+* **Per MacOS e Linux**: eseguire il comando seguente:
 
   ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
@@ -141,7 +141,7 @@ Il file *appsettings.json* è stato aggiornato con la stringa di connessione usa
 
 Il processo di scaffolding crea e aggiorna i file seguenti:
 
-* *Pages/Movies*: Crea, Elimina, Dettagli, Modifica e Indice.
+* *Pages/Movies*: pagine Create (Crea), Delete (Elimina), Details (Dettagli), Edit (Modifica) e Index (Indice).
 * *Data/RazorPagesMovieContext.cs*
 
 ### <a name="updated"></a>File aggiornati
@@ -154,7 +154,7 @@ I file creati e aggiornati sono illustrati nella sezione successiva.
 
 Il processo di scaffolding crea i file seguenti:
 
-* *Pages/Movies*: Crea, Elimina, Dettagli, Modifica e Indice.
+* *Pages/Movies*: pagine Create (Crea), Delete (Elimina), Details (Dettagli), Edit (Modifica) e Index (Indice).
 
 I file creati sono illustrati nella sezione successiva.
 
@@ -175,7 +175,7 @@ Dal menu **Strumenti** selezionare **Gestione pacchetti NuGet** >  **Console di 
 
   ![Menu della Console di Gestione pacchetti](../first-mvc-app/adding-model/_static/pmc.png)
 
-Nella Console di Gestione pacchetti immettere i comandi seguenti:
+In PMC, immettere i comandi seguenti:
 
 ```PMC
 Add-Migration InitialCreate
@@ -192,13 +192,13 @@ Update-Database
 
 ---
 
-I comandi precedenti generano l'avviso seguente: "No type was specified for the decimal column 'Price' on entity type 'Movie'. (Nessun tipo specificato per la colonna decimale 'Price' nel tipo di entità 'Movie'). This will cause values to be silently truncated if they do not fit in the default precision and scale. (I valori saranno quindi automaticamente troncati se non rispettano la precisione e la scala predefinite). Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'. (Specificare in modo esplicito il tipo di colonna di SQL Server che può supportare tutti i valori usando 'HasColumnType()')"
+I comandi precedenti generano l'avviso seguente: "nessun tipo specificato per la colonna decimale ' Price ' nel tipo di entità' Movie '. This will cause values to be silently truncated if they do not fit in the default precision and scale. (I valori saranno quindi automaticamente troncati se non rispettano la precisione e la scala predefinite). Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'. (Specificare in modo esplicito il tipo di colonna di SQL Server che può supportare tutti i valori usando 'HasColumnType()')"
 
 È possibile ignorare tale avviso. Verrà risolto in un'esercitazione successiva.
 
-Il comando `ef migrations add InitialCreate` genera un codice per creare lo schema del database iniziale. Lo schema è basato sul modello specificato in `DbContext` (nel file *RazorPagesMovieContext.cs*). L'argomento `InitialCreate` viene usato per denominare le migrazioni. È possibile usare qualsiasi nome, ma per convenzione viene selezionato un nome che descrive la migrazione.
+Il comando Migrations genera il codice per creare lo schema del database iniziale. Lo schema è basato sul modello specificato in `DbContext`. L'argomento `InitialCreate` viene usato per denominare le migrazioni. È possibile usare qualsiasi nome, ma per convenzione viene selezionato un nome che descrive la migrazione.
 
-Il comando `ef database update` esegue il metodo `Up` nel file *Migrations/\<time-stamp>_InitialCreate.cs*. Il metodo `Up` crea il database.
+Il comando `update` esegue il metodo `Up` nelle migrazioni che non sono state applicate. In questo caso, `update` esegue il metodo `Up` in *Migrations/\<Simbolo-stamp > file _InitialCreate. cs* , che crea il database.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -230,13 +230,9 @@ Esaminare il metodo `Up`.
 
 ---
 
-Il comando `Add-Migration` genera un codice per creare lo schema del database iniziale. Lo schema è basato sul modello specificato in `RazorPagesMovieContext` (nel file *Data/RazorPagesMovieContext.cs*). L'argomento `Initial` viene usato per denominare le migrazioni. È possibile usare qualsiasi nome, ma per convenzione viene usato un nome che descrive la migrazione. Per altre informazioni, vedere <xref:data/ef-mvc/migrations>.
-
-Il comando `Update-Database` esegue il metodo `Up` nel file *Migrations/{time-stamp}_InitialCreate.cs*, che crea il database.
-
 <a name="test"></a>
 
-### <a name="test-the-app"></a>Eseguire il test dell'app
+### <a name="test-the-app"></a>Eseguire il test dell'applicazione
 
 * Eseguire l'app e accodare `/Movies` all'URL nel browser (`http://localhost:port/movies`).
 
@@ -258,13 +254,13 @@ Non è stato eseguita la [migrazione](#pmc).
 
 * Eseguire il test dei collegamenti **Modifica**, **Dettagli** e **Elimina**.
 
-L'esercitazione successiva illustra i file creati tramite scaffolding.
+L'esercitazione successiva illustra i file creati dallo scaffolding.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 > [!div class="step-by-step"]
 > [Precedente: Introduzione](xref:tutorials/razor-pages/razor-pages-start)
-> [Avanti: Pagine Razor create tramite scaffolding](xref:tutorials/razor-pages/page)
+> [Successivo: Pagine Razor create tramite scaffolding](xref:tutorials/razor-pages/page)
 
 ::: moniker-end
 
@@ -289,7 +285,7 @@ Fare clic con il pulsante destro del mouse sulla cartella *Models*. Selezionare 
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-* Aggiungere una cartella denominata *Models*.
+* Aggiungere una cartella denominata *Modelli*.
 * Aggiungere una classe alla cartella *Models* denominata *Movie.cs*.
 
 [!INCLUDE [model 1b](~/includes/RP/model1b.md)]
@@ -359,13 +355,13 @@ Il file *appsettings.json* è stato aggiornato con la stringa di connessione usa
    dotnet tool install --global dotnet-aspnet-codegenerator
    ```
 
-* **Per Windows**: Eseguire il comando seguente:
+* **Per Windows**: eseguire il comando seguente:
 
   ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages\Movies --referenceScriptLibraries
   ```
 
-* **Per macOS e Linux**: Eseguire il comando seguente:
+* **Per MacOS e Linux**: eseguire il comando seguente:
 
   ```dotnetcli
   dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
@@ -396,7 +392,7 @@ Il processo di scaffolding crea e aggiorna i file seguenti:
 
 ### <a name="files-created"></a>File creati
 
-* *Pages/Movies*: Crea, Elimina, Dettagli, Modifica e Indice.
+* *Pages/Movies*: pagine Create (Crea), Delete (Elimina), Details (Dettagli), Edit (Modifica) e Index (Indice).
 * *Data/RazorPagesMovieContext.cs*
 
 ### <a name="file-updated"></a>File aggiornato
@@ -420,12 +416,16 @@ Dal menu **Strumenti** selezionare **Gestione pacchetti NuGet** >  **Console di 
 
   ![Menu della Console di Gestione pacchetti](../first-mvc-app/adding-model/_static/pmc.png)
 
-Nella Console di Gestione pacchetti immettere i comandi seguenti:
+In PMC, immettere i comandi seguenti:
 
-```PMC
+```Powershell
 Add-Migration Initial
 Update-Database
 ```
+
+Il comando `Add-Migration` genera un codice per creare lo schema del database iniziale. Lo schema è basato sul modello specificato in `DbContext` (nel file *RazorPagesMovieContext.cs*). L'argomento `InitialCreate` viene usato per assegnare un nome alla migrazione. È possibile usare qualsiasi nome, ma per convenzione viene usato un nome che descrive la migrazione. Per ulteriori informazioni, vedere <xref:data/ef-mvc/migrations>.
+
+Il comando `Update-Database` esegue il metodo `Up` nel file *Migrations/\<time-stamp>_InitialCreate.cs*. Il metodo `Up` crea il database.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -436,14 +436,8 @@ Update-Database
 [!INCLUDE [initial migration](~/includes/RP/model3.md)]
 
 ---
-
-I comandi precedenti generano l'avviso seguente: "No type was specified for the decimal column 'Price' on entity type 'Movie'. (Nessun tipo specificato per la colonna decimale 'Price' nel tipo di entità 'Movie'). This will cause values to be silently truncated if they do not fit in the default precision and scale. (I valori saranno quindi automaticamente troncati se non rispettano la precisione e la scala predefinite). Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'. (Specificare in modo esplicito il tipo di colonna di SQL Server che può supportare tutti i valori usando 'HasColumnType()')"
-
-È possibile ignorare tale avviso. Verrà risolto in un'esercitazione successiva.
-
-Il comando `ef migrations add InitialCreate` genera un codice per creare lo schema del database iniziale. Lo schema è basato sul modello specificato in `DbContext` (nel file *RazorPagesMovieContext.cs*). L'argomento `InitialCreate` viene usato per denominare le migrazioni. È possibile usare qualsiasi nome, ma per convenzione viene selezionato un nome che descrive la migrazione.
-
-Il comando `ef database update` esegue il metodo `Up` nel file *Migrations/\<time-stamp>_InitialCreate.cs*. Il metodo `Up` crea il database.
+> [!NOTE]
+> I comandi precedenti generano l'avviso seguente: "*nessun tipo specificato per la colonna decimale ' Price ' nel tipo di entità' Movie '. In questo modo i valori verranno troncati automaticamente se non rientrano nella precisione e nella scala predefinite. Specificare in modo esplicito il tipo di colonna di SQL Server in grado di contenere tutti i valori utilizzando ' HasColumnType ()'.* È possibile ignorare l'avviso, che verrà risolto in un'esercitazione successiva.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -475,13 +469,9 @@ Esaminare il metodo `Up`.
 
 ---
 
-Il comando `Add-Migration` genera un codice per creare lo schema del database iniziale. Lo schema è basato sul modello specificato in `RazorPagesMovieContext` (nel file *Data/RazorPagesMovieContext.cs*). L'argomento `Initial` viene usato per denominare le migrazioni. È possibile usare qualsiasi nome, ma per convenzione viene usato un nome che descrive la migrazione. Per altre informazioni, vedere <xref:data/ef-mvc/migrations>.
-
-Il comando `Update-Database` esegue il metodo `Up` nel file *Migrations/{time-stamp}_InitialCreate.cs*, che crea il database.
-
 <a name="test"></a>
 
-### <a name="test-the-app"></a>Eseguire il test dell'app
+### <a name="test-the-app"></a>Eseguire il test dell'applicazione
 
 * Eseguire l'app e accodare `/Movies` all'URL nel browser (`http://localhost:port/movies`).
 
@@ -503,12 +493,12 @@ Non è stato eseguita la [migrazione](#pmc).
 
 * Eseguire il test dei collegamenti **Modifica**, **Dettagli** e **Elimina**.
 
-L'esercitazione successiva illustra i file creati tramite scaffolding.
+L'esercitazione successiva illustra i file creati dallo scaffolding.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 > [!div class="step-by-step"]
 > [Precedente: Introduzione](xref:tutorials/razor-pages/razor-pages-start)
-> [Avanti: Pagine Razor create tramite scaffolding](xref:tutorials/razor-pages/page)
+> [Successivo: Pagine Razor create tramite scaffolding](xref:tutorials/razor-pages/page)
 
 ::: moniker-end

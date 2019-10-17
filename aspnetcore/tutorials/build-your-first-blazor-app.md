@@ -5,14 +5,14 @@ description: Istruzioni dettagliate per creare un'app Blazor.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/15/2019
+ms.date: 10/15/2019
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: 10feb5467a6a6b5a43e0df739fa72902af9854da
-ms.sourcegitcommit: e5a74f882c14eaa0e5639ff082355e130559ba83
+ms.openlocfilehash: c357b324905ee3a4c9f4bd167dbbcacaf7e1bc76
+ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168368"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72391212"
 ---
 # <a name="build-your-first-blazor-app"></a>Creare la prima app Blazor
 
@@ -26,7 +26,7 @@ Seguire le indicazioni contenute nell'articolo <xref:blazor/get-started> per cre
 
 ## <a name="build-components"></a>Compilare i componenti
 
-1. Passare a ognuna delle tre pagine dell'app nella cartella *Pages*: Home, Counter e Fetch data (Home, Contatore e Recupera dati). Queste pagine vengono implementate dai file dei componenti Razor *Index.razor*, *Counter.razor* e *FetchData.razor*.
+1. Passare a ognuna delle tre pagine dell'app nella cartella *pages* : Home, Counter e fetch data. Queste pagine vengono implementate dai file dei componenti Razor *Index.razor*, *Counter.razor* e *FetchData.razor*.
 
 1. Nella pagina Counter selezionare il pulsante **Click me** per incrementare il contatore senza un aggiornamento della pagina. Per incrementare un contatore in una pagina Web è in genere richiesta la scrittura di codice JavaScript, ma Blazor offre un approccio migliore usando C#.
 
@@ -59,7 +59,7 @@ Includere un componente in un altro componente usando una sintassi HTML.
 
 1. Aggiungere il componente `Counter` al componente `Index` dell'app aggiungendo un elemento `<Counter />` al componente `Index` (*Index.razor*).
 
-   Se si usa webassembly Blazor per questa esperienza, un `SurveyPrompt` componente viene utilizzato `Index` dal componente. Sostituire l'elemento `<SurveyPrompt>` con un elemento `<Counter />`. Se si usa un'app del server Blazor per questa esperienza, aggiungere l' `<Counter />` elemento `Index` al componente:
+   Se si usa webassembly blazer per questa esperienza, il componente `Index` usa un componente `SurveyPrompt`. Sostituire l'elemento `<SurveyPrompt>` con un elemento `<Counter />`. Se si usa un'app del server blazer per questa esperienza, aggiungere l'elemento `<Counter />` al componente `Index`:
 
    *Pages/Index.razor*:
 
@@ -69,11 +69,11 @@ Includere un componente in un altro componente usando una sintassi HTML.
 
 ## <a name="component-parameters"></a>Parametri del componente
 
-I componenti possono avere anche parametri, I parametri del componente vengono definiti usando proprietà pubbliche nella classe Component con `[Parameter]` l'attributo. Usare gli attributi per specificare gli argomenti per un componente nel markup.
+I componenti possono avere anche parametri, I parametri del componente vengono definiti usando proprietà pubbliche nella classe Component con l'attributo `[Parameter]`. Usare gli attributi per specificare gli argomenti per un componente nel markup.
 
 1. Aggiornare il codice C# `@code` del componente:
 
-   * Aggiungere una proprietà `IncrementAmount` pubblica con l' `[Parameter]` attributo.
+   * Aggiungere una proprietà Public `IncrementAmount` con l'attributo `[Parameter]`.
    * Modificare il metodo `IncrementCount` per usare `IncrementAmount` quando si aumenta il valore di `currentCount`.
 
    *Pages/Counter.razor*:
@@ -99,11 +99,13 @@ La direttiva `@page` all'inizio del file *Counter.razor* specifica che il compon
 
 ## <a name="dependency-injection"></a>Inserimento di dipendenze
 
-Se si utilizza un'app del server Blazor, `WeatherForecastService` il servizio viene registrato come [singleton](xref:fundamentals/dependency-injection#service-lifetimes) in `Startup.ConfigureServices`. Un'istanza del servizio è disponibile in tutte le app tramite l' [inserimento di dipendenze](xref:fundamentals/dependency-injection):
+### <a name="blazor-server-experience"></a>Esperienza del server Blazer
+
+Se si utilizza un'app del server blazer, il servizio `WeatherForecastService` viene registrato come [singleton](xref:fundamentals/dependency-injection#service-lifetimes) in `Startup.ConfigureServices`. Un'istanza del servizio è disponibile in tutte le app tramite l' [inserimento di dipendenze](xref:fundamentals/dependency-injection):
 
 [!code-csharp[](build-your-first-blazor-app/samples_snapshot/3.x/Startup.cs?highlight=5)]
 
-La `@inject` direttiva viene utilizzata per inserire l'istanza `WeatherForecastService` del servizio nel `FetchData` componente.
+La direttiva `@inject` viene utilizzata per inserire l'istanza del servizio `WeatherForecastService` nel componente `FetchData`.
 
 *Pages/FetchData.razor*:
 
@@ -113,13 +115,15 @@ Il componente `FetchData` usa il servizio inserito, come `ForecastService`, per 
 
 [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData2.razor?highlight=6)]
 
-Se si usa un'app webassembly Blazor, `HttpClient` viene inserito per ottenere i dati delle previsioni meteo dal file *Weather. JSON* nella cartella *wwwroot/Sample-Data* .
+### <a name="blazor-webassembly-experience"></a>Esperienza webassembly Blazer
+
+Se si usa un'app webassembly blazer, viene inserito `HttpClient` per ottenere i dati delle previsioni meteo dal file *Weather. JSON* nella cartella *wwwroot/Sample-Data* .
 
 *Pages/FetchData.razor*:
 
 [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData1_client.razor?highlight=7-8)]
 
-Viene usato un ciclo [\@foreach](/dotnet/csharp/language-reference/keywords/foreach-in) per eseguire il rendering di ogni istanza di previsione come riga nella tabella dei dati meteo:
+Un ciclo [@foreach](/dotnet/csharp/language-reference/keywords/foreach-in) viene usato per eseguire il rendering di ogni istanza di previsione come riga nella tabella dei dati meteorologici:
 
 [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData3.razor?highlight=11-19)]
 

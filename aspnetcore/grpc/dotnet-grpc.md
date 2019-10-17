@@ -1,23 +1,23 @@
 ---
-title: Gestire i riferimenti protobuf con DotNet-grpc
+title: Gestire i riferimenti Protobuf con dotnet-grpc
 author: juntaoluo
 description: Informazioni sull'aggiunta, l'aggiornamento, la rimozione e l'elenco di riferimenti protobuf con lo strumento globale DotNet-grpc.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
-ms.date: 09/24/2019
+ms.date: 10/17/2019
 uid: grpc/dotnet-grpc
-ms.openlocfilehash: ebd57419be24f7f4ed9765e36cf14189be8438b1
-ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
+ms.openlocfilehash: 994597c854a95bb33de1686ab025cb3744cf6845
+ms.sourcegitcommit: e71b6a85b0e94a600af607107e298f932924c849
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72290061"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72519043"
 ---
-# <a name="manage-protobuf-references-with-dotnet-grpc"></a>Gestire i riferimenti protobuf con DotNet-grpc
+# <a name="manage-protobuf-references-with-dotnet-grpc"></a>Gestire i riferimenti Protobuf con dotnet-grpc
 
 A cura di [John Luo](https://github.com/juntaoluo)
 
-`dotnet-grpc` è uno strumento globale .NET Core per la gestione dei riferimenti protobuf all'interno di un progetto gRPC .NET. Lo strumento può essere usato per aggiungere, aggiornare, rimuovere ed elencare i riferimenti a protobuf.
+`dotnet-grpc` è uno strumento globale .NET Core per la gestione dei riferimenti [protobuf (*. proto*)](xref:grpc/basics#proto-file) in un progetto gRPC .NET. Lo strumento può essere usato per aggiungere, aggiornare, rimuovere ed elencare i riferimenti a protobuf.
 
 ## <a name="installation"></a>Installazione
 
@@ -32,10 +32,10 @@ dotnet tool install -g dotnet-grpc
 `dotnet-grpc` può essere usato per aggiungere riferimenti protobuf come elementi `<Protobuf />` al file con estensione *csproj* :
 
 ```xml
-<Protobuf Include="..\Proto\count.proto" GrpcServices="Server" Link="Protos\count.proto" />
+<Protobuf Include="Protos\greet.proto" GrpcServices="Server" />
 ```
 
-I riferimenti protobuf vengono usati per generare le C# risorse del client e/o del server. Il `dotnet-grpc`tool può:
+I riferimenti protobuf vengono usati per generare le C# risorse del client e/o del server. Lo strumento `dotnet-grpc` può:
 
 * Creare un riferimento protobuf da file locali su disco.
 * Creare un riferimento protobuf da un file remoto specificato da un URL.
@@ -58,11 +58,11 @@ Se i file si trovano all'esterno della directory del progetto, viene aggiunto un
 dotnet grpc add-file [options] <files>...
 ```
 
-#### <a name="arguments"></a>Argomenti
+#### <a name="arguments"></a>argomenti
 
 | Argomento | Descrizione |
 |-|-|
-| files | Il file protobuf fa riferimento a. Può trattarsi di un percorso di glob per i file protobuf locali. |
+| file | Il file protobuf fa riferimento a. Può trattarsi di un percorso di glob per i file protobuf locali. |
 
 #### <a name="options"></a>Opzioni
 
@@ -83,7 +83,7 @@ Il comando `add-url` viene usato per aggiungere un file remoto specificato da un
 dotnet-grpc add-url [options] <url>
 ```
 
-#### <a name="arguments"></a>Argomenti
+#### <a name="arguments"></a>argomenti
 
 | Argomento | Descrizione |
 |-|-|
@@ -112,7 +112,7 @@ Il comando `remove` viene usato per rimuovere i riferimenti protobuf dal file co
 dotnet-grpc remove [options] <references>...
 ```
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>argomenti
 
 | Argomento | Descrizione |
 |-|-|
@@ -139,7 +139,7 @@ Se è necessario un aggiornamento, lo strumento sostituisce sempre il file local
 dotnet-grpc refresh [options] [<references>...]
 ```
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>argomenti
 
 | Argomento | Descrizione |
 |-|-|

@@ -3,14 +3,14 @@ title: Introduzione ad ASP.NET Core MVC
 author: rick-anderson
 description: Informazioni introduttive su ASP.NET Core MVC.
 ms.author: riande
-ms.date: 08/05/2019
+ms.date: 10/16/2019
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: 52d8fc631075408991d3a2e62cdaccf681c5927f
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: f07afb15c0a31110c20d96a5db5c02030cefe5d5
+ms.sourcegitcommit: e71b6a85b0e94a600af607107e298f932924c849
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082143"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72519100"
 ---
 # <a name="get-started-with-aspnet-core-mvc"></a>Introduzione ad ASP.NET Core MVC
 
@@ -34,7 +34,7 @@ Al termine di queste operazioni si ottiene un'app che può gestire e visualizzar
 
 [!INCLUDE[](~/includes/mvc-intro/download.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -66,7 +66,7 @@ Al termine di queste operazioni si ottiene un'app che può gestire e visualizzar
 
 * Selezionare **Applicazione Web (MVC)** e quindi selezionare **Crea**.
 
-![Finestra di dialogo Nuovo progetto, .NET Core nel riquadro sinistro, Web ASP.NET Core ](start-mvc/_static/new_project22-21.png)
+![Finestra di dialogo Nuovo progetto, .NET Core nel riquadro sinistro, Web ASP.NET Core ](start-mvc/_static/new_project30.png)
 
 Per il progetto MVC appena creato Visual Studio ha usato il modello predefinito. Ora è possibile disporre di un'app funzionante immettendo un nome progetto e selezionando alcune opzioni. Si tratta di un progetto iniziale di base.
 
@@ -83,10 +83,10 @@ Nell'esercitazione si presuppone una familarità con Visual Studio Code. Vedere 
    code -r MvcMovie
    ```
 
-  * Viene visualizzata una finestra di dialogo con **Required assets to build and debug are missing from 'MvcMovie'. Add them?** (Risorse di compilazione e debug mancanti da "RazorPagesMovie". Aggiungerle?)  Selezionare **Sì**.
+  * Viene visualizzata una finestra di dialogo con le **risorse necessarie per la compilazione e il debug non è presente in ' MvcMovie '. Aggiungerli?**  Selezionare **Sì**.
 
   * `dotnet new mvc -o MvcMovie`: crea un nuovo progetto ASP.NET Core MVC nella cartella *MvcMovie*.
-  * `code -r MvcMovie`: carica il file di progetto *MvcMovie.csproj* in Visual Studio Code.
+  * `code -r MvcMovie`: carica il file di progetto *MvcMovie. csproj* nel Visual Studio Code.
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
@@ -108,7 +108,7 @@ Nell'esercitazione si presuppone una familarità con Visual Studio Code. Vedere 
 
 ---
 
-### <a name="run-the-app"></a>Esecuzione dell'app
+### <a name="run-the-app"></a>Eseguire l'app
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -184,7 +184,7 @@ Al termine di queste operazioni si ottiene un'app che può gestire e visualizzar
 
 [!INCLUDE[](~/includes/mvc-intro/download.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -233,10 +233,10 @@ Nell'esercitazione si presuppone una familarità con Visual Studio Code. Vedere 
    code -r MvcMovie
    ```
 
-  * Viene visualizzata una finestra di dialogo con **Required assets to build and debug are missing from 'MvcMovie'. Add them?** (Risorse di compilazione e debug mancanti da "RazorPagesMovie". Aggiungerle?)  Selezionare **Sì**.
+  * Viene visualizzata una finestra di dialogo con le **risorse necessarie per la compilazione e il debug non è presente in ' MvcMovie '. Aggiungerli?**  Selezionare **Sì**.
 
   * `dotnet new mvc -o MvcMovie`: crea un nuovo progetto ASP.NET Core MVC nella cartella *MvcMovie*.
-  * `code -r MvcMovie`: carica il file di progetto *MvcMovie.csproj* in Visual Studio Code.
+  * `code -r MvcMovie`: carica il file di progetto *MvcMovie. csproj* nel Visual Studio Code.
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
@@ -256,7 +256,7 @@ Nell'esercitazione si presuppone una familarità con Visual Studio Code. Vedere 
 
 ---
 
-### <a name="run-the-app"></a>Esecuzione dell'app
+### <a name="run-the-app"></a>Eseguire l'app
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 

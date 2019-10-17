@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 8/22/2019
 uid: web-api/advanced/formatting
-ms.openlocfilehash: 0dd8b3b5ec58a199db086c4c0b0f057d26afd589
-ms.sourcegitcommit: 7a2c820692f04bfba04398641b70f27fa15391f5
+ms.openlocfilehash: 78fe620ea8fdd681a276253f77939bcb2a56ebb9
+ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72290626"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72391284"
 ---
 # <a name="format-response-data-in-aspnet-core-web-api"></a>Formattare i dati di risposta nell'API Web ASP.NET Core
 
@@ -25,7 +25,7 @@ ASP.NET Core MVC supporta la formattazione dei dati di risposta. I dati di rispo
 
 Alcuni tipi di risultati di azioni sono specifici di un particolare formato, ad esempio <xref:Microsoft.AspNetCore.Mvc.JsonResult> e <xref:Microsoft.AspNetCore.Mvc.ContentResult>. Le azioni possono restituire risultati formattati in un formato specifico, indipendentemente dalle preferenze dei client. Ad esempio, la restituzione di `JsonResult` restituisce dati in formato JSON. La restituzione di `ContentResult` o una stringa restituisce dati di stringa in formato testo normale.
 
-Non è necessario eseguire un'azione per restituire un tipo specifico. ASP.NET Core supporta qualsiasi valore restituito da un oggetto.  I risultati di azioni che restituiscono oggetti che non sono tipi <xref:Microsoft.AspNetCore.Mvc.IActionResult> vengono serializzati usando l'implementazione <xref:Microsoft.AspNetCore.Mvc.Formatters.IOutputFormatter> appropriata. Per altre informazioni, vedere <xref:web-api/action-return-types>.
+Non è necessario eseguire un'azione per restituire un tipo specifico. ASP.NET Core supporta qualsiasi valore restituito da un oggetto.  I risultati di azioni che restituiscono oggetti che non sono tipi <xref:Microsoft.AspNetCore.Mvc.IActionResult> vengono serializzati usando l'implementazione <xref:Microsoft.AspNetCore.Mvc.Formatters.IOutputFormatter> appropriata. Per ulteriori informazioni, vedere <xref:web-api/action-return-types>.
 
 Il metodo helper predefinito <xref:Microsoft.AspNetCore.Mvc.ControllerBase.Ok*> restituisce dati in formato JSON: [!code-csharp @ no__t-2
 
@@ -206,7 +206,7 @@ Quando si usa il codice precedente, i metodi del controller devono restituire il
 
 ### <a name="specify-a-format"></a>Specificare un formato
 
-Per limitare i formati di risposta, applicare il filtro [`[Produces]`](xref:Microsoft.AspNetCore.Mvc.ProducesAttribute) . Come la maggior parte `[Produces]` dei [filtri](xref:mvc/controllers/filters), può essere applicato all'azione, al controller o all'ambito globale:
+Per limitare i formati di risposta, applicare il filtro [`[Produces]`](xref:Microsoft.AspNetCore.Mvc.ProducesAttribute) . Come la maggior parte dei [filtri](xref:mvc/controllers/filters), `[Produces]` può essere applicato all'azione, al controller o all'ambito globale:
 
 [!code-csharp[](./formatting/3.0sample/Controllers/WeatherForecastController.cs?name=snippet)]
 
@@ -219,16 +219,16 @@ Per ulteriori informazioni, vedere [filtri](xref:mvc/controllers/filters).
 
 ### <a name="special-case-formatters"></a>Formattatori case speciali
 
-Alcuni casi speciali vengono implementati tramite formattatori predefiniti. Per impostazione predefinita, i tipi restituiti `string` vengono formattati come *text/plain* (*text/html* se richiesto tramite l'intestazione `Accept`). Questo comportamento può essere eliminato rimuovendo il <xref:Microsoft.AspNetCore.Mvc.Formatters.TextOutputFormatter>. I formattatori vengono rimossi nel metodo `Configure`. Le azioni che hanno un tipo restituito da un oggetto modello restituiscono `204 No Content` quando restituisce `null`. Questo comportamento può essere eliminato rimuovendo il <xref:Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter>. Il codice seguente rimuove `TextOutputFormatter` e `HttpNoContentOutputFormatter`.
+Alcuni casi speciali vengono implementati tramite formattatori predefiniti. Per impostazione predefinita, i tipi restituiti `string` vengono formattati come *text/plain* (*text/html* se richiesto tramite l'intestazione `Accept`). Questo comportamento può essere eliminato rimuovendo il <xref:Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter>. I formattatori vengono rimossi nel metodo `ConfigureServices`. Le azioni che hanno un tipo restituito da un oggetto modello restituiscono `204 No Content` quando restituisce `null`. Questo comportamento può essere eliminato rimuovendo il <xref:Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter>. Il codice seguente rimuove `StringOutputFormatter` e `HttpNoContentOutputFormatter`.
 
 ::: moniker range=">= aspnetcore-3.0"
-[!code-csharp[](./formatting/3.0sample/StartupTextOutputFormatter.cs?name=snippet)]
+[!code-csharp[](./formatting/3.0sample/StartupStringOutputFormatter.cs?name=snippet)]
 ::: moniker-end
 ::: moniker range="< aspnetcore-3.0"
-[!code-csharp[](./formatting/sample/StartupTextOutputFormatter.cs?name=snippet)]
+[!code-csharp[](./formatting/sample/StartupStringOutputFormatter.cs?name=snippet)]
 ::: moniker-end
 
-Se non si `TextOutputFormatter`, i tipi restituiti `string` restituiscono `406 Not Acceptable`. Se esiste un formattatore XML, formatta i tipi restituiti `string` se il `TextOutputFormatter` è stato rimosso.
+Senza il `StringOutputFormatter`, il formattatore JSON incorporato formatta i tipi restituiti `string`. Se il formattatore JSON incorporato viene rimosso ed è disponibile un formattatore XML, il formattatore XML formatta i tipi restituiti `string`. In caso contrario, i tipi restituiti `string` restituiscono `406 Not Acceptable`.
 
 Senza `HttpNoContentOutputFormatter`, gli oggetti Null vengono formattati tramite il formattatore configurato. Esempio:
 

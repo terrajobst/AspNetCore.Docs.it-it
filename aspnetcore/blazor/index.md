@@ -1,20 +1,20 @@
 ---
-title: Introduzione a ASP.NET Core Blazor
+title: Introduzione a ASP.NET Core Blazer
 author: guardrex
 description: Esplorare ASP.NET Core Blazor, un modo per creare un'interfaccia utente Web sul lato client interattiva con .NET in un'app ASP.NET Core.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc, seoapril2019
-ms.date: 10/03/2019
+ms.date: 10/15/2019
 uid: blazor/index
-ms.openlocfilehash: d7dae028fd9a0505c9a2fa49a284f64fce59287f
-ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
+ms.openlocfilehash: abf631b5e1cf762eaef4bd85a6b85802c9899291
+ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71924655"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72391150"
 ---
-# <a name="introduction-to-aspnet-core-blazor"></a>Introduzione a ASP.NET Core Blazor
+# <a name="introduction-to-aspnet-core-blazor"></a>Introduzione a ASP.NET Core Blazer
 
 Di [Daniel Roth](https://github.com/danroth27) e [Luke Latham](https://github.com/guardrex)
 
@@ -105,21 +105,21 @@ Il rendering dei componenti viene eseguito in una rappresentazione in memoria de
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-Blazor webassembly è un Framework di app a singola pagina per la creazione di app Web interattive sul lato client con .NET. Blazor webassembly usa standard Web aperti senza plug-in o transpilazione di codice e funziona in tutti i Web browser moderni, inclusi i browser per dispositivi mobili.
+Blazer webassembly è un Framework di app a singola pagina per la creazione di app Web interattive sul lato client con .NET. Blazer webassembly USA standard Web aperti senza plug-in o transpilazione di codice e funziona in tutti i Web browser moderni, inclusi i browser per dispositivi mobili.
 
 L'esecuzione di codice .NET all'interno di Web browser è resa possibile da [WebAssembly](https://webassembly.org) (tecnologia nota anche con l'abbreviazione *wasm*). WebAssembly è un formato bytecode compatto ottimizzato per il download veloce e la velocità massima di esecuzione. WebAssembly è un standard Web aperto ed è supportato nei Web browser senza plug-in.
 
 Il codice WebAssembly può accedere a tutte le funzionalità del browser tramite l'*interoperabilità JavaScript* (*JavaScript interop*). Il codice .NET eseguito tramite WebAssembly nel browser viene eseguito nella sandbox JavaScript del browser con le misure di sicurezza offerte dalla sandbox per la protezione da azioni dannose nel computer client.
 
-![Webassembly Blazor esegue il codice .NET nel browser con webassembly.](index/_static/blazor-webassembly.png)
+![Webassembly Blazer esegue il codice .NET nel browser con webassembly.](index/_static/blazor-webassembly.png)
 
-Quando viene compilata ed eseguita un'app webassembly Blazor in un browser:
+Quando viene compilata ed eseguita un'app webassembly Blazer in un browser:
 
 * I file di codice C# e i file Razor vengono compilati in assembly .NET.
 * Gli assembly e il runtime .NET vengono scaricati nel browser.
-* Blazor webassembly avvia il Runtime .NET e configura il runtime per caricare gli assembly per l'app. Il runtime di webassembly di Blazor usa l'interoperabilità JavaScript per gestire la manipolazione DOM e le chiamate API del browser.
+* Blazer webassembly avvia il Runtime .NET e configura il runtime per caricare gli assembly per l'app. Il runtime di webassembly di Blazer usa l'interoperabilità JavaScript per gestire la manipolazione DOM e le chiamate API del browser.
 
-La dimensione dell'app pubblicata, ovvero la *dimensione del payload*, è un fattore cruciale per le prestazioni ai fini dell'usabilità dell'app. Un'app di grandi dimensioni impiega relativamente molto tempo a essere scaricata in un browser, influendo negativamente sull'esperienza utente. Blazor webassembly ottimizza le dimensioni del payload per ridurre i tempi di download:
+La dimensione dell'app pubblicata, ovvero la *dimensione del payload*, è un fattore cruciale per le prestazioni ai fini dell'usabilità dell'app. Un'app di grandi dimensioni impiega relativamente molto tempo a essere scaricata in un browser, influendo negativamente sull'esperienza utente. Blazer webassembly ottimizza le dimensioni del payload per ridurre i tempi di download:
 
 * Il codice non usato viene rimosso dall'app quando questa viene pubblicata dal [linker del linguaggio intermedio](xref:host-and-deploy/blazor/configure-linker).
 * Le risposte HTTP vengono compresse.
@@ -127,17 +127,17 @@ La dimensione dell'app pubblicata, ovvero la *dimensione del payload*, è un fat
 
 ## <a name="blazor-server"></a>Server Blazor
 
-Blazor separa la logica di rendering dei componenti dal modo in cui vengono applicati gli aggiornamenti dell'interfaccia utente. Il server Blazor fornisce il supporto per l'hosting di componenti Razor sul server in un'app ASP.NET Core. Gli aggiornamenti dell'interfaccia utente vengono gestiti tramite una connessione [SignalR](xref:signalr/introduction).
+Blazor separa la logica di rendering dei componenti dal modo in cui vengono applicati gli aggiornamenti dell'interfaccia utente. Il server Blazer fornisce il supporto per l'hosting di componenti Razor sul server in un'app ASP.NET Core. Gli aggiornamenti dell'interfaccia utente vengono gestiti tramite una connessione [SignalR](xref:signalr/introduction).
 
 Il runtime gestisce l'invio di eventi dell'interfaccia utente dal browser al server e quindi applica gli aggiornamenti dell'interfaccia utente inviati dal server di nuovo al browser dopo l'esecuzione dei componenti.
 
-Per gestire le chiamate di interoperabilità JavaScript, viene usata anche la connessione utilizzata dal server Blazor per comunicare con il browser.
+Per gestire le chiamate di interoperabilità JavaScript, viene usata anche la connessione utilizzata dal server Blaze per comunicare con il browser.
 
-![Il server Blazor esegue il codice .NET sul server e interagisce con il Document Object Model sul client tramite una connessione SignalR](index/_static/blazor-server.png)
+![Il server Blaze esegue il codice .NET sul server e interagisce con il Document Object Model sul client tramite una connessione SignalR](index/_static/blazor-server.png)
 
 ## <a name="javascript-interop"></a>Interoperabilità JavaScript
 
-Per le app che richiedono librerie JavaScript di terze parti e l'accesso alle API del browser, i componenti supportano l'interoperabilità con JavaScript. I componenti sono in grado di usare qualsiasi libreria o API supportata da JavaScript. Il codice C# può effettuare chiamate nel codice JavaScript e vice versa. Per altre informazioni, vedere <xref:blazor/javascript-interop>.
+Per le app che richiedono librerie JavaScript di terze parti e l'accesso alle API del browser, i componenti supportano l'interoperabilità con JavaScript. I componenti sono in grado di usare qualsiasi libreria o API supportata da JavaScript. Il codice C# può effettuare chiamate nel codice JavaScript e vice versa. Per ulteriori informazioni, vedere <xref:blazor/javascript-interop>.
 
 ## <a name="code-sharing-and-net-standard"></a>Condivisione del codice e .NET Standard
 

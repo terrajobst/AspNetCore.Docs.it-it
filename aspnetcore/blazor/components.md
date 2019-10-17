@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/05/2019
 uid: blazor/components
-ms.openlocfilehash: 3e0966bf978c99fc00db7682bea3292306cbb03c
-ms.sourcegitcommit: d81912782a8b0bd164f30a516ad80f8defb5d020
+ms.openlocfilehash: a71bbf3921417cbd23aeb14d0d78ad8354d6e93a
+ms.sourcegitcommit: dd026eceee79e943bd6b4a37b144803b50617583
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72179034"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72378693"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Creare e usare ASP.NET Core componenti Razor
 
@@ -20,11 +20,11 @@ Di [Luke Latham](https://github.com/guardrex) e [Daniel Roth](https://github.com
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
 
-Le app Blazor vengono compilate usando i *componenti*. Un componente è un blocco di interfaccia utente (UI) autonomo, ad esempio una pagina, una finestra di dialogo o un form. Un componente include il markup HTML e la logica di elaborazione necessaria per inserire i dati o rispondere agli eventi dell'interfaccia utente. I componenti sono flessibili e leggeri. Possono essere annidati, riutilizzati e condivisi tra i progetti.
+Le app Blazer vengono compilate usando i *componenti*. Un componente è un blocco di interfaccia utente (UI) autonomo, ad esempio una pagina, una finestra di dialogo o un form. Un componente include il markup HTML e la logica di elaborazione necessaria per inserire i dati o rispondere agli eventi dell'interfaccia utente. I componenti sono flessibili e leggeri. Possono essere annidati, riutilizzati e condivisi tra i progetti.
 
 ## <a name="component-classes"></a>Classi di componenti
 
-I componenti sono implementati in file di componente [Razor](xref:mvc/views/razor) (*Razor*) usando una C# combinazione di e markup HTML. Un componente in Blazor viene definito formalmente come *componente Razor*.
+I componenti sono implementati in file di componente [Razor](xref:mvc/views/razor) (*Razor*) usando una C# combinazione di e markup HTML. Un componente in blazer viene definito formalmente come *componente Razor*.
 
 Il nome di un componente deve iniziare con un carattere maiuscolo. Ad esempio, *MyCoolComponent. Razor* è valido e *MyCoolComponent. Razor* non è valido.
 
@@ -49,7 +49,7 @@ I membri dei componenti possono essere usati come parte della logica di renderin
 }
 ```
 
-Una volta eseguito il rendering iniziale del componente, il componente rigenera l'albero di rendering in risposta agli eventi. Blazor confronta quindi il nuovo albero di rendering con quello precedente e applica le modifiche apportate all'Document Object Model (DOM) del browser.
+Una volta eseguito il rendering iniziale del componente, il componente rigenera l'albero di rendering in risposta agli eventi. Blazer confronta quindi il nuovo albero di rendering con quello precedente e applica le modifiche apportate all'Document Object Model (DOM) del browser.
 
 I componenti sono C# classi ordinarie e possono essere inseriti in qualsiasi punto all'interno di un progetto. I componenti che producono pagine Web in genere risiedono nella cartella *pages* . I componenti non di pagina vengono spesso inseriti nella cartella *condivisa* o in una cartella personalizzata aggiunta al progetto. Per usare una cartella personalizzata, aggiungere lo spazio dei nomi della cartella personalizzata al componente padre o al file *_Imports. Razor* dell'app. Lo spazio dei nomi seguente, ad esempio, rende disponibili i componenti in una cartella di *componenti* quando lo spazio dei nomi radice dell'app è `WebApplication`:
 
@@ -279,7 +279,7 @@ I tipi di campo precedenti:
 * Non può contenere testo in formato libero.
 * Fornire le caratteristiche di interazione utente in base all'implementazione del browser.
 
-I tipi di campo seguenti hanno requisiti di formattazione specifici e non sono attualmente supportati da Blazor perché non sono supportati da tutti i browser principali:
+I tipi di campo seguenti hanno requisiti di formattazione specifici e non sono attualmente supportati da Blazer perché non sono supportati da tutti i browser principali:
 
 * `datetime-local`
 * `month`
@@ -454,11 +454,11 @@ Per alcuni eventi, i tipi di argomento dell'evento sono consentiti. Se l'accesso
 
 Nella tabella seguente sono riportati i `EventArgs` supportati.
 
-| event | Classe |
+| event | Class |
 | ----- | ----- |
 | Appunti        | `ClipboardEventArgs` |
 | Trascinare             | `DragEventArgs` &ndash; `DataTransfer` e `DataTransferItem` contengono dati di elementi trascinati. |
-| Errore            | `ErrorEventArgs` |
+| Error            | `ErrorEventArgs` |
 | Stato attivo            | `FocusEventArgs` &ndash; non include il supporto per `relatedTarget`. |
 | Modifica di`<input>` | `ChangeEventArgs` |
 | Tastiera         | `KeyboardEventArgs` |
@@ -692,7 +692,7 @@ I riferimenti ai componenti forniscono un modo per fare riferimento a un'istanza
 Quando viene eseguito il rendering del componente, il campo `loginDialog` viene popolato con l'istanza del componente figlio `MyLoginDialog`. È quindi possibile richiamare i metodi .NET nell'istanza del componente.
 
 > [!IMPORTANT]
-> La variabile `loginDialog` viene popolata solo dopo il rendering del componente e l'output include l'elemento `MyLoginDialog`. Fino a quel momento, non c'è niente a cui fare riferimento. Per modificare i riferimenti ai componenti dopo che il componente ha terminato il rendering, usare i metodi `OnAfterRenderAsync` o `OnAfterRender`.
+> La variabile `loginDialog` viene popolata solo dopo il rendering del componente e l'output include l'elemento `MyLoginDialog`. Fino a quel momento, non c'è niente a cui fare riferimento. Per modificare i riferimenti ai componenti dopo che il componente ha terminato il rendering, usare i [Metodi OnAfterRenderAsync o OnAfterRender](#lifecycle-methods).
 
 Mentre l'acquisizione di riferimenti ai componenti usa una sintassi simile per l' [acquisizione di riferimenti a elementi](xref:blazor/javascript-interop#capture-references-to-elements), non è una funzionalità di [interoperabilità di JavaScript](xref:blazor/javascript-interop) . I riferimenti ai componenti non vengono passati al codice JavaScript @ no__t-0they're usato solo nel codice .NET.
 
@@ -758,7 +758,7 @@ Nell'esempio precedente, `NotifierService` richiama il metodo `OnNotify` del com
 
 ## <a name="use-key-to-control-the-preservation-of-elements-and-components"></a>Usare \@key per controllare la conservazione di elementi e componenti
 
-Quando si esegue il rendering di un elenco di elementi o componenti e gli elementi o i componenti successivamente cambiano, l'algoritmo di differenziazione di Blazor deve decidere quali elementi o componenti precedenti possono essere conservati e come eseguire il mapping degli oggetti modello. In genere, questo processo è automatico e può essere ignorato, ma in alcuni casi potrebbe essere necessario controllare il processo.
+Quando si esegue il rendering di un elenco di elementi o componenti e gli elementi o i componenti successivamente cambiano, l'algoritmo di differenziazione di Blazer deve decidere quali elementi o componenti precedenti possono essere conservati e come eseguire il mapping degli oggetti modello. In genere, questo processo è automatico e può essere ignorato, ma in alcuni casi potrebbe essere necessario controllare il processo.
 
 Si consideri l'esempio seguente:
 
@@ -805,7 +805,7 @@ In alcuni scenari, l'utilizzo di `@key` riduce al minimo la complessità del ren
 
 In genere, è opportuno usare `@key` ogni volta che viene eseguito il rendering di un elenco (ad esempio, in un blocco `@foreach`) e un valore appropriato per definire il `@key`.
 
-È anche possibile usare `@key` per impedire a Blazor di mantenere un sottoalbero di elementi o componenti quando un oggetto viene modificato:
+È anche possibile usare `@key` per impedire a blazer di mantenere un sottoalbero di elementi o componenti quando un oggetto viene modificato:
 
 ```cshtml
 <div @key="currentPerson">
@@ -828,7 +828,7 @@ In genere, è opportuno fornire uno dei seguenti tipi di valore per `@key`:
 * Istanze di oggetti modello (ad esempio, un'istanza `Person` come nell'esempio precedente). In questo modo si garantisce la conservazione in base all'uguaglianza del riferimento all'oggetto.
 * Identificatori univoci (ad esempio, valori di chiave primaria di tipo `int`, `string` o `Guid`).
 
-Assicurarsi che i valori usati per `@key` non siano in conflitto. Se vengono rilevati valori in conflitto all'interno dello stesso elemento padre, Blazor genera un'eccezione perché non è in grado di eseguire il mapping deterministico di elementi o componenti precedenti a nuovi elementi o componenti. Utilizzare solo valori distinti, ad esempio istanze di oggetti o valori di chiave primaria.
+Assicurarsi che i valori usati per `@key` non siano in conflitto. Se vengono rilevati valori in conflitto all'interno dello stesso elemento padre, blazer genera un'eccezione perché non è in grado di eseguire il mapping deterministico di elementi o componenti precedenti a nuovi elementi o componenti. Utilizzare solo valori distinti, ad esempio istanze di oggetti o valori di chiave primaria.
 
 ## <a name="lifecycle-methods"></a>Metodi del ciclo di vita
 
@@ -840,6 +840,9 @@ protected override async Task OnInitializedAsync()
     await ...
 }
 ```
+
+> [!NOTE]
+> Il lavoro asincrono durante l'inizializzazione dei componenti deve verificarsi durante l'evento del ciclo di vita `OnInitializedAsync`.
 
 Per un'operazione sincrona, usare `OnInitialized`:
 
@@ -858,6 +861,9 @@ protected override async Task OnParametersSetAsync()
     await ...
 }
 ```
+
+> [!NOTE]
+> Il lavoro asincrono quando si applicano i parametri e i valori delle proprietà deve verificarsi durante l'evento del ciclo di vita `OnParametersSetAsync`.
 
 ```csharp
 protected override void OnParametersSet()
@@ -884,6 +890,9 @@ protected override async Task OnAfterRenderAsync(bool firstRender)
     }
 }
 ```
+
+> [!NOTE]
+> Il lavoro asincrono immediatamente dopo il rendering deve verificarsi durante l'evento del ciclo di vita `OnAfterRenderAsync`.
 
 ```csharp
 protected override void OnAfterRender(bool firstRender)
@@ -953,7 +962,7 @@ Se un componente implementa <xref:System.IDisposable>, il [metodo Dispose](/dotn
 
 ## <a name="routing"></a>Routing
 
-Il routing in Blazor viene effettuato fornendo un modello di route a ogni componente accessibile nell'app.
+Il routing in blazer viene effettuato fornendo un modello di route a ogni componente accessibile nell'app.
 
 Quando viene compilato un file Razor con una direttiva `@page`, alla classe generata viene assegnato un <xref:Microsoft.AspNetCore.Mvc.RouteAttribute> che specifica il modello di route. In fase di esecuzione, il router cerca le classi di componenti con un `RouteAttribute` ed esegue il rendering di qualsiasi componente con un modello di route corrispondente all'URL richiesto.
 
@@ -1051,7 +1060,7 @@ Se `IsCompleted` è `false`, viene eseguito il rendering della casella di contro
 <input type="checkbox" />
 ```
 
-Per altre informazioni, vedere <xref:mvc/views/razor>.
+Per ulteriori informazioni, vedere <xref:mvc/views/razor>.
 
 > [!WARNING]
 > Alcuni attributi HTML, ad esempio [aria-premuti](https://developer.mozilla.org/docs/Web/Accessibility/ARIA/Roles/button_role#Toggle_buttons), non funzionano correttamente quando il tipo .NET è un `bool`. In questi casi, usare un tipo `string` anziché un `bool`.
@@ -1397,7 +1406,7 @@ componente `BuiltContent`:
 }
 ```
 
-> ! AVVISO I tipi in `Microsoft.AspNetCore.Components.RenderTree` consentono l'elaborazione dei *risultati* delle operazioni di rendering. Questi sono i dettagli interni dell'implementazione del Framework Blazor. Questi tipi devono essere considerati *instabili* e soggetti a modifiche nelle versioni future.
+> ! AVVISO I tipi in `Microsoft.AspNetCore.Components.RenderTree` consentono l'elaborazione dei *risultati* delle operazioni di rendering. Questi sono i dettagli interni dell'implementazione del Framework blazer. Questi tipi devono essere considerati *instabili* e soggetti a modifiche nelle versioni future.
 
 ### <a name="sequence-numbers-relate-to-code-line-numbers-and-not-execution-order"></a>I numeri di sequenza sono correlati ai numeri di riga del codice e non all'ordine di esecuzione
 
@@ -1429,16 +1438,16 @@ builder.AddContent(1, "Second");
 
 Quando il codice viene eseguito per la prima volta, se `someFlag` è `true`, il generatore riceve:
 
-| Sequenza | Type      | Data   |
+| Sequence | Digitare      | Dati   |
 | :------: | --------- | :----: |
-| 0        | Nodo testo | Primo  |
-| 1        | Nodo testo | Secondo |
+| 0        | Nodo testo | First  |
+| 1        | Nodo testo | Second |
 
 Si supponga che `someFlag` diventi `false` e che venga eseguito nuovamente il rendering del markup. Questa volta, il generatore riceve:
 
-| Sequenza | Type       | Data   |
+| Sequence | Digitare       | Dati   |
 | :------: | ---------- | :----: |
-| 1        | Nodo testo  | Secondo |
+| 1        | Nodo testo  | Second |
 
 Quando il runtime esegue una diff, rileva che l'elemento in sequenza `0` è stato rimosso, quindi genera lo *script di modifica*semplice seguente:
 
@@ -1461,16 +1470,16 @@ builder.AddContent(seq++, "Second");
 
 A questo punto, il primo output è:
 
-| Sequenza | Type      | Data   |
+| Sequence | Digitare      | Dati   |
 | :------: | --------- | :----: |
-| 0        | Nodo testo | Primo  |
-| 1        | Nodo testo | Secondo |
+| 0        | Nodo testo | First  |
+| 1        | Nodo testo | Second |
 
 Questo risultato è identico al caso precedente, pertanto non esistono problemi negativi. `someFlag` è `false` nel secondo rendering e l'output è:
 
-| Sequenza | Type      | Data   |
+| Sequence | Digitare      | Dati   |
 | :------: | --------- | ------ |
-| 0        | Nodo testo | Secondo |
+| 0        | Nodo testo | Second |
 
 Questa volta, l'algoritmo Diff rileva che si sono verificate *due* modifiche e l'algoritmo genera lo script di modifica seguente:
 
@@ -1491,7 +1500,7 @@ Questo è un esempio semplice. Nei casi più realistici con strutture complesse 
 
 ## <a name="localization"></a>Localizzazione
 
-Le app del server Blazor vengono localizzate usando il [middleware di localizzazione](xref:fundamentals/localization#localization-middleware). Il middleware seleziona le impostazioni cultura appropriate per gli utenti che richiedono risorse dall'app.
+Le app del server Blazer vengono localizzate usando il [middleware di localizzazione](xref:fundamentals/localization#localization-middleware). Il middleware seleziona le impostazioni cultura appropriate per gli utenti che richiedono risorse dall'app.
 
 Le impostazioni cultura possono essere impostate utilizzando uno degli approcci seguenti:
 
@@ -1508,7 +1517,7 @@ L'uso di un cookie garantisce che la connessione WebSocket possa propagare corre
 
 Qualsiasi tecnica può essere utilizzata per assegnare impostazioni cultura se le impostazioni cultura vengono rese permanente in un cookie di localizzazione. Se l'app dispone già di uno schema di localizzazione stabilito per ASP.NET Core lato server, continuare a usare l'infrastruttura di localizzazione esistente dell'app e impostare il cookie delle impostazioni cultura di localizzazione nello schema dell'app.
 
-Nell'esempio seguente viene illustrato come impostare le impostazioni cultura correnti in un cookie che può essere letto dal middleware di localizzazione. Creare un file *pages/host. cshtml. cs* con il contenuto seguente nell'app del server Blazor:
+Nell'esempio seguente viene illustrato come impostare le impostazioni cultura correnti in un cookie che può essere letto dal middleware di localizzazione. Creare un file *pages/host. cshtml. cs* con il contenuto seguente nell'app del server Blazer:
 
 ```csharp
 public class HostModel : PageModel
@@ -1562,7 +1571,7 @@ public class CultureController : Controller
 ```
 
 > [!WARNING]
-> Usare il risultato dell'azione `LocalRedirect` per impedire gli attacchi di reindirizzamento aperti. Per altre informazioni, vedere <xref:security/preventing-open-redirects>.
+> Usare il risultato dell'azione `LocalRedirect` per impedire gli attacchi di reindirizzamento aperti. Per ulteriori informazioni, vedere <xref:security/preventing-open-redirects>.
 
 Il componente seguente mostra un esempio di come eseguire il reindirizzamento iniziale quando l'utente seleziona le impostazioni cultura:
 
@@ -1593,9 +1602,9 @@ Il componente seguente mostra un esempio di come eseguire il reindirizzamento in
 }
 ```
 
-### <a name="use-net-localization-scenarios-in-blazor-apps"></a>Usare scenari di localizzazione .NET in app Blazor
+### <a name="use-net-localization-scenarios-in-blazor-apps"></a>Usare scenari di localizzazione .NET in app Blazer
 
-All'interno delle app Blazor sono disponibili i seguenti scenari di globalizzazione e localizzazione di .NET:
+All'interno delle app blazer sono disponibili i seguenti scenari di globalizzazione e localizzazione di .NET:
 
 * . Sistema di risorse di NET
 * Formattazione di numeri e date specifiche delle impostazioni cultura
@@ -1607,7 +1616,7 @@ Sono attualmente supportati un set limitato di scenari di localizzazione di ASP.
 * `IStringLocalizer<>` *è supportato* nelle app blazer.
 * `IHtmlLocalizer<>`, `IViewLocalizer<>` e la localizzazione delle annotazioni dei dati è ASP.NET Core scenari MVC e **non è supportata** nelle app blazer.
 
-Per altre informazioni, vedere <xref:fundamentals/localization>.
+Per ulteriori informazioni, vedere <xref:fundamentals/localization>.
 
 ## <a name="scalable-vector-graphics-svg-images"></a>Immagini SVG (Scalable Vector Graphics)
 
