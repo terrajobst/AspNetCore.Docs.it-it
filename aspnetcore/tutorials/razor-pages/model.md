@@ -198,7 +198,7 @@ I comandi precedenti generano l'avviso seguente: "nessun tipo specificato per la
 
 Il comando Migrations genera il codice per creare lo schema del database iniziale. Lo schema è basato sul modello specificato in `DbContext`. L'argomento `InitialCreate` viene usato per denominare le migrazioni. È possibile usare qualsiasi nome, ma per convenzione viene selezionato un nome che descrive la migrazione.
 
-Il comando `update` esegue il metodo `Up` nelle migrazioni che non sono state applicate. In questo caso, `update` esegue il metodo `Up` in *Migrations/\<Simbolo-stamp > file _InitialCreate. cs* , che crea il database.
+Il comando `update` esegue il metodo `Up` nelle migrazioni che non sono state applicate. In questo caso, `update` esegue il metodo `Up` in *Migrations/\<time-stamp > file _InitialCreate. cs* , che crea il database.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 

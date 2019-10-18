@@ -17,7 +17,7 @@ ms.locfileid: "72519043"
 
 A cura di [John Luo](https://github.com/juntaoluo)
 
-`dotnet-grpc` è uno strumento globale .NET Core per la gestione dei riferimenti [protobuf (*. proto*)](xref:grpc/basics#proto-file) in un progetto gRPC .NET. Lo strumento può essere usato per aggiungere, aggiornare, rimuovere ed elencare i riferimenti a protobuf.
+`dotnet-grpc` è uno strumento globale .NET Core per la gestione dei riferimenti [protobuf ( *. proto*)](xref:grpc/basics#proto-file) in un progetto gRPC .NET. Lo strumento può essere usato per aggiungere, aggiornare, rimuovere ed elencare i riferimenti a protobuf.
 
 ## <a name="installation"></a>Installazione
 
