@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/05/2019
 uid: blazor/components
-ms.openlocfilehash: a71bbf3921417cbd23aeb14d0d78ad8354d6e93a
-ms.sourcegitcommit: dd026eceee79e943bd6b4a37b144803b50617583
+ms.openlocfilehash: cd48111e8d601fc67e8a938fcdd686759a9ddeca
+ms.sourcegitcommit: ce2bfb01f2cc7dd83f8a97da0689d232c71bcdc4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72378693"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72531113"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Creare e usare ASP.NET Core componenti Razor
 
@@ -81,11 +81,11 @@ L'associazione di attributi distingue tra maiuscole e minuscole. Ad esempio, `@b
 
 Il markup seguente in *index. Razor* esegue il rendering di un'istanza `HeadingComponent`:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/Index.razor?name=snippet_HeadingComponent)]
+[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/Index.razor?name=snippet_HeadingComponent)]
 
 *Components/HeadingComponent. Razor*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Components/HeadingComponent.razor)]
+[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Components/HeadingComponent.razor)]
 
 Se un componente contiene un elemento HTML con una prima lettera maiuscola che non corrisponde a un nome di componente, viene emesso un avviso che indica che l'elemento ha un nome imprevisto. L'aggiunta di un'istruzione `@using` per lo spazio dei nomi del componente rende disponibile il componente, che rimuove l'avviso.
 
@@ -95,13 +95,13 @@ I componenti possono avere *parametri del componente*, che vengono definiti usan
 
 *Components/ChildComponent. Razor*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Components/ChildComponent.razor?highlight=11-12)]
+[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Components/ChildComponent.razor?highlight=11-12)]
 
 Nell'esempio seguente, il `ParentComponent` imposta il valore della proprietà `Title` del `ChildComponent`.
 
 *Pages/ParentComponent. Razor*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ParentComponent.razor?name=snippet_ParentComponent&highlight=5-6)]
+[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/ParentComponent.razor?name=snippet_ParentComponent&highlight=5-6)]
 
 ## <a name="child-content"></a>Contenuto figlio
 
@@ -111,7 +111,7 @@ Nell'esempio seguente, il `ChildComponent` ha una proprietà `ChildContent` che 
 
 *Components/ChildComponent. Razor*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Components/ChildComponent.razor?highlight=3,14-15)]
+[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Components/ChildComponent.razor?highlight=3,14-15)]
 
 > [!NOTE]
 > La proprietà che riceve il contenuto `RenderFragment` deve essere denominata `ChildContent` per convenzione.
@@ -120,7 +120,7 @@ Il `ParentComponent` seguente può fornire contenuti per il rendering del `Child
 
 *Pages/ParentComponent. Razor*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ParentComponent.razor?name=snippet_ParentComponent&highlight=7-8)]
+[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/ParentComponent.razor?name=snippet_ParentComponent&highlight=7-8)]
 
 ## <a name="attribute-splatting-and-arbitrary-parameters"></a>Attributo splatting e parametri arbitrari
 
@@ -190,7 +190,7 @@ Per accettare attributi arbitrari, definire un parametro component usando l'attr
 }
 ```
 
-La proprietà `CaptureUnmatchedValues` su `[Parameter]` consente al parametro di trovare la corrispondenza con tutti gli attributi che non corrispondono ad altri parametri. Un componente può definire un solo parametro con `CaptureUnmatchedValues`. Il tipo di proprietà utilizzato con `CaptureUnmatchedValues` deve essere assegnabile da `Dictionary<string, object>` con chiavi di stringa. in questo scenario sono inoltre disponibili le opzioni `IEnumerable<KeyValuePair<string, object>>` o `IReadOnlyDictionary<string, object>`.
+La proprietà `CaptureUnmatchedValues` in `[Parameter]` consente al parametro di trovare la corrispondenza con tutti gli attributi che non corrispondono ad altri parametri. Un componente può definire un solo parametro con `CaptureUnmatchedValues`. Il tipo di proprietà utilizzato con `CaptureUnmatchedValues` deve essere assegnabile da `Dictionary<string, object>` con chiavi di stringa. in questo scenario sono inoltre disponibili le opzioni `IEnumerable<KeyValuePair<string, object>>` o `IReadOnlyDictionary<string, object>`.
 
 ## <a name="data-binding"></a>Associazione dati
 
@@ -513,11 +513,11 @@ Uno scenario comune con i componenti annidati è la volontà di eseguire il meto
 
 Il `ChildComponent` nell'app di esempio illustra come viene configurato un gestore `onclick` di un pulsante per ricevere un delegato `EventCallback` dal `ParentComponent` dell'esempio. Il `EventCallback` è tipizzato con `MouseEventArgs`, appropriato per un evento di @no__t 2 da un dispositivo periferico:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Components/ChildComponent.razor?highlight=5-7,17-18)]
+[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Components/ChildComponent.razor?highlight=5-7,17-18)]
 
 Il `ParentComponent` imposta il `EventCallback<T>` del figlio sul relativo metodo `ShowMessage`:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ParentComponent.razor?name=snippet_ParentComponent&highlight=6,16-19)]
+[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/ParentComponent.razor?name=snippet_ParentComponent&highlight=6,16-19)]
 
 Quando il pulsante è selezionato in `ChildComponent`:
 
@@ -968,7 +968,7 @@ Quando viene compilato un file Razor con una direttiva `@page`, alla classe gene
 
 È possibile applicare più modelli di route a un componente. Il componente seguente risponde alle richieste per `/BlazorRoute` e `/DifferentBlazorRoute`:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRoute.razor?name=snippet_BlazorRoute)]
+[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/BlazorRoute.razor?name=snippet_BlazorRoute)]
 
 ## <a name="route-parameters"></a>Parametri di route
 
@@ -976,7 +976,7 @@ I componenti possono ricevere parametri di route dal modello di route fornito ne
 
 *Componente parametro di route*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/RouteParameter.razor?name=snippet_RouteParameter)]
+[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/RouteParameter.razor?name=snippet_RouteParameter)]
 
 I parametri facoltativi non sono supportati, quindi vengono applicate due direttive `@page` nell'esempio precedente. Il primo consente la navigazione al componente senza un parametro. La seconda direttiva `@page` accetta il parametro di route `{text}` e assegna il valore alla proprietà `Text`.
 
@@ -988,11 +988,11 @@ L' [app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnet
 
 *Pages/BlazorRocks. Razor*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRocks.razor?name=snippet_BlazorRocks)]
+[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/BlazorRocks.razor?name=snippet_BlazorRocks)]
 
 *BlazorRocksBase.cs*:
 
-[!code-csharp[](common/samples/3.x/BlazorSample/Pages/BlazorRocksBase.cs)]
+[!code-csharp[](common/samples/3.x/BlazorWebAssemblySample/Pages/BlazorRocksBase.cs)]
 
 La classe base deve derivare da `ComponentBase`.
 
@@ -1096,7 +1096,7 @@ Un componente basato su modelli viene definito specificando uno o più parametri
 
 componente `TableTemplate`:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Components/TableTemplate.razor)]
+[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Components/TableTemplate.razor)]
 
 Quando si usa un componente basato su modelli, è possibile specificare i parametri del modello usando gli elementi figlio che corrispondono ai nomi dei parametri (`TableHeader` e `RowTemplate` nell'esempio seguente):
 
@@ -1149,7 +1149,7 @@ In alternativa, è possibile specificare l'attributo `Context` sull'elemento Com
 
 I componenti basati su modelli spesso sono tipizzati in modo generico. Ad esempio, è possibile usare un componente `ListViewTemplate` generico per eseguire il rendering di valori `IEnumerable<T>`. Per definire un componente generico, usare la direttiva [@typeparam](xref:mvc/views/razor#typeparam) per specificare i parametri di tipo:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Components/ListViewTemplate.razor)]
+[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Components/ListViewTemplate.razor)]
 
 Quando si usano componenti tipizzati generici, il parametro di tipo viene dedotto, se possibile:
 
@@ -1218,7 +1218,7 @@ componente `CascadingValuesParametersLayout`:
 }
 ```
 
-Per utilizzare i valori di propagazione, i componenti dichiarano parametri di propagazione utilizzando l'attributo `[CascadingParameter]`. I valori a cascata vengono associati ai parametri di propagazione per tipo.
+Per utilizzare i valori di propagazione, i componenti dichiarano i parametri di propagazione utilizzando l'attributo `[CascadingParameter]`. I valori a cascata vengono associati ai parametri di propagazione per tipo.
 
 Nell'app di esempio, il componente `CascadingValuesParametersTheme` associa il valore a cascata `ThemeInfo` a un parametro di propagazione. Il parametro viene usato per impostare la classe CSS per uno dei pulsanti visualizzati dal componente.
 
@@ -1297,23 +1297,23 @@ I parametri di propagazione consentono inoltre ai componenti di collaborare attr
 
 L'app di esempio dispone di un'interfaccia `ITab` che le schede implementano:
 
-[!code-csharp[](common/samples/3.x/BlazorSample/UIInterfaces/ITab.cs)]
+[!code-csharp[](common/samples/3.x/BlazorWebAssemblySample/UIInterfaces/ITab.cs)]
 
 Il componente `CascadingValuesParametersTabSet` usa il componente `TabSet`, che contiene diversi componenti `Tab`:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/CascadingValuesParametersTabSet.razor?name=snippet_TabSet)]
+[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/CascadingValuesParametersTabSet.razor?name=snippet_TabSet)]
 
 I componenti figlio `Tab` non vengono passati in modo esplicito come parametri al `TabSet`. Al contrario, i componenti figlio `Tab` fanno parte del contenuto figlio della `TabSet`. Tuttavia, il `TabSet` deve comunque conoscere ogni componente `Tab`, in modo che sia in grado di eseguire il rendering delle intestazioni e della scheda attiva. Per abilitare questo coordinamento senza richiedere codice aggiuntivo, il componente `TabSet` *può fornire se stesso come valore* di propagazione che viene quindi prelevato dai componenti `Tab` discendenti.
 
 componente `TabSet`:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Components/TabSet.razor)]
+[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Components/TabSet.razor)]
 
 I componenti discendenti `Tab` acquisiscono la classe che contiene `TabSet` come parametro di propagazione, quindi i componenti `Tab` si aggiungono al `TabSet` e coordinano la scheda attiva.
 
 componente `Tab`:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Components/Tab.razor)]
+[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Components/Tab.razor)]
 
 ## <a name="razor-templates"></a>Modelli Razor
 

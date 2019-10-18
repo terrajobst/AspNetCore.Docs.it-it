@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/15/2019
 uid: blazor/javascript-interop
-ms.openlocfilehash: b4776a20c6da6c722d2c057d19863c570f530a21
-ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
+ms.openlocfilehash: a8c3a0951761faab1c11507834aeef2507388d71
+ms.sourcegitcommit: ce2bfb01f2cc7dd83f8a97da0689d232c71bcdc4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72391062"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72531134"
 ---
 # <a name="aspnet-core-blazor-javascript-interop"></a>Interoperabilità JavaScript di ASP.NET Core Blazer
 
@@ -61,7 +61,7 @@ Per usare l'astrazione `IJSRuntime`, adottare uno degli approcci seguenti:
 
   [!code-cshtml[](javascript-interop/samples_snapshot/inject-abstraction.razor?highlight=1)]
 
-* Inserire l'astrazione `IJSRuntime` in una classe (*. cs*):
+* Inserire l'astrazione `IJSRuntime` in una classe ( *. cs*):
 
   [!code-csharp[](javascript-interop/samples_snapshot/inject-abstraction-class.cs?highlight=5)]
 
@@ -79,17 +79,17 @@ Nell'app di esempio lato client che accompagna questo argomento sono disponibili
 
 *wwwroot/exampleJsInterop. js*:
 
-[!code-javascript[](./common/samples/3.x/BlazorSample/wwwroot/exampleJsInterop.js?highlight=2-7)]
+[!code-javascript[](./common/samples/3.x/BlazorWebAssemblySample/wwwroot/exampleJsInterop.js?highlight=2-7)]
 
 Inserire il tag `<script>` che fa riferimento al file JavaScript nel file *wwwroot/index.html* (Webassembly Blazer) o nel file *pages/_Host. cshtml* (server Blazer).
 
 *wwwroot/index.html* (webassembly Blazer):
 
-[!code-html[](./common/samples/3.x/BlazorSample/wwwroot/index.html?highlight=15)]
+[!code-html[](./common/samples/3.x/BlazorWebAssemblySample/wwwroot/index.html?highlight=15)]
 
 *Pages/_Host. cshtml* (server Blazer):
 
-[!code-cshtml[](javascript-interop/samples_snapshot/_Host.cshtml?highlight=29)]
+[!code-cshtml[](./common/samples/3.x/BlazorServerSample/Pages/_Host.cshtml?highlight=21)]
 
 Non inserire un tag `<script>` in un file componente perché il tag `<script>` non può essere aggiornato dinamicamente.
 
@@ -105,7 +105,7 @@ L'app di esempio include un componente per illustrare l'interoperabilità di Jav
 
 *Pages/JSInterop. Razor*:
 
-[!code-cshtml[](./common/samples/3.x/BlazorSample/Pages/JsInterop.razor?name=snippet_JSInterop1&highlight=3,19-21,23-25)]
+[!code-cshtml[](./common/samples/3.x/BlazorWebAssemblySample/Pages/JsInterop.razor?name=snippet_JSInterop1&highlight=3,19-21,23-25)]
 
 1. Quando `TriggerJsPrompt` viene eseguita selezionando il pulsante del **Prompt JavaScript** per il trigger del componente, viene chiamata la funzione JavaScript `showPrompt` inclusa nel file *wwwroot/exampleJsInterop. js* .
 1. La funzione `showPrompt` accetta l'input dell'utente (il nome dell'utente), che è codificato in HTML e restituito al componente. Il componente archivia il nome dell'utente in una variabile locale, `name`.
@@ -186,13 +186,13 @@ L'app di esempio include C# un metodo per restituire una matrice di `int`S. L'at
 
 *Pages/JsInterop. Razor*:
 
-[!code-cshtml[](./common/samples/3.x/BlazorSample/Pages/JsInterop.razor?name=snippet_JSInterop2&highlight=7-11)]
+[!code-cshtml[](./common/samples/3.x/BlazorWebAssemblySample/Pages/JsInterop.razor?name=snippet_JSInterop2&highlight=7-11)]
 
 JavaScript servito al client richiama il C# metodo .NET.
 
 *wwwroot/exampleJsInterop. js*:
 
-[!code-javascript[](./common/samples/3.x/BlazorSample/wwwroot/exampleJsInterop.js?highlight=8-14)]
+[!code-javascript[](./common/samples/3.x/BlazorWebAssemblySample/wwwroot/exampleJsInterop.js?highlight=8-14)]
 
 Quando si seleziona il pulsante **trigger .net static method ReturnArrayAsync** , esaminare l'output della console negli strumenti di sviluppo Web del browser.
 
@@ -218,23 +218,23 @@ Quando si seleziona il pulsante del **metodo di istanza .NET del trigger HelloHe
 
 *Pages/JsInterop. Razor*:
 
-[!code-cshtml[](./common/samples/3.x/BlazorSample/Pages/JsInterop.razor?name=snippet_JSInterop3&highlight=8-9)]
+[!code-cshtml[](./common/samples/3.x/BlazorWebAssemblySample/Pages/JsInterop.razor?name=snippet_JSInterop3&highlight=8-9)]
 
 `CallHelloHelperSayHello` richiama la funzione JavaScript `sayHello` con una nuova istanza di `HelloHelper`.
 
 *JsInteropClasses/ExampleJsInterop. cs*:
 
-[!code-csharp[](./common/samples/3.x/BlazorSample/JsInteropClasses/ExampleJsInterop.cs?name=snippet1&highlight=10-16)]
+[!code-csharp[](./common/samples/3.x/BlazorWebAssemblySample/JsInteropClasses/ExampleJsInterop.cs?name=snippet1&highlight=10-16)]
 
 *wwwroot/exampleJsInterop. js*:
 
-[!code-javascript[](./common/samples/3.x/BlazorSample/wwwroot/exampleJsInterop.js?highlight=15-18)]
+[!code-javascript[](./common/samples/3.x/BlazorWebAssemblySample/wwwroot/exampleJsInterop.js?highlight=15-18)]
 
 Il nome viene passato al costruttore `HelloHelper`, che imposta la proprietà `HelloHelper.Name`. Quando viene eseguita la funzione JavaScript `sayHello`, `HelloHelper.SayHello` restituisce il messaggio `Hello, {Name}!`, che viene scritto nella console dalla funzione JavaScript.
 
 *JsInteropClasses/HelloHelper. cs*:
 
-[!code-csharp[](./common/samples/3.x/BlazorSample/JsInteropClasses/HelloHelper.cs?name=snippet1&highlight=5,10-11)]
+[!code-csharp[](./common/samples/3.x/BlazorWebAssemblySample/JsInteropClasses/HelloHelper.cs?name=snippet1&highlight=5,10-11)]
 
 Output della console negli strumenti di sviluppo Web del browser:
 
