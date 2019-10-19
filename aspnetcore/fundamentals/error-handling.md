@@ -7,20 +7,20 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/08/2019
 uid: fundamentals/error-handling
-ms.openlocfilehash: a610c42d75864259b609e11b8bf0776c5ab8e507
-ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
+ms.openlocfilehash: bff526e196ecc378d4687e1c38188977aeeccfd9
+ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72288856"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72589880"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Gestire gli errori in ASP.NET Core
 
 Di [Tom Dykstra](https://github.com/tdykstra/), [Luke Latham](https://github.com/guardrex) e [Steve Smith](https://ardalis.com/)
 
-Questo articolo descrive gli approcci comuni per la gestione degli errori nelle app ASP.NET Core.
+Questo articolo illustra gli approcci comuni per la gestione degli errori nelle app Web ASP.NET Core. Vedere <xref:web-api/handle-errors> per le API Web.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples). ([Come scaricare un esempio](xref:index#how-to-download-a-sample).) L'articolo include istruzioni su come impostare le direttive del preprocessore (`#if`, `#endif`, `#define`) nell'app di esempio per abilitare scenari diversi.
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples). ([Come scaricare](xref:index#how-to-download-a-sample)). L'articolo include istruzioni su come impostare le direttive per il preprocessore (`#if`, `#endif`, `#define`) nell'app di esempio per abilitare diversi scenari.
 
 ## <a name="developer-exception-page"></a>Pagina delle eccezioni per gli sviluppatori
 
@@ -204,7 +204,7 @@ Il livello di hosting può visualizzare una pagina di errore per un errore di av
 * Si verifica un arresto anomalo del processo di dotnet.
 * Non viene visualizzata alcuna pagina di errore quando il server HTTP è [Kestrel](xref:fundamentals/servers/kestrel).
 
-Se durante l'esecuzione in [IIS](/iis) (o servizio app di Azure) o in [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) il processo non può essere avviato, viene restituito l'errore *502.5 Errore del processo* dal [modulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module). Per altre informazioni, vedere <xref:test/troubleshoot-azure-iis>.
+Se durante l'esecuzione in [IIS](/iis) (o servizio app di Azure) o in [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) il processo non può essere avviato, viene restituito l'errore *502.5 Errore del processo* dal [modulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module). Per ulteriori informazioni, vedere <xref:test/troubleshoot-azure-iis>.
 
 ## <a name="database-error-page"></a>Pagina di errore di database
 
@@ -221,7 +221,7 @@ if (env.IsDevelopment())
 
 ## <a name="exception-filters"></a>Filtri eccezioni
 
-Nelle app MVC i filtri delle eccezioni possono essere configurati a livello globale o per ogni controller o azione singolarmente. Nelle app Razor Pages è possibile configurarli a livello globale o per ogni modello di pagina. Questi filtri gestiscono tutte le eccezioni non gestite che si verificano durante l'esecuzione di un'azione del controller o di un altro filtro Per altre informazioni, vedere <xref:mvc/controllers/filters#exception-filters>.
+Nelle app MVC i filtri delle eccezioni possono essere configurati a livello globale o per ogni controller o azione singolarmente. Nelle app Razor Pages è possibile configurarli a livello globale o per ogni modello di pagina. Questi filtri gestiscono tutte le eccezioni non gestite che si verificano durante l'esecuzione di un'azione del controller o di un altro filtro Per ulteriori informazioni, vedere <xref:mvc/controllers/filters#exception-filters>.
 
 > [!TIP]
 > I filtri delle eccezioni sono utili per intercettare le eccezioni che si verificano all'interno di azioni MVC, ma non sono flessibili come il middleware di gestione degli errori. È consigliabile usare il middleware. Usare i filtri solo quando è necessario eseguire la gestione degli errori in modo diverso in base all'azione MVC scelta.

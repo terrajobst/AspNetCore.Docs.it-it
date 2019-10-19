@@ -5,14 +5,14 @@ description: Informazioni su come usare l'API di configurazione per configurare 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/12/2019
+ms.date: 10/18/2019
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 357a3d89648086f0329cd16bc9d72863df9bdcd6
-ms.sourcegitcommit: 8a36be1bfee02eba3b07b7a86085ec25c38bae6b
+ms.openlocfilehash: 0a9b1a1a08617ef4ca8a36295cec8910ec111acd
+ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71217793"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72589911"
 ---
 # <a name="configuration-in-aspnet-core"></a>Configurazione in ASP.NET Core
 
@@ -47,7 +47,7 @@ Gli esempi di codice che seguono e quelli inclusi nell'app di esempio usano lo s
 using Microsoft.Extensions.Configuration;
 ```
 
-Il *modello di opzioni* è un'estensione dei concetti di configurazione descritti in questo argomento. Le opzioni usano le classi per rappresentare i gruppi di impostazioni correlate. Per altre informazioni, vedere <xref:fundamentals/configuration/options>.
+Il *modello di opzioni* è un'estensione dei concetti di configurazione descritti in questo argomento. Le opzioni usano le classi per rappresentare i gruppi di impostazioni correlate. Per ulteriori informazioni, vedere <xref:fundamentals/configuration/options>.
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
@@ -111,7 +111,7 @@ Per altre informazioni, vedere i seguenti argomenti:
 * <xref:fundamentals/environments>
 * <xref:security/app-secrets> &ndash; include consigli sull'uso delle variabili di ambiente per archiviare i dati sensibili. Secret Manager usa il provider di configurazione dei file per archiviare i segreti utente in un file JSON nel sistema locale. Il provider di configurazione dei file è descritto più avanti in questo argomento.
 
-[Azure Key Vault](https://azure.microsoft.com/services/key-vault/) archivia in modo sicuro i segreti delle app ASP.NET Core. Per altre informazioni, vedere <xref:security/key-vault-configuration>.
+[Azure Key Vault](https://azure.microsoft.com/services/key-vault/) archivia in modo sicuro i segreti delle app ASP.NET Core. Per ulteriori informazioni, vedere <xref:security/key-vault-configuration>.
 
 ## <a name="hierarchical-configuration-data"></a>Dati di configurazione gerarchici
 
@@ -340,7 +340,7 @@ L'app di esempio consente di sfruttare il metodo di servizio statico `CreateDefa
 1. Dopo che l'app è in esecuzione, aprire un browser per l'app all'indirizzo `http://localhost:5000`.
 1. Notare che l'output contiene la coppia chiave-valore per l'argomento della riga di comando di configurazione fornito per `dotnet run`.
 
-### <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>argomenti
 
 Il valore deve seguire un segno di uguale (`=`) o la chiave deve avere un prefisso (`--` o `/`) quando il valore segue uno spazio. Il valore non è necessario se viene usato un segno di uguale, ad esempio `CommandLineKey=`.
 
@@ -421,7 +421,7 @@ Per attivare la configurazione delle variabili di ambiente, chiamare il metodo d
 
 [!INCLUDE[](~/includes/environmentVarableColon.md)]
 
-[Servizio App di Azure](https://azure.microsoft.com/services/app-service/) consente di impostare variabili di ambiente nel portale di Azure che possono sostituire la configurazione delle app tramite il provider di configurazione delle variabili di ambiente. Per altre informazioni, vedere [App Azure: Eseguire l'override della configurazione delle app usando il portale di Azure](xref:host-and-deploy/azure-apps/index#override-app-configuration-using-the-azure-portal).
+[Servizio App di Azure](https://azure.microsoft.com/services/app-service/) consente di impostare variabili di ambiente nel portale di Azure che possono sostituire la configurazione delle app tramite il provider di configurazione delle variabili di ambiente. Per altre informazioni, vedere [App di Azure: Eseguire l'override della configurazione delle app usando il portale di Azure](xref:host-and-deploy/azure-apps/index#override-app-configuration-using-the-azure-portal).
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -773,7 +773,7 @@ Il dizionario viene usato con una chiamata a `AddInMemoryCollection` per fornire
 
 ## <a name="getvalue"></a>GetValue
 
-[ConfigurationBinder.GetValue\<T>](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.GetValue*) estrae un valore dalla configurazione con una chiave specificata e lo converte nel tipo specificato. Un overload consente di specificare un valore predefinito se non viene trovata la chiave.
+[ConfigurationBinder. GetValue \<T >](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.GetValue*) estrae un singolo valore dalla configurazione con una chiave specificata e lo converte nel tipo non di raccolta specificato. Un overload accetta un valore predefinito.
 
 L'esempio seguente:
 
@@ -883,7 +883,7 @@ Considerati i dati di esempio, `sectionExists` è `false` perché non esiste una
 
 ## <a name="bind-to-a-class"></a>Eseguire l'associazione a una classe
 
-La configurazione può essere associata alle classi che rappresentano gruppi di impostazioni correlate usando il *modello di opzioni*. Per altre informazioni, vedere <xref:fundamentals/configuration/options>.
+La configurazione può essere associata alle classi che rappresentano gruppi di impostazioni correlate usando il *modello di opzioni*. Per ulteriori informazioni, vedere <xref:fundamentals/configuration/options>.
 
 I valori di configurazione vengono restituiti come stringhe, ma la chiamata di <xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> consente la costruzione di oggetti [POCO](https://wikipedia.org/wiki/Plain_Old_CLR_Object).
 
@@ -1073,7 +1073,7 @@ L'oggetto associato, un'istanza di `ArrayExample`, riceve i dati di matrice dall
 | 0                            | value0                       |
 | 1                            | value1                       |
 | 2                            | value2                       |
-| 3                            | value4                       |
+| 3\.                            | value4                       |
 | 4                            | value5                       |
 
 L'indice &num;3 nell'oggetto associato contiene i dati di configurazione per la chiave di configurazione `array:4` e il relativo valore `value4`. Quando i dati di configurazione contenenti una matrice vengono associati, gli indici di matrice nelle chiavi di configurazione vengono usati semplicemente per scorrere i dati di configurazione quando si crea l'oggetto. Un valore null non può essere mantenuto nei dati di configurazione e una voce con valore null non viene creata in un oggetto associato quando una matrice nelle chiavi di configurazione ignora uno o più indici.
@@ -1108,7 +1108,7 @@ Se l'istanza della classe `ArrayExample` viene associata dopo che il provider di
 | 0                            | value0                       |
 | 1                            | value1                       |
 | 2                            | value2                       |
-| 3                            | value3                       |
+| 3\.                            | value3                       |
 | 4                            | value4                       |
 | 5                            | value5                       |
 
@@ -1315,7 +1315,7 @@ In una visualizzazione MVC:
 
 ## <a name="add-configuration-from-an-external-assembly"></a>Aggiungere la configurazione da un assembly esterno
 
-Un'implementazione <xref:Microsoft.AspNetCore.Hosting.IHostingStartup> consente l'aggiunta di miglioramenti a un'app all'avvio, da un assembly esterno alla classe `Startup` dell'app. Per altre informazioni, vedere <xref:fundamentals/configuration/platform-specific-configuration>.
+Un'implementazione <xref:Microsoft.AspNetCore.Hosting.IHostingStartup> consente l'aggiunta di miglioramenti a un'app all'avvio, da un assembly esterno alla classe `Startup` dell'app. Per ulteriori informazioni, vedere <xref:fundamentals/configuration/platform-specific-configuration>.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

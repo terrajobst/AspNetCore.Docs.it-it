@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/10/2019
 uid: fundamentals/websockets
-ms.openlocfilehash: 5d4d9b02bd45e6650aa56448a3663cad06b3b45e
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
-ms.translationtype: HT
+ms.openlocfilehash: 098e6826d6f7114baceb9578dc6d9883eb83f0aa
+ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975449"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72589699"
 ---
 # <a name="websockets-support-in-aspnet-core"></a>Supporto di WebSocket in ASP.NET Core
 
@@ -28,7 +28,7 @@ L'articolo contiene l'introduzione all'uso di oggetti WebSocket in ASP.NET Core.
 
 Per la maggior parte delle applicazioni, è consigliabile preferire SignalR a oggetti WebSocket non elaborati. SignalR fornisce il fallback per il trasporto per gli ambienti in cui i WebSocket non sono disponibili. Fornisce inoltre un modello di app Remote Procedure Call semplice. Nella maggior parte degli scenari, inoltre, l'uso di SignalR non genera alcuno svantaggio significativo in termini di prestazioni rispetto all'uso di oggetti WebSocket non elaborati.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * ASP.NET Core 1.1 o versione successiva
 * Qualsiasi sistema operativo che supporta ASP.NET Core:
@@ -78,7 +78,7 @@ Aggiungere il middleware degli oggetti WebSocket nel metodo `Configure` della cl
 È possibile configurare le impostazioni seguenti:
 
 * `KeepAliveInterval`: la frequenza di invio di frame "ping" al client per garantire che i proxy tengano aperta la connessione. Il valore predefinito è due minuti.
-* `ReceiveBufferSize`: le dimensioni del buffer usato per ricevere dati. Gli utenti avanzati possono avere l'esigenza di modificare questa impostazione per ottimizzare le prestazioni in base alle dimensioni dei dati. L'impostazione predefinita è 4 KB.
+* <xref:Microsoft.AspNetCore.Builder.WebSocketOptions.ReceiveBufferSize>: le dimensioni del buffer usato per ricevere dati. Gli utenti avanzati possono avere l'esigenza di modificare questa impostazione per ottimizzare le prestazioni in base alle dimensioni dei dati. L'impostazione predefinita è 4 KB.
 * `AllowedOrigins`: elenco di valori dell'intestazione Origin consentiti per le richieste WebSocket. Per impostazione predefinita, tutte le origini sono consentite. Per informazioni dettagliate, vedere più avanti "Restrizione per le origini WebSocket".
 
 ::: moniker-end
@@ -183,12 +183,12 @@ Per abilitare il supporto per il protocollo WebSocket in Windows 8 o versioni su
 > Questi passaggi non sono necessari quando si usa IIS Express
 
 1. Passare a **Pannello di controllo** > **Programmi** > **Programmi e funzionalità** > **Attiva o disattiva funzionalità di Windows** (sul lato sinistro dello schermo).
-1. Aprire i nodi seguenti: **Internet Information Services** > **Servizi Web** > **Funzionalità per lo sviluppo di applicazioni**.
+1. Espandere i nodi seguenti: **Internet Information Services** > **Servizi Web** > **Funzionalità per lo sviluppo di applicazioni**.
 1. Selezionare la funzionalità **Protocollo WebSocket**. Scegliere **OK**.
 
 ### <a name="disable-websocket-when-using-socketio-on-nodejs"></a>Disabilitare WebSocket quando si usa socket.io su node.js
 
-Se si usa il supporto WebSocket in [socket.io](https://socket.io/) su [Node.js](https://nodejs.org/), disabilitare il modulo WebSocket IIS predefinito mediante l'elemento `webSocket` in *web.config* o in *applicationHost.config*. Se non viene eseguito questo passaggio, il modulo IIS WebSocket prova a gestire le comunicazioni WebSocket anziché Node.js e l'app.
+Se si usa il supporto WebSocket in [Socket.io](https://socket.io/) in [node. js](https://nodejs.org/), disabilitare il modulo WebSocket IIS predefinito usando l'elemento `webSocket` in *Web. config* o *ApplicationHost. config*. Se questo passaggio non viene eseguito, il modulo IIS WebSocket tenta di gestire la comunicazione WebSocket anziché node. js e l'app.
 
 ```xml
 <system.webServer>

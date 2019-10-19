@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/29/2019
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: c13e63725298975fc882aa45c4e75de53e1d66a8
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
-ms.translationtype: HT
+ms.openlocfilehash: f0c7e114583b2ca2e681c507bef3487c863d8cd0
+ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815154"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72589865"
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>Creare helper tag in ASP.NET Core
 
@@ -31,7 +31,7 @@ Un helper tag è una classe che implementa l'interfaccia `ITagHelper`. Quando si
 
 ## <a name="a-minimal-tag-helper"></a>Un helper tag piccolissimo
 
-In questa sezione verrà scritto un helper tag che aggiorna un tag di posta elettronica. Ad esempio:
+In questa sezione verrà scritto un helper tag che aggiorna un tag di posta elettronica. Esempio:
 
 ```html
 <email>Support</email>
@@ -67,9 +67,9 @@ In altre parole, un tag di ancoraggio che dà come risultato un collegamento di 
 
 1. Per rendere la classe `EmailTagHelper` disponibile per tutte le visualizzazioni Razor in uso, aggiungere la direttiva `addTagHelper` al file *Views/_ViewImports.cshtml*:
 
-   [!code-html[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopyEmail.cshtml?highlight=2,3)]
+   [!code-cshtml[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopyEmail.cshtml?highlight=2,3)]
 
-   Il codice qui sopra usa la sintassi con caratteri jolly per specificare che tutti gli helper tag in questo assembly saranno disponibili. La prima stringa dopo `@addTagHelper` specifica l'helper tag da caricare (usare "*" per indicare tutti gli helper tag), e la seconda stringa "AuthoringTagHelpers" specifica l'assembly in cui si trova l'helper tag. Si noti anche che la seconda riga introduce gli helper tag ASP.NET Core MVC tramite la sintassi con caratteri jolly. Questi helper sono trattati in [Introduzione agli helper tag](intro.md). È la direttiva `@addTagHelper` che rende l'helper tag disponibile per la visualizzazione Razor. In alternativa, è possibile specificare il nome completo dell'helper tag, come illustrato di seguito:
+   Il codice qui sopra usa la sintassi con caratteri jolly per specificare che tutti gli helper tag in questo assembly saranno disponibili. La prima stringa dopo `@addTagHelper` specifica l'helper tag da caricare (usare "*" per indicare tutti gli helper tag), e la seconda stringa "AuthoringTagHelpers" specifica l'assembly in cui si trova l'helper tag. Si noti anche che la seconda riga introduce gli helper tag di ASP.NET Core MVC usando la sintassi con caratteri jolly (gli helper sono descritti in [Introduzione agli helper Tag](intro.md)). Si tratta della direttiva `@addTagHelper` che rende l'helper tag disponibile per la visualizzazione Razor. In alternativa, è possibile specificare il nome completo dell'helper tag, come illustrato di seguito:
 
 ```csharp
 @using AuthoringTagHelpers

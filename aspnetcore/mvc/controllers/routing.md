@@ -5,12 +5,12 @@ description: Informazioni su come ASP.NET Core MVC usa middleware di routing per
 ms.author: riande
 ms.date: 01/24/2019
 uid: mvc/controllers/routing
-ms.openlocfilehash: b4d5cd3add3fda6b70873eb5cce1dcee651f9185
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
-ms.translationtype: HT
+ms.openlocfilehash: a0dbfbe60c151990581b494f81e500fe0b315f55
+ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087511"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72589859"
 ---
 # <a name="routing-to-controller-actions-in-aspnet-core"></a>Routing ad azioni del controller in ASP.NET Core
 
@@ -165,7 +165,7 @@ Come parte dell'elaborazione della richiesta, MVC verifica che i valori di route
 
 ### <a name="disambiguating-actions"></a>Rimozione dell'ambiguità delle azioni
 
-Quando due azioni corrispondono in base al routing, MVC deve rimuovere l'ambiguità per scegliere il candidato migliore, altrimenti genera un'eccezione. Ad esempio:
+Quando due azioni corrispondono in base al routing, MVC deve rimuovere l'ambiguità per scegliere il candidato migliore, altrimenti genera un'eccezione. Esempio:
 
 ```csharp
 public class ProductsController : Controller
@@ -200,7 +200,7 @@ app.UseMvc(routes =>
 });
 ```
 
-I nomi di route consentono di assegnare a una route un nome logico, in modo che la route denominata possa essere usata per la generazione di URL. Questo semplifica notevolmente la creazione degli URL quando l'ordinamento delle route può rendere complessa la generazione di URL. I nomi delle route devono essere univoci a livello di applicazione.
+I nomi di route consentono di assegnare a una route un nome logico, in modo che la route denominata possa essere usata per la generazione di URL. Questo semplifica notevolmente la creazione degli URL quando l'ordinamento delle route può rendere complessa la generazione di URL. I nomi di route devono essere univoci a livello di applicazione.
 
 I nomi di route non influiscono sulla corrispondenza degli URL o sulla gestione delle richieste, vengono usati solo per la generazione di URL. L'articolo sul [routing](xref:fundamentals/routing) contiene informazioni dettagliate sulla generazione di URL, inclusa la generazione negli helper specifici di MVC.
 
@@ -287,7 +287,7 @@ public IActionResult CreateProduct(...)
 Per un percorso URL come `/products` l'azione `ProductsApi.ListProducts` verrà eseguita quando il verbo HTTP è `GET` e `ProductsApi.CreateProduct` verrà eseguita quando il verbo HTTP è `POST`. Nel routing con attributi l'URL viene prima confrontato con il set di modelli di route definiti dagli attributi della route. Quando un modello di route corrisponde, vengono applicati i vincoli `IActionConstraint` per determinare quali azioni possono essere eseguite.
 
 > [!TIP]
-> Quando si compila un'API REST, è raro che sia opportuno usare `[Route(...)]` per un metodo di azione. Si consiglia di usare l'oggetto `Http*Verb*Attributes`, più specifico, per essere precisi circa gli elementi supportati dall'API. I client delle API REST devono sapere quali percorsi e verbi HTTP devono essere mappati a operazioni logiche specifiche.
+> Quando si compila un'API REST, è raro che si voglia usare `[Route(...)]` su un metodo di azione perché l'azione accetterà tutti i metodi HTTP. Si consiglia di usare l'oggetto `Http*Verb*Attributes`, più specifico, per essere precisi circa gli elementi supportati dall'API. I client delle API REST devono sapere quali percorsi e verbi HTTP devono essere mappati a operazioni logiche specifiche.
 
 Poiché una route con attributi si applica a un'azione specifica, è facile fare in modo che i parametri siano richiesti come parte della definizione del modello di route. In questo esempio `id` è richiesto come parte del percorso URL.
 
@@ -376,7 +376,7 @@ Nelle route con attributi si può configurare un ordine usando la proprietà `Or
 > [!TIP]
 > Evitare la dipendenza da `Order`. Se lo spazio URL richiede i valori in un ordine esplicito per indirizzare correttamente i dati, si può probabilmente creare confusione anche per i client. In genere il routing con attributi seleziona la route corretta con la corrispondenza di URL. Se l'ordine predefinito usato per la generazione di URL non funziona, usare il nome della route come override è in genere più semplice che applicare la proprietà `Order`.
 
-Il routing di Razor Pages e il routing del controller MVC condividono un'implementazione. Per informazioni sull'ordine delle route negli argomenti di Razor Pages, vedere [Convenzioni di route e app per Razor Pages: Ordine delle route](xref:razor-pages/razor-pages-conventions#route-order).
+Il routing di Razor Pages e il routing del controller MVC condividono un'implementazione. Per informazioni sull'ordine di routing negli argomenti di Razor Pages, vedere [Convenzioni di route e app per Razor Pages in ASP.NET Core: Ordine della route](xref:razor-pages/razor-pages-conventions#route-order).
 
 <a name="routing-token-replacement-templates-ref-label"></a>
 
