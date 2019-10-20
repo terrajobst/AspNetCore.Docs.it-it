@@ -1,7 +1,7 @@
 ---
-title: Novità di ASP.NET Core 3,0
+title: Novità di ASP.NET Core 3.0
 author: rick-anderson
-description: Informazioni sulle nuove funzionalità di ASP.NET Core 3,0.
+description: Informazioni sulle nuove funzionalità di ASP.NET Core 3.0.
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/08/2019
@@ -13,9 +13,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72165362"
 ---
-# <a name="whats-new-in-aspnet-core-30"></a>Novità di ASP.NET Core 3,0
+# <a name="whats-new-in-aspnet-core-30"></a>Novità di ASP.NET Core 3.0
 
-In questo articolo vengono evidenziate le modifiche più significative in ASP.NET Core 3,0 con i collegamenti alla documentazione pertinente.
+In questo articolo vengono evidenziate le modifiche più significative in ASP.NET Core 3.0 con i collegamenti alla documentazione pertinente.
 
 ## <a name="blazor"></a>Blazor
 
@@ -39,17 +39,17 @@ Per altre informazioni, vedere <xref:blazor/index>.
 
 ### <a name="blazor-server"></a>Server Blazor
 
-Blazor separa la logica di rendering dei componenti dal modo in cui vengono applicati gli aggiornamenti dell'interfaccia utente. Il server Blazor fornisce il supporto per l'hosting di componenti Razor sul server in un'app ASP.NET Core. Tutti gli aggiornamenti dell'interfaccia utente vengono gestiti tramite una connessione SignalR. Il server Blazor è supportato in ASP.NET Core 3,0.
+Blazor separa la logica di rendering dei componenti dal modo in cui vengono applicati gli aggiornamenti dell'interfaccia utente. Il server Blazor fornisce il supporto per l'hosting di componenti Razor sul server in un'app ASP.NET Core. Tutti gli aggiornamenti dell'interfaccia utente vengono gestiti tramite una connessione SignalR. Il server Blazor è supportato in ASP.NET Core 3.0.
 
 ### <a name="blazor-webassembly-preview"></a>Webassembly Blazor (anteprima)
 
-Le app Blazor possono anche essere eseguite direttamente nel browser usando un Runtime .NET basato su webassembly. Il webassembly Blazor è in anteprima e *non* è supportato in ASP.NET Core 3,0. Il webassembly Blazor sarà supportato in una versione futura di ASP.NET Core.
+Le app Blazor possono anche essere eseguite direttamente nel browser usando un Runtime .NET basato su webassembly. Il webassembly Blazor è in anteprima e *non* è supportato in ASP.NET Core 3.0. Il webassembly Blazor sarà supportato in una versione futura di ASP.NET Core.
 
 ### <a name="razor-components"></a>Componenti Razor
 
 Le app Blazor sono compilate da componenti. I componenti sono blocchi autonomi dell'interfaccia utente (UI), ad esempio una pagina, una finestra di dialogo o un form. I componenti sono classi .NET normali che definiscono la logica di rendering dell'interfaccia utente e i gestori eventi sul lato client. È possibile creare app Web interattive avanzate senza JavaScript.
 
-I componenti in Blazor vengono in genere creati usando sintassi Razor, una combinazione naturale di HTML C#e. I componenti Razor sono simili alle visualizzazioni Razor Pages e MVC in quanto entrambi utilizzano Razor. Diversamente dalle pagine e dalle viste, basate su un modello di richiesta-risposta, i componenti vengono usati in modo specifico per la gestione della composizione dell'interfaccia utente.
+I componenti in Blazor vengono in genere creati usando sintassi Razor, una combinazione naturale di HTML e C#. I componenti Razor sono simili alle visualizzazioni Razor Pages e MVC in quanto entrambi utilizzano Razor. Diversamente dalle pagine e dalle viste, basate su un modello di richiesta-risposta, i componenti vengono usati in modo specifico per la gestione della composizione dell'interfaccia utente.
 
 ## <a name="grpc"></a>gRPC
 
@@ -64,15 +64,15 @@ I componenti in Blazor vengono in genere creati usando sintassi Razor, una combi
   * Formato di serializzazione binario.
 * Fornisce funzionalità come:
 
-  * Authentication
+  * Autenticazione
   * Flusso bidirezionale e controllo di flusso.
   * Annullamento e timeout.
 
-la funzionalità gRPC in ASP.NET Core 3,0 include:
+la funzionalità gRPC in ASP.NET Core 3.0 include:
 
-* [Grpc. AspNetCore](https://www.nuget.org/packages/Grpc.AspNetCore) &ndash; ASP.NET Core Framework per l'hosting di servizi Grpc. gRPC su ASP.NET Core si integra con funzionalità di ASP.NET Core standard come la registrazione, l'inserimento DI dipendenze, l'autenticazione e l'autorizzazione.
-* [Grpc .NET. client](https://www.nuget.org/packages/Grpc.Net.Client) &ndash; un client Grpc per .NET Core che si basa sul familiare `HttpClient`.
-* [Grpc .NET. ClientFactory](https://www.nuget.org/packages/Grpc.Net.ClientFactory) &ndash; integrazione client Grpc con `HttpClientFactory`.
+* [Grpc. AspNetCore](https://www.nuget.org/packages/Grpc.AspNetCore) &ndash; ASP.NET Core Framework per l'hosting di servizi gRPC. gRPC su ASP.NET Core si integra con funzionalità di ASP.NET Core standard come il log, l'inserimento di dipendenze (DI), l'autenticazione e l'autorizzazione.
+* [Grpc .NET. client](https://www.nuget.org/packages/Grpc.Net.Client) &ndash; un client gRPC per .NET Core che si basa sul familiare `HttpClient`.
+* [Grpc .NET. ClientFactory](https://www.nuget.org/packages/Grpc.Net.ClientFactory) &ndash; integrazione client gRPC con `HttpClientFactory`.
 
 Per altre informazioni, vedere <xref:grpc/index>.
 
@@ -132,7 +132,7 @@ connection.onreconnected((connectionId) => {
 });
 ```
 
-SignalR 3,0 e versioni successive fornisce una risorsa personalizzata ai gestori di autorizzazione quando un metodo Hub richiede l'autorizzazione. La risorsa è un'istanza di `HubInvocationContext`. Il `HubInvocationContext` include:
+SignalR 3.0 e versioni successive fornisce una risorsa personalizzata ai gestori di autorizzazione quando un metodo Hub richiede l'autorizzazione. La risorsa è un'istanza di `HubInvocationContext`. Il `HubInvocationContext` include:
 
 * `HubCallerContext`
 * Nome del metodo Hub richiamato.
@@ -245,7 +245,7 @@ app.UseRouting(routes =>
 });
 ```
 
-Gli hub SignalR 3,0 possono essere indirizzati tramite il routing degli endpoint. Con il routing degli endpoint, in genere è possibile configurare tutti i routing in `UseRouting`:
+Gli hub SignalR 3.0 possono essere indirizzati tramite il routing degli endpoint. Con il routing degli endpoint, in genere è possibile configurare tutti i routing in `UseRouting`:
 
 ```csharp
 app.UseRouting(routes =>
@@ -255,9 +255,9 @@ app.UseRouting(routes =>
 });
 ```
 
-ASP.NET Core 3,0 SignalR aggiunto:
+ASP.NET Core 3.0 SignalR aggiunto:
 
-Streaming da client a server. Con il flusso da client a server, i metodi lato server possono prendere le istanze di un `IAsyncEnumerable<T>` o `ChannelReader<T>`. Nell'esempio seguente C# , il metodo `UploadStream` sull'hub riceverà un flusso di stringhe dal client:
+Streaming da client a server. Con il flusso da client a server, i metodi lato server possono prendere le istanze di un `IAsyncEnumerable<T>` o `ChannelReader<T>`. Nell'esempio seguente C#, il metodo `UploadStream` sull'hub riceverà un flusso di stringhe dal client:
 
 ```csharp
 public async Task UploadStream(IAsyncEnumerable<string> stream)
@@ -304,13 +304,13 @@ Utilizzando codice come i due frammenti precedenti, è possibile creare esperien
 
 ## <a name="new-json-serialization"></a>Nuova serializzazione JSON
 
-ASP.NET Core 3,0 USA ora <xref:System.Text.Json> per impostazione predefinita per la serializzazione JSON:
+ASP.NET Core 3.0 ora usa <xref:System.Text.Json> per impostazione predefinita per la serializzazione JSON:
 
 * Legge e scrive JSON in modo asincrono.
 * È ottimizzato per il testo UTF-8.
 * Prestazioni in genere più elevate rispetto a `Newtonsoft.Json`.
 
-Per aggiungere Json.NET a ASP.NET Core 3,0, vedere [aggiungere il supporto per il formato JSON basato su Newtonsoft. JSON](xref:web-api/advanced/formatting#add-newtonsoftjson-based-json-format-support).
+Per aggiungere Json.NET a ASP.NET Core 3.0, vedere [aggiungere il supporto per il formato JSON basato su Newtonsoft. JSON](xref:web-api/advanced/formatting#add-newtonsoftjson-based-json-format-support).
 
 ## <a name="new-razor-directives"></a>Nuove direttive Razor
 
@@ -321,7 +321,7 @@ L'elenco seguente contiene le nuove direttive Razor:
 
 ## <a name="identityserver4-supports-authentication-and-authorization-for-web-apis-and-spas"></a>IdentityServer4 supporta l'autenticazione e l'autorizzazione per le API Web e le Spa
 
-[IdentityServer4](https://identityserver.io) è un Framework di OpenID Connect e OAuth 2,0 per ASP.NET Core 3,0. IdentityServer4 Abilita le funzionalità di sicurezza seguenti:
+[IdentityServer4](https://identityserver.io) è un Framework di OpenID Connect e OAuth 2.0 per ASP.NET Core 3.0. IdentityServer4 Abilita le funzionalità di sicurezza seguenti:
 
 * Autenticazione come servizio (AaaS)
 * Single Sign-on/off (SSO) su più tipi di applicazione
@@ -362,7 +362,7 @@ Le opzioni per l'autenticazione dei certificati includono la possibilità di:
 
 Un'entità utente predefinita viene costruita dalle proprietà del certificato. L'entità utente contiene un evento che consente l'aggiunta o la sostituzione dell'entità. Per altre informazioni, vedere <xref:security/authentication/certauth>.
 
-[L'autenticazione di Windows](/windows-server/security/windows-authentication/windows-authentication-overview) è stata estesa in Linux e MacOS. Nelle versioni precedenti, l'autenticazione di Windows era limitata a [IIS](xref:host-and-deploy/iis/index) e a [HttpSys](xref:fundamentals/servers/httpsys). In ASP.NET Core 3,0, [gheppio](xref:fundamentals/servers/kestrel) è in grado di usare Negotiate, [Kerberos](/windows-server/security/kerberos/kerberos-authentication-overview)e [NTLM in Windows](/windows-server/security/kerberos/ntlm-overview), Linux e MacOS per gli host aggiunti a un dominio Windows. Il supporto di gheppio di questi schemi di autenticazione viene fornito dal pacchetto [NuGet Microsoft. AspNetCore. Authentication. Negotiate](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Negotiate) . Come per gli altri servizi di autenticazione, configurare la larghezza dell'app di autenticazione, quindi configurare il servizio:
+[L'autenticazione di Windows](/windows-server/security/windows-authentication/windows-authentication-overview) è stata estesa in Linux e MacOS. Nelle versioni precedenti, l'autenticazione di Windows era limitata a [IIS](xref:host-and-deploy/iis/index) e a [HttpSys](xref:fundamentals/servers/httpsys). In ASP.NET Core 3.0, [Kestrel](xref:fundamentals/servers/kestrel) è in grado di usare Negotiate, [Kerberos](/windows-server/security/kerberos/kerberos-authentication-overview)e [NTLM in Windows](/windows-server/security/kerberos/ntlm-overview), Linux e MacOS per gli host aggiunti a un dominio Windows. Il supporto di Kestrel di questi schemi di autenticazione viene fornito dal pacchetto [NuGet Microsoft. AspNetCore. Authentication. Negotiate](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Negotiate). Come per gli altri servizi di autenticazione, configurare la larghezza dell'app di autenticazione, quindi configurare il servizio:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -392,20 +392,20 @@ Per altre informazioni, vedere <xref:security/authentication/windowsauth>.
 
 I modelli dell'interfaccia utente Web (Razor Pages, MVC con controller e visualizzazioni) hanno rimosso quanto segue:
 
-* L'interfaccia utente di consenso del cookie non è più inclusa. Per abilitare la funzionalità di consenso dei cookie in un'app generata da un modello di ASP.NET Core 3,0, vedere <xref:security/gdpr>.
+* L'interfaccia utente di consenso del cookie non è più inclusa. Per abilitare la funzionalità di consenso dei cookie in un'app generata da un modello di ASP.NET Core 3.0, vedere <xref:security/gdpr>.
 * Agli script e agli asset statici correlati viene ora fatto riferimento come file locali invece di usare CDNs. Per altre informazioni, vedere [gli script e gli asset statici correlati a cui viene ora fatto riferimento come file locali invece di usare CDNs in base all'ambiente corrente (ASPNET/AspNetCore. Docs #14350)](https://github.com/aspnet/AspNetCore.Docs/issues/14350).
 
-Modello angolare aggiornato per l'utilizzo di 8 angolare.
+Modello Angular aggiornato per l'utilizzo Angular 8.
 
 Per impostazione predefinita, il modello RCL (Razor Class Library) per impostazione predefinita è lo sviluppo di componenti Razor. Una nuova opzione di modello in Visual Studio fornisce il supporto del modello per le pagine e le visualizzazioni. Quando si crea un RCL dal modello in una shell dei comandi, passare l'opzione `--support-pages-and-views` (`dotnet new razorclasslib --support-pages-and-views`).
 
 ## <a name="generic-host"></a>Host generico
 
-I modelli ASP.NET Core 3,0 usano <xref:fundamentals/host/generic-host>. Versioni precedenti utilizzate <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder>. L'uso dell'host generico di .NET Core (<xref:Microsoft.Extensions.Hosting.HostBuilder>) consente una migliore integrazione delle app ASP.NET Core con altri scenari server che non sono specifici del Web. Per ulteriori informazioni, vedere [HostBuilder sostituisce WebHostBuilder](xref:migration/22-to-30?view=aspnetcore-2.2#hostbuilder-replaces-webhostbuilder).
+I modelli ASP.NET Core 3.0 usano <xref:fundamentals/host/generic-host>. Versioni precedenti utilizzate <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder>. L'uso dell'host generico di .NET Core (<xref:Microsoft.Extensions.Hosting.HostBuilder>) consente una migliore integrazione delle app ASP.NET Core con altri scenari server che non sono specifici del Web. Per ulteriori informazioni, vedere [HostBuilder sostituisce WebHostBuilder](xref:migration/22-to-30?view=aspnetcore-2.2#hostbuilder-replaces-webhostbuilder).
 
 ### <a name="host-configuration"></a>Configurazione dell'host
 
-Prima del rilascio di ASP.NET Core 3,0, le variabili di ambiente con prefisso `ASPNETCORE_` venivano caricate per la configurazione host dell'host Web. In 3,0, `AddEnvironmentVariables` viene usato per caricare le variabili di ambiente con prefisso `DOTNET_` per la configurazione host con `CreateDefaultBuilder`.
+Prima del rilascio di ASP.NET Core 3.0, le variabili di ambiente con prefisso `ASPNETCORE_` venivano caricate per la configurazione host dell'host Web. In 3.0, `AddEnvironmentVariables` viene usato per caricare le variabili di ambiente con prefisso `DOTNET_` per la configurazione host con `CreateDefaultBuilder`.
 
 ### <a name="changes-to-startup-contructor-injection"></a>Modifiche a Startup Costruttore Injection
 
@@ -419,11 +419,11 @@ Tutti i servizi possono comunque essere inseriti direttamente come argomenti per
 
 ## <a name="kestrel"></a>Kestrel
 
-* La configurazione di Gheppio è stata aggiornata per la migrazione all'host generico. In 3,0, Gheppio viene configurato nel generatore host Web fornito da `ConfigureWebHostDefaults`.
-* Le schede di connessione sono state rimosse da gheppio e sostituite con il middleware di connessione, che è simile al middleware HTTP nella pipeline ASP.NET Core ma per le connessioni di livello inferiore.
-* Il livello trasporto gheppio è stato esposto come interfaccia pubblica in `Connections.Abstractions`.
+* La configurazione di Kestrel è stata aggiornata per la migrazione all'host generico. In 3.0, Kestrel viene configurato nel generatore host Web fornito da `ConfigureWebHostDefaults`.
+* Le schede di connessione sono state rimosse da Kestrel e sostituite con il middleware di connessione, che è simile al middleware HTTP nella pipeline ASP.NET Core ma per le connessioni di livello inferiore.
+* Il livello trasporto Kestrel è stato esposto come interfaccia pubblica in `Connections.Abstractions`.
 * L'ambiguità tra intestazioni e trailer è stata risolta spostando le intestazioni finali in una nuova raccolta.
-* Le API di i/o sincrone, ad esempio `HttpRequest.Body.Read`, rappresentano una fonte comune di inedia dei thread che causa arresti anomali dell'app. In 3,0, `AllowSynchronousIO` è disabilitato per impostazione predefinita.
+* Le API di i/o sincrone, ad esempio `HttpRequest.Body.Read`, rappresentano una fonte comune di inedia dei thread che causa arresti anomali dell'app. In 3.0, `AllowSynchronousIO` è disabilitato per impostazione predefinita.
 
 Per altre informazioni, vedere <xref:migration/22-to-30#kestrel>.
 
@@ -485,7 +485,7 @@ Gli errori di avvio quando si ospitano app ASP.NET Core in IIS generano ora dati
 
 ## <a name="worker-service-and-worker-sdk"></a>Worker Service e worker SDK
 
-.NET Core 3,0 introduce il nuovo modello di app del servizio Worker. Questo modello offre un punto di partenza per la scrittura di servizi con esecuzione prolungata in .NET Core.
+.NET Core 3.0 introduce il nuovo modello di app del servizio Worker. Questo modello offre un punto di partenza per la scrittura di servizi con esecuzione prolungata in .NET Core.
 
 Per altre informazioni, vedere:
 
@@ -497,11 +497,11 @@ Per altre informazioni, vedere:
 
 Nelle versioni precedenti di ASP.NET Core la chiamata di <xref:Microsoft.AspNetCore.Builder.HstsBuilderExtensions.UseHsts*> e <xref:Microsoft.AspNetCore.Builder.HttpsPolicyBuilderExtensions.UseHttpsRedirection*> era problematica quando veniva distribuita in una Linux di Azure o dietro qualsiasi proxy inverso diverso da IIS. La correzione per le versioni precedenti è documentata in [inoltro dello schema per i proxy inversi di Linux e non IIS](xref:host-and-deploy/proxy-load-balancer#forward-the-scheme-for-linux-and-non-iis-reverse-proxies).
 
-Questo scenario è stato risolto in ASP.NET Core 3,0. L'host Abilita il [middleware delle intestazioni con inoltri](xref:host-and-deploy/proxy-load-balancer#forwarded-headers-middleware-options) quando la variabile di ambiente `ASPNETCORE_FORWARDEDHEADERS_ENABLED` è impostata su `true`. `ASPNETCORE_FORWARDEDHEADERS_ENABLED` è impostato su `true` nelle immagini del contenitore.
+Questo scenario è stato risolto in ASP.NET Core 3.0. L'host Abilita il [middleware delle intestazioni con inoltri](xref:host-and-deploy/proxy-load-balancer#forwarded-headers-middleware-options) quando la variabile di ambiente `ASPNETCORE_FORWARDEDHEADERS_ENABLED` è impostata su `true`. `ASPNETCORE_FORWARDEDHEADERS_ENABLED` è impostato su `true` nelle immagini del contenitore.
 
 ## <a name="performance-improvements"></a>Miglioramenti delle prestazioni
 
-ASP.NET Core 3,0 include numerosi miglioramenti che consentono di ridurre l'utilizzo della memoria e migliorare la velocità effettiva:
+ASP.NET Core 3.0 include numerosi miglioramenti che consentono di ridurre l'utilizzo della memoria e migliorare la velocità effettiva:
 
 * Riduzione dell'utilizzo della memoria quando si utilizza il contenitore incorporato di inserimento delle dipendenze per i servizi con ambito.
 * Riduzione delle allocazioni nel Framework, inclusi gli scenari middleware e il routing.
@@ -510,15 +510,15 @@ ASP.NET Core 3,0 include numerosi miglioramenti che consentono di ridurre l'util
 * Nuovo serializzatore JSON ottimizzato e completamente asincrono.
 * Riduzione dell'utilizzo della memoria e miglioramento della velocità effettiva nell'analisi dei moduli.
 
-## <a name="aspnet-core-30-only-runs-on-net-core-30"></a>ASP.NET Core 3,0 viene eseguito solo in .NET Core 3,0
+## <a name="aspnet-core-30-only-runs-on-net-core-30"></a>ASP.NET Core 3.0 viene eseguito solo in .NET Core 3.0
 
-A partire da ASP.NET Core 3,0, .NET Framework non è più un Framework di destinazione supportato. I progetti destinati a .NET Framework possono continuare in modo completamente supportato con la [versione di .NET Core 2,1 LTS](https://www.microsoft.com/net/download/dotnet-core/2.1). La maggior parte dei pacchetti di ASP.NET Core 2.1. x saranno supportati per un tempo illimitato, oltre il periodo di 3 anni LTS per .NET Core 2,1.
+A partire da ASP.NET Core 3.0, .NET Framework non è più un Framework di destinazione supportato. I progetti destinati a .NET Framework possono continuare in modo completamente supportato con la [versione di .NET Core 2,1 LTS](https://www.microsoft.com/net/download/dotnet-core/2.1). La maggior parte dei pacchetti di ASP.NET Core 2.1. x saranno supportati per un tempo illimitato, oltre il periodo di 3 anni LTS per .NET Core 2.1.
 
 Per informazioni sulla migrazione, vedere [trasferire il codice da .NET Framework a .NET Core](/dotnet/core/porting/).
 
 ## <a name="use-the-aspnet-core-shared-framework"></a>Usare il Framework condiviso ASP.NET Core
 
-Il Framework condiviso ASP.NET Core 3,0, contenuto nel [metapacchetto Microsoft. AspNetCore. app](xref:fundamentals/metapackage-app), non richiede più un elemento `<PackageReference />` esplicito nel file di progetto. Al Framework condiviso viene fatto automaticamente riferimento quando si usa l'SDK `Microsoft.NET.Sdk.Web` nel file di progetto:
+Il Framework condiviso ASP.NET Core 3.0, contenuto nel [metapacchetto Microsoft. AspNetCore. app](xref:fundamentals/metapackage-app), non richiede più un elemento `<PackageReference />` esplicito nel file di progetto. Al Framework condiviso viene fatto automaticamente riferimento quando si usa l'SDK `Microsoft.NET.Sdk.Web` nel file di progetto:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -526,12 +526,12 @@ Il Framework condiviso ASP.NET Core 3,0, contenuto nel [metapacchetto Microsoft.
 
 ## <a name="assemblies-removed-from-the-aspnet-core-shared-framework"></a>Assembly rimossi dal Framework condiviso ASP.NET Core
 
-Gli assembly più rilevanti rimossi dal Framework condiviso ASP.NET Core 3,0 sono:
+Gli assembly più rilevanti rimossi dal Framework condiviso ASP.NET Core 3.0 sono:
 
-* [Newtonsoft. JSON](https://www.nuget.org/packages/Newtonsoft.Json/) (JSON.NET). Per aggiungere Json.NET a ASP.NET Core 3,0, vedere [aggiungere il supporto per il formato JSON basato su Newtonsoft. JSON](xref:web-api/advanced/formatting#add-newtonsoftjson-based-json-format-support). ASP.NET Core 3,0 introduce `System.Text.Json` per la lettura e la scrittura di JSON. Per ulteriori informazioni, vedere la pagina relativa alla [nuova serializzazione JSON](#new-json-serialization) in questo documento.
+* [Newtonsoft. JSON](https://www.nuget.org/packages/Newtonsoft.Json/) (JSON.NET). Per aggiungere Json.NET a ASP.NET Core 3.0, vedere [aggiungere il supporto per il formato JSON basato su Newtonsoft. JSON](xref:web-api/advanced/formatting#add-newtonsoftjson-based-json-format-support). ASP.NET Core 3.0 introduce `System.Text.Json` per la lettura e la scrittura di JSON. Per ulteriori informazioni, vedere la pagina relativa alla [nuova serializzazione JSON](#new-json-serialization) in questo documento.
 * [Entity Framework Core](/ef/core/)
 
-Per un elenco completo degli assembly rimossi dal Framework condiviso, vedere [assembly rimossi da Microsoft. AspNetCore. App 3,0](https://github.com/aspnet/AspNetCore/issues/3755). Per altre informazioni sulla motivazione di questa modifica, vedere [modifiche di rilievo a Microsoft. AspNetCore. app in 3,0](https://github.com/aspnet/Announcements/issues/325) e [una prima occhiata alle modifiche apportate in ASP.NET Core 3,0](https://devblogs.microsoft.com/aspnet/a-first-look-at-changes-coming-in-asp-net-core-3-0/).
+Per un elenco completo degli assembly rimossi dal Framework condiviso, vedere [assembly rimossi da Microsoft. AspNetCore. App 3.0](https://github.com/aspnet/AspNetCore/issues/3755). Per altre informazioni sulla motivazione di questa modifica, vedere [modifiche di rilievo a Microsoft. AspNetCore. app in 3.0](https://github.com/aspnet/Announcements/issues/325) e [una prima occhiata alle modifiche apportate in ASP.NET Core 3.0](https://devblogs.microsoft.com/aspnet/a-first-look-at-changes-coming-in-asp-net-core-3-0/).
 
 <!-- 
 ## Additional information
