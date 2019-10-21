@@ -5,12 +5,12 @@ description: Illustra le pagine Razor generate tramite scaffolding.
 ms.author: riande
 ms.date: 08/17/2019
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: 00a8458b9bee4d30c5774a980ff5c23fb8872737
-ms.sourcegitcommit: 38cac2552029fc19428722bb204ff9e16eb94225
-ms.translationtype: HT
+ms.openlocfilehash: 939ed5c3cdf33d8d99712e3166d8d07d3bac719f
+ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2019
-ms.locfileid: "69573152"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72334090"
 ---
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>Pagine Razor create in ASP.NET Core tramite scaffolding
 
@@ -30,9 +30,9 @@ Esaminare il modello di pagina *Pages/Movies/Index.cshtml.cs*:
 
 Le pagine Razor vengono derivate da `PageModel`. Per convenzione, la classe derivata `PageModel` viene denominata `<PageName>Model`. Il costruttore usa l'[inserimento delle dipendenze](xref:fundamentals/dependency-injection) per aggiungere `RazorPagesMovieContext` alla pagina. Tutte le pagine create tramite scaffolding seguono questo schema. Vedere [Codice asincrono](xref:data/ef-rp/intro#asynchronous-code) per altre informazioni sulla programmazione asincrona con Entity Framework.
 
-Quando per la pagina viene eseguita una richiesta, il metodo `OnGetAsync` restituisce un elenco di filmati alla pagina Razor. Nella pagina Razor viene chiamato `OnGetAsync`o `OnGet` per inizializzare lo stato della pagina. In questo caso, `OnGetAsync` ottiene un elenco di filmati e li visualizza.
+Quando per la pagina viene eseguita una richiesta, il metodo `OnGetAsync` restituisce un elenco di filmati alla pagina Razor. viene chiamato `OnGetAsync` o `OnGet` per inizializzare lo stato della pagina. In questo caso, `OnGetAsync` ottiene un elenco di filmati e li visualizza.
 
-Quando `OnGet` restituisce `void` o `OnGetAsync` restituisce`Task`, non viene usato alcun metodo restituito. Quando il tipo restituito è `IActionResult` o `Task<IActionResult>`, è necessario specificare un'istruzione return. Ad esempio, il metodo *Pages/Movies/Create.cshtml.cs* `OnPostAsync`:
+Quando `OnGet` restituisce `void` o `OnGetAsync` restituisce `Task`, non viene utilizzata alcuna istruzione return. Quando il tipo restituito è `IActionResult` o `Task<IActionResult>`, è necessario specificare un'istruzione return. Ad esempio, il metodo *Pages/Movies/Create.cshtml.cs* `OnPostAsync`:
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Pages/Movies/Create.cshtml.cs?name=snippet)]
 
@@ -42,7 +42,9 @@ Quando `OnGet` restituisce `void` o `OnGetAsync` restituisce`Task`, non viene us
 
 Con Razor è possibile passare da HTML a C# o scegliere un markup specifico per Razor. Quando il simbolo `@` è seguito da una [parola chiave riservata Razor ](xref:mvc/views/razor#razor-reserved-keywords), la transizione avviene in un markup specifico per Razor, altrimenti in C#.
 
-La direttiva Razor `@page` trasforma il file in un'azione MVC in modo che possa gestire le richieste. `@page` deve essere la prima direttiva Razor in una pagina. `@page` è un esempio di transizione nel markup specifico per Razor. Vedere [Razor syntax](xref:mvc/views/razor#razor-syntax) (Sintassi Razor) per altre informazioni.
+### <a name="the-page-directive"></a>La direttiva @page
+
+La direttiva `@page` Razor rende il file un'azione MVC, il che significa che può gestire le richieste. `@page` deve essere la prima direttiva Razor in una pagina. `@page` è un esempio di transizione nel markup specifico per Razor. Vedere [Razor syntax](xref:mvc/views/razor#razor-syntax) (Sintassi Razor) per altre informazioni.
 
 Esaminare l'espressione lambda usata nell'helper HTML seguente:
 
@@ -50,7 +52,7 @@ Esaminare l'espressione lambda usata nell'helper HTML seguente:
 @Html.DisplayNameFor(model => model.Movie[0].Title))
 ```
 
-L'helper HTML `DisplayNameFor` controlla la proprietà `Title` a cui fa riferimento nell'espressione lambda per determinare il nome visualizzato. L'espressione lambda viene controllata anziché valutata. Non sussiste pertanto violazione di accesso quando `model`, `model.Movie`, o `model.Movie[0]` sono `null` o vuoti. Quando invece l'espressione lambda viene valutata (ad esempio con `@Html.DisplayFor(modelItem => item.Title)`), vengono valutati i valori proprietà del modello.
+L'helper HTML `DisplayNameFor` controlla la proprietà `Title` a cui fa riferimento nell'espressione lambda per determinare il nome visualizzato. L'espressione lambda viene controllata anziché valutata. Ciò significa che non si verifica alcuna violazione di accesso quando `model`, `model.Movie` o `model.Movie[0]` è `null` o vuoto. Quando invece l'espressione lambda viene valutata (ad esempio con `@Html.DisplayFor(modelItem => item.Title)`), vengono valutati i valori proprietà del modello.
 
 <a name="md"></a>
 
@@ -81,7 +83,7 @@ Si consideri il markup seguente dal file *Pages/Movies/Index.cshtml*:
 
 Il markup evidenziato sopra è un esempio di transizione Razor in C#. Tra i caratteri `{` e `}` è racchiuso un blocco di codice C#.
 
-La classe di base `PageModel` contiene una proprietà del dizionario `ViewData` che può essere usata per aggiungere dati e passarli a una visualizzazione. Gli oggetti vengono aggiunti al dizionario `ViewData` usando uno schema chiave/valore. Nell'esempio precedente la proprietà `"Title"` viene aggiunta al dizionario `ViewData`.
+La classe di base `PageModel` contiene una proprietà del dizionario `ViewData` che può essere utilizzata per passare dati a una visualizzazione. Gli oggetti vengono aggiunti al dizionario `ViewData` usando uno schema chiave/valore. Nell'esempio precedente la proprietà `"Title"` viene aggiunta al dizionario `ViewData`.
 
 La proprietà `"Title"` viene usata nel file *Pages/Shared/_Layout.cshtml*. Il markup seguente illustra le prime righe del file *_Layout.cshtml*.
 
@@ -114,7 +116,7 @@ L'elemento di ancoraggio precedente è un [helper tag](xref:mvc/views/tag-helper
 
 Salvare le modifiche e testare l'app selezionando il collegamento **RpMovie**. In caso di problemi, vedere il file [_Layout.cshtml](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie30/Pages/Shared/_Layout.cshtml) in GitHub.
 
-Testare gli altri collegamenti (**Home**, **RpMovie**, **Create**, **Edit** e **Delete**). In ogni pagina viene impostato il titolo che è possibile visualizzare nella scheda del browser. Quando una pagina viene specificata come segnalibro, il titolo viene usato per il segnalibro.
+Testare gli altri collegamenti (**Home**, **RpMovie**, **Create**, **Edit** e **Delete**). Ogni pagina imposta il titolo, che è possibile visualizzare nella scheda del browser. Quando si aggiunge un segnalibro a una pagina, il titolo viene usato per il segnalibro.
 
 > [!NOTE]
 > Potrebbe non essere possibile immettere virgole decimali nel campo `Price`. Per supportare la [convalida jQuery](https://jqueryvalidation.org/) per impostazioni locali diverse dall'inglese che usano la virgola (",") come separatore decimale e per formati di data diversi da quello dell'inglese degli Stati Uniti, è necessario eseguire alcuni passaggi per globalizzare l'app. Vedere questo [problema 4076 su GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420) per istruzioni sull'aggiunta della virgola decimale.
@@ -200,8 +202,8 @@ Per altre informazioni sugli helper tag, ad esempio `<form method="post">`, vede
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 > [!div class="step-by-step"]
-> [Precedente: Aggiunta di un modello](xref:tutorials/razor-pages/model)
-> [Successivo: Database](xref:tutorials/razor-pages/sql)
+> [Precedente: aggiunta di un modello](xref:tutorials/razor-pages/model) 
+> [Next: database](xref:tutorials/razor-pages/sql)
 
 ::: moniker-end
 
@@ -211,7 +213,7 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 In questa esercitazione vengono esaminate le pagine Razor create tramite scaffolding nell'[esercitazione precedente](xref:tutorials/razor-pages/model).
 
-[Visualizzare o scaricare](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22) l'esempio.
+[Visualizzare o scaricare il campione ](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22).
 
 ## <a name="the-create-delete-details-and-edit-pages"></a>Pagine di creazione, eliminazione, dettagli e modifica
 
@@ -300,7 +302,7 @@ L'elemento di ancoraggio precedente è un [helper tag](xref:mvc/views/tag-helper
 
 Salvare le modifiche e testare l'app selezionando il collegamento **RpMovie**. In caso di problemi, vedere il file [_Layout.cshtml](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Pages/Shared/_Layout.cshtml) in GitHub.
 
-Testare gli altri collegamenti (**Home**, **RpMovie**, **Create**, **Edit** e **Delete**). In ogni pagina viene impostato il titolo che è possibile visualizzare nella scheda del browser. Quando una pagina viene specificata come segnalibro, il titolo viene usato per il segnalibro.
+Testare gli altri collegamenti (**Home**, **RpMovie**, **Create**, **Edit** e **Delete**). Ogni pagina imposta il titolo, che è possibile visualizzare nella scheda del browser. Quando si aggiunge un segnalibro a una pagina, il titolo viene usato per il segnalibro.
 
 > [!NOTE]
 > Potrebbe non essere possibile immettere virgole decimali nel campo `Price`. Per supportare la [convalida jQuery](https://jqueryvalidation.org/) per impostazioni locali diverse dall'inglese che usano la virgola (",") come separatore decimale e per formati di data diversi da quello dell'inglese degli Stati Uniti, è necessario eseguire alcuni passaggi per globalizzare l'app. [Problema 4076 su GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420) per istruzioni sull'aggiunta della virgola decimale.
@@ -368,7 +370,7 @@ L'[helper tag di input](xref:mvc/views/working-with-forms) (`<input asp-for="Mov
 * [Versione YouTube dell'esercitazione](https://youtu.be/zxgKjPYnOMM)
 
 > [!div class="step-by-step"]
-> [Precedente: Aggiunta di un modello](xref:tutorials/razor-pages/model)
-> [Successivo: Database](xref:tutorials/razor-pages/sql)
+> [Precedente: aggiunta di un modello](xref:tutorials/razor-pages/model) 
+> [Next: database](xref:tutorials/razor-pages/sql)
 
 ::: moniker-end

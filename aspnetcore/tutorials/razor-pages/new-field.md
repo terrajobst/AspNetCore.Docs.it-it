@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 7/23/2019
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: 0629605f4d5597a9694cb20ce00b91ff4a768468
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 1b08e1515afe656b95be9fb436caa00cd53ab9ad
+ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082475"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72334096"
 ---
 # <a name="add-a-new-field-to-a-razor-page-in-aspnet-core"></a>Aggiungere un nuovo campo a una pagina Razor in ASP.NET Core
 
@@ -24,11 +24,11 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 In questa sezione vengono usate le Migrazioni Code First di [Entity Framework](/ef/core/get-started/aspnetcore/new-db) per:
 
 * Aggiungere un nuovo campo al modello.
-* Eseguire la migrazione della modifica al nuovo schema del campo nel database.
+* Eseguire la migrazione nel database della modifica al nuovo schema del campo.
 
 Quando si usa Code First di Entity Framework per creare automaticamente un database, Code First:
 
-* Aggiunge una tabella al database per rilevare se lo schema del database è sincronizzato con le classi di modelli da cui è stato generato.
+* Aggiunge una tabella `__EFMigrationsHistory` al database per rilevare se lo schema del database è sincronizzato con le classi del modello da cui è stato generato.
 * Se le classi di modelli non sono sincronizzate con il database, Entity Framework genera un'eccezione.
 
 La verifica automatica del modello o schema sincronizzato rende più semplice individuare i problemi di codice o database incoerente.
@@ -51,11 +51,11 @@ Aggiornare le pagine seguenti:
 * Aggiornare [Create.cshtml](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie30/Pages/Movies/Create.cshtml) con un campo `Rating`.
 * Aggiungere il campo `Rating` alla pagina Edit (Modifica).
 
-L'app non funzionerà finché non si aggiorna il database in modo da includere il nuovo campo. Se si esegue l'app ora, verrà visualizzato un errore `SqlException`:
+L'app non funzionerà finché non si aggiorna il database in modo da includere il nuovo campo. Se si esegue l'app senza aggiornare il database, viene generato un `SqlException`:
 
 `SqlException: Invalid column name 'Rating'.`
 
-Questo errore viene visualizzato perché la classe del modello Movie aggiornata è diversa rispetto allo schema della tabella Movie nel database. Nella tabella del database non è presente una colonna `Rating`.
+L'eccezione `SqlException` è causata dalla classe del modello di film aggiornata che è diversa dallo schema della tabella dei film del database. Nella tabella del database non è presente una colonna `Rating`.
 
 Per correggere questo errore, esistono alcuni approcci:
 
@@ -82,7 +82,7 @@ Compilare la soluzione.
 ### <a name="add-a-migration-for-the-rating-field"></a>Aggiungere una migrazione per il campo Rating
 
 Dal menu **Strumenti** selezionare **Gestione pacchetti NuGet > Console di Gestione pacchetti**.
-Nella Console di Gestione pacchetti immettere i comandi seguenti:
+In PMC, immettere i comandi seguenti:
 
 ```powershell
 Add-Migration Rating
@@ -96,7 +96,7 @@ Il comando `Add-Migration` indica al framework di:
 
 Il nome "Rating" è arbitrario e viene usato per denominare il file di migrazione. È consigliabile usare un nome significativo per il file di migrazione.
 
-Il comando `Update-Database` indica al framework di applicare le modifiche dello schema al database.
+Il `Update-Database` comando indica al Framework di applicare le modifiche dello schema al database e di mantenere i dati esistenti.
 
 <a name="ssox"></a>
 
@@ -107,7 +107,7 @@ Un'altra opzione è quella di eliminare il database e usare le migrazioni per ri
 * Selezionare il database in SSOX.
 * Fare clic con il pulsante destro del mouse sul database e selezionare *Elimina*.
 * Selezionare **Chiudi connessioni esistenti**.
-* Selezionare **OK**.
+* Scegliere **OK**.
 * Nella [Console di Gestione pacchetti](xref:tutorials/razor-pages/new-field#pmc) aggiornare il database:
 
   ```powershell
@@ -138,7 +138,7 @@ Eseguire l'app e verificare che sia possibile creare/modificare/visualizzare i f
 
 > [!div class="step-by-step"]
 > [Precedente: Aggiunta della funzionalità di ricerca](xref:tutorials/razor-pages/search)
-> [Successivo: Aggiunta della convalida](xref:tutorials/razor-pages/validation)
+> [Successivo: Aggiunta della funzionalità di convalida](xref:tutorials/razor-pages/validation)
 
 ::: moniker-end
 
@@ -149,7 +149,7 @@ Eseguire l'app e verificare che sia possibile creare/modificare/visualizzare i f
 In questa sezione vengono usate le Migrazioni Code First di [Entity Framework](/ef/core/get-started/aspnetcore/new-db) per:
 
 * Aggiungere un nuovo campo al modello.
-* Eseguire la migrazione della modifica al nuovo schema del campo nel database.
+* Eseguire la migrazione nel database della modifica al nuovo schema del campo.
 
 Quando si usa Code First di Entity Framework per creare automaticamente un database, Code First:
 
@@ -207,7 +207,7 @@ Compilare la soluzione.
 ### <a name="add-a-migration-for-the-rating-field"></a>Aggiungere una migrazione per il campo Rating
 
 Dal menu **Strumenti** selezionare **Gestione pacchetti NuGet > Console di Gestione pacchetti**.
-Nella Console di Gestione pacchetti immettere i comandi seguenti:
+In PMC, immettere i comandi seguenti:
 
 ```powershell
 Add-Migration Rating
@@ -232,7 +232,7 @@ Un'altra opzione è quella di eliminare il database e usare le migrazioni per ri
 * Selezionare il database in SSOX.
 * Fare clic con il pulsante destro del mouse sul database e selezionare *Elimina*.
 * Selezionare **Chiudi connessioni esistenti**.
-* Selezionare **OK**.
+* Scegliere **OK**.
 * Nella [Console di Gestione pacchetti](xref:tutorials/razor-pages/new-field#pmc) aggiornare il database:
 
   ```powershell
@@ -261,6 +261,6 @@ Eseguire l'app e verificare che sia possibile creare/modificare/visualizzare i f
 
 > [!div class="step-by-step"]
 > [Precedente: Aggiunta della funzionalità di ricerca](xref:tutorials/razor-pages/search)
-> [Successivo: Aggiunta della convalida](xref:tutorials/razor-pages/validation)
+> [Successivo: Aggiunta della funzionalità di convalida](xref:tutorials/razor-pages/validation)
 
 ::: moniker-end

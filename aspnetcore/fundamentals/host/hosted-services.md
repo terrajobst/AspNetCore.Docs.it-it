@@ -7,16 +7,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/26/2019
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: 0eaa3a62370c1e413840bb65f597dc664adafc38
-ms.sourcegitcommit: fe88748b762525cb490f7e39089a4760f6a73a24
+ms.openlocfilehash: c1fbb5ae8ffc4ee506f42df6a4cbbe845b2b903d
+ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71688111"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333662"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>Attività in background con servizi ospitati in ASP.NET Core
 
-Di [Luke Latham](https://github.com/guardrex)
+Di [Luke Latham](https://github.com/guardrex) e [Jeow li Huan](https://github.com/huan086)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -47,14 +47,14 @@ Un riferimento al pacchetto [Microsoft. Extensions. Hosting](https://www.nuget.o
 
 ## <a name="ihostedservice-interface"></a>Interfaccia IHostedService
 
-L' <xref:Microsoft.Extensions.Hosting.IHostedService> interfaccia definisce due metodi per gli oggetti gestiti dall'host:
+L'interfaccia <xref:Microsoft.Extensions.Hosting.IHostedService> definisce due metodi per gli oggetti gestiti dall'host:
 
-* [StartAsync(CancellationToken)](xref:Microsoft.Extensions.Hosting.IHostedService.StartAsync*) &ndash; `StartAsync` contiene la logica per avviare l'attività in background. `StartAsync`viene chiamato *prima*di:
+* [StartAsync(CancellationToken)](xref:Microsoft.Extensions.Hosting.IHostedService.StartAsync*) &ndash; `StartAsync` contiene la logica per avviare l'attività in background. `StartAsync` viene chiamato *prima*:
 
-  * La pipeline di elaborazione delle richieste dell'app è`Startup.Configure`configurata ().
+  * La pipeline di elaborazione delle richieste dell'app è configurata (`Startup.Configure`).
   * Il server viene avviato e viene attivato [IApplicationLifetime. ApplicationStarted](xref:Microsoft.AspNetCore.Hosting.IApplicationLifetime.ApplicationStarted*) .
 
-  Il comportamento predefinito può essere modificato in modo che il servizio `StartAsync` ospitato venga eseguito dopo che la pipeline dell'app è stata configurata e `ApplicationStarted` chiamata. Per modificare il comportamento predefinito, aggiungere il servizio ospitato (`VideosWatcher` nell'esempio seguente) dopo la chiamata `ConfigureWebHostDefaults`a:
+  Il comportamento predefinito può essere modificato in modo che l'`StartAsync` del servizio ospitato venga eseguito dopo la configurazione della pipeline dell'app e che venga chiamato `ApplicationStarted`. Per modificare il comportamento predefinito, aggiungere il servizio ospitato (`VideosWatcher` nell'esempio seguente) dopo aver chiamato `ConfigureWebHostDefaults`:
 
   ```csharp
   using Microsoft.AspNetCore.Hosting;
@@ -94,19 +94,19 @@ L' <xref:Microsoft.Extensions.Hosting.IHostedService> interfaccia definisce due 
 
   Per estendere il timeout di arresto predefinito di cinque secondi, impostare:
 
-  * <xref:Microsoft.Extensions.Hosting.HostOptions.ShutdownTimeout*> quando si usa l'host generico. Per altre informazioni, vedere <xref:fundamentals/host/generic-host#shutdown-timeout>.
-  * Impostazione di configurazione dell'host del timeout di arresto quando si usa l'host Web. Per altre informazioni, vedere <xref:fundamentals/host/web-host#shutdown-timeout>.
+  * <xref:Microsoft.Extensions.Hosting.HostOptions.ShutdownTimeout*> quando si usa l'host generico. Per ulteriori informazioni, vedere <xref:fundamentals/host/generic-host#shutdown-timeout>.
+  * Impostazione di configurazione dell'host del timeout di arresto quando si usa l'host Web. Per ulteriori informazioni, vedere <xref:fundamentals/host/web-host#shutdown-timeout>.
 
 Il servizio ospitato viene attivato una volta all'avvio dell'app e arrestato normalmente all'arresto dell'applicazione. Se viene generato un errore durante l'esecuzione dell'attività in background, deve essere chiamato `Dispose` anche se `StopAsync` non viene chiamato.
 
 ## <a name="backgroundservice"></a>BackgroundService
 
-`BackgroundService`è una classe di base per l'implementazione di <xref:Microsoft.Extensions.Hosting.IHostedService>un oggetto a esecuzione prolungata. `BackgroundService`fornisce il `ExecuteAsync(CancellationToken stoppingToken)` metodo astratto per contenere la logica del servizio. Viene attivato quando viene chiamato [IHostedService. StopAsync.](xref:Microsoft.Extensions.Hosting.IHostedService.StopAsync*) `stoppingToken` L'implementazione di questo metodo restituisce un `Task` oggetto che rappresenta l'intera durata del servizio in background.
+`BackgroundService` è una classe di base per l'implementazione di una <xref:Microsoft.Extensions.Hosting.IHostedService> con esecuzione prolungata. `BackgroundService` fornisce il metodo astratto `ExecuteAsync(CancellationToken stoppingToken)` per contenere la logica del servizio. Il `stoppingToken` viene attivato quando viene chiamato [IHostedService. StopAsync](xref:Microsoft.Extensions.Hosting.IHostedService.StopAsync*) . L'implementazione di questo metodo restituisce un `Task` che rappresenta l'intera durata del servizio in background.
 
-Inoltre, *facoltativamente* , eseguire l'override dei metodi `IHostedService` definiti in per eseguire il codice di avvio e arresto per il servizio:
+Inoltre, *facoltativamente* , è possibile eseguire l'override dei metodi definiti in `IHostedService` per eseguire il codice di avvio e arresto del servizio:
 
-* `StopAsync(CancellationToken cancellationToken)`&ndash; vienechiamatoquandol'hostdell'applicazionesta`StopAsync` eseguendo un arresto normale. `cancellationToken` Viene segnalato quando l'host decide di terminare forzatamente il servizio. Se viene eseguito l'override di questo metodo, è **necessario** chiamare `await`(e) il metodo della classe di base per verificare che il servizio venga arrestato correttamente.
-* `StartAsync(CancellationToken cancellationToken)`&ndash; vienechiamatoperavviare`StartAsync` il servizio in background. `cancellationToken` Viene segnalato se il processo di avvio viene interrotto. L'implementazione restituisce un `Task` oggetto che rappresenta il processo di avvio per il servizio. Non vengono avviati altri servizi fino `Task` a quando l'operazione non viene completata. Se viene eseguito l'override di questo metodo, è **necessario** chiamare `await`(e) il metodo della classe di base per verificare che il servizio venga avviato correttamente.
+* `StopAsync(CancellationToken cancellationToken)` &ndash; `StopAsync` viene chiamato quando l'host dell'applicazione sta eseguendo un arresto normale. Il `cancellationToken` viene segnalato quando l'host decide di terminare forzatamente il servizio. Se viene eseguito l'override di questo metodo, è **necessario** chiamare (e `await`) il metodo della classe di base per assicurarsi che il servizio venga arrestato correttamente.
+* `StartAsync(CancellationToken cancellationToken)` &ndash; `StartAsync` viene chiamato per avviare il servizio in background. Il `cancellationToken` viene segnalato se il processo di avvio viene interrotto. L'implementazione restituisce un `Task` che rappresenta il processo di avvio per il servizio. Non vengono avviati altri servizi fino al completamento di questo `Task`. Se viene eseguito l'override di questo metodo, è **necessario** chiamare (e `await`) il metodo della classe di base per assicurarsi che il servizio venga avviato correttamente.
 
 ## <a name="timed-background-tasks"></a>Attività in background programmate
 
@@ -114,50 +114,54 @@ Un'attività programmata in background utilizza la classe [System.Threading.Time
 
 [!code-csharp[](hosted-services/samples/3.x/BackgroundTasksSample/Services/TimedHostedService.cs?name=snippet1&highlight=16-18,34,41)]
 
-Il servizio è registrato in `IHostBuilder.ConfigureServices` (*Program.cs*) con il `AddHostedService` metodo di estensione:
+Il servizio è registrato nel `IHostBuilder.ConfigureServices` (*Program.cs*) con il metodo di estensione `AddHostedService`:
 
 [!code-csharp[](hosted-services/samples/3.x/BackgroundTasksSample/Program.cs?name=snippet1)]
 
 ## <a name="consuming-a-scoped-service-in-a-background-task"></a>Utilizzo di un servizio con ambito in un'attività in background
 
-Per usare i [servizi con ambito](xref:fundamentals/dependency-injection#service-lifetimes) all' `BackgroundService`interno di un, creare un ambito. Non viene creato automaticamente alcun ambito per un servizio ospitato.
+Per usare i [servizi con ambito](xref:fundamentals/dependency-injection#service-lifetimes) all'interno di una `BackgroundService`, creare un ambito. Non viene creato automaticamente alcun ambito per un servizio ospitato.
 
 Il servizio dell'attività in background con ambito contiene la logica dell'attività in background. Nell'esempio seguente:
 
-* Il servizio è asincrono. Il metodo `DoWork` restituisce un tipo `Task`. A scopo dimostrativo, nel `DoWork` metodo è atteso un ritardo di dieci secondi.
-* Un <xref:Microsoft.Extensions.Logging.ILogger> oggetto viene inserito nel servizio.
+* Il servizio è asincrono. Il metodo `DoWork` restituisce un tipo `Task`. A scopo dimostrativo, è atteso un ritardo di dieci secondi nel metodo `DoWork`.
+* Un <xref:Microsoft.Extensions.Logging.ILogger> viene inserito nel servizio.
 
 [!code-csharp[](hosted-services/samples/3.x/BackgroundTasksSample/Services/ScopedProcessingService.cs?name=snippet1)]
 
-Il servizio ospitato crea un ambito per risolvere il servizio attività in background con ambito per chiamare `DoWork` il relativo metodo. `DoWork`Restituisce un `Task`oggetto, che è atteso `ExecuteAsync`in:
+Il servizio ospitato crea un ambito per risolvere il servizio attività in background con ambito per chiamare il relativo metodo `DoWork`. `DoWork` restituisce un `Task`, atteso in `ExecuteAsync`:
 
 [!code-csharp[](hosted-services/samples/3.x/BackgroundTasksSample/Services/ConsumeScopedServiceHostedService.cs?name=snippet1&highlight=19,22-35)]
 
-I servizi sono registrati in `IHostBuilder.ConfigureServices` (*Program.cs*). Il servizio ospitato viene registrato con il `AddHostedService` metodo di estensione:
+I servizi vengono registrati nel `IHostBuilder.ConfigureServices` (*Program.cs*). Il servizio ospitato viene registrato con il metodo di estensione `AddHostedService`:
 
 [!code-csharp[](hosted-services/samples/3.x/BackgroundTasksSample/Program.cs?name=snippet2)]
 
 ## <a name="queued-background-tasks"></a>Attività in background in coda
 
-Una coda delle attività in background è basata su .NET 4. <xref:System.Web.Hosting.HostingEnvironment.QueueBackgroundWorkItem*> x ([programma provvisoriamente per essere incorporato per ASP.NET Core](https://github.com/aspnet/Hosting/issues/1280)):
+Una coda di attività in background si basa su .NET 4. x <xref:System.Web.Hosting.HostingEnvironment.QueueBackgroundWorkItem*> ([programma provvisoriamente pianificato per essere incorporato per ASP.NET Core](https://github.com/aspnet/Hosting/issues/1280)):
 
 [!code-csharp[](hosted-services/samples/3.x/BackgroundTasksSample/Services/BackgroundTaskQueue.cs?name=snippet1)]
 
-Nell'esempio seguente `QueueHostedService` :
+Nell'esempio di `QueueHostedService` seguente:
 
-* Il `BackgroundProcessing` metodo restituisce un `Task`oggetto, che è atteso `ExecuteAsync`in.
-* Le attività in background nella coda vengono rimesse in coda ed `BackgroundProcessing`eseguite in.
+* Il metodo `BackgroundProcessing` restituisce un `Task`, atteso in `ExecuteAsync`.
+* Le attività in background nella coda vengono rimossi dalla coda ed eseguite in `BackgroundProcessing`.
+* Gli elementi di lavoro sono in attesa prima che il servizio venga arrestato in `StopAsync`.
 
-[!code-csharp[](hosted-services/samples/3.x/BackgroundTasksSample/Services/QueuedHostedService.cs?name=snippet1&highlight=28,39-40,44)]
+[!code-csharp[](hosted-services/samples/3.x/BackgroundTasksSample/Services/QueuedHostedService.cs?name=snippet1&highlight=28-29,33)]
 
-Un `MonitorLoop` servizio gestisce le attività di Accodamento per il servizio ospitato ogni `w` volta che la chiave viene selezionata in un dispositivo di input:
+Un servizio `MonitorLoop` gestisce le attività di Accodamento per il servizio ospitato ogni volta che viene selezionata la chiave di `w` in un dispositivo di input:
 
-* `IBackgroundTaskQueue` Viene inserito`MonitorLoop` nel servizio.
-* `IBackgroundTaskQueue.QueueBackgroundWorkItem`viene chiamato per accodare un elemento di lavoro.
+* Il `IBackgroundTaskQueue` viene inserito nel servizio `MonitorLoop`.
+* `IBackgroundTaskQueue.QueueBackgroundWorkItem` viene chiamato per accodare un elemento di lavoro.
+* L'elemento di lavoro simula un'attività in background con esecuzione prolungata:
+  * Vengono eseguiti tre ritardi di 5 secondi (`Task.Delay`).
+  * Un'istruzione `try-catch` intrappola <xref:System.OperationCanceledException> se l'attività è stata annullata.
 
 [!code-csharp[](hosted-services/samples/3.x/BackgroundTasksSample/Services/MonitorLoop.cs?name=snippet_Monitor&highlight=7,33)]
 
-I servizi sono registrati in `IHostBuilder.ConfigureServices` (*Program.cs*). Il servizio ospitato viene registrato con il `AddHostedService` metodo di estensione:
+I servizi vengono registrati nel `IHostBuilder.ConfigureServices` (*Program.cs*). Il servizio ospitato viene registrato con il metodo di estensione `AddHostedService`:
 
 [!code-csharp[](hosted-services/samples/3.x/BackgroundTasksSample/Program.cs?name=snippet3)]
 
@@ -201,8 +205,8 @@ I servizi ospitati implementano l'interfaccia <xref:Microsoft.Extensions.Hosting
 
   Per estendere il timeout di arresto predefinito di cinque secondi, impostare:
 
-  * <xref:Microsoft.Extensions.Hosting.HostOptions.ShutdownTimeout*> quando si usa l'host generico. Per altre informazioni, vedere <xref:fundamentals/host/generic-host#shutdown-timeout>.
-  * Impostazione di configurazione dell'host del timeout di arresto quando si usa l'host Web. Per altre informazioni, vedere <xref:fundamentals/host/web-host#shutdown-timeout>.
+  * <xref:Microsoft.Extensions.Hosting.HostOptions.ShutdownTimeout*> quando si usa l'host generico. Per ulteriori informazioni, vedere <xref:fundamentals/host/generic-host#shutdown-timeout>.
+  * Impostazione di configurazione dell'host del timeout di arresto quando si usa l'host Web. Per ulteriori informazioni, vedere <xref:fundamentals/host/web-host#shutdown-timeout>.
 
 Il servizio ospitato viene attivato una volta all'avvio dell'app e arrestato normalmente all'arresto dell'applicazione. Se viene generato un errore durante l'esecuzione dell'attività in background, deve essere chiamato `Dispose` anche se `StopAsync` non viene chiamato.
 
@@ -234,7 +238,7 @@ I servizi vengono registrati in `Startup.ConfigureServices`. L'implementazione d
 
 ## <a name="queued-background-tasks"></a>Attività in background in coda
 
-Una coda delle attività in background è basata su .NET 4. <xref:System.Web.Hosting.HostingEnvironment.QueueBackgroundWorkItem*> x ([programma provvisoriamente per essere incorporato per ASP.NET Core](https://github.com/aspnet/Hosting/issues/1280)):
+Una coda di attività in background si basa su .NET Framework 4. x <xref:System.Web.Hosting.HostingEnvironment.QueueBackgroundWorkItem*> ([programma provvisoriamente da incorporare per ASP.NET Core](https://github.com/aspnet/Hosting/issues/1280)):
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample/Services/BackgroundTaskQueue.cs?name=snippet1)]
 
@@ -253,7 +257,7 @@ Nella classe modello della pagina di indice:
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample/Pages/Index.cshtml.cs?name=snippet1)]
 
-Quando si seleziona il pulsante **Aggiungi attività** nella pagina di indice, viene eseguito il metodo `OnPostAddTask`. `QueueBackgroundWorkItem`viene chiamato per accodare un elemento di lavoro:
+Quando si seleziona il pulsante **Aggiungi attività** nella pagina di indice, viene eseguito il metodo `OnPostAddTask`. `QueueBackgroundWorkItem` viene chiamato per accodare un elemento di lavoro:
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample/Pages/Index.cshtml.cs?name=snippet2)]
 

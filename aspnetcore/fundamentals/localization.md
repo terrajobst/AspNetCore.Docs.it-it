@@ -5,18 +5,16 @@ description: Informazioni su come ASP.NET Core offre servizi e middleware per la
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 8398e99af42da48718eea370cffa6ce4be0086ae
-ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
+ms.openlocfilehash: 9ed133c93a9ec95c63869b710d120eca9fda1b6e
+ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72288900"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333723"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalizzazione e localizzazione in ASP.NET Core
 
 [Rick Anderson](https://twitter.com/RickAndMSFT), [Damien Bowden](https://twitter.com/damien_bod), [Bart Calixto](https://twitter.com/bartmax), [Nadeem Afana](https://afana.me/) e [Hisham Bin Ateya](https://twitter.com/hishambinateya)
-
-Fino a quando questo documento non viene aggiornato per la ASP.NET Core 3,0, vedere la pagina relativa alle [novità della localizzazione in ASP.NET Core 3,0 nel](http://hishambinateya.com/what-is-new-in-localization-in-asp.net-core-3.0)Blog di Hisham.
 
 La creazione di un sito Web multilingue con ASP.NET Core consente al sito di raggiungere un pubblico più ampio. AP.NET Core offre servizi e middleware per la localizzazione in diverse lingue e culture.
 
@@ -153,7 +151,7 @@ Poiché nel progetto di esempio il metodo `ConfigureServices` imposta `Resources
 | Nome della risorsa | Denominazione con il punto o il percorso |
 | ------------   | ------------- |
 | Resources/Controllers.HomeController.fr.resx | Punto  |
-| Resources/Controllers/HomeController.fr.resx  | `Path` |
+| Resources/Controllers/HomeController.fr.resx  | Percorso |
 |    |     |
 
 I file di risorse che usano `@inject IViewLocalizer` nelle visualizzazioni Razor seguono un modello simile. Il file di risorse per una visualizzazione può essere denominato usando la denominazione con il punto o con il percorso. I file di risorse di visualizzazione Razor simulano il percorso del file di visualizzazione associato. Se `ResourcesPath` viene impostato su "Resources", il file di risorse francese associato alla visualizzazione *Views/Home/About.cshtml* sarà uno dei seguenti:
@@ -275,6 +273,31 @@ L'[intestazione Accept-Language](https://www.w3.org/International/questions/qa-a
 
 6. Toccare la lingua e quindi toccare **Sposta su**.
 
+::: moniker range=">= aspnetcore-3.0"
+### <a name="the-content-language-http-header"></a>Intestazione HTTP Content-Language
+
+Intestazione dell'entità [Content-Language](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Language) :
+
+ - Viene usato per descrivere le lingue destinate ai destinatari.
+ - Consente a un utente di distinguere in base alla lingua preferita degli utenti.
+
+Le intestazioni delle entità vengono usate sia nelle richieste HTTP sia nelle risposte.
+
+In ASP.NET Core 3,0 è possibile aggiungere l'intestazione `Content-Language` impostando la proprietà `ApplyCurrentCultureToResponseHeaders`.
+
+Aggiunta dell'intestazione `Content-Language`:
+
+ - Consente a RequestLocalizationMiddleware di impostare l'intestazione del `Content-Language` con il `CurrentUICulture`.
+ - Elimina la necessità di impostare l'intestazione della risposta `Content-Language` in modo esplicito.
+
+```csharp
+app.UseRequestLocalization(new RequestLocalizationOptions
+{
+    ApplyCurrentCultureToResponseHeaders = true
+});
+```
+::: moniker-end
+
 ### <a name="use-a-custom-provider"></a>Usare un provider personalizzato
 
 Si supponga di voler consentire agli utenti di memorizzare lingua e impostazioni cultura nei database. È possibile creare un provider per la ricerca di questi valori per l'utente. Il codice seguente illustra come aggiungere un provider personalizzato:
@@ -365,10 +388,14 @@ Termini:
 * Impostazioni cultura: si tratta di una lingua e, facoltativamente, di un'area.
 * Impostazioni cultura neutre: cultura con una lingua specificata ma senza area. (ad esempio "en", "es")
 * Impostazioni cultura specifiche: cultura con una lingua e un'area specificate. (ad esempio "en-US", "en-GB", "es-CL")
-* Impostazioni cultura padre: impostazioni cultura neutre con impostazioni cultura specifiche. (ad esempio, "en" rappresenta le impostazioni cultura padre di "en-US" e "en-GB")
+* Impostazioni padre: impostazioni cultura neutre con impostazioni cultura specifiche. (ad esempio, "en" rappresenta le impostazioni cultura padre di "en-US" e "en-GB")
 * Impostazioni locali: le impostazioni locali corrispondono alle impostazioni cultura.
 
-[!INCLUDE[](~/includes/currency.md)]
+[!INCLUDE[](~/includes/localization/currency.md)]
+
+::: moniker range=">= aspnetcore-3.0"
+[!INCLUDE[](~/includes/localization/unsupported-culture-log-level.md)]
+::: moniker-end
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
@@ -378,3 +405,4 @@ Termini:
 * [Uso dei file RESX a livello di codice](/dotnet/framework/resources/working-with-resx-files-programmatically)
 * [Microsoft Multilingual App Toolkit](https://marketplace.visualstudio.com/items?itemName=MultilingualAppToolkit.MultilingualAppToolkit-18308)
 * [Localizzazione e generics](https://github.com/hishamco/hishambinateya.com/blob/master/Posts/localization-and-generics.md)
+* [Novità della localizzazione in ASP.NET Core 3,0](http://hishambinateya.com/what-is-new-in-localization-in-asp.net-core-3.0)

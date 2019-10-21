@@ -5,12 +5,12 @@ description: Come aggiungere la convalida a un'app ASP.NET Core.
 ms.author: riande
 ms.date: 04/13/2017
 uid: tutorials/first-mvc-app/validation
-ms.openlocfilehash: f94d1003732b8ff04ec8aba3005f8c95a876cd67
-ms.sourcegitcommit: 849af69ee3c94cdb9fd8fa1f1bb8f5a5dda7b9eb
-ms.translationtype: HT
+ms.openlocfilehash: 2bb4ed173d154e3b7457ce3f8009f0f9406e36c4
+ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "67815124"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72334068"
 ---
 # <a name="add-validation-to-an-aspnet-core-mvc-app"></a>Aggiungere la funzionalità di convalida a un'app ASP.NET Core MVC
 
@@ -37,7 +37,7 @@ Toccare il collegamento **Crea nuovo** per aggiungere un nuovo film. Completare 
 
 ![Modulo di vista del film con diversi errori di convalida sul lato client jQuery](~/tutorials/first-mvc-app/validation/_static/val.png)
 
-[!INCLUDE[](~/includes/currency.md)]
+[!INCLUDE[](~/includes/localization/currency.md)]
 
 Si noti come il modulo ha eseguito automaticamente il rendering di un messaggio di errore di convalida appropriato in ogni campo contenente un valore non valido. Gli errori vengono applicati sia sul lato client (utilizzo di JavaScript e jQuery) sia sul lato server (nel caso di un utente con JavaScript disabilitato).
 
