@@ -70,7 +70,7 @@ I componenti in Blazor vengono in genere creati usando sintassi Razor, una combi
 
 la funzionalità gRPC in ASP.NET Core 3.0 include:
 
-* [Grpc. AspNetCore](https://www.nuget.org/packages/Grpc.AspNetCore) &ndash; ASP.NET Core Framework per l'hosting di servizi gRPC. gRPC su ASP.NET Core si integra con funzionalità di ASP.NET Core standard come il log, l'inserimento di dipendenze (DI), l'autenticazione e l'autorizzazione.
+* [Grpc. AspNetCore](https://www.nuget.org/packages/Grpc.AspNetCore) &ndash; ASP.NET Core Framework per l'hosting di servizi Grpc. gRPC su ASP.NET Core si integra con funzionalità di ASP.NET Core standard come la registrazione, la Dependency Injection (DI), l'autenticazione e l'autorizzazione.
 * [Grpc .NET. client](https://www.nuget.org/packages/Grpc.Net.Client) &ndash; un client gRPC per .NET Core che si basa sul familiare `HttpClient`.
 * [Grpc .NET. ClientFactory](https://www.nuget.org/packages/Grpc.Net.ClientFactory) &ndash; integrazione client gRPC con `HttpClientFactory`.
 
@@ -395,7 +395,7 @@ I modelli dell'interfaccia utente Web (Razor Pages, MVC con controller e visuali
 * L'interfaccia utente di consenso del cookie non è più inclusa. Per abilitare la funzionalità di consenso dei cookie in un'app generata da un modello di ASP.NET Core 3.0, vedere <xref:security/gdpr>.
 * Agli script e agli asset statici correlati viene ora fatto riferimento come file locali invece di usare CDNs. Per altre informazioni, vedere [gli script e gli asset statici correlati a cui viene ora fatto riferimento come file locali invece di usare CDNs in base all'ambiente corrente (ASPNET/AspNetCore. Docs #14350)](https://github.com/aspnet/AspNetCore.Docs/issues/14350).
 
-Modello Angular aggiornato per l'utilizzo Angular 8.
+Modello Angular aggiornato per l'utilizzo di Angular 8.
 
 Per impostazione predefinita, il modello RCL (Razor Class Library) per impostazione predefinita è lo sviluppo di componenti Razor. Una nuova opzione di modello in Visual Studio fornisce il supporto del modello per le pagine e le visualizzazioni. Quando si crea un RCL dal modello in una shell dei comandi, passare l'opzione `--support-pages-and-views` (`dotnet new razorclasslib --support-pages-and-views`).
 
