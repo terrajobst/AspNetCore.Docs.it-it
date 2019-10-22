@@ -5,14 +5,14 @@ description: Informazioni su come richiamare funzioni JavaScript da metodi .NET 
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/15/2019
+ms.date: 10/16/2019
 uid: blazor/javascript-interop
-ms.openlocfilehash: a8c3a0951761faab1c11507834aeef2507388d71
-ms.sourcegitcommit: ce2bfb01f2cc7dd83f8a97da0689d232c71bcdc4
+ms.openlocfilehash: b157e16918975cd522318a02f21824d9a0198b11
+ms.sourcegitcommit: eb4fcdeb2f9e8413117624de42841a4997d1d82d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72531134"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72697935"
 ---
 # <a name="aspnet-core-blazor-javascript-interop"></a>Interoperabilità JavaScript di ASP.NET Core Blazer
 
@@ -38,9 +38,9 @@ Per le app del server Blazer:
 
 L'esempio seguente è basato su [TextDecoder](https://developer.mozilla.org/docs/Web/API/TextDecoder), un decodificatore basato su JavaScript sperimentale. Nell'esempio viene illustrato come richiamare una funzione JavaScript da un C# metodo. La funzione JavaScript accetta una matrice di byte da C# un metodo, decodifica la matrice e restituisce il testo al componente per la visualizzazione.
 
-All'interno dell'elemento `<head>` di *wwwroot/index.html* (Blazer webassembly) o *pages/_Host. cshtml* (server Blazer), fornire una funzione che usa `TextDecoder` per decodificare una matrice passata:
+All'interno dell'elemento `<head>` di *wwwroot/index.html* (Blazer webassembly) o *pages/_Host. cshtml* (server Blazer), fornire una funzione JavaScript che usa `TextDecoder` per decodificare una matrice passata e restituire il valore decodificato:
 
-[!code-html[](javascript-interop/samples_snapshot/index-script.html)]
+[!code-html[](javascript-interop/samples_snapshot/index-script-convertarray.html)]
 
 Il codice JavaScript, ad esempio il codice illustrato nell'esempio precedente, può anche essere caricato da un file JavaScript (con*estensione js*) con un riferimento al file script:
 
@@ -50,10 +50,12 @@ Il codice JavaScript, ad esempio il codice illustrato nell'esempio precedente, p
 
 Il componente seguente:
 
-* Richiama la funzione JavaScript `ConvertArray` utilizzando `JsRuntime` quando viene selezionato un pulsante componente (**Converti matrice**).
+* Richiama la funzione JavaScript `convertArray` usando `JSRuntime` quando viene selezionato un pulsante del componente (**Convert Array**).
 * Dopo la chiamata della funzione JavaScript, la matrice passata viene convertita in una stringa. La stringa viene restituita al componente per la visualizzazione.
 
 [!code-cshtml[](javascript-interop/samples_snapshot/call-js-example.razor?highlight=2,34-35)]
+
+##  <a name="use-of-ijsruntime"></a>Uso di IJSRuntime
 
 Per usare l'astrazione `IJSRuntime`, adottare uno degli approcci seguenti:
 
@@ -61,9 +63,17 @@ Per usare l'astrazione `IJSRuntime`, adottare uno degli approcci seguenti:
 
   [!code-cshtml[](javascript-interop/samples_snapshot/inject-abstraction.razor?highlight=1)]
 
+  All'interno dell'elemento `<head>` di *wwwroot/index.html* (Blazer webassembly) o *pages/_Host. cshtml* (server Blazer), fornire una `handleTickerChanged` funzione JavaScript. La funzione viene chiamata con `IJSRuntime.InvokeVoidAsync` e non restituisce un valore:
+
+  [!code-html[](javascript-interop/samples_snapshot/index-script-handleTickerChanged1.html)]
+
 * Inserire l'astrazione `IJSRuntime` in una classe ( *. cs*):
 
   [!code-csharp[](javascript-interop/samples_snapshot/inject-abstraction-class.cs?highlight=5)]
+
+  All'interno dell'elemento `<head>` di *wwwroot/index.html* (Blazer webassembly) o *pages/_Host. cshtml* (server Blazer), fornire una `handleTickerChanged` funzione JavaScript. La funzione viene chiamata con `JSRuntime.InvokeAsync` e restituisce un valore:
+
+  [!code-html[](javascript-interop/samples_snapshot/index-script-handleTickerChanged2.html)]
 
 * Per la generazione di contenuto dinamico con [BuildRenderTree](xref:blazor/components#manual-rendertreebuilder-logic), usare l'attributo `[Inject]`:
 
