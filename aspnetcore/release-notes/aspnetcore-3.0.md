@@ -49,7 +49,7 @@ Le app Blazor possono anche essere eseguite direttamente nel browser usando un R
 
 Le app Blazor sono compilate da componenti. I componenti sono blocchi autonomi dell'interfaccia utente (UI), ad esempio una pagina, una finestra di dialogo o un form. I componenti sono classi .NET normali che definiscono la logica di rendering dell'interfaccia utente e i gestori eventi sul lato client. È possibile creare app Web interattive avanzate senza JavaScript.
 
-I componenti in Blazor vengono in genere creati usando sintassi Razor, una combinazione naturale di HTML C#e. I componenti Razor sono simili alle visualizzazioni Razor Pages e MVC in quanto entrambi utilizzano Razor. Diversamente dalle pagine e dalle viste, basate su un modello di richiesta-risposta, i componenti vengono usati in modo specifico per la gestione della composizione dell'interfaccia utente.
+I componenti in Blazor vengono in genere creati usando sintassi Razor, una combinazione naturale di HTML e C#. I componenti Razor sono simili alle visualizzazioni Razor Pages e MVC in quanto entrambi utilizzano Razor. Diversamente dalle pagine e dalle viste, basate su un modello di richiesta-risposta, i componenti vengono usati in modo specifico per la gestione della composizione dell'interfaccia utente.
 
 ## <a name="grpc"></a>gRPC
 
@@ -64,15 +64,15 @@ I componenti in Blazor vengono in genere creati usando sintassi Razor, una combi
   * Formato di serializzazione binario.
 * Fornisce funzionalità come:
 
-  * Authentication
+  * Autenticazione
   * Flusso bidirezionale e controllo di flusso.
   * Annullamento e timeout.
 
 la funzionalità gRPC in ASP.NET Core 3.0 include:
 
-* [Grpc. AspNetCore](https://www.nuget.org/packages/Grpc.AspNetCore) &ndash; ASP.NET Core Framework per l'hosting di servizi Grpc. gRPC su ASP.NET Core si integra con funzionalità di ASP.NET Core standard come la registrazione, l'inserimento DI dipendenze, l'autenticazione e l'autorizzazione.
-* [Grpc .NET. client](https://www.nuget.org/packages/Grpc.Net.Client) &ndash; un client Grpc per .NET Core che si basa sul familiare `HttpClient`.
-* [Grpc .NET. ClientFactory](https://www.nuget.org/packages/Grpc.Net.ClientFactory) &ndash; integrazione client Grpc con `HttpClientFactory`.
+* [Grpc. AspNetCore](https://www.nuget.org/packages/Grpc.AspNetCore) &ndash; ASP.NET Core Framework per l'hosting di servizi Grpc. gRPC su ASP.NET Core si integra con funzionalità di ASP.NET Core standard come la registrazione, la Dependency Injection (DI), l'autenticazione e l'autorizzazione.
+* [Grpc .NET. client](https://www.nuget.org/packages/Grpc.Net.Client) &ndash; un client gRPC per .NET Core che si basa sul familiare `HttpClient`.
+* [Grpc .NET. ClientFactory](https://www.nuget.org/packages/Grpc.Net.ClientFactory) &ndash; integrazione client gRPC con `HttpClientFactory`.
 
 Per altre informazioni, vedere <xref:grpc/index>.
 
@@ -257,7 +257,7 @@ app.UseRouting(routes =>
 
 ASP.NET Core 3.0 SignalR aggiunto:
 
-Streaming da client a server. Con il flusso da client a server, i metodi lato server possono prendere le istanze di un `IAsyncEnumerable<T>` o `ChannelReader<T>`. Nell'esempio seguente C# , il metodo `UploadStream` sull'hub riceverà un flusso di stringhe dal client:
+Streaming da client a server. Con il flusso da client a server, i metodi lato server possono prendere le istanze di un `IAsyncEnumerable<T>` o `ChannelReader<T>`. Nell'esempio seguente C#, il metodo `UploadStream` sull'hub riceverà un flusso di stringhe dal client:
 
 ```csharp
 public async Task UploadStream(IAsyncEnumerable<string> stream)
@@ -395,7 +395,7 @@ I modelli dell'interfaccia utente Web (Razor Pages, MVC con controller e visuali
 * L'interfaccia utente di consenso del cookie non è più inclusa. Per abilitare la funzionalità di consenso dei cookie in un'app generata da un modello di ASP.NET Core 3.0, vedere <xref:security/gdpr>.
 * Agli script e agli asset statici correlati viene ora fatto riferimento come file locali invece di usare CDNs. Per altre informazioni, vedere [gli script e gli asset statici correlati a cui viene ora fatto riferimento come file locali invece di usare CDNs in base all'ambiente corrente (ASPNET/AspNetCore. Docs #14350)](https://github.com/aspnet/AspNetCore.Docs/issues/14350).
 
-Modello angolare aggiornato per l'utilizzo di 8 angolare.
+Modello Angular aggiornato per l'utilizzo di Angular 8.
 
 Per impostazione predefinita, il modello RCL (Razor Class Library) per impostazione predefinita è lo sviluppo di componenti Razor. Una nuova opzione di modello in Visual Studio fornisce il supporto del modello per le pagine e le visualizzazioni. Quando si crea un RCL dal modello in una shell dei comandi, passare l'opzione `--support-pages-and-views` (`dotnet new razorclasslib --support-pages-and-views`).
 
@@ -420,8 +420,8 @@ Tutti i servizi possono comunque essere inseriti direttamente come argomenti per
 ## <a name="kestrel"></a>Kestrel
 
 * La configurazione di Kestrel è stata aggiornata per la migrazione all'host generico. In 3.0, Kestrel viene configurato nel generatore host Web fornito da `ConfigureWebHostDefaults`.
-* Le schede di connessione sono state rimosse da gheppio e sostituite con il middleware di connessione, che è simile al middleware HTTP nella pipeline ASP.NET Core ma per le connessioni di livello inferiore.
-* Il livello trasporto gheppio è stato esposto come interfaccia pubblica in `Connections.Abstractions`.
+* Le schede di connessione sono state rimosse da Kestrel e sostituite con il middleware di connessione, che è simile al middleware HTTP nella pipeline ASP.NET Core ma per le connessioni di livello inferiore.
+* Il livello trasporto Kestrel è stato esposto come interfaccia pubblica in `Connections.Abstractions`.
 * L'ambiguità tra intestazioni e trailer è stata risolta spostando le intestazioni finali in una nuova raccolta.
 * Le API di i/o sincrone, ad esempio `HttpRequest.Body.Read`, rappresentano una fonte comune di inedia dei thread che causa arresti anomali dell'app. In 3.0, `AllowSynchronousIO` è disabilitato per impostazione predefinita.
 
