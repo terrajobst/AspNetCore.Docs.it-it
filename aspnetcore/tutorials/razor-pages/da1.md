@@ -5,12 +5,12 @@ description: Informazioni su come aggiornare le pagine generate in un'app ASP.NE
 ms.author: riande
 ms.date: 12/20/2018
 uid: tutorials/razor-pages/da1
-ms.openlocfilehash: f1f69b7facf584d46248405c808e75bdd8448d2b
-ms.sourcegitcommit: 051f068c78931432e030b60094c38376d64d013e
+ms.openlocfilehash: 0f6535462fe2d308825bf7289c10d2b0690cebd4
+ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68440318"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72334117"
 ---
 # <a name="update-the-generated-pages-in-an-aspnet-core-app"></a>Aggiornare le pagine generate in un'app ASP.NET Core
 
@@ -53,6 +53,8 @@ Usare **Visualizza origine** dal browser preferito per esaminare il codice gener
 ```
 
 I collegamenti generati dinamicamente passano l'ID del film con una stringa di query, ad esempio `?id=1` in `https://localhost:5001/Movies/Details?id=1`.
+
+### <a name="add-route-template"></a>Aggiungere un modello di route
 
 Aggiornare le pagine Razor Edit (Modifica), Details (Dettagli) e Delete (Elimina) in modo da usare il modello di route "{id: int}". Modificare la direttiva page per ognuna di queste pagine da `@page` a `@page "{id:int}"`. Eseguire l'app e quindi visualizzare l'origine. Il codice HTML generato aggiunge l'ID alla parte di percorso dell'URL:
 
@@ -124,7 +126,7 @@ I metodi HTTP GET nelle pagine Razor Index, Create e Delete seguono un criterio 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 > [!div class="step-by-step"]
-> [Precedente: Utilizzo di un database](xref:tutorials/razor-pages/sql)
+> [Precedente: Usare un database](xref:tutorials/razor-pages/sql)
 > [Successivo: Aggiungere la funzionalità di ricerca](xref:tutorials/razor-pages/search)
 
 ::: moniker-end
@@ -241,7 +243,7 @@ La funzionalità di ricerca viene aggiunta nell'esercitazione successiva.
 * [Versione YouTube dell'esercitazione](https://youtu.be/yLnnleREMtQ)
 
 > [!div class="step-by-step"]
-> [Precedente: Utilizzo di un database](xref:tutorials/razor-pages/sql)
+> [Precedente: Usare un database](xref:tutorials/razor-pages/sql)
 > [Successivo: Aggiungere la funzionalità di ricerca](xref:tutorials/razor-pages/search)
 
 ::: moniker-end

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/28/2019
 uid: mvc/controllers/filters
-ms.openlocfilehash: ed48c2074360768b8d8c5af7057b353b00592394
-ms.sourcegitcommit: 73a451e9a58ac7102f90b608d661d8c23dd9bbaf
+ms.openlocfilehash: 0c3597f24e02af40517e12a86127b140ed4fb550
+ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72037686"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333925"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtri in ASP.NET Core
 
@@ -130,11 +130,11 @@ Come risultato dell'annidamento dei filtri, il codice *after* dei filtri viene e
   
 L'esempio seguente illustra l'ordine in cui i metodi dei filtri vengono chiamati per i filtri di azione sincroni.
 
-| Sequenza | Ambito del filtro | Metodo del filtro |
+| Sequence | Ambito del filtro | Metodo del filtro |
 |:--------:|:------------:|:-------------:|
 | 1 | Global | `OnActionExecuting` |
 | 2 | Controller | `OnActionExecuting` |
-| 3 | Metodo | `OnActionExecuting` |
+| 3\. | Metodo | `OnActionExecuting` |
 | 4 | Metodo | `OnActionExecuted` |
 | 5 | Controller | `OnActionExecuted` |
 | 6 | Global | `OnActionExecuted` |
@@ -158,7 +158,7 @@ Ad esempio, l'applicazione di `MySampleActionFilter` nell'esempio scaricato avvi
 
 `TestController`:
 
-* Applica `SampleActionFilterAttribute` (`[SampleActionFilter]`) all'azione `FilterTest2`:
+* Applica il `SampleActionFilterAttribute` (`[SampleActionFilter]`) all'azione di `FilterTest2`.
 * Esegue l'override di `OnActionExecuting` e `OnActionExecuted`.
 
 [!code-csharp[](./filters/sample/FiltersSample/Controllers/TestController.cs?name=snippet)]
@@ -190,11 +190,11 @@ La proprietà `Order` può essere impostata con un parametro del costruttore:
 
 Prendere in considerazione gli stessi tre filtri di azione illustrati nell'esempio precedente. Se la proprietà `Order` del controller e dei filtri globali è impostata, rispettivamente, su 1 e su 2, l'ordine di esecuzione viene invertito.
 
-| Sequenza | Ambito del filtro | Proprietà `Order` | Metodo del filtro |
+| Sequence | Ambito del filtro | Proprietà`Order` | Metodo del filtro |
 |:--------:|:------------:|:-----------------:|:-------------:|
 | 1 | Metodo | 0 | `OnActionExecuting` |
 | 2 | Controller | 1  | `OnActionExecuting` |
-| 3 | Global | 2  | `OnActionExecuting` |
+| 3\. | Global | 2  | `OnActionExecuting` |
 | 4 | Global | 2  | `OnActionExecuted` |
 | 5 | Controller | 1  | `OnActionExecuted` |
 | 6 | Metodo | 0  | `OnActionExecuted` |
@@ -338,7 +338,7 @@ Esempi di filtri di risorse:
 ## <a name="action-filters"></a>Filtri azione
 
 > [!IMPORTANT]
-> I filtri azione **non** si applicano a Razor Pages. Razor Pages supporta <xref:Microsoft.AspNetCore.Mvc.Filters.IPageFilter> e <xref:Microsoft.AspNetCore.Mvc.Filters.IAsyncPageFilter>. Per altre informazioni, vedere [Modalità di filtro per pagine Razor](xref:razor-pages/filter).
+> I filtri azione **non** si applicano a Razor Pages. Razor Pages supporta <xref:Microsoft.AspNetCore.Mvc.Filters.IPageFilter> e <xref:Microsoft.AspNetCore.Mvc.Filters.IAsyncPageFilter>. Per ulteriori informazioni, vedere [Metodi di filtro per Razor Pages](xref:razor-pages/filter).
 
 I filtri di azione:
 
@@ -449,18 +449,7 @@ Il metodo <xref:Microsoft.AspNetCore.Mvc.Filters.IResultFilter.OnResultExecuting
 * Impedisce l'esecuzione del risultato dell'azione e dei filtri successivi.
 * È considerata un errore anziché un risultato positivo.
 
-Quando il metodo <xref:Microsoft.AspNetCore.Mvc.Filters.IResultFilter.OnResultExecuted*?displayProperty=fullName> viene eseguito:
-
-* È probabile che la risposta sia stata inviata al client e non possa essere più modificata.
-* Se è stata generata un'eccezione, il corpo della risposta non viene inviato.
-
-<!-- Review preceding "If an exception was thrown: Original 
-When the OnResultExecuted method runs, the response has likely been sent to the client and cannot be changed further (unless an exception was thrown).
-
-SHould that be , 
-If an exception was thrown **IN THE RESULT FILTER**, the response body is not sent.
-
- -->
+Quando viene eseguito il metodo <xref:Microsoft.AspNetCore.Mvc.Filters.IResultFilter.OnResultExecuted*?displayProperty=fullName>, è probabile che la risposta sia già stata inviata al client. Se la risposta è già stata inviata al client, non è possibile modificarla ulteriormente.
 
 L'impostazione di `ResultExecutedContext.Canceled` è `true` se un altro filtro ha causato il corto circuito dell'esecuzione del risultato dell'azione.
 
@@ -494,7 +483,7 @@ Un altro approccio alla creazione di filtri consiste nell'implementare `IFilterF
 Il codice precedente può essere testato eseguendo l'[esempio scaricato](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/sample):
 
 * Richiamare gli strumenti di sviluppo F12.
-* Passare a `https://localhost:5001/Sample/HeaderWithFactory`
+* Passare a `https://localhost:5001/Sample/HeaderWithFactory`.
 
 Gli strumenti di sviluppo F12 visualizzano le intestazioni di risposta seguenti aggiunte dal codice di esempio:
 
@@ -532,7 +521,7 @@ I filtri risorse funzionano come [middleware](xref:fundamentals/middleware/index
 
 Per usare il middleware come filtro, creare un tipo con un metodo `Configure` che specifica il middleware da inserire nella pipeline di filtro. L'esempio seguente usa il middleware di localizzazione per stabilire le impostazioni cultura correnti per una richiesta:
 
-[!code-csharp[](./filters/sample/FiltersSample/Filters/LocalizationPipeline.cs?name=snippet_MiddlewareFilter&highlight=3,21)]
+[!code-csharp[](./filters/sample/FiltersSample/Filters/LocalizationPipeline.cs?name=snippet_MiddlewareFilter&highlight=3,22)]
 
 Usare <xref:Microsoft.AspNetCore.Mvc.MiddlewareFilterAttribute> per eseguire il middleware:
 
@@ -542,5 +531,5 @@ I filtri middleware vengono eseguiti nella stessa fase della pipeline filtro com
 
 ## <a name="next-actions"></a>Azioni successive
 
-* Vedere [Modalità di filtro per Razor Pages](xref:razor-pages/filter)
+* Vedere [metodi di filtro per Razor Pages](xref:razor-pages/filter).
 * Per sperimentare i filtri, [scaricare, testare e modificare l'esempio di GitHub](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/sample).

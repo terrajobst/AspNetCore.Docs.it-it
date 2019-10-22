@@ -5,14 +5,14 @@ description: Informazioni su come creare profili di pubblicazione in Visual Stud
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/21/2019
+ms.date: 10/12/2019
 uid: host-and-deploy/visual-studio-publish-profiles
-ms.openlocfilehash: fd08a5ebe5b85dcddcec4ef3e57d326a44ce2f2d
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: a3d6cc450e42d7eb6b694cd4985828ce52fa7519
+ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71080852"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333755"
 ---
 # <a name="visual-studio-publish-profiles-for-aspnet-core-app-deployment"></a>Profili di pubblicazione di Visual Studio per la distribuzione di app ASP.NET Core
 
@@ -70,7 +70,7 @@ Quando un progetto ASP.NET Core fa riferimento a `Microsoft.NET.Sdk.Web` nel fil
 
 ## <a name="basic-command-line-publishing"></a>Pubblicazione di base dalla riga di comando
 
-La pubblicazione dalla riga di comando funziona su tutte le piattaforme supportate da .NET Core e non richiede Visual Studio. Negli esempi seguenti il comando [dotnet publish](/dotnet/core/tools/dotnet-publish) dell'interfaccia della riga di comando di .NET Core viene eseguito dalla directory del progetto (che contiene il file con estensione *csproj*). Se la cartella del progetto non è la directory di lavoro corrente, passare in modo esplicito il percorso del file di progetto. Ad esempio:
+La pubblicazione dalla riga di comando funziona su tutte le piattaforme supportate da .NET Core e non richiede Visual Studio. Negli esempi seguenti il comando [dotnet publish](/dotnet/core/tools/dotnet-publish) dell'interfaccia della riga di comando di .NET Core viene eseguito dalla directory del progetto (che contiene il file con estensione *csproj*). Se la cartella del progetto non è la directory di lavoro corrente, passare in modo esplicito il percorso del file di progetto. Esempio:
 
 ```dotnetcli
 dotnet publish C:\Webs\Web1
@@ -152,14 +152,24 @@ Quando si esegue la pubblicazione in una destinazione di Azure, il file *.pubxml
 
 Le informazioni riservate, come la password di pubblicazione, vengono crittografate a livello di singolo utente/computer. Sono memorizzate nel file *Properties/PublishProfiles/{NOME PROFILO}.pubxml.user*. Poiché questo file può contenere informazioni riservate, non deve essere archiviato nel controllo del codice sorgente.
 
-Per una panoramica su come pubblicare un'app Web ASP.NET Core, vedere <xref:host-and-deploy/index>. Le attività e le destinazioni di MSBuild necessarie per pubblicare un'app Web ASP.NET Core sono open source nel [repository aspnet/websdk](https://github.com/aspnet/websdk).
+Per una panoramica su come pubblicare un'app Web ASP.NET Core, vedere <xref:host-and-deploy/index>. Le attività e le destinazioni di MSBuild necessarie per pubblicare un'app Web ASP.NET Core sono open source nel [repository ASPNET/WebSDK](https://github.com/aspnet/websdk).
 
-Il comando `dotnet publish` può usare profili di pubblicazione di tipo cartella, MSDeploy e [Kudu](https://github.com/projectkudu/kudu/wiki). Dato che MSDeploy non include il supporto multipiattaforma, le opzioni seguenti di MSDeploy sono supportate solo in Windows.
+I comandi seguenti possono usare i profili di pubblicazione cartella, MSDeploy e [Kudu](https://github.com/projectkudu/kudu/wiki) . Dato che MSDeploy non include il supporto multipiattaforma, le opzioni seguenti di MSDeploy sono supportate solo in Windows.
 
 **Cartella (multipiattaforma):**
 
+<!--
+
+NOTE: Add back the following 'dotnet publish' folder publish example after https://github.com/aspnet/websdk/issues/888 is resolved.
+
 ```dotnetcli
 dotnet publish WebApplication.csproj /p:PublishProfile=<FolderProfileName>
+```
+
+-->
+
+```dotnetcli
+dotnet build WebApplication.csproj /p:DeployOnBuild=true /p:PublishProfile=<FolderProfileName>
 ```
 
 **MSDeploy:**
@@ -168,17 +178,26 @@ dotnet publish WebApplication.csproj /p:PublishProfile=<FolderProfileName>
 dotnet publish WebApplication.csproj /p:PublishProfile=<MsDeployProfileName> /p:Password=<DeploymentPassword>
 ```
 
+```dotnetcli
+dotnet build WebApplication.csproj /p:DeployOnBuild=true /p:PublishProfile=<MsDeployProfileName> /p:Password=<DeploymentPassword>
+```
+
 **Pacchetto MSDeploy:**
 
 ```dotnetcli
 dotnet publish WebApplication.csproj /p:PublishProfile=<MsDeployPackageProfileName>
 ```
 
-Negli esempi precedenti non passare `deployonbuild` a `dotnet publish`.
+```dotnetcli
+dotnet build WebApplication.csproj /p:DeployOnBuild=true /p:PublishProfile=<MsDeployPackageProfileName>
+```
+
+Negli esempi precedenti:
+
+* `dotnet publish` e `dotnet build` supportano le API Kudu per la pubblicazione in Azure da qualsiasi piattaforma. La pubblicazione con Visual Studio supporta le API Kudu, ma è supportata da WebSDK per la pubblicazione multipiattaforma in Azure.
+* Non passare `DeployOnBuild` al comando `dotnet publish`.
 
 Per altre informazioni, vedere [Microsoft.NET.Sdk.Publish](https://github.com/aspnet/websdk#microsoftnetsdkpublish).
-
-`dotnet publish` supporta le API Kudu per la pubblicazione in Azure da qualsiasi piattaforma. La pubblicazione con Visual Studio supporta le API Kudu, ma è supportata da WebSDK per la pubblicazione multipiattaforma in Azure.
 
 Aggiungere un profilo di pubblicazione alla cartella *Properties/PublishProfiles* del progetto con il contenuto seguente:
 
@@ -193,21 +212,20 @@ Aggiungere un profilo di pubblicazione alla cartella *Properties/PublishProfiles
 </Project>
 ```
 
-Eseguire il comando seguente per comprimere il contenuto per la pubblicazione e pubblicarlo in Azure tramite le API Kudu:
+## <a name="folder-publish-example"></a>Esempio di pubblicazione cartella
 
-```dotnetcli
-dotnet publish /p:PublishProfile=Azure /p:Configuration=Release
-```
+Quando si esegue la pubblicazione con un profilo denominato *FolderProfile*, usare uno dei comandi seguenti:
 
-Quando si usa un profilo di pubblicazione, impostare le proprietà di MSBuild seguenti:
+<!--
 
-* `DeployOnBuild=true`
-* `PublishProfile={PUBLISH PROFILE}`
+NOTE: Temporarily removed until https://github.com/aspnet/websdk/issues/888 is resolved.
 
-Durante la pubblicazione con un profilo denominato *FolderProfile*, è possibile eseguire uno dei comandi riportati di seguito:
+* `dotnet publish /p:Configuration=Release /p:PublishProfile=FolderProfile`
+
+-->
 
 * `dotnet build /p:DeployOnBuild=true /p:PublishProfile=FolderProfile`
-* `msbuild      /p:DeployOnBuild=true /p:PublishProfile=FolderProfile`
+* `msbuild /p:DeployOnBuild=true /p:PublishProfile=FolderProfile`
 
 Il comando [dotnet build](/dotnet/core/tools/dotnet-build) dell'interfaccia della riga di comando di .NET Core chiama `msbuild` per eseguire il processo di compilazione e pubblicazione. I comandi `dotnet build` e `msbuild` sono equivalenti quando si passa un profilo di cartella. Chiamando `msbuild` direttamente in Windows, viene usata la versione .NET Framework di MSBuild. La chiamata di `dotnet build` su un profilo non di tipo cartella:
 
@@ -244,6 +262,16 @@ Nell'esempio precedente:
 
 * La proprietà `<ExcludeApp_Data>` è presente solo per soddisfare un requisito di XML Schema. La proprietà `<ExcludeApp_Data>` non ha alcun effetto sul processo di pubblicazione, anche se è presente una cartella *App_Data* nella radice del progetto. La cartella *App_Data* non riceve un trattamento speciale, come accade per i progetti ASP.NET 4.x.
 
+<!--
+
+NOTE: Temporarily removed from 'Using the .NET Core CLI' below until https://github.com/aspnet/websdk/issues/888 is resolved.
+
+    ```dotnetcli
+    dotnet publish /p:Configuration=Release /p:PublishProfile=FolderProfile
+    ```
+
+-->
+
 * La proprietà `<LastUsedBuildConfiguration>` è impostata su `Release`. Nella pubblicazione da Visual Studio, il valore di `<LastUsedBuildConfiguration>` viene impostato usando il valore, quando viene avviato il processo di pubblicazione. `<LastUsedBuildConfiguration>` è speciale e non deve essere sottoposta a override in un file di MSBuild importato. Questa proprietà, tuttavia, può essere sottoposta a override dalla riga di comando usando uno degli approcci seguenti.
   * Mediante l'interfaccia della riga di comando di .NET Core:
 
@@ -279,8 +307,8 @@ msbuild {PATH}
 * {PROFILO} &ndash; Nome del profilo di pubblicazione.
 * {NOMEUTENTE} &ndash; Nome utente MSDeploy. {NOMEUTENTE} è disponibile nel profilo di pubblicazione.
 * {PASSWORD} &ndash; Password di MSDeploy. Il valore {PASSWORD} è disponibile nel file *{PROFILO}.PublishSettings*. Scaricare il file *.PublishSettings* da:
-  * **Esplora soluzioni**: Selezionare **Visualizza** > **Cloud Explorer**. Connettersi alla sottoscrizione di Azure. Aprire **Servizi app**. Fare clic con il pulsante destro del mouse sull'app. Selezionare **Scarica profilo di pubblicazione**.
-  * Portale di Azure: selezionare **Recupera profilo di pubblicazione** nel pannello **Panoramica** dell'app Web.
+  * **Esplora soluzioni**: selezionare **Visualizza**  > **Cloud Explorer**. Connettersi alla sottoscrizione di Azure. Aprire **Servizi app**. Fare clic con il pulsante destro del mouse sull'app. Selezionare **Scarica profilo di pubblicazione**.
+  * Portale di Azure: selezionare **Ottieni profilo di pubblicazione** nel pannello **Panoramica** dell'app Web.
 
 L'esempio seguente usa un profilo di pubblicazione denominato *AzureWebApp - Web Deploy*:
 
@@ -437,7 +465,7 @@ Il markup evidenziato nell'esempio seguente dimostra:
 
 [!code-xml[](visual-studio-publish-profiles/samples/Web1.pubxml?highlight=18-23)]
 
-L'esempio precedente usa l'elemento `ResolvedFileToPublish`, il cui comportamento predefinito consiste nel copiare sempre i file specificati nell'attributo `Include` nel sito pubblicato. Eseguire l'override del comportamento predefinito, includendo un elemento figlio `<CopyToPublishDirectory>` con il testo interno `Never` o `PreserveNewest`. Ad esempio:
+L'esempio precedente usa l'elemento `ResolvedFileToPublish`, il cui comportamento predefinito consiste nel copiare sempre i file specificati nell'attributo `Include` nel sito pubblicato. Eseguire l'override del comportamento predefinito, includendo un elemento figlio `<CopyToPublishDirectory>` con il testo interno `Never` o `PreserveNewest`. Esempio:
 
 ```xml
 <ResolvedFileToPublish Include="..\ReadMe2.md">
@@ -473,7 +501,7 @@ Aggiungere la proprietà `<AllowUntrustedCertificate>` con un valore `True` al p
 
 ## <a name="the-kudu-service"></a>Servizio Kudu
 
-Per visualizzare i file in una distribuzione di app Web di Servizio app di Azure, usare il [servizio Kudu](https://github.com/projectkudu/kudu/wiki/Accessing-the-kudu-service). Accodare il token `scm` al nome dell'app Web. Ad esempio:
+Per visualizzare i file in una distribuzione di app Web di Servizio app di Azure, usare il [servizio Kudu](https://github.com/projectkudu/kudu/wiki/Accessing-the-kudu-service). Accodare il token `scm` al nome dell'app Web. Esempio:
 
 | URL                                    | Risultato       |
 | -------------------------------------- | ------------ |
@@ -485,6 +513,6 @@ Selezionare la voce di menu [Console di debug](https://github.com/projectkudu/ku
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Distribuzione Web](https://www.iis.net/downloads/microsoft/web-deploy) (MSDeploy) semplifica la distribuzione di app Web e siti Web sui server IIS.
-* [Repository GitHub di Web SDK](https://github.com/aspnet/websdk/issues): problemi di file e funzionalità di richiesta per la distribuzione.
+* [Repository GitHub Web SDK](https://github.com/aspnet/websdk/issues): problemi di file e funzionalità di richiesta per la distribuzione.
 * [Pubblicare un'app Web ASP.NET in una macchina virtuale di Azure da Visual Studio](/azure/virtual-machines/windows/publish-web-app-from-visual-studio)
 * <xref:host-and-deploy/iis/transform-webconfig>

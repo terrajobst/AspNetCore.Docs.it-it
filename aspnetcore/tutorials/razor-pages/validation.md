@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 7/23/2019
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 5c5419eb6ccfbd9ddd8d6fadb24d688966d76c10
-ms.sourcegitcommit: 476ea5ad86a680b7b017c6f32098acd3414c0f6c
-ms.translationtype: HT
+ms.openlocfilehash: c2397a535fa2c128f18d65323d0f4920af914205
+ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69022397"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72334210"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Aggiungere la convalida a una pagina Razor ASP.NET Core
 
@@ -63,7 +63,7 @@ Selezionare il collegamento **Crea nuovo**. Completare il modulo con alcuni valo
 
 ![Il modulo di vista del film con più errori di convalida del lato client jQuery](validation/_static/val.png)
 
-[!INCLUDE[](~/includes/currency.md)]
+[!INCLUDE[](~/includes/localization/currency.md)]
 
 Si noti come il modulo ha eseguito automaticamente il rendering di un messaggio di errore di convalida in ogni campo che contiene un valore non valido. Gli errori vengono applicati sia sul lato client (uso di JavaScript e jQuery) sia sul lato server (quando un utente ha JavaScript disabilitato).
 
@@ -174,7 +174,7 @@ CREATE TABLE [dbo].[Movie] (
 Le modifiche dello schema precedenti non determinano la generazione di un'eccezione da parte di EF. Tuttavia, creare una migrazione in modo che lo schema sia coerente con il modello.
 
 Dal menu **Strumenti** selezionare **Gestione pacchetti NuGet > Console di Gestione pacchetti**.
-Nella Console di Gestione pacchetti immettere i comandi seguenti:
+In PMC, immettere i comandi seguenti:
 
 ```powershell
 Add-Migration New_DataAnnotations
@@ -207,7 +207,7 @@ Non sono necessarie migrazioni per SQLite.
 
 ### <a name="publish-to-azure"></a>Pubblicare in Azure
 
-Per informazioni sulla distribuzione in Azure, vedere [Esercitazione: Creare un'app ASP.NET Core in Azure con il database SQL](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb).
+Per informazioni sulla distribuzione in Azure, vedere [esercitazione: compilare un'app ASP.NET Core in Azure con il database SQL](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb).
 
 Grazie aver completato questa introduzione alle pagine Razor. [Get started with Razor Pages and EF Core](xref:data/ef-rp/intro) (Introduzione a Razor Pages ed Entity Framework Core) è un complemento ideale per questa esercitazione.
 

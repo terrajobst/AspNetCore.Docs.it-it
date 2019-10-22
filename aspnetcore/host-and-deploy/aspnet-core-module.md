@@ -5,14 +5,14 @@ description: Informazioni su come configurare il modulo di ASP.NET Core per l'ho
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/08/2019
+ms.date: 10/13/2019
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: c1c34f368cb3f7767bf0f229ff70c5ab53c6005f
-ms.sourcegitcommit: fcdf9aaa6c45c1a926bd870ed8f893bdb4935152
+ms.openlocfilehash: 917ee462a8f9592120685b53d059a661cb4a7452
+ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72165317"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333889"
 ---
 # <a name="aspnet-core-module"></a>Modulo ASP.NET Core
 
@@ -76,6 +76,8 @@ In caso di hosting in-process, vengono applicate le caratteristiche seguenti:
       app.UseAuthentication();
   }
   ```
+  
+  * Le [distribuzioni di pacchetti Web (file singolo)](/aspnet/web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-web-packages) non sono supportate.
 
 ### <a name="out-of-process-hosting-model"></a>Modello di hosting out-of-process
 
@@ -87,7 +89,7 @@ Per configurare un'app per l'hosting out-of-process, impostare il valore della p
 </PropertyGroup>
 ```
 
-L'hosting in-process viene impostato con `InProcess`, ovvero il valore predefinito.
+L'hosting in-process viene impostato con `InProcess`, che corrisponde al valore predefinito.
 
 Viene usato il server [Kestrel](xref:fundamentals/servers/kestrel) al posto di un server HTTP di IIS (`IISHttpServer`).
 
@@ -169,7 +171,7 @@ Per informazioni sulla configurazione delle applicazioni secondarie IIS, vedere 
 
 ### <a name="attributes-of-the-aspnetcore-element"></a>Attributi dell'elemento aspNetCore
 
-| Attributo | Descrizione | Predefinito |
+| Attributo | Descrizione | Impostazione predefinita |
 | --------- | ----------- | :-----: |
 | `arguments` | <p>Attributo stringa facoltativo.</p><p>Argomenti per l'eseguibile specificato in **processPath**.</p> | |
 | `disableStartUpErrorPage` | <p>Attributo booleano facoltativo.</p><p>Se true, la pagina **502.5 - Errore del processo** non viene visualizzata e la tabella codici di stato 502 configurata in *web.config* ha la precedenza.</p> | `false` |
@@ -188,7 +190,7 @@ Per informazioni sulla configurazione delle applicazioni secondarie IIS, vedere 
 
 È possibile specificare le variabili di ambiente per il processo nell'attributo `processPath`. Specificare una variabile di ambiente con l'elemento figlio `<environmentVariable>` di un elemento della raccolta `<environmentVariables>`. Le variabili di ambiente impostate in questa sezione hanno la precedenza sulle variabili di ambiente di sistema.
 
-Nell'esempio seguente vengono impostate due variabili di ambiente in *Web. config*. `ASPNETCORE_ENVIRONMENT` configura l'ambiente dell'app per `Development`. Uno sviluppatore può impostare temporaneamente questo valore nel file *web.config* per forzare il caricamento della [pagina delle eccezioni per gli sviluppatori](xref:fundamentals/error-handling) durante il debug di un'eccezione dell'app. `CONFIG_DIR` è un esempio di variabile di ambiente definita dall'utente, in cui lo sviluppatore ha scritto il codice che legge il valore all'avvio in modo da formare un percorso per il caricamento del file di configurazione dell'app.
+Nell'esempio seguente vengono impostate due variabili di ambiente in *Web. config*.  `ASPNETCORE_ENVIRONMENT` configura l'ambiente dell'app in modo da `Development`. Uno sviluppatore può impostare temporaneamente questo valore nel file *web.config* per forzare il caricamento della [pagina delle eccezioni per gli sviluppatori](xref:fundamentals/error-handling) durante il debug di un'eccezione dell'app. `CONFIG_DIR` è un esempio di variabile di ambiente definita dall'utente, in cui lo sviluppatore ha scritto il codice che legge il valore all'avvio in modo da formare un percorso per il caricamento del file di configurazione dell'app.
 
 ```xml
 <aspNetCore processPath="dotnet"
@@ -247,7 +249,7 @@ Un timestamp e l'estensione del file vengono aggiunti automaticamente al momento
 
 Se `stdoutLogEnabled` è false, gli errori che si verificano all'avvio dell'app vengono acquisiti ed emessi nel log eventi fino a 30 KB. Dopo l'avvio, tutti i log aggiuntivi vengono rimossi.
 
-L'elemento `aspNetCore` di esempio seguente in un file *Web. config* configura la registrazione stdout per un'app ospitata nel servizio app Azure. Un percorso locale o un percorso di una condivisione di rete è accettabile per la registrazione locale. Verificare che l'identità dell'utente AppPool disponga dell'autorizzazione di scrittura per il percorso specificato.
+L'esempio seguente `aspNetCore` elemento in un file *Web. config* configura la registrazione stdout per un'app ospitata nel servizio app Azure. Un percorso locale o un percorso di una condivisione di rete è accettabile per la registrazione locale. Verificare che l'identità dell'utente AppPool disponga dell'autorizzazione di scrittura per il percorso specificato.
 
 ```xml
 <aspNetCore processPath="dotnet"
@@ -260,7 +262,7 @@ L'elemento `aspNetCore` di esempio seguente in un file *Web. config* configura l
 
 ## <a name="enhanced-diagnostic-logs"></a>Log di diagnostica avanzati
 
-Il modulo ASP.NET Core può essere configurato per restituire log di diagnostica avanzata. Aggiungere l'elemento `<handlerSettings>` all'elemento `<aspNetCore>` in *web.config*. L'impostazione di `debugLevel` su `TRACE` restituisce una maggior fedeltà dei dati diagnostici:
+Il modulo ASP.NET Core può essere configurato per restituire log di diagnostica avanzata. Aggiungere l'elemento `<handlerSettings>` all'elemento `<aspNetCore>` in *Web. config*. L'impostazione del `debugLevel` su `TRACE` espone una maggiore fedeltà delle informazioni di diagnostica:
 
 ```xml
 <aspNetCore processPath="dotnet"
@@ -306,7 +308,7 @@ Vedere [Configurazione con web.config](#configuration-with-webconfig) per un ese
 
 *Si applica solo quando si usa il modello di hosting in-process.*
 
-Configurare la dimensione dello stack gestito usando l'impostazione `stackSize` in byte in *Web. config*. Le dimensioni predefinite sono pari a `1048576` byte (1 MB).
+Configurare la dimensione dello stack gestito usando l'impostazione `stackSize` in byte in *Web. config*. Le dimensioni predefinite sono `1048576` byte (1 MB).
 
 ```xml
 <aspNetCore processPath="dotnet"
@@ -352,9 +354,9 @@ Per determinare la versione del modulo ASP.NET Core installato:
 1. Nel sistema host passare a *%windir%\System32\inetsrv*.
 1. Individuare il file *aspnetcore.dll*.
 1. Fare clic con il pulsante destro del mouse sul file e scegliere **Proprietà** dal menu di scelta rapida.
-1. Selezionare la scheda **Dettagli**. **Versione file** e **Versione prodotto** rappresentano la versione installata del modulo.
+1. Selezionare la scheda **Dettagli** . La versione del **file** e la **versione del prodotto** rappresentano la versione installata del modulo.
 
-I log del programma di installazione del bundle di hosting per il modulo sono disponibili in *C:\\Users\\%UserName%\\AppData\\Local\\Temp*. Il file è denominato *dd_DotNetCoreWinSvrHosting__\<timestamp>_000_AspNetCoreModule_x64.log*.
+I log del programma di installazione del bundle di hosting per il modulo sono disponibili in *C: \\Users \\% username% \\AppData \\Local \\Temp*. Il file è denominato *dd_DotNetCoreWinSvrHosting__ \<timestamp > _000_AspNetCoreModule_x64. log*.
 
 ## <a name="module-schema-and-configuration-file-locations"></a>Percorsi dei file di modulo, schema e configurazione
 
@@ -572,7 +574,7 @@ Per informazioni sulla configurazione delle applicazioni secondarie IIS, vedere 
 
 ### <a name="attributes-of-the-aspnetcore-element"></a>Attributi dell'elemento aspNetCore
 
-| Attributo | Descrizione | Predefinito |
+| Attributo | Descrizione | Impostazione predefinita |
 | --------- | ----------- | :-----: |
 | `arguments` | <p>Attributo stringa facoltativo.</p><p>Argomenti per l'eseguibile specificato in **processPath**.</p> | |
 | `disableStartUpErrorPage` | <p>Attributo booleano facoltativo.</p><p>Se true, la pagina **502.5 - Errore del processo** non viene visualizzata e la tabella codici di stato 502 configurata in *web.config* ha la precedenza.</p> | `false` |
@@ -663,7 +665,7 @@ L'elemento di esempio `aspNetCore` seguente configura la registrazione stdout pe
 
 ## <a name="enhanced-diagnostic-logs"></a>Log di diagnostica avanzati
 
-Il modulo ASP.NET Core può essere configurato per restituire log di diagnostica avanzata. Aggiungere l'elemento `<handlerSettings>` all'elemento `<aspNetCore>` in *web.config*. L'impostazione di `debugLevel` su `TRACE` restituisce una maggior fedeltà dei dati diagnostici:
+Il modulo ASP.NET Core può essere configurato per restituire log di diagnostica avanzata. Aggiungere l'elemento `<handlerSettings>` all'elemento `<aspNetCore>` in *Web. config*. L'impostazione del `debugLevel` su `TRACE` espone una maggiore fedeltà delle informazioni di diagnostica:
 
 ```xml
 <aspNetCore processPath="dotnet"
@@ -737,9 +739,9 @@ Per determinare la versione del modulo ASP.NET Core installato:
 1. Nel sistema host passare a *%windir%\System32\inetsrv*.
 1. Individuare il file *aspnetcore.dll*.
 1. Fare clic con il pulsante destro del mouse sul file e scegliere **Proprietà** dal menu di scelta rapida.
-1. Selezionare la scheda **Dettagli**. **Versione file** e **Versione prodotto** rappresentano la versione installata del modulo.
+1. Selezionare la scheda **Dettagli** . La versione del **file** e la **versione del prodotto** rappresentano la versione installata del modulo.
 
-I log del programma di installazione del bundle di hosting per il modulo sono disponibili in *C:\\Users\\%UserName%\\AppData\\Local\\Temp*. Il file è denominato *dd_DotNetCoreWinSvrHosting__\<timestamp>_000_AspNetCoreModule_x64.log*.
+I log del programma di installazione del bundle di hosting per il modulo sono disponibili in *C: \\Users \\% username% \\AppData \\Local \\Temp*. Il file è denominato *dd_DotNetCoreWinSvrHosting__ \<timestamp > _000_AspNetCoreModule_x64. log*.
 
 ## <a name="module-schema-and-configuration-file-locations"></a>Percorsi dei file di modulo, schema e configurazione
 
@@ -873,7 +875,7 @@ Per informazioni sulla configurazione delle applicazioni secondarie IIS, vedere 
 
 ### <a name="attributes-of-the-aspnetcore-element"></a>Attributi dell'elemento aspNetCore
 
-| Attributo | Descrizione | Predefinito |
+| Attributo | Descrizione | Impostazione predefinita |
 | --------- | ----------- | :-----: |
 | `arguments` | <p>Attributo stringa facoltativo.</p><p>Argomenti per l'eseguibile specificato in **processPath**.</p>| |
 | `disableStartUpErrorPage` | <p>Attributo booleano facoltativo.</p><p>Se true, la pagina **502.5 - Errore del processo** non viene visualizzata e la tabella codici di stato 502 configurata in *web.config* ha la precedenza.</p> | `false` |
@@ -971,9 +973,9 @@ Per determinare la versione del modulo ASP.NET Core installato:
 1. Nel sistema host passare a *%windir%\System32\inetsrv*.
 1. Individuare il file *aspnetcore.dll*.
 1. Fare clic con il pulsante destro del mouse sul file e scegliere **Proprietà** dal menu di scelta rapida.
-1. Selezionare la scheda **Dettagli**. **Versione file** e **Versione prodotto** rappresentano la versione installata del modulo.
+1. Selezionare la scheda **Dettagli** . La versione del **file** e la **versione del prodotto** rappresentano la versione installata del modulo.
 
-I log del programma di installazione del bundle di hosting per il modulo sono disponibili in *C:\\Users\\%UserName%\\AppData\\Local\\Temp*. Il file è denominato *dd_DotNetCoreWinSvrHosting__\<timestamp>_000_AspNetCoreModule_x64.log*.
+I log del programma di installazione del bundle di hosting per il modulo sono disponibili in *C: \\Users \\% username% \\AppData \\Local \\Temp*. Il file è denominato *dd_DotNetCoreWinSvrHosting__ \<timestamp > _000_AspNetCoreModule_x64. log*.
 
 ## <a name="module-schema-and-configuration-file-locations"></a>Percorsi dei file di modulo, schema e configurazione
 

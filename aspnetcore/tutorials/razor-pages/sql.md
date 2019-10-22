@@ -5,12 +5,12 @@ description: Questa sezione illustra l'utilizzo di un database e di ASP.NET Core
 ms.author: riande
 ms.date: 7/22/2019
 uid: tutorials/razor-pages/sql
-ms.openlocfilehash: 87d27b60940826e21b060f2e07d344b30ff75b27
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: b5acb573f8fa39e5300ecdb359113d8697d78934
+ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259790"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72334234"
 ---
 # <a name="work-with-a-database-and-aspnet-core"></a>Usare un database e ASP.NET Core
 
@@ -38,7 +38,7 @@ Il sistema di [configurazione](xref:fundamentals/configuration/index) di ASP.NET
 
 Il valore del nome per il database (`Database={Database name}`) sarà diverso per il codice generato. Il valore del nome è arbitrario.
 
-[!code-json[](razor-pages-start/sample/RazorPagesMovie30/appsettings.json)]
+[!code-json[](razor-pages-start/sample/RazorPagesMovie30/appsettings.json?highlight=10-12)]
 
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio per Mac](#tab/visual-studio-code+visual-studio-mac)
 
@@ -52,7 +52,7 @@ Quando l'app viene distribuita in un server di test o produzione, è possibile u
 
 ## <a name="sql-server-express-localdb"></a>LocalDB di SQL Server Express
 
-Local DB è una versione leggera del motore di database di SQL Server Express appositamente pensato per lo sviluppo di programmi. Local DB viene avviato su richiesta ed eseguito in modalità utente; non richiede quindi una configurazione complessa. Per impostazione predefinita, Local DB crea file con estensione `*.mdf` nella directory `C:/Users/<user/>`.
+Local DB è una versione leggera del motore di database di SQL Server Express appositamente pensato per lo sviluppo di programmi. Local DB viene avviato su richiesta ed eseguito in modalità utente; non richiede quindi una configurazione complessa. Per impostazione predefinita, Local DB crea file con estensione `*.mdf` nella directory `C:\Users\<user>\`.
 
 <a name="ssox"></a>
 * Dal menu **Visualizzazione** aprire **Esplora oggetti di SQL Server** (SSOX).
@@ -107,12 +107,12 @@ Il codice seguente illustra il file *Program.cs* aggiornato.
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Program.cs)]
 
-Quando `Update-Database` non è stata eseguita, si verifica l'eccezione seguente:
+Quando `Update-Database` non è stato eseguito, si verifica l'eccezione seguente:
 
-`SqlException: Cannot open database "RazorPagesMovieContext-" requested by the login. The login failed.`
-`Login failed for user 'user name'.`
+> `SqlException: Cannot open database "RazorPagesMovieContext-" requested by the login. The login failed.`
+> `Login failed for user 'user name'.`
 
-### <a name="test-the-app"></a>Eseguire il test dell'app
+### <a name="test-the-app"></a>Eseguire il test dell'applicazione
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -141,8 +141,8 @@ L'esercitazione successiva consentirà di migliorare la presentazione dei dati.
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 > [!div class="step-by-step"]
-> [Precedente: Pagine Razor create tramite scaffolding](xref:tutorials/razor-pages/page)
-> [Successiva: Aggiornamento delle pagine](xref:tutorials/razor-pages/da1)
+> [Articolo precedente: Pagine Razor di scaffolding](xref:tutorials/razor-pages/page)
+> [Articolo successivo: Aggiornamento delle pagine](xref:tutorials/razor-pages/da1)
 
 ::: moniker-end
 
@@ -256,7 +256,7 @@ Un'app di produzione non chiamerà `Database.Migrate`. Sarà aggiunto al codice 
 SqlException: Impossibile aprire il database "RazorPagesMovieContext-21" richiesto dall'account di accesso. Accesso non riuscito.
 Accesso non riuscito per l'utente "nome-utente".
 
-### <a name="test-the-app"></a>Eseguire il test dell'app
+### <a name="test-the-app"></a>Eseguire il test dell'applicazione
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -297,7 +297,7 @@ L'esercitazione successiva consentirà di pulire la presentazione dei dati.
 * [Versione YouTube dell'esercitazione](https://youtu.be/A_5ff11sDHY)
 
 > [!div class="step-by-step"]
-> [Precedente: Pagine Razor create tramite scaffolding](xref:tutorials/razor-pages/page)
-> [Successiva: Aggiornamento delle pagine](xref:tutorials/razor-pages/da1)
+> [Articolo precedente: Pagine Razor di scaffolding](xref:tutorials/razor-pages/page)
+> [Articolo successivo: Aggiornamento delle pagine](xref:tutorials/razor-pages/da1)
 
 ::: moniker-end

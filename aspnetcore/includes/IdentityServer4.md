@@ -1,0 +1,8 @@
+ASP.NET Core identità aggiunge la funzionalità di accesso dell'interfaccia utente per ASP.NET Core app Web. Per proteggere le API Web e le Spa, usare [IdentityServer4](https://identityserver.io). IdentityServer4 è un Framework di OpenID Connect e OAuth 2,0 per ASP.NET Core 3,0. IdentityServer4 Abilita le funzionalità di sicurezza seguenti:
+
+* Autenticazione come servizio (AaaS)
+* Single Sign-on/off (SSO) su più tipi di applicazione
+* Controllo di accesso per le API
+* Gateway federativo
+
+Per ulteriori informazioni, vedere [Welcome to IdentityServer4](http://docs.identityserver.io/en/latest/index.html).

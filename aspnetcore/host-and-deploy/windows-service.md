@@ -5,14 +5,14 @@ description: Informazioni su come ospitare un'app ASP.NET Core in un servizio Wi
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/07/2019
+ms.date: 10/10/2019
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 32226c06ba005b4a61c473d6584b2b762733dcbd
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: b02e627af875f15a81d68b0d625a2eccf25c0657
+ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007294"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333795"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Ospitare ASP.NET Core in un servizio Windows
 
@@ -22,7 +22,7 @@ Di [Luke Latham](https://github.com/guardrex) e [Tom Dykstra](https://github.com
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/windows-service/) ([procedura per il download](xref:index#how-to-download-a-sample))
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [ASP.NET Core SDK 2.1 o versione successiva](https://dotnet.microsoft.com/download)
 * [PowerShell 6.2 o versione successiva](https://github.com/PowerShell/PowerShell)
@@ -296,16 +296,18 @@ Per gestire gli eventi <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHos
 
 ## <a name="proxy-server-and-load-balancer-scenarios"></a>Scenari con server proxy e servizi di bilanciamento del carico
 
-I servizi che interagiscono con le richieste da Internet o da una rete aziendale e si trovano dietro un proxy o un servizio di bilanciamento del carico potrebbero richiedere una configurazione aggiuntiva. Per altre informazioni, vedere <xref:host-and-deploy/proxy-load-balancer>.
+I servizi che interagiscono con le richieste da Internet o da una rete aziendale e si trovano dietro un proxy o un servizio di bilanciamento del carico potrebbero richiedere una configurazione aggiuntiva. Per ulteriori informazioni, vedere <xref:host-and-deploy/proxy-load-balancer>.
 
 ## <a name="configure-endpoints"></a>Configurare gli endpoint
 
 Per impostazione predefinita, ASP.NET Core è associato a `http://localhost:5000`. Configurare l'URL e la porta impostando la variabile di ambiente `ASPNETCORE_URLS`.
 
-Per ulteriori approcci alla configurazione di porte e URL, incluso il supporto per gli endpoint HTTPS, vedere gli argomenti seguenti:
+Per ulteriori approcci alla configurazione di porte e URL, vedere l'articolo relativo al server pertinente:
 
-* <xref:fundamentals/servers/kestrel#endpoint-configuration> (gheppio)
-* <xref:fundamentals/servers/httpsys#configure-windows-server> (HTTP. sys)
+* <xref:fundamentals/servers/kestrel#endpoint-configuration>
+* <xref:fundamentals/servers/httpsys#configure-windows-server>
+
+Le linee guida precedenti riguardano il supporto per gli endpoint HTTPS. Ad esempio, configurare l'app per HTTPS quando si usa l'autenticazione con un servizio Windows.
 
 > [!NOTE]
 > L'uso del certificato di sviluppo ASP.NET Core HTTPS per proteggere un endpoint del servizio non è supportato.
