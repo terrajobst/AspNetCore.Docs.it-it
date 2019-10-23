@@ -1697,18 +1697,18 @@ All'interno delle app blazer sono disponibili i seguenti scenari di globalizzazi
 * . Sistema di risorse di NET
 * Formattazione di numeri e date specifiche delle impostazioni cultura
 
-La funzionalità `@bind` di Blazer esegue la globalizzazione in base alle impostazioni cultura correnti dell'utente. Per ulteriori informazioni, vedere la sezione [Data Binding](#data-binding) .
+La funzionalità `@bind` di Blazor esegue la globalizzazione in base alle impostazioni cultura correnti dell'utente. Per ulteriori informazioni, vedere la sezione [Data Binding](#data-binding) .
 
 Sono attualmente supportati un set limitato di scenari di localizzazione di ASP.NET Core:
 
-* `IStringLocalizer<>` *è supportato* nelle app blazer.
-* `IHtmlLocalizer<>`, `IViewLocalizer<>` e la localizzazione delle annotazioni dei dati è ASP.NET Core scenari MVC e **non è supportata** nelle app blazer.
+* `IStringLocalizer<>` *è supportato* nelle app Blazor.
+* `IHtmlLocalizer<>`, `IViewLocalizer<>` e la localizzazione delle annotazioni dei dati è ASP.NET Core scenari MVC e **non è supportata** nelle app Blazor.
 
 Per ulteriori informazioni, vedere <xref:fundamentals/localization>.
 
 ## <a name="scalable-vector-graphics-svg-images"></a>Immagini SVG (Scalable Vector Graphics)
 
-Poiché Blazer esegue il rendering di HTML, le immagini supportate dal browser, incluse le immagini SVG (Scalable Vector*Graphics),* sono supportate tramite il tag `<img>`:
+Poiché Blazor esegue il rendering di HTML, le immagini supportate dal browser, incluse le immagini SVG (Scalable Vector*Graphics),* sono supportate tramite il tag `<img>`:
 
 ```html
 <img alt="Example image" src="some-image.svg" />
@@ -1726,4 +1726,4 @@ Tuttavia, il markup SVG inline non è supportato in tutti gli scenari. Se si ins
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* <xref:security/blazor/server> &ndash; include informazioni aggiuntive sulla creazione di app Server blazer che devono essere confrontate con l'esaurimento delle risorse.
+* <xref:security/blazor/server> &ndash; include informazioni aggiuntive sulla creazione di app Server Blazor che devono essere confrontate con l'esaurimento delle risorse.
