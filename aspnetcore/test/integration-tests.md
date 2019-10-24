@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/14/2019
 uid: test/integration-tests
-ms.openlocfilehash: 863b95230d376d050c34a9ed585b7696e649cb05
-ms.sourcegitcommit: dd026eceee79e943bd6b4a37b144803b50617583
+ms.openlocfilehash: c0fede8f9f46d1b10502055d8e1fe7caa48cf351
+ms.sourcegitcommit: 810d5831169770ee240d03207d6671dabea2486e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72378709"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72779223"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Test di integrazione in ASP.NET Core
 
@@ -126,7 +126,7 @@ Se l' [ambiente](xref:fundamentals/environments) di Sut non è impostato, il val
 
 ## <a name="basic-tests-with-the-default-webapplicationfactory"></a>Test di base con WebApplicationFactory predefinito
 
-[WebApplicationFactory @ no__t-1TEntryPoint >](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1) viene usato per creare un [TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver) per i test di integrazione. `TEntryPoint` è la classe del punto di ingresso di SUT, in genere la classe `Startup`.
+[WebApplicationFactory\<TEntryPoint >](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1) viene usato per creare un [TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver) per i test di integrazione. `TEntryPoint` è la classe del punto di ingresso di SUT, in genere la classe `Startup`.
 
 Le classi di test implementano una *classe fixture* Interface ([IClassFixture](https://xunit.github.io/docs/shared-context#class-fixture)) per indicare che la classe contiene test e fornisce istanze di oggetti condivisi tra i test nella classe.
 
@@ -175,7 +175,7 @@ La configurazione dell'host Web può essere creata indipendentemente dalle class
 
    Per connettersi a un database diverso dal database in memoria, modificare la chiamata `UseInMemoryDatabase` per connettere il contesto a un database diverso. Per utilizzare un database di test SQL Server:
 
-   * Fare riferimento al pacchetto NuGet [Microsoft. EntityFrameworkCore. SqlServer] https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/) nel file di progetto.
+   * Fare riferimento al pacchetto NuGet [Microsoft. EntityFrameworkCore. SqlServer](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/) nel file di progetto.
    * Chiamare `UseSqlServer` con una stringa di connessione al database.
 
    ```csharp
@@ -219,7 +219,7 @@ Quando è richiesta una configurazione aggiuntiva in un metodo di test, [WithWeb
 
 Il metodo di test `Post_DeleteMessageHandler_ReturnsRedirectToRoot` dell' [app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) illustra l'uso di `WithWebHostBuilder`. Questo test esegue l'eliminazione di un record nel database attivando un invio di form in SUT.
 
-Poiché un altro test nella classe `IndexPageTests` esegue un'operazione che elimina tutti i record nel database e può essere eseguita prima del metodo `Post_DeleteMessageHandler_ReturnsRedirectToRoot`, il database viene reinizializzato in questo metodo di test per assicurarsi che sia presente un record per l'eliminazione di SUT. La selezione del primo pulsante Elimina del modulo `messages` in SUT viene simulata nella richiesta al SUT:
+Poiché un altro test nella classe `IndexPageTests` esegue un'operazione che elimina tutti i record nel database e può essere eseguita prima del metodo `Post_DeleteMessageHandler_ReturnsRedirectToRoot`, il database viene sottoposta a reseeding in questo metodo di test per assicurarsi che sia presente un record per il SUT da eliminare. La selezione del primo pulsante Elimina del modulo `messages` in SUT viene simulata nella richiesta al SUT:
 
 [!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/IndexPageTests.cs?name=snippet3)]
 
@@ -473,7 +473,7 @@ Se l' [ambiente](xref:fundamentals/environments) di Sut non è impostato, il val
 
 ## <a name="basic-tests-with-the-default-webapplicationfactory"></a>Test di base con WebApplicationFactory predefinito
 
-[WebApplicationFactory @ no__t-1TEntryPoint >](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1) viene usato per creare un [TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver) per i test di integrazione. `TEntryPoint` è la classe del punto di ingresso di SUT, in genere la classe `Startup`.
+[WebApplicationFactory\<TEntryPoint >](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1) viene usato per creare un [TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver) per i test di integrazione. `TEntryPoint` è la classe del punto di ingresso di SUT, in genere la classe `Startup`.
 
 Le classi di test implementano una *classe fixture* Interface ([IClassFixture](https://xunit.github.io/docs/shared-context#class-fixture)) per indicare che la classe contiene test e fornisce istanze di oggetti condivisi tra i test nella classe.
 
@@ -549,7 +549,7 @@ Quando è richiesta una configurazione aggiuntiva in un metodo di test, [WithWeb
 
 Il metodo di test `Post_DeleteMessageHandler_ReturnsRedirectToRoot` dell' [app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) illustra l'uso di `WithWebHostBuilder`. Questo test esegue l'eliminazione di un record nel database attivando un invio di form in SUT.
 
-Poiché un altro test nella classe `IndexPageTests` esegue un'operazione che elimina tutti i record nel database e può essere eseguita prima del metodo `Post_DeleteMessageHandler_ReturnsRedirectToRoot`, il database viene reinizializzato in questo metodo di test per assicurarsi che sia presente un record per l'eliminazione di SUT. La selezione del primo pulsante Elimina del modulo `messages` in SUT viene simulata nella richiesta al SUT:
+Poiché un altro test nella classe `IndexPageTests` esegue un'operazione che elimina tutti i record nel database e può essere eseguita prima del metodo `Post_DeleteMessageHandler_ReturnsRedirectToRoot`, il database viene sottoposta a reseeding in questo metodo di test per assicurarsi che sia presente un record per il SUT da eliminare. La selezione del primo pulsante Elimina del modulo `messages` in SUT viene simulata nella richiesta al SUT:
 
 [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/IndexPageTests.cs?name=snippet3)]
 
