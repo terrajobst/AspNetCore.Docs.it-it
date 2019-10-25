@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/15/2019
 uid: host-and-deploy/blazor/webassembly
-ms.openlocfilehash: 8ff3f7b089b7aec6b1a6be2c85f24cfb9674b684
-ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
+ms.openlocfilehash: 943dbb772d9a7bcb337012c126828d1ab4eb545c
+ms.sourcegitcommit: 383017d7060a6d58f6a79cf4d7335d5b4b6c5659
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72391326"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72816058"
 ---
 # <a name="host-and-deploy-aspnet-core-blazor-webassembly"></a>Ospitare e distribuire un webassembly ASP.NET Core Blazer
 
@@ -88,8 +88,8 @@ Quando viene pubblicato un progetto Blazor, viene creato un file *web.config* co
   * `application/octet-stream`
   * `application/wasm`
 * Vengono stabilite le regole URL Rewrite Module:
-  * Specificare la sottodirectory in cui risiedono gli asset statici dell'app ( *{NOME ASSEMBLY}/dist/{PERCORSO RICHIESTO}* ).
-  * Creare routing di fallback SPA in modo che le richieste per gli asset non file vengano reindirizzate al documento predefinito dell'app nella relativa cartella degli asset statici ( *{NOME ASSEMBLY}/dist/index.html*).
+  * Specificare la sottodirectory in cui risiedono gli asset statici dell'app (*{NOME ASSEMBLY}/dist/{PERCORSO RICHIESTO}*).
+  * Creare routing di fallback SPA in modo che le richieste per gli asset non file vengano reindirizzate al documento predefinito dell'app nella relativa cartella degli asset statici (*{NOME ASSEMBLY}/dist/index.html*).
 
 #### <a name="install-the-url-rewrite-module"></a>Installare URL Rewrite Module
 
@@ -185,6 +185,54 @@ FROM nginx:alpine
 COPY ./bin/Release/netstandard2.0/publish /usr/share/nginx/html/
 COPY nginx.conf /etc/nginx/nginx.conf
 ```
+
+### <a name="apache"></a>Apache
+
+Per distribuire un'app webassembly Blazer in CentOS 7 o versione successiva:
+
+1. Creare il file di configurazione Apache. L'esempio seguente è un file di configurazione semplificato (*blazorapp. config*):
+
+   ```
+   <VirtualHost *:80>
+       ServerName www.example.com
+       ServerAlias *.example.com
+
+       DocumentRoot "/var/www/blazorapp"
+       ErrorDocument 404 /index.html
+
+       AddType aplication/wasm .wasm
+       AddType application/octet-stream .dll
+   
+       <Directory "/var/www/blazorapp">
+           Options -Indexes
+           AllowOverride None
+       </Directory>
+
+       <IfModule mod_deflate.c>
+           AddOutputFilterByType DEFLATE text/css
+           AddOutputFilterByType DEFLATE application/javascript
+           AddOutputFilterByType DEFLATE text/html
+           AddOutputFilterByType DEFLATE application/octet-stream
+           AddOutputFilterByType DEFLATE application/wasm
+           <IfModule mod_setenvif.c>
+           BrowserMatch ^Mozilla/4 gzip-only-text/html
+           BrowserMatch ^Mozilla/4.0[678] no-gzip
+           BrowserMatch bMSIE !no-gzip !gzip-only-text/html
+       </IfModule>
+       </IfModule>
+
+       ErrorLog /var/log/httpd/blazorapp-error.log
+       CustomLog /var/log/httpd/blazorapp-access.log common
+   </VirtualHost>
+   ```
+
+1. Inserire il file di configurazione Apache nella directory `/etc/httpd/conf.d/`, ovvero la directory di configurazione predefinita di Apache in CentOS 7.
+
+1. Inserire i file dell'app nella directory `/var/www/blazorapp` (il percorso specificato per `DocumentRoot` nel file di configurazione).
+
+1. Riavviare il servizio Apache.
+
+Per ulteriori informazioni, vedere [mod_mime](https://httpd.apache.org/docs/2.4/mod/mod_mime.html) e [mod_deflate](https://httpd.apache.org/docs/current/mod/mod_deflate.html).
 
 ### <a name="github-pages"></a>Pagine di GitHub
 

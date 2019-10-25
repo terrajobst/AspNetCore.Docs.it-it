@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 10/07/2019
 uid: razor-pages/index
-ms.openlocfilehash: 61b1c3a17b378524c8fea9004b615c2d3d480135
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: d12cf7f4f45c98c292b0d035c99e051d9b779e9a
+ms.sourcegitcommit: 383017d7060a6d58f6a79cf4d7335d5b4b6c5659
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007463"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72816131"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introduzione a Razor Pages in ASP.NET Core
 
@@ -25,7 +25,7 @@ Se si sta cercando un'esercitazione in cui si usa l'approccio Model-View-Control
 
 Questo documento offre un'introduzione a Razor Pages. Non è un'esercitazione dettagliata. Se alcune sezioni risultano troppo avanzate, vedere [Introduzione a Razor Pages](xref:tutorials/razor-pages/razor-pages-start). Per una panoramica di ASP.NET Core, vedere [Introduzione a ASP.NET Core](xref:index).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -166,7 +166,7 @@ Nel codice precedente, inserendo il modulo:
   * Il metodo del gestore `OnPostAsync` chiama il metodo helper <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel.RedirectToPage*>. `RedirectToPage` restituisce un'istanza di <xref:Microsoft.AspNetCore.Mvc.RedirectToPageResult>. `RedirectToPage`:
 
     * Risultato dell'azione.
-    * È simile a `RedirectToAction` o `RedirectToRoute` (utilizzato in controller e viste).
+    * È simile a `RedirectToAction` o `RedirectToRoute` (usato in controller e visualizzazioni).
     * È personalizzato per le pagine. Nell'esempio precedente viene reindirizzato alla pagina di indice radice (`/Index`). Il metodo `RedirectToPage` è descritto in dettaglio nella sezione [Generazione di URL per le pagine](#url_gen).
 
 * Con gli errori di convalida passati al server:
@@ -181,11 +181,11 @@ Nel codice precedente, inserendo il modulo:
   * I dati **non** vengono inviati al server.
   * La convalida lato client è illustrata più avanti in questo documento.
 
-La proprietà `Customer` usa l'attributo [`[BindProperty]`](xref:Microsoft.AspNetCore.Mvc.BindPropertyAttribute) per acconsentire esplicitamente all'associazione di modelli:
+La proprietà `Customer` utilizza [`[BindProperty]`](xref:Microsoft.AspNetCore.Mvc.BindPropertyAttribute) attributo per acconsentire esplicitamente all'associazione di modelli:
 
 [!code-cs[](index/3.0sample/RazorPagesContacts/Pages/Customers/Create.cshtml.cs?name=snippet_PageModel&highlight=15-16)]
 
-`[BindProperty]` **non** deve essere utilizzato nei modelli contenenti proprietà che non devono essere modificate dal client. Per ulteriori informazioni, vedere [overposting](xref:data/ef-rp/crud#overposting).
+**non** utilizzare `[BindProperty]` nei modelli contenenti proprietà che non devono essere modificate dal client. Per ulteriori informazioni, vedere [overposting](xref:data/ef-rp/crud#overposting).
 
 Per impostazione predefinita, Razor Pages associa le proprietà solo a verbi non `GET`. L'associazione alle proprietà Elimina la necessità di scrivere codice per convertire i dati HTTP nel tipo di modello. Riduce il codice usando la stessa proprietà per il eseguire il rendering dei campi del form (`<input asp-for="Customer.Name">`) e accettare l'input.
 
@@ -227,7 +227,7 @@ HTML sottoposto a rendering:
 Quando il pulsante Elimina viene sottoposto a rendering in HTML, il relativo [formaction](https://developer.mozilla.org/docs/Web/HTML/Element/button#attr-formaction) include i parametri per:
 
 * ID contatto del cliente, specificato dall'attributo `asp-route-id`.
-* @No__t-0, specificato dall'attributo `asp-page-handler`.
+* `handler`specificato dall'attributo `asp-page-handler`.
 
 Quando il pulsante è selezionato, viene inviata una richiesta `POST` di modulo al server. Per convenzione, il nome del metodo del gestore viene selezionato in base al valore del parametro `handler` in base allo schema `OnPost[handler]Async`.
 
@@ -237,7 +237,7 @@ Poiché in questo esempio l'`handler` è `delete`, il metodo `OnPostDeleteAsync`
 
 Il metodo `OnPostDeleteAsync`:
 
-* Ottiene il `id` dalla stringa di query.
+* Ottiene l'`id` dalla stringa di query.
 * Interroga il database in merito al contatto del cliente con `FindAsync`.
 * Se il contatto del cliente viene trovato, viene rimosso e il database viene aggiornato.
 * Chiama <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel.RedirectToPage*> per reindirizzare alla pagina di indice radice (`/Index`).
@@ -263,11 +263,11 @@ Regole di convalida:
 * Sono specificati in modo dichiarativo nella classe del modello.
 * Vengono applicati ovunque nell'app.
 
-Lo spazio dei nomi <xref:System.ComponentModel.DataAnnotations> fornisce un set di attributi di convalida predefiniti che vengono applicati in modo dichiarativo a una classe o a una proprietà. DataAnnotations contiene anche attributi di formattazione come [`[DataType]`](xref:System.ComponentModel.DataAnnotations.DataTypeAttribute) che facilitano la formattazione e non forniscono alcuna convalida.
+Lo spazio dei nomi <xref:System.ComponentModel.DataAnnotations> fornisce un set di attributi di convalida predefiniti che vengono applicati in modo dichiarativo a una classe o a una proprietà. DataAnnotations contiene anche attributi di formattazione come [`[DataType]`](xref:System.ComponentModel.DataAnnotations.DataTypeAttribute) che semplificano la formattazione e non forniscono alcuna convalida.
 
-Si consideri il modello `Customer`:
+Si consideri il modello di `Customer`:
 
-[!code-cs[](index/sample/RazorPagesContacts/Data/Customer.cs)]
+[!code-cs[](index/3.0sample/RazorPagesContacts/Models/Customer.cs)]
 
 Utilizzando il seguente file di visualizzazione *create. cshtml* :
 
@@ -292,13 +292,13 @@ L'attributo `[StringLength(10)]` genera `data-val-length-max="10"` sul codice HT
 * Con il nome più lungo di 10.
 * Il messaggio di errore "il nome del campo deve essere una stringa con una lunghezza massima di 10". viene restituito.
 
-Si consideri il seguente modello `Movie`:
+Si consideri il modello di `Movie` seguente:
 
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie30/Models/MovieDateRatingDA.cs?name=snippet1)]
 
 Gli attributi di convalida specificano il comportamento da applicare alle proprietà del modello a cui sono applicati:
 
-* Gli attributi `Required` e `MinimumLength` indicano che una proprietà deve avere un valore, ma nulla impedisce a un utente di immettere spazi vuoti per soddisfare questa convalida.
+* Gli attributi `Required` e `MinimumLength` indicano che una proprietà deve avere un valore, ma nulla impedisce a un utente di immettere spazi vuoti per soddisfare la convalida.
 * L'attributo `RegularExpression` viene usato per limitare i caratteri che possono essere inseriti. Nel codice precedente "Genre":
 
   * Deve includere solo lettere.
@@ -313,7 +313,7 @@ Gli attributi di convalida specificano il comportamento da applicare alle propri
 * L'attributo `StringLength` imposta la lunghezza massima di una proprietà di stringa e, facoltativamente, la lunghezza minima.
 * I tipi di valore, ad esempio `decimal`, `int`, `float` e `DateTime`, sono intrinsecamente necessari e non richiedono l'attributo `[Required]`.
 
-Nella pagina Crea del modello `Movie` vengono visualizzati gli errori con valori non validi:
+Nella pagina Crea per il modello di `Movie` vengono visualizzati gli errori con valori non validi:
 
 ![Il modulo di vista del film con più errori di convalida del lato client jQuery](~/tutorials/razor-pages/validation/_static/val.png)
 
@@ -324,13 +324,13 @@ Per altre informazioni, vedere:
 
 ## <a name="handle-head-requests-with-an-onget-handler-fallback"></a>Gestire le richieste HEAD con un fallback del gestore OnGet
 
-le richieste `HEAD` consentono di recuperare le intestazioni per una risorsa specifica. A differenza delle richieste `GET`, le richieste `HEAD` non restituiscono un corpo della risposta.
+`HEAD` richieste consentono di recuperare le intestazioni per una risorsa specifica. A differenza delle richieste `GET`, le richieste `HEAD` non restituiscono un corpo della risposta.
 
 In genere, per le richieste `HEAD` viene creato e chiamato un gestore `OnHead`:
 
 [!code-cs[](index/3.0sample/RazorPagesContacts/Pages/Privacy.cshtml.cs?name=snippet)]
 
-Razor Pages esegue il fallback alla chiamata del gestore `OnGet` se non è stato definito alcun gestore `OnHead`.
+Razor Pages esegue il fallback alla chiamata al gestore `OnGet` se non è stato definito alcun gestore `OnHead`.
 
 <a name="xsrf"></a>
 
@@ -425,7 +425,7 @@ L'applicazione ha la struttura di file o cartella seguente:
 * */Pages*
 
   * *Index.cshtml*
-  * *Privacy.cshtml*
+  * *Privacy. cshtml*
   * */Customers*
 
     * *Create.cshtml*
@@ -438,7 +438,7 @@ Le pagine *pages/Customers/create. cshtml* e *pages/Customers/Edit. cshtml* rein
 * `<a asp-page="./Index">Customers Index Page</a>`
 * `RedirectToPage("./Index")`
 
-Il nome assoluto della pagina `/Index` viene usato per generare gli URL nella pagina *pages/index. cshtml* . Esempio:
+Il nome della pagina assoluto `/Index` viene usato per generare gli URL nella pagina *pages/index. cshtml* . Esempio:
 
 * `Url.Page("/Index", ...)`
 * `<a asp-page="/Index">Home Index Page</a>`
@@ -457,7 +457,7 @@ La generazione di URL per le pagine supporta i nomi relativi. Nella tabella segu
 
 <!-- Test via ~/razor-pages/index/3.0sample/RazorPagesContacts/Pages/Customers/Details.cshtml.cs -->
 
-`RedirectToPage("Index")`, `RedirectToPage("./Index")` e `RedirectToPage("../Index")` sono *nomi relativi*. Il parametro `RedirectToPage` è *combinato* con il percorso della pagina corrente per calcolare il nome della pagina di destinazione.
+`RedirectToPage("Index")`, `RedirectToPage("./Index")`e `RedirectToPage("../Index")` sono *nomi relativi*. Il parametro `RedirectToPage` è *combinato* con il percorso della pagina corrente per calcolare il nome della pagina di destinazione.
 
 Il collegamento dei nomi relativi è utile quando si compilano siti con una struttura complessa. Quando vengono usati nomi relativi per il collegamento tra le pagine in una cartella:
 
@@ -474,7 +474,7 @@ Per altre informazioni, vedere <xref:mvc/controllers/areas> e <xref:razor-pages/
 
 ## <a name="viewdata-attribute"></a>Attributo viewData
 
-I dati possono essere passati a una pagina con <xref:Microsoft.AspNetCore.Mvc.ViewDataAttribute>. Le proprietà con l'attributo `[ViewData]` hanno i valori archiviati e caricati dal <xref:Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary>.
+I dati possono essere passati a una pagina con <xref:Microsoft.AspNetCore.Mvc.ViewDataAttribute>. Le proprietà con l'attributo `[ViewData]` hanno i valori archiviati e caricati dall'<xref:Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary>.
 
 Nell'esempio seguente, il `AboutModel` applica l'attributo `[ViewData]` alla proprietà `Title`:
 
@@ -508,7 +508,7 @@ Nel layout il titolo viene letto dal dizionario ViewData:
 
 ## <a name="tempdata"></a>TempData
 
-ASP.NET Core espone il <xref:Microsoft.AspNetCore.Mvc.Controller.TempData>. Questa proprietà archivia i dati finché non viene letta. I metodi <xref:Microsoft.AspNetCore.Mvc.ViewFeatures.TempDataDictionary.Keep*> e <xref:Microsoft.AspNetCore.Mvc.ViewFeatures.TempDataDictionary.Peek*> possono essere usati per esaminare i dati senza eliminazione. `TempData` è utile per il reindirizzamento, quando i dati sono necessari per più di una singola richiesta.
+ASP.NET Core espone l'<xref:Microsoft.AspNetCore.Mvc.Controller.TempData>. Questa proprietà archivia i dati finché non viene letta. I metodi <xref:Microsoft.AspNetCore.Mvc.ViewFeatures.TempDataDictionary.Keep*> e <xref:Microsoft.AspNetCore.Mvc.ViewFeatures.TempDataDictionary.Peek*> possono essere usati per esaminare i dati senza eliminazione. `TempData` è utile per il reindirizzamento, quando i dati sono necessari per più di una singola richiesta.
 
 Il codice seguente imposta il valore di `Message` usando `TempData`:
 
@@ -573,7 +573,7 @@ Usando il codice precedente, il percorso URL che indirizza a `OnPostJoinListAsyn
 
 La configurazione e le impostazioni nelle sezioni seguenti non sono richieste dalla maggior parte delle app.
 
-Per configurare le opzioni avanzate, utilizzare il metodo di estensione <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.AddRazorPagesOptions*>:
+Per configurare le opzioni avanzate, usare il metodo di estensione <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.AddRazorPagesOptions*>:
 
 [!code-cs[](index/3.0sample/RazorPagesContacts/StartupRPoptions.cs?name=snippet)]
 
@@ -618,7 +618,7 @@ Se si sta cercando un'esercitazione in cui si usa l'approccio Model-View-Control
 
 Questo documento offre un'introduzione a Razor Pages. Non è un'esercitazione dettagliata. Se alcune sezioni risultano troppo avanzate, vedere [Introduzione a Razor Pages](xref:tutorials/razor-pages/razor-pages-start). Per una panoramica di ASP.NET Core, vedere [Introduzione a ASP.NET Core](xref:index).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -768,7 +768,7 @@ Il file *Index.cshtml* contiene il markup seguente per creare un collegamento di
 
 [!code-cshtml[](index/sample/RazorPagesContacts/Pages/Index.cshtml?range=21)]
 
-L' [Helper tag di ancoraggio](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) `<a asp-page="./Edit" asp-route-id="@contact.Id">Edit</a>` ha usato l'attributo `asp-route-{value}` per generare un collegamento alla pagina di modifica. Il collegamento contiene i dati della route con l'ID contatto. Ad esempio `https://localhost:5001/Edit/1`. Gli [helper tag](xref:mvc/views/tag-helpers/intro) consentono al codice lato server di partecipare alla creazione e al rendering di elementi HTML nei file Razor. Gli helper tag sono abilitati da `@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers`
+L' [Helper tag di ancoraggio](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) `<a asp-page="./Edit" asp-route-id="@contact.Id">Edit</a>` ha usato l'attributo `asp-route-{value}` per generare un collegamento alla pagina di modifica. Il collegamento contiene i dati della route con l'ID contatto. Ad esempio `https://localhost:5001/Edit/1`. Gli [helper tag](xref:mvc/views/tag-helpers/intro) consentono al codice lato server di partecipare alla creazione e al rendering di elementi HTML nei file Razor. Gli helper tag sono abilitati dal `@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers`
 
 Il file *Pages/Edit.cshtml*:
 
@@ -801,13 +801,13 @@ Di seguito è riportato un esempio di pulsante di eliminazione di cui è stato e
 
 Quando il pulsante è selezionato, viene inviata una richiesta `POST` di modulo al server. Per convenzione, il nome del metodo del gestore viene selezionato in base al valore del parametro `handler` in base allo schema `OnPost[handler]Async`.
 
-Poiché in questo esempio l'`handler` è `delete`, il metodo `OnPostDeleteAsync` viene usato per elaborare la richiesta `POST`. Se `asp-page-handler` viene impostato su un valore diverso, ad esempio `remove`, viene selezionato un metodo gestore con il nome `OnPostRemoveAsync`. Il codice seguente illustra il gestore `OnPostDeleteAsync`:
+Poiché in questo esempio l'`handler` è `delete`, il metodo `OnPostDeleteAsync` viene usato per elaborare la richiesta `POST`. Se `asp-page-handler` viene impostato su un valore diverso, ad esempio `remove`, viene selezionato un metodo gestore con il nome `OnPostRemoveAsync`. Il codice seguente illustra il gestore di `OnPostDeleteAsync`:
 
 [!code-cs[](index/sample/RazorPagesContacts/Pages/Index.cshtml.cs?range=26-37)]
 
 Il metodo `OnPostDeleteAsync`:
 
-* Accetta l'`id` dalla stringa di query. Se la direttiva della pagina *index. cshtml* conteneva il vincolo di routing `"{id:int?}"`, `id` verrebbe derivante dai dati della route. I dati della route per `id` sono specificati nell'URI, ad esempio `https://localhost:5001/Customers/2`.
+* Accetta l'`id` dalla stringa di query. Se la direttiva della pagina *index. cshtml* conteneva il vincolo di routing `"{id:int?}"`, `id` proverrebbe dai dati della route. I dati della route per `id` vengono specificati nell'URI, ad esempio `https://localhost:5001/Customers/2`.
 * Interroga il database in merito al contatto del cliente con `FindAsync`.
 * Se viene trovato il contatto cliente, viene rimosso dall'elenco dei contatti del cliente. Il database viene aggiornato.
 * Chiama `RedirectToPage` per reindirizzare alla pagina di indice radice (`/Index`).
@@ -975,7 +975,7 @@ Per reindirizzare la pagina a un'[Area](xref:mvc/controllers/areas) diversa, spe
 RedirectToPage("/Index", new { area = "Services" });
 ```
 
-Per altre informazioni, vedere <xref:mvc/controllers/areas>.
+Per ulteriori informazioni, vedere <xref:mvc/controllers/areas>.
 
 ## <a name="viewdata-attribute"></a>Attributo viewData
 

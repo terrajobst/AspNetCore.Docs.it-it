@@ -5,22 +5,22 @@ description: Questa esercitazione illustra come installare e usare lo strumento 
 ms.author: riande
 ms.date: 05/31/2018
 uid: tutorials/dotnet-watch
-ms.openlocfilehash: 5462f89a3b5a257ed0a6a8439efb077653fb14f6
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: a2a0bcdace67052975630f99aab23bbb0fd99bff
+ms.sourcegitcommit: 383017d7060a6d58f6a79cf4d7335d5b4b6c5659
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082254"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72816133"
 ---
 # <a name="develop-aspnet-core-apps-using-a-file-watcher"></a>Sviluppare app ASP.NET Core usando un watcher per file
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT) e [Victor Hurdugaci](https://twitter.com/victorhurdugaci)
 
-`dotnet watch` è uno strumento che esegue un comando dell'[interfaccia della riga di comando di .NET Core](/dotnet/core/tools) quando i file di origine vengono modificati. Ad esempio, una modifica di file può attivare la compilazione, l'esecuzione di test o la distribuzione.
+[DotNet Watch](https://www.nuget.org/packages/dotnet-watch) è uno strumento che esegue un comando [interfaccia della riga di comando di .NET Core](/dotnet/core/tools) quando i file di origine cambiano. Ad esempio, una modifica di file può attivare la compilazione, l'esecuzione di test o la distribuzione.
 
 Questa esercitazione usa un'API Web esistente con due endpoint, di cui uno restituisce una somma e l'altro un prodotto. Il metodo del prodotto ha un bug, che verrà corretto in questa esercitazione.
 
-Scaricare l'[app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/dotnet-watch/sample). L'esempio è costituito da due progetti: *WebApp* (un'API Web di ASP.NET Core) e *WebAppTests* (unit test per l'API Web).
+Scaricare l'[app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/dotnet-watch/sample). Questa è costituita da due progetti: *WebApp* (un'API Web di ASP.NET Core) e *WebAppTests* (unit test per l'API Web).
 
 In una shell dei comandi passare alla cartella *WebApp*. Eseguire il comando seguente:
 
@@ -69,7 +69,7 @@ Lo strumento watcher per file `dotnet watch` è incluso nella versione 2.1.300 d
 
 ## <a name="run-net-core-cli-commands-using-dotnet-watch"></a>Eseguire i comandi dell'interfaccia della riga di comando di .NET Core con `dotnet watch`
 
-Qualsiasi [comando dell'interfaccia della riga di comando di .NET Core](/dotnet/core/tools#cli-commands) può essere eseguito con `dotnet watch`. Ad esempio:
+Qualsiasi [comando dell'interfaccia della riga di comando di .NET Core](/dotnet/core/tools#cli-commands) può essere eseguito con `dotnet watch`. Esempio:
 
 | Comando | Comando con watch |
 | ---- | ----- |
