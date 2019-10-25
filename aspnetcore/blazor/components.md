@@ -71,7 +71,7 @@ Per eseguire il rendering di un componente da una pagina o da una vista, usare i
 
 Mentre le pagine e le visualizzazioni possono usare i componenti, il contrario non è vero. I componenti non possono usare scenari di visualizzazione e di pagina specifici, ad esempio visualizzazioni parziali e sezioni. Per usare la logica dalla visualizzazione parziale in un componente, scomporre la logica di visualizzazione parziale in un componente.
 
-Per altre informazioni su come viene eseguito il rendering dei componenti e lo stato del componente viene gestito nelle app del server blazer, vedere l'articolo <xref:blazor/hosting-models>.
+Per altre informazioni su come viene eseguito il rendering dei componenti e lo stato del componente viene gestito nelle app del server Blazor, vedere l'articolo <xref:blazor/hosting-models>.
 
 ## <a name="use-components"></a>Usare i componenti
 
@@ -285,7 +285,7 @@ I tipi di campo seguenti hanno requisiti di formattazione specifici e non sono a
 * `month`
 * `week`
 
-`@bind` supporta il parametro `@bind:culture` per fornire un <xref:System.Globalization.CultureInfo?displayProperty=fullName> per l'analisi e la formattazione di un valore. Non è consigliabile specificare impostazioni cultura quando si usano i tipi di campo `date` e `number`. `date` e `number` includono il supporto predefinito di blazer che fornisce le impostazioni cultura richieste.
+`@bind` supporta il parametro `@bind:culture` per fornire un <xref:System.Globalization.CultureInfo?displayProperty=fullName> per l'analisi e la formattazione di un valore. Non è consigliabile specificare impostazioni cultura quando si usano i tipi di campo `date` e `number`. `date` e `number` includono il supporto predefinito di Blazor che fornisce le impostazioni cultura richieste.
 
 Per informazioni su come impostare le impostazioni cultura dell'utente, vedere la sezione [localizzazione](#localization) .
 
