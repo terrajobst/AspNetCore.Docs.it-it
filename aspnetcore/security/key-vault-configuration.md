@@ -5,14 +5,14 @@ description: Informazioni su come usare il provider di configurazione Azure Key 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/14/2019
+ms.date: 10/27/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: c8e76068dbcf2a59a15fa75a1fc5aa0032e6acc5
-ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
+ms.openlocfilehash: acc3a77cdeb3ba73d8467d465128106e461efa7c
+ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72334205"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034335"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Provider di configurazione di Azure Key Vault in ASP.NET Core
 
@@ -203,6 +203,8 @@ Esempio di nome dell'insieme di credenziali delle chiavi: `contosovault`
 Quando si esegue l'app, in una pagina Web vengono visualizzati i valori dei segreti caricati. Nell'ambiente di sviluppo i valori Secret hanno il suffisso `_dev` perché sono forniti da segreti utente. Nell'ambiente di produzione, i valori vengono caricati con il suffisso `_prod` perché sono forniti da Azure Key Vault.
 
 Se viene visualizzato un errore di `Access denied`, verificare che l'app sia registrata con Azure AD e che l'accesso sia stato fornito all'insieme di credenziali delle chiavi. Confermare di aver riavviato il servizio in Azure.
+
+Per informazioni sull'uso del provider con un'identità gestita e una pipeline di Azure DevOps, vedere [creare una connessione del servizio Azure Resource Manager a una macchina virtuale con un'identità del servizio gestito](/azure/devops/pipelines/library/connect-to-azure#create-an-azure-resource-manager-service-connection-to-a-vm-with-a-managed-service-identity).
 
 ## <a name="use-a-key-name-prefix"></a>Usa prefisso nome chiave
 

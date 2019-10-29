@@ -5,14 +5,14 @@ description: Informazioni su come usare l'API di configurazione per configurare 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/18/2019
+ms.date: 10/24/2019
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 0a9b1a1a08617ef4ca8a36295cec8910ec111acd
-ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
+ms.openlocfilehash: 263f9f7c4c800a74b745fd636196e1e135afc91b
+ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72589911"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73033907"
 ---
 # <a name="configuration-in-aspnet-core"></a>Configurazione in ASP.NET Core
 
@@ -537,13 +537,10 @@ Chiamare `ConfigureAppConfiguration` quando si crea l'host per specificare la co
 ```csharp
 .ConfigureAppConfiguration((hostingContext, config) =>
 {
-    config.SetBasePath(Directory.GetCurrentDirectory());
     config.AddIniFile(
         "config.ini", optional: true, reloadOnChange: true);
 })
 ```
-
-Il percorso di base è impostato con <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>.
 
 Un esempio generico di un file di configurazione INI:
 
@@ -602,13 +599,10 @@ Chiamare `ConfigureAppConfiguration` quando si crea l'host per specificare la co
 ```csharp
 .ConfigureAppConfiguration((hostingContext, config) =>
 {
-    config.SetBasePath(Directory.GetCurrentDirectory());
     config.AddJsonFile(
         "config.json", optional: true, reloadOnChange: true);
 })
 ```
-
-Il percorso di base è impostato con <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>.
 
 **Esempio**
 
@@ -643,13 +637,10 @@ Chiamare `ConfigureAppConfiguration` quando si crea l'host per specificare la co
 ```csharp
 .ConfigureAppConfiguration((hostingContext, config) =>
 {
-    config.SetBasePath(Directory.GetCurrentDirectory());
     config.AddXmlFile(
         "config.xml", optional: true, reloadOnChange: true);
 })
 ```
-
-Il percorso di base è impostato con <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>.
 
 I file di configurazione XML possono usare nomi di elementi distinti per le sezioni ripetute:
 
@@ -732,14 +723,11 @@ Chiamare `ConfigureAppConfiguration` quando si crea l'host per specificare la co
 ```csharp
 .ConfigureAppConfiguration((hostingContext, config) =>
 {
-    config.SetBasePath(Directory.GetCurrentDirectory());
     var path = Path.Combine(
         Directory.GetCurrentDirectory(), "path/to/files");
     config.AddKeyPerFile(directoryPath: path, optional: true);
 })
 ```
-
-Il percorso di base è impostato con <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>.
 
 ## <a name="memory-configuration-provider"></a>Provider di configurazione della memoria
 
@@ -1019,13 +1007,13 @@ Queste chiavi e i valori vengono caricati nell'app di esempio usando il provider
 
 ::: moniker range=">= aspnetcore-3.0"
 
-[!code-csharp[](index/samples/3.x/ConfigurationSample/Program.cs?name=snippet_Program&highlight=5-12,23)]
+[!code-csharp[](index/samples/3.x/ConfigurationSample/Program.cs?name=snippet_Program&highlight=5-12,22)]
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-[!code-csharp[](index/samples/2.x/ConfigurationSample/Program.cs?name=snippet_Program&highlight=5-12,23)]
+[!code-csharp[](index/samples/2.x/ConfigurationSample/Program.cs?name=snippet_Program&highlight=5-12,22)]
 
 ::: moniker-end
 
@@ -1203,7 +1191,7 @@ Un metodo di estensione `AddEFConfiguration` consente di aggiungere l'origine di
 
 L'esempio di codice seguente mostra come usare il `EFConfigurationProvider` personalizzato in *Program.cs*:
 
-[!code-csharp[](index/samples/3.x/ConfigurationSample/Program.cs?name=snippet_Program&highlight=30-31)]
+[!code-csharp[](index/samples/3.x/ConfigurationSample/Program.cs?name=snippet_Program&highlight=29-30)]
 
 ::: moniker-end
 
@@ -1239,7 +1227,7 @@ Un metodo di estensione `AddEFConfiguration` consente di aggiungere l'origine di
 
 L'esempio di codice seguente mostra come usare il `EFConfigurationProvider` personalizzato in *Program.cs*:
 
-[!code-csharp[](index/samples/2.x/ConfigurationSample/Program.cs?name=snippet_Program&highlight=30-31)]
+[!code-csharp[](index/samples/2.x/ConfigurationSample/Program.cs?name=snippet_Program&highlight=29-30)]
 
 ::: moniker-end
 

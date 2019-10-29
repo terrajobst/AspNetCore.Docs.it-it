@@ -1,18 +1,17 @@
 ---
 title: Interfaccia utente Razor riutilizzabile nelle librerie di classi con ASP.NET Core
 author: Rick-Anderson
-description: Viene illustrato come creare un'interfaccia Razor riutilizzabili tramite le visualizzazioni parziali in una libreria di classi in ASP.NET Core.
-monikerRange: '>= aspnetcore-2.1'
+description: Viene illustrato come creare un'interfaccia utente Razor riutilizzabile usando visualizzazioni parziali in una libreria di classi in ASP.NET Core.
 ms.author: riande
-ms.date: 10/08/2019
+ms.date: 10/26/2019
 ms.custom: mvc, seodec18
 uid: razor-pages/ui-class
-ms.openlocfilehash: dcd24f7dafd198f88cdf84d1ab67c84f45428a95
-ms.sourcegitcommit: d81912782a8b0bd164f30a516ad80f8defb5d020
+ms.openlocfilehash: ff12eea5406c4f5392a466728741000e3dd16fc1
+ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72179326"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034226"
 ---
 # <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>Creare un'interfaccia utente riutilizzabile usando il progetto libreria di classi Razor in ASP.NET Core
 
@@ -28,13 +27,12 @@ Le visualizzazioni Razor, le pagine, i controller, i modelli di pagina, i [compo
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Dal menu **File** di Visual Studio selezionare **Nuovo** > **Progetto**.
-* Selezionare **Applicazione Web ASP.NET Core**.
-* Assegnare un nome di libreria (ad esempio, "RazorClassLib") > **OK**. Per evitare un conflitto di nomi di file con la libreria di visualizzazione generata, verificare che il nome della libreria non finisca per `.Views`.
-* Verificare che sia selezionato **ASP.NET Core 3,0** o versione successiva.
-* Selezionare la **libreria di classi Razor** > **OK**.
+* In Visual Studio selezionare **Crea nuovo nuovo progetto**.
+* Selezionare **libreria di classi Razor** > **Avanti**.
+* Assegnare un nome alla libreria (ad esempio, "RazorClassLib") > **creare**. Per evitare un conflitto di nomi di file con la libreria di visualizzazione generata, verificare che il nome della libreria non finisca per `.Views`.
+* Se è necessario supportare le visualizzazioni, selezionare **pagine e visualizzazioni di supporto** . Per impostazione predefinita, sono supportati solo Razor Pages. Scegliere **Crea**.
 
-Per impostazione predefinita, il modello RCL (Razor Class Library) per impostazione predefinita è lo sviluppo di componenti Razor. Un'opzione di modello in Visual Studio fornisce il supporto del modello per le pagine e le visualizzazioni.
+Per impostazione predefinita, il modello RCL (Razor Class Library) per impostazione predefinita è lo sviluppo di componenti Razor. L'opzione **pagine e visualizzazioni di supporto** supporta pagine e viste.
 
 # <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 
@@ -52,7 +50,7 @@ Per altre informazioni, vedere [dotnet new](/dotnet/core/tools/dotnet-new). Per 
 
 Aggiungere i file Razor alla libreria di classi Razor.
 
-I modelli ASP.NET Core presuppongono il contenuto RCL sia impostato il *aree* cartella. Vedere [layout di pagine RCL](#rcl-pages-layout) per creare un RCL che espone il contenuto in `~/Pages` anziché `~/Areas/Pages`.
+I modelli di ASP.NET Core presuppongono che il contenuto RCL si trovi nella cartella *aree* . Vedere [layout di pagine RCL](#rcl-pages-layout) per creare un RCL che espone il contenuto in `~/Pages` anziché `~/Areas/Pages`.
 
 ## <a name="reference-rcl-content"></a>Contenuto RCL di riferimento
 
@@ -69,14 +67,14 @@ Nel download di esempio, rinominare *WebApp1/aree/MyFeature2* in *WebApp1/aree/M
 
 Copiare la visualizzazione parziali *RazorUIClassLib/Areas/MyFeature/Pages/Shared/_Message.cshtml* in *WebApp1/Areas/MyFeature/Pages/Shared/_Message.cshtml*. Aggiornare il markup per indicare la nuova posizione. Compilare ed eseguire l'app per verificare quale versione del parziale sia in uso.
 
-### <a name="rcl-pages-layout"></a>Layout delle pagine RCL
+### <a name="rcl-pages-layout"></a>Layout di pagine RCL
 
-Per riferimento come se facesse parte dell'app web di contenuto RCL *pagine* cartella, creare il progetto RCL con la struttura file seguente:
+Per fare riferimento al contenuto RCL come se facesse parte della cartella *pagine* dell'app Web, creare il progetto RCL con la struttura di file seguente:
 
-* *RazorUIClassLib o delle pagine*
-* *RazorUIClassLib/pagine/Shared*
+* *RazorUIClassLib/pagine*
+* *RazorUIClassLib/pagine/condiviso*
 
-Si supponga *RazorUIClassLib/pagine/Shared* contiene due file parziali: *_Header.cshtml* e *_Footer.cshtml*. Il `<partial>` tag può essere aggiunto al *layout. cshtml* file:
+Si supponga che *RazorUIClassLib/Pages/Shared* contenga due file parziali: *_Header. cshtml* e *_Footer. cshtml*. È possibile aggiungere i tag `<partial>` al file *file. cshtml* :
 
 ```cshtml
 <body>
@@ -96,7 +94,7 @@ Quando si esegue la compressione di un RCL, tutti gli asset complementari nella 
 
 ### <a name="exclude-static-assets"></a>Escludi asset statici
 
-Per escludere asset statici, aggiungere il percorso di esclusione desiderato al gruppo di proprietà `$(DefaultItemExcludes)` nel file di progetto. Separa le voci con un punto e virgola (`;`).
+Per escludere asset statici, aggiungere il percorso di esclusione desiderato al gruppo di proprietà `$(DefaultItemExcludes)` nel file di progetto. Separare le voci con un punto e virgola (`;`).
 
 Nell'esempio seguente, il foglio di stile *lib. CSS* nella cartella *wwwroot* non è considerato un asset statico e non è incluso nel RCL pubblicato:
 
@@ -121,17 +119,17 @@ Per includere i file TypeScript in un RCL:
 1. Includere la destinazione TypeScript come dipendenza della destinazione `ResolveCurrentProjectStaticWebAssets` aggiungendo la destinazione seguente all'interno di un `PropertyGroup` nel file di progetto:
 
    ```xml
-  <ResolveCurrentProjectStaticWebAssetsInputsDependsOn>
-    CompileTypeScript;
-    $(ResolveCurrentProjectStaticWebAssetsInputs)
-  </ResolveCurrentProjectStaticWebAssetsInputsDependsOn>
+   <ResolveCurrentProjectStaticWebAssetsInputsDependsOn>
+     CompileTypeScript;
+     $(ResolveCurrentProjectStaticWebAssetsInputs)
+   </ResolveCurrentProjectStaticWebAssetsInputsDependsOn>
    ```
 
 ### <a name="consume-content-from-a-referenced-rcl"></a>Utilizzare il contenuto da un RCL a cui si fa riferimento
 
-I file inclusi nella cartella *wwwroot* di RCL vengono esposti all'app consumer nel prefisso `_content/{LIBRARY NAME}/`. Ad esempio, una libreria denominata *Razor. Class. lib* genera un percorso del contenuto statico in `_content/Razor.Class.Lib/`.
+I file inclusi nella cartella *wwwroot* di RCL vengono esposti all'app consumer sotto il prefisso `_content/{LIBRARY NAME}/`. Ad esempio, una libreria denominata *Razor. Class. lib* genera un percorso del contenuto statico in `_content/Razor.Class.Lib/`.
 
-L'app consumer fa riferimento a risorse statiche fornite dalla libreria con `<script>`, `<style>`, `<img>` e altri tag HTML. Per l'app consumer deve essere abilitato il [supporto dei file statici](xref:fundamentals/static-files) in `Startup.Configure`:
+L'app consumer fa riferimento a risorse statiche fornite dalla libreria con `<script>`, `<style>`, `<img>`e altri tag HTML. Per l'app consumer deve essere abilitato il [supporto dei file statici](xref:fundamentals/static-files) in `Startup.Configure`:
 
 ```csharp
 public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -144,7 +142,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 }
 ```
 
-Quando si esegue l'app consumer dall'output di compilazione (`dotnet run`), gli asset Web statici sono abilitati per impostazione predefinita nell'ambiente di sviluppo. Per supportare asset in altri ambienti durante l'esecuzione dall'output di compilazione, chiamare `UseStaticWebAssets` nel generatore host in *Program.cs*:
+Quando si esegue l'app consumer dall'output di compilazione (`dotnet run`), le risorse Web statiche sono abilitate per impostazione predefinita nell'ambiente di sviluppo. Per supportare asset in altri ambienti durante l'esecuzione dall'output di compilazione, chiamare `UseStaticWebAssets` nel generatore host in *Program.cs*:
 
 ```csharp
 using Microsoft.AspNetCore.Hosting;
@@ -206,7 +204,7 @@ Un RCL ha il seguente file di progetto:
 
 # <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 
-Eseguire `dotnet new razorclasslib` dalla riga di comando. Ad esempio:
+Eseguire `dotnet new razorclasslib` dalla riga di comando. Esempio:
 
 ```dotnetcli
 dotnet new razorclasslib -o RazorUIClassLib
@@ -218,7 +216,7 @@ Per altre informazioni, vedere [dotnet new](/dotnet/core/tools/dotnet-new). Per 
 
 Aggiungere i file Razor alla libreria di classi Razor.
 
-I modelli ASP.NET Core presuppongono il contenuto RCL sia impostato il *aree* cartella. Vedere [layout di pagine RCL](#rcl-pages-layout) per creare un RCL che espone il contenuto in `~/Pages` anziché `~/Areas/Pages`.
+I modelli di ASP.NET Core presuppongono che il contenuto RCL si trovi nella cartella *aree* . Vedere [layout di pagine RCL](#rcl-pages-layout) per creare un RCL che espone il contenuto in `~/Pages` anziché `~/Areas/Pages`.
 
 ## <a name="reference-rcl-content"></a>Contenuto RCL di riferimento
 
@@ -227,7 +225,7 @@ Il riferimento alla libreria di classi Razor può essere eseguito da:
 * Pacchetto NuGet. Vedere [Creazione di pacchetti NuGet](/nuget/create-packages/creating-a-package), [dotnet add package](/dotnet/core/tools/dotnet-add-package) e [Creare e pubblicare un pacchetto NuGet](/nuget/quickstart/create-and-publish-a-package-using-visual-studio).
 * *{ProjectName}.csproj*. Vedere [dotnet-add reference](/dotnet/core/tools/dotnet-add-reference).
 
-## <a name="walkthrough-create-an-rcl-project-and-use-from-a-razor-pages-project"></a>Procedura dettagliata: Creare un progetto RCL e usarlo da un progetto Razor Pages
+## <a name="walkthrough-create-an-rcl-project-and-use-from-a-razor-pages-project"></a>Procedura dettagliata: creare un progetto RCL e usarlo da un progetto Razor Pages
 
 È possibile scaricare il [progetto completo](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/ui-class/samples) e testarlo anziché crearlo. Il download di esempio contiene codice aggiuntivo e collegamenti che rendono più semplice testare il progetto. È possibile lasciare commenti e suggerimenti in [questa discussione su GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/6098) con i commenti sui download di esempio rispetto alle istruzioni dettagliate.
 
@@ -284,15 +282,15 @@ dotnet new viewstart -o RazorUIClassLib/Areas/MyFeature/Pages
 
 I comandi precedenti:
 
-* Crea il RCL `RazorUIClassLib`.
+* Crea l'`RazorUIClassLib` RCL.
 * Crea una pagina Razor _Message e la aggiunge alla libreria di classi Razor. Il parametro `-np` crea la pagina senza un `PageModel`.
-* Crea una [viewstart. cshtml](xref:mvc/views/layout#running-code-before-each-view) file e lo aggiunge al RCL.
+* Consente di creare un file [_ViewStart. cshtml](xref:mvc/views/layout#running-code-before-each-view) e di aggiungerlo a RCL.
 
-Il *viewstart. cshtml* file è necessario per usare il layout del progetto Razor Pages (che viene aggiunto nella sezione successiva).
+Il file *_ViewStart. cshtml* è necessario per usare il layout del progetto Razor Pages (che viene aggiunto nella sezione successiva).
 
 ---
 
-### <a name="add-razor-files-and-folders-to-the-project"></a>Aggiungere i file Razor e cartelle per il progetto
+### <a name="add-razor-files-and-folders-to-the-project"></a>Aggiungere file e cartelle Razor al progetto
 
 * Sostituire il markup *RazorUIClassLib/Areas/MyFeature/Pages/Shared/_Message.cshtml* con il codice seguente:
 
@@ -302,13 +300,13 @@ Il *viewstart. cshtml* file è necessario per usare il layout del progetto Razor
 
   [!code-cshtml[](ui-class/samples/cli/RazorUIClassLib/Areas/MyFeature/Pages/Page1.cshtml)]
 
-  `@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers` è necessario per usare la visualizzazione parziale (`<partial name="_Message" />`). Anziché includere la direttiva `@addTagHelper`, è possibile aggiungere un file *_ViewImports.cshtml*. Ad esempio:
+  `@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers` è necessario per usare la visualizzazione parziale (`<partial name="_Message" />`). Anziché includere la direttiva `@addTagHelper`, è possibile aggiungere un file *_ViewImports.cshtml*. Esempio:
 
   ```dotnetcli
   dotnet new viewimports -o RazorUIClassLib/Areas/MyFeature/Pages
   ```
 
-  Per ulteriori informazioni sul *viewimports. cshtml*, vedere [importazione di direttive condivise](xref:mvc/views/layout#importing-shared-directives)
+  Per altre informazioni su *_ViewImports. cshtml*, vedere [importazione di direttive condivise](xref:mvc/views/layout#importing-shared-directives)
 
 * Compilare la libreria di classi per verificare che non siano presenti errori del compilatore:
 
@@ -324,14 +322,14 @@ L'output di compilazione contiene *RazorUIClassLib.dll* e *RazorUIClassLib.Views
 
 Creare l'app Web di Razor Pages:
 
-* Da **Esplora soluzioni**, fare clic con il pulsante destro del mouse sulla soluzione > **aggiungere** >  **nuovo progetto**.
+* Da **Esplora soluzioni**, fare clic con il pulsante destro del mouse sulla soluzione > **Aggiungi** >  **nuovo progetto**.
 * Selezionare **Applicazione Web ASP.NET Core**.
 * Denominare l'app **WebApp1**.
 * Verificare che sia selezionato **ASP.NET Core 2.1** o versioni successive.
 * Selezionare **applicazione Web** > **OK**.
 
 * In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **WebApp1** e selezionare **Imposta come progetto di avvio**.
-* Da **Esplora soluzioni**, fare clic con il pulsante destro del mouse su **app Web 1** e scegliere dipendenze di **compilazione** > **Dipendenze progetto**.
+* Da **Esplora soluzioni**, fare clic con il pulsante destro del mouse su **app Web 1** e scegliere **dipendenze di compilazione** > **Dipendenze progetto**.
 * Selezionare **RazorUIClassLib** come una dipendenza di **WebApp1**.
 * Da **Esplora soluzioni**, fare clic con il pulsante destro del mouse su **app Web 1** e scegliere **Aggiungi** > **riferimento**.
 * Nella finestra di dialogo **Gestione riferimenti** selezionare **RazorUIClassLib** > **OK**.
@@ -371,14 +369,14 @@ Nel download di esempio, rinominare *WebApp1/aree/MyFeature2* in *WebApp1/aree/M
 
 Copiare la visualizzazione parziali *RazorUIClassLib/Areas/MyFeature/Pages/Shared/_Message.cshtml* in *WebApp1/Areas/MyFeature/Pages/Shared/_Message.cshtml*. Aggiornare il markup per indicare la nuova posizione. Compilare ed eseguire l'app per verificare quale versione del parziale sia in uso.
 
-### <a name="rcl-pages-layout"></a>Layout delle pagine RCL
+### <a name="rcl-pages-layout"></a>Layout di pagine RCL
 
-Per riferimento come se facesse parte dell'app web di contenuto RCL *pagine* cartella, creare il progetto RCL con la struttura file seguente:
+Per fare riferimento al contenuto RCL come se facesse parte della cartella *pagine* dell'app Web, creare il progetto RCL con la struttura di file seguente:
 
-* *RazorUIClassLib o delle pagine*
-* *RazorUIClassLib/pagine/Shared*
+* *RazorUIClassLib/pagine*
+* *RazorUIClassLib/pagine/condiviso*
 
-Si supponga *RazorUIClassLib/pagine/Shared* contiene due file parziali: *_Header.cshtml* e *_Footer.cshtml*. Il `<partial>` tag può essere aggiunto al *layout. cshtml* file:
+Si supponga che *RazorUIClassLib/Pages/Shared* contenga due file parziali: *_Header. cshtml* e *_Footer. cshtml*. È possibile aggiungere i tag `<partial>` al file *file. cshtml* :
 
 ```cshtml
 <body>

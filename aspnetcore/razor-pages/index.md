@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 10/07/2019
 uid: razor-pages/index
-ms.openlocfilehash: d12cf7f4f45c98c292b0d035c99e051d9b779e9a
-ms.sourcegitcommit: 383017d7060a6d58f6a79cf4d7335d5b4b6c5659
+ms.openlocfilehash: 61e15b9b9b8f84de36621c301ecb9d33b21dff88
+ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72816131"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034282"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introduzione a Razor Pages in ASP.NET Core
 
@@ -157,7 +157,7 @@ Il file di visualizzazione *Pages/Create.cshtml*:
 
 Il codice HTML sottoposto a rendering da *pages/create. cshtml*:
 
-[!code-cshtml[](index/3.0sample/RazorPagesContacts/Pages/Customers/Create4.html)]
+[!code-html[](index/3.0sample/RazorPagesContacts/Pages/Customers/Create4.html)]
 
 Nel codice precedente, inserendo il modulo:
 
@@ -283,7 +283,7 @@ Il codice precedente:
 
 * Viene generato il codice HTML seguente:
 
-  [!code-cshtml[](index/3.0sample/RazorPagesContacts/Pages/Customers/Create5.html)]
+  [!code-html[](index/3.0sample/RazorPagesContacts/Pages/Customers/Create5.html)]
 
 Se si pubblica il modulo di creazione senza un valore di nome, viene visualizzato il messaggio di errore "il campo nome è obbligatorio". nel form. Se JavaScript è abilitato nel client, il browser Visualizza l'errore senza inviare al server.
 

@@ -5,14 +5,14 @@ description: Informazioni sul supporto del debug di app ASP.NET Core durante l'e
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/10/2019
+ms.date: 10/26/2019
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: e5da4f7202bf31e65c366d6f7de54212f5b0fed7
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: 2d2c8d8e4b39d18a3a727e2a2bdef3be566897c1
+ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259805"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034149"
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Supporto di IIS in fase di sviluppo in Visual Studio per ASP.NET Core
 
@@ -20,7 +20,7 @@ Di [Sourabh Shirhatti](https://twitter.com/sshirhatti) e [Luke Latham](https://g
 
 Questo articolo descrive il supporto del debug di app ASP.NET Core in [Visual Studio](https://visualstudio.microsoft.com) durante l'esecuzione con IIS in Windows Server. Questo argomento illustra nel dettaglio l'abilitazione di questo scenario e la configurazione di un progetto.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Visual Studio per Windows](https://visualstudio.microsoft.com/downloads/)
 * **ASP.NET e carico di lavoro di sviluppo Web**
@@ -58,7 +58,7 @@ IIS deve disporre di un sito Web configurato con gli elementi seguenti:
 
 Per un nuovo progetto che richiede HTTPS, selezionare la casella di controllo **Configura per HTTPS** nella finestra **Crea una nuova applicazione Web ASP.NET Core**. Selezionando questa casella di controllo viene aggiunto il [middleware di reindirizzamento HTTPS e HSTS](xref:security/enforcing-ssl) all'app quando viene creata.
 
-Per un progetto esistente che richiede HTTPS, usare il middleware di reindirizzamento HTTPS e HSTS in `Startup.Configure`. Per altre informazioni, vedere <xref:security/enforcing-ssl>.
+Per un progetto esistente che richiede HTTPS, usare il middleware di reindirizzamento HTTPS e HSTS in `Startup.Configure`. Per ulteriori informazioni, vedere <xref:security/enforcing-ssl>.
 
 Per un progetto che usa HTTP, il [middleware di reindirizzamento HTTPS e HSTS](xref:security/enforcing-ssl) non viene aggiunto all'app. Non è richiesta alcuna configurazione dell'app.
 
@@ -152,7 +152,6 @@ Se viene usato un certificato di sviluppo non attendibile, il browser potrebbe r
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Getting Started with the IIS Manager in IIS](/iis/get-started/getting-started-with-iis/getting-started-with-the-iis-manager-in-iis-7-and-iis-8) (Introduzione a Gestione IIS in IIS)
-* [Host ASP.NET Core in Windows con IIS](xref:host-and-deploy/iis/index)
-* [Introduzione al modulo di ASP.NET Core](xref:host-and-deploy/aspnet-core-module)
-* [Guida di riferimento per la configurazione del modulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module)
-* [Imporre HTTPS](xref:security/enforcing-ssl)
+* <xref:host-and-deploy/iis/index>
+* <xref:host-and-deploy/aspnet-core-module>
+* <xref:security/enforcing-ssl>

@@ -5,14 +5,14 @@ description: Informazioni su come creare e usare i componenti Razor, tra cui la 
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/20/2019
+ms.date: 10/21/2019
 uid: blazor/components
-ms.openlocfilehash: 065a3a078c56f813ed38f85d7414f22061217dff
-ms.sourcegitcommit: eb4fcdeb2f9e8413117624de42841a4997d1d82d
+ms.openlocfilehash: 8c228b168cdbd58928ef3f57ff26bc86e8dfc1ba
+ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72697953"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73033973"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Creare e usare ASP.NET Core componenti Razor
 
@@ -71,7 +71,7 @@ Per eseguire il rendering di un componente da una pagina o da una vista, usare i
 
 Mentre le pagine e le visualizzazioni possono usare i componenti, il contrario non è vero. I componenti non possono usare scenari di visualizzazione e di pagina specifici, ad esempio visualizzazioni parziali e sezioni. Per usare la logica dalla visualizzazione parziale in un componente, scomporre la logica di visualizzazione parziale in un componente.
 
-Per altre informazioni su come viene eseguito il rendering dei componenti e lo stato del componente viene gestito nelle app del server Blazor, vedere l'articolo <xref:blazor/hosting-models>.
+Per altre informazioni su come viene eseguito il rendering dei componenti e lo stato del componente viene gestito nelle app del server blazer, vedere l'articolo <xref:blazor/hosting-models>.
 
 ## <a name="use-components"></a>Usare i componenti
 
@@ -192,6 +192,52 @@ Per accettare attributi arbitrari, definire un parametro component usando l'attr
 
 La proprietà `CaptureUnmatchedValues` in `[Parameter]` consente al parametro di trovare la corrispondenza con tutti gli attributi che non corrispondono ad altri parametri. Un componente può definire un solo parametro con `CaptureUnmatchedValues`. Il tipo di proprietà utilizzato con `CaptureUnmatchedValues` deve essere assegnabile da `Dictionary<string, object>` con chiavi di stringa. in questo scenario sono inoltre disponibili le opzioni `IEnumerable<KeyValuePair<string, object>>` o `IReadOnlyDictionary<string, object>`.
 
+La posizione di `@attributes` rispetto alla posizione degli attributi degli elementi è importante. Quando `@attributes` sono Splatted sull'elemento, gli attributi vengono elaborati da destra a sinistra (dall'ultimo al primo). Si consideri l'esempio seguente di un componente che utilizza un componente `Child`:
+
+*ParentComponent. Razor*:
+
+```cshtml
+<ChildComponent extra="10" />
+```
+
+*ChildComponent. Razor*:
+
+```cshtml
+<div @attributes="AdditionalAttributes" extra="5" />
+
+[Parameter(CaptureUnmatchedValues = true)]
+public IDictionary<string, object> AdditionalAttributes { get; set; }
+```
+
+L'attributo `extra` del componente `Child` è impostato a destra di `@attributes`. Il rendering del componente `Parent` `<div>` contiene `extra="5"` quando viene passato attraverso l'attributo aggiuntivo, perché gli attributi vengono elaborati da destra a sinistra (dall'ultimo al primo):
+
+```html
+<div extra="5" />
+```
+
+Nell'esempio seguente, l'ordine delle `extra` e `@attributes` viene invertito nell'`<div>`del componente `Child`:
+
+*ParentComponent. Razor*:
+
+```cshtml
+<ChildComponent extra="10" />
+```
+
+*ChildComponent. Razor*:
+
+```cshtml
+<div extra="5" @attributes="AdditionalAttributes" />
+
+[Parameter(CaptureUnmatchedValues = true)]
+public IDictionary<string, object> AdditionalAttributes { get; set; }
+```
+
+Il `<div>` sottoposto a rendering nel componente `Parent` contiene `extra="10"` quando viene passato tramite l'attributo aggiuntivo:
+
+```html
+<div extra="10" />
+```
+
 ## <a name="data-binding"></a>Associazione dati
 
 L'associazione dati a entrambi i componenti e gli elementi DOM viene eseguita con l'attributo [@bind](xref:mvc/views/razor#bind) . Nell'esempio seguente viene associata una proprietà `CurrentValue` al valore della casella di testo:
@@ -285,7 +331,7 @@ I tipi di campo seguenti hanno requisiti di formattazione specifici e non sono a
 * `month`
 * `week`
 
-`@bind` supporta il parametro `@bind:culture` per fornire un <xref:System.Globalization.CultureInfo?displayProperty=fullName> per l'analisi e la formattazione di un valore. Non è consigliabile specificare impostazioni cultura quando si usano i tipi di campo `date` e `number`. `date` e `number` includono il supporto predefinito di Blazor che fornisce le impostazioni cultura richieste.
+`@bind` supporta il parametro `@bind:culture` per fornire un <xref:System.Globalization.CultureInfo?displayProperty=fullName> per l'analisi e la formattazione di un valore. Non è consigliabile specificare impostazioni cultura quando si usano i tipi di campo `date` e `number`. `date` e `number` includono il supporto predefinito di blazer che fornisce le impostazioni cultura richieste.
 
 Per informazioni su come impostare le impostazioni cultura dell'utente, vedere la sezione [localizzazione](#localization) .
 
@@ -1089,7 +1135,7 @@ La classe base deve derivare da `ComponentBase`.
 Lo spazio dei nomi di un componente creato con Razor si basa su (in ordine di priorità):
 
 * [@namespace](xref:mvc/views/razor#namespace) designazione nel markup del*file Razor (razor) (* `@namespace BlazorSample.MyNamespace`).
-* @No__t_0 del progetto nel file di progetto (`<RootNamespace>BlazorSample</RootNamespace>`).
+* `RootNamespace` del progetto nel file di progetto (`<RootNamespace>BlazorSample</RootNamespace>`).
 * Il nome del progetto, tratto dal nome file del file di progetto (con*estensione csproj*), e il percorso dalla radice del progetto al componente. Ad esempio, il Framework risolve *{Project root}/pages/index.Razor* (*BlazorSample. csproj*) nello spazio dei nomi `BlazorSample.Pages`. I componenti C# seguono le regole di associazione dei nomi. Per il componente `Index` in questo esempio, i componenti nell'ambito sono tutti i componenti:
   * Nella stessa cartella, *pagine*.
   * Componenti nella radice del progetto che non specificano in modo esplicito uno spazio dei nomi diverso.
@@ -1697,18 +1743,18 @@ All'interno delle app blazer sono disponibili i seguenti scenari di globalizzazi
 * . Sistema di risorse di NET
 * Formattazione di numeri e date specifiche delle impostazioni cultura
 
-La funzionalità `@bind` di Blazor esegue la globalizzazione in base alle impostazioni cultura correnti dell'utente. Per ulteriori informazioni, vedere la sezione [Data Binding](#data-binding) .
+La funzionalità `@bind` di Blazer esegue la globalizzazione in base alle impostazioni cultura correnti dell'utente. Per ulteriori informazioni, vedere la sezione [Data Binding](#data-binding) .
 
 Sono attualmente supportati un set limitato di scenari di localizzazione di ASP.NET Core:
 
-* `IStringLocalizer<>` *è supportato* nelle app Blazor.
-* `IHtmlLocalizer<>`, `IViewLocalizer<>` e la localizzazione delle annotazioni dei dati è ASP.NET Core scenari MVC e **non è supportata** nelle app Blazor.
+* `IStringLocalizer<>` *è supportato* nelle app blazer.
+* `IHtmlLocalizer<>`, `IViewLocalizer<>` e la localizzazione delle annotazioni dei dati è ASP.NET Core scenari MVC e **non è supportata** nelle app blazer.
 
 Per ulteriori informazioni, vedere <xref:fundamentals/localization>.
 
 ## <a name="scalable-vector-graphics-svg-images"></a>Immagini SVG (Scalable Vector Graphics)
 
-Poiché Blazor esegue il rendering di HTML, le immagini supportate dal browser, incluse le immagini SVG (Scalable Vector*Graphics),* sono supportate tramite il tag `<img>`:
+Poiché Blazer esegue il rendering di HTML, le immagini supportate dal browser, incluse le immagini SVG (Scalable Vector*Graphics),* sono supportate tramite il tag `<img>`:
 
 ```html
 <img alt="Example image" src="some-image.svg" />
@@ -1726,4 +1772,4 @@ Tuttavia, il markup SVG inline non è supportato in tutti gli scenari. Se si ins
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* <xref:security/blazor/server> &ndash; include informazioni aggiuntive sulla creazione di app Server Blazor che devono essere confrontate con l'esaurimento delle risorse.
+* <xref:security/blazor/server> &ndash; include informazioni aggiuntive sulla creazione di app Server blazer che devono essere confrontate con l'esaurimento delle risorse.

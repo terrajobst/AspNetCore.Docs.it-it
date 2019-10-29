@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/22/2019
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 2461bc398cd237dac04f4eb8832c70290663ff56
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: 1244b2e23a842538ff2fca01a513317a690afe7c
+ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259494"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034027"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Modello di dati - 5 di 8
 
@@ -59,7 +59,7 @@ Il codice precedente aggiunge una proprietà `FullName` e aggiunge gli attributi
 
 Per le date di iscrizione degli studenti, tutte le pagine visualizzano attualmente l'ora del giorno insieme alla data, anche se è pertinente solo la data. Mediante gli attributi di annotazione dei dati è possibile modificare il codice per correggere il formato di visualizzazione in tutte le pagine che visualizzano i dati. 
 
-L'attributo [DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) indica un tipo di dati più specifico rispetto al tipo intrinseco del database. In questo caso deve essere visualizzata solo la data e non la data e l'ora. L'enumerazione [DataType](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) offre molti tipi di dati, ad esempio Date, Time, PhoneNumber, Currency, EmailAddress e così via. L'attributo `DataType` può anche consentire all'app di offrire automaticamente funzionalità specifiche del tipo. Esempio:
+L'attributo [DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) indica un tipo di dati più specifico rispetto al tipo intrinseco del database. In questo caso deve essere visualizzata solo la data e non la data e l'ora. L' [enumerazione DataType](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) fornisce per molti tipi di dati, ad esempio date, Time, PhoneNumber, Currency, EmailAddress e così via. L'attributo `DataType` può anche consentire all'app di fornire automaticamente funzionalità specifiche del tipo. Esempio:
 
 * Il collegamento `mailto:` viene creato automaticamente per `DataType.EmailAddress`.
 * Il selettore data viene incluso per `DataType.Date` nella maggior parte dei browser.
@@ -441,7 +441,7 @@ Se la tabella `Enrollment` non include informazioni sul livello, è sufficiente 
 
 Le entità `Instructor` e `Course` hanno una relazione molti-a-molti con una tabella di join pura.
 
-Nota: Le tabelle di join implicite per le relazioni molti-a-molti sono supportate in EF 6.x, ma non in EF Core. Per altre informazioni, vedere [Many-to-many relationships in EF Core 2.0](https://blog.oneunicorn.com/2017/09/25/many-to-many-relationships-in-ef-core-2-0-part-1-the-basics/) (Relazioni molti-a-molti in EF Core 2.0).
+Nota: le tabelle di join implicite per le relazioni molti-a-molti sono supportate in EF 6.x ma non in EF Core. Per altre informazioni, vedere [Many-to-many relationships in EF Core 2.0](https://blog.oneunicorn.com/2017/09/25/many-to-many-relationships-in-ef-core-2-0-part-1-the-basics/) (Relazioni molti-a-molti in EF Core 2.0).
 
 ## <a name="the-courseassignment-entity"></a>Entità CourseAssignment
 
@@ -453,7 +453,7 @@ Creare *Models/CourseAssignment.cs* con il codice seguente:
 
 La relazione molti-a-molti tra insegnanti e corsi richiede una tabella di join e l'entità per tale tabella di join è CourseAssignment.
 
-![Relazione m:M tra insegnante e corsi](complex-data-model/_static/courseassignment.png)
+![Instructor-to-Courses m:M](complex-data-model/_static/courseassignment.png)
 
 È pratica comune assegnare a un'entità di join un nome `EntityName1EntityName2`. Ad esempio la tabella di join istruttori-corsi che usa questa convenzione sarebbe `CourseInstructor`. È tuttavia consigliabile usare un nome che descrive la relazione.
 
@@ -634,7 +634,7 @@ Aprire il database in SSOX:
 * Se SSOX è stato aperto in precedenza, fare clic sul pulsante **Aggiorna**.
 * Espandere il nodo **Tabelle**. Vengono visualizzate le tabelle create.
 
-  ![Tabelle in Esplora oggetti di SQL Server](complex-data-model/_static/ssox-tables.png)
+  ![Tabelle in SSOX](complex-data-model/_static/ssox-tables.png)
 
 * Esaminare la tabella **CourseAssignment**:
 
@@ -682,7 +682,7 @@ Nella classe della migrazione `ComplexDataModel` aggiornare il metodo `Up`:
 
 Aggiungere il codice evidenziato seguente. Il nuovo codice viene inserito dopo il blocco `.CreateTable( name: "Department"`:
 
-[!code-csharp[](intro/samples/cu30snapshots/5-complex/Migrations/ ComplexDataModel.cs?name=snippet_CreateDefaultValue&highlight=23-31)]
+[!code-csharp[](intro/samples/cu30snapshots/5-complex/Migrations/ComplexDataModel.cs?name=snippet_CreateDefaultValue&highlight=23-31)]
 
 Con le modifiche precedenti, le righe `Course` esistenti saranno correlate al dipartimento "Temp" dopo l'esecuzione del metodo `ComplexDataModel.Up`.
 
@@ -749,7 +749,7 @@ Aggiornare *Models/Student.cs* con il codice evidenziato seguente:
 
 [!code-csharp[](intro/samples/cu21/Models/Student.cs?name=snippet_DataType&highlight=3,12-13)]
 
-L'attributo [DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) indica un tipo di dati più specifico rispetto al tipo intrinseco del database. In questo caso deve essere visualizzata solo la data e non la data e l'ora. L'enumerazione [DataType](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) offre molti tipi di dati, ad esempio Date, Time, PhoneNumber, Currency, EmailAddress e così via. L'attributo `DataType` può anche consentire all'app di offrire automaticamente funzionalità specifiche del tipo. Esempio:
+L'attributo [DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) indica un tipo di dati più specifico rispetto al tipo intrinseco del database. In questo caso deve essere visualizzata solo la data e non la data e l'ora. L' [enumerazione DataType](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) fornisce per molti tipi di dati, ad esempio date, Time, PhoneNumber, Currency, EmailAddress e così via. L'attributo `DataType` può anche consentire all'app di fornire automaticamente funzionalità specifiche del tipo. Esempio:
 
 * Il collegamento `mailto:` viene creato automaticamente per `DataType.EmailAddress`.
 * Il selettore data viene incluso per `DataType.Date` nella maggior parte dei browser.
@@ -1144,7 +1144,7 @@ Se la tabella `Enrollment` non include informazioni sul livello, è sufficiente 
 
 Le entità `Instructor` e `Course` hanno una relazione molti-a-molti con una tabella di join pura.
 
-Nota: Le tabelle di join implicite per le relazioni molti-a-molti sono supportate in EF 6.x, ma non in EF Core. Per altre informazioni, vedere [Many-to-many relationships in EF Core 2.0](https://blog.oneunicorn.com/2017/09/25/many-to-many-relationships-in-ef-core-2-0-part-1-the-basics/) (Relazioni molti-a-molti in EF Core 2.0).
+Nota: le tabelle di join implicite per le relazioni molti-a-molti sono supportate in EF 6.x ma non in EF Core. Per altre informazioni, vedere [Many-to-many relationships in EF Core 2.0](https://blog.oneunicorn.com/2017/09/25/many-to-many-relationships-in-ef-core-2-0-part-1-the-basics/) (Relazioni molti-a-molti in EF Core 2.0).
 
 ## <a name="the-courseassignment-entity"></a>Entità CourseAssignment
 
@@ -1317,7 +1317,7 @@ Aprire il database in SSOX:
 * Se SSOX è stato aperto in precedenza, fare clic sul pulsante **Aggiorna**.
 * Espandere il nodo **Tabelle**. Vengono visualizzate le tabelle create.
 
-![Tabelle in Esplora oggetti di SQL Server](complex-data-model/_static/ssox-tables.png)
+![Tabelle in SSOX](complex-data-model/_static/ssox-tables.png)
 
 Esaminare la tabella **CourseAssignment**:
 
