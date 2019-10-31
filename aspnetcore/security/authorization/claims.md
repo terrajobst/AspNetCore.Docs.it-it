@@ -1,34 +1,53 @@
 ---
 title: Autorizzazione basata sulle attestazioni in ASP.NET Core
 author: rick-anderson
-description: Informazioni su come aggiungere controlli di attestazioni per l'autorizzazione in un'app ASP.NET Core.
+description: Informazioni su come aggiungere i controlli delle attestazioni per l'autorizzazione in un'app ASP.NET Core.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/authorization/claims
-ms.openlocfilehash: 6b60ae5515819b017ab577f655ed91ee4d8ed0dd
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: e289851aafcbc7e3b3f60ab9fbe4b182a78bdf8a
+ms.sourcegitcommit: de0fc77487a4d342bcc30965ec5c142d10d22c03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65086159"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73143425"
 ---
 # <a name="claims-based-authorization-in-aspnet-core"></a>Autorizzazione basata sulle attestazioni in ASP.NET Core
 
 <a name="security-authorization-claims-based"></a>
 
-Quando viene creata un'identità è possibile assegnare uno o più delle attestazioni rilasciate da un'entità attendibile. Un'attestazione è una coppia nome-valore che rappresenta il soggetto è, non quali il soggetto è possibile farlo. Ad esempio, potrebbe essere di Guida una patente, emesso da un'autorità di licenza Guida locale. Di Guida la patente è la data di nascita su di esso. In questo caso sarebbe il nome dell'attestazione `DateOfBirth`, il valore dell'attestazione sarà la data di nascita, ad esempio `8th June 1970` e l'autorità di certificazione sarebbe l'autorità di licenza determinante. Autorizzazione basata sulle attestazioni, nella forma più semplice, controlla il valore dell'attestazione e consente l'accesso a una risorsa in base al valore. Per esempio, se si desidera che l'accesso a un club di notte il processo di autorizzazione potrebbe essere:
+Quando viene creata un'identità, è possibile che venga assegnata una o più attestazioni rilasciate da un'entità attendibile. Un'attestazione è una coppia nome-valore che rappresenta il tipo di oggetto, non ciò che può fare l'oggetto. È possibile, ad esempio, che si disponga di una licenza di un driver, emessa da un'autorità di licenza di guida locale. La licenza del driver ha la data di nascita. In questo caso il nome dell'attestazione sarà `DateOfBirth`, il valore dell'attestazione è la data di nascita, ad esempio `8th June 1970` e l'emittente sarà l'autorità di licenza di guida. L'autorizzazione basata sulle attestazioni, alla sua più semplice, controlla il valore di un'attestazione e consente l'accesso a una risorsa in base a tale valore. Se ad esempio si vuole accedere a un night club, il processo di autorizzazione potrebbe essere:
 
-Il responsabile della sicurezza sportello restituirà il valore della data di nascita attestazione e se sono attendibili l'autorità emittente (l'autorità licenza determinante) prima che concede che l'accesso.
+Il responsabile della sicurezza di sportello valuterebbe il valore della data di attestazione di nascita e se considera attendibile l'autorità emittente (l'autorità di certificazione di guida) prima di concedere l'accesso.
 
 Un'identità può contenere più attestazioni con più valori e può contenere più attestazioni dello stesso tipo.
 
-## <a name="adding-claims-checks"></a>Aggiunta di controlli di attestazioni
+## <a name="adding-claims-checks"></a>Aggiunta di controlli delle attestazioni
 
-Attestazione controlli di autorizzazione basata su sono dichiarativi, lo sviluppatore li incorpora all'interno del codice, a fronte di un controller o un'azione all'interno di un controller, che specifica le attestazioni che l'utente corrente deve disporre del privilegio e, facoltativamente, il valore di attestazione deve contenere per l'accesso di risorsa richiesta. I requisiti sono criteri basati su attestazioni, lo sviluppatore deve creare e registrare un criterio che esprimono i requisiti di attestazioni.
+I controlli delle autorizzazioni basate su attestazioni sono dichiarativi. lo sviluppatore li incorpora all'interno del codice, a fronte di un controller o di un'azione all'interno di un controller, specificando attestazioni che l'utente corrente deve possedere e, facoltativamente, il valore che l'attestazione deve tenere per accedere al risorsa richiesta. I requisiti di attestazione sono basati su criteri, lo sviluppatore deve compilare e registrare un criterio che esprime i requisiti di attestazione.
 
-Il tipo più semplice di criteri Cerca la presenza di un'attestazione di attestazione e non controlla il valore.
+Il tipo più semplice di criteri di attestazione cerca la presenza di un'attestazione e non verifica il valore.
 
-Prima di tutto è necessario compilare e registrare i criteri. Questa operazione viene eseguita come parte della configurazione del servizio di autorizzazione, che in genere fa parte di `ConfigureServices()` nella *Startup.cs* file.
+Prima di tutto è necessario compilare e registrare i criteri. Questo avviene come parte della configurazione del servizio di autorizzazione, che in genere fa parte `ConfigureServices()` nel file *Startup.cs* .
+
+::: moniker range=">= aspnetcore-3.0"
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllersWithViews();
+    services.AddRazorPages();
+
+    services.AddAuthorization(options =>
+    {
+        options.AddPolicy("EmployeeOnly", policy => policy.RequireClaim("EmployeeNumber"));
+    });
+}
+```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -42,9 +61,11 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-In questo caso il `EmployeeOnly` criteri consentono di controllare la presenza di un `EmployeeNumber` attestazioni sull'identità corrente.
+::: moniker-end
 
-È quindi applicare il criterio tramite il `Policy` proprietà il `AuthorizeAttribute` attributo per specificare il nome del criterio;
+In questo caso i criteri di `EmployeeOnly` verificano la presenza di un'attestazione `EmployeeNumber` sull'identità corrente.
+
+Applicare quindi il criterio usando la proprietà `Policy` sull'attributo `AuthorizeAttribute` per specificare il nome del criterio;
 
 ```csharp
 [Authorize(Policy = "EmployeeOnly")]
@@ -54,7 +75,7 @@ public IActionResult VacationBalance()
 }
 ```
 
-Il `AuthorizeAttribute` attributo può essere applicato a un intero controller, in questo caso solo le identità di criteri di corrispondenza potrà accedere a qualsiasi azione sul controller.
+L'attributo `AuthorizeAttribute` può essere applicato a un intero controller, in questo caso solo le identità che corrispondono ai criteri saranno autorizzate ad accedere a qualsiasi azione nel controller.
 
 ```csharp
 [Authorize(Policy = "EmployeeOnly")]
@@ -66,7 +87,7 @@ public class VacationController : Controller
 }
 ```
 
-Se si dispone di un controller protetto con il `AuthorizeAttribute` dell'attributo, ma si vuole consentire l'accesso anonimo ad azioni specifiche si applica il `AllowAnonymousAttribute` attributo.
+Se si dispone di un controller protetto dall'attributo `AuthorizeAttribute`, ma si desidera consentire l'accesso anonimo a determinate azioni, si applica l'attributo `AllowAnonymousAttribute`.
 
 ```csharp
 [Authorize(Policy = "EmployeeOnly")]
@@ -83,7 +104,27 @@ public class VacationController : Controller
 }
 ```
 
-La maggior parte delle attestazioni dotati di un valore. Quando si crea il criterio, è possibile specificare un elenco di valori consentiti. Nell'esempio seguente viene completata solo per i dipendenti il cui numero di dipendenti è 1, 2, 3, 4 o 5.
+Per la maggior parte delle attestazioni viene aggiunto un valore. È possibile specificare un elenco di valori consentiti durante la creazione del criterio. L'esempio seguente ha esito positivo solo per i dipendenti il cui numero di dipendente è 1, 2, 3, 4 o 5.
+
+::: moniker range=">= aspnetcore-3.0"
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllersWithViews();
+    services.AddRazorPages();
+
+    services.AddAuthorization(options =>
+    {
+        options.AddPolicy("Founders", policy =>
+                          policy.RequireClaim("EmployeeNumber", "1", "2", "3", "4", "5"));
+    });
+}
+```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -98,13 +139,14 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
+::: moniker-end
 ### <a name="add-a-generic-claim-check"></a>Aggiungere un controllo di attestazione generico
 
-Se il valore dell'attestazione non è un singolo valore o una trasformazione è obbligatorio, usare [RequireAssertion](/dotnet/api/microsoft.aspnetcore.authorization.authorizationpolicybuilder.requireassertion). Per altre informazioni, vedere [usando una funzione per soddisfare un criterio](xref:security/authorization/policies#using-a-func-to-fulfill-a-policy).
+Se il valore dell'attestazione non è un singolo valore o se è richiesta una trasformazione, utilizzare [RequireAssertion](/dotnet/api/microsoft.aspnetcore.authorization.authorizationpolicybuilder.requireassertion). Per ulteriori informazioni, vedere [utilizzo di una funzione Func per soddisfare i criteri](xref:security/authorization/policies#using-a-func-to-fulfill-a-policy).
 
-## <a name="multiple-policy-evaluation"></a>Valutazione dei criteri più
+## <a name="multiple-policy-evaluation"></a>Valutazione di più criteri
 
-Se si applicano più criteri in un controller o azione, tutti i criteri devono passare prima che venga concesso l'accesso. Ad esempio:
+Se si applicano più criteri a un controller o a un'azione, tutti i criteri devono essere superati prima che venga concesso l'accesso. Esempio:
 
 ```csharp
 [Authorize(Policy = "EmployeeOnly")]
@@ -121,6 +163,6 @@ public class SalaryController : Controller
 }
 ```
 
-Nell'esempio precedente qualsiasi entità che soddisfa la `EmployeeOnly` criteri possono accedere il `Payslip` azione come tale criterio viene applicato nel controller. Tuttavia affinché la chiamata di `UpdateSalary` azione l'identità deve soddisfare *entrambi* il `EmployeeOnly` criteri e il `HumanResources` criteri.
+Nell'esempio precedente qualsiasi identità che soddisfi i criteri di `EmployeeOnly` può accedere all'azione `Payslip` poiché tale criterio viene applicato nel controller. Tuttavia, per chiamare l'azione `UpdateSalary` l'identità deve soddisfare *sia* i criteri di `EmployeeOnly` che i criteri di `HumanResources`.
 
-Se si desidera che i criteri più complicati, ad esempio richiedendo una data di nascita attestazione, calcolando un'età da quest'ultimo, quindi verifica la validità è 21 o versione precedente, è necessario scrivere [gestori di criteri personalizzate](xref:security/authorization/policies).
+Se si desiderano criteri più complessi, ad esempio l'acquisizione di una data di attestazione di nascita, il calcolo di un periodo di tempo da esso, il controllo dell'età è 21 o precedente, è necessario scrivere [gestori di criteri personalizzati](xref:security/authorization/policies).

@@ -5,18 +5,18 @@ description: Informazioni su come i test di integrazione garantiscono che i comp
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/14/2019
+ms.date: 10/28/2019
 uid: test/integration-tests
-ms.openlocfilehash: c0fede8f9f46d1b10502055d8e1fe7caa48cf351
-ms.sourcegitcommit: 810d5831169770ee240d03207d6671dabea2486e
+ms.openlocfilehash: 33f3e29bc649fa65efdff0c47e54a83662005577
+ms.sourcegitcommit: de0fc77487a4d342bcc30965ec5c142d10d22c03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72779223"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73143360"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Test di integrazione in ASP.NET Core
 
-Di [Luke Latham](https://github.com/guardrex) e [Steve Smith](https://ardalis.com/)
+Di [Luke Latham](https://github.com/guardrex), [Javier Calvarro Nelson](https://github.com/javiercn), [Steve Smith](https://ardalis.com/)e [Jos van der til](https://jvandertil.nl)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -130,8 +130,6 @@ Se l' [ambiente](xref:fundamentals/environments) di Sut non è impostato, il val
 
 Le classi di test implementano una *classe fixture* Interface ([IClassFixture](https://xunit.github.io/docs/shared-context#class-fixture)) per indicare che la classe contiene test e fornisce istanze di oggetti condivisi tra i test nella classe.
 
-### <a name="basic-test-of-app-endpoints"></a>Test di base degli endpoint dell'app
-
 La classe di test seguente, `BasicTests`, usa il `WebApplicationFactory` per avviare il SUT e fornire un [HttpClient](/dotnet/api/system.net.http.httpclient) a un metodo di test, `Get_EndpointsReturnSuccessAndCorrectContentType`. Il metodo controlla se il codice di stato della risposta ha esito positivo (codici di stato nell'intervallo 200-299) e l'intestazione `Content-Type` è `text/html; charset=utf-8` per diverse pagine dell'app.
 
 [CreateClient](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.createclient) crea un'istanza di `HttpClient` che segue automaticamente i reindirizzamenti e gestisce i cookie.
@@ -139,25 +137,6 @@ La classe di test seguente, `BasicTests`, usa il `WebApplicationFactory` per avv
 [!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/BasicTests.cs?name=snippet1)]
 
 Per impostazione predefinita, i cookie non essenziali non vengono conservati nelle richieste quando i [criteri di consenso GDPR](xref:security/gdpr) sono abilitati. Per mantenere cookie non essenziali, ad esempio quelli usati dal provider TempData, contrassegnarli come essenziali nei test. Per istruzioni su come contrassegnare un cookie come essenziale, vedere [cookie essenziali](xref:security/gdpr#essential-cookies).
-
-### <a name="test-a-secure-endpoint"></a>Testare un endpoint sicuro
-
-Un altro test nella classe `BasicTests` verifica che un endpoint sicuro reindirizza un utente non autenticato alla pagina di accesso dell'app.
-
-In SUT la pagina `/SecurePage` usa una convenzione [AuthorizePage](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizepage) per applicare un [AuthorizeFilter](/dotnet/api/microsoft.aspnetcore.mvc.authorization.authorizefilter) alla pagina. Per ulteriori informazioni, vedere [Razor Pages convenzioni di autorizzazione](xref:security/authorization/razor-pages-authorization#require-authorization-to-access-a-page).
-
-[!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/src/RazorPagesProject/Startup.cs?name=snippet1)]
-
-Nel test `Get_SecurePageRequiresAnAuthenticatedUser`, un [WebApplicationFactoryClientOptions](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions) è impostato in modo da impedire i reindirizzamenti impostando [AllowAutoRedirect](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.allowautoredirect) su `false`:
-
-[!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/BasicTests.cs?name=snippet2)]
-
-Se si impedisce al client di seguire il reindirizzamento, è possibile effettuare i controlli seguenti:
-
-* Il codice di stato restituito da SUT può essere controllato rispetto al risultato [HttpStatusCode. Redirect](/dotnet/api/system.net.httpstatuscode) previsto, non al codice di stato finale dopo il reindirizzamento alla pagina di accesso, che sarebbe [HttpStatusCode. OK](/dotnet/api/system.net.httpstatuscode).
-* Il valore dell'intestazione `Location` nelle intestazioni di risposta viene controllato per confermare che inizia con `http://localhost/Identity/Account/Login`, non con la risposta finale della pagina di accesso, in cui non è presente l'intestazione `Location`.
-
-Per ulteriori informazioni su `WebApplicationFactoryClientOptions`, vedere la sezione [Opzioni client](#client-options) .
 
 ## <a name="customize-webapplicationfactory"></a>Personalizzare WebApplicationFactory
 
@@ -190,7 +169,7 @@ La configurazione dell'host Web può essere creata indipendentemente dalle class
 
    [!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/IndexPageTests.cs?name=snippet1)]
 
-   Il client dell'app di esempio è configurato in modo da impedire a `HttpClient` di seguire i reindirizzamenti. Come illustrato nella sezione [testare un endpoint sicuro](#test-a-secure-endpoint) , questo consente ai test di verificare il risultato della prima risposta dell'app. La prima risposta è un reindirizzamento in molti di questi test con un'intestazione `Location`.
+   Il client dell'app di esempio è configurato in modo da impedire a `HttpClient` di seguire i reindirizzamenti. Come illustrato più avanti nella sezione [autenticazione fittizia](#mock-authentication) , questo consente ai test di verificare il risultato della prima risposta dell'app. La prima risposta è un reindirizzamento in molti di questi test con un'intestazione `Location`.
 
 3. Un test tipico usa i metodi `HttpClient` e helper per elaborare la richiesta e la risposta:
 
@@ -297,6 +276,50 @@ Il markup prodotto durante l'esecuzione del test riflette il testo tra virgolett
     Mr. Scarman, and time is my business.">
 ```
 
+## <a name="mock-authentication"></a>Autenticazione fittizia
+
+I test nella classe `AuthTests` verificano che un endpoint protetto:
+
+* Reindirizza un utente non autenticato alla pagina di accesso dell'app.
+* Restituisce il contenuto per un utente autenticato.
+
+In SUT la pagina `/SecurePage` usa una convenzione [AuthorizePage](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizepage) per applicare un [AuthorizeFilter](/dotnet/api/microsoft.aspnetcore.mvc.authorization.authorizefilter) alla pagina. Per ulteriori informazioni, vedere [Razor Pages convenzioni di autorizzazione](xref:security/authorization/razor-pages-authorization#require-authorization-to-access-a-page).
+
+[!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/src/RazorPagesProject/Startup.cs?name=snippet1)]
+
+Nel test `Get_SecurePageRedirectsAnUnauthenticatedUser`, un [WebApplicationFactoryClientOptions](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions) è impostato in modo da impedire i reindirizzamenti impostando [AllowAutoRedirect](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.allowautoredirect) su `false`:
+
+[!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/AuthTests.cs?name=snippet2)]
+
+Se si impedisce al client di seguire il reindirizzamento, è possibile effettuare i controlli seguenti:
+
+* Il codice di stato restituito da SUT può essere controllato rispetto al risultato [HttpStatusCode. Redirect](/dotnet/api/system.net.httpstatuscode) previsto, non al codice di stato finale dopo il reindirizzamento alla pagina di accesso, che sarebbe [HttpStatusCode. OK](/dotnet/api/system.net.httpstatuscode).
+* Il valore dell'intestazione `Location` nelle intestazioni di risposta viene controllato per confermare che inizia con `http://localhost/Identity/Account/Login`, non con la risposta finale della pagina di accesso, in cui non è presente l'intestazione `Location`.
+
+L'app di test può simulare un <xref:Microsoft.AspNetCore.Authentication.AuthenticationHandler`1> in [ConfigureTestServices](/dotnet/api/microsoft.aspnetcore.testhost.webhostbuilderextensions.configuretestservices) per testare gli aspetti dell'autenticazione e dell'autorizzazione. Uno scenario minimo restituisce [AuthenticateResult. Success](xref:Microsoft.AspNetCore.Authentication.AuthenticateResult.Success*):
+
+[!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/AuthTests.cs?name=snippet4&highlight=11-18)]
+
+Il `TestAuthHandler` viene chiamato per autenticare un utente quando lo schema di autenticazione è impostato su `Test` dove `AddAuthentication` è registrato per `ConfigureTestServices`:
+
+[!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/AuthTests.cs?name=snippet3&highlight=7-12)]
+
+Per ulteriori informazioni su `WebApplicationFactoryClientOptions`, vedere la sezione [Opzioni client](#client-options) .
+
+## <a name="set-the-environment"></a>Impostare l'ambiente
+
+Per impostazione predefinita, l'host e l'ambiente app di SUT sono configurati per l'utilizzo dell'ambiente di sviluppo. Per eseguire l'override dell'ambiente di SUT:
+
+* Impostare la variabile di ambiente `ASPNETCORE_ENVIRONMENT` (ad esempio, `Staging`, `Production`o un altro valore personalizzato, ad esempio `Testing`).
+* Eseguire l'override `CreateHostBuilder` nell'app di test per leggere le variabili di ambiente con prefisso `ASPNETCORE`.
+
+```csharp
+protected override IHostBuilder CreateHostBuilder() => 
+    base.CreateHostBuilder()
+        .ConfigureHostConfiguration(
+            config => config.AddEnvironmentVariables("ASPNETCORE"));
+```
+
 ## <a name="how-the-test-infrastructure-infers-the-app-content-root-path"></a>Come l'infrastruttura di test deduce il percorso radice del contenuto dell'app
 
 Il costruttore `WebApplicationFactory` deduce il percorso [radice del contenuto](xref:fundamentals/index#content-root) dell'app cercando un [WebApplicationFactoryContentRootAttribute](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactorycontentrootattribute) nell'assembly contenente i test di integrazione con una chiave uguale all'assembly `TEntryPoint` `System.Reflection.Assembly.FullName`. Se non viene trovato un attributo con la chiave corretta, `WebApplicationFactory` esegue il fallback alla ricerca di un file di soluzione (con*estensione sln*) e aggiunge il nome dell'assembly `TEntryPoint` alla directory della soluzione. La directory radice dell'app (percorso radice del contenuto) viene usata per individuare le visualizzazioni e i file di contenuto.
@@ -353,8 +376,9 @@ L'app di test è un'app console all'interno della directory *tests/RazorPagesPro
 
 | Testare la directory dell'app | Descrizione |
 | ------------------ | ----------- |
-| *BasicTests* | *BasicTests.cs* contiene metodi di test per il routing, l'accesso a una pagina sicura da parte di un utente non autenticato e il recupero di un profilo utente GitHub e il controllo dell'accesso utente del profilo. |
-| *IntegrationTests* | *IndexPageTests.cs* contiene i test di integrazione per la pagina di indice con la classe `WebApplicationFactory` personalizzata. |
+| *AuthTests* | Contiene i metodi di test per:<ul><li>Accesso a una pagina sicura da un utente non autenticato.</li><li>Accesso a una pagina sicura da un utente autenticato con un <xref:Microsoft.AspNetCore.Authentication.AuthenticationHandler`1>fittizio.</li><li>Ottenere un profilo utente GitHub e controllare l'accesso dell'utente del profilo.</li></ul> |
+| *BasicTests* | Contiene un metodo di test per il routing e il tipo di contenuto. |
+| *IntegrationTests* | Contiene i test di integrazione per la pagina di indice utilizzando la classe `WebApplicationFactory` personalizzata. |
 | *Helper/utilità* | <ul><li>*Utilities.cs* contiene il metodo `InitializeDbForTests` utilizzato per eseguire il seeding del database con dati di test.</li><li>*HtmlHelpers.cs* fornisce un metodo per restituire un AngleSharp `IHtmlDocument` per l'uso da parte dei metodi di test.</li><li>*HttpClientExtensions.cs* forniscono overload per `SendAsync` per inviare richieste a SUT.</li></ul> |
 
 Il Framework di test è [xUnit](https://xunit.github.io/). I test di integrazione vengono eseguiti usando [Microsoft. AspNetCore. TestHost](/dotnet/api/microsoft.aspnetcore.testhost), che include [TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver). Poiché il pacchetto [Microsoft. AspNetCore. Mvc. testing](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Testing) viene usato per configurare l'host di test e il server di prova, i pacchetti `TestHost` e `TestServer` non richiedono riferimenti ai pacchetti diretti nel file di progetto dell'app di test o nella configurazione dello sviluppatore nel test app.
@@ -477,8 +501,6 @@ Se l' [ambiente](xref:fundamentals/environments) di Sut non è impostato, il val
 
 Le classi di test implementano una *classe fixture* Interface ([IClassFixture](https://xunit.github.io/docs/shared-context#class-fixture)) per indicare che la classe contiene test e fornisce istanze di oggetti condivisi tra i test nella classe.
 
-### <a name="basic-test-of-app-endpoints"></a>Test di base degli endpoint dell'app
-
 La classe di test seguente, `BasicTests`, usa il `WebApplicationFactory` per avviare il SUT e fornire un [HttpClient](/dotnet/api/system.net.http.httpclient) a un metodo di test, `Get_EndpointsReturnSuccessAndCorrectContentType`. Il metodo controlla se il codice di stato della risposta ha esito positivo (codici di stato nell'intervallo 200-299) e l'intestazione `Content-Type` è `text/html; charset=utf-8` per diverse pagine dell'app.
 
 [CreateClient](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.createclient) crea un'istanza di `HttpClient` che segue automaticamente i reindirizzamenti e gestisce i cookie.
@@ -486,25 +508,6 @@ La classe di test seguente, `BasicTests`, usa il `WebApplicationFactory` per avv
 [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/BasicTests.cs?name=snippet1)]
 
 Per impostazione predefinita, i cookie non essenziali non vengono conservati nelle richieste quando i [criteri di consenso GDPR](xref:security/gdpr) sono abilitati. Per mantenere cookie non essenziali, ad esempio quelli usati dal provider TempData, contrassegnarli come essenziali nei test. Per istruzioni su come contrassegnare un cookie come essenziale, vedere [cookie essenziali](xref:security/gdpr#essential-cookies).
-
-### <a name="test-a-secure-endpoint"></a>Testare un endpoint sicuro
-
-Un altro test nella classe `BasicTests` verifica che un endpoint sicuro reindirizza un utente non autenticato alla pagina di accesso dell'app.
-
-In SUT la pagina `/SecurePage` usa una convenzione [AuthorizePage](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizepage) per applicare un [AuthorizeFilter](/dotnet/api/microsoft.aspnetcore.mvc.authorization.authorizefilter) alla pagina. Per ulteriori informazioni, vedere [Razor Pages convenzioni di autorizzazione](xref:security/authorization/razor-pages-authorization#require-authorization-to-access-a-page).
-
-[!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/src/RazorPagesProject/Startup.cs?name=snippet1)]
-
-Nel test `Get_SecurePageRequiresAnAuthenticatedUser`, un [WebApplicationFactoryClientOptions](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions) è impostato in modo da impedire i reindirizzamenti impostando [AllowAutoRedirect](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.allowautoredirect) su `false`:
-
-[!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/BasicTests.cs?name=snippet2)]
-
-Se si impedisce al client di seguire il reindirizzamento, è possibile effettuare i controlli seguenti:
-
-* Il codice di stato restituito da SUT può essere controllato rispetto al risultato [HttpStatusCode. Redirect](/dotnet/api/system.net.httpstatuscode) previsto, non al codice di stato finale dopo il reindirizzamento alla pagina di accesso, che sarebbe [HttpStatusCode. OK](/dotnet/api/system.net.httpstatuscode).
-* Il valore dell'intestazione `Location` nelle intestazioni di risposta viene controllato per confermare che inizia con `http://localhost/Identity/Account/Login`, non con la risposta finale della pagina di accesso, in cui non è presente l'intestazione `Location`.
-
-Per ulteriori informazioni su `WebApplicationFactoryClientOptions`, vedere la sezione [Opzioni client](#client-options) .
 
 ## <a name="customize-webapplicationfactory"></a>Personalizzare WebApplicationFactory
 
@@ -520,7 +523,7 @@ La configurazione dell'host Web può essere creata indipendentemente dalle class
 
    [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/IndexPageTests.cs?name=snippet1)]
 
-   Il client dell'app di esempio è configurato in modo da impedire a `HttpClient` di seguire i reindirizzamenti. Come illustrato nella sezione [testare un endpoint sicuro](#test-a-secure-endpoint) , questo consente ai test di verificare il risultato della prima risposta dell'app. La prima risposta è un reindirizzamento in molti di questi test con un'intestazione `Location`.
+   Il client dell'app di esempio è configurato in modo da impedire a `HttpClient` di seguire i reindirizzamenti. Come illustrato più avanti nella sezione [autenticazione fittizia](#mock-authentication) , questo consente ai test di verificare il risultato della prima risposta dell'app. La prima risposta è un reindirizzamento in molti di questi test con un'intestazione `Location`.
 
 3. Un test tipico usa i metodi `HttpClient` e helper per elaborare la richiesta e la risposta:
 
@@ -627,6 +630,50 @@ Il markup prodotto durante l'esecuzione del test riflette il testo tra virgolett
     Mr. Scarman, and time is my business.">
 ```
 
+## <a name="mock-authentication"></a>Autenticazione fittizia
+
+I test nella classe `AuthTests` verificano che un endpoint protetto:
+
+* Reindirizza un utente non autenticato alla pagina di accesso dell'app.
+* Restituisce il contenuto per un utente autenticato.
+
+In SUT la pagina `/SecurePage` usa una convenzione [AuthorizePage](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizepage) per applicare un [AuthorizeFilter](/dotnet/api/microsoft.aspnetcore.mvc.authorization.authorizefilter) alla pagina. Per ulteriori informazioni, vedere [Razor Pages convenzioni di autorizzazione](xref:security/authorization/razor-pages-authorization#require-authorization-to-access-a-page).
+
+[!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/src/RazorPagesProject/Startup.cs?name=snippet1)]
+
+Nel test `Get_SecurePageRedirectsAnUnauthenticatedUser`, un [WebApplicationFactoryClientOptions](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions) è impostato in modo da impedire i reindirizzamenti impostando [AllowAutoRedirect](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.allowautoredirect) su `false`:
+
+[!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/AuthTests.cs?name=snippet2)]
+
+Se si impedisce al client di seguire il reindirizzamento, è possibile effettuare i controlli seguenti:
+
+* Il codice di stato restituito da SUT può essere controllato rispetto al risultato [HttpStatusCode. Redirect](/dotnet/api/system.net.httpstatuscode) previsto, non al codice di stato finale dopo il reindirizzamento alla pagina di accesso, che sarebbe [HttpStatusCode. OK](/dotnet/api/system.net.httpstatuscode).
+* Il valore dell'intestazione `Location` nelle intestazioni di risposta viene controllato per confermare che inizia con `http://localhost/Identity/Account/Login`, non con la risposta finale della pagina di accesso, in cui non è presente l'intestazione `Location`.
+
+L'app di test può simulare un <xref:Microsoft.AspNetCore.Authentication.AuthenticationHandler`1> in [ConfigureTestServices](/dotnet/api/microsoft.aspnetcore.testhost.webhostbuilderextensions.configuretestservices) per testare gli aspetti dell'autenticazione e dell'autorizzazione. Uno scenario minimo restituisce [AuthenticateResult. Success](xref:Microsoft.AspNetCore.Authentication.AuthenticateResult.Success*):
+
+[!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/AuthTests.cs?name=snippet4&highlight=11-18)]
+
+Il `TestAuthHandler` viene chiamato per autenticare un utente quando lo schema di autenticazione è impostato su `Test` dove `AddAuthentication` è registrato per `ConfigureTestServices`:
+
+[!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/AuthTests.cs?name=snippet3&highlight=7-12)]
+
+Per ulteriori informazioni su `WebApplicationFactoryClientOptions`, vedere la sezione [Opzioni client](#client-options) .
+
+## <a name="set-the-environment"></a>Impostare l'ambiente
+
+Per impostazione predefinita, l'host e l'ambiente app di SUT sono configurati per l'utilizzo dell'ambiente di sviluppo. Per eseguire l'override dell'ambiente di SUT:
+
+* Impostare la variabile di ambiente `ASPNETCORE_ENVIRONMENT` (ad esempio, `Staging`, `Production`o un altro valore personalizzato, ad esempio `Testing`).
+* Eseguire l'override `CreateHostBuilder` nell'app di test per leggere le variabili di ambiente con prefisso `ASPNETCORE`.
+
+```csharp
+protected override IHostBuilder CreateHostBuilder() => 
+    base.CreateHostBuilder()
+        .ConfigureHostConfiguration(
+            config => config.AddEnvironmentVariables("ASPNETCORE"));
+```
+
 ## <a name="how-the-test-infrastructure-infers-the-app-content-root-path"></a>Come l'infrastruttura di test deduce il percorso radice del contenuto dell'app
 
 Il costruttore `WebApplicationFactory` deduce il percorso [radice del contenuto](xref:fundamentals/index#content-root) dell'app cercando un [WebApplicationFactoryContentRootAttribute](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactorycontentrootattribute) nell'assembly contenente i test di integrazione con una chiave uguale all'assembly `TEntryPoint` `System.Reflection.Assembly.FullName`. Se non viene trovato un attributo con la chiave corretta, `WebApplicationFactory` esegue il fallback alla ricerca di un file di soluzione (con*estensione sln*) e aggiunge il nome dell'assembly `TEntryPoint` alla directory della soluzione. La directory radice dell'app (percorso radice del contenuto) viene usata per individuare le visualizzazioni e i file di contenuto.
@@ -693,8 +740,9 @@ L'app di test è un'app console all'interno della directory *tests/RazorPagesPro
 
 | Testare la directory dell'app | Descrizione |
 | ------------------ | ----------- |
-| *BasicTests* | *BasicTests.cs* contiene metodi di test per il routing, l'accesso a una pagina sicura da parte di un utente non autenticato e il recupero di un profilo utente GitHub e il controllo dell'accesso utente del profilo. |
-| *IntegrationTests* | *IndexPageTests.cs* contiene i test di integrazione per la pagina di indice con la classe `WebApplicationFactory` personalizzata. |
+| *AuthTests* | Contiene i metodi di test per:<ul><li>Accesso a una pagina sicura da un utente non autenticato.</li><li>Accesso a una pagina sicura da un utente autenticato con un <xref:Microsoft.AspNetCore.Authentication.AuthenticationHandler`1>fittizio.</li><li>Ottenere un profilo utente GitHub e controllare l'accesso dell'utente del profilo.</li></ul> |
+| *BasicTests* | Contiene un metodo di test per il routing e il tipo di contenuto. |
+| *IntegrationTests* | Contiene i test di integrazione per la pagina di indice utilizzando la classe `WebApplicationFactory` personalizzata. |
 | *Helper/utilità* | <ul><li>*Utilities.cs* contiene il metodo `InitializeDbForTests` utilizzato per eseguire il seeding del database con dati di test.</li><li>*HtmlHelpers.cs* fornisce un metodo per restituire un AngleSharp `IHtmlDocument` per l'uso da parte dei metodi di test.</li><li>*HttpClientExtensions.cs* forniscono overload per `SendAsync` per inviare richieste a SUT.</li></ul> |
 
 Il Framework di test è [xUnit](https://xunit.github.io/). I test di integrazione vengono eseguiti usando [Microsoft. AspNetCore. TestHost](/dotnet/api/microsoft.aspnetcore.testhost), che include [TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver). Poiché il pacchetto [Microsoft. AspNetCore. Mvc. testing](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Testing) viene usato per configurare l'host di test e il server di prova, i pacchetti `TestHost` e `TestServer` non richiedono riferimenti ai pacchetti diretti nel file di progetto dell'app di test o nella configurazione dello sviluppatore nel test app.
@@ -712,6 +760,6 @@ L'app di esempio esegue il seeding del database con tre messaggi in *Utilities.c
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Unit test](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
-* [Unit test per Razor Pages](xref:test/razor-pages-tests)
-* [Middleware](xref:fundamentals/middleware/index)
-* [Test controller](xref:mvc/controllers/testing)
+* <xref:test/razor-pages-tests>
+* <xref:fundamentals/middleware/index>
+* <xref:mvc/controllers/testing>

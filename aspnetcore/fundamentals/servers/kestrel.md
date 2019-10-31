@@ -5,14 +5,14 @@ description: Informazioni su Kestrel, il server Web multipiattaforma per ASP.NET
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/15/2019
+ms.date: 10/29/2019
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 5565011f6531ef5e95eb02f310e7107f9ed547b2
-ms.sourcegitcommit: dd026eceee79e943bd6b4a37b144803b50617583
+ms.openlocfilehash: beaf6ac49359adfdc2dc24221eab04cc853646a9
+ms.sourcegitcommit: de0fc77487a4d342bcc30965ec5c142d10d22c03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72378874"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73143437"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementazione del server Web Kestrel in ASP.NET Core
 
@@ -398,7 +398,7 @@ Anche `UseUrls`, l'argomento della riga di comando `--urls`, la chiave di config
 
 configurazione `KestrelServerOptions`:
 
-### <a name="configureendpointdefaultsactionlistenoptions"></a>ConfigureEndpointDefaults (Action @ no__t-0ListenOptions >)
+### <a name="configureendpointdefaultsactionlistenoptions"></a>ConfigureEndpointDefaults (azione\<ListenOptions >)
 
 Specifica un elemento di configurazione `Action` da eseguire per ogni endpoint specificato. Se si chiama `ConfigureEndpointDefaults` più volte, gli elementi `Action` precedenti vengono sostituiti con l'ultimo elemento `Action` specificato.
 
@@ -412,7 +412,7 @@ webBuilder.ConfigureKestrel(serverOptions =>
 });
 ```
 
-### <a name="configurehttpsdefaultsactionhttpsconnectionadapteroptions"></a>ConfigureHttpsDefaults (Action @ no__t-0HttpsConnectionAdapterOptions >)
+### <a name="configurehttpsdefaultsactionhttpsconnectionadapteroptions"></a>ConfigureHttpsDefaults (azione\<HttpsConnectionAdapterOptions >)
 
 Specifica un elemento di configurazione `Action` da eseguire per ogni endpoint HTTPS. Se si chiama `ConfigureHttpsDefaults` più volte, gli elementi `Action` precedenti vengono sostituiti con l'ultimo elemento `Action` specificato.
 
@@ -631,6 +631,20 @@ webBuilder.ConfigureKestrel(serverOptions =>
                 return exampleCert;
             };
         });
+    });
+});
+```
+
+### <a name="connection-logging"></a>Registrazione connessione
+
+Chiamare <xref:Microsoft.AspNetCore.Hosting.ListenOptionsConnectionLoggingExtensions.UseConnectionLogging*> per creare log a livello di debug per la comunicazione a livello di byte in una connessione. La registrazione delle connessioni è utile per la risoluzione dei problemi nella comunicazione di basso livello, ad esempio durante la crittografia TLS e dietro i proxy. Se `UseConnectionLogging` viene posizionata prima `UseHttps`, viene registrato il traffico crittografato. Se `UseConnectionLogging` viene inserito dopo `UseHttps`, il traffico decrittografato viene registrato.
+
+```csharp
+webBuilder.ConfigureKestrel(serverOptions =>
+{
+    serverOptions.Listen(IPAddress.Any, 8000, listenOptions =>
+    {
+        listenOptions.UseConnectionLogging();
     });
 });
 ```
@@ -1345,7 +1359,7 @@ Anche `UseUrls`, l'argomento della riga di comando `--urls`, la chiave di config
 
 configurazione `KestrelServerOptions`:
 
-### <a name="configureendpointdefaultsactionlistenoptions"></a>ConfigureEndpointDefaults (Action @ no__t-0ListenOptions >)
+### <a name="configureendpointdefaultsactionlistenoptions"></a>ConfigureEndpointDefaults (azione\<ListenOptions >)
 
 Specifica un elemento di configurazione `Action` da eseguire per ogni endpoint specificato. Se si chiama `ConfigureEndpointDefaults` più volte, gli elementi `Action` precedenti vengono sostituiti con l'ultimo elemento `Action` specificato.
 
@@ -1362,7 +1376,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         });
 ```
 
-### <a name="configurehttpsdefaultsactionhttpsconnectionadapteroptions"></a>ConfigureHttpsDefaults (Action @ no__t-0HttpsConnectionAdapterOptions >)
+### <a name="configurehttpsdefaultsactionhttpsconnectionadapteroptions"></a>ConfigureHttpsDefaults (azione\<HttpsConnectionAdapterOptions >)
 
 Specifica un elemento di configurazione `Action` da eseguire per ogni endpoint HTTPS. Se si chiama `ConfigureHttpsDefaults` più volte, gli elementi `Action` precedenti vengono sostituiti con l'ultimo elemento `Action` specificato.
 
@@ -1595,6 +1609,20 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
                 });
             });
         });
+```
+
+### <a name="connection-logging"></a>Registrazione connessione
+
+Chiamare <xref:Microsoft.AspNetCore.Hosting.ListenOptionsConnectionLoggingExtensions.UseConnectionLogging*> per creare log a livello di debug per la comunicazione a livello di byte in una connessione. La registrazione delle connessioni è utile per la risoluzione dei problemi nella comunicazione di basso livello, ad esempio durante la crittografia TLS e dietro i proxy. Se `UseConnectionLogging` viene posizionata prima `UseHttps`, viene registrato il traffico crittografato. Se `UseConnectionLogging` viene inserito dopo `UseHttps`, il traffico decrittografato viene registrato.
+
+```csharp
+webBuilder.ConfigureKestrel(serverOptions =>
+{
+    serverOptions.Listen(IPAddress.Any, 8000, listenOptions =>
+    {
+        listenOptions.UseConnectionLogging();
+    });
+});
 ```
 
 ### <a name="bind-to-a-tcp-socket"></a>Associazione a un socket TCP
@@ -2171,7 +2199,7 @@ Anche `UseUrls`, l'argomento della riga di comando `--urls`, la chiave di config
 
 configurazione `KestrelServerOptions`:
 
-### <a name="configureendpointdefaultsactionlistenoptions"></a>ConfigureEndpointDefaults (Action @ no__t-0ListenOptions >)
+### <a name="configureendpointdefaultsactionlistenoptions"></a>ConfigureEndpointDefaults (azione\<ListenOptions >)
 
 Specifica un elemento di configurazione `Action` da eseguire per ogni endpoint specificato. Se si chiama `ConfigureEndpointDefaults` più volte, gli elementi `Action` precedenti vengono sostituiti con l'ultimo elemento `Action` specificato.
 
@@ -2188,7 +2216,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         });
 ```
 
-### <a name="configurehttpsdefaultsactionhttpsconnectionadapteroptions"></a>ConfigureHttpsDefaults (Action @ no__t-0HttpsConnectionAdapterOptions >)
+### <a name="configurehttpsdefaultsactionhttpsconnectionadapteroptions"></a>ConfigureHttpsDefaults (azione\<HttpsConnectionAdapterOptions >)
 
 Specifica un elemento di configurazione `Action` da eseguire per ogni endpoint HTTPS. Se si chiama `ConfigureHttpsDefaults` più volte, gli elementi `Action` precedenti vengono sostituiti con l'ultimo elemento `Action` specificato.
 
@@ -2422,6 +2450,20 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             });
         })
         .Build();
+```
+
+### <a name="connection-logging"></a>Registrazione connessione
+
+Chiamare <xref:Microsoft.AspNetCore.Hosting.ListenOptionsConnectionLoggingExtensions.UseConnectionLogging*> per creare log a livello di debug per la comunicazione a livello di byte in una connessione. La registrazione delle connessioni è utile per la risoluzione dei problemi nella comunicazione di basso livello, ad esempio durante la crittografia TLS e dietro i proxy. Se `UseConnectionLogging` viene posizionata prima `UseHttps`, viene registrato il traffico crittografato. Se `UseConnectionLogging` viene inserito dopo `UseHttps`, il traffico decrittografato viene registrato.
+
+```csharp
+webBuilder.ConfigureKestrel(serverOptions =>
+{
+    serverOptions.Listen(IPAddress.Any, 8000, listenOptions =>
+    {
+        listenOptions.UseConnectionLogging();
+    });
+});
 ```
 
 ### <a name="bind-to-a-tcp-socket"></a>Associazione a un socket TCP
