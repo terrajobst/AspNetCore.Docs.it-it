@@ -1,18 +1,18 @@
 ---
 title: Distribuire le app ASP.NET Core in Servizio app di Azure
-author: guardrex
+author: bradygaster
 description: Questo articolo contiene collegamenti a risorse di hosting e distribuzione di Azure.
 monikerRange: '>= aspnetcore-2.1'
-ms.author: riande
+ms.author: bradyg
 ms.custom: mvc
-ms.date: 10/02/2019
+ms.date: 10/11/2019
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: bda4923adb0f9769f883ef64f7902c8650308222
-ms.sourcegitcommit: 73e255e846e414821b8cc20ffa3aec946735cd4e
+ms.openlocfilehash: 392868b4fc9105279f8f3b10436a9915123e7070
+ms.sourcegitcommit: 032113208bb55ecfb2faeb6d3e9ea44eea827950
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71924898"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73190636"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Distribuire le app ASP.NET Core in Servizio app di Azure
 
@@ -29,6 +29,8 @@ Usare Visual Studio per creare e distribuire un'app Web ASP.NET Core nel servizi
 Usare la riga di comando per creare e distribuire un'app Web ASP.NET Core nel servizio app di Azure in Linux.
 
 Per la versione di ASP.NET Core disponibile nel servizio app Azure, vedere il [ASP.NET Core nel dashboard del servizio app](https://aspnetcoreon.azurewebsites.net/) .
+
+Sottoscrivere il repository degli [annunci del servizio app](https://github.com/Azure/app-service-announcements/) e monitorare i problemi. Il team del servizio app pubblica regolarmente annunci e scenari in arrivo nel servizio app.
 
 Gli articoli seguenti sono disponibili nella documentazione di ASP.NET Core:
 
@@ -63,7 +65,7 @@ Per le app con dipendenze native, i runtime per le app a 32 bit (x86) sono dispo
 
 ::: moniker-end
 
-Per altre informazioni sui componenti e sui metodi di distribuzione del framework .NET Core, ad esempio informazioni sul runtime di .NET Core e su .NET Core SDK, vedere [Informazioni su .NET Core: Composizione](/dotnet/core/about#composition).
+Per altre informazioni sui componenti e sui metodi di distribuzione di .NET Core Framework, ad esempio informazioni sul runtime di .NET Core e la .NET Core SDK, vedere [informazioni su .NET Core: Composition](/dotnet/core/about#composition).
 
 ### <a name="packages"></a>Pacchetti
 
@@ -139,26 +141,50 @@ Nel passaggio da uno slot di distribuzione all'altro, tutti i sistemi che usano 
 * Archivio SQL
 * Cache Redis
 
-Per altre informazioni, vedere <xref:security/data-protection/implementation/key-storage-providers>.
+Per ulteriori informazioni, vedere <xref:security/data-protection/implementation/key-storage-providers>.
 <a name="deploy-aspnet-core-preview-release-to-azure-app-service"></a>
-<!-- revert this after 3.0 supported
-## Deploy ASP.NET Core preview release to Azure App Service
 
-Use one of the following approaches if the app relies on a preview release of .NET Core:
-
-* [Install the preview site extension](#install-the-preview-site-extension).
-* [Deploy a self-contained preview app](#deploy-a-self-contained-preview-app).
-* [Use Docker with Web Apps for containers](#use-docker-with-web-apps-for-containers).
--->
 ## <a name="deploy-aspnet-core-30-to-azure-app-service"></a>Distribuire ASP.NET Core 3,0 al servizio app Azure
 
-Ci auguriamo che la disponibilità di ASP.NET Core 3,0 sul servizio app Azure a breve.
+ASP.NET Core 3,0 è supportato nel servizio app Azure. Per distribuire una versione di anteprima di una versione di .NET Core successiva a .NET Core 3,0, usare una delle tecniche seguenti. Questi approcci vengono usati anche quando il runtime è disponibile, ma l'SDK non è stato installato nel servizio app Azure.
 
-Se l'app si basa su .NET Core 3,0, usare uno degli approcci seguenti:
-
-* [Installare l'estensione del sito di anteprima](#install-the-preview-site-extension).
+* [Specificare la versione di .NET Core SDK utilizzando Azure Pipelines](#specify-the-net-core-sdk-version-using-azure-pipelines)
 * [Distribuire un'app di anteprima completa](#deploy-a-self-contained-preview-app).
 * [Usare Docker con app Web per contenitori](#use-docker-with-web-apps-for-containers).
+* [Installare l'estensione del sito di anteprima](#install-the-preview-site-extension).
+
+### <a name="specify-the-net-core-sdk-version-using-azure-pipelines"></a>Specificare la versione di .NET Core SDK utilizzando Azure Pipelines
+
+Usare [app Azure scenari](/azure/app-service/deploy-continuous-deployment) di integrazione continua/distribuzione continua del servizio per configurare una compilazione di integrazione continua con Azure DevOps. Dopo la creazione della build di Azure DevOps, configurare facoltativamente la compilazione per l'uso di una versione specifica dell'SDK. 
+
+#### <a name="specify-the-net-core-sdk-version"></a>Specificare la versione di .NET Core SDK
+
+Quando si usa il centro distribuzione servizio app per creare una build di Azure DevOps, la pipeline di compilazione predefinita include i passaggi per `Restore`, `Build`, `Test`e `Publish`. Per specificare la versione dell'SDK, selezionare il pulsante **Aggiungi (+)** nell'elenco processo agente per aggiungere un nuovo passaggio. Cercare **.NET Core SDK** nella barra di ricerca. 
+
+![Aggiungere il passaggio .NET Core SDK](index/add-sdk-step.png)
+
+Spostare il passaggio nella prima posizione della compilazione in modo che i passaggi successivi usino la versione specificata del .NET Core SDK. Specificare la versione del .NET Core SDK. In questo esempio, l'SDK è impostato su `3.0.100`.
+
+![Passaggio SDK completato](index/sdk-step-first-place.png)
+
+Per pubblicare una [distribuzione autonoma (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd), configurare SCD nel passaggio `Publish` e specificare l'identificatore di [Runtime (RID)](/dotnet/core/rid-catalog).
+
+![Pubblicazione autonoma](index/self-contained.png)
+
+### <a name="deploy-a-self-contained-preview-app"></a>Distribuire un'app di anteprima autonoma
+
+Una [distribuzione autonoma](/dotnet/core/deploying/#self-contained-deployments-scd) che ha come destinazione un runtime di anteprima include il runtime di anteprima nella distribuzione.
+
+Per la distribuzione di un'app autonoma:
+
+* Il sito nel Servizio app di Azure non richiede l'[estensione del sito di anteprima](#install-the-preview-site-extension).
+* L'app deve essere pubblicata seguendo un approccio diverso rispetto alla procedura di pubblicazione per una [distribuzione dipendente dal framework](/dotnet/core/deploying#framework-dependent-deployments-fdd).
+
+Seguire le istruzioni riportate nella sezione [Distribuire l'app autonoma](#deploy-the-app-self-contained).
+
+### <a name="use-docker-with-web-apps-for-containers"></a>Usare Docker con app Web per contenitori
+
+L'[hub Docker](https://hub.docker.com/r/microsoft/aspnetcore/) contiene le immagini di Docker più recenti per la versione di anteprima. Le immagini possono essere usate come immagini di base. Usare l'immagine e distribuirla alle app Web per i contenitori normalmente.
 
 ### <a name="install-the-preview-site-extension"></a>Installare l'estensione del sito di anteprima
 
@@ -205,21 +231,6 @@ Al termine dell'operazione, viene installata l'anteprima più recente di .NET Co
 Se per creare e distribuire le app si usa un modello ARM, è possibile usare il tipo di risorsa `siteextensions` per aggiungere l'estensione del sito a un'app Web. Esempio:
 
 [!code-json[](index/sample/arm.json?highlight=2)]
-
-### <a name="deploy-a-self-contained-preview-app"></a>Distribuire un'app di anteprima autonoma
-
-Una [distribuzione autonoma](/dotnet/core/deploying/#self-contained-deployments-scd) che ha come destinazione un runtime di anteprima include il runtime di anteprima nella distribuzione.
-
-Per la distribuzione di un'app autonoma:
-
-* Il sito nel Servizio app di Azure non richiede l'[estensione del sito di anteprima](#install-the-preview-site-extension).
-* L'app deve essere pubblicata seguendo un approccio diverso rispetto alla procedura di pubblicazione per una [distribuzione dipendente dal framework](/dotnet/core/deploying#framework-dependent-deployments-fdd).
-
-Seguire le istruzioni riportate nella sezione [Distribuire l'app autonoma](#deploy-the-app-self-contained).
-
-### <a name="use-docker-with-web-apps-for-containers"></a>Usare Docker con app Web per contenitori
-
-L'[hub Docker](https://hub.docker.com/r/microsoft/aspnetcore/) contiene le immagini di Docker più recenti per la versione di anteprima. Le immagini possono essere usate come immagini di base. Usare l'immagine e distribuirla alle app Web per i contenitori normalmente.
 
 ## <a name="publish-and-deploy-the-app"></a>Pubblicare e distribuire l'app
 
@@ -301,7 +312,7 @@ Usare Visual Studio o gli strumenti dell'interfaccia della riga di comando (CLI)
 
 ## <a name="protocol-settings-https"></a>Impostazioni del protocollo (HTTPS)
 
-Le associazioni di protocollo protette consentono di specificare un certificato da usare per rispondere alle richieste su HTTPS. L'associazione richiede un certificato privato valido (*PFX*) rilasciato per il nome host specifico. Per altre informazioni, vedere [Esercitazione: Associare un certificato SSL personalizzato esistente al servizio app di Azure](/azure/app-service/app-service-web-tutorial-custom-ssl).
+Le associazioni di protocollo protette consentono di specificare un certificato da usare per rispondere alle richieste su HTTPS. L'associazione richiede un certificato privato valido (*PFX*) rilasciato per il nome host specifico. Per altre informazioni, vedere [esercitazione: associare un certificato SSL personalizzato esistente al servizio app Azure](/azure/app-service/app-service-web-tutorial-custom-ssl).
 
 ## <a name="transform-webconfig"></a>Trasformare web.config
 
