@@ -8,12 +8,12 @@ products:
 - aspnet-core
 - vs
 urlFragment: create-grpc-client
-ms.openlocfilehash: a281adc3b1fe90eeb32c1185750f911af683af83
-ms.sourcegitcommit: 476ea5ad86a680b7b017c6f32098acd3414c0f6c
-ms.translationtype: HT
+ms.openlocfilehash: b9feb9eed62177358fffc0d7da582f625a431e32
+ms.sourcegitcommit: 9e85c2562df5e108d7933635c830297f484bb775
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69029014"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73463041"
 ---
 # <a name="create-a-grpc-client-and-server-in-aspnet-core-30-using-visual-studio"></a>Creare un client e un server gRPC in ASP.NET Core 3.0 con Visual Studio
 
@@ -66,11 +66,11 @@ info: Microsoft.Hosting.Lifetime[0]
 
 File di progetto *GrpcGreeter*:
 
-* *greet.proto*: Il file *Protos/greet.proto* definisce il gRPC `Greeter` e viene usato per generare le risorse del server gRPC. Per altre informazioni, vedere [Introduzione a gRPC](xref:grpc/index).
-* Cartella *Servizi*: contiene l'implementazione del servizio `Greeter`.
-* *appSettings.json*: contiene i dati di configurazione, ad esempio il protocollo usato da Kestrel. Per altre informazioni, vedere <xref:fundamentals/configuration/index>.
-* *Program.cs*: Contiene il punto di ingresso per il servizio gRPC. Per altre informazioni, vedere <xref:fundamentals/host/generic-host>.
-* *Startup.cs*: Contiene codice che consente di configurare il comportamento dell'app. Per altre informazioni, vedere [Avvio dell'app](xref:fundamentals/startup).
+* *greet. proto*: il file *Protos/greet. proto* definisce il `Greeter` gRPC e viene usato per generare gli asset del server gRPC. Per altre informazioni, vedere [Introduzione a gRPC](xref:grpc/index).
+* Cartella dei *Servizi* : contiene l'implementazione del servizio `Greeter`.
+* *appSettings. JSON*: contiene i dati di configurazione, ad esempio il protocollo usato da gheppio. Per ulteriori informazioni, vedere <xref:fundamentals/configuration/index>.
+* *Program.cs*: contiene il punto di ingresso per il servizio gRPC. Per ulteriori informazioni, vedere <xref:fundamentals/host/generic-host>.
+* *Startup.cs*: contiene il codice che configura il comportamento dell'app. Per altre informazioni, vedere [Avvio dell'app](xref:fundamentals/startup).
 
 ## <a name="create-the-grpc-client-in-a-net-console-app"></a>Creare il client gRPC in un'app console .NET
 
@@ -146,10 +146,9 @@ namespace GrpcGreeterClient
     {
         static async Task Main(string[] args)
         {
-            var httpClient = new HttpClient();
             // The port number(5001) must match the port of the gRPC server.
-            httpClient.BaseAddress = new Uri("https://localhost:5001");
-            var client = GrpcClient.Create<Greeter.GreeterClient>(httpClient);
+            var channel = GrpcChannel.ForAddress("https://localhost:5001");
+            var client = new Greeter.GreeterClient(channel);
             var reply = await client.SayHelloAsync(
                               new HelloRequest { Name = "GreeterClient" });
             Console.WriteLine("Greeting: " + reply.Message);
@@ -164,40 +163,8 @@ namespace GrpcGreeterClient
 
 Il client Greeter viene creato come descritto di seguito:
 
-* Creare un'istanza di `HttpClient` contenente le informazioni per creare la connessione al servizio gRPC.
-* Usare `HttpClient` per costruire il client Greeter:
-
-```csharp
-static async Task Main(string[] args)
-{
-    var httpClient = new HttpClient();
-    // The port number(5001) must match the port of the gRPC server.
-    httpClient.BaseAddress = new Uri("https://localhost:5001");
-    var client = GrpcClient.Create<Greeter.GreeterClient>(httpClient);
-    var reply = await client.SayHelloAsync(
-                      new HelloRequest { Name = "GreeterClient" });
-    Console.WriteLine("Greeting: " + reply.Message);
-    Console.WriteLine("Press any key to exit...");
-    Console.ReadKey();
-}
-```
-
-Il client Greeter chiama il metodo `SayHello` asincrono. Viene visualizzato il risultato della chiamata `SayHello`:
-
-```csharp
-static async Task Main(string[] args)
-{
-    var httpClient = new HttpClient();
-    // The port number(5001) must match the port of the gRPC server.
-    httpClient.BaseAddress = new Uri("https://localhost:5001");
-    var client = GrpcClient.Create<Greeter.GreeterClient>(httpClient);
-    var reply = await client.SayHelloAsync(
-                      new HelloRequest { Name = "GreeterClient" });
-    Console.WriteLine("Greeting: " + reply.Message);
-    Console.WriteLine("Press any key to exit...");
-    Console.ReadKey();
-}
-```
+* Creare un'istanza di `GrpcChannel` contenente le informazioni per creare la connessione al servizio gRPC.
+* Uso del `GrpcChannel` per costruire il client Greeter.
 
 ## <a name="test-the-grpc-client-with-the-grpc-greeter-service"></a>Testare il client gRPC con il servizio Greeter gRPC
 

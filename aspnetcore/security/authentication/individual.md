@@ -5,18 +5,18 @@ description: Scopri gli articoli in base ai progetti ASP.NET Core creati con sin
 ms.author: riande
 ms.date: 11/30/2017
 uid: security/authentication/individual
-ms.openlocfilehash: cf548417268a8587787471b9ed91c0ed109fbee9
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 91c5665dc50124b3ba09bdcfbf3ba501f684c604
+ms.sourcegitcommit: 9e85c2562df5e108d7933635c830297f484bb775
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71080696"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73463028"
 ---
 # <a name="articles-based-on-aspnet-core-projects-created-with-individual-user-accounts"></a>Articoli basati su progetti ASP.NET Core creati con account utente singoli
 
 ASP.NET Core identità è inclusa nei modelli di progetto di Visual Studio con l'opzione "singoli account utente".
 
-I modelli di autenticazione sono disponibili in interfaccia della riga di comando di .NET Core `-au Individual`con:
+I modelli di autenticazione sono disponibili in interfaccia della riga di comando di .NET Core con `-au Individual`:
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -42,7 +42,7 @@ Vedere [questo problema di GitHub](https://github.com/aspnet/AspNetCore/issues/5
 
 ## <a name="no-authentication"></a>Nessuna autenticazione
 
-L'autenticazione viene specificata nella interfaccia della riga di comando di .NET Core con l' `-au` opzione. In Visual Studio la finestra di dialogo **Modifica autenticazione** è disponibile per le nuove applicazioni Web. Il valore predefinito per le nuove app Web in Visual Studio **non è Authentication**.
+L'autenticazione viene specificata nella interfaccia della riga di comando di .NET Core con l'opzione `-au`. In Visual Studio la finestra di dialogo **Modifica autenticazione** è disponibile per le nuove applicazioni Web. Il valore predefinito per le nuove app Web in Visual Studio **non è Authentication**.
 
 Progetti creati senza autenticazione:
 
@@ -53,7 +53,7 @@ Progetti creati senza autenticazione:
 
 ## <a name="windows-authentication"></a>Autenticazione di Windows
 
-L'autenticazione di Windows viene specificata per le nuove app Web nella interfaccia della riga di comando di .NET Core `-au Windows` con l'opzione. In Visual Studio la finestra di dialogo **Cambia autenticazione** fornisce le opzioni di **autenticazione di Windows** .
+Viene specificata l'autenticazione di Windows per le nuove app Web nella interfaccia della riga di comando di .NET Core con l'opzione `-au Windows`. In Visual Studio la finestra di dialogo **Cambia autenticazione** fornisce le opzioni di **autenticazione di Windows** .
 
 Se è selezionata l'autenticazione di Windows, l'app viene configurata per l'uso del [modulo IIS](xref:host-and-deploy/iis/modules)per l'autenticazione di Windows. L'autenticazione di Windows è destinata ai siti Web Intranet.
 
@@ -61,6 +61,5 @@ Se è selezionata l'autenticazione di Windows, l'app viene configurata per l'uso
 
 Gli articoli seguenti illustrano come usare il codice generato in ASP.NET Core modelli che usano singoli account utente:
 
-* [Autenticazione a due fattori con SMS](xref:security/authentication/2fa)
 * [Account confirmation and password recovery in ASP.NET Core](xref:security/authentication/accconfirm) (Conferma dell'account e recupero della password in ASP.NET Core)
 * [Creare un'app ASP.NET Core con i dati utente protetti dall'autorizzazione](xref:security/authorization/secure-data)
