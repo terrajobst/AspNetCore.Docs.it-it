@@ -10,12 +10,12 @@ products:
 - vs-code
 - vs-mac
 urlFragment: getstarted-swashbuckle-aspnetcore
-ms.openlocfilehash: 2b1da1d524eb18f1048314c544c64f82c22761e9
-ms.sourcegitcommit: 6189b0ced9c115248c6ede02efcd0b29d31f2115
-ms.translationtype: HT
+ms.openlocfilehash: c3c11f8b8f93cf7256a787c09dec7a2fb1f4e8b7
+ms.sourcegitcommit: eb2fe5ad2e82fab86ca952463af8d017ba659b25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69988967"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416192"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Introduzione a Swashbuckle e ad ASP.NET Core
 
@@ -179,7 +179,7 @@ Per eliminare gli avvisi per l'intero progetto, definire un elenco delimitato da
 <NoWarn>$(NoWarn);1591</NoWarn>
 ```
 
-Per eliminare gli avvisi solo per membri specifici, racchiudere il codice in direttive del preprocessore [#pragma warning](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-pragma-warning). Questo approccio è utile per il codice che non deve essere esposto tramite la documentazione delle API. Nell'esempio seguente, il codice di avviso CS1591 viene ignorato per l'intera classe `Program`. L'imposizione del codice di avviso viene ripristinata alla chiusura della definizione della classe. Specificare più codici di avviso con un elenco delimitato da virgole.
+Per eliminare gli avvisi solo per membri specifici, racchiudere il codice in direttive del preprocessore [#pragma warning](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-pragma-warning). Questo approccio è utile per il codice che non deve essere esposto tramite la documentazione API. Nell'esempio seguente il codice di avviso CS1591 viene ignorato per l'intera classe `Program`. L'imposizione del codice di avviso viene ripristinata alla chiusura della definizione della classe. Specificare più codici di avviso con un elenco delimitato da virgole.
 
 ```csharp
 namespace TodoApi
@@ -318,8 +318,8 @@ Aggiungere un elemento [\<remarks>](/dotnet/csharp/programming-guide/xmldoc/rema
 /// <response code="201">Returns the newly created item</response>
 /// <response code="400">If the item is null</response>            
 [HttpPost]
-[ProducesResponseType(201)]
-[ProducesResponseType(400)]
+[ProducesResponseType(StatusCodes.Status201Created)]
+[ProducesResponseType(StatusCodes.Status400BadRequest)]
 public ActionResult<TodoItem> Create(TodoItem item)
 {
     _context.TodoItems.Add(item);
@@ -410,8 +410,8 @@ L'azione `Create` restituisce un codice di stato HTTP 201 in caso di esito posit
 /// <response code="201">Returns the newly created item</response>
 /// <response code="400">If the item is null</response>            
 [HttpPost]
-[ProducesResponseType(201)]
-[ProducesResponseType(400)]
+[ProducesResponseType(StatusCodes.Status201Created)]
+[ProducesResponseType(StatusCodes.Status400BadRequest)]
 public ActionResult<TodoItem> Create(TodoItem item)
 ```
 
@@ -421,4 +421,4 @@ L'interfaccia utente di Swagger ora documenta chiaramente i codici di risposta H
 
 In ASP.NET Core 2.2 o versioni successive, possono essere usate convenzioni in alternativa alla decorazione esplicita di azioni singole con `[ProducesResponseType]`. Per altre informazioni, vedere [Usare le convenzioni dell'API Web](https://docs.microsoft.com/aspnet/core/web-api/advanced/conventions).
 
-Per informazioni sulla personalizzazione dell'interfaccia utente, vedere: [Personalizzare l'interfaccia utente](/aspnet/core/tutorials/getting-started-with-swashbuckle?#customize-and-extend)
+Per informazioni sulla personalizzazione dell'interfaccia utente, vedere [personalizzare l'interfaccia utente](/aspnet/core/tutorials/getting-started-with-swashbuckle?#customize-and-extend)

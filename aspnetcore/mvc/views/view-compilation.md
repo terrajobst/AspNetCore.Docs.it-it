@@ -5,14 +5,14 @@ description: Informazioni sulla compilazione dei file Razor in un'app ASP.NET Co
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/20/2019
+ms.date: 10/31/2019
 uid: mvc/views/view-compilation
-ms.openlocfilehash: 0aa632bce32ef44f65d92639284c64c1d00e952e
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 95fa0d72ed9c088945707ac6b79c3fbde35a5a30
+ms.sourcegitcommit: eb2fe5ad2e82fab86ca952463af8d017ba659b25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71080817"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416143"
 ---
 # <a name="razor-file-compilation-in-aspnet-core"></a>Compilazione del file Razor in ASP.NET Core
 
@@ -38,13 +38,14 @@ Un file Razor viene compilato in fase di runtime, quando viene richiamata la pag
 
 ::: moniker range=">= aspnetcore-3.0"
 
-I file Razor vengono compilati sia in fase di compilazione che in fase di pubblicazione tramite [Razor SDK](xref:razor-pages/sdk). Facoltativamente, è possibile abilitare la compilazione in fase di runtime configurando l'applicazione.
+I file Razor con estensione *cshtml* vengono compilati in fase di compilazione e di pubblicazione tramite [Razor SDK](xref:razor-pages/sdk). Facoltativamente, è possibile abilitare la compilazione in fase di runtime configurando l'applicazione.
 
 ::: moniker-end
 
 ## <a name="razor-compilation"></a>Compilazione Razor
 
 ::: moniker range=">= aspnetcore-3.0"
+
 La compilazione di file Razor in fase di build e pubblicazione è abilitata per impostazione predefinita da Razor SDK. Quando abilitata, la compilazione in fase di runtime funge da complemento alla compilazione in fase di build, consentendo di aggiornare i file Razor in caso di modifica.
 
 ::: moniker-end

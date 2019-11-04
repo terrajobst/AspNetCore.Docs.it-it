@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/24/2019
 uid: fundamentals/routing
-ms.openlocfilehash: 8b4da4e1e262ec82225413d0338b3492d0b5e152
-ms.sourcegitcommit: 032113208bb55ecfb2faeb6d3e9ea44eea827950
+ms.openlocfilehash: be4493cc927bd5437a2c9dab00b6a555756195bb
+ms.sourcegitcommit: eb2fe5ad2e82fab86ca952463af8d017ba659b25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73190511"
+ms.lasthandoff: 11/01/2019
+ms.locfileid: "73416130"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing in ASP.NET Core
 
@@ -127,7 +127,7 @@ I metodi forniti da <xref:Microsoft.AspNetCore.Routing.LinkGenerator> supportano
 >
 > * Usare <xref:Microsoft.AspNetCore.Routing.LinkGenerator> con cautela nel middleware in associazione a `Map` o `MapWhen`. `Map*` modifica il percorso di base della richiesta in esecuzione, che ha effetto sull'output della generazione di collegamenti. Tutte le API <xref:Microsoft.AspNetCore.Routing.LinkGenerator> consentono di specificare un percorso di base. Specificare sempre un percorso di base vuoto per annullare l'effetto di `Map*` sulla generazione di collegamenti.
 
-## <a name="differences-from-earlier-versions-of-routing"></a>Differenze rispetto alle versioni precedenti del routing
+## <a name="endpoint-routing-differences-from-earlier-versions-of-routing"></a>Differenze di routing degli endpoint da versioni precedenti del routing
 
 Esistono alcune differenze tra il routing degli endpoint e le versioni di routing precedenti a ASP.NET Core 2,2:
 
