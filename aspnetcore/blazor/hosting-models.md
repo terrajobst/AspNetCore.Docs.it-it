@@ -5,14 +5,14 @@ description: Informazioni sui modelli di hosting di webassembly e blazer server 
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/15/2019
+ms.date: 11/03/2019
 uid: blazor/hosting-models
-ms.openlocfilehash: be67c129af4f071d10719e0bbf121de761dde9f4
-ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
+ms.openlocfilehash: d1b9e6ab7ba93c00a569be309f2334df9e3f4140
+ms.sourcegitcommit: e5d4768aaf85703effb4557a520d681af8284e26
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73033998"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73616595"
 ---
 # <a name="aspnet-core-blazor-hosting-models"></a>Modelli di hosting di ASP.NET Core Blazer
 
@@ -146,6 +146,22 @@ Quando il client rileva che la connessione è stata persa, viene visualizzata un
 
 Per impostazione predefinita, le app del server Blaze sono configurate per eseguire il prerendering dell'interfaccia utente nel server prima che venga stabilita la connessione client al server. Questa impostazione è configurata nella pagina Razor *_Host. cshtml* :
 
+::: moniker range=">= aspnetcore-3.1"
+
+```cshtml
+<body>
+    <app>
+      <component type="typeof(App)" render-mode="ServerPrerendered" />
+    </app>
+
+    <script src="_framework/blazor.server.js"></script>
+</body>
+```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.1"
+
 ```cshtml
 <body>
     <app>@(await Html.RenderComponentAsync<App>(RenderMode.ServerPrerendered))</app>
@@ -154,10 +170,24 @@ Per impostazione predefinita, le app del server Blaze sono configurate per esegu
 </body>
 ```
 
+::: moniker-end
+
 `RenderMode` configura se il componente:
 
 * Viene preeseguito nella pagina.
 * Viene visualizzato come HTML statico nella pagina o se include le informazioni necessarie per eseguire il bootstrap di un'app Blazer dall'agente utente.
+
+::: moniker range=">= aspnetcore-3.1"
+
+| `RenderMode`        | Descrizione |
+| ------------------- | ----------- |
+| `ServerPrerendered` | Esegue il rendering del componente in HTML statico e include un marcatore per un'app del server blazer. Quando l'agente utente viene avviato, questo marcatore viene usato per il bootstrap di un'app blazer. |
+| `Server`            | Esegue il rendering di un marcatore per un'app del server blazer. L'output del componente non è incluso. Quando l'agente utente viene avviato, questo marcatore viene usato per il bootstrap di un'app blazer. |
+| `Static`            | Esegue il rendering del componente in HTML statico. |
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.1"
 
 | `RenderMode`        | Descrizione |
 | ------------------- | ----------- |
@@ -165,9 +195,65 @@ Per impostazione predefinita, le app del server Blaze sono configurate per esegu
 | `Server`            | Esegue il rendering di un marcatore per un'app del server blazer. L'output del componente non è incluso. Quando l'agente utente viene avviato, questo marcatore viene usato per il bootstrap di un'app blazer. I parametri non sono supportati. |
 | `Static`            | Esegue il rendering del componente in HTML statico. I parametri sono supportati. |
 
+::: moniker-end
+
 Il rendering dei componenti server da una pagina HTML statica non è supportato.
 
-Il client si riconnette al server con lo stesso stato usato per eseguire il prerendering dell'app. Se lo stato dell'app è ancora in memoria, lo stato del componente non viene sottoposto a rendering dopo che è stata stabilita la connessione SignalR.
+Quando `RenderMode` viene `ServerPrerendered`, il componente viene inizialmente sottoposto a rendering statico come parte della pagina. Quando il browser stabilisce una connessione al server, viene *nuovamente*eseguito il rendering del componente e il componente è ora interattivo. Se è presente un [metodo del ciclo](xref:blazor/components#lifecycle-methods) di vita per inizializzare il componente (`OnInitialized{Async}`), il metodo viene eseguito *due volte*:
+
+* Quando il componente viene preeseguito in modo statico.
+* Una volta stabilita la connessione al server.
+
+Ciò può comportare una modifica evidente nei dati visualizzati nell'interfaccia utente quando il componente viene sottoposto a rendering.
+
+Per evitare lo scenario di doppio rendering in un'app Server Blazer:
+
+* Passare un identificatore che può essere usato per memorizzare nella cache lo stato durante il prerendering e recuperare lo stato dopo il riavvio dell'app.
+* Utilizzare l'identificatore durante il prerendering per salvare lo stato del componente.
+* Utilizzare l'identificatore dopo il prerendering per recuperare lo stato memorizzato nella cache.
+
+Il codice seguente illustra un `WeatherForecastService` aggiornato in un'app del server Blazer basata su modello che evita il doppio rendering:
+
+```csharp
+public class WeatherForecastService
+{
+    private static readonly string[] Summaries = new[]
+    {
+        "Freezing", "Bracing", "Chilly", "Cool", "Mild",
+        "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+    };
+    
+    public WeatherForecastService(IMemoryCache memoryCache)
+    {
+        MemoryCache = memoryCache;
+    }
+    
+    public IMemoryCache MemoryCache { get; }
+
+    public Task<WeatherForecast[]> GetForecastAsync(DateTime startDate)
+    {
+        return MemoryCache.GetOrCreateAsync(startDate, async e =>
+        {
+            e.SetOptions(new MemoryCacheEntryOptions
+            {
+                AbsoluteExpirationRelativeToNow = 
+                    TimeSpan.FromSeconds(30)
+            });
+
+            var rng = new Random();
+
+            await Task.Delay(TimeSpan.FromSeconds(10));
+
+            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            {
+                Date = startDate.AddDays(index),
+                TemperatureC = rng.Next(-20, 55),
+                Summary = Summaries[rng.Next(Summaries.Length)]
+            }).ToArray();
+        });
+    }
+}
+```
 
 ### <a name="render-stateful-interactive-components-from-razor-pages-and-views"></a>Eseguire il rendering di componenti interattivi con stato da pagine e visualizzazioni Razor
 
@@ -181,15 +267,63 @@ Quando viene eseguito il rendering della pagina o della visualizzazione:
 
 La pagina Razor seguente esegue il rendering di un componente `Counter`:
 
+::: moniker range=">= aspnetcore-3.1"
+
+```cshtml
+<h1>My Razor Page</h1>
+
+<component type="typeof(Counter)" render-mode="ServerPrerendered" 
+    param-InitialValue="InitialValue" />
+
+@code {
+    [BindProperty(SupportsGet=true)]
+    public int InitialValue { get; set; }
+}
+```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.1"
+
 ```cshtml
 <h1>My Razor Page</h1>
 
 @(await Html.RenderComponentAsync<Counter>(RenderMode.ServerPrerendered))
+
+@code {
+    [BindProperty(SupportsGet=true)]
+    public int InitialValue { get; set; }
+}
 ```
+
+::: moniker-end
 
 ### <a name="render-noninteractive-components-from-razor-pages-and-views"></a>Eseguire il rendering di componenti non interattivi da pagine e visualizzazioni Razor
 
 Nella pagina Razor seguente il componente `MyComponent` viene sottoposto a rendering statico con un valore iniziale specificato utilizzando un form:
+
+::: moniker range=">= aspnetcore-3.1"
+
+```cshtml
+<h1>My Razor Page</h1>
+
+<form>
+    <input type="number" asp-for="InitialValue" />
+    <button type="submit">Set initial value</button>
+</form>
+
+<component type="typeof(Counter)" render-mode="Static" 
+    param-InitialValue="InitialValue" />
+
+@code {
+    [BindProperty(SupportsGet=true)]
+    public int InitialValue { get; set; }
+}
+```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.1"
 
 ```cshtml
 <h1>My Razor Page</h1>
@@ -207,6 +341,8 @@ Nella pagina Razor seguente il componente `MyComponent` viene sottoposto a rende
     public int InitialValue { get; set; }
 }
 ```
+
+::: moniker-end
 
 Poiché `MyComponent` viene sottoposto a rendering statico, il componente non può essere interattivo.
 

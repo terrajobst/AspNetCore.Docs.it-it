@@ -6,16 +6,16 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: bdorrans
 ms.date: 08/19/2019
 uid: security/authentication/certauth
-ms.openlocfilehash: bb375cf380175daf2399f3b56f543819ee5692b8
-ms.sourcegitcommit: 07cd66e367d080acb201c7296809541599c947d1
+ms.openlocfilehash: 1e646aabb4e384e6906575e7beaa680e91f968a0
+ms.sourcegitcommit: e5d4768aaf85703effb4557a520d681af8284e26
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71039247"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73616574"
 ---
 # <a name="configure-certificate-authentication-in-aspnet-core"></a>Configurare l'autenticazione del certificato in ASP.NET Core
 
-`Microsoft.AspNetCore.Authentication.Certificate`contiene un'implementazione simile all' [autenticazione del certificato](https://tools.ietf.org/html/rfc5246#section-7.4.4) per ASP.NET Core. L'autenticazione del certificato viene eseguita a livello di TLS, molto prima che venga mai ASP.NET Core. Più precisamente, si tratta di un gestore di autenticazione che convalida il certificato e quindi fornisce un evento in cui è possibile risolvere il certificato in `ClaimsPrincipal`un. 
+`Microsoft.AspNetCore.Authentication.Certificate` contiene un'implementazione simile all' [autenticazione del certificato](https://tools.ietf.org/html/rfc5246#section-7.4.4) per ASP.NET Core. L'autenticazione del certificato viene eseguita a livello di TLS, molto prima che venga mai ASP.NET Core. Più precisamente, si tratta di un gestore di autenticazione che convalida il certificato e quindi fornisce un evento in cui è possibile risolvere il certificato in un `ClaimsPrincipal`. 
 
 [Configurare l'host](#configure-your-host-to-require-certificates) per l'autenticazione del certificato, essere IIS, gheppio, app Web di Azure o qualsiasi altro elemento in uso.
 
@@ -28,15 +28,15 @@ L'autenticazione del certificato è uno scenario con stato usato principalmente 
 
 Un'alternativa all'autenticazione del certificato negli ambienti in cui vengono usati proxy e servizi di bilanciamento del carico è Active Directory servizi federati (ADFS) con OpenID Connect (OIDC).
 
-## <a name="get-started"></a>Attività iniziali
+## <a name="get-started"></a>Introduzione
 
 Acquisire un certificato HTTPS, applicarlo e [configurare l'host](#configure-your-host-to-require-certificates) per richiedere i certificati.
 
-Nell'app Web aggiungere un riferimento al `Microsoft.AspNetCore.Authentication.Certificate` pacchetto. Quindi, nel `Startup.Configure` metodo chiamare `app.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme).UseCertificateAuthentication(...);` con le opzioni, fornendo un delegato per `OnCertificateValidated` per eseguire qualsiasi convalida supplementare sul certificato client inviato con le richieste. Trasformare le `ClaimsPrincipal` `context.Principal` informazioni in un oggetto e impostarle sulla proprietà.
+Nell'app Web aggiungere un riferimento al pacchetto `Microsoft.AspNetCore.Authentication.Certificate`. Quindi, nel metodo `Startup.ConfigureServices`, chiamare `services.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme).UseCertificateAuthentication(...);` con le opzioni, fornendo un delegato per `OnCertificateValidated` eseguire qualsiasi convalida supplementare sul certificato client inviato con le richieste. Trasformare le informazioni in un `ClaimsPrincipal` e impostarle sulla proprietà `context.Principal`.
 
-Se l'autenticazione ha esito negativo, `403 (Forbidden)` questo gestore restituisce `401 (Unauthorized)`una risposta anziché un, come si può immaginare. Il motivo è che l'autenticazione deve verificarsi durante la connessione TLS iniziale. Quando raggiunge il gestore, è troppo tardi. Non è possibile aggiornare la connessione da una connessione anonima a un'altra con un certificato.
+Se l'autenticazione ha esito negativo, questo gestore restituisce una risposta `403 (Forbidden)` piuttosto una `401 (Unauthorized)`, come si può immaginare. Il motivo è che l'autenticazione deve verificarsi durante la connessione TLS iniziale. Quando raggiunge il gestore, è troppo tardi. Non è possibile aggiornare la connessione da una connessione anonima a un'altra con un certificato.
 
-Aggiungere `app.UseAuthentication();` anche il `Startup.Configure` metodo. In caso contrario, HttpContext. User non verrà impostato su `ClaimsPrincipal` creato dal certificato. Ad esempio:
+Aggiungere anche `app.UseAuthentication();` nel metodo `Startup.Configure`. In caso contrario, HttpContext. User non verrà impostato su `ClaimsPrincipal` creato dal certificato. Esempio:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -59,7 +59,7 @@ Nell'esempio precedente viene illustrata la modalità predefinita per aggiungere
 
 ## <a name="configure-certificate-validation"></a>Configurare la convalida del certificato
 
-Il `CertificateAuthenticationOptions` gestore dispone di alcune convalide predefinite che rappresentano le convalide minime che è necessario eseguire su un certificato. Ognuna di queste impostazioni è abilitata per impostazione predefinita.
+Il gestore `CertificateAuthenticationOptions` dispone di alcune convalide predefinite che rappresentano le convalide minime che è necessario eseguire su un certificato. Ognuna di queste impostazioni è abilitata per impostazione predefinita.
 
 ### <a name="allowedcertificatetypes--chained-selfsigned-or-all-chained--selfsigned"></a>AllowedCertificateTypes = concatenato, SelfSigned o tutti (concatenato | SelfSigned)
 
@@ -95,8 +95,8 @@ Questa operazione non è possibile. Tenere presente che lo scambio di certificat
 
 Il gestore dispone di due eventi:
 
-* `OnAuthenticationFailed`&ndash; Viene chiamato se si verifica un'eccezione durante l'autenticazione e consente di rispondere.
-* `OnCertificateValidated`&ndash; Chiamato dopo che il certificato è stato convalidato, è stata passata la convalida ed è stata creata un'entità predefinita. Questo evento consente di eseguire una convalida personalizzata e di aumentare o sostituire l'entità di protezione. Gli esempi includono:
+* `OnAuthenticationFailed` &ndash; chiamato se si verifica un'eccezione durante l'autenticazione e consente di rispondere.
+* `OnCertificateValidated` &ndash; chiamato dopo che il certificato è stato convalidato, è stata passata la convalida ed è stata creata un'entità predefinita. Questo evento consente di eseguire una convalida personalizzata e di aumentare o sostituire l'entità di protezione. Gli esempi includono:
   * Determinare se il certificato è noto ai servizi.
   * Creazione di un'entità personalizzata. Si consideri l'esempio seguente in `Startup.ConfigureServices`:
 
@@ -177,7 +177,7 @@ services.AddAuthentication(
     });
 ```
 
-Concettualmente, la convalida del certificato è un problema di autorizzazione. L'aggiunta di un controllo, ad esempio, di un'autorità emittente o di un'identificazione personale in un criterio `OnCertificateValidated`di autorizzazione, anziché all'interno di, è perfettamente accettabile.
+Concettualmente, la convalida del certificato è un problema di autorizzazione. L'aggiunta di un controllo, ad esempio, di un'autorità emittente o di un'identificazione personale in un criterio di autorizzazione, anziché all'interno di `OnCertificateValidated`, è perfettamente accettabile.
 
 ## <a name="configure-your-host-to-require-certificates"></a>Configurare l'host per richiedere i certificati
 
