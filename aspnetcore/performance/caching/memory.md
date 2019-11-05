@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni su come memorizzare i dati nella cache in memoria in ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 8/22/2019
+ms.date: 11/2/2019
 uid: performance/caching/memory
-ms.openlocfilehash: d6b2aa363c552fdbda7f6e9ec5d476768c17d8a5
-ms.sourcegitcommit: 810d5831169770ee240d03207d6671dabea2486e
+ms.openlocfilehash: 1114d154ed1af09958df63ae718712177bbf6db0
+ms.sourcegitcommit: 09f4a5ded39cc8204576fe801d760bd8b611f3aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72779184"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611440"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>Memorizzare nella cache in memoria ASP.NET Core
 
@@ -158,15 +158,18 @@ Per altre informazioni, vedere [Compact Source su GitHub](https://github.com/asp
 
 ## <a name="cache-dependencies"></a>Dipendenze della cache
 
-Nell'esempio seguente viene illustrato come impostare come scaduti una voce della cache in caso di scadenza di una voce dipendente. Viene aggiunto un `CancellationChangeToken` all'elemento memorizzato nella cache. Quando `Cancel` viene chiamato sul `CancellationTokenSource`, vengono eliminate entrambe le voci della cache.
+Nell'esempio seguente viene illustrato come impostare come scaduti una voce della cache in caso di scadenza di una voce dipendente. Viene aggiunto un <xref:Microsoft.Extensions.Primitives.CancellationChangeToken> all'elemento memorizzato nella cache. Quando `Cancel` viene chiamato sul `CancellationTokenSource`, vengono eliminate entrambe le voci della cache.
 
 [!code-csharp[](memory/3.0sample/WebCacheSample/Controllers/HomeController.cs?name=snippet_ed)]
 
-L'uso di una `CancellationTokenSource` consente la rimozione di più voci della cache come gruppo. Con il modello di `using` nel codice precedente, le voci della cache create nel blocco di `using` erediteranno i trigger e le impostazioni di scadenza.
+L'uso di una <xref:System.Threading.CancellationTokenSource> consente la rimozione di più voci della cache come gruppo. Con il modello di `using` nel codice precedente, le voci della cache create nel blocco di `using` erediteranno i trigger e le impostazioni di scadenza.
 
 ## <a name="additional-notes"></a>Note aggiuntive
 
-* La scadenza non viene eseguita in background. Non sono presenti timer che analizzano attivamente la cache per gli elementi scaduti. Qualsiasi attività nella cache (`Get`, `Set`, `Remove`) può attivare un'analisi in background per gli elementi scaduti. Un timer nel `CancellationTokenSource` (`CancelAfter`) rimuoverà anche la voce e attiverà un'analisi per gli elementi scaduti. Ad esempio, anziché utilizzare `SetAbsoluteExpiration(TimeSpan.FromHours(1))`, utilizzare `CancellationTokenSource.CancelAfter(TimeSpan.FromHours(1))` per il token registrato. Quando questo token viene attivato, rimuove la voce immediatamente e genera i callback di rimozione. Per altre informazioni, vedere [questo problema di GitHub](https://github.com/aspnet/Caching/issues/248).
+* La scadenza non viene eseguita in background. Non sono presenti timer che analizzano attivamente la cache per gli elementi scaduti. Qualsiasi attività nella cache (`Get`, `Set`, `Remove`) può attivare un'analisi in background per gli elementi scaduti. Un timer nel `CancellationTokenSource` (<xref:System.Threading.CancellationTokenSource.CancelAfter*>) rimuove anche la voce e attiva un'analisi per gli elementi scaduti. Nell'esempio seguente viene utilizzato [CancellationTokenSource (TimeSpan)](/dotnet/api/system.threading.cancellationtokensource.-ctor) per il token registrato. Quando questo token viene attivato, rimuove immediatamente la voce e genera i callback di rimozione:
+
+[!code-csharp[](memory/3.0sample/WebCacheSample/Controllers/HomeController.cs?name=snippet_ae)]
+
 * Quando si usa un callback per ripopolare un elemento della cache:
 
   * Più richieste possono trovare il valore della chiave memorizzato nella cache perché il callback non è stato completato.
@@ -327,7 +330,7 @@ Per altre informazioni, vedere [Compact Source su GitHub](https://github.com/asp
 
 ## <a name="cache-dependencies"></a>Dipendenze della cache
 
-Nell'esempio seguente viene illustrato come impostare come scaduti una voce della cache in caso di scadenza di una voce dipendente. Viene aggiunto un `CancellationChangeToken` all'elemento memorizzato nella cache. Quando `Cancel` viene chiamato sul `CancellationTokenSource`, vengono eliminate entrambe le voci della cache.
+Nell'esempio seguente viene illustrato come impostare come scaduti una voce della cache in caso di scadenza di una voce dipendente. Viene aggiunto un <xref:Microsoft.Extensions.Primitives.CancellationChangeToken> all'elemento memorizzato nella cache. Quando `Cancel` viene chiamato sul `CancellationTokenSource`, vengono eliminate entrambe le voci della cache.
 
 [!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_ed)]
 

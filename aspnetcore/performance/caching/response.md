@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni su come usare la memorizzazione nella cache delle risposte per ridurre i requisiti di larghezza di banda e migliorare le prestazioni delle app ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 10/15/2019
+ms.date: 11/04/2019
 uid: performance/caching/response
-ms.openlocfilehash: 4ebac97689347245d25e0954b33729d78dd1b516
-ms.sourcegitcommit: dd026eceee79e943bd6b4a37b144803b50617583
+ms.openlocfilehash: a456e97053fea7c9ee9ec634ae9b7bbd52febe7f
+ms.sourcegitcommit: 09f4a5ded39cc8204576fe801d760bd8b611f3aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72378826"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611464"
 ---
 # <a name="response-caching-in-aspnet-core"></a>Memorizzazione nella cache delle risposte in ASP.NET Core
 
@@ -21,7 +21,9 @@ Di [John Luo](https://github.com/JunTaoLuo), [Rick Anderson](https://twitter.com
 
 La memorizzazione nella cache delle risposte riduce il numero di richieste effettuate da un client o da un proxy a un server Web. La memorizzazione nella cache delle risposte riduce anche la quantità di lavoro eseguita dal server Web per generare una risposta. La memorizzazione nella cache delle risposte è controllata dalle intestazioni che specificano come si desidera che client, proxy e middleware memorizzino le risposte.
 
-L' [attributo ResponseCache](#responsecache-attribute) fa parte dell'impostazione delle intestazioni di memorizzazione nella cache della risposta, che i client possono rispettare durante la memorizzazione nella cache delle risposte. Il [middleware di memorizzazione nella](xref:performance/caching/middleware) cache delle risposte può essere usato per memorizzare nella cache le risposte nel server. Il middleware può utilizzare le proprietà <xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute> per influenzare il comportamento di memorizzazione nella cache sul lato server.
+L' [attributo ResponseCache](#responsecache-attribute) fa parte dell'impostazione delle intestazioni di memorizzazione nella cache delle risposte. I client e i proxy intermedi devono rispettare le intestazioni per la memorizzazione nella cache delle risposte nella [specifica HTTP 1,1 Caching](https://tools.ietf.org/html/rfc7234).
+
+Per la memorizzazione nella cache sul lato server che segue la specifica di Caching HTTP 1,1, usare [middleware di caching della risposta](xref:performance/caching/middleware). Il middleware può utilizzare le proprietà <xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute> per influenzare il comportamento della memorizzazione nella cache sul lato server.
 
 ## <a name="http-based-response-caching"></a>Memorizzazione nella cache delle risposte basata su HTTP
 
@@ -44,7 +46,7 @@ Nella tabella seguente sono illustrate le altre intestazioni della cache che svo
 | [Età](https://tools.ietf.org/html/rfc7234#section-5.1)     | Stima della quantità di tempo in secondi trascorsa dalla generazione della risposta o dalla convalida corretta nel server di origine. |
 | [Scadenza](https://tools.ietf.org/html/rfc7234#section-5.3) | Tempo trascorso il quale la risposta è considerata obsoleta. |
 | [Pragma](https://tools.ietf.org/html/rfc7234#section-5.4)  | Esiste per la compatibilità con le versioni precedenti con le cache HTTP/1.0 per l'impostazione del comportamento `no-cache`. Se è presente l'intestazione `Cache-Control`, l'intestazione `Pragma` viene ignorata. |
-| [Variare](https://tools.ietf.org/html/rfc7231#section-7.1.4)  | Specifica che una risposta memorizzata nella cache non deve essere inviata, a meno che tutti i campi di intestazione @no__t 0 corrispondano sia nella richiesta originale della risposta memorizzata nella cache che nella nuova richiesta. |
+| [Variare](https://tools.ietf.org/html/rfc7231#section-7.1.4)  | Specifica che una risposta memorizzata nella cache non deve essere inviata a meno che tutti i campi di intestazione del `Vary` corrispondano sia nella richiesta originale della risposta memorizzata nella cache che nella nuova richiesta. |
 
 ## <a name="http-based-caching-respects-request-cache-control-directives"></a>La memorizzazione nella cache basata su HTTP rispetta le direttive di controllo della cache delle richieste
 
@@ -140,10 +142,15 @@ Pragma: no-cache
 
 ### <a name="location-and-duration"></a>Località e durata
 
-Per abilitare la memorizzazione nella cache, è necessario che <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Duration> sia impostato su un valore positivo e <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Location> sia `Any` (impostazione predefinita) o `Client`. In questo caso, l'intestazione `Cache-Control` è impostata sul valore di location seguito dal `max-age` della risposta.
+Per abilitare la memorizzazione nella cache, è necessario che <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Duration> sia impostato su un valore positivo e <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Location> sia `Any` (impostazione predefinita) o `Client`. Il Framework imposta l'intestazione `Cache-Control` sul valore Location seguito dal `max-age` della risposta.
 
-> [!NOTE]
-> le opzioni di <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Location> di `Any` e `Client` vengono convertite rispettivamente in valori di intestazione `Cache-Control` rispettivamente `public` e `private`. Come indicato in precedenza, l'impostazione di <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Location> su `None` imposta entrambe le intestazioni `Cache-Control` e `Pragma` su `no-cache`.
+le opzioni di <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Location> di `Any` e `Client` vengono convertite rispettivamente in valori di intestazione `Cache-Control` rispettivamente `public` e `private`. Come indicato nella sezione [NoStore e location. None](#nostore-and-locationnone) , l'impostazione di <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Location> su `None` imposta le intestazioni `Cache-Control` e `Pragma` su `no-cache`.
+
+`Location.Any` (`Cache-Control` impostato su `public`) indica che il *client o qualsiasi proxy intermedio* può memorizzare nella cache il valore, incluso il [middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware).
+
+`Location.Client` (`Cache-Control` impostato su `private`) indica che *solo il client* può memorizzare nella cache il valore. Nessuna cache intermedia deve memorizzare nella cache il valore, incluso il [middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware).
+
+Le intestazioni di controllo della cache forniscono semplicemente indicazioni ai client e ai proxy intermedi quando e come memorizzare nella cache le risposte. Non vi è alcuna garanzia che i client e i proxy soddisfino la [specifica HTTP 1,1 Caching](https://tools.ietf.org/html/rfc7234). Il [middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware) segue sempre le regole di memorizzazione nella cache definite dalla specifica.
 
 L'esempio seguente mostra il modello di pagina Cache3 dall'app di esempio e le intestazioni prodotte impostando <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Duration> e lasciando il valore predefinito <xref:Microsoft.AspNetCore.Mvc.CacheProfile.Location>:
 
