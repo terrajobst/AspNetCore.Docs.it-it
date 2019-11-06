@@ -45,7 +45,7 @@ Registrare il contesto del database con il contenitore di [inserimento delle dip
 
 ### <a name="add-required-nuget-packages"></a>Aggiungere i pacchetti NuGet necessari
 
-Eseguire il comando seguente dell'interfaccia della riga di comando di .NET Core CLI per aggiungere SQLite e CodeGeneration.Design al progetto:
+Eseguire il comando interfaccia della riga di comando di .NET Core seguente per aggiungere SQLite e CodeGeneration. Design al progetto:
 
 ```dotnetcli
 dotnet add package Microsoft.EntityFrameworkCore.SQLite
@@ -71,4 +71,5 @@ Registrare il contesto del database con il contenitore di [inserimento delle dip
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Startup.cs?name=snippet_UseSqlite&highlight=11-12)]
 
 Compilare il progetto per il controllo di eventuali errori.
+
 ::: moniker-end

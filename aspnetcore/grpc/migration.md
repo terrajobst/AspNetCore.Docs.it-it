@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 09/25/2019
 uid: grpc/migration
-ms.openlocfilehash: 596eca0f510387a18472eb353672980e0a8e0d24
-ms.sourcegitcommit: eb4fcdeb2f9e8413117624de42841a4997d1d82d
+ms.openlocfilehash: c4c07808540c9af370bfa253e8154a8a19f0f3de
+ms.sourcegitcommit: 897d4abff58505dae86b2947c5fe3d1b80d927f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72698003"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73634060"
 ---
 # <a name="migrating-grpc-services-from-c-core-to-aspnet-core"></a>Migrazione dei servizi gRPC da C-core a ASP.NET Core
 
@@ -80,9 +80,27 @@ public class GreeterService : Greeter.GreeterBase
 
 Le app basate su C-core configurano HTTPS tramite la [Proprietà Server. Ports](https://grpc.io/grpc/csharp/api/Grpc.Core.Server.html#Grpc_Core_Server_Ports). Un concetto simile viene usato per configurare i server in ASP.NET Core. Ad esempio, gheppio usa la [configurazione dell'endpoint](xref:fundamentals/servers/kestrel#endpoint-configuration) per questa funzionalità.
 
-## <a name="interceptors-and-middleware"></a>Intercettori e middleware
+## <a name="grpc-interceptors-vs-middleware"></a>gRPC intercettori vs middleware
 
-ASP.NET Core [middleware](xref:fundamentals/middleware/index) offre funzionalità simili rispetto agli intercettori nelle app gRPC basate su C core. Il middleware e gli intercettori sono concettualmente identici a quelli usati per costruire una pipeline che gestisce una richiesta gRPC. Entrambi consentono di eseguire il lavoro prima o dopo il componente successivo nella pipeline. Tuttavia, ASP.NET Core middleware opera sui messaggi HTTP/2 sottostanti, mentre gli intercettori operano sul livello gRPC dell'astrazione usando [ServerCallContext](https://grpc.io/grpc/csharp/api/Grpc.Core.ServerCallContext.html).
+ASP.NET Core [middleware](xref:fundamentals/middleware/index) offre funzionalità simili rispetto agli intercettori nelle app gRPC basate su C core. ASP.NET Core middleware e gli intercettori sono concettualmente simili. Sia
+
+* Vengono usati per costruire una pipeline che gestisce una richiesta gRPC.
+* Consentire l'esecuzione del lavoro prima o dopo il componente successivo nella pipeline.
+* Fornire l'accesso ai `HttpContext`:
+  * Nel middleware il `HttpContext` è un parametro.
+  * Negli intercettori è possibile accedere al `HttpContext` utilizzando il parametro `ServerCallContext` con il metodo di estensione `ServerCallContext.GetHttpContext`. Si noti che questa funzionalità è specifica degli intercettori in esecuzione in ASP.NET Core.
+
+differenze tra gli intercettori gRPC e il middleware ASP.NET Core:
+
+* Intercettori
+  * Operano sul livello gRPC dell'astrazione usando [ServerCallContext](https://grpc.io/grpc/csharp/api/Grpc.Core.ServerCallContext.html).
+  * Fornire l'accesso a:
+    * Messaggio deserializzato inviato a una chiamata.
+    * Messaggio restituito dalla chiamata prima della serializzazione.
+* Middleware
+  * Viene eseguito prima degli intercettori gRPC.
+  * Opera sui messaggi HTTP/2 sottostanti.
+  * Può accedere solo ai byte dai flussi di richiesta e risposta.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
