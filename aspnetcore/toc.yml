@@ -1020,6 +1020,8 @@
   items:
     - name: Panoramica
       uid: performance/performance-best-practices
+    - name: Memoria e GC
+      uid: performance/memory
     - name: Memorizzazione nella cache delle risposte
       items:
         - name: Panoramica
