@@ -5,14 +5,14 @@ description: Informazioni su come usare il framework di registrazione fornito da
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/08/2019
+ms.date: 11/05/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 697e6cf0cd1b51ad6c2942e21bc084d1fe6bfa4e
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: 2cb19d251ad69ebd7d18480c14857e948c69b747
+ms.sourcegitcommit: 6628cd23793b66e4ce88788db641a5bbf470c3c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259739"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73659963"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>Registrazione in .NET Core e ASP.NET Core
 
@@ -131,6 +131,69 @@ Per scrivere log nella classe `Program` di un'app ASP.NET Core, ottenere un'ista
 
 [!code-csharp[](index/samples/3.x/TodoApiSample/Program.cs?name=snippet_LogFromMain&highlight=9,10)]
 
+La registrazione durante la costruzione dell'host non è supportata direttamente. Tuttavia, è possibile usare un logger separato. Nell'esempio seguente viene usato un logger [Serilog](https://serilog.net/) per accedere `CreateHostBuilder`. `AddSerilog` usa la configurazione statica specificata in `Log.Logger`:
+
+```csharp
+using System;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        CreateHostBuilder(args).Build().Run();
+    }
+
+    public static IHostBuilder CreateHostBuilder(string[] args)
+    {
+        var builtConfig = new ConfigurationBuilder()
+            .AddJsonFile("appsettings.json")
+            .AddCommandLine(args)
+            .Build();
+
+        Log.Logger = new LoggerConfiguration()
+            .WriteTo.Console()
+            .WriteTo.File(builtConfig["Logging:FilePath"])
+            .CreateLogger();
+
+        try
+        {
+            return Host.CreateDefaultBuilder(args)
+                .ConfigureServices((context, services) =>
+                {
+                    services.AddRazorPages();
+                })
+                .ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    config.AddConfiguration(builtConfig);
+                })
+                .ConfigureLogging(logging =>
+                {   
+                    logging.AddSerilog();
+                })
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                });
+        }
+        catch (Exception ex)
+        {
+            Log.Fatal(ex, "Host builder error");
+
+            throw;
+        }
+        finally
+        {
+            Log.CloseAndFlush();
+        }
+    }
+}
+```
+
 ### <a name="create-logs-in-the-startup-class"></a>Creare log nella classe Startup
 
 Per scrivere log nel metodo `Startup.Configure` di un'app ASP.NET Core, includere un parametro `ILogger` nella firma del metodo:
@@ -167,6 +230,66 @@ Per scrivere log nella classe `Startup`, includere un parametro `ILogger` nella 
 Per scrivere log nella classe `Program`, ottenere un'istanza di `ILogger` dall'inserimento delle dipendenze:
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_LogFromMain&highlight=9,10)]
+
+La registrazione durante la costruzione dell'host non è supportata direttamente. Tuttavia, è possibile usare un logger separato. Nell'esempio seguente viene usato un logger [Serilog](https://serilog.net/) per accedere `CreateWebHostBuilder`. `AddSerilog` usa la configurazione statica specificata in `Log.Logger`:
+
+```csharp
+using System;
+using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        CreateWebHostBuilder(args).Build().Run();
+    }
+
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args)
+    {
+        var builtConfig = new ConfigurationBuilder()
+            .AddJsonFile("appsettings.json")
+            .AddCommandLine(args)
+            .Build();
+
+        Log.Logger = new LoggerConfiguration()
+            .WriteTo.Console()
+            .WriteTo.File(builtConfig["Logging:FilePath"])
+            .CreateLogger();
+
+        try
+        {
+            return WebHost.CreateDefaultBuilder(args)
+                .ConfigureServices((context, services) =>
+                {
+                    services.AddMvc();
+                })
+                .ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    config.AddConfiguration(builtConfig);
+                })
+                .ConfigureLogging(logging =>
+                {
+                    logging.AddSerilog();
+                })
+                .UseStartup<Startup>();
+        }
+        catch (Exception ex)
+        {
+            Log.Fatal(ex, "Host builder error");
+
+            throw;
+        }
+        finally
+        {
+            Log.CloseAndFlush();
+        }
+    }
+}
+```
 
 ::: moniker-end
 
@@ -395,11 +518,11 @@ ASP.NET Core definisce i livelli di registrazione seguenti, ordinati dal meno gr
 Usare il livello di registrazione per controllare la quantità di output di log scritto in un supporto di archiviazione specifico o in una finestra. Esempio:
 
 * In produzione:
-  * La registrazione al @no__t da 0 a livelli `Information` genera un volume elevato di messaggi di log dettagliati. Per controllare i costi e non superare i limiti di archiviazione dei dati, registrare `Trace` tramite messaggi di livello `Information` in un archivio dati a volume elevato e a basso costo.
-  * La registrazione da `Warning` a livelli `Critical` in genere produce un minor numero di messaggi di log più piccoli. Pertanto, i costi e i limiti di archiviazione in genere non rappresentano un problema, il che comporta una maggiore flessibilità di scelta dell'archivio dati.
+  * La registrazione all'`Trace` tramite livelli di `Information` produce un volume elevato di messaggi di log dettagliati. Per controllare i costi e non superare i limiti di archiviazione dei dati, registrare `Trace` tramite messaggi di `Information` livello in un archivio dati a volume elevato e a basso costo.
+  * La registrazione in `Warning` tramite livelli di `Critical` in genere produce un minor numero di messaggi di log più piccoli. Pertanto, i costi e i limiti di archiviazione in genere non rappresentano un problema, il che comporta una maggiore flessibilità di scelta dell'archivio dati.
 * Durante lo sviluppo:
-  * Registra `Warning` tramite messaggi `Critical` alla console.
-  * Quando si esegue la risoluzione dei problemi, aggiungere `Trace` a messaggi `Information`.
+  * Registrare `Warning` tramite messaggi di `Critical` alla console.
+  * Aggiungere `Trace` tramite `Information` messaggi durante la risoluzione dei problemi.
 
 La sezione [Filtro dei log](#log-filtering) più avanti in questo articolo descrive come controllare quali livelli di registrazione gestisce un provider.
 
@@ -623,16 +746,16 @@ Il secondo `AddFilter` specifica il provider Debug tramite il nome del tipo. Il 
 
 I dati di configurazione e il codice `AddFilter` illustrato negli esempi precedenti creano le regole indicate nella tabella seguente. I primi sei provengono dall'esempio di configurazione e gli ultimi due dall'esempio di codice.
 
-| NUMBER | Provider      | Categorie che iniziano con...          | Livello di registrazione minimo |
+| numero | Provider      | Categorie che iniziano con...          | Livello di registrazione minimo |
 | :----: | ------------- | --------------------------------------- | ----------------- |
 | 1      | Debug         | Tutte le categorie                          | Informazioni       |
 | 2      | Console       | Microsoft.AspNetCore.Mvc.Razor.Internal | Avviso           |
-| 3      | Console       | Microsoft.AspNetCore.Mvc.Razor.Razor    | Debug             |
-| 4      | Console       | Microsoft.AspNetCore.Mvc.Razor          | Errore             |
+| 3\.      | Console       | Microsoft.AspNetCore.Mvc.Razor.Razor    | Debug             |
+| 4      | Console       | Microsoft.AspNetCore.Mvc.Razor          | Error             |
 | 5      | Console       | Tutte le categorie                          | Informazioni       |
 | 6      | Tutti i provider | Tutte le categorie                          | Debug             |
 | 7      | Tutti i provider | System                                  | Debug             |
-| 8      | Debug         | Microsoft                               | Trace             |
+| 8      | Debug         | Microsoft                               | Traccia             |
 
 Quando viene creato un oggetto `ILogger`, l'oggetto `ILoggerFactory` seleziona una singola regola per ogni provider da applicare al logger. Tutti i messaggi scritti da un'istanza di `ILogger` vengono filtrati in base alle regole selezionate. Tra le regole disponibili viene selezionata la regola più specifica possibile per ogni coppia di categoria e provider.
 
@@ -941,7 +1064,7 @@ Alcuni framework di terze parti possono eseguire la [registrazione semantica, no
 L'uso di un framework di terze parti è simile a quello di uno dei provider predefiniti:
 
 1. Aggiungere un pacchetto NuGet al progetto.
-1. Chiamare un metodo di estensione @no__t 0 fornito dal framework di registrazione.
+1. Chiamare un metodo di estensione `ILoggerFactory` fornito dal framework di registrazione.
 
 Per altre informazioni, vedere la documentazione di ogni provider. I provider di registrazione di terze parti non sono supportati da Microsoft.
 

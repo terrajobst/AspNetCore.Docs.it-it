@@ -1,17 +1,17 @@
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 1. Creare un nuovo progetto.
-1. Selezionare il **servizio Worker**. Selezionare **Avanti**.
-1. Specificare il nome di un progetto nel campo **Nome progetto** oppure accettare il nome predefinito. Selezionare **Create**.
+1. Selezionare il **servizio Worker**. Scegliere **Avanti**.
+1. Specificare il nome di un progetto nel campo **Nome progetto** oppure accettare il nome predefinito. Scegliere **Crea**.
 1. Nella finestra di dialogo **Crea un nuovo servizio** del ruolo di lavoro selezionare **Crea**.
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 1. Creare un nuovo progetto.
 1. Selezionare **app** in **.NET Core** nella barra laterale.
-1. Selezionare **Worker** in **ASP.NET Core**. Selezionare **Avanti**.
-1. Selezionare **.NET Core 3,0** per il **Framework di destinazione**. Selezionare **Avanti**.
-1. Specificare un nome nel campo **nome progetto** . Selezionare **Create**.
+1. Selezionare **Worker** in **ASP.NET Core**. Scegliere **Avanti**.
+1. Selezionare **.NET Core 3,0** o versione successiva per il **Framework di destinazione**. Scegliere **Avanti**.
+1. Specificare un nome nel campo **nome progetto** . Scegliere **Crea**.
 
 # <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 
@@ -20,3 +20,5 @@ Usare il servizio di ruolo di lavoro (`worker`) con il comando[dotnet new](/dotn
 ```dotnetcli
 dotnet new worker -o ContosoWorker
 ```
+
+---
