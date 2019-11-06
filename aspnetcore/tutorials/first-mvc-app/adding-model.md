@@ -5,12 +5,12 @@ description: Aggiungere un modello a una app semplice di ASP.NET Core.
 ms.author: riande
 ms.date: 8/15/2019
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: 5ad31a2536ad70590eaa767cf20068512241f36b
-ms.sourcegitcommit: 14b25156e34c82ed0495b4aff5776ac5b1950b5e
+ms.openlocfilehash: d6d75bcbab875c08bfff532d968013dca323beed
+ms.sourcegitcommit: 897d4abff58505dae86b2947c5fe3d1b80d927f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71295469"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73634132"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Aggiungere un modello a un'app ASP.NET Core MVC
 
@@ -148,18 +148,18 @@ Nella finestra di dialogo **Aggiungi scaffolding** selezionare **Controller MVC 
 
 Completare la finestra di dialogo **Aggiungi controller**:
 
-* **Classe modello:** *Movie (MvcMovie.Models)*
-* **Classe del contesto dei dati:** *MvcMovieContext (MvcMovie.Data)*
+* **Classe di modello:** *Movie (MvcMovie.Models)*
+* **Classe del contesto dati:** *MvcMovieContext (MvcMovie. Data)*
 
 ![Aggiungere il contesto dati](adding-model/_static/dc3.png)
 
 * **Viste:** mantenere il valore predefinito di ogni opzione selezionata
-* **Nome controller:** mantenere il valore predefinito *MoviesController*
+* **Nome del controller:** mantenere il valore predefinito *MoviesController*
 * Selezionare **Aggiungi**
 
 Visual Studio crea:
 
-* Un controller di film (*Controllers/MoviesController.cs*)
+* Un controller di filmati (*Controllers/MoviesController.cs*)
 * File di vista Razor per le pagine Create (Crea), Delete (Elimina), Details (Dettagli), Edit (Modifica) e Index (Indice) (*Views/Movies/\*.cshtml*)
 
 La creazione automatica di questi file è nota come *scaffolding*.
@@ -198,7 +198,7 @@ La creazione automatica di questi file è nota come *scaffolding*.
 
 <!-- End of tabs                  -->
 
-Non è possibile usare ancora le pagine sottoposte a scaffolding perché il database non esiste. Se si esegue l'app e si fa clic sul collegamento **Movie App**, si ottiene un messaggio di errore *Impossibile aprire il database* o *Nessuna tabella di questo tipo: Movie*.
+Non è possibile usare ancora le pagine sottoposte a scaffolding perché il database non esiste. Se si esegue l'app e si fa clic sul collegamento dell' **app Movie** , viene visualizzato un messaggio di errore *non è possibile aprire il database* o una *tabella di questo tipo:* il messaggio di errore Movie.
 
 <a name="migration"></a>
 
@@ -210,16 +210,16 @@ Usare la funzionalità [Migrazioni](xref:data/ef-mvc/migrations) di EF Core per 
 
 Dal menu **Strumenti** scegliere **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**.
 
-Nella Console di Gestione pacchetti immettere i comandi seguenti:
+In PMC, immettere i comandi seguenti:
 
-```console
+```PMC
 Add-Migration InitialCreate
 Update-Database
 ```
 
-* `Add-Migration InitialCreate`: Genera un file di migrazione *Migrations/{timestamp}_InitialCreate.cs*. L'argomento `InitialCreate` è il nome della migrazione. È possibile usare qualsiasi nome, ma per convenzione viene selezionato un nome che descrive la migrazione. Trattandosi della prima migrazione, la classe generata contiene il codice per creare lo schema del database. Lo schema del database si basa sul modello specificato nella classe `MvcMovieContext`.
+* `Add-Migration InitialCreate`: genera un file di migrazione *Migrations/{timestamp} _InitialCreate. cs* . L'argomento `InitialCreate` è il nome della migrazione. È possibile usare qualsiasi nome, ma per convenzione viene selezionato un nome che descrive la migrazione. Trattandosi della prima migrazione, la classe generata contiene il codice per creare lo schema del database. Lo schema del database si basa sul modello specificato nella classe `MvcMovieContext`.
 
-* `Update-Database`: Aggiorna il database alla migrazione più recente, con il comando precedente creato. Il comando esegue il metodo `Up` nel file *Migrations/{time-stamp}_InitialCreate.cs*, che crea il database.
+* `Update-Database`: aggiorna il database alla migrazione più recente, creata dal comando precedente. Il comando esegue il metodo `Up` nel file *Migrations/{time-stamp}_InitialCreate.cs*, che crea il database.
 
   Il comando database update genera l'avviso seguente: 
 
@@ -238,9 +238,9 @@ dotnet ef migrations add InitialCreate
 dotnet ef database update
 ```
 
-* `ef migrations add InitialCreate`: Genera un file di migrazione *Migrations/{timestamp}_InitialCreate.cs*. L'argomento `InitialCreate` è il nome della migrazione. È possibile usare qualsiasi nome, ma per convenzione viene selezionato un nome che descrive la migrazione. Trattandosi della prima migrazione, la classe generata contiene il codice per creare lo schema del database. Lo schema del database è basato sul modello specificato nella classe `MvcMovieContext` (nel file *Data/MvcMovieContext.cs*).
+* `ef migrations add InitialCreate`: genera un file di migrazione *Migrations/{timestamp} _InitialCreate. cs* . L'argomento `InitialCreate` è il nome della migrazione. È possibile usare qualsiasi nome, ma per convenzione viene selezionato un nome che descrive la migrazione. Trattandosi della prima migrazione, la classe generata contiene il codice per creare lo schema del database. Lo schema del database è basato sul modello specificato nella classe `MvcMovieContext` (nel file *Data/MvcMovieContext.cs*).
 
-* `ef database update`: Aggiorna il database alla migrazione più recente, con il comando precedente creato. Il comando esegue il metodo `Up` nel file *Migrations/{time-stamp}_InitialCreate.cs*, che crea il database.
+* `ef database update`: aggiorna il database alla migrazione più recente, creata dal comando precedente. Il comando esegue il metodo `Up` nel file *Migrations/{time-stamp}_InitialCreate.cs*, che crea il database.
 
 [!INCLUDE [ more information on the CLI tools for EF Core](~/includes/ef-cli.md)]
 
@@ -256,7 +256,7 @@ Esaminare il file di migrazione *Migrations/{timestamp}_InitialCreate.cs*:
 
 <a name="test"></a>
 
-## <a name="test-the-app"></a>Eseguire il test dell'app
+## <a name="test-the-app"></a>Eseguire il test dell'applicazione
 
 * Eseguire l'app e fare clic sul collegamento **Movie App**.
 
@@ -406,13 +406,13 @@ Nella finestra di dialogo **Aggiungi scaffolding** selezionare **Controller MVC 
 
 Completare la finestra di dialogo **Aggiungi controller**:
 
-* **Classe modello:** *Movie (MvcMovie.Models)*
-* **Classe del contesto dei dati:** selezionare l'icona **+** e aggiungere il valore predefinito **MvcMovie.Models.MvcMovieContext**
+* **Classe di modello:** *Movie (MvcMovie.Models)*
+* **Classe del contesto dati:** selezionare l'icona **+** e aggiungere il valore predefinito **MvcMovie.Models.MvcMovieContext**
 
 ![Aggiungere il contesto dati](adding-model/_static/dc.png)
 
 * **Viste:** mantenere il valore predefinito di ogni opzione selezionata
-* **Nome controller:** mantenere il valore predefinito *MoviesController*
+* **Nome del controller:** mantenere il valore predefinito *MoviesController*
 * Selezionare **Aggiungi**
 
 ![Finestra di dialogo Aggiungi controller](adding-model/_static/add_controller2.png)
@@ -420,7 +420,7 @@ Completare la finestra di dialogo **Aggiungi controller**:
 Visual Studio crea:
 
 * Una [classe del contesto di database](xref:data/ef-mvc/intro#create-the-database-context) Entity Framework Core (*Data/MvcMovieContext.cs*)
-* Un controller di film (*Controllers/MoviesController.cs*)
+* Un controller di filmati (*Controllers/MoviesController.cs*)
 * File di vista Razor per le pagine Create (Crea), Delete (Elimina), Details (Dettagli), Edit (Modifica) e Index (Indice) (*Views/Movies/\*.cshtml*)
 
 La creazione automatica del contesto di database e di viste e metodi di azione [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) (create, read, update, delete) è nota come *scaffolding*.
@@ -515,16 +515,16 @@ In questa sezione vengono completate le attività seguenti:
 
    ![Menu della Console di Gestione pacchetti](~/tutorials/first-mvc-app/adding-model/_static/pmc.png)
 
-1. Nella Console di Gestione pacchetti immettere i comandi seguenti:
+1. In PMC, immettere i comandi seguenti:
 
-   ```console
+   ```PMC
    Add-Migration Initial
    Update-Database
    ```
 
    Il comando `Add-Migration` genera un codice per creare lo schema del database iniziale.
 
-   Lo schema del database si basa sul modello specificato nella classe `MvcMovieContext`. L'argomento `Initial` è il nome della migrazione. È possibile usare qualsiasi nome, ma per convenzione viene usato un nome che descrive la migrazione. Per altre informazioni, vedere <xref:data/ef-mvc/migrations>.
+   Lo schema del database si basa sul modello specificato nella classe `MvcMovieContext`. L'argomento `Initial` è il nome della migrazione. È possibile usare qualsiasi nome, ma per convenzione viene usato un nome che descrive la migrazione. Per ulteriori informazioni, vedere <xref:data/ef-mvc/migrations>.
 
    Il comando `Update-Database` esegue il metodo `Up` nel file *Migrations/{time-stamp}_InitialCreate.cs*, che crea il database.
 
@@ -566,7 +566,7 @@ Il nome della stringa di connessione viene passato al contesto chiamando un meto
 
 <a name="test"></a>
 
-### <a name="test-the-app"></a>Eseguire il test dell'app
+### <a name="test-the-app"></a>Eseguire il test dell'applicazione
 
 * Eseguire l'app e accodare `/Movies` all'URL nel browser (`http://localhost:port/movies`).
 

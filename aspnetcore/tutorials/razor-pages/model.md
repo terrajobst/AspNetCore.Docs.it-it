@@ -3,14 +3,14 @@ title: Aggiungere un modello a un'app Razor Pages in ASP.NET Core
 author: rick-anderson
 description: Scoprire come aggiungere classi per la gestione dei film in un database tramite Entity Framework Core (EF Core).
 ms.author: riande
-ms.date: 9/22/2019
+ms.date: 11/05/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 4f8b80cb51bd10eb3b136a780dc123c41d61c0a5
-ms.sourcegitcommit: e71b6a85b0e94a600af607107e298f932924c849
+ms.openlocfilehash: 312b3d4eb13eb04453bf0c3256fc362918157a45
+ms.sourcegitcommit: 897d4abff58505dae86b2947c5fe3d1b80d927f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72519081"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73634140"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Aggiungere un modello a un'app Razor Pages in ASP.NET Core
 
@@ -18,7 +18,7 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ::: moniker range=">= aspnetcore-3.0"
 
-In questa sezione si aggiungono alcune classi per la gestione di filmati in un database. Queste classi vengono usate con [Entity Framework Core](/ef/core) (EF Core) per lavorare in un database. EF Core è un framework ORM (Object-Relational Mapping) che semplifica l'accesso ai dati.
+In questa sezione vengono aggiunte le classi per la gestione dei film in un [database SQLite](https://www.sqlite.org/index.html)multipiattaforma. Le app create da un modello di ASP.NET Core usano un database SQLite. Le classi modello dell'app vengono usate con [Entity Framework Core (EF Core)](/ef/core) ([SQLite EF Core provider di database](/ef/core/providers/sqlite)) per lavorare con il database. EF Core è un framework ORM (Object-Relational Mapping) che semplifica l'accesso ai dati.
 
 Le classi di modello sono dette classi POCO (da "plain-old CLR objects") perché non hanno alcuna dipendenza in EF Core. Definiscono le proprietà dei dati archiviati nel database.
 
@@ -198,7 +198,7 @@ I comandi precedenti generano l'avviso seguente: "nessun tipo specificato per la
 
 Il comando Migrations genera il codice per creare lo schema del database iniziale. Lo schema è basato sul modello specificato in `DbContext`. L'argomento `InitialCreate` viene usato per denominare le migrazioni. È possibile usare qualsiasi nome, ma per convenzione viene selezionato un nome che descrive la migrazione.
 
-Il comando `update` esegue il metodo `Up` nelle migrazioni che non sono state applicate. In questo caso, `update` esegue il metodo `Up` in *Migrations/\<time-stamp > file _InitialCreate. cs* , che crea il database.
+Il comando `update` esegue il metodo `Up` nelle migrazioni che non sono state applicate. In questo caso, `update` esegue il `Up` metodo in *Migrations/\<timestamp > file _InitialCreate. cs* , che crea il database.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -267,7 +267,7 @@ L'esercitazione successiva illustra i file creati dallo scaffolding.
 <!--  ::: moniker previous version   -->
 ::: moniker range="< aspnetcore-3.0"
 
-In questa sezione si aggiungono alcune classi per la gestione di filmati in un database. Queste classi vengono usate con [Entity Framework Core](/ef/core) (EF Core) per lavorare in un database. EF Core è un framework object-relational mapping (ORM) che semplifica il codice di accesso ai dati.
+In questa sezione vengono aggiunte le classi per la gestione dei film in un [database SQLite](https://www.sqlite.org/index.html)multipiattaforma. Le app create da un modello di ASP.NET Core usano un database SQLite. Le classi modello dell'app vengono usate con [Entity Framework Core (EF Core)](/ef/core) ([SQLite EF Core provider di database](/ef/core/providers/sqlite)) per lavorare con il database. EF Core è un framework ORM (Object-Relational Mapping) che semplifica l'accesso ai dati.
 
 Le classi di modello sono dette classi POCO (da "plain-old CLR objects") perché non hanno alcuna dipendenza in EF Core. Definiscono le proprietà dei dati archiviati nel database.
 
