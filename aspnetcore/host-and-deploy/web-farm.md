@@ -5,14 +5,14 @@ description: Informazioni su come ospitare più istanze di un'app ASP.NET Core c
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/12/2019
+ms.date: 11/07/2019
 uid: host-and-deploy/web-farm
-ms.openlocfilehash: df1be8cc76a5017923f26636a241b69881dfcc81
-ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
-ms.translationtype: HT
+ms.openlocfilehash: 16ec2162be8199857d0f2d0ff989ec4cdc6c3277
+ms.sourcegitcommit: 68d804d60e104c81fe77a87a9af70b5df2726f60
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65970115"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73830699"
 ---
 # <a name="host-aspnet-core-in-a-web-farm"></a>Ospitare ASP.NET Core in una Web farm
 
@@ -60,7 +60,7 @@ Gli scenari seguenti non richiedono configurazioni aggiuntive, ma dipendono da t
 
 | Scenario | Dipende da &hellip; |
 | -------- | ------------------- |
-| Autenticazione | Protezione dei dati (vedere <xref:security/data-protection/configuration/overview>).<br><br>Per altre informazioni, vedere <xref:security/authentication/cookie> e <xref:security/cookie-sharing>. |
+| Authentication | Protezione dei dati (vedere <xref:security/data-protection/configuration/overview>).<br><br>Per altre informazioni, vedere <xref:security/authentication/cookie> e <xref:security/cookie-sharing>. |
 | identità | Configurazione di autenticazione e database.<br><br>Per ulteriori informazioni, vedere <xref:security/authentication/identity>. |
 | Sessione | Protezione dei dati (cookie crittografati) (vedere <xref:security/data-protection/configuration/overview>) e memorizzazione nella cache (vedere <xref:performance/caching/distributed>).<br><br>Per altre informazioni, vedere [Stato di sessioni e app: Stato sessione](xref:fundamentals/app-state#session-state). |
 | TempData | Protezione dei dati (cookie crittografati) (vedere <xref:security/data-protection/configuration/overview>) o sessione (vedere [Stato di sessioni e app: Stato sessione](xref:fundamentals/app-state#session-state)).<br><br>Per altre informazioni, vedere [Stato di sessioni e app: TempData](xref:fundamentals/app-state#tempdata). |
@@ -88,3 +88,7 @@ Per altre informazioni sulla configurazione della protezione dei dati per le dis
 ## <a name="obtain-data-from-apps"></a>Ottenere dati dalle app
 
 Se le app della Web farm sono in grado di rispondere alle richieste, è possibile ottenere dati sulle richieste, le connessioni e altri dati dalle app tramite middleware inline di terminale. Per altre informazioni e codice di esempio, vedere <xref:test/troubleshoot#obtain-data-from-an-app>.
+
+## <a name="additional-resources"></a>Risorse aggiuntive
+
+* [Estensione script personalizzata per Windows](/azure/virtual-machines/extensions/custom-script-windows) &ndash; Scarica ed esegue script in macchine virtuali di Azure, utile per la configurazione post-distribuzione e l'installazione del software.
