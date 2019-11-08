@@ -5,14 +5,14 @@ description: Individuare i server Web Kestrel e HTTP.sys per ASP.NET Core. Infor
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/10/2019
+ms.date: 11/07/2019
 uid: fundamentals/servers/index
-ms.openlocfilehash: 3bdc2bf776946b8fae8886a37ecd3ed5e3f860fe
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: e542dd4506eb77f949c0c87bea3044397bbb1b8f
+ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259832"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73799400"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Implementazioni di server Web in ASP.NET Core
 
@@ -34,7 +34,7 @@ Usare Kestrel:
 
   ![Kestrel comunica indirettamente con Internet attraverso un server proxy inverso, ad esempio IIS, Nginx o Apache](kestrel/_static/kestrel-to-internet.png)
 
-È supportata la configurazione host @ no__t-0with o senza un server proxy inverso @ no__t-1is.
+La configurazione host&mdash;con o senza un server proxy inverso&mdash;è supportata.
 
 Per indicazioni per la configurazione di Kestrel e per informazioni su quando usare Kestrel in una configurazione con proxy inverso, vedere <xref:fundamentals/servers/kestrel>.
 
@@ -53,7 +53,7 @@ Quando si usa [IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-arc
 * Nello stesso processo del processo di lavoro IIS ([modello di hosting in-process](#hosting-models)) con il server HTTP IIS. *In-process* è la configurazione consigliata.
 * In un processo separato dal processo di lavoro IIS ([modello di hosting out-of-process](#hosting-models)) con il [server Kestrel](#kestrel).
 
-Il [modulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module) è un modulo IIS nativo che gestisce le richieste IIS native tra IIS e il server HTTP IIS in-process o il server Kestrel. Per altre informazioni, vedere <xref:host-and-deploy/aspnet-core-module>.
+Il [modulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module) è un modulo IIS nativo che gestisce le richieste IIS native tra IIS e il server HTTP IIS in-process o il server Kestrel. Per ulteriori informazioni, vedere <xref:host-and-deploy/aspnet-core-module>.
 
 ## <a name="hosting-models"></a>Modelli di hosting
 
@@ -128,7 +128,7 @@ Per informazioni su come usare Apache in Linux come server proxy inverso per Kes
 
 ## <a name="httpsys"></a>HTTP.sys
 
-Se si eseguono app ASP.NET Core in Windows, HTTP.sys è un'alternativa a Kestrel. Kestrel è in genere consigliato per ottenere prestazioni ottimali. HTTP.sys è utilizzabile negli scenari in cui l'app viene esposta a Internet e le funzionalità necessarie sono supportate da HTTP.sys, ma non da Kestrel. Per altre informazioni, vedere <xref:fundamentals/servers/httpsys>.
+Se si eseguono app ASP.NET Core in Windows, HTTP.sys è un'alternativa a Kestrel. Kestrel è in genere consigliato per ottenere prestazioni ottimali. HTTP.sys è utilizzabile negli scenari in cui l'app viene esposta a Internet e le funzionalità necessarie sono supportate da HTTP.sys, ma non da Kestrel. Per ulteriori informazioni, vedere <xref:fundamentals/servers/httpsys>.
 
 ![HTTP.sys comunica direttamente con Internet](httpsys/_static/httpsys-to-internet.png)
 
@@ -156,7 +156,9 @@ Il server viene avviato quando l'editor o l'ambiente di sviluppo integrato (IDE)
 * [Visual Studio Code](https://code.visualstudio.com/) &ndash; L'app e il server vengono avviati da [Omnisharp](https://github.com/OmniSharp/omnisharp-vscode), che attiva il debugger CoreCLR.
 * [Visual Studio per Mac](https://visualstudio.microsoft.com/vs/mac/) &ndash; L'app e il server vengono avviati dal [debugger in modalità Mono Soft](https://www.mono-project.com/docs/advanced/runtime/docs/soft-debugger/).
 
-All'avvio dell'app dal prompt dei comandi nella cartella del progetto, [dotnet run](/dotnet/core/tools/dotnet-run) avvia l'app e il server (solo Kestrel e HTTP.sys). La configurazione viene specificata dall'opzione `-c|--configuration`, impostata su `Debug` (valore predefinito) o su `Release`. Se sono presenti profili di avvio in un file *launchSettings.json*, usare l'opzione `--launch-profile <NAME>` per impostare il profilo di avvio (ad esempio, `Development` o `Production`). Per altre informazioni, vedere [dotnet run](/dotnet/core/tools/dotnet-run) e [Creazione di pacchetti di distribuzione di .NET Core](/dotnet/core/build/distribution-packaging).
+All'avvio dell'app dal prompt dei comandi nella cartella del progetto, [dotnet run](/dotnet/core/tools/dotnet-run) avvia l'app e il server (solo Kestrel e HTTP.sys). La configurazione viene specificata dall'opzione `-c|--configuration`, impostata su `Debug` (valore predefinito) o su `Release`.
+
+Un file *launchSettings. JSON* fornisce la configurazione quando si avvia un'app con `dotnet run` o con un debugger incorporato negli strumenti, ad esempio Visual Studio. Se i profili di avvio sono presenti in un file *launchSettings. JSON* , usare l'opzione `--launch-profile {PROFILE NAME}` con il comando`dotnet run` oppure selezionare il profilo in Visual Studio. Per altre informazioni, vedere [dotnet run](/dotnet/core/tools/dotnet-run) e [Creazione di pacchetti di distribuzione di .NET Core](/dotnet/core/build/distribution-packaging).
 
 ## <a name="http2-support"></a>Supporto per HTTP/2
 

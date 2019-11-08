@@ -5,14 +5,14 @@ description: Informazioni su come controllare il comportamento di app ASP.NET Co
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/05/2019
+ms.date: 11/07/2019
 uid: fundamentals/environments
-ms.openlocfilehash: 91fa2a78e62dff65704a3dda826f45f27bad6064
-ms.sourcegitcommit: 897d4abff58505dae86b2947c5fe3d1b80d927f3
+ms.openlocfilehash: 7e49499e94fb9ea82a0ba17e4e9de05c6a2d4e98
+ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73634097"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73799305"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>Usare più ambienti in ASP.NET Core
 
@@ -262,7 +262,7 @@ Per impostare la variabile di ambiente `ASPNETCORE_ENVIRONMENT` con *web.config*
 
 **File di progetto o profilo di pubblicazione**
 
-**Per le distribuzioni di Windows IIS:** Includere la proprietà `<EnvironmentName>` nel profilo di pubblicazione (con*estensione pubxml*) o nel file di progetto. Questo approccio imposta l'ambiente in *web.config* quando viene pubblicato il progetto:
+**Per le distribuzioni di Windows IIS:** Includere la proprietà `<EnvironmentName>` nel [profilo di pubblicazione (con estensione pubxml)](xref:host-and-deploy/visual-studio-publish-profiles) o nel file di progetto. Questo approccio imposta l'ambiente in *web.config* quando viene pubblicato il progetto:
 
 ```xml
 <PropertyGroup>

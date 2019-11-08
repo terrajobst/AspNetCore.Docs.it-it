@@ -6,24 +6,24 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/23/2019
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: 500824807307840a9279dd00c2fe632835737c2d
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 6d0d9b5467d9d27b936a17fa86f73e7d8123b75b
+ms.sourcegitcommit: 6628cd23793b66e4ce88788db641a5bbf470c3c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71080789"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73760977"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Provider di archiviazione personalizzati per ASP.NET Core identità
 
-Di [Steve Smith](https://ardalis.com/)
+[Steve Smith](https://ardalis.com/)
 
 ASP.NET Core identità è un sistema estensibile che consente di creare un provider di archiviazione personalizzato e connetterlo all'app. In questo argomento viene descritto come creare un provider di archiviazione personalizzato per ASP.NET Core identità. Vengono illustrati i concetti importanti per la creazione di un provider di archiviazione, ma non una procedura dettagliata.
 
-[Visualizzare o scaricare un esempio da GitHub](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/identity/sample).
+[Visualizzare o scaricare l'esempio da GitHub](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/identity/sample).
 
 ## <a name="introduction"></a>Introduzione
 
-Per impostazione predefinita, il sistema di identità ASP.NET Core archivia le informazioni sugli utenti in un database SQL Server utilizzando Entity Framework Core. Per molte app, questo approccio funziona correttamente. Tuttavia, può essere preferibile utilizzare un meccanismo di persistenza o uno schema di dati diverso. Ad esempio:
+Per impostazione predefinita, il sistema di identità ASP.NET Core archivia le informazioni sugli utenti in un database SQL Server utilizzando Entity Framework Core. Per molte app, questo approccio funziona correttamente. Tuttavia, può essere preferibile utilizzare un meccanismo di persistenza o uno schema di dati diverso. Esempio:
 
 * Si usa l' [archiviazione tabelle di Azure](/azure/storage/) o un altro archivio dati.
 * Le tabelle di database hanno una struttura diversa. 
@@ -33,7 +33,7 @@ In ognuno di questi casi, è possibile scrivere un provider personalizzato per i
 
 ASP.NET Core identità è inclusa nei modelli di progetto di Visual Studio con l'opzione "singoli account utente".
 
-Quando si usa il interfaccia della riga di comando di .NET Core, `-au Individual`aggiungere:
+Quando si usa il interfaccia della riga di comando di .NET Core, aggiungere `-au Individual`:
 
 ```dotnetcli
 dotnet new mvc -au Individual
@@ -49,9 +49,9 @@ Il diagramma seguente illustra il modo in cui un'app Web interagisce con i Manag
 
 Per creare un provider di archiviazione personalizzato, creare l'origine dati, il livello di accesso ai dati e le classi di archivio che interagiscono con questo livello di accesso ai dati (le caselle verde e grigio nel diagramma precedente). Non è necessario personalizzare i Manager o il codice dell'app che interagisce con essi (le caselle blu sopra).
 
-Quando si crea una nuova istanza `UserManager` di `RoleManager` o si fornisce il tipo della classe utente e si passa un'istanza della classe Store come argomento. Questo approccio consente di inserire le classi personalizzate in ASP.NET Core. 
+Quando si crea una nuova istanza di `UserManager` o `RoleManager` si fornisce il tipo della classe utente e si passa un'istanza della classe Store come argomento. Questo approccio consente di inserire le classi personalizzate in ASP.NET Core. 
 
-[Riconfigurare l'app per l'uso di un nuovo provider di archiviazione](#reconfigure-app-to-use-a-new-storage-provider) Mostra `RoleManager` come creare un'istanza `UserManager` di e con un archivio personalizzato.
+[Riconfigurare l'app per l'uso di un nuovo provider di archiviazione](#reconfigure-app-to-use-a-new-storage-provider) Mostra come creare un'istanza di `UserManager` e `RoleManager` con un archivio personalizzato.
 
 ## <a name="aspnet-core-identity-stores-data-types"></a>ASP.NET Core identità Archivia i tipi di dati
 
@@ -105,25 +105,25 @@ Archivia e recupera le informazioni di accesso dell'utente, ad esempio un provid
 
 Archivia e recupera i ruoli assegnati a quali utenti. [Esempio](/dotnet/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
-**PUNTA** Implementare solo le classi che si intende usare nell'app.
+**Suggerimento:** Implementare solo le classi che si intende usare nell'app.
 
 Nelle classi di accesso ai dati fornire codice per eseguire operazioni sui dati per il meccanismo di persistenza. Ad esempio, all'interno di un provider personalizzato, è possibile che sia presente il codice seguente per creare un nuovo utente nella classe *Store* :
 
 [!code-csharp[](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs?name=createuser&highlight=7)]
 
-La logica di implementazione per la creazione dell'utente è `_usersTable.CreateAsync` nel metodo, illustrato di seguito.
+La logica di implementazione per la creazione dell'utente si trova nel metodo `_usersTable.CreateAsync`, illustrato di seguito.
 
 ## <a name="customize-the-user-class"></a>Personalizzare la classe utente
 
 Quando si implementa un provider di archiviazione, creare una classe utente equivalente alla [classe IdentityUser](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuser).
 
-Come minimo, la classe utente deve includere un oggetto `Id` e una `UserName` proprietà.
+Come minimo, la classe utente deve includere un `Id` e una proprietà `UserName`.
 
-La `IdentityUser` classe definisce le proprietà chiamate da `UserManager` durante l'esecuzione di operazioni richieste. Il tipo predefinito della `Id` proprietà è una stringa, ma è possibile ereditare da `IdentityUser<TKey, TUserClaim, TUserRole, TUserLogin, TUserToken>` e specificare un tipo diverso. Il Framework prevede che l'implementazione dell'archiviazione gestisca le conversioni dei tipi di dati.
+La classe `IdentityUser` definisce le proprietà chiamate dall'`UserManager` quando eseguono le operazioni richieste. Il tipo predefinito della proprietà `Id` è una stringa, ma è possibile ereditare da `IdentityUser<TKey, TUserClaim, TUserRole, TUserLogin, TUserToken>` e specificare un tipo diverso. Il Framework prevede che l'implementazione dell'archiviazione gestisca le conversioni dei tipi di dati.
 
 ## <a name="customize-the-user-store"></a>Personalizzare l'archivio utenti
 
-Creare una `UserStore` classe che fornisce i metodi per tutte le operazioni sui dati dell'utente. Questa classe è equivalente alla classe [TUser&lt;&gt; di userStore ambito](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.userstore-1) . Nella classe implementare `IUserStore<TUser>` e le interfacce facoltative necessarie. `UserStore` È possibile selezionare le interfacce facoltative da implementare in base alle funzionalità fornite nell'app.
+Creare una classe `UserStore` che fornisca i metodi per tutte le operazioni sui dati dell'utente. Questa classe è equivalente alla classe [userstore ambito&lt;TUser&gt;](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.userstore-1) . Nella classe `UserStore` implementare `IUserStore<TUser>` e le interfacce facoltative necessarie. È possibile selezionare le interfacce facoltative da implementare in base alle funzionalità fornite nell'app.
 
 ### <a name="optional-interfaces"></a>Interfacce facoltative
 
@@ -140,36 +140,36 @@ Creare una `UserStore` classe che fornisce i metodi per tutte le operazioni sui 
 
 Le interfacce opzionali ereditano da `IUserStore<TUser>`. Nell' [app di esempio](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/security/authentication/identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs)è possibile visualizzare un archivio utenti di esempio parzialmente implementato.
 
-All'interno `UserStore` della classe si utilizzano le classi di accesso ai dati create per eseguire operazioni. Questi vengono passati usando l'inserimento di dipendenze. Ad esempio, nel SQL Server con l'implementazione di elegante, `UserStore` la classe ha `CreateAsync` il metodo che usa un'istanza `DapperUsersTable` di per inserire un nuovo record:
+All'interno della classe `UserStore` si utilizzano le classi di accesso ai dati create per eseguire operazioni. Questi vengono passati usando l'inserimento di dipendenze. Ad esempio, nell'SQL Server con l'implementazione di elegante, la classe `UserStore` dispone del `CreateAsync` metodo che usa un'istanza di `DapperUsersTable` per inserire un nuovo record:
 
 [!code-csharp[](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/DapperUsersTable.cs?name=createuser&highlight=7)]
 
 ### <a name="interfaces-to-implement-when-customizing-user-store"></a>Interfacce da implementare quando si Personalizza l'archivio utenti
 
 * **IUserStore**  
- L' [interfaccia&lt;TUser&gt; di IUserStore](/dotnet/api/microsoft.aspnetcore.identity.iuserstore-1) è l'unica interfaccia che è necessario implementare nell'archivio utente. Definisce i metodi per la creazione, l'aggiornamento, l'eliminazione e il recupero degli utenti.
+ L'interfaccia di [&gt;IUserStore&lt;TUser](/dotnet/api/microsoft.aspnetcore.identity.iuserstore-1) è l'unica interfaccia che è necessario implementare nell'archivio utente. Definisce i metodi per la creazione, l'aggiornamento, l'eliminazione e il recupero degli utenti.
 * **IUserClaimStore**  
- L' [interfaccia&lt;IUserClaimStore&gt; TUser](/dotnet/api/microsoft.aspnetcore.identity.iuserclaimstore-1) definisce i metodi implementati per abilitare le attestazioni utente. Contiene i metodi per l'aggiunta, la rimozione e il recupero di attestazioni utente.
+ L'interfaccia [&gt;IUserClaimStore&lt;TUser](/dotnet/api/microsoft.aspnetcore.identity.iuserclaimstore-1) definisce i metodi implementati per abilitare le attestazioni utente. Contiene i metodi per l'aggiunta, la rimozione e il recupero di attestazioni utente.
 * **IUserLoginStore**  
- Il [&lt;TUser&gt; IUserLoginStore](/dotnet/api/microsoft.aspnetcore.identity.iuserloginstore-1) definisce i metodi implementati per abilitare i provider di autenticazione esterni. Contiene i metodi per l'aggiunta, la rimozione e il recupero degli account di accesso utente e un metodo per il recupero di un utente in base alle informazioni di accesso.
+ Il [&gt;IUserLoginStore&lt;TUser](/dotnet/api/microsoft.aspnetcore.identity.iuserloginstore-1) definisce i metodi implementati per abilitare i provider di autenticazione esterni. Contiene i metodi per l'aggiunta, la rimozione e il recupero degli account di accesso utente e un metodo per il recupero di un utente in base alle informazioni di accesso.
 * **IUserRoleStore**  
- L' [interfaccia&lt;IUserRoleStore&gt; TUser](/dotnet/api/microsoft.aspnetcore.identity.iuserrolestore-1) definisce i metodi implementati per eseguire il mapping di un utente a un ruolo. Contiene i metodi per aggiungere, rimuovere e recuperare i ruoli di un utente e un metodo per verificare se un utente è assegnato a un ruolo.
+ L'interfaccia [&gt;IUserRoleStore&lt;TUser](/dotnet/api/microsoft.aspnetcore.identity.iuserrolestore-1) definisce i metodi implementati per eseguire il mapping di un utente a un ruolo. Contiene i metodi per aggiungere, rimuovere e recuperare i ruoli di un utente e un metodo per verificare se un utente è assegnato a un ruolo.
 * **IUserPasswordStore**  
- L' [interfaccia&lt;IUserPasswordStore&gt; TUser](/dotnet/api/microsoft.aspnetcore.identity.iuserpasswordstore-1) definisce i metodi implementati per rendere permanente le password con hash. Contiene i metodi per ottenere e impostare la password con hash e un metodo che indica se l'utente ha impostato una password.
+ L'interfaccia [&gt;IUserPasswordStore&lt;TUser](/dotnet/api/microsoft.aspnetcore.identity.iuserpasswordstore-1) definisce i metodi implementati per rendere permanente le password con hash. Contiene i metodi per ottenere e impostare la password con hash e un metodo che indica se l'utente ha impostato una password.
 * **IUserSecurityStampStore**  
- L' [interfaccia&lt;IUserSecurityStampStore&gt; TUser](/dotnet/api/microsoft.aspnetcore.identity.iusersecuritystampstore-1) definisce i metodi implementati per usare un indicatore di sicurezza per indicare se le informazioni sull'account dell'utente sono state modificate. Questo timbro viene aggiornato quando un utente modifica la password o aggiunge o rimuove gli account di accesso. Contiene i metodi per ottenere e impostare l'indicatore di sicurezza.
+ L'interfaccia [&gt;IUserSecurityStampStore&lt;TUser](/dotnet/api/microsoft.aspnetcore.identity.iusersecuritystampstore-1) definisce i metodi implementati per usare un indicatore di sicurezza per indicare se le informazioni sull'account dell'utente sono state modificate. Questo timbro viene aggiornato quando un utente modifica la password o aggiunge o rimuove gli account di accesso. Contiene i metodi per ottenere e impostare l'indicatore di sicurezza.
 * **IUserTwoFactorStore**  
- L' [interfaccia&lt;IUserTwoFactorStore&gt; TUser](/dotnet/api/microsoft.aspnetcore.identity.iusertwofactorstore-1) definisce i metodi implementati per supportare l'autenticazione a due fattori. Contiene i metodi per ottenere e impostare se per un utente è abilitata l'autenticazione a due fattori.
+ L'interfaccia [&gt;IUserTwoFactorStore&lt;TUser](/dotnet/api/microsoft.aspnetcore.identity.iusertwofactorstore-1) definisce i metodi implementati per supportare l'autenticazione a due fattori. Contiene i metodi per ottenere e impostare se per un utente è abilitata l'autenticazione a due fattori.
 * **IUserPhoneNumberStore**  
- L' [interfaccia&lt;IUserPhoneNumberStore&gt; TUser](/dotnet/api/microsoft.aspnetcore.identity.iuserphonenumberstore-1) definisce i metodi implementati per archiviare i numeri di telefono dell'utente. Contiene i metodi per ottenere e impostare il numero di telefono e se il numero di telefono è confermato.
+ L'interfaccia [&gt;IUserPhoneNumberStore&lt;TUser](/dotnet/api/microsoft.aspnetcore.identity.iuserphonenumberstore-1) definisce i metodi implementati per archiviare i numeri di telefono dell'utente. Contiene i metodi per ottenere e impostare il numero di telefono e se il numero di telefono è confermato.
 * **IUserEmailStore**  
- L' [interfaccia&lt;IUserEmailStore&gt; TUser](/dotnet/api/microsoft.aspnetcore.identity.iuseremailstore-1) definisce i metodi implementati per archiviare gli indirizzi di posta elettronica dell'utente. Contiene i metodi per ottenere e impostare l'indirizzo di posta elettronica e verificare se il messaggio di posta elettronica è confermato.
+ L'interfaccia [&gt;IUserEmailStore&lt;TUser](/dotnet/api/microsoft.aspnetcore.identity.iuseremailstore-1) definisce i metodi implementati per archiviare gli indirizzi di posta elettronica dell'utente. Contiene i metodi per ottenere e impostare l'indirizzo di posta elettronica e verificare se il messaggio di posta elettronica è confermato.
 * **IUserLockoutStore**  
- L' [interfaccia&lt;IUserLockoutStore&gt; TUser](/dotnet/api/microsoft.aspnetcore.identity.iuserlockoutstore-1) definisce i metodi implementati per archiviare informazioni sul blocco di un account. Contiene i metodi per tenere traccia dei tentativi di accesso e dei blocchi non riusciti.
+ L'interfaccia [&gt;IUserLockoutStore&lt;TUser](/dotnet/api/microsoft.aspnetcore.identity.iuserlockoutstore-1) definisce i metodi implementati per archiviare informazioni sul blocco di un account. Contiene i metodi per tenere traccia dei tentativi di accesso e dei blocchi non riusciti.
 * **IQueryableUserStore**  
- L' [interfaccia&lt;IQueryableUserStore&gt; TUser](/dotnet/api/microsoft.aspnetcore.identity.iqueryableuserstore-1) definisce i membri implementati per fornire un archivio utenti Queryable.
+ L'interfaccia [&gt;IQueryableUserStore&lt;TUser](/dotnet/api/microsoft.aspnetcore.identity.iqueryableuserstore-1) definisce i membri implementati per fornire un archivio utenti Queryable.
 
-Si implementano solo le interfacce necessarie nell'app. Ad esempio:
+Si implementano solo le interfacce necessarie nell'app. Esempio:
 
 ```csharp
 public class UserStore : IUserStore<IdentityUser>,
@@ -185,11 +185,11 @@ public class UserStore : IUserStore<IdentityUser>,
 
 ### <a name="identityuserclaim-identityuserlogin-and-identityuserrole"></a>IdentityUserClaim, IdentityUserLogin e IdentityUserRole
 
-Lo `Microsoft.AspNet.Identity.EntityFramework` spazio dei nomi contiene implementazioni delle classi [IdentityUserClaim](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserclaim-1), [IdentityUserLogin](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuserlogin)e [IdentityUserRole](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserrole-1) . Se si usano queste funzionalità, è possibile creare versioni personalizzate di queste classi e definire le proprietà per l'app. Tuttavia, a volte è più efficiente non caricare queste entità in memoria durante l'esecuzione di operazioni di base, ad esempio l'aggiunta o la rimozione di un'attestazione dell'utente. Al contrario, le classi dell'archivio back-end possono eseguire queste operazioni direttamente sull'origine dati. Il `UserStore.GetClaimsAsync` metodo, ad esempio, può chiamare `userClaimTable.FindByUserId(user.Id)` il metodo per eseguire direttamente una query sulla tabella e restituire un elenco di attestazioni.
+Lo spazio dei nomi `Microsoft.AspNet.Identity.EntityFramework` contiene le implementazioni delle classi [IdentityUserClaim](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserclaim-1), [IdentityUserLogin](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuserlogin)e [IdentityUserRole](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserrole-1) . Se si usano queste funzionalità, è possibile creare versioni personalizzate di queste classi e definire le proprietà per l'app. Tuttavia, a volte è più efficiente non caricare queste entità in memoria durante l'esecuzione di operazioni di base, ad esempio l'aggiunta o la rimozione di un'attestazione dell'utente. Al contrario, le classi dell'archivio back-end possono eseguire queste operazioni direttamente sull'origine dati. Il metodo `UserStore.GetClaimsAsync`, ad esempio, può chiamare il metodo `userClaimTable.FindByUserId(user.Id)` per eseguire direttamente una query sulla tabella e restituire un elenco di attestazioni.
 
 ## <a name="customize-the-role-class"></a>Personalizzare la classe Role
 
-Quando si implementa un provider di archiviazione del ruolo, è possibile creare un tipo di ruolo personalizzato. Non è necessario implementare un'interfaccia specifica, ma deve avere un oggetto `Id` e in genere avrà una `Name` proprietà.
+Quando si implementa un provider di archiviazione del ruolo, è possibile creare un tipo di ruolo personalizzato. Non è necessario implementare un'interfaccia specifica, ma deve avere un `Id` e in genere avrà una proprietà `Name`.
 
 Di seguito è riportato un esempio di classe Role:
 
@@ -197,22 +197,22 @@ Di seguito è riportato un esempio di classe Role:
 
 ## <a name="customize-the-role-store"></a>Personalizzare l'archivio dei ruoli
 
-È possibile creare una `RoleStore` classe che fornisce i metodi per tutte le operazioni di dati sui ruoli. Questa classe è equivalente alla classe [TRole&lt;&gt; di nell'rolestore](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.rolestore-1) . Nella classe si `IRoleStore<TRole>` implementa e, facoltativamente, l' `IQueryableRoleStore<TRole>` interfaccia. `RoleStore`
+È possibile creare una classe `RoleStore` che fornisce i metodi per tutte le operazioni di dati sui ruoli. Questa classe è equivalente alla classe [nell'rolestore&lt;TRole&gt;](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.rolestore-1) . Nella classe `RoleStore` si implementano i `IRoleStore<TRole>` e, facoltativamente, l'interfaccia `IQueryableRoleStore<TRole>`.
 
 * **IRoleStore&lt;TRole&gt;**  
- L' [interfaccia&lt;IRoleStore&gt; TRole](/dotnet/api/microsoft.aspnetcore.identity.irolestore-1) definisce i metodi da implementare nella classe dell'archivio ruoli. Contiene i metodi per la creazione, l'aggiornamento, l'eliminazione e il recupero di ruoli.
-* **RoleStore&lt;TRole&gt;**  
- Per personalizzare `RoleStore`, creare una classe che implementi `IRoleStore<TRole>` l'interfaccia. 
+ L'interfaccia [&gt;IRoleStore&lt;TRole](/dotnet/api/microsoft.aspnetcore.identity.irolestore-1) definisce i metodi da implementare nella classe dell'archivio ruoli. Contiene i metodi per la creazione, l'aggiornamento, l'eliminazione e il recupero di ruoli.
+* **Nell'rolestore&lt;TRole&gt;**  
+ Per personalizzare `RoleStore`, creare una classe che implementi l'interfaccia `IRoleStore<TRole>`. 
 
 ## <a name="reconfigure-app-to-use-a-new-storage-provider"></a>Riconfigurare l'app per l'uso di un nuovo provider di archiviazione
 
 Dopo aver implementato un provider di archiviazione, è necessario configurare l'app per usarla. Se l'app usa il provider predefinito, sostituirla con il provider personalizzato.
 
-1. Rimuovere il `Microsoft.AspNetCore.EntityFramework.Identity` pacchetto NuGet.
+1. Rimuovere il pacchetto NuGet `Microsoft.AspNetCore.EntityFramework.Identity`.
 1. Se il provider di archiviazione si trova in un progetto o un pacchetto separato, aggiungervi un riferimento.
-1. Sostituire tutti i riferimenti `Microsoft.AspNetCore.EntityFramework.Identity` a con un'istruzione using per lo spazio dei nomi del provider di archiviazione.
-1. Nel metodo modificare il `AddIdentity` metodo in modo da usare i tipi personalizzati. `ConfigureServices` A questo scopo, è possibile creare metodi di estensione personalizzati. Per un esempio, vedere [IdentityServiceCollectionExtensions](https://github.com/aspnet/Identity/blob/rel/1.1.0/src/Microsoft.AspNetCore.Identity/IdentityServiceCollectionExtensions.cs) .
-1. Se si usano i ruoli, aggiornare `RoleManager` per `RoleStore` usare la classe.
+1. Sostituire tutti i riferimenti a `Microsoft.AspNetCore.EntityFramework.Identity` con un'istruzione using per lo spazio dei nomi del provider di archiviazione.
+1. Nel metodo `ConfigureServices` modificare il metodo `AddIdentity` per usare i tipi personalizzati. A questo scopo, è possibile creare metodi di estensione personalizzati. Per un esempio, vedere [IdentityServiceCollectionExtensions](https://github.com/aspnet/Identity/blob/rel/1.1.0/src/Microsoft.AspNetCore.Identity/IdentityServiceCollectionExtensions.cs) .
+1. Se si usano i ruoli, aggiornare il `RoleManager` per usare la classe `RoleStore`.
 1. Aggiornare la stringa di connessione e le credenziali alla configurazione dell'app.
 
 Esempio:
@@ -238,4 +238,4 @@ public void ConfigureServices(IServiceCollection services)
 ## <a name="references"></a>Riferimenti
 
 * [Provider di archiviazione personalizzati per l'identità ASP.NET 4. x](/aspnet/identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity)
-* [Identità ASP.NET Core](https://github.com/aspnet/identity) &ndash; Questo repository include collegamenti a provider di archivi gestiti dalla community.
+* [ASP.NET Core identità](https://github.com/aspnet/AspNetCore/tree/master/src/Identity) &ndash; questo repository include collegamenti a provider di archivi gestiti dalla community.

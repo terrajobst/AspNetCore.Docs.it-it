@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/07/2019
 uid: fundamentals/static-files
-ms.openlocfilehash: 2f153551a86860616469200862723528e4a8cc1c
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: b989b90100318ac874dc399daf65ef7d21c5549f
+ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007324"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73799472"
 ---
 # <a name="static-files-in-aspnet-core"></a>File statici in ASP.NET Core
 
@@ -82,7 +82,7 @@ L'overload del metodo `UseStaticFiles` senza parametri contrassegna i file nella
 
 [!code-cshtml[](static-files/samples/1x/Views/Home/Index.cshtml?name=snippet_static_file_wwwroot)]
 
-Nel codice precedente, il carattere tilde `~/` punta alla [radice Web](xref:fundamentals/index#web-root).
+Nel codice precedente il carattere tilde `~/` punta alla [radice Web](xref:fundamentals/index#web-root).
 
 ### <a name="serve-files-outside-of-web-root"></a>Usare i file all'esterno della radice Web
 
@@ -108,7 +108,7 @@ Il markup seguente si riferisce a *MyStaticFiles/images/banner1.svg*:
 
 ### <a name="set-http-response-headers"></a>Impostare le intestazioni della risposta HTTP
 
-Per impostare le intestazioni della risposta HTTP, è possibile usare un oggetto [StaticFileOptions](/dotnet/api/microsoft.aspnetcore.builder.staticfileoptions). Oltre alla configurazione del file statico che funge dalla [radice Web](xref:fundamentals/index#web-root), il codice seguente imposta l'intestazione `Cache-Control`:
+Per impostare le intestazioni della risposta HTTP, è possibile usare un oggetto [StaticFileOptions](/dotnet/api/microsoft.aspnetcore.builder.staticfileoptions). Oltre a configurare la funzione di file statici dalla [radice Web](xref:fundamentals/index#web-root), il codice seguente imposta l'intestazione `Cache-Control`:
 
 [!code-csharp[](static-files/samples/1x/StartupAddHeader.cs?name=snippet_ConfigureMethod)]
 
@@ -171,7 +171,7 @@ Il codice seguente modifica il nome file predefinito in *mydefault.html*:
 
 ## <a name="usefileserver"></a>UseFileServer
 
-[UseFileServer](/dotnet/api/microsoft.aspnetcore.builder.fileserverextensions.usefileserver#Microsoft_AspNetCore_Builder_FileServerExtensions_UseFileServer_Microsoft_AspNetCore_Builder_IApplicationBuilder_) combina la funzionalità di `UseStaticFiles`, `UseDefaultFiles` e `UseDirectoryBrowser`.
+<xref:Microsoft.AspNetCore.Builder.FileServerExtensions.UseFileServer*> combina la funzionalità di `UseStaticFiles`, `UseDefaultFiles`e, facoltativamente, `UseDirectoryBrowser`.
 
 Il codice seguente consente di usare i file statici e il file predefinito. L'esplorazione directory non è abilitata.
 
@@ -208,7 +208,7 @@ Dall'uso della gerarchia di file e del codice precedente ne deriva quanto segue:
 
 | URI            |                             Risposta  |
 | ------- | ------|
-| *http://\<server_address>/StaticFiles/images/banner1.svg*    |      MyStaticFiles/images/banner1.svg |
+| *http://\<indirizzo_server>/StaticFiles/images/banner1.svg*    |      MyStaticFiles/images/banner1.svg |
 | *http://\<indirizzo_server>/StaticFiles*             |     MyStaticFiles/default.html |
 
 Se non esiste un file predefinito nella directory *MyStaticFiles*, *http://\<indirizzo_server > / StaticFiles* restituisce l'elenco di directory con i collegamenti su cui è possibile fare clic:
@@ -218,7 +218,7 @@ Se non esiste un file predefinito nella directory *MyStaticFiles*, *http://\<ind
 > [!NOTE]
 > <xref:Microsoft.AspNetCore.Builder.DefaultFilesExtensions.UseDefaultFiles*> e <xref:Microsoft.AspNetCore.Builder.DirectoryBrowserExtensions.UseDirectoryBrowser*> eseguono un reindirizzamento sul lato client da `http://{SERVER ADDRESS}/StaticFiles` (senza barra rovesciata) a `http://{SERVER ADDRESS}/StaticFiles/` (con barra rovesciata). Gli URL relativi all'interno della directory *StaticFiles* non sono validi senza barra finale.
 
-## <a name="fileextensioncontenttypeprovider"></a>FileExtensionContentTypeProvider
+## <a name="fileextensioncontenttypeprovider"></a>Classe FileExtensionContentTypeProvider
 
 La classe [FileExtensionContentTypeProvider](/dotnet/api/microsoft.aspnetcore.staticfiles.fileextensioncontenttypeprovider) contiene una proprietà `Mappings` che può essere usata come mapping di estensioni di file nei tipi di contenuto MIME. Nell'esempio seguente varie estensioni di file vengono registrate in tipi MIME noti. L'estensione *rtf* viene sostituita e l'estensione *mp4* viene rimossa.
 
