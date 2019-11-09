@@ -25,7 +25,6 @@ Per ritardare le chiamate di interoperabilità JavaScript fino a quando non vien
 Per il codice di esempio precedente, fornire una `setElementText` funzione JavaScript all'interno dell'elemento `<head>` di *wwwroot/index.html* (Blazer webassembly) o *pages/_Host. cshtml* (server Blaze). La funzione viene chiamata con `IJSRuntime.InvokeVoidAsync` e non restituisce un valore:
 
 ```html
-<!--  -->
 <script>
   window.setElementText = (element, text) => element.innerText = text;
 </script>
