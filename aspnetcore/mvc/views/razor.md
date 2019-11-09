@@ -5,12 +5,12 @@ description: Informazioni sulla sintassi di markup Razor per l'incorporamento di
 ms.author: riande
 ms.date: 09/28/2019
 uid: mvc/views/razor
-ms.openlocfilehash: 6f8835419dbf4c271617f57484c3408e0af30617
-ms.sourcegitcommit: f62014bb558ff6f8fdaef2e96cb05986e216aacd
+ms.openlocfilehash: d8d686c23ea61950947798f213c9846058f1812e
+ms.sourcegitcommit: 4818385c3cfe0805e15138a2c1785b62deeaab90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2019
-ms.locfileid: "71592319"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73896906"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Guida di riferimento della sintassi Razor per ASP.NET Core
 
@@ -229,7 +229,7 @@ Il tag `<text>` è utile per controllare gli spazi vuoti durante il rendering de
 
 ### <a name="explicit-line-transition"></a>Transizione di riga esplicita
 
-Per eseguire il rendering del resto di un'intera riga come HTML all'interno di un blocco di codice, usare la sintassi `@:`:
+Per eseguire il rendering del resto di un'intera riga come HTML all'interno di un blocco di codice, usare `@:` sintassi:
 
 ```cshtml
 @for (var i = 0; i < people.Length; i++)
@@ -389,7 +389,7 @@ Razor è in grado di proteggere le sezioni critiche con le istruzioni di lock:
 }
 ```
 
-### <a name="comments"></a>Commenti
+### <a name="comments"></a>Comments
 
 Razor supporta i commenti in C# e HTML:
 
@@ -455,7 +455,7 @@ La direttiva `@attribute` aggiunge l'attributo specificato alla classe della pag
 
 ::: moniker range=">= aspnetcore-3.0"
 
-### <a name="code"></a>\@codice
+### <a name="code"></a>codice \@
 
 *Questo scenario si applica solo ai componenti di Razor (con estensione razor).*
 
@@ -601,7 +601,7 @@ La direttiva `@inject` consente alla pagina Razor di inserire un servizio dal [c
 
 *Questo scenario si applica solo ai componenti di Razor (con estensione razor).*
 
-La direttiva `@layout` specifica un layout per un componente di Razor. I componenti di layout vengono usati per evitare la duplicazione e l'incoerenza del codice. Per altre informazioni, vedere <xref:blazor/layouts>.
+La direttiva `@layout` specifica un layout per un componente di Razor. I componenti di layout vengono usati per evitare la duplicazione e l'incoerenza del codice. Per ulteriori informazioni, vedere <xref:blazor/layouts>.
 
 ::: moniker-end
 
@@ -676,14 +676,14 @@ Se la cartella *EvenMorePages* nell'esempio precedente ha un file di importazion
 
 La direttiva `@page` ha effetti diversi a seconda del tipo del file in cui viene visualizzata. La direttiva:
 
-* In un file con estensione *cshtml* indica che il file è una pagina Razor. Per altre informazioni, vedere <xref:razor-pages/index>.
-* Specifica che un componente Razor deve gestire direttamente le richieste. Per altre informazioni, vedere <xref:blazor/routing>.
+* In un file con estensione *cshtml* indica che il file è una pagina Razor. Per ulteriori informazioni, vedere [route personalizzate](xref:razor-pages/index#custom-routes) e <xref:razor-pages/index>.
+* Specifica che un componente Razor deve gestire direttamente le richieste. Per ulteriori informazioni, vedere <xref:blazor/routing>.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-La direttiva `@page` nella prima riga di un file con estensione *cshtml* indica che il file è una pagina Razor. Per altre informazioni, vedere <xref:razor-pages/index>.
+La direttiva `@page` nella prima riga di un file con estensione *cshtml* indica che il file è una pagina Razor. Per ulteriori informazioni, vedere <xref:razor-pages/index>.
 
 ::: moniker-end
 
@@ -691,7 +691,7 @@ La direttiva `@page` nella prima riga di un file con estensione *cshtml* indica 
 
 *Questo scenario si applica solo alle viste MVC e a Razor Pages (con estensione cshtml).*
 
-La direttiva `@section` viene usata in combinazione con i [layout di MVC e Razor Pages](xref:mvc/views/layout) per abilitare le viste o le pagine per il rendering del contenuto in diverse parti della pagina HTML. Per altre informazioni, vedere <xref:mvc/views/layout>.
+La direttiva `@section` viene usata in combinazione con i [layout di MVC e Razor Pages](xref:mvc/views/layout) per abilitare le viste o le pagine per il rendering del contenuto in diverse parti della pagina HTML. Per ulteriori informazioni, vedere <xref:mvc/views/layout>.
 
 ### <a name="using"></a>\@using
 
@@ -713,37 +713,37 @@ Nei [componenti di Razor](xref:blazor/components) `@using` controlla anche quali
 
 *Questo scenario si applica solo ai componenti di Razor (con estensione razor).*
 
-`@attributes` consente a un componente di eseguire il rendering di attributi non dichiarati. Per altre informazioni, vedere <xref:blazor/components#attribute-splatting-and-arbitrary-parameters>.
+`@attributes` consente a un componente di eseguire il rendering di attributi non dichiarati. Per ulteriori informazioni, vedere <xref:blazor/components#attribute-splatting-and-arbitrary-parameters>.
 
 ### <a name="bind"></a>\@bind
 
 *Questo scenario si applica solo ai componenti di Razor (con estensione razor).*
 
-Il data binding nei componenti viene eseguito con l'attributo `@bind`. Per altre informazioni, vedere <xref:blazor/components#data-binding>.
+Il data binding nei componenti viene eseguito con l'attributo `@bind`. Per ulteriori informazioni, vedere <xref:blazor/components#data-binding>.
 
 ### <a name="onevent"></a>\@on{evento}
 
 *Questo scenario si applica solo ai componenti di Razor (con estensione razor).*
 
-Razor fornisce funzionalità di gestione degli eventi per i componenti. Per altre informazioni, vedere <xref:blazor/components#event-handling>.
+Razor fornisce funzionalità di gestione degli eventi per i componenti. Per ulteriori informazioni, vedere <xref:blazor/components#event-handling>.
 
 ### <a name="key"></a>\@key
 
 *Questo scenario si applica solo ai componenti di Razor (con estensione razor).*
 
-L'attributo della direttiva `@key` fa in modo che l'algoritmo di controllo delle differenze tra componenti garantisca la conservazione degli elementi o dei componenti in base al valore della chiave. Per altre informazioni, vedere <xref:blazor/components#use-key-to-control-the-preservation-of-elements-and-components>.
+L'attributo della direttiva `@key` fa in modo che l'algoritmo di controllo delle differenze tra componenti garantisca la conservazione degli elementi o dei componenti in base al valore della chiave. Per ulteriori informazioni, vedere <xref:blazor/components#use-key-to-control-the-preservation-of-elements-and-components>.
 
 ### <a name="ref"></a>\@ref
 
 *Questo scenario si applica solo ai componenti di Razor (con estensione razor).*
 
-I riferimenti ai componenti (`@ref`) consentono di fare riferimento a un'istanza di un componente in modo che sia possibile eseguire comandi su tale istanza. Per altre informazioni, vedere <xref:blazor/components#capture-references-to-components>.
+I riferimenti ai componenti (`@ref`) consentono di fare riferimento a un'istanza di un componente in modo che sia possibile eseguire comandi su tale istanza. Per ulteriori informazioni, vedere <xref:blazor/components#capture-references-to-components>.
 
 ### <a name="typeparam"></a>\@typeparam
 
 *Questo scenario si applica solo ai componenti di Razor (con estensione razor).*
 
-La `@typeparam` direttiva dichiara un parametro di tipo generico per la classe Component generata. Per altre informazioni, vedere <xref:blazor/components#generic-typed-components>.
+La direttiva `@typeparam` dichiara un parametro di tipo generico per la classe Component generata. Per ulteriori informazioni, vedere <xref:blazor/components#generic-typed-components>.
 
 ::: moniker-end
 
@@ -881,7 +881,7 @@ Le parole chiave Razor sono precedute dal carattere di escape `@(Razor Keyword)`
 * foreach
 * if
 * else
-* lock
+* blocco
 * switch
 * try
 * catch
@@ -960,7 +960,7 @@ Il motore di visualizzazione Razor esegue ricerche con distinzione tra maiuscole
 * Origine basata su file:
   * Nei sistemi operativi con file system che non fanno distinzione tra maiuscole e minuscole (ad esempio, Windows), le ricerche del provider di file fisici non eseguono la distinzione tra maiuscole e minuscole. Ad esempio, `return View("Test")` comporta corrispondenze per */Views/Home/Test.cshtml*, */Views/home/test.cshtml* e qualsiasi altra variante di maiuscole e minuscole.
   * Nei file system che fanno distinzione tra maiuscole e minuscole (ad esempio Linux, OS x e con `EmbeddedFileProvider`), le ricerche eseguono la distinzione tra maiuscole e minuscole. Ad esempio, `return View("Test")` trova specificamente le corrispondenze per */Views/Home/Test.cshtml*.
-* Visualizzazioni precompilate: Con ASP.NET Core 2.0 e versioni successive, la ricerca di visualizzazioni precompilate non esegue la distinzione tra maiuscole e minuscole in tutti i sistemi operativi. Questo comportamento è identico al comportamento del provider di file fisici in Windows. Se due visualizzazioni precompilate differiscono solo nelle lettere maiuscole e minuscole, il risultato di ricerca è non deterministico.
+* Visualizzazioni precompilate: con ASP.NET Core 2.0 e versioni successive, la ricerca di visualizzazioni precompilate non esegue la distinzione tra maiuscole e minuscole in tutti i sistemi operativi. Questo comportamento è identico al comportamento del provider di file fisici in Windows. Se due visualizzazioni precompilate differiscono solo nelle lettere maiuscole e minuscole, il risultato di ricerca è non deterministico.
 
 Gli sviluppatori sono invitati a far corrispondere le maiuscole e minuscole dei nomi di file e directory per quanto riguarda le maiuscole e minuscole di:
 

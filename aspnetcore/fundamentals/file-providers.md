@@ -5,14 +5,14 @@ description: Informazioni su come ASP.NET Core astrae l'accesso al file system t
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/07/2019
+ms.date: 11/07/2019
 uid: fundamentals/file-providers
-ms.openlocfilehash: 3a92b44efc70d156596ee9fe80b4f6a65266e73d
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: 531f7acd7a704a74e6142d201f613f05288deecb
+ms.sourcegitcommit: 4818385c3cfe0805e15138a2c1785b62deeaab90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007175"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73896847"
 ---
 # <a name="file-providers-in-aspnet-core"></a>Provider di file in ASP.NET Core
 
@@ -22,7 +22,7 @@ Di [Steve Smith](https://ardalis.com/) e [Luke Latham](https://github.com/guardr
 
 ASP.NET Core astrae l'accesso al file system tramite l'utilizzo di provider di file. I provider di file vengono usati in tutto il framework di ASP.NET Core:
 
-* `IWebHostEnvironment` espone la radice del [contenuto](xref:fundamentals/index#content-root) dell'app e la [radice web](xref:fundamentals/index#web-root) come tipi `IFileProvider`.
+* `IWebHostEnvironment` espone la radice del [contenuto](xref:fundamentals/index#content-root) dell'app e la [radice Web](xref:fundamentals/index#web-root) come tipi di `IFileProvider`.
 * Il [middleware dei file statici](xref:fundamentals/static-files) usa i provider di file per trovare i file statici.
 * [Razor](xref:mvc/views/razor) usa i provider di file per individuare pagine e viste.
 * Gli strumenti .NET Core usano i provider di file e i criteri GLOB per specificare i file da pubblicare.
@@ -105,7 +105,7 @@ L'app di esempio crea un `ManifestEmbeddedFileProvider` e passa l'assembly attua
 
 ```csharp
 var manifestEmbeddedProvider = 
-    new ManifestEmbeddedFileProvider(Assembly.GetEntryAssembly());
+    new ManifestEmbeddedFileProvider(typeof(Program).Assembly);
 ```
 
 Overload aggiuntivi consentono di:
@@ -171,7 +171,7 @@ Cerca tutti i file con estensione *txt* che si trovano in qualsiasi posizione ne
 
 ASP.NET Core astrae l'accesso al file system tramite l'utilizzo di provider di file. I provider di file vengono usati in tutto il framework di ASP.NET Core:
 
-* <xref:Microsoft.Extensions.Hosting.IHostingEnvironment> espone la radice del [contenuto](xref:fundamentals/index#content-root) dell'app e la [radice web](xref:fundamentals/index#web-root) come tipi `IFileProvider`.
+* <xref:Microsoft.Extensions.Hosting.IHostingEnvironment> espone la radice del [contenuto](xref:fundamentals/index#content-root) dell'app e la [radice Web](xref:fundamentals/index#web-root) come tipi di `IFileProvider`.
 * Il [middleware dei file statici](xref:fundamentals/static-files) usa i provider di file per trovare i file statici.
 * [Razor](xref:mvc/views/razor) usa i provider di file per individuare pagine e viste.
 * Gli strumenti .NET Core usano i provider di file e i criteri GLOB per specificare i file da pubblicare.
@@ -252,7 +252,7 @@ L'app di esempio crea un `ManifestEmbeddedFileProvider` e passa l'assembly attua
 
 ```csharp
 var manifestEmbeddedProvider = 
-    new ManifestEmbeddedFileProvider(Assembly.GetEntryAssembly());
+    new ManifestEmbeddedFileProvider(typeof(Program).Assembly);
 ```
 
 Overload aggiuntivi consentono di:

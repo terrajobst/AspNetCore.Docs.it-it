@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/05/2019
 uid: performance/memory
-ms.openlocfilehash: 8f6b47ecde6f265bfb9437234b89f11f7d235869
-ms.sourcegitcommit: 6628cd23793b66e4ce88788db641a5bbf470c3c1
+ms.openlocfilehash: 4c25c069aa2a6088c0549d786ecdd487ab7b9ea5
+ms.sourcegitcommit: 4818385c3cfe0805e15138a2c1785b62deeaab90
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73660011"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73896942"
 ---
 # <a name="memory-management-and-garbage-collection-gc-in-aspnet-core"></a>Gestione della memoria e Garbage Collection (GC) in ASP.NET Core
 
@@ -82,7 +82,7 @@ Eseguire MemoryLeak. La memoria allocata aumenta lentamente fino a quando non si
 Nel grafico vengono visualizzati due valori per l'utilizzo della memoria:
 
 - Allocata: quantità di memoria occupata dagli oggetti gestiti
-- Working set: memoria fisica totale (RAM) utilizzata dal processo. Il working set visualizzato è lo stesso valore che può essere visualizzato in Gestione attività.
+- [Working set](/windows/win32/memory/working-set): set di pagine nello spazio degli indirizzi virtuali del processo che attualmente risiede nella memoria fisica. Il working set visualizzato è lo stesso valore visualizzato in Gestione attività.
 
 ### <a name="transient-objects"></a>Oggetti temporanei
 
