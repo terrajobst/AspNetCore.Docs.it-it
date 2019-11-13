@@ -1,73 +1,75 @@
 ---
-title: Client ASP.NET Core SignalR Java
+title: ASP.NET Core SignalR client Java
 author: mikaelm12
-description: Informazioni su come usare il client Java di ASP.NET Core SignalR.
+description: Informazioni su come usare il client ASP.NET Core SignalR Java.
 monikerRange: '>= aspnetcore-2.2'
 ms.author: mimengis
 ms.custom: mvc
-ms.date: 06/27/2019
+ms.date: 11/12/2019
+no-loc:
+- SignalR
 uid: signalr/java-client
-ms.openlocfilehash: ea0abbaee81222493ff02e1f3bba13ed1e494bf5
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: d7143b2c22ecdc4e68f484aa4c244e1c520beae0
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67814975"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963787"
 ---
-# <a name="aspnet-core-signalr-java-client"></a><span data-ttu-id="3fbc1-103">Client ASP.NET Core SignalR Java</span><span class="sxs-lookup"><span data-stu-id="3fbc1-103">ASP.NET Core SignalR Java client</span></span>
+# <a name="aspnet-core-opno-locsignalr-java-client"></a><span data-ttu-id="7c040-103">ASP.NET Core SignalR client Java</span><span class="sxs-lookup"><span data-stu-id="7c040-103">ASP.NET Core SignalR Java client</span></span>
 
-<span data-ttu-id="3fbc1-104">Da [Mikael Mengistu](https://twitter.com/MikaelM_12)</span><span class="sxs-lookup"><span data-stu-id="3fbc1-104">By [Mikael Mengistu](https://twitter.com/MikaelM_12)</span></span>
+<span data-ttu-id="7c040-104">Di [Mikael Mengistu](https://twitter.com/MikaelM_12)</span><span class="sxs-lookup"><span data-stu-id="7c040-104">By [Mikael Mengistu](https://twitter.com/MikaelM_12)</span></span>
 
-<span data-ttu-id="3fbc1-105">Il client Java consente la connessione a un server di ASP.NET Core SignalR dal codice Java, incluse le app Android.</span><span class="sxs-lookup"><span data-stu-id="3fbc1-105">The Java client enables connecting to an ASP.NET Core SignalR server from Java code, including Android apps.</span></span> <span data-ttu-id="3fbc1-106">Ad esempio la [client JavaScript](xref:signalr/javascript-client) e il [client .NET](xref:signalr/dotnet-client), il client Java consente di ricevere e inviare messaggi a un hub in tempo reale.</span><span class="sxs-lookup"><span data-stu-id="3fbc1-106">Like the [JavaScript client](xref:signalr/javascript-client) and the [.NET client](xref:signalr/dotnet-client), the Java client enables you to receive and send messages to a hub in real time.</span></span> <span data-ttu-id="3fbc1-107">Il client Java è disponibile in ASP.NET Core 2.2 e successive.</span><span class="sxs-lookup"><span data-stu-id="3fbc1-107">The Java client is available in ASP.NET Core 2.2 and later.</span></span>
+<span data-ttu-id="7c040-105">Il client Java consente la connessione a un ASP.NET Core Server SignalR dal codice Java, incluse le app Android.</span><span class="sxs-lookup"><span data-stu-id="7c040-105">The Java client enables connecting to an ASP.NET Core SignalR server from Java code, including Android apps.</span></span> <span data-ttu-id="7c040-106">Come il client [JavaScript](xref:signalr/javascript-client) e il [client .NET](xref:signalr/dotnet-client), il client Java consente di ricevere e inviare messaggi a un hub in tempo reale.</span><span class="sxs-lookup"><span data-stu-id="7c040-106">Like the [JavaScript client](xref:signalr/javascript-client) and the [.NET client](xref:signalr/dotnet-client), the Java client enables you to receive and send messages to a hub in real time.</span></span> <span data-ttu-id="7c040-107">Il client Java è disponibile in ASP.NET Core 2,2 e versioni successive.</span><span class="sxs-lookup"><span data-stu-id="7c040-107">The Java client is available in ASP.NET Core 2.2 and later.</span></span>
 
-<span data-ttu-id="3fbc1-108">L'app console Java di esempio citato nel presente articolo usa il client Java di SignalR.</span><span class="sxs-lookup"><span data-stu-id="3fbc1-108">The sample Java console app referenced in this article uses the SignalR Java client.</span></span>
+<span data-ttu-id="7c040-108">L'app console Java di esempio a cui si fa riferimento in questo articolo usa il client Java SignalR.</span><span class="sxs-lookup"><span data-stu-id="7c040-108">The sample Java console app referenced in this article uses the SignalR Java client.</span></span>
 
-<span data-ttu-id="3fbc1-109">[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/java-client/sample) ([procedura per il download](xref:index#how-to-download-a-sample))</span><span class="sxs-lookup"><span data-stu-id="3fbc1-109">[View or download sample code](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/java-client/sample) ([how to download](xref:index#how-to-download-a-sample))</span></span>
+<span data-ttu-id="7c040-109">[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/java-client/sample) ([procedura per il download](xref:index#how-to-download-a-sample))</span><span class="sxs-lookup"><span data-stu-id="7c040-109">[View or download sample code](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/java-client/sample) ([how to download](xref:index#how-to-download-a-sample))</span></span>
 
-## <a name="install-the-signalr-java-client-package"></a><span data-ttu-id="3fbc1-110">Installare il pacchetto client Java di SignalR</span><span class="sxs-lookup"><span data-stu-id="3fbc1-110">Install the SignalR Java client package</span></span>
+## <a name="install-the-opno-locsignalr-java-client-package"></a><span data-ttu-id="7c040-110">Installare il pacchetto client Java di SignalR</span><span class="sxs-lookup"><span data-stu-id="7c040-110">Install the SignalR Java client package</span></span>
 
-<span data-ttu-id="3fbc1-111">Il *signalr 1.0.0* file con estensione JAR consente ai client di connettersi a un hub SignalR.</span><span class="sxs-lookup"><span data-stu-id="3fbc1-111">The *signalr-1.0.0* JAR file allows clients to connect to SignalR hubs.</span></span> <span data-ttu-id="3fbc1-112">Per trovare il numero di versione di file con estensione JAR più recente, vedere la [risultati della ricerca di Maven](https://search.maven.org/search?q=g:com.microsoft.signalr%20AND%20a:signalr).</span><span class="sxs-lookup"><span data-stu-id="3fbc1-112">To find the latest JAR file version number, see the [Maven search results](https://search.maven.org/search?q=g:com.microsoft.signalr%20AND%20a:signalr).</span></span>
+<span data-ttu-id="7c040-111">Il file jar *SignalR-1.0.0* consente ai client di connettersi agli hub SignalR.</span><span class="sxs-lookup"><span data-stu-id="7c040-111">The *signalr-1.0.0* JAR file allows clients to connect to SignalR hubs.</span></span> <span data-ttu-id="7c040-112">Per trovare il numero di versione del file JAR più recente, vedere i [Risultati della ricerca di Maven](https://search.maven.org/search?q=g:com.microsoft.signalr%20AND%20a:signalr).</span><span class="sxs-lookup"><span data-stu-id="7c040-112">To find the latest JAR file version number, see the [Maven search results](https://search.maven.org/search?q=g:com.microsoft.signalr%20AND%20a:signalr).</span></span>
 
-<span data-ttu-id="3fbc1-113">Se si usa Gradle, aggiungere la riga seguente al `dependencies` sezione il *Build. gradle* file:</span><span class="sxs-lookup"><span data-stu-id="3fbc1-113">If using Gradle, add the following line to the `dependencies` section of your *build.gradle* file:</span></span>
+<span data-ttu-id="7c040-113">Se si usa Gradle, aggiungere la riga seguente alla sezione `dependencies` del file *Build. Gradle* :</span><span class="sxs-lookup"><span data-stu-id="7c040-113">If using Gradle, add the following line to the `dependencies` section of your *build.gradle* file:</span></span>
 
 ```gradle
 implementation 'com.microsoft.signalr:signalr:1.0.0'
 ```
 
-<span data-ttu-id="3fbc1-114">Se con Maven, aggiungere le seguenti righe all'interno di `<dependencies>` elemento delle *POM. XML* file:</span><span class="sxs-lookup"><span data-stu-id="3fbc1-114">If using Maven, add the following lines inside the `<dependencies>` element of your *pom.xml* file:</span></span>
+<span data-ttu-id="7c040-114">Se si usa Maven, aggiungere le righe seguenti all'interno dell'elemento `<dependencies>` del file *POM. XML* :</span><span class="sxs-lookup"><span data-stu-id="7c040-114">If using Maven, add the following lines inside the `<dependencies>` element of your *pom.xml* file:</span></span>
 
 [!code-xml[pom.xml dependency element](java-client/sample/pom.xml?name=snippet_dependencyElement)]
 
-## <a name="connect-to-a-hub"></a><span data-ttu-id="3fbc1-115">Connettersi a un hub</span><span class="sxs-lookup"><span data-stu-id="3fbc1-115">Connect to a hub</span></span>
+## <a name="connect-to-a-hub"></a><span data-ttu-id="7c040-115">Connettersi a un hub</span><span class="sxs-lookup"><span data-stu-id="7c040-115">Connect to a hub</span></span>
 
-<span data-ttu-id="3fbc1-116">Per stabilire una `HubConnection`, il `HubConnectionBuilder` deve essere utilizzato.</span><span class="sxs-lookup"><span data-stu-id="3fbc1-116">To establish a `HubConnection`, the `HubConnectionBuilder` should be used.</span></span> <span data-ttu-id="3fbc1-117">Il livello di log e URL hub può essere configurato durante la compilazione di una connessione.</span><span class="sxs-lookup"><span data-stu-id="3fbc1-117">The hub URL and log level can be configured while building a connection.</span></span> <span data-ttu-id="3fbc1-118">Configurare le opzioni necessarie, chiamare uno dei `HubConnectionBuilder` metodi prima `build`.</span><span class="sxs-lookup"><span data-stu-id="3fbc1-118">Configure any required options by calling any of the `HubConnectionBuilder` methods before `build`.</span></span> <span data-ttu-id="3fbc1-119">Avviare la connessione con `start`.</span><span class="sxs-lookup"><span data-stu-id="3fbc1-119">Start the connection with `start`.</span></span>
+<span data-ttu-id="7c040-116">Per stabilire una `HubConnection`, è necessario usare il `HubConnectionBuilder`.</span><span class="sxs-lookup"><span data-stu-id="7c040-116">To establish a `HubConnection`, the `HubConnectionBuilder` should be used.</span></span> <span data-ttu-id="7c040-117">È possibile configurare l'URL dell'hub e il livello di registrazione durante la compilazione di una connessione.</span><span class="sxs-lookup"><span data-stu-id="7c040-117">The hub URL and log level can be configured while building a connection.</span></span> <span data-ttu-id="7c040-118">Configurare le opzioni necessarie chiamando uno dei metodi di `HubConnectionBuilder` prima di `build`.</span><span class="sxs-lookup"><span data-stu-id="7c040-118">Configure any required options by calling any of the `HubConnectionBuilder` methods before `build`.</span></span> <span data-ttu-id="7c040-119">Avviare la connessione con `start`.</span><span class="sxs-lookup"><span data-stu-id="7c040-119">Start the connection with `start`.</span></span>
 
 [!code-java[Build hub connection](java-client/sample/src/main/java/Chat.java?range=16-17)]
 
-## <a name="call-hub-methods-from-client"></a><span data-ttu-id="3fbc1-120">Chiamare i metodi dell'hub da client</span><span class="sxs-lookup"><span data-stu-id="3fbc1-120">Call hub methods from client</span></span>
+## <a name="call-hub-methods-from-client"></a><span data-ttu-id="7c040-120">Chiamare i metodi dell'hub dal client</span><span class="sxs-lookup"><span data-stu-id="7c040-120">Call hub methods from client</span></span>
 
-<span data-ttu-id="3fbc1-121">Una chiamata a `send` richiama un metodo dell'hub.</span><span class="sxs-lookup"><span data-stu-id="3fbc1-121">A call to `send` invokes a hub method.</span></span> <span data-ttu-id="3fbc1-122">Passare il nome del metodo dell'hub e gli argomenti definiti nel metodo dell'hub per `send`.</span><span class="sxs-lookup"><span data-stu-id="3fbc1-122">Pass the hub method name and any arguments defined in the hub method to `send`.</span></span>
+<span data-ttu-id="7c040-121">Una chiamata a `send` richiama un metodo dell'hub.</span><span class="sxs-lookup"><span data-stu-id="7c040-121">A call to `send` invokes a hub method.</span></span> <span data-ttu-id="7c040-122">Passare il nome del metodo dell'hub e gli eventuali argomenti definiti nel metodo hub per `send`.</span><span class="sxs-lookup"><span data-stu-id="7c040-122">Pass the hub method name and any arguments defined in the hub method to `send`.</span></span>
 
 [!code-java[send method](java-client/sample/src/main/java/Chat.java?range=28)]
 
 > [!NOTE]
-> <span data-ttu-id="3fbc1-123">Se si usa il servizio Azure SignalR in *modalità senza server*, non è possibile chiamare i metodi dell'hub da un client.</span><span class="sxs-lookup"><span data-stu-id="3fbc1-123">If you're using Azure SignalR Service in *Serverless mode*, you cannot call hub methods from a client.</span></span> <span data-ttu-id="3fbc1-124">Per altre informazioni, vedere la [documentazione di SignalR Service](/azure/azure-signalr/signalr-concept-serverless-development-config).</span><span class="sxs-lookup"><span data-stu-id="3fbc1-124">For more information, see the [SignalR Service documentation](/azure/azure-signalr/signalr-concept-serverless-development-config).</span></span>
+> <span data-ttu-id="7c040-123">Se si usa il servizio SignalR di Azure in *modalità senza server*, non è possibile chiamare i metodi dell'hub da un client.</span><span class="sxs-lookup"><span data-stu-id="7c040-123">If you're using Azure SignalR Service in *Serverless mode*, you cannot call hub methods from a client.</span></span> <span data-ttu-id="7c040-124">Per ulteriori informazioni, vedere la [documentazione del servizioSignalR](/azure/azure-signalr/signalr-concept-serverless-development-config).</span><span class="sxs-lookup"><span data-stu-id="7c040-124">For more information, see the [SignalR Service documentation](/azure/azure-signalr/signalr-concept-serverless-development-config).</span></span>
 
-## <a name="call-client-methods-from-hub"></a><span data-ttu-id="3fbc1-125">Chiamare i metodi client hub</span><span class="sxs-lookup"><span data-stu-id="3fbc1-125">Call client methods from hub</span></span>
+## <a name="call-client-methods-from-hub"></a><span data-ttu-id="7c040-125">Chiamare i metodi client dall'hub</span><span class="sxs-lookup"><span data-stu-id="7c040-125">Call client methods from hub</span></span>
 
-<span data-ttu-id="3fbc1-126">Usare `hubConnection.on` per definire i metodi sul client che può chiamare l'hub.</span><span class="sxs-lookup"><span data-stu-id="3fbc1-126">Use `hubConnection.on` to define methods on the client that the hub can call.</span></span> <span data-ttu-id="3fbc1-127">Definire i metodi dopo la compilazione, ma prima di avviare la connessione.</span><span class="sxs-lookup"><span data-stu-id="3fbc1-127">Define the methods after building but before starting the connection.</span></span>
+<span data-ttu-id="7c040-126">Usare `hubConnection.on` per definire i metodi sul client che l'hub può chiamare.</span><span class="sxs-lookup"><span data-stu-id="7c040-126">Use `hubConnection.on` to define methods on the client that the hub can call.</span></span> <span data-ttu-id="7c040-127">Definire i metodi dopo la compilazione, ma prima di avviare la connessione.</span><span class="sxs-lookup"><span data-stu-id="7c040-127">Define the methods after building but before starting the connection.</span></span>
 
 [!code-java[Define client methods](java-client/sample/src/main/java/Chat.java?range=19-21)]
 
-## <a name="add-logging"></a><span data-ttu-id="3fbc1-128">Aggiungere la registrazione</span><span class="sxs-lookup"><span data-stu-id="3fbc1-128">Add logging</span></span>
+## <a name="add-logging"></a><span data-ttu-id="7c040-128">Aggiungi registrazione</span><span class="sxs-lookup"><span data-stu-id="7c040-128">Add logging</span></span>
 
-<span data-ttu-id="3fbc1-129">Il client SignalR Java Usa il [SLF4J](https://www.slf4j.org/) libreria per la registrazione.</span><span class="sxs-lookup"><span data-stu-id="3fbc1-129">The SignalR Java client uses the [SLF4J](https://www.slf4j.org/) library for logging.</span></span> <span data-ttu-id="3fbc1-130">È un'API di registrazione di alto livello che consente agli utenti della libreria scegliere la propria implementazione di registrazione specifici, grazie alla disponibilità di una dipendenza di registrazione specifici.</span><span class="sxs-lookup"><span data-stu-id="3fbc1-130">It's a high-level logging API that allows users of the library to chose their own specific logging implementation by bringing in a specific logging dependency.</span></span> <span data-ttu-id="3fbc1-131">Il frammento di codice seguente viene illustrato come utilizzare `java.util.logging` con il client Java di SignalR.</span><span class="sxs-lookup"><span data-stu-id="3fbc1-131">The following code snippet shows how to use `java.util.logging` with the SignalR Java client.</span></span>
+<span data-ttu-id="7c040-129">Il client Java SignalR usa la libreria [SLF4J](https://www.slf4j.org/) per la registrazione.</span><span class="sxs-lookup"><span data-stu-id="7c040-129">The SignalR Java client uses the [SLF4J](https://www.slf4j.org/) library for logging.</span></span> <span data-ttu-id="7c040-130">Si tratta di un'API di registrazione di alto livello che consente agli utenti della libreria di scegliere una propria implementazione di registrazione specifica inserendo una dipendenza di registrazione specifica.</span><span class="sxs-lookup"><span data-stu-id="7c040-130">It's a high-level logging API that allows users of the library to chose their own specific logging implementation by bringing in a specific logging dependency.</span></span> <span data-ttu-id="7c040-131">Il frammento di codice seguente illustra come usare `java.util.logging` con il client Java SignalR.</span><span class="sxs-lookup"><span data-stu-id="7c040-131">The following code snippet shows how to use `java.util.logging` with the SignalR Java client.</span></span>
 
 ```gradle
 implementation 'org.slf4j:slf4j-jdk14:1.7.25'
 ```
 
-<span data-ttu-id="3fbc1-132">Se non si configura la registrazione nelle dipendenze, SLF4J carica un logger di alcuna operazione predefinita con il messaggio di avviso seguente:</span><span class="sxs-lookup"><span data-stu-id="3fbc1-132">If you don't configure logging in your dependencies, SLF4J loads a default no-operation logger with the following warning message:</span></span>
+<span data-ttu-id="7c040-132">Se non si configura la registrazione nelle dipendenze, SLF4J carica un logger senza operazioni predefinito con il seguente messaggio di avviso:</span><span class="sxs-lookup"><span data-stu-id="7c040-132">If you don't configure logging in your dependencies, SLF4J loads a default no-operation logger with the following warning message:</span></span>
 
 ```
 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
@@ -75,18 +77,18 @@ SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
 ```
 
-<span data-ttu-id="3fbc1-133">Ciò può essere ignorato.</span><span class="sxs-lookup"><span data-stu-id="3fbc1-133">This can safely be ignored.</span></span>
+<span data-ttu-id="7c040-133">Questa operazione può essere ignorata in modo sicuro.</span><span class="sxs-lookup"><span data-stu-id="7c040-133">This can safely be ignored.</span></span>
 
-## <a name="android-development-notes"></a><span data-ttu-id="3fbc1-134">Note di sviluppo per Android</span><span class="sxs-lookup"><span data-stu-id="3fbc1-134">Android development notes</span></span>
+## <a name="android-development-notes"></a><span data-ttu-id="7c040-134">Note sullo sviluppo per Android</span><span class="sxs-lookup"><span data-stu-id="7c040-134">Android development notes</span></span>
 
-<span data-ttu-id="3fbc1-135">Per quanto riguarda la compatibilità di Android SDK per le funzionalità client SignalR, prendere in considerazione gli elementi seguenti quando si specifica la versione di Android SDK di destinazione:</span><span class="sxs-lookup"><span data-stu-id="3fbc1-135">With regards to Android SDK compatibility for the SignalR client features, consider the following items when specifying your target Android SDK version:</span></span>
+<span data-ttu-id="7c040-135">Per quanto riguarda Android SDK compatibilità per le funzionalità client di SignalR, quando si specifica la versione Android SDK di destinazione considerare gli elementi seguenti:</span><span class="sxs-lookup"><span data-stu-id="7c040-135">With regards to Android SDK compatibility for the SignalR client features, consider the following items when specifying your target Android SDK version:</span></span>
 
-* <span data-ttu-id="3fbc1-136">In Android API Level 16 e versioni successive, verrà eseguito il Client di Java SignalR.</span><span class="sxs-lookup"><span data-stu-id="3fbc1-136">The SignalR Java Client will run on Android API Level 16 and later.</span></span>
-* <span data-ttu-id="3fbc1-137">La connessione tramite il servizio Azure SignalR richiederanno Android livello API 20 e versioni successiva poiché il [servizio Azure SignalR](/azure/azure-signalr/signalr-overview) richiede TLS 1.2 e non supporta i pacchetti di crittografia basate su SHA-1.</span><span class="sxs-lookup"><span data-stu-id="3fbc1-137">Connecting through the Azure SignalR Service will require Android API Level 20 and later because the [Azure SignalR Service](/azure/azure-signalr/signalr-overview) requires TLS 1.2 and doesn't support SHA-1-based cipher suites.</span></span> <span data-ttu-id="3fbc1-138">Android [aggiunti i pacchetti di crittografia di supporto per SHA-256 (e versioni successive)](https://developer.android.com/reference/javax/net/ssl/SSLSocket) nel livello API 20.</span><span class="sxs-lookup"><span data-stu-id="3fbc1-138">Android [added support for SHA-256 (and above) cipher suites](https://developer.android.com/reference/javax/net/ssl/SSLSocket) in API Level 20.</span></span>
+* <span data-ttu-id="7c040-136">Il client Java SignalR eseguirà il livello 16 dell'API Android e versioni successive.</span><span class="sxs-lookup"><span data-stu-id="7c040-136">The SignalR Java Client will run on Android API Level 16 and later.</span></span>
+* <span data-ttu-id="7c040-137">La connessione tramite il servizio SignalR di Azure richiede il livello 20 dell'API Android e versioni successive perché il [servizio azure SignalR](/azure/azure-signalr/signalr-overview) richiede TLS 1,2 e non supporta i pacchetti di crittografia basati su SHA-1.</span><span class="sxs-lookup"><span data-stu-id="7c040-137">Connecting through the Azure SignalR Service will require Android API Level 20 and later because the [Azure SignalR Service](/azure/azure-signalr/signalr-overview) requires TLS 1.2 and doesn't support SHA-1-based cipher suites.</span></span> <span data-ttu-id="7c040-138">Android ha [aggiunto il supporto per i pacchetti di crittografia SHA-256 (e versioni successive)](https://developer.android.com/reference/javax/net/ssl/SSLSocket) nel livello API 20.</span><span class="sxs-lookup"><span data-stu-id="7c040-138">Android [added support for SHA-256 (and above) cipher suites](https://developer.android.com/reference/javax/net/ssl/SSLSocket) in API Level 20.</span></span>
 
-## <a name="configure-bearer-token-authentication"></a><span data-ttu-id="3fbc1-139">Configurare l'autenticazione del bearer token</span><span class="sxs-lookup"><span data-stu-id="3fbc1-139">Configure bearer token authentication</span></span>
+## <a name="configure-bearer-token-authentication"></a><span data-ttu-id="7c040-139">Configurare l'autenticazione bearer token</span><span class="sxs-lookup"><span data-stu-id="7c040-139">Configure bearer token authentication</span></span>
 
-<span data-ttu-id="3fbc1-140">Nel client Java di SignalR, è possibile configurare un token di connessione da utilizzare per l'autenticazione, fornendo una "token factory l'accesso" per il [HttpHubConnectionBuilder](/java/api/com.microsoft.signalr._http_hub_connection_builder?view=aspnet-signalr-java).</span><span class="sxs-lookup"><span data-stu-id="3fbc1-140">In the SignalR Java client, you can configure a bearer token to use for authentication by providing an "access token factory" to the [HttpHubConnectionBuilder](/java/api/com.microsoft.signalr._http_hub_connection_builder?view=aspnet-signalr-java).</span></span> <span data-ttu-id="3fbc1-141">Uso [withAccessTokenFactory](/java/api/com.microsoft.signalr._http_hub_connection_builder.withaccesstokenprovider?view=aspnet-signalr-java#com_microsoft_signalr__http_hub_connection_builder_withAccessTokenProvider_Single_String__) per fornire un' [RxJava](https://github.com/ReactiveX/RxJava) [singolo\<String >](https://reactivex.io/documentation/single.html).</span><span class="sxs-lookup"><span data-stu-id="3fbc1-141">Use [withAccessTokenFactory](/java/api/com.microsoft.signalr._http_hub_connection_builder.withaccesstokenprovider?view=aspnet-signalr-java#com_microsoft_signalr__http_hub_connection_builder_withAccessTokenProvider_Single_String__) to provide an [RxJava](https://github.com/ReactiveX/RxJava) [Single\<String>](https://reactivex.io/documentation/single.html).</span></span> <span data-ttu-id="3fbc1-142">Con una chiamata a [Single.defer](https://reactivex.io/RxJava/javadoc/io/reactivex/Single.html#defer-java.util.concurrent.Callable-), è possibile scrivere la logica per produrre i token di accesso per il client.</span><span class="sxs-lookup"><span data-stu-id="3fbc1-142">With a call to [Single.defer](https://reactivex.io/RxJava/javadoc/io/reactivex/Single.html#defer-java.util.concurrent.Callable-), you can write logic to produce access tokens for your client.</span></span>
+<span data-ttu-id="7c040-140">Nel client SignalR Java è possibile configurare una bearer token da usare per l'autenticazione fornendo una "Factory di token di accesso" a [HttpHubConnectionBuilder](/java/api/com.microsoft.signalr._http_hub_connection_builder?view=aspnet-signalr-java).</span><span class="sxs-lookup"><span data-stu-id="7c040-140">In the SignalR Java client, you can configure a bearer token to use for authentication by providing an "access token factory" to the [HttpHubConnectionBuilder](/java/api/com.microsoft.signalr._http_hub_connection_builder?view=aspnet-signalr-java).</span></span> <span data-ttu-id="7c040-141">Usare [withAccessTokenFactory](/java/api/com.microsoft.signalr._http_hub_connection_builder.withaccesstokenprovider?view=aspnet-signalr-java#com_microsoft_signalr__http_hub_connection_builder_withAccessTokenProvider_Single_String__) per [fornire una](https://github.com/ReactiveX/RxJava) [> stringa\<Single](https://reactivex.io/documentation/single.html).</span><span class="sxs-lookup"><span data-stu-id="7c040-141">Use [withAccessTokenFactory](/java/api/com.microsoft.signalr._http_hub_connection_builder.withaccesstokenprovider?view=aspnet-signalr-java#com_microsoft_signalr__http_hub_connection_builder_withAccessTokenProvider_Single_String__) to provide an [RxJava](https://github.com/ReactiveX/RxJava) [Single\<String>](https://reactivex.io/documentation/single.html).</span></span> <span data-ttu-id="7c040-142">Con una chiamata a [Single. rinvia](https://reactivex.io/RxJava/javadoc/io/reactivex/Single.html#defer-java.util.concurrent.Callable-), è possibile scrivere la logica per produrre i token di accesso per il client.</span><span class="sxs-lookup"><span data-stu-id="7c040-142">With a call to [Single.defer](https://reactivex.io/RxJava/javadoc/io/reactivex/Single.html#defer-java.util.concurrent.Callable-), you can write logic to produce access tokens for your client.</span></span>
 
 ```java
 HubConnection hubConnection = HubConnectionBuilder.create("YOUR HUB URL HERE")
@@ -96,27 +98,27 @@ HubConnection hubConnection = HubConnectionBuilder.create("YOUR HUB URL HERE")
     })).build();
 ```
 
-## <a name="known-limitations"></a><span data-ttu-id="3fbc1-143">Limitazioni note</span><span class="sxs-lookup"><span data-stu-id="3fbc1-143">Known limitations</span></span>
+## <a name="known-limitations"></a><span data-ttu-id="7c040-143">Limitazioni note</span><span class="sxs-lookup"><span data-stu-id="7c040-143">Known limitations</span></span>
 
 ::: moniker range=">= aspnetcore-3.0"
 
-* <span data-ttu-id="3fbc1-144">È supportato solo il protocollo JSON.</span><span class="sxs-lookup"><span data-stu-id="3fbc1-144">Only the JSON protocol is supported.</span></span>
-* <span data-ttu-id="3fbc1-145">Trasporto fallback e il trasporto di eventi del Server inviati non sono supportati.</span><span class="sxs-lookup"><span data-stu-id="3fbc1-145">Transport fallback and the Server Sent Events transport aren't supported.</span></span>
+* <span data-ttu-id="7c040-144">È supportato solo il protocollo JSON.</span><span class="sxs-lookup"><span data-stu-id="7c040-144">Only the JSON protocol is supported.</span></span>
+* <span data-ttu-id="7c040-145">Il trasporto del fallback del trasporto e degli eventi inviati dal server non è supportato.</span><span class="sxs-lookup"><span data-stu-id="7c040-145">Transport fallback and the Server Sent Events transport aren't supported.</span></span>
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-* <span data-ttu-id="3fbc1-146">È supportato solo il protocollo JSON.</span><span class="sxs-lookup"><span data-stu-id="3fbc1-146">Only the JSON protocol is supported.</span></span>
-* <span data-ttu-id="3fbc1-147">È supportato solo il trasporto WebSocket.</span><span class="sxs-lookup"><span data-stu-id="3fbc1-147">Only the WebSockets transport is supported.</span></span>
-* <span data-ttu-id="3fbc1-148">Lo streaming non è ancora supportato.</span><span class="sxs-lookup"><span data-stu-id="3fbc1-148">Streaming isn't supported yet.</span></span>
+* <span data-ttu-id="7c040-146">È supportato solo il protocollo JSON.</span><span class="sxs-lookup"><span data-stu-id="7c040-146">Only the JSON protocol is supported.</span></span>
+* <span data-ttu-id="7c040-147">È supportato solo il trasporto WebSocket.</span><span class="sxs-lookup"><span data-stu-id="7c040-147">Only the WebSockets transport is supported.</span></span>
+* <span data-ttu-id="7c040-148">Il flusso non è ancora supportato.</span><span class="sxs-lookup"><span data-stu-id="7c040-148">Streaming isn't supported yet.</span></span>
 
 ::: moniker-end
 
-## <a name="additional-resources"></a><span data-ttu-id="3fbc1-149">Risorse aggiuntive</span><span class="sxs-lookup"><span data-stu-id="3fbc1-149">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="7c040-149">Risorse aggiuntive</span><span class="sxs-lookup"><span data-stu-id="7c040-149">Additional resources</span></span>
 
-* [<span data-ttu-id="3fbc1-150">Informazioni di riferimento sulle API Java</span><span class="sxs-lookup"><span data-stu-id="3fbc1-150">Java API reference</span></span>](/java/api/com.microsoft.signalr?view=aspnet-signalr-java)
+* [<span data-ttu-id="7c040-150">Informazioni di riferimento sulle API Java</span><span class="sxs-lookup"><span data-stu-id="7c040-150">Java API reference</span></span>](/java/api/com.microsoft.signalr?view=aspnet-signalr-java)
 * <xref:signalr/hubs>
 * <xref:signalr/javascript-client>
 * <xref:signalr/publish-to-azure-web-app>
-* [<span data-ttu-id="3fbc1-151">Documentazione senza server di Azure SignalR Service</span><span class="sxs-lookup"><span data-stu-id="3fbc1-151">Azure SignalR Service serverless documentation</span></span>](/azure/azure-signalr/signalr-concept-serverless-development-config)
+* <span data-ttu-id="7c040-151">[Documentazione senza server del servizio SignalR di Azure](/azure/azure-signalr/signalr-concept-serverless-development-config)</span><span class="sxs-lookup"><span data-stu-id="7c040-151">[Azure SignalR Service serverless documentation](/azure/azure-signalr/signalr-concept-serverless-development-config)</span></span>
