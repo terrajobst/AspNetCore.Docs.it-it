@@ -1,39 +1,41 @@
 ---
-title: Chiamare un'API Web da ASP.NET Core Blazer
+title: Chiamare un'API Web da ASP.NET Core Blazor
 author: guardrex
-description: Informazioni su come chiamare un'API Web da un'app Blazer usando Helper JSON, inclusa la creazione di richieste di condivisione di risorse tra le origini (CORS).
+description: Informazioni su come chiamare un'API Web da un'app Blazor usando Helper JSON, inclusa la creazione di richieste di condivisione di risorse tra le origini (CORS).
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/15/2019
+no-loc:
+- Blazor
 uid: blazor/call-web-api
-ms.openlocfilehash: b08fdf5c2f9a523314b1744a33087eb64fa4c14a
-ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
+ms.openlocfilehash: b5c57317005d0072410542bad322458b1cb3f5ee
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390843"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73962719"
 ---
-# <a name="call-a-web-api-from-aspnet-core-blazor"></a>Chiamare un'API Web da ASP.NET Core Blazer
+# <a name="call-a-web-api-from-aspnet-core-opno-locblazor"></a>Chiamare un'API Web da ASP.NET Core Blazor
 
 Di [Luke Latham](https://github.com/guardrex), [Daniel Roth](https://github.com/danroth27)e [Juan de la Cruz](https://github.com/juandelacruz23)
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-Le app webassembly Blazer chiamano API Web usando un servizio `HttpClient` preconfigurato. Comporre richieste, che possono includere opzioni [API di recupero](https://developer.mozilla.org/docs/Web/API/Fetch_API) JavaScript, usando Helper JSON di blazer o con <xref:System.Net.Http.HttpRequestMessage>.
+Blazor le app webassembly chiamano API Web usando un servizio di `HttpClient` preconfigurato. Comporre richieste, che possono includere opzioni [API di recupero](https://developer.mozilla.org/docs/Web/API/Fetch_API) JavaScript, usando Blazor Helper JSON o con <xref:System.Net.Http.HttpRequestMessage>.
 
-Le app del server Blazer chiamano API Web usando le istanze <xref:System.Net.Http.HttpClient> in genere create con <xref:System.Net.Http.IHttpClientFactory>. Per ulteriori informazioni, vedere <xref:fundamentals/http-requests>.
+Blazor le app server chiamano API Web usando istanze di <xref:System.Net.Http.HttpClient> in genere create con <xref:System.Net.Http.IHttpClientFactory>. Per ulteriori informazioni, vedere <xref:fundamentals/http-requests>.
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
 
-Per esempi di webassembly blazer, vedere i componenti seguenti nell'app di esempio:
+Per Blazor esempi di webassembly, vedere i componenti seguenti nell'app di esempio:
 
 * Chiama API Web (*pages/CallWebAPI. Razor*)
 * Tester richieste HTTP (*Components/HTTPRequestTester. Razor*)
 
 ## <a name="httpclient-and-json-helpers"></a>Helper HttpClient e JSON
 
-Nelle app webassembly di Blazer, [HttpClient](xref:fundamentals/http-requests) è disponibile come servizio preconfigurato per l'esecuzione delle richieste al server di origine. Per usare gli helper JSON `HttpClient`, aggiungere un riferimento al pacchetto `Microsoft.AspNetCore.Blazor.HttpClient`. gli helper `HttpClient` e JSON vengono usati anche per chiamare endpoint dell'API Web di terze parti. `HttpClient` viene implementato usando l' [API fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API) del browser ed è soggetto alle limitazioni, inclusa l'applicazione degli stessi criteri di origine.
+Nelle app Blazor webassembly, [HttpClient](xref:fundamentals/http-requests) è disponibile come servizio preconfigurato per l'esecuzione delle richieste al server di origine. Per usare `HttpClient` Helper JSON, aggiungere un riferimento al pacchetto `Microsoft.AspNetCore.Blazor.HttpClient`. gli helper `HttpClient` e JSON vengono usati anche per chiamare endpoint dell'API Web di terze parti. `HttpClient` viene implementato usando l' [API fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API) del browser ed è soggetto alle limitazioni, inclusa l'applicazione degli stessi criteri di origine.
 
 L'indirizzo di base del client viene impostato sull'indirizzo del server di origine. Inserire un'istanza `HttpClient` usando la direttiva `@inject`:
 
@@ -61,7 +63,7 @@ I metodi helper JSON inviano richieste a un URI (un'API Web negli esempi seguent
 
 * `GetJsonAsync` &ndash; invia una richiesta HTTP GET e analizza il corpo della risposta JSON per creare un oggetto.
 
-  Nel codice seguente, il `_todoItems` viene visualizzato dal componente. Il metodo `GetTodoItems` viene attivato quando il componente ha terminato il rendering ([OnInitializedAsync](xref:blazor/components#lifecycle-methods)). Per un esempio completo, vedere l'app di esempio.
+  Nel codice seguente, le `_todoItems` vengono visualizzate dal componente. Il metodo `GetTodoItems` viene attivato quando il componente ha terminato il rendering ([OnInitializedAsync](xref:blazor/components#lifecycle-methods)). Per un esempio completo, vedere l'app di esempio.
 
   ```cshtml
   @using System.Net.Http
@@ -77,7 +79,7 @@ I metodi helper JSON inviano richieste a un URI (un'API Web negli esempi seguent
 
 * `PostJsonAsync` &ndash; invia una richiesta HTTP POST, incluso il contenuto con codifica JSON, e analizza il corpo della risposta JSON per creare un oggetto.
 
-  Nel codice seguente, `_newItemName` viene fornito da un elemento associato del componente. Il metodo `AddItem` viene attivato selezionando un elemento `<button>`. Per un esempio completo, vedere l'app di esempio.
+  Nel codice seguente `_newItemName` viene fornito da un elemento associato del componente. Il metodo `AddItem` viene attivato selezionando un elemento `<button>`. Per un esempio completo, vedere l'app di esempio.
 
   ```cshtml
   @using System.Net.Http
@@ -99,7 +101,7 @@ I metodi helper JSON inviano richieste a un URI (un'API Web negli esempi seguent
 
 * `PutJsonAsync` &ndash; invia una richiesta HTTP PUT, incluso il contenuto con codifica JSON.
 
-  Nel codice seguente, i valori `_editItem` per `Name` e `IsCompleted` sono forniti dagli elementi associati del componente. Il `Id` dell'elemento viene impostato quando l'elemento è selezionato in un'altra parte dell'interfaccia utente e viene chiamato `EditItem`. Il metodo `SaveItem` viene attivato selezionando l'elemento Save `<button>`. Per un esempio completo, vedere l'app di esempio.
+  Nel codice seguente `_editItem` valori per `Name` e `IsCompleted` vengono forniti dagli elementi associati del componente. Il `Id` dell'elemento viene impostato quando l'elemento è selezionato in un'altra parte dell'interfaccia utente e viene chiamato `EditItem`. Il metodo `SaveItem` viene attivato selezionando l'elemento Save `<button>`. Per un esempio completo, vedere l'app di esempio.
 
   ```cshtml
   @using System.Net.Http
@@ -153,7 +155,7 @@ Per consentire ad altri siti di effettuare richieste di condivisione risorse tra
 
 ## <a name="httpclient-and-httprequestmessage-with-fetch-api-request-options"></a>HttpClient e HttpRequestMessage con le opzioni di richiesta dell'API fetch
 
-Quando si esegue su webassembly in un'app webassembly blazer, usare [HttpClient](xref:fundamentals/http-requests) e <xref:System.Net.Http.HttpRequestMessage> per personalizzare le richieste. Ad esempio, è possibile specificare l'URI della richiesta, il metodo HTTP e tutte le intestazioni di richiesta desiderate.
+Quando si esegue il webassembly in un'app Blazor webassembly, usare [HttpClient](xref:fundamentals/http-requests) e <xref:System.Net.Http.HttpRequestMessage> per personalizzare le richieste. Ad esempio, è possibile specificare l'URI della richiesta, il metodo HTTP e tutte le intestazioni di richiesta desiderate.
 
 Specificare le opzioni di richiesta per l' [API di recupero](https://developer.mozilla.org/docs/Web/API/Fetch_API) JavaScript sottostante usando la proprietà `WebAssemblyHttpMessageHandler.FetchArgs` della richiesta. Come illustrato nell'esempio seguente, la proprietà `credentials` è impostata su uno dei valori seguenti:
 

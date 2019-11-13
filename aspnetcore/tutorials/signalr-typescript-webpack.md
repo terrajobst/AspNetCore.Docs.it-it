@@ -1,38 +1,40 @@
 ---
 title: Usare ASP.NET Core SignalR con TypeScript e Webpack
 author: ssougnez
-description: In questa esercitazione verrà configurato Webpack per creare un bundle e compilare un'app Web ASP.NET Core SignalR il cui client è scritto in TypeScript.
+description: In questa esercitazione viene configurato Webpack per aggregare e compilare un ASP.NET Core SignalR app Web il cui client è scritto in TypeScript.
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 10/04/2019
+ms.date: 11/12/2019
+no-loc:
+- SignalR
 uid: tutorials/signalr-typescript-webpack
-ms.openlocfilehash: 630e8cb5efe9c313479960626d3d864c4923cbd1
-ms.sourcegitcommit: 3ffcd8cbff8b49128733842f72270bc58279de70
+ms.openlocfilehash: 759584f432807689ba194c86046364552fce1a45
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71955923"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73964021"
 ---
-# <a name="use-aspnet-core-signalr-with-typescript-and-webpack"></a>Usare ASP.NET Core SignalR con TypeScript e Webpack
+# <a name="use-aspnet-core-opno-locsignalr-with-typescript-and-webpack"></a>Usare ASP.NET Core SignalR con TypeScript e Webpack
 
 Di [Sébastien Sougnez](https://twitter.com/ssougnez) e [Scott Addie](https://twitter.com/Scott_Addie)
 
-[Webpack](https://webpack.js.org/) consente agli sviluppatori di creare un bundle delle risorse di un'app Web sul lato client-e di compilarle. Questa esercitazione illustra l'uso di Webpack in un'app Web ASP.NET Core SignalR il cui client è scritto in [TypeScript](https://www.typescriptlang.org/).
+[Webpack](https://webpack.js.org/) consente agli sviluppatori di creare un bundle delle risorse di un'app Web sul lato client-e di compilarle. Questa esercitazione illustra l'uso di Webpack in un ASP.NET Core SignalR app Web il cui client è scritto in [typescript](https://www.typescriptlang.org/).
 
 In questa esercitazione si imparerà a:
 
 > [!div class="checklist"]
-> * Eseguire lo scaffolding di un'app ASP.NET Core SignalR di base
+> * Impalcatura uno starter ASP.NET Core SignalR app
 > * Configurare il client TypeScript di SignalR
 > * Configurare una pipeline di compilazione tramite Webpack
-> * Configurare il server SignalR
+> * Configurare il server di SignalR
 > * Abilitare la comunicazione tra client e server
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/signalr-typescript-webpack/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ::: moniker range=">= aspnetcore-3.0"
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -62,7 +64,7 @@ Configurare Visual Studio in modo che cerchi npm nella variabile di ambiente *PA
 
 La configurazione di Visual Studio è completata. A questo punto è possibile creare il progetto
 
-1. Usare l'opzione di menu **File** > **New** > **Project** e scegliere il modello di **applicazione Web ASP.NET Core** .
+1. Utilizzare l'opzione di menu **File** > **nuovo** > **progetto** e scegliere il modello **applicazione Web ASP.NET Core** .
 1. Assegnare al progetto il nome *SignalRWebPack*e selezionare **Crea**.
 1. Selezionare *.NET Core* dall'elenco a discesa Framework di destinazione e selezionare *ASP.NET Core 3,0* dall'elenco a discesa del selettore del Framework. Selezionare il modello **vuoto** e selezionare **Crea**.
 
@@ -130,7 +132,7 @@ I passaggi seguenti consentono di configurare la conversione da TypeScript a Jav
     Il file precedente configura la compilazione di Webpack. Ecco alcuni dettagli di configurazione del server da tenere in considerazione:
 
     * La proprietà `output` esegue l'override del valore predefinito di *dist*. Il bundle viene invece creato nella directory *wwwroot*.
-    * La matrice `resolve.extensions` include *.js* per importare il codice JavaScript del client SignalR.
+    * La matrice `resolve.extensions` include *. js* per importare il codice JavaScript del client SignalR.
 
 1. Creare una nuova directory *src* nella radice del progetto. La sua funzione è quella di archiviare le risorse lato client del progetto.
 
@@ -179,7 +181,7 @@ I passaggi seguenti consentono di configurare la conversione da TypeScript a Jav
 
    [!code-csharp[Startup](signalr-typescript-webpack/sample/3.x/Startup.cs?name=snippet_AddSignalR)]
 
-1. Creare una nuova directory denominata *Hubs* nella radice del progetto. La sua funzione è quella di archiviare l'hub SignalR, che verrà creato nel passaggio successivo.
+1. Creare una nuova directory denominata *Hubs* nella radice del progetto. Lo scopo è archiviare l'hub SignalR, che verrà creato nel passaggio successivo.
 
 1. Creare l'hub *Hubs/ChatHub.cs* con il codice seguente:
 
@@ -199,7 +201,7 @@ L'app attualmente visualizza un semplice form per l'invio di messaggi. Quando si
     npm install @aspnet/signalr
     ```
 
-    Il comando precedente installa il [client TypeScript di SignalR](https://www.npmjs.com/package/@aspnet/signalr), che consente al client di inviare messaggi al server.
+    Il comando precedente installa il [client diSignalR typescript](https://www.npmjs.com/package/@aspnet/signalr), che consente al client di inviare messaggi al server.
 
 1. Aggiungere il codice evidenziato al file *src/index.ts*:
 
@@ -223,7 +225,7 @@ L'app attualmente visualizza un semplice form per l'invio di messaggi. Quando si
 
     In questo esempio il client TypeScript invia un messaggio identificato come `newMessage`. Il metodo C# `NewMessage` si aspetta i dati inviati dal client. Viene eseguita una chiamata al metodo [SendAsync](/dotnet/api/microsoft.aspnetcore.signalr.clientproxyextensions.sendasync) su [Clients.All](/dotnet/api/microsoft.aspnetcore.signalr.ihubclients-1.all). I messaggi ricevuti vengono inviati a tutti i client connessi all'hub.
 
-## <a name="test-the-app"></a>Eseguire il test dell'app
+## <a name="test-the-app"></a>Eseguire il test dell'applicazione
 
 Per verificare che l'app funzioni, eseguire la procedura seguente.
 
@@ -297,7 +299,7 @@ Configurare Visual Studio in modo che cerchi npm nella variabile di ambiente *PA
 
 La configurazione di Visual Studio è completata. A questo punto è possibile creare il progetto
 
-1. Usare l'opzione di menu **File** > **New** > **Project** e scegliere il modello di **applicazione Web ASP.NET Core** .
+1. Utilizzare l'opzione di menu **File** > **nuovo** > **progetto** e scegliere il modello **applicazione Web ASP.NET Core** .
 1. Assegnare al progetto il nome *SignalRWebPack*e selezionare **Crea**.
 1. Selezionare *.NET Core* nell'elenco a discesa del framework di destinazione e quindi selezionare *ASP.NET Core 2.2* nell'elenco a discesa del selettore del framework. Selezionare il modello **vuoto** e selezionare **Crea**.
 
@@ -365,7 +367,7 @@ I passaggi seguenti consentono di configurare la conversione da TypeScript a Jav
     Il file precedente configura la compilazione di Webpack. Ecco alcuni dettagli di configurazione del server da tenere in considerazione:
 
     * La proprietà `output` esegue l'override del valore predefinito di *dist*. Il bundle viene invece creato nella directory *wwwroot*.
-    * La matrice `resolve.extensions` include *.js* per importare il codice JavaScript del client SignalR.
+    * La matrice `resolve.extensions` include *. js* per importare il codice JavaScript del client SignalR.
 
 1. Creare una nuova directory *src* nella radice del progetto. La sua funzione è quella di archiviare le risorse lato client del progetto.
 
@@ -414,7 +416,7 @@ I passaggi seguenti consentono di configurare la conversione da TypeScript a Jav
 
     [!code-csharp[Startup](signalr-typescript-webpack/sample/2.x/Startup.cs?name=snippet_UseSignalR)]
 
-1. Creare una nuova directory denominata *Hubs* nella radice del progetto. La sua funzione è quella di archiviare l'hub SignalR, che verrà creato nel passaggio successivo.
+1. Creare una nuova directory denominata *Hubs* nella radice del progetto. Lo scopo è archiviare l'hub SignalR, che verrà creato nel passaggio successivo.
 
 1. Creare l'hub *Hubs/ChatHub.cs* con il codice seguente:
 
@@ -434,7 +436,7 @@ L'app attualmente visualizza un semplice form per l'invio di messaggi. Quando si
     npm install @aspnet/signalr
     ```
 
-    Il comando precedente installa il [client TypeScript di SignalR](https://www.npmjs.com/package/@aspnet/signalr), che consente al client di inviare messaggi al server.
+    Il comando precedente installa il [client diSignalR typescript](https://www.npmjs.com/package/@aspnet/signalr), che consente al client di inviare messaggi al server.
 
 1. Aggiungere il codice evidenziato al file *src/index.ts*:
 
@@ -458,7 +460,7 @@ L'app attualmente visualizza un semplice form per l'invio di messaggi. Quando si
 
     In questo esempio il client TypeScript invia un messaggio identificato come `newMessage`. Il metodo C# `NewMessage` si aspetta i dati inviati dal client. Viene eseguita una chiamata al metodo [SendAsync](/dotnet/api/microsoft.aspnetcore.signalr.clientproxyextensions.sendasync) su [Clients.All](/dotnet/api/microsoft.aspnetcore.signalr.ihubclients-1.all). I messaggi ricevuti vengono inviati a tutti i client connessi all'hub.
 
-## <a name="test-the-app"></a>Eseguire il test dell'app
+## <a name="test-the-app"></a>Eseguire il test dell'applicazione
 
 Per verificare che l'app funzioni, eseguire la procedura seguente.
 

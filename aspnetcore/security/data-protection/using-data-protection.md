@@ -1,36 +1,38 @@
 ---
-title: Introduzione a Data Protection API in ASP.NET Core
+title: Iniziare a usare le API di protezione dei dati in ASP.NET Core
 author: rick-anderson
-description: Informazioni su come usare le API di protezione dati ASP.NET Core per la protezione e rimozione della protezione dei dati in un'app.
+description: Informazioni su come usare le API di protezione dei dati ASP.NET Core per la protezione e la rimozione della protezione dei dati in un'app.
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 11/12/2019
+no-loc:
+- SignalR
 uid: security/data-protection/using-data-protection
-ms.openlocfilehash: 25bf099a3d9edd7e6e0872725cbc3707750314e6
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 8c3f3c7fb21434cf335591c41741f0ce868df33e
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087643"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963869"
 ---
-# <a name="get-started-with-the-data-protection-apis-in-aspnet-core"></a>Introduzione a Data Protection API in ASP.NET Core
+# <a name="get-started-with-the-data-protection-apis-in-aspnet-core"></a>Iniziare a usare le API di protezione dei dati in ASP.NET Core
 
 <a name="security-data-protection-getting-started"></a>
 
-Nei più semplici, la protezione dei dati prevede i passaggi seguenti:
+Al più semplice, la protezione dei dati è costituita dai passaggi seguenti:
 
-1. Creare un dati protezione da un provider di protezione dati.
+1. Creare una protezione dati da un provider di protezione dati.
 
-2. Chiamare il `Protect` metodo con i dati da proteggere.
+2. Chiamare il metodo `Protect` con i dati che si desidera proteggere.
 
-3. Chiamare il `Unprotect` metodo con i dati a cui si desidera riconvertire in testo normale.
+3. Chiamare il metodo `Unprotect` con i dati di cui si vuole tornare in testo normale.
 
-La maggior parte dei Framework e modelli di app, ad esempio ASP.NET Core o SignalR, configurare il sistema di protezione dati già e aggiungerlo a un contenitore del servizio che accedere tramite inserimento delle dipendenze. L'esempio seguente viene illustrata la configurazione di un contenitore del servizio per l'inserimento delle dipendenze e la registrazione lo stack di protezione dati, riceve il provider di protezione dati tramite l'inserimento delle dipendenze, creazione di una protezione e rimozione della protezione e la protezione dei dati.
+La maggior parte dei Framework e dei modelli di app, ad esempio ASP.NET Core o SignalR, configura già il sistema di protezione dei dati e lo aggiunge a un contenitore di servizi a cui si accede tramite l'inserimento di dipendenze. Nell'esempio seguente viene illustrata la configurazione di un contenitore di servizi per l'inserimento di dipendenze e la registrazione dello stack DI protezione dei dati, la ricezione del provider DI protezione dati tramite DI, la creazione di un programma di protezione e la protezione dei dati.
 
 [!code-csharp[](../../security/data-protection/using-data-protection/samples/protectunprotect.cs?highlight=26,34,35,36,37,38,39,40)]
 
-Quando si crea un programma di protezione è necessario fornire uno o più [stringhe di scopi](xref:security/data-protection/consumer-apis/purpose-strings). Una stringa scopo fornisce isolamento tra i consumer. Ad esempio, una protezione creata con una stringa di utilizzo generico di "green" sarebbe in grado di rimuovere la protezione dei dati forniti da una protezione con uno scopo della "viola".
+Quando si crea una protezione, è necessario specificare una o più [stringhe per finalità](xref:security/data-protection/consumer-apis/purpose-strings). Una stringa di scopo fornisce l'isolamento tra i consumer. Ad esempio, una protezione creata con una stringa di scopo "verde" non sarà in grado di rimuovere la protezione dei dati forniti da un programma di protezione con scopo "viola".
 
 >[!TIP]
-> Le istanze di `IDataProtectionProvider` e `IDataProtector` sono thread-safe per i chiamanti di più. È destinato che una volta che un componente ottiene un riferimento a un `IDataProtector` tramite una chiamata verso `CreateProtector`, che fanno riferimento a verranno utilizzate per più chiamate a `Protect` e `Unprotect`.
+> Le istanze di `IDataProtectionProvider` e `IDataProtector` sono thread-safe per più chiamanti. Quando un componente ottiene un riferimento a un `IDataProtector` tramite una chiamata a `CreateProtector`, utilizzerà tale riferimento per più chiamate a `Protect` e `Unprotect`.
 >
->Una chiamata a `Unprotect` genererà CryptographicException se il payload protetto non può essere verificato o decifrato. Alcuni componenti può essere utile ignorare gli errori durante rimuovere la protezione di operazioni; un componente che legge i cookie di autenticazione può gestire questo errore e trattare la richiesta come se non avesse alcun cookie affatto anziché Nega la richiesta direttamente. I componenti che questo comportamento devono in particolare intercettare CryptographicException invece di assorbimento di tutte le eccezioni.
+>Una chiamata a `Unprotect` genererà CryptographicException se non è possibile verificare o decifrare il payload protetto. Alcuni componenti potrebbero voler ignorare gli errori durante le operazioni di rimozione della protezione. un componente che legge i cookie di autenticazione potrebbe gestire questo errore e trattare la richiesta come se non fosse disponibile alcun cookie anziché interrompere la richiesta in modo non corretto. I componenti che vogliono questo comportamento devono rilevare in modo specifico CryptographicException anziché ingoiare tutte le eccezioni.

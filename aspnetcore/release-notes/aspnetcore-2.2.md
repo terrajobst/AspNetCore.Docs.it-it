@@ -4,14 +4,16 @@ author: rick-anderson
 description: Informazioni sulle nuove funzionalità di ASP.NET Core 2.2.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 11/12/2019
+no-loc:
+- SignalR
 uid: aspnetcore-2.2
-ms.openlocfilehash: 88a202d85c4d4ed7a395dba78feea29ef4637732
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
-ms.translationtype: HT
+ms.openlocfilehash: fca653158c95e7c1a11f25f4076830fe3e7e93ae
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975716"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963129"
 ---
 # <a name="whats-new-in-aspnet-core-22"></a>Novità di ASP.NET Core 2.2
 
@@ -25,7 +27,7 @@ Per altre informazioni, vedere le seguenti risorse:
 
 * <xref:web-api/advanced/analyzers>
 * <xref:web-api/advanced/conventions>
-* [ASP.NET Core 2.2.0-preview1: Convenzioni e analizzatori di OpenAPI](https://blogs.msdn.microsoft.com/webdev/2018/08/23/asp-net-core-2-20-preview1-open-api-analyzers-conventions/)
+* [ASP.NET Core 2.2.0-preview1: OpenAPI Analyzers & Conventions](https://blogs.msdn.microsoft.com/webdev/2018/08/23/asp-net-core-2-20-preview1-open-api-analyzers-conventions/)
 
 ## <a name="problem-details-support"></a>Assistenza per i dettagli del problema
 
@@ -74,11 +76,11 @@ Nelle versioni precedenti di ASP.NET Core, IIS funge da proxy inverso. Nella ver
 
 Per altre informazioni, vedere [Hosting in-process per IIS](xref:host-and-deploy/aspnet-core-module?view=aspnetcore-2.2#in-process-hosting-model).
 
-## <a name="signalr-java-client"></a>Client Java per SignalR
+## <a name="opno-locsignalr-java-client"></a>client Java SignalR
 
-ASP.NET Core 2.2 introduce un client Java per SignalR. Questo client supporta la connessione a un server SignalR di ASP.NET Core dal codice Java, incluse le app Android.
+ASP.NET Core 2,2 introduce un client Java per SignalR. Questo client supporta la connessione a un server ASP.NET Core SignalR dal codice Java, incluse le app Android.
 
-Per altre informazioni, vedere [ASP.NET Core SignalR Java client](https://docs.microsoft.com/aspnet/core/signalr/java-client?view=aspnetcore-2.2) (Client Java per SignalR di ASP.NET Core).
+Per ulteriori informazioni, vedere [ASP.NET Core SignalR client Java](https://docs.microsoft.com/aspnet/core/signalr/java-client?view=aspnetcore-2.2).
 
 ## <a name="cors-improvements"></a>Miglioramenti a CORS
 

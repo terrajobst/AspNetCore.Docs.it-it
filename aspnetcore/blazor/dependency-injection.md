@@ -1,31 +1,33 @@
 ---
-title: Inserimento delle dipendenze di ASP.NET Core Blazer
+title: ASP.NET Core Blazor inserimento delle dipendenze
 author: guardrex
-description: Scopri in che modo le app Blazer possono inserire i servizi nei componenti.
+description: Scopri in che modo le app Blazor possono inserire i servizi nei componenti.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/15/2019
+no-loc:
+- Blazor
 uid: blazor/dependency-injection
-ms.openlocfilehash: b548f0e50e1a60b74969e5bbee43860be9ba5a7f
-ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
+ms.openlocfilehash: a39d913636afc55ac9d831de923ba7ae8db1216b
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72391147"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963083"
 ---
-# <a name="aspnet-core-blazor-dependency-injection"></a>Inserimento delle dipendenze di ASP.NET Core Blazer
+# <a name="aspnet-core-opno-locblazor-dependency-injection"></a>ASP.NET Core Blazor inserimento delle dipendenze
 
 Di [Rainer Stropek](https://www.timecockpit.com)
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-Blazer supporta l' [inserimento delle dipendenze (di)](xref:fundamentals/dependency-injection). Le app possono usare i servizi predefiniti inserendoli in componenti. Le app possono anche definire e registrare servizi personalizzati e renderli disponibili nell'app tramite DI.
+Blazor supporta l' [inserimento di dipendenze](xref:fundamentals/dependency-injection). Le app possono usare i servizi predefiniti inserendoli in componenti. Le app possono anche definire e registrare servizi personalizzati e renderli disponibili nell'app tramite DI.
 
-DI è una tecnica per accedere ai servizi configurati in una posizione centrale. Questa operazione può essere utile nelle app blazer per:
+DI è una tecnica per accedere ai servizi configurati in una posizione centrale. Questa operazione può essere utile nelle app Blazor per:
 
 * Condividere una singola istanza di una classe di servizio in molti componenti, noti come un servizio *singleton* .
-* Separare i componenti da classi di servizi concrete usando astrazioni di riferimento. Si consideri, ad esempio, un'interfaccia `IDataAccess` per accedere ai dati nell'app. L'interfaccia viene implementata da una classe concreta `DataAccess` e registrata come servizio nel contenitore del servizio dell'app. Quando un componente usa il per ricevere un'implementazione di @no__t 0, il componente non è associato al tipo concreto. L'implementazione può essere scambiata, ad esempio per un'implementazione fittizia negli unit test.
+* Separare i componenti da classi di servizi concrete usando astrazioni di riferimento. Si consideri, ad esempio, un'interfaccia `IDataAccess` per accedere ai dati nell'app. L'interfaccia viene implementata da una classe concreta `DataAccess` e registrata come servizio nel contenitore del servizio dell'app. Quando un componente usa il per ricevere un'implementazione di `IDataAccess`, il componente non è associato al tipo concreto. L'implementazione può essere scambiata, ad esempio per un'implementazione fittizia negli unit test.
 
 ## <a name="default-services"></a>Servizi predefiniti
 
@@ -63,7 +65,7 @@ I servizi possono essere configurati con le durate mostrate nella tabella seguen
 
 | Durata | Descrizione |
 | -------- | ----------- |
-| <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Scoped*> | Le app webassembly Blazer attualmente non dispongono di un concetto di ambiti di. i servizi registrati @no__t 0 si comportano come servizi `Singleton`. Tuttavia, il modello di hosting del server Blazer supporta la durata `Scoped`. Nelle app del server blazer, una registrazione del servizio con ambito ha come ambito la *connessione*. Per questo motivo, è preferibile usare i servizi con ambito per i servizi che devono avere come ambito l'utente corrente, anche se l'obiettivo corrente è eseguire sul lato client nel browser. |
+| <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Scoped*> | le app webassembly Blazor attualmente non dispongono di un concetto di ambiti di. i servizi registrati `Scoped`si comportano come `Singleton` Services. Tuttavia, il modello di hosting del server Blazor supporta la durata `Scoped`. Nelle app di Blazor server una registrazione del servizio con ambito ha come ambito la *connessione*. Per questo motivo, è preferibile usare i servizi con ambito per i servizi che devono avere come ambito l'utente corrente, anche se l'obiettivo corrente è eseguire sul lato client nel browser. |
 | <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Singleton*> | La creazione di una *singola istanza* del servizio. Tutti i componenti che richiedono un servizio `Singleton` ricevono un'istanza dello stesso servizio. |
 | <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Transient*> | Ogni volta che un componente ottiene un'istanza di un servizio `Transient` dal contenitore dei servizi, riceve una *nuova istanza* del servizio. |
 
@@ -129,7 +131,7 @@ Prerequisiti per l'inserimento del costruttore:
 
 ## <a name="utility-base-component-classes-to-manage-a-di-scope"></a>Classi di componenti di base dell'utilità per gestire un ambito DI
 
-Nelle app ASP.NET Core, i servizi con ambito hanno in genere come ambito la richiesta corrente. Al termine della richiesta, tutti i servizi con ambito o temporaneo vengono eliminati dal sistema DI. Nelle app del server blazer, l'ambito della richiesta dura per la durata della connessione client, che può comportare un tempo di permanenza dei servizi temporanei e con ambito più lungo del previsto.
+Nelle app ASP.NET Core, i servizi con ambito hanno in genere come ambito la richiesta corrente. Al termine della richiesta, tutti i servizi con ambito o temporaneo vengono eliminati dal sistema DI. Nelle app Blazor server l'ambito della richiesta dura per la durata della connessione client, che può comportare un tempo di permanenza dei servizi temporanei e con ambito maggiore del previsto.
 
 Per definire l'ambito dei servizi per la durata di un componente, può usare le classi di base `OwningComponentBase` e `OwningComponentBase<TService>`. Queste classi di base espongono una proprietà `ScopedServices` di tipo `IServiceProvider` che risolve i servizi che hanno come ambito la durata del componente. Per creare un componente che eredita da una classe di base in Razor, usare la direttiva `@inherits`.
 

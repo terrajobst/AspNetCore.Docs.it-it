@@ -4,28 +4,31 @@ author: rick-anderson
 description: Informazioni sulle nuove funzionalità di ASP.NET Core 3,0.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/31/2019
+ms.date: 11/12/2019
+no-loc:
+- Blazor
+- SignalR
 uid: aspnetcore-3.0
-ms.openlocfilehash: 8c53d8a9fa222ca40f26dc713ec3b70ddde76539
-ms.sourcegitcommit: eb2fe5ad2e82fab86ca952463af8d017ba659b25
+ms.openlocfilehash: c3dde383507ec919f82b5268ddbf23911c3d24f8
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416115"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963115"
 ---
 # <a name="whats-new-in-aspnet-core-30"></a>Novità di ASP.NET Core 3,0
 
 In questo articolo vengono evidenziate le modifiche più significative in ASP.NET Core 3,0 con i collegamenti alla documentazione pertinente.
 
-## <a name="blazor"></a>Blazor
+## Blazor
 
-Blazer è un nuovo Framework in ASP.NET Core per la creazione di un'interfaccia utente Web interattiva sul lato client con .NET:
+Blazor è un nuovo Framework in ASP.NET Core per la creazione di un'interfaccia utente Web interattiva sul lato client con .NET:
 
 * Creare interfacce utente interattive avanzate con C# invece di JavaScript.
 * Condividere la logica dell'app scritta in .NET sul lato client e sul lato server.
 * Eseguire il rendering dell'interfaccia utente come HTML e CSS per un ampio supporto dei browser, inclusi i browser per dispositivi mobili.
 
-Scenari supportati dal Framework Blazer:
+scenari supportati di Blazor Framework:
 
 * Componenti dell'interfaccia utente riutilizzabili (componenti Razor)
 * Routing lato client
@@ -37,19 +40,19 @@ Scenari supportati dal Framework Blazer:
 
 Per ulteriori informazioni, vedere <xref:blazor/index>.
 
-### <a name="blazor-server"></a>Server Blazor
+### <a name="opno-locblazor-server"></a>Server Blazor
 
-Blazor separa la logica di rendering dei componenti dal modo in cui vengono applicati gli aggiornamenti dell'interfaccia utente. Il server Blazer fornisce il supporto per l'hosting di componenti Razor sul server in un'app ASP.NET Core. Tutti gli aggiornamenti dell'interfaccia utente vengono gestiti tramite una connessione SignalR. Il server blazer è supportato in ASP.NET Core 3,0.
+Blazor separa la logica di rendering dei componenti dal modo in cui vengono applicati gli aggiornamenti dell'interfaccia utente. Blazor Server fornisce il supporto per l'hosting di componenti Razor sul server in un'app ASP.NET Core. Gli aggiornamenti dell'interfaccia utente vengono gestiti tramite una connessione SignalR. il server Blazor è supportato ASP.NET Core 3,0.
 
-### <a name="blazor-webassembly-preview"></a>Webassembly blazer (anteprima)
+### <a name="opno-locblazor-webassembly-preview"></a>Blazor webassembly (anteprima)
 
-Le app Blazer possono anche essere eseguite direttamente nel browser usando un Runtime .NET basato su webassembly. Il webassembly blazer è in anteprima e *non* è supportato in ASP.NET Core 3,0. Il webassembly Blazer sarà supportato in una versione futura di ASP.NET Core.
+le app Blazor possono anche essere eseguite direttamente nel browser usando un Runtime .NET basato su webassembly. Blazor webassembly è in anteprima e *non* è supportato in ASP.NET Core 3,0. Blazor webassembly sarà supportato in una versione futura di ASP.NET Core.
 
 ### <a name="razor-components"></a>Componenti Razor
 
-Le app blazer sono compilate da componenti. I componenti sono blocchi autonomi dell'interfaccia utente (UI), ad esempio una pagina, una finestra di dialogo o un form. I componenti sono classi .NET normali che definiscono la logica di rendering dell'interfaccia utente e i gestori eventi sul lato client. È possibile creare app Web interattive avanzate senza JavaScript.
+Blazor app sono compilate da componenti. I componenti sono blocchi autonomi dell'interfaccia utente (UI), ad esempio una pagina, una finestra di dialogo o un form. I componenti sono classi .NET normali che definiscono la logica di rendering dell'interfaccia utente e i gestori eventi sul lato client. È possibile creare app Web interattive avanzate senza JavaScript.
 
-I componenti in blazer vengono in genere creati usando sintassi Razor, una combinazione naturale di HTML C#e. I componenti Razor sono simili alle visualizzazioni Razor Pages e MVC in quanto entrambi utilizzano Razor. Diversamente dalle pagine e dalle viste, basate su un modello di richiesta-risposta, i componenti vengono usati in modo specifico per la gestione della composizione dell'interfaccia utente.
+I componenti di Blazor vengono in genere creati usando sintassi Razor, una combinazione naturale di HTML C#e. I componenti Razor sono simili alle visualizzazioni Razor Pages e MVC in quanto entrambi utilizzano Razor. Diversamente dalle pagine e dalle viste, basate su un modello di richiesta-risposta, i componenti vengono usati in modo specifico per la gestione della composizione dell'interfaccia utente.
 
 ## <a name="grpc"></a>gRPC
 
@@ -76,11 +79,11 @@ la funzionalità gRPC in ASP.NET Core 3,0 include:
 
 Per ulteriori informazioni, vedere <xref:grpc/index>.
 
-## <a name="signalr"></a>SignalR
+## SignalR
 
-Per istruzioni sulla migrazione, vedere [aggiornare il codice SignalR](xref:migration/22-to-30#signalr) . SignalR ora usa `System.Text.Json` per serializzare/deserializzare i messaggi JSON. Per istruzioni su come ripristinare il serializzatore basato su `Newtonsoft.Json`, vedere [passare a Newtonsoft. JSON](xref:migration/22-to-30#switch-to-newtonsoftjson) .
+Per istruzioni sulla migrazione, vedere [aggiornare il codice SignalR](xref:migration/22-to-30#signalr) . SignalR USA ora `System.Text.Json` per serializzare/deserializzare i messaggi JSON. Per istruzioni su come ripristinare il serializzatore basato su `Newtonsoft.Json`, vedere [passare a Newtonsoft. JSON](xref:migration/22-to-30#switch-to-newtonsoftjson) .
 
-Nei client JavaScript e .NET per SignalR è stato aggiunto il supporto per la riconnessione automatica. Per impostazione predefinita, il client tenta di riconnettersi immediatamente e riprovare dopo 2, 10 e 30 secondi, se necessario. Se il client si riconnette correttamente, riceve un nuovo ID connessione. La riconnessione automatica è esplicita:
+Nei client JavaScript e .NET per SignalRè stato aggiunto il supporto per la riconnessione automatica. Per impostazione predefinita, il client tenta di riconnettersi immediatamente e riprovare dopo 2, 10 e 30 secondi, se necessario. Se il client si riconnette correttamente, riceve un nuovo ID connessione. La riconnessione automatica è esplicita:
 
 ```javascript
 const connection = new signalR.HubConnectionBuilder()
@@ -105,7 +108,7 @@ Se la riconnessione non riesce dopo l'ultimo intervallo di riconnessione:
 
 Durante i tentativi di riconnessione, aggiornare l'interfaccia utente dell'app per notificare all'utente che è in corso il tentativo di riconnessione.
 
-Per fornire commenti e suggerimenti dell'interfaccia utente quando la connessione viene interrotta, l'API client SignalR è stata espansa in modo da includere i gestori eventi seguenti:
+Per fornire commenti e suggerimenti dell'interfaccia utente quando la connessione viene interrotta, l'API client SignalR è stata espansa per includere i gestori eventi seguenti:
 
 * `onreconnecting`: offre agli sviluppatori la possibilità di disabilitare l'interfaccia utente o di informare gli utenti che l'app è offline.
 * `onreconnected`: offre agli sviluppatori la possibilità di aggiornare l'interfaccia utente una volta ristabilita la connessione.
@@ -222,7 +225,7 @@ services
     });
 ```
 
-Gli hub SignalR usano il [routing degli endpoint](xref:fundamentals/routing). La connessione all'hub SignalR è stata eseguita in precedenza in modo esplicito:
+gli hub SignalR usano il [routing degli endpoint](xref:fundamentals/routing). la connessione all'hub SignalR è stata eseguita in precedenza in modo esplicito:
 
 ```csharp
 app.UseSignalR(routes =>
@@ -245,7 +248,7 @@ app.UseRouting(routes =>
 });
 ```
 
-Gli hub SignalR 3,0 possono essere indirizzati tramite il routing degli endpoint. Con il routing degli endpoint, in genere è possibile configurare tutti i routing in `UseRouting`:
+SignalR 3,0 hub possono essere indirizzati tramite il routing degli endpoint. Con il routing degli endpoint, in genere è possibile configurare tutti i routing in `UseRouting`:
 
 ```csharp
 app.UseRouting(routes =>
@@ -286,7 +289,7 @@ async IAsyncEnumerable<string> clientStreamData()
 await connection.SendAsync("UploadStream", clientStreamData());
 ```
 
-Le app client JavaScript usano il `Subject` SignalR (o un [oggetto RxJS](https://rxjs.dev/api/index/class/Subject)) per l'argomento di `stream` del metodo dell'hub `UploadStream` precedente.
+Le app client JavaScript usano il SignalR `Subject` (o un [oggetto RxJS](https://rxjs.dev/api/index/class/Subject)) per l'argomento `stream` del metodo dell'hub `UploadStream` sopra.
 
 ```javascript
 let subject = new signalR.Subject();

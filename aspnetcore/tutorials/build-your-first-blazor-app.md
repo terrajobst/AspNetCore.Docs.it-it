@@ -1,34 +1,36 @@
 ---
-title: Creare la prima app Blazor
+title: Crea la tua prima app Blazor
 author: guardrex
-description: Istruzioni dettagliate per creare un'app Blazor.
+description: Creazione di un'app Blazor Step-by-Step.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/31/2019
+no-loc:
+- Blazor
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: cc7caa1ee01e0282024895ab35c5b9933b1504d0
-ms.sourcegitcommit: eb2fe5ad2e82fab86ca952463af8d017ba659b25
+ms.openlocfilehash: 646e14060b88fc2a0fefc2f7a5ebb1c15ac39b79
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416169"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963704"
 ---
-# <a name="build-your-first-blazor-app"></a>Creare la prima app Blazor
+# <a name="build-your-first-opno-locblazor-app"></a>Crea la tua prima app Blazor
 
 Di [Daniel Roth](https://github.com/danroth27) e [Luke Latham](https://github.com/guardrex)
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-Questa esercitazione mostra come compilare e modificare un'app Blazor.
+Questa esercitazione illustra come creare e modificare un'app Blazor.
 
-Seguire le indicazioni contenute nell'articolo <xref:blazor/get-started> per creare un progetto Blazor per questa esercitazione. Denominare il progetto *ToDoList*.
+Per creare un progetto Blazor per questa esercitazione, seguire le istruzioni riportate nell'articolo <xref:blazor/get-started>. Denominare il progetto *ToDoList*.
 
 ## <a name="build-components"></a>Compilare i componenti
 
 1. Passare a ognuna delle tre pagine dell'app nella cartella *pages* : Home, Counter e fetch data. Queste pagine vengono implementate dai file dei componenti Razor *Index.razor*, *Counter.razor* e *FetchData.razor*.
 
-1. Nella pagina Counter selezionare il pulsante **Click me** per incrementare il contatore senza un aggiornamento della pagina. Per incrementare un contatore in una pagina Web è in genere necessario scrivere JavaScript. Con blazer è invece possibile scrivere C# .
+1. Nella pagina Counter selezionare il pulsante **Click me** per incrementare il contatore senza un aggiornamento della pagina. Per incrementare un contatore in una pagina Web è in genere necessario scrivere JavaScript. Con Blazorè invece possibile scrivere C# .
 
 1. Esaminare l'implementazione del componente `Counter` nel file *Counter.razor*.
 
@@ -59,7 +61,7 @@ Includere un componente in un altro componente usando una sintassi HTML.
 
 1. Aggiungere il componente `Counter` al componente `Index` dell'app aggiungendo un elemento `<Counter />` al componente `Index` (*Index.razor*).
 
-   Se si usa webassembly blazer per questa esperienza, il componente `Index` usa un componente `SurveyPrompt`. Sostituire l'elemento `<SurveyPrompt>` con un elemento `<Counter />`. Se si usa un'app del server blazer per questa esperienza, aggiungere l'elemento `<Counter />` al componente `Index`:
+   Se si usa Blazor webassembly per questa esperienza, il componente `Index` usa un componente di `SurveyPrompt`. Sostituire l'elemento `<SurveyPrompt>` con un elemento `<Counter />`. Se si usa un'app Server Blazor per questa esperienza, aggiungere l'elemento `<Counter />` al componente `Index`:
 
    *Pages/Index.razor*:
 
@@ -99,9 +101,9 @@ La direttiva `@page` all'inizio del file *Counter.razor* specifica che il compon
 
 ## <a name="dependency-injection"></a>Inserimento di dipendenze
 
-### <a name="blazor-server-experience"></a>Esperienza del server Blazer
+### <a name="opno-locblazor-server-experience"></a>esperienza del server Blazor
 
-Se si utilizza un'app del server blazer, il servizio `WeatherForecastService` viene registrato come [singleton](xref:fundamentals/dependency-injection#service-lifetimes) in `Startup.ConfigureServices`. Un'istanza del servizio è disponibile in tutte le app tramite l' [inserimento di dipendenze](xref:fundamentals/dependency-injection):
+Se si usa un'app Server Blazor, il servizio `WeatherForecastService` viene registrato come [singleton](xref:fundamentals/dependency-injection#service-lifetimes) in `Startup.ConfigureServices`. Un'istanza del servizio è disponibile in tutte le app tramite l' [inserimento di dipendenze](xref:fundamentals/dependency-injection):
 
 [!code-csharp[](build-your-first-blazor-app/samples_snapshot/3.x/Startup.cs?highlight=5)]
 
@@ -115,9 +117,9 @@ Il componente `FetchData` usa il servizio inserito, come `ForecastService`, per 
 
 [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/FetchData2.razor?highlight=6)]
 
-### <a name="blazor-webassembly-experience"></a>Esperienza webassembly Blazer
+### <a name="opno-locblazor-webassembly-experience"></a>esperienza Blazor webassembly
 
-Se si usa un'app webassembly blazer, viene inserito `HttpClient` per ottenere i dati delle previsioni meteo dal file *Weather. JSON* nella cartella *wwwroot/Sample-Data* .
+Se si usa un'app webassembly Blazor, viene inserito `HttpClient` per ottenere i dati delle previsioni meteo dal file *Weather. JSON* nella cartella *wwwroot/Sample-Data* .
 
 *Pages/FetchData.razor*:
 

@@ -4,28 +4,30 @@ author: jamesnk
 description: Informazioni su come creare client gRPC usando la factory client.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
-ms.date: 08/21/2019
+ms.date: 11/12/2019
+no-loc:
+- SignalR
 uid: grpc/clientfactory
-ms.openlocfilehash: 5d719893e96ae017e2de0ee1744003d2d67a49c9
-ms.sourcegitcommit: f65d8765e4b7c894481db9b37aa6969abc625a48
+ms.openlocfilehash: 3042bb61367f8b9a9f3142217ad329270ab2cca5
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773670"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963688"
 ---
 # <a name="grpc-client-factory-integration-in-net-core"></a>integrazione delle factory client gRPC in .NET Core
 
-l'integrazione di `HttpClientFactory` gRPC con offre un modo centralizzato per creare client gRPC. Può essere usato come alternativa alla configurazione di [istanze client gRPC](xref:grpc/client)autonome. L'integrazione di Factory è disponibile nel pacchetto NuGet [.NET. ClientFactory di Grpc](https://www.nuget.org/packages/Grpc.Net.ClientFactory) .
+l'integrazione di gRPC con `HttpClientFactory` offre un modo centralizzato per creare client gRPC. Può essere usato come alternativa alla configurazione di [istanze client gRPC](xref:grpc/client)autonome. L'integrazione di Factory è disponibile nel pacchetto NuGet [.NET. ClientFactory di Grpc](https://www.nuget.org/packages/Grpc.Net.ClientFactory) .
 
 La Factory offre i vantaggi seguenti:
 
 * Fornisce una posizione centralizzata per la configurazione di istanze client gRPC logiche
-* Gestisce la durata dell'oggetto sottostante`HttpClientMessageHandler`
+* Gestisce la durata del `HttpClientMessageHandler` sottostante
 * Propagazione automatica della scadenza e dell'annullamento in un ASP.NET Core servizio gRPC
 
 ## <a name="register-grpc-clients"></a>Registrare i client di gRPC
 
-Per registrare un client gRPC, è possibile `AddGrpcClient` usare il metodo di estensione generico `Startup.ConfigureServices`in, specificando la classe client tipizzata gRPC e l'indirizzo del servizio:
+Per registrare un client gRPC, è possibile usare il metodo di estensione `AddGrpcClient` generico all'interno di `Startup.ConfigureServices`, specificando la classe client tipizzata gRPC e l'indirizzo del servizio:
 
 ```csharp
 services.AddGrpcClient<Greeter.GreeterClient>(o =>
@@ -63,7 +65,7 @@ public class AggregatorService : Aggregator.AggregatorBase
 
 ## <a name="configure-httpclient"></a>Configurare HttpClient
 
-`HttpClientFactory`Crea l' `HttpClient` oggetto utilizzato dal client gRPC. I `HttpClientFactory` metodi standard possono essere usati per aggiungere il middleware della richiesta in uscita o per `HttpClientHandler` configurare il `HttpClient`sottostante di:
+`HttpClientFactory` crea il `HttpClient` usato dal client gRPC. I metodi di `HttpClientFactory` standard possono essere usati per aggiungere il middleware della richiesta in uscita o per configurare la `HttpClientHandler` sottostante del `HttpClient`:
 
 ```csharp
 services
@@ -86,7 +88,7 @@ Per altre informazioni, vedere [creare richieste HTTP con IHttpClientFactory](xr
 sono disponibili metodi specifici di gRPC per:
 
 * Configurare il canale sottostante di un client gRPC.
-* Aggiungere `Interceptor` le istanze che il client userà per eseguire chiamate gRPC.
+* Aggiungere `Interceptor` istanze che il client userà per eseguire chiamate gRPC.
 
 ```csharp
 services
@@ -103,7 +105,7 @@ services
 
 ## <a name="deadline-and-cancellation-propagation"></a>Scadenza e propagazione dell'annullamento
 
-i client gRPC creati dalla factory in un servizio gRPC possono essere configurati con `EnableCallContextPropagation()` per propagare automaticamente la scadenza e il token di annullamento alle chiamate figlio. Il `EnableCallContextPropagation()` metodo di estensione è disponibile nel pacchetto NuGet [Grpc. AspNetCore. Server. ClientFactory](https://www.nuget.org/packages/Grpc.AspNetCore.Server.ClientFactory) .
+i client gRPC creati dalla factory in un servizio gRPC possono essere configurati con `EnableCallContextPropagation()` per propagare automaticamente la scadenza e il token di annullamento alle chiamate figlio. Il metodo di estensione `EnableCallContextPropagation()` è disponibile nel pacchetto NuGet [Grpc. AspNetCore. Server. ClientFactory](https://www.nuget.org/packages/Grpc.AspNetCore.Server.ClientFactory) .
 
 La propagazione del contesto di chiamata funziona leggendo la scadenza e il token di annullamento dal contesto della richiesta gRPC corrente e propagando automaticamente le chiamate in uscita effettuate dal client gRPC. La propagazione del contesto di chiamata è un ottimo modo per garantire che gli scenari gRPC complessi e nidificati propaghino sempre la scadenza e l'annullamento.
 

@@ -5,12 +5,12 @@ description: Informazioni su come ASP.NET Core offre servizi e middleware per la
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 0cf6e5d391242322aa4c7b1a0b6a20dd484c80f6
-ms.sourcegitcommit: 4818385c3cfe0805e15138a2c1785b62deeaab90
+ms.openlocfilehash: 36235e305037c0bbf20093327e2a0ff21b3de809
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73896883"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963671"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalizzazione e localizzazione in ASP.NET Core
 
@@ -165,6 +165,9 @@ Se non si usa l'opzione `ResourcesPath`, il file con estensione *resx* per una v
 ### <a name="rootnamespaceattribute"></a>RootNamespaceAttribute 
 
 L'attributo [RootNamespace](/dotnet/api/microsoft.extensions.localization.rootnamespaceattribute?view=aspnetcore-2.1) specifica lo spazio dei nomi radice di un assembly quando tale spazio dei nomi è diverso dal nome dell'assembly. 
+
+> [!WARNING]
+> Questo problema può verificarsi quando il nome di un progetto non è un identificatore .NET valido. Ad esempio `my-project-name.csproj` utilizzerà lo spazio dei nomi radice `my_project_name` e il nome dell'assembly `my-project-name` a causa di questo errore. 
 
 Se lo spazio dei nomi radice di un assembly è diverso dal nome dell'assembly:
 

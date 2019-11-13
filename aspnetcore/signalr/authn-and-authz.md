@@ -5,26 +5,28 @@ description: Informazioni su come usare l'autenticazione e l'autorizzazione in A
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 10/17/2019
+ms.date: 11/12/2019
+no-loc:
+- SignalR
 uid: signalr/authn-and-authz
-ms.openlocfilehash: 258b6d92896d38b79116278abb7c70b6063e8131
-ms.sourcegitcommit: ce2bfb01f2cc7dd83f8a97da0689d232c71bcdc4
+ms.openlocfilehash: 5a1e15ef46a3f89af3fbd3d505e7bd340c46e672
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72531164"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963820"
 ---
-# <a name="authentication-and-authorization-in-aspnet-core-signalr"></a>Autenticazione e autorizzazione in ASP.NET Core SignalR
+# <a name="authentication-and-authorization-in-aspnet-core-opno-locsignalr"></a>Autenticazione e autorizzazione in ASP.NET Core SignalR
 
 Di [Andrew Stanton-Nurse](https://twitter.com/anurse)
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/authn-and-authz/sample/) [(procedura per il download)](xref:index#how-to-download-a-sample)
 
-## <a name="authenticate-users-connecting-to-a-signalr-hub"></a>Autenticare gli utenti che si connettono a un hub SignalR
+## <a name="authenticate-users-connecting-to-a-opno-locsignalr-hub"></a>Autenticare gli utenti che si connettono a un hub SignalR
 
-SignalR può essere usato con [l'autenticazione ASP.NET Core](xref:security/authentication/identity) per associare un utente a ogni connessione. In un hub è possibile accedere ai dati di autenticazione dalla proprietà [`HubConnectionContext.User`](/dotnet/api/microsoft.aspnetcore.signalr.hubconnectioncontext.user) . L'autenticazione consente all'hub di chiamare i metodi su tutte le connessioni associate a un utente. Per altre informazioni, vedere [gestire utenti e gruppi in SignalR](xref:signalr/groups). Più connessioni possono essere associate a un singolo utente.
+SignalR può essere utilizzato con [l'autenticazione ASP.NET Core](xref:security/authentication/identity) per associare un utente a ogni connessione. In un hub è possibile accedere ai dati di autenticazione dalla proprietà [`HubConnectionContext.User`](/dotnet/api/microsoft.aspnetcore.signalr.hubconnectioncontext.user) . L'autenticazione consente all'hub di chiamare i metodi su tutte le connessioni associate a un utente. Per ulteriori informazioni, vedere [Manage Users and groups in SignalR](xref:signalr/groups). Più connessioni possono essere associate a un singolo utente.
 
-Di seguito è riportato un esempio di `Startup.Configure` che usa SignalR e l'autenticazione ASP.NET Core:
+Di seguito è riportato un esempio di `Startup.Configure` che usa l'autenticazione SignalR e ASP.NET Core:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -74,13 +76,13 @@ public void Configure(IApplicationBuilder app)
 ```
 
 > [!NOTE]
-> L'ordine di registrazione di SignalR e del middleware di autenticazione ASP.NET Core è importante. Chiamare sempre `UseAuthentication` prima di `UseSignalR` in modo che SignalR disponga di un utente nella `HttpContext`.
+> L'ordine di registrazione del SignalR e del middleware di autenticazione ASP.NET Core è importante. Chiamare sempre `UseAuthentication` prima di `UseSignalR` in modo che SignalR disponga di un utente nel `HttpContext`.
 
 ::: moniker-end
 
 ### <a name="cookie-authentication"></a>Autenticazione cookie
 
-In un'app basata su browser, l'autenticazione dei cookie consente alle credenziali utente esistenti di eseguire automaticamente il flusso alle connessioni SignalR. Quando si usa il client browser, non è necessaria alcuna configurazione aggiuntiva. Se l'utente è connesso all'app, la connessione a SignalR eredita automaticamente questa autenticazione.
+In un'app basata su browser, l'autenticazione dei cookie consente di eseguire automaticamente il flusso delle credenziali utente esistenti per SignalR le connessioni. Quando si usa il client browser, non è necessaria alcuna configurazione aggiuntiva. Se l'utente è connesso all'app, la connessione SignalR eredita automaticamente l'autenticazione.
 
 I cookie sono un modo specifico del browser per inviare i token di accesso, ma i client non basati su browser possono inviarli. Quando si usa il [client .NET](xref:signalr/dotnet-client), la proprietà `Cookies` può essere configurata nella chiamata `.WithUrl` per fornire un cookie. Tuttavia, l'uso dell'autenticazione basata su cookie dal client .NET richiede che l'app fornisca un'API per lo scambio dei dati di autenticazione per un cookie.
 
@@ -108,12 +110,12 @@ var connection = new HubConnectionBuilder()
 > [!NOTE]
 > La funzione del token di accesso fornita viene chiamata prima di **ogni** richiesta HTTP effettuata da SignalR. Se è necessario rinnovare il token per mantenerla attiva (perché potrebbe scadere durante la connessione), eseguire questa operazione dall'interno di questa funzione e restituire il token aggiornato.
 
-Nelle API Web standard, i token di porta sono inviati in un'intestazione HTTP. SignalR, tuttavia, non è in grado di impostare queste intestazioni nei browser quando si utilizzano alcuni trasporti. Quando si usano WebSocket ed eventi inviati dal server, il token viene trasmesso come parametro della stringa di query. Per supportare questa operazione nel server, è necessaria una configurazione aggiuntiva:
+Nelle API Web standard, i token di porta sono inviati in un'intestazione HTTP. Tuttavia, SignalR non è in grado di impostare queste intestazioni nei browser quando si utilizzano alcuni trasporti. Quando si usano WebSocket ed eventi inviati dal server, il token viene trasmesso come parametro della stringa di query. Per supportare questa operazione nel server, è necessaria una configurazione aggiuntiva:
 
 [!code-csharp[Configure Server to accept access token from Query String](authn-and-authz/sample/Startup.cs?name=snippet)]
 
 > [!NOTE]
-> La stringa di query viene usata nei browser quando ci si connette con WebSocket ed eventi inviati dal server a causa delle limitazioni dell'API del browser. Quando si usa HTTPS, i valori della stringa di query sono protetti dalla connessione TLS. Tuttavia, molti server registrano i valori della stringa di query. Per altre informazioni, vedere [considerazioni sulla sicurezza in ASP.NET Core SignalR](xref:signalr/security). SignalR usa le intestazioni per trasmettere i token negli ambienti che li supportano, ad esempio i client .NET e Java.
+> La stringa di query viene usata nei browser quando ci si connette con WebSocket ed eventi inviati dal server a causa delle limitazioni dell'API del browser. Quando si usa HTTPS, i valori della stringa di query sono protetti dalla connessione TLS. Tuttavia, molti server registrano i valori della stringa di query. Per ulteriori informazioni, vedere [considerazioni sulla sicurezza in ASP.NET Core SignalR](xref:signalr/security). SignalR usa le intestazioni per trasmettere i token negli ambienti che li supportano, ad esempio i client .NET e Java.
 
 ### <a name="cookies-vs-bearer-tokens"></a>Cookie e token di porta 
 
@@ -121,7 +123,7 @@ I cookie sono specifici dei browser. L'invio da altri tipi di client aggiunge co
 
 ### <a name="windows-authentication"></a>Autenticazione di Windows
 
-Se [l'autenticazione di Windows](xref:security/authentication/windowsauth) è configurata nell'app, SignalR può usare tale identità per proteggere gli hub. Tuttavia, per inviare messaggi a singoli utenti, è necessario aggiungere un provider di ID utente personalizzato. Il sistema di autenticazione di Windows non fornisce l'attestazione "identificatore nome". SignalR usa l'attestazione per determinare il nome utente.
+Se [l'autenticazione di Windows](xref:security/authentication/windowsauth) è configurata nell'app, SignalR possibile usare tale identità per proteggere gli hub. Tuttavia, per inviare messaggi a singoli utenti, è necessario aggiungere un provider di ID utente personalizzato. Il sistema di autenticazione di Windows non fornisce l'attestazione "identificatore nome". SignalR utilizza l'attestazione per determinare il nome utente.
 
 Aggiungere una nuova classe che implementa `IUserIdProvider` e recuperare una delle attestazioni dall'utente da utilizzare come identificatore. Ad esempio, per usare l'attestazione "Name" (che è il nome utente di Windows nel formato `[Domain]\[Username]`), creare la classe seguente:
 
@@ -159,7 +161,7 @@ L'autenticazione di Windows è supportata solo dal client browser quando si usa 
 
 ### <a name="use-claims-to-customize-identity-handling"></a>Usare le attestazioni per personalizzare la gestione delle identità
 
-Un'app che autentica gli utenti può derivare gli ID utente SignalR dalle attestazioni utente. Per specificare il modo in cui SignalR crea gli ID utente, implementare `IUserIdProvider` e registrare l'implementazione.
+Un'app che autentica gli utenti può derivare SignalR ID utente dalle attestazioni utente. Per specificare il modo in cui SignalR crea gli ID utente, implementare `IUserIdProvider` e registrare l'implementazione.
 
 Il codice di esempio illustra come usare le attestazioni per selezionare l'indirizzo di posta elettronica dell'utente come proprietà di identificazione. 
 

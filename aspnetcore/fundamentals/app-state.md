@@ -5,14 +5,16 @@ description: Individuare gli approcci per mantenere lo stato di sessioni e app t
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/12/2019
+ms.date: 11/12/2019
+no-loc:
+- SignalR
 uid: fundamentals/app-state
-ms.openlocfilehash: ccb37a422d972ab9113bb4115473d054282dac87
-ms.sourcegitcommit: 994da92edb0abf856b1655c18880028b15a28897
+ms.openlocfilehash: b80b1e72eb2f25e9c9fe07a0c33c14ecf5ae05aa
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71278685"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963487"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>Stato di sessioni e app in ASP.NET Core
 
@@ -52,7 +54,7 @@ Tenere presente il [Regolamento generale sulla protezione dei dati dell'Unione E
 Lo stato della sessione è uno scenario di ASP.NET Core per l'archiviazione dei dati utente mentre l'utente visualizza un'app Web. Lo stato della sessione usa un archivio gestito dall'app per rendere persistenti i dati tra le richieste provenienti da un client. I dati della sessione sono supportati da una cache e considerati dati temporanei: il sito deve continuare a funzionare senza i dati della sessione. I dati critici dell'applicazione devono essere archiviati nel database utente e memorizzati nella cache della sessione solo al fine di ottimizzare le prestazioni.
 
 > [!NOTE]
-> La sessione non è supportata nelle app [SignalR](xref:signalr/index) poiché un [hub SignalR](xref:signalr/hubs) può essere eseguito indipendentemente da un contesto HTTP. Ad esempio, ciò può verificarsi quando una lunga richiesta di polling viene mantenuta aperta da un hub oltre la durata del contesto HTTP della richiesta.
+> La sessione non è supportata nelle app [SignalR](xref:signalr/index) perché un [HubSignalR](xref:signalr/hubs) può essere eseguito indipendentemente da un contesto http. Ad esempio, ciò può verificarsi quando una lunga richiesta di polling viene mantenuta aperta da un hub oltre la durata del contesto HTTP della richiesta.
 
 ASP.NET Core mantiene lo stato della sessione assegnando un cookie al client che contiene un ID sessione. Tale ID viene inviato all'app con ogni richiesta. L'app usa l'ID sessione per recuperare i dati della sessione.
 
@@ -65,21 +67,21 @@ Lo stato della sessione presenta i comportamenti seguenti:
 * L'app conserva una sessione per un periodo di tempo limitato dopo l'ultima richiesta. L'app imposta il timeout della sessione o usa il valore predefinito, pari a 20 minuti. Lo stato sessione è ideale per archiviare i dati utente specifici per una determinata sessione, ma nel caso in cui i dati non richiedano un'archiviazione permanente tra le sessioni.
 * I dati della sessione vengono eliminati quando viene chiamata l'implementazione [ISession.Clear](/dotnet/api/microsoft.aspnetcore.http.isession.clear) o alla scadenza della sessione.
 * Non esiste un meccanismo predefinito per indicare al codice app che un browser client è stato chiuso o che il cookie di sessione viene eliminato o è scaduto nel client.
-* I modelli di pagina ASP.NET Core MVC e Razor includono il supporto del Regolamento generale sulla protezione dei dati (GDPR). I cookie di stato della sessione non sono contrassegnati come fondamentali per impostazione predefinita, pertanto lo stato della sessione non è funzionale, a meno che il rilevamento non sia consentito dal visitatore del sito. Per altre informazioni, vedere <xref:security/gdpr#tempdata-provider-and-session-state-cookies-arent-essential>.
+* I modelli di pagina ASP.NET Core MVC e Razor includono il supporto del Regolamento generale sulla protezione dei dati (GDPR). I cookie di stato della sessione non sono contrassegnati come fondamentali per impostazione predefinita, pertanto lo stato della sessione non è funzionale, a meno che il rilevamento non sia consentito dal visitatore del sito. Per ulteriori informazioni, vedere <xref:security/gdpr#tempdata-provider-and-session-state-cookies-arent-essential>.
 
 > [!WARNING]
 > Evitare di archiviare dati sensibili nello stato della sessione. L'utente potrebbe non chiudere il browser e cancellare il cookie di sessione. Alcuni browser mantengono i cookie di sessione validi tra diverse finestre del browser. Una sessione può non essere limitata a un solo utente: in tal caso l'utente successivo potrebbe continuare a sfogliare l'app usando lo stesso cookie di sessione.
 
 Il provider di cache in memoria archivia i dati della sessione nella memoria del server in cui si trova l'app. In uno scenario di server farm:
 
-* Usare *sessioni permanenti* per associare ogni sessione a un'istanza specifica dell'app in un singolo server. Il [Servizio app di Azure](https://azure.microsoft.com/services/app-service/) usa il modulo [Application Request Routing (ARR)](/iis/extensions/planning-for-arr/using-the-application-request-routing-module) per applicare le sessioni permanenti per impostazione predefinita. Tuttavia le sessioni permanenti possono compromettere la scalabilità e complicare gli aggiornamenti delle app Web. Un approccio migliore è usare la cache distribuita Redis o SQL Server, che non richiede sessioni permanenti. Per altre informazioni, vedere <xref:performance/caching/distributed>.
+* Usare *sessioni permanenti* per associare ogni sessione a un'istanza specifica dell'app in un singolo server. Il [Servizio app di Azure](https://azure.microsoft.com/services/app-service/) usa il modulo [Application Request Routing (ARR)](/iis/extensions/planning-for-arr/using-the-application-request-routing-module) per applicare le sessioni permanenti per impostazione predefinita. Tuttavia le sessioni permanenti possono compromettere la scalabilità e complicare gli aggiornamenti delle app Web. Un approccio migliore è usare la cache distribuita Redis o SQL Server, che non richiede sessioni permanenti. Per ulteriori informazioni, vedere <xref:performance/caching/distributed>.
 * Il cookie di sessione viene crittografato con [IDataProtector](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotector). La protezione dati deve essere configurata correttamente in modo da leggere i cookie di sessione in ogni computer. Per altre informazioni, vedere <xref:security/data-protection/introduction> e [Provider di archiviazione chiavi](xref:security/data-protection/implementation/key-storage-providers).
 
 ### <a name="configure-session-state"></a>Configurare lo stato della sessione
 
 Con il pacchetto [Microsoft.AspNetCore.Session](https://www.nuget.org/packages/Microsoft.AspNetCore.Session/), incluso nel [metapacchetto Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app), è disponibile il middleware per la gestione dello stato della sessione. Per abilitare il middleware della sessione, `Startup` deve contenere:
 
-* Una delle cache di memoria [IDistributedCache](/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache). L'implementazione `IDistributedCache` viene usata come archivio di backup per la sessione. Per altre informazioni, vedere <xref:performance/caching/distributed>.
+* Una delle cache di memoria [IDistributedCache](/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache). L'implementazione `IDistributedCache` viene usata come archivio di backup per la sessione. Per ulteriori informazioni, vedere <xref:performance/caching/distributed>.
 * Una chiamata ad [AddSession](/dotnet/api/microsoft.extensions.dependencyinjection.sessionservicecollectionextensions.addsession) in `ConfigureServices`.
 * Una chiamata a [UseSession](/dotnet/api/microsoft.aspnetcore.builder.sessionmiddlewareextensions.usesession#Microsoft_AspNetCore_Builder_SessionMiddlewareExtensions_UseSession_Microsoft_AspNetCore_Builder_IApplicationBuilder_) in `Configure`.
 
@@ -163,7 +165,7 @@ L'esempio seguente illustra come impostare e ottenere un oggetto serializzabile 
 
 ## <a name="tempdata"></a>TempData
 
-ASP.NET Core espone l'Razor Pages [TempData](xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel.TempData) o il <xref:Microsoft.AspNetCore.Mvc.Controller.TempData>controller. Questa proprietà archivia i dati finché non viene letta in un'altra richiesta. È possibile utilizzare i metodi [Keep (String)](xref:Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionary.Keep*) e [Peek (String)](xref:Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionary.Peek*) per esaminare i dati senza eliminarli alla fine della richiesta. [Keep ()](xref:Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionary.Keep*) contrassegna tutti gli elementi nel dizionario per la memorizzazione. `TempData`è particolarmente utile per il reindirizzamento quando i dati sono necessari per più di una singola richiesta. `TempData`viene implementato dai `TempData` provider utilizzando cookie o lo stato della sessione.
+ASP.NET Core espone il <xref:Microsoft.AspNetCore.Mvc.Controller.TempData>del controller o [TempData](xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel.TempData) Razor Pages. Questa proprietà archivia i dati finché non viene letta in un'altra richiesta. È possibile utilizzare i metodi [Keep (String)](xref:Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionary.Keep*) e [Peek (String)](xref:Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionary.Peek*) per esaminare i dati senza eliminarli alla fine della richiesta. [Keep ()](xref:Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionary.Keep*) contrassegna tutti gli elementi nel dizionario per la memorizzazione. `TempData` è particolarmente utile per il reindirizzamento quando i dati sono necessari per più di una singola richiesta. `TempData` viene implementato dai provider `TempData` utilizzando cookie o lo stato della sessione.
 
 ## <a name="tempdata-samples"></a>Esempi di TempData
 
@@ -171,19 +173,19 @@ Si consideri la seguente pagina che consente di creare un cliente:
 
 [!code-csharp[](app-state/3.0samples/RazorPagesContacts/Pages/Customers/Create.cshtml.cs?name=snippet&highlight=15-16,30)]
 
-Viene visualizzata `TempData["Message"]`la pagina seguente:
+La pagina seguente mostra `TempData["Message"]`:
 
 [!code-cshtml[](app-state/3.0samples/RazorPagesContacts/Pages/Customers/IndexPeek.cshtml?range=1-14)]
 
-Nel markup precedente, alla fine della richiesta, `TempData["Message"]` **non** viene eliminato perché `Peek` viene usato. Verrà visualizzato `TempData["Message"]`l'aggiornamento della pagina.
+Nel markup precedente, alla fine della richiesta, `TempData["Message"]` **non** viene eliminato perché viene utilizzato `Peek`. L'aggiornamento della pagina consente di visualizzare `TempData["Message"]`.
 
 Il markup seguente è simile al codice precedente, ma usa `Keep` per conservare i dati alla fine della richiesta:
 
 [!code-cshtml[](app-state/3.0samples/RazorPagesContacts/Pages/Customers/IndexKeep.cshtml?range=1-14)]
 
-L'esplorazione tra le pagine *IndexPeek* e *IndexKeep* non verrà `TempData["Message"]`eliminata.
+Lo spostamento tra le pagine *IndexPeek* e *IndexKeep* non eliminerà `TempData["Message"]`.
 
-Il codice seguente visualizza `TempData["Message"]`, ma alla fine della richiesta, `TempData["Message"]` viene eliminato:
+Il codice seguente visualizza `TempData["Message"]`, ma alla fine della richiesta `TempData["Message"]` viene eliminato:
 
 [!code-cshtml[](app-state/3.0samples/RazorPagesContacts/Pages/Customers/Index.cshtml?range=1-14)]
 
@@ -267,7 +269,7 @@ La memorizzazione nella cache è un modo efficiente per archiviare e recuperare 
 
 I dati memorizzati nella cache non sono associati a una richiesta, un utente o una sessione specifici. **Prestare attenzione a non memorizzare nella cache i dati specifici dell'utente che possono essere recuperati dalle richieste di altri utenti.**
 
-Per altre informazioni, vedere <xref:performance/caching/response>.
+Per ulteriori informazioni, vedere <xref:performance/caching/response>.
 
 ## <a name="dependency-injection"></a>Inserimento di dipendenze
 
@@ -316,9 +318,9 @@ Usare [Dependency Injection](xref:fundamentals/dependency-injection) (Inseriment
 
   L'approccio consigliato per verificare la presenza di errori è chiamare `await feature.Session.CommitAsync();` dal codice dell'app quando l'app termina di scrivere nella sessione. `CommitAsync` genera un'eccezione se l'archivio di backup non è disponibile. Se `CommitAsync` ha esito negativo, l'app è in grado di elaborare l'eccezione. `LoadAsync` viene generata nelle stesse condizioni in cui l'archivio dati non è disponibile.
   
-## <a name="signalr-and-session-state"></a>SignalR e stato della sessione
+## <a name="opno-locsignalr-and-session-state"></a>SignalR e stato della sessione
 
-Le app SignalR non devono usare lo stato della sessione per archiviare le informazioni. Le app SignalR possono archiviare lo stato per `Context.Items` connessione in nell'hub. <!-- https://github.com/aspnet/SignalR/issues/2139 -->
+SignalR app non devono usare lo stato della sessione per archiviare le informazioni. SignalR app possono archiviare lo stato per connessione in `Context.Items` nell'hub. <!-- https://github.com/aspnet/SignalR/issues/2139 -->
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

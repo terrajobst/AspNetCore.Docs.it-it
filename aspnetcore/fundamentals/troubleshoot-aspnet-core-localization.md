@@ -5,12 +5,12 @@ description: Informazioni su come diagnosticare i problemi di localizzazione nel
 ms.author: riande
 ms.date: 01/24/2019
 uid: fundamentals/troubleshoot-aspnet-core-localization
-ms.openlocfilehash: 98e06a92af0b6c045095ac803196bf4b1f25e5c5
-ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
+ms.openlocfilehash: 229e274a22e170d984a16d3b1ee64ebc38c4ef77
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72289006"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963340"
 ---
 # <a name="troubleshoot-aspnet-core-localization"></a>Risolvere i problemi di localizzazione di ASP.NET Core
 
@@ -50,7 +50,7 @@ Le cause comuni per le quali non è possibile trovare le risorse sono:
 - La risorsa non è presente in `resx` per alcune lingue, ma è presente per altre.
 - Se si verificano ancora problemi, controllare i messaggi del log di localizzazione (al livello di log `Debug`) per altre informazioni sulle risorse mancanti.
 
-_**Suggerimento:** Quando si usa `CookieRequestCultureProvider`, verificare che le virgolette singole non vengano usate con le impostazioni cultura all'interno del valore del cookie di localizzazione. Ad esempio `c='en-UK'|uic='en-US'` è un valore di cookie non valido, mentre `c=en-UK|uic=en-US` è valido._
+_**Suggerimento:** Quando si utilizza `CookieRequestCultureProvider`, verificare che le virgolette singole non vengano utilizzate con le impostazioni cultura all'interno del valore del cookie di localizzazione. Ad esempio, `c='en-UK'|uic='en-US'` è un valore di cookie non valido, mentre `c=en-UK|uic=en-US` è un valore valido._
 
 ## <a name="resources--class-libraries-issues"></a>Problemi con le risorse e le librerie di classi
 
@@ -100,6 +100,9 @@ options.AddInitialRequestCultureProvider(new CustomRequestCultureProvider(async 
 ## <a name="root-namespace-issues"></a>Problemi con lo spazio dei nomi radice
 
 Quando lo spazio dei nomi radice di un assembly è diverso dal nome dell'assembly, la localizzazione non funziona per impostazione predefinita. Per evitare questo problema usare [RootNamespace](/dotnet/api/microsoft.extensions.localization.rootnamespaceattribute?view=aspnetcore-2.1), descritto in dettaglio [qui](xref:fundamentals/localization?view=aspnetcore-2.2#resource-file-naming).
+
+> [!WARNING]
+> Questo problema può verificarsi quando il nome di un progetto non è un identificatore .NET valido. Ad esempio `my-project-name.csproj` utilizzerà lo spazio dei nomi radice `my_project_name` e il nome dell'assembly `my-project-name` a causa di questo errore. 
 
 ## <a name="resources--build-action"></a>Risorse e azione di compilazione
 

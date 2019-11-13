@@ -4,22 +4,24 @@ author: isaac2004
 description: Informazioni sulle nuove funzionalità in ASP.NET Core 2.1.
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/30/2019
+ms.date: 11/12/2019
+no-loc:
+- SignalR
 uid: aspnetcore-2.1
-ms.openlocfilehash: 359f961db768b9048427c8ab296ee3e035879408
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
-ms.translationtype: HT
+ms.openlocfilehash: a45ba44fb7911a21927a4a996c0d6fa9eb776357
+ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65086399"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73963186"
 ---
 # <a name="whats-new-in-aspnet-core-21"></a>Novità di ASP.NET Core 2.1
 
 Questo articolo evidenzia le modifiche più significative apportate ad ASP.NET Core 2.1, con collegamenti alla relativa documentazione.
 
-## <a name="signalr"></a>SignalR
+## SignalR
 
-SignalR è stato riscritto per ASP.NET Core 2.1. SignalR ASP.NET Core include numerosi miglioramenti:
+SignalR è stato riscritto per ASP.NET Core 2,1. ASP.NET Core SignalR include una serie di miglioramenti:
 
 * Un modello semplificato di scale-out.
 * Un nuovo client JavaScript senza dipendenza jQuery.
@@ -28,7 +30,7 @@ SignalR è stato riscritto per ASP.NET Core 2.1. SignalR ASP.NET Core include nu
 * Un nuovo modello di risposta streaming.
 * Supporto per client basati su WebSocket.
 
-Per altre informazioni, vedere [ASP.NET Core SignalR](xref:signalr/introduction).
+Per ulteriori informazioni, vedere [ASP.NET Core SignalR](xref:signalr/introduction).
 
 ## <a name="razor-class-libraries"></a>Librerie di classi Razor
 
@@ -70,7 +72,7 @@ HTTPS può essere ulteriormente rafforzato tramite il [protocollo di sicurezza H
 
 Nell'ambiente di produzione, HTTPS deve essere configurato in modo esplicito. Nella versione 2.1 è stato aggiunto lo schema di configurazione predefinito per la configurazione di HTTPS per Kestrel. È possibile configurare le app in modo che possano usare gli elementi seguenti:
 
-* Più endpoint, inclusi gli URL. Per altre informazioni, vedere [Implementazione del server Web Kestrel: configurazione dell'endpoint](xref:fundamentals/servers/kestrel#endpoint-configuration).
+* Più endpoint, inclusi gli URL. Per altre informazioni, vedere [Implementazione del server Web Kestrel: Configurazione dell'endpoint](xref:fundamentals/servers/kestrel#endpoint-configuration).
 * Il certificato da usare per HTTPS da un file su disco o da un archivio certificati.
 
 ## <a name="gdpr"></a>GDPR
