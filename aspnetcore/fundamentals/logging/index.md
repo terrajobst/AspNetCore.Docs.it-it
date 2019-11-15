@@ -5,14 +5,14 @@ description: Informazioni su come usare il framework di registrazione fornito da
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/05/2019
+ms.date: 11/13/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 2cb19d251ad69ebd7d18480c14857e948c69b747
-ms.sourcegitcommit: 6628cd23793b66e4ce88788db641a5bbf470c3c1
+ms.openlocfilehash: eda5c9c0372e47f5670cf097b5db80ec227bcb47
+ms.sourcegitcommit: 231780c8d7848943e5e9fd55e93f437f7e5a371d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73659963"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74115962"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>Registrazione in .NET Core e ASP.NET Core
 
@@ -892,7 +892,7 @@ ASP.NET Core include i provider seguenti:
 
 * [Console](#console-provider)
 * [Debug](#debug-provider)
-* [EventSource](#eventsource-provider)
+* [EventSource](#event-source-provider)
 * [EventLog](#windows-eventlog-provider)
 * [TraceSource](#tracesource-provider)
 * [AzureAppServicesFile](#azure-app-service-provider)
@@ -925,15 +925,121 @@ In Linux, questo provider scrive i log in */var/log/message*.
 logging.AddDebug();
 ```
 
-### <a name="eventsource-provider"></a>Provider EventSource
+### <a name="event-source-provider"></a>Provider origine evento
 
-Per le app destinate a ASP.NET Core 1.1.0 o versione successiva, il pacchetto di provider [Microsoft.Extensions.Logging.EventSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventSource) può implementare la traccia degli eventi. In Windows, usa [ETW](https://msdn.microsoft.com/library/windows/desktop/bb968803). Il provider è multipiattaforma, ma non sono ancora disponibili gli strumenti di raccolta e visualizzazione degli eventi per Linux o macOS.
+Il pacchetto del provider [Microsoft. Extensions. Logging. EventSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventSource) scrive in un'origine evento multipiattaforma con il nome `Microsoft-Extensions-Logging`. In Windows, il provider utilizza [ETW](https://msdn.microsoft.com/library/windows/desktop/bb968803).
 
 ```csharp
 logging.AddEventSourceLogger();
 ```
 
-Un buon metodo per raccogliere e visualizzare i log consiste nell'usare l'[utilità PerfView](https://github.com/Microsoft/perfview). Sono disponibili altri strumenti per la visualizzazione dei log ETW, ma PerfView fornisce un'esperienza ottimale per l'uso con gli eventi ETW generati da ASP.NET Core.
+Il provider di origine eventi viene aggiunto automaticamente quando viene chiamato `CreateDefaultBuilder` per compilare l'host.
+
+::: moniker range=">= aspnetcore-3.0"
+
+#### <a name="dotnet-trace-tooling"></a>strumenti di traccia DotNet
+
+Lo strumento [DotNet-Trace](/dotnet/core/diagnostics/dotnet-trace) è uno strumento globale dell'interfaccia della riga di comando multipiattaforma che consente la raccolta di tracce .NET Core di un processo in esecuzione. Lo strumento raccoglie i dati del provider <xref:Microsoft.Extensions.Logging.EventSource> usando una <xref:Microsoft.Extensions.Logging.EventSource.LoggingEventSource>.
+
+Installare gli strumenti di traccia DotNet con il comando seguente:
+
+```dotnetcli
+dotnet tool install --global dotnet-trace
+```
+
+Usare gli strumenti di traccia DotNet per raccogliere una traccia da un'app:
+
+1. Se l'app non compila l'host con `CreateDefaultBuilder`, aggiungere il [provider di origine eventi](#event-source-provider) alla configurazione di registrazione dell'app.
+
+1. Eseguire l'app con il comando `dotnet run`.
+
+1. Determinare l'identificatore di processo (PID) dell'app .NET Core:
+
+   * In Windows usare uno degli approcci seguenti:
+     * Gestione attività (CTRL + ALT + CANC)
+     * [comando tasklist](/windows-server/administration/windows-commands/tasklist)
+     * [Comando PowerShell Get-Process](/powershell/module/microsoft.powershell.management/get-process)
+   * In Linux usare il [comando pidof](https://refspecs.linuxfoundation.org/LSB_5.0.0/LSB-Core-generic/LSB-Core-generic/pidof.html).
+
+   Trovare il PID per il processo con lo stesso nome dell'assembly dell'app.
+
+1. Eseguire il comando `dotnet trace`.
+
+   Sintassi generale del comando:
+
+   ```dotnetcli
+   dotnet trace collect -p {PID} 
+       --providers Microsoft-Extensions-Logging:{Keyword}:{Event Level}
+           :FilterSpecs=\"
+               {Logger Category 1}:{Event Level 1};
+               {Logger Category 2}:{Event Level 2};
+               ...
+               {Logger Category N}:{Event Level N}\"
+   ```
+
+   Quando si usa una shell dei comandi di PowerShell, racchiudere il valore `--providers` tra virgolette singole (`'`):
+
+   ```dotnetcli
+   dotnet trace collect -p {PID} 
+       --providers 'Microsoft-Extensions-Logging:{Keyword}:{Event Level}
+           :FilterSpecs=\"
+               {Logger Category 1}:{Event Level 1};
+               {Logger Category 2}:{Event Level 2};
+               ...
+               {Logger Category N}:{Event Level N}\"'
+   ```
+
+   Nelle piattaforme non Windows aggiungere l'opzione `-f speedscope` per modificare il formato del file di traccia di output in `speedscope`.
+
+   | Parola chiave | Descrizione |
+   | :-----: | ----------- |
+   | 1       | Registra i metadati relativi all'`LoggingEventSource`. Non registra gli eventi da `ILogger`). |
+   | 2       | Attiva l'evento `Message` quando viene chiamato `ILogger.Log()`. Fornisce informazioni in un metodo programmatico (non formattato). |
+   | 4       | Attiva l'evento `FormatMessage` quando viene chiamato `ILogger.Log()`. Fornisce la versione di stringa formattata delle informazioni. |
+   | 8       | Attiva l'evento `MessageJson` quando viene chiamato `ILogger.Log()`. Fornisce una rappresentazione JSON degli argomenti. |
+
+   | Livello dell'evento | Descrizione     |
+   | :---------: | --------------- |
+   | 0           | `LogAlways`     |
+   | 1           | `Critical`      |
+   | 2           | `Error`         |
+   | 3\.           | `Warning`       |
+   | 4           | `Informational` |
+   | 5           | `Verbose`       |
+
+   `FilterSpecs` le voci per `{Logger Category}` e `{Event Level}` rappresentano condizioni di filtro del log aggiuntive. Separa `FilterSpecs` voci con un punto e virgola (`;`).
+
+   Esempio di utilizzo di una shell dei comandi di Windows (**senza** virgolette singole intorno al valore `--providers`):
+
+   ```dotnetcli
+   dotnet trace collect -p {PID} --providers Microsoft-Extensions-Logging:4:2:FilterSpecs=\"Microsoft.AspNetCore.Hosting*:4\"
+   ```
+
+   Il comando precedente attiva:
+
+   * Il logger dell'origine evento per produrre stringhe formattate (`4`) per gli errori (`2`).
+   * `Microsoft.AspNetCore.Hosting` la registrazione a livello di registrazione `Informational` (`4`).
+
+1. Arrestare gli strumenti di traccia DotNet premendo il tasto invio o CTRL + C.
+
+   La traccia viene salvata con il nome *Trace. NetTrace* nella cartella in cui viene eseguito il comando `dotnet trace`.
+
+1. Aprire la traccia con [PerfView](#perfview). Aprire il file *Trace. NetTrace* ed esplorare gli eventi di traccia.
+
+Per altre informazioni, vedere:
+
+* [Trace for Performance Analysis Utility (DotNet-Trace)](/dotnet/core/diagnostics/dotnet-trace) (documentazione di .NET Core)
+* [Trace for Performance Analysis Utility (DotNet-Trace)](https://github.com/dotnet/diagnostics/blob/master/documentation/dotnet-trace-instructions.md) (documentazione del repository GitHub DotNet/Diagnostics)
+* [Classe LoggingEventSource](xref:Microsoft.Extensions.Logging.EventSource.LoggingEventSource) (browser API .NET)
+* <xref:System.Diagnostics.Tracing.EventLevel>
+* [Origine riferimento LoggingEventSource (3,0)](https://github.com/aspnet/Extensions/blob/release/3.0/src/Logging/Logging.EventSource/src/LoggingEventSource.cs) &ndash; per ottenere l'origine riferimento per una versione diversa, modificare il ramo in `release/{Version}`, dove `{Version}` è la versione di ASP.NET Core desiderata.
+* [Perfview](#perfview) &ndash; utile per la visualizzazione delle tracce dell'origine eventi.
+
+#### <a name="perfview"></a>PerfView
+
+::: moniker-end
+
+Usare l' [utilità PerfView](https://github.com/Microsoft/perfview) per raccogliere e visualizzare i log. Sono disponibili altri strumenti per la visualizzazione dei log ETW, ma PerfView fornisce un'esperienza ottimale per l'uso con gli eventi ETW generati da ASP.NET Core.
 
 Per configurare PerfView per la raccolta degli eventi registrati da questo provider, aggiungere la stringa `*Microsoft-Extensions-Logging` nell'elenco **Provider aggiuntivi** (non dimenticare l'asterisco all'inizio della stringa).
 

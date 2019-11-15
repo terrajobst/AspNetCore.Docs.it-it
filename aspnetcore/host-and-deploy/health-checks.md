@@ -5,14 +5,14 @@ description: Informazioni su come configurare i controlli di integrità per l'in
 monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/03/2019
+ms.date: 11/13/2019
 uid: host-and-deploy/health-checks
-ms.openlocfilehash: c7cf1c432d2186f0e2f9f5082e8a2229d8a5ef8f
-ms.sourcegitcommit: 9e85c2562df5e108d7933635c830297f484bb775
+ms.openlocfilehash: 4a4606a58178018f0d71d467d4c8b6c9982c09dc
+ms.sourcegitcommit: 231780c8d7848943e5e9fd55e93f437f7e5a371d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73463027"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74115990"
 ---
 # <a name="health-checks-in-aspnet-core"></a>Controlli di integrità in ASP.NET Core
 
@@ -148,6 +148,40 @@ services.AddHealthChecks()
 services.AddHealthChecks()
     .AddCheck("Example", () =>
         HealthCheckResult.Healthy("Example is OK!"), tags: new[] { "example" });
+```
+
+Chiamare <xref:Microsoft.Extensions.DependencyInjection.HealthChecksBuilderAddCheckExtensions.AddTypeActivatedCheck*> per passare gli argomenti a un'implementazione del controllo integrità. Nell'esempio seguente `TestHealthCheckWithArgs` accetta un numero intero e una stringa da usare quando viene chiamato <xref:Microsoft.Extensions.Diagnostics.HealthChecks.IHealthCheck.CheckHealthAsync*>:
+
+```csharp
+private class TestHealthCheckWithArgs : IHealthCheck
+{
+    public TestHealthCheckWithArgs(int i, string s)
+    {
+        I = i;
+        S = s;
+    }
+
+    public int I { get; set; }
+
+    public string S { get; set; }
+
+    public Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context, 
+        CancellationToken cancellationToken = default)
+    {
+        ...
+    }
+}
+```
+
+`TestHealthCheckWithArgs` viene registrato chiamando `AddTypeActivatedCheck` con il valore integer e la stringa passati all'implementazione:
+
+```csharp
+services.AddHealthChecks()
+    .AddTypeActivatedCheck<TestHealthCheckWithArgs>(
+        "test", 
+        failureStatus: HealthStatus.Degraded, 
+        tags: new[] { "example" }, 
+        args: new object[] { 5, "string" });
 ```
 
 ## <a name="use-health-checks-routing"></a>Usare i controlli di integrità routing

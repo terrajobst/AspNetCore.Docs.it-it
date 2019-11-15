@@ -1,18 +1,18 @@
 ---
-title: "Esercitazione: Introduzione all'uso di pagine Razor in ASP.NET Core"
+title: "Esercitazione: Introduzione all'uso di Razor Pages in ASP.NET Core"
 author: rick-anderson
 description: Questa serie di esercitazioni illustra come usare Razor Pages in ASP.NET Core. Offre informazioni su come creare un modello, generare codice per Razor Pages, usare Entity Framework Core e SQL Server per l'accesso ai dati, aggiungere funzionalità di ricerca, aggiungere la convalida dell'input e usare le migrazioni per aggiornare il modello.
 ms.author: riande
-ms.date: 07/25/2019
+ms.date: 11/12/2019
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 0cc00cb85b6054752417b82c783cfd4c306aeda5
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: a8381dee05f267077a29999f3d8bbe6327c2b863
+ms.sourcegitcommit: 231780c8d7848943e5e9fd55e93f437f7e5a371d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082568"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74116156"
 ---
-# <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Esercitazione: Introduzione all'uso di pagine Razor in ASP.NET Core
+# <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Esercitazione: Introduzione all'uso di Razor Pages in ASP.NET Core
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -36,7 +36,7 @@ Alla fine di questa esercitazione si avrà un'app Web Razor Pages funzionante, c
 
 ![Pagina Home o di indice](razor-pages-start/_static/home2.2.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -86,7 +86,7 @@ Alla fine di questa esercitazione si avrà un'app Web Razor Pages funzionante, c
   * Il comando `dotnet new` crea un nuovo progetto Razor Pages nella cartella *RazorPagesMovie*.
   * Il comando `code` apre la cartella *RazorPagesMovie* nell'istanza corrente di Visual Studio Code.
 
-* Quando l'icona a forma di fiamma di OmniSharp sulla barra di stato diventa verde, viene visualizzata una finestra di dialogo con la richiesta **Required assets to build and debug are missing from 'RazorPagesMovie'. Add them?** (Risorse di compilazione e debug mancanti da "RazorPagesMovie". Aggiungerle?) Selezionare **Sì**.
+* Dopo che l'icona di OmniSharp Flame della barra di stato è verde, una finestra di dialogo richiede che le **risorse necessarie per la compilazione e il debug siano mancanti da' RazorPagesMovie '. Aggiungerli?** Selezionare **Sì**.
 
   Una directory *.vscode* che contiene i file *launch.json* e *tasks.json* viene aggiunta alla directory radice del progetto.
 
@@ -117,36 +117,9 @@ Da Visual Studio, selezionare **File > Apri**, quindi selezionare il file *Razor
 
 ---
 
-## <a name="run-the-app"></a>Esecuzione dell'app
+## <a name="run-the-app"></a>Eseguire l'app
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-
-* Premere CTRL+F5 per l'esecuzione senza il debugger.
-
-  [!INCLUDE[](~/includes/trustCertVS.md)]
-
-  Visual Studio avvia [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) ed esegue l'app. La barra degli indirizzi visualizza `localhost:port#` e non `example.com` o simili. Ciò accade perché `localhost` è il nome host standard per il computer locale. Localhost viene usato solo per le richieste web del computer locale. Quando Visual Studio crea un progetto Web, per il server Web viene usata una porta casuale.
- 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
-
-  [!INCLUDE[](~/includes/trustCertVSC.md)]
-
-* Premere **CTRL+F5** per l'esecuzione senza il debugger.
-
-  Visual Studio Code avvia [Kestrel](xref:fundamentals/servers/kestrel), avvia un browser e passa a `http://localhost:5001`. La barra degli indirizzi visualizza `localhost:port#` e non `example.com` o simili. Ciò accade perché `localhost` è il nome host standard per il computer locale. Localhost viene usato solo per le richieste web del computer locale.
-
-  
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
-
-  [!INCLUDE[](~/includes/trustCertMac.md)]
-
-* Premere **ALT+CMD+INVIO** per l'esecuzione senza il debugger. In alternativa, passare alla barra dei menu e andare a Esegui>Avvia senza eseguire debug.
-
-  Visual Studio avvia [Kestrel](xref:fundamentals/servers/kestrel), avvia un browser e passa a `http://localhost:5001`.
-
-<!-- End of VS tabs -->
-
----
+  [!INCLUDE[](~/includes/run-the-app.md)]
 
 ## <a name="examine-the-project-files"></a>Esaminare i file di progetto
 
@@ -159,23 +132,23 @@ Contiene le pagine Razor e i file di supporto. Ogni pagina Razor è una coppia d
 * Un file con estensione *cshtml* contenente il markup HTML con codice C# che usa la sintassi Razor.
 * Un file con estensione *cshtml.cs* contenente il codice C# per la gestione degli eventi della pagina.
 
-I nomi dei file di supporto iniziano con un carattere di sottolineatura. Ad esempio, il file *_Layout.cshtml* configura elementi dell'interfaccia utente comuni a tutte le pagine. Questo file imposta il menu di navigazione nella parte superiore della pagina e le informazioni sul copyright in fondo alla pagina. Per altre informazioni, vedere <xref:mvc/views/layout>.
+I nomi dei file di supporto iniziano con un carattere di sottolineatura. Ad esempio, il file *_Layout.cshtml* configura elementi dell'interfaccia utente comuni a tutte le pagine. Questo file imposta il menu di navigazione nella parte superiore della pagina e le informazioni sul copyright in fondo alla pagina. Per ulteriori informazioni, vedere <xref:mvc/views/layout>.
 
 ### <a name="wwwroot-folder"></a>Cartella wwwroot
 
-Contiene i file statici, ad esempio i file HTML, i file JavaScript e i file CSS. Per altre informazioni, vedere <xref:fundamentals/static-files>.
+Contiene i file statici, ad esempio i file HTML, i file JavaScript e i file CSS. Per ulteriori informazioni, vedere <xref:fundamentals/static-files>.
 
 ### <a name="appsettingsjson"></a>appSettings.json
 
-Contiene i dati di configurazione, ad esempio le stringhe di connessione. Per altre informazioni, vedere <xref:fundamentals/configuration/index>.
+Contiene i dati di configurazione, ad esempio le stringhe di connessione. Per ulteriori informazioni, vedere <xref:fundamentals/configuration/index>.
 
 ### <a name="programcs"></a>Program.cs
 
-Contiene il punto di ingresso per il programma. Per altre informazioni, vedere <xref:fundamentals/host/generic-host>.
+Contiene il punto di ingresso per il programma. Per ulteriori informazioni, vedere <xref:fundamentals/host/generic-host>.
 
 ### <a name="startupcs"></a>Startup.cs
 
-Contiene codice che consente di configurare il comportamento dell'app. Per altre informazioni, vedere <xref:fundamentals/startup>.
+Contiene codice che consente di configurare il comportamento dell'app. Per ulteriori informazioni, vedere <xref:fundamentals/startup>.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -209,7 +182,7 @@ Alla fine di questa esercitazione si avrà un'app Web Razor Pages funzionante, c
 
 ![Pagina Home o di indice](razor-pages-start/_static/home2.2.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -263,13 +236,13 @@ Alla fine di questa esercitazione si avrà un'app Web Razor Pages funzionante, c
   * Il comando `dotnet new` crea un nuovo progetto Razor Pages nella cartella *RazorPagesMovie*.
   * Il comando `code` apre la cartella *RazorPagesMovie* nell'istanza corrente di Visual Studio Code.
 
-* Quando l'icona a forma di fiamma di OmniSharp sulla barra di stato diventa verde, viene visualizzata una finestra di dialogo con la richiesta **Required assets to build and debug are missing from 'RazorPagesMovie'. Add them?** (Risorse di compilazione e debug mancanti da "RazorPagesMovie". Aggiungerle?) Selezionare **Sì**.
+* Dopo che l'icona di OmniSharp Flame della barra di stato è verde, una finestra di dialogo richiede che le **risorse necessarie per la compilazione e il debug siano mancanti da' RazorPagesMovie '. Aggiungerli?** Selezionare **Sì**.
 
   Una directory *.vscode* che contiene i file *launch.json* e *tasks.json* viene aggiunta alla directory radice del progetto.
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
-Da un terminale eseguire il comando seguente:
+Dal Terminale eseguire il comando seguente:
 
 <!-- TODO: update these instruction once mac support 2.2 projects -->
 
@@ -287,7 +260,7 @@ Da Visual Studio, selezionare **File > Apri**, quindi selezionare il file *Razor
 
 ---
 
-## <a name="run-the-app"></a>Esecuzione dell'app
+## <a name="run-the-app"></a>Eseguire l'app
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -358,23 +331,23 @@ Contiene le pagine Razor e i file di supporto. Ogni pagina Razor è una coppia d
 * Un file con estensione *cshtml* contenente il markup HTML con codice C# che usa la sintassi Razor.
 * Un file con estensione *cshtml.cs* contenente il codice C# per la gestione degli eventi della pagina.
 
-I nomi dei file di supporto iniziano con un carattere di sottolineatura. Ad esempio, il file *_Layout.cshtml* configura elementi dell'interfaccia utente comuni a tutte le pagine. Questo file imposta il menu di navigazione nella parte superiore della pagina e le informazioni sul copyright in fondo alla pagina. Per altre informazioni, vedere <xref:mvc/views/layout>.
+I nomi dei file di supporto iniziano con un carattere di sottolineatura. Ad esempio, il file *_Layout.cshtml* configura elementi dell'interfaccia utente comuni a tutte le pagine. Questo file imposta il menu di navigazione nella parte superiore della pagina e le informazioni sul copyright in fondo alla pagina. Per ulteriori informazioni, vedere <xref:mvc/views/layout>.
 
 ### <a name="wwwroot-folder"></a>Cartella wwwroot
 
-Contiene i file statici, ad esempio i file HTML, i file JavaScript e i file CSS. Per altre informazioni, vedere <xref:fundamentals/static-files>.
+Contiene i file statici, ad esempio i file HTML, i file JavaScript e i file CSS. Per ulteriori informazioni, vedere <xref:fundamentals/static-files>.
 
 ### <a name="appsettingsjson"></a>appSettings.json
 
-Contiene i dati di configurazione, ad esempio le stringhe di connessione. Per altre informazioni, vedere <xref:fundamentals/configuration/index>.
+Contiene i dati di configurazione, ad esempio le stringhe di connessione. Per ulteriori informazioni, vedere <xref:fundamentals/configuration/index>.
 
 ### <a name="programcs"></a>Program.cs
 
-Contiene il punto di ingresso per il programma. Per altre informazioni, vedere <xref:fundamentals/host/generic-host>.
+Contiene il punto di ingresso per il programma. Per ulteriori informazioni, vedere <xref:fundamentals/host/generic-host>.
 
 ### <a name="startupcs"></a>Startup.cs
 
-Contiene codice che configura il comportamento dell'app, ad esempio se richiede il consenso per i cookie. Per altre informazioni, vedere <xref:fundamentals/startup>.
+Contiene codice che configura il comportamento dell'app, ad esempio se richiede il consenso per i cookie. Per ulteriori informazioni, vedere <xref:fundamentals/startup>.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

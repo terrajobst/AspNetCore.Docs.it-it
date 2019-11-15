@@ -5,14 +5,14 @@ description: Informazioni su come implementare attività in background con servi
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/26/2019
+ms.date: 11/14/2019
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: c1fbb5ae8ffc4ee506f42df6a4cbbe845b2b903d
-ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
+ms.openlocfilehash: 0fdf503e4a5f6f73d5488261707180cfb5967492
+ms.sourcegitcommit: 231780c8d7848943e5e9fd55e93f437f7e5a371d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333662"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74115947"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>Attività in background con servizi ospitati in ASP.NET Core
 
@@ -28,22 +28,23 @@ In ASP.NET Core le attività in background possono essere implementate come *ser
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
 
-L'app di esempio è disponibile in due versioni:
-
-* Host Web &ndash; L'host Web è utile per l'hosting di app Web. Il codice di esempio in questo argomento è tratto dalla versione host Web dell'esempio. Per altre informazioni, vedere l'argomento [Host Web](xref:fundamentals/host/web-host).
-* Host generico &ndash; L'host generico è una novità di ASP.NET Core 2.1. Per altre informazioni, vedere l'argomento [Host generico](xref:fundamentals/host/generic-host).
-
 ## <a name="worker-service-template"></a>Modello di servizio di ruolo di lavoro
 
-Il modello di servizio di ruolo di lavoro di ASP.NET Core rappresenta un punto di partenza per la scrittura di app di servizi a esecuzione prolungata. Per usare il modello come base per un'app di servizi ospitati:
+Il modello di servizio di ruolo di lavoro di ASP.NET Core rappresenta un punto di partenza per la scrittura di app di servizi a esecuzione prolungata. Un'app creata dal modello del servizio Worker specifica l'SDK del ruolo di lavoro nel file di progetto:
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+```
+
+Per usare il modello come base per un'app di servizi ospitati:
 
 [!INCLUDE[](~/includes/worker-template-instructions.md)]
 
----
-
 ## <a name="package"></a>Pacchetto
 
-Un riferimento al pacchetto [Microsoft. Extensions. Hosting](https://www.nuget.org/packages/Microsoft.Extensions.Hosting) viene aggiunto in modo implicito per le app ASP.NET Core.
+Un'app basata sul modello del servizio Worker usa l'SDK `Microsoft.NET.Sdk.Worker` e contiene un riferimento al pacchetto esplicito al pacchetto [Microsoft. Extensions. host](https://www.nuget.org/packages/Microsoft.Extensions.Hosting) . Ad esempio, vedere il file di progetto dell'app di esempio (*BackgroundTasksSample. csproj*).
+
+Per le app Web che usano l'SDK `Microsoft.NET.Sdk.Web`, viene fatto riferimento in modo implicito al pacchetto [Microsoft. Extensions. host](https://www.nuget.org/packages/Microsoft.Extensions.Hosting) dal Framework condiviso. Un riferimento esplicito al pacchetto nel file di progetto dell'app non è obbligatorio.
 
 ## <a name="ihostedservice-interface"></a>Interfaccia IHostedService
 
@@ -176,11 +177,6 @@ In ASP.NET Core le attività in background possono essere implementate come *ser
 * Attività in background in coda che vengono eseguite in sequenza.
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
-
-L'app di esempio è disponibile in due versioni:
-
-* Host Web &ndash; L'host Web è utile per l'hosting di app Web. Il codice di esempio in questo argomento è tratto dalla versione host Web dell'esempio. Per altre informazioni, vedere l'argomento [Host Web](xref:fundamentals/host/web-host).
-* Host generico &ndash; L'host generico è una novità di ASP.NET Core 2.1. Per altre informazioni, vedere l'argomento [Host generico](xref:fundamentals/host/generic-host).
 
 ## <a name="package"></a>Pacchetto
 
