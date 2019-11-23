@@ -20,7 +20,7 @@ Di [Shayne Boyer](https://github.com/spboyer)
 
 Questa guida fornisce informazioni su come configurare [Apache](https://httpd.apache.org/) come server proxy inverso in [CentOS 7](https://www.centos.org/) per reindirizzare il traffico HTTP a un'app Web ASP.NET Core in esecuzione su server [Kestrel](xref:fundamentals/servers/kestrel). L'[estensione mod_proxy](https://httpd.apache.org/docs/2.4/mod/mod_proxy.html) e i moduli correlati creano il proxy inverso del server.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Server che esegue CentOS 7 con un account utente standard con privilegio sudo.
 * Installare il runtime .NET Core nel server.
@@ -83,7 +83,7 @@ services.Configure<ForwardedHeadersOptions>(options =>
 });
 ```
 
-Per ulteriori informazioni, vedere <xref:host-and-deploy/proxy-load-balancer>.
+Per altre informazioni, vedere <xref:host-and-deploy/proxy-load-balancer>.
 
 ### <a name="install-apache"></a>Installare Apache
 
@@ -381,7 +381,7 @@ sudo systemctl restart httpd
 
 ## <a name="additional-apache-suggestions"></a>Altri suggerimenti di Apache
 
-### <a name="additional-headers"></a>Intestazioni aggiuntive
+### <a name="additional-headers"></a>Intestazioni aggiuntive.
 
 Al fine di garantire la protezione dagli attacchi dannosi, vi sono alcune intestazioni che devono essere modificate o aggiunte. Verificare che il modulo `mod_headers` sia installato:
 

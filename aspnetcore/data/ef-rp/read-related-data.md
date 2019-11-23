@@ -46,9 +46,9 @@ Esistono diversi modi con cui EF Core può caricare i dati correlati nelle propr
 
   ![Esempio di query separate](read-related-data/_static/separate-queries.png)
 
-  Nota: EF Core corregge automaticamente le proprietà di navigazione per qualsiasi altra entità caricata in precedenza nell'istanza di contesto. Anche se i dati per una proprietà di navigazione *non* sono inclusi in modo esplicito, la proprietà può comunque essere popolata se alcune o tutte le entità correlate sono state caricate in precedenza.
+  Nota: EF Core corregge automaticamente le proprietà di navigazione per qualsiasi altra entità caricata in precedenza nell'istanza contesto. Anche se i dati per una proprietà di navigazione *non* sono inclusi in modo esplicito, la proprietà può comunque essere popolata se alcune o tutte le entità correlate sono state caricate in precedenza.
 
-* [Caricamento esplicito](/ef/core/querying/related-data#explicit-loading) Quando un'entità viene letta per la prima volta, i dati correlati non vengono recuperati. Per recuperare i dati correlati quando necessario, è necessario scrivere codice. Il caricamento esplicito con query separate ha come risultato l'invio di più query al database. Con il caricamento esplicito, il codice specifica le proprietà di navigazione da caricare. Per eseguire il caricamento esplicito, usare il metodo `Load`. Esempio:
+* [Caricamento esplicito](/ef/core/querying/related-data#explicit-loading) Quando un'entità viene letta per la prima volta, i dati correlati non vengono recuperati. Per recuperare i dati correlati quando necessario, è necessario scrivere codice. Il caricamento esplicito con query separate ha come risultato l'invio di più query al database. Con il caricamento esplicito, il codice specifica le proprietà di navigazione da caricare. Per eseguire il caricamento esplicito, usare il metodo `Load`. Ad esempio:
 
   ![Esempio di caricamento esplicito](read-related-data/_static/explicit-loading.png)
 
@@ -63,7 +63,7 @@ L'entità `Course` include una proprietà di navigazione che contiene l'entità 
 Per visualizzare il nome del dipartimento assegnato per un corso:
 
 * Caricare l'entità `Department` correlata nella proprietà di navigazione `Course.Department`.
-* Ottenere il nome dalla proprietà `Name` dell'entità `Department`.
+* Ottenere il nome dalla proprietà `Department` dell'entità `Name`.
 
 <a name="scaffold"></a>
 
@@ -281,7 +281,7 @@ Il codice precedente apporta le modifiche seguenti:
 
 * Aggiunge una tabella di iscrizioni degli studenti per il corso selezionato.
 
-Eseguire l'app e selezionare la scheda **Instructors** (Insegnanti). La pagina visualizza `Location` (Ufficio) dall'entità `OfficeAssignment` correlata. Se `OfficeAssignment` è null, viene visualizzata una cella di tabella vuota.
+Eseguire l'app e selezionare la scheda **Instructors (insegnanti** ). La pagina Visualizza la `Location` (Office) dall'entità `OfficeAssignment` correlata. Se `OfficeAssignment` è null, viene visualizzata una cella di tabella vuota.
 
 Fare clic sul collegamento **Select** per un insegnante. Verranno visualizzate le modifiche dello stile delle righe e i corsi assegnati a tale insegnante.
 
@@ -357,9 +357,9 @@ Esistono diversi modi con cui EF Core può caricare i dati correlati nelle propr
 
   ![Esempio di query separate](read-related-data/_static/separate-queries.png)
 
-  Nota: EF Core corregge automaticamente le proprietà di navigazione per qualsiasi altra entità caricata in precedenza nell'istanza di contesto. Anche se i dati per una proprietà di navigazione *non* sono inclusi in modo esplicito, la proprietà può comunque essere popolata se alcune o tutte le entità correlate sono state caricate in precedenza.
+  Nota: EF Core corregge automaticamente le proprietà di navigazione per qualsiasi altra entità caricata in precedenza nell'istanza contesto. Anche se i dati per una proprietà di navigazione *non* sono inclusi in modo esplicito, la proprietà può comunque essere popolata se alcune o tutte le entità correlate sono state caricate in precedenza.
 
-* [Caricamento esplicito](/ef/core/querying/related-data#explicit-loading) Quando un'entità viene letta per la prima volta, i dati correlati non vengono recuperati. Per recuperare i dati correlati quando necessario, è necessario scrivere codice. Il caricamento esplicito con query separate ha come risultato l'invio di più query al database. Con il caricamento esplicito, il codice specifica le proprietà di navigazione da caricare. Per eseguire il caricamento esplicito, usare il metodo `Load`. Esempio:
+* [Caricamento esplicito](/ef/core/querying/related-data#explicit-loading) Quando un'entità viene letta per la prima volta, i dati correlati non vengono recuperati. Per recuperare i dati correlati quando necessario, è necessario scrivere codice. Il caricamento esplicito con query separate ha come risultato l'invio di più query al database. Con il caricamento esplicito, il codice specifica le proprietà di navigazione da caricare. Per eseguire il caricamento esplicito, usare il metodo `Load`. Ad esempio:
 
   ![Esempio di caricamento esplicito](read-related-data/_static/explicit-loading.png)
 
@@ -396,7 +396,7 @@ Seguire le istruzioni in [Eseguire lo scaffolding del modello Student (Studente)
 
 ---
 
-Il comando precedente esegue lo scaffolding del modello `Course`. Aprire il progetto in Visual Studio.
+Il comando precedente esegue lo scaffolding del modello `Course`. Apri il progetto in Visual Studio.
 
 Aprire *Pages/Courses/Index.cshtml.cs* ed esaminare il metodo `OnGetAsync`. Il motore di scaffolding ha specificato il caricamento eager per la proprietà di navigazione `Department`. Il metodo `Include` specifica il caricamento eager.
 
@@ -546,7 +546,7 @@ Il markup precedente apporta le modifiche seguenti:
   <a asp-action="Index" asp-route-id="@item.ID">Select</a> |
   ```
 
-Eseguire l'app e selezionare la scheda **Instructors** (Insegnanti). La pagina visualizza `Location` (Ufficio) dall'entità `OfficeAssignment` correlata. Se OfficeAssignment è Null, nella tabella viene visualizzata una cella vuota.
+Eseguire l'app e selezionare la scheda **Instructors (insegnanti** ). La pagina Visualizza la `Location` (Office) dall'entità `OfficeAssignment` correlata. Se OfficeAssignment è Null, nella tabella viene visualizzata una cella vuota.
 
 Fare clic sul collegamento **Select** (Seleziona). Lo stile delle righe cambia.
 

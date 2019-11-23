@@ -130,11 +130,11 @@ Come risultato dell'annidamento dei filtri, il codice *after* dei filtri viene e
   
 L'esempio seguente illustra l'ordine in cui i metodi dei filtri vengono chiamati per i filtri di azione sincroni.
 
-| Sequence | Ambito del filtro | Metodo del filtro |
+| Sequence | Ambito del filtro | Filter - metodo |
 |:--------:|:------------:|:-------------:|
 | 1 | Global | `OnActionExecuting` |
 | 2 | Controller | `OnActionExecuting` |
-| 3\. | Metodo | `OnActionExecuting` |
+| 3 | Metodo | `OnActionExecuting` |
 | 4 | Metodo | `OnActionExecuted` |
 | 5 | Controller | `OnActionExecuted` |
 | 6 | Global | `OnActionExecuted` |
@@ -190,11 +190,11 @@ La proprietà `Order` può essere impostata con un parametro del costruttore:
 
 Prendere in considerazione gli stessi tre filtri di azione illustrati nell'esempio precedente. Se la proprietà `Order` del controller e dei filtri globali è impostata, rispettivamente, su 1 e su 2, l'ordine di esecuzione viene invertito.
 
-| Sequence | Ambito del filtro | Proprietà`Order` | Metodo del filtro |
+| Sequence | Ambito del filtro | Proprietà`Order` | Filter - metodo |
 |:--------:|:------------:|:-----------------:|:-------------:|
 | 1 | Metodo | 0 | `OnActionExecuting` |
 | 2 | Controller | 1  | `OnActionExecuting` |
-| 3\. | Global | 2  | `OnActionExecuting` |
+| 3 | Global | 2  | `OnActionExecuting` |
 | 4 | Global | 2  | `OnActionExecuted` |
 | 5 | Controller | 1  | `OnActionExecuted` |
 | 6 | Metodo | 0  | `OnActionExecuted` |
@@ -295,7 +295,7 @@ VS debug window shows
 FiltersSample.Filters.LogConstantFilter:Information: Method 'Hi' called
 -->
 
-## <a name="authorization-filters"></a>Filtri autorizzazione
+## <a name="authorization-filters"></a>Filtri di autorizzazione
 
 I filtri di autorizzazione:
 
@@ -335,7 +335,7 @@ Esempi di filtri di risorse:
   * Impedisce all'associazione di modelli di accedere ai dati del modulo.
   * Viene usato quando si caricano file di grandi dimensioni per impedire la lettura dei dati del modulo in memoria.
 
-## <a name="action-filters"></a>Filtri azione
+## <a name="action-filters"></a>Filtri azioni
 
 > [!IMPORTANT]
 > I filtri azione **non** si applicano a Razor Pages. Razor Pages supporta <xref:Microsoft.AspNetCore.Mvc.Filters.IPageFilter> e <xref:Microsoft.AspNetCore.Mvc.Filters.IAsyncPageFilter>. Per ulteriori informazioni, vedere [Metodi di filtro per Razor Pages](xref:razor-pages/filter).
@@ -371,7 +371,7 @@ La classe <xref:Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext> specific
 Per un oggetto `IAsyncActionFilter`, una chiamata a <xref:Microsoft.AspNetCore.Mvc.Filters.ActionExecutionDelegate>:
 
 * Esegue qualsiasi filtro azione successivo e il metodo di azione.
-* Restituisce `ActionExecutedContext`.
+* Restituisce un valore `ActionExecutedContext`.
 
 Per causare il corto circuito, assegnare <xref:Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext.Result?displayProperty=fullName> a un'istanza del risultato e non chiamare `next` (`ActionExecutionDelegate`).
 

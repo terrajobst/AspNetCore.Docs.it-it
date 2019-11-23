@@ -59,7 +59,7 @@ Il codice precedente aggiunge una proprietà `FullName` e aggiunge gli attributi
 
 Per le date di iscrizione degli studenti, tutte le pagine visualizzano attualmente l'ora del giorno insieme alla data, anche se è pertinente solo la data. Mediante gli attributi di annotazione dei dati è possibile modificare il codice per correggere il formato di visualizzazione in tutte le pagine che visualizzano i dati. 
 
-L'attributo [DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) indica un tipo di dati più specifico rispetto al tipo intrinseco del database. In questo caso deve essere visualizzata solo la data e non la data e l'ora. L' [enumerazione DataType](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) fornisce per molti tipi di dati, ad esempio date, Time, PhoneNumber, Currency, EmailAddress e così via. L'attributo `DataType` può anche consentire all'app di fornire automaticamente funzionalità specifiche del tipo. Esempio:
+L'attributo [DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) indica un tipo di dati più specifico rispetto al tipo intrinseco del database. In questo caso deve essere visualizzata solo la data e non la data e l'ora. L' [enumerazione DataType](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) fornisce per molti tipi di dati, ad esempio date, Time, PhoneNumber, Currency, EmailAddress e così via. L'attributo `DataType` può anche consentire all'app di fornire automaticamente funzionalità specifiche del tipo. Ad esempio:
 
 * Il collegamento `mailto:` viene creato automaticamente per `DataType.EmailAddress`.
 * Il selettore data viene incluso per `DataType.Date` nella maggior parte dei browser.
@@ -453,7 +453,7 @@ Creare *Models/CourseAssignment.cs* con il codice seguente:
 
 La relazione molti-a-molti tra insegnanti e corsi richiede una tabella di join e l'entità per tale tabella di join è CourseAssignment.
 
-![Instructor-to-Courses m:M](complex-data-model/_static/courseassignment.png)
+![Relazione m:M tra insegnante e corsi](complex-data-model/_static/courseassignment.png)
 
 È pratica comune assegnare a un'entità di join un nome `EntityName1EntityName2`. Ad esempio la tabella di join istruttori-corsi che usa questa convenzione sarebbe `CourseInstructor`. È tuttavia consigliabile usare un nome che descrive la relazione.
 
@@ -534,7 +534,7 @@ Il codice precedente offre i dati di inizializzazione per le nuove entità. La m
 
 ## <a name="add-a-migration"></a>Aggiungere una migrazione
 
-Compilare il progetto.
+Compilazione del progetto.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -749,7 +749,7 @@ Aggiornare *Models/Student.cs* con il codice evidenziato seguente:
 
 [!code-csharp[](intro/samples/cu21/Models/Student.cs?name=snippet_DataType&highlight=3,12-13)]
 
-L'attributo [DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) indica un tipo di dati più specifico rispetto al tipo intrinseco del database. In questo caso deve essere visualizzata solo la data e non la data e l'ora. L' [enumerazione DataType](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) fornisce per molti tipi di dati, ad esempio date, Time, PhoneNumber, Currency, EmailAddress e così via. L'attributo `DataType` può anche consentire all'app di fornire automaticamente funzionalità specifiche del tipo. Esempio:
+L'attributo [DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) indica un tipo di dati più specifico rispetto al tipo intrinseco del database. In questo caso deve essere visualizzata solo la data e non la data e l'ora. L' [enumerazione DataType](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) fornisce per molti tipi di dati, ad esempio date, Time, PhoneNumber, Currency, EmailAddress e così via. L'attributo `DataType` può anche consentire all'app di fornire automaticamente funzionalità specifiche del tipo. Ad esempio:
 
 * Il collegamento `mailto:` viene creato automaticamente per `DataType.EmailAddress`.
 * Il selettore data viene incluso per `DataType.Date` nella maggior parte dei browser.
@@ -827,7 +827,7 @@ SqlException: Invalid column name 'FirstName'.
 
 Per aggiornare il database:
 
-* Compilare il progetto.
+* Compilazione del progetto.
 * Aprire una finestra di comando nella cartella di progetto. Immettere i comandi seguenti per creare una nuova migrazione e aggiornare il database:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
@@ -1156,7 +1156,7 @@ Creare *Models/CourseAssignment.cs* con il codice seguente:
 
 ### <a name="instructor-to-courses"></a>Instructor-to-Courses
 
-![Instructor-to-Courses m:M](complex-data-model/_static/courseassignment.png)
+![Relazione m:M tra insegnante e corsi](complex-data-model/_static/courseassignment.png)
 
 La relazione molti-a-molti Instructor-to-Courses (Insegnante-Corsi):
 
@@ -1242,7 +1242,7 @@ Il codice precedente offre i dati di inizializzazione per le nuove entità. La m
 
 ## <a name="add-a-migration"></a>Aggiungere una migrazione
 
-Compilare il progetto.
+Compilazione del progetto.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -1347,7 +1347,7 @@ Per far sì che la migrazione `ComplexDataModel` funzioni con i dati esistenti:
 
 #### <a name="fix-the-foreign-key-constraints"></a>Risolvere i vincoli della chiave esterna
 
-Aggiornare il metodo `Up` delle classi `ComplexDataModel`:
+Aggiornare il metodo `ComplexDataModel` delle classi `Up`:
 
 * Aprire il file *{timestamp}_ComplexDataModel.cs*.
 * Impostare come commento la riga di codice che aggiunge la colonna `DepartmentID` alla tabella `Course`.

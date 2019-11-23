@@ -2,23 +2,23 @@
 
 Questa app di esempio illustra i concetti descritti nell'argomento [caricare file in ASP.NET Core](https://docs.microsoft.com/aspnet/core/mvc/models/file-uploads) .
 
-## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
+## <a name="security-considerations"></a>Considerazioni sulla sicurezza
 
 Prestare attenzione quando si fornisce agli utenti la possibilità di caricare file in un server. Gli utenti malintenzionati possono eseguire attacchi [di tipo Denial of Service](/windows-hardware/drivers/ifs/denial-of-service) , tentare di caricare virus o malware oppure provare a compromettere le reti e i server in altri modi.
 
 I passaggi di sicurezza che riducono la probabilità di un attacco riuscito sono:
 
-* Caricare i file in un'area dedicata di caricamento di file nel sistema, preferibilmente in un'unità non di sistema. L'uso di un percorso dedicato rende più semplice l'imposizione di misure di sicurezza nei file caricati. Disabilitare le autorizzazioni di esecuzione per il percorso di caricamento del file. &dagger;
-* Non salvare mai i file caricati nella stessa struttura di directory dell'app. &dagger;
-* Usare un nome file sicuro determinato dall'app. Non usare un nome file fornito dall'input dell'utente o il nome file non attendibile del file caricato. &dagger;
-* Consenti solo un set specifico di estensioni di file approvate. &dagger;
-* Controllare la firma del formato di file per impedire a un utente di caricare un file mascherato (ad esempio, il caricamento di un file *exe* con estensione *txt* ). &dagger;
-* Verificare che anche i controlli lato client vengano eseguiti sul server. I controlli lato client sono facili da aggirare. &dagger;
-* Controllare le dimensioni del caricamento e impedire i caricamenti maggiori del previsto. &dagger;
+* Caricare i file in un'area dedicata di caricamento di file nel sistema, preferibilmente in un'unità non di sistema. L'uso di un percorso dedicato rende più semplice l'imposizione di misure di sicurezza nei file caricati. Disabilitare le autorizzazioni di esecuzione per il percorso di caricamento del file.&dagger;
+* Non salvare mai i file caricati nella stessa struttura di directory dell'app.&dagger;
+* Usare un nome file sicuro determinato dall'app. Non usare un nome file fornito dall'input dell'utente o il nome file non attendibile del file caricato.&dagger;
+* Consente solo un set specifico di estensioni di file approvate.&dagger;
+* Controllare la firma del formato di file per impedire a un utente di caricare un file mascherato, ad esempio il caricamento di un file con estensione *exe* con estensione *txt* .&dagger;
+* Verificare che anche i controlli lato client vengano eseguiti sul server. I controlli lato client sono facili da aggirare.&dagger;
+* Controllare le dimensioni del caricamento e impedire i caricamenti maggiori del previsto.&dagger;
 * Quando i file non devono essere sovrascritti da un file caricato con lo stesso nome, controllare il nome del file sul database o sull'archiviazione fisica prima di caricare il file.
 * **Eseguire uno scanner virus/malware sul contenuto caricato prima che il file venga archiviato.**
 
-l'app di esempio &dagger;The illustra un approccio che soddisfa i criteri.
+&dagger;l'app di esempio illustra un approccio che soddisfa i criteri.
 
 > [!WARNING]
 > Il caricamento di codice dannoso in un sistema è spesso il primo passaggio per l'esecuzione di codice in grado di:
@@ -31,7 +31,7 @@ l'app di esempio &dagger;The illustra un approccio che soddisfa i criteri.
 > Per informazioni sulla riduzione della superficie di attacco quando si accettano file dagli utenti, vedere le risorse seguenti:
 >
 > * [Caricamento di file senza restrizioni](https://www.owasp.org/index.php/Unrestricted_File_Upload)
-> * Sicurezza [Azure: Verificare che siano presenti i controlli appropriati quando si accettano file dagli utenti @ no__t-0
+> * [Protezione di Azure: Verificare i controlli appropriati quando si accettano file dagli utenti](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
 
 Per ulteriori informazioni, vedere [caricare file in ASP.NET Core](https://docs.microsoft.com/aspnet/core/mvc/models/file-uploads).
 
@@ -46,4 +46,4 @@ Nel file *appSettings. JSON* :
    * Il processo dell'app richiede autorizzazioni di lettura/scrittura per il percorso.
    * **IMPORTANTE!** Disabilitare le autorizzazioni di esecuzione per tutti gli utenti nel percorso.
 
-1. Impostare il limite delle dimensioni del file (`FileSizeLimit`) in byte. Il valore predefinito dell'app di esempio `2097152` (2.097.152 byte) consente il caricamento di file fino a 2 MB.
+1. Impostare il limite delle dimensioni del file (`FileSizeLimit`) in byte. Il valore predefinito dell'app di esempio di `2097152` (2.097.152 byte) consente il caricamento di file fino a 2 MB.

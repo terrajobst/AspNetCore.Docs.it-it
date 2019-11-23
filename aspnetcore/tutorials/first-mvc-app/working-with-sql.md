@@ -78,7 +78,7 @@ Creare una nuova classe denominata `SeedData` nella cartella *Models*. Sostituir
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Models/SeedData.cs?name=snippet_1)]
 
-Se sono presenti eventuali film nel database, l'inizializzatore del valore di inizializzazione viene restituito e non vengono aggiunti film.
+Se sono presenti eventuali film nel database, l'inizializzatore di valore viene restituito e non vengono aggiunti film.
 
 ```csharp
 if (context.Movie.Any())
@@ -95,7 +95,7 @@ Sostituire il contenuto di *Program.cs* con il codice seguente:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Program.cs)]
 
-Eseguire il test dell'app
+Eseguire il test dell'applicazione
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -190,7 +190,7 @@ Creare una nuova classe denominata `SeedData` nella cartella *Models*. Sostituir
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Models/SeedData.cs?name=snippet_1)]
 
-Se sono presenti eventuali film nel database, l'inizializzatore del valore di inizializzazione viene restituito e non vengono aggiunti film.
+Se sono presenti eventuali film nel database, l'inizializzatore di valore viene restituito e non vengono aggiunti film.
 
 ```csharp
 if (context.Movie.Any())
@@ -207,7 +207,7 @@ Sostituire il contenuto di *Program.cs* con il codice seguente:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Program.cs)]
 
-Eseguire il test dell'app
+Eseguire il test dell'applicazione
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 

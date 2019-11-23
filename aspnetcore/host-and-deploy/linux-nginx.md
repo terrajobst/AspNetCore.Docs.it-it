@@ -32,7 +32,7 @@ In questa guida:
 * Verificare che l'app Web venga eseguita all'avvio come daemon.
 * Configurare uno strumento di gestione del processo per consentire il riavvio dell'app Web.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 1. Accedere a un server Ubuntu 16.04 con un account utente standard con privilegio sudo.
 1. Installare il runtime .NET Core nel server.
@@ -104,7 +104,7 @@ services.Configure<ForwardedHeadersOptions>(options =>
 });
 ```
 
-Per ulteriori informazioni, vedere <xref:host-and-deploy/proxy-load-balancer>.
+Per altre informazioni, vedere <xref:host-and-deploy/proxy-load-balancer>.
 
 ### <a name="install-nginx"></a>Installare Nginx
 

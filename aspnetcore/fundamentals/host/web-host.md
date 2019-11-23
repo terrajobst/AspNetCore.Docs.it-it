@@ -156,7 +156,7 @@ La proprietà [IHostingEnvironment.ApplicationName](/dotnet/api/microsoft.extens
 
 **Chiave**: applicationName  
 **Tipo**: *string*  
-**Impostazione predefinita**: nome dell'assembly contenente il punto di ingresso dell'app.  
+**Impostazione predefinita**: il nome dell'assembly contenente il punto di ingresso dell'app.  
 **Impostare usando**: `UseSetting`  
 **Variabile di ambiente**: `ASPNETCORE_APPLICATIONNAME`
 
@@ -171,7 +171,7 @@ Questa impostazione controlla l'acquisizione degli errori di avvio.
 
 **Chiave**: captureStartupErrors  
 **Tipo**: *bool* (`true` o `1`)  
-**Impostazione predefinita**: il valore predefinito è `false`, a meno che l'app non venga eseguita con Kestrel in IIS; in tal caso il valore predefinito è `true`.  
+**Impostazione predefinita**: il valore predefinito è `false` a meno che l'app non venga eseguita con Kestrel in IIS, in tal caso il valore predefinito è `true`.  
 **Impostare usando**: `CaptureStartupErrors`  
 **Variabile di ambiente**: `ASPNETCORE_CAPTURESTARTUPERRORS`
 
@@ -201,7 +201,7 @@ WebHost.CreateDefaultBuilder(args)
 
 Per altre informazioni, vedere:
 
-* [Fundamentals: Radice del contenuto @ no__t-0
+* [Nozioni fondamentali: radice del contenuto](xref:fundamentals/index#content-root)
 * [Radice Web](#web-root)
 
 ### <a name="detailed-errors"></a>Errori dettagliati
@@ -221,13 +221,13 @@ WebHost.CreateDefaultBuilder(args)
     .UseSetting(WebHostDefaults.DetailedErrorsKey, "true")
 ```
 
-### <a name="environment"></a>Ambiente
+### <a name="environment"></a>Environment
 
 Imposta l'ambiente dell'app.
 
 **Chiave**: environment  
 **Tipo**: *string*  
-**Impostazione predefinita**: Produzione  
+**Impostazione predefinita**: Production  
 **Impostare usando**: `UseEnvironment`  
 **Variabile di ambiente**: `ASPNETCORE_ENVIRONMENT`
 
@@ -244,7 +244,7 @@ Imposta gli assembly di avvio dell'hosting dell'app.
 
 **Chiave**: hostingStartupAssemblies  
 **Tipo**: *string*  
-**Impostazione predefinita**: Stringa vuota  
+**Impostazione predefinita**: stringa vuota  
 **Impostare usando**: `UseSetting`  
 **Variabile di ambiente**: `ASPNETCORE_HOSTINGSTARTUPASSEMBLIES`
 
@@ -262,8 +262,8 @@ WebHost.CreateDefaultBuilder(args)
 Impostare la porta di reindirizzamento HTTPS. Usata per [imporre HTTPS](xref:security/enforcing-ssl).
 
 **Chiave**: https_port **Tipo**: *string*
-**Impostazione predefinita**: non è impostato nessun valore predefinito.
-**Impostare usando**: `UseSetting`
+**Valore predefinito**: non è impostato un valore predefinito.
+**Impostazione con**: `UseSetting`
 **Variabile di ambiente**: `ASPNETCORE_HTTPS_PORT`
 
 ```csharp
@@ -277,7 +277,7 @@ Una stringa delimitata da punto e virgola di assembly di avvio dell'hosting da e
 
 **Chiave**: hostingStartupExcludeAssemblies  
 **Tipo**: *string*  
-**Impostazione predefinita**: Stringa vuota  
+**Impostazione predefinita**: stringa vuota  
 **Impostare usando**: `UseSetting`  
 **Variabile di ambiente**: `ASPNETCORE_HOSTINGSTARTUPEXCLUDEASSEMBLIES`
 
@@ -387,7 +387,7 @@ Imposta il percorso relativo degli asset statici dell'app.
 
 **Chiave**: webroot  
 **Tipo**: *string*  
-**Predefinito**: Il valore predefinito è `wwwroot`. Il percorso di *{radice del contenuto}/wwwroot* deve esistere. Se il percorso non esiste, viene usato un provider di file no-op.  
+**Impostazione predefinita**: il valore predefinito è `wwwroot`. Il percorso di *{radice del contenuto}/wwwroot* deve esistere. Se il percorso non esiste, viene usato un provider di file no-op.  
 **Impostare usando**: `UseWebRoot`  
 **Variabile di ambiente**: `ASPNETCORE_WEBROOT`
 
@@ -398,7 +398,7 @@ WebHost.CreateDefaultBuilder(args)
 
 Per altre informazioni, vedere:
 
-* [Fundamentals: Radice Web @ no__t-0
+* [Nozioni fondamentali: radice Web](xref:fundamentals/index#web-root)
 * [Radice del contenuto](#content-root)
 
 ## <a name="override-configuration"></a>Override della configurazione
@@ -456,7 +456,7 @@ dotnet run --urls "http://*:8080"
 
 ## <a name="manage-the-host"></a>Gestire l'host
 
-**Run**
+**Esegui**
 
 Il metodo `Run` avvia l'app Web e blocca il thread di chiamata fino all'arresto dell'host:
 
@@ -526,7 +526,7 @@ using (var host = WebHost.Start("http://localhost:8080", app => app.Response.Wri
 
 Produce lo stesso risultato di **Start(app RequestDelegate)** , ad eccezione del fatto che l'app risponde su `http://localhost:8080`.
 
-**Start (Action @ no__t-1IRouteBuilder > routeBuilder)**
+**Start (Action\<IRouteBuilder > routeBuilder)**
 
 Usare un'istanza di `IRouteBuilder` ([Microsoft.AspNetCore.Routing](https://www.nuget.org/packages/Microsoft.AspNetCore.Routing/)) per usare il middleware di routing:
 
@@ -560,7 +560,7 @@ Usare le richieste del browser seguenti con l'esempio:
 
 `WaitForShutdown` rimane bloccato fino a quando non viene eseguita un'interruzione (Ctrl-C/SIGINT o SIGTERM). L'app visualizza il messaggio `Console.WriteLine` e attende la pressione di un tasto per chiudersi.
 
-**Start (URL stringa, Action @ no__t-1IRouteBuilder > routeBuilder)**
+**Start (URL stringa, azione\<IRouteBuilder > routeBuilder)**
 
 Usare un URL e un'istanza di `IRouteBuilder`:
 
@@ -581,9 +581,9 @@ using (var host = WebHost.Start("http://localhost:8080", router => router
 }
 ```
 
-Produce lo stesso risultato di **Start (Action @ no__t-1IRouteBuilder > routeBuilder)** , ad eccezione del fatto che l'app risponde in `http://localhost:8080`.
+Produce lo stesso risultato di **Start (Action\<IRouteBuilder > routeBuilder)** , ad eccezione del fatto che l'app risponde in `http://localhost:8080`.
 
-**Cominciamo (Action @ no__t-1IApplicationBuilder > app)**
+**Cominciamo (azione\<IApplicationBuilder > app)**
 
 Specificare un delegato per configurare `IApplicationBuilder`:
 
@@ -604,7 +604,7 @@ using (var host = WebHost.StartWith(app =>
 
 Creare una richiesta nel browser a `http://localhost:5000` per ricevere la risposta "Hello World!" `WaitForShutdown` rimane bloccato fino a quando non viene eseguita un'interruzione (Ctrl-C/SIGINT o SIGTERM). L'app visualizza il messaggio `Console.WriteLine` e attende la pressione di un tasto per chiudersi.
 
-**Cominciamo (URL stringa, azione @ no__t-1IApplicationBuilder > app)**
+**Cominciamo (URL stringa, azione\<IApplicationBuilder > app)**
 
 Specificare un URL e un delegato per configurare `IApplicationBuilder`:
 
@@ -623,7 +623,7 @@ using (var host = WebHost.StartWith("http://localhost:8080", app =>
 }
 ```
 
-Produce lo stesso risultato di **cominciamo (Action @ no__t-1IApplicationBuilder > app)** , ad eccezione del fatto che l'app risponde `http://localhost:8080`.
+Produce lo stesso risultato di **cominciamo (azione\<IApplicationBuilder > app)** , ad eccezione del fatto che l'app risponde in `http://localhost:8080`.
 
 ::: moniker range=">= aspnetcore-3.0"
 

@@ -92,7 +92,7 @@ var client = new Greet.GreeterClient(channel);
 
 Gheppio non supporta HTTP/2 con TLS in macOS e versioni precedenti di Windows, ad esempio Windows 7. Per impostazione predefinita, il ASP.NET Core modello e gli esempi di gRPC usano TLS. Quando si tenta di avviare il server gRPC, viene visualizzato il messaggio di errore seguente:
 
-> Non è possibile eseguire l'associazione a https://localhost:5001 sull'interfaccia di loopback IPv4:' HTTP/2 su TLS non è supportato in macOS perché manca il supporto per ALPN .'.
+> Non è possibile eseguire il binding a https://localhost:5001 sull'interfaccia di loopback IPv4:' HTTP/2 su TLS non è supportato in macOS perché manca il supporto di ALPN '.
 
 Per risolvere questo problema, configurare gheppio e il client gRPC per l'uso di HTTP/2 *senza* TLS. Questa operazione deve essere eseguita solo durante lo sviluppo. Se non si usa TLS, i messaggi gRPC vengono inviati senza crittografia.
 
@@ -129,7 +129,7 @@ per la generazione di codice gRPC di client concreti e classi di base del serviz
 
 Per ulteriori informazioni sulla generazione di C# asset gRPC, vedere <xref:grpc/basics>.
 
-Per impostazione predefinita, un riferimento `<Protobuf>` genera un client concreto e una classe di base del servizio. L'attributo `GrpcServices` dell'elemento di riferimento può essere usato per C# limitare la generazione di asset. Le opzioni `GrpcServices` valide sono:
+Per impostazione predefinita, un riferimento `<Protobuf>` genera un client concreto e una classe di base del servizio. L'attributo `GrpcServices` dell'elemento di riferimento può essere usato per C# limitare la generazione di asset. Le opzioni di `GrpcServices` valide sono:
 
 * `Both` (impostazione predefinita quando non è presente)
 * `Server`
@@ -154,16 +154,16 @@ Un'app client gRPC che effettua chiamate gRPC richiede solo il client concreto g
 
 ## <a name="wpf-projects-unable-to-generate-grpc-c-assets-from-proto-files"></a>I progetti WPF non sono in C# grado di generare asset gRPC da file. proto
 
-I progetti WPF presentano un [problema noto](https://github.com/dotnet/wpf/issues/810) che impedisce il corretto funzionamento della generazione del codice gRPC. Tutti i tipi di gRPC generati in un progetto WPF facendo riferimento a `Grpc.Tools` e i file *. proto* creeranno errori di compilazione quando vengono utilizzati:
+I progetti WPF presentano un [problema noto](https://github.com/dotnet/wpf/issues/810) che impedisce il corretto funzionamento della generazione del codice gRPC. Tutti i tipi di gRPC generati in un progetto WPF facendo riferimento `Grpc.Tools` e i file *. proto* creeranno errori di compilazione quando vengono utilizzati:
 
 > errore CS0246: Impossibile trovare il tipo o il nome dello spazio dei nomi "MyGrpcServices". manca una direttiva using o un riferimento a un assembly.
 
 Per aggirare questo problema, è possibile:
 
 1. Creare un nuovo progetto libreria di classi .NET Core.
-2. Nel nuovo progetto aggiungere i riferimenti per abilitare [ C# la generazione di codice dai file *@no__t 3. proto* ](xref:grpc/basics#generated-c-assets):
+2. Nel nuovo progetto aggiungere i riferimenti per abilitare [ C# la generazione di codice da file *\*. proto* ](xref:grpc/basics#generated-c-assets):
     * Aggiungere un riferimento al pacchetto [Grpc. Tools](https://www.nuget.org/packages/Grpc.Tools/) .
-    * Aggiungere *@no__t file 1. proto* al gruppo di elementi `<Protobuf>`.
+    * Aggiungere i file *\*. proto* al gruppo di elementi `<Protobuf>`.
 3. Nell'applicazione WPF aggiungere un riferimento al nuovo progetto.
 
 L'applicazione WPF può utilizzare i tipi generati da gRPC dal nuovo progetto libreria di classi.

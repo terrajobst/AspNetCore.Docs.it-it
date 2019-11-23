@@ -59,7 +59,7 @@ Aggiungere una vista `Index` per `HelloWorldController`.
 
 * Fare clic con il pulsante destro del mouse sulla cartella *Views*, quindi su **Aggiungi > Nuova cartella** e denominare la cartella *HelloWorld*.
 * Fare clic con il pulsante destro del mouse sulla cartella *Views/HelloWorld*, quindi su **Aggiungi > Nuovo file**.
-* Nel finestra di dialogo **Nuovo file**:
+* Nella finestra di dialogo **Nuovo file**:
 
   * Selezionare **Web** nel riquadro a sinistra.
   * Selezionare **File HTML vuoto** nel riquadro centrale.
@@ -86,7 +86,7 @@ I modelli di [layout](xref:mvc/views/layout) consentono di specificare il layout
 
 ## <a name="change-the-title-footer-and-menu-link-in-the-layout-file"></a>Modificare il titolo, il piè di pagina e il collegamento di menu nel file di layout
 
-Sostituire il contenuto del file *Views/Shared/file. cshtml* con il markup seguente. Le modifiche sono evidenziate:
+Sostituire il contenuto del file *Views/Shared/_Layout. cshtml* con il markup seguente. Le modifiche sono evidenziate:
 
 [!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Views/Shared/_Layout.cshtml?highlight=6,14,40)]
 
@@ -97,7 +97,7 @@ Il markup precedente ha apportato le modifiche seguenti:
 
 Nel markup precedente, l'attributo `asp-area=""` [Helper Tag di ancoraggio](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) e il valore dell'attributo sono stati omessi perché questa app non usa le [Aree](xref:mvc/controllers/areas).
 
-**Nota**: Il controller `Movies` non è stato implementato. A questo punto, il collegamento `Movie App` non è funzionale.
+**Nota**: il controller di `Movies` non è stato implementato. A questo punto, il collegamento `Movie App` non è funzionale.
 
 Salvare le modifiche e selezionare il collegamento **Privacy**. Si noti come il titolo sulla scheda del browser visualizzi **Privacy Policy - Movie App** anziché **Privacy Policy - Mvc Movie**:
 
@@ -127,7 +127,7 @@ Il titolo e l'elemento `<h2>`sono leggermente diversi in modo da poter esaminare
 <title>@ViewData["Title"] - Movie App</title>
    ```
 
-Salvare la modifica e passare a `https://localhost:{PORT}/HelloWorld`. Si noti che il titolo del browser, l'intestazione primaria e le intestazioni secondarie sono cambiati. Se le modifiche non sono visibili nel browser, è possibile che si stia visualizzando il contenuto memorizzato nella cache. Premere CTRL + F5 nel browser per forzare il caricamento della risposta dal server. Il titolo del browser viene creato con il valore `ViewData["Title"]` impostato nel modello di vista *Index.cshtml* e la stringa "- Movie App" aggiuntiva viene aggiunta nel file di layout.
+Salvare la modifica e passare a `https://localhost:{PORT}/HelloWorld`. Si noti che il titolo del browser, l'intestazione primaria e le intestazioni secondarie sono cambiati. Se le modifiche non sono visibili nel browser, è possibile che si stia visualizzando il contenuto memorizzato nella cache. Premere CTRL + F5 nel browser per forzare il caricamento della risposta dal server. Il titolo del browser viene creato con `ViewData["Title"]` è stato impostato nel modello di vista *index. cshtml* e l'aggiunta di "-Movie app" nel file di layout.
 
 Il contenuto del modello di vista *Index.cshtml* viene unito al modello di vista *Views/Shared/_Layout.cshtml*. Viene inviata una singola risposta HTML al browser. I modelli di layout rendono semplice apportare modifiche che si applicano a tutte le pagine di un'app. Per altre informazioni, vedere [Layout](xref:mvc/views/layout).
 
@@ -216,7 +216,7 @@ Aggiungere una vista `Index` per `HelloWorldController`.
 
 * Fare clic con il pulsante destro del mouse sulla cartella *Views*, quindi su **Aggiungi > Nuova cartella** e denominare la cartella *HelloWorld*.
 * Fare clic con il pulsante destro del mouse sulla cartella *Views/HelloWorld*, quindi su **Aggiungi > Nuovo file**.
-* Nel finestra di dialogo **Nuovo file**:
+* Nella finestra di dialogo **Nuovo file**:
 
   * Selezionare **Web** nel riquadro a sinistra.
   * Selezionare **File HTML vuoto** nel riquadro centrale.
@@ -257,7 +257,7 @@ Nel markup precedente, l'attributo `asp-area` [Helper Tag di ancoraggio](xref:mv
 > We haven't implemented the `Movies` controller yet, so if you click the `Movie App` link, you get a 404 (Not found) error.
 -->
 
-**Nota**: Il controller `Movies` non è stato implementato. A questo punto, il collegamento `Movie App` non è funzionale.
+**Nota**: il controller di `Movies` non è stato implementato. A questo punto, il collegamento `Movie App` non è funzionale.
 
 Salvare le modifiche e selezionare il collegamento **Privacy**. Si noti come il titolo sulla scheda del browser visualizzi **Privacy Policy - Movie App** anziché **Privacy Policy - Mvc Movie**:
 
@@ -287,7 +287,7 @@ Il titolo e l'elemento `<h2>`sono leggermente diversi in modo da poter esaminare
 <title>@ViewData["Title"] - Movie App</title>
    ```
 
-Salvare la modifica e passare a `https://localhost:{PORT}/HelloWorld`. Si noti che il titolo del browser, l'intestazione primaria e le intestazioni secondarie sono cambiati. Se le modifiche non sono visibili nel browser, è possibile che si stia visualizzando il contenuto memorizzato nella cache. Premere CTRL + F5 nel browser per forzare il caricamento della risposta dal server. Il titolo del browser viene creato con il valore `ViewData["Title"]` impostato nel modello di vista *Index.cshtml* e la stringa "- Movie App" aggiuntiva viene aggiunta nel file di layout.
+Salvare la modifica e passare a `https://localhost:{PORT}/HelloWorld`. Si noti che il titolo del browser, l'intestazione primaria e le intestazioni secondarie sono cambiati. Se le modifiche non sono visibili nel browser, è possibile che si stia visualizzando il contenuto memorizzato nella cache. Premere CTRL + F5 nel browser per forzare il caricamento della risposta dal server. Il titolo del browser viene creato con `ViewData["Title"]` è stato impostato nel modello di vista *index. cshtml* e l'aggiunta di "-Movie app" nel file di layout.
 
 Si noti anche come il contenuto del modello di vista *Index.cshtml* sia stato unito con il modello di vista *Views/Shared/_Layout.cshtml* e sia stata inviata una singola risposta HTML al browser. I modelli di layout rendono molto semplice apportare modifiche che si applicano a tutte le pagine dell'applicazione. Per altre informazioni, vedere [Layout](xref:mvc/views/layout).
 
