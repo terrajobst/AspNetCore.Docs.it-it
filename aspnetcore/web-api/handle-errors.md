@@ -1,32 +1,32 @@
 ---
-title: Gestire gli errori nelle API Web di ASP.NET Core
+title: Handle errors in ASP.NET Core web APIs
 author: pranavkm
-description: Informazioni sulla gestione degli errori con ASP.NET Core le API Web.
+description: Learn about error handling with ASP.NET Core web APIs.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: prkrishn
 ms.custom: mvc
 ms.date: 09/27/2019
 uid: web-api/handle-errors
-ms.openlocfilehash: dc21d4b2cf096b8d38b0a24d739e6874186004e7
-ms.sourcegitcommit: 5d25a7f22c50ca6fdd0f8ecd8e525822e1b35b7a
+ms.openlocfilehash: 457ad7449c608c3b1b0acd729626e07808f55897
+ms.sourcegitcommit: ddc813f0f1fb293861a01597532919945b0e7fe5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2019
-ms.locfileid: "71551736"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74412098"
 ---
-# <a name="handle-errors-in-aspnet-core-web-apis"></a><span data-ttu-id="03e45-103">Gestire gli errori nelle API Web di ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="03e45-103">Handle errors in ASP.NET Core web APIs</span></span>
+# <a name="handle-errors-in-aspnet-core-web-apis"></a><span data-ttu-id="fc601-103">Handle errors in ASP.NET Core web APIs</span><span class="sxs-lookup"><span data-stu-id="fc601-103">Handle errors in ASP.NET Core web APIs</span></span>
 
-<span data-ttu-id="03e45-104">Questo articolo descrive come gestire e personalizzare la gestione degli errori con ASP.NET Core le API Web.</span><span class="sxs-lookup"><span data-stu-id="03e45-104">This article describes how to handle and customize error handling with ASP.NET Core web APIs.</span></span>
+<span data-ttu-id="fc601-104">This article describes how to handle and customize error handling with ASP.NET Core web APIs.</span><span class="sxs-lookup"><span data-stu-id="fc601-104">This article describes how to handle and customize error handling with ASP.NET Core web APIs.</span></span>
 
-<span data-ttu-id="03e45-105">[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/handle-errors/samples) ([Come scaricare](xref:index#how-to-download-a-sample))</span><span class="sxs-lookup"><span data-stu-id="03e45-105">[View or download sample code](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/handle-errors/samples) ([How to download](xref:index#how-to-download-a-sample))</span></span>
+<span data-ttu-id="fc601-105">[View or download sample code](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/handle-errors/samples) ([How to download](xref:index#how-to-download-a-sample))</span><span class="sxs-lookup"><span data-stu-id="fc601-105">[View or download sample code](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/handle-errors/samples) ([How to download](xref:index#how-to-download-a-sample))</span></span>
 
-## <a name="developer-exception-page"></a><span data-ttu-id="03e45-106">Pagina delle eccezioni per gli sviluppatori</span><span class="sxs-lookup"><span data-stu-id="03e45-106">Developer Exception Page</span></span>
+## <a name="developer-exception-page"></a><span data-ttu-id="fc601-106">Pagina delle eccezioni per gli sviluppatori</span><span class="sxs-lookup"><span data-stu-id="fc601-106">Developer Exception Page</span></span>
 
-<span data-ttu-id="03e45-107">La [pagina di eccezione Developer](xref:fundamentals/error-handling) è uno strumento utile per ottenere analisi dettagliate dello stack per gli errori del server.</span><span class="sxs-lookup"><span data-stu-id="03e45-107">The [Developer Exception Page](xref:fundamentals/error-handling) is a useful tool to get detailed stack traces for server errors.</span></span> <span data-ttu-id="03e45-108">USA <xref:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware> per acquisire eccezioni sincrone e asincrone dalla pipeline HTTP e per generare risposte di errore.</span><span class="sxs-lookup"><span data-stu-id="03e45-108">It uses <xref:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware> to capture synchronous and asynchronous exceptions from the HTTP pipeline and to generate error responses.</span></span> <span data-ttu-id="03e45-109">Per illustrare, prendere in considerazione la seguente azione del controller:</span><span class="sxs-lookup"><span data-stu-id="03e45-109">To illustrate, consider the following controller action:</span></span>
+<span data-ttu-id="fc601-107">The [Developer Exception Page](xref:fundamentals/error-handling) is a useful tool to get detailed stack traces for server errors.</span><span class="sxs-lookup"><span data-stu-id="fc601-107">The [Developer Exception Page](xref:fundamentals/error-handling) is a useful tool to get detailed stack traces for server errors.</span></span> <span data-ttu-id="fc601-108">It uses <xref:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware> to capture synchronous and asynchronous exceptions from the HTTP pipeline and to generate error responses.</span><span class="sxs-lookup"><span data-stu-id="fc601-108">It uses <xref:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware> to capture synchronous and asynchronous exceptions from the HTTP pipeline and to generate error responses.</span></span> <span data-ttu-id="fc601-109">To illustrate, consider the following controller action:</span><span class="sxs-lookup"><span data-stu-id="fc601-109">To illustrate, consider the following controller action:</span></span>
 
 [!code-csharp[](handle-errors/samples/3.x/Controllers/WeatherForecastController.cs?name=snippet_GetByCity)]
 
-<span data-ttu-id="03e45-110">Eseguire il comando `curl` seguente per testare l'azione precedente:</span><span class="sxs-lookup"><span data-stu-id="03e45-110">Run the following `curl` command to test the preceding action:</span></span>
+<span data-ttu-id="fc601-110">Run the following `curl` command to test the preceding action:</span><span class="sxs-lookup"><span data-stu-id="fc601-110">Run the following `curl` command to test the preceding action:</span></span>
 
 ```bash
 curl -i https://localhost:5001/weatherforecast/chicago
@@ -34,7 +34,7 @@ curl -i https://localhost:5001/weatherforecast/chicago
 
 ::: moniker range=">= aspnetcore-3.0"
 
-<span data-ttu-id="03e45-111">In ASP.NET Core 3,0 e versioni successive, la pagina delle eccezioni per sviluppatori Visualizza una risposta di testo normale se il client non richiede l'output in formato HTML.</span><span class="sxs-lookup"><span data-stu-id="03e45-111">In ASP.NET Core 3.0 and later, the Developer Exception Page displays a plain-text response if the client doesn't request HTML-formatted output.</span></span> <span data-ttu-id="03e45-112">Viene visualizzato l'output seguente:</span><span class="sxs-lookup"><span data-stu-id="03e45-112">The following output appears:</span></span>
+<span data-ttu-id="fc601-111">In ASP.NET Core 3.0 and later, the Developer Exception Page displays a plain-text response if the client doesn't request HTML-formatted output.</span><span class="sxs-lookup"><span data-stu-id="fc601-111">In ASP.NET Core 3.0 and later, the Developer Exception Page displays a plain-text response if the client doesn't request HTML-formatted output.</span></span> <span data-ttu-id="fc601-112">Viene visualizzato l'output seguente:</span><span class="sxs-lookup"><span data-stu-id="fc601-112">The following output appears:</span></span>
 
 ```console
 HTTP/1.1 500 Internal Server Error
@@ -68,19 +68,19 @@ Host: localhost:44312
 User-Agent: curl/7.55.1
 ```
 
-<span data-ttu-id="03e45-113">Per visualizzare invece una risposta in formato HTML, impostare l'intestazione della richiesta HTTP `Accept` sul tipo di supporto `text/html`.</span><span class="sxs-lookup"><span data-stu-id="03e45-113">To display an HTML-formatted response instead, set the `Accept` HTTP request header to the `text/html` media type.</span></span> <span data-ttu-id="03e45-114">Esempio:</span><span class="sxs-lookup"><span data-stu-id="03e45-114">For example:</span></span>
+<span data-ttu-id="fc601-113">To display an HTML-formatted response instead, set the `Accept` HTTP request header to the `text/html` media type.</span><span class="sxs-lookup"><span data-stu-id="fc601-113">To display an HTML-formatted response instead, set the `Accept` HTTP request header to the `text/html` media type.</span></span> <span data-ttu-id="fc601-114">Esempio:</span><span class="sxs-lookup"><span data-stu-id="fc601-114">For example:</span></span>
 
 ```bash
 curl -i -H "Accept: text/html" https://localhost:5001/weatherforecast/chicago
 ```
 
-<span data-ttu-id="03e45-115">Si consideri il seguente estratto della risposta HTTP:</span><span class="sxs-lookup"><span data-stu-id="03e45-115">Consider the following excerpt from the HTTP response:</span></span>
+<span data-ttu-id="fc601-115">Consider the following excerpt from the HTTP response:</span><span class="sxs-lookup"><span data-stu-id="fc601-115">Consider the following excerpt from the HTTP response:</span></span>
 
 ::: moniker-end
 
 ::: moniker range="<= aspnetcore-2.2"
 
-<span data-ttu-id="03e45-116">In ASP.NET Core 2,2 e versioni precedenti, nella pagina eccezione Developer viene visualizzata una risposta in formato HTML.</span><span class="sxs-lookup"><span data-stu-id="03e45-116">In ASP.NET Core 2.2 and earlier, the Developer Exception Page displays an HTML-formatted response.</span></span> <span data-ttu-id="03e45-117">Si consideri, ad esempio, il seguente estratto della risposta HTTP:</span><span class="sxs-lookup"><span data-stu-id="03e45-117">For example, consider the following excerpt from the HTTP response:</span></span>
+<span data-ttu-id="fc601-116">In ASP.NET Core 2.2 and earlier, the Developer Exception Page displays an HTML-formatted response.</span><span class="sxs-lookup"><span data-stu-id="fc601-116">In ASP.NET Core 2.2 and earlier, the Developer Exception Page displays an HTML-formatted response.</span></span> <span data-ttu-id="fc601-117">For example, consider the following excerpt from the HTTP response:</span><span class="sxs-lookup"><span data-stu-id="fc601-117">For example, consider the following excerpt from the HTTP response:</span></span>
 
 ::: moniker-end
 
@@ -108,20 +108,20 @@ Date: Fri, 27 Sep 2019 16:55:37 GMT
 
 ::: moniker range=">= aspnetcore-3.0"
 
-<span data-ttu-id="03e45-118">La risposta in formato HTML risulta utile quando si esegue il test tramite strumenti come il post.</span><span class="sxs-lookup"><span data-stu-id="03e45-118">The HTML-formatted response becomes useful when testing via tools like Postman.</span></span> <span data-ttu-id="03e45-119">L'acquisizione di schermate seguente mostra sia il testo normale che le risposte in formato HTML in post:</span><span class="sxs-lookup"><span data-stu-id="03e45-119">The following screen capture shows both the plain-text and the HTML-formatted responses in Postman:</span></span>
+<span data-ttu-id="fc601-118">The HTML-formatted response becomes useful when testing via tools like Postman.</span><span class="sxs-lookup"><span data-stu-id="fc601-118">The HTML-formatted response becomes useful when testing via tools like Postman.</span></span> <span data-ttu-id="fc601-119">The following screen capture shows both the plain-text and the HTML-formatted responses in Postman:</span><span class="sxs-lookup"><span data-stu-id="fc601-119">The following screen capture shows both the plain-text and the HTML-formatted responses in Postman:</span></span>
 
-![Test della pagina di eccezione per gli sviluppatori nel post](handle-errors/_static/developer-exception-page-postman.gif)
+![Developer Exception Page testing in Postman](handle-errors/_static/developer-exception-page-postman.gif)
 
 ::: moniker-end
 
 > [!WARNING]
-> <span data-ttu-id="03e45-121">Abilitare la pagina delle eccezioni per gli sviluppatori **solo quando l'app è in esecuzione nell'ambiente di sviluppo**.</span><span class="sxs-lookup"><span data-stu-id="03e45-121">Enable the Developer Exception Page **only when the app is running in the Development environment**.</span></span> <span data-ttu-id="03e45-122">per non condividere pubblicamente le informazioni dettagliate sulle eccezioni quando l'app è in esecuzione nell'ambiente di produzione.</span><span class="sxs-lookup"><span data-stu-id="03e45-122">You don't want to share detailed exception information publicly when the app runs in production.</span></span> <span data-ttu-id="03e45-123">Per altre informazioni sulla configurazione di ambienti, vedere <xref:fundamentals/environments>.</span><span class="sxs-lookup"><span data-stu-id="03e45-123">For more information on configuring environments, see <xref:fundamentals/environments>.</span></span>
+> <span data-ttu-id="fc601-121">Abilitare la pagina delle eccezioni per gli sviluppatori **solo quando l'app è in esecuzione nell'ambiente di sviluppo**.</span><span class="sxs-lookup"><span data-stu-id="fc601-121">Enable the Developer Exception Page **only when the app is running in the Development environment**.</span></span> <span data-ttu-id="fc601-122">per non condividere pubblicamente le informazioni dettagliate sulle eccezioni quando l'app è in esecuzione nell'ambiente di produzione.</span><span class="sxs-lookup"><span data-stu-id="fc601-122">You don't want to share detailed exception information publicly when the app runs in production.</span></span> <span data-ttu-id="fc601-123">Per altre informazioni sulla configurazione di ambienti, vedere <xref:fundamentals/environments>.</span><span class="sxs-lookup"><span data-stu-id="fc601-123">For more information on configuring environments, see <xref:fundamentals/environments>.</span></span>
 
-## <a name="exception-handler"></a><span data-ttu-id="03e45-124">Gestore di eccezioni</span><span class="sxs-lookup"><span data-stu-id="03e45-124">Exception handler</span></span>
+## <a name="exception-handler"></a><span data-ttu-id="fc601-124">Gestore di eccezioni</span><span class="sxs-lookup"><span data-stu-id="fc601-124">Exception handler</span></span>
 
-<span data-ttu-id="03e45-125">Negli ambienti non di sviluppo, è possibile usare il [middleware di gestione delle eccezioni](xref:fundamentals/error-handling) per produrre un payload degli errori:</span><span class="sxs-lookup"><span data-stu-id="03e45-125">In non-development environments, [Exception Handling Middleware](xref:fundamentals/error-handling) can be used to produce an error payload:</span></span>
+<span data-ttu-id="fc601-125">In non-development environments, [Exception Handling Middleware](xref:fundamentals/error-handling) can be used to produce an error payload:</span><span class="sxs-lookup"><span data-stu-id="fc601-125">In non-development environments, [Exception Handling Middleware](xref:fundamentals/error-handling) can be used to produce an error payload:</span></span>
 
-1. <span data-ttu-id="03e45-126">In `Startup.Configure` richiamare<xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> per usare il middleware:</span><span class="sxs-lookup"><span data-stu-id="03e45-126">In `Startup.Configure`, invoke <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> to use the middleware:</span></span>
+1. <span data-ttu-id="fc601-126">In `Startup.Configure`, invoke <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler%2A> to use the middleware:</span><span class="sxs-lookup"><span data-stu-id="fc601-126">In `Startup.Configure`, invoke <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler%2A> to use the middleware:</span></span>
 
     ::: moniker range=">= aspnetcore-3.0"
 
@@ -135,7 +135,7 @@ Date: Fri, 27 Sep 2019 16:55:37 GMT
 
     ::: moniker-end
 
-1. <span data-ttu-id="03e45-127">Configurare un'azione del `/error` controller per rispondere alla route:</span><span class="sxs-lookup"><span data-stu-id="03e45-127">Configure a controller action to respond to the `/error` route:</span></span>
+1. <span data-ttu-id="fc601-127">Configure a controller action to respond to the `/error` route:</span><span class="sxs-lookup"><span data-stu-id="fc601-127">Configure a controller action to respond to the `/error` route:</span></span>
 
     ::: moniker range=">= aspnetcore-3.0"
 
@@ -149,11 +149,11 @@ Date: Fri, 27 Sep 2019 16:55:37 GMT
 
     ::: moniker-end
 
-<span data-ttu-id="03e45-128">L'azione `Error` precedente invia al client un payload conforme a [RFC7807](https://tools.ietf.org/html/rfc7807).</span><span class="sxs-lookup"><span data-stu-id="03e45-128">The preceding `Error` action sends an [RFC7807](https://tools.ietf.org/html/rfc7807)-compliant payload to the client.</span></span>
+<span data-ttu-id="fc601-128">The preceding `Error` action sends an [RFC7807](https://tools.ietf.org/html/rfc7807)-compliant payload to the client.</span><span class="sxs-lookup"><span data-stu-id="fc601-128">The preceding `Error` action sends an [RFC7807](https://tools.ietf.org/html/rfc7807)-compliant payload to the client.</span></span>
 
-<span data-ttu-id="03e45-129">Il middleware di gestione delle eccezioni può inoltre fornire un output più dettagliato del contenuto negoziato nell'ambiente di sviluppo locale.</span><span class="sxs-lookup"><span data-stu-id="03e45-129">Exception Handling Middleware can also provide more detailed content-negotiated output in the local development environment.</span></span> <span data-ttu-id="03e45-130">Usare la procedura seguente per produrre un formato di payload coerente negli ambienti di sviluppo e di produzione:</span><span class="sxs-lookup"><span data-stu-id="03e45-130">Use the following steps to produce a consistent payload format across development and production environments:</span></span>
+<span data-ttu-id="fc601-129">Exception Handling Middleware can also provide more detailed content-negotiated output in the local development environment.</span><span class="sxs-lookup"><span data-stu-id="fc601-129">Exception Handling Middleware can also provide more detailed content-negotiated output in the local development environment.</span></span> <span data-ttu-id="fc601-130">Use the following steps to produce a consistent payload format across development and production environments:</span><span class="sxs-lookup"><span data-stu-id="fc601-130">Use the following steps to produce a consistent payload format across development and production environments:</span></span>
 
-1. <span data-ttu-id="03e45-131">In `Startup.Configure`registrare le istanze del middleware di gestione delle eccezioni specifiche dell'ambiente:</span><span class="sxs-lookup"><span data-stu-id="03e45-131">In `Startup.Configure`, register environment-specific Exception Handling Middleware instances:</span></span>
+1. <span data-ttu-id="fc601-131">In `Startup.Configure`, register environment-specific Exception Handling Middleware instances:</span><span class="sxs-lookup"><span data-stu-id="fc601-131">In `Startup.Configure`, register environment-specific Exception Handling Middleware instances:</span></span>
 
     ::: moniker range=">= aspnetcore-3.0"
 
@@ -191,12 +191,12 @@ Date: Fri, 27 Sep 2019 16:55:37 GMT
 
     ::: moniker-end
 
-    <span data-ttu-id="03e45-132">Nel codice precedente il middleware è registrato con:</span><span class="sxs-lookup"><span data-stu-id="03e45-132">In the preceding code, the middleware is registered with:</span></span>
+    <span data-ttu-id="fc601-132">In the preceding code, the middleware is registered with:</span><span class="sxs-lookup"><span data-stu-id="fc601-132">In the preceding code, the middleware is registered with:</span></span>
 
-    * <span data-ttu-id="03e45-133">Route di nell' `/error-local-development` ambiente di sviluppo.</span><span class="sxs-lookup"><span data-stu-id="03e45-133">A route of `/error-local-development` in the Development environment.</span></span>
-    * <span data-ttu-id="03e45-134">Una route di `/error` in ambienti che non sono in fase di sviluppo.</span><span class="sxs-lookup"><span data-stu-id="03e45-134">A route of `/error` in environments that aren't Development.</span></span>
+    * <span data-ttu-id="fc601-133">A route of `/error-local-development` in the Development environment.</span><span class="sxs-lookup"><span data-stu-id="fc601-133">A route of `/error-local-development` in the Development environment.</span></span>
+    * <span data-ttu-id="fc601-134">A route of `/error` in environments that aren't Development.</span><span class="sxs-lookup"><span data-stu-id="fc601-134">A route of `/error` in environments that aren't Development.</span></span>
     
-1. <span data-ttu-id="03e45-135">Applicare il routing degli attributi alle azioni del controller:</span><span class="sxs-lookup"><span data-stu-id="03e45-135">Apply attribute routing to controller actions:</span></span>
+1. <span data-ttu-id="fc601-135">Apply attribute routing to controller actions:</span><span class="sxs-lookup"><span data-stu-id="fc601-135">Apply attribute routing to controller actions:</span></span>
 
     ::: moniker range=">= aspnetcore-3.0"
 
@@ -210,19 +210,19 @@ Date: Fri, 27 Sep 2019 16:55:37 GMT
 
     ::: moniker-end
 
-## <a name="use-exceptions-to-modify-the-response"></a><span data-ttu-id="03e45-136">Usare le eccezioni per modificare la risposta</span><span class="sxs-lookup"><span data-stu-id="03e45-136">Use exceptions to modify the response</span></span>
+## <a name="use-exceptions-to-modify-the-response"></a><span data-ttu-id="fc601-136">Use exceptions to modify the response</span><span class="sxs-lookup"><span data-stu-id="fc601-136">Use exceptions to modify the response</span></span>
 
-<span data-ttu-id="03e45-137">Il contenuto della risposta può essere modificato dall'esterno del controller.</span><span class="sxs-lookup"><span data-stu-id="03e45-137">The contents of the response can be modified from outside of the controller.</span></span> <span data-ttu-id="03e45-138">Nell'API Web ASP.NET 4. x, un modo per eseguire questa operazione consiste nell' <xref:System.Web.Http.HttpResponseException> usare il tipo.</span><span class="sxs-lookup"><span data-stu-id="03e45-138">In ASP.NET 4.x Web API, one way to do this was using the <xref:System.Web.Http.HttpResponseException> type.</span></span> <span data-ttu-id="03e45-139">ASP.NET Core non include un tipo equivalente.</span><span class="sxs-lookup"><span data-stu-id="03e45-139">ASP.NET Core doesn't include an equivalent type.</span></span> <span data-ttu-id="03e45-140">È possibile `HttpResponseException` aggiungere il supporto per con i passaggi seguenti:</span><span class="sxs-lookup"><span data-stu-id="03e45-140">Support for `HttpResponseException` can be added with the following steps:</span></span>
+<span data-ttu-id="fc601-137">The contents of the response can be modified from outside of the controller.</span><span class="sxs-lookup"><span data-stu-id="fc601-137">The contents of the response can be modified from outside of the controller.</span></span> <span data-ttu-id="fc601-138">In ASP.NET 4.x Web API, one way to do this was using the <xref:System.Web.Http.HttpResponseException> type.</span><span class="sxs-lookup"><span data-stu-id="fc601-138">In ASP.NET 4.x Web API, one way to do this was using the <xref:System.Web.Http.HttpResponseException> type.</span></span> <span data-ttu-id="fc601-139">ASP.NET Core doesn't include an equivalent type.</span><span class="sxs-lookup"><span data-stu-id="fc601-139">ASP.NET Core doesn't include an equivalent type.</span></span> <span data-ttu-id="fc601-140">Support for `HttpResponseException` can be added with the following steps:</span><span class="sxs-lookup"><span data-stu-id="fc601-140">Support for `HttpResponseException` can be added with the following steps:</span></span>
 
-1. <span data-ttu-id="03e45-141">Creare un tipo di eccezione noto denominato `HttpResponseException`:</span><span class="sxs-lookup"><span data-stu-id="03e45-141">Create a well-known exception type named `HttpResponseException`:</span></span>
+1. <span data-ttu-id="fc601-141">Create a well-known exception type named `HttpResponseException`:</span><span class="sxs-lookup"><span data-stu-id="fc601-141">Create a well-known exception type named `HttpResponseException`:</span></span>
 
     [!code-csharp[](handle-errors/samples/3.x/Exceptions/HttpResponseException.cs?name=snippet_HttpResponseException)]
 
-1. <span data-ttu-id="03e45-142">Creare un filtro azione denominato `HttpResponseExceptionFilter`:</span><span class="sxs-lookup"><span data-stu-id="03e45-142">Create an action filter named `HttpResponseExceptionFilter`:</span></span>
+1. <span data-ttu-id="fc601-142">Create an action filter named `HttpResponseExceptionFilter`:</span><span class="sxs-lookup"><span data-stu-id="fc601-142">Create an action filter named `HttpResponseExceptionFilter`:</span></span>
 
     [!code-csharp[](handle-errors/samples/3.x/Filters/HttpResponseExceptionFilter.cs?name=snippet_HttpResponseExceptionFilter)]
 
-1. <span data-ttu-id="03e45-143">In `Startup.ConfigureServices`aggiungere il filtro azioni alla raccolta filters:</span><span class="sxs-lookup"><span data-stu-id="03e45-143">In `Startup.ConfigureServices`, add the action filter to the filters collection:</span></span>
+1. <span data-ttu-id="fc601-143">In `Startup.ConfigureServices`, add the action filter to the filters collection:</span><span class="sxs-lookup"><span data-stu-id="fc601-143">In `Startup.ConfigureServices`, add the action filter to the filters collection:</span></span>
 
     ::: moniker range=">= aspnetcore-3.0"
 
@@ -242,9 +242,9 @@ Date: Fri, 27 Sep 2019 16:55:37 GMT
 
     ::: moniker-end
 
-## <a name="validation-failure-error-response"></a><span data-ttu-id="03e45-144">Risposta errore di convalida non riuscita</span><span class="sxs-lookup"><span data-stu-id="03e45-144">Validation failure error response</span></span>
+## <a name="validation-failure-error-response"></a><span data-ttu-id="fc601-144">Validation failure error response</span><span class="sxs-lookup"><span data-stu-id="fc601-144">Validation failure error response</span></span>
 
-<span data-ttu-id="03e45-145">Per i controller API Web, MVC risponde con un <xref:Microsoft.AspNetCore.Mvc.ValidationProblemDetails> tipo di risposta quando la convalida del modello ha esito negativo.</span><span class="sxs-lookup"><span data-stu-id="03e45-145">For web API controllers, MVC responds with a <xref:Microsoft.AspNetCore.Mvc.ValidationProblemDetails> response type when model validation fails.</span></span> <span data-ttu-id="03e45-146">MVC usa i risultati di <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.InvalidModelStateResponseFactory> per costruire la risposta di errore per un errore di convalida.</span><span class="sxs-lookup"><span data-stu-id="03e45-146">MVC uses the results of <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.InvalidModelStateResponseFactory> to construct the error response for a validation failure.</span></span> <span data-ttu-id="03e45-147">Nell'esempio seguente viene usata la factory per modificare il tipo <xref:Microsoft.AspNetCore.Mvc.SerializableError> di risposta predefinito in: `Startup.ConfigureServices`</span><span class="sxs-lookup"><span data-stu-id="03e45-147">The following example uses the factory to change the default response type to <xref:Microsoft.AspNetCore.Mvc.SerializableError> in `Startup.ConfigureServices`:</span></span>
+<span data-ttu-id="fc601-145">For web API controllers, MVC responds with a <xref:Microsoft.AspNetCore.Mvc.ValidationProblemDetails> response type when model validation fails.</span><span class="sxs-lookup"><span data-stu-id="fc601-145">For web API controllers, MVC responds with a <xref:Microsoft.AspNetCore.Mvc.ValidationProblemDetails> response type when model validation fails.</span></span> <span data-ttu-id="fc601-146">MVC uses the results of <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.InvalidModelStateResponseFactory> to construct the error response for a validation failure.</span><span class="sxs-lookup"><span data-stu-id="fc601-146">MVC uses the results of <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.InvalidModelStateResponseFactory> to construct the error response for a validation failure.</span></span> <span data-ttu-id="fc601-147">The following example uses the factory to change the default response type to <xref:Microsoft.AspNetCore.Mvc.SerializableError> in `Startup.ConfigureServices`:</span><span class="sxs-lookup"><span data-stu-id="fc601-147">The following example uses the factory to change the default response type to <xref:Microsoft.AspNetCore.Mvc.SerializableError> in `Startup.ConfigureServices`:</span></span>
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -264,22 +264,22 @@ Date: Fri, 27 Sep 2019 16:55:37 GMT
 
 ::: moniker-end
 
-## <a name="client-error-response"></a><span data-ttu-id="03e45-148">Risposta errore client</span><span class="sxs-lookup"><span data-stu-id="03e45-148">Client error response</span></span>
+## <a name="client-error-response"></a><span data-ttu-id="fc601-148">Client error response</span><span class="sxs-lookup"><span data-stu-id="fc601-148">Client error response</span></span>
 
-<span data-ttu-id="03e45-149">Un *risultato di errore* viene definito come risultato con un codice di stato HTTP 400 o superiore.</span><span class="sxs-lookup"><span data-stu-id="03e45-149">An *error result* is defined as a result with an HTTP status code of 400 or higher.</span></span> <span data-ttu-id="03e45-150">Per i controller API Web, MVC trasforma un risultato di errore in un risultato con <xref:Microsoft.AspNetCore.Mvc.ProblemDetails>.</span><span class="sxs-lookup"><span data-stu-id="03e45-150">For web API controllers, MVC transforms an error result to a result with <xref:Microsoft.AspNetCore.Mvc.ProblemDetails>.</span></span>
+<span data-ttu-id="fc601-149">An *error result* is defined as a result with an HTTP status code of 400 or higher.</span><span class="sxs-lookup"><span data-stu-id="fc601-149">An *error result* is defined as a result with an HTTP status code of 400 or higher.</span></span> <span data-ttu-id="fc601-150">For web API controllers, MVC transforms an error result to a result with <xref:Microsoft.AspNetCore.Mvc.ProblemDetails>.</span><span class="sxs-lookup"><span data-stu-id="fc601-150">For web API controllers, MVC transforms an error result to a result with <xref:Microsoft.AspNetCore.Mvc.ProblemDetails>.</span></span>
 
 ::: moniker range=">= aspnetcore-3.0"
 
-<span data-ttu-id="03e45-151">La risposta di errore può essere configurata in uno dei modi seguenti:</span><span class="sxs-lookup"><span data-stu-id="03e45-151">The error response can be configured in one of the following ways:</span></span>
+<span data-ttu-id="fc601-151">The error response can be configured in one of the following ways:</span><span class="sxs-lookup"><span data-stu-id="fc601-151">The error response can be configured in one of the following ways:</span></span>
 
-1. [<span data-ttu-id="03e45-152">Implementare ProblemDetailsFactory</span><span class="sxs-lookup"><span data-stu-id="03e45-152">Implement ProblemDetailsFactory</span></span>](#implement-problemdetailsfactory)
-1. [<span data-ttu-id="03e45-153">Usare ApiBehaviorOptions. ClientErrorMapping</span><span class="sxs-lookup"><span data-stu-id="03e45-153">Use ApiBehaviorOptions.ClientErrorMapping</span></span>](#use-apibehavioroptionsclienterrormapping)
+1. [<span data-ttu-id="fc601-152">Implement ProblemDetailsFactory</span><span class="sxs-lookup"><span data-stu-id="fc601-152">Implement ProblemDetailsFactory</span></span>](#implement-problemdetailsfactory)
+1. [<span data-ttu-id="fc601-153">Use ApiBehaviorOptions.ClientErrorMapping</span><span class="sxs-lookup"><span data-stu-id="fc601-153">Use ApiBehaviorOptions.ClientErrorMapping</span></span>](#use-apibehavioroptionsclienterrormapping)
 
-### <a name="implement-problemdetailsfactory"></a><span data-ttu-id="03e45-154">Implementare ProblemDetailsFactory</span><span class="sxs-lookup"><span data-stu-id="03e45-154">Implement ProblemDetailsFactory</span></span>
+### <a name="implement-problemdetailsfactory"></a><span data-ttu-id="fc601-154">Implement ProblemDetailsFactory</span><span class="sxs-lookup"><span data-stu-id="fc601-154">Implement ProblemDetailsFactory</span></span>
 
-<span data-ttu-id="03e45-155">MVC utilizza `Microsoft.AspNetCore.Mvc.ProblemDetailsFactory` per produrre tutte le istanze <xref:Microsoft.AspNetCore.Mvc.ProblemDetails> di <xref:Microsoft.AspNetCore.Mvc.ValidationProblemDetails>e.</span><span class="sxs-lookup"><span data-stu-id="03e45-155">MVC uses `Microsoft.AspNetCore.Mvc.ProblemDetailsFactory` to produce all instances of <xref:Microsoft.AspNetCore.Mvc.ProblemDetails> and <xref:Microsoft.AspNetCore.Mvc.ValidationProblemDetails>.</span></span> <span data-ttu-id="03e45-156">Sono incluse le risposte degli errori del client, le risposte degli errori `Microsoft.AspNetCore.Mvc.ControllerBase.Problem` di <xref:Microsoft.AspNetCore.Mvc.ControllerBase.ValidationProblem> convalida e i metodi helper e.</span><span class="sxs-lookup"><span data-stu-id="03e45-156">This includes client error responses, validation failure error responses, and the `Microsoft.AspNetCore.Mvc.ControllerBase.Problem` and <xref:Microsoft.AspNetCore.Mvc.ControllerBase.ValidationProblem> helper methods.</span></span>
+<span data-ttu-id="fc601-155">MVC uses `Microsoft.AspNetCore.Mvc.ProblemDetailsFactory` to produce all instances of <xref:Microsoft.AspNetCore.Mvc.ProblemDetails> and <xref:Microsoft.AspNetCore.Mvc.ValidationProblemDetails>.</span><span class="sxs-lookup"><span data-stu-id="fc601-155">MVC uses `Microsoft.AspNetCore.Mvc.ProblemDetailsFactory` to produce all instances of <xref:Microsoft.AspNetCore.Mvc.ProblemDetails> and <xref:Microsoft.AspNetCore.Mvc.ValidationProblemDetails>.</span></span> <span data-ttu-id="fc601-156">This includes client error responses, validation failure error responses, and the `Microsoft.AspNetCore.Mvc.ControllerBase.Problem` and <xref:Microsoft.AspNetCore.Mvc.ControllerBase.ValidationProblem> helper methods.</span><span class="sxs-lookup"><span data-stu-id="fc601-156">This includes client error responses, validation failure error responses, and the `Microsoft.AspNetCore.Mvc.ControllerBase.Problem` and <xref:Microsoft.AspNetCore.Mvc.ControllerBase.ValidationProblem> helper methods.</span></span>
 
-<span data-ttu-id="03e45-157">Per personalizzare la risposta dettagliata al problema, registrare un'implementazione personalizzata `ProblemDetailsFactory` di `Startup.ConfigureServices`in:</span><span class="sxs-lookup"><span data-stu-id="03e45-157">To customize the problem details response, register a custom implementation of `ProblemDetailsFactory` in `Startup.ConfigureServices`:</span></span>
+<span data-ttu-id="fc601-157">To customize the problem details response, register a custom implementation of `ProblemDetailsFactory` in `Startup.ConfigureServices`:</span><span class="sxs-lookup"><span data-stu-id="fc601-157">To customize the problem details response, register a custom implementation of `ProblemDetailsFactory` in `Startup.ConfigureServices`:</span></span>
 
 ```csharp
 public void ConfigureServices(IServiceCollection serviceCollection)
@@ -293,15 +293,15 @@ public void ConfigureServices(IServiceCollection serviceCollection)
 
 ::: moniker range="= aspnetcore-2.2"
 
-<span data-ttu-id="03e45-158">La risposta di errore può essere configurata come descritto nella sezione [use ApiBehaviorOptions. ClientErrorMapping](#use-apibehavioroptionsclienterrormapping) .</span><span class="sxs-lookup"><span data-stu-id="03e45-158">The error response can be configured as outlined in the [Use ApiBehaviorOptions.ClientErrorMapping](#use-apibehavioroptionsclienterrormapping) section.</span></span>
+<span data-ttu-id="fc601-158">The error response can be configured as outlined in the [Use ApiBehaviorOptions.ClientErrorMapping](#use-apibehavioroptionsclienterrormapping) section.</span><span class="sxs-lookup"><span data-stu-id="fc601-158">The error response can be configured as outlined in the [Use ApiBehaviorOptions.ClientErrorMapping](#use-apibehavioroptionsclienterrormapping) section.</span></span>
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.2"
 
-### <a name="use-apibehavioroptionsclienterrormapping"></a><span data-ttu-id="03e45-159">Usare ApiBehaviorOptions. ClientErrorMapping</span><span class="sxs-lookup"><span data-stu-id="03e45-159">Use ApiBehaviorOptions.ClientErrorMapping</span></span>
+### <a name="use-apibehavioroptionsclienterrormapping"></a><span data-ttu-id="fc601-159">Use ApiBehaviorOptions.ClientErrorMapping</span><span class="sxs-lookup"><span data-stu-id="fc601-159">Use ApiBehaviorOptions.ClientErrorMapping</span></span>
 
-<span data-ttu-id="03e45-160">Usare la proprietà <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.ClientErrorMapping*> per configurare il contenuto della risposta `ProblemDetails`.</span><span class="sxs-lookup"><span data-stu-id="03e45-160">Use the <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.ClientErrorMapping*> property to configure the contents of the `ProblemDetails` response.</span></span> <span data-ttu-id="03e45-161">Ad esempio, il codice seguente in `Startup.ConfigureServices` aggiorna la `type` proprietà per le risposte 404:</span><span class="sxs-lookup"><span data-stu-id="03e45-161">For example, the following code in `Startup.ConfigureServices` updates the `type` property for 404 responses:</span></span>
+<span data-ttu-id="fc601-160">Usare la proprietà <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.ClientErrorMapping%2A> per configurare il contenuto della risposta `ProblemDetails`.</span><span class="sxs-lookup"><span data-stu-id="fc601-160">Use the <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.ClientErrorMapping%2A> property to configure the contents of the `ProblemDetails` response.</span></span> <span data-ttu-id="fc601-161">For example, the following code in `Startup.ConfigureServices` updates the `type` property for 404 responses:</span><span class="sxs-lookup"><span data-stu-id="fc601-161">For example, the following code in `Startup.ConfigureServices` updates the `type` property for 404 responses:</span></span>
 
 ::: moniker-end
 
@@ -313,6 +313,6 @@ public void ConfigureServices(IServiceCollection serviceCollection)
 
 ::: moniker range="= aspnetcore-2.2"
 
-[!code-csharp[](index/samples/2.x/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=9-10)]
+[!code-csharp[](index/samples/2.x/2.2/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=9-10)]
 
 ::: moniker-end
