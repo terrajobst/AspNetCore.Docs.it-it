@@ -4,16 +4,16 @@ author: bradygaster
 description: In questa esercitazione si creerà un'app di chat che usa ASP.NET Core SignalR.
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 11/12/2019
+ms.date: 11/21/2019
 no-loc:
 - SignalR
 uid: tutorials/signalr
-ms.openlocfilehash: ac727ed0517a8b30fd8194c010576fdd74a5950a
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 55ebdbfa4556deca74a6cdf0638307425cd1a01a
+ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74052862"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74317496"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-opno-locsignalr"></a>Esercitazione: Introduzione a ASP.NET Core SignalR
 
@@ -328,7 +328,7 @@ La libreria del server SignalR è inclusa nel metapacchetto di `Microsoft.AspNet
 
 * Nella finestra di dialogo **Add Client-Side Library** (Aggiungi libreria lato client) selezionare **unpkg** in **Provider**. 
 
-* In **Libreria** immettere `@aspnet/signalr@1` e selezionare la versione più recente che non sia di anteprima. 
+* In **Libreria** immettere `@microsoft/signalr@3` e selezionare la versione più recente che non sia di anteprima.  
 
   ![Finestra di dialogo Add Client-Side Library (Aggiungi libreria lato client) - selezione della libreria](signalr/_static/2.x/libman1.png)   
 
@@ -351,7 +351,7 @@ La libreria del server SignalR è inclusa nel metapacchetto di `Microsoft.AspNet
 * Eseguire il comando seguente per ottenere la libreria client di SignalR usando LibMan. Potrebbe essere necessario attendere alcuni secondi prima di visualizzare l'output. 
 
   ```console    
-  libman install @aspnet/signalr -p unpkg -d wwwroot/lib/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js    
+  libman install @microsoft/signalr -p unpkg -d wwwroot/lib/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js 
   ```   
 
   I parametri specificano le opzioni seguenti: 
@@ -364,7 +364,7 @@ La libreria del server SignalR è inclusa nel metapacchetto di `Microsoft.AspNet
   ```console    
   wwwroot/lib/signalr/dist/browser/signalr.js written to disk   
   wwwroot/lib/signalr/dist/browser/signalr.min.js written to disk   
-  Installed library "@aspnet/signalr@1.0.3" to "wwwroot/lib/signalr"    
+  Installed library "@microsoft/signalr@3.0.1" to "wwwroot/lib/signalr" 
   ```   
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)   
@@ -380,7 +380,7 @@ La libreria del server SignalR è inclusa nel metapacchetto di `Microsoft.AspNet
 * Eseguire il comando seguente per ottenere la libreria client di SignalR usando LibMan.    
 
   ```console    
-  libman install @aspnet/signalr -p unpkg -d wwwroot/lib/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js    
+  libman install @microsoft/signalr -p unpkg -d wwwroot/lib/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js 
   ```   
 
   I parametri specificano le opzioni seguenti: 
@@ -393,7 +393,7 @@ La libreria del server SignalR è inclusa nel metapacchetto di `Microsoft.AspNet
   ```console    
   wwwroot/lib/signalr/dist/browser/signalr.js written to disk   
   wwwroot/lib/signalr/dist/browser/signalr.min.js written to disk   
-  Installed library "@aspnet/signalr@1.0.3" to "wwwroot/lib/signalr"    
+  Installed library "@microsoft/signalr@3.x.x" to "wwwroot/lib/signalr" 
   ```   
 
 --- 
@@ -454,17 +454,17 @@ Il server di SignalR deve essere configurato in modo da passare SignalR richiest
 
 * Eseguire il comando seguente nel terminale integrato:    
 
-  ```dotnetcli  
-  dotnet run -p SignalRChat.csproj  
-  ```   
+  ```dotnetcli
+  dotnet run -p SignalRChat.csproj
+  ```
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)   
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
-* Nel menu selezionare **Esegui > Avvia senza eseguire debug**.  
+* Nel menu selezionare **Esegui > Avvia senza eseguire debug**.
 
---- 
+---
 
-* Copiare l'URL dalla barra degli indirizzi, aprire un'altra istanza o scheda del browser e incollare l'URL nella barra degli indirizzi.    
+* Copiare l'URL dalla barra degli indirizzi, aprire un'altra istanza o scheda del browser e incollare l'URL nella barra degli indirizzi.
 
 * Scegliere un browser, immettere un nome e un messaggio e fare clic sul pulsante **Invia messaggio**.  
 

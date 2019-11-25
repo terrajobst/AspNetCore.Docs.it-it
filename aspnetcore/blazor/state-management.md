@@ -9,12 +9,12 @@ ms.date: 10/15/2019
 no-loc:
 - Blazor
 uid: blazor/state-management
-ms.openlocfilehash: 408d44a3f2e81a165e8b786c6d2efc9329082e30
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 38ee5fccdf476f08c9f39d01b53c81b48eea04bf
+ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73962822"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74317177"
 ---
 # <a name="aspnet-core-opno-locblazor-state-management"></a>Gestione stato Blazor ASP.NET Core
 
@@ -56,8 +56,8 @@ Per mantenere lo stato oltre un singolo circuito, *non archiviare semplicemente 
 
 La persistenza dei dati è in genere necessaria solo per uno stato di valore elevato che gli utenti hanno impiegato per creare. Negli esempi seguenti lo stato di salvataggio permanente Risparmia tempo o facilita le attività commerciali:
 
-* WebForm in più passaggi &ndash; è necessario che un utente immetta nuovamente i dati per diversi passaggi completati di un processo a più passaggi se il relativo stato viene perso. Un utente perde lo stato in questo scenario se si allontana dal modulo a più passaggi e torna al modulo in un secondo momento.
-* Carrello acquisti &ndash; è possibile mantenere un componente commercialmente importante di un'app che rappresenti potenziali ricavi. Un utente che perde il proprio stato e quindi il carrello della spesa può acquistare un minor numero di prodotti o servizi quando ritornano al sito in un secondo momento.
+* Web Form multifase &ndash; è necessario che un utente immetta nuovamente i dati per diversi passaggi completati di un processo a più passaggi se il relativo stato viene perso. Un utente perde lo stato in questo scenario se si allontana dal modulo a più passaggi e torna al modulo in un secondo momento.
+* Il carrello della spesa &ndash; qualsiasi componente commerciale importante di un'app che rappresenti potenziali ricavi può essere mantenuto. Un utente che perde il proprio stato e quindi il carrello della spesa può acquistare un minor numero di prodotti o servizi quando ritornano al sito in un secondo momento.
 
 In genere non è necessario mantenere lo stato facilmente ricreato, ad esempio il nome utente immesso in una finestra di dialogo di accesso che non è stata inviata.
 
@@ -108,15 +108,15 @@ Per i dati temporanei che l'utente sta creando attivamente, un archivio di backu
 
 `localStorage` e `sessionStorage` si differenziano nel modo seguente:
 
-* `localStorage` ha come ambito il browser dell'utente. Se l'utente ricarica la pagina o chiude e riapre il browser, lo stato è permanente. Se l'utente apre più schede del browser, lo stato viene condiviso tra le schede. I dati vengono mantenuti in `localStorage` finché non vengono cancellati in modo esplicito.
-* `sessionStorage` ha come ambito la scheda del browser dell'utente. Se l'utente ricarica la scheda, lo stato è permanente. Se l'utente chiude la scheda o il browser, lo stato viene perso. Se l'utente apre più schede del browser, ogni scheda ha una propria versione indipendente dei dati.
+* il `localStorage` è limitato all'ambito del browser dell'utente. Se l'utente ricarica la pagina o chiude e riapre il browser, lo stato è permanente. Se l'utente apre più schede del browser, lo stato viene condiviso tra le schede. I dati rimangono in `localStorage` fino a quando non vengono cancellati in modo esplicito.
+* il `sessionStorage` è limitato alla scheda del browser dell'utente. Se l'utente ricarica la scheda, lo stato è permanente. Se l'utente chiude la scheda o il browser, lo stato viene perso. Se l'utente apre più schede del browser, ogni scheda ha una propria versione indipendente dei dati.
 
 In genere, `sessionStorage` è più sicuro da usare. `sessionStorage` evita il rischio che un utente apra più schede e riscontri quanto segue:
 
 * Bug nell'archiviazione dello stato tra le schede.
 * Comportamento confuso quando una scheda sovrascrive lo stato di altre schede.
 
-`localStorage` è la scelta migliore se l'applicazione deve conservare lo stato tra la chiusura e la riapertura del browser.
+`localStorage` è la scelta migliore se l'applicazione deve salvare lo stato tra la chiusura e la riapertura del browser.
 
 Avvertenze per l'uso dell'archiviazione del browser:
 
@@ -140,7 +140,7 @@ Un esempio di pacchetto NuGet che fornisce la [protezione dei dati](xref:securit
 
 ### <a name="installation"></a>Installazione
 
-Per installare il pacchetto `Microsoft.AspNetCore.ProtectedBrowserStorage`:
+Per installare il pacchetto di `Microsoft.AspNetCore.ProtectedBrowserStorage`:
 
 1. Nel progetto app Server Blazor aggiungere un riferimento al pacchetto a [Microsoft. AspNetCore. ProtectedBrowserStorage](https://www.nuget.org/packages/Microsoft.AspNetCore.ProtectedBrowserStorage).
 1. Nel codice HTML di primo livello (ad esempio, nel file *pages/_Host. cshtml* nel modello di progetto predefinito) aggiungere il tag di `<script>` seguente:
@@ -149,7 +149,7 @@ Per installare il pacchetto `Microsoft.AspNetCore.ProtectedBrowserStorage`:
    <script src="_content/Microsoft.AspNetCore.ProtectedBrowserStorage/protectedBrowserStorage.js"></script>
    ```
 
-1. Nel metodo `Startup.ConfigureServices` chiamare `AddProtectedBrowserStorage` per aggiungere servizi `localStorage` e `sessionStorage` alla raccolta di servizi:
+1. Nel metodo `Startup.ConfigureServices` chiamare `AddProtectedBrowserStorage` per aggiungere `localStorage` e `sessionStorage` servizi alla raccolta di servizi:
 
    ```csharp
    services.AddProtectedBrowserStorage();
@@ -185,7 +185,7 @@ Nelle app più grandi e più realistiche, l'archiviazione dei singoli campi è u
 
 Nell'esempio di codice precedente, i dati `currentCount` vengono archiviati come `sessionStorage['count']` nel browser dell'utente. I dati non vengono archiviati in testo non crittografato, ma vengono protetti usando la [protezione dei dati](xref:security/data-protection/introduction)di ASP.NET Core. I dati crittografati possono essere visualizzati se `sessionStorage['count']` viene valutato nella console per sviluppatori del browser.
 
-Per ripristinare i dati `currentCount` se l'utente torna al componente `Counter` in un secondo momento (anche se si trovano in un circuito completamente nuovo), usare `ProtectedSessionStore.GetAsync`:
+Per ripristinare i dati `currentCount` se l'utente torna al `Counter` componente in un secondo momento (anche se si trovano in un circuito completamente nuovo), usare `ProtectedSessionStore.GetAsync`:
 
 ```csharp
 protected override async Task OnInitializedAsync()
@@ -194,7 +194,7 @@ protected override async Task OnInitializedAsync()
 }
 ```
 
-Se i parametri del componente includono lo stato di navigazione, chiamare `ProtectedSessionStore.GetAsync` e assegnare il risultato in `OnParametersSetAsync`, non `OnInitializedAsync`. `OnInitializedAsync` viene chiamato solo una volta quando viene creata la prima istanza del componente. `OnInitializedAsync` non viene chiamato di nuovo in un secondo momento se l'utente passa a un URL diverso rimanendo nella stessa pagina.
+Se i parametri del componente includono lo stato di navigazione, chiamare `ProtectedSessionStore.GetAsync` e assegnare il risultato in `OnParametersSetAsync`, non `OnInitializedAsync`. `OnInitializedAsync` viene chiamato una sola volta quando viene creata la prima istanza del componente. `OnInitializedAsync` non viene chiamato di nuovo in un secondo momento se l'utente passa a un URL diverso rimanendo nella stessa pagina.
 
 > [!WARNING]
 > Gli esempi in questa sezione funzionano solo se per il server non è abilitato il prerendering. Con il prerendering abilitato, viene generato un errore simile al seguente:
@@ -207,7 +207,7 @@ Se i parametri del componente includono lo stato di navigazione, chiamare `Prote
 
 Poiché l'archiviazione del browser è asincrona (a cui si accede tramite una connessione di rete), si verifica sempre un periodo di tempo prima che i dati vengano caricati e disponibili per l'uso da parte di un componente. Per ottenere risultati ottimali, è possibile eseguire il rendering di un messaggio di stato di caricamento mentre è in corso il caricamento anziché visualizzare dati vuoti o predefiniti.
 
-Un approccio consiste nel rilevare se i dati sono `null` (ancora in caricamento) o meno. Nel componente `Counter` predefinito, il conteggio viene mantenuto in un `int`. Make `currentCount` nullable aggiungendo un punto interrogativo (`?`) al tipo (`int`):
+Un approccio consiste nel rilevare se i dati sono `null` (ancora in caricamento) o meno. Nel componente `Counter` predefinito, il conteggio viene mantenuto in un `int`. Rendere `currentCount` nullable aggiungendo un punto interrogativo (`?`) al tipo (`int`):
 
 ```csharp
 private int? currentCount;
@@ -241,7 +241,17 @@ Durante il prerendering:
 
 Un modo per risolvere l'errore consiste nel disabilitare il prerendering. Questa è in genere la scelta migliore se l'app usa in modo intensivo l'archiviazione basata su browser. Il prerendering aggiunge complessità e non è vantaggioso per l'app perché l'app non può eseguire il prerendering di contenuto utile fino a quando non sono disponibili `localStorage` o `sessionStorage`.
 
+::: moniker range=">= aspnetcore-3.1"
+
+Per disabilitare il prerendering, aprire il file *pages/_Host. cshtml* e modificare la chiamata `render-mode` dell'helper Tag `Component` in `Server`.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.1"
+
 Per disabilitare il prerendering, aprire il file *pages/_Host. cshtml* e modificare la chiamata a `Html.RenderComponentAsync<App>(RenderMode.Server)`.
+
+::: moniker-end
 
 Il prerendering può essere utile per altre pagine che non utilizzano `localStorage` o `sessionStorage`. Per rendere abilitato il prerendering, rinviare l'operazione di caricamento finché il browser non è connesso al circuito. Di seguito è riportato un esempio per l'archiviazione di un valore del contatore:
 
@@ -324,7 +334,7 @@ else
 
 Il componente `CounterStateProvider` gestisce la fase di caricamento non eseguendo il rendering del relativo contenuto figlio fino al completamento del caricamento.
 
-Per utilizzare il componente `CounterStateProvider`, eseguire il wrapping di un'istanza del componente intorno a qualsiasi altro componente che richiede l'accesso allo stato del contatore. Per rendere lo stato accessibile a tutti i componenti di un'app, eseguire il wrapping del componente `CounterStateProvider` intorno al `Router` nel componente `App` (*app. Razor*):
+Per utilizzare il componente `CounterStateProvider`, eseguire il wrapping di un'istanza del componente intorno a tutti gli altri componenti che richiedono l'accesso allo stato del contatore. Per rendere lo stato accessibile a tutti i componenti di un'app, eseguire il wrapping del componente `CounterStateProvider` intorno al `Router` nel componente `App` (*app. Razor*):
 
 ```cshtml
 <CounterStateProvider>
@@ -334,7 +344,7 @@ Per utilizzare il componente `CounterStateProvider`, eseguire il wrapping di un'
 </CounterStateProvider>
 ```
 
-I componenti di cui è stato eseguito il wrapper ricevono e possono modificare lo stato del contatore permanente. Il componente `Counter` seguente implementa il modello:
+I componenti di cui è stato eseguito il wrapper ricevono e possono modificare lo stato del contatore permanente. Il seguente componente `Counter` implementa il modello:
 
 ```cshtml
 @page "/counter"

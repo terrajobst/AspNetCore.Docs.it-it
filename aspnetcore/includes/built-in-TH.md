@@ -8,8 +8,6 @@
 
 **[Helper per tag di ambiente](xref:mvc/views/tag-helpers/builtin-th/environment-tag-helper)**
 
-**[FormActionTagHelper](xref:mvc/views/working-with-forms#the-form-action-tag-helper)**
-
 **[Helper per tag di modulo](xref:mvc/views/working-with-forms#the-form-tag-helper)**
 
 **[Helper per tag di azione modulo](xref:mvc/views/working-with-forms#the-form-action-tag-helper)**
@@ -20,13 +18,11 @@
 
 **[Helper per tag di etichetta](xref:mvc/views/working-with-forms#the-label-tag-helper)**
 
-**[LinkTagHelper](xref:mvc/views/tag-helpers/builtin-th/link-tag-helper)**
-
-[comment]: **[OptionTagHelper](xref:mvc/views/tag-helpers/builtin-th/option-tag-helper)**
-
-**[ScriptTagHelper](xref:mvc/views/tag-helpers/builtin-th/script-tag-helper)**
+**[Helper tag di collegamento](xref:mvc/views/tag-helpers/builtin-th/link-tag-helper)**
 
 **[Helper per tag parziale](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper)**
+
+**[Helper tag script](xref:mvc/views/tag-helpers/builtin-th/script-tag-helper)**
 
 **[Helper per tag di selezione](xref:mvc/views/working-with-forms#the-select-tag-helper)**
 

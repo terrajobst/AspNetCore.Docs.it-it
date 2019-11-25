@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni su come funziona l'associazione di modelli in ASP.NET Core e su come personalizzarne il comportamento.
 ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: riande
-ms.date: 05/31/2019
+ms.date: 11/15/2019
 uid: mvc/models/model-binding
-ms.openlocfilehash: aeb2da7e11df1eab5a17e2ae0a3971420c9383b4
-ms.sourcegitcommit: 032113208bb55ecfb2faeb6d3e9ea44eea827950
+ms.openlocfilehash: a025419a5b4d2c2e3e5c5a7850df281ddd3164ea
+ms.sourcegitcommit: f91d322f790123d41ec3271fa084ae20ed9f89a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73190602"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74155048"
 ---
 # <a name="model-binding-in-aspnet-core"></a>Associazione di modelli in ASP.NET Core
 
@@ -40,7 +40,7 @@ E l'app riceve una richiesta con questo URL:
 http://contoso.com/api/pets/2?DogsOnly=true
 ```
 
-L'associazione di modelli esegue i passaggi seguenti dopo la selezione del metodo di azione da parte del sistema di routing:
+L'associazione di modelli esegue i passaggi seguenti dopo che il sistema di routing seleziona il metodo di azione:
 
 * Trova il primo parametro di `GetByID`, un intero denominato `id`.
 * Esamina le origini disponibili nella richiesta HTTP e trova `id` = "2" nei dati di route.

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/07/2019
 uid: fundamentals/servers/index
-ms.openlocfilehash: e542dd4506eb77f949c0c87bea3044397bbb1b8f
-ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
+ms.openlocfilehash: d46793ef54c99fe609b5983c5a658fb7b20032fa
+ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73799400"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74289069"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Implementazioni di server Web in ASP.NET Core
 
@@ -22,7 +22,7 @@ Un'app ASP.NET Core viene eseguita con un'implementazione del server HTTP in-pro
 
 ## <a name="kestrel"></a>Kestrel
 
-Kestrel è il server Web predefinito incluso nei modelli di progetto di ASP.NET Core.
+Gheppio è il server Web predefinito specificato dai modelli di progetto ASP.NET Core.
 
 Usare Kestrel:
 
@@ -53,7 +53,7 @@ Quando si usa [IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-arc
 * Nello stesso processo del processo di lavoro IIS ([modello di hosting in-process](#hosting-models)) con il server HTTP IIS. *In-process* è la configurazione consigliata.
 * In un processo separato dal processo di lavoro IIS ([modello di hosting out-of-process](#hosting-models)) con il [server Kestrel](#kestrel).
 
-Il [modulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module) è un modulo IIS nativo che gestisce le richieste IIS native tra IIS e il server HTTP IIS in-process o il server Kestrel. Per ulteriori informazioni, vedere <xref:host-and-deploy/aspnet-core-module>.
+Il [modulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module) è un modulo IIS nativo che gestisce le richieste IIS native tra IIS e il server HTTP IIS in-process o il server Kestrel. Per altre informazioni, vedere <xref:host-and-deploy/aspnet-core-module>.
 
 ## <a name="hosting-models"></a>Modelli di hosting
 
@@ -128,7 +128,7 @@ Per informazioni su come usare Apache in Linux come server proxy inverso per Kes
 
 ## <a name="httpsys"></a>HTTP.sys
 
-Se si eseguono app ASP.NET Core in Windows, HTTP.sys è un'alternativa a Kestrel. Kestrel è in genere consigliato per ottenere prestazioni ottimali. HTTP.sys è utilizzabile negli scenari in cui l'app viene esposta a Internet e le funzionalità necessarie sono supportate da HTTP.sys, ma non da Kestrel. Per ulteriori informazioni, vedere <xref:fundamentals/servers/httpsys>.
+Se si eseguono app ASP.NET Core in Windows, HTTP.sys è un'alternativa a Kestrel. Kestrel è in genere consigliato per ottenere prestazioni ottimali. HTTP.sys è utilizzabile negli scenari in cui l'app viene esposta a Internet e le funzionalità necessarie sono supportate da HTTP.sys, ma non da Kestrel. Per altre informazioni, vedere <xref:fundamentals/servers/httpsys>.
 
 ![HTTP.sys comunica direttamente con Internet](httpsys/_static/httpsys-to-internet.png)
 
@@ -158,7 +158,7 @@ Il server viene avviato quando l'editor o l'ambiente di sviluppo integrato (IDE)
 
 All'avvio dell'app dal prompt dei comandi nella cartella del progetto, [dotnet run](/dotnet/core/tools/dotnet-run) avvia l'app e il server (solo Kestrel e HTTP.sys). La configurazione viene specificata dall'opzione `-c|--configuration`, impostata su `Debug` (valore predefinito) o su `Release`.
 
-Un file *launchSettings. JSON* fornisce la configurazione quando si avvia un'app con `dotnet run` o con un debugger incorporato negli strumenti, ad esempio Visual Studio. Se i profili di avvio sono presenti in un file *launchSettings. JSON* , usare l'opzione `--launch-profile {PROFILE NAME}` con il comando`dotnet run` oppure selezionare il profilo in Visual Studio. Per altre informazioni, vedere [dotnet run](/dotnet/core/tools/dotnet-run) e [Creazione di pacchetti di distribuzione di .NET Core](/dotnet/core/build/distribution-packaging).
+Un file *launchSettings. JSON* fornisce la configurazione quando si avvia un'app con `dotnet run` o con un debugger incorporato negli strumenti, ad esempio Visual Studio. Se i profili di avvio sono presenti in un file *launchSettings. JSON* , usare l'opzione `--launch-profile {PROFILE NAME}` con il comando `dotnet run` oppure selezionare il profilo in Visual Studio. Per altre informazioni, vedere [dotnet run](/dotnet/core/tools/dotnet-run) e [Creazione di pacchetti di distribuzione di .NET Core](/dotnet/core/build/distribution-packaging).
 
 ## <a name="http2-support"></a>Supporto per HTTP/2
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 03/18/2019
 uid: mvc/views/tag-helpers/intro
-ms.openlocfilehash: 870ce2eb28f384b380cc1178842325dc28199f09
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
-ms.translationtype: HT
+ms.openlocfilehash: 15f94fd1c619e9f69c5783f664eafc9ca28f86f9
+ms.sourcegitcommit: 8157e5a351f49aeef3769f7d38b787b4386aad5f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67814983"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74239863"
 ---
 # <a name="tag-helpers-in-aspnet-core"></a>Helper tag in ASP.NET Core
 
@@ -19,7 +19,7 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ## <a name="what-are-tag-helpers"></a>Descrizione di helper tag
 
-Gli helper tag consentono al codice sul lato server di partecipare alla creazione e al rendering di elementi HTML nei file Razor. Ad esempio, l'elemento predefinito `ImageTagHelper` può aggiungere un numero di versione al nome dell'immagine. Quando l'immagine viene modificata, il server genera una nuova versione univoca per l'immagine, in modo da garantire che i client ricevano sempre l'immagine corrente (anziché un'immagine non aggiornata memorizzata nella cache). Esistono molti helper tag predefiniti per le attività comuni, ad esempio la creazione di moduli e collegamenti, il caricamento di asset e così via, e altri ancora sono disponibili nei repository GitHub pubblici e come pacchetti NuGet. Gli helper tag vengono creati in C# e hanno come destinazione gli elementi HTML in base al nome di elemento, nome di attributo o tag padre. Ad esempio, l'elemento predefinito `LabelTagHelper` può avere come destinazione l'elemento HTML `<label>` quando vengono applicati gli attributi di `LabelTagHelper`. Se si ha familiarità con gli [helper HTML](https://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers), gli helper tag riducono le transizioni esplicite tra HTML e C# nelle visualizzazioni Razor. In molti casi, gli helper HTML offrono un approccio alternativo a un helper tag specifico, ma è importante tenere presente che gli helper tag non sostituiscono gli helper HTML e che non esiste un helper tag per ogni helper HTML. Nella sezione [Helper tag e helper HTML a confronto](#tag-helpers-compared-to-html-helpers) vengono illustrate le differenze in modo più dettagliato.
+Gli helper tag consentono al codice sul lato server di partecipare alla creazione e al rendering di elementi HTML nei file Razor. Ad esempio, l'elemento predefinito `ImageTagHelper` può aggiungere un numero di versione al nome dell'immagine. Quando l'immagine viene modificata, il server genera una nuova versione univoca per l'immagine, in modo da garantire che i client ricevano sempre l'immagine corrente (anziché un'immagine non aggiornata memorizzata nella cache). Esistono molti helper tag predefiniti per le attività comuni, ad esempio la creazione di moduli e collegamenti, il caricamento di asset e così via, e altri ancora sono disponibili nei repository GitHub pubblici e come pacchetti NuGet. Gli helper tag vengono creati in C# e hanno come destinazione gli elementi HTML in base al nome di elemento, nome di attributo o tag padre. Ad esempio, l'elemento predefinito `LabelTagHelper` può avere come destinazione l'elemento HTML `<label>` quando vengono applicati gli attributi di `LabelTagHelper`. Se si ha familiarità con gli [helper HTML](https://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers), gli helper tag riducono le transizioni esplicite tra HTML e C# nelle visualizzazioni Razor. In molti casi gli helper HTML offrono un approccio alternativo a un helper tag specifico, ma è importante tenere presente che gli helper tag non sostituiscono gli helper HTML e che non esiste un helper tag per ogni helper HTML. Nella sezione [Helper tag e helper HTML a confronto](#tag-helpers-compared-to-html-helpers) vengono illustrate le differenze in modo più dettagliato.
 
 ## <a name="what-tag-helpers-provide"></a>Vantaggi degli helper tag
 
@@ -27,7 +27,7 @@ Gli helper tag consentono al codice sul lato server di partecipare alla creazion
 
 **Ambiente IntelliSense avanzato per la creazione di markup HTML e Razor**: in netto contrasto con gli helper HTML, il precedente approccio alla creazione sul lato server del markup nelle visualizzazioni Razor. Nella sezione [Helper tag e helper HTML a confronto](#tag-helpers-compared-to-html-helpers) vengono illustrate le differenze in modo più dettagliato. Nella sezione [Supporto IntelliSense per gli helper tag](#intellisense-support-for-tag-helpers) viene illustrato l'ambiente IntelliSense. Anche gli sviluppatori esperti della sintassi C# per Razor aumentano la produttività usando gli helper tag invece di scrivere il markup Razor per C#.
 
-**Possibilità di aumentare la produttività e la capacità di produrre codice più solido, affidabile e gestibile usando le informazioni disponibili solo nel server**: storicamente il mantra a proposito dell'aggiornamento delle immagini, ad esempio, era quello di cambiare il nome dell'immagine quando l'immagine veniva modificata. Per motivi di prestazioni, le immagini devono essere memorizzate nella cache e, a meno che il nome dell'immagine non venga cambiato, si rischia che i client ricevano una copia non aggiornata. Dopo che un'immagine era stata modificata, il nome doveva essere sempre cambiato e ogni riferimento all'immagine nell'app Web doveva essere aggiornato. Questa operazione non solo richiede un impegno notevole, ma è anche soggetta a errori (si può tralasciare un riferimento, immettere accidentalmente la stringa errata e così via). L'elemento predefinito `ImageTagHelper` esegue automaticamente questa operazione. `ImageTagHelper` è in grado di aggiungere un numero di versione al nome dell'immagine in modo che quando l'immagine viene modificata il server generi automaticamente una nuova versione univoca dell'immagine. I client riceveranno sicuramente l'immagine corrente. Grazie all'uso di `ImageTagHelper`, efficienza e risparmio di energie sono essenzialmente gratuiti.
+**Possibilità di aumentare la produttività e la capacità di produrre codice più solido, affidabile e gestibile usando le informazioni disponibili solo nel server**: storicamente il mantra a proposito dell'aggiornamento delle immagini, ad esempio, era quello di cambiare il nome dell'immagine quando l'immagine veniva modificata. Per motivi di prestazioni, le immagini devono essere memorizzate nella cache e, a meno che il nome dell'immagine non venga cambiato, si rischia che i client ricevano una copia non aggiornata. Dopo che un'immagine era stata modificata, il nome doveva essere sempre cambiato e ogni riferimento all'immagine nell'app Web doveva essere aggiornato. Not only is this very labor intensive, it's also error prone (you could miss a reference, accidentally enter the wrong string, etc.) The built-in `ImageTagHelper` can do this for you automatically. `ImageTagHelper` è in grado di aggiungere un numero di versione al nome dell'immagine in modo che quando l'immagine viene modificata il server generi automaticamente una nuova versione univoca dell'immagine. I client riceveranno sicuramente l'immagine corrente. Grazie all'uso di `ImageTagHelper`, efficienza e risparmio di energie sono essenzialmente gratuiti.
 
 La maggior parte degli helper tag predefiniti usano come destinazione elementi HTML standard e specificano attributi sul lato server per l'elemento. Ad esempio, l'elemento `<input>` usato in molte visualizzazioni nella cartella *Views/Account* (Visualizzazioni/Account) contiene l'attributo `asp-for`. Questo attributo consente di estrarre il nome della proprietà del modello specificato nel codice HTML visualizzabile. Si consideri una visualizzazione Razor con il modello seguente:
 
@@ -97,7 +97,7 @@ Come indicato in precedenza, l'aggiunta della direttiva `@addTagHelper` al file 
 
 `@removeTagHelper` contiene gli stessi due parametri di `@addTagHelper` e rimuove un helper tag che era stato precedentemente aggiunto. Se ad esempio si applica `@removeTagHelper` a una visualizzazione specifica, l'helper tag specificato viene rimosso dalla visualizzazione. L'uso di `@removeTagHelper` in un file *Views/Folder/_ViewImports.cshtml* comporta la rimozione dell'helper tag specificato da tutte le visualizzazioni in *Folder*.
 
-### <a name="controlling-tag-helper-scope-with-the-viewimportscshtml-file"></a>Controllo dell'ambito dell'helper tag con il file *_ViewImports.cshtml*
+### <a name="controlling-tag-helper-scope-with-the-_viewimportscshtml-file"></a>Controllo dell'ambito dell'helper tag con il file *_ViewImports.cshtml*
 
 È possibile aggiungere un file *_ViewImports.cshtml* a una cartella di visualizzazione qualsiasi e il motore di visualizzazione applicherà le direttive di questo file e del file *Views/_ViewImports.cshtml*. L'aggiunta di un file *Views/Home/_ViewImports.cshtml* vuoto per le visualizzazioni *Home* non comporta modifiche perché il file *_ViewImports.cshtml* è additivo. Le direttive `@addTagHelper` aggiunte al file *Views/Home/_ViewImports.cshtml* (non presenti nel file *Views/_ViewImports.cshtml* predefinito) espongono questi helper tag alle visualizzazioni solo nella cartella *Home*.
 
@@ -132,6 +132,22 @@ Le stesse regole di gerarchia che si applicano a `@addTagHelper` sono valide anc
 ## <a name="self-closing-tag-helpers"></a>Helper tag di chiusura automatico
 
 Molti helper tag non possono essere usati come tag di chiusura automatici. Alcuni helper tag sono progettati per essere tag di chiusura automatici. Se si usa un helper tag non progettato per la chiusura automatica, l'output sottoposto a rendering viene eliminato. La chiusura automatica di un helper tag genera un tag di chiusura automatico nell'output sottoposto a rendering. Per altre informazioni, vedere [questa nota](xref:mvc/views/tag-helpers/authoring#self-closing) in [Creare helper tag in ASP.NET Core](xref:mvc/views/tag-helpers/authoring).
+
+## <a name="c-in-tag-helpers-attributedeclaration"></a>C# in Tag Helpers attribute/declaration 
+
+Tag Helpers do not allow C# in the element's attribute or tag declaration area. For example, the following code is not valid:
+
+```cshtml
+<input asp-for="LastName"  
+       @(Model?.LicenseId == null ? "disabled" : string.Empty) />
+```
+
+The preceding code can be written as:
+
+```cshtml
+<input asp-for="LastName" 
+       disabled="@(Model?.LicenseId == null)" />
+```
 
 ## <a name="intellisense-support-for-tag-helpers"></a>Supporto IntelliSense per gli helper tag
 

@@ -5,14 +5,14 @@ description: Informazioni su come usare il framework di registrazione fornito da
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/13/2019
+ms.date: 11/19/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: eda5c9c0372e47f5670cf097b5db80ec227bcb47
-ms.sourcegitcommit: 231780c8d7848943e5e9fd55e93f437f7e5a371d
+ms.openlocfilehash: b23e64077290f0f613e904651e4bb640fcbba95d
+ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74115962"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74289083"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>Registrazione in .NET Core e ASP.NET Core
 
@@ -311,8 +311,6 @@ La configurazione dei provider di registrazione viene fornita da uno o più prov
 
 Ad esempio, la configurazione di registrazione viene comunemente fornita dalla sezione `Logging` del file di impostazioni dell'app. L'esempio seguente mostra il contenuto di un file *appsettings.Development.json* tipico:
 
-::: moniker range=">= aspnetcore-2.1"
-
 ```json
 {
   "Logging": {
@@ -337,7 +335,7 @@ Altre proprietà in `Logging` specificano i provider di registrazione. L'esempio
 
 Se i livelli sono specificati in `Logging.{providername}.LogLevel`, eseguono l'override di eventuali valori impostati in `Logging.LogLevel`.
 
-::: moniker-end
+L'API di registrazione non include uno scenario per modificare i livelli di registrazione mentre un'app è in esecuzione. Alcuni provider di configurazione, tuttavia, sono in grado di ricaricare la configurazione, operazione che ha effetto immediato sulla configurazione della registrazione. Ad esempio, il [provider di configurazione file](xref:fundamentals/configuration/index#file-configuration-provider), aggiunto da `CreateDefaultBuilder` per leggere i file di impostazioni, ricarica la configurazione di registrazione per impostazione predefinita. Se la configurazione viene modificata nel codice mentre un'app è in esecuzione, l'app può chiamare [IConfigurationRoot. Reload](xref:Microsoft.Extensions.Configuration.IConfigurationRoot.Reload*) per aggiornare la configurazione di registrazione dell'app.
 
 Per informazioni sull'implementazione dei provider di configurazione, vedere <xref:fundamentals/configuration/index>.
 
@@ -515,7 +513,7 @@ ASP.NET Core definisce i livelli di registrazione seguenti, ordinati dal meno gr
 
   Per gli errori che richiedono attenzione immediata. Esempi: scenari di perdita di dati, spazio su disco insufficiente.
 
-Usare il livello di registrazione per controllare la quantità di output di log scritto in un supporto di archiviazione specifico o in una finestra. Esempio:
+Usare il livello di registrazione per controllare la quantità di output di log scritto in un supporto di archiviazione specifico o in una finestra. Di seguito è riportato un esempio:
 
 * In produzione:
   * La registrazione all'`Trace` tramite livelli di `Information` produce un volume elevato di messaggi di log dettagliati. Per controllare i costi e non superare i limiti di archiviazione dei dati, registrare `Trace` tramite messaggi di `Information` livello in un archivio dati a volume elevato e a basso costo.
@@ -706,7 +704,7 @@ Per eliminare tutti i log, specificare `LogLevel.None` come livello di registraz
 
 ### <a name="create-filter-rules-in-configuration"></a>Creare regole di filtro nella configurazione
 
-Il codice del modello di progetto chiama `CreateDefaultBuilder` per configurare la registrazione per i provider Console e Debug. Il metodo `CreateDefaultBuilder` imposta inoltre la registrazione per la ricerca della configurazione in una sezione `Logging`, come illustrato [in precedenza in questo articolo](#configuration).
+Il codice del modello di progetto chiama `CreateDefaultBuilder` per configurare la registrazione per i provider console, debug e EventSource (ASP.NET Core 2,2 o versione successiva). Il metodo `CreateDefaultBuilder` imposta inoltre la registrazione per la ricerca della configurazione in una sezione `Logging`, come illustrato [in precedenza in questo articolo](#configuration).
 
 I dati di configurazione specificano i livelli di registrazione minimi in base al provider e alla categoria, come nell'esempio seguente:
 
@@ -746,11 +744,11 @@ Il secondo `AddFilter` specifica il provider Debug tramite il nome del tipo. Il 
 
 I dati di configurazione e il codice `AddFilter` illustrato negli esempi precedenti creano le regole indicate nella tabella seguente. I primi sei provengono dall'esempio di configurazione e gli ultimi due dall'esempio di codice.
 
-| numero | Provider      | Categorie che iniziano con...          | Livello di registrazione minimo |
+| NUMBER | Provider      | Categorie che iniziano con...          | Livello di registrazione minimo |
 | :----: | ------------- | --------------------------------------- | ----------------- |
 | 1      | Debug         | Tutte le categorie                          | Informazioni       |
 | 2      | Console       | Microsoft.AspNetCore.Mvc.Razor.Internal | Avviso           |
-| 3\.      | Console       | Microsoft.AspNetCore.Mvc.Razor.Razor    | Debug             |
+| 3      | Console       | Microsoft.AspNetCore.Mvc.Razor.Razor    | Debug             |
 | 4      | Console       | Microsoft.AspNetCore.Mvc.Razor          | Error             |
 | 5      | Console       | Tutte le categorie                          | Informazioni       |
 | 6      | Tutti i provider | Tutte le categorie                          | Debug             |
@@ -806,7 +804,7 @@ Se non si imposta in modo esplicito il livello minimo, il valore predefinito è 
 
 ### <a name="filter-functions"></a>Funzioni di filtro
 
-Una funzione di filtro viene richiamata per tutti i provider e le categorie a cui non sono assegnate regole tramite la configurazione o il codice. Il codice della funzione ha accesso al tipo di provider, alla categoria e al livello di registrazione. Esempio:
+Una funzione di filtro viene richiamata per tutti i provider e le categorie a cui non sono assegnate regole tramite la configurazione o il codice. Il codice della funzione ha accesso al tipo di provider, alla categoria e al livello di registrazione. Di seguito è riportato un esempio:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -991,19 +989,19 @@ Usare gli strumenti di traccia DotNet per raccogliere una traccia da un'app:
 
    Nelle piattaforme non Windows aggiungere l'opzione `-f speedscope` per modificare il formato del file di traccia di output in `speedscope`.
 
-   | Parola chiave | Descrizione |
+   | Parola chiave | description |
    | :-----: | ----------- |
    | 1       | Registra i metadati relativi all'`LoggingEventSource`. Non registra gli eventi da `ILogger`). |
    | 2       | Attiva l'evento `Message` quando viene chiamato `ILogger.Log()`. Fornisce informazioni in un metodo programmatico (non formattato). |
    | 4       | Attiva l'evento `FormatMessage` quando viene chiamato `ILogger.Log()`. Fornisce la versione di stringa formattata delle informazioni. |
    | 8       | Attiva l'evento `MessageJson` quando viene chiamato `ILogger.Log()`. Fornisce una rappresentazione JSON degli argomenti. |
 
-   | Livello dell'evento | Descrizione     |
+   | Livello dell'evento | description     |
    | :---------: | --------------- |
    | 0           | `LogAlways`     |
    | 1           | `Critical`      |
    | 2           | `Error`         |
-   | 3\.           | `Warning`       |
+   | 3           | `Warning`       |
    | 4           | `Informational` |
    | 5           | `Verbose`       |
 
@@ -1081,7 +1079,7 @@ Il pacchetto del provider non è incluso nel framework condiviso. Per usare il p
 
 ::: moniker-end
 
-::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
+::: moniker range="< aspnetcore-3.0"
 
 Il pacchetto del provider non è incluso nel [metapacchetto Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app). Quando la destinazione è .NET Framework o il riferimento è il metapacchetto `Microsoft.AspNetCore.App`, aggiungere il pacchetto del provider al progetto. 
 
@@ -1130,7 +1128,7 @@ Per configurare il flusso di registrazione di Azure:
 
 * Passare alla pagina **Log del servizio app** dalla pagina del portale dell'app.
 * Impostare **Registrazione applicazioni (file system)** su **Sì**.
-* Scegliere il livello di registrazione in **Livello**.
+* Scegliere il livello di registrazione in **Livello**. Questa impostazione è valida solo per lo streaming dei log di Azure, non per altri provider di registrazione nell'app.
 
 Passare alla pagina **Flusso di registrazione** per visualizzare i messaggi dell'app. I messaggi vengono registrati dall'app tramite l'interfaccia `ILogger`.
 

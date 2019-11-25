@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Creare un modello di dati complesso - ASP.NET MVC con EF Core'
+title: 'Esercitazione: creare un modello di dati complesso-ASP.NET MVC con EF Core'
 description: In questa esercitazione si aggiungono altre entità e relazioni e si personalizza il modello di dati specificando regole di formattazione, convalida e mapping.
 author: rick-anderson
 ms.author: riande
@@ -7,14 +7,14 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 313d951ccdd45ae1209ffd9612d24738822fbed8
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: b8b1ade4c8c29d34200bf8c0944cff6adec0bb95
+ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259603"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74288960"
 ---
-# <a name="tutorial-create-a-complex-data-model---aspnet-mvc-with-ef-core"></a>Esercitazione: Creare un modello di dati complesso - ASP.NET MVC con EF Core
+# <a name="tutorial-create-a-complex-data-model---aspnet-mvc-with-ef-core"></a>Esercitazione: creare un modello di dati complesso-ASP.NET MVC con EF Core
 
 Nelle esercitazioni precedenti è stato usato un modello di dati semplice costituito da tre entità. In questa esercitazione si aggiungeranno altre entità e relazioni e si personalizzerà il modello di dati specificando regole di formattazione, convalida e mapping del database.
 
@@ -38,7 +38,7 @@ Le attività di questa esercitazione sono le seguenti:
 > * Modificare la stringa di connessione
 > * Aggiornare il database
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Uso di migrazioni EF Core](migrations.md)
 
@@ -155,11 +155,12 @@ In *Models/Student.cs* sostituire il codice aggiunto in precedenza con il codice
 
 L'attributo `Required` rende obbligatori i campi delle proprietà del nome. L'attributo `Required` non è necessario per i tipi non nullable quali i tipi del valore (DateTime, int, double, float e così via). I tipi che non possono essere null vengono considerati automaticamente come campi obbligatori.
 
-È possibile rimuovere l'attributo `Required` e sostituirlo con un parametro di lunghezza minima per l'attributo `StringLength`:
+L'attributo `Required` deve essere usato con `MinimumLength` per l'applicazione di `MinimumLength`.
 
 ```csharp
 [Display(Name = "Last Name")]
-[StringLength(50, MinimumLength=1)]
+[Required]
+[StringLength(50, MinimumLength=2)]
 public string LastName { get; set; }
 ```
 
@@ -197,7 +198,7 @@ Un insegnante può tenere un numero qualsiasi di corsi, pertanto `CourseAssignme
 public ICollection<CourseAssignment> CourseAssignments { get; set; }
 ```
 
-Se una proprietà di navigazione può contenere più entità, il tipo della proprietà deve essere un elenco in cui le voci possono essere aggiunte, eliminate e aggiornate.  È possibile specificare `ICollection<T>` o un tipo come `List<T>` o `HashSet<T>`. Se si specifica `ICollection<T>`, per impostazione predefinita EF crea una raccolta `HashSet<T>`.
+Se una proprietà di navigazione può contenere più entità, il tipo della proprietà deve essere un elenco in cui le voci possono essere aggiunte, eliminate e aggiornate.  È possibile specificare `ICollection<T>` o un tipo come `List<T>` o `HashSet<T>`. Se si specifica `ICollection<T>`, per impostazione predefinita Entity Framework crea una raccolta `HashSet<T>`.
 
 Il motivo per cui queste sono entità `CourseAssignment` viene illustrato più avanti nella sezione relativa alle relazioni molti-a-molti.
 
@@ -532,4 +533,4 @@ Le attività di questa esercitazione sono le seguenti:
 Passare all'esercitazione successiva per altre informazioni su come accedere ai dati correlati.
 
 > [!div class="nextstepaction"]
-> [Successivo: Accedere ai dati correlati](read-related-data.md)
+> [Passaggio successivo: accedere ai dati correlati](read-related-data.md)

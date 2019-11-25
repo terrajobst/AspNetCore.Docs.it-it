@@ -4,16 +4,16 @@ author: ssougnez
 description: In questa esercitazione viene configurato Webpack per aggregare e compilare un ASP.NET Core SignalR app Web il cui client è scritto in TypeScript.
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 11/12/2019
+ms.date: 11/21/2019
 no-loc:
 - SignalR
 uid: tutorials/signalr-typescript-webpack
-ms.openlocfilehash: 759584f432807689ba194c86046364552fce1a45
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: a7c99c9e79647995886aec5b3a91584fd2f24451
+ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73964021"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74317479"
 ---
 # <a name="use-aspnet-core-opno-locsignalr-with-typescript-and-webpack"></a>Usare ASP.NET Core SignalR con TypeScript e Webpack
 
@@ -198,10 +198,10 @@ L'app attualmente visualizza un semplice form per l'invio di messaggi. Quando si
 1. Eseguire il comando seguente nella radice del progetto:
 
     ```console
-    npm install @aspnet/signalr
+    npm install @microsoft/signalr
     ```
 
-    Il comando precedente installa il [client diSignalR typescript](https://www.npmjs.com/package/@aspnet/signalr), che consente al client di inviare messaggi al server.
+    Il comando precedente installa il [client diSignalR typescript](https://www.npmjs.com/package/@microsoft/signalr), che consente al client di inviare messaggi al server.
 
 1. Aggiungere il codice evidenziato al file *src/index.ts*:
 
@@ -433,10 +433,10 @@ L'app attualmente visualizza un semplice form per l'invio di messaggi. Quando si
 1. Eseguire il comando seguente nella radice del progetto:
 
     ```console
-    npm install @aspnet/signalr
+    npm install @microsoft/signalr
     ```
 
-    Il comando precedente installa il [client diSignalR typescript](https://www.npmjs.com/package/@aspnet/signalr), che consente al client di inviare messaggi al server.
+    Il comando precedente installa il [client diSignalR typescript](https://www.npmjs.com/package/@microsoft/signalr), che consente al client di inviare messaggi al server.
 
 1. Aggiungere il codice evidenziato al file *src/index.ts*:
 

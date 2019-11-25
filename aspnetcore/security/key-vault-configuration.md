@@ -5,14 +5,14 @@ description: Informazioni su come usare il provider di configurazione Azure Key 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/27/2019
+ms.date: 11/14/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: acc3a77cdeb3ba73d8467d465128106e461efa7c
-ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
+ms.openlocfilehash: e0e55d40734e0cb6e3e1afe1c708ec47c6f43054
+ms.sourcegitcommit: f91d322f790123d41ec3271fa084ae20ed9f89a6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034335"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74155189"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Provider di configurazione di Azure Key Vault in ASP.NET Core
 
@@ -23,18 +23,11 @@ Questo documento illustra come usare il provider di configurazione [Microsoft Az
 * Controllo dell'accesso ai dati di configurazione riservati.
 * Soddisfare i requisiti per i moduli di protezione hardware convalidati FIPS 140-2 Level 2 (HSM) quando si archiviano i dati di configurazione.
 
-Questo scenario è disponibile per le app destinate a ASP.NET Core 2,1 o versioni successive.
-
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/key-vault-configuration/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/key-vault-configuration/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="packages"></a>Pacchetti
 
-Per usare il provider di configurazione Azure Key Vault, aggiungere un riferimento al pacchetto [Microsoft. Extensions. Configuration. AzureKeyVault](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureKeyVault/) .
-
-Per adottare lo scenario delle [identità gestite per le risorse di Azure](/azure/active-directory/managed-identities-azure-resources/overview) , aggiungere un riferimento al pacchetto [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) .
-
-> [!NOTE]
-> Al momento della stesura di questo articolo, la versione stabile più recente di `Microsoft.Azure.Services.AppAuthentication`, versione `1.0.3`, fornisce il supporto per le [identità gestite assegnate dal sistema](/azure/active-directory/managed-identities-azure-resources/overview#how-does-the-managed-identities-for-azure-resources-work). Il supporto per le *identità gestite assegnate dall'utente* è disponibile nel pacchetto di `1.2.0-preview2`. Questo argomento illustra l'uso delle identità gestite dal sistema e l'app di esempio fornita usa la versione `1.0.3` del pacchetto di `Microsoft.Azure.Services.AppAuthentication`.
+Aggiungere un riferimento al pacchetto [Microsoft. Extensions. Configuration. AzureKeyVault](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureKeyVault/) .
 
 ## <a name="sample-app"></a>App di esempio
 
@@ -132,9 +125,9 @@ L'app di esempio usa un ID applicazione e un certificato X. 509 quando l'istruzi
 1. Passare a insiemi di credenziali delle **chiavi** nella portale di Azure.
 1. Selezionare l'insieme di credenziali delle chiavi creato nell' [Archivio Secret nell'ambiente di produzione con Azure Key Vault](#secret-storage-in-the-production-environment-with-azure-key-vault) sezione.
 1. Selezionare **criteri di accesso**.
-1. Selezionare **Aggiungi nuovo**.
-1. Selezionare **Seleziona entità** e selezionare l'app registrata in base al nome. Selezionare il pulsante **Seleziona** .
+1. Selezionare **Aggiungi criteri di accesso**.
 1. Aprire **autorizzazioni segrete** e fornire all'app le autorizzazioni **Get** ed **List** .
+1. Selezionare **Seleziona entità** e selezionare l'app registrata in base al nome. Selezionare il pulsante **Seleziona** .
 1. Scegliere **OK**.
 1. Selezionare **Salva**.
 1. Distribuire l'app.
@@ -146,9 +139,19 @@ L'app di esempio `Certificate` ottiene i valori di configurazione da `IConfigura
   * `config["Section:SecretName"]`
   * `config.GetSection("Section")["SecretName"]`
 
-Il certificato X. 509 è gestito dal sistema operativo. L'app chiama `AddAzureKeyVault` con i valori forniti dal file *appSettings. JSON* :
+Il certificato X. 509 è gestito dal sistema operativo. L'app chiama <xref:Microsoft.Extensions.Configuration.AzureKeyVaultConfigurationExtensions.AddAzureKeyVault*> con i valori forniti dal file *appSettings. JSON* :
 
-[!code-csharp[](key-vault-configuration/sample/Program.cs?name=snippet1&highlight=20-23)]
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](key-vault-configuration/samples/3.x/SampleApp/Program.cs?name=snippet1&highlight=20-23)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+[!code-csharp[](key-vault-configuration/samples/2.x/SampleApp/Program.cs?name=snippet1&highlight=20-23)]
+
+::: moniker-end
 
 Valori di esempio:
 
@@ -158,7 +161,17 @@ Valori di esempio:
 
 *appsettings.json*:
 
-[!code-json[](key-vault-configuration/sample/appsettings.json)]
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-json[](key-vault-configuration/samples/3.x/SampleApp/appsettings.json?highlight=10-12)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+[!code-json[](key-vault-configuration/samples/2.x/SampleApp/appsettings.json?highlight=10-12)]
+
+::: moniker-end
 
 Quando si esegue l'app, in una pagina Web vengono visualizzati i valori dei segreti caricati. Nell'ambiente di sviluppo, i valori Secret vengono caricati con il suffisso `_dev`. Nell'ambiente di produzione, i valori vengono caricati con il suffisso `_prod`.
 
@@ -185,10 +198,20 @@ az keyvault set-policy --name '{KEY VAULT NAME}' --object-id {OBJECT ID} --secre
 App di esempio:
 
 * Crea un'istanza della classe `AzureServiceTokenProvider` senza una stringa di connessione. Quando non viene specificata una stringa di connessione, il provider tenta di ottenere un token di accesso dalle identità gestite per le risorse di Azure.
-* Viene creata una nuova `KeyVaultClient` con il callback del token dell'istanza di `AzureServiceTokenProvider`.
-* L'istanza di `KeyVaultClient` viene utilizzata con un'implementazione predefinita di `IKeyVaultSecretManager` che carica tutti i valori del segreto e sostituisce i doppi trattini (`--`) con i due punti (`:`) nei nomi di chiave.
+* Viene creata una nuova <xref:Microsoft.Azure.KeyVault.KeyVaultClient> con il callback del token dell'istanza di `AzureServiceTokenProvider`.
+* L'istanza di <xref:Microsoft.Azure.KeyVault.KeyVaultClient> viene utilizzata con un'implementazione predefinita di <xref:Microsoft.Extensions.Configuration.AzureKeyVault.IKeyVaultSecretManager> che carica tutti i valori del segreto e sostituisce i doppi trattini (`--`) con i due punti (`:`) nei nomi di chiave.
 
-[!code-csharp[](key-vault-configuration/sample/Program.cs?name=snippet2&highlight=13-21)]
+::: moniker range=">= aspnetcore-3.0"
+
+[!code-csharp[](key-vault-configuration/samples/3.x/SampleApp/Program.cs?name=snippet2&highlight=13-21)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+[!code-csharp[](key-vault-configuration/samples/2.x/SampleApp/Program.cs?name=snippet2&highlight=13-21)]
+
+::: moniker-end
 
 Esempio di nome dell'insieme di credenziali delle chiavi: `contosovault`
     
@@ -206,22 +229,50 @@ Se viene visualizzato un errore di `Access denied`, verificare che l'app sia reg
 
 Per informazioni sull'uso del provider con un'identità gestita e una pipeline di Azure DevOps, vedere [creare una connessione del servizio Azure Resource Manager a una macchina virtuale con un'identità del servizio gestito](/azure/devops/pipelines/library/connect-to-azure#create-an-azure-resource-manager-service-connection-to-a-vm-with-a-managed-service-identity).
 
+::: moniker range=">= aspnetcore-3.0"
+
+## <a name="configuration-options"></a>Opzioni di configurazione
+
+<xref:Microsoft.Extensions.Configuration.AzureKeyVaultConfigurationExtensions.AddAzureKeyVault*> possibile accettare una <xref:Microsoft.Extensions.Configuration.AzureKeyVault.AzureKeyVaultConfigurationOptions>:
+
+```csharp
+config.AddAzureKeyVault(
+    new AzureKeyVaultConfigurationOptions()
+    {
+        ...
+    });
+```
+
+| proprietà         | Descrizione |
+| ---------------- | ----------- |
+| `Client`         | <xref:Microsoft.Azure.KeyVault.KeyVaultClient> da utilizzare per il recupero dei valori. |
+| `Manager`        | <xref:Microsoft.Extensions.Configuration.AzureKeyVault.IKeyVaultSecretManager> istanza utilizzata per controllare il caricamento dei segreti. |
+| `ReloadInterval` | `Timespan` di attesa tra i tentativi di polling dell'insieme di credenziali delle chiavi per le modifiche. Il valore predefinito è `null` (la configurazione non viene ricaricata). |
+| `Vault`          | URI dell'insieme di credenziali delle chiavi. |
+
+::: moniker-end
+
 ## <a name="use-a-key-name-prefix"></a>Usa prefisso nome chiave
 
-`AddAzureKeyVault` fornisce un overload che accetta un'implementazione di `IKeyVaultSecretManager`, che consente di controllare la modalità di conversione dei segreti dell'insieme di credenziali delle chiavi in chiavi di configurazione. Ad esempio, è possibile implementare l'interfaccia per caricare i valori dei segreti in base a un valore di prefisso fornito all'avvio dell'app. Questo consente, ad esempio, di caricare i segreti in base alla versione dell'app.
+<xref:Microsoft.Extensions.Configuration.AzureKeyVaultConfigurationExtensions.AddAzureKeyVault*> fornisce un overload che accetta un'implementazione di <xref:Microsoft.Extensions.Configuration.AzureKeyVault.IKeyVaultSecretManager>, che consente di controllare la modalità di conversione dei segreti dell'insieme di credenziali delle chiavi in chiavi di configurazione. Ad esempio, è possibile implementare l'interfaccia per caricare i valori dei segreti in base a un valore di prefisso fornito all'avvio dell'app. Questo consente, ad esempio, di caricare i segreti in base alla versione dell'app.
 
 > [!WARNING]
 > Non usare i prefissi sui segreti dell'insieme di credenziali delle chiavi per collocare i segreti per più app nello stesso insieme di credenziali delle chiavi o per collocare i segreti ambientali (ad esempio, *sviluppo* rispetto ai segreti di *produzione* ) nello stesso insieme di credenziali. È consigliabile che app e ambienti di sviluppo/produzione diversi usino insiemi di credenziali delle chiavi distinti per isolare gli ambienti app per il massimo livello di sicurezza.
 
 Nell'esempio seguente viene stabilito un segreto nell'insieme di credenziali delle chiavi (e usando lo strumento di gestione dei segreti per l'ambiente di sviluppo) per `5000-AppSecret` (i periodi non sono consentiti nei nomi dei segreti dell'insieme di credenziali delle chiavi). Questo segreto rappresenta un segreto app per la versione 5.0.0.0 dell'app. Per un'altra versione dell'app, 5.1.0.0, viene aggiunto un segreto all'insieme di credenziali delle chiavi (e usando lo strumento di gestione dei segreti) per `5100-AppSecret`. Ogni versione dell'app carica il valore del segreto con versione nella configurazione come `AppSecret`, rimuovendo la versione mentre carica il segreto.
 
-`AddAzureKeyVault` viene chiamato con un `IKeyVaultSecretManager` personalizzato:
+<xref:Microsoft.Extensions.Configuration.AzureKeyVaultConfigurationExtensions.AddAzureKeyVault*> viene chiamato con un <xref:Microsoft.Extensions.Configuration.AzureKeyVault.IKeyVaultSecretManager>personalizzato:
 
-[!code-csharp[](key-vault-configuration/sample_snapshot/Program.cs?highlight=30-34)]
+[!code-csharp[](key-vault-configuration/samples_snapshot/Program.cs)]
 
-L'implementazione di `IKeyVaultSecretManager` reagisce ai prefissi di versione dei segreti per caricare il segreto appropriato nella configurazione:
+L'implementazione di <xref:Microsoft.Extensions.Configuration.AzureKeyVault.IKeyVaultSecretManager> reagisce ai prefissi di versione dei segreti per caricare il segreto appropriato nella configurazione:
 
-[!code-csharp[](key-vault-configuration/sample_snapshot/Startup.cs?name=snippet1)]
+* `Load` carica un segreto quando il nome inizia con il prefisso. Non vengono caricati altri segreti.
+* `GetKey`:
+  * Rimuove il prefisso dal nome del segreto.
+  * Sostituisce due trattini in qualsiasi nome con il `KeyDelimiter`, ovvero il delimitatore usato nella configurazione, in genere i due punti. Azure Key Vault non consente i due punti nei nomi dei segreti.
+
+[!code-csharp[](key-vault-configuration/samples_snapshot/Startup.cs)]
 
 Il metodo `Load` viene chiamato da un algoritmo del provider che scorre i segreti dell'insieme di credenziali per trovare quelli con il prefisso della versione. Quando viene trovato un prefisso di versione con `Load`, l'algoritmo usa il metodo `GetKey` per restituire il nome della configurazione del nome del segreto. Rimuove il prefisso della versione dal nome del segreto e restituisce il resto del nome del segreto per il caricamento nelle coppie nome-valore della configurazione dell'app.
 
@@ -264,7 +315,7 @@ Quando viene implementato questo approccio:
 1. Se la versione dell'app viene modificata nel file di progetto per `5.1.0.0` e l'app viene nuovamente eseguita, il valore Secret restituito viene `5.1.0.0_secret_value_dev` nell'ambiente di sviluppo e `5.1.0.0_secret_value_prod` in produzione.
 
 > [!NOTE]
-> È anche possibile fornire un'implementazione di `KeyVaultClient` personalizzata per `AddAzureKeyVault`. Un client personalizzato consente la condivisione di una singola istanza del client nell'app.
+> È anche possibile fornire un'implementazione di <xref:Microsoft.Azure.KeyVault.KeyVaultClient> personalizzata per <xref:Microsoft.Extensions.Configuration.AzureKeyVaultConfigurationExtensions.AddAzureKeyVault*>. Un client personalizzato consente la condivisione di una singola istanza del client nell'app.
 
 ## <a name="bind-an-array-to-a-class"></a>Associare una matrice a una classe
 
@@ -318,7 +369,7 @@ Configuration.Reload();
 
 ## <a name="disabled-and-expired-secrets"></a>Segreti disabilitati e scaduti
 
-I segreti disabilitati e scaduti generano una `KeyVaultClientException` in fase di esecuzione. Per impedire che l'app venga generata, fornire la configurazione usando un provider di configurazione diverso o aggiornare il segreto disabilitato o scaduto.
+I segreti disabilitati e scaduti generano una <xref:Microsoft.Azure.KeyVault.Models.KeyVaultErrorException>. Per impedire che l'app venga generata, fornire la configurazione usando un provider di configurazione diverso o aggiornare il segreto disabilitato o scaduto.
 
 ## <a name="troubleshoot"></a>Risolvere i problemi
 
@@ -331,6 +382,7 @@ Quando l'app non riesce a caricare la configurazione usando il provider, viene s
 * Nell'insieme di credenziali delle chiavi i dati di configurazione (coppia nome-valore) sono denominati, mancanti, disabilitati o scaduti in modo errato.
 * L'app presenta il nome dell'insieme di credenziali delle chiavi (`KeyVaultName`) errato, l'ID dell'applicazione Azure AD (`AzureADApplicationId`) o l'identificazione personale del certificato Azure AD (`AzureADCertThumbprint`).
 * La chiave di configurazione (nome) non è corretta nell'app per il valore che si sta provando a caricare.
+* Quando si aggiungono i criteri di accesso per l'app all'insieme di credenziali delle chiavi, il criterio è stato creato, ma il pulsante **Salva** non è stato selezionato nell'interfaccia utente dei **criteri di accesso** .
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

@@ -5,14 +5,14 @@ description: Informazioni su Kestrel, il server Web multipiattaforma per ASP.NET
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/31/2019
+ms.date: 11/14/2019
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: bab751bc1453481a11114a7a8c0787fa5576e500
-ms.sourcegitcommit: 77c8be22d5e88dd710f42c739748869f198865dd
+ms.openlocfilehash: 6fba6689f72f7a565e28d80f6770765ab097cf11
+ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73427061"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74289097"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementazione del server Web Kestrel in ASP.NET Core
 
@@ -81,9 +81,9 @@ Un proxy inverso:
 > [!WARNING]
 > Una configurazione che prevede un proxy inverso richiede il [filtro host](#host-filtering).
 
-## <a name="how-to-use-kestrel-in-aspnet-core-apps"></a>Come usare Kestrel nelle app ASP.NET Core
+## <a name="kestrel-in-aspnet-core-apps"></a>Gheppio nelle app ASP.NET Core
 
-I modelli di progetto ASP.NET Core usano Kestrel per impostazione predefinita. In *Program.cs*, l'app chiama `ConfigureWebHostDefaults`, che chiama <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions.UseKestrel*> dietro le quinte.
+I modelli di progetto ASP.NET Core usano Kestrel per impostazione predefinita. In *Program.cs*, il metodo <xref:Microsoft.Extensions.Hosting.GenericHostBuilderExtensions.ConfigureWebHostDefaults*> chiama <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions.UseKestrel*>:
 
 [!code-csharp[](kestrel/samples/3.x/KestrelSample/Program.cs?name=snippet_DefaultBuilder&highlight=8)]
 
@@ -135,7 +135,7 @@ Usare **uno** degli approcci seguenti:
 * Configurare gheppio in `Startup.ConfigureServices`:
 
   1. Inserire un'istanza di `IConfiguration` nella classe `Startup`. Nell'esempio seguente si presuppone che la configurazione inserita venga assegnata alla proprietà `Configuration`.
-  2. In `Startup.ConfigureServices`, caricare la sezione `Kestrel` della configurazione nella configurazione di gheppio.
+  2. In `Startup.ConfigureServices`caricare la sezione `Kestrel` della configurazione nella configurazione di gheppio.
 
      ```csharp
      // using Microsoft.Extensions.Configuration
@@ -390,6 +390,9 @@ webBuilder.ConfigureKestrel(serverOptions =>
 });
 ```
 
+> [!NOTE]
+> Per gli endpoint creati chiamando <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.Listen*> **prima** di chiamare <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ConfigureEndpointDefaults*> non verranno applicati i valori predefiniti.
+
 ### <a name="configurehttpsdefaultsactionhttpsconnectionadapteroptions"></a>ConfigureHttpsDefaults (azione\<HttpsConnectionAdapterOptions >)
 
 Specifica un elemento di configurazione `Action` da eseguire per ogni endpoint HTTPS. Se si chiama `ConfigureHttpsDefaults` più volte, gli elementi `Action` precedenti vengono sostituiti con l'ultimo elemento `Action` specificato.
@@ -404,6 +407,9 @@ webBuilder.ConfigureKestrel(serverOptions =>
     });
 });
 ```
+
+> [!NOTE]
+> Per gli endpoint creati chiamando <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.Listen*> **prima** di chiamare <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ConfigureHttpsDefaults*> non verranno applicati i valori predefiniti.
 
 ### <a name="configureiconfiguration"></a>Configure(IConfiguration)
 
@@ -711,7 +717,7 @@ webBuilder.ConfigureKestrel(serverOptions =>
 
 Usare il middleware di connessione per filtrare gli handshake TLS in base alla connessione per le crittografie specifiche, se necessario.
 
-Nell'esempio seguente viene generato <xref:System.NotSupportedException> per qualsiasi algoritmo di crittografia non supportato dall'app. In alternativa, definire e confrontare [ITlsHandshakeFeature. CipherAlgorithm](xref:Microsoft.AspNetCore.Connections.Features.ITlsHandshakeFeature.CipherAlgorithm) con un elenco di pacchetti di crittografia accettabili.
+L'esempio seguente genera <xref:System.NotSupportedException> per qualsiasi algoritmo di crittografia non supportato dall'app. In alternativa, definire e confrontare [ITlsHandshakeFeature. CipherAlgorithm](xref:Microsoft.AspNetCore.Connections.Features.ITlsHandshakeFeature.CipherAlgorithm) con un elenco di pacchetti di crittografia accettabili.
 
 Non viene utilizzata alcuna crittografia con un algoritmo di crittografia [CipherAlgorithmType. null](xref:System.Security.Authentication.CipherAlgorithmType) .
 
@@ -1083,7 +1089,7 @@ Usare **uno** degli approcci seguenti:
 * Configurare gheppio in `Startup.ConfigureServices`:
 
   1. Inserire un'istanza di `IConfiguration` nella classe `Startup`. Nell'esempio seguente si presuppone che la configurazione inserita venga assegnata alla proprietà `Configuration`.
-  2. In `Startup.ConfigureServices`, caricare la sezione `Kestrel` della configurazione nella configurazione di gheppio.
+  2. In `Startup.ConfigureServices`caricare la sezione `Kestrel` della configurazione nella configurazione di gheppio.
 
      ```csharp
      // using Microsoft.Extensions.Configuration
@@ -1354,6 +1360,9 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         });
 ```
 
+> [!NOTE]
+> Per gli endpoint creati chiamando <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.Listen*> **prima** di chiamare <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ConfigureEndpointDefaults*> non verranno applicati i valori predefiniti.
+
 ### <a name="configurehttpsdefaultsactionhttpsconnectionadapteroptions"></a>ConfigureHttpsDefaults (azione\<HttpsConnectionAdapterOptions >)
 
 Specifica un elemento di configurazione `Action` da eseguire per ogni endpoint HTTPS. Se si chiama `ConfigureHttpsDefaults` più volte, gli elementi `Action` precedenti vengono sostituiti con l'ultimo elemento `Action` specificato.
@@ -1371,6 +1380,10 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             });
         });
 ```
+
+> [!NOTE]
+> Per gli endpoint creati chiamando <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.Listen*> **prima** di chiamare <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ConfigureHttpsDefaults*> non verranno applicati i valori predefiniti.
+
 
 ### <a name="configureiconfiguration"></a>Configure(IConfiguration)
 
@@ -1966,7 +1979,7 @@ Usare **uno** degli approcci seguenti:
 * Configurare gheppio in `Startup.ConfigureServices`:
 
   1. Inserire un'istanza di `IConfiguration` nella classe `Startup`. Nell'esempio seguente si presuppone che la configurazione inserita venga assegnata alla proprietà `Configuration`.
-  2. In `Startup.ConfigureServices`, caricare la sezione `Kestrel` della configurazione nella configurazione di gheppio.
+  2. In `Startup.ConfigureServices`caricare la sezione `Kestrel` della configurazione nella configurazione di gheppio.
 
      ```csharp
      // using Microsoft.Extensions.Configuration
@@ -2194,6 +2207,9 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         });
 ```
 
+> [!NOTE]
+> Per gli endpoint creati chiamando <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.Listen*> **prima** di chiamare <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ConfigureEndpointDefaults*> non verranno applicati i valori predefiniti.
+
 ### <a name="configurehttpsdefaultsactionhttpsconnectionadapteroptions"></a>ConfigureHttpsDefaults (azione\<HttpsConnectionAdapterOptions >)
 
 Specifica un elemento di configurazione `Action` da eseguire per ogni endpoint HTTPS. Se si chiama `ConfigureHttpsDefaults` più volte, gli elementi `Action` precedenti vengono sostituiti con l'ultimo elemento `Action` specificato.
@@ -2211,6 +2227,9 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             });
         });
 ```
+
+> [!NOTE]
+> Per gli endpoint creati chiamando <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.Listen*> **prima** di chiamare <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ConfigureHttpsDefaults*> non verranno applicati i valori predefiniti.
 
 ### <a name="configureiconfiguration"></a>Configure(IConfiguration)
 

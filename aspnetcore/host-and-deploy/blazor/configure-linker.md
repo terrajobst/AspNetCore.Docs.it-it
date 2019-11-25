@@ -5,16 +5,16 @@ description: Informazioni su come controllare il linker del linguaggio intermedi
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/15/2019
+ms.date: 11/21/2019
 no-loc:
 - Blazor
 uid: host-and-deploy/blazor/configure-linker
-ms.openlocfilehash: b30669a7ca02c756fa10c8cf9973ef87e29e7bd4
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 0bc987d72d2f684b1ecbd4a883e9a09fac7c801e
+ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963612"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74317281"
 ---
 # <a name="configure-the-linker-for-aspnet-core-opno-locblazor"></a>Configurare il linker per ASP.NET Core Blazor
 
@@ -22,7 +22,7 @@ Di [Luke Latham](https://github.com/guardrex)
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-Blazor esegue il collegamento [Intermediate Language (il)](/dotnet/standard/managed-code#intermediate-language--execution) durante una build di rilascio per rimuovere il linguaggio intermedio non necessario dagli assembly di output dell'app.
+Blazor esegue il collegamento [Intermediate Language (il)](/dotnet/standard/managed-code#intermediate-language--execution) durante una compilazione per rimuovere il linguaggio intermedio non necessario dagli assembly di output dell'app.
 
 Controllare il collegamento degli assembly adottando uno degli approcci seguenti:
 
@@ -31,7 +31,7 @@ Controllare il collegamento degli assembly adottando uno degli approcci seguenti
 
 ## <a name="disable-linking-with-a-msbuild-property"></a>Disabilitare il collegamento con una proprietà di MSBuild
 
-Il collegamento è abilitato per impostazione predefinita in modalità versione quando viene compilata un'app, operazione che include la pubblicazione. Per disabilitare il collegamento per tutti gli assembly, impostare la proprietà di MSBuild `BlazorLinkOnBuild` su `false` nel file di progetto:
+Il collegamento è abilitato per impostazione predefinita quando viene compilata un'app, che include la pubblicazione. Per disabilitare il collegamento per tutti gli assembly, impostare la proprietà di MSBuild `BlazorLinkOnBuild` su `false` nel file di progetto:
 
 ```xml
 <PropertyGroup>
@@ -82,3 +82,29 @@ Controllare il collegamento per ogni singolo assembly usando un file di configur
 ```
 
 Per altre informazioni, vedere [il linker: sintassi del descrittore XML](https://github.com/mono/linker/blob/master/src/linker/README.md#syntax-of-xml-descriptor).
+
+### <a name="configure-the-linker-for-internationalization"></a>Configurare il linker per l'internazionalizzazione
+
+Per impostazione predefinita, la configurazione del linker Blazorper le app Blazor webassembly rimuove le informazioni di internazionalizzazione ad eccezione delle impostazioni locali richieste in modo esplicito. La rimozione di questi assembly riduce al minimo le dimensioni dell'app.
+
+Per controllare quali assembly I18N vengono conservati, impostare la proprietà `<MonoLinkerI18NAssemblies>` MSBuild nel file di progetto:
+
+```xml
+<PropertyGroup>
+  <MonoLinkerI18NAssemblies>{all|none|REGION1,REGION2,...}</MonoLinkerI18NAssemblies>
+</PropertyGroup>
+```
+
+| Valore Region     | Assembly dell'area mono    |
+| ---------------- | ----------------------- |
+| `all`            | Tutti gli assembly inclusi |
+| `cjk`            | *I18n. CJK. dll*          |
+| `mideast`        | *I18n. . Dll medio*      |
+| `none` (impostazione predefinita) | nessuno                    |
+| `other`          | *I18n. Other. dll*        |
+| `rare`           | *I18n. Rare. dll*         |
+| `west`           | *I18n. Dll occidentale*         |
+
+Usare una virgola per separare più valori, ad esempio `mideast,west`.
+
+Per altre informazioni, vedere [i18n: Pnetlib internazionalizzazione Framework libreria (repository GitHub mono/mono)](https://github.com/mono/mono/tree/master/mcs/class/I18N).
