@@ -37,7 +37,7 @@ Per creare un'app Blazor usando il modello di hosting lato client, usare il mode
 
 Dopo aver selezionato il modello di **app webassemblyBlazor** , è possibile configurare l'app per l'uso di un back-end ASP.NET Core selezionando la casella di controllo **ASP.NET Core Hosted** ([DotNet New blazorwasm--Hosted](/dotnet/core/tools/dotnet-new)). L'app ASP.NET Core serve l'app Blazor ai client. L'app webassembly Blazor può interagire con il server tramite la rete usando chiamate API Web o [SignalR](xref:signalr/introduction).
 
-I modelli includono lo script *blazor. webassembly. js* che gestisce:
+I modelli includono lo script *blazer. webassembly. js* che gestisce:
 
 * Download del runtime .NET, dell'app e delle dipendenze dell'app.
 * Inizializzazione del runtime per l'esecuzione dell'app.
@@ -69,7 +69,7 @@ L'app ASP.NET Core fa riferimento alla classe `Startup` dell'app per aggiungere:
 * Servizi lato server.
 * App per la pipeline di gestione delle richieste.
 
-Lo scriptblazor. Server. js&dagger; stabilisce la connessione client. È responsabilità dell'app salvare in modo permanente e ripristinare lo stato dell'app come richiesto, ad esempio in caso di perdita di una connessione di rete.
+Lo script *blazer. Server. js*&dagger; stabilisce la connessione client. È responsabilità dell'app salvare in modo permanente e ripristinare lo stato dell'app come richiesto, ad esempio in caso di perdita di una connessione di rete.
 
 Il modello di hosting del server Blazor offre diversi vantaggi:
 
@@ -86,7 +86,7 @@ Ci sono svantaggi per l'hosting di Blazor server:
 * La scalabilità è complessa per le app con molti utenti. Il server deve gestire più connessioni client e gestire lo stato del client.
 * Per gestire l'app, è necessario un server ASP.NET Core. Gli scenari di distribuzione senza server non sono possibili, ad esempio per servire l'app da una rete CDN.
 
-&dagger;Lo script *blazor. Server. js* viene servito da una risorsa incorporata nel framework condiviso ASP.NET Core.
+&dagger;lo script *blazer. Server. js* viene servito da una risorsa incorporata nel framework condiviso ASP.NET Core.
 
 ### <a name="comparison-to-server-rendered-ui"></a>Confronto con interfaccia utente sottoposta a rendering server
 
@@ -202,7 +202,7 @@ per impostazione predefinita, le app di Blazor server sono impostate per eseguir
 
 ::: moniker range=">= aspnetcore-3.1"
 
-| `RenderMode`        | description |
+| `RenderMode`        | Descrizione |
 | ------------------- | ----------- |
 | `ServerPrerendered` | Esegue il rendering del componente in HTML statico e include un marcatore per un'app Server Blazor. Quando l'agente utente viene avviato, questo marcatore viene usato per eseguire il bootstrap di un'app Blazor. |
 | `Server`            | Esegue il rendering di un marcatore per un'app Server Blazor. L'output del componente non è incluso. Quando l'agente utente viene avviato, questo marcatore viene usato per eseguire il bootstrap di un'app Blazor. |
@@ -212,7 +212,7 @@ per impostazione predefinita, le app di Blazor server sono impostate per eseguir
 
 ::: moniker range="< aspnetcore-3.1"
 
-| `RenderMode`        | description |
+| `RenderMode`        | Descrizione |
 | ------------------- | ----------- |
 | `ServerPrerendered` | Esegue il rendering del componente in HTML statico e include un marcatore per un'app Server Blazor. Quando l'agente utente viene avviato, questo marcatore viene usato per eseguire il bootstrap di un'app Blazor. I parametri non sono supportati. |
 | `Server`            | Esegue il rendering di un marcatore per un'app Server Blazor. L'output del componente non è incluso. Quando l'agente utente viene avviato, questo marcatore viene usato per eseguire il bootstrap di un'app Blazor. I parametri non sono supportati. |
@@ -379,7 +379,7 @@ In alcuni casi, è necessario configurare il client SignalR usato dalle app Blaz
 
 Per configurare il client di SignalR nel file *pages/_Host. cshtml* :
 
-* Aggiungere un `autostart="false"` attributo `<script>` al tag per lo script *Blazor. Server. js* .
+* Aggiungere un attributo `autostart="false"` al tag `<script>` per lo script *blazer. Server. js* .
 * Chiamare `Blazor.start` e passare un oggetto di configurazione che specifichi il generatore di SignalR.
 
 ```html

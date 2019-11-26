@@ -77,7 +77,7 @@ Per eseguire il rendering di un componente da una pagina o da una vista, usare l
 * Viene preeseguito nella pagina.
 * Viene sottoposto a rendering come HTML statico nella pagina o se include le informazioni necessarie per avviare un'app Blazor dall'agente utente.
 
-| `RenderMode`        | description |
+| `RenderMode`        | Descrizione |
 | ------------------- | ----------- |
 | `ServerPrerendered` | Esegue il rendering del componente in HTML statico e include un marcatore per un'app Server Blazor. Quando l'agente utente viene avviato, questo marcatore viene usato per eseguire il bootstrap di un'app Blazor. |
 | `Server`            | Esegue il rendering di un marcatore per un'app Server Blazor. L'output del componente non è incluso. Quando l'agente utente viene avviato, questo marcatore viene usato per eseguire il bootstrap di un'app Blazor. |
@@ -104,7 +104,7 @@ Per eseguire il rendering di un componente da una pagina o da una vista, usare i
 * Viene preeseguito nella pagina.
 * Viene sottoposto a rendering come HTML statico nella pagina o se include le informazioni necessarie per avviare un'app Blazor dall'agente utente.
 
-| `RenderMode`        | description |
+| `RenderMode`        | Descrizione |
 | ------------------- | ----------- |
 | `ServerPrerendered` | Esegue il rendering del componente in HTML statico e include un marcatore per un'app Server Blazor. Quando l'agente utente viene avviato, questo marcatore viene usato per eseguire il bootstrap di un'app Blazor. I parametri non sono supportati. |
 | `Server`            | Esegue il rendering di un marcatore per un'app Server Blazor. L'output del componente non è incluso. Quando l'agente utente viene avviato, questo marcatore viene usato per eseguire il bootstrap di un'app Blazor. I parametri non sono supportati. |
@@ -545,12 +545,12 @@ Per alcuni eventi, i tipi di argomento dell'evento sono consentiti. Se l'accesso
 
 I `EventArgs` supportati sono riportati nella tabella seguente.
 
-| event            | Classe                | Eventi e note DOM |
+| Evento            | Classe                | Eventi e note DOM |
 | ---------------- | -------------------- | -------------------- |
 | Appunti        | `ClipboardEventArgs` | `oncut`, `oncopy`, `onpaste` |
 | Trascinare             | `DragEventArgs`      | `ondrag`, `ondragstart`, `ondragenter`, `ondragleave`, `ondragover`, `ondrop`, `ondragend`<br><br>`DataTransfer` e `DataTransferItem` contengono dati di elementi trascinati. |
-| Error            | `ErrorEventArgs`     | `onerror` |
-| event            | `EventArgs`          | *Generalee*<br>`onactivate`, `onbeforeactivate`, `onbeforedeactivate`, `ondeactivate`, `onended`, `onfullscreenchange`, `onfullscreenerror`, `onloadeddata`, `onloadedmetadata`, `onpointerlockchange`, `onpointerlockerror`, `onreadystatechange`, `onscroll`<br><br>*Appunti*<br>`onbeforecut`, `onbeforecopy`, `onbeforepaste`<br><br>*Input*<br>`oninvalid`, `onreset`, `onselect`, `onselectionchange`, `onselectstart`, `onsubmit`<br><br>*Media*<br>`oncanplay`, `oncanplaythrough`, `oncuechange`, `ondurationchange`, `onemptied`, `onpause`, `onplay`, `onplaying`, `onratechange`, `onseeked`, `onseeking`, `onstalled`, `onstop`, `onsuspend`, `ontimeupdate`, `onvolumechange`, `onwaiting` |
+| Errore            | `ErrorEventArgs`     | `onerror` |
+| Evento            | `EventArgs`          | *Generalee*<br>`onactivate`, `onbeforeactivate`, `onbeforedeactivate`, `ondeactivate`, `onended`, `onfullscreenchange`, `onfullscreenerror`, `onloadeddata`, `onloadedmetadata`, `onpointerlockchange`, `onpointerlockerror`, `onreadystatechange`, `onscroll`<br><br>*Appunti*<br>`onbeforecut`, `onbeforecopy`, `onbeforepaste`<br><br>*Input*<br>`oninvalid`, `onreset`, `onselect`, `onselectionchange`, `onselectstart`, `onsubmit`<br><br>*Media*<br>`oncanplay`, `oncanplaythrough`, `oncuechange`, `ondurationchange`, `onemptied`, `onpause`, `onplay`, `onplaying`, `onratechange`, `onseeked`, `onseeking`, `onstalled`, `onstop`, `onsuspend`, `ontimeupdate`, `onvolumechange`, `onwaiting` |
 | Stato attivo            | `FocusEventArgs`     | `onfocus`, `onblur`, `onfocusin`, `onfocusout`<br><br>Non include il supporto per `relatedTarget`. |
 | Input            | `ChangeEventArgs`    | `onchange`, `oninput` |
 | Tastiera         | `KeyboardEventArgs`  | `onkeydown`, `onkeypress`, `onkeyup` |
@@ -1340,7 +1340,7 @@ I componenti basati su modelli sono componenti che accettano uno o più modelli 
 * Componente della tabella che consente a un utente di specificare i modelli per l'intestazione, le righe e il piè di pagina della tabella.
 * Componente di elenco che consente a un utente di specificare un modello per il rendering degli elementi in un elenco.
 
-### <a name="template-parameters"></a>Parametri di modelli
+### <a name="template-parameters"></a>Parametri modello
 
 Un componente basato su modelli viene definito specificando uno o più parametri del componente di tipo `RenderFragment` o `RenderFragment<T>`. Un frammento di rendering rappresenta un segmento di interfaccia utente di cui eseguire il rendering. `RenderFragment<T>` accetta un parametro di tipo che può essere specificato quando viene richiamato il frammento di rendering.
 
@@ -1688,16 +1688,16 @@ builder.AddContent(1, "Second");
 
 Quando il codice viene eseguito per la prima volta, se `someFlag` è `true`, il generatore riceve:
 
-| Sequence | Digitare      | Dati   |
+| Sequenza | Type      | Data   |
 | :------: | --------- | :----: |
-| 0        | Nodo testo | Primo  |
-| 1        | Nodo testo | Second |
+| 0        | Nodo testo | First  |
+| 1        | Nodo testo | Secondo |
 
 Si supponga che `someFlag` diventi `false`e che venga nuovamente eseguito il rendering del markup. Questa volta, il generatore riceve:
 
-| Sequence | Digitare       | Dati   |
+| Sequenza | Type       | Data   |
 | :------: | ---------- | :----: |
-| 1        | Nodo testo  | Second |
+| 1        | Nodo testo  | Secondo |
 
 Quando il runtime esegue una diff, rileva che l'elemento in sequenza `0` è stato rimosso, quindi genera lo *script di modifica*semplice seguente:
 
@@ -1720,16 +1720,16 @@ builder.AddContent(seq++, "Second");
 
 A questo punto, il primo output è:
 
-| Sequence | Digitare      | Dati   |
+| Sequenza | Type      | Data   |
 | :------: | --------- | :----: |
-| 0        | Nodo testo | Primo  |
-| 1        | Nodo testo | Second |
+| 0        | Nodo testo | First  |
+| 1        | Nodo testo | Secondo |
 
 Questo risultato è identico al caso precedente, pertanto non esistono problemi negativi. `someFlag` è `false` sul secondo rendering e l'output è:
 
-| Sequence | Digitare      | Dati   |
+| Sequenza | Type      | Data   |
 | :------: | --------- | ------ |
-| 0        | Nodo testo | Second |
+| 0        | Nodo testo | Secondo |
 
 Questa volta, l'algoritmo Diff rileva che si sono verificate *due* modifiche e l'algoritmo genera lo script di modifica seguente:
 

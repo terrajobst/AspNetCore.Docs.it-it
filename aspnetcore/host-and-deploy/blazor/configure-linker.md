@@ -100,7 +100,7 @@ Per controllare quali assembly I18N vengono conservati, impostare la proprietà 
 | `all`            | Tutti gli assembly inclusi |
 | `cjk`            | *I18n. CJK. dll*          |
 | `mideast`        | *I18n. . Dll medio*      |
-| `none` (impostazione predefinita) | nessuno                    |
+| `none` (impostazione predefinita) | Nessuna                    |
 | `other`          | *I18n. Other. dll*        |
 | `rare`           | *I18n. Rare. dll*         |
 | `west`           | *I18n. Dll occidentale*         |

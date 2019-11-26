@@ -29,7 +29,7 @@ Questo articolo SignalRillustra gli aspetti specifici della configurazione di un
   > [!IMPORTANT] 
   > Per l'uso in produzione, è consigliabile un backplane Redis solo quando viene eseguito nella stessa data center dell'app SignalR. In caso contrario, la latenza di rete comporta un peggioramento delle prestazioni. Se l'app SignalR è in esecuzione nel cloud di Azure, si consiglia il servizio Azure SignalR invece di un backplane Redis. È possibile usare il servizio cache Redis di Azure per gli ambienti di sviluppo e test.
 
-  Per altre informazioni, vedere le seguenti risorse:
+  Per ulteriori informazioni, vedere le seguenti risorse:
 
   * <xref:signalr/scale>
   * [Documentazione di redis](https://redis.io/)
@@ -226,7 +226,7 @@ Il [clustering di redis](https://redis.io/topics/cluster-spec) è un metodo per 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni, vedere le seguenti risorse:
+Per ulteriori informazioni, vedere le seguenti risorse:
 
 * <xref:signalr/scale>
 * [Documentazione di redis](https://redis.io/documentation)

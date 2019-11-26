@@ -38,7 +38,7 @@ Le attività di questa esercitazione sono le seguenti:
 > * Modificare la stringa di connessione
 > * Aggiornare il database
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * [Uso di migrazioni EF Core](migrations.md)
 

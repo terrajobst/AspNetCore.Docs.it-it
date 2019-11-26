@@ -74,7 +74,7 @@ Esistono tre percorsi comuni per lo stato permanente in un'app Server Blazor. Og
 
 ### <a name="server-side-in-a-database"></a>Lato server in un database
 
-Per la persistenza dei dati permanente o per tutti i dati che devono estendersi a più utenti o dispositivi, un database lato server indipendente è quasi certamente la scelta migliore. Le opzioni includono:
+Per la persistenza dei dati permanente o per tutti i dati che devono estendersi a più utenti o dispositivi, un database lato server indipendente è quasi certamente la scelta migliore. Di seguito sono descritte le opzioni disponibili.
 
 * Database SQL relazionale
 * Archivio chiave-valore

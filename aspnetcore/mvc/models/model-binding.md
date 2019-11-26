@@ -40,7 +40,7 @@ E l'app riceve una richiesta con questo URL:
 http://contoso.com/api/pets/2?DogsOnly=true
 ```
 
-Model binding goes through the following steps after the routing system selects the action method:
+L'associazione di modelli esegue i passaggi seguenti dopo che il sistema di routing seleziona il metodo di azione:
 
 * Trova il primo parametro di `GetByID`, un intero denominato `id`.
 * Esamina le origini disponibili nella richiesta HTTP e trova `id` = "2" nei dati di route.
@@ -89,12 +89,12 @@ Per impostazione predefinita, l'associazione di modelli ottiene i dati sotto for
 1. Parametri della stringa di query
 1. File caricati
 
-For each target parameter or property, the sources are scanned in the order indicated in the preceding list. Esistono tuttavia alcune eccezioni:
+Per ogni parametro o proprietà di destinazione, le origini vengono analizzate nell'ordine indicato nell'elenco precedente. Esistono tuttavia alcune eccezioni:
 
 * I dati di route e i valori delle stringhe di query vengono usati solo per i tipi semplici.
 * I file caricati vengono associati solo ai tipi di destinazione che implementano `IFormFile` o `IEnumerable<IFormFile>`.
 
-If the default source is not correct, use one of the following attributes to specify the source:
+Se l'origine predefinita non è corretta, usare uno degli attributi seguenti per specificare l'origine:
 
 * [[FromQuery] ](xref:Microsoft.AspNetCore.Mvc.FromQueryAttribute) - Ottiene i valori dalla stringa di query. 
 * [[FromRoute] ](xref:Microsoft.AspNetCore.Mvc.FromRouteAttribute) -Ottiene i valori dai dati di route.
@@ -114,15 +114,15 @@ Questi attributi:
 
 ### <a name="frombody-attribute"></a>Attributo [FromBody]
 
-Apply the `[FromBody]` attribute to a parameter to populate its properties from the body of an HTTP request. The ASP.NET Core runtime delegates the responsibility of reading the body to an input formatter. I formattatori di input sono descritti [più avanti in questo articolo](#input-formatters).
+Applicare l'attributo `[FromBody]` a un parametro per popolarne le proprietà dal corpo di una richiesta HTTP. Il runtime di ASP.NET Core delega la responsabilità della lettura del corpo a un formattatore di input. I formattatori di input sono descritti [più avanti in questo articolo](#input-formatters).
 
-When `[FromBody]` is applied to a complex type parameter, any binding source attributes applied to its properties are ignored. For example, the following `Create` action specifies that its `pet` parameter is populated from the body:
+Quando `[FromBody]` viene applicato a un parametro di tipo complesso, tutti gli attributi di origine di associazione applicati alle relative proprietà vengono ignorati. Ad esempio, il `Create` azione seguente specifica che il relativo parametro `pet` viene popolato dal corpo:
 
 ```csharp
 public ActionResult<Pet> Create([FromBody] Pet pet)
 ```
 
-The `Pet` class specifies that its `Breed` property is populated from a query string parameter:
+La classe `Pet` specifica che la relativa proprietà `Breed` viene popolata da un parametro della stringa di query:
 
 ```csharp
 public class Pet
@@ -136,12 +136,12 @@ public class Pet
 
 Nell'esempio precedente:
 
-* The `[FromQuery]` attribute is ignored.
-* The `Breed` property is not populated from a query string parameter. 
+* L'attributo `[FromQuery]` viene ignorato.
+* La proprietà `Breed` non viene popolata da un parametro della stringa di query. 
 
-Input formatters read only the body and don't understand binding source attributes. If a suitable value is found in the body, that value is used to populate the `Breed` property.
+I formattatori di input leggono solo il corpo e non comprendono gli attributi di origine del binding. Se nel corpo viene trovato un valore appropriato, tale valore viene usato per popolare la proprietà `Breed`.
 
-Non applicare `[FromBody]` a più di un parametro per ogni metodo di azione. Once the request stream is read by an input formatter, it's no longer available to be read again for binding other `[FromBody]` parameters.
+Non applicare `[FromBody]` a più di un parametro per ogni metodo di azione. Quando il flusso di richieste viene letto da un formattatore di input, non è più disponibile per la lettura per l'associazione di altri parametri `[FromBody]`.
 
 ### <a name="additional-sources"></a>Origini aggiuntive
 
@@ -304,7 +304,7 @@ L'attributo `[Bind]` può essere usato per evitare l'overposting negli scenari d
 
 ## <a name="collections"></a>Raccolte
 
-Per le destinazioni che sono raccolte di tipi semplici, l'associazione di modelli cerca le corrispondenze per *nome_parametro* oppure *nome_proprietà*. Se non viene trovata alcuna corrispondenza, viene cercato uno dei formati supportati senza il prefisso. Esempio:
+Per le destinazioni che sono raccolte di tipi semplici, l'associazione di modelli cerca le corrispondenze per *nome_parametro* oppure *nome_proprietà*. Se non viene trovata alcuna corrispondenza, viene cercato uno dei formati supportati senza il prefisso. Ad esempio:
 
 * Si supponga che il parametro da associare sia una matrice denominata `selectedCourses`:
 
@@ -349,7 +349,7 @@ Per le destinazioni che sono raccolte di tipi semplici, l'associazione di modell
 
 ## <a name="dictionaries"></a>Dizionari
 
-Per le destinazioni `Dictionary`, l'associazione di modelli cerca le corrispondenze per *nome_parametro* oppure *nome_proprietà*. Se non viene trovata alcuna corrispondenza, viene cercato uno dei formati supportati senza il prefisso. Esempio:
+Per le destinazioni `Dictionary`, l'associazione di modelli cerca le corrispondenze per *nome_parametro* oppure *nome_proprietà*. Se non viene trovata alcuna corrispondenza, viene cercato uno dei formati supportati senza il prefisso. Ad esempio:
 
 * Si supponga che il parametro di destinazione sia un elemento `Dictionary<int, string>` denominato `selectedCourses`:
 

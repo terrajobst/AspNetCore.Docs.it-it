@@ -33,7 +33,7 @@ Per informazioni su come creare, configurare ed eseguire i progetti di test di c
 
 I test di carico possono essere configurati per l'esecuzione in locale o in esecuzione nel cloud usando Azure DevOps.
 
-## <a name="third-party-tools"></a>Strumenti di terze parti
+## <a name="third-party-tools"></a>Strumenti di terzi
 
 L'elenco seguente contiene gli strumenti per le prestazioni Web di terze parti con diversi set di funzionalità:
 

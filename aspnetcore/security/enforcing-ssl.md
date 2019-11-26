@@ -52,7 +52,7 @@ Nessuna API può impedire a un client di inviare dati sensibili alla prima richi
 
 ::: moniker-end
 
-## <a name="require-https"></a>Richiedere HTTPS
+## <a name="require-https"></a>Richiedi HTTPS
 
 Si consiglia di usare le app Web ASP.NET Core di produzione:
 

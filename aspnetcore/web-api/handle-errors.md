@@ -1,7 +1,7 @@
 ---
-title: Handle errors in ASP.NET Core web APIs
+title: Gestire gli errori nelle API Web di ASP.NET Core
 author: pranavkm
-description: Learn about error handling with ASP.NET Core web APIs.
+description: Informazioni sulla gestione degli errori con ASP.NET Core le API Web.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: prkrishn
 ms.custom: mvc
@@ -14,19 +14,19 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74412098"
 ---
-# <a name="handle-errors-in-aspnet-core-web-apis"></a>Handle errors in ASP.NET Core web APIs
+# <a name="handle-errors-in-aspnet-core-web-apis"></a>Gestire gli errori nelle API Web di ASP.NET Core
 
-This article describes how to handle and customize error handling with ASP.NET Core web APIs.
+Questo articolo descrive come gestire e personalizzare la gestione degli errori con ASP.NET Core le API Web.
 
-[View or download sample code](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/handle-errors/samples) ([How to download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/handle-errors/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="developer-exception-page"></a>Pagina delle eccezioni per gli sviluppatori
 
-The [Developer Exception Page](xref:fundamentals/error-handling) is a useful tool to get detailed stack traces for server errors. It uses <xref:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware> to capture synchronous and asynchronous exceptions from the HTTP pipeline and to generate error responses. To illustrate, consider the following controller action:
+La [pagina di eccezione Developer](xref:fundamentals/error-handling) è uno strumento utile per ottenere analisi dettagliate dello stack per gli errori del server. USA <xref:Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware> per acquisire eccezioni sincrone e asincrone dalla pipeline HTTP e per generare risposte di errore. Per illustrare, prendere in considerazione la seguente azione del controller:
 
 [!code-csharp[](handle-errors/samples/3.x/Controllers/WeatherForecastController.cs?name=snippet_GetByCity)]
 
-Run the following `curl` command to test the preceding action:
+Eseguire il comando di `curl` seguente per testare l'azione precedente:
 
 ```bash
 curl -i https://localhost:5001/weatherforecast/chicago
@@ -34,7 +34,7 @@ curl -i https://localhost:5001/weatherforecast/chicago
 
 ::: moniker range=">= aspnetcore-3.0"
 
-In ASP.NET Core 3.0 and later, the Developer Exception Page displays a plain-text response if the client doesn't request HTML-formatted output. Viene visualizzato l'output seguente:
+In ASP.NET Core 3,0 e versioni successive, la pagina delle eccezioni per sviluppatori Visualizza una risposta di testo normale se il client non richiede l'output in formato HTML. Viene visualizzato l'output seguente:
 
 ```console
 HTTP/1.1 500 Internal Server Error
@@ -68,19 +68,19 @@ Host: localhost:44312
 User-Agent: curl/7.55.1
 ```
 
-To display an HTML-formatted response instead, set the `Accept` HTTP request header to the `text/html` media type. Esempio:
+Per visualizzare invece una risposta in formato HTML, impostare l'intestazione della richiesta HTTP `Accept` sul tipo di supporto `text/html`. Ad esempio:
 
 ```bash
 curl -i -H "Accept: text/html" https://localhost:5001/weatherforecast/chicago
 ```
 
-Consider the following excerpt from the HTTP response:
+Si consideri il seguente estratto della risposta HTTP:
 
 ::: moniker-end
 
 ::: moniker range="<= aspnetcore-2.2"
 
-In ASP.NET Core 2.2 and earlier, the Developer Exception Page displays an HTML-formatted response. For example, consider the following excerpt from the HTTP response:
+In ASP.NET Core 2,2 e versioni precedenti, nella pagina eccezione Developer viene visualizzata una risposta in formato HTML. Si consideri, ad esempio, il seguente estratto della risposta HTTP:
 
 ::: moniker-end
 
@@ -108,9 +108,9 @@ Date: Fri, 27 Sep 2019 16:55:37 GMT
 
 ::: moniker range=">= aspnetcore-3.0"
 
-The HTML-formatted response becomes useful when testing via tools like Postman. The following screen capture shows both the plain-text and the HTML-formatted responses in Postman:
+La risposta in formato HTML risulta utile quando si esegue il test tramite strumenti come il post. L'acquisizione di schermate seguente mostra sia il testo normale che le risposte in formato HTML in post:
 
-![Developer Exception Page testing in Postman](handle-errors/_static/developer-exception-page-postman.gif)
+![Test della pagina di eccezione per gli sviluppatori nel post](handle-errors/_static/developer-exception-page-postman.gif)
 
 ::: moniker-end
 
@@ -119,9 +119,9 @@ The HTML-formatted response becomes useful when testing via tools like Postman. 
 
 ## <a name="exception-handler"></a>Gestore di eccezioni
 
-In non-development environments, [Exception Handling Middleware](xref:fundamentals/error-handling) can be used to produce an error payload:
+Negli ambienti non di sviluppo, è possibile usare il [middleware di gestione delle eccezioni](xref:fundamentals/error-handling) per produrre un payload degli errori:
 
-1. In `Startup.Configure`, invoke <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler%2A> to use the middleware:
+1. In `Startup.Configure`richiamare <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler%2A> per usare il middleware:
 
     ::: moniker range=">= aspnetcore-3.0"
 
@@ -135,7 +135,7 @@ In non-development environments, [Exception Handling Middleware](xref:fundamenta
 
     ::: moniker-end
 
-1. Configure a controller action to respond to the `/error` route:
+1. Configurare un'azione del controller per rispondere alla route `/error`:
 
     ::: moniker range=">= aspnetcore-3.0"
 
@@ -149,11 +149,11 @@ In non-development environments, [Exception Handling Middleware](xref:fundamenta
 
     ::: moniker-end
 
-The preceding `Error` action sends an [RFC7807](https://tools.ietf.org/html/rfc7807)-compliant payload to the client.
+L'azione `Error` precedente invia al client un payload conforme a [RFC7807](https://tools.ietf.org/html/rfc7807).
 
-Exception Handling Middleware can also provide more detailed content-negotiated output in the local development environment. Use the following steps to produce a consistent payload format across development and production environments:
+Il middleware di gestione delle eccezioni può inoltre fornire un output più dettagliato del contenuto negoziato nell'ambiente di sviluppo locale. Usare la procedura seguente per produrre un formato di payload coerente negli ambienti di sviluppo e di produzione:
 
-1. In `Startup.Configure`, register environment-specific Exception Handling Middleware instances:
+1. In `Startup.Configure`registrare le istanze del middleware di gestione delle eccezioni specifiche dell'ambiente:
 
     ::: moniker range=">= aspnetcore-3.0"
 
@@ -191,12 +191,12 @@ Exception Handling Middleware can also provide more detailed content-negotiated 
 
     ::: moniker-end
 
-    In the preceding code, the middleware is registered with:
+    Nel codice precedente il middleware è registrato con:
 
-    * A route of `/error-local-development` in the Development environment.
-    * A route of `/error` in environments that aren't Development.
+    * Route di `/error-local-development` nell'ambiente di sviluppo.
+    * Una route di `/error` in ambienti che non sono in fase di sviluppo.
     
-1. Apply attribute routing to controller actions:
+1. Applicare il routing degli attributi alle azioni del controller:
 
     ::: moniker range=">= aspnetcore-3.0"
 
@@ -210,19 +210,19 @@ Exception Handling Middleware can also provide more detailed content-negotiated 
 
     ::: moniker-end
 
-## <a name="use-exceptions-to-modify-the-response"></a>Use exceptions to modify the response
+## <a name="use-exceptions-to-modify-the-response"></a>Usare le eccezioni per modificare la risposta
 
-The contents of the response can be modified from outside of the controller. In ASP.NET 4.x Web API, one way to do this was using the <xref:System.Web.Http.HttpResponseException> type. ASP.NET Core doesn't include an equivalent type. Support for `HttpResponseException` can be added with the following steps:
+Il contenuto della risposta può essere modificato dall'esterno del controller. Nell'API Web ASP.NET 4. x, un modo per eseguire questa operazione consiste nell'usare il tipo di <xref:System.Web.Http.HttpResponseException>. ASP.NET Core non include un tipo equivalente. È possibile aggiungere il supporto per `HttpResponseException` con i passaggi seguenti:
 
-1. Create a well-known exception type named `HttpResponseException`:
+1. Creare un tipo di eccezione noto denominato `HttpResponseException`:
 
     [!code-csharp[](handle-errors/samples/3.x/Exceptions/HttpResponseException.cs?name=snippet_HttpResponseException)]
 
-1. Create an action filter named `HttpResponseExceptionFilter`:
+1. Creare un filtro azione denominato `HttpResponseExceptionFilter`:
 
     [!code-csharp[](handle-errors/samples/3.x/Filters/HttpResponseExceptionFilter.cs?name=snippet_HttpResponseExceptionFilter)]
 
-1. In `Startup.ConfigureServices`, add the action filter to the filters collection:
+1. In `Startup.ConfigureServices`aggiungere il filtro azioni alla raccolta filters:
 
     ::: moniker range=">= aspnetcore-3.0"
 
@@ -242,9 +242,9 @@ The contents of the response can be modified from outside of the controller. In 
 
     ::: moniker-end
 
-## <a name="validation-failure-error-response"></a>Validation failure error response
+## <a name="validation-failure-error-response"></a>Risposta errore di convalida non riuscita
 
-For web API controllers, MVC responds with a <xref:Microsoft.AspNetCore.Mvc.ValidationProblemDetails> response type when model validation fails. MVC uses the results of <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.InvalidModelStateResponseFactory> to construct the error response for a validation failure. The following example uses the factory to change the default response type to <xref:Microsoft.AspNetCore.Mvc.SerializableError> in `Startup.ConfigureServices`:
+Per i controller API Web, MVC risponde con un tipo di risposta <xref:Microsoft.AspNetCore.Mvc.ValidationProblemDetails> quando la convalida del modello ha esito negativo. MVC utilizza i risultati di <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.InvalidModelStateResponseFactory> per costruire la risposta di errore per un errore di convalida. Nell'esempio seguente viene usata la factory per modificare il tipo di risposta predefinito <xref:Microsoft.AspNetCore.Mvc.SerializableError> in `Startup.ConfigureServices`:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -264,22 +264,22 @@ For web API controllers, MVC responds with a <xref:Microsoft.AspNetCore.Mvc.Vali
 
 ::: moniker-end
 
-## <a name="client-error-response"></a>Client error response
+## <a name="client-error-response"></a>Risposta errore client
 
-An *error result* is defined as a result with an HTTP status code of 400 or higher. For web API controllers, MVC transforms an error result to a result with <xref:Microsoft.AspNetCore.Mvc.ProblemDetails>.
+Un *risultato di errore* viene definito come risultato con un codice di stato HTTP 400 o superiore. Per i controller API Web, MVC trasforma un risultato di errore in un risultato con <xref:Microsoft.AspNetCore.Mvc.ProblemDetails>.
 
 ::: moniker range=">= aspnetcore-3.0"
 
-The error response can be configured in one of the following ways:
+La risposta di errore può essere configurata in uno dei modi seguenti:
 
-1. [Implement ProblemDetailsFactory](#implement-problemdetailsfactory)
-1. [Use ApiBehaviorOptions.ClientErrorMapping](#use-apibehavioroptionsclienterrormapping)
+1. [Implementare ProblemDetailsFactory](#implement-problemdetailsfactory)
+1. [Usare ApiBehaviorOptions. ClientErrorMapping](#use-apibehavioroptionsclienterrormapping)
 
-### <a name="implement-problemdetailsfactory"></a>Implement ProblemDetailsFactory
+### <a name="implement-problemdetailsfactory"></a>Implementare ProblemDetailsFactory
 
-MVC uses `Microsoft.AspNetCore.Mvc.ProblemDetailsFactory` to produce all instances of <xref:Microsoft.AspNetCore.Mvc.ProblemDetails> and <xref:Microsoft.AspNetCore.Mvc.ValidationProblemDetails>. This includes client error responses, validation failure error responses, and the `Microsoft.AspNetCore.Mvc.ControllerBase.Problem` and <xref:Microsoft.AspNetCore.Mvc.ControllerBase.ValidationProblem> helper methods.
+MVC utilizza `Microsoft.AspNetCore.Mvc.ProblemDetailsFactory` per produrre tutte le istanze di <xref:Microsoft.AspNetCore.Mvc.ProblemDetails> e <xref:Microsoft.AspNetCore.Mvc.ValidationProblemDetails>. Sono incluse le risposte degli errori del client, le risposte degli errori di convalida e i metodi di `Microsoft.AspNetCore.Mvc.ControllerBase.Problem` e <xref:Microsoft.AspNetCore.Mvc.ControllerBase.ValidationProblem> helper.
 
-To customize the problem details response, register a custom implementation of `ProblemDetailsFactory` in `Startup.ConfigureServices`:
+Per personalizzare la risposta dettagliata al problema, registrare un'implementazione personalizzata di `ProblemDetailsFactory` in `Startup.ConfigureServices`:
 
 ```csharp
 public void ConfigureServices(IServiceCollection serviceCollection)
@@ -293,15 +293,15 @@ public void ConfigureServices(IServiceCollection serviceCollection)
 
 ::: moniker range="= aspnetcore-2.2"
 
-The error response can be configured as outlined in the [Use ApiBehaviorOptions.ClientErrorMapping](#use-apibehavioroptionsclienterrormapping) section.
+La risposta di errore può essere configurata come descritto nella sezione [use ApiBehaviorOptions. ClientErrorMapping](#use-apibehavioroptionsclienterrormapping) .
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.2"
 
-### <a name="use-apibehavioroptionsclienterrormapping"></a>Use ApiBehaviorOptions.ClientErrorMapping
+### <a name="use-apibehavioroptionsclienterrormapping"></a>Usare ApiBehaviorOptions. ClientErrorMapping
 
-Usare la proprietà <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.ClientErrorMapping%2A> per configurare il contenuto della risposta `ProblemDetails`. For example, the following code in `Startup.ConfigureServices` updates the `type` property for 404 responses:
+Usare la proprietà <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.ClientErrorMapping%2A> per configurare il contenuto della risposta `ProblemDetails`. Ad esempio, il codice seguente in `Startup.ConfigureServices` aggiorna la proprietà `type` per le risposte 404:
 
 ::: moniker-end
 

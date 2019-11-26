@@ -389,7 +389,7 @@ Razor è in grado di proteggere le sezioni critiche con le istruzioni di blocco:
 }
 ```
 
-### <a name="comments"></a>Commenti
+### <a name="comments"></a>Comments
 
 Razor supporta i commenti in C# e HTML:
 
@@ -487,7 +487,7 @@ Nei [componenti di Razor](xref:blazor/components) usare `@code` in `@functions` 
 
 ::: moniker-end
 
-Di seguito è riportato un esempio:
+Ad esempio:
 
 [!code-cshtml[](razor/sample/Views/Home/Contact6.cshtml)]
 
@@ -872,7 +872,7 @@ Output sottoposto a rendering:
 
 Esistono tre direttive che riguardano gli [helper tag](xref:mvc/views/tag-helpers/intro).
 
-| Direttiva | Funzione |
+| Directive | Funzione |
 | --------- | -------- |
 | [@addTagHelper](xref:mvc/views/tag-helpers/intro#add-helper-label) | Rende gli helper tag disponibili per una visualizzazione. |
 | [@removeTagHelper](xref:mvc/views/tag-helpers/intro#remove-razor-directives-label) | Rimuove gli helper tag aggiunti in precedenza da una visualizzazione. |
@@ -886,7 +886,7 @@ Esistono tre direttive che riguardano gli [helper tag](xref:mvc/views/tag-helper
 * namespace
 * functions
 * eredita
-* model
+* modello
 * section
 * helper (attualmente non supportata da ASP.NET Core)
 
@@ -896,8 +896,8 @@ Le parole chiave Razor sono precedute dal carattere di escape `@(Razor Keyword)`
 
 * case
 * do
-* default
-* for
+* predefiniti
+* per
 * foreach
 * if
 * else
@@ -906,14 +906,14 @@ Le parole chiave Razor sono precedute dal carattere di escape `@(Razor Keyword)`
 * try
 * catch
 * finally
-* utilizzo
+* using
 * while
 
 Le parole chiave Razor C# devono essere precedute dal doppio carattere di escape `@(@C# Razor Keyword)` (ad esempio, `@(@case)`). Il primo `@` è il carattere di escape del parser Razor. Il secondo `@` è il carattere di escape del parser C#.
 
 ### <a name="reserved-keywords-not-used-by-razor"></a>Parole chiave riservate non usate da Razor
 
-* classe
+* class
 
 ## <a name="inspect-the-razor-c-class-generated-for-a-view"></a>Ispezionare la classe C# Razor generata per una visualizzazione
 

@@ -64,13 +64,13 @@ Nello spazio dei nomi [System.ComponentModel.DataAnnotations](xref:System.Compon
 
 ### <a name="error-messages"></a>Messaggi di errore
 
-Gli attributi di convalida consentono di specificare il messaggio di errore da visualizzare in caso di input non valido. Di seguito è riportato un esempio:
+Gli attributi di convalida consentono di specificare il messaggio di errore da visualizzare in caso di input non valido. Ad esempio:
 
 ```csharp
 [StringLength(8, ErrorMessage = "Name length can't be more than 8.")]
 ```
 
-Internamente gli attributi chiamano `String.Format` con un segnaposto per il nome campo e talvolta con segnaposto aggiuntivi. Di seguito è riportato un esempio:
+Internamente gli attributi chiamano `String.Format` con un segnaposto per il nome campo e talvolta con segnaposto aggiuntivi. Ad esempio:
 
 ```csharp
 [StringLength(8, ErrorMessage = "{0} length must be between {2} and {1}.", MinimumLength = 6)]
@@ -424,13 +424,13 @@ Nello spazio dei nomi [System.ComponentModel.DataAnnotations](xref:System.Compon
 
 ### <a name="error-messages"></a>Messaggi di errore
 
-Gli attributi di convalida consentono di specificare il messaggio di errore da visualizzare in caso di input non valido. Di seguito è riportato un esempio:
+Gli attributi di convalida consentono di specificare il messaggio di errore da visualizzare in caso di input non valido. Ad esempio:
 
 ```csharp
 [StringLength(8, ErrorMessage = "Name length can't be more than 8.")]
 ```
 
-Internamente gli attributi chiamano `String.Format` con un segnaposto per il nome campo e talvolta con segnaposto aggiuntivi. Di seguito è riportato un esempio:
+Internamente gli attributi chiamano `String.Format` con un segnaposto per il nome campo e talvolta con segnaposto aggiuntivi. Ad esempio:
 
 ```csharp
 [StringLength(8, ErrorMessage = "{0} length must be between {2} and {1}.", MinimumLength = 6)]

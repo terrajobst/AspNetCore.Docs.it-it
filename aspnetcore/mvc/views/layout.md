@@ -16,7 +16,7 @@ ms.locfileid: "74289003"
 
 Di [Steve Smith](https://ardalis.com/) e [Dave Brock](https://twitter.com/daveabrock)
 
-Le pagine e le visualizzazioni condividono spesso elementi visivi e programmatici. Questo articolo illustra come:
+Le pagine e le visualizzazioni condividono spesso elementi visivi e programmatici. Questo articolo illustra come effettuare le seguenti operazioni:
 
 * Usare layout comuni.
 * Condividere direttive.

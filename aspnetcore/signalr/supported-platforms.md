@@ -18,7 +18,7 @@ ms.locfileid: "74317473"
 ---
 # <a name="aspnet-core-opno-locsignalr-supported-platforms"></a>Piattaforme supportate da ASP.NET Core SignalR
 
-## <a name="server-system-requirements"></a>Requisiti di sistema del server
+## <a name="server-system-requirements"></a>Requisiti di sistema del server di
 
 SignalR per ASP.NET Core supporta qualsiasi piattaforma server supportata da ASP.NET Core.
 
@@ -26,7 +26,7 @@ SignalR per ASP.NET Core supporta qualsiasi piattaforma server supportata da ASP
 
 Il [client JavaScript](xref:signalr/javascript-client) viene eseguito in NodeJS 8 e versioni successive e nei browser seguenti:
 
-| Browser                         | Version         |
+| Browser.                         | di destinazione         |
 | ------------------------------- | --------------- |
 | Microsoft Edge                  | &dagger; corrente |
 | Mozilla Firefox                 | &dagger; corrente |

@@ -465,7 +465,7 @@ Per specificare in modo esplicito la categoria, chiamare `ILoggerFactory.CreateL
 
 L'uso di `ILogger<T>` equivale a chiamare `CreateLogger` con il nome completo di tipo `T`.
 
-## <a name="log-level"></a>Livello di registrazione
+## <a name="log-level"></a>Livello log
 
 Ogni log specifica un valore <xref:Microsoft.Extensions.Logging.LogLevel>. Il livello di registrazione indica la gravità o l'importanza. È ad esempio possibile scrivere un log `Information` quando un metodo termina normalmente e un log `Warning` quando un metodo restituisce un codice di stato *404 Non trovato*.
 
@@ -513,7 +513,7 @@ ASP.NET Core definisce i livelli di registrazione seguenti, ordinati dal meno gr
 
   Per gli errori che richiedono attenzione immediata. Esempi: scenari di perdita di dati, spazio su disco insufficiente.
 
-Usare il livello di registrazione per controllare la quantità di output di log scritto in un supporto di archiviazione specifico o in una finestra. Di seguito è riportato un esempio:
+Usare il livello di registrazione per controllare la quantità di output di log scritto in un supporto di archiviazione specifico o in una finestra. Ad esempio:
 
 * In produzione:
   * La registrazione all'`Trace` tramite livelli di `Information` produce un volume elevato di messaggi di log dettagliati. Per controllare i costi e non superare i limiti di archiviazione dei dati, registrare `Trace` tramite messaggi di `Information` livello in un archivio dati a volume elevato e a basso costo.
@@ -696,7 +696,7 @@ System.Exception: Item not found exception.
    at TodoApiSample.Controllers.TodoController.GetById(String id) in C:\TodoApiSample\Controllers\TodoController.cs:line 226
 ```
 
-## <a name="log-filtering"></a>Filtro dei log
+## <a name="log-filtering"></a>Filtro del log
 
 È possibile specificare un livello di registrazione minimo per un provider e una categoria specifici oppure per tutti i provider o tutte le categorie. Tutti i log sotto il livello minimo non sono passati al provider, quindi non vengono visualizzati o archiviati.
 
@@ -749,7 +749,7 @@ I dati di configurazione e il codice `AddFilter` illustrato negli esempi precede
 | 1      | Debug         | Tutte le categorie                          | Informazioni       |
 | 2      | Console       | Microsoft.AspNetCore.Mvc.Razor.Internal | Avviso           |
 | 3      | Console       | Microsoft.AspNetCore.Mvc.Razor.Razor    | Debug             |
-| 4      | Console       | Microsoft.AspNetCore.Mvc.Razor          | Error             |
+| 4      | Console       | Microsoft.AspNetCore.Mvc.Razor          | Errore             |
 | 5      | Console       | Tutte le categorie                          | Informazioni       |
 | 6      | Tutti i provider | Tutte le categorie                          | Debug             |
 | 7      | Tutti i provider | System                                  | Debug             |
@@ -804,7 +804,7 @@ Se non si imposta in modo esplicito il livello minimo, il valore predefinito è 
 
 ### <a name="filter-functions"></a>Funzioni di filtro
 
-Una funzione di filtro viene richiamata per tutti i provider e le categorie a cui non sono assegnate regole tramite la configurazione o il codice. Il codice della funzione ha accesso al tipo di provider, alla categoria e al livello di registrazione. Di seguito è riportato un esempio:
+Una funzione di filtro viene richiamata per tutti i provider e le categorie a cui non sono assegnate regole tramite la configurazione o il codice. Il codice della funzione ha accesso al tipo di provider, alla categoria e al livello di registrazione. Ad esempio:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -822,7 +822,7 @@ Una funzione di filtro viene richiamata per tutti i provider e le categorie a cu
 
 Di seguito sono elencate alcune categorie usate da ASP.NET Core ed Entity Framework Core, con note sui log previsti per ognuna:
 
-| Category                            | Note |
+| Categoria                            | Note |
 | ----------------------------------- | ----- |
 | Microsoft.AspNetCore                | Diagnostica generale di ASP.NET Core. |
 | Microsoft.AspNetCore.DataProtection | Chiavi considerate, trovate e usate. |
@@ -989,14 +989,14 @@ Usare gli strumenti di traccia DotNet per raccogliere una traccia da un'app:
 
    Nelle piattaforme non Windows aggiungere l'opzione `-f speedscope` per modificare il formato del file di traccia di output in `speedscope`.
 
-   | Parola chiave | description |
+   | Parola chiave | Descrizione |
    | :-----: | ----------- |
    | 1       | Registra i metadati relativi all'`LoggingEventSource`. Non registra gli eventi da `ILogger`). |
    | 2       | Attiva l'evento `Message` quando viene chiamato `ILogger.Log()`. Fornisce informazioni in un metodo programmatico (non formattato). |
    | 4       | Attiva l'evento `FormatMessage` quando viene chiamato `ILogger.Log()`. Fornisce la versione di stringa formattata delle informazioni. |
    | 8       | Attiva l'evento `MessageJson` quando viene chiamato `ILogger.Log()`. Fornisce una rappresentazione JSON degli argomenti. |
 
-   | Livello dell'evento | description     |
+   | Livello evento | Descrizione     |
    | :---------: | --------------- |
    | 0           | `LogAlways`     |
    | 1           | `Critical`      |
@@ -1140,7 +1140,7 @@ Il provider di registrazione è incluso come dipendenza di [Microsoft.Applicatio
 
 Non usare il pacchetto [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web), che è per ASP.NET 4.x.
 
-Per altre informazioni, vedere le seguenti risorse:
+Per ulteriori informazioni, vedere le seguenti risorse:
 
 * [Panoramica di Application Insights](/azure/application-insights/app-insights-overview)
 * [Application Insights per applicazioni ASP.NET Core](/azure/azure-monitor/app/asp-net-core): iniziare da qui se si vuole implementare l'intervallo completo dei dati di telemetria di Application Insights insieme alla registrazione.

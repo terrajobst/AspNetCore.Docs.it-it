@@ -27,7 +27,7 @@ Gli helper tag consentono al codice sul lato server di partecipare alla creazion
 
 **Ambiente IntelliSense avanzato per la creazione di markup HTML e Razor**: in netto contrasto con gli helper HTML, il precedente approccio alla creazione sul lato server del markup nelle visualizzazioni Razor. Nella sezione [Helper tag e helper HTML a confronto](#tag-helpers-compared-to-html-helpers) vengono illustrate le differenze in modo più dettagliato. Nella sezione [Supporto IntelliSense per gli helper tag](#intellisense-support-for-tag-helpers) viene illustrato l'ambiente IntelliSense. Anche gli sviluppatori esperti della sintassi C# per Razor aumentano la produttività usando gli helper tag invece di scrivere il markup Razor per C#.
 
-**Possibilità di aumentare la produttività e la capacità di produrre codice più solido, affidabile e gestibile usando le informazioni disponibili solo nel server**: storicamente il mantra a proposito dell'aggiornamento delle immagini, ad esempio, era quello di cambiare il nome dell'immagine quando l'immagine veniva modificata. Per motivi di prestazioni, le immagini devono essere memorizzate nella cache e, a meno che il nome dell'immagine non venga cambiato, si rischia che i client ricevano una copia non aggiornata. Dopo che un'immagine era stata modificata, il nome doveva essere sempre cambiato e ogni riferimento all'immagine nell'app Web doveva essere aggiornato. Not only is this very labor intensive, it's also error prone (you could miss a reference, accidentally enter the wrong string, etc.) The built-in `ImageTagHelper` can do this for you automatically. `ImageTagHelper` è in grado di aggiungere un numero di versione al nome dell'immagine in modo che quando l'immagine viene modificata il server generi automaticamente una nuova versione univoca dell'immagine. I client riceveranno sicuramente l'immagine corrente. Grazie all'uso di `ImageTagHelper`, efficienza e risparmio di energie sono essenzialmente gratuiti.
+**Possibilità di aumentare la produttività e la capacità di produrre codice più solido, affidabile e gestibile usando le informazioni disponibili solo nel server**: storicamente il mantra a proposito dell'aggiornamento delle immagini, ad esempio, era quello di cambiare il nome dell'immagine quando l'immagine veniva modificata. Per motivi di prestazioni, le immagini devono essere memorizzate nella cache e, a meno che il nome dell'immagine non venga cambiato, si rischia che i client ricevano una copia non aggiornata. Dopo che un'immagine era stata modificata, il nome doveva essere sempre cambiato e ogni riferimento all'immagine nell'app Web doveva essere aggiornato. Non solo questa operazione richiede molto lavoro, ma è anche soggetta a errori (è possibile perdere un riferimento, immettere accidentalmente la stringa sbagliata e così via). Il `ImageTagHelper` incorporato può eseguire questa operazione automaticamente. `ImageTagHelper` è in grado di aggiungere un numero di versione al nome dell'immagine in modo che quando l'immagine viene modificata il server generi automaticamente una nuova versione univoca dell'immagine. I client riceveranno sicuramente l'immagine corrente. Grazie all'uso di `ImageTagHelper`, efficienza e risparmio di energie sono essenzialmente gratuiti.
 
 La maggior parte degli helper tag predefiniti usano come destinazione elementi HTML standard e specificano attributi sul lato server per l'elemento. Ad esempio, l'elemento `<input>` usato in molte visualizzazioni nella cartella *Views/Account* (Visualizzazioni/Account) contiene l'attributo `asp-for`. Questo attributo consente di estrarre il nome della proprietà del modello specificato nel codice HTML visualizzabile. Si consideri una visualizzazione Razor con il modello seguente:
 
@@ -125,7 +125,7 @@ La direttiva `@tagHelperPrefix` consente di specificare una stringa di prefisso 
 
 Nell'immagine di codice seguente, il prefisso dell'helper tag è impostato su `th:`. Pertanto, solo gli elementi che usano il prefisso `th:` supportano gli helper tag. Gli elementi abilitati per gli helper tag hanno un tipo di carattere distintivo. Gli elementi `<label>` e `<input>` includono il prefisso dell'helper tag e sono abilitati per gli helper tag, mentre l'elemento `<span>` non lo è.
 
-![immagine](intro/_static/thp.png)
+![image](intro/_static/thp.png)
 
 Le stesse regole di gerarchia che si applicano a `@addTagHelper` sono valide anche per `@tagHelperPrefix`.
 
@@ -133,16 +133,16 @@ Le stesse regole di gerarchia che si applicano a `@addTagHelper` sono valide anc
 
 Molti helper tag non possono essere usati come tag di chiusura automatici. Alcuni helper tag sono progettati per essere tag di chiusura automatici. Se si usa un helper tag non progettato per la chiusura automatica, l'output sottoposto a rendering viene eliminato. La chiusura automatica di un helper tag genera un tag di chiusura automatico nell'output sottoposto a rendering. Per altre informazioni, vedere [questa nota](xref:mvc/views/tag-helpers/authoring#self-closing) in [Creare helper tag in ASP.NET Core](xref:mvc/views/tag-helpers/authoring).
 
-## <a name="c-in-tag-helpers-attributedeclaration"></a>C# in Tag Helpers attribute/declaration 
+## <a name="c-in-tag-helpers-attributedeclaration"></a>C#nell'attributo/dichiarazione degli helper Tag 
 
-Tag Helpers do not allow C# in the element's attribute or tag declaration area. For example, the following code is not valid:
+Gli helper tag non consentono C# nell'area dell'attributo o della dichiarazione di tag dell'elemento. Ad esempio, il codice seguente non è valido:
 
 ```cshtml
 <input asp-for="LastName"  
        @(Model?.LicenseId == null ? "disabled" : string.Empty) />
 ```
 
-The preceding code can be written as:
+Il codice precedente può essere scritto come segue:
 
 ```cshtml
 <input asp-for="LastName" 
@@ -155,39 +155,39 @@ Quando si crea una nuova app Web ASP.NET Core in Visual Studio, viene aggiunto i
 
 Si supponga di scrivere un elemento `<label>` HTML. Non appena si inizia a digitare `<l` nell'editor di Visual Studio, IntelliSense visualizza gli elementi corrispondenti:
 
-![immagine](intro/_static/label.png)
+![image](intro/_static/label.png)
 
 Oltre alla guida HTML verrà visualizzata anche l'icona (il "@" symbol with "<>" sotto di essa).
 
-![immagine](intro/_static/tagSym.png)
+![image](intro/_static/tagSym.png)
 
 che identifica l'elemento come destinazione degli helper tag. Gli elementi HTML puri (ad esempio, `fieldset`) visualizzano l'icona "<>".
 
 Un tag `<label>` HTML puro visualizza il tag HTML (con il tema colori di Visual Studio predefinito) con un tipo di carattere marrone, gli attributi in rosso e i valori degli attributi in blu.
 
-![immagine](intro/_static/LableHtmlTag.png)
+![image](intro/_static/LableHtmlTag.png)
 
 Dopo avere immesso `<label`, IntelliSense elenca gli attributi HTML/CSS disponibili e gli attributi di destinazione dell'helper tag:
 
-![immagine](intro/_static/labelattr.png)
+![image](intro/_static/labelattr.png)
 
 Il completamento istruzioni di IntelliSense consente di usare il tasto TAB per completare l'istruzione con il valore selezionato:
 
-![immagine](intro/_static/stmtcomplete.png)
+![image](intro/_static/stmtcomplete.png)
 
 Non appena un attributo dell'helper tag viene immesso, i tipi di carattere del tag e dell'attributo cambiano. Con il tema colori predefinito "Blu" o "Chiaro" di Visual Studio, il tipo di carattere è in grassetto viola. Se si usa il tema colori "Scuro", il tipo di carattere è in grassetto verde acqua. Nelle immagini acquisite per questo documento è stato usato il tema predefinito.
 
-![immagine](intro/_static/labelaspfor2.png)
+![image](intro/_static/labelaspfor2.png)
 
 È possibile usare il tasto di scelta rapida *Completa parola* di Visual Studio (CTRL+BARRA SPAZIATRICE è la combinazione [predefinita](/visualstudio/ide/default-keyboard-shortcuts-in-visual-studio) all'interno delle virgolette doppie ("") per passare a C#, proprio come se ci si trovasse in una classe C#. IntelliSense visualizza tutti i metodi e le proprietà nel modello di pagina. I metodi e le proprietà sono disponibili perché il tipo di proprietà è `ModelExpression`. Nell'immagine seguente viene modificata la visualizzazione `Register`, quindi è disponibile il modello `RegisterViewModel`.
 
-![immagine](intro/_static/intellemail.png)
+![image](intro/_static/intellemail.png)
 
 IntelliSense elenca le proprietà e i metodi disponibili per il modello nella pagina. L'ambiente avanzato di IntelliSense consente di selezionare la classe CSS:
 
-![immagine](intro/_static/iclass.png)
+![image](intro/_static/iclass.png)
 
-![immagine](intro/_static/intel3.png)
+![image](intro/_static/intel3.png)
 
 ## <a name="tag-helpers-compared-to-html-helpers"></a>Helper tag e helper HTML a confronto
 
@@ -213,13 +213,13 @@ Usando `LabelTagHelper`, è possibile scrivere lo stesso markup nel modo seguent
 
 Con la versione helper tag, non appena si digita `<l` nell'editor di Visual Studio, IntelliSense visualizza gli elementi corrispondenti:
 
-![immagine](intro/_static/label.png)
+![image](intro/_static/label.png)
 
 IntelliSense aiuta a scrivere l'intera riga.
 
 L'immagine di codice seguente illustra la porzione Form della visualizzazione Razor *Views/Account/Register.cshtml* generata dal modello MVC di ASP.NET 4.5.x incluso in Visual Studio.
 
-![immagine](intro/_static/regCS.png)
+![image](intro/_static/regCS.png)
 
 Nell'editor di Visual Studio il codice C# viene visualizzato con uno sfondo grigio. Ad esempio, l'helper HTML `AntiForgeryToken`:
 
@@ -229,7 +229,7 @@ Nell'editor di Visual Studio il codice C# viene visualizzato con uno sfondo grig
 
 viene visualizzato con uno sfondo grigio. La maggior parte del markup nella visualizzazione Register è C#. Confrontarlo con l'approccio equivalente usando gli helper tag:
 
-![immagine](intro/_static/regTH.png)
+![image](intro/_static/regTH.png)
 
 Rispetto all'approccio con gli helper HTML, il markup è molto più chiaro e facile da leggere, modificare e gestire. Il codice C# è ridotto al numero minimo di elementi che il server deve conoscere. Nell'editor di Visual Studio il markup di destinazione di un helper tag viene visualizzato in un tipo di carattere distintivo.
 
@@ -263,7 +263,7 @@ L'editor di Visual Studio agevola la scrittura di **tutto** il markup nell'appro
 
 È possibile personalizzare il tipo di carattere e la colorazione in **Strumenti** > **Opzioni** > **Ambiente** > **Tipi di carattere e colori**:
 
-![immagine](intro/_static/fontoptions2.png)
+![image](intro/_static/fontoptions2.png)
 
 [!INCLUDE[](~/includes/built-in-TH.md)]
 

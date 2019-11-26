@@ -32,7 +32,7 @@ Al termine, si disporrà di un'app di chat funzionante:
 
 ![[! OP. App di esempio NO-LOC (SignalR)]](signalr/_static/3.x/signalr-get-started-finished.png)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -263,7 +263,7 @@ Questa esercitazione illustra le nozioni di base per la creazione di un'app in t
 > * Aggiungere codice che invia messaggi da qualsiasi client a tutti i client connessi.  
 Alla fine, sarà presente un'app di chat funzionante: ![[! OP. NO-LOC (SignalR)] app di esempio](signalr/_static/2.x/signalr-get-started-finished.png)   
 
-## <a name="prerequisites"></a>Prerequisites    
+## <a name="prerequisites"></a>Prerequisiti    
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)   
 
@@ -312,7 +312,7 @@ Alla fine, sarà presente un'app di chat funzionante: ![[! OP. NO-LOC (SignalR)]
 
 * Selezionare **.NET Core > App > App Web ASP.NET Core** (non selezionare **App Web ASP.NET Core (MVC)** ).  
 
-* Scegliere **Avanti**.  
+* Fare clic su **Avanti**.  
 
 * Assegnare al progetto il nome *SignalRChat* e quindi selezionare **Crea**.   
 
