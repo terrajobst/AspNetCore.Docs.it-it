@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni su come funziona l'associazione di modelli in ASP.NET Core e su come personalizzarne il comportamento.
 ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: riande
-ms.date: 11/15/2019
+ms.date: 11/21/2019
 uid: mvc/models/model-binding
-ms.openlocfilehash: a025419a5b4d2c2e3e5c5a7850df281ddd3164ea
-ms.sourcegitcommit: f91d322f790123d41ec3271fa084ae20ed9f89a6
+ms.openlocfilehash: 823d92c279454fc6c744eebbecf4268412774eba
+ms.sourcegitcommit: a104ba258ae7c0b3ee7c6fa7eaea1ddeb8b6eb73
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74155048"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74478709"
 ---
 # <a name="model-binding-in-aspnet-core"></a>Associazione di modelli in ASP.NET Core
 
@@ -40,7 +40,7 @@ E l'app riceve una richiesta con questo URL:
 http://contoso.com/api/pets/2?DogsOnly=true
 ```
 
-L'associazione di modelli esegue i passaggi seguenti dopo che il sistema di routing seleziona il metodo di azione:
+Model binding goes through the following steps after the routing system selects the action method:
 
 * Trova il primo parametro di `GetByID`, un intero denominato `id`.
 * Esamina le origini disponibili nella richiesta HTTP e trova `id` = "2" nei dati di route.
@@ -83,18 +83,18 @@ Per impostazione predefinita, le proprietà non vengono associate per le richies
 
 Per impostazione predefinita, l'associazione di modelli ottiene i dati sotto forma di coppie chiave-valore dalle origini seguenti in una richiesta HTTP:
 
-1. Campi modulo 
+1. Campi modulo
 1. Il corpo della richiesta (per i controller [ con l'attributo [ApiController]](xref:web-api/index#binding-source-parameter-inference).)
 1. Dati della route
 1. Parametri della stringa di query
-1. File caricati 
+1. File caricati
 
-Per ogni parametro o proprietà di destinazione, le origini vengono analizzate nell'ordine indicato in questo elenco. Esistono tuttavia alcune eccezioni:
+For each target parameter or property, the sources are scanned in the order indicated in the preceding list. Esistono tuttavia alcune eccezioni:
 
 * I dati di route e i valori delle stringhe di query vengono usati solo per i tipi semplici.
 * I file caricati vengono associati solo ai tipi di destinazione che implementano `IFormFile` o `IEnumerable<IFormFile>`.
 
-Se il comportamento predefinito non fornisce i risultati corretti, è possibile usare uno degli attributi seguenti per specificare l'origine da usare per qualsiasi destinazione specificata. 
+If the default source is not correct, use one of the following attributes to specify the source:
 
 * [[FromQuery] ](xref:Microsoft.AspNetCore.Mvc.FromQueryAttribute) - Ottiene i valori dalla stringa di query. 
 * [[FromRoute] ](xref:Microsoft.AspNetCore.Mvc.FromRouteAttribute) -Ottiene i valori dai dati di route.
@@ -114,9 +114,34 @@ Questi attributi:
 
 ### <a name="frombody-attribute"></a>Attributo [FromBody]
 
-I dati del corpo della richiesta vengono analizzati tramite i formattatori di input specifici per il tipo di contenuto della richiesta. I formattatori di input sono descritti [più avanti in questo articolo](#input-formatters).
+Apply the `[FromBody]` attribute to a parameter to populate its properties from the body of an HTTP request. The ASP.NET Core runtime delegates the responsibility of reading the body to an input formatter. I formattatori di input sono descritti [più avanti in questo articolo](#input-formatters).
 
-Non applicare `[FromBody]` a più di un parametro per ogni metodo di azione. Il runtime di ASP.NET Core delega la responsabilità della lettura del flusso di richiesta al formattatore di input. Dopo la lettura, il flusso di richiesta non è più disponibile per altre letture per l'associazione di altri parametri `[FromBody]`.
+When `[FromBody]` is applied to a complex type parameter, any binding source attributes applied to its properties are ignored. For example, the following `Create` action specifies that its `pet` parameter is populated from the body:
+
+```csharp
+public ActionResult<Pet> Create([FromBody] Pet pet)
+```
+
+The `Pet` class specifies that its `Breed` property is populated from a query string parameter:
+
+```csharp
+public class Pet
+{
+    public string Name { get; set; }
+
+    [FromQuery] // Attribute is ignored.
+    public string Breed { get; set; }
+}
+```
+
+Nell'esempio precedente:
+
+* The `[FromQuery]` attribute is ignored.
+* The `Breed` property is not populated from a query string parameter. 
+
+Input formatters read only the body and don't understand binding source attributes. If a suitable value is found in the body, that value is used to populate the `Breed` property.
+
+Non applicare `[FromBody]` a più di un parametro per ogni metodo di azione. Once the request stream is read by an input formatter, it's no longer available to be read again for binding other `[FromBody]` parameters.
 
 ### <a name="additional-sources"></a>Origini aggiuntive
 
