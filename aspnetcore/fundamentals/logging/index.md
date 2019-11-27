@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/19/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: b23e64077290f0f613e904651e4bb640fcbba95d
-ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
+ms.openlocfilehash: 23ce2d09d2ce9f415ce71bcd7c21c29cb2a040fc
+ms.sourcegitcommit: 918d7000b48a2892750264b852bad9e96a1165a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74289083"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74550367"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>Registrazione in .NET Core e ASP.NET Core
 
@@ -48,7 +48,7 @@ In un'app console non host chiamare il metodo di estensione `Add{provider name}`
 
 I modelli di progetto ASP.NET Core predefiniti chiamano <xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder%2A>, che aggiunge i provider di registrazione seguenti:
 
-* Console
+* Console di
 * Debug
 * EventSource
 * EventLog (solo quando è in esecuzione su Windows)
@@ -69,7 +69,7 @@ Il codice precedente richiede riferimenti a `Microsoft.Extensions.Logging` e `Mi
 
 Il modello di progetto predefinito chiama <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder%2A>, che aggiunge i provider di registrazione seguenti:
 
-* Console
+* Console di
 * Debug
 * EventSource (a partire da ASP.NET Core 2.2)
 
@@ -295,9 +295,9 @@ public class Program
 
 ### <a name="no-asynchronous-logger-methods"></a>Evitare l'uso di metodi logger asincroni
 
-La registrazione deve essere così rapida da non giustificare l'impatto sulle prestazioni del codice asincrono. Se l'archivio dati di registrazione è lento, non scrivere direttamente al suo interno. Scrivere invece i messaggi di log prima in un archivio veloce e quindi spostarli nell'archivio lento in un secondo momento. Ad esempio, se la registrazione viene eseguita in SQL Server, è preferibile non farlo direttamente in un metodo `Log`, poiché i metodi `Log` sono sincroni. Al contrario, aggiungere i messaggi di log in modo sincrono a una coda in memoria e usare un ruolo di lavoro in background per eseguire il pull dei messaggi dalla coda per eseguire le operazioni asincrone di push dei dati in SQL Server.
+La registrazione deve essere così rapida da non giustificare l'impatto sulle prestazioni del codice asincrono. Se l'archivio dati di registrazione è lento, non scrivere direttamente al suo interno. Scrivere invece i messaggi di log prima in un archivio veloce e quindi spostarli nell'archivio lento in un secondo momento. Ad esempio, se la registrazione viene eseguita in SQL Server, è preferibile non farlo direttamente in un metodo `Log`, poiché i metodi `Log` sono sincroni. Al contrario, aggiungere i messaggi di log in modo sincrono a una coda in memoria e usare un ruolo di lavoro in background per eseguire il pull dei messaggi dalla coda per eseguire le operazioni asincrone di push dei dati in SQL Server. Per altre informazioni, vedere [questo](https://github.com/aspnet/AspNetCore.Docs/issues/11801) problema di GitHub.
 
-## <a name="configuration"></a>Configurazione
+## <a name="configuration"></a>Configurazione di
 
 La configurazione dei provider di registrazione viene fornita da uno o più provider di configurazione:
 
@@ -696,7 +696,7 @@ System.Exception: Item not found exception.
    at TodoApiSample.Controllers.TodoController.GetById(String id) in C:\TodoApiSample\Controllers\TodoController.cs:line 226
 ```
 
-## <a name="log-filtering"></a>Filtro del log
+## <a name="log-filtering"></a>Filtro dei log
 
 È possibile specificare un livello di registrazione minimo per un provider e una categoria specifici oppure per tutti i provider o tutte le categorie. Tutti i log sotto il livello minimo non sono passati al provider, quindi non vengono visualizzati o archiviati.
 
@@ -744,13 +744,13 @@ Il secondo `AddFilter` specifica il provider Debug tramite il nome del tipo. Il 
 
 I dati di configurazione e il codice `AddFilter` illustrato negli esempi precedenti creano le regole indicate nella tabella seguente. I primi sei provengono dall'esempio di configurazione e gli ultimi due dall'esempio di codice.
 
-| NUMBER | Provider      | Categorie che iniziano con...          | Livello di registrazione minimo |
+| Number | Provider      | Categorie che iniziano con...          | Livello di registrazione minimo |
 | :----: | ------------- | --------------------------------------- | ----------------- |
-| 1      | Debug         | Tutte le categorie                          | Informazioni       |
-| 2      | Console       | Microsoft.AspNetCore.Mvc.Razor.Internal | Avviso           |
-| 3      | Console       | Microsoft.AspNetCore.Mvc.Razor.Razor    | Debug             |
-| 4      | Console       | Microsoft.AspNetCore.Mvc.Razor          | Errore             |
-| 5      | Console       | Tutte le categorie                          | Informazioni       |
+| 1      | Debug         | Tutte le categorie                          | Informazioni su       |
+| 2      | Console di       | Microsoft.AspNetCore.Mvc.Razor.Internal | Avviso           |
+| 3\.      | Console di       | Microsoft.AspNetCore.Mvc.Razor.Razor    | Debug             |
+| 4      | Console di       | Microsoft.AspNetCore.Mvc.Razor          | Errore di             |
+| 5      | Console di       | Tutte le categorie                          | Informazioni su       |
 | 6      | Tutti i provider | Tutte le categorie                          | Debug             |
 | 7      | Tutti i provider | System                                  | Debug             |
 | 8      | Debug         | Microsoft                               | Traccia             |
@@ -775,11 +775,11 @@ L'istanza di `ILogger` risultante invia i log di livello `Trace` o superiore al 
 
 Ogni provider definisce un *alias* che può essere utilizzato nella configurazione al posto del nome completo di tipo.  Per i provider predefiniti, usare gli alias seguenti:
 
-* Console
+* Console di
 * Debug
 * EventSource
 * EventLog
-* TraceSource
+* Origine traccia
 * AzureAppServicesFile
 * AzureAppServicesBlob
 * ApplicationInsights
@@ -822,7 +822,7 @@ Una funzione di filtro viene richiamata per tutti i provider e le categorie a cu
 
 Di seguito sono elencate alcune categorie usate da ASP.NET Core ed Entity Framework Core, con note sui log previsti per ognuna:
 
-| Categoria                            | Note |
+| Category                            | Note |
 | ----------------------------------- | ----- |
 | Microsoft.AspNetCore                | Diagnostica generale di ASP.NET Core. |
 | Microsoft.AspNetCore.DataProtection | Chiavi considerate, trovate e usate. |
@@ -1001,7 +1001,7 @@ Usare gli strumenti di traccia DotNet per raccogliere una traccia da un'app:
    | 0           | `LogAlways`     |
    | 1           | `Critical`      |
    | 2           | `Error`         |
-   | 3           | `Warning`       |
+   | 3\.           | `Warning`       |
    | 4           | `Informational` |
    | 5           | `Verbose`       |
 

@@ -5,16 +5,16 @@ description: Informazioni su come instradare le richieste nelle app e sul compon
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/15/2019
+ms.date: 11/23/2019
 no-loc:
 - Blazor
 uid: blazor/routing
-ms.openlocfilehash: d4b76c00f79f333884fa7e30b27eadc6e36de287
-ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
+ms.openlocfilehash: 2c139db4e44679fbd9f3455a2d2543be0e128765
+ms.sourcegitcommit: 918d7000b48a2892750264b852bad9e96a1165a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72589933"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74550332"
 ---
 # <a name="aspnet-core-opno-locblazor-routing"></a>Routing ASP.NET Core Blazor
 
@@ -56,12 +56,12 @@ In fase di esecuzione, il componente `RouteView`:
 
 Facoltativamente, è possibile specificare un parametro `DefaultLayout` con una classe layout da utilizzare per i componenti che non specificano un layout. I modelli Blazor predefiniti specificano il componente `MainLayout`. *MainLayout. Razor* si trova nella cartella *condivisa* del progetto modello. Per ulteriori informazioni sui layout, vedere <xref:blazor/layouts>.
 
-È possibile applicare più modelli di route a un componente. Il componente seguente risponde alle richieste per `/BlazorRoute` e `/DifferentBlazorRoute`:
+È possibile applicare più modelli di route a un componente. Il componente seguente risponde alle richieste di `/BlazorRoute` e `/DifferentBlazorRoute`:
 
 [!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/BlazorRoute.razor?name=snippet_BlazorRoute)]
 
 > [!IMPORTANT]
-> Per risolvere correttamente gli URL, l'app deve includere un tag `<base>` nel file *wwwroot/index.html* (Blazor webassembly) o nel file *pages/_Host. cshtml* (server Blazor) con il percorso di base dell'app specificato nell'attributo `href` (`<base href="/">`). Per ulteriori informazioni, vedere <xref:host-and-deploy/blazor/index#app-base-path>.
+> Per la corretta risoluzione degli URL, l'app deve includere un tag `<base>` nel file *wwwroot/index.html* (Blazor webassembly) o nel file *pages/_Host. cshtml* (Blazor Server) con il percorso di base dell'app specificato nell'attributo `href` (`<base href="/">`). Per ulteriori informazioni, vedere <xref:host-and-deploy/blazor/index#app-base-path>.
 
 ## <a name="provide-custom-content-when-content-isnt-found"></a>Fornire contenuto personalizzato quando il contenuto non è stato trovato
 
@@ -116,23 +116,23 @@ Nell'esempio seguente, la route per il componente `Users` corrisponde solo a se:
 
 Sono disponibili i vincoli di route indicati nella tabella seguente. Per ulteriori informazioni, vedere l'avviso sotto la tabella per i vincoli di route corrispondenti alla lingua inglese.
 
-| Vincolo | Esempio           | Esempi di corrispondenza                                                                  | Invariante<br>impostazioni cultura<br>corrispondenti |
+| Vincolo | Esempio           | Esempi di corrispondenza                                                                  | Invariante<br>lingua<br>corrispondenze |
 | ---------- | ----------------- | -------------------------------------------------------------------------------- | :------------------------------: |
 | `bool`     | `{active:bool}`   | `true`, `FALSE`                                                                  | No                               |
-| `datetime` | `{dob:datetime}`  | `2016-12-31`, `2016-12-31 7:32pm`                                                | Yes                              |
-| `decimal`  | `{price:decimal}` | `49.99`, `-1,000.01`                                                             | Yes                              |
-| `double`   | `{weight:double}` | `1.234`, `-1,001.01e8`                                                           | Yes                              |
-| `float`    | `{weight:float}`  | `1.234`, `-1,001.01e8`                                                           | Yes                              |
+| `datetime` | `{dob:datetime}`  | `2016-12-31`, `2016-12-31 7:32pm`                                                | Sì                              |
+| `decimal`  | `{price:decimal}` | `49.99`, `-1,000.01`                                                             | Sì                              |
+| `double`   | `{weight:double}` | `1.234`, `-1,001.01e8`                                                           | Sì                              |
+| `float`    | `{weight:float}`  | `1.234`, `-1,001.01e8`                                                           | Sì                              |
 | `guid`     | `{id:guid}`       | `CD2C1638-1638-72D5-1638-DEADBEEF1638`, `{CD2C1638-1638-72D5-1638-DEADBEEF1638}` | No                               |
-| `int`      | `{id:int}`        | `123456789`, `-123456789`                                                        | Yes                              |
-| `long`     | `{ticks:long}`    | `123456789`, `-123456789`                                                        | Yes                              |
+| `int`      | `{id:int}`        | `123456789`, `-123456789`                                                        | Sì                              |
+| `long`     | `{ticks:long}`    | `123456789`, `-123456789`                                                        | Sì                              |
 
 > [!WARNING]
 > I vincoli di route che verificano l'URL e vengono convertiti in un tipo CLR, ad esempio `int` o `DateTime`, usano sempre le impostazioni cultura inglese non dipendenti da paese/area geografica, presupponendo che l'URL sia non localizzabile.
 
 ### <a name="routing-with-urls-that-contain-dots"></a>Routing con URL contenenti punti
 
-Nelle app Blazor server la route predefinita in *_Host. cshtml* è `/` (`@page "/"`). Un URL di richiesta che contiene un punto (`.`) non corrisponde alla route predefinita perché l'URL viene visualizzato per richiedere un file. Un'app Blazor restituisce una risposta *404 non trovata* per un file statico che non esiste. Per usare le route che contengono un punto, configurare *_Host. cshtml* con il modello di route seguente:
+Nelle app Blazor server la route predefinita *_Host. cshtml* è `/` (`@page "/"`). Un URL di richiesta che contiene un punto (`.`) non corrisponde alla route predefinita perché l'URL viene visualizzato per richiedere un file. Un'app Blazor restituisce una risposta *404 non trovata* per un file statico che non esiste. Per usare le route che contengono un punto, configurare *_Host. cshtml* con il modello di route seguente:
 
 ```cshtml
 @page "/{**path}"
@@ -141,7 +141,10 @@ Nelle app Blazor server la route predefinita in *_Host. cshtml* è `/` (`@page "
 Il modello di `"/{**path}"` include:
 
 * Sintassi Double-asterisco *catch-all* (`**`) per acquisire il percorso tra più limiti di cartella senza barre di codifica (`/`).
-* Nome del parametro di route `path`.
+* nome del parametro di route `path`.
+
+> [!NOTE]
+> La sintassi dei parametri *catch-all* (`*`/`**`) **non** è supportata nei componenti Razor (*Razor*).
 
 Per ulteriori informazioni, vedere <xref:fundamentals/routing>.
 
