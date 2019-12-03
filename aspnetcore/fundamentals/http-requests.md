@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 11/27/2019
 uid: fundamentals/http-requests
-ms.openlocfilehash: 7a5b5c84775ea2482034ef9f3e8a2376036e66cb
-ms.sourcegitcommit: a104ba258ae7c0b3ee7c6fa7eaea1ddeb8b6eb73
+ms.openlocfilehash: 746604bc92775a6fac124ee8bfcf37635786fe41
+ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74478740"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74717009"
 ---
 # <a name="make-http-requests-using-ihttpclientfactory-in-aspnet-core"></a>Effettuare richieste HTTP usando IHttpClientFactory in ASP.NET Core
 
@@ -189,7 +189,7 @@ public class ValuesController : ControllerBase
 
     * memorizzazione nella cache
     * gestione errori
-    * serializzazione
+    * serialization
     * registrazione
 
 Per creare un gestore di delega:
@@ -293,7 +293,7 @@ Mantenere una sola istanza di `HttpClient` attiva per un lungo periodo di tempo 
 L'uso di `IHttpClientFactory` in un'app abilitata per la funzionalità consente DI evitare:
 
 * Problemi di esaurimento delle risorse raggruppando le istanze `HttpMessageHandler`.
-* Problemi di DNS non aggiornati tramite il ciclo di `HttpMessageHandler` istanze nelle istanze regolari.
+* Problemi relativi a DNS obsoleti ciclando `HttpMessageHandler` istanze a intervalli regolari.
 
 Esistono modi alternativi per risolvere i problemi precedenti utilizzando un'istanza di <xref:System.Net.Http.SocketsHttpHandler> di lunga durata.
 
@@ -304,7 +304,7 @@ Esistono modi alternativi per risolvere i problemi precedenti utilizzando un'ist
 Gli approcci precedenti risolvono i problemi di gestione delle risorse che `IHttpClientFactory` risolve in modo analogo.
 
 - Il `SocketsHttpHandler` condivide le connessioni tra le istanze di `HttpClient`. Questa condivisione impedisce l'esaurimento del socket.
-- Il `SocketsHttpHandler ` cicla le connessioni in base `PooledConnectionLifetime` per evitare problemi di stato-DNS.
+- Il `SocketsHttpHandler` cicla le connessioni in base a `PooledConnectionLifetime` per evitare problemi DNS non aggiornati.
 
 ### <a name="cookies"></a>Cookie
 
@@ -594,7 +594,7 @@ Mantenere una sola istanza di `HttpClient` attiva per un lungo periodo di tempo 
 L'uso di `IHttpClientFactory` in un'app abilitata per la funzionalità consente DI evitare:
 
 * Problemi di esaurimento delle risorse raggruppando le istanze `HttpMessageHandler`.
-* Problemi di DNS non aggiornati tramite il ciclo di `HttpMessageHandler` istanze nelle istanze regolari.
+* Problemi relativi a DNS obsoleti ciclando `HttpMessageHandler` istanze a intervalli regolari.
 
 Esistono modi alternativi per risolvere i problemi precedenti utilizzando un'istanza di <xref:System.Net.Http.SocketsHttpHandler> di lunga durata.
 
@@ -605,7 +605,7 @@ Esistono modi alternativi per risolvere i problemi precedenti utilizzando un'ist
 Gli approcci precedenti risolvono i problemi di gestione delle risorse che `IHttpClientFactory` risolve in modo analogo.
 
 - Il `SocketsHttpHandler` condivide le connessioni tra le istanze di `HttpClient`. Questa condivisione impedisce l'esaurimento del socket.
-- Il `SocketsHttpHandler ` cicla le connessioni in base `PooledConnectionLifetime` per evitare problemi di stato-DNS.
+- Il `SocketsHttpHandler` cicla le connessioni in base a `PooledConnectionLifetime` per evitare problemi DNS non aggiornati.
 
 ### <a name="cookies"></a>Cookie
 
@@ -674,7 +674,7 @@ Di [Glenn Condron](https://github.com/glennc), [Ryan Nowak](https://github.com/r
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/http-requests/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 I progetti destinati a .NET Framework richiedono l'installazione del pacchetto NuGet [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/). I progetti destinati a .NET Core che fanno riferimento al [metapacchetto Microsoft.AspNetCore.All](xref:fundamentals/metapackage-app) sono già inclusi nel pacchetto `Microsoft.Extensions.Http`.
 
@@ -902,7 +902,7 @@ Mantenere una sola istanza di `HttpClient` attiva per un lungo periodo di tempo 
 L'uso di `IHttpClientFactory` in un'app abilitata per la funzionalità consente DI evitare:
 
 * Problemi di esaurimento delle risorse raggruppando le istanze `HttpMessageHandler`.
-* Problemi di DNS non aggiornati tramite il ciclo di `HttpMessageHandler` istanze nelle istanze regolari.
+* Problemi relativi a DNS obsoleti ciclando `HttpMessageHandler` istanze a intervalli regolari.
 
 Esistono modi alternativi per risolvere i problemi precedenti utilizzando un'istanza di <xref:System.Net.Http.SocketsHttpHandler> di lunga durata.
 
@@ -913,7 +913,7 @@ Esistono modi alternativi per risolvere i problemi precedenti utilizzando un'ist
 Gli approcci precedenti risolvono i problemi di gestione delle risorse che `IHttpClientFactory` risolve in modo analogo.
 
 - Il `SocketsHttpHandler` condivide le connessioni tra le istanze di `HttpClient`. Questa condivisione impedisce l'esaurimento del socket.
-- Il `SocketsHttpHandler ` cicla le connessioni in base `PooledConnectionLifetime` per evitare problemi di stato-DNS.
+- Il `SocketsHttpHandler` cicla le connessioni in base a `PooledConnectionLifetime` per evitare problemi DNS non aggiornati.
 
 ### <a name="cookies"></a>Cookie
 

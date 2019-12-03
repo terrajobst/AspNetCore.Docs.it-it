@@ -6,12 +6,12 @@ ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: riande
 ms.date: 11/21/2019
 uid: mvc/models/model-binding
-ms.openlocfilehash: 823d92c279454fc6c744eebbecf4268412774eba
-ms.sourcegitcommit: a104ba258ae7c0b3ee7c6fa7eaea1ddeb8b6eb73
+ms.openlocfilehash: a49fec38a6d38bbd33e9461cbcceb39bfe810f5c
+ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74478709"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74717286"
 ---
 # <a name="model-binding-in-aspnet-core"></a>Associazione di modelli in ASP.NET Core
 
@@ -380,6 +380,27 @@ Per le destinazioni `Dictionary`, l'associazione di modelli cerca le corrisponde
 
   * selectedCourses["1050"]="Chemistry"
   * selectedCourses["2000"]="Economics"
+
+<a name="glob"></a>
+
+## <a name="globalization-behavior-of-model-binding-route-data-and-query-strings"></a>Comportamento di globalizzazione dell'associazione di modelli dati della route e stringhe di query
+
+Il provider del valore della route ASP.NET Core e il provider del valore della stringa di query:
+
+* Considera i valori come impostazioni cultura invarianti.
+* Si prevede che gli URL siano impostazioni cultura invarianti.
+
+Al contrario, i valori provenienti dai dati del form subiscono una conversione con distinzione delle impostazioni cultura. Questa operazione è progettata in modo che gli URL siano condivisibili tra le impostazioni locali.
+
+Per rendere il provider del valore di route ASP.NET Core e il provider di valori della stringa di query sottoposti a una conversione dipendente dalle impostazioni cultura:
+
+* Ereditano da <xref:Microsoft.AspNetCore.Mvc.ModelBinding.IValueProviderFactory>
+* Copiare il codice da [QueryStringValueProviderFactory](https://github.com/aspnet/AspNetCore/blob/master/src/Mvc/Mvc.Core/src/ModelBinding/QueryStringValueProviderFactory.cs) o [RouteValueValueProviderFactory](https://github.com/aspnet/AspNetCore/blob/master/src/Mvc/Mvc.Core/src/ModelBinding/RouteValueProviderFactory.cs)
+* Sostituire il [valore delle impostazioni cultura](https://github.com/aspnet/AspNetCore/blob/e625fe29b049c60242e8048b4ea743cca65aa7b5/src/Mvc/Mvc.Core/src/ModelBinding/QueryStringValueProviderFactory.cs#L30) passato al costruttore del provider di valori con [CultureInfo. CurrentCulture](xref:System.Globalization.CultureInfo.CurrentCulture)
+* Sostituire la factory del provider di valori predefinito in opzioni MVC con la nuova:
+
+[!code-csharp[](model-binding/samples/StartupMB.cs?name=snippet)]
+[!code-csharp[](model-binding/samples/StartupMB.cs?name=snippet1)]
 
 ## <a name="special-data-types"></a>Tipi di dati speciali
 

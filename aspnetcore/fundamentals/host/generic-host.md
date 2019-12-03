@@ -5,14 +5,14 @@ description: Informazioni sull'host generico .NET Core, che gestisce l'avvio e l
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/15/2019
+ms.date: 12/02/2019
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: f14917ad924e2c762a14c2cb5f51391d4be06e7b
-ms.sourcegitcommit: dd026eceee79e943bd6b4a37b144803b50617583
+ms.openlocfilehash: 2ed4af109b5ccd303a03a0d9167649dda7793126
+ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72378758"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74717022"
 ---
 # <a name="net-generic-host"></a>Host generico .NET
 
@@ -26,7 +26,7 @@ Un *host* è un oggetto che incapsula le risorse di un'app, ad esempio:
 
 * Inserimento di dipendenze (DI)
 * Registrazione
-* Configurazione
+* Configurazione di
 * `IHostedService` Implementazioni
 
 Quando un host viene avviato, chiama `IHostedService.StartAsync` in ogni implementazione di <xref:Microsoft.Extensions.Hosting.IHostedService> che trova nel contenitore di inserimento delle dipendenze. In un'app Web, una delle implementazioni di `IHostedService` è un servizio web che avvia un'[implementazione del server HTTP](xref:fundamentals/index#servers).
@@ -89,7 +89,7 @@ Il metodo <xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder*>:
   * Variabili di ambiente.
   * Argomenti della riga di comando.
 * Aggiunge i provider di [log](xref:fundamentals/logging/index) seguenti:
-  * Console
+  * Console di
   * Debug
   * EventSource
   * EventLog (solo quando è in esecuzione su Windows)
@@ -119,7 +119,7 @@ Per ulteriori informazioni sui servizi forniti dal Framework, vedere <xref:funda
 
 Inserire il servizio <xref:Microsoft.Extensions.Hosting.IHostApplicationLifetime> (in precedenza `IApplicationLifetime`) in qualsiasi classe per gestire le attività post-avvio e di arresto normale. Tre proprietà nell'interfaccia sono token di annullamento usati per registrare i metodi del gestore dell'evento di avvio e di arresto. L'interfaccia include anche un metodo `StopApplication`.
 
-L'esempio seguente è un'implementazione di `IHostedService` che registra gli eventi `IHostApplicationLifetime`:
+L'esempio seguente è un'implementazione di `IHostedService` che registra eventi `IHostApplicationLifetime`:
 
 [!code-csharp[](generic-host/samples-snapshot/3.x/LifetimeEventsHostedService.cs?name=snippet_LifetimeEvents)]
 
@@ -129,7 +129,7 @@ L'implementazione <xref:Microsoft.Extensions.Hosting.IHostLifetime> controlla qu
 
 `Microsoft.Extensions.Hosting.Internal.ConsoleLifetime` è l'implementazione `IHostLifetime` predefinita. `ConsoleLifetime`:
 
-* resta in ascolto di CTRL+C/SIGINT o SIGTERM e chiama <xref:Microsoft.Extensions.Hosting.IApplicationLifetime.StopApplication*> per avviare il processo di arresto.
+* Ascolta la combinazione di tasti CTRL + C/SIGINT o SIGTERM e chiama <xref:Microsoft.Extensions.Hosting.IHostApplicationLifetime.StopApplication*> per avviare il processo di arresto.
 * Sblocca estensioni come [RunAsync](#runasync) e [WaitForShutdownAsync](#waitforshutdownasync).
 
 ## <a name="ihostenvironment"></a>IHostEnvironment
@@ -140,9 +140,7 @@ Inserire il servizio <xref:Microsoft.Extensions.Hosting.IHostEnvironment> in una
 * [EnvironmentName](#environmentname)
 * [ContentRootPath](#contentrootpath)
 
-Le app Web implementano l'interfaccia `IWebHostEnvironment`, che eredita `IHostEnvironment` e aggiunge:
-
-* [WebRootPath](#webroot)
+Le app Web implementano l'interfaccia `IWebHostEnvironment`, che eredita `IHostEnvironment` e aggiunge [WebRootPath](#webroot).
 
 ## <a name="host-configuration"></a>Configurazione dell'host
 
@@ -226,7 +224,7 @@ Host.CreateDefaultBuilder(args)
 
 [HostOptions.ShutdownTimeout](xref:Microsoft.Extensions.Hosting.HostOptions.ShutdownTimeout*) imposta il timeout per <xref:Microsoft.Extensions.Hosting.IHost.StopAsync*>. Il valore predefinito è cinque secondi.  Durante il periodo di timeout, l'host:
 
-* attiva [IHostApplicationLifetime.ApplicationStopping](/dotnet/api/microsoft.aspnetcore.hosting.iapplicationlifetime.applicationstopping).
+* attiva [IHostApplicationLifetime.ApplicationStopping](/dotnet/api/microsoft.aspnetcore.hosting.ihostapplicationlifetime.applicationstopping).
 * Tenta di arrestare i servizi ospitati, registrando gli errori per i servizi che non si interrompono.
 
 Se il periodo di timeout scade prima che siano stati arrestati tutti i servizi ospitati, gli eventuali servizi attivi rimanenti vengono interrotti quando l'app viene arrestata. I servizi si arrestano anche se non hanno completato l'elaborazione. Se l'arresto dei servizi richiede più tempo, aumentare il valore di timeout.
@@ -420,7 +418,7 @@ Per altre informazioni, vedere:
 
 Chiamare metodi sull'implementazione <xref:Microsoft.Extensions.Hosting.IHost> incorporata per avviare e arrestare l'app. Questi metodi influiscono su tutte le implementazioni <xref:Microsoft.Extensions.Hosting.IHostedService> che vengono registrate nel contenitore dei servizi.
 
-### <a name="run"></a>Esegui
+### <a name="run"></a>Eseguire
 
 <xref:Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run*> esegue l'app e blocca il thread di chiamata fino all'arresto dell'host.
 
@@ -517,7 +515,7 @@ La libreria host generico è disponibile nello spazio dei nomi <xref:Microsoft.E
 
 [!code-csharp[](generic-host/samples-snapshot/2.x/GenericHostSample/Program.cs?name=snippet_HostBuilder)]
 
-## <a name="options"></a>Opzioni
+## <a name="options"></a>Options
 
 <xref:Microsoft.Extensions.Hosting.HostOptions> configura le opzioni per <xref:Microsoft.Extensions.Hosting.IHost>.
 
@@ -740,7 +738,7 @@ public static class Extensions
 
 L'implementazione <xref:Microsoft.Extensions.Hosting.IHost> è responsabile dell'avvio e arresto delle implementazioni <xref:Microsoft.Extensions.Hosting.IHostedService> che sono registrate nel contenitore di servizi.
 
-### <a name="run"></a>Esegui
+### <a name="run"></a>Eseguire
 
 <xref:Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run*> esegue l'app e blocca il thread di chiamata fino all'arresto dell'host:
 

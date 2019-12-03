@@ -5,14 +5,14 @@ description: Informazioni su come usare lo strumento globale REPL HTTP .NET Core
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 10/07/2019
+ms.date: 12/02/2019
 uid: web-api/http-repl
-ms.openlocfilehash: bb3757f51487a307ebfb97452b80995f84e95e4b
-ms.sourcegitcommit: 73a451e9a58ac7102f90b608d661d8c23dd9bbaf
+ms.openlocfilehash: c6e3ab5685b5bd0b154d20585fb0d187f81da641
+ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72037718"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74717165"
 ---
 # <a name="test-web-apis-with-the-http-repl"></a>Testare le API Web con il ciclo Read-Eval-Print (REPL) HTTP
 
@@ -27,20 +27,20 @@ Il ciclo Read-Eval-Print (REPL) HTTP:
 Sono supportati i [verbi HTTP](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#74-supported-methods) seguenti:
 
 * [DELETE](#test-http-delete-requests)
-* [GET](#test-http-get-requests)
+* [Ottieni](#test-http-get-requests)
 * [HEAD](#test-http-head-requests)
 * [OPTIONS](#test-http-options-requests)
 * [PATCH](#test-http-patch-requests)
-* [POST](#test-http-post-requests)
-* [PUT](#test-http-put-requests)
+* [Inserisci](#test-http-post-requests)
+* [METTERE](#test-http-put-requests)
 
 Per continuare, [visualizzare o scaricare l'API Web ASP.NET Core di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/http-repl/samples) ([come scaricare](xref:index#how-to-download-a-sample)).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [!INCLUDE [2.1-SDK](~/includes/2.1-SDK.md)]
 
-## <a name="installation"></a>Installazione
+## <a name="installation"></a>Installazione di
 
 Per installare il ciclo Read-Eval-Print HTTP, eseguire il comando seguente:
 
@@ -50,7 +50,7 @@ dotnet tool install -g Microsoft.dotnet-httprepl
 
 Viene installato uno [strumento globale .NET Core](/dotnet/core/tools/global-tools#install-a-global-tool) dal pacchetto NuGet [Microsoft.dotnet-httprepl](https://www.nuget.org/packages/Microsoft.dotnet-httprepl).
 
-## <a name="usage"></a>Utilizzo
+## <a name="usage"></a>Usage
 
 Dopo aver completato l'installazione dello strumento, eseguire il comando seguente per avviare il ciclo Read-Eval-Print HTTP:
 
@@ -134,7 +134,7 @@ Connettersi all'API Web eseguendo il comando seguente:
 httprepl <ROOT URI>
 ```
 
-`<ROOT URI>` è l'URI di base dell'API Web. Esempio:
+`<ROOT URI>` è l'URI di base dell'API Web. Ad esempio:
 
 ```console
 httprepl https://localhost:5001
@@ -146,7 +146,7 @@ In alternativa, eseguire il comando seguente in qualsiasi momento mentre è in e
 connect <ROOT URI>
 ```
 
-Esempio:
+Ad esempio:
 
 ```console
 (Disconnected)~ connect https://localhost:5001
@@ -160,7 +160,7 @@ Il comando connect precedente tenterà di individuare automaticamente il documen
 connect <ROOT URI> --swagger <SWAGGER URI>
 ```
 
-Esempio:
+Ad esempio:
 
 ```console
 (Disconnected)~ connect https://localhost:5001 --swagger /swagger/v1/swagger.json
@@ -199,7 +199,7 @@ https://localhost:5001/fruits~ ls
 https://localhost:5001/fruits~
 ```
 
-In alternativa, eseguire il comando `ui` per aprire la pagina dell'interfaccia utente di Swagger dell'API Web in un browser. Esempio:
+In alternativa, eseguire il comando `ui` per aprire la pagina dell'interfaccia utente di Swagger dell'API Web in un browser. Ad esempio:
 
 ```console
 https://localhost:5001/~ ui
@@ -243,7 +243,7 @@ Il file con estensione *httpreplprefs* viene caricato all'avvio e non viene moni
 
 ### <a name="view-the-settings"></a>Visualizzare le impostazioni
 
-Per visualizzare le impostazioni disponibili, eseguire il comando `pref get`. Esempio:
+Per visualizzare le impostazioni disponibili, eseguire il comando `pref get`. Ad esempio:
 
 ```console
 https://localhost:5001/~ pref get
@@ -270,7 +270,7 @@ La colorazione delle risposte è attualmente supportata solo per JSON. Per perso
 https://localhost:5001/people~ pref set colors.json White
 ```
 
-È possibile usare solo i [colori consentiti](https://github.com/aspnet/HttpRepl/blob/01d5c3c3373e98fe566ff5ef8a17c571de880293/src/Microsoft.Repl/ConsoleHandling/AllowedColors.cs). Output delle richieste HTTP successive con la nuova colorazione.
+È possibile usare solo i [colori consentiti](https://github.com/dotnet/HttpRepl/blob/01d5c3c3373e98fe566ff5ef8a17c571de880293/src/Microsoft.Repl/ConsoleHandling/AllowedColors.cs). Output delle richieste HTTP successive con la nuova colorazione.
 
 Quando non sono impostate chiavi di colore specifiche, vengono considerate chiavi più generiche. Per comprendere questo comportamento di fallback, si consideri l'esempio seguente:
 
@@ -281,7 +281,7 @@ Quando non sono impostate chiavi di colore specifiche, vengono considerate chiav
 
 ### <a name="set-indentation-size"></a>Impostare la dimensione del rientro
 
-La personalizzazione della dimensione del rientro delle risposte è attualmente supportata solo per JSON. La dimensione del rientro predefinita è di due spazi. Esempio:
+La personalizzazione della dimensione del rientro delle risposte è attualmente supportata solo per JSON. La dimensione del rientro predefinita è di due spazi. Ad esempio:
 
 ```json
 [
@@ -370,7 +370,7 @@ Per impostazione predefinita, HTTP REPL ha un set di percorsi relativi che usa p
 - */swagger.json*
 - */swagger/v1/swagger.json*
 
-Per usare un set di percorsi di ricerca diverso nell'ambiente in uso, impostare la preferenza `swagger.searchPaths`. Il valore deve essere un elenco di percorsi relativi delimitati da pipe. Esempio:
+Per usare un set di percorsi di ricerca diverso nell'ambiente in uso, impostare la preferenza `swagger.searchPaths`. Il valore deve essere un elenco di percorsi relativi delimitati da pipe. Ad esempio:
 
 ```console
 pref set swagger.searchPaths "swagger/v2/swagger.json|swagger/v3/swagger.json"
@@ -390,7 +390,7 @@ get <PARAMETER> [-F|--no-formatting] [-h|--header] [--response] [--response:body
 
 Parametro di route, se presente, previsto dal metodo di azione del controller associato.
 
-### <a name="options"></a>Opzioni
+### <a name="options"></a>Options
 
 Per il comando `get` sono disponibili le opzioni seguenti:
 
@@ -474,7 +474,7 @@ post <PARAMETER> [-c|--content] [-f|--file] [-h|--header] [--no-body] [-F|--no-f
 
 Parametro di route, se presente, previsto dal metodo di azione del controller associato.
 
-### <a name="options"></a>Opzioni
+### <a name="options"></a>Options
 
 [!INCLUDE [standard CLI options](~/includes/http-repl/standard-options.md)]
 
@@ -490,7 +490,7 @@ Per inviare una richiesta HTTP POST:
     https://localhost:5001/people~ post -h Content-Type=application/json
     ```
 
-    Nel comando precedente l'intestazione della richiesta HTTP `Content-Type` è impostata per indicare un tipo di supporto del corpo della richiesta JSON. L'editor di testo predefinito apre un file con estensione *tmp* con un modello JSON che rappresenta il corpo della richiesta HTTP. Esempio:
+    Nel comando precedente l'intestazione della richiesta HTTP `Content-Type` è impostata per indicare un tipo di supporto del corpo della richiesta JSON. L'editor di testo predefinito apre un file con estensione *tmp* con un modello JSON che rappresenta il corpo della richiesta HTTP. Ad esempio:
 
     ```json
     {
@@ -544,7 +544,7 @@ put <PARAMETER> [-c|--content] [-f|--file] [-h|--header] [--no-body] [-F|--no-fo
 
 Parametro di route, se presente, previsto dal metodo di azione del controller associato.
 
-### <a name="options"></a>Opzioni
+### <a name="options"></a>Options
 
 [!INCLUDE [standard CLI options](~/includes/http-repl/standard-options.md)]
 
@@ -554,7 +554,7 @@ Parametro di route, se presente, previsto dal metodo di azione del controller as
 
 Per inviare una richiesta HTTP PUT:
 
-1. *Facoltativa*: Eseguire il comando `get` per visualizzare i dati prima di modificarli:
+1. *Facoltativo*: eseguire il comando `get` per visualizzare i dati prima di modificarli:
 
     ```console
     https://localhost:5001/fruits~ get
@@ -585,7 +585,7 @@ Per inviare una richiesta HTTP PUT:
     https://localhost:5001/fruits~ put 2 -h Content-Type=application/json
     ```
 
-    Nel comando precedente l'intestazione della richiesta HTTP `Content-Type` è impostata per indicare un tipo di supporto del corpo della richiesta JSON. L'editor di testo predefinito apre un file con estensione *tmp* con un modello JSON che rappresenta il corpo della richiesta HTTP. Esempio:
+    Nel comando precedente l'intestazione della richiesta HTTP `Content-Type` è impostata per indicare un tipo di supporto del corpo della richiesta JSON. L'editor di testo predefinito apre un file con estensione *tmp* con un modello JSON che rappresenta il corpo della richiesta HTTP. Ad esempio:
 
     ```json
     {
@@ -615,7 +615,7 @@ Per inviare una richiesta HTTP PUT:
     Server: Kestrel
     ```
 
-1. *Facoltativa*: Eseguire un comando `get` per visualizzare le modifiche. Ad esempio, se si digita "Cherry" nell'editor di testo, `get` restituisce quanto segue:
+1. *Facoltativo*: eseguire un comando `get` per visualizzare le modifiche. Ad esempio, se si digita "Cherry" nell'editor di testo, `get` restituisce quanto segue:
 
     ```console
     https://localhost:5001/fruits~ get
@@ -658,7 +658,7 @@ delete <PARAMETER> [-F|--no-formatting] [-h|--header] [--response] [--response:b
 
 Parametro di route, se presente, previsto dal metodo di azione del controller associato.
 
-### <a name="options"></a>Opzioni
+### <a name="options"></a>Options
 
 [!INCLUDE [standard CLI options](~/includes/http-repl/standard-options.md)]
 
@@ -666,7 +666,7 @@ Parametro di route, se presente, previsto dal metodo di azione del controller as
 
 Per inviare una richiesta HTTP DELETE:
 
-1. *Facoltativa*: Eseguire il comando `get` per visualizzare i dati prima di modificarli:
+1. *Facoltativo*: eseguire il comando `get` per visualizzare i dati prima di modificarli:
 
     ```console
     https://localhost:5001/fruits~ get
@@ -705,7 +705,7 @@ Per inviare una richiesta HTTP DELETE:
     Server: Kestrel
     ```
 
-1. *Facoltativa*: Eseguire un comando `get` per visualizzare le modifiche. In questo esempio `get` restituisce quanto segue:
+1. *Facoltativo*: eseguire un comando `get` per visualizzare le modifiche. In questo esempio `get` restituisce quanto segue:
 
     ```console
     https://localhost:5001/fruits~ get
@@ -744,7 +744,7 @@ patch <PARAMETER> [-c|--content] [-f|--file] [-h|--header] [--no-body] [-F|--no-
 
 Parametro di route, se presente, previsto dal metodo di azione del controller associato.
 
-### <a name="options"></a>Opzioni
+### <a name="options"></a>Options
 
 [!INCLUDE [standard CLI options](~/includes/http-repl/standard-options.md)]
 
@@ -764,7 +764,7 @@ head <PARAMETER> [-F|--no-formatting] [-h|--header] [--response] [--response:bod
 
 Parametro di route, se presente, previsto dal metodo di azione del controller associato.
 
-### <a name="options"></a>Opzioni
+### <a name="options"></a>Options
 
 [!INCLUDE [standard CLI options](~/includes/http-repl/standard-options.md)]
 
@@ -782,7 +782,7 @@ options <PARAMETER> [-F|--no-formatting] [-h|--header] [--response] [--response:
 
 Parametro di route, se presente, previsto dal metodo di azione del controller associato.
 
-### <a name="options"></a>Opzioni
+### <a name="options"></a>Options
 
 [!INCLUDE [standard CLI options](~/includes/http-repl/standard-options.md)]
 
@@ -790,7 +790,7 @@ Parametro di route, se presente, previsto dal metodo di azione del controller as
 
 Per impostare l'intestazione di una richiesta HTTP, usare uno degli approcci seguenti:
 
-* Impostare inline con la richiesta HTTP. Esempio:
+* Impostare inline con la richiesta HTTP. Ad esempio:
 
     ```console
     https://localhost:5001/people~ post -h Content-Type=application/json
@@ -798,13 +798,13 @@ Per impostare l'intestazione di una richiesta HTTP, usare uno degli approcci seg
     
     Con l'approccio precedente, ogni singola intestazione di richiesta HTTP richiede una propria opzione `-h`.
 
-* Impostare prima di inviare la richiesta HTTP. Esempio:
+* Impostare prima di inviare la richiesta HTTP. Ad esempio:
 
     ```console
     https://localhost:5001/people~ set header Content-Type application/json
     ```
     
-    Quando si imposta l'intestazione prima di inviare una richiesta, l'intestazione rimane impostata per la durata della sessione della shell dei comandi. Per cancellare l'intestazione, specificare un valore vuoto. Esempio:
+    Quando si imposta l'intestazione prima di inviare una richiesta, l'intestazione rimane impostata per la durata della sessione della shell dei comandi. Per cancellare l'intestazione, specificare un valore vuoto. Ad esempio:
     
     ```console
     https://localhost:5001/people~ set header Content-Type
@@ -898,14 +898,14 @@ Per impostazione predefinita, la visualizzazione della richiesta HTTP inviata vi
 
 ### <a name="enable-request-display"></a>Abilitare la visualizzazione delle richieste
 
-Visualizzare la richiesta HTTP inviata eseguendo il comando `echo on`. Esempio:
+Visualizzare la richiesta HTTP inviata eseguendo il comando `echo on`. Ad esempio:
 
 ```console
 https://localhost:5001/people~ echo on
 Request echoing is on
 ```
 
-Le richieste HTTP successive della sessione corrente visualizzano le intestazioni delle richieste. Esempio:
+Le richieste HTTP successive della sessione corrente visualizzano le intestazioni delle richieste. Ad esempio:
 
 ```console
 https://localhost:5001/people~ post
@@ -943,7 +943,7 @@ https://localhost:5001/people~
 
 ### <a name="disable-request-display"></a>Disabilitare la visualizzazione delle richieste
 
-Eliminare la visualizzazione della richiesta HTTP inviata eseguendo il comando `echo off`. Esempio:
+Eliminare la visualizzazione della richiesta HTTP inviata eseguendo il comando `echo off`. Ad esempio:
 
 ```console
 https://localhost:5001/people~ echo off
@@ -952,7 +952,7 @@ Request echoing is off
 
 ## <a name="run-a-script"></a>Eseguire uno script
 
-Se si esegue spesso lo stesso set di comandi del ciclo Read-Eval-Print HTTP, può essere utile archiviarlo in un file di testo. I comandi nel file hanno lo stesso formato di quelli eseguiti manualmente nella riga di comando. I comandi possono essere eseguiti in modalità batch usando il comando `run`. Esempio:
+Se si esegue spesso lo stesso set di comandi del ciclo Read-Eval-Print HTTP, può essere utile archiviarlo in un file di testo. I comandi nel file hanno lo stesso formato di quelli eseguiti manualmente nella riga di comando. I comandi possono essere eseguiti in modalità batch usando il comando `run`. Ad esempio:
 
 1. Creare un file di testo contenente un set di comandi delimitati da una nuova riga. Si consideri ad esempio un file *people-script.txt* contenente i comandi seguenti:
 
@@ -964,7 +964,7 @@ Se si esegue spesso lo stesso set di comandi del ciclo Read-Eval-Print HTTP, pu�
     get 1
     ```
 
-1. Eseguire il comando `run` passando il percorso del file di testo. Esempio:
+1. Eseguire il comando `run` passando il percorso del file di testo. Ad esempio:
 
     ```console
     https://localhost:5001/~ run C:\http-repl-scripts\people-script.txt
@@ -1037,4 +1037,4 @@ https://localhost:5001/~
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Richieste API REST](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#74-supported-methods)
-* [Repository GitHub del ciclo Read-Eval-Print HTTP](https://github.com/aspnet/HttpRepl)
+* [Repository GitHub del ciclo Read-Eval-Print HTTP](https://github.com/dotnet/HttpRepl)
