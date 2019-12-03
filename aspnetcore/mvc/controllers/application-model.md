@@ -5,16 +5,16 @@ description: Informazioni su come leggere e modificare il modello applicativo pe
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/controllers/application-model
-ms.openlocfilehash: f7f64c8b3a63ec66936772e724edb57037654059
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
-ms.translationtype: HT
+ms.openlocfilehash: 4e264dc7cc63955df42df0b9eeeb7b82ae286241
+ms.sourcegitcommit: 169ea5116de729c803685725d96450a270bc55b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815505"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74733960"
 ---
 # <a name="work-with-the-application-model-in-aspnet-core"></a>Usare il modello applicativo in ASP.NET Core
 
-Di [Steve Smith](https://ardalis.com/)
+[Steve Smith](https://ardalis.com/)
 
 ASP.NET Core MVC definisce un *modello applicativo* che rappresenta i componenti di un'app MVC. È possibile leggere e modificare questo modello per modificare il comportamento degli elementi MVC. Per impostazione predefinita MVC segue alcune convenzioni per determinare le classi che vengono considerate come controller, i metodi di tali classi che sono azioni e il comportamento dei parametri e del routing. È possibile personalizzare questo comportamento in base alle esigenze dell'app, creando convenzioni personalizzate e applicandole a livello globale o come attributi.
 
@@ -71,7 +71,7 @@ Alcuni comportamenti predefiniti vengono implementati da `DefaultApplicationMode
 
 ## <a name="conventions"></a>Convenzioni
 
-Il modello applicativo definisce astrazioni di convenzioni che offrono un metodo di personalizzazione del comportamento dei modelli più semplice rispetto all'override dell'intero modello o provider. Queste astrazioni sono il metodo consigliato per modificare il comportamento dell'app. Le convenzioni offrono una modalità di scrittura del codice che applica in modo dinamico le personalizzazioni. Mentre i [filtri](xref:mvc/controllers/filters) consentono di modificare il comportamento del framework, le personalizzazioni consentono di controllare i collegamenti che uniscono l'intera app.
+Il modello applicativo definisce astrazioni di convenzioni che offrono un metodo di personalizzazione del comportamento dei modelli più semplice rispetto all'override dell'intero modello o provider. Queste astrazioni sono il metodo consigliato per modificare il comportamento dell'app. Le convenzioni offrono una modalità di scrittura del codice che applica in modo dinamico le personalizzazioni. Sebbene i [filtri](xref:mvc/controllers/filters) offrano un mezzo per modificare il comportamento del Framework, le personalizzazioni consentono di controllare il funzionamento dell'intera applicazione.
 
 Sono disponibili le convenzioni seguenti:
 
