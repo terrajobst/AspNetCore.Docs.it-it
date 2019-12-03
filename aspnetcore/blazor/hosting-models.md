@@ -5,17 +5,17 @@ description: Informazioni sui modelli di hosting Blazor webassembly e Blazor ser
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/21/2019
+ms.date: 11/23/2019
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/hosting-models
-ms.openlocfilehash: a017737eacd93ac776afe7ee8024eed602d7edcc
-ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
+ms.openlocfilehash: 38db9804c9cdd1aa31ca48af2dd9ec2e85175156
+ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74317218"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74681045"
 ---
 # <a name="aspnet-core-opno-locblazor-hosting-models"></a>ASP.NET Core Blazor modelli di hosting
 
@@ -125,7 +125,7 @@ La latenza dell'interfaccia utente è il tempo necessario da un'azione iniziata 
 
 Per un'app line-of-business limitata a una rete aziendale privata, l'effetto sulle percezioni utente della latenza a causa della latenza di rete è in genere impercettibile. Per un'app distribuita su Internet, la latenza può diventare evidente per gli utenti, in particolare se gli utenti sono ampiamente distribuiti geograficamente.
 
-L'utilizzo della memoria può anche contribuire alla latenza dell'app. Un aumento dell'utilizzo della memoria comporta un frequente Garbage Collection o il paging della memoria su disco, che comportano una riduzione delle prestazioni dell'app e quindi aumentano la latenza dell'interfaccia Per altre informazioni, vedere <xref:security/blazor/server>.
+L'utilizzo della memoria può anche contribuire alla latenza dell'app. Un aumento dell'utilizzo della memoria comporta un frequente Garbage Collection o il paging della memoria su disco, che comportano una riduzione delle prestazioni dell'app e quindi aumentano la latenza dell'interfaccia Per ulteriori informazioni, vedere <xref:security/blazor/server>.
 
 Blazor le app Server devono essere ottimizzate per ridurre al minimo la latenza dell'interfaccia utente riducendo la latenza di rete e l'utilizzo Per un approccio alla misurazione della latenza di rete, vedere <xref:host-and-deploy/blazor/server#measure-network-latency>. Per ulteriori informazioni su SignalR e Blazor, vedere:
 
@@ -140,7 +140,7 @@ Blazor app Server richiedono una connessione SignalR attiva al server. Se la con
 
 Viene eseguito il prerendering di un'app Blazor server in risposta alla prima richiesta client, che imposta lo stato dell'interfaccia utente sul server. Quando il client tenta di creare una connessione SignalR, il client deve riconnettersi allo stesso server. Blazor app server che usano più di un server back-end devono implementare *sessioni permanenti* per le connessioni SignalR.
 
-È consigliabile usare il [servizio SignalR di Azure](/azure/azure-signalr) per le app Blazor server. Il servizio consente di aumentare le prestazioni di un'app Server Blazor per un numero elevato di connessioni SignalR simultanee. Le sessioni permanenti sono abilitate per il servizio Azure SignalR impostando l'opzione di `ServerStickyMode` del servizio o il valore di configurazione su `Required`. Per altre informazioni, vedere <xref:host-and-deploy/blazor/server#signalr-configuration>.
+È consigliabile usare il [servizio SignalR di Azure](/azure/azure-signalr) per le app Blazor server. Il servizio consente di aumentare le prestazioni di un'app Server Blazor per un numero elevato di connessioni SignalR simultanee. Le sessioni permanenti sono abilitate per il servizio Azure SignalR impostando l'opzione di `ServerStickyMode` del servizio o il valore di configurazione su `Required`. Per ulteriori informazioni, vedere <xref:host-and-deploy/blazor/server#signalr-configuration>.
 
 Quando si usa IIS, le sessioni permanenti sono abilitate con il routing delle richieste di applicazioni. Per altre informazioni, vedere [bilanciamento del carico http usando il routing delle richieste di applicazioni](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing).
 
@@ -222,7 +222,7 @@ per impostazione predefinita, le app di Blazor server sono impostate per eseguir
 
 Il rendering dei componenti server da una pagina HTML statica non è supportato.
 
-Quando `RenderMode` viene `ServerPrerendered`, il componente viene inizialmente sottoposto a rendering statico come parte della pagina. Quando il browser stabilisce una connessione al server, viene *nuovamente*eseguito il rendering del componente e il componente è ora interattivo. Se è presente un [metodo del ciclo](xref:blazor/components#lifecycle-methods) di vita per inizializzare il componente (`OnInitialized{Async}`), il metodo viene eseguito *due volte*:
+Quando `RenderMode` viene `ServerPrerendered`, il componente viene inizialmente sottoposto a rendering statico come parte della pagina. Quando il browser stabilisce una connessione al server, viene *nuovamente*eseguito il rendering del componente e il componente è ora interattivo. Se è presente il metodo [{Async} Lifecycle OnInitialized](xref:blazor/lifecycle#component-initialization-methods) per l'inizializzazione del componente, il metodo viene eseguito *due volte*:
 
 * Quando il componente viene preeseguito in modo statico.
 * Una volta stabilita la connessione al server.

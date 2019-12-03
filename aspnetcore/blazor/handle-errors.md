@@ -5,17 +5,17 @@ description: Scopri in che modo ASP.NET Core Blazor il modo in cui Blazor gestis
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/21/2019
+ms.date: 11/23/2019
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/handle-errors
-ms.openlocfilehash: f2fa59259f1dd36f50e81256bddea265e347554b
-ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
+ms.openlocfilehash: 9784b357c2cdeb7422bbe40a39f881c97f6d716a
+ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74317162"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74680993"
 ---
 # <a name="handle-errors-in-aspnet-core-opno-locblazor-apps"></a>Gestione degli errori nelle app ASP.NET Core Blazor
 
@@ -89,9 +89,9 @@ In produzione, non eseguire il rendering dei messaggi di eccezione del Framework
 
 ## <a name="log-errors-with-a-persistent-provider"></a>Registrare gli errori con un provider persistente
 
-Se si verifica un'eccezione non gestita, l'eccezione viene registrata in <xref:Microsoft.Extensions.Logging.ILogger> istanze configurate nel contenitore dei servizi. Per impostazione predefinita, Blazor il registro delle app nell'output della console con il provider di registrazione della console. Prendere in considerazione la registrazione a una posizione più permanente con un provider che gestisce le dimensioni del log e la rotazione del log. Per altre informazioni, vedere <xref:fundamentals/logging/index>.
+Se si verifica un'eccezione non gestita, l'eccezione viene registrata in <xref:Microsoft.Extensions.Logging.ILogger> istanze configurate nel contenitore dei servizi. Per impostazione predefinita, Blazor il registro delle app nell'output della console con il provider di registrazione della console. Prendere in considerazione la registrazione a una posizione più permanente con un provider che gestisce le dimensioni del log e la rotazione del log. Per ulteriori informazioni, vedere <xref:fundamentals/logging/index>.
 
-Durante lo sviluppo, Blazor in genere invia i dettagli completi delle eccezioni alla console del browser per facilitare il debug. In produzione, gli errori dettagliati nella console del browser sono disabilitati per impostazione predefinita, il che significa che gli errori non vengono inviati ai client, ma i dettagli completi dell'eccezione sono ancora registrati sul lato server. Per altre informazioni, vedere <xref:fundamentals/error-handling>.
+Durante lo sviluppo, Blazor in genere invia i dettagli completi delle eccezioni alla console del browser per facilitare il debug. In produzione, gli errori dettagliati nella console del browser sono disabilitati per impostazione predefinita, il che significa che gli errori non vengono inviati ai client, ma i dettagli completi dell'eccezione sono ancora registrati sul lato server. Per ulteriori informazioni, vedere <xref:fundamentals/error-handling>.
 
 È necessario decidere quali eventi imprevisti registrare e il livello di gravità degli eventi imprevisti registrati. Gli utenti ostili potrebbero essere in grado di attivare intenzionalmente gli errori. Ad esempio, non registrare un evento imprevisto da un errore in cui viene fornito un `ProductId` sconosciuto nell'URL di un componente che Visualizza i dettagli del prodotto. Non tutti gli errori devono essere considerati come eventi imprevisti con gravità elevata per la registrazione.
 
@@ -122,7 +122,7 @@ Un circuito ha esito negativo quando un costruttore eseguito o un setter per qua
 
 ### <a name="lifecycle-methods"></a>Metodi del ciclo di vita
 
-Durante la durata di un componente, Blazor richiama i metodi del ciclo di vita:
+Durante la durata di un componente, Blazor richiama i [metodi del ciclo](xref:blazor/lifecycle)di vita:
 
 * `OnInitialized` / `OnInitializedAsync`
 * `OnParametersSet` / `OnParametersSetAsync`
@@ -173,7 +173,7 @@ Un componente può essere rimosso dall'interfaccia utente, ad esempio perché l'
 
 Se il metodo `Dispose` del componente genera un'eccezione non gestita, l'eccezione è fatale per il circuito. Se la logica di eliminazione può generare eccezioni, l'app deve intercettare le eccezioni usando un'istruzione [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) con gestione e registrazione degli errori.
 
-Per ulteriori informazioni sull'eliminazione dei componenti, vedere <xref:blazor/components#component-disposal-with-idisposable>.
+Per ulteriori informazioni sull'eliminazione dei componenti, vedere <xref:blazor/lifecycle#component-disposal-with-idisposable>.
 
 ### <a name="javascript-interop"></a>Interoperabilità JavaScript
 
@@ -192,7 +192,7 @@ Analogamente, il codice JavaScript può avviare chiamate a metodi .NET indicati 
 
 È possibile scegliere di usare il codice di gestione degli errori sul lato .NET o sul lato JavaScript della chiamata al metodo.
 
-Per altre informazioni, vedere <xref:blazor/javascript-interop>.
+Per ulteriori informazioni, vedere <xref:blazor/javascript-interop>.
 
 ### <a name="circuit-handlers"></a>Gestori del circuito
 
@@ -277,7 +277,7 @@ Per evitare modelli di ricorsione infinita, verificare che il codice di renderin
 
 ### <a name="custom-render-tree-logic"></a>Logica dell'albero di rendering personalizzata
 
-La maggior parte delle Blazor componenti viene implementata come file con *estensione Razor* e viene compilata per produrre la logica che opera su un `RenderTreeBuilder` per eseguire il rendering dell'output. Uno sviluppatore può implementare manualmente `RenderTreeBuilder` logica usando il C# codice procedurale. Per altre informazioni, vedere <xref:blazor/components#manual-rendertreebuilder-logic>.
+La maggior parte delle Blazor componenti viene implementata come file con *estensione Razor* e viene compilata per produrre la logica che opera su un `RenderTreeBuilder` per eseguire il rendering dell'output. Uno sviluppatore può implementare manualmente `RenderTreeBuilder` logica usando il C# codice procedurale. Per ulteriori informazioni, vedere <xref:blazor/components#manual-rendertreebuilder-logic>.
 
 > [!WARNING]
 > L'uso della logica del generatore di albero di rendering manuale è considerato uno scenario avanzato e non sicuro, non consigliato per lo sviluppo di componenti generali.

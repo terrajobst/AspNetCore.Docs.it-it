@@ -1,6 +1,6 @@
 Mentre un'app del server blazer è prerendering, alcune azioni, ad esempio la chiamata a JavaScript, non sono possibili perché non è stata stabilita una connessione con il browser. I componenti potrebbero dover eseguire il rendering in modo diverso quando ne viene eseguito il rendering.
 
-Per ritardare le chiamate di interoperabilità JavaScript fino a quando non viene stabilita la connessione con il browser, è possibile usare l'evento ciclo di vita componente `OnAfterRenderAsync`. Questo evento viene chiamato solo dopo che viene eseguito il rendering completo dell'app e viene stabilita la connessione client.
+Per ritardare le chiamate di interoperabilità JavaScript finché non viene stabilita la connessione con il browser, è possibile usare l'evento del ciclo di vita del [componente OnAfterRenderAsync](xref:blazor/lifecycle#after-component-render). Questo evento viene chiamato solo dopo che viene eseguito il rendering completo dell'app e viene stabilita la connessione client.
 
 ```cshtml
 @using Microsoft.JSInterop
@@ -37,7 +37,7 @@ Nel componente seguente viene illustrato come utilizzare l'interoperabilità Jav
 
 Quando viene chiamato `JSRuntime.InvokeAsync`, `ElementRef` viene usato solo in `OnAfterRenderAsync` e non in nessun metodo del ciclo di vita precedente, perché non è presente alcun elemento JavaScript finché non viene eseguito il rendering del componente.
 
-`StateHasChanged` viene chiamato per eseguire nuovamente il rendering del componente con il nuovo stato ottenuto dalla chiamata di interoperabilità JavaScript. Il codice non crea un ciclo infinito perché `StateHasChanged` viene chiamato solo quando `infoFromJs` è `null`.
+[StateHasChanged](xref:blazor/lifecycle#state-changes) viene chiamato per eseguire nuovamente il rendering del componente con il nuovo stato ottenuto dalla chiamata di interoperabilità JavaScript. Il codice non crea un ciclo infinito perché `StateHasChanged` viene chiamato solo quando `infoFromJs` è `null`.
 
 ```cshtml
 @page "/prerendered-interop"

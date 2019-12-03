@@ -7,32 +7,32 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/07/2019
 uid: mvc/controllers/testing
-ms.openlocfilehash: 7f4fcb1a5d6e9959c751ebe24e41b39ee05a5819
-ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
+ms.openlocfilehash: 449d8791962e4233d599f364b2e8c922f0975d2f
+ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73799508"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74681097"
 ---
-# <a name="test-controller-logic-in-aspnet-core"></a>Test della logica dei controller in ASP.NET Core
+# <a name="unit-test-controller-logic-in-aspnet-core"></a>Logica unità test controller in ASP.NET Core
 
 [Steve Smith](https://ardalis.com/)
 
 ::: moniker range=">= aspnetcore-3.0"
 
-I [controller](xref:mvc/controllers/actions) hanno un ruolo centrale in qualsiasi app ASP.NET Core MVC. Di conseguenza, è importante essere certi che funzionino nel modo previsto. I test automatizzati possono rilevare eventuali errori prima che l'app venga distribuita in un ambiente di produzione.
-
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/testing/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
-
-## <a name="unit-tests-of-controller-logic"></a>Unit test della logica dei controller
-
 Gli [unit test](/dotnet/articles/core/testing/unit-testing-with-dotnet-test) implicano l'esecuzione di test su una parte di un'app isolandola dall'infrastruttura e dalle dipendenze. Quando si sottopone a unit test la logica del controller, si verificano solo i contenuti di una singola azione e non il comportamento delle relative dipendenze o del framework.
+
+## <a name="unit-testing-controllers"></a>Controller di unit test
 
 Configurare unit test delle azioni del controller per concentrare l'attenzione sul comportamento del controller. Uno unit test del controller evita scenari come [filtri](xref:mvc/controllers/filters), [routing](xref:fundamentals/routing) e [associazione di modelli](xref:mvc/models/model-binding). I test che verificano le interazioni tra i componenti che collettivamente rispondono a una richiesta vengono gestiti dai *test di integrazione*. Per altre informazioni sui test di integrazione, vedere <xref:test/integration-tests>.
 
 Se si scrivono route e filtri personalizzati, sottoporli a unit test in isolamento e non durante i test relativi a una determinata azione del controller.
 
-Per una dimostrazione degli unit test del controller, esaminare il controller seguente nell'app di esempio. Il controller Home visualizza un elenco di sessioni di brainstorming e consente di creare nuove sessioni con una richiesta POST:
+Per una dimostrazione degli unit test del controller, esaminare il controller seguente nell'app di esempio. 
+
+[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/testing/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
+
+Il controller Home visualizza un elenco di sessioni di brainstorming e consente di creare nuove sessioni con una richiesta POST:
 
 [!code-csharp[](testing/samples/3.x/TestingControllersSample/src/TestingControllersSample/Controllers/HomeController.cs?name=snippet_HomeController&highlight=1,5,10,31-32)]
 

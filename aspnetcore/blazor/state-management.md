@@ -5,16 +5,16 @@ description: Informazioni su come salvare in modo permanente lo stato nelle app 
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/15/2019
+ms.date: 11/23/2019
 no-loc:
 - Blazor
 uid: blazor/state-management
-ms.openlocfilehash: 38ee5fccdf476f08c9f39d01b53c81b48eea04bf
-ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
+ms.openlocfilehash: facd6c2747bb0b31404c3c4fce25b76cd141932e
+ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74317177"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74680980"
 ---
 # <a name="aspnet-core-opno-locblazor-state-management"></a>Gestione stato Blazor ASP.NET Core
 
@@ -138,7 +138,7 @@ Un esempio di pacchetto NuGet che fornisce la [protezione dei dati](xref:securit
 > [!WARNING]
 > `Microsoft.AspNetCore.ProtectedBrowserStorage` è un pacchetto sperimentale non supportato non adatto per l'uso in fase di produzione.
 
-### <a name="installation"></a>Installazione
+### <a name="installation"></a>Installazione di
 
 Per installare il pacchetto di `Microsoft.AspNetCore.ProtectedBrowserStorage`:
 
@@ -194,7 +194,7 @@ protected override async Task OnInitializedAsync()
 }
 ```
 
-Se i parametri del componente includono lo stato di navigazione, chiamare `ProtectedSessionStore.GetAsync` e assegnare il risultato in `OnParametersSetAsync`, non `OnInitializedAsync`. `OnInitializedAsync` viene chiamato una sola volta quando viene creata la prima istanza del componente. `OnInitializedAsync` non viene chiamato di nuovo in un secondo momento se l'utente passa a un URL diverso rimanendo nella stessa pagina.
+Se i parametri del componente includono lo stato di navigazione, chiamare `ProtectedSessionStore.GetAsync` e assegnare il risultato in `OnParametersSetAsync`, non `OnInitializedAsync`. `OnInitializedAsync` viene chiamato una sola volta quando viene creata la prima istanza del componente. `OnInitializedAsync` non viene chiamato di nuovo in un secondo momento se l'utente passa a un URL diverso rimanendo nella stessa pagina. Per ulteriori informazioni, vedere <xref:blazor/lifecycle>.
 
 > [!WARNING]
 > Gli esempi in questa sezione funzionano solo se per il server non è abilitato il prerendering. Con il prerendering abilitato, viene generato un errore simile al seguente:

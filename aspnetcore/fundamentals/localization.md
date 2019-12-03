@@ -3,14 +3,14 @@ title: Globalizzazione e localizzazione in ASP.NET Core
 author: rick-anderson
 description: Informazioni su come ASP.NET Core offre servizi e middleware per la localizzazione di contenuti in diverse lingue e culture.
 ms.author: riande
-ms.date: 01/14/2017
+ms.date: 11/30/2019
 uid: fundamentals/localization
-ms.openlocfilehash: 36235e305037c0bbf20093327e2a0ff21b3de809
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 391786498dc7088f3a06915128f23b2c0e734656
+ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963671"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74681110"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalizzazione e localizzazione in ASP.NET Core
 
@@ -74,7 +74,7 @@ L'implementazione predefinita di `IViewLocalizer` individua il file di risorse i
 
 Un file di risorse francese può contenere quanto segue:
 
-| Chiave | Value |
+| Key | Valore |
 | ----- | ------ |
 | `<i>Hello</i> <b>{0}!</b>` | `<i>Bonjour</i> <b>{0} !</b>` |
 
@@ -276,7 +276,7 @@ L'[intestazione Accept-Language](https://www.w3.org/International/questions/qa-a
 
 6. Toccare la lingua e quindi toccare **Sposta su**.
 
-::: moniker range=">= aspnetcore-3.0"
+::: moniker range=">= aspnetcore-3.1"
 ### <a name="the-content-language-http-header"></a>Intestazione HTTP Content-Language
 
 Intestazione dell'entità [Content-Language](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Language) :
@@ -286,7 +286,7 @@ Intestazione dell'entità [Content-Language](https://developer.mozilla.org/en-US
 
 Le intestazioni delle entità vengono usate sia nelle richieste HTTP sia nelle risposte.
 
-In ASP.NET Core 3,0 è possibile aggiungere l'intestazione `Content-Language` impostando la proprietà `ApplyCurrentCultureToResponseHeaders`.
+È possibile aggiungere l'intestazione `Content-Language` impostando la proprietà `ApplyCurrentCultureToResponseHeaders`.
 
 Aggiunta dell'intestazione `Content-Language`:
 
@@ -407,5 +407,4 @@ Termini:
 * [Globalizzazione e localizzazione di applicazioni .NET](/dotnet/standard/globalization-localization/index)
 * [Uso dei file RESX a livello di codice](/dotnet/framework/resources/working-with-resx-files-programmatically)
 * [Microsoft Multilingual App Toolkit](https://marketplace.visualstudio.com/items?itemName=MultilingualAppToolkit.MultilingualAppToolkit-18308)
-* [Localizzazione e generics](https://github.com/hishamco/hishambinateya.com/blob/master/Posts/localization-and-generics.md)
-* [Novità della localizzazione in ASP.NET Core 3,0](http://hishambinateya.com/what-is-new-in-localization-in-asp.net-core-3.0)
+* [Localizzazione e generics](http://hishambinateya.com/localization-and-generics)

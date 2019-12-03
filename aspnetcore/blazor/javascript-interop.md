@@ -5,16 +5,16 @@ description: Informazioni su come richiamare funzioni JavaScript da metodi .NET 
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/21/2019
+ms.date: 11/23/2019
 no-loc:
 - Blazor
 uid: blazor/javascript-interop
-ms.openlocfilehash: f55eda512f8dcf0695c2e7f4655db83b26ea4159
-ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
+ms.openlocfilehash: 79555ca6c987e2ca57e0cfab9779024498fdd58b
+ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74317202"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74681025"
 ---
 # <a name="aspnet-core-opno-locblazor-javascript-interop"></a>Interoperabilità ASP.NET Core Blazor JavaScript
 
@@ -199,7 +199,7 @@ Il metodo viene chiamato direttamente nell'oggetto. Nell'esempio seguente si pre
 [!code-cshtml[](javascript-interop/samples_snapshot/component2.razor?highlight=1,4,12)]
 
 > [!IMPORTANT]
-> La variabile `username` viene popolata solo dopo il rendering del componente. Se un `ElementReference` non popolato viene passato al codice JavaScript, il codice JavaScript riceve un valore di `null`. Per modificare i riferimenti agli elementi dopo che il componente ha terminato il rendering (per impostare lo stato attivo iniziale su un elemento), usare i [metodi del ciclo](xref:blazor/components#lifecycle-methods)di vita dei componenti `OnAfterRenderAsync` o `OnAfterRender`.
+> La variabile `username` viene popolata solo dopo il rendering del componente. Se un `ElementReference` non popolato viene passato al codice JavaScript, il codice JavaScript riceve un valore di `null`. Per modificare i riferimenti agli elementi dopo che il componente ha terminato il rendering (per impostare lo stato attivo iniziale su un elemento), usare i metodi del ciclo di vita dei [componenti OnAfterRenderAsync o OnAfterRender](xref:blazor/lifecycle#after-component-render).
 
 ## <a name="invoke-net-methods-from-javascript-functions"></a>Richiamare metodi .NET da funzioni JavaScript
 
@@ -275,7 +275,7 @@ La libreria di classi gestisce l'incorporamento delle risorse JavaScript nell'as
 
 Nel file di progetto dell'app viene fatto riferimento al pacchetto NuGet compilato nello stesso modo in cui viene fatto riferimento a un pacchetto NuGet. Dopo il ripristino del pacchetto, il codice dell'app può chiamare JavaScript come se fosse C#.
 
-Per altre informazioni, vedere <xref:blazor/class-libraries>.
+Per ulteriori informazioni, vedere <xref:blazor/class-libraries>.
 
 ## <a name="harden-js-interop-calls"></a>Chiamate di interoperabilità JS di Harden
 
