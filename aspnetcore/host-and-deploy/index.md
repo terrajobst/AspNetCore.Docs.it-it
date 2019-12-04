@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/07/2019
 uid: host-and-deploy/index
-ms.openlocfilehash: aa6e3da5f40211535037c671de913ab3219f063a
-ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
+ms.openlocfilehash: 8c7c131ca328f3118c45e822d6d5c86f0d44001f
+ms.sourcegitcommit: b3e1e31e5d8bdd94096cf27444594d4a7b065525
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73799340"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74803266"
 ---
 # <a name="host-and-deploy-aspnet-core"></a>Hosting e distribuzione di ASP.NET Core
 
@@ -41,7 +41,7 @@ Un'app ASP.NET Core è un'app console che deve essere avviata all'avvio di un se
 * Linux
   * [Nginx](xref:host-and-deploy/linux-nginx)
   * [Apache](xref:host-and-deploy/linux-apache)
-* WINDOWS
+* Portale di
   * [IIS](xref:host-and-deploy/iis/index)
   * [Servizio Windows](xref:host-and-deploy/windows-service)
 
@@ -89,3 +89,5 @@ Usare il middleware di controllo integrità per eseguire controlli di integrità
 
 * <xref:host-and-deploy/docker/index>
 * <xref:test/troubleshoot>
+* [Hosting di ASP.NET](https://dotnet.microsoft.com/apps/aspnet/hosting)
+
