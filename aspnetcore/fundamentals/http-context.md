@@ -2,26 +2,25 @@
 title: Accedere a HttpContext in ASP.NET Core
 author: coderandhiker
 description: Informazioni su come accedere a HttpContext in ASP.NET Core.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/11/2018
+ms.date: 12/03/2019
 uid: fundamentals/httpcontext
-ms.openlocfilehash: 0bf40f9cd2554f5ba01ccc06001fa4f1940d51a5
-ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
+ms.openlocfilehash: 8a7ee180380c42ea745c91b8e6a18c1baa820220
+ms.sourcegitcommit: 5974e3e66dab3398ecf2324fbb82a9c5636f70de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74289055"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74778739"
 ---
 # <a name="access-httpcontext-in-aspnet-core"></a>Accedere a HttpContext in ASP.NET Core
 
-Le app ASP.NET Core accedono a `HttpContext` tramite l'interfaccia [IHttpContextAccessor](/dotnet/api/microsoft.aspnetcore.http.ihttpcontextaccessor) e la relativa implementazione predefinita di [HttpContextAccessor](/dotnet/api/microsoft.aspnetcore.http.httpcontextaccessor). L'uso di `IHttpContextAccessor` è necessario solo per l'accesso a `HttpContext` all'interno di un servizio.
-
-::: moniker range=">= aspnetcore-2.0"
+ASP.NET Core app accedono `HttpContext` tramite l'interfaccia <xref:Microsoft.AspNetCore.Http.IHttpContextAccessor> e la <xref:Microsoft.AspNetCore.Http.HttpContextAccessor>di implementazione predefinita. L'uso di `IHttpContextAccessor` è necessario solo per l'accesso a `HttpContext` all'interno di un servizio.
 
 ## <a name="use-httpcontext-from-razor-pages"></a>Usare HttpContext da Razor Pages
 
-[PageModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel) di Razor Pages espone la proprietà [HttpContext](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel.httpcontext):
+Il <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> Razor Pages espone la proprietà <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel.HttpContext>:
 
 ```csharp
 public class AboutModel : PageModel
@@ -35,21 +34,21 @@ public class AboutModel : PageModel
 }
 ```
 
-::: moniker-end
-
 ## <a name="use-httpcontext-from-a-razor-view"></a>Usare HttpContext da una visualizzazione Razor
 
-Le visualizzazioni Razor espongono `HttpContext` direttamente tramite una proprietà [RazorPage.Context](/dotnet/api/microsoft.aspnetcore.mvc.razor.razorpage.context#Microsoft_AspNetCore_Mvc_Razor_RazorPage_Context) nella visualizzazione. L'esempio seguente recupera il nome utente corrente in un'app di intranet usando l'autenticazione di Windows:
+Le visualizzazioni Razor espongono `HttpContext` direttamente tramite una proprietà [RazorPage.Context](xref:Microsoft.AspNetCore.Mvc.Razor.RazorPage.Context) nella visualizzazione. Nell'esempio seguente viene recuperato il nome utente corrente in un'app Intranet utilizzando l'autenticazione di Windows:
 
 ```cshtml
 @{
     var username = Context.User.Identity.Name;
+    
+    ...
 }
 ```
 
 ## <a name="use-httpcontext-from-a-controller"></a>Usare HttpContext da un controller
 
-I controller espongono la proprietà [ControllerBase.HttpContext](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.httpcontext):
+I controller espongono la proprietà [ControllerBase.HttpContext](xref:Microsoft.AspNetCore.Mvc.ControllerBase.HttpContext):
 
 ```csharp
 public class HomeController : Controller
@@ -57,7 +56,8 @@ public class HomeController : Controller
     public IActionResult About()
     {
         var pathBase = HttpContext.Request.PathBase;
-        // Do something with the PathBase.
+
+        ...
 
         return View();
     }
@@ -73,22 +73,21 @@ public class MyCustomMiddleware
 {
     public Task InvokeAsync(HttpContext context)
     {
-        // Middleware initialization optionally using HttpContext
+        ...
     }
 }
 ```
 
 ## <a name="use-httpcontext-from-custom-components"></a>Usare HttpContext da componenti personalizzati
 
-Per altri framework e componenti personalizzati che richiedono l'accesso a `HttpContext`, l'approccio consigliato consiste nel registrare una dipendenza tramite il contenitore predefinito di [inserimento delle dipendenze](xref:fundamentals/dependency-injection). Il contenitore di inserimento delle dipendenze fornisce a `IHttpContextAccessor` qualsiasi classe dichiarata come dipendenza nel relativo costruttore.
+Per altri framework e componenti personalizzati che richiedono l'accesso a `HttpContext`, l'approccio consigliato consiste nel registrare una dipendenza tramite il contenitore predefinito di [inserimento delle dipendenze](xref:fundamentals/dependency-injection). Il contenitore di inserimento delle dipendenze fornisce il `IHttpContextAccessor` a tutte le classi che lo dichiarano come dipendenza nei costruttori:
 
-::: moniker range=">= aspnetcore-2.1"
+::: moniker range=">= aspnetcore-3.0"
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
-     services.AddMvc()
-         .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+     services.AddControllersWithViews();
      services.AddHttpContextAccessor();
      services.AddTransient<IUserRepository, UserRepository>();
 }
@@ -96,13 +95,14 @@ public void ConfigureServices(IServiceCollection services)
 
 ::: moniker-end
 
-::: moniker range="<= aspnetcore-2.0"
+::: moniker range="< aspnetcore-3.0"
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
-     services.AddMvc();
-     services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+     services.AddMvc()
+         .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+     services.AddHttpContextAccessor();
      services.AddTransient<IUserRepository, UserRepository>();
 }
 ```
@@ -134,17 +134,17 @@ public class UserRepository : IUserRepository
 
 ## <a name="httpcontext-access-from-a-background-thread"></a>Accesso a HttpContext da un thread in background
 
-`HttpContext` non è thread-safe. La lettura o scrittura delle proprietà `HttpContext` di fuori dell'elaborazione di una richiesta può provocare un'eccezione `NullReferenceException`.
+`HttpContext` non è thread-safe. La lettura o scrittura delle proprietà `HttpContext` di fuori dell'elaborazione di una richiesta può provocare un'eccezione <xref:System.NullReferenceException>.
 
 > [!NOTE]
-> L'uso di `HttpContext` al di fuori dell'elaborazione di una richiesta provoca spesso un'eccezione `NullReferenceException`. Se l'app genera sporadiche eccezioni `NullReferenceException`, esaminare le parti di codice che avviano l'elaborazione in background o che continuano l'elaborazione dopo il completamento di una richiesta. Individuare gli errori, ad esempio definendo un metodo del controller come `async void`.
+> Se l'app genera errori sporadici `NullReferenceException`, esaminare le parti del codice che avviano l'elaborazione in background o che continuano l'elaborazione dopo il completamento di una richiesta. Individuare gli errori, ad esempio definendo un metodo del controller come `async void`.
 
 Per eseguire in modo sicuro operazioni in background con dati `HttpContext`:
 
 * Copiare i dati necessari durante l'elaborazione della richiesta.
 * Passare i dati copiati a un'attività in background.
 
-Per evitare codice non gestito, non passare mai `HttpContext` in un metodo che esegue operazioni in background, bensì passare i dati necessari.
+Per evitare codice non sicuro, non passare mai il `HttpContext` in un metodo che esegua il lavoro in background. Passare invece i dati necessari. Nell'esempio seguente viene chiamato `SendEmailCore` per iniziare a inviare un messaggio di posta elettronica. Il `correlationId` viene passato al `SendEmailCore`, non al `HttpContext`. L'esecuzione del codice non attende il completamento di `SendEmailCore`:
 
 ```csharp
 public class EmailController : Controller
@@ -153,13 +153,13 @@ public class EmailController : Controller
     {
         var correlationId = HttpContext.Request.Headers["x-correlation-id"].ToString();
 
-        // Starts sending an email, but doesn't wait for it to complete
         _ = SendEmailCore(correlationId);
+
         return View();
     }
 
     private async Task SendEmailCore(string correlationId)
     {
-        // send the email
+        ...
     }
 }
