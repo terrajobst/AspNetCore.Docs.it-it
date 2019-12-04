@@ -4,14 +4,14 @@ author: mjrousos
 description: Informazioni sull'autenticazione in ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/22/2019
+ms.date: 12/04/2019
 uid: security/authentication/index
-ms.openlocfilehash: 5e6c875188831c468bc6ca52ce71c5961b43573c
-ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
+ms.openlocfilehash: 324b2669d3b69e4757a284e4ae7e1de5f4e87e5a
+ms.sourcegitcommit: 05ca05a5c8f6ae556aaad66ad9e4ec1e6b643c77
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74681455"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74810246"
 ---
 # <a name="overview-of-aspnet-core-authentication"></a>Panoramica dell'autenticazione ASP.NET Core
 
@@ -57,7 +57,7 @@ Uno schema di autenticazione è un nome che corrisponde a:
 * Gestore di autenticazione
 * Opzioni per la configurazione di un'istanza specifica del gestore.
 
-Gli schemi sono utili come meccanismo per fare riferimento ai comportamenti di autenticazione, verifica e proibizione del gestore associato. Un criterio di autorizzazione, ad esempio, può specificare in base al nome quale schema di autorizzazione (o schemi) deve essere usato per autenticare l'utente. Quando si configura l'autenticazione, è normale specificare lo schema di autenticazione predefinito. Viene utilizzato lo schema predefinito, a meno che una risorsa non richieda uno schema specifico. È anche possibile:
+Gli schemi sono utili come meccanismo per fare riferimento ai comportamenti di autenticazione, verifica e proibizione del gestore associato. Un criterio di autorizzazione, ad esempio, può utilizzare i nomi degli schemi per specificare lo schema di autenticazione (o gli schemi) da utilizzare per autenticare l'utente. Quando si configura l'autenticazione, è normale specificare lo schema di autenticazione predefinito. Viene utilizzato lo schema predefinito, a meno che una risorsa non richieda uno schema specifico. È anche possibile:
 
 * Specificare diversi schemi predefiniti da usare per l'autenticazione, la verifica e la proibizione delle azioni.
 * Combinare più schemi in uno usando gli [schemi dei criteri](xref:security/authentication/policyschemes).
