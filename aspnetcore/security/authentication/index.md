@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/04/2019
 uid: security/authentication/index
-ms.openlocfilehash: 324b2669d3b69e4757a284e4ae7e1de5f4e87e5a
-ms.sourcegitcommit: 05ca05a5c8f6ae556aaad66ad9e4ec1e6b643c77
+ms.openlocfilehash: 40b2fb59b96486435a2ec0a7d69bee5ab4a814d2
+ms.sourcegitcommit: 76d7fff62014c3db02564191ab768acea00f1b26
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74810246"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74852714"
 ---
 # <a name="overview-of-aspnet-core-authentication"></a>Panoramica dell'autenticazione ASP.NET Core
 
@@ -41,7 +41,7 @@ Il parametro `AddAuthentication` `JwtBearerDefaults.AuthenticationScheme` è il 
 
 Se si utilizzano più schemi, i criteri di autorizzazione o gli attributi di autorizzazione possono [specificare lo schema di autenticazione (o gli schemi)](xref:security/authorization/limitingidentitybyscheme) da cui dipendono per autenticare l'utente. Nell'esempio precedente, è possibile usare lo schema di autenticazione dei cookie specificandone il nome (`CookieAuthenticationDefaults.AuthenticationScheme` per impostazione predefinita, ma è possibile specificare un nome diverso durante la chiamata di `AddCookie`).
 
-In alcuni casi, la chiamata a `AddAuthentication` viene eseguita automaticamente da altri metodi di estensione. Quando si usa [ASP.NET Core Identity](xref:security/authentication/identity), ad esempio,`AddAuthentication` viene chiamato internamente.
+In alcuni casi, la chiamata a `AddAuthentication` viene eseguita automaticamente da altri metodi di estensione. Quando si usa [ASP.NET Core Identity](xref:security/authentication/identity), ad esempio, `AddAuthentication` viene chiamato internamente.
 
 Il middleware di autenticazione viene aggiunto in `Startup.Configure` chiamando il metodo di estensione <xref:Microsoft.AspNetCore.Builder.AuthAppBuilderExtensions.UseAuthentication*> sul `IApplicationBuilder`dell'app. Chiamando `UseAuthentication` viene registrato il middleware che utilizza gli schemi di autenticazione registrati in precedenza. Chiamare `UseAuthentication` prima di tutti i middleware che dipendono da utenti autenticati. Quando si usa il routing degli endpoint, la chiamata a `UseAuthentication` deve andare:
 
@@ -80,14 +80,14 @@ In base alla configurazione dello schema di autenticazione e al contesto della r
 
 ### <a name="authenticate"></a>Autenticazione
 
-Un'azione di autenticazione dello schema di autenticazione è responsabile della costruzione dell'identità dell'utente in base al contesto della richiesta. Restituisce un <xref:Microsoft.AspNetCore.Authentication.AuthenticateResult> che indica se l'autenticazione ha avuto esito positivo e, in caso affermativo, l'identità dell'utente in un ticket di autenticazione. Vedere HttpContext. AuthenticateAsync. Gli esempi di autenticazione includono:
+Un'azione di autenticazione dello schema di autenticazione è responsabile della costruzione dell'identità dell'utente in base al contesto della richiesta. Restituisce un <xref:Microsoft.AspNetCore.Authentication.AuthenticateResult> che indica se l'autenticazione ha avuto esito positivo e, in caso affermativo, l'identità dell'utente in un ticket di autenticazione. Vedere `HttpContext.AuthenticateAsync`. Gli esempi di autenticazione includono:
 
 * Schema di autenticazione dei cookie che costruisce l'identità dell'utente dai cookie.
 * Uno schema di portatore JWT che deserializza e convalida un JWT bearer token per costruire l'identità dell'utente.
 
 ### <a name="challenge"></a>Esercizio
 
-Una richiesta di autenticazione viene richiamata dall'autorizzazione quando un utente non autenticato richiede un endpoint che richiede l'autenticazione. Viene eseguita una richiesta di autenticazione, ad esempio quando un utente anonimo richiede una risorsa limitata o fa clic su un collegamento di accesso. L'autorizzazione richiama una richiesta di verifica utilizzando gli schemi di autenticazione specificati oppure il valore predefinito se non ne viene specificato alcuno. Vedere HttpContext. ChallengeAsync. Gli esempi di richiesta di autenticazione includono:
+Una richiesta di autenticazione viene richiamata dall'autorizzazione quando un utente non autenticato richiede un endpoint che richiede l'autenticazione. Viene eseguita una richiesta di autenticazione, ad esempio quando un utente anonimo richiede una risorsa limitata o fa clic su un collegamento di accesso. L'autorizzazione richiama una richiesta di verifica utilizzando gli schemi di autenticazione specificati oppure il valore predefinito se non ne viene specificato alcuno. Vedere `HttpContext.ChallengeAsync`. Gli esempi di richiesta di autenticazione includono:
 
 * Uno schema di autenticazione dei cookie che reindirizza l'utente a una pagina di accesso.
 * Uno schema di portatore JWT che restituisce un risultato 401 con un'intestazione `www-authenticate: bearer`.
@@ -96,7 +96,7 @@ Un'azione di verifica deve consentire all'utente di conoscere il meccanismo di a
 
 ### <a name="forbid"></a>Impediscono
 
-Un'azione di proibisce dello schema di autenticazione viene chiamata dall'autorizzazione quando un utente autenticato tenta di accedere a una risorsa a cui non è consentito l'accesso. Vedere HttpContext. ForbidAsync. Gli esempi di autenticazione proibita includono:
+Un'azione di proibisce dello schema di autenticazione viene chiamata dall'autorizzazione quando un utente autenticato tenta di accedere a una risorsa a cui non è consentito l'accesso. Vedere `HttpContext.ForbidAsync`. Gli esempi di autenticazione proibita includono:
 * Uno schema di autenticazione dei cookie che reindirizza l'utente a una pagina che indica che l'accesso non è consentito.
 * Uno schema di porta JWT che restituisce un risultato 403.
 * Uno schema di autenticazione personalizzato che reindirizza a una pagina in cui l'utente può richiedere l'accesso alla risorsa.
