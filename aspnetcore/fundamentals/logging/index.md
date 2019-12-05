@@ -5,14 +5,14 @@ description: Informazioni su come usare il framework di registrazione fornito da
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/19/2019
+ms.date: 12/04/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 23ce2d09d2ce9f415ce71bcd7c21c29cb2a040fc
-ms.sourcegitcommit: 918d7000b48a2892750264b852bad9e96a1165a7
+ms.openlocfilehash: 49d598330948c5f4a137c534094e14ed5e01e27c
+ms.sourcegitcommit: f4cd3828e26e6d549ba8d0c36a17be35ad9e5a51
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74550367"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825488"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>Registrazione in .NET Core e ASP.NET Core
 
@@ -48,10 +48,10 @@ In un'app console non host chiamare il metodo di estensione `Add{provider name}`
 
 I modelli di progetto ASP.NET Core predefiniti chiamano <xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder%2A>, che aggiunge i provider di registrazione seguenti:
 
-* Console di
-* Debug
-* EventSource
-* EventLog (solo quando è in esecuzione su Windows)
+* [Console](#console-provider)
+* [Debug](#debug-provider)
+* [EventSource](#event-source-provider)
+* [EventLog](#windows-eventlog-provider) (solo in caso di esecuzione in Windows)
 
 È possibile sostituire i provider predefiniti con quelli di propria scelta. Chiamare <xref:Microsoft.Extensions.Logging.LoggingBuilderExtensions.ClearProviders%2A> e aggiungere i provider desiderati.
 
@@ -129,7 +129,7 @@ Negli esempi seguenti di ASP.NET Core e app console, il logger viene usato per c
 
 Per scrivere log nella classe `Program` di un'app ASP.NET Core, ottenere un'istanza di `ILogger` dall'inserimento delle dipendenze dopo aver creato l'host:
 
-[!code-csharp[](index/samples/3.x/TodoApiSample/Program.cs?name=snippet_LogFromMain&highlight=9,10)]
+[!code-csharp[](index/samples_snapshot/3.x/TodoApiSample/Program.cs?highlight=9,10)]
 
 La registrazione durante la costruzione dell'host non è supportata direttamente. Tuttavia, è possibile usare un logger separato. Nell'esempio seguente viene usato un logger [Serilog](https://serilog.net/) per accedere `CreateHostBuilder`. `AddSerilog` usa la configurazione statica specificata in `Log.Logger`:
 
@@ -1051,7 +1051,11 @@ Il pacchetto di provider [Microsoft.Extensions.Logging.AventLog](https://www.nug
 logging.AddEventLog();
 ```
 
-Gli [overload di AddEventLog](xref:Microsoft.Extensions.Logging.EventLoggerFactoryExtensions) consentono di passare <xref:Microsoft.Extensions.Logging.EventLog.EventLogSettings>.
+Gli [overload di AddEventLog](xref:Microsoft.Extensions.Logging.EventLoggerFactoryExtensions) consentono di passare <xref:Microsoft.Extensions.Logging.EventLog.EventLogSettings>. Se `null` o non è specificato, vengono usate le impostazioni predefinite seguenti:
+
+* `LogName` &ndash; "applicazione"
+* `SourceName` &ndash; "Runtime .NET"
+* `MachineName` &ndash; computer locale
 
 ### <a name="tracesource-provider"></a>Provider TraceSource
 
