@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/14/2019
 uid: security/authorization/iauthorizationpolicyprovider
-ms.openlocfilehash: 4f6a4ea209ebe30759f9f14b15b0385399b36ead
-ms.sourcegitcommit: 231780c8d7848943e5e9fd55e93f437f7e5a371d
+ms.openlocfilehash: fe07a113a29ed3e14679e3f3f2249b0810c17593
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116063"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880699"
 ---
 # <a name="custom-authorization-policy-providers-using-iauthorizationpolicyprovider-in-aspnet-core"></a>Provider di criteri di autorizzazione personalizzati che usano IAuthorizationPolicyProvider in ASP.NET Core 
 
@@ -31,7 +31,7 @@ Esempi di scenari in cui un [IAuthorizationPolicyProvider](/dotnet/api/microsoft
 
 Le app ASP.NET Core usano un'implementazione dell'interfaccia `IAuthorizationPolicyProvider` per recuperare i criteri di autorizzazione. Per impostazione predefinita, [DefaultAuthorizationPolicyProvider](/dotnet/api/microsoft.aspnetcore.authorization.defaultauthorizationpolicyprovider) è registrato e usato. `DefaultAuthorizationPolicyProvider` restituisce i criteri dal `AuthorizationOptions` fornito in una chiamata `IServiceCollection.AddAuthorization`.
 
-È possibile personalizzare questo comportamento registrando un'implementazione di `IAuthorizationPolicyProvider` diversa nel contenitore di [inserimento delle dipendenze](xref:fundamentals/dependency-injection) dell'app. 
+Personalizzare questo comportamento registrando un'implementazione di `IAuthorizationPolicyProvider` diversa nel contenitore di [inserimento delle dipendenze](xref:fundamentals/dependency-injection) dell'app. 
 
 L'interfaccia `IAuthorizationPolicyProvider` contiene tre API:
 
@@ -148,7 +148,7 @@ Quindi, è possibile aggiornare il metodo `GetPolicyAsync` per usare il `BackupP
 return BackupPolicyProvider.GetPolicyAsync(policyName);
 ```
 
-## <a name="default-policy"></a>Criterio predefinito
+## <a name="default-policy"></a>Criteri predefiniti
 
 Oltre a fornire i criteri di autorizzazione denominati, un `IAuthorizationPolicyProvider` personalizzato deve implementare `GetDefaultPolicyAsync` per fornire un criterio di autorizzazione per `[Authorize]` attributi senza specificare un nome di criterio.
 

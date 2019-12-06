@@ -4,14 +4,14 @@ author: Rick-Anderson
 description: Informazioni su come Razor Pages in ASP.NET Core semplifica e rende più produttiva la scrittura di codice incentrata sulle pagine rispetto a MVC.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 10/07/2019
+ms.date: 12/05/2019
 uid: razor-pages/index
-ms.openlocfilehash: 67cc4f9b261372996d612f922c9f491f53948ece
-ms.sourcegitcommit: ddc813f0f1fb293861a01597532919945b0e7fe5
+ms.openlocfilehash: fbe6e307ff5f7388e91cc2276f22ae1672507587
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74412067"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880888"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introduzione a Razor Pages in ASP.NET Core
 
@@ -25,7 +25,7 @@ Se si sta cercando un'esercitazione in cui si usa l'approccio Model-View-Control
 
 Questo documento offre un'introduzione a Razor Pages. Non è un'esercitazione dettagliata. Se alcune sezioni risultano troppo avanzate, vedere [Introduzione a Razor Pages](xref:tutorials/razor-pages/razor-pages-start). Per una panoramica di ASP.NET Core, vedere [Introduzione a ASP.NET Core](xref:index).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -71,7 +71,7 @@ Si consideri una pagina di base: <a name="OnGet"></a>
 
 [!code-cshtml[](index/3.0sample/RazorPagesIntro/Pages/Index.cshtml?highlight=1)]
 
-Il codice precedente è molto simile a un [file di visualizzazione Razor](xref:tutorials/first-mvc-app/adding-view) usato in un'app ASP.NET Core con controller e visualizzazioni. Ciò che lo rende diverso è la direttiva [@page](xref:mvc/views/razor#page) . `@page` trasforma il file in un'azione MVC, ovvero gestisce le richieste direttamente, senza passare attraverso un controller. `@page` deve essere la prima direttiva Razor in una pagina. `@page` influiscono sul comportamento di altri costrutti [Razor](xref:mvc/views/razor) . I nomi dei file di Razor Pages hanno un suffisso *. cshtml* .
+Il codice precedente è molto simile a un [file di visualizzazione Razor](xref:tutorials/first-mvc-app/adding-view) usato in un'app ASP.NET Core con controller e visualizzazioni. Ciò che lo rende diverso è la direttiva [`@page`](xref:mvc/views/razor#page) . `@page` trasforma il file in un'azione MVC, ovvero gestisce le richieste direttamente, senza passare attraverso un controller. `@page` deve essere la prima direttiva Razor in una pagina. `@page` influiscono sul comportamento di altri costrutti [Razor](xref:mvc/views/razor) . I nomi dei file di Razor Pages hanno un suffisso *. cshtml* .
 
 Nei due file seguenti viene visualizzata una pagina simile che usa una classe `PageModel`. Il file *Pages/Index2.cshtml*:
 
@@ -198,7 +198,7 @@ Esaminando il file di visualizzazione *pages/create. cshtml* :
 * Nel codice precedente, l' [Helper tag di input](xref:mvc/views/working-with-forms#the-input-tag-helper) `<input asp-for="Customer.Name" />` associa l'elemento HTML `<input>` all'espressione del modello `Customer.Name`.
 * [`@addTagHelper`](xref:mvc/views/tag-helpers/intro#addtaghelper-makes-tag-helpers-available) rende disponibili gli helper tag.
 
-### <a name="the-home-page"></a>home page
+### <a name="the-home-page"></a>La home page
 
 *Index. cshtml* è il Home page:
 
@@ -290,7 +290,7 @@ Se si pubblica il modulo di creazione senza un valore di nome, viene visualizzat
 L'attributo `[StringLength(10)]` genera `data-val-length-max="10"` sul codice HTML sottoposto a rendering. `data-val-length-max` impedisce che i browser entrino oltre la lunghezza massima specificata. Se viene usato uno strumento come [Fiddler](https://www.telerik.com/fiddler) per modificare e riprodurre il post:
 
 * Con il nome più lungo di 10.
-* Il messaggio di errore "il nome del campo deve essere una stringa con una lunghezza massima di 10". viene restituito.
+* Il messaggio di errore "il nome del campo deve essere una stringa con una lunghezza massima di 10". un errore imprevisto".
 
 Si consideri il modello di `Movie` seguente:
 
@@ -326,7 +326,7 @@ Per altre informazioni, vedere:
 
 `HEAD` richieste consentono di recuperare le intestazioni per una risorsa specifica. A differenza delle richieste `GET`, le richieste `HEAD` non restituiscono un corpo della risposta.
 
-In genere, per le richieste `OnHead` viene creato e chiamato un gestore `HEAD`:
+In genere, per le richieste `HEAD` viene creato e chiamato un gestore `OnHead`:
 
 [!code-cs[](index/3.0sample/RazorPagesContacts/Pages/Privacy.cshtml.cs?name=snippet)]
 
@@ -425,7 +425,7 @@ L'applicazione ha la struttura di file o cartella seguente:
 * */Pages*
 
   * *Index.cshtml*
-  * *Privacy. cshtml*
+  * *Privacy.cshtml*
   * */Customers*
 
     * *Create.cshtml*
@@ -618,7 +618,7 @@ Se si sta cercando un'esercitazione in cui si usa l'approccio Model-View-Control
 
 Questo documento offre un'introduzione a Razor Pages. Non è un'esercitazione dettagliata. Se alcune sezioni risultano troppo avanzate, vedere [Introduzione a Razor Pages](xref:tutorials/razor-pages/razor-pages-start). Per una panoramica di ASP.NET Core, vedere [Introduzione a ASP.NET Core](xref:index).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -814,7 +814,7 @@ Il metodo `OnPostDeleteAsync`:
 
 ## <a name="mark-page-properties-as-required"></a>Contrassegnare le proprietà della pagina in base alle esigenze
 
-Le proprietà di `PageModel` possono essere decorate con l'attributo con [Required](/dotnet/api/system.componentmodel.dataannotations.requiredattribute):
+Le proprietà di un `PageModel` possono essere contrassegnate con l'attributo [obbligatorio](/dotnet/api/system.componentmodel.dataannotations.requiredattribute) :
 
 [!code-cs[](index/sample/Create.cshtml.cs?highlight=3,15-16)]
 
@@ -824,7 +824,7 @@ Per altre informazioni, vedere [Convalida del modello](xref:mvc/models/validatio
 
 Le richieste `HEAD` consentono di recuperare le intestazioni di una risorsa specifica. A differenza delle richieste `GET`, le richieste `HEAD` non restituiscono un corpo della risposta.
 
-In genere, per le richieste `OnHead` viene creato e chiamato un gestore `HEAD`: 
+In genere, per le richieste `HEAD` viene creato e chiamato un gestore `OnHead`: 
 
 ```csharp
 public void OnHead()
@@ -833,7 +833,7 @@ public void OnHead()
 }
 ```
 
-In ASP.NET Core 2.1 o versioni successive se non è definito alcun gestore `OnGet`, Razor Pages esegue un fallback per chiamare il gestore `OnHead`. Questo comportamento è abilitato tramite la chiamata a [SetCompatibilityVersion](xref:mvc/compatibility-version) in `Startup.ConfigureServices`:
+In ASP.NET Core 2.1 o versioni successive se non è definito alcun gestore `OnHead`, Razor Pages esegue un fallback per chiamare il gestore `OnGet`. Questo comportamento è abilitato tramite la chiamata a [SetCompatibilityVersion](xref:mvc/compatibility-version) in `Startup.ConfigureServices`:
 
 ```csharp
 services.AddMvc()
@@ -975,13 +975,13 @@ Per reindirizzare la pagina a un'[Area](xref:mvc/controllers/areas) diversa, spe
 RedirectToPage("/Index", new { area = "Services" });
 ```
 
-Per altre informazioni, vedere <xref:mvc/controllers/areas>.
+Per ulteriori informazioni, vedere <xref:mvc/controllers/areas>.
 
 ## <a name="viewdata-attribute"></a>Attributo viewData
 
-È possibile passare i dati a una pagina tramite [ViewDataAttribute](/dotnet/api/microsoft.aspnetcore.mvc.viewdataattribute). I valori delle proprietà nei controller o nei modelli Razor Page decorate con `[ViewData]` vengono archiviati e caricati da [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary).
+È possibile passare i dati a una pagina tramite [ViewDataAttribute](/dotnet/api/microsoft.aspnetcore.mvc.viewdataattribute). Le proprietà nei controller o nei modelli di pagine Razor con l'attributo `[ViewData]` hanno i valori archiviati e caricati dal [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary).
 
-Nell'esempio seguente `AboutModel` contiene una proprietà `Title` decorata con `[ViewData]`. La proprietà `Title` è impostata sul titolo della pagina About (Informazioni):
+Nell'esempio seguente, il `AboutModel` contiene una proprietà `Title` contrassegnata con `[ViewData]`. La proprietà `Title` è impostata sul titolo della pagina About (Informazioni):
 
 ```csharp
 public class AboutModel : PageModel

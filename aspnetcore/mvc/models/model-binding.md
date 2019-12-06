@@ -6,12 +6,12 @@ ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: riande
 ms.date: 11/21/2019
 uid: mvc/models/model-binding
-ms.openlocfilehash: a49fec38a6d38bbd33e9461cbcceb39bfe810f5c
-ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
+ms.openlocfilehash: 705044804b6ecc980baa88a624863ce5ac72a694
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74717286"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881057"
 ---
 # <a name="model-binding-in-aspnet-core"></a>Associazione di modelli in ASP.NET Core
 
@@ -96,11 +96,11 @@ Per ogni parametro o proprietà di destinazione, le origini vengono analizzate n
 
 Se l'origine predefinita non è corretta, usare uno degli attributi seguenti per specificare l'origine:
 
-* [[FromQuery] ](xref:Microsoft.AspNetCore.Mvc.FromQueryAttribute) - Ottiene i valori dalla stringa di query. 
-* [[FromRoute] ](xref:Microsoft.AspNetCore.Mvc.FromRouteAttribute) -Ottiene i valori dai dati di route.
-* [[FromForm] ](xref:Microsoft.AspNetCore.Mvc.FromFormAttribute) - Ottiene i valori dai campi modulo inviati.
-* [[FromBody] ](xref:Microsoft.AspNetCore.Mvc.FromBodyAttribute) - Ottiene i valori dal corpo della richiesta.
-* [[FromHeader] ](xref:Microsoft.AspNetCore.Mvc.FromHeaderAttribute) - Ottiene i valori dalle intestazioni HTTP.
+* [`[FromQuery]`](xref:Microsoft.AspNetCore.Mvc.FromQueryAttribute) -ottiene i valori dalla stringa di query. 
+* [`[FromRoute]`](xref:Microsoft.AspNetCore.Mvc.FromRouteAttribute) -ottiene i valori dai dati della route.
+* [`[FromForm]`](xref:Microsoft.AspNetCore.Mvc.FromFormAttribute) -ottiene i valori dai campi del modulo inviati.
+* [`[FromBody]`](xref:Microsoft.AspNetCore.Mvc.FromBodyAttribute) -ottiene i valori dal corpo della richiesta.
+* [`[FromHeader]`](xref:Microsoft.AspNetCore.Mvc.FromHeaderAttribute) -ottiene i valori dalle intestazioni HTTP.
 
 Questi attributi:
 
@@ -166,7 +166,7 @@ Per impostazione predefinita, non viene creato un errore di stato del modello se
 * Per i tipi complessi, l'associazione di modelli crea un'istanza usando il costruttore predefinito, senza impostare proprietà.
 * Le matrici vengono impostate su `Array.Empty<T>()`, ad eccezione delle matrici `byte[]` che vengono impostate su `null`.
 
-Se lo stato del modello deve essere invalidato quando non viene trovato alcun valore nei campi modulo per una proprietà del modello, usare l'[attributo [BindRequired]](#bindrequired-attribute).
+Se lo stato del modello deve essere invalidato quando non viene trovato alcun elemento nei campi del modulo per una proprietà del modello, usare l'attributo [`[BindRequired]`](#bindrequired-attribute) .
 
 Si noti che questo comportamento `[BindRequired]` si applica all'associazione di modelli dai dati di moduli inviati e non ai dati JSON o XML nel corpo di una richiesta. I dati del corpo della richiesta vengono gestiti dai [formattatori di input](#input-formatters).
 

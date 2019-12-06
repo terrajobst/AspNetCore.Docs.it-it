@@ -5,16 +5,16 @@ description: Informazioni su come usare l'autenticazione e l'autorizzazione in A
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 no-loc:
 - SignalR
 uid: signalr/authn-and-authz
-ms.openlocfilehash: 5a1e15ef46a3f89af3fbd3d505e7bd340c46e672
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 091cc9b2adc1f6a8fac79519884695d1c1725d2a
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963820"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880410"
 ---
 # <a name="authentication-and-authorization-in-aspnet-core-opno-locsignalr"></a>Autenticazione e autorizzazione in ASP.NET Core SignalR
 
@@ -24,7 +24,7 @@ Di [Andrew Stanton-Nurse](https://twitter.com/anurse)
 
 ## <a name="authenticate-users-connecting-to-a-opno-locsignalr-hub"></a>Autenticare gli utenti che si connettono a un hub SignalR
 
-SignalR può essere utilizzato con [l'autenticazione ASP.NET Core](xref:security/authentication/identity) per associare un utente a ogni connessione. In un hub è possibile accedere ai dati di autenticazione dalla proprietà [`HubConnectionContext.User`](/dotnet/api/microsoft.aspnetcore.signalr.hubconnectioncontext.user) . L'autenticazione consente all'hub di chiamare i metodi su tutte le connessioni associate a un utente. Per ulteriori informazioni, vedere [Manage Users and groups in SignalR](xref:signalr/groups). Più connessioni possono essere associate a un singolo utente.
+SignalR può essere utilizzato con [l'autenticazione ASP.NET Core](xref:security/authentication/identity) per associare un utente a ogni connessione. In un hub è possibile accedere ai dati di autenticazione dalla proprietà [HubConnectionContext. User](/dotnet/api/microsoft.aspnetcore.signalr.hubconnectioncontext.user) . L'autenticazione consente all'hub di chiamare i metodi su tutte le connessioni associate a un utente. Per ulteriori informazioni, vedere [Manage Users and groups in SignalR](xref:signalr/groups). Più connessioni possono essere associate a un singolo utente.
 
 Di seguito è riportato un esempio di `Startup.Configure` che usa l'autenticazione SignalR e ASP.NET Core:
 
@@ -220,7 +220,7 @@ public class ChatHub : Hub
 
 SignalR fornisce una risorsa personalizzata ai gestori di autorizzazione quando un metodo Hub richiede l'autorizzazione. La risorsa è un'istanza di `HubInvocationContext`. Il `HubInvocationContext` include l'`HubCallerContext`, il nome del metodo dell'hub richiamato e gli argomenti per il metodo dell'hub.
 
-Si consideri l'esempio di una chat room che consente l'accesso a più organizzazioni tramite Azure Active Directory. Chiunque disponga di un account Microsoft può accedere a chat, ma solo i membri dell'organizzazione proprietaria dovrebbero essere in grado di vietare gli utenti o visualizzare le cronologie della chat degli utenti. Inoltre, potrebbe essere necessario limitare determinate funzionalità di determinati utenti. Utilizzando le funzionalità aggiornate di ASP.NET Core 3,0, questa operazione è interamente possibile. Si noti come il `DomainRestrictedRequirement` funge da `IAuthorizationRequirement` personalizzato. Ora che il parametro della risorsa `HubInvocationContext` viene passato, la logica interna può ispezionare il contesto in cui viene chiamato l'hub e prendere decisioni per consentire all'utente di eseguire singoli metodi dell'hub.
+Si consideri l'esempio di una chat room che consente l'accesso a più organizzazioni tramite Azure Active Directory. Chiunque disponga di un account Microsoft può accedere a chat, ma solo i membri dell'organizzazione proprietaria dovrebbero essere in grado di vietare gli utenti o visualizzare le cronologie della chat degli utenti. Inoltre, potrebbe essere necessario limitare determinate funzionalità di determinati utenti. Utilizzando le funzionalità aggiornate di ASP.NET Core 3,0, questa operazione è interamente possibile. Si noti come il `DomainRestrictedRequirement` funge da `IAuthorizationRequirement`personalizzato. Ora che il parametro della risorsa `HubInvocationContext` viene passato, la logica interna può ispezionare il contesto in cui viene chiamato l'hub e prendere decisioni per consentire all'utente di eseguire singoli metodi dell'hub.
 
 ```csharp
 [Authorize]
@@ -266,7 +266,7 @@ public class DomainRestrictedRequirement :
 }
 ```
 
-In `Startup.ConfigureServices` aggiungere il nuovo criterio, specificando il requisito `DomainRestrictedRequirement` personalizzato come parametro per creare i criteri di `DomainRestricted`.
+In `Startup.ConfigureServices`aggiungere il nuovo criterio, specificando il requisito `DomainRestrictedRequirement` personalizzato come parametro per creare i criteri di `DomainRestricted`.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)

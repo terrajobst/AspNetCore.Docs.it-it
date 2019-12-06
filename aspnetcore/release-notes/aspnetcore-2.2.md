@@ -4,16 +4,16 @@ author: rick-anderson
 description: Informazioni sulle nuove funzionalità di ASP.NET Core 2.2.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 no-loc:
 - SignalR
 uid: aspnetcore-2.2
-ms.openlocfilehash: fca653158c95e7c1a11f25f4076830fe3e7e93ae
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 8995a514ea2e5016da85952d0f0beaf396a5d639
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963129"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880839"
 ---
 # <a name="whats-new-in-aspnet-core-22"></a>Novità di ASP.NET Core 2.2
 
@@ -23,7 +23,7 @@ Questo articolo evidenzia le modifiche più significative apportate ad ASP.NET C
 
 OpenAPI, chiamata in precedenza Swagger, è una specifica indipendente dal linguaggio per la descrizione delle API REST. L'ecosistema OpenAPI include strumenti che consentono di individuare, testare e produrre codice client usando la specifica. Il supporto per la generazione e la visualizzazione di documenti OpenAPI in ASP.NET Core MVC è fornito tramite progetti gestiti dalla community, ad esempio [NSwag](https://github.com/RicoSuter/NSwag) e [Swashbuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore). ASP.NET Core 2.2 offre strumenti ottimizzati e migliori esperienze con il runtime per la creazione di documenti OpenAPI.
 
-Per altre informazioni, vedere le seguenti risorse:
+Per ulteriori informazioni, vedere le seguenti risorse:
 
 * <xref:web-api/advanced/analyzers>
 * <xref:web-api/advanced/conventions>
@@ -37,7 +37,7 @@ Con ASP.NET Core 2.1 è stata introdotta la classe `ProblemDetails`, basata sull
 
 ASP.NET Core 2.2 prevede un nuovo sistema di *routing di endpoint* che rende più efficace l'invio delle richieste. Le modifiche includono una nuova funzione di generazione dei collegamenti per i membri dell'API e l'aggiunta di trasformatori per i parametri di routing.
 
-Per altre informazioni, vedere le seguenti risorse:
+Per ulteriori informazioni, vedere le seguenti risorse:
 
 * [Endpoint routing in 2.2](https://blogs.msdn.microsoft.com/webdev/2018/08/27/asp-net-core-2-2-0-preview1-endpoint-routing/) (Routing di endpoint in 2.2)
 * [Parameter transformers](https://www.hanselman.com/blog/ASPNETCore22ParameterTransformersForCleanURLGenerationAndSlugsInRazorPagesOrMVC.aspx) (Trasformatori dei parametri), sezione **Routing**
@@ -57,7 +57,12 @@ Per altre informazioni, vedere [Controlli di integrità in ASP.NET Core](xref:ho
 
 In ASP.NET Core 2.2 è stato aggiunto il supporto per HTTP/2.
 
-HTTP/2 è una revisione principale del protocollo HTTP. Alcune delle funzionalità degne di nota di HTTP/2 sono il supporto per la compressione delle intestazioni e la trasmissione di flussi multiplex completi con una singola connessione. Pur conservando la semantica tipica di HTTP (intestazioni HTTP, metodi e così via), HTTP/2 presenta sostanziali novità rispetto a HTTP/1.x in merito al modo in cui questi dati vengono inseriti in un frame e trasmessi in rete.
+HTTP/2 è una revisione principale del protocollo HTTP. Le funzionalità importanti di HTTP/2 includono:
+
+* Supporto per la compressione dell'intestazione.
+* Flussi completamente multiplexati in una singola connessione.
+
+Quando HTTP/2 conserva la semantica HTTP (ad esempio, intestazioni e metodi HTTP), si tratta di una modifica sostanziale rispetto a HTTP/1. x sul modo in cui i dati vengono incorniciati e inviati tra il client e il server.
 
 Come conseguenza di questa modifica del framing, i server e i client devono negoziare la versione del protocollo usata. ALPN (Application Layer Protocol Negotiation) è un'estensione TLS che consente al server e al client di negoziare la versione del protocollo usata nel corso dell'handshake TLS. Sebbene sia possibile che il server e il client dispongano di conoscenze precedenti rispetto al protocollo, tutti i principali browser supportano ALPN e la considerano l'unico modo per stabilire una connessione HTTP/2.
 
@@ -65,7 +70,7 @@ Per altre informazioni, vedere [Supporto per HTTP/2](xref:fundamentals/servers/i
 
 ## <a name="kestrel-configuration"></a>Configurazione di Kestrel
 
-Nelle versioni precedenti di ASP.NET Core, le opzioni di Kestrel venivano configurate chiamando `UseKestrel`. Nella versione 2.2, le opzioni di Kestrel sono configurate chiamando `ConfigureKestrel` nel generatore di host. Questa modifica risolve un problema legato all'ordine delle registrazioni `IServer` per l'hosting in-process. Per altre informazioni, vedere le seguenti risorse:
+Nelle versioni precedenti di ASP.NET Core, le opzioni di Kestrel venivano configurate chiamando `UseKestrel`. Nella versione 2.2, le opzioni di Kestrel sono configurate chiamando `ConfigureKestrel` nel generatore di host. Questa modifica risolve un problema legato all'ordine delle registrazioni `IServer` per l'hosting in-process. Per ulteriori informazioni, vedere le seguenti risorse:
 
 * [Mitigate UseIIS conflict](https://github.com/aspnet/KestrelHttpServer/issues/2760) (Ridurre i conflitti UseIIS)
 * [Configurare le opzioni del server Kestrel con ConfigureKestrel](xref:fundamentals/servers/kestrel?view=aspnetcore-2.2#how-to-use-kestrel-in-aspnet-core-apps)

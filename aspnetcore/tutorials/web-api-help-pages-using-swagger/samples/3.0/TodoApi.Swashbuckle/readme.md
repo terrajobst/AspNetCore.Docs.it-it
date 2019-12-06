@@ -10,12 +10,12 @@ products:
 - vs-code
 - vs-mac
 urlFragment: getstarted-swashbuckle-aspnetcore
-ms.openlocfilehash: d48288de90626ada83f5da1759f0057f0be46f19
-ms.sourcegitcommit: f91d322f790123d41ec3271fa084ae20ed9f89a6
+ms.openlocfilehash: e02247325f430b0ce23dbb3f5bc344a60a1a164a
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74155142"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74879722"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Introduzione a Swashbuckle e ad ASP.NET Core
 
@@ -334,7 +334,7 @@ Si notino i miglioramenti dell'interfaccia utente con questi commenti aggiuntivi
 
 ### <a name="data-annotations"></a>Annotazioni dei dati
 
-Decorare il modello con gli attributi inclusi nello spazio dei nomi [System.ComponentModel.DataAnnotations](/dotnet/api/system.componentmodel.dataannotations) per gestire i componenti dell'interfaccia utente di Swagger.
+Contrassegnare il modello con attributi, disponibile nello spazio dei nomi [System. ComponentModel. DataAnnotations](/dotnet/api/system.componentmodel.dataannotations) , per guidare i componenti dell'interfaccia utente di spavalderia.
 
 Aggiungere l'attributo `[Required]` alla proprietà `Name` della classe `TodoItem`:
 

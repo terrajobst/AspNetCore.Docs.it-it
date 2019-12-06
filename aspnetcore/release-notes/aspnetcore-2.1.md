@@ -4,16 +4,16 @@ author: isaac2004
 description: Informazioni sulle nuove funzionalità in ASP.NET Core 2.1.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 no-loc:
 - SignalR
 uid: aspnetcore-2.1
-ms.openlocfilehash: a45ba44fb7911a21927a4a996c0d6fa9eb776357
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: d969b4caab44e3e50b3a0202b25864921d6d01dc
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963186"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880863"
 ---
 # <a name="whats-new-in-aspnet-core-21"></a>Novità di ASP.NET Core 2.1
 
@@ -51,7 +51,7 @@ Per altre informazioni, vedere [Scaffold Identity in ASP.NET Core projects](xref
 
 ## <a name="https"></a>HTTPS
 
-Vista la maggiore attenzione rivolta a sicurezza e privacy, è importante abilitare HTTPS per le app Web. L'imposizione HTTPS sta diventando sempre più rigida sul Web. I siti che non usano HTTPS vengono considerati non sicuri. Alcuni browser come Chromium e Mozilla hanno iniziato a imporre che le funzionalità Web siano usate da un contesto protetto. Il [Regolamento generale sulla protezione dei dati (GDPR) ](xref:security/gdpr) richiede l'uso di HTTPS per proteggere la privacy degli utenti. Usare HTTPS nell'ambiente di produzione è una questione critica, usarlo nell'ambiente di sviluppo può invece prevenire problemi di distribuzione, ad esempio collegamenti non sicuri. ASP.NET Core 2.1 include numerosi miglioramenti che semplificano l'uso di HTTPS nell'ambiente di sviluppo e la configurazione di HTTPS nell'ambiente di produzione. Per altre informazioni, vedere [Imporre HTTPS](xref:security/enforcing-ssl).
+Vista la maggiore attenzione rivolta a sicurezza e privacy, è importante abilitare HTTPS per le app Web. L'imposizione HTTPS sta diventando sempre più rigida sul Web. I siti che non utilizzano HTTPS sono considerati non sicuri. Alcuni browser come Chromium e Mozilla hanno iniziato a imporre che le funzionalità Web siano usate da un contesto protetto. Il [Regolamento generale sulla protezione dei dati (GDPR) ](xref:security/gdpr) richiede l'uso di HTTPS per proteggere la privacy degli utenti. Usare HTTPS nell'ambiente di produzione è una questione critica, usarlo nell'ambiente di sviluppo può invece prevenire problemi di distribuzione, ad esempio collegamenti non sicuri. ASP.NET Core 2.1 include numerosi miglioramenti che semplificano l'uso di HTTPS nell'ambiente di sviluppo e la configurazione di HTTPS nell'ambiente di produzione. Per altre informazioni, vedere [Imporre HTTPS](xref:security/enforcing-ssl).
 
 ### <a name="on-by-default"></a>Abilitazione predefinita
 

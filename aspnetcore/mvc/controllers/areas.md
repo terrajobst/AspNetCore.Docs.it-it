@@ -3,14 +3,14 @@ title: Aree in ASP.NET Core
 author: rick-anderson
 description: Informazioni sulle aree, una funzionalità di ASP.NET MVC che consente di organizzare le funzioni correlate in un gruppo come spazio dei nomi separato (per il routing) e struttura di cartelle (per le visualizzazioni).
 ms.author: riande
-ms.date: 08/16/2019
+ms.date: 12/05/2019
 uid: mvc/controllers/areas
-ms.openlocfilehash: 9065aa23a537add5a9376472e4f4478e9d4149bd
-ms.sourcegitcommit: 776598f71da0d1e4c9e923b3b395d3c3b5825796
-ms.translationtype: HT
+ms.openlocfilehash: 7e02a21361e0e2148b29a3ae0f1ba25e68239e13
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70024736"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881123"
 ---
 # <a name="areas-in-aspnet-core"></a>Aree in ASP.NET Core
 
@@ -34,7 +34,7 @@ Se si usa Razor Pages, vedere [Aree con pagine Razor](#areas-with-razor-pages) i
 Una tipica app Web ASP.NET Core che usa aree, controller e visualizzazioni contiene quanto segue:
 
 * Una [struttura di cartelle dell'area](#area-folder-structure).
-* I controller contrassegnati con l'attributo [&lbrack;Area&rbrack;](#attribute) per associare il controller all'area:
+* Controller con l'attributo [`[Area]`](#attribute) per associare il controller all'area:
 
   [!code-csharp[](areas/samples/MVCareas/Areas/Products/Controllers/ManageController.cs?name=snippet2)]
 
@@ -48,12 +48,12 @@ Si consideri un'applicazione che ha due gruppi logici, *Prodotti* e *Servizi*. U
 
 * Nome progetto
   * Aree
-    * Prodotti
+    * Products
       * Controllers
         * HomeController.cs
         * ManageController.cs
       * Visualizzazioni
-        * Home
+        * Home page di
           * Index.cshtml
         * Gestisci
           * Index.cshtml
@@ -62,7 +62,7 @@ Si consideri un'applicazione che ha due gruppi logici, *Prodotti* e *Servizi*. U
       * Controllers
         * HomeController.cs
       * Visualizzazioni
-        * Home
+        * Home page di
           * Index.cshtml
 
 Anche se il layout precedente è tipico quando si usano le aree, per usare questa struttura di cartelle sono necessari solo i file delle visualizzazioni. L'individuazione delle visualizzazioni cercherà un file di visualizzazione area corrispondente in quest'ordine:
@@ -138,7 +138,7 @@ Per le aree con pagine Razor è richiesta una cartella *Areas/<area name>/Pages*
 
 * Nome progetto
   * Aree
-    * Prodotti
+    * Products
       * Pages
         * _ViewImports
         * Informazioni su

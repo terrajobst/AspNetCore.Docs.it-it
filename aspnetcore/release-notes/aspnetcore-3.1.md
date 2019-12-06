@@ -4,17 +4,17 @@ author: rick-anderson
 description: Informazioni sulle nuove funzionalità di ASP.NET Core 3,1.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 - SignalR
 uid: aspnetcore-3.1
-ms.openlocfilehash: 634c6937089a0a0fe1f862a83771aff65a1f8418
-ms.sourcegitcommit: 5974e3e66dab3398ecf2324fbb82a9c5636f70de
+ms.openlocfilehash: 5eaf14f3b9c5a5b2b83e469c4dc8119b5fc341c1
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74778843"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880820"
 ---
 # <a name="whats-new-in-aspnet-core-31"></a>Novità di ASP.NET Core 3,1
 
@@ -47,7 +47,7 @@ Per altre informazioni, vedere [integrare i componenti nelle app Razor Pages e M
 
 ## <a name="support-for-shared-queues-in-httpsys"></a>Supporto per le code condivise in HTTP. sys
 
-[Http. sys](xref:fundamentals/servers/httpsys) supporta la creazione di code di richieste anonime. In ASP.NET Core 3,1 è stata aggiunta la possibilità di creare o connettersi a una coda di richieste HTTP. sys denominata esistente. La creazione o la connessione a una coda di richieste HTTP. sys denominata esistente Abilita scenari in cui il protocollo HTTP. Il processo del controller sys proprietario della coda è indipendente dal processo del listener. Questa indipendenza rende possibile la conservazione delle connessioni esistenti e delle richieste accodate tra i riavvii del processo del listener:
+[Http. sys](xref:fundamentals/servers/httpsys) supporta la creazione di code di richieste anonime. In ASP.NET Core 3,1 è stata aggiunta la possibilità di creare o connettersi a una coda di richieste HTTP. sys denominata esistente. La creazione o la connessione a una coda di richieste HTTP. sys denominata esistente Abilita scenari in cui il processo del controller HTTP. sys proprietario della coda è indipendente dal processo del listener. Questa indipendenza rende possibile la conservazione delle connessioni esistenti e delle richieste accodate tra i riavvii del processo del listener:
 
 [!code-csharp[](sample/Program.cs?name=snippet)]
 

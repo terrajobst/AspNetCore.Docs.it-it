@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni sulle nuove funzionalità in ASP.NET Core 2.0.
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/28/2019
+ms.date: 12/05/2019
 uid: aspnetcore-2.0
-ms.openlocfilehash: dac5a48042a71774cb884e30a166be68bee69691
-ms.sourcegitcommit: f5762967df3be8b8c868229e679301f2f7954679
-ms.translationtype: HT
+ms.openlocfilehash: 452ccd76eece55cb5cf38fe39781f2f64dd5d466
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048104"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880868"
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>Novità di ASP.NET Core 2.0
 
@@ -104,7 +104,7 @@ var entityTag = new EntityTagHeaderValue("\"MyCalculatedEtagValue\"");
 return File(data, "text/plain", "downloadName.txt", lastModified: DateTime.UtcNow.AddSeconds(-5), entityTag: entityTag);
 ```
 
-Il file restituito ai visitatori verrà decorato con le intestazioni HTTP appropriate per i valori `ETag` e `LastModified`.
+Il file restituito ai visitatori presenta le intestazioni HTTP appropriate per i valori `ETag` e `LastModified`.
 
 Se il visitatore di un'applicazione richiede contenuto con un'intestazione di richiesta di intervallo, ASP.NET Core lo riconosce e gestisce l'intestazione. Se il contenuto richiesto può essere recapitato parzialmente, ASP.NET Core ignora e considera le varie parti in modo appropriato restituendo solo il set di byte richiesto. Non è necessario scrivere gestori speciali nei metodi per adattare o gestire questa funzionalità, poiché è gestita automaticamente.
 

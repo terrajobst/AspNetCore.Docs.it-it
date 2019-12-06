@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/18/2019
 uid: fundamentals/configuration/options
-ms.openlocfilehash: 4192bab8acef7c4f7bdf1ac481c468cd0a835420
-ms.sourcegitcommit: 8157e5a351f49aeef3769f7d38b787b4386aad5f
+ms.openlocfilehash: 46cfff905636dc0d50fcde5e781ce47fb6d85cc0
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74239789"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880391"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>Modello di opzioni in ASP.NET Core
 
@@ -116,7 +116,7 @@ Nel codice seguente viene aggiunto un secondo servizio <xref:Microsoft.Extension
 
 [!code-csharp[](options/samples/3.x/OptionsSample/Pages/Index.cshtml.cs?name=snippet_Example2)]
 
-È possibile aggiungere più provider di configurazione. I provider di configurazione sono disponibili dai pacchetti NuGet e vengono applicati nell'ordine in cui sono registrati. Per altre informazioni, vedere <xref:fundamentals/configuration/index>.
+È possibile aggiungere più provider di configurazione. I provider di configurazione sono disponibili dai pacchetti NuGet e vengono applicati nell'ordine in cui sono registrati. Per ulteriori informazioni, vedere <xref:fundamentals/configuration/index>.
 
 Ogni chiamata a <xref:Microsoft.Extensions.Options.IConfigureOptions%601.Configure*> aggiunge un servizio <xref:Microsoft.Extensions.Options.IConfigureOptions%601> al contenitore di servizi. Nell'esempio precedente i valori di `Option1` e `Option2` sono entrambi specificati in *appsettings.json*, mentre i valori di `Option1` e `Option2` sono sottoposti a override dal delegato configurato.
 
@@ -168,7 +168,7 @@ L'inserimento di opzioni viene illustrato come esempio &num;4 nell'app di esempi
 
 Inserire <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> in:
 
-* Una pagina Razor o una visualizzazione MVC con la direttiva [@inject](xref:mvc/views/razor#inject) Razor.
+* Una pagina Razor o una visualizzazione MVC con la direttiva [`@inject`](xref:mvc/views/razor#inject) Razor.
 * Modello di pagina o di visualizzazione.
 
 L'esempio seguente dall'app di esempio inserisce <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> in un modello di pagina (*pages/index. cshtml. cs*):
@@ -453,7 +453,7 @@ Le opzioni offrono anche un meccanismo per convalidare i dati di configurazione.
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/options/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Fare riferimento al [metapacchetto Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) oppure aggiungere un riferimento al pacchetto [Microsoft.Extensions.Options.ConfigurationExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Options.ConfigurationExtensions/).
 
@@ -540,7 +540,7 @@ Nel codice seguente viene aggiunto un secondo servizio <xref:Microsoft.Extension
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Pages/Index.cshtml.cs?name=snippet_Example2)]
 
-È possibile aggiungere più provider di configurazione. I provider di configurazione sono disponibili dai pacchetti NuGet e vengono applicati nell'ordine in cui sono registrati. Per altre informazioni, vedere <xref:fundamentals/configuration/index>.
+È possibile aggiungere più provider di configurazione. I provider di configurazione sono disponibili dai pacchetti NuGet e vengono applicati nell'ordine in cui sono registrati. Per ulteriori informazioni, vedere <xref:fundamentals/configuration/index>.
 
 Ogni chiamata a <xref:Microsoft.Extensions.Options.IConfigureOptions%601.Configure*> aggiunge un servizio <xref:Microsoft.Extensions.Options.IConfigureOptions%601> al contenitore di servizi. Nell'esempio precedente i valori di `Option1` e `Option2` sono entrambi specificati in *appsettings.json*, mentre i valori di `Option1` e `Option2` sono sottoposti a override dal delegato configurato.
 
@@ -592,7 +592,7 @@ L'inserimento di opzioni viene illustrato come esempio &num;4 nell'app di esempi
 
 Inserire <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> in:
 
-* Una pagina Razor o una visualizzazione MVC con la direttiva [@inject](xref:mvc/views/razor#inject) Razor.
+* Una pagina Razor o una visualizzazione MVC con la direttiva [`@inject`](xref:mvc/views/razor#inject) Razor.
 * Modello di pagina o di visualizzazione.
 
 L'esempio seguente dall'app di esempio inserisce <xref:Microsoft.Extensions.Options.IOptionsMonitor%601> in un modello di pagina (*pages/index. cshtml. cs*):
@@ -875,7 +875,7 @@ Le opzioni offrono anche un meccanismo per convalidare i dati di configurazione.
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/options/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Fare riferimento al [metapacchetto Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) oppure aggiungere un riferimento al pacchetto [Microsoft.Extensions.Options.ConfigurationExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Options.ConfigurationExtensions/).
 
@@ -962,7 +962,7 @@ Nel codice seguente viene aggiunto un secondo servizio <xref:Microsoft.Extension
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Pages/Index.cshtml.cs?name=snippet_Example2)]
 
-È possibile aggiungere più provider di configurazione. I provider di configurazione sono disponibili dai pacchetti NuGet e vengono applicati nell'ordine in cui sono registrati. Per altre informazioni, vedere <xref:fundamentals/configuration/index>.
+È possibile aggiungere più provider di configurazione. I provider di configurazione sono disponibili dai pacchetti NuGet e vengono applicati nell'ordine in cui sono registrati. Per ulteriori informazioni, vedere <xref:fundamentals/configuration/index>.
 
 Ogni chiamata a <xref:Microsoft.Extensions.Options.IConfigureOptions%601.Configure*> aggiunge un servizio <xref:Microsoft.Extensions.Options.IConfigureOptions%601> al contenitore di servizi. Nell'esempio precedente i valori di `Option1` e `Option2` sono entrambi specificati in *appsettings.json*, mentre i valori di `Option1` e `Option2` sono sottoposti a override dal delegato configurato.
 

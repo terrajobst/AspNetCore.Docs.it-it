@@ -5,20 +5,20 @@ description: Informazioni sulle convenzioni dell'API Web in ASP.NET Core.
 monikerRange: '>= aspnetcore-2.2'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/13/2018
+ms.date: 12/05/2019
 uid: web-api/advanced/conventions
-ms.openlocfilehash: ae409158defe15ffaa7454039b302cf3c6437e54
-ms.sourcegitcommit: 6d9cf728465cdb0de1037633a8b7df9a8989cccb
-ms.translationtype: HT
+ms.openlocfilehash: 2c7e33da24322504fc5e1be83c0b814710186687
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67463285"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881311"
 ---
 # <a name="use-web-api-conventions"></a>Usare le convenzioni dell'API Web
 
 Di [Pranav Krishnamoorthy](https://github.com/pranavkm) e [Scott Addie](https://github.com/scottaddie)
 
-ASP.NET Core 2.2 e versioni successive include una modalità per l'estrazione di [documentazione dell'API](xref:tutorials/web-api-help-pages-using-swagger) comune e l'applicazione della documentazione a più azioni o controller, oppure a tutti i controller inclusi in un assembly. Le convenzioni dell'API Web sostituiscono l'aggiunta di [[ProducesResponseType]](xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute) alle singole azioni.
+ASP.NET Core 2.2 e versioni successive include una modalità per l'estrazione di [documentazione dell'API](xref:tutorials/web-api-help-pages-using-swagger) comune e l'applicazione della documentazione a più azioni o controller, oppure a tutti i controller inclusi in un assembly. Le convenzioni API Web sono un sostituto per la decorazione di singole azioni con [`[ProducesResponseType]`](xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute).
 
 Una convenzione consente di:
 
@@ -52,7 +52,7 @@ Le convenzioni non sono componibili; ogni azione può essere associata a una sol
 
     Per altre informazioni su `[ProducesDefaultResponseType]`, vedere [Default Response](https://swagger.io/docs/specification/describing-responses/#default) (Risposta predefinita).
 
-1. `Microsoft.AspNetCore.Mvc.ApiConventionTypeAttribute` applicato a un controller &mdash; Applica il tipo di convenzione specificato a tutte le azioni del controller. Un metodo della convenzione è completato da hint che determinano le azioni alle quali si applica il metodo della convenzione. Per altre informazioni sugli hint, vedere [Creare convenzioni dell'API Web](#create-web-api-conventions).
+1. `Microsoft.AspNetCore.Mvc.ApiConventionTypeAttribute` applicato a un controller &mdash; Applica il tipo di convenzione specificato a tutte le azioni del controller. Un metodo di convenzione è contrassegnato con hint che determinano le azioni a cui si applica il metodo di convenzione. Per altre informazioni sugli hint, vedere [Creare convenzioni dell'API Web](#create-web-api-conventions).
 
     Nell'esempio seguente il set di convenzioni predefinito viene applicato a tutte le azioni in *ContactsConventionController*:
 
@@ -91,7 +91,7 @@ Se non sono presenti attributi dei metadati più specifici, l'applicazione di qu
 * Il metodo della convenzione viene applicato a qualsiasi azione con nome `Find`.
 * Un parametro con nome `id` è presente nell'azione `Find`.
 
-### <a name="naming-requirements"></a>Requisiti di denominazione
+### <a name="naming-requirements"></a>Requisiti per la denominazione
 
 Gli attributi `[ApiConventionNameMatch]` e `[ApiConventionTypeMatch]` possono essere applicati al metodo convenzione che determina le azioni nelle quali vengono implementati. Ad esempio:
 

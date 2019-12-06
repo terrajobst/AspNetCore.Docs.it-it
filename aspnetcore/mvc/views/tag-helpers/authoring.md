@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni su come creare helper tag in ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/29/2019
+ms.date: 12/05/2019
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: f0c7e114583b2ca2e681c507bef3487c863d8cd0
-ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
+ms.openlocfilehash: e8b62d795f6444e6dd79e27ace687d5db4db86de
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72589865"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881006"
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>Creare helper tag in ASP.NET Core
 
@@ -31,7 +31,7 @@ Un helper tag è una classe che implementa l'interfaccia `ITagHelper`. Quando si
 
 ## <a name="a-minimal-tag-helper"></a>Un helper tag piccolissimo
 
-In questa sezione verrà scritto un helper tag che aggiorna un tag di posta elettronica. Esempio:
+In questa sezione verrà scritto un helper tag che aggiorna un tag di posta elettronica. Ad esempio:
 
 ```html
 <email>Support</email>
@@ -117,7 +117,7 @@ Questo approccio funziona per l'attributo "href" a condizione che non esista nel
 <a name="self-closing"></a>
 
    > [!NOTE]
-   > Se si scrive il tag di posta elettronica a chiusura automatica (`<email mail-to="Rick" />`), anche l'output finale è a chiusura automatica. Per abilitare la possibilità di scrivere il tag solo con il tag di inizio (`<email mail-to="Rick">`) è necessario decorare la classe con il codice seguente:
+   > Se si scrive il tag di posta elettronica a chiusura automatica (`<email mail-to="Rick" />`), anche l'output finale è a chiusura automatica. Per consentire la scrittura del tag con solo un tag di inizio (`<email mail-to="Rick">`), è necessario contrassegnare la classe con quanto segue:
    >
    > [!code-csharp[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/EmailTagHelperMailVoid.cs?highlight=1&range=6-10)]
 

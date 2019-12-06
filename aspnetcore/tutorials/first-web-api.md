@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni su come creare un'API Web con ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/29/2019
+ms.date: 12/05/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: abb55ea12583374639f28945037cb6aa41a5a32d
-ms.sourcegitcommit: 77c8be22d5e88dd710f42c739748869f198865dd
+ms.openlocfilehash: 96b4c030c1d91f97725d1f3623c7b4023ad99ff3
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73427045"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880632"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Esercitazione: creare un'API Web con ASP.NET Core
 
@@ -32,17 +32,17 @@ In questa esercitazione si imparerà a:
 
 Al termine si avrà un'API Web che può gestire gli elementi di tipo "attività" archiviati in un database.
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Panoramica di
 
 Questa esercitazione consente di creare l'API seguente:
 
-|API | Descrizione | Corpo della richiesta | Corpo della risposta |
+|API | Descrizione | Testo della richiesta | Corpo della risposta |
 |--- | ---- | ---- | ---- |
-|GET /api/TodoItems | Ottiene tutti gli elementi attività | Nessuno | Matrice di elementi attività|
-|GET /api/TodoItems/{id} | Ottiene un elemento in base all'ID | Nessuno | Elemento attività|
+|GET /api/TodoItems | Ottiene tutti gli elementi attività | nessuna | Matrice di elementi attività|
+|GET /api/TodoItems/{id} | Ottiene un elemento in base all'ID | nessuna | Elemento attività|
 |POST /api/TodoItems | Aggiunge un nuovo elemento | Elemento attività | Elemento attività |
-|PUT /api/TodoItems/{id} | Aggiorna un elemento esistente &nbsp; | Elemento attività | Nessuno |
-|DELETE /api/TodoItems/{id} &nbsp; &nbsp; | Elimina un elemento &nbsp; &nbsp; | Nessuno | Nessuno|
+|PUT /api/TodoItems/{id} | Aggiorna un elemento esistente &nbsp; | Elemento attività | nessuna |
+|DELETE /api/TodoItems/{id} &nbsp; &nbsp; | Elimina un elemento &nbsp; &nbsp; | nessuna | nessuna|
 
 Il diagramma seguente visualizza la struttura dell'app.
 
@@ -297,7 +297,7 @@ I comandi precedenti:
 Il codice generato:
 
 * Definisce una classe controller API senza metodi.
-* Contrassegna la classe con l'attributo [[ApiController]](/dotnet/api/microsoft.aspnetcore.mvc.apicontrollerattribute). L'attributo indica che il controller risponde alle richieste di API Web. Per informazioni sui comportamenti specifici consentiti dall'attributo, vedere <xref:web-api/index>.
+* Contrassegna la classe con l'attributo [`[ApiController]`](/dotnet/api/microsoft.aspnetcore.mvc.apicontrollerattribute) . L'attributo indica che il controller risponde alle richieste di API Web. Per informazioni sui comportamenti specifici consentiti dall'attributo, vedere <xref:web-api/index>.
 * Usa l'inserimento delle dipendenze per inserire il contesto del database (`TodoContext`) nel controller. Il contesto di database viene usato in ognuno dei metodi [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) nel controller.
 
 ## <a name="examine-the-posttodoitem-create-method"></a>Esaminare il metodo di creazione PostTodoItem
@@ -306,7 +306,7 @@ Sostituire l'istruzione return in `PostTodoItem` per usare l'operatore [nameof](
 
 [!code-csharp[](first-web-api/samples/3.0/TodoApi/Controllers/TodoItemsController.cs?name=snippet_Create)]
 
-Il codice precedente è un metodo HTTP POST, come indicato dall'attributo [[HttpPost]](/dotnet/api/microsoft.aspnetcore.mvc.httppostattribute). Il metodo ottiene il valore dell'elemento attività dal corpo della richiesta HTTP.
+Il codice precedente è un metodo HTTP POST, come indicato dall'attributo [`[HttpPost]`](/dotnet/api/microsoft.aspnetcore.mvc.httppostattribute) . Il metodo ottiene il valore dell'elemento attività dal corpo della richiesta HTTP.
 
 Il metodo <xref:Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction*>:
 
@@ -366,7 +366,7 @@ Questi metodi implementano due metodi GET:
 * `GET /api/TodoItems`
 * `GET /api/TodoItems/{id}`
 
-Testare l'app chiamando i due endpoint da un browser o da Postman. Esempio:
+Testare l'app chiamando i due endpoint da un browser o da Postman. Ad esempio:
 
 * [https://localhost:5001/api/TodoItems](https://localhost:5001/api/TodoItems)
 * [https://localhost:5001/api/TodoItems/1](https://localhost:5001/api/TodoItems/1)
@@ -483,17 +483,17 @@ In questa esercitazione si imparerà a:
 
 Al termine si dispone di un'API web che può gestire gli elementi di tipo "attività" archiviati in un database relazionale.
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Panoramica di
 
 Questa esercitazione consente di creare l'API seguente:
 
-|API | Descrizione | Corpo della richiesta | Corpo della risposta |
+|API | Descrizione | Testo della richiesta | Corpo della risposta |
 |--- | ---- | ---- | ---- |
-|GET /api/TodoItems | Ottiene tutti gli elementi attività | Nessuno | Matrice di elementi attività|
-|GET /api/TodoItems/{id} | Ottiene un elemento in base all'ID | Nessuno | Elemento attività|
+|GET /api/TodoItems | Ottiene tutti gli elementi attività | nessuna | Matrice di elementi attività|
+|GET /api/TodoItems/{id} | Ottiene un elemento in base all'ID | nessuna | Elemento attività|
 |POST /api/TodoItems | Aggiunge un nuovo elemento | Elemento attività | Elemento attività |
-|PUT /api/TodoItems/{id} | Aggiorna un elemento esistente &nbsp; | Elemento attività | Nessuno |
-|DELETE /api/TodoItems/{id} &nbsp; &nbsp; | Elimina un elemento &nbsp; &nbsp; | Nessuno | Nessuno|
+|PUT /api/TodoItems/{id} | Aggiorna un elemento esistente &nbsp; | Elemento attività | nessuna |
+|DELETE /api/TodoItems/{id} &nbsp; &nbsp; | Elimina un elemento &nbsp; &nbsp; | nessuna | nessuna|
 
 Il diagramma seguente visualizza la struttura dell'app.
 
@@ -679,7 +679,7 @@ Il codice precedente:
 Il codice precedente:
 
 * Definisce una classe controller API senza metodi.
-* Contrassegna la classe con l'attributo [[ApiController]](/dotnet/api/microsoft.aspnetcore.mvc.apicontrollerattribute). L'attributo indica che il controller risponde alle richieste di API Web. Per informazioni sui comportamenti specifici consentiti dall'attributo, vedere <xref:web-api/index>.
+* Contrassegna la classe con l'attributo [`[ApiController]`](/dotnet/api/microsoft.aspnetcore.mvc.apicontrollerattribute) . L'attributo indica che il controller risponde alle richieste di API Web. Per informazioni sui comportamenti specifici consentiti dall'attributo, vedere <xref:web-api/index>.
 * Usa l'inserimento delle dipendenze per inserire il contesto del database (`TodoContext`) nel controller. Il contesto di database viene usato in ognuno dei metodi [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) nel controller.
 * Aggiunge un elemento denominato `Item1` al database se il database è vuoto. Questo codice si trova nel costruttore, quindi viene eseguito ogni volta che è presente una nuova richiesta HTTP. Se si eliminano tutti gli elementi, il costruttore crea di nuovo `Item1` quando viene nuovamente chiamato un metodo API. Potrebbe pertanto sembrare che l'eliminazione non abbia funzionato, mentre di fatto ha funzionato.
 
@@ -696,7 +696,7 @@ Questi metodi implementano due metodi GET:
 
 Arrestare l'app se è ancora in esecuzione. Quindi eseguirla di nuovo per includere le modifiche più recenti.
 
-Testare l'app chiamando i due endpoint da un browser. Esempio:
+Testare l'app chiamando i due endpoint da un browser. Ad esempio:
 
 * `https://localhost:<port>/api/todo`
 * `https://localhost:<port>/api/todo/1`
@@ -773,7 +773,7 @@ Aggiungere il metodo `PostTodoItem` seguente in *Controllers/TodoController.cs*:
 
 [!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
 
-Il codice precedente è un metodo HTTP POST, come indicato dall'attributo [[HttpPost]](/dotnet/api/microsoft.aspnetcore.mvc.httppostattribute). Il metodo ottiene il valore dell'elemento attività dal corpo della richiesta HTTP.
+Il codice precedente è un metodo HTTP POST, come indicato dall'attributo [`[HttpPost]`](/dotnet/api/microsoft.aspnetcore.mvc.httppostattribute) . Il metodo ottiene il valore dell'elemento attività dal corpo della richiesta HTTP.
 
 Il metodo `CreatedAtAction`:
 
@@ -785,7 +785,7 @@ Il metodo `CreatedAtAction`:
 
 ### <a name="test-the-posttodoitem-method"></a>Testare il metodo PostTodoItem
 
-* Compilare il progetto.
+* Compilazione del progetto.
 * In Postman impostare il metodo HTTP su `POST`.
 * Fare clic sulla scheda **Body** (Corpo).
 * Selezionare il pulsante di opzione **raw** (non elaborato).
@@ -923,7 +923,7 @@ L'aggiornamento di un elemento attività è simile all'aggiunta di un elemento d
 
 [Visualizzare o scaricare il codice di esempio per questa esercitazione](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/first-web-api/samples). Vedere [come scaricare un esempio](xref:index#how-to-download-a-sample).
 
-Per altre informazioni, vedere le seguenti risorse:
+Per ulteriori informazioni, vedere le seguenti risorse:
 
 * <xref:web-api/index>
 * <xref:tutorials/web-api-help-pages-using-swagger>

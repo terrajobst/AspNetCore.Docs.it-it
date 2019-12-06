@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: blazor/templates
-ms.openlocfilehash: e82f28afdac8517f72538094d97f28bdcfe46102
-ms.sourcegitcommit: 918d7000b48a2892750264b852bad9e96a1165a7
+ms.openlocfilehash: bc0ea4a777e8684a7b0925377b8a19a45c2b531c
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74551585"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74879661"
 ---
 # <a name="aspnet-core-opno-locblazor-templates"></a>Modelli di Blazor ASP.NET Core
 
@@ -61,7 +61,7 @@ I file e le cartelle seguenti costituiscono un'app Blazor generata da un modello
 
 * *App. razor* &ndash; il componente radice dell'app che configura il routing sul lato client usando il componente <xref:Microsoft.AspNetCore.Components.Routing.Router>. Il componente `Router` intercetta la navigazione del browser ed esegue il rendering della pagina corrispondente all'indirizzo richiesto.
 
-* Cartella *pages* &ndash; contiene i componenti e le pagine instradabili (*Razor*) che costituiscono l'app Blazor. La route per ogni pagina viene specificata utilizzando la direttiva [@page](xref:mvc/views/razor#page) . Il modello include i componenti seguenti:
+* Cartella *pages* &ndash; contiene i componenti e le pagine instradabili (*Razor*) che costituiscono l'app Blazor. La route per ogni pagina viene specificata utilizzando la direttiva [`@page`](xref:mvc/views/razor#page) . Il modello include i componenti seguenti:
   * `Index` (*index. Razor*) &ndash; implementa la Home page.
   * `Counter` (*Counter. Razor*) &ndash; implementa la pagina del contatore.
   * `Error` (*Error. Razor*, Blazor solo app Server) &ndash; sottoposto a rendering quando si verifica un'eccezione non gestita nell'app.
@@ -71,7 +71,7 @@ I file e le cartelle seguenti costituiscono un'app Blazor generata da un modello
   * `MainLayout` (*MainLayout. Razor*) &ndash; componente layout dell'app.
   * `NavMenu` (*NavMenu. Razor*) &ndash; implementa la navigazione nell'intestazione laterale. Include il [componente NavLink](xref:blazor/routing#navlink-component) (<xref:Microsoft.AspNetCore.Components.Routing.NavLink>), che esegue il rendering dei collegamenti di navigazione ad altri componenti Razor. Il componente `NavLink` indica automaticamente uno stato selezionato quando viene caricato il componente, che consente all'utente di comprendere il componente attualmente visualizzato.
 
-* *_Imports. razor* &ndash; include direttive Razor comuni da includere nei componenti dell'app (*Razor*), ad esempio [@using](xref:mvc/views/razor#using) direttive per gli spazi dei nomi.
+* *_Imports. razor* &ndash; include direttive Razor comuni da includere nei componenti dell'app (*Razor*), ad esempio [`@using`](xref:mvc/views/razor#using) direttive per gli spazi dei nomi.
 
 * Cartella *dati* (serverBlazor) &ndash; contiene la classe `WeatherForecast` e l'implementazione del `WeatherForecastService` che forniscono dati meteorologici di esempio al componente `FetchData` dell'app.
 

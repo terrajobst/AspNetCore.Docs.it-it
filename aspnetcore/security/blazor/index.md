@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: security/blazor/index
-ms.openlocfilehash: 2ebc4d72191dff33a7fb6170650be67c3836cdaa
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 693ac1a5b5bcaf8a9bbf0ff9ab63fb41764e3888
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73964012"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880449"
 ---
 # <a name="aspnet-core-opno-locblazor-authentication-and-authorization"></a>Autenticazione e autorizzazione ASP.NET Core Blazor
 
@@ -32,7 +32,7 @@ Gli scenari di sicurezza sono diversi tra le app Blazor server e Blazor webassem
 
 Blazor le app webassembly vengono eseguite sul client. L'autorizzazione viene usata *solo* per determinare quali opzioni dell'interfaccia utente visualizzare. Poiché i controlli lato client possono essere modificati o ignorati da un utente, un Blazor app webassembly non può applicare le regole di accesso all'autorizzazione.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
 Blazor usa i meccanismi di autenticazione ASP.NET Core esistenti per stabilire l'identità dell'utente. Il meccanismo esatto dipende dal modo in cui è ospitata l'app Blazor, Blazor server o Blazor webassembly.
 
@@ -67,7 +67,7 @@ dotnet new blazorserver -o {APP NAME} -au {AUTHENTICATION}
 
 I valori di autenticazione consentiti (`{AUTHENTICATION}`) sono indicati nella tabella seguente.
 
-| Meccanismo di autenticazione                                                                 | Valore di`{AUTHENTICATION}` |
+| Meccanismo di autenticazione                                                                 | Valore di `{AUTHENTICATION}` |
 | ---------------------------------------------------------------------------------------- | :----------------------: |
 | Nessuna autenticazione                                                                        | `None`                   |
 | Utenti<br>individuali archiviati nell'app con ASP.NET Core Identity.                        | `Individual`             |
@@ -237,7 +237,7 @@ Se i dati dello stato di autenticazione sono necessari per la logica procedurale
 
 Se `user.Identity.IsAuthenticated` è `true`, è possibile enumerare le attestazioni e valutare l'appartenenza ai ruoli.
 
-Configurare il parametro di propagazione `Task<AuthenticationState>` usando i componenti `AuthorizeRouteView` e `CascadingAuthenticationState`:
+Configurare il `Task<AuthenticationState>` parametro di propagazione utilizzando i componenti `AuthorizeRouteView` e `CascadingAuthenticationState`:
 
 ```cshtml
 <Router AppAssembly="@typeof(Program).Assembly">
@@ -398,7 +398,7 @@ Se non si specifica `Roles` o `Policy`, `[Authorize]` usa i criteri predefiniti,
 Il componente `Router`, insieme al componente `AuthorizeRouteView`, consente all'app di specificare contenuto personalizzato se:
 
 * Non viene trovato contenuto.
-* L'utente non supera una condizione `[Authorize]` applicata al componente. L'attributo `[Authorize]` viene presentato nella sezione [Attributo [Authorize]](#authorize-attribute).
+* L'utente non supera una condizione `[Authorize]` applicata al componente. L'attributo `[Authorize]` viene trattato nella sezione [attributo`[Authorize]`](#authorize-attribute) .
 * L'autenticazione asincrona è in corso.
 
 Nel modello di progetto predefinito di Blazor server il file *app. Razor* illustra come impostare il contenuto personalizzato:
@@ -429,9 +429,9 @@ Nel modello di progetto predefinito di Blazor server il file *app. Razor* illust
 </Router>
 ```
 
-Il contenuto dei tag `<NotFound>`, `<NotAuthorized>` e `<Authorizing>` può includere elementi arbitrari, ad esempio altri componenti interattivi.
+Il contenuto dei tag `<NotFound>`, `<NotAuthorized>`e `<Authorizing>` può includere elementi arbitrari, ad esempio altri componenti interattivi.
 
-Se l'elemento `<NotAuthorized>` non è specificato, il `AuthorizeRouteView` utilizza il seguente messaggio di fallback:
+Se l'elemento `<NotAuthorized>` non è specificato, il `AuthorizeRouteView` usa il messaggio di fallback seguente:
 
 ```html
 Not authorized.

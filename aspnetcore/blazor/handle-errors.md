@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: blazor/handle-errors
-ms.openlocfilehash: 9f249fac331d31249f9325892e8365e3d0b4cc5a
-ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
+ms.openlocfilehash: e737a8a85e7eb83d95618d71e85b0307c54b0766
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74717061"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74879690"
 ---
 # <a name="handle-errors-in-aspnet-core-opno-locblazor-apps"></a>Gestione degli errori nelle app ASP.NET Core Blazor
 
@@ -116,7 +116,7 @@ Le eccezioni non gestite precedenti sono descritte nelle sezioni seguenti di que
 Quando Blazor crea un'istanza di un componente:
 
 * Il costruttore del componente viene richiamato.
-* I costruttori di tutti i servizi non singleton forniti al costruttore del componente tramite la direttiva [@inject](xref:blazor/dependency-injection#request-a-service-in-a-component) o l'attributo [[Inject]](xref:blazor/dependency-injection#request-a-service-in-a-component) vengono richiamati. 
+* Vengono richiamati i costruttori di tutti i servizi non singleton forniti al costruttore del componente tramite la direttiva [`@inject`](xref:blazor/dependency-injection#request-a-service-in-a-component) o l'attributo [`[Inject]`](xref:blazor/dependency-injection#request-a-service-in-a-component) . 
 
 Un circuito ha esito negativo quando un costruttore eseguito o un setter per qualsiasi proprietà `[Inject]` genera un'eccezione non gestita. L'eccezione è irreversibile perché il Framework non è in grado di creare un'istanza del componente. Se la logica del costruttore può generare eccezioni, l'app deve intercettare le eccezioni usando un'istruzione [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) con gestione e registrazione degli errori.
 
@@ -185,7 +185,7 @@ Le condizioni seguenti si applicano alla gestione degli errori con `InvokeAsync<
 * Se una chiamata a `InvokeAsync<T>` ha esito negativo in modo asincrono, l'<xref:System.Threading.Tasks.Task> .NET non riesce. Una chiamata a `InvokeAsync<T>` potrebbe non riuscire, ad esempio perché il codice sul lato JavaScript genera un'eccezione o restituisce una `Promise` completata come `rejected`. Il codice dello sviluppatore deve intercettare l'eccezione. Se si usa l'operatore [await](/dotnet/csharp/language-reference/keywords/await) , è consigliabile eseguire il wrapping della chiamata al metodo in un'istruzione [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) con gestione e registrazione degli errori. In caso contrario, il codice in errore genera un'eccezione non gestita che è irreversibile per il circuito.
 * Per impostazione predefinita, le chiamate a `InvokeAsync<T>` devono essere completate entro un determinato periodo oppure si verifica il timeout della chiamata. Il periodo di timeout predefinito è di un minuto. Il timeout protegge il codice da una perdita di connettività di rete o codice JavaScript che non restituisce mai un messaggio di completamento. Se si verifica il timeout della chiamata, l'`Task` risultante ha esito negativo con un <xref:System.OperationCanceledException>. Intercettare ed elaborare l'eccezione con la registrazione.
 
-Analogamente, il codice JavaScript può avviare chiamate a metodi .NET indicati dall' [attributo [JSInvokable]](xref:blazor/javascript-interop#invoke-net-methods-from-javascript-functions). Se questi metodi .NET generano un'eccezione non gestita:
+Analogamente, il codice JavaScript può avviare chiamate a metodi .NET indicati dall'attributo [`[JSInvokable]`](xref:blazor/javascript-interop#invoke-net-methods-from-javascript-functions) . Se questi metodi .NET generano un'eccezione non gestita:
 
 * L'eccezione non viene trattata come irreversibile per il circuito.
 * Il `Promise` lato JavaScript viene rifiutato.

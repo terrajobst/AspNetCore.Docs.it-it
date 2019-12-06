@@ -4,14 +4,14 @@ author: rick-anderson
 description: Descrive gli helper tag predefiniti usati con i moduli.
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/06/2019
+ms.date: 12/05/2019
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: 43a1c408ff1a03468989e5bb0839ca2cd245082b
-ms.sourcegitcommit: b5e63714afc26e94be49a92619586df5189ed93a
-ms.translationtype: HT
+ms.openlocfilehash: 61b50a63bd026f917035f64785d8d3b1956958a6
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68739500"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880955"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>Helper tag nei moduli in ASP.NET Core
 
@@ -73,7 +73,7 @@ L'helper tag per l'azione modulo genera l'attributo `formaction` per l'elemento 
 
 Attributi di [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) supportati per controllare il valore di `formaction`:
 
-|Attributo|DESCRIZIONE|
+|Attributo|Descrizione|
 |---|---|
 |[asp-controller](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-controller)|Nome del controller.|
 |[asp-action](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-action)|Nome del metodo di azione.|
@@ -241,7 +241,7 @@ Il codice precedente genera il codice HTML seguente:
    </form>
 ```
 
-Le annotazioni dei dati applicate alle proprietà `Email` e `Password` generano metadati per il modello. L'helper tag Input usa i metadati del modello e genere attributi [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-val-*` (vedere [Convalida del modello](../models/validation.md)). Questi attributi descrivono i validator da collegare ai campi di input. Ciò consente una convalida HTML5 e [jQuery](https://jquery.com/) discreta. Gli attributi discreti hanno il formato `data-val-rule="Error Message"`, in cui rule è il nome della regola di convalida (ad esempio `data-val-required`, `data-val-email`, `data-val-maxlength` e così via). Se l'attributo specifica un messaggio di errore, quest'ultimo costituisce il valore dell'attributo `data-val-rule`. Esistono anche attributi di `data-val-ruleName-argumentName="argumentValue"` di Form che offrono dettagli aggiuntivi sulla regola, ad esempio, `data-val-maxlength-max="1024"` .
+Le annotazioni dei dati applicate alle proprietà `Email` e `Password` generano metadati per il modello. L'helper tag Input usa i metadati del modello e genere attributi [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-val-*` (vedere [Convalida del modello](../models/validation.md)). Questi attributi descrivono i validator da collegare ai campi di input. Ciò consente una convalida HTML5 e [jQuery](https://jquery.com/) discreta. Gli attributi non intrusivi hanno il formato `data-val-rule="Error Message"`, dove rule è il nome della regola di convalida, ad esempio `data-val-required`, `data-val-email`, `data-val-maxlength`e così via. Se un messaggio di errore viene fornito nell'attributo, viene visualizzato come valore per l'attributo `data-val-rule`. Esistono anche attributi di `data-val-ruleName-argumentName="argumentValue"` di Form che offrono dettagli aggiuntivi sulla regola, ad esempio, `data-val-maxlength-max="1024"` .
 
 ### <a name="html-helper-alternatives-to-input-tag-helper"></a>Alternative helper HTML per l'helper tag Input
 
@@ -453,11 +453,11 @@ Se si verifica un errore di convalida sul lato server, ad esempio quando la conv
 |--- |--- |
 |ValidationSummary.All|Livello di modello e proprietà|
 |ValidationSummary.ModelOnly|Modello|
-|ValidationSummary.None|nessuno|
+|ValidationSummary.None|nessuna|
 
 ### <a name="sample"></a>Esempio
 
-Nell'esempio seguente, il modello di dati viene decorato con attributi `DataAnnotation` e genera messaggi di errore di convalida per l'elemento `<input>`.  Quando si verifica un errore di convalida, l'helper tag di convalida visualizza il messaggio di errore:
+Nell'esempio seguente il modello di dati include `DataAnnotation` attributi, che generano messaggi di errore di convalida nell'elemento `<input>`.  Quando si verifica un errore di convalida, l'helper tag di convalida visualizza il messaggio di errore:
 
 [!code-csharp[](working-with-forms/sample/final/ViewModels/RegisterViewModel.cs)]
 
@@ -545,7 +545,7 @@ Il metodo `GetEnumSelectList` genera un oggetto `SelectList` per un enum.
 
 [!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexEnum.cshtml?highlight=5)]
 
-Per ottenere un'interfaccia utente più completa, è possibile decorare l'elenco di enumeratori con l'attributo `Display`:
+È possibile contrassegnare l'elenco di enumeratori con l'attributo `Display` per ottenere un'interfaccia utente più ricca:
 
 [!code-csharp[](working-with-forms/sample/final/ViewModels/CountryEnum.cs?highlight=5,7)]
 

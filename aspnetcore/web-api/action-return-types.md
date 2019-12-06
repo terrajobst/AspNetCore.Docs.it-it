@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 09/09/2019
 uid: web-api/action-return-types
-ms.openlocfilehash: c409170a24225e160c1c53e7294590589e114f7f
-ms.sourcegitcommit: 231780c8d7848943e5e9fd55e93f437f7e5a371d
+ms.openlocfilehash: fe665026fdced22ccf4b4f1ba655e858a7acf016
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116091"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74879733"
 ---
 # <a name="controller-action-return-types-in-aspnet-core-web-api"></a>Tipi restituiti dall'azione del controller nell'API Web ASP.NET Core
 
@@ -92,7 +92,7 @@ Entrambe le azioni precedenti sono non bloccanti a partire da ASP.NET Core 3,0.
 
 Il tipo restituito <xref:Microsoft.AspNetCore.Mvc.IActionResult> è appropriato quando più tipi restituiti `ActionResult` sono possibili in un'azione. I tipi `ActionResult` rappresentano vari codici di stato HTTP. Qualsiasi classe non astratta che deriva da `ActionResult` è qualificata come tipo restituito valido. Alcuni tipi restituiti comuni in questa categoria sono <xref:Microsoft.AspNetCore.Mvc.BadRequestResult> (400), <xref:Microsoft.AspNetCore.Mvc.NotFoundResult> (404) e <xref:Microsoft.AspNetCore.Mvc.OkObjectResult> (200). In alternativa, è possibile usare metodi pratici nella classe <xref:Microsoft.AspNetCore.Mvc.ControllerBase> per restituire `ActionResult` tipi da un'azione. Ad esempio, `return BadRequest();` è una forma abbreviata di `return new BadRequestResult();`.
 
-Poiché in questo tipo di azione sono presenti più tipi e percorsi restituiti, è necessario utilizzare l'attributo [[ProducesResponseType]](xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute) . Questo attributo produce dettagli di risposta più descrittivi per le pagine della Guida dell'API Web generate da strumenti come [spavalderia](xref:tutorials/web-api-help-pages-using-swagger). `[ProducesResponseType]` indica i tipi noti e i codici di stato HTTP che l'azione deve restituire.
+Poiché in questo tipo di azione sono presenti più tipi e percorsi restituiti, è necessario usare il liberal [`[ProducesResponseType]`](xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute) attributo. Questo attributo produce dettagli di risposta più descrittivi per le pagine della Guida dell'API Web generate da strumenti come [spavalderia](xref:tutorials/web-api-help-pages-using-swagger). `[ProducesResponseType]` indica i tipi noti e i codici di stato HTTP che l'azione deve restituire.
 
 ### <a name="synchronous-action"></a>Azione sincrona
 
@@ -142,13 +142,13 @@ Ad esempio, il modello seguente indica che le richieste devono includere le prop
 
 ::: moniker range=">= aspnetcore-2.1"
 
-Se viene applicato l'attributo [[ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) in ASP.NET Core 2,1 o versione successiva, gli errori di convalida del modello generano un codice di stato 400. Per altre informazioni, vedere [Risposte HTTP 400 automatiche](xref:web-api/index#automatic-http-400-responses).
+Se viene applicato l'attributo [`[ApiController]`](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) in ASP.NET Core 2,1 o versioni successive, gli errori di convalida del modello generano un codice di stato 400. Per altre informazioni, vedere [Risposte HTTP 400 automatiche](xref:web-api/index#automatic-http-400-responses).
 
 ## <a name="actionresultt-type"></a>Tipo ActionResult\<T>
 
 ASP.NET Core 2,1 ha introdotto il tipo restituito [> ActionResult\<t](xref:Microsoft.AspNetCore.Mvc.ActionResult`1) per le azioni del controller API Web. Consente di restituire un tipo derivante da <xref:Microsoft.AspNetCore.Mvc.ActionResult> o restituire un [tipo specifico](#specific-type). `ActionResult<T>` offre i vantaggi seguenti rispetto al [tipo IActionResult](#iactionresult-type):
 
-* La proprietà `Type` dell'attributo [[ProducesResponseType]](xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute) può essere esclusa. Ad esempio, `[ProducesResponseType(200, Type = typeof(Product))]` viene semplificato in `[ProducesResponseType(200)]`. Il tipo restituito previsto dell'azione viene invece dedotto da `T` in `ActionResult<T>`.
+* È possibile escludere la proprietà `Type` dell'attributo [`[ProducesResponseType]`](xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute) . Ad esempio, `[ProducesResponseType(200, Type = typeof(Product))]` viene semplificato in `[ProducesResponseType(200)]`. Il tipo restituito previsto dell'azione viene invece dedotto da `T` in `ActionResult<T>`.
 * [Operatori di cast impliciti](/dotnet/csharp/language-reference/keywords/implicit) supportano la conversione di `T` e `ActionResult` in `ActionResult<T>`. `T` converte in <xref:Microsoft.AspNetCore.Mvc.ObjectResult>, il che significa che `return new ObjectResult(T);` è stato semplificato per `return T;`.
 
 C# non supporta operatori di cast impliciti sulle interfacce. Di conseguenza, per la conversione dell'interfaccia in un tipo concreto è necessario usare `ActionResult<T>`. Ad esempio, usare `IEnumerable` nell'esempio seguente non funziona:
@@ -183,7 +183,7 @@ Si consideri un'azione asincrona che prevede due possibili tipi restituiti:
 Nell'azione precedente:
 
 * Un codice di stato 400 (<xref:Microsoft.AspNetCore.Mvc.ControllerBase.BadRequest*>) viene restituito dal runtime di ASP.NET Core quando:
-  * È stato applicato l'attributo [[ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) e la convalida del modello ha esito negativo.
+  * L'attributo [`[ApiController]`](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) è stato applicato e la convalida del modello ha esito negativo.
   * La descrizione del prodotto contiene "XYZ Widget".
 * Un codice di stato 201 viene generato dal metodo <xref:Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction*> quando viene creato un prodotto. In questo percorso di codice, l'oggetto `Product` viene fornito nel corpo della risposta. Viene fornita una `Location` intestazione della risposta contenente l'URL del prodotto appena creato.
 

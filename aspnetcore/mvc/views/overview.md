@@ -3,14 +3,14 @@ title: Visualizzazioni in ASP.NET Core MVC
 author: ardalis
 description: Informazioni su come le visualizzazioni gestiscono la presentazione dei dati dell'app e l'interazione dell'utente in ASP.NET Core MVC.
 ms.author: riande
-ms.date: 04/03/2019
+ms.date: 12/05/2019
 uid: mvc/views/overview
-ms.openlocfilehash: 5e56c6bb18cb5d2389c11eb3e4aa9869228da47d
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
-ms.translationtype: HT
+ms.openlocfilehash: f636908ee36d0af6e92875876240cb8712dd2ccc
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64891346"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881027"
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Visualizzazioni in ASP.NET Core MVC
 
@@ -43,7 +43,7 @@ Le visualizzazioni consentono di stabilire una [separazione dei concetti](/dotne
 
 ## <a name="creating-a-view"></a>Creazione di una visualizzazione
 
-Le visualizzazioni specifiche di un controller vengono create nella cartella *Views/[ControllerName]*. Le visualizzazioni condivise tra i controller vengono inserite nella cartella *Views/Shared*. Per creare una visualizzazione aggiungere un nuovo file e assegnargli lo stesso nome dell'azione del controller a essa associata con l'estensione *cshtml*. Per creare una visualizzazione che corrisponda all'azione *About* nel controller *Home*, creare un file *About.cshtml* nella cartella *Views/Home*:
+Le visualizzazioni specifiche di un controller vengono create nella cartella *Views/[ControllerName]* . Le visualizzazioni condivise tra i controller vengono inserite nella cartella *Views/Shared*. Per creare una visualizzazione aggiungere un nuovo file e assegnargli lo stesso nome dell'azione del controller a essa associata con l'estensione *cshtml*. Per creare una visualizzazione che corrisponda all'azione *About* nel controller *Home*, creare un file *About.cshtml* nella cartella *Views/Home*:
 
 [!code-cshtml[](../../common/samples/WebApplication1/Views/Home/About.cshtml)]
 
@@ -87,7 +87,7 @@ Il metodo helper `View` ha diversi overload. È possibile specificare:
 
 Quando un'azione restituisce una visualizzazione viene eseguito un processo denominato *individuazione delle visualizzazioni*. Questo processo determina il file di visualizzazione che verrà usato in base al nome della visualizzazione. 
 
-In base al comportamento predefinito, il metodo `View` (`return View();`) restituisce una visualizzazione con lo stesso nome del metodo dell'azione dal quale viene chiamato. Nel caso di *About*, ad esempio, il nome del metodo `ActionResult` del controller viene usato per cercare un file di visualizzazione denominato *About.cshtml*. Il runtime cerca prima la visualizzazione nella cartella *Views/[ControllerName]*. Se la cartella non contiene una visualizzazione corrispondente, la ricerca passerà alla cartella *Shared*.
+In base al comportamento predefinito, il metodo `View` (`return View();`) restituisce una visualizzazione con lo stesso nome del metodo dell'azione dal quale viene chiamato. Nel caso di *About*, ad esempio, il nome del metodo `ActionResult` del controller viene usato per cercare un file di visualizzazione denominato *About.cshtml*. Il runtime cerca prima la visualizzazione nella cartella *Views/[ControllerName]* . Se la cartella non contiene una visualizzazione corrispondente, la ricerca passerà alla cartella *Shared*.
 
 La restituzione implicita di `ViewResult` con `return View();` o il passaggio esplicito del nome della visualizzazione al metodo `View` con `return View("<ViewName>");` non sono rilevanti. In entrambi i casi, l'individuazione delle visualizzazioni cercherà un file di visualizzazione corrispondente in quest'ordine:
 
@@ -202,7 +202,7 @@ Oltre alle visualizzazioni fortemente tipizzate, le visualizzazioni hanno access
 | Una visualizzazione e una [visualizzazione Layout](xref:mvc/views/layout)   | Impostazione del contenuto dell'elemento **\<title>** nella visualizzazione Layout da un file di visualizzazione.  |
 | Una [visualizzazione parziale](xref:mvc/views/partial) e una visualizzazione | Widget che visualizza i dati in base alla pagina Web richiesta dall'utente.      |
 
-È possibile fare riferimento a questa raccolta tramite le proprietà `ViewData` o `ViewBag` nei controller e nelle visualizzazioni. La proprietà `ViewData` è un dizionario di oggetti con tipizzazione debole. La proprietà `ViewBag` è un wrapper di `ViewData` che offre proprietà dinamiche per la raccolta `ViewData` sottostante. Nota: Per le ricerche di chiavi non viene fatta distinzione tra maiuscole e minuscole sia per `ViewData` che per `ViewBag`.
+È possibile fare riferimento a questa raccolta tramite le proprietà `ViewData` o `ViewBag` nei controller e nelle visualizzazioni. La proprietà `ViewData` è un dizionario di oggetti con tipizzazione debole. La proprietà `ViewBag` è un wrapper di `ViewData` che offre proprietà dinamiche per la raccolta `ViewData` sottostante. Nota: le ricerche chiave non fanno distinzione tra maiuscole e minuscole per `ViewData` e `ViewBag`.
 
 `ViewData` e `ViewBag` vengono risolte in modo dinamico in fase di esecuzione. Poiché non offrono il controllo del tipo in fase di compilazione, entrambe sono in genere più soggette a errori rispetto all'uso di un elemento viewmodel. Per questo motivo, alcuni sviluppatori preferiscono non usare mai `ViewData` e `ViewBag` o usarle il meno possibile.
 
@@ -252,9 +252,9 @@ Lavorare con i dati in una visualizzazione:
 
 **Attributo ViewData**
 
-Un altro approccio che usa [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) è [ViewDataAttribute](/dotnet/api/microsoft.aspnetcore.mvc.viewdataattribute). I valori delle proprietà nei controller o nei modelli Razor Page decorate con `[ViewData]` vengono archiviati e caricati dal dizionario.
+Un altro approccio che usa [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) è [ViewDataAttribute](/dotnet/api/microsoft.aspnetcore.mvc.viewdataattribute). Le proprietà nei controller o nei modelli di pagine Razor contrassegnate con l'attributo `[ViewData]` hanno i valori archiviati e caricati dal dizionario.
 
-Nell'esempio seguente il controller Home contiene una proprietà `Title` decorata con `[ViewData]`. Il metodo `About` imposta il titolo per la visualizzazione About (Informazioni):
+Nell'esempio seguente il controller Home contiene una proprietà `Title` contrassegnata con `[ViewData]`. Il metodo `About` imposta il titolo per la visualizzazione About (Informazioni):
 
 ```csharp
 public class HomeController : Controller

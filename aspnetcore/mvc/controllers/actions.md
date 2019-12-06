@@ -3,14 +3,14 @@ title: Gestire le richieste con controller in ASP.NET Core MVC
 author: ardalis
 description: ''
 ms.author: riande
-ms.date: 07/03/2017
+ms.date: 12/05/2019
 uid: mvc/controllers/actions
-ms.openlocfilehash: 952e4dbb2c4343ca87ace1535e4a5968faf088cf
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
-ms.translationtype: HT
+ms.openlocfilehash: 715a73863513870d1cbd522e75013d41830da1e7
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64890256"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881099"
 ---
 # <a name="handle-requests-with-controllers-in-aspnet-core-mvc"></a>Gestire le richieste con controller in ASP.NET Core MVC
 
@@ -23,13 +23,15 @@ I controller, le azioni e risultati delle azioni sono parti fondamentali dello s
 Un controller viene usato per definire e raggruppare un set di azioni. Un'azione (o *metodo di azione*) è un metodo in un controller che gestisce richieste. I controller raggruppano azioni simili in modo logico. Questa aggregazione di azioni consente l'applicazione collettiva di set di regole comuni, ad esempio routing, memorizzazione nella cache e autorizzazione. Le richieste vengono mappate alle azioni tramite [routing](xref:mvc/controllers/routing).
 
 Per convenzione, le classi controller:
-* Risiedono nella cartella *Controllers* a livello di radice del progetto
-* Ereditano da `Microsoft.AspNetCore.Mvc.Controller`
+
+* Si trova nella cartella *controller* a livello radice del progetto.
+* Ereditare da `Microsoft.AspNetCore.Mvc.Controller`.
 
 Un controller è una classe istanziabile per cui almeno una delle condizioni seguenti è vera:
-* Al nome della classe è aggiunto il suffisso "Controller"
-* La classe eredita da una classe al cui nome è aggiunto il suffisso "Controller"
-* La classe è decorata con l'attributo `[Controller]`
+
+* Il nome della classe è suffisso con `Controller`.
+* La classe eredita da una classe il cui nome è suffisso con `Controller`.
+* L'attributo `[Controller]` viene applicato alla classe.
 
 A una classe controller non deve essere associato un attributo `[NonController]`.
 
@@ -43,7 +45,7 @@ Il controller è un'astrazione *a livello di interfaccia utente*. Il suo compito
 
 ## <a name="defining-actions"></a>Definizione delle azioni
 
-I metodi pubblici in un controller, ad eccezione di quelli decorati con l'attributo `[NonAction]`, sono azioni. I parametri delle azioni sono associati a dati di richiesta e vengono convalidati tramite [associazione di modelli](xref:mvc/models/model-binding). La convalida del modello viene eseguita per tutto ciò che è associato a un modello. Il valore della proprietà `ModelState.IsValid` indica se l'associazione e la convalida dei modelli hanno avuto esito positivo.
+I metodi pubblici in un controller, ad eccezione di quelli con l'attributo `[NonAction]`, sono azioni. I parametri delle azioni sono associati a dati di richiesta e vengono convalidati tramite [associazione di modelli](xref:mvc/models/model-binding). La convalida del modello viene eseguita per tutto ciò che è associato a un modello. Il valore della proprietà `ModelState.IsValid` indica se l'associazione e la convalida dei modelli hanno avuto esito positivo.
 
 I metodi di azione devono contenere la logica per il mapping di una richiesta a un problema di business. È di solito consigliabile rappresentare i problemi di business come servizi a cui il controller accede tramite [inserimento di dipendenze](xref:mvc/controllers/dependency-injection). Le azioni eseguono quindi il mapping del risultato dell'azione di business a uno stato dell'applicazione.
 
@@ -53,11 +55,11 @@ Le azioni possono restituire qualsiasi valore, ma spesso restituiscono un'istanz
 
 I controller in genere ereditano dalla classe [Controller](/dotnet/api/microsoft.aspnetcore.mvc.controller), anche se questo non è obbligatorio. La derivazione da `Controller` consente l'accesso a tre categorie di metodi helper:
 
-#### <a name="1-methods-resulting-in-an-empty-response-body"></a>1. Metodi risultanti in un corpo della risposta vuoto
+#### <a name="1-methods-resulting-in-an-empty-response-body"></a>1. metodi che derivano da un corpo della risposta vuoto
 
 Non è inclusa un'intestazione di risposta HTTP `Content-Type`, poiché il corpo della risposta non ha contenuto da descrivere.
 
-Esistono due tipi di risultato in questa categoria: reindirizzamento e codice di stato HTTP.
+All'interno di questa categoria sono presenti due tipi di risultati: reindirizzamento e codice di stato HTTP.
 
 * **Codice di stato HTTP**
 
@@ -69,13 +71,13 @@ Esistono due tipi di risultato in questa categoria: reindirizzamento e codice di
 
     Il tipo di risultato del reindirizzamento è diverso dal tipo del codice di stato HTTP principalmente per l'aggiunta di una intestazione della risposta HTTP `Location`.
 
-#### <a name="2-methods-resulting-in-a-non-empty-response-body-with-a-predefined-content-type"></a>2. Metodi risultanti in un corpo della risposta non vuoto con un tipo di contenuto predefinito
+#### <a name="2-methods-resulting-in-a-non-empty-response-body-with-a-predefined-content-type"></a>2. metodi che derivano da un corpo della risposta non vuoto con un tipo di contenuto predefinito
 
 La maggior parte dei metodi helper di questa categoria includono una proprietà `ContentType`, che consente di impostare l'intestazione della risposta `Content-Type` in modo da descrivere il corpo della risposta.
 
-Esistono due tipi di risultato in questa categoria: [visualizzazione](xref:mvc/views/overview) e [risposta formattata](xref:web-api/advanced/formatting).
+All'interno di questa categoria sono presenti due tipi di risultato: [visualizzazione](xref:mvc/views/overview) e [risposta formattata](xref:web-api/advanced/formatting).
 
-* **Visualizza**
+* **Visualizzazione**
 
     Questo tipo restituisce una visualizzazione che esegue il rendering HTML usando un modello. `return View(customer);`, ad esempio, passa un modello alla visualizzazione per eseguire il data binding.
 
@@ -85,7 +87,7 @@ Esistono due tipi di risultato in questa categoria: [visualizzazione](xref:mvc/v
     
     Altri metodi comuni di questo tipo sono `File` e `PhysicalFile`. Ad esempio, `return PhysicalFile(customerFilePath, "text/xml");` restituisce [PhysicalFileResult](/dotnet/api/microsoft.aspnetcore.mvc.physicalfileresult).
 
-#### <a name="3-methods-resulting-in-a-non-empty-response-body-formatted-in-a-content-type-negotiated-with-the-client"></a>3. Metodi risultanti in un corpo della risposta non vuoto formattato in un tipo di contenuto negoziato con il client
+#### <a name="3-methods-resulting-in-a-non-empty-response-body-formatted-in-a-content-type-negotiated-with-the-client"></a>3. metodi che derivano da un corpo della risposta non vuoto formattato in un tipo di contenuto negoziato con il client
 
 Questa categoria è più nota come **negoziazione del contenuto**. La [negoziazione del contenuto](xref:web-api/advanced/formatting#content-negotiation) si applica ogni volta che un'azione restituisce un tipo [ObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.objectresult) o qualcosa di diverso da un'implementazione di [IActionResult](/dotnet/api/microsoft.aspnetcore.mvc.iactionresult). Anche un'azione che restituisce un'implementazione non di `IActionResult` (ad esempio, `object`) restituisce una risposta formattata.
 

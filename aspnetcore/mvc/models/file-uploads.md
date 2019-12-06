@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/04/2019
 uid: mvc/models/file-uploads
-ms.openlocfilehash: b57ad4fe62de38085c11d7026d278cc6e0c565ce
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 20e58660185a3055e06e92d9136e80e2394a470d
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963150"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881063"
 ---
 # <a name="upload-files-in-aspnet-core"></a>Caricare file in ASP.NET Core
 
@@ -64,7 +64,7 @@ Per ulteriori informazioni sull'implementazione di misure di sicurezza, inclusi 
 
 Le opzioni di archiviazione comuni per i file includono:
 
-* Database
+* Database di
 
   * Per i caricamenti di file di piccole dimensioni, un database è spesso più veloce rispetto alle opzioni di archiviazione fisica (file system o condivisione di rete).
   * Un database è spesso più pratico delle opzioni di archiviazione fisica perché il recupero di un record di database per i dati utente può fornire simultaneamente il contenuto del file, ad esempio un'immagine avatar.
@@ -183,7 +183,7 @@ L'esempio seguente è analogo all'esempio precedente, ad eccezione del fatto che
 Per eseguire il POST del form in JavaScript per i client che [non supportano l'API fetch](https://caniuse.com/#feat=fetch), usare uno degli approcci seguenti:
 
 * Usare un riempimento di recupero (ad esempio, [Window. fetch Refill (github/fetch)](https://github.com/github/fetch)).
-* Usare `XMLHttpRequest`. Esempio:
+* Usare `XMLHttpRequest`. Ad esempio:
 
   ```javascript
   <script>
@@ -242,7 +242,7 @@ Quando si caricano file usando l'associazione di modelli e <xref:Microsoft.AspNe
 > [!NOTE]
 > L'associazione corrisponde ai file di form in base al nome. Ad esempio, il valore HTML `name` in `<input type="file" name="formFile">` deve corrispondere al C# parametro/proprietà associato (`FormFile`). Per ulteriori informazioni, vedere la sezione [corrispondenza del nome dell'attributo del nome del parametro del metodo post](#match-name-attribute-value-to-parameter-name-of-post-method) .
 
-L'esempio seguente:
+L'esempio seguente consente di:
 
 * Esegue il ciclo di uno o più file caricati.
 * USA [Path. GetTempFileName](xref:System.IO.Path.GetTempFileName*) per restituire un percorso completo per un file, incluso il nome del file. 
@@ -434,7 +434,7 @@ Il metodo di `StreamingController.UploadPhysical` completo per lo streaming in u
 
 Nell'app di esempio, i controlli di convalida vengono gestiti da `FileHelpers.ProcessStreamedFile`.
 
-## <a name="validation"></a>Convalida
+## <a name="validation"></a>Validation
 
 La classe di `FileHelpers` dell'app di esempio illustra diversi controlli per i caricamenti di file <xref:Microsoft.AspNetCore.Http.IFormFile> memorizzati nel buffer e con flusso. Per l'elaborazione <xref:Microsoft.AspNetCore.Http.IFormFile> caricamenti di file memorizzati nel buffer nell'app di esempio, vedere il metodo `ProcessFormFile` nel file *Utilities/FileHelpers. cs* . Per l'elaborazione di file trasmessi, vedere il metodo `ProcessStreamedFile` nello stesso file.
 
@@ -448,7 +448,7 @@ La classe di `FileHelpers` dell'app di esempio illustra diversi controlli per i 
 >
 > **Non implementare mai indiscriminatamente il codice di sicurezza in un'app senza soddisfare questi requisiti.**
 
-### <a name="content-validation"></a>Convalida del contenuto
+### <a name="content-validation"></a>Convalida contenuto
 
 **Usare un'API di analisi di virus/malware di terze parti nel contenuto caricato.**
 
@@ -456,7 +456,7 @@ L'analisi dei file richiede le risorse del server in scenari con volumi elevati.
 
 ### <a name="file-extension-validation"></a>Convalida dell'estensione di file
 
-L'estensione del file caricato deve essere verificata rispetto a un elenco di estensioni consentite. Esempio:
+L'estensione del file caricato deve essere verificata rispetto a un elenco di estensioni consentite. Ad esempio:
 
 ```csharp
 private string[] permittedExtensions = { ".txt", ".pdf" };
@@ -686,7 +686,7 @@ public class BufferedSingleFileUploadPhysicalModel : PageModel
 }
 ```
 
-Il `RequestSizeLimitAttribute` può essere applicato anche usando la direttiva Razor [@attribute](xref:mvc/views/razor#attribute) :
+Il `RequestSizeLimitAttribute` può essere applicato anche usando la direttiva Razor [`@attribute`](xref:mvc/views/razor#attribute) :
 
 ```cshtml
 @attribute [RequestSizeLimitAttribute(52428800)]
@@ -718,7 +718,7 @@ Questa impostazione si applica solo a IIS. Il comportamento non si verifica per 
 
 Le limitazioni del modulo ASP.NET Core o della presenza del modulo filtro richieste IIS possono limitare il caricamento a 2 o 4 GB. Per ulteriori informazioni, vedere [non è possibile caricare file di dimensioni superiori a 2 GB (ASPNET/AspNetCore #2711)](https://github.com/aspnet/AspNetCore/issues/2711).
 
-## <a name="troubleshoot"></a>Risolvere i problemi
+## <a name="troubleshoot"></a>Risoluzione dei problemi
 
 Di seguito sono trattati alcuni problemi comuni riscontrati durante il caricamento di file, con le soluzioni possibili corrispondenti.
 
@@ -793,7 +793,7 @@ Per ulteriori informazioni sull'implementazione di misure di sicurezza, inclusi 
 
 Le opzioni di archiviazione comuni per i file includono:
 
-* Database
+* Database di
 
   * Per i caricamenti di file di piccole dimensioni, un database è spesso più veloce rispetto alle opzioni di archiviazione fisica (file system o condivisione di rete).
   * Un database è spesso più pratico delle opzioni di archiviazione fisica perché il recupero di un record di database per i dati utente può fornire simultaneamente il contenuto del file, ad esempio un'immagine avatar.
@@ -912,7 +912,7 @@ L'esempio seguente è analogo all'esempio precedente, ad eccezione del fatto che
 Per eseguire il POST del form in JavaScript per i client che [non supportano l'API fetch](https://caniuse.com/#feat=fetch), usare uno degli approcci seguenti:
 
 * Usare un riempimento di recupero (ad esempio, [Window. fetch Refill (github/fetch)](https://github.com/github/fetch)).
-* Usare `XMLHttpRequest`. Esempio:
+* Usare `XMLHttpRequest`. Ad esempio:
 
   ```javascript
   <script>
@@ -971,7 +971,7 @@ Quando si caricano file usando l'associazione di modelli e <xref:Microsoft.AspNe
 > [!NOTE]
 > L'associazione corrisponde ai file di form in base al nome. Ad esempio, il valore HTML `name` in `<input type="file" name="formFile">` deve corrispondere al C# parametro/proprietà associato (`FormFile`). Per ulteriori informazioni, vedere la sezione [corrispondenza del nome dell'attributo del nome del parametro del metodo post](#match-name-attribute-value-to-parameter-name-of-post-method) .
 
-L'esempio seguente:
+L'esempio seguente consente di:
 
 * Esegue il ciclo di uno o più file caricati.
 * USA [Path. GetTempFileName](xref:System.IO.Path.GetTempFileName*) per restituire un percorso completo per un file, incluso il nome del file. 
@@ -1163,7 +1163,7 @@ Il metodo di `StreamingController.UploadPhysical` completo per lo streaming in u
 
 Nell'app di esempio, i controlli di convalida vengono gestiti da `FileHelpers.ProcessStreamedFile`.
 
-## <a name="validation"></a>Convalida
+## <a name="validation"></a>Validation
 
 La classe di `FileHelpers` dell'app di esempio illustra diversi controlli per i caricamenti di file <xref:Microsoft.AspNetCore.Http.IFormFile> memorizzati nel buffer e con flusso. Per l'elaborazione <xref:Microsoft.AspNetCore.Http.IFormFile> caricamenti di file memorizzati nel buffer nell'app di esempio, vedere il metodo `ProcessFormFile` nel file *Utilities/FileHelpers. cs* . Per l'elaborazione di file trasmessi, vedere il metodo `ProcessStreamedFile` nello stesso file.
 
@@ -1177,7 +1177,7 @@ La classe di `FileHelpers` dell'app di esempio illustra diversi controlli per i 
 >
 > **Non implementare mai indiscriminatamente il codice di sicurezza in un'app senza soddisfare questi requisiti.**
 
-### <a name="content-validation"></a>Convalida del contenuto
+### <a name="content-validation"></a>Convalida contenuto
 
 **Usare un'API di analisi di virus/malware di terze parti nel contenuto caricato.**
 
@@ -1185,7 +1185,7 @@ L'analisi dei file richiede le risorse del server in scenari con volumi elevati.
 
 ### <a name="file-extension-validation"></a>Convalida dell'estensione di file
 
-L'estensione del file caricato deve essere verificata rispetto a un elenco di estensioni consentite. Esempio:
+L'estensione del file caricato deve essere verificata rispetto a un elenco di estensioni consentite. Ad esempio:
 
 ```csharp
 private string[] permittedExtensions = { ".txt", ".pdf" };
@@ -1440,7 +1440,7 @@ Questa impostazione si applica solo a IIS. Il comportamento non si verifica per 
 
 Le limitazioni del modulo ASP.NET Core o della presenza del modulo filtro richieste IIS possono limitare il caricamento a 2 o 4 GB. Per ulteriori informazioni, vedere [non è possibile caricare file di dimensioni superiori a 2 GB (ASPNET/AspNetCore #2711)](https://github.com/aspnet/AspNetCore/issues/2711).
 
-## <a name="troubleshoot"></a>Risolvere i problemi
+## <a name="troubleshoot"></a>Risoluzione dei problemi
 
 Di seguito sono trattati alcuni problemi comuni riscontrati durante il caricamento di file, con le soluzioni possibili corrispondenti.
 

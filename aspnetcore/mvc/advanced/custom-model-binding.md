@@ -3,18 +3,18 @@ title: Associazione di modelli personalizzata in ASP.NET Core
 author: ardalis
 description: Informazioni su come l'associazione di modelli consente alle azioni del controller di funzionare direttamente con i tipi di modello in ASP.NET Core.
 ms.author: riande
-ms.date: 11/13/2018
+ms.date: 12/05/2019
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: b2fbe6a9f11315d1fb8863fbf62e8929c7ff3fc2
-ms.sourcegitcommit: d34b2627a69bc8940b76a949de830335db9701d3
+ms.openlocfilehash: 625cc6c9ca5a2c22d028ea25f8fc0d942b71f12d
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71186874"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881136"
 ---
 # <a name="custom-model-binding-in-aspnet-core"></a>Associazione di modelli personalizzata in ASP.NET Core
 
-Di [Steve Smith](https://ardalis.com/)
+[Steve Smith](https://ardalis.com/)
 
 Mediante l'associazione di modelli le azioni dei controller possono operare direttamente con i tipi di modello (passati come argomenti dei metodi), anziché con le richieste HTTP. Il mapping tra i dati delle richieste in ingresso e i modelli applicativi è gestito dagli strumenti di associazione di modelli. Gli sviluppatori possono estendere la funzionalità di associazione di modelli predefinita implementando strumenti di associazione di modelli personalizzati (anche se in genere non è necessario creare un provider personalizzato).
 
@@ -34,11 +34,11 @@ Prima di creare uno strumento di associazione di modelli personalizzato, è util
 
 Le stringhe con codifica Base64 possono essere usate per rappresentare i dati binari. Ad esempio l'immagine seguente può essere codificata come stringa.
 
-![bot dotnet](custom-model-binding/images/bot.png "bot dotnet")
+![bot DotNet](custom-model-binding/images/bot.png "bot DotNet")
 
 Una piccola parte della stringa codificata è visualizzata nella figura seguente:
 
-![bot dotnet codificato](custom-model-binding/images/encoded-bot.png "bot dotnet codificato")
+![bot DotNet codificato](custom-model-binding/images/encoded-bot.png "bot DotNet codificato")
 
 Seguire le istruzioni nel [file Leggimi dell'esempio](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/sample/CustomModelBindingSample/README.md) per convertire la stringa con codifica base64 in un file.
 
@@ -69,7 +69,7 @@ L'esempio indica come usare `ByteArrayModelBinder` per convertire una stringa co
 
 È possibile pubblicare (POST) una stringa con codifica base64 in questo metodo API usando uno strumento come [Postman](https://www.getpostman.com/):
 
-![postman](custom-model-binding/images/postman.png "postman")
+![Postman](custom-model-binding/images/postman.png "Postman")
 
 Se lo strumento di associazione riesce ad associare i dati della richiesta a proprietà o argomenti denominati in modo appropriato, l'associazione di modelli ha esito positivo. L'esempio seguente indica come usare `ByteArrayModelBinder` con un modello di visualizzazione:
 
@@ -124,7 +124,7 @@ Durante la valutazione degli strumenti di associazione di modelli, la raccolta d
 
 La figura seguente visualizza gli strumenti di associazione di modelli predefiniti dal debugger.
 
-![strumenti di associazione di modelli predefiniti](custom-model-binding/images/default-model-binders.png "strumenti di associazione di modelli predefiniti")
+![associazione di modelli predefiniti](custom-model-binding/images/default-model-binders.png "associazione di modelli predefiniti")
 
 Se il provider personalizzato viene aggiunto alla fine della raccolta, è possibile che uno strumento di associazione di modelli incorporato venga chiamato prima dello strumento di associazione di modelli personalizzato. In questo esempio il provider personalizzato viene aggiunto all'inizio della raccolta, per garantire che venga usato per gli argomenti dell'azione `Author`.
 
@@ -147,4 +147,4 @@ Gli strumenti di associazione di modelli personalizzati:
 
 - Non devono provare a impostare codici di stato o restituire risultati (ad esempio 404 Non trovato). Se si verifica un errore nell'associazione di modelli, l'errore deve essere gestito da un [filtro azioni](xref:mvc/controllers/filters) o da logica inclusa nel metodo di azione.
 - Sono particolarmente utili per eliminare codice ripetitivo e problemi di montaggio incrociato dai metodi di azione.
-- In genere non devono essere usati per convertire una stringa in un tipo personalizzato. Un elemento [`TypeConverter`](/dotnet/api/system.componentmodel.typeconverter) rappresenta solitamente una scelta migliore.
+- In genere non è consigliabile usare per convertire una stringa in un tipo personalizzato, un [TypeConverter](/dotnet/api/system.componentmodel.typeconverter) è in genere un'opzione migliore.

@@ -5,12 +5,12 @@ description: Informazioni sulla sintassi di markup Razor per l'incorporamento di
 ms.author: riande
 ms.date: 11/09/2019
 uid: mvc/views/razor
-ms.openlocfilehash: dea1cd8986757b0bafab9ba9e8aa358a57a6b5eb
-ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
+ms.openlocfilehash: a18fd2886124f186b8f35abf4b55a51f1f996958
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74317399"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881007"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Guida di riferimento della sintassi Razor per ASP.NET Core
 
@@ -380,7 +380,7 @@ La gestione delle eccezioni è simile a C#:
 
 ### <a name="lock"></a>\@lock
 
-Razor è in grado di proteggere le sezioni critiche con le istruzioni di blocco:
+Razor è in grado di proteggere le sezioni critiche con le istruzioni di lock:
 
 ```cshtml
 @lock (SomeLock)
@@ -455,7 +455,7 @@ La direttiva `@attribute` aggiunge l'attributo specificato alla classe della pag
 
 ::: moniker range=">= aspnetcore-3.0"
 
-### <a name="code"></a>codice \@
+### <a name="code"></a>\@code
 
 *Questo scenario si applica solo ai componenti di Razor (con estensione razor).*
 
@@ -467,7 +467,7 @@ Il blocco `@code` consente a un [componente di Razor](xref:blazor/components) di
 }
 ```
 
-Per i componenti di Razor, `@code` è un alias di [@functions](#functions) ed è consigliato in `@functions`. È consentito più di un blocco `@code`.
+Per i componenti di Razor, `@code` è un alias di [`@functions`](#functions) ed è consigliato in `@functions`. È consentito più di un blocco `@code`.
 
 ::: moniker-end
 
@@ -601,7 +601,7 @@ La direttiva `@inject` consente alla pagina Razor di inserire un servizio dal [c
 
 *Questo scenario si applica solo ai componenti di Razor (con estensione razor).*
 
-La direttiva `@layout` specifica un layout per un componente di Razor. I componenti di layout vengono usati per evitare la duplicazione e l'incoerenza del codice. Per altre informazioni, vedere <xref:blazor/layouts>.
+La direttiva `@layout` specifica un layout per un componente di Razor. I componenti di layout vengono usati per evitare la duplicazione e l'incoerenza del codice. Per ulteriori informazioni, vedere <xref:blazor/layouts>.
 
 ::: moniker-end
 
@@ -677,13 +677,13 @@ Se la cartella *EvenMorePages* nell'esempio precedente ha un file di importazion
 La direttiva `@page` ha effetti diversi a seconda del tipo del file in cui viene visualizzata. La direttiva:
 
 * In un file con estensione *cshtml* indica che il file è una pagina Razor. Per ulteriori informazioni, vedere [route personalizzate](xref:razor-pages/index#custom-routes) e <xref:razor-pages/index>.
-* Specifica che un componente Razor deve gestire direttamente le richieste. Per altre informazioni, vedere <xref:blazor/routing>.
+* Specifica che un componente Razor deve gestire direttamente le richieste. Per ulteriori informazioni, vedere <xref:blazor/routing>.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-La direttiva `@page` nella prima riga di un file con estensione *cshtml* indica che il file è una pagina Razor. Per altre informazioni, vedere <xref:razor-pages/index>.
+La direttiva `@page` nella prima riga di un file con estensione *cshtml* indica che il file è una pagina Razor. Per ulteriori informazioni, vedere <xref:razor-pages/index>.
 
 ::: moniker-end
 
@@ -691,7 +691,7 @@ La direttiva `@page` nella prima riga di un file con estensione *cshtml* indica 
 
 *Questo scenario si applica solo alle viste MVC e a Razor Pages (con estensione cshtml).*
 
-La direttiva `@section` viene usata in combinazione con i [layout di MVC e Razor Pages](xref:mvc/views/layout) per abilitare le viste o le pagine per il rendering del contenuto in diverse parti della pagina HTML. Per altre informazioni, vedere <xref:mvc/views/layout>.
+La direttiva `@section` viene usata in combinazione con i [layout di MVC e Razor Pages](xref:mvc/views/layout) per abilitare le viste o le pagine per il rendering del contenuto in diverse parti della pagina HTML. Per ulteriori informazioni, vedere <xref:mvc/views/layout>.
 
 ### <a name="using"></a>\@using
 
@@ -713,19 +713,19 @@ Nei [componenti di Razor](xref:blazor/components) `@using` controlla anche quali
 
 *Questo scenario si applica solo ai componenti di Razor (con estensione razor).*
 
-`@attributes` consente a un componente di eseguire il rendering di attributi non dichiarati. Per altre informazioni, vedere <xref:blazor/components#attribute-splatting-and-arbitrary-parameters>.
+`@attributes` consente a un componente di eseguire il rendering di attributi non dichiarati. Per ulteriori informazioni, vedere <xref:blazor/components#attribute-splatting-and-arbitrary-parameters>.
 
 ### <a name="bind"></a>\@bind
 
 *Questo scenario si applica solo ai componenti di Razor (con estensione razor).*
 
-Il data binding nei componenti viene eseguito con l'attributo `@bind`. Per altre informazioni, vedere <xref:blazor/components#data-binding>.
+Il data binding nei componenti viene eseguito con l'attributo `@bind`. Per ulteriori informazioni, vedere <xref:blazor/components#data-binding>.
 
 ### <a name="onevent"></a>\@su {EVENT}
 
 *Questo scenario si applica solo ai componenti di Razor (con estensione razor).*
 
-Razor fornisce funzionalità di gestione degli eventi per i componenti. Per altre informazioni, vedere <xref:blazor/components#event-handling>.
+Razor fornisce funzionalità di gestione degli eventi per i componenti. Per ulteriori informazioni, vedere <xref:blazor/components#event-handling>.
 
 ::: moniker-end
 
@@ -751,19 +751,19 @@ Arresta la propagazione degli eventi per l'evento.
 
 *Questo scenario si applica solo ai componenti di Razor (con estensione razor).*
 
-L'attributo della direttiva `@key` fa in modo che l'algoritmo di controllo delle differenze tra componenti garantisca la conservazione degli elementi o dei componenti in base al valore della chiave. Per altre informazioni, vedere <xref:blazor/components#use-key-to-control-the-preservation-of-elements-and-components>.
+L'attributo della direttiva `@key` fa in modo che l'algoritmo di controllo delle differenze tra componenti garantisca la conservazione degli elementi o dei componenti in base al valore della chiave. Per ulteriori informazioni, vedere <xref:blazor/components#use-key-to-control-the-preservation-of-elements-and-components>.
 
 ### <a name="ref"></a>\@ref
 
 *Questo scenario si applica solo ai componenti di Razor (con estensione razor).*
 
-I riferimenti ai componenti (`@ref`) consentono di fare riferimento a un'istanza di un componente in modo che sia possibile eseguire comandi su tale istanza. Per altre informazioni, vedere <xref:blazor/components#capture-references-to-components>.
+I riferimenti ai componenti (`@ref`) consentono di fare riferimento a un'istanza di un componente in modo che sia possibile eseguire comandi su tale istanza. Per ulteriori informazioni, vedere <xref:blazor/components#capture-references-to-components>.
 
 ### <a name="typeparam"></a>\@typeparam
 
 *Questo scenario si applica solo ai componenti di Razor (con estensione razor).*
 
-La direttiva `@typeparam` dichiara un parametro di tipo generico per la classe Component generata. Per altre informazioni, vedere <xref:blazor/components#generic-typed-components>.
+La direttiva `@typeparam` dichiara un parametro di tipo generico per la classe Component generata. Per ulteriori informazioni, vedere <xref:blazor/components#generic-typed-components>.
 
 ::: moniker-end
 
@@ -874,19 +874,19 @@ Esistono tre direttive che riguardano gli [helper tag](xref:mvc/views/tag-helper
 
 | Directive | Funzione |
 | --------- | -------- |
-| [@addTagHelper](xref:mvc/views/tag-helpers/intro#add-helper-label) | Rende gli helper tag disponibili per una visualizzazione. |
-| [@removeTagHelper](xref:mvc/views/tag-helpers/intro#remove-razor-directives-label) | Rimuove gli helper tag aggiunti in precedenza da una visualizzazione. |
-| [@tagHelperPrefix](xref:mvc/views/tag-helpers/intro#prefix-razor-directives-label) | Specifica un prefisso del tag per abilitare il supporto dell'helper tag e renderne esplicito l'uso. |
+| [`@addTagHelper`](xref:mvc/views/tag-helpers/intro#add-helper-label) | Rende gli helper tag disponibili per una visualizzazione. |
+| [`@removeTagHelper`](xref:mvc/views/tag-helpers/intro#remove-razor-directives-label) | Rimuove gli helper tag aggiunti in precedenza da una visualizzazione. |
+| [`@tagHelperPrefix`](xref:mvc/views/tag-helpers/intro#prefix-razor-directives-label) | Specifica un prefisso del tag per abilitare il supporto dell'helper tag e renderne esplicito l'uso. |
 
 ## <a name="razor-reserved-keywords"></a>Parole chiave riservate Razor
 
 ### <a name="razor-keywords"></a>Parole chiave Razor
 
 * page (richiede ASP.NET Core 2.1 o versione successiva)
-* namespace
+* Spazio dei nomi
 * functions
-* eredita
-* modello
+* inherits
+* model
 * section
 * helper (attualmente non supportata da ASP.NET Core)
 
@@ -913,7 +913,7 @@ Le parole chiave Razor C# devono essere precedute dal doppio carattere di escape
 
 ### <a name="reserved-keywords-not-used-by-razor"></a>Parole chiave riservate non usate da Razor
 
-* class
+* classe
 
 ## <a name="inspect-the-razor-c-class-generated-for-a-view"></a>Ispezionare la classe C# Razor generata per una visualizzazione
 

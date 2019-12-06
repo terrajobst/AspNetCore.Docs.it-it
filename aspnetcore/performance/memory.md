@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni sulla gestione della memoria in ASP.NET Core e sul funzionamento della Garbage Collector (GC).
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/05/2019
+ms.date: 12/05/2019
 uid: performance/memory
-ms.openlocfilehash: 4c25c069aa2a6088c0549d786ecdd487ab7b9ea5
-ms.sourcegitcommit: 4818385c3cfe0805e15138a2c1785b62deeaab90
+ms.openlocfilehash: 85e34c9faa31a1020a4200eb99003455ca435ec3
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73896942"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880944"
 ---
 # <a name="memory-management-and-garbage-collection-gc-in-aspnet-core"></a>Gestione della memoria e Garbage Collection (GC) in ASP.NET Core
 
@@ -373,7 +373,7 @@ Il grafico seguente mostra la chiamata all'API precedente con carico moderato:
 
 Nel grafico precedente, le raccolte di generazione 0 avvengono approssimativamente una volta al secondo.
 
-Il codice precedente può essere ottimizzato raggruppando il buffer `byte` usando [`ArrayPool<T>`](xref:System.Buffers.ArrayPool`1). Un'istanza statica viene riutilizzata tra le richieste.
+Il codice precedente può essere ottimizzato raggruppando il buffer `byte` usando [ArrayPool\<t >](xref:System.Buffers.ArrayPool`1). Un'istanza statica viene riutilizzata tra le richieste.
 
 Ciò che è diverso con questo approccio è che un oggetto in pool viene restituito dall'API. Ciò significa che:
 

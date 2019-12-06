@@ -5,14 +5,14 @@ description: Informazioni su come configurare e usare il middleware di memorizza
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/04/2019
+ms.date: 12/05/2019
 uid: performance/caching/middleware
-ms.openlocfilehash: a8e656e1d59114e2e953323e98e0a2399efca98a
-ms.sourcegitcommit: 09f4a5ded39cc8204576fe801d760bd8b611f3aa
+ms.openlocfilehash: d034252f69f8efdc9a912a0d9c3ecde65196e7e3
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611461"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880930"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Middleware di memorizzazione nella cache delle risposte in ASP.NET Core
 
@@ -20,9 +20,9 @@ Di [Luke Latham](https://github.com/guardrex) e [John Luo](https://github.com/Ju
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/middleware/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
-Questo articolo illustra come configurare il middleware di memorizzazione nella cache delle risposte in un'app ASP.NET Core. Il middleware determina quando le risposte sono memorizzabili nella cache, archivia le risposte e fornisce risposte dalla cache. Per un'introduzione alla memorizzazione nella cache HTTP e all'attributo [[ResponseCache]](xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute) , vedere [caching delle risposte](xref:performance/caching/response).
+Questo articolo illustra come configurare il middleware di memorizzazione nella cache delle risposte in un'app ASP.NET Core. Il middleware determina quando le risposte sono memorizzabili nella cache, archivia le risposte e fornisce risposte dalla cache. Per un'introduzione alla memorizzazione nella cache HTTP e all'attributo [`[ResponseCache]`](xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute) , vedere [caching delle risposte](xref:performance/caching/response).
 
-## <a name="configuration"></a>Configurazione
+## <a name="configuration"></a>Configurazione di
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -39,7 +39,7 @@ Configurare l'app per l'uso del middleware con il metodo di estensione <xref:Mic
 L'app di esempio aggiunge intestazioni per controllare la memorizzazione nella cache nelle richieste successive:
 
 * Cache [-Control](https://tools.ietf.org/html/rfc7234#section-5.2) &ndash; memorizza nella cache le risposte memorizzabili nella cache per un massimo di 10 secondi.
-* [Vary](https://tools.ietf.org/html/rfc7231#section-7.1.4) &ndash; configura il middleware in modo da fornire una risposta memorizzata nella cache solo se l'intestazione [`Accept-Encoding`](https://tools.ietf.org/html/rfc7231#section-5.3.4) delle richieste successive corrisponde a quella della richiesta originale.
+* [Vary](https://tools.ietf.org/html/rfc7231#section-7.1.4) &ndash; configura il middleware in modo da fornire una risposta memorizzata nella cache solo se l'intestazione [Accept-Encoding](https://tools.ietf.org/html/rfc7231#section-5.3.4) delle richieste successive corrisponde a quella della richiesta originale.
 
 [!code-csharp[](middleware/samples_snippets/3.x/AddHeaders.cs)]
 
@@ -65,7 +65,7 @@ Configurare l'app per l'uso del middleware con il metodo di estensione <xref:Mic
 L'app di esempio aggiunge intestazioni per controllare la memorizzazione nella cache nelle richieste successive:
 
 * Cache [-Control](https://tools.ietf.org/html/rfc7234#section-5.2) &ndash; memorizza nella cache le risposte memorizzabili nella cache per un massimo di 10 secondi.
-* [Vary](https://tools.ietf.org/html/rfc7231#section-7.1.4) &ndash; configura il middleware in modo da fornire una risposta memorizzata nella cache solo se l'intestazione [`Accept-Encoding`](https://tools.ietf.org/html/rfc7231#section-5.3.4) delle richieste successive corrisponde a quella della richiesta originale.
+* [Vary](https://tools.ietf.org/html/rfc7231#section-7.1.4) &ndash; configura il middleware in modo da fornire una risposta memorizzata nella cache solo se l'intestazione [Accept-Encoding](https://tools.ietf.org/html/rfc7231#section-5.3.4) delle richieste successive corrisponde a quella della richiesta originale.
 
 [!code-csharp[](middleware/samples_snippets/2.x/AddHeaders.cs)]
 
@@ -76,7 +76,7 @@ Il middleware di memorizzazione nella cache delle risposte memorizza nella cache
 
 ::: moniker-end
 
-## <a name="options"></a>Opzioni
+## <a name="options"></a>Options
 
 Le opzioni di memorizzazione nella cache delle risposte sono illustrate nella tabella seguente.
 
@@ -101,7 +101,7 @@ services.AddResponseCaching(options =>
 
 ## <a name="varybyquerykeys"></a>VaryByQueryKeys
 
-Quando si usano i controller dell'API Web o MVC o i modelli di pagina Razor Pages, l'attributo [[ResponseCache]](xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute) specifica i parametri necessari per impostare le intestazioni appropriate per la memorizzazione nella cache delle risposte. L'unico parametro dell'attributo `[ResponseCache]` che richiede rigorosamente il middleware è <xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute.VaryByQueryKeys>, che non corrisponde a un'intestazione HTTP effettiva. Per ulteriori informazioni, vedere <xref:performance/caching/response#responsecache-attribute>.
+Quando si usano i controller dell'API Web o MVC o i modelli di pagina Razor Pages, l'attributo [`[ResponseCache]`](xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute) specifica i parametri necessari per impostare le intestazioni appropriate per la memorizzazione nella cache delle risposte. L'unico parametro dell'attributo `[ResponseCache]` che richiede rigorosamente il middleware è <xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute.VaryByQueryKeys>, che non corrisponde a un'intestazione HTTP effettiva. Per ulteriori informazioni, vedere <xref:performance/caching/response#responsecache-attribute>.
 
 Quando non si usa l'attributo `[ResponseCache]`, la memorizzazione nella cache delle risposte può variare con `VaryByQueryKeys`. Usare il <xref:Microsoft.AspNetCore.ResponseCaching.ResponseCachingFeature> direttamente da [HttpContext. Features](xref:Microsoft.AspNetCore.Http.HttpContext.Features):
 
@@ -123,7 +123,7 @@ Nella tabella seguente vengono fornite informazioni sulle intestazioni HTTP che 
 | Header | Dettagli |
 | ------ | ------- |
 | `Authorization` | Se l'intestazione esiste, la risposta non viene memorizzata nella cache. |
-| `Cache-Control` | Il middleware considera solo le risposte di memorizzazione nella cache contrassegnate con la direttiva `public` cache. Controllare la memorizzazione nella cache con i parametri seguenti:<ul><li>validità massima</li><li>massimo-non aggiornato&#8224;</li><li>min-Fresh</li><li>must-revalidate</li><li>No-cache</li><li>Nessun archivio</li><li>solo-if-Cached</li><li>private</li><li>public</li><li>s-maxage</li><li>proxy-revalidate&#8225;</li></ul>&#8224;Se non viene specificato alcun limite per `max-stale`, il middleware non esegue alcuna azione.<br>&#8225;`proxy-revalidate` ha lo stesso effetto di `must-revalidate`.<br><br>Per altre informazioni, vedere [RFC 7231: direttive Cache-Control della richiesta](https://tools.ietf.org/html/rfc7234#section-5.2.1). |
+| `Cache-Control` | Il middleware considera solo le risposte di memorizzazione nella cache contrassegnate con la direttiva `public` cache. Controllare la memorizzazione nella cache con i parametri seguenti:<ul><li>validità massima</li><li>max-stale&#8224;</li><li>min-Fresh</li><li>must-revalidate</li><li>no-cache</li><li>Nessun archivio</li><li>solo-if-Cached</li><li>private</li><li>public</li><li>s-maxage</li><li>proxy-revalidate&#8225;</li></ul>&#8224;Se non viene specificato alcun limite per `max-stale`, il middleware non esegue alcuna azione.<br>&#8225;`proxy-revalidate` ha lo stesso effetto di `must-revalidate`.<br><br>Per altre informazioni, vedere [RFC 7231: direttive Cache-Control della richiesta](https://tools.ietf.org/html/rfc7234#section-5.2.1). |
 | `Pragma` | Una `Pragma: no-cache` intestazione nella richiesta produce lo stesso effetto di `Cache-Control: no-cache`. Questa intestazione viene sottoposta a override dalle direttive rilevanti nell'intestazione `Cache-Control`, se presente. Considerato per compatibilità con le versioni precedenti di HTTP/1.0. |
 | `Set-Cookie` | Se l'intestazione esiste, la risposta non viene memorizzata nella cache. Qualsiasi middleware nella pipeline di elaborazione delle richieste che imposta uno o più cookie impedisce al middleware di caching della risposta di memorizzare nella cache la risposta, ad esempio il [provider TempData basato su cookie](xref:fundamentals/app-state#tempdata).  |
 | `Vary` | L'intestazione `Vary` viene utilizzata per variare la risposta memorizzata nella cache da un'altra intestazione. Ad esempio, memorizzare nella cache le risposte per codifica includendo l'intestazione `Vary: Accept-Encoding`, che memorizza nella cache le risposte per le richieste con intestazioni `Accept-Encoding: gzip` e `Accept-Encoding: text/plain` separatamente. Una risposta con un valore di intestazione di `*` non viene mai archiviata. |
@@ -145,7 +145,7 @@ Per un maggiore controllo sul comportamento della memorizzazione nella cache, es
 * <xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper>
 * <xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>
 
-## <a name="troubleshooting"></a>Troubleshooting
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se il comportamento di memorizzazione nella cache non è quello previsto, verificare che le risposte siano memorizzabili nella cache e in grado di essere servite dalla cache. Esaminare le intestazioni in ingresso della richiesta e le intestazioni in uscita della risposta. Abilitare la [registrazione](xref:fundamentals/logging/index) per facilitare il debug.
 

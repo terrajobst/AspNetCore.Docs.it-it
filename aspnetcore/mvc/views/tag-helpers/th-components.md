@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: scaddie
 ms.date: 06/12/2019
 uid: mvc/views/tag-helpers/th-components
-ms.openlocfilehash: de053dd0138224a9bece218010eaaedcf7e084cb
-ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
-ms.translationtype: HT
+ms.openlocfilehash: 070cc3aae08664c13d8eb793a066766d0a5569ee
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69583532"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880980"
 ---
 # <a name="tag-helper-components-in-aspnet-core"></a>Componenti helper tag in ASP.NET Core
 
@@ -111,8 +111,8 @@ Nel codice precedente:
 Per creare un componente helper tag personalizzato:
 
 * Creare una classe pubblica che deriva da <xref:Microsoft.AspNetCore.Mvc.Razor.TagHelpers.TagHelperComponentTagHelper>.
-* Applicare un attributo [[HtmlTargetElement]](xref:Microsoft.AspNetCore.Razor.TagHelpers.HtmlTargetElementAttribute) alla classe. Specificare il nome dell'elemento HTML di destinazione.
-* *Facoltativa*: applicare un attributo [[EditorBrowsable(EditorBrowsableState.Never)]](xref:System.ComponentModel.EditorBrowsableAttribute) alla classe per evitare la visualizzazione del tipo in IntelliSense.
+* Applicare un attributo [`[HtmlTargetElement]`](xref:Microsoft.AspNetCore.Razor.TagHelpers.HtmlTargetElementAttribute) alla classe. Specificare il nome dell'elemento HTML di destinazione.
+* *Facoltativo*: applicare un attributo [`[EditorBrowsable(EditorBrowsableState.Never)]`](xref:System.ComponentModel.EditorBrowsableAttribute) alla classe per disattivare la visualizzazione del tipo in IntelliSense.
 
 Il codice seguente crea un componente helper tag personalizzato che fa riferimento all'elemento HTML `<address>`:
 

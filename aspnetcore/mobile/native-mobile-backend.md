@@ -3,18 +3,18 @@ title: Creare servizi back-end per app native per dispositivi mobili con ASP.NET
 author: ardalis
 description: Informazioni su come creare servizi back-end mediante ASP.NET Core MVC per il supporto di app per dispositivi mobili native.
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 12/05/2019
 uid: mobile/native-mobile-backend
-ms.openlocfilehash: b50d2593d7dc4b89472033898373e3a22fc9a7a3
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
-ms.translationtype: HT
+ms.openlocfilehash: 38ac69bfe9d99d6d61f96fde92d86fd752ebbb6b
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64883956"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74881154"
 ---
 # <a name="create-backend-services-for-native-mobile-apps-with-aspnet-core"></a>Creare servizi back-end per app native per dispositivi mobili con ASP.NET Core
 
-Di [Steve Smith](https://ardalis.com/)
+[Steve Smith](https://ardalis.com/)
 
 Le app per dispositivi mobili possono comunicare con i servizi back-end di ASP.NET Core. Per istruzioni sulla connessione a servizi Web locali da simulatori iOS ed emulatori Android, vedere [Connettersi a servizi Web locali da simulatori iOS ed emulatori Android](/xamarin/cross-platform/deploy-test/connect-to-local-web-services).
 
@@ -108,7 +108,7 @@ Il metodo `List` restituisce un codice di risposta 200 (OK) e tutti gli elementi
 
 ### <a name="creating-items"></a>Creazione di elementi
 
-Per convenzione, la creazione di nuovi elementi di dati viene associata al verbo HTTP POST. Il metodo `Create` ha un attributo `[HttpPost]` applicato e accetta un'istanza `ToDoItem`. Dato che l'argomento `item` viene passato nel corpo di POST, questo parametro è decorato con l'attributo `[FromBody]`.
+Per convenzione, la creazione di nuovi elementi di dati viene associata al verbo HTTP POST. Al metodo `Create` è applicato un attributo `[HttpPost]` e viene accettata un'istanza di `ToDoItem`. Poiché l'argomento `item` viene passato nel corpo del POST, questo parametro specifica l'attributo `[FromBody]`.
 
 All'interno del metodo, l'elemento viene verificato per validità ed esistenza precedente nell'archivio dati. Se non si verificano problemi, l'elemento viene aggiunto tramite il repository. La verifica `ModelState.IsValid` esegue la [convalida del modello](../mvc/models/validation.md) e deve essere eseguita in ogni metodo dell'API che accetta input utente.
 

@@ -4,16 +4,16 @@ author: jamesnk
 description: Informazioni sul confronto tra gRPC e API HTTP e gli scenari consigliati.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 no-loc:
 - SignalR
 uid: grpc/comparison
-ms.openlocfilehash: ceb24d656827548492a6fa326681922297fc481b
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 8935e665dfd5d8f9afa002f475c202ec0f0ee657
+ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963651"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74880676"
 ---
 # <a name="compare-grpc-services-with-http-apis"></a>Confrontare servizi gRPC e API HTTP
 
@@ -25,15 +25,15 @@ Questo articolo illustra il confronto tra i [servizi di gRPC](https://grpc.io/do
 
 La tabella seguente offre un confronto di alto livello tra le funzionalità tra gRPC e le API HTTP con JSON.
 
-| Funzionalità          | gRPC                                               | API HTTP con JSON           |
+| Caratteristica          | gRPC                                               | API HTTP con JSON           |
 | ---------------- | -------------------------------------------------- | ----------------------------- |
 | Contratto         | Obbligatorio ( *. proto*)                                | Facoltativo (OpenAPI)            |
 | Protocollo         | HTTP/2                                             | HTTP                          |
 | Payload          | [Protobuf (Small, Binary)](#performance)           | JSON (grande, leggibile)  |
 | Prescriptiveness | [Specifica Strict](#strict-specification)      | Sciolto. Qualsiasi HTTP è valido.     |
 | Flusso        | [Client, server, bidirezionale](#streaming)       | Client, server                |
-| Supporto browser  | [No (richiede grpc-Web)](#limited-browser-support) | Yes                           |
-| Sicurezza         | Trasporto (TLS)                                    | Trasporto (TLS)               |
+| Supporto browser  | [No (richiede grpc-Web)](#limited-browser-support) | Sì                           |
+| Sicurezza -         | Trasporto (TLS)                                    | Trasporto (TLS)               |
 | Generazione di codice client | [Sì](#code-generation)                      | OpenAPI + strumenti di terze parti |
 
 ## <a name="grpc-strengths"></a>punti di forza di gRPC
@@ -49,7 +49,7 @@ gRPC è progettato per HTTP/2, una revisione principale del protocollo HTTP che 
 
 ### <a name="code-generation"></a>Generazione del codice
 
-Tutti i Framework gRPC offrono supporto di prima classe per la generazione di codice. Un file principale per lo sviluppo gRPC è il [file *. proto* ](https://developers.google.com/protocol-buffers/docs/proto3), che definisce il contratto di servizi e messaggi di gRPC. Da questo file gRPC Frameworks codice genererà una classe di base del servizio, i messaggi e un client completo.
+Tutti i Framework gRPC offrono supporto di prima classe per la generazione di codice. Un file principale per lo sviluppo gRPC è il [file. proto](https://developers.google.com/protocol-buffers/docs/proto3), che definisce il contratto di servizi e messaggi di gRPC. Da questo file gRPC Frameworks codice genererà una classe di base del servizio, i messaggi e un client completo.
 
 Condividendo il file con *estensione proto* tra il server e il client, i messaggi e il codice client possono essere generati da end-to-end. La generazione di codice del client elimina la duplicazione dei messaggi nel client e nel server e crea automaticamente un client fortemente tipizzato. Non è necessario scrivere un client per risparmiare tempo di sviluppo significativo nelle applicazioni con molti servizi.
 
