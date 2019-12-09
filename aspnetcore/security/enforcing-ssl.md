@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni su come richiedere HTTPS/TLS in un'app Web ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/14/2019
+ms.date: 12/06/2019
 uid: security/enforcing-ssl
-ms.openlocfilehash: 82cd2e52f3bd929682b9eae24611ad04fd9f8682
-ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
+ms.openlocfilehash: 032105c67e15ab94635ae6fadea103450c7eb0fb
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74317361"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74944239"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Applicare HTTPS in ASP.NET Core
 
@@ -85,7 +85,7 @@ Il codice evidenziato precedente:
 
 È consigliabile usare reindirizzamenti temporanei anziché reindirizzamenti permanenti. La memorizzazione nella cache dei collegamenti può causare un comportamento instabile negli ambienti di sviluppo. Se si preferisce inviare un codice di stato di reindirizzamento permanente quando l'app si trova in un ambiente non di sviluppo, vedere la sezione [configurare reindirizzamenti permanenti in produzione](#configure-permanent-redirects-in-production) . È consigliabile usare [HSTS](#http-strict-transport-security-protocol-hsts) per segnalare ai client che solo le richieste di risorse protette devono essere inviate all'app (solo nell'ambiente di produzione).
 
-### <a name="port-configuration"></a>Configurazione porta
+### <a name="port-configuration"></a>Configurazione della porta
 
 Una porta deve essere disponibile affinché il middleware reindirizzi una richiesta non sicura a HTTPS. Se non è disponibile alcuna porta:
 
@@ -150,7 +150,7 @@ Se le richieste vengono inviate in una configurazione del proxy inverso, usare i
 
 Quando si esegue la distribuzione nel servizio app Azure, seguire le istruzioni riportate in [esercitazione: associare un certificato SSL personalizzato esistente ad app Web di Azure](/azure/app-service/app-service-web-tutorial-custom-ssl).
 
-### <a name="options"></a>Opzioni
+### <a name="options"></a>Options
 
 Il codice evidenziato seguente chiama [AddHttpsRedirection](/dotnet/api/microsoft.aspnetcore.builder.httpsredirectionservicesextensions.addhttpsredirection) per configurare le opzioni del middleware:
 
@@ -173,7 +173,7 @@ La chiamata di `AddHttpsRedirection` è necessaria solo per modificare i valori 
 Il codice evidenziato precedente:
 
 * Imposta [HttpsRedirectionOptions. RedirectStatusCode](xref:Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionOptions.RedirectStatusCode*) su <xref:Microsoft.AspNetCore.Http.StatusCodes.Status307TemporaryRedirect>, che corrisponde al valore predefinito. Usare i campi della classe <xref:Microsoft.AspNetCore.Http.StatusCodes> per le assegnazioni `RedirectStatusCode`.
-* Imposta la porta HTTPS su 5001. Il valore predefinito è 443.
+* Imposta la porta HTTPS su 5001.
 
 #### <a name="configure-permanent-redirects-in-production"></a>Configurare reindirizzamenti permanenti nell'ambiente di produzione
 

@@ -5,17 +5,17 @@ description: Esplora ASP.NET Core Blazor, un modo per creare un'interfaccia uten
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc, seoapril2019
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/index
-ms.openlocfilehash: 8b656a7461c78475432722540ad628258cfe19c4
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 4ab6af649afe66d92fb2ea07d3abed057f321bce
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73962922"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74943719"
 ---
 # <a name="introduction-to-aspnet-core-opno-locblazor"></a>Introduzione a ASP.NET Core Blazor
 
@@ -38,7 +38,7 @@ L'uso di .NET per lo sviluppo Web lato client offre i vantaggi seguenti:
 * produttività con Visual Studio in Windows, Linux e macOS.
 * basato su un set comune di linguaggi, framework e strumenti che sono stabili, ricchi di funzionalità e facili da usare.
 
-## <a name="components"></a>Componenti
+## <a name="components"></a>Components
 
 Blazor le app sono basate su *componenti*. Un componente di Blazor è un elemento dell'interfaccia utente, ad esempio una pagina, una finestra di dialogo o un form di immissione dati.
 
@@ -53,7 +53,7 @@ La classe dei componenti viene in genere scritta sotto forma di pagina di markup
 
 Il markup Razor seguente mostra un componente (*Dialog.razor*), che può essere annidato all'interno di un altro componente:
 
-```cshtml
+```razor
 <div>
     <h1>@Title</h1>
 
@@ -84,7 +84,7 @@ Nell'esempio seguente il componente `Index` usa il componente `Dialog`. `ChildCo
 
 *Index.razor*:
 
-```cshtml
+```razor
 @page "/"
 
 <h1>Hello, world!</h1>

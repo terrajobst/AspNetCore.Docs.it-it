@@ -5,17 +5,17 @@ description: Informazioni sui modelli di hosting Blazor webassembly e Blazor ser
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/23/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/hosting-models
-ms.openlocfilehash: 38db9804c9cdd1aa31ca48af2dd9ec2e85175156
-ms.sourcegitcommit: 0dd224b2b7efca1fda0041b5c3f45080327033f6
+ms.openlocfilehash: 7676d16bddf146ea38619ed35c5e32c5bce731de
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74681045"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74943764"
 ---
 # <a name="aspnet-core-opno-locblazor-hosting-models"></a>ASP.NET Core Blazor modelli di hosting
 
@@ -37,7 +37,7 @@ Per creare un'app Blazor usando il modello di hosting lato client, usare il mode
 
 Dopo aver selezionato il modello di **app webassemblyBlazor** , è possibile configurare l'app per l'uso di un back-end ASP.NET Core selezionando la casella di controllo **ASP.NET Core Hosted** ([DotNet New blazorwasm--Hosted](/dotnet/core/tools/dotnet-new)). L'app ASP.NET Core serve l'app Blazor ai client. L'app webassembly Blazor può interagire con il server tramite la rete usando chiamate API Web o [SignalR](xref:signalr/introduction).
 
-I modelli includono lo script *blazer. webassembly. js* che gestisce:
+I modelli includono lo script *blazor. webassembly. js* che gestisce:
 
 * Download del runtime .NET, dell'app e delle dipendenze dell'app.
 * Inizializzazione del runtime per l'esecuzione dell'app.
@@ -69,7 +69,7 @@ L'app ASP.NET Core fa riferimento alla classe `Startup` dell'app per aggiungere:
 * Servizi lato server.
 * App per la pipeline di gestione delle richieste.
 
-Lo script *blazer. Server. js*&dagger; stabilisce la connessione client. È responsabilità dell'app salvare in modo permanente e ripristinare lo stato dell'app come richiesto, ad esempio in caso di perdita di una connessione di rete.
+Lo script&dagger; *blazor. Server. js* stabilisce la connessione client. È responsabilità dell'app salvare in modo permanente e ripristinare lo stato dell'app come richiesto, ad esempio in caso di perdita di una connessione di rete.
 
 Il modello di hosting del server Blazor offre diversi vantaggi:
 
@@ -86,7 +86,7 @@ Ci sono svantaggi per l'hosting di Blazor server:
 * La scalabilità è complessa per le app con molti utenti. Il server deve gestire più connessioni client e gestire lo stato del client.
 * Per gestire l'app, è necessario un server ASP.NET Core. Gli scenari di distribuzione senza server non sono possibili, ad esempio per servire l'app da una rete CDN.
 
-&dagger;lo script *blazer. Server. js* viene servito da una risorsa incorporata nel framework condiviso ASP.NET Core.
+&dagger;Lo script *blazor. Server. js* viene servito da una risorsa incorporata nel framework condiviso ASP.NET Core.
 
 ### <a name="comparison-to-server-rendered-ui"></a>Confronto con interfaccia utente sottoposta a rendering server
 
@@ -150,7 +150,7 @@ Quando il client rileva che la connessione è stata persa, viene visualizzata un
 
 Per personalizzare l'interfaccia utente, definire un elemento con un `id` di `components-reconnect-modal` nel `<body>` della pagina Razor *_Host. cshtml* :
 
-```html
+```cshtml
 <div id="components-reconnect-modal">
     ...
 </div>
@@ -323,7 +323,7 @@ La pagina Razor seguente esegue il rendering di un componente `Counter`:
 
 ### <a name="render-noninteractive-components-from-razor-pages-and-views"></a>Eseguire il rendering di componenti non interattivi da pagine e visualizzazioni Razor
 
-Nella pagina Razor seguente il componente `MyComponent` viene sottoposto a rendering statico con un valore iniziale specificato utilizzando un form:
+Nella pagina Razor seguente il componente `Counter` viene sottoposto a rendering statico con un valore iniziale specificato utilizzando un form:
 
 ::: moniker range=">= aspnetcore-3.1"
 
@@ -356,7 +356,7 @@ Nella pagina Razor seguente il componente `MyComponent` viene sottoposto a rende
     <button type="submit">Set initial value</button>
 </form>
 
-@(await Html.RenderComponentAsync<MyComponent>(RenderMode.Static, 
+@(await Html.RenderComponentAsync<Counter>(RenderMode.Static, 
     new { InitialValue = InitialValue }))
 
 @code {
@@ -379,7 +379,7 @@ In alcuni casi, è necessario configurare il client SignalR usato dalle app Blaz
 
 Per configurare il client di SignalR nel file *pages/_Host. cshtml* :
 
-* Aggiungere un attributo `autostart="false"` al tag `<script>` per lo script *blazer. Server. js* .
+* Aggiungere un `autostart="false"` attributo `<script>` al tag per lo script *Blazor. Server. js* .
 * Chiamare `Blazor.start` e passare un oggetto di configurazione che specifichi il generatore di SignalR.
 
 ```html

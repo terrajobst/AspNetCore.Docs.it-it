@@ -5,17 +5,17 @@ description: Informazioni su come attenuare le minacce per la sicurezza per le a
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 - SignalR
 uid: security/blazor/server
-ms.openlocfilehash: 5cf83a4dd255959e8840fca3a8194b5b4e2ad0a8
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 2d644b84b304a31ad0debc16164ad155c7f7da65
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963874"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74944282"
 ---
 # <a name="secure-aspnet-core-opno-locblazor-server-apps"></a>Proteggere ASP.NET Core app Blazor server
 
@@ -148,7 +148,7 @@ Non considerare attendibili le chiamate da JavaScript ai metodi .NET. Quando un 
 
 Gli eventi forniscono un punto di ingresso a un'app Server Blazor. Le stesse regole per la salvaguardia degli endpoint nelle app Web si applicano alla gestione degli eventi nelle app Blazor server. Un client dannoso può inviare tutti i dati che desidera inviare come payload per un evento.
 
-Esempio:
+Ad esempio:
 
 * Un evento di modifica per un `<select>` può inviare un valore che non rientra nelle opzioni presentate dall'app al client.
 * Un `<input>` può inviare dati di testo al server, ignorando la convalida lato client.
@@ -159,7 +159,7 @@ Blazor eventi del server sono asincroni, quindi è possibile inviare più eventi
 
 Si consideri un componente contatore che deve consentire a un utente di incrementare un contatore un massimo di tre volte. Il pulsante per incrementare il contatore è in modo condizionale in base al valore di `count`:
 
-```cshtml
+```razor
 <p>Count: @count<p>
 
 @if (count < 3)
@@ -180,7 +180,7 @@ Si consideri un componente contatore che deve consentire a un utente di incremen
 
 Un client può inviare uno o più eventi di incremento prima che il Framework produca un nuovo rendering di questo componente. Il risultato è che il `count` può essere incrementato di *tre volte* dall'utente perché il pulsante non viene rimosso dall'interfaccia utente abbastanza rapidamente. Il modo corretto per raggiungere il limite di tre incrementi `count` è illustrato nell'esempio seguente:
 
-```cshtml
+```razor
 <p>Count: @count<p>
 
 @if (count < 3)
@@ -208,7 +208,7 @@ Aggiungendo il `if (count < 3) { ... }` check all'interno del gestore, la decisi
 
 Se un callback di evento richiama un'operazione a esecuzione prolungata, ad esempio il recupero di dati da un servizio o da un database esterno, è consigliabile usare una protezione. Il Guard può impedire all'utente di accodare più operazioni mentre è in corso l'operazione con commenti visivi. Il codice componente seguente imposta `isLoading` `true` mentre `GetForecastAsync` ottiene i dati dal server. Mentre `isLoading` è `true`, il pulsante è disabilitato nell'interfaccia utente:
 
-```cshtml
+```razor
 @page "/fetchdata"
 @using BlazorServerSample.Data
 @inject WeatherForecastService ForecastService
@@ -235,7 +235,7 @@ Se un callback di evento richiama un'operazione a esecuzione prolungata, ad esem
 
 Oltre a usare un GUARD come descritto nella sezione [Guard da più invii](#guard-against-multiple-dispatches) , provare a usare un <xref:System.Threading.CancellationToken> per annullare le operazioni a esecuzione prolungata quando il componente viene eliminato. Questo approccio offre il vantaggio aggiuntivo di evitare *use-after-Dispose* nei componenti:
 
-```cshtml
+```razor
 @implements IDisposable
 
 ...
@@ -291,8 +291,8 @@ L'errore sul lato client non include il stack e non fornisce dettagli sulla ragi
 
 Abilitare gli errori dettagliati con:
 
-* `CircuitOptions.DetailedErrors`
-* chiave di configurazione `DetailedErrors`. Ad esempio, impostare la variabile di ambiente `ASPNETCORE_DETAILEDERRORS` su un valore di `true`.
+* `CircuitOptions.DetailedErrors`.
+* Chiave di configurazione `DetailedErrors`. Ad esempio, impostare la variabile di ambiente `ASPNETCORE_DETAILEDERRORS` su un valore di `true`.
 
 > [!WARNING]
 > L'esposizione delle informazioni sugli errori ai client su Internet costituisce un rischio per la sicurezza che deve essere sempre evitata.
@@ -389,7 +389,7 @@ Per ulteriori informazioni, vedere <xref:security/preventing-open-redirects>.
 
 Per informazioni sull'autenticazione e l'autorizzazione, vedere <xref:security/blazor/index>.
 
-## <a name="security-checklist"></a>Elenco di controllo della sicurezza
+## <a name="security-checklist"></a>Elenco di controllo relativo alla sicurezza
 
 Il seguente elenco di considerazioni sulla sicurezza non è completo:
 

@@ -5,17 +5,17 @@ description: Informazioni sugli scenari di autenticazione e autorizzazione Blazo
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 - SignalR
 uid: security/blazor/index
-ms.openlocfilehash: 693ac1a5b5bcaf8a9bbf0ff9ab63fb41764e3888
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: d3860a5e7f6ae5a3193d657b77fc593c9bd39131
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880449"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74944200"
 ---
 # <a name="aspnet-core-opno-locblazor-authentication-and-authorization"></a>Autenticazione e autorizzazione ASP.NET Core Blazor
 
@@ -134,7 +134,7 @@ In genere non si usa `AuthenticationStateProvider` direttamente. Usare gli appro
 
 Il servizio `AuthenticationStateProvider` può fornire i dati <xref:System.Security.Claims.ClaimsPrincipal> dell'utente corrente, come illustrato nell'esempio seguente:
 
-```cshtml
+```razor
 @page "/"
 @using Microsoft.AspNetCore.Components.Authorization
 @inject AuthenticationStateProvider AuthenticationStateProvider
@@ -206,7 +206,7 @@ Usando `CustomAuthStateProvider` tutti gli utenti vengono autenticati con il nom
 
 Se i dati dello stato di autenticazione sono necessari per la logica procedurale, ad esempio quando si esegue un'azione attivata dall'utente, ottenere i dati dello stato di autenticazione definendo un parametro a catena di tipo `Task<AuthenticationState>`:
 
-```cshtml
+```razor
 @page "/"
 
 <button @onclick="@LogUsername">Log username</button>
@@ -237,9 +237,9 @@ Se i dati dello stato di autenticazione sono necessari per la logica procedurale
 
 Se `user.Identity.IsAuthenticated` è `true`, è possibile enumerare le attestazioni e valutare l'appartenenza ai ruoli.
 
-Configurare il `Task<AuthenticationState>` parametro di propagazione utilizzando i componenti `AuthorizeRouteView` e `CascadingAuthenticationState`:
+Configurare il `Task<AuthenticationState>` parametro di propagazione usando i componenti `AuthorizeRouteView` e `CascadingAuthenticationState` nel file *app. Razor* :
 
-```cshtml
+```razor
 <Router AppAssembly="@typeof(Program).Assembly">
     <Found Context="routeData">
         <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
@@ -273,7 +273,7 @@ Il componente `AuthorizeView` visualizza in modo selettivo l'interfaccia utente 
 
 Il componente espone una variabile `context` di tipo `AuthenticationState`, che è possibile usare per accedere alle informazioni sull'utente connesso:
 
-```cshtml
+```razor
 <AuthorizeView>
     <h1>Hello, @context.User.Identity.Name!</h1>
     <p>You can only see this content if you're authenticated.</p>
@@ -282,7 +282,7 @@ Il componente espone una variabile `context` di tipo `AuthenticationState`, che 
 
 Se l'utente non è autenticato, è anche possibile fornire un contenuto diverso per la visualizzazione:
 
-```cshtml
+```razor
 <AuthorizeView>
     <Authorized>
         <h1>Hello, @context.User.Identity.Name!</h1>
@@ -310,7 +310,7 @@ Il componente `AuthorizeView` supporta l'autorizzazione *basata sui ruoli* oppur
 
 Per l'autorizzazione basata sui ruoli, usare il parametro `Roles`:
 
-```cshtml
+```razor
 <AuthorizeView Roles="admin, superuser">
     <p>You can only see this if you're an admin or superuser.</p>
 </AuthorizeView>
@@ -320,7 +320,7 @@ Per ulteriori informazioni, vedere <xref:security/authorization/roles>.
 
 Per l'autorizzazione basata sui criteri, usare il parametro `Policy`:
 
-```cshtml
+```razor
 <AuthorizeView Policy="content-editor">
     <p>You can only see this if you satisfy the "content-editor" policy.</p>
 </AuthorizeView>
@@ -338,7 +338,7 @@ Blazor consente di determinare lo stato di autenticazione in *modo asincrono*. L
 
 Mentre è in corso l'autenticazione `AuthorizeView` non visualizza alcun contenuto per impostazione predefinita. Per visualizzare contenuto durante l'autenticazione, usare l'elemento `<Authorizing>`:
 
-```cshtml
+```razor
 <AuthorizeView>
     <Authorized>
         <h1>Hello, @context.User.Identity.Name!</h1>
@@ -357,7 +357,7 @@ Questo approccio non è in genere applicabile alle app di Blazor server. le app 
 
 È possibile usare l'attributo `[Authorize]` nei componenti Razor:
 
-```cshtml
+```razor
 @page "/"
 @attribute [Authorize]
 
@@ -372,7 +372,7 @@ You can only see this if you're signed in.
 
 L'attributo `[Authorize]` supporta anche l'autorizzazione basata sui ruoli o basata sui criteri. Per l'autorizzazione basata sui ruoli, usare il parametro `Roles`:
 
-```cshtml
+```razor
 @page "/"
 @attribute [Authorize(Roles = "admin, superuser")]
 
@@ -381,7 +381,7 @@ L'attributo `[Authorize]` supporta anche l'autorizzazione basata sui ruoli o bas
 
 Per l'autorizzazione basata sui criteri, usare il parametro `Policy`:
 
-```cshtml
+```razor
 @page "/"
 @attribute [Authorize(Policy = "content-editor")]
 
@@ -403,7 +403,7 @@ Il componente `Router`, insieme al componente `AuthorizeRouteView`, consente all
 
 Nel modello di progetto predefinito di Blazor server il file *app. Razor* illustra come impostare il contenuto personalizzato:
 
-```cshtml
+```razor
 <Router AppAssembly="@typeof(Program).Assembly">
     <Found Context="routeData">
         <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
@@ -445,7 +445,7 @@ Se l'app determina che i dati dello stato di autenticazione sottostante sono sta
 
 Se l'app deve controllare le regole di autorizzazione come parte della logica procedurale, usare un parametro a catena di tipo `Task<AuthenticationState>` per ottenere il <xref:System.Security.Claims.ClaimsPrincipal> dell'utente. `Task<AuthenticationState>` può essere combinato con altri servizi, ad esempio `IAuthorizationService`, per valutare i criteri.
 
-```cshtml
+```razor
 @inject IAuthorizationService AuthorizationService
 
 <button @onclick="@DoSomething">Do something important</button>
@@ -481,7 +481,7 @@ Se l'app deve controllare le regole di autorizzazione come parte della logica pr
 > [!NOTE]
 > In un componente dell'app webassembly Blazor aggiungere gli spazi dei nomi `Microsoft.AspNetCore.Authorization` e `Microsoft.AspNetCore.Components.Authorization`:
 >
-> ```cshtml
+> ```razor
 > @using Microsoft.AspNetCore.Authorization
 > @using Microsoft.AspNetCore.Components.Authorization
 > ```
@@ -502,7 +502,7 @@ Errori comuni:
 
 È probabile che il progetto non sia stato creato usando un modello di Blazor server con autenticazione abilitata. Eseguire il wrapping di un `<CascadingAuthenticationState>` in una parte dell'albero dell'interfaccia utente, ad esempio in *App.razor* come indicato di seguito:
 
-```cshtml
+```razor
 <CascadingAuthenticationState>
     <Router AppAssembly="typeof(Startup).Assembly">
         ...

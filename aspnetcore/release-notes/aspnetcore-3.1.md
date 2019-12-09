@@ -9,12 +9,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: aspnetcore-3.1
-ms.openlocfilehash: 5eaf14f3b9c5a5b2b83e469c4dc8119b5fc341c1
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 89c676b96ef66f648544a8a884593bdafa3876de
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880820"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74944226"
 ---
 # <a name="whats-new-in-aspnet-core-31"></a>Novità di ASP.NET Core 3,1
 
@@ -28,7 +28,7 @@ I componenti Razor sono ora generati come classi parziali. Il codice per un comp
 
 In Blazor con ASP.NET Core 3,0, i componenti sono stati sottoposti a rendering in pagine e visualizzazioni usando un helper HTML (`Html.RenderComponentAsync`). In ASP.NET Core 3,1 eseguire il rendering di un componente da una pagina o da una vista con il nuovo Helper tag di componente:
 
-```razor
+```cshtml
 <component type="typeof(Counter)" render-mode="ServerPrerendered" />
 ```
 

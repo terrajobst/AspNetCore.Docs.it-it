@@ -5,16 +5,16 @@ description: Informazioni su come instradare le richieste nelle app e sul compon
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/23/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 uid: blazor/routing
-ms.openlocfilehash: 2c139db4e44679fbd9f3455a2d2543be0e128765
-ms.sourcegitcommit: 918d7000b48a2892750264b852bad9e96a1165a7
+ms.openlocfilehash: 1690434f48141bc83e7bc02e22cb763430eaa10d
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74550332"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74944018"
 ---
 # <a name="aspnet-core-opno-locblazor-routing"></a>Routing ASP.NET Core Blazor
 
@@ -36,7 +36,7 @@ La configurazione più tipica consiste nel routing di tutte le richieste a una p
 
 Il componente `Router` consente il routing a ogni componente con una route specificata. Il componente `Router` viene visualizzato nel file *app. Razor* :
 
-```cshtml
+```razor
 <Router AppAssembly="typeof(Startup).Assembly">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
@@ -54,11 +54,16 @@ In fase di esecuzione, il componente `RouteView`:
 * Riceve il `RouteData` dall'`Router` insieme a tutti i parametri desiderati.
 * Esegue il rendering del componente specificato con il layout (o un layout predefinito facoltativo) utilizzando i parametri specificati.
 
-Facoltativamente, è possibile specificare un parametro `DefaultLayout` con una classe layout da utilizzare per i componenti che non specificano un layout. I modelli Blazor predefiniti specificano il componente `MainLayout`. *MainLayout. Razor* si trova nella cartella *condivisa* del progetto modello. Per ulteriori informazioni sui layout, vedere <xref:blazor/layouts>.
+Facoltativamente, è possibile specificare `DefaultLayout` un parametro con una classe layout da utilizzare per i componenti che non specificano un layout. I modelli Blazor predefiniti specificano il componente `MainLayout`. *MainLayout. Razor* si trova nella cartella *condivisa* del progetto modello. Per ulteriori informazioni sui layout, vedere <xref:blazor/layouts>.
 
 È possibile applicare più modelli di route a un componente. Il componente seguente risponde alle richieste di `/BlazorRoute` e `/DifferentBlazorRoute`:
 
-[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/BlazorRoute.razor?name=snippet_BlazorRoute)]
+```razor
+@page "/BlazorRoute"
+@page "/DifferentBlazorRoute"
+
+<h1>Blazor routing</h1>
+```
 
 > [!IMPORTANT]
 > Per la corretta risoluzione degli URL, l'app deve includere un tag `<base>` nel file *wwwroot/index.html* (Blazor webassembly) o nel file *pages/_Host. cshtml* (Blazor Server) con il percorso di base dell'app specificato nell'attributo `href` (`<base href="/">`). Per ulteriori informazioni, vedere <xref:host-and-deploy/blazor/index#app-base-path>.
@@ -69,7 +74,7 @@ Il componente `Router` consente all'app di specificare contenuto personalizzato 
 
 Nel file *app. Razor* impostare il contenuto personalizzato nel parametro del modello di `NotFound` del componente `Router`:
 
-```cshtml
+```razor
 <Router AppAssembly="typeof(Startup).Assembly">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
@@ -87,7 +92,7 @@ Il contenuto dei tag `<NotFound>` può includere elementi arbitrari, ad esempio 
 
 Usare il parametro `AdditionalAssemblies` per specificare gli assembly aggiuntivi da considerare per il componente `Router` durante la ricerca di componenti instradabili. Gli assembly specificati vengono considerati oltre all'assembly specificato `AppAssembly`. Nell'esempio seguente `Component1` è un componente instradabile definito in una libreria di classi a cui si fa riferimento. Nell'esempio di `AdditionalAssemblies` seguente viene restituito il supporto del routing per `Component1`:
 
-```cshtml
+```razor
 <Router
     AppAssembly="typeof(Program).Assembly"
     AdditionalAssemblies="new[] { typeof(Component1).Assembly }">
@@ -99,9 +104,24 @@ Usare il parametro `AdditionalAssemblies` per specificare gli assembly aggiuntiv
 
 Il router usa parametri di route per popolare i parametri del componente corrispondenti con lo stesso nome (senza distinzione tra maiuscole e minuscole):
 
-[!code-cshtml[](common/samples/3.x/BlazorWebAssemblySample/Pages/RouteParameter.razor?name=snippet_RouteParameter&highlight=2,7-8)]
+```razor
+@page "/RouteParameter"
+@page "/RouteParameter/{text}"
 
-I parametri facoltativi non sono supportati per le app Blazor in ASP.NET Core 3,0. Nell'esempio precedente vengono applicate due direttive `@page`. Il primo consente la navigazione al componente senza un parametro. La seconda direttiva `@page` accetta il parametro di route `{text}` e assegna il valore alla proprietà `Text`.
+<h1>Blazor is @Text!</h1>
+
+@code {
+    [Parameter]
+    public string Text { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Text = Text ?? "fantastic";
+    }
+}
+```
+
+I parametri facoltativi non sono supportati per le app Blazor in ASP.NET Core 3,0. Nell' `@page` esempio precedente vengono applicate due direttive. Il primo consente la navigazione al componente senza un parametro. La seconda direttiva `@page` accetta il parametro di route `{text}` e assegna il valore alla proprietà `Text`.
 
 ## <a name="route-constraints"></a>Vincoli di route
 
@@ -112,7 +132,7 @@ Nell'esempio seguente, la route per il componente `Users` corrisponde solo a se:
 * Un segmento di route `Id` è presente nell'URL della richiesta.
 * Il segmento `Id` è un numero intero (`int`).
 
-[!code-cshtml[](routing/samples_snapshot/3.x/Constraint.razor?highlight=1)]
+[!code-razor[](routing/samples_snapshot/3.x/Constraint.razor?highlight=1)]
 
 Sono disponibili i vincoli di route indicati nella tabella seguente. Per ulteriori informazioni, vedere l'avviso sotto la tabella per i vincoli di route corrispondenti alla lingua inglese.
 
@@ -154,7 +174,7 @@ Usare un componente `NavLink` al posto degli elementi collegamento ipertestuale 
 
 Il componente `NavMenu` seguente crea una barra di navigazione [bootstrap](https://getbootstrap.com/docs/) che illustra come usare `NavLink` componenti:
 
-[!code-cshtml[](routing/samples_snapshot/3.x/NavMenu.razor?highlight=4,9)]
+[!code-razor[](routing/samples_snapshot/3.x/NavMenu.razor?highlight=4,9)]
 
 Sono disponibili due opzioni di `NavLinkMatch` che è possibile assegnare all'attributo `Match` dell'elemento `<NavLink>`:
 
@@ -165,7 +185,7 @@ Nell'esempio precedente, il `href=""` Home `NavLink` corrisponde all'URL Home e 
 
 Gli attributi aggiuntivi del componente `NavLink` vengono passati al tag di ancoraggio sottoposto a rendering. Nell'esempio seguente il componente `NavLink` include l'attributo `target`:
 
-```cshtml
+```razor
 <NavLink href="my-page" target="_blank">My page</NavLink>
 ```
 
@@ -190,7 +210,7 @@ Usare `Microsoft.AspNetCore.Components.NavigationManager` per lavorare con gli U
 
 Quando si seleziona il pulsante, il componente seguente passa al componente `Counter` dell'app:
 
-```cshtml
+```razor
 @page "/navigate"
 @inject NavigationManager NavigationManager
 

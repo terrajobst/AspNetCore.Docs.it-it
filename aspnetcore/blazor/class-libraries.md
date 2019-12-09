@@ -5,16 +5,16 @@ description: Scopri in che modo è possibile includere i componenti nelle app Bl
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/23/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 uid: blazor/class-libraries
-ms.openlocfilehash: d4cc4124c9dc28ed6da0923b919919df4965f89f
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 6bac007e3e1d046d6b16a3a0be6dc5976b99b766
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73962703"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74943875"
 ---
 # <a name="aspnet-core-razor-components-class-libraries"></a>Librerie di classi dei componenti di ASP.NET Core Razor
 
@@ -73,7 +73,7 @@ Negli esempi seguenti `MyComponentLib1` è una libreria di componenti contenente
 
 È possibile fare riferimento al componente `SalesReport` usando il nome completo del tipo con lo spazio dei nomi:
 
-```cshtml
+```razor
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
@@ -83,7 +83,7 @@ Welcome to your new app.
 
 È possibile fare riferimento al componente anche se la libreria viene inserita nell'ambito con una direttiva `@using`:
 
-```cshtml
+```razor
 @using MyComponentLib1
 
 <h1>Hello, world!</h1>

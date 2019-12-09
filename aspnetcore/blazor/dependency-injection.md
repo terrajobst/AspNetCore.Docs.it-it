@@ -9,12 +9,12 @@ ms.date: 12/05/2019
 no-loc:
 - Blazor
 uid: blazor/dependency-injection
-ms.openlocfilehash: 17dd0f927064ae7c2b1e3e439fd93e2cb220a5a4
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: aad6cfee500b5cb502470f6a4a7cb5756df09dc4
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74879773"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74943784"
 ---
 # <a name="aspnet-core-opno-locblazor-dependency-injection"></a>ASP.NET Core Blazor inserimento delle dipendenze
 
@@ -84,7 +84,7 @@ Usare più istruzioni `@inject` per inserire servizi diversi.
 
 Nell'esempio riportato di seguito viene illustrato come usare `@inject`. Il servizio che implementa `Services.IDataAccess` viene inserito nel `DataRepository`della proprietà del componente. Si noti che il codice usa solo l'astrazione `IDataAccess`:
 
-[!code-cshtml[](dependency-injection/samples_snapshot/3.x/CustomerList.razor?highlight=2-3,23)]
+[!code-razor[](dependency-injection/samples_snapshot/3.x/CustomerList.razor?highlight=2-3,23)]
 
 Internamente, la proprietà generata (`DataRepository`) utilizza l'attributo `InjectAttribute`. In genere, questo attributo non viene utilizzato direttamente. Se è necessaria una classe base per i componenti e le proprietà inserite sono necessarie anche per la classe base, aggiungere manualmente il `InjectAttribute`:
 
@@ -100,7 +100,7 @@ public class ComponentBase : IComponent
 
 Nei componenti derivati dalla classe di base, la direttiva `@inject` non è obbligatoria. Il `InjectAttribute` della classe base è sufficiente:
 
-```cshtml
+```razor
 @page "/demo"
 @inherits ComponentBase
 
@@ -135,7 +135,7 @@ Nelle app ASP.NET Core, i servizi con ambito hanno in genere come ambito la rich
 
 Per definire l'ambito dei servizi per la durata di un componente, può usare le classi di base `OwningComponentBase` e `OwningComponentBase<TService>`. Queste classi di base espongono una proprietà `ScopedServices` di tipo `IServiceProvider` che risolve i servizi che hanno come ambito la durata del componente. Per creare un componente che eredita da una classe di base in Razor, usare la direttiva `@inherits`.
 
-```cshtml
+```razor
 @page "/users"
 @attribute [Authorize]
 @inherits OwningComponentBase<Data.ApplicationDbContext>

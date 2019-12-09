@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/07/2019
 uid: fundamentals/file-providers
-ms.openlocfilehash: 531f7acd7a704a74e6142d201f613f05288deecb
-ms.sourcegitcommit: 4818385c3cfe0805e15138a2c1785b62deeaab90
+ms.openlocfilehash: a454ca394546184968222ca2ca44d7159b19a12a
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73896847"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74944308"
 ---
 # <a name="file-providers-in-aspnet-core"></a>Provider di file in ASP.NET Core
 
@@ -95,7 +95,7 @@ Aggiungere un riferimento al pacchetto nel progetto per il pacchetto [Microsoft.
 
 Per generare un manifesto dei file incorporati, impostare la proprietà `<GenerateEmbeddedFilesManifest>` su `true`. Specificare i file da incorporare con [\<EmbeddedResource>](/dotnet/core/tools/csproj#default-compilation-includes-in-net-core-projects):
 
-[!code-csharp[](file-providers/samples/3.x/FileProviderSample/FileProviderSample.csproj?highlight=6,14)]
+[!code-csharp[](file-providers/samples/3.x/FileProviderSample/FileProviderSample.csproj?highlight=5,13)]
 
 Usare [modelli GLOB](#glob-patterns) per specificare uno o più file da incorporare nell'assembly.
 

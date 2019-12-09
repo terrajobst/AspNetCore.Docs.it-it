@@ -5,17 +5,17 @@ description: Informazioni su come ospitare e distribuire un'app Server Blazor us
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/21/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/server
-ms.openlocfilehash: b688d000f26c9b230d9fdee8423b3194145fe1aa
-ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
+ms.openlocfilehash: d45d355eabc53fc90bcda4cb7be22fb6a9f04541
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74317306"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74944334"
 ---
 # <a name="host-and-deploy-opno-locblazor-server"></a>Ospitare e distribuire Blazor server
 
@@ -49,7 +49,7 @@ Per istruzioni sulla creazione di app Server Blazor sicure e scalabili, vedere <
 
 Ogni circuito utilizza circa 250 KB di memoria per un'app di tipo *Hello World*minima. La dimensione di un circuito dipende dal codice dell'app e dai requisiti di manutenzione dello stato associati a ogni componente. Si consiglia di misurare le richieste di risorse durante lo sviluppo dell'applicazione e dell'infrastruttura, ma la linea di base seguente può essere un punto di partenza per la pianificazione della destinazione di distribuzione: se si prevede che l'app supporti 5.000 utenti simultanei, prendere in considerazione il budget almeno 1,3 GB di memoria del server per l'app (o circa 273 KB per utente).
 
-### <a name="opno-locsignalr-configuration"></a>configurazione di SignalR
+### <a name="opno-locsignalr-configuration"></a>Configurazione di SignalR
 
 le app Server Blazor usano SignalR ASP.NET Core per comunicare con il browser. [le condizioni di hosting e scalabilità diSignalR](xref:signalr/publish-to-azure-web-app) si applicano alle app Blazor server.
 
@@ -109,7 +109,7 @@ metadata:
 
 L' [interoperabilità JS](xref:blazor/javascript-interop) può essere usata per misurare la latenza di rete, come illustrato nell'esempio seguente:
 
-```cshtml
+```razor
 @inject IJSRuntime JS
 
 @if (latency is null)

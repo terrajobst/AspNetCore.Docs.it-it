@@ -4,33 +4,36 @@ author: rick-anderson
 description: Questa esercitazione illustra l'integrazione dell'autenticazione utente dell'account Twitter in un'app ASP.NET Core esistente.
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/11/2019
+ms.date: 12/06/2019
+monikerRange: '>= aspnetcore-3.0'
 uid: security/authentication/twitter-logins
-ms.openlocfilehash: 5182f1647acb664bf35f086fcddbe909559a62f7
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 5d0695160d90d0c5d31b8e35bc6c4cc984829333
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082297"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74944213"
 ---
 # <a name="twitter-external-sign-in-setup-with-aspnet-core"></a>Configurazione dell'accesso esterno a Twitter con ASP.NET Core
 
 Da [Valeriy Novytskyy](https://github.com/01binary) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Questo esempio illustra come consentire agli utenti di [accedere con il proprio account Twitter](https://dev.twitter.com/web/sign-in/desktop-browser) usando un progetto ASP.NET Core 2,2 di esempio creato nella [pagina precedente](xref:security/authentication/social/index).
+Questo esempio illustra come consentire agli utenti di [accedere con il proprio account Twitter](https://dev.twitter.com/web/sign-in/desktop-browser) usando un progetto ASP.NET Core 3,0 di esempio creato nella [pagina precedente](xref:security/authentication/social/index).
 
 ## <a name="create-the-app-in-twitter"></a>Creare l'app in Twitter
 
+* Aggiungere il pacchetto NuGet [Microsoft. AspNetCore. Authentication. Twitter](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Twitter/3.0.0) al progetto.
+
 * Passare a [ https://apps.twitter.com/ ](https://apps.twitter.com/) ed eseguire l'accesso. Se non si ha già un account Twitter, usare il collegamento **[Iscriviti ora](https://twitter.com/signup)** per crearne uno.
 
-* Toccare **Crea nuova app** e compilare il **nome**dell'applicazione, la **Descrizione** e l'URI del **sito Web** pubblico. questa operazione può essere temporanea fino a quando non si registra il nome di dominio:
+* Selezionare **Crea un'app**. Compilare il **nome dell'app**, la **Descrizione dell'applicazione** e l'URI del **sito Web** pubblico. questa operazione può essere temporanea fino a quando non si registra il nome di dominio:
 
-* Immettere l'URI di sviluppo `/signin-twitter` con accodato nel campo **validi URI di reindirizzamento OAuth** (ad esempio `https://webapp128.azurewebsites.net/signin-twitter`:). Lo schema di autenticazione di Twitter configurato più avanti in questo esempio gestirà `/signin-twitter` automaticamente le richieste in route per implementare il flusso OAuth.
+* Immettere l'URI di sviluppo con `/signin-twitter` accodato nel campo **URL di callback** (ad esempio: `https://webapp128.azurewebsites.net/signin-twitter`). Lo schema di autenticazione di Twitter configurato più avanti in questo esempio gestirà automaticamente le richieste in `/signin-twitter` route per implementare il flusso OAuth.
 
   > [!NOTE]
-  > Il segmento `/signin-twitter` URI viene impostato come callback predefinito del provider di autenticazione Twitter. È possibile modificare l'URI di callback predefinito durante la configurazione del middleware di autenticazione Twitter tramite la proprietà [RemoteAuthenticationOptions. CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) ereditata della classe [TwitterOptions](/dotnet/api/microsoft.aspnetcore.authentication.twitter.twitteroptions) .
+  > Il `/signin-twitter` del segmento URI è impostato come callback predefinito del provider di autenticazione Twitter. È possibile modificare l'URI di callback predefinito durante la configurazione del middleware di autenticazione Twitter tramite la proprietà [RemoteAuthenticationOptions. CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) ereditata della classe [TwitterOptions](/dotnet/api/microsoft.aspnetcore.authentication.twitter.twitteroptions) .
 
-* Compilare il resto del modulo e toccare crea l' **applicazione Twitter**. Vengono visualizzati i dettagli della nuova applicazione:
+* Compilare il resto del modulo e selezionare **Crea**. Vengono visualizzati i dettagli della nuova applicazione:
 
 ## <a name="storing-twitter-consumer-api-key-and-secret"></a>Archiviazione della chiave e del segreto API del consumer Twitter
 
@@ -41,15 +44,15 @@ dotnet user-secrets set Authentication:Twitter:ConsumerAPIKey <Key>
 dotnet user-secrets set Authentication:Twitter:ConsumerSecret <Secret>
 ```
 
-Collegare le impostazioni sensibili come `Consumer Key` Twitter `Consumer Secret` e alla configurazione dell'applicazione usando la [gestione dei segreti](xref:security/app-secrets). Ai fini di questo esempio, denominare i token `Authentication:Twitter:ConsumerKey` e `Authentication:Twitter:ConsumerSecret`.
+Collegare le impostazioni riservate, ad esempio Twitter `Consumer Key` e `Consumer Secret` alla configurazione dell'applicazione usando la [gestione dei segreti](xref:security/app-secrets). Ai fini di questo esempio, denominare i token `Authentication:Twitter:ConsumerKey` e `Authentication:Twitter:ConsumerSecret`.
 
 Questi token si trovano nella scheda **chiavi e token di accesso** dopo la creazione di una nuova applicazione Twitter:
 
 ## <a name="configure-twitter-authentication"></a>Configurare l'autenticazione di Twitter
 
-Aggiungere il servizio Twitter nel `ConfigureServices` metodo nel file *Startup.cs* :
+Aggiungere il servizio Twitter nel metodo `ConfigureServices` nel file *Startup.cs* :
 
-[!code-csharp[](~/security/authentication/social/social-code/StartupTwitter.cs?name=snippet&highlight=10-14)]
+[!code-csharp[](~/security/authentication/social/social-code/3.x/StartupTwitter3x.cs?name=snippet&highlight=10-14)]
 
 [!INCLUDE [default settings configuration](includes/default-settings.md)]
 
@@ -69,9 +72,9 @@ A questo punto è stato effettuato l'accesso con le credenziali di Twitter:
 
 [!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-* **Solo ASP.NET Core 2. x:** Se l'identità non è configurata chiamando `services.AddIdentity` in `ConfigureServices`, il tentativo di *eseguire l'autenticazione comporterà l'eccezione ArgumentException: È necessario specificare l'opzione ' SignInScheme '* . Il modello di progetto utilizzato in questo esempio garantisce che questa operazione venga eseguita.
+* **ASP.NET Core 2.x solo:** Identity se non è configurato tramite la chiamata `services.AddIdentity` nel `ConfigureServices`, tentativo di autenticazione comporterà *ArgumentException: è necessario specificare l'opzione 'SignInScheme'* . Il modello di progetto utilizzato in questo esempio garantisce che questa operazione venga eseguita.
 * Se il database del sito non è stato creato applicando la migrazione iniziale, si otterrà *un'operazione di database non riuscita durante l'elaborazione della richiesta* errore. Toccare **applicare le migrazioni** per creare il database e di aggiornamento per continuare oltre l'errore.
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: tutorials/get-started-with-nswag
-ms.openlocfilehash: 676e911a14bd128998c987b3f955c40e19af98d1
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: bd68e134fb71fd396a30ec9c674111bc8536860d
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74881299"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74944174"
 ---
 # <a name="get-started-with-nswag-and-aspnet-core"></a>Introduzione a NSwag e ad ASP.NET Core
 
@@ -109,7 +109,7 @@ Aggiungere e configurare Swagger nell'app ASP.NET Core eseguendo i passaggi segu
 
 ### <a name="generate-code-with-nswagstudio"></a>Generare il codice con NSwagStudio
 
-* Installare NSwagStudio seguendo le istruzioni riportate nel [repository di GitHub NSwagStudio](https://github.com/RicoSuter/NSwag/wiki/NSwagStudio).
+* Installare NSwagStudio seguendo le istruzioni riportate nel [repository di GitHub NSwagStudio](https://github.com/RicoSuter/NSwag/wiki/NSwagStudio). Nella pagina della versione NSwag è possibile scaricare una versione di XCOPY che può essere avviata senza privilegi di amministratore e di installazione.
 * Avviare NSwagStudio e immettere l'URL del file *swagger.json* nella casella di testo **Swagger Specification URL** (URL di specifica Swagger). Ad esempio: *http://localhost:44354/swagger/v1/swagger.json* .
 * Fare clic sul pulsante **Create local Copy** (Crea copia locale) per generare una rappresentazione JSON della specifica di Swagger.
 

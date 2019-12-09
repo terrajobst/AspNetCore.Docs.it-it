@@ -5,16 +5,16 @@ description: Informazioni su come salvare in modo permanente lo stato nelle app 
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/23/2019
+ms.date: 12/05/2019
 no-loc:
 - Blazor
 uid: blazor/state-management
-ms.openlocfilehash: ed203458126f3b4c97103c88a465e3eb5953a775
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 7351ee2438c6adf675b8aa5e8ecdb1b2da7b4f23
+ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74879718"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74943927"
 ---
 # <a name="aspnet-core-opno-locblazor-state-management"></a>Gestione stato Blazor ASP.NET Core
 
@@ -164,7 +164,7 @@ In tutti i componenti che richiedono il caricamento o il salvataggio dei dati ne
 
 La scelta dipende dall'archivio di backup che si desidera utilizzare. Nell'esempio seguente viene utilizzato `sessionStorage`:
 
-```cshtml
+```razor
 @using Microsoft.AspNetCore.ProtectedBrowserStorage
 @inject ProtectedSessionStorage ProtectedSessionStore
 ```
@@ -215,7 +215,7 @@ private int? currentCount;
 
 Anziché visualizzare in modo non condizionale il pulsante conteggio e **incremento** , scegliere di visualizzare questi elementi solo se i dati vengono caricati:
 
-```cshtml
+```razor
 @if (currentCount.HasValue)
 {
     <p>Current count: <strong>@currentCount</strong></p>
@@ -255,7 +255,7 @@ Per disabilitare il prerendering, aprire il file *pages/_Host. cshtml* e modific
 
 Il prerendering può essere utile per altre pagine che non utilizzano `localStorage` o `sessionStorage`. Per rendere abilitato il prerendering, rinviare l'operazione di caricamento finché il browser non è connesso al circuito. Di seguito è riportato un esempio per l'archiviazione di un valore del contatore:
 
-```cshtml
+```razor
 @using Microsoft.AspNetCore.ProtectedBrowserStorage
 @inject ProtectedLocalStorage ProtectedLocalStore
 
@@ -296,7 +296,7 @@ Se molti componenti si basano sull'archiviazione basata su browser, la reimpleme
 
 Nell'esempio seguente di un componente `CounterStateProvider`, i dati del contatore vengono mantenuti:
 
-```cshtml
+```razor
 @using Microsoft.AspNetCore.ProtectedBrowserStorage
 @inject ProtectedSessionStorage ProtectedSessionStore
 
@@ -336,7 +336,7 @@ Il componente `CounterStateProvider` gestisce la fase di caricamento non eseguen
 
 Per utilizzare il componente `CounterStateProvider`, eseguire il wrapping di un'istanza del componente intorno a tutti gli altri componenti che richiedono l'accesso allo stato del contatore. Per rendere lo stato accessibile a tutti i componenti di un'app, eseguire il wrapping del componente `CounterStateProvider` intorno al `Router` nel componente `App` (*app. Razor*):
 
-```cshtml
+```razor
 <CounterStateProvider>
     <Router AppAssembly="typeof(Startup).Assembly">
         ...
@@ -346,7 +346,7 @@ Per utilizzare il componente `CounterStateProvider`, eseguire il wrapping di un'
 
 I componenti di cui è stato eseguito il wrapper ricevono e possono modificare lo stato del contatore permanente. Il seguente componente `Counter` implementa il modello:
 
-```cshtml
+```razor
 @page "/counter"
 
 <p>Current count: <strong>@CounterStateProvider.CurrentCount</strong></p>
