@@ -5,12 +5,12 @@ description: Scoprire come aggiungere classi per la gestione dei film in un data
 ms.author: riande
 ms.date: 12/05/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 1988877a552ba58841140a00b61bdcf003afd87d
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 95b6d3e016edcd2e13207c8e658cf0d2fb21f945
+ms.sourcegitcommit: 4e3edff24ba6e43a103fee1b126c9826241bb37b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74881349"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74959080"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Aggiungere un modello a un'app Razor Pages in ASP.NET Core
 
@@ -353,11 +353,6 @@ Il file *appsettings.json* è stato aggiornato con la stringa di connessione usa
 -->
 
 * Aprire una finestra di comando nella directory del progetto (la directory che contiene i file *Program.cs*, *Startup.cs* e *csproj*).
-* Installare lo strumento di scaffolding:
-
-  ```dotnetcli
-   dotnet tool install --global dotnet-aspnet-codegenerator
-   ```
 
 * **Per Windows**: eseguire il comando seguente:
 
@@ -376,12 +371,6 @@ Il file *appsettings.json* è stato aggiornato con la stringa di connessione usa
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 * Aprire una finestra di comando nella directory del progetto (la directory che contiene i file *Program.cs*, *Startup.cs* e *csproj*).
-* Installare lo strumento di scaffolding:
-
-  ```dotnetcli
-   dotnet tool install --global dotnet-aspnet-codegenerator
-   ```
-
 * Eseguire il comando seguente:
 
   ```dotnetcli

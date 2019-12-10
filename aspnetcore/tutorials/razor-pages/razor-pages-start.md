@@ -5,12 +5,12 @@ description: Questa serie di esercitazioni illustra come usare Razor Pages in AS
 ms.author: riande
 ms.date: 11/12/2019
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: a8381dee05f267077a29999f3d8bbe6327c2b863
-ms.sourcegitcommit: 231780c8d7848943e5e9fd55e93f437f7e5a371d
+ms.openlocfilehash: b651437b698d01310f90c5f14832616c1896e6c0
+ms.sourcegitcommit: 4e3edff24ba6e43a103fee1b126c9826241bb37b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116156"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74959099"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Esercitazione: Introduzione all'uso di Razor Pages in ASP.NET Core
 
@@ -40,15 +40,15 @@ Alla fine di questa esercitazione si avrà un'app Web Razor Pages funzionante, c
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-[!INCLUDE[](~/includes/net-core-prereqs-vs-3.0.md)]
+[!INCLUDE[](~/includes/net-core-prereqs-vs-3.1.md)]
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-[!INCLUDE[](~/includes/net-core-prereqs-vsc-3.0.md)]
+[!INCLUDE[](~/includes/net-core-prereqs-vsc-3.1.md)]
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
-[!INCLUDE[](~/includes/net-core-prereqs-mac-3.0.md)]
+[!INCLUDE[](~/includes/net-core-prereqs-mac-3.1.md)]
 
 ---
 
@@ -62,7 +62,7 @@ Alla fine di questa esercitazione si avrà un'app Web Razor Pages funzionante, c
 * Denominare il progetto **RazorPagesMovie**. È importante denominare il progetto *RazorPagesMovie* in modo che gli spazi dei nomi corrispondano nell'operazione copia/incolla del codice.
   ![nuova applicazione Web ASP.NET Core](razor-pages-start/_static/config.png)
 
-* Selezionare **ASP.NET Core 3.0** nell'elenco a discesa **Applicazione Web** e quindi selezionare **Crea**.
+* Selezionare **ASP.NET Core 3,1** nell'elenco a discesa, **applicazione Web**, quindi selezionare **Crea**.
 
 ![nuova applicazione Web ASP.NET Core](razor-pages-start/_static/3/npx.png)
 
@@ -100,7 +100,7 @@ Alla fine di questa esercitazione si avrà un'app Web Razor Pages funzionante, c
 
   ![Finestra di dialogo Nuovo progetto di macOS](razor-pages-start/_static/webapp.png)
 
-* Nella finestra di dialogo **Configura la nuova API Web ASP.NET Core** impostare **Framework di destinazione** su **.NET Core 3.0**.
+* Nella finestra di dialogo **configurare la nuova ASP.NET Core API Web** impostare il **Framework di destinazione** su **.NET Core 3,1**.
 
   ![Selezione di .NET Core 3.0 per macOS](razor-pages-start/_static/targetframework3.png)
 
