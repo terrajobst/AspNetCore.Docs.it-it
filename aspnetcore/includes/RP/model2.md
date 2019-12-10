@@ -29,7 +29,7 @@ Aggiungere una stringa di connessione al file *appsettings.json* come illustrato
 Aggiungere le istruzioni `using` seguenti all'inizio di *Startup.cs*:
 
 ```csharp
-using RazorPagesMovie.Models;
+using RazorPagesMovie.Data;
 using Microsoft.EntityFrameworkCore;
 ```
 
