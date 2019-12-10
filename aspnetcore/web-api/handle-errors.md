@@ -5,14 +5,14 @@ description: Informazioni sulla gestione degli errori con ASP.NET Core le API We
 monikerRange: '>= aspnetcore-2.1'
 ms.author: prkrishn
 ms.custom: mvc
-ms.date: 09/27/2019
+ms.date: 12/10/2019
 uid: web-api/handle-errors
-ms.openlocfilehash: 457ad7449c608c3b1b0acd729626e07808f55897
-ms.sourcegitcommit: ddc813f0f1fb293861a01597532919945b0e7fe5
+ms.openlocfilehash: c2dbc47b4495b7187aefbc62eb6d2f0c9683c2da
+ms.sourcegitcommit: 29ace642ca0e1f0b48a18d66de266d8811df2b83
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74412098"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74987826"
 ---
 # <a name="handle-errors-in-aspnet-core-web-apis"></a>Gestire gli errori nelle API Web di ASP.NET Core
 
@@ -149,7 +149,7 @@ Negli ambienti non di sviluppo, è possibile usare il [middleware di gestione de
 
     ::: moniker-end
 
-L'azione `Error` precedente invia al client un payload conforme a [RFC7807](https://tools.ietf.org/html/rfc7807).
+L'azione `Error` precedente invia al client un payload conforme a [RFC 7807](https://tools.ietf.org/html/rfc7807).
 
 Il middleware di gestione delle eccezioni può inoltre fornire un output più dettagliato del contenuto negoziato nell'ambiente di sviluppo locale. Usare la procedura seguente per produrre un formato di payload coerente negli ambienti di sviluppo e di produzione:
 
@@ -267,6 +267,13 @@ Per i controller API Web, MVC risponde con un tipo di risposta <xref:Microsoft.A
 ## <a name="client-error-response"></a>Risposta errore client
 
 Un *risultato di errore* viene definito come risultato con un codice di stato HTTP 400 o superiore. Per i controller API Web, MVC trasforma un risultato di errore in un risultato con <xref:Microsoft.AspNetCore.Mvc.ProblemDetails>.
+
+::: moniker range="= aspnetcore-2.1"
+
+> [!IMPORTANT]
+> ASP.NET Core 2,1 genera una risposta dettagliata al problema che è quasi conforme a RFC 7807. Se è importante la conformità al 100%, aggiornare il progetto a ASP.NET Core 2,2 o versione successiva.
+
+::: moniker-end
 
 ::: moniker range=">= aspnetcore-3.0"
 
