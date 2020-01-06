@@ -5,14 +5,14 @@ description: Informazioni su come controllare il comportamento di app ASP.NET Co
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/07/2019
+ms.date: 12/17/2019
 uid: fundamentals/environments
-ms.openlocfilehash: affbb95273c91fe5bf452e0e1ebefa669297304c
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: 30e2771c0a24fcbf6490d08c7028566314b6c011
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74944321"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358721"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>Usare più ambienti in ASP.NET Core
 
@@ -188,11 +188,12 @@ Quando viene compilato l'host, l'ultima impostazione dell'ambiente letta dall'ap
 Per impostare l'ambiente in [Servizio app di Azure](https://azure.microsoft.com/services/app-service/), attenersi alla procedura seguente:
 
 1. Selezionare l'app dal pannello **Servizi app**.
-1. Nel gruppo **IMPOSTAZIONI** selezionare il pannello **Impostazioni dell'applicazione**.
-1. Nell'area **Impostazioni dell'applicazione** selezionare **Aggiungi nuova impostazione**.
-1. In **Immettere un nome** specificare `ASPNETCORE_ENVIRONMENT`. In **Immettere un valore** specificare l'ambiente (ad esempio, `Staging`).
-1. Selezionare la casella di controllo **Impostazione slot** per lasciare invariata l'impostazione dell'ambiente sullo slot corrente quando gli slot di distribuzione vengono scambiati. Per altre informazioni, vedere [Documentazione di Azure: Impostazioni incluse nello scambio](/azure/app-service/web-sites-staged-publishing).
-1. Selezionare **Salva** nella parte superiore del pannello.
+1. Nel gruppo **Impostazioni** selezionare il pannello **configurazione** .
+1. Nella scheda **Impostazioni applicazione** selezionare **nuova impostazione applicazione**.
+1. Nella finestra **Aggiungi/modifica impostazione applicazione** specificare `ASPNETCORE_ENVIRONMENT` per il **nome**. Per **valore**specificare l'ambiente, ad esempio `Staging`.
+1. Selezionare la casella di controllo **Impostazioni slot di distribuzione** se si desidera che l'impostazione dell'ambiente rimanga con lo slot corrente quando vengono scambiati gli slot di distribuzione. Per altre informazioni, vedere [configurare gli ambienti di staging nel servizio app Azure](/azure/app-service/web-sites-staged-publishing) nella documentazione di Azure.
+1. Selezionare **OK** per chiudere la finestra **Aggiungi/modifica impostazione applicazione** .
+1. Selezionare **Save (Salva** ) nella parte superiore del pannello **Configuration (configurazione** ).
 
 Servizio app di Azure riavvia automaticamente l'app quando un'impostazione dell'app (una variabile di ambiente) viene aggiunta, modificata o eliminata nel portale di Azure.
 
@@ -617,11 +618,12 @@ Quando viene compilato l'host, l'ultima impostazione dell'ambiente letta dall'ap
 Per impostare l'ambiente in [Servizio app di Azure](https://azure.microsoft.com/services/app-service/), attenersi alla procedura seguente:
 
 1. Selezionare l'app dal pannello **Servizi app**.
-1. Nel gruppo **IMPOSTAZIONI** selezionare il pannello **Impostazioni dell'applicazione**.
-1. Nell'area **Impostazioni dell'applicazione** selezionare **Aggiungi nuova impostazione**.
-1. In **Immettere un nome** specificare `ASPNETCORE_ENVIRONMENT`. In **Immettere un valore** specificare l'ambiente (ad esempio, `Staging`).
-1. Selezionare la casella di controllo **Impostazione slot** per lasciare invariata l'impostazione dell'ambiente sullo slot corrente quando gli slot di distribuzione vengono scambiati. Per altre informazioni, vedere [Documentazione di Azure: Impostazioni incluse nello scambio](/azure/app-service/web-sites-staged-publishing).
-1. Selezionare **Salva** nella parte superiore del pannello.
+1. Nel gruppo **Impostazioni** selezionare il pannello **configurazione** .
+1. Nella scheda **Impostazioni applicazione** selezionare **nuova impostazione applicazione**.
+1. Nella finestra **Aggiungi/modifica impostazione applicazione** specificare `ASPNETCORE_ENVIRONMENT` per il **nome**. Per **valore**specificare l'ambiente, ad esempio `Staging`.
+1. Selezionare la casella di controllo **Impostazioni slot di distribuzione** se si desidera che l'impostazione dell'ambiente rimanga con lo slot corrente quando vengono scambiati gli slot di distribuzione. Per altre informazioni, vedere [configurare gli ambienti di staging nel servizio app Azure](/azure/app-service/web-sites-staged-publishing) nella documentazione di Azure.
+1. Selezionare **OK** per chiudere la finestra **Aggiungi/modifica impostazione applicazione** .
+1. Selezionare **Save (Salva** ) nella parte superiore del pannello **Configuration (configurazione** ).
 
 Servizio app di Azure riavvia automaticamente l'app quando un'impostazione dell'app (una variabile di ambiente) viene aggiunta, modificata o eliminata nel portale di Azure.
 

@@ -8,12 +8,12 @@ ms.date: 11/21/2019
 no-loc:
 - SignalR
 uid: tutorials/signalr-typescript-webpack
-ms.openlocfilehash: a7c99c9e79647995886aec5b3a91584fd2f24451
-ms.sourcegitcommit: 3e503ef510008e77be6dd82ee79213c9f7b97607
+ms.openlocfilehash: 331176f299c0efcd7acb19430ffddcaee7ca1cf3
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74317479"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75357945"
 ---
 # <a name="use-aspnet-core-opno-locsignalr-with-typescript-and-webpack"></a>Usare ASP.NET Core SignalR con TypeScript e Webpack
 
@@ -225,7 +225,7 @@ L'app attualmente visualizza un semplice form per l'invio di messaggi. Quando si
 
     In questo esempio il client TypeScript invia un messaggio identificato come `newMessage`. Il metodo C# `NewMessage` si aspetta i dati inviati dal client. Viene eseguita una chiamata al metodo [SendAsync](/dotnet/api/microsoft.aspnetcore.signalr.clientproxyextensions.sendasync) su [Clients.All](/dotnet/api/microsoft.aspnetcore.signalr.ihubclients-1.all). I messaggi ricevuti vengono inviati a tutti i client connessi all'hub.
 
-## <a name="test-the-app"></a>Eseguire il test dell'applicazione
+## <a name="test-the-app"></a>Eseguire il test dell'app
 
 Per verificare che l'app funzioni, eseguire la procedura seguente.
 
@@ -433,7 +433,7 @@ L'app attualmente visualizza un semplice form per l'invio di messaggi. Quando si
 1. Eseguire il comando seguente nella radice del progetto:
 
     ```console
-    npm install @microsoft/signalr
+    npm install @aspnet/signalr
     ```
 
     Il comando precedente installa il [client diSignalR typescript](https://www.npmjs.com/package/@microsoft/signalr), che consente al client di inviare messaggi al server.
@@ -460,7 +460,7 @@ L'app attualmente visualizza un semplice form per l'invio di messaggi. Quando si
 
     In questo esempio il client TypeScript invia un messaggio identificato come `newMessage`. Il metodo C# `NewMessage` si aspetta i dati inviati dal client. Viene eseguita una chiamata al metodo [SendAsync](/dotnet/api/microsoft.aspnetcore.signalr.clientproxyextensions.sendasync) su [Clients.All](/dotnet/api/microsoft.aspnetcore.signalr.ihubclients-1.all). I messaggi ricevuti vengono inviati a tutti i client connessi all'hub.
 
-## <a name="test-the-app"></a>Eseguire il test dell'applicazione
+## <a name="test-the-app"></a>Eseguire il test dell'app
 
 Per verificare che l'app funzioni, eseguire la procedura seguente.
 

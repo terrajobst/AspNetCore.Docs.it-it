@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/21/2019
 uid: security/authentication/social/index
-ms.openlocfilehash: 627ca483d60514d85e38c0e346ff5aef64ad9fee
-ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
+ms.openlocfilehash: 06ce9c72f43955345efb61afed2538158810005f
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034299"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358069"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Autenticazione dei provider Facebook, Google ed esterni in ASP.NET Core
 
@@ -111,8 +111,7 @@ Per creare una password e accedere usando la posta elettronica impostata durante
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+* Per informazioni su come personalizzare i pulsanti di accesso, vedere [questo problema di GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/10563) .
 * Questo articolo ha introdotto l'autenticazione esterna e ha illustrato i prerequisiti necessari per aggiungere gli account di accesso esterni all'app di ASP.NET Core.
-
 * Pagine di riferimento specifico del provider per configurare gli account di accesso per i provider richiesti dall'app.
-
 * Può essere opportuno salvare in modo permanente dati aggiuntivi sull'utente e il relativo accesso e i token di aggiornamento. Per ulteriori informazioni, vedere <xref:security/authentication/social/additional-claims>.

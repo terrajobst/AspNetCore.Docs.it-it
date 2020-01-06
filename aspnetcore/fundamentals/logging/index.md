@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/04/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 49d598330948c5f4a137c534094e14ed5e01e27c
-ms.sourcegitcommit: f4cd3828e26e6d549ba8d0c36a17be35ad9e5a51
+ms.openlocfilehash: e1c50c4592b21d56ed813dac43204d63f1bfe46c
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74825488"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75359348"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>Registrazione in .NET Core e ASP.NET Core
 
@@ -822,7 +822,7 @@ Una funzione di filtro viene richiamata per tutti i provider e le categorie a cu
 
 Di seguito sono elencate alcune categorie usate da ASP.NET Core ed Entity Framework Core, con note sui log previsti per ognuna:
 
-| Category                            | Note |
+| Categoria                            | Note |
 | ----------------------------------- | ----- |
 | Microsoft.AspNetCore                | Diagnostica generale di ASP.NET Core. |
 | Microsoft.AspNetCore.DataProtection | Chiavi considerate, trovate e usate. |
@@ -1056,6 +1056,16 @@ Gli [overload di AddEventLog](xref:Microsoft.Extensions.Logging.EventLoggerFacto
 * `LogName` &ndash; "applicazione"
 * `SourceName` &ndash; "Runtime .NET"
 * `MachineName` &ndash; computer locale
+
+Gli eventi vengono registrati per un [livello di avviso e un livello superiore](#log-level). Per registrare eventi inferiori a `Warning`, impostare in modo esplicito il livello di registrazione. Aggiungere ad esempio il codice seguente al file *appSettings. JSON* :
+
+```json
+"EventLog": {
+  "LogLevel": {
+    "Default": "Information"
+  }
+}
+```
 
 ### <a name="tracesource-provider"></a>Provider TraceSource
 

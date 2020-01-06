@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 4377d7d1895b80b3c98a5b480c0f42820f11fbb8
-ms.sourcegitcommit: 4e3edff24ba6e43a103fee1b126c9826241bb37b
+ms.openlocfilehash: 3bf930d19684e84365f0ff0255fccd2939fb3f39
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74959112"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354914"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Esercitazione: creare un'API Web con ASP.NET Core
 
@@ -42,13 +42,13 @@ Questa esercitazione consente di creare l'API seguente:
 |GET /api/TodoItems/{id} | Ottiene un elemento in base all'ID | nessuna | Elemento attività|
 |POST /api/TodoItems | Aggiunge un nuovo elemento | Elemento attività | Elemento attività |
 |PUT /api/TodoItems/{id} | Aggiorna un elemento esistente &nbsp; | Elemento attività | nessuna |
-|DELETE /api/TodoItems/{id} &nbsp; &nbsp; | Elimina un elemento &nbsp; &nbsp; | nessuna | nessuna|
+|Elimina &nbsp;/api/TodoItems/{id} &nbsp; | Eliminare un elemento &nbsp; &nbsp; | nessuna | nessuna|
 
 Il diagramma seguente visualizza la struttura dell'app.
 
 ![Il client è rappresentato da una casella a sinistra. Invia una richiesta e riceve una risposta dall'applicazione, una casella disegnata a destra. Nella riquadro dell'applicazione tre caselle rappresentano il controller, il modello e il livello di accesso ai dati. La richiesta viene ricevuta dal controller dell'applicazione e vengono eseguite operazioni di lettura/scrittura tra il controller e il livello di accesso ai dati. Il modello viene serializzato e restituito al client nella risposta.](first-web-api/_static/architecture.png)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -68,7 +68,7 @@ Il diagramma seguente visualizza la struttura dell'app.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Scegliere **Nuovo** > **Progetto** dal menu **File**.
+* Scegliere **nuovo** > **progetto**dal menu **file** .
 * Selezionare il modello **Applicazione Web ASP.NET Core** e fare clic su **Avanti**.
 * Assegnare al progetto il nome *TodoApi* e fare clic su **Crea**.
 * Nella finestra di dialogo **Crea una nuova applicazione Web ASP.NET Core** verificare che siano selezionati **.net Core** e **ASP.NET Core 3,1** . Selezionare il modello **API** e fare clic su **Crea**.
@@ -98,7 +98,7 @@ Il diagramma seguente visualizza la struttura dell'app.
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
-* Selezionare **File** > **Nuova soluzione**.
+* Selezionare **File** > **nuova soluzione**.
 
   ![Nuova soluzione macOS](first-web-api-mac/_static/sln.png)
 
@@ -180,13 +180,13 @@ Viene restituito un codice JSON simile al seguente:
 ]
 ```
 
-## <a name="add-a-model-class"></a>Aggiungere una classe modello
+## <a name="add-a-model-class"></a>Aggiungere una classe del modello
 
 Un *modello* è un set di classi che rappresentano i dati gestiti dall'app. Il modello per questa app è una classe `TodoItem` singola.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto. Selezionare **Aggiungi** > **Nuova cartella**. Assegnare il nome *Models* alla cartella.
+* In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto. Selezionare **Aggiungi** > **Nuova cartella**. Assegnare il nome *Modelli* alla cartella.
 
 * Fare clic con il pulsante destro del mouse sulla cartella *Models* e scegliere **Aggiungi** > **Classe**. Assegnare alla classe il nome *TodoItem* e selezionare **Aggiungi**.
 
@@ -200,11 +200,11 @@ Un *modello* è un set di classi che rappresentano i dati gestiti dall'app. Il m
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
-* Fare clic con il pulsante destro del mouse sul progetto. Selezionare **Aggiungi** > **Nuova cartella**. Assegnare il nome *Models* alla cartella.
+* Fare clic con il pulsante destro del mouse sul progetto. Selezionare **Aggiungi** > **Nuova cartella**. Assegnare il nome *Modelli* alla cartella.
 
   ![Nuova cartella](first-web-api-mac/_static/folder.png)
 
-* Fare clic con il pulsante destro del mouse sulla cartella *Models* e scegliere **Aggiungi** > **Nuovo file** > **Generale** > **Classe vuota**.
+* Fare clic con il pulsante destro del mouse sulla cartella *Models* e scegliere **Aggiungi** > **nuovo file** > **generale** > **classe vuota**.
 
 * Assegnare alla classe il nome *TodoItem* e fare clic su **Nuovo**.
 
@@ -267,7 +267,7 @@ Il codice precedente:
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Fare clic con il pulsante destro del mouse sulla cartella *Controllers*.
-* Selezionare **Aggiungi** > **Nuovo elemento di scaffolding**.
+* Selezionare **aggiungi** > **nuovo elemento con impalcatura**.
 * Selezionare **Controller API con azioni, che usa Entity Framework** e quindi selezionare **Aggiungi**.
 * Nella finestra di dialogo **Add API Controller with actions, using Entity Framework** (Aggiungi controller API con azioni, che usa Entity Framework):
 
@@ -322,7 +322,7 @@ Questa esercitazione usa Postman per testare l'API Web.
 * Avviare l'app Web.
 * Avviare Postman.
 * Disattivare **SSL certificate verification** (Verifica certificato SSL)
-* Da **File** > **Settings** (Impostazioni) (scheda **General** (Generale)) disabilitare **SSL certificate verification** (Verifica certificato SSL).
+* In **File** > **Impostazioni** (scheda**generale** ) disabilitare la **Verifica del certificato SSL**.
     > [!WARNING]
     > Riattivare la verifica dei certificati SSL al termine del test del controller.
 
@@ -451,8 +451,6 @@ Esaminare il metodo `DeleteTodoItem`:
 
 [!code-csharp[](first-web-api/samples/3.0/TodoApi/Controllers/TodoItemsController.cs?name=snippet_Delete)]
 
-La risposta `DeleteTodoItem` è [204 (No Content)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html).
-
 ### <a name="test-the-deletetodoitem-method"></a>Testare il metodo DeleteTodoItem
 
 Usare Postman per eliminare un elemento attività:
@@ -493,13 +491,13 @@ Questa esercitazione consente di creare l'API seguente:
 |GET /api/TodoItems/{id} | Ottiene un elemento in base all'ID | nessuna | Elemento attività|
 |POST /api/TodoItems | Aggiunge un nuovo elemento | Elemento attività | Elemento attività |
 |PUT /api/TodoItems/{id} | Aggiorna un elemento esistente &nbsp; | Elemento attività | nessuna |
-|DELETE /api/TodoItems/{id} &nbsp; &nbsp; | Elimina un elemento &nbsp; &nbsp; | nessuna | nessuna|
+|Elimina &nbsp;/api/TodoItems/{id} &nbsp; | Eliminare un elemento &nbsp; &nbsp; | nessuna | nessuna|
 
 Il diagramma seguente visualizza la struttura dell'app.
 
 ![Il client è rappresentato da una casella a sinistra. Invia una richiesta e riceve una risposta dall'applicazione, una casella disegnata a destra. Nella riquadro dell'applicazione tre caselle rappresentano il controller, il modello e il livello di accesso ai dati. La richiesta viene ricevuta dal controller dell'applicazione e vengono eseguite operazioni di lettura/scrittura tra il controller e il livello di accesso ai dati. Il modello viene serializzato e restituito al client nella risposta.](first-web-api/_static/architecture.png)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -519,7 +517,7 @@ Il diagramma seguente visualizza la struttura dell'app.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Scegliere **Nuovo** > **Progetto** dal menu **File**.
+* Scegliere **nuovo** > **progetto**dal menu **file** .
 * Selezionare il modello **Applicazione Web ASP.NET Core** e fare clic su **Avanti**.
 * Assegnare al progetto il nome *TodoApi* e fare clic su **Crea**.
 * Nella finestra di dialogo **Crea una nuova applicazione Web ASP.NET Core** verificare che siano selezionati **.NET Core** e **ASP.NET Core 2.2**. Selezionare il modello **API** e fare clic su **Crea**. **Non** selezionare **Abilita supporto Docker**.
@@ -543,7 +541,7 @@ Il diagramma seguente visualizza la struttura dell'app.
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
-* Selezionare **File** > **Nuova soluzione**.
+* Selezionare **File** > **nuova soluzione**.
 
   ![Nuova soluzione macOS](first-web-api-mac/_static/sln.png)
 
@@ -585,13 +583,13 @@ Viene restituito il codice JSON seguente:
 ["value1","value2"]
 ```
 
-## <a name="add-a-model-class"></a>Aggiungere una classe modello
+## <a name="add-a-model-class"></a>Aggiungere una classe del modello
 
 Un *modello* è un set di classi che rappresentano i dati gestiti dall'app. Il modello per questa app è una classe `TodoItem` singola.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto. Selezionare **Aggiungi** > **Nuova cartella**. Assegnare il nome *Models* alla cartella.
+* In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto. Selezionare **Aggiungi** > **Nuova cartella**. Assegnare il nome *Modelli* alla cartella.
 
 * Fare clic con il pulsante destro del mouse sulla cartella *Models* e scegliere **Aggiungi** > **Classe**. Assegnare alla classe il nome *TodoItem* e selezionare **Aggiungi**.
 
@@ -605,11 +603,11 @@ Un *modello* è un set di classi che rappresentano i dati gestiti dall'app. Il m
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
-* Fare clic con il pulsante destro del mouse sul progetto. Selezionare **Aggiungi** > **Nuova cartella**. Assegnare il nome *Models* alla cartella.
+* Fare clic con il pulsante destro del mouse sul progetto. Selezionare **Aggiungi** > **Nuova cartella**. Assegnare il nome *Modelli* alla cartella.
 
   ![Nuova cartella](first-web-api-mac/_static/folder.png)
 
-* Fare clic con il pulsante destro del mouse sulla cartella *Models* e scegliere **Aggiungi** > **Nuovo file** > **Generale** > **Classe vuota**.
+* Fare clic con il pulsante destro del mouse sulla cartella *Models* e scegliere **Aggiungi** > **nuovo file** > **generale** > **classe vuota**.
 
 * Assegnare alla classe il nome *TodoItem* e fare clic su **Nuovo**.
 
@@ -660,7 +658,7 @@ Il codice precedente:
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Fare clic con il pulsante destro del mouse sulla cartella *Controllers*.
-* Selezionare **Aggiungi** > **Nuovo elemento**.
+* Selezionare **aggiungi** > **nuovo elemento**.
 * Nella finestra di dialogo **Aggiungi nuovo elemento** selezionare il modello **API Controller Class** (Classe controller API).
 * Assegnare alla classe il nome *TodoController* e selezionare **Aggiungi**.
 
@@ -748,11 +746,11 @@ Questa esercitazione usa Postman per testare l'API Web.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Da **File** > **Settings** (Impostazioni) (scheda **General** (Generale)) disabilitare **SSL certificate verification** (Verifica certificato SSL).
+* In **File** > **Impostazioni** (scheda**generale** ) disabilitare la **Verifica del certificato SSL**.
 
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio per Mac](#tab/visual-studio-code+visual-studio-mac)
 
-* Da **Postman**  >  **Preferences** (Preferenze) (scheda **General** (Generale)) disabilitare **SSL certificate verification** (Verifica certificato SSL). In alternativa, selezionare la chiave inglese e selezionare **Settings** (Impostazioni), quindi disabilitare la verifica del certificato SSL.
+* Da **Postman** > **Preferences** (Preferenze) (scheda **General** (Generale)) disabilitare **SSL certificate verification** (Verifica certificato SSL). In alternativa, selezionare la chiave inglese e selezionare **Settings** (Impostazioni), quindi disabilitare la verifica del certificato SSL.
 
 ---
   

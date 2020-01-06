@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni sulla convalida del modello in ASP.NET Core MVC e in Razor Pages.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 12/15/2019
 uid: mvc/models/validation
-ms.openlocfilehash: 7a6017141eb1016128c4a135c187479717580bb5
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 042a9933e561de4957f6332bdff3c4f09d2e119b
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74881034"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355271"
 ---
 # <a name="model-validation-in-aspnet-core-mvc-and-razor-pages"></a>Convalida del modello in ASP.NET Core MVC e in Razor Pages
 
@@ -58,7 +58,7 @@ Di seguito sono elencati alcuni degli attributi di convalida predefiniti:
 * `[Required]`: verifica che il campo non sia null. Per informazioni dettagliate sul comportamento di questo attributo, vedere [`[Required]` attributo](#required-attribute) .
 * `[StringLength]`: verifica che un valore della proprietà stringa non superi il limite di lunghezza specificato.
 * `[Url]`: convalida che la proprietà abbia un formato URL.
-* `[Remote]`: convalida l'input sul client chiamando un metodo di azione sul server. Per informazioni dettagliate sul comportamento di questo attributo, vedere `[`attributo [Remote]] (#remote-Attribute).
+* `[Remote]`: convalida l'input sul client chiamando un metodo di azione sul server. Per informazioni dettagliate sul comportamento di questo attributo, vedere [`[Remote]` attributo](#remote-attribute) .
 
 Nello spazio dei nomi [System.ComponentModel.DataAnnotations](xref:System.ComponentModel.DataAnnotations) è possibile trovare un elenco completo degli attributi di convalida.
 
@@ -82,7 +82,7 @@ Per scoprire i parametri passati a `String.Format` per un messaggio di errore de
 
 ## <a name="required-attribute"></a>Attributo [Required]
 
-Per impostazione predefinita, il sistema di convalida considera i parametri non nullable o le proprietà come se avessero un attributo `[Required]`. I [tipi di valore](/dotnet/csharp/language-reference/keywords/value-types) `decimal` e `int` sono parametri non nullable.
+Per impostazione predefinita, il sistema di convalida considera i parametri non nullable o le proprietà come se avessero un attributo `[Required]`. I [tipi di valore](/dotnet/csharp/language-reference/keywords/value-types)`decimal` e `int` sono parametri non nullable.
 
 ### <a name="required-validation-on-the-server"></a>Convalida dell'attributo [Required] nel server
 
@@ -424,6 +424,8 @@ Gli attributi di convalida predefiniti includono:
 * `[Url]`: convalida che la proprietà abbia un formato URL.
 * `[Remote]`: convalida l'input sul client chiamando un metodo di azione sul server. Per informazioni dettagliate sul comportamento di questo attributo, vedere [`[Remote]` attributo](#remote-attribute) .
 
+Quando si usa l'attributo `[RegularExpression]` con la convalida sul lato client, l'espressione regolare viene eseguita in JavaScript nel client. Ciò significa che verrà utilizzato il comportamento di corrispondenza [ECMAScript](/dotnet/standard/base-types/regular-expression-options#ecmascript-matching-behavior) . Per altre informazioni, vedere [questo problema su GitHub](https://github.com/dotnet/corefx/issues/42487).
+
 Nello spazio dei nomi [System.ComponentModel.DataAnnotations](xref:System.ComponentModel.DataAnnotations) è possibile trovare un elenco completo degli attributi di convalida.
 
 ### <a name="error-messages"></a>Messaggi di errore
@@ -446,7 +448,7 @@ Per scoprire i parametri passati a `String.Format` per un messaggio di errore de
 
 ## <a name="required-attribute"></a>Attributo [Required]
 
-Per impostazione predefinita, il sistema di convalida considera i parametri non nullable o le proprietà come se avessero un attributo `[Required]`. I [tipi di valore](/dotnet/csharp/language-reference/keywords/value-types) `decimal` e `int` sono parametri non nullable.
+Per impostazione predefinita, il sistema di convalida considera i parametri non nullable o le proprietà come se avessero un attributo `[Required]`. I [tipi di valore](/dotnet/csharp/language-reference/keywords/value-types)`decimal` e `int` sono parametri non nullable.
 
 ### <a name="required-validation-on-the-server"></a>Convalida dell'attributo [Required] nel server
 
@@ -555,7 +557,7 @@ I nodi di primo livello possono usare <xref:Microsoft.AspNetCore.Mvc.ModelBindin
 
 [!code-csharp[](validation/samples/2.x/ValidationSample/Controllers/UsersController.cs?name=snippet_CheckAge)]
 
-La pagina Check Age (*CheckAge.cshtml*), include due moduli. Il primo modulo invia un valore `Age` `99` come stringa di query: `https://localhost:5001/Users/CheckAge?Age=99`.
+La pagina Check Age (*CheckAge.cshtml*), include due moduli. Il primo modulo invia un valore `Age``99` come stringa di query: `https://localhost:5001/Users/CheckAge?Age=99`.
 
 Quando viene inviato un parametro correttamente formattato `age` dalla stringa di query, il modulo viene convalidato.
 

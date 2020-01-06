@@ -5,14 +5,14 @@ description: Informazioni su Kestrel, il server Web multipiattaforma per ASP.NET
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/14/2019
+ms.date: 12/26/2019
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 6fba6689f72f7a565e28d80f6770765ab097cf11
-ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
+ms.openlocfilehash: 9fbf0ec93634100fccef279fc7cad92cb1420e84
+ms.sourcegitcommit: 991442dfb16ef08a0aae05bc79f9e9a2d819c587
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74289097"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75492592"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementazione del server Web Kestrel in ASP.NET Core
 
@@ -135,15 +135,30 @@ Usare **uno** degli approcci seguenti:
 * Configurare gheppio in `Startup.ConfigureServices`:
 
   1. Inserire un'istanza di `IConfiguration` nella classe `Startup`. Nell'esempio seguente si presuppone che la configurazione inserita venga assegnata alla proprietà `Configuration`.
-  2. In `Startup.ConfigureServices`caricare la sezione `Kestrel` della configurazione nella configurazione di gheppio.
+  2. In `Startup.ConfigureServices`caricare la sezione `Kestrel` della configurazione nella configurazione di Gheppio:
 
      ```csharp
-     // using Microsoft.Extensions.Configuration
-
-     public void ConfigureServices(IServiceCollection services)
+     using Microsoft.Extensions.Configuration
+     
+     public class Startup
      {
-         services.Configure<KestrelServerOptions>(
-             Configuration.GetSection("Kestrel"));
+         public Startup(IConfiguration configuration)
+         {
+             Configuration = configuration;
+         }
+
+         public IConfiguration Configuration { get; }
+
+         public void ConfigureServices(IServiceCollection services)
+         {
+             services.Configure<KestrelServerOptions>(
+                 Configuration.GetSection("Kestrel"));
+         }
+
+         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+         {
+             ...
+         }
      }
      ```
 
@@ -421,7 +436,7 @@ Configura Kestrel per l'uso di HTTPS.
 
 Estensioni `ListenOptions.UseHttps`:
 
-* `UseHttps` - Configura Kestrel per l'uso di HTTPS con il certificato predefinito. Genera un'eccezione se non è stato configurato alcun certificato predefinito.
+* `UseHttps` &ndash; configurare gheppio per l'uso di HTTPS con il certificato predefinito. Genera un'eccezione se non è stato configurato alcun certificato predefinito.
 * `UseHttps(string fileName)`
 * `UseHttps(string fileName, string password)`
 * `UseHttps(string fileName, string password, Action<HttpsConnectionAdapterOptions> configureOptions)`
@@ -465,7 +480,7 @@ Kestrel è in ascolto su `http://localhost:5000` e `https://localhost:5001` (se 
 Nel file *appsettings.json* di esempio seguente:
 
 * Impostare **AllowInvalid** su `true` per consentire l'uso di certificati non validi, come ad esempio i certificati autofirmati.
-* Tutti gli endpoint HTTPS che non specificano un certificato (**HttpsDefaultCert** nell'esempio che segue) usano il certificato definito in **Certificates** > **Default**  o il certificato di sviluppo.
+* Qualsiasi endpoint HTTPS che non specifica un certificato (**HttpsDefaultCert** nell'esempio seguente) esegue il fallback al certificato definito in **certificati** > **valore predefinito** o il certificato di sviluppo.
 
 ```json
 {
@@ -637,7 +652,7 @@ webBuilder.ConfigureKestrel(serverOptions =>
 
 Il metodo <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.Listen*> esegue l'associazione a un socket TCP e un'espressione lambda per le opzioni consente di configurare un certificato X.509:
 
-[!code-csharp[](kestrel/samples/3.x/KestrelSample/Program.cs?name=snippet_TCPSocket&highlight=9-16)]
+[!code-csharp[](kestrel/samples/3.x/KestrelSample/Program.cs?name=snippet_TCPSocket&highlight=12-18)]
 
 L'esempio configura HTTPS per un endpoint con <xref:Microsoft.AspNetCore.Server.Kestrel.Core.ListenOptions>. Usare la stessa API per configurare altre impostazioni di Kestrel per endpoint specifici.
 
@@ -697,11 +712,11 @@ Restrizioni relative a TLS per HTTP/2:
 * Rinegoziazione disabilitata
 * Compressione disabilitata
 * Dimensioni minime per lo scambio di chiavi temporanee:
-  * Diffie-Hellman a curva ellittica (ECDH) &lbrack;[RFC4492](https://www.ietf.org/rfc/rfc4492.txt)&rbrack; &ndash; 224 bit (minimo)
-  * Diffie-Hellman a campo finito (DHE) &lbrack;`TLS12`&rbrack; &ndash; 2048 bit (minimo)
+  * Diffie-Hellman a curva ellittica (ECDHE) &lbrack;[RFC4492](https://www.ietf.org/rfc/rfc4492.txt)&rbrack; &ndash; minimo 224 bit
+  * Diffie-Hellman del campo finito (DHE) &lbrack;`TLS12`&rbrack; minimo &ndash; 2048 bit
 * Pacchetto di crittografia consentito
 
-`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256` &lbrack;`TLS-ECDHE`&rbrack; con curva ellittica P-256 &lbrack;`FIPS186`&rbrack; è supportato per impostazione predefinita.
+`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256` &lbrack;`TLS-ECDHE`&rbrack; con la curva ellittica P-256 &lbrack;`FIPS186`&rbrack; è supportata per impostazione predefinita.
 
 Nell'esempio seguente sono consentite connessioni HTTP/1.1 e HTTP/2 sulla porta 8000. Le connessioni sono protette da TLS con un certificato incluso:
 
@@ -1089,15 +1104,30 @@ Usare **uno** degli approcci seguenti:
 * Configurare gheppio in `Startup.ConfigureServices`:
 
   1. Inserire un'istanza di `IConfiguration` nella classe `Startup`. Nell'esempio seguente si presuppone che la configurazione inserita venga assegnata alla proprietà `Configuration`.
-  2. In `Startup.ConfigureServices`caricare la sezione `Kestrel` della configurazione nella configurazione di gheppio.
+  2. In `Startup.ConfigureServices`caricare la sezione `Kestrel` della configurazione nella configurazione di Gheppio:
 
      ```csharp
-     // using Microsoft.Extensions.Configuration
-
-     public void ConfigureServices(IServiceCollection services)
+     using Microsoft.Extensions.Configuration
+     
+     public class Startup
      {
-         services.Configure<KestrelServerOptions>(
-             Configuration.GetSection("Kestrel"));
+         public Startup(IConfiguration configuration)
+         {
+             Configuration = configuration;
+         }
+
+         public IConfiguration Configuration { get; }
+
+         public void ConfigureServices(IServiceCollection services)
+         {
+             services.Configure<KestrelServerOptions>(
+                 Configuration.GetSection("Kestrel"));
+         }
+
+         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+         {
+             ...
+         }
      }
      ```
 
@@ -1395,7 +1425,7 @@ Configura Kestrel per l'uso di HTTPS.
 
 Estensioni `ListenOptions.UseHttps`:
 
-* `UseHttps` - Configura Kestrel per l'uso di HTTPS con il certificato predefinito. Genera un'eccezione se non è stato configurato alcun certificato predefinito.
+* `UseHttps` &ndash; configurare gheppio per l'uso di HTTPS con il certificato predefinito. Genera un'eccezione se non è stato configurato alcun certificato predefinito.
 * `UseHttps(string fileName)`
 * `UseHttps(string fileName, string password)`
 * `UseHttps(string fileName, string password, Action<HttpsConnectionAdapterOptions> configureOptions)`
@@ -1439,7 +1469,7 @@ Kestrel è in ascolto su `http://localhost:5000` e `https://localhost:5001` (se 
 Nel file *appsettings.json* di esempio seguente:
 
 * Impostare **AllowInvalid** su `true` per consentire l'uso di certificati non validi, come ad esempio i certificati autofirmati.
-* Tutti gli endpoint HTTPS che non specificano un certificato (**HttpsDefaultCert** nell'esempio che segue) usano il certificato definito in **Certificates** > **Default**  o il certificato di sviluppo.
+* Qualsiasi endpoint HTTPS che non specifica un certificato (**HttpsDefaultCert** nell'esempio seguente) esegue il fallback al certificato definito in **certificati** > **valore predefinito** o il certificato di sviluppo.
 
 ```json
 {
@@ -1680,11 +1710,11 @@ Restrizioni relative a TLS per HTTP/2:
 * Rinegoziazione disabilitata
 * Compressione disabilitata
 * Dimensioni minime per lo scambio di chiavi temporanee:
-  * Diffie-Hellman a curva ellittica (ECDH) &lbrack;[RFC4492](https://www.ietf.org/rfc/rfc4492.txt)&rbrack; &ndash; 224 bit (minimo)
-  * Diffie-Hellman a campo finito (DHE) &lbrack;`TLS12`&rbrack; &ndash; 2048 bit (minimo)
+  * Diffie-Hellman a curva ellittica (ECDHE) &lbrack;[RFC4492](https://www.ietf.org/rfc/rfc4492.txt)&rbrack; &ndash; minimo 224 bit
+  * Diffie-Hellman del campo finito (DHE) &lbrack;`TLS12`&rbrack; minimo &ndash; 2048 bit
 * Pacchetto di crittografia consentito
 
-`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256` &lbrack;`TLS-ECDHE`&rbrack; con curva ellittica P-256 &lbrack;`FIPS186`&rbrack; è supportato per impostazione predefinita.
+`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256` &lbrack;`TLS-ECDHE`&rbrack; con la curva ellittica P-256 &lbrack;`FIPS186`&rbrack; è supportata per impostazione predefinita.
 
 Nell'esempio seguente sono consentite connessioni HTTP/1.1 e HTTP/2 sulla porta 8000. Le connessioni sono protette da TLS con un certificato incluso:
 
@@ -1979,15 +2009,30 @@ Usare **uno** degli approcci seguenti:
 * Configurare gheppio in `Startup.ConfigureServices`:
 
   1. Inserire un'istanza di `IConfiguration` nella classe `Startup`. Nell'esempio seguente si presuppone che la configurazione inserita venga assegnata alla proprietà `Configuration`.
-  2. In `Startup.ConfigureServices`caricare la sezione `Kestrel` della configurazione nella configurazione di gheppio.
+  2. In `Startup.ConfigureServices`caricare la sezione `Kestrel` della configurazione nella configurazione di Gheppio:
 
      ```csharp
-     // using Microsoft.Extensions.Configuration
-
-     public void ConfigureServices(IServiceCollection services)
+     using Microsoft.Extensions.Configuration
+     
+     public class Startup
      {
-         services.Configure<KestrelServerOptions>(
-             Configuration.GetSection("Kestrel"));
+         public Startup(IConfiguration configuration)
+         {
+             Configuration = configuration;
+         }
+
+         public IConfiguration Configuration { get; }
+
+         public void ConfigureServices(IServiceCollection services)
+         {
+             services.Configure<KestrelServerOptions>(
+                 Configuration.GetSection("Kestrel"));
+         }
+
+         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+         {
+             ...
+         }
      }
      ```
 
@@ -2241,7 +2286,7 @@ Configura Kestrel per l'uso di HTTPS.
 
 Estensioni `ListenOptions.UseHttps`:
 
-* `UseHttps` - Configura Kestrel per l'uso di HTTPS con il certificato predefinito. Genera un'eccezione se non è stato configurato alcun certificato predefinito.
+* `UseHttps` &ndash; configurare gheppio per l'uso di HTTPS con il certificato predefinito. Genera un'eccezione se non è stato configurato alcun certificato predefinito.
 * `UseHttps(string fileName)`
 * `UseHttps(string fileName, string password)`
 * `UseHttps(string fileName, string password, Action<HttpsConnectionAdapterOptions> configureOptions)`
@@ -2285,7 +2330,7 @@ Kestrel è in ascolto su `http://localhost:5000` e `https://localhost:5001` (se 
 Nel file *appsettings.json* di esempio seguente:
 
 * Impostare **AllowInvalid** su `true` per consentire l'uso di certificati non validi, come ad esempio i certificati autofirmati.
-* Tutti gli endpoint HTTPS che non specificano un certificato (**HttpsDefaultCert** nell'esempio che segue) usano il certificato definito in **Certificates** > **Default**  o il certificato di sviluppo.
+* Qualsiasi endpoint HTTPS che non specifica un certificato (**HttpsDefaultCert** nell'esempio seguente) esegue il fallback al certificato definito in **certificati** > **valore predefinito** o il certificato di sviluppo.
 
 ```json
 {

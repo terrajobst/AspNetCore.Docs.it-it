@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni sull'uso dei componenti di visualizzazione in ASP.NET Core e su come aggiungere tali componenti alle app.
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/14/2019
+ms.date: 12/18/2019
 uid: mvc/views/view-components
-ms.openlocfilehash: e6990368519857a27b291d7d565c09072f23f1b0
-ms.sourcegitcommit: 7001657c00358b082734ba4273693b9b3ed35d2a
-ms.translationtype: HT
+ms.openlocfilehash: a4583d49eb0b42f1fa6e3d8c444d263cba34da79
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68670090"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356839"
 ---
 # <a name="view-components-in-aspnet-core"></a>Componenti di visualizzazione in ASP.NET Core
 
@@ -42,7 +42,7 @@ I componenti di visualizzazione possono essere impiegati in un punto qualsiasi d
 
 Un componente di visualizzazione è costituito da due parti: la classe (in genere derivata da [ViewComponent](/dotnet/api/microsoft.aspnetcore.mvc.viewcomponent)) e il risultato restituito (in genere una visualizzazione). Come per i controller, un componente di visualizzazione può essere un oggetto POCO. Molti sviluppatori preferiscono tuttavia sfruttare i metodi e le proprietà disponibili derivando da `ViewComponent`.
 
-Quando si valuta se i componenti di visualizzazione soddisfano le specifiche di un'app, provare a usare Componenti Razor. Componenti Razor inoltre combina markup con codice C# per produrre unità riutilizzabili dell'interfaccia utente. Componenti Razor è progettato per la produttività degli sviluppatori quando si fornisce la composizione e la logica dell'interfaccia utente lato client. Per altre informazioni, vedere <xref:blazor/components>.
+Quando si valuta se i componenti di visualizzazione soddisfano le specifiche di un'app, provare a usare Componenti Razor. Componenti Razor inoltre combina markup con codice C# per produrre unità riutilizzabili dell'interfaccia utente. Componenti Razor è progettato per la produttività degli sviluppatori quando si fornisce la composizione e la logica dell'interfaccia utente lato client. Per ulteriori informazioni, vedere <xref:blazor/components>.
 
 ## <a name="creating-a-view-component"></a>Creazione di un componente di visualizzazione
 
@@ -69,7 +69,7 @@ Una classe del componente di visualizzazione:
 Un componente di visualizzazione definisce la propria logica in un metodo `InvokeAsync` che restituisce `Task<IViewComponentResult>` o in un metodo asincrono `Invoke` che restituisce `IViewComponentResult`. I parametri vengono rilevati direttamente dalla chiamata del componente di visualizzazione e non dall'associazione di modelli. Un componente di visualizzazione non gestisce mai direttamente una richiesta. In genere, inizializza un modello e lo passa a una visualizzazione chiamando il metodo `View`. Riepilogando, i metodi del componente di visualizzazione:
 
 * Definiscono un metodo `InvokeAsync` che restituisce `Task<IViewComponentResult>` o un metodo sincrono `Invoke` che restituisce `IViewComponentResult`.
-* In genere, inizializzano un modello e lo passano a una visualizzazione chiamando il metodo `ViewComponent` `View`.
+* In genere, Inizializza un modello e lo passa a una visualizzazione chiamando il metodo `ViewComponent` `View`.
 * I parametri vengono rilevati dal metodo di chiamata, non da HTTP, e non vi è alcuna associazione di modelli.
 * Non sono raggiungibili direttamente come un endpoint HTTP. Vengono richiamati dal codice (in genere in una vista). Un componente di visualizzazione non gestisce mai una richiesta.
 * Sono sottoposti a overload sulla firma e non sui dettagli dalla richiesta HHTP corrente.
@@ -87,6 +87,14 @@ Il percorso di ricerca si applica ai progetti che usano controller e visualizzaz
 Il nome di visualizzazione predefinito per un componente di visualizzazione è *Default*, quindi il file della visualizzazione viene solitamente denominato *Default.cshtml*. È possibile specificare un nome di visualizzazione diverso quando si crea il risultato del componente di visualizzazione o quando si chiama il metodo `View`.
 
 Si consiglia di denominare il file della visualizzazione *Default.cshtml* e usare il percorso *Views/Shared/Components/{Nome componente visualizzazione}/{Nome visualizzazione}* . Il componente di visualizzazione `PriorityList` in questo esempio usa *Views/Shared/Components/PriorityList/Default.cshtml* per la visualizzazione del componente di visualizzazione.
+
+### <a name="customize-the-view-search-path"></a>Personalizzare il percorso di ricerca della visualizzazione
+
+Per personalizzare il percorso di ricerca della visualizzazione, modificare la raccolta <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions.ViewLocationFormats> di Razor. Per cercare, ad esempio, le visualizzazioni all'interno del percorso "/Components/{View Component Name}/{View Name}", aggiungere un nuovo elemento alla raccolta:
+
+[!code-cs[](view-components/samples_snapshot/2.x/Startup.cs?name=snippet_ViewLocationFormats&highlight=4)]
+
+Nel codice precedente, il segnaposto "{0}" rappresenta il percorso "Components/{View Component Name}/{View Name}".
 
 ## <a name="invoking-a-view-component"></a>Chiamata di un componente di visualizzazione
 
@@ -145,7 +153,7 @@ In questo esempio il componente di visualizzazione viene chiamato direttamente d
 
 [!code-csharp[](view-components/sample/ViewCompFinal/Controllers/ToDoController.cs?name=snippet_IndexVC)]
 
-## <a name="walkthrough-creating-a-simple-view-component"></a>Procedura dettagliata: Creazione di un componente di visualizzazione semplice
+## <a name="walkthrough-creating-a-simple-view-component"></a>Procedura dettagliata: creazione di un componente di visualizzazione semplice
 
 [Scaricare](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/view-components/sample), compilare e testare il codice di avvio. Si tratta di un progetto semplice con un controller `ToDo` che visualizza un elenco di elementi *ToDo*.
 

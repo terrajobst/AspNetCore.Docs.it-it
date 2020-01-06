@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/07/2019
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: 380293f650c9548c286f98c0447c7ed08b918f2a
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: cda510d0f8211641e3544b53ded79878d717cc58
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007372"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358410"
 ---
 # <a name="configure-aspnet-core-data-protection"></a>Configurare la protezione dei dati ASP.NET Core
 
@@ -26,6 +26,15 @@ Per questi scenari, il sistema di protezione dei dati offre un'API di configuraz
 > Analogamente ai file di configurazione, l'anello della chiave di protezione dei dati deve essere protetto con le autorizzazioni appropriate. È possibile scegliere di crittografare le chiavi inattive, ma ciò non impedisce agli utenti malintenzionati di creare nuove chiavi. Di conseguenza, si ripercuote sulla sicurezza dell'app. Il percorso di archiviazione configurato con la protezione dati dovrebbe avere accesso limitato all'app stessa, in modo analogo al modo in cui si proteggono i file di configurazione. Ad esempio, se si sceglie di archiviare l'anello chiave su disco, usare file system autorizzazioni. Verificare solo l'identità con cui viene eseguita l'app Web ha accesso in lettura, scrittura e creazione a tale directory. Se si usa l'archiviazione BLOB di Azure, solo l'app Web deve essere in grado di leggere, scrivere o creare nuove voci nell'archivio BLOB e così via.
 >
 > Il metodo di estensione [AddDataProtection](/dotnet/api/microsoft.extensions.dependencyinjection.dataprotectionservicecollectionextensions.adddataprotection) restituisce un [IDataProtectionBuilder](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotectionbuilder). `IDataProtectionBuilder` espone i metodi di estensione che è possibile concatenare per configurare le opzioni di protezione dati.
+
+::: moniker range=">= aspnetcore-3.0"
+
+Per le estensioni per la protezione dei dati usate in questo articolo sono necessari i pacchetti NuGet seguenti:
+
+* [Microsoft. AspNetCore. dataprotection. AzureStorage](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.AzureStorage/)
+* [Microsoft. AspNetCore. dataprotection. AzureKeyVault](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.AzureKeyVault/)
+
+::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
 

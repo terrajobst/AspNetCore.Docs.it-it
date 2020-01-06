@@ -5,12 +5,12 @@ description: Informazioni su come aggiungere un controller a una semplice app AS
 ms.author: riande
 ms.date: 08/05/2017
 uid: tutorials/first-mvc-app/adding-controller
-ms.openlocfilehash: 1c54959130f3a9959d4d4fdb8dcaa0d37ee2f046
-ms.sourcegitcommit: 2eb605f4f20ac4dd9de6c3b3e3453e108a357a21
-ms.translationtype: HT
+ms.openlocfilehash: fe0c1d3c066d6ab20387391e15c3a7cfe684c61e
+ms.sourcegitcommit: 077b45eceae044475f04c1d7ef2d153d7c0515a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68820059"
+ms.lasthandoff: 12/29/2019
+ms.locfileid: "75542700"
 ---
 # <a name="add-a-controller-to-an-aspnet-core-mvc-app"></a>Aggiungere un controller a un'app ASP.NET Core MVC
 
@@ -22,11 +22,11 @@ Il pattern architetturale Model-View-Controller (MVC) suddivide le app in tre co
 
 * **M**odelli: classi che rappresentano i dati dell'app. Le classi modello usano la logica di convalida per applicare le regole business per tali dati. In genere, gli oggetti del modello recuperano e archiviano lo stato del modello in un database. In questa esercitazione, un modello `Movie` recupera i dati dei film da un database, li fornisce alla vista o li aggiorna. I dati aggiornati vengono scritti in un database.
 
-* **V**isualizzazioni: componenti che visualizzano l'interfaccia utente dell'app. In genere questa interfaccia utente presenta i dati del modello.
+* **V**iste: componenti che visualizzano l'interfaccia utente dell'app. In genere questa interfaccia utente presenta i dati del modello.
 
 * **C**ontroller: classi che gestiscono le richieste del browser. Recuperano i dati del modello e chiamano i modelli di vista che restituiscono una risposta. In un'applicazione MVC, la vista presenta solo le informazioni; il controller gestisce e risponde all'input dell'utente e alle azioni di interazione. Ad esempio, il controller gestisce i valori dei dati della route e della stringa di query e li passa al modello. Il modello può usare questi valori per eseguire query sul database. Ad esempio, `https://localhost:5001/Home/Privacy` contiene come i dati della route `Home` (il controller) e `Privacy` (il metodo di azione da chiamare sul controller Home). `https://localhost:5001/Movies/Edit/5` è una richiesta di modificare il film con ID = 5 usando il controller di film. I dati della route vengono spiegati in seguito nell'esercitazione.
 
-Il pattern MVC consente di creare app che separano i diversi aspetti dell'app (logica di input, logica di business e logica dell'interfaccia utente), fornendo un accoppiamento libero tra questi elementi. Il pattern specifica il punto in cui deve risiedere ogni tipo di logica nell'app. La logica dell'interfaccia utente risiede nella vista. La logica di input risiede nel controller. La logica di business risiede nel modello. Questa separazione semplifica la complessità in fase di compilazione di un'app perché consente di lavorare su un aspetto dell'implementazione alla volta senza conseguenze sul codice di un altro aspetto. Ad esempio, è possibile usare il codice della vista senza dipendere dal codice della logica di business.
+Il pattern MVC consente di creare app che separano i diversi aspetti dell'app (logica di input, logica di business e logica dell'interfaccia utente), fornendo un accoppiamento libero tra questi elementi. Il pattern specifica il punto in cui deve risiedere ogni tipo di logica nell'app. La logica dell'interfaccia risiede nella visualizzazione, la logica di input risiede nel controller e la logica di business risiede nel modello. Questa separazione semplifica la complessità in fase di compilazione di un'app perché consente di lavorare su un aspetto dell'implementazione alla volta senza conseguenze sul codice di un altro aspetto. Ad esempio, è possibile usare il codice della vista senza dipendere dal codice della logica di business.
 
 Questi concetti vengono illustrati in questa serie di esercitazioni e descrivono come compilare un'app per i film. Il progetto MVC contiene le cartelle per i *controller* e le *viste*.
 
@@ -106,9 +106,9 @@ Eseguire l'app e passare a:
 
    `https://localhost:{PORT}/HelloWorld/Welcome?name=Rick&numtimes=4`
 
-Sostituire `{PORT}` con il numero di porta. È possibile provare diversi valori per `name` e `numtimes` nell'URL. Il sistema di [associazione di modelli](xref:mvc/models/model-binding) MVC esegue il mapping dei parametri denominati dalla stringa di query nella barra degli indirizzi ai parametri nel metodo. Per altre informazioni, vedere [Associazione di modelli](xref:mvc/models/model-binding).
+Sostituire `{PORT}` con il numero di porta. È possibile provare valori diversi per `name` e `numtimes` nell'URL. Il sistema di [associazione di modelli](xref:mvc/models/model-binding) MVC esegue il mapping dei parametri denominati dalla stringa di query nella barra degli indirizzi ai parametri nel metodo. Per altre informazioni, vedere [Associazione di modelli](xref:mvc/models/model-binding).
 
-![Finestra del browser con una risposta dell'applicazione, Hello Rick, NumTimes is: 4](~/tutorials/first-mvc-app/adding-controller/_static/rick4.png)
+![Finestra del browser che mostra la risposta dell'applicazione Hello Rick, NumTimes è\: 4](~/tutorials/first-mvc-app/adding-controller/_static/rick4.png)
 
 Nell'immagine precedente non viene usato il segmento di URL (`Parameters`), i parametri `name` e `numTimes` vengono passati come [stringhe di query](https://wikipedia.org/wiki/Query_string). Il punto interrogativo `?` nell'URL precedente è un separatore e seguono le stringhe di query. Il carattere `&` separa le stringhe di query.
 
@@ -136,11 +136,11 @@ Il pattern architetturale Model-View-Controller (MVC) suddivide le app in tre co
 
 * **M**odelli: classi che rappresentano i dati dell'app. Le classi modello usano la logica di convalida per applicare le regole business per tali dati. In genere, gli oggetti del modello recuperano e archiviano lo stato del modello in un database. In questa esercitazione, un modello `Movie` recupera i dati dei film da un database, li fornisce alla vista o li aggiorna. I dati aggiornati vengono scritti in un database.
 
-* **V**isualizzazioni: componenti che visualizzano l'interfaccia utente dell'app. In genere questa interfaccia utente presenta i dati del modello.
+* **V**iste: componenti che visualizzano l'interfaccia utente dell'app. In genere questa interfaccia utente presenta i dati del modello.
 
 * **C**ontroller: classi che gestiscono le richieste del browser. Recuperano i dati del modello e chiamano i modelli di vista che restituiscono una risposta. In un'applicazione MVC, la vista presenta solo le informazioni; il controller gestisce e risponde all'input dell'utente e alle azioni di interazione. Ad esempio, il controller gestisce i valori dei dati della route e della stringa di query e li passa al modello. Il modello può usare questi valori per eseguire query sul database. Ad esempio, `https://localhost:5001/Home/About` contiene come i dati della route `Home` (il controller) e `About` (il metodo di azione da chiamare sul controller Home). `https://localhost:5001/Movies/Edit/5` è una richiesta di modificare il film con ID = 5 usando il controller di film. I dati della route vengono spiegati in seguito nell'esercitazione.
 
-Il pattern MVC consente di creare app che separano i diversi aspetti dell'app (logica di input, logica di business e logica dell'interfaccia utente), fornendo un accoppiamento libero tra questi elementi. Il pattern specifica il punto in cui deve risiedere ogni tipo di logica nell'app. La logica dell'interfaccia utente risiede nella vista. La logica di input risiede nel controller. La logica di business risiede nel modello. Questa separazione semplifica la complessità in fase di compilazione di un'app perché consente di lavorare su un aspetto dell'implementazione alla volta senza conseguenze sul codice di un altro aspetto. Ad esempio, è possibile usare il codice della vista senza dipendere dal codice della logica di business.
+Il pattern MVC consente di creare app che separano i diversi aspetti dell'app (logica di input, logica di business e logica dell'interfaccia utente), fornendo un accoppiamento libero tra questi elementi. Il pattern specifica il punto in cui deve risiedere ogni tipo di logica nell'app. La logica dell'interfaccia risiede nella visualizzazione, la logica di input risiede nel controller e la logica di business risiede nel modello. Questa separazione semplifica la complessità in fase di compilazione di un'app perché consente di lavorare su un aspetto dell'implementazione alla volta senza conseguenze sul codice di un altro aspetto. Ad esempio, è possibile usare il codice della vista senza dipendere dal codice della logica di business.
 
 Questi concetti vengono illustrati in questa serie di esercitazioni e descrivono come compilare un'app per i film. Il progetto MVC contiene le cartelle per i *controller* e le *viste*.
 
@@ -225,9 +225,9 @@ Eseguire l'app e passare a:
 
    `https://localhost:{PORT}/HelloWorld/Welcome?name=Rick&numtimes=4`
 
-Sostituire `{PORT}` con il numero di porta. È possibile provare diversi valori per `name` e `numtimes` nell'URL. Il sistema di [associazione di modelli](xref:mvc/models/model-binding) MVC esegue il mapping dei parametri denominati dalla stringa di query nella barra degli indirizzi ai parametri nel metodo. Per altre informazioni, vedere [Associazione di modelli](xref:mvc/models/model-binding).
+Sostituire `{PORT}` con il numero di porta. È possibile provare valori diversi per `name` e `numtimes` nell'URL. Il sistema di [associazione di modelli](xref:mvc/models/model-binding) MVC esegue il mapping dei parametri denominati dalla stringa di query nella barra degli indirizzi ai parametri nel metodo. Per altre informazioni, vedere [Associazione di modelli](xref:mvc/models/model-binding).
 
-![Finestra del browser con una risposta dell'applicazione, Hello Rick, NumTimes is: 4](~/tutorials/first-mvc-app/adding-controller/_static/rick4.png)
+![Finestra del browser che mostra la risposta dell'applicazione Hello Rick, NumTimes è\: 4](~/tutorials/first-mvc-app/adding-controller/_static/rick4.png)
 
 Nell'immagine precedente non viene usato il segmento di URL (`Parameters`), i parametri `name` e `numTimes` vengono passati come [stringhe di query](https://wikipedia.org/wiki/Query_string). Il punto interrogativo `?` nell'URL precedente è un separatore e seguono le stringhe di query. Il carattere `&` separa le stringhe di query.
 

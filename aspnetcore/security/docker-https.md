@@ -6,13 +6,15 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 07/05/2019
+no-loc:
+- Let's Encrypt
 uid: security/docker-https
-ms.openlocfilehash: c13ba02845eef5c53a939feec2be8a01bc4ca128
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 47027033c0b7130f2d38d22c02a54945b2cc31b3
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082537"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358913"
 ---
 # <a name="hosting-aspnet-core-images-with-docker-over-https"></a>Hosting di immagini ASP.NET Core con Docker su HTTPS
 
@@ -32,16 +34,16 @@ Per alcune istruzioni di questo documento è necessario [.NET Core 2,2 SDK](http
 
 ## <a name="certificates"></a>Certificati
 
-Un certificato di un' [autorità di certificazione](https://en.wikipedia.org/wiki/Certificate_authority) è necessario per l' [hosting di produzione](https://blogs.msdn.microsoft.com/webdev/2017/11/29/configuring-https-in-asp-net-core-across-different-platforms/) per un dominio.  Verrà [ora crittografata](https://letsencrypt.org/) un'autorità di certificazione che offre certificati gratuiti.
+Un certificato di un' [autorità di certificazione](https://wikipedia.org/wiki/Certificate_authority) è necessario per l' [hosting di produzione](https://blogs.msdn.microsoft.com/webdev/2017/11/29/configuring-https-in-asp-net-core-across-different-platforms/) per un dominio. [Let's Encrypt](https://letsencrypt.org/) è un'autorità di certificazione che offre certificati gratuiti.
 
-Questo documento usa [certificati di sviluppo autofirmati](https://en.wikipedia.org/wiki/Self-signed_certificate) per l'hosting di immagini predefinite `localhost`rispetto a. Le istruzioni sono simili all'uso dei certificati di produzione.
+Questo documento usa [certificati di sviluppo autofirmati](https://en.wikipedia.org/wiki/Self-signed_certificate) per l'hosting di immagini predefinite su `localhost`. Le istruzioni sono simili all'uso dei certificati di produzione.
 
 Per i certificati di produzione:
 
-* Lo `dotnet dev-certs` strumento non è obbligatorio.
+* Lo strumento `dotnet dev-certs` non è obbligatorio.
 * Non è necessario archiviare i certificati nel percorso utilizzato nelle istruzioni. Qualsiasi località dovrebbe funzionare, anche se non è consigliabile archiviare i certificati nella directory del sito.
 
-Il volume delle istruzioni monta i certificati in contenitori. È possibile aggiungere certificati alle immagini del contenitore con `COPY` un comando in un Dockerfile. Non è consigliabile copiare i certificati in un'immagine:
+Il volume delle istruzioni monta i certificati in contenitori. È possibile aggiungere certificati alle immagini del contenitore con un `COPY` comando in un *Dockerfile*. La copia di certificati in un'immagine non è consigliata per i motivi seguenti:
 
 * Risulta difficile usare la stessa immagine per i test con certificati per sviluppatori.
 * Risulta difficile utilizzare la stessa immagine per l'hosting con certificati di produzione.
@@ -80,7 +82,7 @@ dotnet dev-certs https -ep ${HOME}/.aspnet/https/aspnetapp.pfx -p { password her
 dotnet dev-certs https --trust
 ```
 
-`dotnet dev-certs https --trust`è supportato solo in macOS e Windows. È necessario considerare attendibili i certificati in Linux nel modo supportato dalla distribuzione. È probabile che sia necessario considerare attendibile il certificato nel browser.
+`dotnet dev-certs https --trust` è supportato solo in macOS e Windows. È necessario considerare attendibili i certificati in Linux nel modo supportato dalla distribuzione. È probabile che sia necessario considerare attendibile il certificato nel browser.
 
 Nei comandi precedenti sostituire `{ password here }` con una password.
 

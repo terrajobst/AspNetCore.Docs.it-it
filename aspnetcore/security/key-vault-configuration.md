@@ -5,14 +5,14 @@ description: Informazioni su come usare il provider di configurazione Azure Key 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/14/2019
+ms.date: 12/16/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: e0e55d40734e0cb6e3e1afe1c708ec47c6f43054
-ms.sourcegitcommit: f91d322f790123d41ec3271fa084ae20ed9f89a6
+ms.openlocfilehash: 37ba756cc4170c145d2ab1f9f0a465057cc826c1
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74155189"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358708"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Provider di configurazione di Azure Key Vault in ASP.NET Core
 
@@ -73,9 +73,9 @@ Le istruzioni fornite nell'argomento [avvio rapido: impostare e recuperare un se
 
 1. Aprire Azure cloud shell usando uno dei metodi seguenti nel [portale di Azure](https://portal.azure.com/):
 
-   * Selezionare **try it** nell'angolo superiore destro di un blocco di codice. Usare la stringa di ricerca "interfaccia della riga di comando di Azure" nella casella di testo.
+   * Selezionare **Prova** nell'angolo superiore destro di un blocco di codice. Usare la stringa di ricerca "interfaccia della riga di comando di Azure" nella casella di testo.
    * Aprire Cloud Shell nel browser con il pulsante **avvia cloud Shell** .
-   * Selezionare il pulsante **cloud Shell** nel menu nell'angolo in alto a destra del portale di Azure.
+   * Selezionare il pulsante **Cloud Shell** nel menu nell'angolo in alto a destra del portale di Azure.
 
    Per altre informazioni, vedere [interfaccia della riga di comando di Azure](/cli/azure/) e [Panoramica di Azure cloud Shell](/azure/cloud-shell/overview).
 
@@ -90,7 +90,7 @@ Le istruzioni fornite nell'argomento [avvio rapido: impostare e recuperare un se
 1. Creare un insieme di credenziali delle chiavi nel gruppo di risorse con il comando seguente, dove `{KEY VAULT NAME}` è il nome del nuovo insieme di credenziali delle chiavi e `{LOCATION}` è l'area di Azure (Datacenter):
 
    ```azure-cli
-   az keyvault create --name "{KEY VAULT NAME}" --resource-group "{RESOURCE GROUP NAME}" --location {LOCATION}
+   az keyvault create --name {KEY VAULT NAME} --resource-group "{RESOURCE GROUP NAME}" --location {LOCATION}
    ```
 
 1. Creare segreti nell'insieme di credenziali delle chiavi come coppie nome/valore.
@@ -100,13 +100,13 @@ Le istruzioni fornite nell'argomento [avvio rapido: impostare e recuperare un se
    I segreti seguenti sono da usare con l'app di esempio. I valori includono un suffisso di `_prod` per distinguerli dai valori dei suffissi `_dev` caricati nell'ambiente di sviluppo da segreti utente. Sostituire `{KEY VAULT NAME}` con il nome dell'insieme di credenziali delle chiavi creato nel passaggio precedente:
 
    ```azure-cli
-   az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "SecretName" --value "secret_value_1_prod"
-   az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "Section--SecretName" --value "secret_value_2_prod"
+   az keyvault secret set --vault-name {KEY VAULT NAME} --name "SecretName" --value "secret_value_1_prod"
+   az keyvault secret set --vault-name {KEY VAULT NAME} --name "Section--SecretName" --value "secret_value_2_prod"
    ```
 
 ## <a name="use-application-id-and-x509-certificate-for-non-azure-hosted-apps"></a>Usare l'ID applicazione e il certificato X. 509 per le app non ospitate in Azure
 
-Configurare Azure AD, Azure Key Vault e l'app per usare un ID applicazione Azure Active Directory e un certificato X. 509 per l'autenticazione in un insieme di credenziali **delle chiavi quando l'app è ospitata all'esterno di Azure**. Per ulteriori informazioni, vedere [informazioni su chiavi, segreti e certificati](/azure/key-vault/about-keys-secrets-and-certificates).
+Configurare Azure AD, Azure Key Vault e l'app per usare un ID applicazione Azure Active Directory e un certificato X. 509 per l'autenticazione in un insieme di credenziali **delle chiavi quando l'app è ospitata all'esterno di Azure**. Per i dettagli, vedere l'articolo relativo alle [informazioni su chiavi, segreti e certificati](/azure/key-vault/about-keys-secrets-and-certificates).
 
 > [!NOTE]
 > Sebbene l'uso di un ID applicazione e di un certificato X. 509 sia supportato per le app ospitate in Azure, è consigliabile usare [identità gestite per le risorse di Azure](#use-managed-identities-for-azure-resources) quando si ospita un'app in Azure. Le identità gestite non richiedono l'archiviazione di un certificato nell'app o nell'ambiente di sviluppo.
@@ -124,10 +124,10 @@ L'app di esempio usa un ID applicazione e un certificato X. 509 quando l'istruzi
 1. Archiviare il nome dell'insieme di credenziali delle chiavi, l'ID applicazione e l'identificazione personale del certificato nel file *appSettings. JSON* dell'app.
 1. Passare a insiemi di credenziali delle **chiavi** nella portale di Azure.
 1. Selezionare l'insieme di credenziali delle chiavi creato nell' [Archivio Secret nell'ambiente di produzione con Azure Key Vault](#secret-storage-in-the-production-environment-with-azure-key-vault) sezione.
-1. Selezionare **criteri di accesso**.
+1. Selezionare **Criteri di accesso**.
 1. Selezionare **Aggiungi criteri di accesso**.
 1. Aprire **autorizzazioni segrete** e fornire all'app le autorizzazioni **Get** ed **List** .
-1. Selezionare **Seleziona entità** e selezionare l'app registrata in base al nome. Selezionare il pulsante **Seleziona** .
+1. Selezionare **Seleziona entità** e selezionare l'app registrata in base al nome. Fare clic sul pulsante **Seleziona**.
 1. Scegliere **OK**.
 1. Selezionare **Salva**.
 1. Distribuire l'app.
@@ -153,7 +153,7 @@ Il certificato X. 509 è gestito dal sistema operativo. L'app chiama <xref:Micro
 
 ::: moniker-end
 
-Valori di esempio:
+Valori di esempio
 
 * Nome dell'insieme di credenziali delle chiavi: `contosovault`
 * ID applicazione: `627e911e-43cc-61d4-992e-12db9c81b413`
@@ -177,7 +177,7 @@ Quando si esegue l'app, in una pagina Web vengono visualizzati i valori dei segr
 
 ## <a name="use-managed-identities-for-azure-resources"></a>Usare identità gestite per le risorse di Azure
 
-**Un'app distribuita in Azure** può sfruttare le [identità gestite per le risorse di Azure](/azure/active-directory/managed-identities-azure-resources/overview), che consentono all'app di eseguire l'autenticazione con Azure Key Vault usando l'autenticazione Azure ad senza credenziali (ID applicazione e password/segreto client) archiviati nell'app.
+**Un'app distribuita in Azure** può trarre vantaggio dalle [identità gestite per le risorse di Azure](/azure/active-directory/managed-identities-azure-resources/overview), che consente all'app di eseguire l'autenticazione con Azure Key Vault usando Azure ad autenticazione senza credenziali (ID applicazione e password/segreto client) archiviate nell'app.
 
 L'app di esempio usa le identità gestite per le risorse di Azure quando l'istruzione `#define` nella parte superiore del file *Program.cs* è impostata su `Managed`.
 
@@ -190,7 +190,7 @@ Un'app distribuita nel servizio app Azure viene registrata automaticamente con A
 Usando l'interfaccia della riga di comando di Azure e l'ID oggetto dell'app, fornire all'app le autorizzazioni `list` e `get` per accedere all'insieme di credenziali delle chiavi:
 
 ```azure-cli
-az keyvault set-policy --name '{KEY VAULT NAME}' --object-id {OBJECT ID} --secret-permissions get list
+az keyvault set-policy --name {KEY VAULT NAME} --object-id {OBJECT ID} --secret-permissions get list
 ```
 
 **Riavviare l'app** usando l'interfaccia della riga di comando di Azure, PowerShell o la portale di Azure.
@@ -243,7 +243,7 @@ config.AddAzureKeyVault(
     });
 ```
 
-| proprietà         | Descrizione |
+| Gli         | Descrizione |
 | ---------------- | ----------- |
 | `Client`         | <xref:Microsoft.Azure.KeyVault.KeyVaultClient> da utilizzare per il recupero dei valori. |
 | `Manager`        | <xref:Microsoft.Extensions.Configuration.AzureKeyVault.IKeyVaultSecretManager> istanza utilizzata per controllare il caricamento dei segreti. |
@@ -304,8 +304,8 @@ Quando viene implementato questo approccio:
 1. I segreti vengono salvati in Azure Key Vault usando i comandi dell'interfaccia della riga di comando di Azure seguenti:
 
    ```azure-cli
-   az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "5000-AppSecret" --value "5.0.0.0_secret_value_prod"
-   az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "5100-AppSecret" --value "5.1.0.0_secret_value_prod"
+   az keyvault secret set --vault-name {KEY VAULT NAME} --name "5000-AppSecret" --value "5.0.0.0_secret_value_prod"
+   az keyvault secret set --vault-name {KEY VAULT NAME} --name "5100-AppSecret" --value "5.1.0.0_secret_value_prod"
    ```
 
 1. Quando l'app viene eseguita, vengono caricati i segreti dell'insieme di credenziali delle chiavi. La stringa segreta per `5000-AppSecret` viene confrontata con la versione dell'app specificata nel file di progetto dell'app (`5.0.0.0`).
@@ -350,7 +350,7 @@ Esaminare la seguente configurazione del provider di registrazione [Serilog](htt
 
 La configurazione mostrata nel file JSON precedente viene archiviata in Azure Key Vault usando la notazione a doppio trattino (`--`) e i segmenti numerici:
 
-| Chiave | Value |
+| Key | Valore |
 | --- | ----- |
 | `Serilog--WriteTo--0--Name` | `AzureTableStorage` |
 | `Serilog--WriteTo--0--Args--storageTableName` | `logs` |

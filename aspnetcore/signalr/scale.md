@@ -9,12 +9,12 @@ ms.date: 11/28/2018
 no-loc:
 - SignalR
 uid: signalr/scale
-ms.openlocfilehash: 7fc767939996a489174be949742637030924616d
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 6506430202870ba9de2f8eb6f33d79c7c1fbbbd4
+ms.sourcegitcommit: e7d4fe6727d423f905faaeaa312f6c25ef844047
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963752"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608067"
 ---
 # <a name="aspnet-core-opno-locsignalr-hosting-and-scaling"></a>ASP.NET Core SignalR l'hosting e la scalabilità
 
@@ -42,7 +42,7 @@ Le connessioni permanenti utilizzano anche una quantità di memoria aggiuntiva p
 
 L'utilizzo intensivo di risorse correlate alla connessione da parte di SignalR può interessare altre app Web ospitate nello stesso server. Quando SignalR apre e contiene le ultime connessioni TCP disponibili, anche altre app Web nello stesso server non dispongono di altre connessioni disponibili.
 
-Se un server esaurisce le connessioni, verranno visualizzati gli errori di socket casuali e gli errori di reimpostazione della connessione. Esempio:
+Se un server esaurisce le connessioni, verranno visualizzati gli errori di socket casuali e gli errori di reimpostazione della connessione. Ad esempio:
 
 ```
 An attempt was made to access a socket in a way forbidden by its access permissions...
@@ -90,13 +90,28 @@ Il backplane di redis è l'approccio di scalabilità orizzontale consigliato per
 
 I vantaggi del servizio Azure SignalR indicati in precedenza sono gli svantaggi per il backplane di redis:
 
-* Le sessioni permanenti, note anche come [affinità client](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing#step-3---configure-client-affinity), sono obbligatorie. Una volta avviata una connessione in un server, la connessione deve rimanere nel server.
+* Le sessioni permanenti, note anche come [affinità client](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing#step-3---configure-client-affinity), sono necessarie, tranne quando si verificano **entrambe** le condizioni seguenti:
+  * Tutti i client sono configurati in modo da usare **solo** WebSocket.
+  * L' [impostazione SkipNegotiation](xref:signalr/configuration#configure-additional-options) è abilitata nella configurazione client. 
+   Una volta avviata una connessione in un server, la connessione deve rimanere nel server.
 * Un'app SignalR deve essere scalata in base al numero di client anche se sono stati inviati pochi messaggi.
 * Un'app SignalR USA notevolmente più risorse di connessione rispetto a un'app Web senza SignalR.
 
+## <a name="iis-limitations-on-windows-client-os"></a>Limitazioni di IIS sul sistema operativo client Windows
+
+Windows 10 e Windows 8. x sono sistemi operativi client. IIS nei sistemi operativi client ha un limite di 10 connessioni simultanee. le connessioni di SignalRsono:
+
+* Temporaneo e ristabilito di frequente.
+* **Non** viene eliminato immediatamente quando non viene più utilizzato.
+
+Le condizioni precedenti consentono di raggiungere il limite di 10 connessioni in un sistema operativo client. Quando un sistema operativo client viene usato per lo sviluppo, si consiglia quanto segue:
+
+* Evitare IIS.
+* Usare gheppio o IIS Express come destinazioni di distribuzione.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni, vedere le seguenti risorse:
+Per ulteriori informazioni, vedere le seguenti risorse:
 
 * [Documentazione del servizio Azure SignalR](/azure/azure-signalr/signalr-overview)
 * [Configurare un backplane Redis](xref:signalr/redis-backplane)

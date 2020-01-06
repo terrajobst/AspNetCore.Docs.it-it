@@ -9,12 +9,12 @@ ms.date: 11/12/2019
 no-loc:
 - SignalR
 uid: signalr/background-services
-ms.openlocfilehash: 000732115153eeafed3948c2a07acf77ffc34218
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 324592759af79d1229eb147fb4551e97c678ef64
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73964051"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358678"
 ---
 # <a name="host-aspnet-core-opno-locsignalr-in-background-services"></a>SignalR di ASP.NET Core host nei servizi in background
 
@@ -27,11 +27,11 @@ Questo articolo fornisce indicazioni per:
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/background-service/sample/) [(procedura per il download)](xref:index#how-to-download-a-sample)
 
-## <a name="wire-up-opno-locsignalr-during-startup"></a>Collegare SignalR durante l'avvio
+## <a name="enable-opno-locsignalr-in-startup"></a>Abilita SignalR all'avvio
 
 ::: moniker range=">= aspnetcore-3.0"
 
-L'hosting di ASP.NET Core Hub SignalR nel contesto di un processo di lavoro in background è identico all'hosting di un hub in un'app Web di ASP.NET Core. Nel metodo `Startup.ConfigureServices` la chiamata di `services.AddSignalR` aggiunge i servizi richiesti al livello di inserimento delle dipendenze (DI) ASP.NET Core per supportare SignalR. In `Startup.Configure`, il metodo `MapHub` viene chiamato nel callback `UseEndpoints` per collegare gli endpoint dell'hub nella pipeline della richiesta ASP.NET Core.
+L'hosting di ASP.NET Core Hub SignalR nel contesto di un processo di lavoro in background è identico all'hosting di un hub in un'app Web di ASP.NET Core. Nel metodo `Startup.ConfigureServices` la chiamata di `services.AddSignalR` aggiunge i servizi richiesti al livello di inserimento delle dipendenze (DI) ASP.NET Core per supportare SignalR. In `Startup.Configure`, il metodo `MapHub` viene chiamato nel callback `UseEndpoints` per connettere gli endpoint dell'hub nella pipeline della richiesta ASP.NET Core.
 
 ```csharp
 public class Startup
@@ -62,7 +62,7 @@ public class Startup
 
 ::: moniker range="<= aspnetcore-2.2"
 
-L'hosting di ASP.NET Core Hub SignalR nel contesto di un processo di lavoro in background è identico all'hosting di un hub in un'app Web di ASP.NET Core. Nel metodo `Startup.ConfigureServices` la chiamata di `services.AddSignalR` aggiunge i servizi richiesti al livello di inserimento delle dipendenze (DI) ASP.NET Core per supportare SignalR. In `Startup.Configure`, viene chiamato il metodo `UseSignalR` per collegare gli endpoint dell'hub nella pipeline della richiesta di ASP.NET Core.
+L'hosting di ASP.NET Core Hub SignalR nel contesto di un processo di lavoro in background è identico all'hosting di un hub in un'app Web di ASP.NET Core. Nel metodo `Startup.ConfigureServices` la chiamata di `services.AddSignalR` aggiunge i servizi richiesti al livello di inserimento delle dipendenze (DI) ASP.NET Core per supportare SignalR. In `Startup.Configure`, viene chiamato il metodo `UseSignalR` per connettere gli endpoint dell'hub nella pipeline della richiesta di ASP.NET Core.
 
 [!code-csharp[Startup](background-service/sample/Server/Startup.cs?name=Startup)]
 
@@ -83,13 +83,13 @@ L'interfaccia utilizzata dalla `ClockHub` fortemente tipizzata è l'interfaccia 
 
 ## <a name="call-a-opno-locsignalr-hub-from-a-background-service"></a>Chiamare un hub SignalR da un servizio in background
 
-Durante l'avvio, la classe `Worker`, una `BackgroundService`, viene cablata utilizzando `AddHostedService`.
+Durante l'avvio, la classe `Worker`, una `BackgroundService`, viene abilitata utilizzando `AddHostedService`.
 
 ```csharp
 services.AddHostedService<Worker>();
 ```
 
-Poiché SignalR viene cablato anche durante la fase di `Startup`, in cui ogni hub è collegato a un singolo endpoint nella pipeline di richieste HTTP ASP.NET Core, ogni hub è rappresentato da un `IHubContext<T>` sul server. Utilizzando le funzionalità DI DI ASP.NET Core, altre classi create dal livello host, ad esempio classi `BackgroundService`, classi controller MVC o modelli di pagine Razor, possono ottenere riferimenti a Hub sul lato server accettando istanze di `IHubContext<ClockHub, IClock>` durante la costruzione.
+Poiché SignalR viene abilitato anche durante la fase di `Startup`, in cui ogni hub è collegato a un singolo endpoint nella pipeline di richieste HTTP ASP.NET Core, ogni hub è rappresentato da un `IHubContext<T>` sul server. Utilizzando le funzionalità DI DI ASP.NET Core, altre classi create dal livello host, ad esempio classi `BackgroundService`, classi controller MVC o modelli di pagine Razor, possono ottenere riferimenti a Hub sul lato server accettando istanze di `IHubContext<ClockHub, IClock>` durante la costruzione.
 
 [!code-csharp[Startup](background-service/sample/Server/Worker.cs?name=Worker)]
 
@@ -99,7 +99,7 @@ Poiché il metodo `ExecuteAsync` viene chiamato in modo iterativo nel servizio i
 
 Analogamente a un'app a pagina singola che usa il client JavaScript per SignalR o un'app desktop .NET può eseguire usando il <xref:signalr/dotnet-client>, è possibile usare un'implementazione di `BackgroundService` o `IHostedService` anche per connettersi a hub SignalR e rispondere agli eventi.
 
-La classe `ClockHubClient` implementa sia l'interfaccia `IClock` che l'interfaccia `IHostedService`. In questo modo è possibile cablare il sistema durante `Startup` per l'esecuzione continua e rispondere agli eventi dell'hub dal server.
+La classe `ClockHubClient` implementa sia l'interfaccia `IClock` che l'interfaccia `IHostedService`. In questo modo può essere abilitata durante `Startup` per l'esecuzione continua e per rispondere agli eventi dell'hub dal server.
 
 ```csharp
 public partial class ClockHubClient : IClock, IHostedService
@@ -107,7 +107,7 @@ public partial class ClockHubClient : IClock, IHostedService
 }
 ```
 
-Durante l'inizializzazione, il `ClockHubClient` crea un'istanza di un `HubConnection` e collega il metodo `IClock.ShowTime` come gestore per l'evento `ShowTime` dell'hub.
+Durante l'inizializzazione, il `ClockHubClient` crea un'istanza di una `HubConnection` e Abilita il metodo `IClock.ShowTime` come gestore per l'evento `ShowTime` dell'hub.
 
 [!code-csharp[The ClockHubClient constructor](background-service/sample/Clients.ConsoleTwo/ClockHubClient.cs?name=ClockHubClientCtor)]
 

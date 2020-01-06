@@ -5,18 +5,20 @@ description: Scoprire come aggiungere classi per la gestione dei film in un data
 ms.author: riande
 ms.date: 12/05/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 95b6d3e016edcd2e13207c8e658cf0d2fb21f945
-ms.sourcegitcommit: 4e3edff24ba6e43a103fee1b126c9826241bb37b
+ms.openlocfilehash: ef4671c9e7628c106b9f68ba5cbfd8a127e095d0
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74959080"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358029"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Aggiungere un modello a un'app Razor Pages in ASP.NET Core
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ::: moniker range=">= aspnetcore-3.0"
+
+<!-- In the next update on the CLI version, let the scaffolder do the same work the VS driven scaffolder does. That is, create the DB context, etc -->
 
 In questa sezione vengono aggiunte le classi per la gestione dei film in un [database SQLite](https://www.sqlite.org/index.html)multipiattaforma. Le app create da un modello di ASP.NET Core usano un database SQLite. Le classi modello dell'app vengono usate con [Entity Framework Core (EF Core)](/ef/core) ([SQLite EF Core provider di database](/ef/core/providers/sqlite)) per lavorare con il database. EF Core è un framework ORM (Object-Relational Mapping) che semplifica l'accesso ai dati.
 
@@ -28,7 +30,7 @@ Le classi di modello sono dette classi POCO (da "plain-old CLR objects") perché
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Fare clic con il pulsante destro del mouse sul progetto **RazorPagesMovie** > **Aggiungi** > **Nuova cartella**. Assegnare il nome *Models* alla cartella.
+Fare clic con il pulsante destro del mouse sul progetto **RazorPagesMovie** > **Aggiungi** > **Nuova cartella**. Assegnare il nome *Modelli* alla cartella.
 
 Fare clic con il pulsante destro del mouse sulla cartella *Models*. Selezionare **Aggiungi** > **Classe**. Denominare la classe **Movie**.
 
@@ -37,7 +39,7 @@ Fare clic con il pulsante destro del mouse sulla cartella *Models*. Selezionare 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * Aggiungere una cartella denominata *Modelli*.
-* Aggiungere una classe alla cartella *Models* denominata *Movie.cs*.
+* Aggiungere una classe alla cartella *Modello* denominata *Movie.cs*.
 
 [!INCLUDE [model 1b](~/includes/RP/model1b.md)]
 
@@ -45,13 +47,13 @@ Fare clic con il pulsante destro del mouse sulla cartella *Models*. Selezionare 
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
-* In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **RazorPagesMovie**, quindi selezionare **Aggiungi** > **Nuova cartella**. Assegnare il nome *Models* alla cartella.
-* Fare clic con il pulsante destro del mouse sulla cartella *Models* e scegliere **Aggiungi** > **Nuovo file**.
-* Nella finestra di dialogo **Nuovo file**:
+* In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **RazorPagesMovie**, quindi selezionare **Aggiungi** > **Nuova cartella**. Assegnare il nome *Modelli* alla cartella.
+* Fare clic con il pulsante destro del mouse sulla cartella *Models* , quindi scegliere **Aggiungi** > **nuovo file**.
+* Nel finestra di dialogo **Nuovo file**:
 
   * Selezionare **Generale** nel riquadro a sinistra.
   * Selezionare **Classe vuota** nel riquadro centrale.
-  * Denominare la classe **Movie** e selezionare **Nuovo**.
+  * Denominare la classe **Filmato** e selezionare **Nuovo**.
 
 [!INCLUDE [model 1b](~/includes/RP/model1b.md)]
 
@@ -61,7 +63,7 @@ Fare clic con il pulsante destro del mouse sulla cartella *Models*. Selezionare 
 
 Compilare il progetto per verificare che non siano presenti errori di compilazione.
 
-## <a name="scaffold-the-movie-model"></a>Eseguire lo scaffolding del modello *Movie*
+## <a name="scaffold-the-movie-model"></a>Eseguire lo scaffolding del modello di filmato
 
 In questa sezione viene eseguito lo scaffolding del modello *Movie*. Lo strumento di scaffolding crea quindi le pagine per le operazioni CRUD (creazione, lettura, aggiornamento ed eliminazione) per il modello *Movie*.
 
@@ -69,14 +71,14 @@ In questa sezione viene eseguito lo scaffolding del modello *Movie*. Lo strument
 
 Creare una cartella *Pages/Movies*:
 
-* Fare clic con il pulsante destro del mouse sulla cartella *Pages* > **Aggiungi** > **Nuova cartella**.
+* Fare clic con il pulsante destro del mouse sulla cartella *pagine* > **Aggiungi** > **nuova cartella**.
 * Assegnare il nome *Movies* alla cartella
 
-Fare clic con il pulsante destro del mouse sulla cartella *Pages/Movies* > **Aggiungi** > **Nuovo elemento di scaffolding**.
+Fare clic con il pulsante destro del mouse sulla cartella *pages/Movies* > **Aggiungi** > **nuovo elemento con impalcatura**.
 
 ![Immagine relativa alle istruzioni precedenti.](model/_static/sca.png)
 
-Nella finestra di dialogo **Aggiungi scaffolding** selezionare **Razor che usano Entity Framework (CRUD)** > **Aggiungi**.
+Nella finestra di dialogo **Aggiungi impalcatura** selezionare **Razor Pages utilizzando Entity Framework (CRUD)** > **Aggiungi**.
 
 ![Immagine relativa alle istruzioni precedenti.](model/_static/add_scaffold.png)
 
@@ -175,11 +177,11 @@ In questa sezione viene usata la Console di Gestione pacchetti (PMC) per:
 * Aggiungere una migrazione iniziale.
 * Aggiornare il database con la migrazione iniziale.
 
-Dal menu **Strumenti** selezionare **Gestione pacchetti NuGet** >  **Console di Gestione pacchetti**.
+Dal menu **strumenti** selezionare **gestione pacchetti NuGet** > console di **Gestione pacchetti**.
 
   ![Menu della Console di Gestione pacchetti](../first-mvc-app/adding-model/_static/pmc.png)
 
-In PMC, immettere i comandi seguenti:
+Nella Console di Gestione pacchetti immettere i comandi seguenti:
 
 ```PMC
 Add-Migration InitialCreate
@@ -236,7 +238,7 @@ Esaminare il metodo `Up`.
 
 <a name="test"></a>
 
-### <a name="test-the-app"></a>Eseguire il test dell'applicazione
+### <a name="test-the-app"></a>Eseguire il test dell'app
 
 * Eseguire l'app e accodare `/Movies` all'URL nel browser (`http://localhost:port/movies`).
 
@@ -254,11 +256,11 @@ Non è stato eseguita la [migrazione](#pmc).
   ![Pagina Create](model/_static/conan.png)
 
   > [!NOTE]
-  > Potrebbe non essere possibile immettere virgole decimali nel campo `Price`. Per supportare la [convalida jQuery](https://jqueryvalidation.org/) per impostazioni locali diverse dall'inglese che usano la virgola (",") come separatore decimale e per formati di data diversi da quello dell'inglese (Stati Uniti), è necessario localizzare l'app. Per istruzioni sulla localizzazione, vedere [questo problema su GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420).
+  > Potrebbe non essere possibile immettere virgole decimali nel campo `Price`. Per supportare la [convalida jQuery](https://jqueryvalidation.org/) per impostazioni locali diverse dall'inglese che usano la virgola (",") come separatore decimale e per formati di data diversi da quello dell'inglese (Stati Uniti), è necessario localizzare l'app. Per istruzioni sulla globalizzazione, vedere [questo problema su GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420).
 
 * Eseguire il test dei collegamenti **Modifica**, **Dettagli** e **Elimina**.
 
-L'esercitazione successiva illustra i file creati dallo scaffolding.
+L'esercitazione successiva illustra i file creati tramite scaffolding.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
@@ -281,7 +283,7 @@ Le classi di modello sono dette classi POCO (da "plain-old CLR objects") perché
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Fare clic con il pulsante destro del mouse sul progetto **RazorPagesMovie** > **Aggiungi** > **Nuova cartella**. Assegnare il nome *Models* alla cartella.
+Fare clic con il pulsante destro del mouse sul progetto **RazorPagesMovie** > **Aggiungi** > **Nuova cartella**. Assegnare il nome *Modelli* alla cartella.
 
 Fare clic con il pulsante destro del mouse sulla cartella *Models*. Selezionare **Aggiungi** > **Classe**. Denominare la classe **Movie**.
 
@@ -290,7 +292,7 @@ Fare clic con il pulsante destro del mouse sulla cartella *Models*. Selezionare 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * Aggiungere una cartella denominata *Modelli*.
-* Aggiungere una classe alla cartella *Models* denominata *Movie.cs*.
+* Aggiungere una classe alla cartella *Modello* denominata *Movie.cs*.
 
 [!INCLUDE [model 1b](~/includes/RP/model1b.md)]
 
@@ -298,13 +300,13 @@ Fare clic con il pulsante destro del mouse sulla cartella *Models*. Selezionare 
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
-* In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **RazorPagesMovie**, quindi selezionare **Aggiungi** > **Nuova cartella**. Assegnare il nome *Models* alla cartella.
-* Fare clic con il pulsante destro del mouse sulla cartella *Models* e scegliere **Aggiungi** > **Nuovo file**.
-* Nella finestra di dialogo **Nuovo file**:
+* In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **RazorPagesMovie**, quindi selezionare **Aggiungi** > **Nuova cartella**. Assegnare il nome *Modelli* alla cartella.
+* Fare clic con il pulsante destro del mouse sulla cartella *Models* , quindi scegliere **Aggiungi** > **nuovo file**.
+* Nel finestra di dialogo **Nuovo file**:
 
   * Selezionare **Generale** nel riquadro a sinistra.
   * Selezionare **Classe vuota** nel riquadro centrale.
-  * Denominare la classe **Movie** e selezionare **Nuovo**.
+  * Denominare la classe **Filmato** e selezionare **Nuovo**.
 
 [!INCLUDE [model 1b](~/includes/RP/model1b.md)]
 
@@ -314,7 +316,7 @@ Fare clic con il pulsante destro del mouse sulla cartella *Models*. Selezionare 
 
 Compilare il progetto per verificare che non siano presenti errori di compilazione.
 
-## <a name="scaffold-the-movie-model"></a>Eseguire lo scaffolding del modello *Movie*
+## <a name="scaffold-the-movie-model"></a>Eseguire lo scaffolding del modello di filmato
 
 In questa sezione viene eseguito lo scaffolding del modello *Movie*. Lo strumento di scaffolding crea quindi le pagine per le operazioni CRUD (creazione, lettura, aggiornamento ed eliminazione) per il modello *Movie*.
 
@@ -322,14 +324,14 @@ In questa sezione viene eseguito lo scaffolding del modello *Movie*. Lo strument
 
 Creare una cartella *Pages/Movies*:
 
-* Fare clic con il pulsante destro del mouse sulla cartella *Pages* > **Aggiungi** > **Nuova cartella**.
+* Fare clic con il pulsante destro del mouse sulla cartella *pagine* > **Aggiungi** > **nuova cartella**.
 * Assegnare il nome *Movies* alla cartella
 
-Fare clic con il pulsante destro del mouse sulla cartella *Pages/Movies* > **Aggiungi** > **Nuovo elemento di scaffolding**.
+Fare clic con il pulsante destro del mouse sulla cartella *pages/Movies* > **Aggiungi** > **nuovo elemento con impalcatura**.
 
 ![Immagine relativa alle istruzioni precedenti.](model/_static/sca.png)
 
-Nella finestra di dialogo **Aggiungi scaffolding** selezionare **Razor che usano Entity Framework (CRUD)** > **Aggiungi**.
+Nella finestra di dialogo **Aggiungi impalcatura** selezionare **Razor Pages utilizzando Entity Framework (CRUD)** > **Aggiungi**.
 
 ![Immagine relativa alle istruzioni precedenti.](model/_static/add_scaffold.png)
 
@@ -405,11 +407,11 @@ In questa sezione viene usata la Console di Gestione pacchetti (PMC) per:
 * Aggiungere una migrazione iniziale.
 * Aggiornare il database con la migrazione iniziale.
 
-Dal menu **Strumenti** selezionare **Gestione pacchetti NuGet** >  **Console di Gestione pacchetti**.
+Dal menu **strumenti** selezionare **gestione pacchetti NuGet** > console di **Gestione pacchetti**.
 
   ![Menu della Console di Gestione pacchetti](../first-mvc-app/adding-model/_static/pmc.png)
 
-In PMC, immettere i comandi seguenti:
+Nella Console di Gestione pacchetti immettere i comandi seguenti:
 
 ```Powershell
 Add-Migration Initial
@@ -464,7 +466,7 @@ Esaminare il metodo `Up`.
 
 <a name="test"></a>
 
-### <a name="test-the-app"></a>Eseguire il test dell'applicazione
+### <a name="test-the-app"></a>Eseguire il test dell'app
 
 * Eseguire l'app e accodare `/Movies` all'URL nel browser (`http://localhost:port/movies`).
 
@@ -482,11 +484,11 @@ Non è stato eseguita la [migrazione](#pmc).
   ![Pagina Create](model/_static/conan.png)
 
   > [!NOTE]
-  > Potrebbe non essere possibile immettere virgole decimali nel campo `Price`. Per supportare la [convalida jQuery](https://jqueryvalidation.org/) per impostazioni locali diverse dall'inglese che usano la virgola (",") come separatore decimale e per formati di data diversi da quello dell'inglese (Stati Uniti), è necessario localizzare l'app. Per istruzioni sulla localizzazione, vedere [questo problema su GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420).
+  > Potrebbe non essere possibile immettere virgole decimali nel campo `Price`. Per supportare la [convalida jQuery](https://jqueryvalidation.org/) per impostazioni locali diverse dall'inglese che usano la virgola (",") come separatore decimale e per formati di data diversi da quello dell'inglese (Stati Uniti), è necessario localizzare l'app. Per istruzioni sulla globalizzazione, vedere [questo problema su GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420).
 
 * Eseguire il test dei collegamenti **Modifica**, **Dettagli** e **Elimina**.
 
-L'esercitazione successiva illustra i file creati dallo scaffolding.
+L'esercitazione successiva illustra i file creati tramite scaffolding.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

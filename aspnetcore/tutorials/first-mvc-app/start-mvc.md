@@ -5,12 +5,12 @@ description: Informazioni introduttive su ASP.NET Core MVC.
 ms.author: riande
 ms.date: 10/16/2019
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: 0c8c59a5c59c8a70985dc8463c80f9569a00621f
-ms.sourcegitcommit: 6628cd23793b66e4ce88788db641a5bbf470c3c1
+ms.openlocfilehash: e70384a6f20f3ef06059ed6b51c76e923187c317
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73761242"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354931"
 ---
 # <a name="get-started-with-aspnet-core-mvc"></a>Introduzione ad ASP.NET Core MVC
 
@@ -34,19 +34,19 @@ Al termine di queste operazioni si ottiene un'app che può gestire e visualizzar
 
 [!INCLUDE[](~/includes/mvc-intro/download.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-[!INCLUDE[](~/includes/net-core-prereqs-vs-3.0.md)]
+[!INCLUDE[](~/includes/net-core-prereqs-vs-3.1.md)]
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-[!INCLUDE[](~/includes/net-core-prereqs-vsc-3.0.md)]
+[!INCLUDE[](~/includes/net-core-prereqs-vsc-3.1.md)]
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
-[!INCLUDE[](~/includes/net-core-prereqs-mac-3.0.md)]
+[!INCLUDE[](~/includes/net-core-prereqs-mac-3.1.md)]
 
 ---
 
@@ -86,19 +86,19 @@ Nell'esercitazione si presuppone una familarità con Visual Studio Code. Vedere 
   * Viene visualizzata una finestra di dialogo con le **risorse necessarie per la compilazione e il debug non è presente in ' MvcMovie '. Aggiungerli?**  Selezionare **Sì**.
 
   * `dotnet new mvc -o MvcMovie`: crea un nuovo progetto ASP.NET Core MVC nella cartella *MvcMovie*.
-  * `code -r MvcMovie`: carica il file di progetto *MvcMovie. csproj* nel Visual Studio Code.
+  * `code -r MvcMovie`: carica il file di progetto *MvcMovie. csproj* in Visual Studio Code.
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
-* Selezionare **File** > **Nuova soluzione**.
+* Selezionare **File** > **nuova soluzione**.
 
   ![Nuova soluzione macOS](./start-mvc/_static/new_project_vsmac.png)
 
-* Selezionare **.NET Core** > **App** > **Applicazione Web (Model-View-Controller)** > **Avanti**.
+* Selezionare l'applicazione Web **.NET Core** > **app** > **(Model-View-Controller)** > **Avanti**.
 
   ![Finestra di dialogo Nuovo progetto di macOS](./start-mvc/_static/new_project_mvc_vsmac.png)
 
-* Nella finestra di dialogo **Configura la nuova API Web ASP.NET Core** impostare **Framework di destinazione** su **.NET Core 3.0**.
+* Nella finestra di dialogo **configurare la nuova ASP.NET Core API Web** impostare il **Framework di destinazione** di **.NET Core 3,1**.
 
 <!-- 
   ![macOS .NET Core 2.2 selection](./start-mvc/_static/new_project_22_vsmac.png)
@@ -120,7 +120,7 @@ Selezionare **CTRL+F5** per eseguire l'app in modalità non di debug.
 * Se si avvia l'app con CTRL+F5 (modalità non di debug) sarà possibile apportare modifiche al codice, salvare il file, aggiornare il browser e visualizzare le modifiche del codice. Molti sviluppatori preferiscono usare la modalità non di debug per avviare l'app rapidamente e visualizzare le modifiche.
 * È possibile scegliere se avviare l'app in modalità di debug o non di debug nella voce di menu **Debug**:
 
-  ![Menu Debug](start-mvc/_static/debug_menu.png)
+  ![Debug - menu](start-mvc/_static/debug_menu.png)
 
 * È possibile eseguire il debug dell'app toccando il pulsante **IIS Express**.
 
@@ -162,7 +162,7 @@ Per avviare l'app, selezionare **Esegui** > **Avvia senza eseguire debug**. Visu
 Nella parte seguente di questa esercitazione vengono fornite informazioni su MVC e istruzioni per iniziare a creare codice.
 
 > [!div class="step-by-step"]
-> [avanti](adding-controller.md)
+> [Successivo](adding-controller.md)
 
 ::: moniker-end
 
@@ -184,7 +184,7 @@ Al termine di queste operazioni si ottiene un'app che può gestire e visualizzar
 
 [!INCLUDE[](~/includes/mvc-intro/download.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -236,15 +236,15 @@ Nell'esercitazione si presuppone una familarità con Visual Studio Code. Vedere 
   * Viene visualizzata una finestra di dialogo con le **risorse necessarie per la compilazione e il debug non è presente in ' MvcMovie '. Aggiungerli?**  Selezionare **Sì**.
 
   * `dotnet new mvc -o MvcMovie`: crea un nuovo progetto ASP.NET Core MVC nella cartella *MvcMovie*.
-  * `code -r MvcMovie`: carica il file di progetto *MvcMovie. csproj* nel Visual Studio Code.
+  * `code -r MvcMovie`: carica il file di progetto *MvcMovie. csproj* in Visual Studio Code.
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
-* Selezionare **File** > **Nuova soluzione**.
+* Selezionare **File** > **nuova soluzione**.
 
   ![Nuova soluzione macOS](./start-mvc/_static/new_project_vsmac.png)
 
-* Selezionare **.NET Core** > **App** > **Applicazione Web (Model-View-Controller)** > **Avanti**.
+* Selezionare l'applicazione Web **.NET Core** > **app** > **(Model-View-Controller)** > **Avanti**.
 
   ![Finestra di dialogo Nuovo progetto di macOS](./start-mvc/_static/new_project_mvc_vsmac.png)
 
@@ -268,7 +268,7 @@ Selezionare **CTRL+F5** per eseguire l'app in modalità non di debug.
 * Se si avvia l'app con CTRL+F5 (modalità non di debug) sarà possibile apportare modifiche al codice, salvare il file, aggiornare il browser e visualizzare le modifiche del codice. Molti sviluppatori preferiscono usare la modalità non di debug per avviare l'app rapidamente e visualizzare le modifiche.
 * È possibile scegliere se avviare l'app in modalità di debug o non di debug nella voce di menu **Debug**:
 
-  ![Menu Debug](start-mvc/_static/debug_menu.png)
+  ![Debug - menu](start-mvc/_static/debug_menu.png)
 
 * È possibile eseguire il debug dell'app toccando il pulsante **IIS Express**.
 
@@ -324,6 +324,6 @@ Per avviare l'app, selezionare **Esegui** > **Avvia senza eseguire debug**. Visu
 Nella parte seguente di questa esercitazione vengono fornite informazioni su MVC e istruzioni per iniziare a creare codice.
 
 > [!div class="step-by-step"]
-> [avanti](adding-controller.md)
+> [Successivo](adding-controller.md)
 
 ::: moniker-end

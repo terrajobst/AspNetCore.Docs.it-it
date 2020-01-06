@@ -1,6 +1,6 @@
 * `-c|--content`
 
-  Specifica un corpo della richiesta HTTP inline. Ad esempio `-c "{ 'id': 2, 'name': 'Cherry' }"`.
+  Specifica un corpo della richiesta HTTP inline. Ad esempio `-c "{"id":2,"name":"Cherry"}"`.
 
 * `-f|--file`
 

@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 09/12/2018
 uid: host-and-deploy/docker/visual-studio-tools-for-docker
-ms.openlocfilehash: 5faf0be19448d8272901bf018357da63bbe22d4b
-ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
-ms.translationtype: HT
+ms.openlocfilehash: cecec09d3d58a84a7c15630e41d23facdb9b236e
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308078"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356159"
 ---
 # <a name="visual-studio-container-tools-with-aspnet-core"></a>Strumenti contenitore di Visual Studio con ASP.NET Core
 
@@ -26,9 +26,9 @@ Visual Studio 2017 e versioni successive supporta la compilazione, il debug e l'
 
 ## <a name="installation-and-setup"></a>Installazione e configurazione
 
-Per l'installazione di Docker, esaminare prima di tutto le informazioni contenute in [Docker for Windows: What to know before you install](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install) (Docker Desktop per Windows: Informazioni da conoscere prima dell'installazione). Installare quindi [Docker per Windows](https://docs.docker.com/docker-for-windows/install/).
+Per l'installazione di Docker, rivedere prima le informazioni riportate in [Docker for Windows: What to know before you install](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install) (Docker per Windows: informazioni da conoscere prima dell'installazione). Installare quindi [Docker per Windows](https://docs.docker.com/docker-for-windows/install/).
 
-**[Le unità condivise](https://docs.docker.com/docker-for-windows/#shared-drives)**  in Docker per Windows devono essere configurate per supportare il mapping e il debug del volume. Fare clic con il pulsante destro del mouse sull'icona di Docker sulla barra delle applicazioni, selezionare **Settings** (Impostazioni) e quindi selezionare **Shared Drives** (Unità condivise). Selezionare l'unità in cui Docker archivia i file. Fare clic su **Applica**.
+**[Le unità condivise](https://docs.docker.com/docker-for-windows/#shared-drives)** in Docker per Windows devono essere configurate per supportare il mapping e il debug del volume. Fare clic con il pulsante destro del mouse sull'icona di Docker sulla barra delle applicazioni, selezionare **Settings** (Impostazioni) e quindi selezionare **Shared Drives** (Unità condivise). Selezionare l'unità in cui Docker archivia i file. Fare clic su **Applica**.
 
 ![Finestra di dialogo per la selezione della condivisione dell'unità C locale per i contenitori](visual-studio-tools-for-docker/_static/settings-shared-drives-win.png)
 
@@ -90,10 +90,10 @@ Visual Studio 2017 versione 15.8 e successive aggiunge una soluzione di orchestr
 
 Gli strumenti contenitore in Visual Studio aggiungono un progetto *docker-compose* alla soluzione con i file seguenti:
 
-* *docker-compose. dcproj* &ndash; File che rappresenta il progetto. Include un elemento `<DockerTargetOS>` che specifica il sistema operativo da usare.
-* File con estensione *dockerignore* &ndash; Elenca i modelli di file e directory da escludere durante la generazione di un contesto di compilazione.
-* *docker-compose.yml* &ndash; File [Docker Compose](https://docs.docker.com/compose/overview/) di base usato per definire la raccolta di immagini da compilare ed eseguire rispettivamente con `docker-compose build` e `docker-compose run`.
-* *docker compose.override.yml* &ndash; File facoltativo, letto da Docker Compose, contenente gli override di configurazione per i servizi. Visual Studio esegue `docker-compose -f "docker-compose.yml" -f "docker-compose.override.yml"` per unire questi file.
+* *Docker-compose. dcproj* &ndash; il file che rappresenta il progetto. Include un elemento `<DockerTargetOS>` che specifica il sistema operativo da usare.
+* *. dockerignore* &ndash; elenca i modelli di file e directory da escludere durante la generazione di un contesto di compilazione.
+* *Docker-compose. yml* &ndash; il file di [Docker compose](https://docs.docker.com/compose/overview/) di base usato per definire la raccolta di immagini compilate ed eseguite rispettivamente con `docker-compose build` e `docker-compose run`.
+* *Docker-compose. override. yml* &ndash; un file facoltativo, letto da Docker compose, con sostituzioni della configurazione per i servizi. Visual Studio esegue `docker-compose -f "docker-compose.yml" -f "docker-compose.override.yml"` per unire questi file.
 
 Il file *docker-compose.yml* fa riferimento al nome dell'immagine creata quando il progetto viene eseguito:
 
@@ -107,6 +107,8 @@ Se si vuole un comportamento diverso in base alla configurazione della build (ad
 
 Usando i file di override specifici della configurazione, è possibile specificare impostazioni di configurazione diverse (ad esempio, variabili di ambiente o punti di ingresso) per le configurazioni delle build di debug e di versione.
 
+Per Docker Compose visualizzare un'opzione per l'esecuzione in Visual Studio, il progetto Docker deve essere il progetto di avvio.
+
 ### <a name="service-fabric"></a>Service Fabric
 
 Oltre ai [prerequisiti](#prerequisites) di base, la soluzione di orchestrazione [Service Fabric](/azure/service-fabric/) richiede i prerequisiti seguenti:
@@ -118,7 +120,7 @@ Service Fabric non supporta l'esecuzione di contenitori Linux nel cluster di svi
 
 Gli strumenti contenitore in Visual Studio eseguono le attività seguenti:
 
-* Aggiunge il progetto di **applicazione di Service Fabric** *&lt;nome_progetto&gt;Application* alla soluzione.
+* Aggiunge un *&lt;project_name&gt;applicazione* **Service Fabric** progetto di applicazione alla soluzione.
 * Aggiunge un *Dockerfile* e un file con estensione *dockerignore* al progetto ASP.NET Core. Se nel progetto ASP.NET Core è già presente un *Dockerfile*, questo viene rinominato in *Dockerfile.original*. Viene creato un nuovo *Dockerfile* simile al seguente:
 
     [!code-dockerfile[](visual-studio-tools-for-docker/samples/2.1/HelloDockerTools/Dockerfile)]
@@ -225,7 +227,7 @@ Le immagini `microsoft/aspnetcore-build` e `microsoft/aspnetcore` indicate nell'
 ::: moniker-end
 
 > [!NOTE]
-> Il comando `docker images` restituisce le immagini intermedie con i nomi di repository e i tag identificati come *\<none>* (non inclusi nell'elenco precedente). Queste immagini senza nome vengono prodotte dal *Dockerfile* con [compilazione in più fasi](https://docs.docker.com/engine/userguide/eng-image/multistage-build/). L'efficienza della creazione dell'immagine finale risulta migliorata, dato che vengono ricompilati solo i livelli necessari in seguito a modifiche. Quando le immagini intermedie non sono più necessarie, eliminarle usando il comando [docker rmi](https://docs.docker.com/engine/reference/commandline/rmi/).
+> Il comando `docker images` restituisce le immagini intermedie con i nomi di repository e i tag identificati come *\<none>* (non inclusi nell'elenco precedente). Queste immagini senza nome vengono generate dalla compilazione in più [fasi](https://docs.docker.com/engine/userguide/eng-image/multistage-build/) *Dockerfile*. L'efficienza della creazione dell'immagine finale risulta migliorata, dato che vengono ricompilati solo i livelli necessari in seguito a modifiche. Quando le immagini intermedie non sono più necessarie, eliminarle usando il comando [docker rmi](https://docs.docker.com/engine/reference/commandline/rmi/).
 
 Ci si potrebbe aspettare che l'immagine di produzione o di versione abbia dimensioni minori rispetto all'immagine *dev*. A causa del mapping del volume, il debugger e l'app sono stati eseguiti dal computer locale e non all'interno del contenitore. L'immagine *latest* include il codice dell'app necessario per eseguire l'app in un computer host. Pertanto, il delta è la dimensione del codice dell'app.
 

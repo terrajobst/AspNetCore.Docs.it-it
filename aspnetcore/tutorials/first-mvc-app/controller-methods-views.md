@@ -5,12 +5,12 @@ description: Informazioni su come usare metodi, visualizzazioni e DataAnnotation
 ms.author: riande
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/controller-methods-views
-ms.openlocfilehash: 6d960da5acecbb95893bd339b4391560bedffb3d
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
-ms.translationtype: HT
+ms.openlocfilehash: 2c442060872ab1d2d79a2e355ae257fdf1005914
+ms.sourcegitcommit: 991442dfb16ef08a0aae05bc79f9e9a2d819c587
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815421"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75492648"
 ---
 # <a name="controller-methods-and-views-in-aspnet-core"></a>Metodi e viste del controller in ASP.NET Core
 
@@ -18,7 +18,7 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Le operazioni iniziali con l'app per i film sono state efficaci, ma la presentazione non è ottimale, ad esempio **ReleaseDate** dovrebbe essere scritto come due parole.
 
-![Vista Index: Release Date è un'unica parola (senza spazi) e la data di rilascio di ogni film riporta l'ora 12 AM](working-with-sql/_static/m55.png)
+![Vista Index: Release Date è un'unica parola (senza spazi) e la data di rilascio di ogni film indica l'ora nel formato 12 AM](working-with-sql/_static/m55.png)
 
 Aprire il file *Models/Movie.cs* e aggiungere le righe evidenziate illustrate di seguito:
 
@@ -36,7 +36,7 @@ I collegamenti **Edit** (Modifica), **Details** (Dettagli) e **Delete** (Elimina
 
 [!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexOriginal.cshtml?highlight=1-3&range=46-50)]
 
-Gli [helper tag](xref:mvc/views/tag-helpers/intro) consentono al codice lato server di partecipare alla creazione e al rendering di elementi HTML nei file Razor. Nel codice precedente, `AnchorTagHelper` genera in modo dinamico il valore dell'attributo `href` HTML dall'ID di route e dal metodo di azione del controller. Usare **Visualizza origine** dal browser preferito o gli strumenti di sviluppo per esaminare il markup generato. Di seguito è riportata una parte del codice HTML generato:
+Gli [helper tag](xref:mvc/views/tag-helpers/intro) consentono al codice lato server di partecipare alla creazione e al rendering di elementi HTML nei file Razor. Nel codice precedente, il `AnchorTagHelper` genera in modo dinamico il valore dell'attributo HTML `href` dal metodo di azione del controller e dall'ID della route. Usare **Visualizza origine** dal browser preferito oppure usare gli strumenti di sviluppo per esaminare il markup generato. Di seguito è riportata una parte del codice HTML generato:
 
 ```html
  <td>
@@ -48,7 +48,7 @@ Gli [helper tag](xref:mvc/views/tag-helpers/intro) consentono al codice lato ser
 
 Tenere presente il formato per il [routing](xref:mvc/controllers/routing) impostato nel file *Startup.cs*:
 
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Startup.cs?name=snippet_1&highlight=5)]
 
 ASP.NET Core converte `https://localhost:5001/Movies/Edit/4` in una richiesta al metodo di azione `Edit` del controller `Movies` con il parametro `Id` impostato su 4. I metodi del controller sono noti anche come metodi di azione.
 
@@ -140,7 +140,7 @@ Il sistema di [associazione di modelli](xref:mvc/models/model-binding) accetta i
 
 Prima di inviare il modulo al server, la convalida sul lato client controlla tutte le regole di convalida nei campi. Se sono presenti errori di convalida, viene visualizzato un messaggio di errore e il modulo non viene inviato. Se JavaScript è disabilitato, non verrà eseguita la convalida sul lato client, ma il server rileverà i valori inviati non validi e i valori del modulo verranno visualizzati nuovamente con messaggi di errore. Più avanti in questa esercitazione la [convalida del modello](xref:mvc/models/validation) verrà esaminata in maggiore dettaglio. L'[helper tag di convalida](xref:mvc/views/working-with-forms) nel modello di vista *Views/Movies/Edit.cshtml* gestisce la visualizzazione dei messaggi di errore appropriati.
 
-![Visualizzazione Edit (Modifica): l'eccezione per il valore non corretto abc indica che il campo Price (Prezzo) deve essere un numero. Un'eccezione per un valore della data di rilascio non corretto di xyz indica di immettere una data valida.](~/tutorials/first-mvc-app/controller-methods-views/_static/val.png)
+![Vista Edit (Modifica): un'eccezione per un valore di prezzo non corretto di abc indica che il campo del prezzo deve essere un numero. Un'eccezione per un valore della data di rilascio non corretto di xyz indica di immettere una data valida.](~/tutorials/first-mvc-app/controller-methods-views/_static/val.png)
 
 Tutti i metodi `HttpGet` nel controller di film seguono un pattern simile. Ricevono un oggetto film (o un elenco di oggetti nel caso di `Index`) e passano l'oggetto (modello) alla vista. Il metodo `Create` passa un oggetto vuoto alla vista `Create`. Tutti i metodi che creano, modificano, eliminano o cambiano in altro modo i dati, eseguono questa operazione nell'overload `[HttpPost]` del metodo. La modifica dei dati in un metodo `HTTP GET` è un rischio per la sicurezza. La modifica dei dati in un metodo `HTTP GET` viola anche le procedure consigliate HTTP e il pattern [REST](http://rest.elkstein.org/) architetturale, che specifica che le richieste GET non devono modificare lo stato dell'applicazione. In altre parole, l'esecuzione di un'operazione GET deve essere sicura, senza effetti collaterali e non modificare dati persistenti.
 

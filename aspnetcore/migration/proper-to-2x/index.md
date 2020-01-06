@@ -5,12 +5,12 @@ description: Indicazioni sulla migrazione di app ASP.NET MVC o Web API esistenti
 ms.author: scaddie
 ms.date: 10/18/2019
 uid: migration/proper-to-2x/index
-ms.openlocfilehash: 1564b644b774939c3c242a41812851917e96d2b2
-ms.sourcegitcommit: a166291c6708f5949c417874108332856b53b6a9
+ms.openlocfilehash: 19be7191792c44fb5414eb0a7b24772c45391253
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "74803344"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75359412"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core"></a>Eseguire la migrazione da ASP.NET ad ASP.NET Core
 
@@ -18,7 +18,7 @@ Di [Isaac Levin](https://isaaclevin.com)
 
 Questo articolo offre una guida di riferimento per la migrazione delle app ASP.NET ad ASP.NET Core.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 [.NET Core SDK 2.2 o versione successiva](https://www.microsoft.com/net/download)
 
@@ -60,7 +60,7 @@ Con questo approccio l'applicazione e il server a cui viene distribuita vengono 
 
 Ciò consente di configurare le route predefinite e impostare come predefinito XmlSerialization per Json. Aggiungere altro middleware a questa pipeline in base alle esigenze, ad esempio caricamento di servizi, impostazioni di configurazione, file statici e così via.
 
-ASP.NET Core usa un approccio simile, ma non si basa su OWIN per gestire la voce. L'operazione viene invece eseguita usando il metodo *Program.cs* `Main` (simile alle applicazioni console) e `Startup` viene caricato da tale posizione.
+ASP.NET Core usa un approccio simile, ma non si basa su OWIN per gestire la voce. Al contrario, questa operazione viene eseguita tramite il metodo *Program.cs* `Main` (simile alle applicazioni console) e `Startup` viene caricato da questa posizione.
 
 [!code-csharp[](samples/program.cs)]
 
@@ -158,6 +158,40 @@ Ad esempio, un asset immagine nella cartella *wwwroot/images* è accessibile al 
 ## <a name="multi-value-cookies"></a>Cookie multivalore
 
 I [cookie multivalore](xref:System.Web.HttpCookie.Values) non sono supportati in ASP.NET Core. Creare un cookie per valore.
+
+## <a name="partial-app-migration"></a>Migrazione parziale delle app
+
+Un approccio alla migrazione parziale delle app consiste nel creare un'applicazione secondaria IIS e spostare solo determinate route da ASP.NET 4. x a ASP.NET Core mantenendo la struttura dell'URL dell'app. Si consideri, ad esempio, la struttura dell'URL dell'app dal file *ApplicationHost. config* :
+
+```xml
+<sites>
+    <site name="Default Web Site" id="1" serverAutoStart="true">
+        <application path="/">
+            <virtualDirectory path="/" physicalPath="D:\sites\MainSite\" />
+        </application>
+        <application path="/api" applicationPool="DefaultAppPool">
+            <virtualDirectory path="/" physicalPath="D:\sites\netcoreapi" />
+        </application>
+        <bindings>
+            <binding protocol="http" bindingInformation="*:80:" />
+            <binding protocol="https" bindingInformation="*:443:" sslFlags="0" />
+        </bindings>
+    </site>
+    ...
+</sites>
+```
+
+Struttura di directory:
+
+```
+.
+├── MainSite
+│   ├── ...
+│   └── Web.config
+└── NetCoreApi
+    ├── ...
+    └── web.config
+```
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

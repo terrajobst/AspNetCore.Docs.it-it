@@ -5,12 +5,12 @@ description: Usare l'identità con un'app ASP.NET Core. Informazioni su come imp
 ms.author: riande
 ms.date: 12/05/2019
 uid: security/authentication/identity
-ms.openlocfilehash: c867b73a96fd081f6e2ca17fef561ac539c0a129
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 787d39dd7824f912128e6af849fa268c3e8eb908
+ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880721"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75359199"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Introduzione all'identità in ASP.NET Core
 
@@ -48,7 +48,7 @@ Creare un progetto di applicazione Web di ASP.NET Core con singoli account utent
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Selezionare **File** > **New** (Nuovo) > **Project** (Progetto).
+* Selezionare **File** > **nuovo** **progetto**>.
 * Selezionare **Applicazione Web ASP.NET Core**. Denominare il progetto **app Web 1** in modo che abbia lo stesso spazio dei nomi del download del progetto. Fare clic su **OK**.
 * Selezionare un' **applicazione Web**ASP.NET Core, quindi selezionare **Modifica autenticazione**.
 * Selezionare **singoli account utente** e fare clic su **OK**.
@@ -216,6 +216,7 @@ Per altre informazioni, vedere [origine AddDefaultIdentity](https://github.com/a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+* Per informazioni sulla configurazione dell'identità con SQLite, vedere [questo problema di GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/5131) .
 * [Configurare Identity](xref:security/authentication/identity-configuration)
 * <xref:security/authorization/secure-data>
 * <xref:security/authentication/add-user-data>
@@ -257,7 +258,7 @@ Creare un progetto di applicazione Web di ASP.NET Core con singoli account utent
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Selezionare **File** > **New** (Nuovo) > **Project** (Progetto).
+* Selezionare **File** > **nuovo** **progetto**>.
 * Selezionare **Applicazione Web ASP.NET Core**. Denominare il progetto **app Web 1** in modo che abbia lo stesso spazio dei nomi del download del progetto. Fare clic su **OK**.
 * Selezionare un' **applicazione Web**ASP.NET Core, quindi selezionare **Modifica autenticazione**.
 * Selezionare **singoli account utente** e fare clic su **OK**.
@@ -403,6 +404,7 @@ Vedere [configurazione](#pw) per un esempio che consente di impostare i requisit
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+* Per informazioni sulla configurazione dell'identità con SQLite, vedere [questo problema di GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/5131) .
 * [Configurare Identity](xref:security/authentication/identity-configuration)
 * <xref:security/authorization/secure-data>
 * <xref:security/authentication/add-user-data>
