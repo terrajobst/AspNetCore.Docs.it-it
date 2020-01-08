@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/10/2019
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: 802d5c65423227e5fb7ccf39d692df2f0178ad34
-ms.sourcegitcommit: e6bd2bbe5683e9a7dbbc2f2eab644986e6dc8a87
+ms.openlocfilehash: 7fc3644df3dcb957f2537538aaa9506c6b38a480
+ms.sourcegitcommit: 79850db9e79b1705b89f466c6f2c961ff15485de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70238195"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75693973"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio"></a>Pubblicare un'app ASP.NET Core in Azure con Visual Studio
 
@@ -23,7 +23,7 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 ::: moniker-end
 
 
-Se si lavora in macOS, vedere [Publish to Azure from Visual Studio for Mac](https://blog.xamarin.com/publish-azure-visual-studio-mac/) (Pubblicare in Azure da Visual Studio per Mac).
+Vedere [pubblicare un'app Web nel servizio app Azure usando Visual Studio per Mac](https://docs.microsoft.com/visualstudio/mac/publish-app-svc?view=vsmac-2019) se si lavora in MacOS.
 
 Per risolvere un problema di distribuzione del Servizio app di Azure, vedere <xref:test/troubleshoot-azure-iis>.
 
@@ -41,7 +41,7 @@ Completare la finestra di dialogo **Nuovo progetto**:
 
 * Nel riquadro a sinistra selezionare **.NET Core**.
 * Nel riquadro al centro selezionare **Applicazione Web ASP.NET Core**.
-* Selezionare **OK**.
+* Scegliere **OK**.
 
 ![Finestra di dialogo Nuovo progetto](publish-to-azure-webapp-using-vs/_static/new_prj.png)
 
@@ -61,7 +61,7 @@ Viene visualizzata la finestra di dialogo **Modifica autenticazione**.
 
 Visual Studio crea la soluzione.
 
-## <a name="run-the-app"></a>Esecuzione dell'app
+## <a name="run-the-app"></a>Eseguire l'app
 
 * Premere CTRL+F5 per eseguire il progetto.
 * Eseguire il test dei collegamenti **About** (Informazioni su) e **Contact** (Contatto).
@@ -72,10 +72,10 @@ Visual Studio crea la soluzione.
 
 * Selezionare **Registra** e registrare un nuovo utente. È possibile usare un indirizzo di posta elettronica fittizio. Quando si esegue l'invio, nella pagina viene visualizzato l'errore seguente:
 
-    *"Internal Server Error: A database operation failed while processing the request. SQL exception: Cannot open the database. Applying existing migrations for Application DB context may resolve this issue."* (Errore interno del server: Operazione sul database non riuscita durante l'elaborazione della richiesta. Eccezione SQL: Impossibile aprire il file di database. Per risolvere il problema, applicare le migrazioni esistenti per il contesto di database dell'applicazione).
+    *"Errore interno del server: un'operazione sul database non è riuscita durante l'elaborazione della richiesta. Eccezione SQL: Impossibile aprire il database. Per risolvere il problema, è possibile applicare le migrazioni esistenti per il contesto di database dell'applicazione. "*
 * Selezionare **Apply Migrations** (Applica migrazioni) e, quando la pagina è stata caricata, eseguire l'aggiornamento.
 
-![Internal Server Error: A database operation failed while processing the request. SQL exception: Cannot open the database (Errore interno del server: Operazione sul database non riuscita durante l'elaborazione della richiesta. Eccezione SQL: Impossibile aprire il database). Per risolvere il problema, provare ad applicare le migrazioni esistenti per il contesto di database dell'applicazione.](publish-to-azure-webapp-using-vs/_static/mig.png)
+![Un errore interno del server indicante che un'operazione di database non è riuscita durante l'elaborazione della richiesta. Per un'eccezione SQL, non è possibile aprire il database. Per risolvere il problema, provare ad applicare le migrazioni esistenti per il contesto di database dell'applicazione.](publish-to-azure-webapp-using-vs/_static/mig.png)
 
 L'app visualizza l'indirizzo di posta elettronica usato per registrare il nuovo utente e un collegamento **Disconnessione**.
 
@@ -123,7 +123,7 @@ Viene visualizzata la finestra di dialogo **Configura SQL Server**.
 
 ![Finestra di dialogo Configura SQL Server](publish-to-azure-webapp-using-vs/_static/conf_servername.png)
 
-* Selezionare **OK**.
+* Scegliere **OK**.
 
 Visual Studio torna alla finestra di dialogo **Crea servizio app**.
 
@@ -176,7 +176,7 @@ Al termine del test dell'app accedere al [portale di Azure](https://portal.azure
 
 * Selezionare **Gruppi di risorse** e in seguito il gruppo di risorse che è stato creato.
 
-![Portale di Azure: gruppi di risorse nel menu laterale](publish-to-azure-webapp-using-vs/_static/portalrg.png)
+![Portale di Azure: Gruppi di risorse nel menu laterale](publish-to-azure-webapp-using-vs/_static/portalrg.png)
 
 * Nella pagina **Gruppi di risorse** selezionare **Elimina**.
 

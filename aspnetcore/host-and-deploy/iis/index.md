@@ -5,14 +5,14 @@ description: Informazioni su come ospitare app ASP.NET Core in Windows Server In
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/26/2019
+ms.date: 01/06/2020
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: de1b3e270ccd90bde741975de38a224e557f1a08
-ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
+ms.openlocfilehash: c2b524472b276dee215ff5eca7fd4e48e98957ef
+ms.sourcegitcommit: 79850db9e79b1705b89f466c6f2c961ff15485de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74717416"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75693856"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Host ASP.NET Core in Windows con IIS
 
@@ -139,13 +139,33 @@ Per altre informazioni sull'hosting, vedere [Hosting in ASP.NET Core](xref:funda
 
 ### <a name="enable-the-iisintegration-components"></a>Abilitare i componenti IISIntegration
 
-Un file *Program.cs* tipico chiama <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> per avviare la configurazione di un host che consenta l'integrazione con IIS:
+::: moniker range=">= aspnetcore-3.0"
+
+Quando si compila un host in `CreateHostBuilder` (*Program.cs*), chiamare <xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder*> per abilitare l'integrazione con IIS:
+
+```csharp
+public static IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+        ...
+```
+
+Per altre informazioni su `CreateDefaultBuilder`, vedere <xref:fundamentals/host/generic-host#default-builder-settings>.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+Quando si compila un host in `CreateWebHostBuilder` (*Program.cs*), chiamare <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> per abilitare l'integrazione con IIS:
 
 ```csharp
 public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
     WebHost.CreateDefaultBuilder(args)
         ...
 ```
+
+Per altre informazioni su `CreateDefaultBuilder`, vedere <xref:fundamentals/host/web-host#set-up-a-host>.
+
+::: moniker-end
 
 ### <a name="iis-options"></a>Opzioni IIS
 
@@ -166,7 +186,7 @@ services.Configure<IISServerOptions>(options =>
 
 ::: moniker range=">= aspnetcore-3.0"
 
-| Opzione                         | Impostazione predefinita | Impostazione di |
+| Opzione                         | Default | Impostazione di |
 | ------------------------------ | :-----: | ------- |
 | `AutomaticAuthentication`      | `true`  | Se `true`, IIS Server imposta l'utente `HttpContext.User` autenticato tramite l'[autenticazione di Windows](xref:security/authentication/windowsauth). Se `false`, il server fornisce solo un'identità per `HttpContext.User` e risponde alle richieste esplicite di `AuthenticationScheme`. Per il funzionamento di `AutomaticAuthentication` l’autenticazione di Windows deve essere abilitata in IIS. Per altre informazioni, vedere [Autenticazione di Windows](xref:security/authentication/windowsauth). |
 | `AuthenticationDisplayName`    | `null`  | Imposta il nome visualizzato dagli utenti nelle pagine di accesso. |
@@ -179,7 +199,7 @@ services.Configure<IISServerOptions>(options =>
 
 ::: moniker range="< aspnetcore-3.0"
 
-| Opzione                         | Impostazione predefinita | Impostazione di |
+| Opzione                         | Default | Impostazione di |
 | ------------------------------ | :-----: | ------- |
 | `AutomaticAuthentication`      | `true`  | Se `true`, IIS Server imposta l'utente `HttpContext.User` autenticato tramite l'[autenticazione di Windows](xref:security/authentication/windowsauth). Se `false`, il server fornisce solo un'identità per `HttpContext.User` e risponde alle richieste esplicite di `AuthenticationScheme`. Per il funzionamento di `AutomaticAuthentication` l’autenticazione di Windows deve essere abilitata in IIS. Per altre informazioni, vedere [Autenticazione di Windows](xref:security/authentication/windowsauth). |
 | `AuthenticationDisplayName`    | `null`  | Imposta il nome visualizzato dagli utenti nelle pagine di accesso. |
@@ -201,7 +221,7 @@ services.Configure<IISOptions>(options =>
 });
 ```
 
-| Opzione                         | Impostazione predefinita | Impostazione di |
+| Opzione                         | Default | Impostazione di |
 | ------------------------------ | :-----: | ------- |
 | `AutomaticAuthentication`      | `true`  | Se `true`, il [middleware di integrazione IIS](#enable-the-iisintegration-components) imposta `HttpContext.User` autenticato tramite l'[autenticazione di Windows](xref:security/authentication/windowsauth). Se `false`, il middleware fornisce solo un'identità per `HttpContext.User` e risponde solo alle richieste esplicite di `AuthenticationScheme`. Per il funzionamento di `AutomaticAuthentication` l’autenticazione di Windows deve essere abilitata in IIS. Per altre informazioni, vedere l'argomento [Autenticazione di Windows](xref:security/authentication/windowsauth). |
 | `AuthenticationDisplayName`    | `null`  | Imposta il nome visualizzato dagli utenti nelle pagine di accesso. |
@@ -273,7 +293,7 @@ Abilitare il ruolo del server **Server Web (IIS)** e stabilire i servizi di ruol
 
 Abilitare **Console di gestione IIS** e **Servizi Web**.
 
-1. Passare a **Pannello di controllo** > **Programmi** > **Programmi e funzionalità** > **Attiva o disattiva funzionalità di Windows** (sul lato sinistro dello schermo).
+1. Passare a **Pannello di controllo** > **Programmi** > **Programmi e funzionalità** > **Disattivare o attivare le funzionalità di Windows** (a sinistra dello schermo).
 
 1. Aprire il nodo **Internet Information Services**. Aprire il nodo **Strumenti di gestione Web**.
 
@@ -324,11 +344,11 @@ Per ottenere una versione precedente del programma di installazione:
 
 1. Eseguire il programma di installazione nel server. Quando si esegue il programma di installazione da una shell dei comandi di amministratore sono disponibili i parametri seguenti:
 
-   * `OPT_NO_ANCM=1` &ndash; Ignora l'installazione del modulo ASP.NET Core.
-   * `OPT_NO_RUNTIME=1` &ndash; Ignora l'installazione del runtime .NET Core. Utilizzato quando il server ospita solo le [distribuzioni autosufficienti (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd).
-   * `OPT_NO_SHAREDFX=1` &ndash; Ignora l'installazione del framework condiviso di ASP.NET (runtime ASP.NET). Utilizzato quando il server ospita solo le [distribuzioni autosufficienti (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd).
-   * `OPT_NO_X86=1` &ndash; Ignora l'installazione dei runtime x86. Usare questo parametro se si è certi che non verrà eseguito l'hosting di app a 32 bit. Se non esiste alcuna possibilità che in futuro venga eseguito l'hosting di app sia a 32 che a 64 bit, non usare questo parametro e installare entrambi i runtime.
-   * `OPT_NO_SHARED_CONFIG_CHECK=1` &ndash; Disabilitare il controllo dell'uso di una configurazione condivisa di IIS quando la configurazione condivisa (*applicationHost.config*) è nello stesso computer dell'installazione di IIS. *Disponibile solo per i programmi di installazione di bundler di hosting ASP.NET Core 2.2 o versioni successive.* Per ulteriori informazioni, vedere <xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration>.
+   * `OPT_NO_ANCM=1` &ndash; ignorare l'installazione del modulo ASP.NET Core.
+   * `OPT_NO_RUNTIME=1` &ndash; ignorare l'installazione del runtime di .NET Core. Utilizzato quando il server ospita solo le [distribuzioni autosufficienti (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd).
+   * `OPT_NO_SHAREDFX=1` &ndash; ignorare l'installazione del Framework condiviso ASP.NET (runtime ASP.NET). Utilizzato quando il server ospita solo le [distribuzioni autosufficienti (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd).
+   * `OPT_NO_X86=1` &ndash; ignorare l'installazione di Runtime x86. Usare questo parametro se si è certi che non verrà eseguito l'hosting di app a 32 bit. Se non esiste alcuna possibilità che in futuro venga eseguito l'hosting di app sia a 32 che a 64 bit, non usare questo parametro e installare entrambi i runtime.
+   * `OPT_NO_SHARED_CONFIG_CHECK=1` &ndash; disabilitare il controllo per l'utilizzo di una configurazione condivisa di IIS quando la configurazione condivisa (*ApplicationHost. config*) si trova nello stesso computer dell'installazione di IIS. *Disponibile solo per i programmi di installazione di bundler di hosting ASP.NET Core 2.2 o versioni successive.* Per ulteriori informazioni, vedere <xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration>.
 1. Riavviare il sistema o eseguire i comandi seguenti in una shell dei comandi:
 
    ```console
@@ -421,7 +441,7 @@ Per altre informazioni sulla distribuzione di ASP.NET Core in IIS, vedere la sez
 
 Dopo aver distribuito l'app nel sistema di hosting, effettuare una richiesta a uno degli endpoint pubblici dell'app.
 
-Nell'esempio seguente il sito è associato al **nome host** di IIS `www.mysite.com` sulla **porta** `80`. Viene effettuata una richiesta a `http://www.mysite.com`:
+Nell'esempio seguente il sito è associato a un **nome host** IIS di `www.mysite.com` sulla **porta** `80`. Viene effettuata una richiesta a `http://www.mysite.com`:
 
 ![Il browser Microsoft Edge ha caricato la pagina di avvio IIS.](index/_static/browsewebsite.png)
 
@@ -678,8 +698,8 @@ Per un'app ASP.NET Core destinata a .NET Framework, le richieste OPTIONS non ven
 
 Per l'hosting in IIS dal modulo ASP.NET Core versione 2:
 
-* [Modulo di inizializzazione dell'applicazione](#application-initialization-module) &ndash; L'app ospitata [in-process](#in-process-hosting-model) oppure [out-of-process](#out-of-process-hosting-model) può essere configurata per l'avvio automatico in un riavvio del processo di lavoro o un riavvio del server.
-* [Timeout di inattività](#idle-timeout) &ndash; L'app ospitata [in-process](#in-process-hosting-model) può essere configurata per non attivare il timeout durante periodi di inattività.
+* Il [modulo di inizializzazione dell'applicazione](#application-initialization-module) &ndash; host [in-process](#in-process-hosting-model) o [out-of-process](#out-of-process-hosting-model) può essere configurato per l'avvio automatico in un processo di lavoro o il riavvio del server.
+* [Timeout di inattività](#idle-timeout) &ndash; ospitato [in-process](#in-process-hosting-model) dell'app può essere configurato in modo da non eseguire il timeout durante i periodi di inattività.
 
 ### <a name="application-initialization-module"></a>Modulo Inizializzazione applicazione
 
@@ -691,8 +711,8 @@ Verificare che la funzionalità del ruolo Inizializzazione applicazione di IIS s
 
 Nei sistemi desktop Windows 7 o versioni successive quando si usa IIS in locale:
 
-1. Passare a **Pannello di controllo** > **Programmi** > **Programmi e funzionalità** > **Disattivare o attivare le funzionalità di Windows** (a sinistra dello schermo).
-1. Aprire **Internet Information Services** > **Servizi Web** > **Funzionalità per lo sviluppo di applicazioni**.
+1. Passare a **Pannello di controllo** > **programmi** > **programmi e funzionalità** > **attivare o disattivare le funzionalità Windows** (lato sinistro dello schermo).
+1. Aprire **Internet Information Services** > **Servizi World Wide Web** > **funzionalità di sviluppo di applicazioni**.
 1. Selezionare la casella di controllo **Inizializzazione applicazione**.
 
 In Windows Server 2008 R2 o versioni successive:
@@ -709,7 +729,7 @@ Per abilitare il modulo Inizializzazione applicazione per il sito, usare uno deg
   1. Fare clic con il pulsante destro del mouse sul pool di app dell'app nell'elenco e scegliere **Impostazioni avanzate**.
   1. L'impostazione predefinita per **Modalità avvio** è **OnDemand**. Impostare **Modalità avvio** su **AlwaysRunning**. Scegliere **OK**.
   1. Aprire il nodo **Siti** nel pannello **Connessioni**.
-  1. Fare clic con il pulsante destro del mouse sull'app e scegliere **Gestisci sito Web** > **Impostazioni avanzate**.
+  1. Fare clic con il pulsante destro del mouse sull'app e scegliere **Gestisci sito web** > **Impostazioni avanzate**.
   1. L'impostazione predefinita di **Precaricamento abilitato** è **False**. Impostare **Precaricamento abilitato** su **True**. Scegliere **OK**.
 
 * Usando *web.config* aggiungere l'elemento `<applicationInitialization>` con `doAppInitAfterRestart` impostato su `true` per gli elementi `<system.webServer>` nel file *web.config* dell'app:

@@ -5,14 +5,14 @@ description: Questo articolo contiene collegamenti a risorse di hosting e distri
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 11/07/2019
+ms.date: 12/16/2019
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: f9fc6e706046165c142e19ca38d97ac21914dc9b
-ms.sourcegitcommit: a104ba258ae7c0b3ee7c6fa7eaea1ddeb8b6eb73
+ms.openlocfilehash: 51d82d1deadb3d2adbdccd39c8d949e3f9f812fd
+ms.sourcegitcommit: 79850db9e79b1705b89f466c6f2c961ff15485de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74478765"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75693843"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Distribuire le app ASP.NET Core in Servizio app di Azure
 
@@ -87,13 +87,13 @@ Quando nel portale di Azure viene creata o modificata un'impostazione dell'app e
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Quando un'app usa l'[host generico](xref:fundamentals/host/generic-host), le variabili di ambiente non vengono caricate nella configurazione di un'app per impostazione predefinita e il provider di configurazione deve essere aggiunto dallo sviluppatore. Lo sviluppatore determina il prefisso delle variabili di ambiente quando viene aggiunto il provider di configurazione. Per altre informazioni, vedere <xref:fundamentals/host/generic-host> e il [provider di configurazione delle variabili di ambiente](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
+Quando un'app usa l' [host generico](xref:fundamentals/host/generic-host), le variabili di ambiente vengono caricate nella configurazione dell'app quando viene chiamato <xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder*> per compilare l'host. Per altre informazioni, vedere <xref:fundamentals/host/generic-host> e il [provider di configurazione delle variabili di ambiente](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-Quando un'app compila l'host con [WebHost.CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder), le variabili di ambiente che configurano l'host usano il prefisso `ASPNETCORE_`. Per altre informazioni, vedere <xref:fundamentals/host/web-host> e il [provider di configurazione delle variabili di ambiente](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
+Quando un'app usa l' [host Web](xref:fundamentals/host/web-host), le variabili di ambiente vengono caricate nella configurazione dell'app quando viene chiamato <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> per compilare l'host. Per altre informazioni, vedere <xref:fundamentals/host/web-host> e il [provider di configurazione delle variabili di ambiente](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
 
 ::: moniker-end
 
@@ -143,17 +143,19 @@ Nel passaggio da uno slot di distribuzione all'altro, tutti i sistemi che usano 
 * Archivio SQL
 * Cache Redis
 
-Per altre informazioni, vedere <xref:security/data-protection/implementation/key-storage-providers>.
+Per ulteriori informazioni, vedere <xref:security/data-protection/implementation/key-storage-providers>.
 <a name="deploy-aspnet-core-preview-release-to-azure-app-service"></a>
 
-## <a name="deploy-aspnet-core-30-to-azure-app-service"></a>Distribuire ASP.NET Core 3,0 al servizio app Azure
+## <a name="deploy-an-aspnet-core-app-that-uses-a-net-core-preview"></a>Distribuire un'app ASP.NET Core che usa un'anteprima di .NET Core
 
-ASP.NET Core 3,0 è supportato nel servizio app Azure. Per distribuire una versione di anteprima di una versione di .NET Core successiva a .NET Core 3,0, usare una delle tecniche seguenti. Questi approcci vengono usati anche quando il runtime è disponibile, ma l'SDK non è stato installato nel servizio app Azure.
+Per distribuire un'app che usa una versione di anteprima di .NET Core, vedere le risorse seguenti. Questi approcci vengono usati anche quando il runtime è disponibile, ma l'SDK non è stato installato nel servizio app Azure.
 
 * [Specificare la versione di .NET Core SDK utilizzando Azure Pipelines](#specify-the-net-core-sdk-version-using-azure-pipelines)
-* [Distribuire un'app di anteprima completa](#deploy-a-self-contained-preview-app).
-* [Usare Docker con app Web per contenitori](#use-docker-with-web-apps-for-containers).
-* [Installare l'estensione del sito di anteprima](#install-the-preview-site-extension).
+* [Distribuire un'app di anteprima autonoma](#deploy-a-self-contained-preview-app)
+* [Usare Docker con app Web per contenitori](#use-docker-with-web-apps-for-containers)
+* [Installare l'estensione del sito di anteprima](#install-the-preview-site-extension)
+
+Per la versione di ASP.NET Core disponibile nel servizio app Azure, vedere il [ASP.NET Core nel dashboard del servizio app](https://aspnetcoreon.azurewebsites.net/) .
 
 ### <a name="specify-the-net-core-sdk-version-using-azure-pipelines"></a>Specificare la versione di .NET Core SDK utilizzando Azure Pipelines
 
@@ -196,7 +198,7 @@ Se si verifica un problema con l'estensione del sito di anteprima, aprire un [pr
 1. Selezionare l'app Web.
 1. Digitare "es" nella casella di ricerca per filtrare per "Estensioni" o scorrere l'elenco degli strumenti di gestione.
 1. Selezionare **Estensioni**.
-1. Fare clic su **Aggiungi**.
+1. Selezionare **Aggiungi**.
 1. Selezionare l'estensione **ASP.NET Core {X.Y} ({x64|x86}) Runtime** nell'elenco, dove `{X.Y}` è la versione di anteprima di ASP.NET Core e `{x64|x86}` specifica la piattaforma.
 1. Selezionare **OK** per accettare le condizioni legali.
 1. Per installare l'estensione, selezionare **OK**.

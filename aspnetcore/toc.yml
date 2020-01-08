@@ -326,8 +326,6 @@
               uid: host-and-deploy/blazor/server
             - name: Configurare il linker
               uid: host-and-deploy/blazor/configure-linker
-        - name: Esempi
-          href: 'https://github.com/aspnet/samples/tree/master/samples/aspnetcore/blazor'
     - name: Sviluppo lato client
       items:
         - name: Applicazioni a pagina singola
@@ -612,7 +610,7 @@
       uid: test/integration-tests
     - name: Test di carico e di stress
       uid: test/loadtests
-    - name: Risolvere i problemi
+    - name: Risolvere i problemi ed eseguire il debug
       uid: test/troubleshoot
     - name: Registrazione
       uid: fundamentals/logging/index
@@ -885,15 +883,15 @@
             - name: Panoramica
               uid: security/authentication/azure-active-directory/index
             - name: Integrare Azure AD in un'app Web
-              href: 'https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/'
+              href: 'https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial'
             - name: Integrare Azure AD B2C in un'app Web
               uid: security/authentication/azure-ad-b2c
             - name: Integrare Azure AD B2C in un'API Web
               uid: security/authentication/azure-ad-b2c-webapi
             - name: Chiamare un'API Web da WPF
-              href: 'https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/'
+              href: 'https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore'
             - name: Chiamare un'API Web in un'app Web con Azure AD
-              href: 'https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/'
+              href: 'https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore'
         - name: Proteggere app ASP.NET Core con IdentityServer4
           href: 'https://identityserver4.readthedocs.io/'
         - name: Proteggere app ASP.NET Core con l'autenticazione di Servizio app di Azure
@@ -1101,6 +1099,9 @@
       uid: fundamentals/host/hosted-services
     - name: Assembly di avvio dell'hosting
       uid: fundamentals/configuration/platform-specific-configuration
+    - name: ASP.NET Core nelle librerie di classi
+      displayName: shared framework
+      uid: fundamentals/target-aspnetcore
     - name: Metapacchetto Microsoft.AspNetCore.App
       uid: fundamentals/metapackage-app
     - name: Metapacchetto Microsoft.AspNetCore.All
