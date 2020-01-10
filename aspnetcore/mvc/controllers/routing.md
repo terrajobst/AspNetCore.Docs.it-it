@@ -5,12 +5,12 @@ description: Informazioni su come ASP.NET Core MVC usa middleware di routing per
 ms.author: riande
 ms.date: 12/05/2019
 uid: mvc/controllers/routing
-ms.openlocfilehash: b0cd3df6eb0efa90fc76d206413016d6c624285c
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 8cf7e74df292a614f287eff8561a22187f6558ce
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74881081"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75866059"
 ---
 # <a name="routing-to-controller-actions-in-aspnet-core"></a>Routing ad azioni del controller in ASP.NET Core
 
@@ -111,7 +111,7 @@ routes.DefaultHandler = new MvcRouteHandler(...);
 app.UseRouter(routes.Build());
 ```
 
-`UseMvc` non definisce direttamente le route, aggiunge un segnaposto alla raccolta di route per la route `attribute`. L'overload `UseMvc(Action<IRouteBuilder>)` consente di aggiungere le proprie route e supporta anche il routing con attributi.  `UseMvc` e tutte le sue varianti aggiungono un segnaposto per la route con attributi: il routing con attributi è sempre disponibile indipendentemente dal modo in cui si configura `UseMvc`. `UseMvcWithDefaultRoute` definisce una route predefinita e supporta il routing con attributi. La sezione [Routing con attributi](#attribute-routing-ref-label) include maggiori dettagli sul routing con attributi.
+`UseMvc` non definisce direttamente le route, aggiunge un segnaposto alla raccolta di route per la route `attribute`. L'overload `UseMvc(Action<IRouteBuilder>)` consente di aggiungere le proprie route e supporta anche il routing con attributi.  `UseMvc` e tutte le relative varianti aggiungono un segnaposto per l'attributo Route: il routing degli attributi è sempre disponibile indipendentemente dalla modalità di configurazione `UseMvc`. `UseMvcWithDefaultRoute` definisce una route predefinita e supporta il routing con attributi. La sezione [Routing con attributi](#attribute-routing-ref-label) include maggiori dettagli sul routing con attributi.
 
 <a name="routing-conventional-ref-label"></a>
 
@@ -200,7 +200,7 @@ app.UseMvc(routes =>
 });
 ```
 
-I nomi di route consentono di assegnare a una route un nome logico, in modo che la route denominata possa essere usata per la generazione di URL. Questo semplifica notevolmente la creazione degli URL quando l'ordinamento delle route può rendere complessa la generazione di URL. I nomi di route devono essere univoci a livello di applicazione.
+I nomi di route consentono di assegnare a una route un nome logico, in modo che la route denominata possa essere usata per la generazione di URL. Questo semplifica notevolmente la creazione degli URL quando l'ordinamento delle route può rendere complessa la generazione di URL. I nomi delle route devono essere univoci a livello di applicazione.
 
 I nomi di route non influiscono sulla corrispondenza degli URL o sulla gestione delle richieste, vengono usati solo per la generazione di URL. L'articolo sul [routing](xref:fundamentals/routing) contiene informazioni dettagliate sulla generazione di URL, inclusa la generazione negli helper specifici di MVC.
 
@@ -313,7 +313,7 @@ public class ProductsApiController : Controller
 }
 ```
 
-I nomi di route possono essere usati per generare un URL in base a un percorso specifico. I nomi di route non influiscono sul comportamento del routing riguardo alla corrispondenza degli URL e vengono usati solo per la generazione di URL. I nomi di route devono essere univoci a livello di applicazione.
+I nomi di route possono essere usati per generare un URL in base a un percorso specifico. I nomi di route non influiscono sul comportamento del routing riguardo alla corrispondenza degli URL e vengono usati solo per la generazione di URL. I nomi delle route devono essere univoci a livello di applicazione.
 
 > [!NOTE]
 > Confrontare questa opzione con la *route predefinita* convenzionale, che definisce il parametro `id` come facoltativo (`{id?}`). La possibilità di specificare in modo preciso le API presenta dei vantaggi, ad esempio consente di inviare `/products` e `/products/5` ad azioni  differenti.
@@ -600,7 +600,7 @@ MVC compila una tabella di ricerca di tutte le azioni indirizzate con attributi 
 `Url.Action` (`IUrlHelper` . `Action`) e tutti gli overload correlati sono basati sull'idea che si voglia definire l'oggetto a cui ci si sta collegando specificando un nome di controller e un nome di azione.
 
 > [!NOTE]
-> Quando si usa `Url.Action`, i valori di route correnti per `controller` e `action` vengono specificati automaticamente: i valori di `controller` e `action` fanno parte sia dei *valori di ambiente* **sia** dei *valori*. Il metodo `Url.Action`, usa sempre i valori correnti di `action` e `controller` e genererà un percorso URL che indirizza all'azione corrente.
+> Quando si usa `Url.Action`, vengono specificati i valori di route correnti per `controller` e `action`: il valore di `controller` e `action` sono parte *dei valori di* *ambiente* **e** . Il metodo `Url.Action`, usa sempre i valori correnti di `action` e `controller` e genererà un percorso URL che indirizza all'azione corrente.
 
 Il routing tenta di usare i valori nei valori di ambiente per ottenere le informazioni non specificate durante la generazione di un URL. Usando una route come `{a}/{b}/{c}/{d}` e i valori di ambiente `{ a = Alice, b = Bob, c = Carol, d = David }`, il routing ha informazioni sufficienti per generare un URL senza valori aggiuntivi, poiché tutti i parametri di route hanno un valore. Se è stato aggiunto il valore `{ d = Donovan }`, il valore `{ d = David }` viene ignorato e il percorso URL generato è `Alice/Bob/Carol/Donovan`.
 
@@ -626,7 +626,7 @@ Il codice precedente illustra come generare un URL passando il nome del controll
 
 ### <a name="generating-urls-in-html"></a>Generazione di URL in HTML
 
-`IHtmlHelper` specifica i metodi `HtmlHelper` `Html.BeginForm` e `Html.ActionLink` per generare rispettivamente gli elementi `<form>` e `<a>`. Questi metodi usano il metodo `Url.Action` per generare un URL e accettano argomenti simili. Gli oggetti `Url.RouteUrl` complementi di `HtmlHelper` sono `Html.BeginRouteForm` e `Html.RouteLink` e hanno una funzionalità simile.
+`IHtmlHelper` specifica i metodi `HtmlHelper``Html.BeginForm` e `Html.ActionLink` per generare rispettivamente gli elementi `<form>` e `<a>`. Questi metodi usano il metodo `Url.Action` per generare un URL e accettano argomenti simili. Gli oggetti `Url.RouteUrl` complementi di `HtmlHelper` sono `Html.BeginRouteForm` e `Html.RouteLink` e hanno una funzionalità simile.
 
 Gli helper tag generano gli URL attraverso l'helper tag `form` e l'helper tag `<a>`. Entrambi usano `IUrlHelper` per la propria implementazione. Per altre informazioni, vedere [Uso dei moduli](../views/working-with-forms.md).
 

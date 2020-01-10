@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: dea8564a1ee94d6ff1d96e9aab68205292765178
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: f3c20eb085fa5277dd37b7323b5a7d7d286bcd99
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74881259"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75866072"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Introduzione a Swashbuckle e ad ASP.NET Core
 
@@ -39,7 +39,7 @@ Esistono tre componenti principali di Swashbuckle:
   * Eseguire il comando seguente:
 
     ```powershell
-    Install-Package Swashbuckle.AspNetCore -Version 5.0.0-rc4
+    Install-Package Swashbuckle.AspNetCore -Version 5.0.0-rc5
     ```
 
 * Dalla finestra di dialogo **Gestisci pacchetti NuGet**:
@@ -185,7 +185,7 @@ I commenti XML possono essere abilitati con gli approcci seguenti:
 
 ::: moniker range="<= aspnetcore-1.1"
 
-* Aprire la finestra di dialogo **Opzioni progetto** > **Compila** > **Compilatore**.
+* Aprire la finestra di dialogo **Opzioni progetto** > **Compila** > **compilatore**
 * Selezionare la casella di controllo **Genera la documentazione XML** nella sezione **Opzioni generali**
 
 ::: moniker-end
