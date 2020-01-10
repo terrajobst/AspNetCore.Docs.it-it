@@ -1,21 +1,15 @@
-* <span data-ttu-id="d1052-101">Considerare attendibile il certificato di sviluppo HTTPS eseguendo il comando riportato di seguito:</span><span class="sxs-lookup"><span data-stu-id="d1052-101">Trust the HTTPS development certificate by running the following command:</span></span>
+<span data-ttu-id="4ad3b-101">Visual Studio per Mac Visualizza il popup seguente:</span><span class="sxs-lookup"><span data-stu-id="4ad3b-101">Visual Studio for Mac displays the following popup:</span></span>
 
-    ```dotnetcli
-    dotnet dev-certs https --trust
-    ```
+![Il certificato di sviluppo HTTPS non è stato trovato.](~/getting-started/_static/trustCertMac.png)
 
-* <span data-ttu-id="d1052-102">Il comando precedente visualizza l'output seguente:</span><span class="sxs-lookup"><span data-stu-id="d1052-102">The preceding command displays the following output:</span></span>
+<span data-ttu-id="4ad3b-104">Selezionare **Sì** se si considera attendibile il certificato di sviluppo.</span><span class="sxs-lookup"><span data-stu-id="4ad3b-104">Select **Yes** if you trust the development certificate.</span></span>
 
-    ```console
-    Trusting the HTTPS development certificate was requested. If the certificate 
-    is not already trusted we will run the following command:
-    'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain 
-    <<certificate>>'
-    This command might prompt you for your password to install the certificate on the 
-    system keychain.
-    The HTTPS developer certificate was generated successfully.
-    ```
+<span data-ttu-id="4ad3b-105">Verrà visualizzata la finestra di dialogo seguente:</span><span class="sxs-lookup"><span data-stu-id="4ad3b-105">The following dialog is displayed:</span></span>
 
-* <span data-ttu-id="d1052-103">Se richiesto, immettere il nome utente e la password dell'amministratore.</span><span class="sxs-lookup"><span data-stu-id="d1052-103">Enter the admin username and password if prompted.</span></span>  <span data-ttu-id="d1052-104">Il certificato verrà installato e impostato come attendibile.</span><span class="sxs-lookup"><span data-stu-id="d1052-104">The certificate will now be installed and trusted.</span></span>
+![Finestra di dialogo Avviso di sicurezza](~/getting-started/_static/certMac.png)
 
-    <span data-ttu-id="d1052-105">Per altre informazioni, vedere [Considerare attendibile il certificato di sviluppo di ASP.NET Core HTTPS](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos).</span><span class="sxs-lookup"><span data-stu-id="d1052-105">See [Trust the ASP.NET Core HTTPS development certificate](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos) for more information.</span></span>
+<span data-ttu-id="4ad3b-107">Immettere la password e selezionare **OK**</span><span class="sxs-lookup"><span data-stu-id="4ad3b-107">Enter your password and select **OK**</span></span>
+
+<span data-ttu-id="4ad3b-108">Selezionare **Sì** se si accetta di considerare attendibile il certificato di sviluppo.</span><span class="sxs-lookup"><span data-stu-id="4ad3b-108">Select **Yes** if you agree to trust the development certificate.</span></span>
+
+<span data-ttu-id="4ad3b-109">Per ulteriori informazioni, vedere [considerare attendibile il certificato di sviluppo HTTPS ASP.NET Core](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos)</span><span class="sxs-lookup"><span data-stu-id="4ad3b-109">See [Trust the ASP.NET Core HTTPS development certificate](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos) for more information</span></span>
