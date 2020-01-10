@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 12/16/2019
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 51d82d1deadb3d2adbdccd39c8d949e3f9f812fd
-ms.sourcegitcommit: 79850db9e79b1705b89f466c6f2c961ff15485de
+ms.openlocfilehash: 286d73d732b146fef15bbfc309caeb214cdbbe0d
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75693843"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829179"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Distribuire le app ASP.NET Core in Servizio app di Azure
 
@@ -192,7 +192,7 @@ L'[hub Docker](https://hub.docker.com/r/microsoft/aspnetcore/) contiene le immag
 
 ### <a name="install-the-preview-site-extension"></a>Installare l'estensione del sito di anteprima
 
-Se si verifica un problema con l'estensione del sito di anteprima, aprire un [problema aspnet/AspNetCore](https://github.com/aspnet/AspNetCore/issues).
+Se si verifica un problema usando l'estensione del sito di anteprima, aprire un [problema DotNet/AspNetCore](https://github.com/dotnet/AspNetCore/issues).
 
 1. Dal portale di Azure passare al servizio app.
 1. Selezionare l'app Web.

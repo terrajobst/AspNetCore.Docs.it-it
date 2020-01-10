@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: aspnetcore-2.0
-ms.openlocfilehash: 452ccd76eece55cb5cf38fe39781f2f64dd5d466
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 9d1e1b1154113b8825f4d0faf0f4552b8bd22287
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880868"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75828425"
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>Novità di ASP.NET Core 2.0
 
@@ -141,7 +141,7 @@ Per informazioni sullo stato delle funzionalità di C# 7.1, vedere il [repositor
 ## <a name="other-documentation-updates-for-20"></a>Altri aggiornamenti alla documentazione per la versione 2.0
 
 * [Visual Studio publish profiles for ASP.NET Core app deployment](xref:host-and-deploy/visual-studio-publish-profiles) (Profili di pubblicazione di Visual Studio per la distribuzione di app ASP.NET Core)
-* [Gestione delle chiavi](xref:security/data-protection/implementation/key-management)
+* [Key Management](xref:security/data-protection/implementation/key-management) (Gestione delle chiavi)
 * [Configurazione dell'autenticazione di Facebook](xref:security/authentication/facebook-logins)
 * [Configurazione dell'autenticazione di Twitter](xref:security/authentication/twitter-logins)
 * [Configurazione dell'autenticazione di Google](xref:security/authentication/google-logins)
@@ -156,6 +156,6 @@ Per indicazioni su come eseguire la migrazione delle applicazioni ASP.NET Core 1
 
 ## <a name="additional-information"></a>Informazioni aggiuntive
 
-Per l'elenco completo delle modifiche, vedere le [note sulla versione di ASP.NET Core 2.0](https://github.com/aspnet/Home/releases/tag/2.0.0).
+Per l'elenco completo delle modifiche, vedere le [note sulla versione di ASP.NET Core 2.0](https://github.com/dotnet/aspnetcore/releases/tag/2.0.0).
 
 Per essere aggiornati sull'avanzamento del lavoro e sui piani dei team di sviluppo di ASP.NET Core, partecipare alle riunioni in [ASP.NET Community Standup](https://live.asp.net/).

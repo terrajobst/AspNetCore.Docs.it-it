@@ -5,12 +5,12 @@ description: Informazioni su come creare un'app ASP.NET Core con la conferma del
 ms.author: riande
 ms.date: 03/11/2019
 uid: security/authentication/accconfirm
-ms.openlocfilehash: a4ecc2d91fb72915703dfaa146260f0c1360bded
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 49d3d214fd64edc5b17df2df929ddc3c2af47ede
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880761"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829270"
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Conferma dell'account e recupero della password in ASP.NET Core
 
@@ -32,7 +32,7 @@ Vedere [questo file PDF](https://webpifeed.blob.core.windows.net/webpifeed/Partn
 
 ::: moniker range="> aspnetcore-2.2"
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 [.NET Core 3,0 SDK o versione successiva](https://dotnet.microsoft.com/download/dotnet-core/3.0)
 
@@ -155,11 +155,11 @@ Il codice seguente modifica il periodo di timeout di tutti i token di protezione
 
 [!code-csharp[](accconfirm/sample/WebPWrecover30/StartupAllTokens.cs?name=snippet1&highlight=11-12)]
 
-I token utente predefiniti Identity (vedere [AspNetCore/src/Identity/Extensions. core/src/TokenOptions. cs](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Extensions.Core/src/TokenOptions.cs) ) hanno un timeout di un [giorno](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Core/src/DataProtectionTokenProviderOptions.cs).
+I token utente predefiniti Identity (vedere [AspNetCore/src/Identity/Extensions. core/src/TokenOptions. cs](https://github.com/dotnet/AspNetCore/blob/v2.2.2/src/Identity/Extensions.Core/src/TokenOptions.cs) ) hanno un timeout di un [giorno](https://github.com/dotnet/AspNetCore/blob/v2.2.2/src/Identity/Core/src/DataProtectionTokenProviderOptions.cs).
 
 ### <a name="change-the-email-token-lifespan"></a>Modificare la durata del token di posta elettronica
 
-La durata del token predefinita dei [token utente di identità](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Extensions.Core/src/TokenOptions.cs) è [un giorno](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Core/src/DataProtectionTokenProviderOptions.cs). Questa sezione illustra come modificare la durata del token di posta elettronica.
+La durata del token predefinita dei [token utente di identità](https://github.com/dotnet/AspNetCore/blob/v2.2.2/src/Identity/Extensions.Core/src/TokenOptions.cs) è [un giorno](https://github.com/dotnet/AspNetCore/blob/v2.2.2/src/Identity/Core/src/DataProtectionTokenProviderOptions.cs). Questa sezione illustra come modificare la durata del token di posta elettronica.
 
 Aggiungere un [DataProtectorTokenProvider personalizzato\<TUser >](/dotnet/api/microsoft.aspnetcore.identity.dataprotectortokenprovider-1) e <xref:Microsoft.AspNetCore.Identity.DataProtectionTokenProviderOptions>:
 
@@ -171,7 +171,7 @@ Aggiungere il provider personalizzato al contenitore del servizio:
 
 ### <a name="resend-email-confirmation"></a>Invia di nuovo la conferma tramite posta elettronica
 
-Vedere [il problema in GitHub](https://github.com/aspnet/AspNetCore/issues/5410).
+Vedere [il problema in GitHub](https://github.com/dotnet/AspNetCore/issues/5410).
 
 <a name="debug"></a>
 
@@ -217,7 +217,7 @@ L'abilitazione della conferma dell'account in un sito con utenti blocca tutti gl
 
 ::: moniker range="> aspnetcore-2.0 < aspnetcore-3.0"
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 [.NET Core 2,2 SDK o versione successiva](https://www.microsoft.com/net/download/all)
 
@@ -381,11 +381,11 @@ Il codice seguente modifica il periodo di timeout di tutti i token di protezione
 
 [!code-csharp[](accconfirm/sample/WebPWrecover22/StartupAllTokens.cs?name=snippet1&highlight=15-16)]
 
-I token utente predefiniti Identity (vedere [AspNetCore/src/Identity/Extensions. core/src/TokenOptions. cs](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Extensions.Core/src/TokenOptions.cs) ) hanno un timeout di un [giorno](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Core/src/DataProtectionTokenProviderOptions.cs).
+I token utente predefiniti Identity (vedere [AspNetCore/src/Identity/Extensions. core/src/TokenOptions. cs](https://github.com/dotnet/AspNetCore/blob/v2.2.2/src/Identity/Extensions.Core/src/TokenOptions.cs) ) hanno un timeout di un [giorno](https://github.com/dotnet/AspNetCore/blob/v2.2.2/src/Identity/Core/src/DataProtectionTokenProviderOptions.cs).
 
 ### <a name="change-the-email-token-lifespan"></a>Modificare la durata del token di posta elettronica
 
-La durata del token predefinita dei [token utente di identità](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Extensions.Core/src/TokenOptions.cs) è [un giorno](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Core/src/DataProtectionTokenProviderOptions.cs). Questa sezione illustra come modificare la durata del token di posta elettronica.
+La durata del token predefinita dei [token utente di identità](https://github.com/dotnet/AspNetCore/blob/v2.2.2/src/Identity/Extensions.Core/src/TokenOptions.cs) è [un giorno](https://github.com/dotnet/AspNetCore/blob/v2.2.2/src/Identity/Core/src/DataProtectionTokenProviderOptions.cs). Questa sezione illustra come modificare la durata del token di posta elettronica.
 
 Aggiungere un [DataProtectorTokenProvider personalizzato\<TUser >](/dotnet/api/microsoft.aspnetcore.identity.dataprotectortokenprovider-1) e <xref:Microsoft.AspNetCore.Identity.DataProtectionTokenProviderOptions>:
 
@@ -397,7 +397,7 @@ Aggiungere il provider personalizzato al contenitore del servizio:
 
 ### <a name="resend-email-confirmation"></a>Invia di nuovo la conferma tramite posta elettronica
 
-Vedere [il problema in GitHub](https://github.com/aspnet/AspNetCore/issues/5410).
+Vedere [il problema in GitHub](https://github.com/dotnet/AspNetCore/issues/5410).
 
 <a name="debug"></a>
 

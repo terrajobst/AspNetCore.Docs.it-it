@@ -3,14 +3,14 @@ title: Articoli basati su progetti ASP.NET Core creati con account utente singol
 author: rick-anderson
 description: Scopri gli articoli in base ai progetti ASP.NET Core creati con singoli account utente.
 ms.author: riande
-ms.date: 11/30/2017
+ms.date: 12/11/2019
 uid: security/authentication/individual
-ms.openlocfilehash: 91c5665dc50124b3ba09bdcfbf3ba501f684c604
-ms.sourcegitcommit: 9e85c2562df5e108d7933635c830297f484bb775
+ms.openlocfilehash: 7ef0d5eabded61d04fb9fe7be384a663ad7ea5f4
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73463028"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75828711"
 ---
 # <a name="articles-based-on-aspnet-core-projects-created-with-individual-user-accounts"></a>Articoli basati su progetti ASP.NET Core creati con account utente singoli
 
@@ -36,7 +36,7 @@ dotnet new razor -au Individual
 
 ::: moniker-end
 
-Vedere [questo problema di GitHub](https://github.com/aspnet/AspNetCore/issues/5833) per l'autenticazione dell'API Web.
+Vedere [questo problema di GitHub](https://github.com/dotnet/AspNetCore/issues/5833) per l'autenticazione dell'API Web.
 
 <a name="no"></a>
 
@@ -56,6 +56,32 @@ Progetti creati senza autenticazione:
 Viene specificata l'autenticazione di Windows per le nuove app Web nella interfaccia della riga di comando di .NET Core con l'opzione `-au Windows`. In Visual Studio la finestra di dialogo **Cambia autenticazione** fornisce le opzioni di **autenticazione di Windows** .
 
 Se è selezionata l'autenticazione di Windows, l'app viene configurata per l'uso del [modulo IIS](xref:host-and-deploy/iis/modules)per l'autenticazione di Windows. L'autenticazione di Windows è destinata ai siti Web Intranet.
+
+## <a name="dotnet-new-webapp-authentication-options"></a>opzioni di autenticazione New webapp DotNet
+
+La tabella seguente illustra le opzioni di autenticazione disponibili per le nuove app Web:
+
+| Opzione | Tipo di autenticazione | Collegamento per altre informazioni |
+ | ----------------- | ------------ | ---------- |
+| nessuna            |  Nessuna autenticazione | | 
+| Utenti      |  Autenticazione singola | <xref:security/authentication/identity>
+| IndividualB2C   |  Autenticazione Single ospitata nel cloud con Azure AD B2C | [Azure AD B2C](/azure/active-directory-b2c/) |
+| SingleOrg       |  Autenticazione organizzativa per un singolo tenant | [Azure AD](/azure/active-directory/develop/quickstart-v2-aspnet-core-webapp) |
+| MultiOrg        |  Autenticazione organizzativa per più tenant | [Azure AD](/azure/active-directory/develop/quickstart-v2-aspnet-core-webapp) |
+| Portale di         |  Autenticazione di Windows | [Autenticazione di Windows](xref:security/authentication/windowsauth)
+
+## <a name="visual-studio-new-webapp-authentication-options"></a>Nuove opzioni di autenticazione WebApp per Visual Studio
+
+La tabella seguente illustra le opzioni di autenticazione disponibili quando si crea una nuova app Web con Visual Studio:
+
+| Opzione | Tipo di autenticazione | Collegamento per altre informazioni |
+ | ----------------- | ------------ | ---------- |
+| nessuna            |  Nessuna autenticazione | | 
+| Account utente singoli/archivia account utente in-app |  Autenticazione singola | <xref:security/authentication/identity> |
+| Singoli account utente/connettersi a un archivio utente esistente nel cloud |  Autenticazione Single ospitata nel cloud con Azure AD B2C | [Azure AD B2C](/azure/active-directory-b2c/) |
+| Cloud aziendale o dell'Istituto di istruzione/organizzazione singola  |  Autenticazione organizzativa per un singolo tenant | [Azure AD](/azure/active-directory/develop/quickstart-v2-aspnet-core-webapp) |
+| Cloud aziendale o dell'Istituto di istruzione/organizzazione multipla |  Autenticazione organizzativa per più tenant | [Azure AD](/azure/active-directory/develop/quickstart-v2-aspnet-core-webapp) |
+| Portale di         |  Autenticazione di Windows | [Autenticazione di Windows](xref:security/authentication/windowsauth)
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

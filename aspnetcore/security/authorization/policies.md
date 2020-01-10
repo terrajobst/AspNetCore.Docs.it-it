@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/05/2019
 uid: security/authorization/policies
-ms.openlocfilehash: e3929fb0f45d4ba28f46a6b42b653940de0badb0
-ms.sourcegitcommit: 6628cd23793b66e4ce88788db641a5bbf470c3c1
+ms.openlocfilehash: eeb5ddd63ef8177325b35e5a666aa5e9ab047057
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73761043"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75828958"
 ---
 # <a name="policy-based-authorization-in-aspnet-core"></a>Autorizzazione basata su criteri in ASP.NET Core
 
@@ -31,13 +31,13 @@ Il servizio primario che determina se l'autorizzazione ha esito positivo è <xre
 
 [!code-csharp[](policies/samples/stubs/copy_of_IAuthorizationService.cs?highlight=24-25,48-49&name=snippet)]
 
-Il codice precedente evidenzia i due metodi di [IAuthorizationService](https://github.com/aspnet/AspNetCore/blob/v2.2.4/src/Security/Authorization/Core/src/IAuthorizationService.cs).
+Il codice precedente evidenzia i due metodi di [IAuthorizationService](https://github.com/dotnet/AspNetCore/blob/v2.2.4/src/Security/Authorization/Core/src/IAuthorizationService.cs).
 
 <xref:Microsoft.AspNetCore.Authorization.IAuthorizationRequirement> è un servizio marcatore senza metodi e il meccanismo per verificare se l'autorizzazione ha avuto esito positivo.
 
 Ogni <xref:Microsoft.AspNetCore.Authorization.IAuthorizationHandler> è responsabile per verificare se sono soddisfatti i requisiti:
 <!--The following code is a copy/paste from 
-https://github.com/aspnet/AspNetCore/blob/v2.2.4/src/Security/Authorization/Core/src/IAuthorizationHandler.cs -->
+https://github.com/dotnet/AspNetCore/blob/v2.2.4/src/Security/Authorization/Core/src/IAuthorizationHandler.cs -->
 
 ```csharp
 /// <summary>
@@ -111,19 +111,19 @@ Utilizzare <xref:Microsoft.AspNetCore.Authorization.IAuthorizationService> o `[A
 
 Se si usa Razor Pages, vedere [applicazione di criteri ai Razor Pages](#applying-policies-to-razor-pages) in questo documento.
 
-I criteri vengono applicati ai controller usando l'attributo `[Authorize]` con il nome del criterio. Esempio:
+I criteri vengono applicati ai controller usando l'attributo `[Authorize]` con il nome del criterio. Ad esempio:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp1/Controllers/AlcoholPurchaseController.cs?name=snippet_AlcoholPurchaseControllerClass&highlight=4)]
 
 ## <a name="applying-policies-to-razor-pages"></a>Applicazione di criteri a Razor Pages
 
-I criteri vengono applicati a Razor Pages usando l'attributo `[Authorize]` con il nome del criterio. Esempio:
+I criteri vengono applicati a Razor Pages usando l'attributo `[Authorize]` con il nome del criterio. Ad esempio:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp2/Pages/AlcoholPurchase.cshtml.cs?name=snippet_AlcoholPurchaseModelClass&highlight=4)]
 
 I criteri possono essere applicati anche a Razor Pages usando una [convenzione di autorizzazione](xref:security/authorization/razor-pages-authorization).
 
-## <a name="requirements"></a>Requisiti
+## <a name="requirements"></a>Requisiti di
 
 Un requisito di autorizzazione è una raccolta di parametri dati che un criterio può utilizzare per valutare l'entità utente corrente. Nel criterio "AtLeast21", il requisito è un singolo parametro&mdash;età minima. Un requisito implementa [IAuthorizationRequirement](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationrequirement), che è un'interfaccia marcatore vuota. Un requisito di validità minima con parametri può essere implementato come segue:
 
@@ -164,7 +164,7 @@ Il codice precedente attraversa [PendingRequirements](/dotnet/api/microsoft.aspn
 
 ### <a name="handler-registration"></a>Registrazione del gestore
 
-I gestori vengono registrati nella raccolta di servizi durante la configurazione. Esempio:
+I gestori vengono registrati nella raccolta di servizi durante la configurazione. Ad esempio:
 
 [!code-csharp[](policies/samples/3.0PoliciesAuthApp1/Startup.cs?range=31-32,39-40,42-45, 53-55, 58)]
 
@@ -249,13 +249,13 @@ Il servizio primario che determina se l'autorizzazione ha esito positivo è <xre
 
 [!code-csharp[](policies/samples/stubs/copy_of_IAuthorizationService.cs?highlight=24-25,48-49&name=snippet)]
 
-Il codice precedente evidenzia i due metodi di [IAuthorizationService](https://github.com/aspnet/AspNetCore/blob/v2.2.4/src/Security/Authorization/Core/src/IAuthorizationService.cs).
+Il codice precedente evidenzia i due metodi di [IAuthorizationService](https://github.com/dotnet/AspNetCore/blob/v2.2.4/src/Security/Authorization/Core/src/IAuthorizationService.cs).
 
 <xref:Microsoft.AspNetCore.Authorization.IAuthorizationRequirement> è un servizio marcatore senza metodi e il meccanismo per verificare se l'autorizzazione ha avuto esito positivo.
 
 Ogni <xref:Microsoft.AspNetCore.Authorization.IAuthorizationHandler> è responsabile per verificare se sono soddisfatti i requisiti:
 <!--The following code is a copy/paste from 
-https://github.com/aspnet/AspNetCore/blob/v2.2.4/src/Security/Authorization/Core/src/IAuthorizationHandler.cs -->
+https://github.com/dotnet/AspNetCore/blob/v2.2.4/src/Security/Authorization/Core/src/IAuthorizationHandler.cs -->
 
 ```csharp
 /// <summary>
@@ -328,19 +328,19 @@ Utilizzare <xref:Microsoft.AspNetCore.Authorization.IAuthorizationService> o `[A
 
 Se si usa Razor Pages, vedere [applicazione di criteri ai Razor Pages](#applying-policies-to-razor-pages) in questo documento.
 
-I criteri vengono applicati ai controller usando l'attributo `[Authorize]` con il nome del criterio. Esempio:
+I criteri vengono applicati ai controller usando l'attributo `[Authorize]` con il nome del criterio. Ad esempio:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp1/Controllers/AlcoholPurchaseController.cs?name=snippet_AlcoholPurchaseControllerClass&highlight=4)]
 
 ## <a name="applying-policies-to-razor-pages"></a>Applicazione di criteri a Razor Pages
 
-I criteri vengono applicati a Razor Pages usando l'attributo `[Authorize]` con il nome del criterio. Esempio:
+I criteri vengono applicati a Razor Pages usando l'attributo `[Authorize]` con il nome del criterio. Ad esempio:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp2/Pages/AlcoholPurchase.cshtml.cs?name=snippet_AlcoholPurchaseModelClass&highlight=4)]
 
 I criteri possono essere applicati anche a Razor Pages usando una [convenzione di autorizzazione](xref:security/authorization/razor-pages-authorization).
 
-## <a name="requirements"></a>Requisiti
+## <a name="requirements"></a>Requisiti di
 
 Un requisito di autorizzazione è una raccolta di parametri dati che un criterio può utilizzare per valutare l'entità utente corrente. Nel criterio "AtLeast21", il requisito è un singolo parametro&mdash;età minima. Un requisito implementa [IAuthorizationRequirement](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationrequirement), che è un'interfaccia marcatore vuota. Un requisito di validità minima con parametri può essere implementato come segue:
 
@@ -381,7 +381,7 @@ Il codice precedente attraversa [PendingRequirements](/dotnet/api/microsoft.aspn
 
 ### <a name="handler-registration"></a>Registrazione del gestore
 
-I gestori vengono registrati nella raccolta di servizi durante la configurazione. Esempio:
+I gestori vengono registrati nella raccolta di servizi durante la configurazione. Ad esempio:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=32-33,48-53,61,62-63,66)]
 

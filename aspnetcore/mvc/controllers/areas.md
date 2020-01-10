@@ -5,12 +5,12 @@ description: Informazioni sulle aree, una funzionalità di ASP.NET MVC che conse
 ms.author: riande
 ms.date: 12/05/2019
 uid: mvc/controllers/areas
-ms.openlocfilehash: 7e02a21361e0e2148b29a3ae0f1ba25e68239e13
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 1066f4ce104e507abe63302fd3523a3a7a8dfde9
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74881123"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75828243"
 ---
 # <a name="areas-in-aspnet-core"></a>Aree in ASP.NET Core
 
@@ -48,14 +48,14 @@ Si consideri un'applicazione che ha due gruppi logici, *Prodotti* e *Servizi*. U
 
 * Nome progetto
   * Aree
-    * Products
+    * Prodotti
       * Controllers
         * HomeController.cs
         * ManageController.cs
       * Visualizzazioni
         * Home page di
           * Index.cshtml
-        * Gestisci
+        * Gestire
           * Index.cshtml
           * About.cshtml
     * Servizi
@@ -96,7 +96,7 @@ Il codice seguente usa <xref:Microsoft.AspNetCore.Builder.MvcAreaRouteBuilderExt
 
 [!code-csharp[](areas/samples/MVCareas/StartupMapAreaRoute.cs?name=snippet&highlight=18-27)]
 
-Quando si usa `MapAreaRoute` con ASP.NET Core 2.2, vedere [questo problema su GitHub](https://github.com/aspnet/AspNetCore/issues/7772).
+Quando si usa `MapAreaRoute` con ASP.NET Core 2.2, vedere [questo problema su GitHub](https://github.com/dotnet/AspNetCore/issues/7772).
 
 Per altre informazioni, vedere [Aree](xref:mvc/controllers/routing#areas).
 
@@ -138,14 +138,14 @@ Per le aree con pagine Razor è richiesta una cartella *Areas/<area name>/Pages*
 
 * Nome progetto
   * Aree
-    * Products
+    * Prodotti
       * Pages
         * _ViewImports
         * Informazioni su
         * Indice
     * Servizi
       * Pages
-        * Gestisci
+        * Gestire
           * Informazioni su
           * Indice
 

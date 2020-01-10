@@ -5,14 +5,14 @@ description: Informazioni su come usare il framework di registrazione fornito da
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/04/2019
+ms.date: 01/08/2020
 uid: fundamentals/logging/index
-ms.openlocfilehash: e1c50c4592b21d56ed813dac43204d63f1bfe46c
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: d9ef6694b6c0b0a88b13d60915be6e04ebdffb28
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75359348"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829049"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>Registrazione in .NET Core e ASP.NET Core
 
@@ -22,7 +22,7 @@ Di [Tom Dykstra](https://github.com/tdykstra) e [Steve Smith](https://ardalis.co
 
 ::: moniker range=">= aspnetcore-3.0"
 
-La maggior parte degli esempi di codice illustrati in questo articolo proviene da app ASP.NET Core. Le parti specifiche per la registrazione di questi frammenti di codice si applicano a qualsiasi app .NET Core che usa l' [host generico](xref:fundamentals/host/generic-host). Per informazioni su come usare l'host generico nelle app console non Web, vedere [Servizi ospitati](xref:fundamentals/host/hosted-services).
+La maggior parte degli esempi di codice illustrati in questo articolo proviene da app ASP.NET Core. Le parti specifiche per la registrazione di questi frammenti di codice si applicano a qualsiasi app .NET Core che usa l' [host generico](xref:fundamentals/host/generic-host). Per un esempio di come usare l'host generico in un'app console non Web, vedere il file *Program.cs* dell' [app di esempio attività in background](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples) (<xref:fundamentals/host/hosted-services>).
 
 Il codice di registrazione per le app senza host generico differisce per il modo in cui vengono [aggiunti i provider](#add-providers) e [creati i logger](#create-logs). Gli esempi di codice non host sono illustrati nelle sezioni dell'articolo in cui sono riportate queste procedure.
 

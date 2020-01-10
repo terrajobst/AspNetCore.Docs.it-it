@@ -7,18 +7,18 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 11/08/2019
 uid: security/authentication/identity/spa
-ms.openlocfilehash: f58d92634ce1ef6110533d56c40b7520dda90514
-ms.sourcegitcommit: 4818385c3cfe0805e15138a2c1785b62deeaab90
+ms.openlocfilehash: 31a5e47d772e7416646c4d83c3209d7d2b254199
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73897044"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829166"
 ---
 # <a name="authentication-and-authorization-for-spas"></a>Autenticazione e autorizzazione per le ZPS
 
 ASP.NET Core 3,0 o versione successiva offre l'autenticazione in app a pagina singola (Spa) usando il supporto per l'autorizzazione dell'API. ASP.NET Core identità per l'autenticazione e l'archiviazione degli utenti viene combinata con [IdentityServer](https://identityserver.io/) per l'implementazione di Open ID Connect.
 
-Un parametro di autenticazione è stato aggiunto ai modelli di progetto **angolari** e **React** che è simile al parametro di autenticazione nell' **applicazione Web (** MVC) e nell' **applicazione Web** (Razor Pages) modelli di progetto. I valori dei parametri consentiti sono **None** e **individual**. Il modello di progetto **React. js e Redux** non supporta il parametro Authentication al momento.
+Un parametro di autenticazione è stato aggiunto ai modelli di progetto **angolari** e **React** che è simile al parametro Authentication nei modelli di progetto **applicazione** Web (MVC) e **applicazione Web** (Razor Pages). I valori dei parametri consentiti sono **None** e **individual**. Il modello di progetto **React. js e Redux** non supporta il parametro Authentication al momento.
 
 ## <a name="create-an-app-with-api-authorization-support"></a>Creare un'app con supporto per l'autorizzazione API
 
@@ -42,7 +42,7 @@ Il comando precedente crea un'app ASP.NET Core con una directory *ClientApp* con
 
 Le sezioni seguenti descrivono le aggiunte al progetto quando è incluso il supporto per l'autenticazione:
 
-### <a name="startup-class"></a>Classe Startup
+### <a name="startup-class"></a>Classe di avvio
 
 La classe `Startup` presenta le aggiunte seguenti:
 
@@ -95,7 +95,7 @@ Questo metodo helper configura uno schema di criteri per l'app come gestore di a
 
 ### <a name="weatherforecastcontroller"></a>WeatherForecastController
 
-Nel file *Controllers\WeatherForecastController.cs* , si noti l'attributo `[Authorize]` applicato alla classe che indica che l'utente deve essere autorizzato in base ai criteri predefiniti per accedere alla risorsa. I criteri di autorizzazione predefiniti vengono configurati per l'utilizzo dello schema di autenticazione predefinito, configurato dal `AddIdentityServerJwt` allo schema dei criteri menzionato in precedenza, rendendo il `JwtBearerHandler` configurato da tale metodo helper il gestore predefinito per le richieste a app.
+Nel file *Controllers\WeatherForecastController.cs* , si noti l'attributo `[Authorize]` applicato alla classe che indica che l'utente deve essere autorizzato in base ai criteri predefiniti per accedere alla risorsa. I criteri di autorizzazione predefiniti vengono configurati per l'utilizzo dello schema di autenticazione predefinito, configurato dal `AddIdentityServerJwt` allo schema dei criteri menzionato in precedenza, rendendo il `JwtBearerHandler` configurato da tale metodo helper il gestore predefinito per le richieste all'app.
 
 ### <a name="applicationdbcontext"></a>ApplicationDbContext
 
@@ -121,7 +121,7 @@ Nel file *appSettings. JSON* della radice del progetto è presente una nuova sez
 }
 ```
 
-### <a name="appsettingsdevelopmentjson"></a>appSettings. Development. JSON
+### <a name="appsettingsdevelopmentjson"></a>appsettings.Development.json
 
 In *appSettings. File Development. JSON* della radice del progetto, è presente una sezione `IdentityServer` che descrive la chiave usata per firmare i token. Quando si esegue la distribuzione nell'ambiente di produzione, è necessario eseguire il provisioning di una chiave e distribuirla insieme all'app, come illustrato nella sezione [Deploy to Production](#deploy-to-production) .
 
@@ -185,7 +185,7 @@ services.Configure<JwtBearerOptions>(
 
 Il gestore JWT dell'API genera eventi che consentono di controllare il processo di autenticazione usando `JwtBearerEvents`. Per fornire supporto per l'autorizzazione API, `AddIdentityServerJwt` registra i propri gestori eventi.
 
-Per personalizzare la gestione di un evento, eseguire il wrapping del gestore eventi esistente con logica aggiuntiva, se necessario. Esempio:
+Per personalizzare la gestione di un evento, eseguire il wrapping del gestore eventi esistente con logica aggiuntiva, se necessario. Ad esempio:
 
 ```csharp
 services.Configure<JwtBearerOptions>(
@@ -260,7 +260,7 @@ async populateWeatherData() {
 }
 ```
 
-## <a name="deploy-to-production"></a>Distribuisci in produzione
+## <a name="deploy-to-production"></a>Distribuire nell'ambiente di produzione
 
 Per distribuire l'app nell'ambiente di produzione, è necessario eseguire il provisioning delle risorse seguenti:
 
@@ -301,7 +301,7 @@ Dopo questo passaggio, riavviare l'app e dovrebbe essere funzionante.
 
 Il supporto per l'autorizzazione API si basa su IdentityServer con un set di convenzioni, valori predefiniti e miglioramenti per semplificare l'esperienza per le Spa. Inutile dire che la potenza completa di IdentityServer è disponibile dietro le quinte se le integrazioni ASP.NET Core non coprono lo scenario. Il supporto ASP.NET Core si concentra sulle app "First-Party", in cui tutte le app vengono create e distribuite dall'organizzazione. Di conseguenza, il supporto non viene offerto per elementi come il consenso o la Federazione. Per questi scenari, usare IdentityServer e seguire la relativa documentazione.
 
-### <a name="application-profiles"></a>Profili applicazione
+### <a name="application-profiles"></a>Profili dell'applicazione
 
 I profili dell'applicazione sono configurazioni predefinite per le app che definiscono ulteriormente i parametri. A questo punto sono supportati i profili seguenti:
 

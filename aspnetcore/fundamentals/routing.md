@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/13/2019
 uid: fundamentals/routing
-ms.openlocfilehash: 9780183f8f9bc322f73d058b3cab7f8c10f7cd5f
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: 462f34664540b92ba6758224a722c7ca8f9c8de0
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75354745"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829062"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing in ASP.NET Core
 
@@ -604,8 +604,8 @@ La generazione dei collegamenti genera un collegamento per questa route quando v
 
 ## <a name="complex-segments"></a>Segmenti complessi
 
-I segmenti complessi (ad esempio, `[Route("/x{token}y")]`), vengono elaborati individuando corrispondenze per i valori letterali da destra a sinistra in modalità non-greedy. Vedere [questo codice](https://github.com/aspnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293) per una spiegazione dettagliata di come vengono confrontati i segmenti complessi. L'[esempio di codice](https://github.com/aspnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293) non viene usato da ASP.NET Core, ma offre una spiegazione esauriente dei segmenti complessi.
-<!-- While that code is no longer used by ASP.NET Core for complex segment matching, it provides a good match to the current algorithm. The [current code](https://github.com/aspnet/AspNetCore/blob/91514c9af7e0f4c44029b51f05a01c6fe4c96e4c/src/Http/Routing/src/Matching/DfaMatcherBuilder.cs#L227-L244) is too abstracted from matching to be useful for understanding complex segment matching.
+I segmenti complessi (ad esempio, `[Route("/x{token}y")]`), vengono elaborati individuando corrispondenze per i valori letterali da destra a sinistra in modalità non-greedy. Vedere [questo codice](https://github.com/dotnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293) per una spiegazione dettagliata di come vengono confrontati i segmenti complessi. L'[esempio di codice](https://github.com/dotnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293) non viene usato da ASP.NET Core, ma offre una spiegazione esauriente dei segmenti complessi.
+<!-- While that code is no longer used by ASP.NET Core for complex segment matching, it provides a good match to the current algorithm. The [current code](https://github.com/dotnet/AspNetCore/blob/91514c9af7e0f4c44029b51f05a01c6fe4c96e4c/src/Http/Routing/src/Matching/DfaMatcherBuilder.cs#L227-L244) is too abstracted from matching to be useful for understanding complex segment matching.
 -->
 
 ## <a name="configuring-endpoint-metadata"></a>Configurazione dei metadati dell'endpoint
@@ -613,7 +613,7 @@ I segmenti complessi (ad esempio, `[Route("/x{token}y")]`), vengono elaborati in
 I collegamenti seguenti forniscono informazioni sulla configurazione dei metadati dell'endpoint:
 
 * [Abilitare cors con routing degli endpoint](xref:security/cors#enable-cors-with-endpoint-routing)
-* [Esempio di IAuthorizationPolicyProvider](https://github.com/aspnet/AspNetCore/tree/release/3.0/src/Security/samples/CustomPolicyProvider) con un attributo `[MinimumAgeAuthorize]` personalizzato
+* [Esempio di IAuthorizationPolicyProvider](https://github.com/dotnet/AspNetCore/tree/release/3.0/src/Security/samples/CustomPolicyProvider) con un attributo `[MinimumAgeAuthorize]` personalizzato
 * [Testare l'autenticazione con l'attributo [autorizzate]](xref:security/authentication/identity#test-identity)
 * <xref:Microsoft.AspNetCore.Builder.AuthorizationEndpointConventionBuilderExtensions.RequireAuthorization*>
 * [Selezione dello schema con l'attributo [autorizzate]](xref:security/authorization/limitingidentitybyscheme#selecting-the-scheme-with-the-authorize-attribute)
@@ -1265,8 +1265,8 @@ La generazione dei collegamenti genera un collegamento per questa route quando v
 
 ## <a name="complex-segments"></a>Segmenti complessi
 
-I segmenti complessi (ad esempio, `[Route("/x{token}y")]`), vengono elaborati individuando corrispondenze per i valori letterali da destra a sinistra in modalità non-greedy. Vedere [questo codice](https://github.com/aspnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293) per una spiegazione dettagliata di come vengono confrontati i segmenti complessi. L'[esempio di codice](https://github.com/aspnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293) non viene usato da ASP.NET Core, ma offre una spiegazione esauriente dei segmenti complessi.
-<!-- While that code is no longer used by ASP.NET Core for complex segment matching, it provides a good match to the current algorithm. The [current code](https://github.com/aspnet/AspNetCore/blob/91514c9af7e0f4c44029b51f05a01c6fe4c96e4c/src/Http/Routing/src/Matching/DfaMatcherBuilder.cs#L227-L244) is too abstracted from matching to be useful for understanding complex segment matching.
+I segmenti complessi (ad esempio, `[Route("/x{token}y")]`), vengono elaborati individuando corrispondenze per i valori letterali da destra a sinistra in modalità non-greedy. Vedere [questo codice](https://github.com/dotnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293) per una spiegazione dettagliata di come vengono confrontati i segmenti complessi. L'[esempio di codice](https://github.com/dotnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293) non viene usato da ASP.NET Core, ma offre una spiegazione esauriente dei segmenti complessi.
+<!-- While that code is no longer used by ASP.NET Core for complex segment matching, it provides a good match to the current algorithm. The [current code](https://github.com/dotnet/AspNetCore/blob/91514c9af7e0f4c44029b51f05a01c6fe4c96e4c/src/Http/Routing/src/Matching/DfaMatcherBuilder.cs#L227-L244) is too abstracted from matching to be useful for understanding complex segment matching.
 -->
 
 ::: moniker-end
@@ -1681,8 +1681,8 @@ La generazione dei collegamenti genera un collegamento per questa route quando v
 
 ## <a name="complex-segments"></a>Segmenti complessi
 
-I segmenti complessi (ad esempio, `[Route("/x{token}y")]`), vengono elaborati individuando corrispondenze per i valori letterali da destra a sinistra in modalità non-greedy. Vedere [questo codice](https://github.com/aspnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293) per una spiegazione dettagliata di come vengono confrontati i segmenti complessi. L'[esempio di codice](https://github.com/aspnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293) non viene usato da ASP.NET Core, ma offre una spiegazione esauriente dei segmenti complessi.
-<!-- While that code is no longer used by ASP.NET Core for complex segment matching, it provides a good match to the current algorithm. The [current code](https://github.com/aspnet/AspNetCore/blob/91514c9af7e0f4c44029b51f05a01c6fe4c96e4c/src/Http/Routing/src/Matching/DfaMatcherBuilder.cs#L227-L244) is too abstracted from matching to be useful for understanding complex segment matching.
+I segmenti complessi (ad esempio, `[Route("/x{token}y")]`), vengono elaborati individuando corrispondenze per i valori letterali da destra a sinistra in modalità non-greedy. Vedere [questo codice](https://github.com/dotnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293) per una spiegazione dettagliata di come vengono confrontati i segmenti complessi. L'[esempio di codice](https://github.com/dotnet/AspNetCore/blob/release/2.2/src/Http/Routing/src/Patterns/RoutePatternMatcher.cs#L293) non viene usato da ASP.NET Core, ma offre una spiegazione esauriente dei segmenti complessi.
+<!-- While that code is no longer used by ASP.NET Core for complex segment matching, it provides a good match to the current algorithm. The [current code](https://github.com/dotnet/AspNetCore/blob/91514c9af7e0f4c44029b51f05a01c6fe4c96e4c/src/Http/Routing/src/Matching/DfaMatcherBuilder.cs#L227-L244) is too abstracted from matching to be useful for understanding complex segment matching.
 -->
 
 ::: moniker-end

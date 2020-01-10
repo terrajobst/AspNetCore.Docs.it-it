@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/20/2019
 uid: test/troubleshoot-azure-iis
-ms.openlocfilehash: 49a0f59fb6930235de10c726f3695f2a5352efb2
-ms.sourcegitcommit: 8157e5a351f49aeef3769f7d38b787b4386aad5f
+ms.openlocfilehash: b0f5d44f153a095a6108a12ee91f4cc46fe0a0de
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74251969"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829010"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service-and-iis"></a>Risolvere i problemi relativi a ASP.NET Core in app Azure servizio e IIS
 
@@ -109,7 +109,7 @@ Si è verificato un errore sconosciuto durante il caricamento dei componenti del
 
 * Contattare il [supporto tecnico Microsoft](https://support.microsoft.com/oas/default.aspx?prid=15832). Selezionare **Strumenti di sviluppo** e quindi **ASP.NET Core**.
 * Porre una domanda in Stack Overflow.
-* Segnalare il problema nel [repository GitHub](https://github.com/aspnet/AspNetCore) di ASP.NET Core.
+* Segnalare il problema nel [repository GitHub](https://github.com/dotnet/AspNetCore) di ASP.NET Core.
 
 ### <a name="50030-in-process-startup-failure"></a>500.30 Errore di avvio in-process
 
@@ -332,7 +332,7 @@ Al termine della risoluzione dei problemi, disabilitare la registrazione stdout:
 1. Impostare **stdoutLogEnabled** su `false`.
 1. Selezionare **Salva** per salvare il file.
 
-Per altre informazioni, vedere <xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection>.
+Per ulteriori informazioni, vedere <xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection>.
 
 > [!WARNING]
 > La mancata disabilitazione del log stdout può causare un errore dell'app o del server. Non esiste alcun limite per le dimensioni dei file di log o il numero di file di log che è possibile creare. Usare la registrazione stdout solo per la risoluzione dei problemi di avvio delle app.
@@ -363,7 +363,7 @@ Per disabilitare il log di debug avanzato, eseguire le operazioni seguenti:
 * Rimuovere `<handlerSettings>` dal file *web.config* in locale e ridistribuire l'app.
 * Usare la console Kudu per modificare il file *web.config* e rimuovere la sezione `<handlerSettings>`. Salvare il file.
 
-Per altre informazioni, vedere <xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs>.
+Per ulteriori informazioni, vedere <xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs>.
 
 > [!WARNING]
 > La mancata disabilitazione del log di debug può causare un errore dell'app o del server. Non è previsto alcun limite per le dimensioni del file di log. Usare solo la registrazione di debug per la risoluzione dei problemi di avvio delle app.
@@ -477,7 +477,7 @@ Al termine della risoluzione dei problemi, disabilitare la registrazione stdout:
 1. Impostare **stdoutLogEnabled** su `false`.
 1. Salvare il file.
 
-Per altre informazioni, vedere <xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection>.
+Per ulteriori informazioni, vedere <xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection>.
 
 > [!WARNING]
 > La mancata disabilitazione del log stdout può causare un errore dell'app o del server. Non esiste alcun limite per le dimensioni dei file di log o il numero di file di log che è possibile creare.
@@ -501,13 +501,13 @@ Aggiungere le impostazioni del gestore seguenti al file *Web. config* dell'app p
 
 Verificare che il percorso specificato per il log esista e che l'identità del pool di applicazioni abbia le autorizzazioni di scrittura nel percorso.
 
-Per altre informazioni, vedere <xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs>.
+Per ulteriori informazioni, vedere <xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs>.
 
 ::: moniker-end
 
 ### <a name="enable-the-developer-exception-page"></a>Abilitare la pagina delle eccezioni per gli sviluppatori
 
-La variabile di ambiente `ASPNETCORE_ENVIRONMENT` [ può essere aggiunta a web.config](xref:host-and-deploy/aspnet-core-module#setting-environment-variables) per eseguire l'app nell'ambiente di sviluppo. Purché l'ambiente non sia sottoposto a override durante l'avvio dell'app tramite `UseEnvironment` nel generatore di host, l'impostazione della variabile di ambiente consente di visualizzare la [pagina delle eccezioni per gli sviluppatori](xref:fundamentals/error-handling) quando viene eseguita l'app.
+Per eseguire l'app nell'ambiente di sviluppo, [è possibile aggiungere la variabile di ambiente `ASPNETCORE_ENVIRONMENT` a Web. config](xref:host-and-deploy/aspnet-core-module#setting-environment-variables) . Purché l'ambiente non sia sottoposto a override durante l'avvio dell'app tramite `UseEnvironment` nel generatore di host, l'impostazione della variabile di ambiente consente di visualizzare la [pagina delle eccezioni per gli sviluppatori](xref:fundamentals/error-handling) quando viene eseguita l'app.
 
 ::: moniker range=">= aspnetcore-2.2"
 

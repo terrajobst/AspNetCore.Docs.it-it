@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/18/2019
 uid: mvc/views/view-components
-ms.openlocfilehash: a4583d49eb0b42f1fa6e3d8c444d263cba34da79
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: 8df070b580b6125db6616b33a81f3ffebad69f3a
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75356839"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75828919"
 ---
 # <a name="view-components-in-aspnet-core"></a>Componenti di visualizzazione in ASP.NET Core
 
@@ -337,7 +337,7 @@ La firma del metodo di `PriorityList.Invoke` è sincrona, ma Razor trova e chiam
 
 ## <a name="all-view-component-parameters-are-required"></a>Tutti i parametri del componente di visualizzazione sono obbligatori
 
-Ogni parametro in un componente di visualizzazione è un attributo obbligatorio. Vedere [il problema in GitHub](https://github.com/aspnet/AspNetCore/issues/5011). Se un parametro viene omesso:
+Ogni parametro in un componente di visualizzazione è un attributo obbligatorio. Vedere [il problema in GitHub](https://github.com/dotnet/AspNetCore/issues/5011). Se un parametro viene omesso:
 
 * La firma del metodo `InvokeAsync` non corrisponde, quindi il metodo non verrà eseguito.
 * ViewComponent non esegue il rendering dei markup.

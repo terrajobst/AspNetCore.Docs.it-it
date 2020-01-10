@@ -5,12 +5,12 @@ description: Scoprire come aggiungere classi per la gestione dei film in un data
 ms.author: riande
 ms.date: 12/05/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: ef4671c9e7628c106b9f68ba5cbfd8a127e095d0
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: fa5be8f3a222a7c186409faa2f48e43347df637a
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358029"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829296"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Aggiungere un modello a un'app Razor Pages in ASP.NET Core
 
@@ -30,7 +30,7 @@ Le classi di modello sono dette classi POCO (da "plain-old CLR objects") perché
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Fare clic con il pulsante destro del mouse sul progetto **RazorPagesMovie** > **Aggiungi** > **Nuova cartella**. Assegnare il nome *Modelli* alla cartella.
+Fare clic con il pulsante destro del mouse sul progetto **RazorPagesMovie** > **Aggiungi** > **Nuova cartella**. Assegnare il nome *Models* alla cartella.
 
 Fare clic con il pulsante destro del mouse sulla cartella *Models*. Selezionare **Aggiungi** > **Classe**. Denominare la classe **Movie**.
 
@@ -47,8 +47,8 @@ Fare clic con il pulsante destro del mouse sulla cartella *Models*. Selezionare 
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
-* In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **RazorPagesMovie**, quindi selezionare **Aggiungi** > **Nuova cartella**. Assegnare il nome *Modelli* alla cartella.
-* Fare clic con il pulsante destro del mouse sulla cartella *Models* , quindi scegliere **Aggiungi** > **nuovo file**.
+* In riquadro della soluzione fare clic con il pulsante destro del mouse sul progetto **RazorPagesMovie** , quindi scegliere **Aggiungi** > **nuova cartella...** . Assegnare un nome ai *modelli*di cartella.
+* Fare clic con il pulsante destro del mouse sulla cartella *Models* , quindi scegliere **Aggiungi** > **nuovo file...** .
 * Nel finestra di dialogo **Nuovo file**:
 
   * Selezionare **Generale** nel riquadro a sinistra.
@@ -56,8 +56,6 @@ Fare clic con il pulsante destro del mouse sulla cartella *Models*. Selezionare 
   * Denominare la classe **Filmato** e selezionare **Nuovo**.
 
 [!INCLUDE [model 1b](~/includes/RP/model1b.md)]
-
-[!INCLUDE [model 2](~/includes/RP/model2.md)]
 
 ---
 
@@ -122,22 +120,38 @@ Il file *appsettings.json* è stato aggiornato con la stringa di connessione usa
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
-* Aprire una finestra di comando nella directory del progetto (la directory che contiene i file *Program.cs*, *Startup.cs* e *csproj*).
-* Installare lo strumento di scaffolding:
+Creare una cartella *Pages/Movies*:
 
-  ```dotnetcli
-   dotnet tool install --global dotnet-aspnet-codegenerator
-   ```
+* Fare clic con il pulsante destro del mouse sulla cartella *pagine* > **Aggiungi** > **nuova cartella**.
+* Assegnare il nome *Movies* alla cartella
 
-* Eseguire il comando seguente:
+Fare clic con il pulsante destro del mouse sulla cartella *pages/Movies* > **Aggiungi** > **Nuova impalcatura...** .
 
-  ```dotnetcli
-  dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
-  ```
+![Immagine relativa alle istruzioni precedenti.](model/_static/scaMac.png)
 
-[!INCLUDE [explains scaffold gen params](~/includes/RP/model4.md)]
+Nella finestra di dialogo **Nuova impalcatura** selezionare **Razor Pages utilizzando Entity Framework (CRUD)** > **Avanti**.
 
-[!INCLUDE [use SQL Server in production](~/includes/RP/sqlitedev.md)]
+![Immagine relativa alle istruzioni precedenti.](model/_static/add_scaffoldMac.png)
+
+Completare la finestra di dialogo **Pagine Razor che usano Entity Framework (CRUD)** :
+
+* Nell'elenco a discesa **classe modello** selezionare o digitare **Movie (RazorPagesMovie. Models)** .
+* Nella riga della **classe del contesto dati** Digitare il nome della nuova classe, RazorPagesMovie. **Dati**. RazorPagesMovieContext. [Questa modifica](https://developercommunity.visualstudio.com/content/problem/652166/aspnet-core-ef-scaffolder-uses-incorrect-namespace.html) non è obbligatoria. Crea la classe del contesto di database con lo spazio dei nomi corretto.
+* Selezionare **Aggiungi**.
+
+![Immagine relativa alle istruzioni precedenti.](model/_static/arpMac.png)
+
+Il file *appsettings.json* è stato aggiornato con la stringa di connessione usata per connettersi a un database locale.
+
+### <a name="add-ef-tools"></a>Aggiungi strumenti EF
+
+Eseguire il comando interfaccia della riga di comando di .NET Core seguente:
+
+```dotnetcli
+dotnet tool install --global dotnet-ef
+```
+
+Il comando precedente aggiunge gli strumenti Entity Framework Core per l'interfaccia della riga di comando di .NET Core.
 
 ---
 
@@ -156,7 +170,20 @@ Il processo di scaffolding crea e aggiorna i file seguenti:
 
 I file creati e aggiornati sono illustrati nella sezione successiva.
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio per Mac](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
+
+Il processo di scaffolding crea e aggiorna i file seguenti:
+
+* *Pages/Movies*: pagine Create (Crea), Delete (Elimina), Details (Dettagli), Edit (Modifica) e Index (Indice).
+* *Data/RazorPagesMovieContext.cs*
+
+### <a name="updated"></a>File aggiornati
+
+* *Startup.cs*
+
+I file creati e aggiornati sono illustrati nella sezione successiva.
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Il processo di scaffolding crea i file seguenti:
 
@@ -283,7 +310,7 @@ Le classi di modello sono dette classi POCO (da "plain-old CLR objects") perché
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Fare clic con il pulsante destro del mouse sul progetto **RazorPagesMovie** > **Aggiungi** > **Nuova cartella**. Assegnare il nome *Modelli* alla cartella.
+Fare clic con il pulsante destro del mouse sul progetto **RazorPagesMovie** > **Aggiungi** > **Nuova cartella**. Assegnare il nome *Models* alla cartella.
 
 Fare clic con il pulsante destro del mouse sulla cartella *Models*. Selezionare **Aggiungi** > **Classe**. Denominare la classe **Movie**.
 
@@ -300,7 +327,7 @@ Fare clic con il pulsante destro del mouse sulla cartella *Models*. Selezionare 
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
-* In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **RazorPagesMovie**, quindi selezionare **Aggiungi** > **Nuova cartella**. Assegnare il nome *Modelli* alla cartella.
+* In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **RazorPagesMovie**, quindi selezionare **Aggiungi** > **Nuova cartella**. Assegnare il nome *Models* alla cartella.
 * Fare clic con il pulsante destro del mouse sulla cartella *Models* , quindi scegliere **Aggiungi** > **nuovo file**.
 * Nel finestra di dialogo **Nuovo file**:
 
@@ -309,8 +336,6 @@ Fare clic con il pulsante destro del mouse sulla cartella *Models*. Selezionare 
   * Denominare la classe **Filmato** e selezionare **Nuovo**.
 
 [!INCLUDE [model 1b](~/includes/RP/model1b.md)]
-
-[!INCLUDE [model 2](~/includes/RP/model2.md)]
 
 ---
 
@@ -372,14 +397,28 @@ Il file *appsettings.json* è stato aggiornato con la stringa di connessione usa
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
-* Aprire una finestra di comando nella directory del progetto (la directory che contiene i file *Program.cs*, *Startup.cs* e *csproj*).
-* Eseguire il comando seguente:
+Creare una cartella *Pages/Movies*:
 
-  ```dotnetcli
-  dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
-  ```
+* Fare clic con il pulsante destro del mouse sulla cartella *pagine* > **Aggiungi** > **nuova cartella**.
+* Assegnare il nome *Movies* alla cartella
 
-[!INCLUDE [explains scaffold gen params](~/includes/RP/model4.md)]
+Fare clic con il pulsante destro del mouse sulla cartella *pages/Movies* > **Aggiungi** > **nuovo elemento con impalcatura**.
+
+![Immagine relativa alle istruzioni precedenti.](model/_static/scaMac.png)
+
+Nella finestra di dialogo **Aggiungi nuova impalcatura** selezionare **Razor Pages con Entity Framework (CRUD)** > **Aggiungi**.
+
+![Immagine relativa alle istruzioni precedenti.](model/_static/add_scaffoldMac.png)
+
+Completare la finestra di dialogo **Pagine Razor che usano Entity Framework (CRUD)** :
+
+* Nell'elenco a discesa **classe modello** selezionare o digitare **Movie**.
+* Nella riga della **classe del contesto dati** Digitare select the **RazorPagesMovieContext** . verrà creata una nuova classe del contesto DB con lo spazio dei nomi corretto. In questo caso sarà **RazorPagesMovie. Models. RazorPagesMovieContext**.
+* Selezionare **Aggiungi**.
+
+![Immagine relativa alle istruzioni precedenti.](model/_static/arpMac.png)
+
+Il file *appsettings.json* è stato aggiornato con la stringa di connessione usata per connettersi a un database locale.
 
 ---
 

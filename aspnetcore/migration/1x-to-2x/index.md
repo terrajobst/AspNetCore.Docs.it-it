@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: migration/1x-to-2x/index
-ms.openlocfilehash: 1242ec9f71f4a26b07f9a56a2a960bf315b56ccf
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: c46f50a418cf630980ac2ba94407e4370d36e7d5
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880006"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75828932"
 ---
 # <a name="migrate-from-aspnet-core-1x-to-20"></a>Eseguire la migrazione da ASP.NET Core 1.x alla versione 2.0
 
@@ -23,7 +23,7 @@ Le applicazioni esistenti di ASP.NET Core 1.x si basano su modelli di progetto s
 
 <a name="prerequisites"></a>
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Vedere [Introduzione ad ASP.NET Core](xref:getting-started).
 
@@ -42,7 +42,7 @@ I progetti destinati a .NET Framework devono usare il TFM di una versione succes
 > [!NOTE]
 > .NET core 2.0 offre una quantità di superficie maggiore rispetto a .NET Core 1.x. Se il destinatario è .NET Framework esclusivamente a causa della mancanza di API in .NET Core 1.x, avere .NET Core 2.0 come destinatario potrebbe funzionare.
 
-Se il file di progetto contiene `<RuntimeFrameworkVersion>1.{sub-version}</RuntimeFrameworkVersion>`, vedere [questo problema su GitHub](https://github.com/aspnet/AspNetCore/issues/3221#issuecomment-413094268).
+Se il file di progetto contiene `<RuntimeFrameworkVersion>1.{sub-version}</RuntimeFrameworkVersion>`, vedere [questo problema su GitHub](https://github.com/dotnet/AspNetCore/issues/3221#issuecomment-413094268).
 
 <a name="global-json"></a>
 
@@ -152,7 +152,7 @@ Nei progetti 2.0 spostare la chiamata `SeedData.Initialize` al metodo `Main` di 
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Program2.cs?name=snippet_Main2Code&highlight=10)]
 
-A partire dalla versione 2.0, non è una buona prassi eseguire alcuna operazione in `BuildWebHost` ad eccezione della compilazione e della configurazione dell'host Web. Tutto ciò che riguarda l'esecuzione dell'applicazione deve essere gestito all'esterno di `BuildWebHost`, in genere nel metodo `Main` di *Program.cs*.
+A partire dalla versione 2.0, non è una buona prassi eseguire alcuna operazione in `BuildWebHost` ad eccezione della compilazione e della configurazione dell'host Web. Tutto ciò che riguarda l'esecuzione dell'applicazione deve essere gestito all'esterno di `BuildWebHost` &mdash; in genere nel metodo `Main` di *Program.cs*.
 
 <a name="view-compilation"></a>
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/14/2019
 uid: security/authorization/iauthorizationpolicyprovider
-ms.openlocfilehash: fe07a113a29ed3e14679e3f3f2249b0810c17593
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 9f0a0cd5337f7f8d2fc8a4b6902a63b98f6bd702
+ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880699"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75828984"
 ---
 # <a name="custom-authorization-policy-providers-using-iauthorizationpolicyprovider-in-aspnet-core"></a>Provider di criteri di autorizzazione personalizzati che usano IAuthorizationPolicyProvider in ASP.NET Core 
 
@@ -25,7 +25,7 @@ Esempi di scenari in cui un [IAuthorizationPolicyProvider](/dotnet/api/microsoft
 * Usando un'ampia gamma di criteri (ad esempio, per diversi numeri di stanza o età), non ha senso aggiungere ogni singolo criterio di autorizzazione con una chiamata `AuthorizationOptions.AddPolicy`.
 * Creazione di criteri in fase di esecuzione in base alle informazioni in un'origine dati esterna, ad esempio un database, o determinazione dinamica dei requisiti di autorizzazione tramite un altro meccanismo.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/Security/samples/CustomPolicyProvider) dal [repository GitHub AspNetCore](https://github.com/aspnet/AspNetCore). Scaricare il file ZIP del repository ASPNET/AspNetCore. Decomprimere il file. Passare alla cartella di progetto *SRC/Security/Samples/CustomPolicyProvider* .
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore/tree/release/2.2/src/Security/samples/CustomPolicyProvider) dal [repository GitHub AspNetCore](https://github.com/dotnet/AspNetCore). Scaricare il file ZIP del repository DotNet/AspNetCore. Decomprimere il file. Passare alla cartella di progetto *SRC/Security/Samples/CustomPolicyProvider* .
 
 ## <a name="customize-policy-retrieval"></a>Personalizzare il recupero dei criteri
 
@@ -183,4 +183,4 @@ Per usare criteri personalizzati da una `IAuthorizationPolicyProvider`, è neces
 services.AddSingleton<IAuthorizationPolicyProvider, MinimumAgePolicyProvider>();
 ```
 
-Un esempio di `IAuthorizationPolicyProvider` personalizzato completo è disponibile nel [repository GitHub ASPNET/AuthSamples](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/Security/samples/CustomPolicyProvider).
+Un esempio di `IAuthorizationPolicyProvider` personalizzato completo è disponibile nel [repository GitHub ASPNET/AuthSamples](https://github.com/dotnet/AspNetCore/tree/release/2.2/src/Security/samples/CustomPolicyProvider).

@@ -584,6 +584,8 @@
       uid: grpc/diagnostics
     - name: Considerazioni sulla sicurezza
       uid: grpc/security
+    - name: Controllo delle versioni dei servizi gRPC
+      uid: grpc/versioning
     - name: Gestire i riferimenti Protobuf con dotnet-grpc
       uid: grpc/dotnet-grpc
     - name: Eseguire la migrazione di servizi gRPC da C-core
