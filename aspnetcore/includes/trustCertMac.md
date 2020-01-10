@@ -1,21 +1,15 @@
-* Considerare attendibile il certificato di sviluppo HTTPS eseguendo il comando riportato di seguito:
+Visual Studio per Mac Visualizza il popup seguente:
 
-    ```dotnetcli
-    dotnet dev-certs https --trust
-    ```
+![Il certificato di sviluppo HTTPS non è stato trovato. Si desidera installare e considerare attendibile il certificato?](~/getting-started/_static/trustCertMac.png)
 
-* Il comando precedente visualizza l'output seguente:
+Selezionare **Sì** se si considera attendibile il certificato di sviluppo.
 
-    ```console
-    Trusting the HTTPS development certificate was requested. If the certificate 
-    is not already trusted we will run the following command:
-    'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain 
-    <<certificate>>'
-    This command might prompt you for your password to install the certificate on the 
-    system keychain.
-    The HTTPS developer certificate was generated successfully.
-    ```
+Verrà visualizzata la finestra di dialogo seguente:
 
-* Se richiesto, immettere il nome utente e la password dell'amministratore.  Il certificato verrà installato e impostato come attendibile.
+![Finestra di dialogo Avviso di sicurezza](~/getting-started/_static/certMac.png)
 
-    Per altre informazioni, vedere [Considerare attendibile il certificato di sviluppo di ASP.NET Core HTTPS](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos).
+Immettere la password e selezionare **OK**
+
+Selezionare **Sì** se si accetta di considerare attendibile il certificato di sviluppo.
+
+Per ulteriori informazioni, vedere [considerare attendibile il certificato di sviluppo HTTPS ASP.NET Core](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos)

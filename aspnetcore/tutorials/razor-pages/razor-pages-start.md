@@ -5,12 +5,12 @@ description: Questa serie di esercitazioni illustra come usare Razor Pages in AS
 ms.author: riande
 ms.date: 11/12/2019
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: b651437b698d01310f90c5f14832616c1896e6c0
-ms.sourcegitcommit: 4e3edff24ba6e43a103fee1b126c9826241bb37b
+ms.openlocfilehash: 6e1d58ccd83f7d7c1083dc2bf9ce7476650812a1
+ms.sourcegitcommit: da2fb2d78ce70accdba903ccbfdcfffdd0112123
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74959099"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75723011"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Esercitazione: Introduzione all'uso di Razor Pages in ASP.NET Core
 
@@ -36,7 +36,7 @@ Alla fine di questa esercitazione si avrà un'app Web Razor Pages funzionante, c
 
 ![Pagina Home o di indice](razor-pages-start/_static/home2.2.png)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -56,7 +56,7 @@ Alla fine di questa esercitazione si avrà un'app Web Razor Pages funzionante, c
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Dal menu **File** di Visual Studio selezionare **Nuovo** > **Progetto**.
+* Scegliere **nuovo** > **progetto**dal menu **file** di Visual Studio.
 * Creare una nuova applicazione Web ASP.NET Core e selezionare **Avanti**.
   ![nuova applicazione Web ASP.NET Core](razor-pages-start/_static/np_2.1.png)
 * Denominare il progetto **RazorPagesMovie**. È importante denominare il progetto *RazorPagesMovie* in modo che gli spazi dei nomi corrispondano nell'operazione copia/incolla del codice.
@@ -92,26 +92,21 @@ Alla fine di questa esercitazione si avrà un'app Web Razor Pages funzionante, c
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
-* Selezionare **File** > **Nuova soluzione**.
+* Selezionare **File** > **nuova soluzione**.
 
 ![Nuova soluzione macOS](../first-mvc-app/start-mvc/_static/new_project_vsmac.png)
 
-* Selezionare **.NET Core** > **App** > **Applicazione Web** > **Avanti**.
+* Selezionare l' **applicazione Web** **.NET Core** > **app** > > **Avanti**.
 
   ![Finestra di dialogo Nuovo progetto di macOS](razor-pages-start/_static/webapp.png)
 
-* Nella finestra di dialogo **configurare la nuova ASP.NET Core API Web** impostare il **Framework di destinazione** su **.NET Core 3,1**.
+* Nella finestra di dialogo **Configura nuova applicazione Web** impostare il **Framework di destinazione** su **.NET Core 3,1**.
 
-  ![Selezione di .NET Core 3.0 per macOS](razor-pages-start/_static/targetframework3.png)
+  ![selezione di macOS .NET Core 3,1](razor-pages-start/_static/targetframework3.png)
 
 * Denominare il progetto **RazorPagesMovie**, quindi selezionare **Crea**.
 
   ![nameproj](razor-pages-start/_static/RazorPagesMovie.png)
-
-
-## <a name="open-the-project"></a>Aprire il progetto
-
-Da Visual Studio, selezionare **File > Apri**, quindi selezionare il file *RazorPagesMovie.csproj*.
 
 <!-- End of VS tabs -->
 
@@ -182,7 +177,7 @@ Alla fine di questa esercitazione si avrà un'app Web Razor Pages funzionante, c
 
 ![Pagina Home o di indice](razor-pages-start/_static/home2.2.png)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -202,7 +197,7 @@ Alla fine di questa esercitazione si avrà un'app Web Razor Pages funzionante, c
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Dal menu **File** di Visual Studio selezionare **Nuovo** > **Progetto**.
+* Scegliere **nuovo** > **progetto**dal menu **file** di Visual Studio.
 
 * Creare una nuova applicazione Web ASP.NET Core e selezionare **Avanti**.
 
@@ -242,19 +237,21 @@ Alla fine di questa esercitazione si avrà un'app Web Razor Pages funzionante, c
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
-Dal Terminale eseguire il comando seguente:
+* Selezionare **File** > **nuova soluzione**.
 
-<!-- TODO: update these instruction once mac support 2.2 projects -->
+![Nuova soluzione macOS](../first-mvc-app/start-mvc/_static/new_project_vsmac.png)
 
-```dotnetcli
-dotnet new webapp -o RazorPagesMovie
-```
+* Selezionare l' **applicazione Web** **.NET Core** > **app** > > **Avanti**.
 
-I comandi precedenti usano l'[interfaccia della riga di comando di .NET Core](/dotnet/core/tools/dotnet) per creare un progetto Razor Pages.
+  ![Finestra di dialogo Nuovo progetto di macOS](razor-pages-start/_static/webapp.png)
 
-## <a name="open-the-project"></a>Aprire il progetto
+* Nella finestra di dialogo **configurare la nuova ASP.NET Core API Web** impostare il **Framework di destinazione** su **.NET Core 3,1**.
 
-Da Visual Studio, selezionare **File > Apri**, quindi selezionare il file *RazorPagesMovie.csproj*.
+  ![Selezione di .NET Core 3.0 per macOS](razor-pages-start/_static/targetframework3.png)
+
+* Denominare il progetto **RazorPagesMovie**, quindi selezionare **Crea**.
+
+  ![nameproj](razor-pages-start/_static/RazorPagesMovie.png)
 
 <!-- End of VS tabs -->
 

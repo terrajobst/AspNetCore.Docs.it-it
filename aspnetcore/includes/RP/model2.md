@@ -6,7 +6,7 @@ Nel progetto RazorPagesMovie creare una nuova cartella denominata *Data*. Aggiun
 
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie30/Data/RazorPagesMovieContext.cs)]
 
-Il codice precedente crea una proprietà `DbSet` per il set di entità. Nella terminologia di Entity Framework, un set di entità corrisponde in genere alla tabella di un database e un'entità corrisponde a una riga della tabella.
+Il codice precedente crea una proprietà `DbSet` per il set di entità. Nella terminologia di Entity Framework, un set di entità corrisponde in genere alla tabella di un database e un'entità corrisponde a una riga della tabella. Il codice non verrà compilato fino a quando le dipendenze non verranno aggiunte in un passaggio successivo.
 
 <a name="cs"></a>
 

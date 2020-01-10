@@ -5,12 +5,12 @@ description: Informazioni sull'uso di SQL Server LocalDB o SQLite in un'app ASP.
 ms.author: riande
 ms.date: 8/16/2019
 uid: tutorials/first-mvc-app/working-with-sql
-ms.openlocfilehash: de392f4220cf0182d02a20f387164d2f4b184b58
-ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
+ms.openlocfilehash: d556f07111fb2022a1c2f1a066459566e302835d
+ms.sourcegitcommit: da2fb2d78ce70accdba903ccbfdcfffdd0112123
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72289088"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75722771"
 ---
 # <a name="work-with-sql-in-aspnet-core"></a>Usare SQL in ASP.NET Core
 
@@ -78,7 +78,7 @@ Creare una nuova classe denominata `SeedData` nella cartella *Models*. Sostituir
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Models/SeedData.cs?name=snippet_1)]
 
-Se sono presenti eventuali film nel database, l'inizializzatore di valore viene restituito e non vengono aggiunti film.
+Se sono presenti eventuali film nel database, l'inizializzatore del valore di inizializzazione viene restituito e non vengono aggiunti film.
 
 ```csharp
 if (context.Movie.Any())
@@ -95,7 +95,7 @@ Sostituire il contenuto di *Program.cs* con il codice seguente:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie3/Program.cs)]
 
-Eseguire il test dell'applicazione
+Eseguire il test dell'app
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -190,7 +190,7 @@ Creare una nuova classe denominata `SeedData` nella cartella *Models*. Sostituir
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Models/SeedData.cs?name=snippet_1)]
 
-Se sono presenti eventuali film nel database, l'inizializzatore di valore viene restituito e non vengono aggiunti film.
+Se sono presenti eventuali film nel database, l'inizializzatore del valore di inizializzazione viene restituito e non vengono aggiunti film.
 
 ```csharp
 if (context.Movie.Any())
@@ -207,7 +207,7 @@ Sostituire il contenuto di *Program.cs* con il codice seguente:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Program.cs)]
 
-Eseguire il test dell'applicazione
+Eseguire il test dell'app
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -231,7 +231,7 @@ Eliminare tutti i record del database; verrà quindi eseguito il metodo di inizi
 
 L'app mostra i dati inizializzati.
 
-![App per i film MVC aperta in Microsoft Edge con i dati sui film](working-with-sql/_static/m55.png)
+![App per i film MVC aperta in Microsoft Edge con i dati sui film](working-with-sql/_static/m55_mac.png)
 
 > [!div class="step-by-step"]
 > [Precedente](adding-model.md)
