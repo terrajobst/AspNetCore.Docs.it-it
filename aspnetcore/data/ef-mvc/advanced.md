@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Informazioni sugli scenari avanzati - ASP.NET MVC con EF Core'
+title: 'Esercitazione: informazioni sugli scenari avanzati-MVC ASP.NET con EF Core'
 description: Questa esercitazione presenta argomenti utili dopo aver appreso le nozioni di base sullo sviluppo di applicazioni Web ASP.NET Core che usano Entity Framework Core.
 author: rick-anderson
 ms.author: riande
@@ -7,14 +7,14 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: d4a2aad6d93cc9a53c730323620de59fead6d5ab
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: abea9b189861954533b24cb73650af41952d1a86
+ms.sourcegitcommit: 57b85708f4cded99b8f008a69830cb104cd8e879
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259597"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75914120"
 ---
-# <a name="tutorial-learn-about-advanced-scenarios---aspnet-mvc-with-ef-core"></a>Esercitazione: Informazioni sugli scenari avanzati - ASP.NET MVC con EF Core
+# <a name="tutorial-learn-about-advanced-scenarios---aspnet-mvc-with-ef-core"></a>Esercitazione: informazioni sugli scenari avanzati-MVC ASP.NET con EF Core
 
 Nell'esercitazione precedente è stata implementata l'ereditarietà tabella per gerarchia. Questa esercitazione presenta diversi argomenti che è utile tenere presente dopo aver appreso le nozioni di base sullo sviluppo di applicazioni Web ASP.NET Core che usano Entity Framework Core.
 
@@ -73,7 +73,7 @@ Aggiungere un'istruzione using:
 
 Eseguire l'app e passare alla pagina About. Vengono visualizzati gli stessi dati visualizzati in precedenza.
 
-![Pagina About](advanced/_static/about.png)
+![Pagina About (Informazioni)](advanced/_static/about.png)
 
 ## <a name="call-an-update-query"></a>Chiamare una query di aggiornamento
 
@@ -109,7 +109,7 @@ Fare clic su **Aggiorna**. Viene visualizzato il numero di righe interessate:
 
 Fare clic su **Torna all'elenco** per visualizzare l'elenco dei corsi con il numero di crediti modificato.
 
-Tenere presente che il codice di produzione assicurerà che gli aggiornamenti restituiscano sempre dati validi. Il codice semplificato illustrato potrebbe moltiplicare il numero di crediti e restituire numeri maggiori di 5. (La proprietà `Credits` ha un attributo `[Range(0, 5)]`). La query di aggiornamento funzionerebbe ma i dati non validi potrebbero causare risultati non previsti in altre parti del sistema che presuppongono che il numero di crediti sia 5 o un numero minore.
+Tenere presente che il codice di produzione assicurerà che gli aggiornamenti restituiscano sempre dati validi. Il codice semplificato illustrato potrebbe moltiplicare il numero di crediti e restituire numeri maggiori di 5. (La proprietà `Credits` dispone di un attributo `[Range(0, 5)]`). La query di aggiornamento funzionerebbe ma i dati non validi potrebbero provocare risultati imprevisti in altre parti del sistema che presuppongono che il numero di crediti sia pari o inferiore a 5.
 
 Per altre informazioni sulle query SQL non elaborate, vedere [Query SQL non elaborate](/ef/core/querying/raw-sql).
 
@@ -173,7 +173,7 @@ Entity Framework determina come è stata modificata un'entità (e di conseguenza
 
 * ChangeTracker.Entries
 
-Se viene registrato un numero elevato di entità e uno solo di questi metodi viene chiamato più volte in un ciclo, è possibile ottenere miglioramenti significativi delle prestazioni disattivando temporaneamente il rilevamento automatico delle modifiche usando la proprietà `ChangeTracker.AutoDetectChangesEnabled`. Esempio:
+Se viene registrato un numero elevato di entità e uno solo di questi metodi viene chiamato più volte in un ciclo, è possibile ottenere miglioramenti significativi delle prestazioni disattivando temporaneamente il rilevamento automatico delle modifiche usando la proprietà `ChangeTracker.AutoDetectChangesEnabled`. Ad esempio:
 
 ```csharp
 _context.ChangeTracker.AutoDetectChangesEnabled = false;
@@ -181,7 +181,7 @@ _context.ChangeTracker.AutoDetectChangesEnabled = false;
 
 ## <a name="ef-core-source-code-and-development-plans"></a>Codice sorgente e piani di sviluppo di EF Core
 
-Il codice sorgente di Entity Framework Core è disponibile in [https://github.com/aspnet/EntityFrameworkCore](https://github.com/aspnet/EntityFrameworkCore). Il repository di EF Core contiene le compilazioni notturne, la gestione dei problemi, le specifiche delle funzionalità, le note delle riunioni di progettazione e [la roadmap per lo sviluppo futuro](https://github.com/aspnet/EntityFrameworkCore/wiki/Roadmap). È possibile archiviare o individuare i bug e contribuire.
+Il codice sorgente di Entity Framework Core è disponibile in [https://github.com/dotnet/efcore](https://github.com/dotnet/efcore). Il repository di EF Core contiene le compilazioni notturne, la gestione dei problemi, le specifiche delle funzionalità, le note delle riunioni di progettazione e [la roadmap per lo sviluppo futuro](https://github.com/dotnet/efcore/wiki/Roadmap). È possibile archiviare o individuare i bug e contribuire.
 
 Sebbene il codice sorgente sia disponibile, Entity Framework Core è completamente supportato come prodotto Microsoft. Il team di Microsoft Entity Framework controlla i contributi accettati ed esegue il test di tutte le modifiche al codice per garantire la qualità di ogni rilascio.
 
@@ -227,7 +227,7 @@ Eseguire il comando `migrations remove`, salvare le modifiche al codice e rieseg
 
 ### <a name="errors-while-running-database-update"></a>Errori durante l'esecuzione dell'aggiornamento del database
 
-Quando si apportano modifiche allo schema in un database con dati esistenti è possibile che si verifichino altri errori. Se si verificano errori di migrazione che non si riesce a risolvere, è possibile modificare il nome del database nella stringa di connessione o eliminare il database. Un nuovo database non contiene dati di cui eseguire la migrazione e ci sono maggiori probabilità che il comando update-database venga completato senza errori.
+Quando si apportano modifiche allo schema in un database con dati esistenti è possibile che si riscontrino altri errori. Se si verificano errori di migrazione che non si riesce a risolvere, è possibile modificare il nome del database nella stringa di connessione o eliminare il database. Un nuovo database non contiene dati di cui eseguire la migrazione e ci sono maggiori probabilità che il comando update-database venga completato senza errori.
 
 L'approccio più semplice consiste nel rinominare il database in *appsettings.json*. Alla successiva esecuzione di `database update`, verrà creato un nuovo database.
 
@@ -243,7 +243,7 @@ dotnet ef database drop
 
 Messaggio di errore:
 
-> Si è verificato un errore di rete o specifico dell'istanza mentre si cercava di stabilire una connessione con SQL Server. Il server non è stato trovato o non è accessibile. Verificare che il nome dell'istanza sia corretto e che SQL Server sia configurato in modo da consentire connessioni remote. (provider: Interfacce di rete SQL, errore: 26 - Errore nell'individuazione del server/dell'istanza specificati)
+> Si è verificato un errore di rete o specifico dell'istanza mentre si cercava di stabilire una connessione con SQL Server. Il server non è stato trovato o non è accessibile. Verificare che il nome dell'istanza sia corretto e che SQL Server sia configurato in modo da consentire connessioni remote. (provider: interfacce di rete SQL, errore: 26 - Errore nell'individuazione del server/dell'istanza specificata)
 
 Soluzione:
 
@@ -255,7 +255,7 @@ Controllare la stringa di connessione. Se il file di database è stato eliminato
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-Per altre informazioni su EF Core, vedere la [documentazione di Entity Framework Core](/ef/core). È disponibile anche un libro: [Entity Framework Core in Action](https://www.manning.com/books/entity-framework-core-in-action).
+Per altre informazioni su EF Core, vedere la [documentazione di Entity Framework Core](/ef/core). È disponibile anche il libro [Entity Framework Core in Action](https://www.manning.com/books/entity-framework-core-in-action).
 
 Per informazioni su come distribuire un'app Web, vedere <xref:host-and-deploy/index>.
 

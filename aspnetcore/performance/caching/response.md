@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 11/04/2019
 uid: performance/caching/response
-ms.openlocfilehash: 9246305e6979a6a7e006f567ee6bf9569029aef1
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: e20c197c7ce3334d4f4f0b917d1fc94174e6c615
+ms.sourcegitcommit: 57b85708f4cded99b8f008a69830cb104cd8e879
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828308"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75914193"
 ---
 # <a name="response-caching-in-aspnet-core"></a>Memorizzazione nella cache delle risposte in ASP.NET Core
 
@@ -66,7 +66,7 @@ Per ulteriori informazioni, vedere <xref:performance/caching/memory>.
 
 ### <a name="distributed-cache"></a>Cache distribuita
 
-Usare una cache distribuita per archiviare i dati in memoria quando l'app è ospitata in un cloud o in server farm. La cache è condivisa tra i server che elaborano le richieste. Un client può inviare una richiesta gestita da qualsiasi server del gruppo se sono disponibili dati memorizzati nella cache per il client. ASP.NET Core offre cache distribuite SQL Server e Redis.
+Usare una cache distribuita per archiviare i dati in memoria quando l'app è ospitata in un cloud o in server farm. La cache è condivisa tra i server che elaborano le richieste. Un client può inviare una richiesta gestita da qualsiasi server del gruppo se sono disponibili dati memorizzati nella cache per il client. ASP.NET Core funziona con le cache distribuite SQL Server, [Redis](https://www.nuget.org/packages/Microsoft.Extensions.Caching.StackExchangeRedis)e [NCache](https://www.nuget.org/packages/Alachisoft.NCache.OpenSource.SDK/) .
 
 Per ulteriori informazioni, vedere <xref:performance/caching/distributed>.
 
@@ -78,7 +78,7 @@ Per ulteriori informazioni, vedere <xref:mvc/views/tag-helpers/builtin-th/cache-
 
 ### <a name="distributed-cache-tag-helper"></a>Helper tag di cache distribuita
 
-Memorizzare nella cache il contenuto da una visualizzazione MVC o da una pagina Razor in scenari cloud distribuiti o Web farm con l'helper tag di cache distribuita. L'helper tag di cache distribuita usa SQL Server o Redis per archiviare i dati.
+Memorizzare nella cache il contenuto da una visualizzazione MVC o da una pagina Razor in scenari cloud distribuiti o Web farm con l'helper tag di cache distribuita. L'helper tag di cache distribuita usa SQL Server, [Redis](https://www.nuget.org/packages/Microsoft.Extensions.Caching.StackExchangeRedis)o [NCache](https://www.nuget.org/packages/Alachisoft.NCache.OpenSource.SDK/) per archiviare i dati.
 
 Per ulteriori informazioni, vedere <xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>.
 
