@@ -9,12 +9,12 @@ ms.date: 12/09/2019
 no-loc:
 - Blazor
 uid: blazor/get-started
-ms.openlocfilehash: e368ecaf931d392de7e52ec2d5a2dfd171c2c86f
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: 554f4daff92a0839ee7679287a4618e9b51e0fe5
+ms.sourcegitcommit: 925cdbd94613243f33bc7613a62ea34006219931
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74943765"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921300"
 ---
 # <a name="get-started-with-aspnet-core-opno-locblazor"></a>Introduzione a ASP.NET Core Blazor
 
@@ -30,7 +30,7 @@ Introduzione a Blazor:
 
 1. Facoltativamente, installare il modello di [Blazor webassembly](xref:blazor/hosting-models#blazor-webassembly) :
    * Installare [.NET Core 3,1 o versione successiva (anteprima) SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1).
-   * Eseguire il comando seguente in una shell dei comandi. [Microsoft. AspNetCore.Blazor. ](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.Templates/)Il pacchetto di modelli include una versione di anteprima mentre Blazor webassembly è in anteprima.
+   * Eseguire il comando seguente in una shell dei comandi. [Microsoft.AspNetCore.Blazor.](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.Templates/)Il pacchetto di modelli include una versione di anteprima mentre Blazor webassembly è in anteprima.
 
    ```dotnetcli
    dotnet new -i Microsoft.AspNetCore.Blazor.Templates::3.1.0-preview4.19579.2
@@ -44,11 +44,11 @@ Introduzione a Blazor:
 
    2 \. Creare un nuovo progetto.
 
-   3 \. Selezionare **Blazor app**. Selezionare **Avanti**.
+   3 \. Selezionare **Blazor app**. Scegliere **Avanti**.
 
-   4 \. Specificare il nome di un progetto nel campo **Nome progetto** oppure accettare il nome predefinito. Confermare che la voce relativa al **percorso** sia corretta o specificare un percorso per il progetto. Selezionare **Create**.
+   4 \. Specificare il nome di un progetto nel campo **Nome progetto** oppure accettare il nome predefinito. Confermare che la voce relativa al **percorso** sia corretta o specificare un percorso per il progetto. Scegliere **Crea**.
 
-   5 \. Per un'esperienza Blazor webassembly, scegliere il modello **app webassemblyBlazor** . Per un'esperienza di Blazor server, scegliere il modello **app serverBlazor** . Selezionare **Create**. Per informazioni sui due modelli di hosting Blazor, *Blazor server* e *Blazor webassembly*, vedere <xref:blazor/hosting-models>.
+   5 \. Per un'esperienza Blazor webassembly, scegliere il modello **app webassemblyBlazor** . Per un'esperienza di Blazor server, scegliere il modello **app serverBlazor** . Scegliere **Crea**. Per informazioni sui due modelli di hosting Blazor, *Blazor server* e *Blazor webassembly*, vedere <xref:blazor/hosting-models>.
 
    6 \. Premere **CTRL**+**F5** per eseguire l'app.
 
@@ -85,7 +85,7 @@ Introduzione a Blazor:
 
    # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
-   1 \. Installare [Visual Studio per Mac](https://visualstudio.microsoft.com/vs/mac/). [Consente di impostare l'anteprima del canale di aggiornamento](/visualstudio/mac/install-preview).
+   1 \. Installare [Visual Studio per Mac](https://visualstudio.microsoft.com/vs/mac/).
 
    2 \. Selezionare **File** > **nuova soluzione** o creare un **nuovo progetto**.
 
@@ -97,7 +97,7 @@ Introduzione a Blazor:
 
    5 \. Impostare il **Framework di destinazione** su **.NET Core 3,1** e selezionare **Avanti**.
 
-   6 \. Nel campo **nome progetto** assegnare un nome all'app `WebApplication1`. Selezionare **Create**.
+   6 \. Nel campo **nome progetto** assegnare un nome all'app `WebApplication1`. Scegliere **Crea**.
 
    7 \. Selezionare **esegui** > **Esegui senza eseguire debug** per eseguire l'app *senza il debugger*. Eseguire l'app con **Avvia debug** per eseguire l'app *con il debugger*.
 
@@ -135,7 +135,8 @@ Introduzione a Blazor:
 
 1. Facoltativamente, installare il modello di [Blazor webassembly](xref:blazor/hosting-models#blazor-webassembly) :
    * Installare [.NET Core 3,1 o versione successiva (anteprima) SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1).
-   * Eseguire il comando seguente in una shell dei comandi. [Microsoft. AspNetCore.Blazor. ](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.Templates/)Il pacchetto di modelli include una versione di anteprima mentre Blazor webassembly è in anteprima.
+   * Eseguire il comando seguente in una shell dei comandi. [Microsoft.AspNetCore.Blazor.](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.Templates/)Il pacchetto di modelli include una versione di anteprima mentre Blazor webassembly è in anteprima.
+
 
    ```dotnetcli
    dotnet new -i Microsoft.AspNetCore.Blazor.Templates::3.1.0-preview4.19579.2
@@ -151,11 +152,11 @@ Introduzione a Blazor:
 
    3 \. Creare un nuovo progetto.
 
-   4 \. Selezionare **Blazor app**. Selezionare **Avanti**.
+   4 \. Selezionare **Blazor app**. Scegliere **Avanti**.
 
-   5 \. Specificare il nome di un progetto nel campo **Nome progetto** oppure accettare il nome predefinito. Confermare che la voce relativa al **percorso** sia corretta o specificare un percorso per il progetto. Selezionare **Create**.
+   5 \. Specificare il nome di un progetto nel campo **Nome progetto** oppure accettare il nome predefinito. Confermare che la voce relativa al **percorso** sia corretta o specificare un percorso per il progetto. Scegliere **Crea**.
 
-   6 \. Per un'esperienza Blazor webassembly, scegliere il modello **app webassemblyBlazor** . Per un'esperienza di Blazor server, scegliere il modello **app serverBlazor** . Selezionare **Create**. Per informazioni sui due modelli di hosting Blazor, *Blazor server* e *Blazor webassembly*, vedere <xref:blazor/hosting-models>.
+   6 \. Per un'esperienza Blazor webassembly, scegliere il modello **app webassemblyBlazor** . Per un'esperienza di Blazor server, scegliere il modello **app serverBlazor** . Scegliere **Crea**. Per informazioni sui due modelli di hosting Blazor, *Blazor server* e *Blazor webassembly*, vedere <xref:blazor/hosting-models>.
 
    7 \. Premere **F5** per eseguire l'app.
 
@@ -204,7 +205,7 @@ Introduzione a Blazor:
 
    5 \. Impostare il **Framework di destinazione** su **.NET Core 3,0** e selezionare **Avanti**.
 
-   6 \. Nel campo **nome progetto** assegnare un nome all'app `WebApplication1`. Selezionare **Create**.
+   6 \. Nel campo **nome progetto** assegnare un nome all'app `WebApplication1`. Scegliere **Crea**.
 
    7 \. Selezionare **esegui** > **Esegui senza eseguire debug** per eseguire l'app *senza il debugger*. Eseguire l'app con **Avvia debug** per eseguire l'app *con il debugger*.
 
@@ -238,7 +239,7 @@ Introduzione a Blazor:
 
 Nelle schede della barra laterale sono disponibili più pagine:
 
-* Home
+* Home page di
 * Counter
 * Recuperare i dati
 
@@ -253,7 +254,7 @@ Una richiesta di `/counter` nel browser, come specificato dalla direttiva `@page
 Ogni volta che viene selezionato il pulsante **Click me** :
 
 * Viene generato l'evento `onclick`.
-* Viene chiamato il metodo `IncrementCount` .
+* Viene chiamato il metodo `IncrementCount`.
 * Il `currentCount` viene incrementato.
 * Il rendering del componente viene eseguito nuovamente.
 
