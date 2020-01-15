@@ -5,14 +5,14 @@ description: Informazioni su come diagnosticare i problemi relativi alle distrib
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/20/2019
+ms.date: 01/10/2020
 uid: test/troubleshoot-azure-iis
-ms.openlocfilehash: b0f5d44f153a095a6108a12ee91f4cc46fe0a0de
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 23c90c33d197d26d1c4ad758449e318e20ef3760
+ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829010"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75952147"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service-and-iis"></a>Risolvere i problemi relativi a ASP.NET Core in app Azure servizio e IIS
 
@@ -433,7 +433,7 @@ Per altre informazioni, vedere [Abilitare la registrazione diagnostica per le ap
 
 Accedere al log eventi dell'applicazione:
 
-1. Aprire il menu Start, cercare **Visualizzatore eventi** e quindi selezionare l'app **Visualizzatore eventi**.
+1. Aprire il menu Start, cercare *Visualizzatore eventi*e selezionare l'app **Visualizzatore eventi** .
 1. In **Visualizzatore eventi** aprire il nodo **Registri di Windows**.
 1. Selezionare **Applicazione** per aprire il log eventi dell'applicazione.
 1. Cercare gli errori associati all'app in cui si è verificato il problema. Gli errori presentano un valore *Modulo AspNetCore IIS* o *Modulo AspNetCore IIS Express* nella colonna *Origine*.
@@ -597,10 +597,10 @@ Quando un'app si *blocca* (smette di rispondere ma non si arresta in modo anomal
 
 ## <a name="clear-package-caches"></a>Cancella cache di pacchetti
 
-A volte un'app funzionante ha esito negativo immediatamente dopo l'aggiornamento del .NET Core SDK nel computer di sviluppo o la modifica delle versioni del pacchetto all'interno dell'app. In alcuni casi i pacchetti incoerenti possono interrompere un'app quando si eseguono aggiornamenti principali. La maggior parte di questi problemi può essere risolta attenendosi alle istruzioni seguenti:
+Un'app funzionante potrebbe non riuscire immediatamente dopo l'aggiornamento del .NET Core SDK nel computer di sviluppo o la modifica delle versioni del pacchetto all'interno dell'app. In alcuni casi i pacchetti incoerenti possono interrompere un'app quando si eseguono aggiornamenti principali. La maggior parte di questi problemi può essere risolta attenendosi alle istruzioni seguenti:
 
 1. Eliminare le cartelle *bin* e *obj*.
-1. Per cancellare le cache dei pacchetti, è necessario eseguire `dotnet nuget locals all --clear` da una shell dei comandi.
+1. Cancellare le cache dei pacchetti eseguendo [le impostazioni locali di DotNet NuGet All--Clear](/dotnet/core/tools/dotnet-nuget-locals) da una shell dei comandi.
 
    La cancellazione delle cache dei pacchetti può essere eseguita anche con lo strumento [NuGet. exe](https://www.nuget.org/downloads) ed eseguendo il comando `nuget locals all -clear`. *nuget.exe* non è un'installazione inclusa con il sistema operativo desktop Windows e deve essere ottenuta separatamente dal [sito Web NuGet](https://www.nuget.org/downloads).
 

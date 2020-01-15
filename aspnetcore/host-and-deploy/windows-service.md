@@ -5,14 +5,14 @@ description: Informazioni su come ospitare un'app ASP.NET Core in un servizio Wi
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/30/2019
+ms.date: 01/13/2020
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 014585cd1e170fc94f7f577e11ec19824e54572f
-ms.sourcegitcommit: 6628cd23793b66e4ce88788db641a5bbf470c3c1
+ms.openlocfilehash: 37fc0b7862db3280f9ade8d563feba28153ab79b
+ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73659864"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75951833"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Ospitare ASP.NET Core in un servizio Windows
 
@@ -22,7 +22,7 @@ Di [Luke Latham](https://github.com/guardrex)
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/windows-service/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * [ASP.NET Core SDK 2.1 o versione successiva](https://dotnet.microsoft.com/download)
 * [PowerShell 6.2 o versione successiva](https://github.com/PowerShell/PowerShell)
@@ -49,7 +49,7 @@ L'app richiede un riferimento al pacchetto per [Microsoft. Extensions. Hosting. 
 `IHostBuilder.UseWindowsService` viene chiamato durante la compilazione dell'host. Se l'app è in esecuzione come servizio di Windows, il metodo:
 
 * Imposta la durata dell'host su `WindowsServiceLifetime`.
-* Imposta la [radice del contenuto](xref:fundamentals/index#content-root).
+* Imposta la [radice del contenuto](xref:fundamentals/index#content-root) su [AppContext. BaseDirectory](xref:System.AppContext.BaseDirectory). Per altre informazioni, vedere la sezione [Directory corrente e radice del contenuto](#current-directory-and-content-root).
 * Abilita la registrazione nel log eventi con il nome dell'applicazione come nome di origine predefinito.
   * Il livello di registrazione può essere configurato con la chiave `Logging:LogLevel:Default` nel file *appsettings.Production.json*.
   * Solo gli amministratori possono creare nuove origini eventi. Quando non è possibile creare un'origine evento usando il nome dell'applicazione, viene registrato un avviso nell'origine *Applicazione* e i log eventi vengono disabilitati.
@@ -196,13 +196,13 @@ Per creare un account utente per un servizio, usare il cmdlet [New-LocalUser](/p
 In Aggiornamento di Windows 10 (ottobre 2018) (versione 1809/build 10.0.17763) o versioni successive:
 
 ```PowerShell
-New-LocalUser -Name {NAME}
+New-LocalUser -Name {SERVICE NAME}
 ```
 
 In un sistema operativo Windows precedente ad Aggiornamento di Windows 10 (ottobre 2018) (versione 1809/build 10.0.17763):
 
 ```console
-powershell -Command "New-LocalUser -Name {NAME}"
+powershell -Command "New-LocalUser -Name {SERVICE NAME}"
 ```
 
 Fornire una [password complessa](/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements) quando richiesto.
@@ -239,22 +239,22 @@ $accessRule = New-Object System.Security.AccessControl.FileSystemAccessRule($acl
 $acl.SetAccessRule($accessRule)
 $acl | Set-Acl "{EXE PATH}"
 
-New-Service -Name {NAME} -BinaryPathName {EXE FILE PATH} -Credential {DOMAIN OR COMPUTER NAME\USER} -Description "{DESCRIPTION}" -DisplayName "{DISPLAY NAME}" -StartupType Automatic
+New-Service -Name {SERVICE NAME} -BinaryPathName {EXE FILE PATH} -Credential {DOMAIN OR COMPUTER NAME\USER} -Description "{DESCRIPTION}" -DisplayName "{DISPLAY NAME}" -StartupType Automatic
 ```
 
-* `{EXE PATH}` &ndash; Percorso della cartella dell'app nell'host (ad esempio `d:\myservice`). Non includere l'eseguibile dell'app nel percorso. Non è necessario aggiungere una barra finale.
-* `{DOMAIN OR COMPUTER NAME\USER}` &ndash; Account utente del servizio (ad esempio `Contoso\ServiceUser`).
-* `{NAME}` &ndash; Nome del servizio (ad esempio `MyService`).
-* `{EXE FILE PATH}` &ndash; Percorso dell'eseguibile dell'app (ad esempio `d:\myservice\myservice.exe`). Includere il nome del file eseguibile con l'estensione.
-* `{DESCRIPTION}` &ndash; Descrizione del servizio (ad esempio `My sample service`).
-* `{DISPLAY NAME}` &ndash; Nome visualizzato del servizio (ad esempio `My Service`).
+* `{EXE PATH}` &ndash; percorso alla cartella dell'app nell'host, ad esempio `d:\myservice`. Non includere l'eseguibile dell'app nel percorso. Non è necessario aggiungere una barra finale.
+* `{DOMAIN OR COMPUTER NAME\USER}` &ndash; account utente del servizio, ad esempio `Contoso\ServiceUser`.
+* `{SERVICE NAME}` &ndash; nome del servizio (ad esempio, `MyService`).
+* `{EXE FILE PATH}` &ndash; percorso eseguibile dell'app, ad esempio `d:\myservice\myservice.exe`. Includere il nome del file eseguibile con l'estensione.
+* `{DESCRIPTION}` Descrizione del servizio &ndash;, ad esempio `My sample service`.
+* `{DISPLAY NAME}` nome visualizzato del servizio &ndash;, ad esempio `My Service`.
 
 ### <a name="start-a-service"></a>Avviare un servizio
 
 Per avviare un servizio, usare il comando di PowerShell 6 seguente:
 
 ```powershell
-Start-Service -Name {NAME}
+Start-Service -Name {SERVICE NAME}
 ```
 
 L'avvio del servizio richiede alcuni secondi.
@@ -264,7 +264,7 @@ L'avvio del servizio richiede alcuni secondi.
 Per verificare lo stato di un servizio, usare il comando di PowerShell 6 seguente:
 
 ```powershell
-Get-Service -Name {NAME}
+Get-Service -Name {SERVICE NAME}
 ```
 
 Lo stato viene indicato con uno dei valori seguenti:
@@ -279,7 +279,7 @@ Lo stato viene indicato con uno dei valori seguenti:
 Per arrestare un servizio, usare il comando di PowerShell 6 seguente:
 
 ```powershell
-Stop-Service -Name {NAME}
+Stop-Service -Name {SERVICE NAME}
 ```
 
 ### <a name="remove-a-service"></a>Rimuovere un servizio
@@ -287,7 +287,7 @@ Stop-Service -Name {NAME}
 Dopo il breve lasso di tempo necessario per arrestare un servizio, rimuovere il servizio con il comando di PowerShell 6 seguente:
 
 ```powershell
-Remove-Service -Name {NAME}
+Remove-Service -Name {SERVICE NAME}
 ```
 
 ::: moniker range="< aspnetcore-3.0"
@@ -342,6 +342,16 @@ La directory di lavoro corrente restituita chiamando <xref:System.IO.Directory.G
 
 Usare [IHostEnvironment.ContentRootPath](xref:Microsoft.Extensions.Hosting.IHostEnvironment.ContentRootPath) o <xref:Microsoft.Extensions.Hosting.IHostEnvironment.ContentRootFileProvider> per individuare le risorse di un'app.
 
+Quando l'app viene eseguita come servizio, <xref:Microsoft.Extensions.Hosting.WindowsServiceLifetimeHostBuilderExtensions.UseWindowsService*> imposta l'<xref:Microsoft.Extensions.Hosting.IHostEnvironment.ContentRootPath> su [AppContext. BaseDirectory](xref:System.AppContext.BaseDirectory).
+
+File di impostazioni predefinite dell'app, *appSettings. JSON* e *appSettings. { Environment}. JSON*, viene caricato dalla radice del contenuto dell'app chiamando [CreateDefaultBuilder durante la costruzione dell'host](xref:fundamentals/host/generic-host#set-up-a-host).
+
+Per gli altri file di impostazioni caricati dal codice dello sviluppatore in <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*>, non è necessario chiamare <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>. Nell'esempio seguente il file *custom_settings. JSON* esiste nella radice del contenuto dell'app e viene caricato senza impostare esplicitamente un percorso di base:
+
+[!code-csharp[](windows-service/samples_snapshot/CustomSettingsExample.cs?highlight=13)]
+
+Non tentare di usare <xref:System.IO.Directory.GetCurrentDirectory*> per ottenere un percorso di risorsa perché un'app di servizio Windows restituisce la cartella *C:\\Windows\\system32* come directory corrente.
+
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
@@ -367,6 +377,83 @@ CreateWebHostBuilder(args)
 ### <a name="store-a-services-files-in-a-suitable-location-on-disk"></a>Archiviare i file di un servizio in un percorso appropriato nel disco
 
 Specificare un percorso assoluto con <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> quando si usa un <xref:Microsoft.Extensions.Configuration.IConfigurationBuilder> per la cartella contenente i file.
+
+## <a name="troubleshoot"></a>Risolvere i problemi
+
+Per risolvere i problemi relativi a un'app di servizio Windows, vedere <xref:test/troubleshoot>.
+
+### <a name="common-errors"></a>Errori comuni
+
+* È in uso una versione precedente o provvisoria di PowerShell.
+* Il servizio registrato non usa l'output **pubblicato** dell'app dal comando [DotNet Publish](/dotnet/core/tools/dotnet-publish) . L'output del comando [DotNet Build](/dotnet/core/tools/dotnet-build) non è supportato per la distribuzione di app. Gli asset pubblicati si trovano in una delle cartelle seguenti, a seconda del tipo di distribuzione:
+  * *bin/Release/{Target Framework}/Publish* (FDD)
+  * *bin/Release/{Target Framework}/{Runtime Identifier}/Publish* (SCD)
+* Il servizio non è nello stato in esecuzione.
+* I percorsi delle risorse utilizzate dall'app, ad esempio i certificati, non sono corretti. Il percorso di base di un servizio Windows è *c:\\Windows\\system32*.
+* L'utente non dispone *di diritti di accesso come servizio* .
+* La password dell'utente è scaduta o non è stata passata correttamente durante l'esecuzione del comando `New-Service` PowerShell.
+* L'app richiede l'autenticazione ASP.NET Core ma non è configurata per le connessioni protette (HTTPS).
+* La porta dell'URL della richiesta non è corretta o non è configurata correttamente nell'app.
+
+### <a name="system-and-application-event-logs"></a>Log eventi di sistema e dell'applicazione
+
+Accedere ai registri eventi di sistema e dell'applicazione:
+
+1. Aprire il menu Start, cercare *Visualizzatore eventi*e selezionare l'app **Visualizzatore eventi** .
+1. In **Visualizzatore eventi** aprire il nodo **Registri di Windows**.
+1. Selezionare **sistema** per aprire il registro eventi di sistema. Selezionare **Applicazione** per aprire il log eventi dell'applicazione.
+1. Cercare gli errori associati all'app in cui si è verificato il problema.
+
+### <a name="run-the-app-at-a-command-prompt"></a>Eseguire l'app da un prompt dei comandi
+
+Molti errori di avvio non producono informazioni utili nei log eventi. È possibile individuare la causa di alcuni errori eseguendo l'app da un prompt dei comandi nel sistema host. Per registrare dettagli aggiuntivi dall'app, abbassare il [livello di registrazione](xref:fundamentals/logging/index#log-level) o eseguire l'app nell' [ambiente di sviluppo](xref:fundamentals/environments).
+
+### <a name="clear-package-caches"></a>Cancella cache di pacchetti
+
+Un'app funzionante potrebbe non riuscire immediatamente dopo l'aggiornamento del .NET Core SDK nel computer di sviluppo o la modifica delle versioni del pacchetto all'interno dell'app. In alcuni casi i pacchetti incoerenti possono interrompere un'app quando si eseguono aggiornamenti principali. La maggior parte di questi problemi può essere risolta attenendosi alle istruzioni seguenti:
+
+1. Eliminare le cartelle *bin* e *obj*.
+1. Cancellare le cache dei pacchetti eseguendo [le impostazioni locali di DotNet NuGet All--Clear](/dotnet/core/tools/dotnet-nuget-locals) da una shell dei comandi.
+
+   La cancellazione delle cache dei pacchetti può essere eseguita anche con lo strumento [NuGet. exe](https://www.nuget.org/downloads) ed eseguendo il comando `nuget locals all -clear`. *nuget.exe* non è un'installazione inclusa con il sistema operativo desktop Windows e deve essere ottenuta separatamente dal [sito Web NuGet](https://www.nuget.org/downloads).
+
+1. Ripristinare e ricompilare il progetto.
+1. Eliminare tutti i file nella cartella di distribuzione nel server prima di ridistribuire l'app.
+
+### <a name="slow-or-hanging-app"></a>App lenta o bloccata
+
+Un *dump di arresto anomalo* del sistema è uno snapshot della memoria del sistema e può contribuire a determinare la provocazione di un arresto anomalo dell'app, dell'avvio o dell'applicazione lenta.
+
+#### <a name="app-crashes-or-encounters-an-exception"></a>Arresto anomalo o eccezione di un'app
+
+Ottenere e analizzare un dump da [Segnalazione errori Windows](/windows/desktop/wer/windows-error-reporting):
+
+1. Creare una cartella per i file dump di arresto anomalo del sistema in `c:\dumps`.
+1. Eseguire lo [script di PowerShell EnableDumps](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/host-and-deploy/windows-service/scripts/EnableDumps.ps1) con il nome dell'eseguibile dell'applicazione:
+
+   ```console
+   .\EnableDumps {APPLICATION EXE} c:\dumps
+   ```
+
+1. Eseguire l'app nelle condizioni che causano l'arresto anomalo.
+1. Dopo che si è verificato l'arresto anomalo, eseguire lo [script di PowerShell DisableDumps](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/host-and-deploy/windows-service/scripts/DisableDumps.ps1):
+
+   ```console
+   .\DisableDumps {APPLICATION EXE}
+   ```
+
+Dopo l'arresto anomalo di un'app e la raccolta dei dump, l'app può terminare normalmente. Lo script di PowerShell configura Segnalazione errori Windows per raccogliere fino a cinque dump per ogni app.
+
+> [!WARNING]
+> I dump di arresto anomalo del sistema potrebbero richiedere una grande quantità di spazio su disco (fino a diversi gigabyte ognuno).
+
+#### <a name="app-hangs-fails-during-startup-or-runs-normally"></a>L'app si blocca, si verifica un errore durante l'avvio o viene eseguita normalmente
+
+Quando un'app si *blocca* (smette di rispondere ma non si arresta in modo anomalo), si verifica un errore durante l'avvio o viene eseguita normalmente, vedere [file di dump in modalità utente: scegliere lo strumento migliore](/windows-hardware/drivers/debugger/user-mode-dump-files#choosing-the-best-tool) per selezionare uno strumento appropriato per produrre il dump.
+
+#### <a name="analyze-the-dump"></a>Analizzare il dump
+
+È possibile analizzare un dump usando diversi approcci. Per altre informazioni, vedere [Analyzing a User-Mode Dump File](/windows-hardware/drivers/debugger/analyzing-a-user-mode-dump-file) (Analisi di un file dump in modalità utente).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

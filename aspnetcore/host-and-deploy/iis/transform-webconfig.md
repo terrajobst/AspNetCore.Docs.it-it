@@ -5,14 +5,14 @@ description: Informazioni su come trasformare il file web.config quando si pubbl
 monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/07/2019
+ms.date: 01/13/2020
 uid: host-and-deploy/iis/transform-webconfig
-ms.openlocfilehash: d28c362a200ad433e316bc1af710231a169a30a4
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: ef627de70c6aea44962d2187c4d401baab6557ae
+ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007309"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75952038"
 ---
 # <a name="transform-webconfig"></a>Trasformare web.config
 
@@ -30,7 +30,7 @@ Queste trasformazioni si verificano per uno degli scenari di generazione di *web
 * Generati automaticamente dall'SDK `Microsoft.NET.Sdk.Web`.
 * Fornito dallo sviluppatore nella radice del [contenuto](xref:fundamentals/index#content-root) dell'app.
 
-## <a name="build-configuration"></a>Configurazione della compilazione
+## <a name="build-configuration"></a>Configurazione della build
 
 Le trasformazioni di configurazione della build vengono eseguite per prime.
 
@@ -182,5 +182,5 @@ dotnet publish /p:IsWebConfigTransformDisabled=true
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Sintassi di trasformazione di Web.config per la distribuzione di un progetto di applicazione Web](https://go.microsoft.com/fwlink/?LinkId=301874)
-* [Sintassi di trasformazione di Web.config per la distribuzione di un progetto Web tramite Visual Studio](https://docs.microsoft.com/previous-versions/aspnet/dd465326(v=vs.110))
+* [Sintassi di trasformazione di Web.config per la distribuzione di un progetto di applicazione Web](/previous-versions/dd465326(v=vs.100))
+* [Sintassi di trasformazione di Web.config per la distribuzione di un progetto Web tramite Visual Studio](/previous-versions/aspnet/dd465326(v=vs.110))

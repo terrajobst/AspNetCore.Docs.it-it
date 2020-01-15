@@ -5,14 +5,14 @@ description: Informazioni sulla configurazione degli ambienti host e sulla distr
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/07/2019
+ms.date: 01/13/2020
 uid: host-and-deploy/index
-ms.openlocfilehash: 8c7c131ca328f3118c45e822d6d5c86f0d44001f
-ms.sourcegitcommit: b3e1e31e5d8bdd94096cf27444594d4a7b065525
+ms.openlocfilehash: ffc1f0b649e24e5e4a0bca2fc36a0b0c25460238
+ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803266"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75951793"
 ---
 # <a name="host-and-deploy-aspnet-core"></a>Hosting e distribuzione di ASP.NET Core
 
@@ -77,6 +77,10 @@ Per le distribuzioni in Internet Information Services (IIS) con la configurazion
 
 Per informazioni sulla configurazione per ospitare app ASP.NET Core in un ambiente Web farm (ad esempio, distribuzione di più istanze di un'app per la scalabilità), vedere <xref:host-and-deploy/web-farm>.
 
+## <a name="host-on-docker"></a>Host in Docker
+
+Per ulteriori informazioni, vedere <xref:host-and-deploy/docker/index>.
+
 ::: moniker range=">= aspnetcore-2.2"
 
 ## <a name="perform-health-checks"></a>Eseguire controlli di integrità
@@ -87,7 +91,5 @@ Usare il middleware di controllo integrità per eseguire controlli di integrità
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* <xref:host-and-deploy/docker/index>
 * <xref:test/troubleshoot>
 * [Hosting di ASP.NET](https://dotnet.microsoft.com/apps/aspnet/hosting)
-

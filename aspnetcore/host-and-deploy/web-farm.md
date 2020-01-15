@@ -5,14 +5,14 @@ description: Informazioni su come ospitare più istanze di un'app ASP.NET Core c
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/07/2019
+ms.date: 01/13/2020
 uid: host-and-deploy/web-farm
-ms.openlocfilehash: 16ec2162be8199857d0f2d0ff989ec4cdc6c3277
-ms.sourcegitcommit: 68d804d60e104c81fe77a87a9af70b5df2726f60
+ms.openlocfilehash: 5c13e9bc4c514f9b42871d55a430265c8ec2da23
+ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73830699"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75951823"
 ---
 # <a name="host-aspnet-core-in-a-web-farm"></a>Ospitare ASP.NET Core in una Web farm
 
@@ -20,10 +20,10 @@ Di [Luke Latham](https://github.com/guardrex) e [Chris Ross](https://github.com/
 
 Una *Web farm* è un gruppo di due o più server Web (o *nodi*) che ospita più istanze di un'app. Quando arrivano richieste dagli utenti per una Web farm, un servizio di *bilanciamento del carico* distribuisce le richieste ai nodi della Web farm. Le Web farm consentono di migliorare:
 
-* **Affidabilità/disponibilità** &ndash; Quando uno o più nodi non funzionano, il servizio di bilanciamento del carico può indirizzare le richieste ad altri nodi funzionanti per continuare l'elaborazione delle richieste.
-* **Capacità/prestazioni** &ndash; Più nodi possono elaborare più richieste rispetto a un singolo server. Il servizio di bilanciamento del carico consente di bilanciare il carico di lavoro distribuendo le richieste ai nodi.
-* **Scalabilità** &ndash; Quando è necessaria più o meno capacità, il numero di nodi attivi può essere aumentato o ridotto in base al carico di lavoro. Le tecnologie della piattaforma per le Web farm, ad esempio [Servizio app di Azure](https://azure.microsoft.com/services/app-service/), possono aggiungere o rimuovere automaticamente nodi su richiesta dell'amministratore di sistema o automaticamente senza intervento umano.
-* **Manutenibilità** &ndash; I nodi di una Web farm possono basarsi su un set di servizi condivisi, con conseguente maggiore facilità di gestione del sistema. Ad esempio, i nodi di una Web farm possono basarsi su un singolo server di database e un percorso di rete comune per le risorse statiche, ad esempio immagini e file scaricabili.
+* &ndash; di **affidabilità/disponibilità** quando uno o più nodi hanno esito negativo, il servizio di bilanciamento del carico può indirizzare le richieste ad altri nodi funzionanti per continuare l'elaborazione delle richieste.
+* **Capacità/prestazioni** &ndash; più nodi possono elaborare più richieste rispetto a un singolo server. Il servizio di bilanciamento del carico consente di bilanciare il carico di lavoro distribuendo le richieste ai nodi.
+* **Scalabilità** &ndash; quando è necessaria una capacità maggiore o minore, il numero di nodi attivi può essere aumentato o ridotto in base al carico di lavoro. Le tecnologie della piattaforma per le Web farm, ad esempio [Servizio app di Azure](https://azure.microsoft.com/services/app-service/), possono aggiungere o rimuovere automaticamente nodi su richiesta dell'amministratore di sistema o automaticamente senza intervento umano.
+* La **gestibilità** &ndash; nodi di una Web farm può basarsi su un set di servizi condivisi, il che comporta una gestione più semplice del sistema. Ad esempio, i nodi di una Web farm possono basarsi su un singolo server di database e un percorso di rete comune per le risorse statiche, ad esempio immagini e file scaricabili.
 
 Questo argomento descrive la configurazione e le dipendenze per le app ASP.NET Core ospitate in una Web farm che si basano su risorse condivise.
 
@@ -60,8 +60,8 @@ Gli scenari seguenti non richiedono configurazioni aggiuntive, ma dipendono da t
 
 | Scenario | Dipende da &hellip; |
 | -------- | ------------------- |
-| Authentication | Protezione dei dati (vedere <xref:security/data-protection/configuration/overview>).<br><br>Per altre informazioni, vedere <xref:security/authentication/cookie> e <xref:security/cookie-sharing>. |
-| identità | Configurazione di autenticazione e database.<br><br>Per ulteriori informazioni, vedere <xref:security/authentication/identity>. |
+| Autenticazione | Protezione dei dati (vedere <xref:security/data-protection/configuration/overview>).<br><br>Per altre informazioni, vedere <xref:security/authentication/cookie> e <xref:security/cookie-sharing>. |
+| Identity | Configurazione di autenticazione e database.<br><br>Per ulteriori informazioni, vedere <xref:security/authentication/identity>. |
 | Sessione | Protezione dei dati (cookie crittografati) (vedere <xref:security/data-protection/configuration/overview>) e memorizzazione nella cache (vedere <xref:performance/caching/distributed>).<br><br>Per altre informazioni, vedere [Stato di sessioni e app: Stato sessione](xref:fundamentals/app-state#session-state). |
 | TempData | Protezione dei dati (cookie crittografati) (vedere <xref:security/data-protection/configuration/overview>) o sessione (vedere [Stato di sessioni e app: Stato sessione](xref:fundamentals/app-state#session-state)).<br><br>Per altre informazioni, vedere [Stato di sessioni e app: TempData](xref:fundamentals/app-state#tempdata). |
 | Antifalsificazione | Protezione dei dati (vedere <xref:security/data-protection/configuration/overview>).<br><br>Per ulteriori informazioni, vedere <xref:security/anti-request-forgery>. |
@@ -92,3 +92,4 @@ Se le app della Web farm sono in grado di rispondere alle richieste, è possibil
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Estensione script personalizzata per Windows](/azure/virtual-machines/extensions/custom-script-windows) &ndash; Scarica ed esegue script in macchine virtuali di Azure, utile per la configurazione post-distribuzione e l'installazione del software.
+* <xref:host-and-deploy/proxy-load-balancer>

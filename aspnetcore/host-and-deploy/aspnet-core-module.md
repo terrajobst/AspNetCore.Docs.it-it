@@ -5,14 +5,14 @@ description: Informazioni su come configurare il modulo di ASP.NET Core per l'ho
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/07/2019
+ms.date: 01/13/2020
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: c9bbd36b8a55b837f6d78abf99215c5496895a39
-ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
+ms.openlocfilehash: 75f4a158253dd3276ed37011d9aa73d82cad5b79
+ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73799419"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75952012"
 ---
 # <a name="aspnet-core-module"></a>Modulo ASP.NET Core
 
@@ -173,7 +173,7 @@ Per informazioni sulla configurazione delle applicazioni secondarie IIS, vedere 
 
 ### <a name="attributes-of-the-aspnetcore-element"></a>Attributi dell'elemento aspNetCore
 
-| Attributo | Descrizione | Impostazione predefinita |
+| Attributo | Descrizione | Default |
 | --------- | ----------- | :-----: |
 | `arguments` | <p>Attributo stringa facoltativo.</p><p>Argomenti per l'eseguibile specificato in **processPath**.</p> | |
 | `disableStartUpErrorPage` | <p>Attributo booleano facoltativo.</p><p>Se true, la pagina **502.5 - Errore del processo** non viene visualizzata e la tabella codici di stato 502 configurata in *web.config* ha la precedenza.</p> | `false` |
@@ -306,8 +306,8 @@ Posizioni (sono consentite più posizioni):
 
 Le impostazioni del gestore possono essere specificate anche tramite le variabili di ambiente:
 
-* `ASPNETCORE_MODULE_DEBUG_FILE` &ndash; Percorso del file di logo di debug. (Impostazione predefinita: *aspnetcore-debug.log*)
-* `ASPNETCORE_MODULE_DEBUG` &ndash; Impostazione del livello di debug.
+* `ASPNETCORE_MODULE_DEBUG_FILE` &ndash; percorso del file di log di debug. (Impostazione predefinita: *aspnetcore-debug.log*)
+* impostazione del livello di debug `ASPNETCORE_MODULE_DEBUG` &ndash;.
 
 > [!WARNING]
 > **Non** lasciare la registrazione del debug abilitata nella distribuzione per un tempo superiore a quello necessario alla risoluzione di problema. Le dimensioni del log non sono limitate. Se si lascia abilitato il log di debug, lo spazio disponibile su disco può esaurirsi e il server o il servizio app può registrare un arresto anomalo.
@@ -366,11 +366,11 @@ Per determinare la versione del modulo ASP.NET Core installato:
 1. Fare clic con il pulsante destro del mouse sul file e scegliere **Proprietà** dal menu di scelta rapida.
 1. Selezionare la scheda **Dettagli** . La versione del **file** e la **versione del prodotto** rappresentano la versione installata del modulo.
 
-I log del programma di installazione del bundle di hosting per il modulo sono disponibili in *C:\\utenti\\% username%\\AppData\\\\locale*. Il file è denominato *dd_DotNetCoreWinSvrHosting__\<timestamp > _000_AspNetCoreModule_x64. log*.
+I log del programma di installazione del bundle di hosting per il modulo sono disponibili in *C:\\utenti\\% username%\\AppData\\\\locale*. Il nome del file è *dd_DotNetCoreWinSvrHosting__\<timestamp > _000_AspNetCoreModule_x64. log*.
 
 ## <a name="module-schema-and-configuration-file-locations"></a>Percorsi dei file di modulo, schema e configurazione
 
-### <a name="module"></a>Modulo
+### <a name="module"></a>Module
 
 **IIS (x86/amd64):**
 
@@ -406,7 +406,7 @@ I log del programma di installazione del bundle di hosting per il modulo sono di
 
 * %Programmi%\IIS Express\config\schema\aspnetcore_schema_v2.xml
 
-### <a name="configuration"></a>Configurazione
+### <a name="configuration"></a>Configurazione di
 
 **IIS**
 
@@ -588,7 +588,7 @@ Per informazioni sulla configurazione delle applicazioni secondarie IIS, vedere 
 
 ### <a name="attributes-of-the-aspnetcore-element"></a>Attributi dell'elemento aspNetCore
 
-| Attributo | Descrizione | Impostazione predefinita |
+| Attributo | Descrizione | Default |
 | --------- | ----------- | :-----: |
 | `arguments` | <p>Attributo stringa facoltativo.</p><p>Argomenti per l'eseguibile specificato in **processPath**.</p> | |
 | `disableStartUpErrorPage` | <p>Attributo booleano facoltativo.</p><p>Se true, la pagina **502.5 - Errore del processo** non viene visualizzata e la tabella codici di stato 502 configurata in *web.config* ha la precedenza.</p> | `false` |
@@ -719,8 +719,8 @@ Posizioni (sono consentite più posizioni):
 
 Le impostazioni del gestore possono essere specificate anche tramite le variabili di ambiente:
 
-* `ASPNETCORE_MODULE_DEBUG_FILE` &ndash; Percorso del file di logo di debug. (Impostazione predefinita: *aspnetcore-debug.log*)
-* `ASPNETCORE_MODULE_DEBUG` &ndash; Impostazione del livello di debug.
+* `ASPNETCORE_MODULE_DEBUG_FILE` &ndash; percorso del file di log di debug. (Impostazione predefinita: *aspnetcore-debug.log*)
+* impostazione del livello di debug `ASPNETCORE_MODULE_DEBUG` &ndash;.
 
 > [!WARNING]
 > **Non** lasciare la registrazione del debug abilitata nella distribuzione per un tempo superiore a quello necessario alla risoluzione di problema. Le dimensioni del log non sono limitate. Se si lascia abilitato il log di debug, lo spazio disponibile su disco può esaurirsi e il server o il servizio app può registrare un arresto anomalo.
@@ -761,11 +761,11 @@ Per determinare la versione del modulo ASP.NET Core installato:
 1. Fare clic con il pulsante destro del mouse sul file e scegliere **Proprietà** dal menu di scelta rapida.
 1. Selezionare la scheda **Dettagli** . La versione del **file** e la **versione del prodotto** rappresentano la versione installata del modulo.
 
-I log del programma di installazione del bundle di hosting per il modulo sono disponibili in *C:\\utenti\\% username%\\AppData\\\\locale*. Il file è denominato *dd_DotNetCoreWinSvrHosting__\<timestamp > _000_AspNetCoreModule_x64. log*.
+I log del programma di installazione del bundle di hosting per il modulo sono disponibili in *C:\\utenti\\% username%\\AppData\\\\locale*. Il nome del file è *dd_DotNetCoreWinSvrHosting__\<timestamp > _000_AspNetCoreModule_x64. log*.
 
 ## <a name="module-schema-and-configuration-file-locations"></a>Percorsi dei file di modulo, schema e configurazione
 
-### <a name="module"></a>Modulo
+### <a name="module"></a>Module
 
 **IIS (x86/amd64):**
 
@@ -801,7 +801,7 @@ I log del programma di installazione del bundle di hosting per il modulo sono di
 
 * %Programmi%\IIS Express\config\schema\aspnetcore_schema_v2.xml
 
-### <a name="configuration"></a>Configurazione
+### <a name="configuration"></a>Configurazione di
 
 **IIS**
 
@@ -895,7 +895,7 @@ Per informazioni sulla configurazione delle applicazioni secondarie IIS, vedere 
 
 ### <a name="attributes-of-the-aspnetcore-element"></a>Attributi dell'elemento aspNetCore
 
-| Attributo | Descrizione | Impostazione predefinita |
+| Attributo | Descrizione | Default |
 | --------- | ----------- | :-----: |
 | `arguments` | <p>Attributo stringa facoltativo.</p><p>Argomenti per l'eseguibile specificato in **processPath**.</p>| |
 | `disableStartUpErrorPage` | <p>Attributo booleano facoltativo.</p><p>Se true, la pagina **502.5 - Errore del processo** non viene visualizzata e la tabella codici di stato 502 configurata in *web.config* ha la precedenza.</p> | `false` |
@@ -999,11 +999,11 @@ Per determinare la versione del modulo ASP.NET Core installato:
 1. Fare clic con il pulsante destro del mouse sul file e scegliere **Proprietà** dal menu di scelta rapida.
 1. Selezionare la scheda **Dettagli** . La versione del **file** e la **versione del prodotto** rappresentano la versione installata del modulo.
 
-I log del programma di installazione del bundle di hosting per il modulo sono disponibili in *C:\\utenti\\% username%\\AppData\\\\locale*. Il file è denominato *dd_DotNetCoreWinSvrHosting__\<timestamp > _000_AspNetCoreModule_x64. log*.
+I log del programma di installazione del bundle di hosting per il modulo sono disponibili in *C:\\utenti\\% username%\\AppData\\\\locale*. Il nome del file è *dd_DotNetCoreWinSvrHosting__\<timestamp > _000_AspNetCoreModule_x64. log*.
 
 ## <a name="module-schema-and-configuration-file-locations"></a>Percorsi dei file di modulo, schema e configurazione
 
-### <a name="module"></a>Modulo
+### <a name="module"></a>Module
 
 **IIS (x86/amd64):**
 
@@ -1027,7 +1027,7 @@ I log del programma di installazione del bundle di hosting per il modulo sono di
 
 * %ProgramFiles%\IIS Express\config\schema\aspnetcore_schema.xml
 
-### <a name="configuration"></a>Configurazione
+### <a name="configuration"></a>Configurazione di
 
 **IIS**
 
@@ -1046,5 +1046,6 @@ I log del programma di installazione del bundle di hosting per il modulo sono di
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * <xref:host-and-deploy/iis/index>
-* [Repository GitHub del modulo ASP.NET Core (origine riferimento)](https://github.com/aspnet/AspNetCoreModule)
+* <xref:host-and-deploy/azure-apps/index>
+* [ASP.NET Core origine riferimento modulo (ramo master)](https://github.com/dotnet/aspnetcore/tree/master/src/Servers/IIS/AspNetCoreModuleV2) &ndash; utilizzare l'elenco a discesa **Branch** per selezionare una versione specifica, ad esempio `release/3.1`.
 * <xref:host-and-deploy/iis/modules>
