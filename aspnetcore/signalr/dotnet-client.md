@@ -5,16 +5,16 @@ description: Informazioni sul client di ASP.NET Core SignalR .NET
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 11/12/2019
+ms.date: 01/14/2020
 no-loc:
 - SignalR
 uid: signalr/dotnet-client
-ms.openlocfilehash: 28e8fcf808406cd0251ba94e2ef97ab04841fcd0
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 39d9eccdb1e0457b177e75e6f94f3dd185b0093d
+ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963964"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76146316"
 ---
 # <a name="aspnet-core-opno-locsignalr-net-client"></a>ASP.NET Core SignalR client .NET
 
@@ -26,7 +26,7 @@ L'esempio di codice in questo articolo è un'app WPF che usa la ASP.NET Core Sig
 
 ## <a name="install-the-opno-locsignalr-net-client-package"></a>Installare il pacchetto client di SignalR .NET
 
-[Microsoft. AspNetCore.SignalR. ](https://www.nuget.org/packages/Microsoft.AspNetCore.SignalR.Client)Il pacchetto client è necessario per i client .NET per la connessione a hub SignalR.
+[Microsoft.AspNetCore.SignalR.](https://www.nuget.org/packages/Microsoft.AspNetCore.SignalR.Client)Il pacchetto client è necessario per i client .NET per la connessione a hub SignalR.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -179,7 +179,7 @@ public class RandomRetryPolicy : IRetryPolicy
         // wait between 0 and 10 seconds before the next reconnect attempt.
         if (retryContext.ElapsedTime < TimeSpan.FromSeconds(60))
         {
-            return TimeSpan.FromSeconds(_random.Next() * 10);
+            return TimeSpan.FromSeconds(_random.NextDouble() * 10);
         }
         else
         {
@@ -206,7 +206,7 @@ In alternativa, è possibile scrivere codice per riconnettere manualmente il cli
 ::: moniker range="< aspnetcore-3.0"
 
 > [!WARNING]
-> Prima della 3,0, il client .NET per SignalR non si riconnette automaticamente. È necessario scrivere codice che riconnetta il client manualmente.
+> Prima della 3,0, il client .NET per SignalR non si riconnette automaticamente. È necessario scrivere codice che si riconnetterà manualmente il client.
 
 ::: moniker-end
 
@@ -227,7 +227,7 @@ In un gestore `Closed` che riavvia la connessione, provare ad attendere un ritar
 
 [!code-csharp[Use Closed event handler to automate reconnection](dotnet-client/sample/signalrchatclient/MainWindow.xaml.cs?name=snippet_ClosedRestart)]
 
-## <a name="call-hub-methods-from-client"></a>Chiamare i metodi dell'hub dal client
+## <a name="call-hub-methods-from-client"></a>Chiamare i metodi dell'hub da client
 
 `InvokeAsync` chiama i metodi nell'hub. Passare il nome del metodo dell'hub e gli eventuali argomenti definiti nel metodo hub per `InvokeAsync`. SignalR è asincrona, usare `async` e `await` quando si effettuano le chiamate.
 
@@ -240,7 +240,7 @@ Il metodo `SendAsync` restituisce una `Task` che viene completata quando il mess
 > [!NOTE]
 > Se si usa il servizio SignalR di Azure in *modalità senza server*, non è possibile chiamare i metodi dell'hub da un client. Per ulteriori informazioni, vedere la [documentazione del servizioSignalR](/azure/azure-signalr/signalr-concept-serverless-development-config).
 
-## <a name="call-client-methods-from-hub"></a>Chiamare i metodi client dall'hub
+## <a name="call-client-methods-from-hub"></a>Chiamare i metodi client hub
 
 Definire i metodi che l'hub chiama usando `connection.On` dopo la compilazione, ma prima di avviare la connessione.
 
@@ -250,7 +250,7 @@ Il codice precedente in `connection.On` viene eseguito quando il codice lato ser
 
 [!code-csharp[Call client method](dotnet-client/sample/signalrchat/hubs/chathub.cs?name=snippet_SendMessage)]
 
-## <a name="error-handling-and-logging"></a>Gestione e registrazione degli errori
+## <a name="error-handling-and-logging"></a>La registrazione e la gestione degli errori
 
 Gestire gli errori con un'istruzione try-catch. Esaminare l'oggetto `Exception` per determinare l'azione appropriata da eseguire dopo che si è verificato un errore.
 
