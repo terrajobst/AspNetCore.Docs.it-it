@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Introduzione a EF Core in un'app Web ASP.NET MVC"
+title: "Esercitazione: Introduzione a EF Core in un'app Web MVC ASP.NET"
 description: Questa è la prima di una serie di esercitazioni che illustrano come compilare da zero l'app di esempio di Contoso University.
 author: rick-anderson
 ms.author: riande
@@ -7,22 +7,16 @@ ms.custom: mvc
 ms.date: 02/06/2019
 ms.topic: tutorial
 uid: data/ef-mvc/intro
-ms.openlocfilehash: a8909d391ae1a35e9c8155df767ab157701c8a51
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: 42ce63d1a31e033cf97536935b6dc94e015f30fa
+ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259456"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76146381"
 ---
-# <a name="tutorial-get-started-with-ef-core-in-an-aspnet-mvc-web-app"></a>Esercitazione: Introduzione a EF Core in un'app Web ASP.NET MVC
-
-::: moniker range=">= aspnetcore-3.0"
+# <a name="tutorial-get-started-with-ef-core-in-an-aspnet-mvc-web-app"></a>Esercitazione: Introduzione a EF Core in un'app Web MVC ASP.NET
 
 Questa esercitazione **non** è stata aggiornata ad ASP.NET Core 3.0. La [versione di Razor Pages](xref:data/ef-rp/intro) è stata aggiornata. Per informazioni su quando questo potrebbe essere aggiornato, vedere [questo problema in GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/13920).
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.0"
 
 [!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc.md)]
 
@@ -69,7 +63,7 @@ Gli utenti possono visualizzare e aggiornare le informazioni che riguardano stud
 
 ## <a name="create-web-app"></a>Creare un'app Web
 
-* Aprire Visual Studio.
+* Apri Visual Studio.
 
 * Scegliere **Nuovo > Progetto** dal menu **File**.
 
@@ -101,7 +95,7 @@ Aprire *Views/Shared/_Layout.cshtml* e apportare le modifiche seguenti:
 
 * Aggiungere le voci di menu per **About** (Informazioni su), **Students** (Studenti), **Courses** (Corsi), **Instructors** (Insegnanti) e **Departments** (Dipartimenti) ed eliminare la voce di menu **Privacy**.
 
-Le modifiche vengono evidenziate.
+Le modifiche sono evidenziate.
 
 [!code-cshtml[](intro/samples/cu/Views/Shared/_Layout.cshtml?highlight=6,34-48,63)]
 
@@ -143,7 +137,7 @@ La proprietà `ID` diventa la colonna di chiave primaria della tabella di databa
 
 La proprietà `Enrollments` rappresenta una [proprietà di navigazione](/ef/core/modeling/relationships). Le proprietà di navigazione contengono altre entità correlate a questa entità. In questo caso la proprietà `Enrollments` di `Student entity` contiene tutte le entità `Enrollment` correlate all'entità `Student`. In altre parole, se una determinata riga Student (Studente) nel database contiene due righe Enrollment (Iscrizione) correlate (le righe che contengono il valore della chiave primaria dello studente nella colonna della chiave esterna StudentID), la proprietà di navigazione `Enrollments` dell'entità `Student` contiene quelle due entità `Enrollment`.
 
-Se una proprietà di navigazione può contenere più entità (come nel caso di relazioni molti-a-molti e uno-a-molti), il tipo della proprietà deve essere un elenco in cui le voci possono essere aggiunte, eliminate e aggiornate, come ad esempio `ICollection<T>`. È possibile specificare `ICollection<T>` o un tipo come `List<T>` o `HashSet<T>`. Se si specifica `ICollection<T>`, per impostazione predefinita Entity Framework crea una raccolta `HashSet<T>`.
+Se una proprietà di navigazione può contenere più entità (come nel caso di relazioni molti-a-molti e uno-a-molti), il tipo della proprietà deve essere un elenco in cui le voci possono essere aggiunte, eliminate e aggiornate, come ad esempio `ICollection<T>`. È possibile specificare `ICollection<T>` o un tipo come `List<T>` o `HashSet<T>`. Se si specifica `ICollection<T>`, per impostazione predefinita EF crea una raccolta `HashSet<T>`.
 
 ### <a name="the-enrollment-entity"></a>Entità Enrollment (Iscrizione)
 
@@ -307,7 +301,7 @@ In Esplora oggetti di SQL Server fare clic su **(localdb) \MSSQLLocalDB > Databa
 
 Espandere il nodo **Tabelle** per visualizzare le tabelle nel database.
 
-![Tabelle in Esplora oggetti di SQL Server](intro/_static/ssox-tables.png)
+![Tabelle in SSOX](intro/_static/ssox-tables.png)
 
 Fare clic con il pulsante destro del mouse sulla tabella **Student** (Studente) e fare clic su **Visualizza dati** per visualizzare le colonne create e le righe inserite nella tabella.
 
@@ -387,4 +381,3 @@ Passare all'esercitazione successiva per informazioni su come eseguire operazion
 > [!div class="nextstepaction"]
 > [Implementare funzionalità CRUD di base](crud.md)
 
-::: moniker-end

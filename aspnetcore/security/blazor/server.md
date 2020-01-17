@@ -2,20 +2,20 @@
 title: Proteggere ASP.NET Core app Blazor server
 author: guardrex
 description: Informazioni su come attenuare le minacce per la sicurezza per le app Server Blazor.
-monikerRange: '>= aspnetcore-3.0'
+monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 12/18/2019
 no-loc:
 - Blazor
 - SignalR
 uid: security/blazor/server
-ms.openlocfilehash: 2d644b84b304a31ad0debc16164ad155c7f7da65
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: d87aac02137681e62cf8f5cbd4dc8b0be6f8431e
+ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74944282"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76146303"
 ---
 # <a name="secure-aspnet-core-opno-locblazor-server-apps"></a>Proteggere ASP.NET Core app Blazor server
 
@@ -94,7 +94,7 @@ Per impostazione predefinita, non esiste alcun limite al numero di connessioni p
 
 Gli attacchi di tipo Denial of Service (DoS) coinvolgono un client che induce il server a esaurire una o più risorse rendendo l'app non disponibile. Blazor le app Server includono alcuni limiti predefiniti e si basano su altri limiti di ASP.NET Core e SignalR per la protezione da attacchi DoS:
 
-| limite app Server Blazor                            | Descrizione | Impostazione predefinita |
+| limite app Server Blazor                            | Descrizione | Default |
 | ------------------------------------------------------- | ----------- | ------- |
 | `CircuitOptions.DisconnectedCircuitMaxRetained`         | Numero massimo di circuiti disconnessi che un determinato server utilizza in memoria per volta. | 100 |
 | `CircuitOptions.DisconnectedCircuitRetentionPeriod`     | Quantità massima di tempo durante il quale un circuito disconnesso viene mantenuto in memoria prima di essere eliminato. | 3 minuti |
@@ -102,7 +102,7 @@ Gli attacchi di tipo Denial of Service (DoS) coinvolgono un client che induce il
 | `CircuitOptions.MaxBufferedUnacknowledgedRenderBatches` | Numero massimo di batch di rendering non riconosciuti che il server mantiene in memoria per ogni circuito in un determinato momento per supportare una riconnessione affidabile. Dopo aver raggiunto il limite, il server smette di produrre nuovi batch di rendering finché uno o più batch non sono stati riconosciuti dal client. | 10 |
 
 
-| limite di SignalR e ASP.NET Core             | Descrizione | Impostazione predefinita |
+| limite di SignalR e ASP.NET Core             | Descrizione | Default |
 | ------------------------------------------ | ----------- | ------- |
 | `CircuitOptions.MaximumReceiveMessageSize` | Dimensioni del messaggio per un singolo messaggio. | 32 KB |
 
@@ -144,7 +144,7 @@ Non considerare attendibili le chiamate da JavaScript ai metodi .NET. Quando un 
   * Evitare di passare i dati forniti dall'utente nei parametri alle chiamate JavaScript. Se il passaggio dei dati nei parametri è assolutamente necessario, assicurarsi che il codice JavaScript gestisca il passaggio dei dati senza introdurre vulnerabilità di [Scripting (XSS) tra siti](#cross-site-scripting-xss) . Ad esempio, non scrivere dati specificati dall'utente nel Document Object Model (DOM) impostando la proprietà `innerHTML` di un elemento. Provare a usare i [criteri di sicurezza del contenuto (CSP)](https://developer.mozilla.org/docs/Web/HTTP/CSP) per disabilitare `eval` e altre primitive JavaScript non sicure.
 * Evitare di implementare l'invio personalizzato delle chiamate .NET all'implementazione dell'invio del Framework. L'esposizione di metodi .NET al browser è uno scenario avanzato, non consigliato per lo sviluppo di Blazor generali.
 
-### <a name="events"></a>eventi
+### <a name="events"></a>Events
 
 Gli eventi forniscono un punto di ingresso a un'app Server Blazor. Le stesse regole per la salvaguardia degli endpoint nelle app Web si applicano alla gestione degli eventi nelle app Blazor server. Un client dannoso può inviare tutti i dati che desidera inviare come payload per un evento.
 
@@ -206,7 +206,7 @@ Aggiungendo il `if (count < 3) { ... }` check all'interno del gestore, la decisi
 
 ### <a name="guard-against-multiple-dispatches"></a>Protezione da più invii
 
-Se un callback di evento richiama un'operazione a esecuzione prolungata, ad esempio il recupero di dati da un servizio o da un database esterno, è consigliabile usare una protezione. Il Guard può impedire all'utente di accodare più operazioni mentre è in corso l'operazione con commenti visivi. Il codice componente seguente imposta `isLoading` `true` mentre `GetForecastAsync` ottiene i dati dal server. Mentre `isLoading` è `true`, il pulsante è disabilitato nell'interfaccia utente:
+Se un callback di evento richiama un'operazione a esecuzione prolungata in modo asincrono, ad esempio il recupero di dati da un servizio o da un database esterno, provare a usare un GUARD. Il Guard può impedire all'utente di accodare più operazioni mentre è in corso l'operazione con commenti visivi. Il codice componente seguente imposta `isLoading` `true` mentre `GetForecastAsync` ottiene i dati dal server. Mentre `isLoading` è `true`, il pulsante è disabilitato nell'interfaccia utente:
 
 ```razor
 @page "/fetchdata"
@@ -230,6 +230,8 @@ Se un callback di evento richiama un'operazione a esecuzione prolungata, ad esem
     }
 }
 ```
+
+Il modello Guard illustrato nell'esempio precedente funziona se l'operazione in background viene eseguita in modo asincrono con il modello di `await` -di `async`.
 
 ### <a name="cancel-early-and-avoid-use-after-dispose"></a>Annulla anticipatamente ed evita l'uso di After-Dispose
 
@@ -292,7 +294,7 @@ L'errore sul lato client non include il stack e non fornisce dettagli sulla ragi
 Abilitare gli errori dettagliati con:
 
 * `CircuitOptions.DetailedErrors`.
-* Chiave di configurazione `DetailedErrors`. Ad esempio, impostare la variabile di ambiente `ASPNETCORE_DETAILEDERRORS` su un valore di `true`.
+* chiave di configurazione `DetailedErrors`. Ad esempio, impostare la variabile di ambiente `ASPNETCORE_DETAILEDERRORS` su un valore di `true`.
 
 > [!WARNING]
 > L'esposizione delle informazioni sugli errori ai client su Internet costituisce un rischio per la sicurezza che deve essere sempre evitata.

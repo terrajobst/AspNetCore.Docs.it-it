@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/03/2019
 uid: security/samesite
-ms.openlocfilehash: 988069a66cc4772583444303948bff2e47ff4310
-ms.sourcegitcommit: 169ea5116de729c803685725d96450a270bc55b7
+ms.openlocfilehash: b344ed8f539979210980b3421659207edd513f32
+ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74733986"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76146433"
 ---
 # <a name="work-with-samesite-cookies-in-aspnet-core"></a>Usare i cookie navigava sullostesso sito in ASP.NET Core
 
@@ -36,7 +36,7 @@ Il valore predefinito di [HttpContext. Response. cookies. Append](xref:Microsoft
 
 Tutti i componenti ASP.NET Core che emettono cookie sostituiscono i valori predefiniti precedenti con le impostazioni appropriate per gli scenari. L'override dei valori predefiniti precedenti non è stato modificato.
 
-| Componente | cookie | Impostazione predefinita |
+| Componente | cookie | Default |
 | ------------- | ------------- |
 | <xref:Microsoft.AspNetCore.Http.CookieBuilder> | <xref:Microsoft.AspNetCore.Http.CookieBuilder.SameSite> | `Unspecified` |
 | <xref:Microsoft.AspNetCore.Http.HttpContext.Session>  | [SessionOptions. cookie](xref:Microsoft.AspNetCore.Builder.SessionOptions.Cookie) |`Lax` |
@@ -72,7 +72,7 @@ In ASP.NET Core 3,0 e versioni successive i valori predefiniti di navigava sullo
 
 Il supporto di navigava sullostesso sito è stato implementato per la prima volta nel ASP.NET Core 2,0 usando lo [standard 2016 Draft](https://tools.ietf.org/html/draft-west-first-party-cookies-07#section-4.1). Lo standard 2016 è stato acconsentito esplicitamente. Per impostazione predefinita, ASP.NET Core si è scelto di impostare diversi cookie da `Lax`. Dopo avere riscontrato diversi [problemi](https://github.com/aspnet/Announcements/issues/318) di autenticazione, la maggior parte dell'utilizzo di navigava sullostesso sito è stata [disabilitata](https://github.com/aspnet/Announcements/issues/348).
 
-Le patch sono state rilasciate nel 2019 novembre per l'aggiornamento dallo standard 2016 allo standard 2019. [Bozza 2019 della specifica navigava sullostesso sito](https://github.com/aspnet/Announcements/issues/390):
+Le [patch](https://devblogs.microsoft.com/dotnet/net-core-November-2019/) sono state rilasciate nel 2019 novembre per l'aggiornamento dallo standard 2016 allo standard 2019. [Bozza 2019 della specifica navigava sullostesso sito](https://github.com/aspnet/Announcements/issues/390):
 
 * **Non** è compatibile con le versioni precedenti della bozza 2016. Per ulteriori informazioni, vedere [supporto dei browser meno recenti](#sob) in questo documento.
 * Specifica che i cookie vengono considerati come `SameSite=Lax` per impostazione predefinita.
@@ -168,3 +168,4 @@ Le versioni di Electron includono versioni precedenti di cromo. Ad esempio, la v
 
 * [Blog di Chromium: sviluppatori: prepararsi per la nuova navigava sullostesso sito = None; Impostazioni sicure del cookie](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html)
 * [Spiegazione dei cookie navigava sullostesso sito](https://web.dev/samesite-cookies-explained/)
+* [Patch di novembre 2019](https://devblogs.microsoft.com/dotnet/net-core-November-2019/)

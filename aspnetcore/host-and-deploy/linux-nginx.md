@@ -5,14 +5,14 @@ description: Informazioni su come configurare Nginx come proxy inverso in Ubuntu
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/02/2019
+ms.date: 01/13/2020
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: f307a1c3e0dc62c5dc03e50d710696fadd9fd487
-ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
+ms.openlocfilehash: e718592127115e46df3154364957943a457b0b1b
+ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74717390"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76146329"
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Hosting di ASP.NET Core in Linux con Nginx
 
@@ -32,7 +32,7 @@ In questa guida:
 * Verificare che l'app Web venga eseguita all'avvio come daemon.
 * Configurare uno strumento di gestione del processo per consentire il riavvio dell'app Web.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 1. Accedere a un server Ubuntu 16.04 con un account utente standard con privilegio sudo.
 1. Installare il runtime .NET Core nel server.
@@ -205,7 +205,7 @@ Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
 WantedBy=multi-user.target
 ```
 
-Se l'utente *www-data* non viene usato dalla configurazione, è necessario creare prima l'utente definito qui e assegnargli correttamente la proprietà dei file.
+Nell'esempio precedente, l'utente che gestisce il servizio viene specificato dall'opzione `User`. L'utente (`www-data`) deve esistere e avere la proprietà appropriata dei file dell'app.
 
 Usare `TimeoutStopSec` per configurare il tempo di attesa prima che l'app si arresti dopo aver ricevuto il segnale di interrupt iniziale. Se l'app non si arresta in questo periodo, viene emesso il comando SIGKILL per terminare l'app. Specificare il valore in secondi senza unità di misura (ad esempio, `150`), un valore per l'intervallo di tempo (ad esempio, `2min 30s`) o `infinity` per disabilitare il timeout. Per impostazione predefinita, il valore di `TimeoutStopSec` viene impostato sul valore di `DefaultTimeoutStopSec` nel file di configurazione del sistema di gestione (*systemd-system.conf*, *system.conf.d*, *systemd-user.conf*, *user.conf.d*). Il timeout predefinito per la maggior parte delle distribuzioni è di 90 secondi.
 

@@ -3,14 +3,14 @@ title: Introduzione all'identità in ASP.NET Core
 author: rick-anderson
 description: Usare l'identità con un'app ASP.NET Core. Informazioni su come impostare i requisiti per le password (RequireDigit, RequiredLength, RequiredUniqueChars e altro).
 ms.author: riande
-ms.date: 12/05/2019
+ms.date: 01/15/2020
 uid: security/authentication/identity
-ms.openlocfilehash: d4cda43c417a0d8e1b78f8b59b7050debf017269
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 98fee261a741a20eed181ca5b9a4ebb693deeb63
+ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828230"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76146511"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Introduzione all'identità in ASP.NET Core
 
@@ -213,6 +213,22 @@ Vedere [configurazione](#pw) per un esempio che consente di impostare i requisit
 * <xref:Microsoft.AspNetCore.Identity.IdentityBuilderExtensions.AddDefaultTokenProviders*>
 
 Per altre informazioni, vedere [origine AddDefaultIdentity](https://github.com/dotnet/AspNetCore/blob/release/3.0/src/Identity/UI/src/IdentityServiceCollectionUIExtensions.cs#L47-L63) .
+
+## <a name="prevent-publish-of-static-identity-assets"></a>Impedisci la pubblicazione di asset di identità statici
+
+Per evitare la pubblicazione di risorse di identità statiche (fogli di stile e file JavaScript per l'interfaccia utente dell'identità) nella radice Web, aggiungere la `ResolveStaticWebAssetsInputsDependsOn` proprietà seguente e `RemoveIdentityAssets` destinazione al file di progetto dell'app:
+
+```xml
+<PropertyGroup>
+  <ResolveStaticWebAssetsInputsDependsOn>RemoveIdentityAssets</ResolveStaticWebAssetsInputsDependsOn>
+</PropertyGroup>
+
+<Target Name="RemoveIdentityAssets">
+  <ItemGroup>
+    <StaticWebAsset Remove="@(StaticWebAsset)" Condition="%(SourceId) == 'Microsoft.AspNetCore.Identity.UI'" />
+  </ItemGroup>
+</Target>
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

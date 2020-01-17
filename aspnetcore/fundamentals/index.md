@@ -5,14 +5,14 @@ description: Informazioni sui concetti fondamentali per la compilazione di app A
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/07/2019
+ms.date: 01/15/2020
 uid: fundamentals/index
-ms.openlocfilehash: 7173a732a04bf3e598adef298fa9120c15dd52fb
-ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
+ms.openlocfilehash: 3fbfc7c4c0d5e568339bc00a7cbe84a3932acf1f
+ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73799376"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76146355"
 ---
 # <a name="aspnet-core-fundamentals"></a>Nozioni fondamentali su ASP.NET Core
 
@@ -35,7 +35,7 @@ Ecco un esempio di classe `Startup`:
 
 Per ulteriori informazioni, vedere <xref:fundamentals/startup>.
 
-## <a name="dependency-injection-services"></a>Iniezione di dipendenze (servizi)
+## <a name="dependency-injection-services"></a>Inserimento di dipendenze (servizi)
 
 ASP.NET Core include un framework di inserimento delle dipendenze predefinito che rende disponibili i servizi configurati per le classi di un'app. Un modo per inserire un'istanza di un servizio in una classe consiste nel creare un costruttore con un parametro del tipo richiesto. Il parametro può essere il tipo di servizio o un'interfaccia. Il sistema di inserimento delle dipendenze fornisce il servizio in runtime.
 
@@ -69,7 +69,7 @@ Un'app ASP.NET Core crea un *host* all'avvio. L'host è un oggetto che incapsula
 * I componenti middleware
 * Registrazione
 * Inserimento delle dipendenze
-* Configurazione
+* Configurazione di
 
 Il motivo principale per cui tutte le risorse interdipendenti dell'app sono incluse in un unico oggetto è la gestione del ciclo di vita, vale a dire il controllo sull'avvio dell'app e sull'arresto normale.
 
@@ -162,7 +162,7 @@ ASP.NET Core fornisce l'implementazione del server multipiattaforma *Kestrel*. I
 
 Per ulteriori informazioni, vedere <xref:fundamentals/servers/index>.
 
-## <a name="configuration"></a>Configurazione
+## <a name="configuration"></a>Configurazione di
 
 ASP.NET Core offre un framework di configurazione che ottiene le impostazioni, ad esempio coppie nome-valore, da un set ordinato di provider di configurazione. Esistono provider di configurazione predefiniti per un'ampia gamma di origini, ad esempio file con estensione *JSON*, file con estensione *XML*, variabili di ambiente e argomenti della riga di comando. È anche possibile scrivere provider di configurazione personalizzati.
 
@@ -172,7 +172,7 @@ Per la gestione dei dati di configurazione riservati, ad esempio le password, AS
 
 Per ulteriori informazioni, vedere <xref:fundamentals/configuration/index>.
 
-## <a name="options"></a>Opzioni
+## <a name="options"></a>Options
 
 Ove possibile, ASP.NET Core segue il *modello di opzioni* per archiviare e recuperare i valori di configurazione. Il modello di opzioni usa le classi per rappresentare i gruppi di impostazioni correlate.
 
@@ -203,11 +203,11 @@ Per ulteriori informazioni, vedere <xref:fundamentals/environments>.
 
 ASP.NET Core supporta un'API di registrazione che funziona con un'ampia gamma di provider di registrazione predefiniti e di terze parti. Tra i provider disponibili sono inclusi i seguenti:
 
-* Console
+* Console di
 * Debug
 * Event Tracing for Windows
 * Registro eventi di Windows
-* TraceSource
+* Origine traccia
 * Servizio app di Azure
 * Azure Application Insights
 
@@ -310,6 +310,12 @@ Impedire la pubblicazione di file in *wwwroot* con il [contenuto\<> elemento del
   <Content Update="wwwroot\local\**\*.*" CopyToPublishDirectory="Never" />
 </ItemGroup>
 ```
+
+::: moniker range=">= aspnetcore-3.0"
+
+Per evitare la pubblicazione di asset di identità statici nella radice Web, vedere <xref:security/authentication/identity#prevent-publish-of-static-identity-assets>.
+
+::: moniker-end
 
 Nei file Razor (con*estensione cshtml*) la barra tilde (`~/`) punta alla radice Web. Un percorso che inizia con `~/` viene definito *percorso virtuale*.
 
