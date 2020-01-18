@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/15/2019
 uid: mvc/models/validation
-ms.openlocfilehash: 042a9933e561de4957f6332bdff3c4f09d2e119b
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: b697f02183c76b9a96471a748a86c144fde47bb0
+ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355271"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76268748"
 ---
 # <a name="model-validation-in-aspnet-core-mvc-and-razor-pages"></a>Convalida del modello in ASP.NET Core MVC e in Razor Pages
 
@@ -82,7 +82,9 @@ Per scoprire i parametri passati a `String.Format` per un messaggio di errore de
 
 ## <a name="required-attribute"></a>Attributo [Required]
 
-Per impostazione predefinita, il sistema di convalida considera i parametri non nullable o le proprietà come se avessero un attributo `[Required]`. I [tipi di valore](/dotnet/csharp/language-reference/keywords/value-types)`decimal` e `int` sono parametri non nullable.
+Il sistema di convalida in .NET Core 3,0 e versioni successive considera i parametri non nullable o le proprietà associata come se disponesse di un attributo `[Required]`. I [tipi di valore](/dotnet/csharp/language-reference/keywords/value-types)`decimal` e `int` sono parametri non nullable. Questo comportamento può essere disabilitato configurando <xref:Microsoft.AspNetCore.Mvc.MvcOptions.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes> in `Startup.ConfigureServices`:
+
+Servizi CSharp ''. AddControllers (opzioni = Opzioni >. SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true); ...
 
 ### <a name="required-validation-on-the-server"></a>Convalida dell'attributo [Required] nel server
 

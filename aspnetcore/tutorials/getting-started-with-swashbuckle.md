@@ -4,14 +4,14 @@ author: zuckerthoben
 description: Informazioni su come aggiungere Swashbuckle al progetto dell'API Web ASP.NET Core per integrare l'interfaccia utente di Swagger.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 01/17/2020
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: f3c20eb085fa5277dd37b7323b5a7d7d286bcd99
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 16583cde2f4a6deaabc2fc965a5b9484ca94c2fd
+ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75866072"
+ms.lasthandoff: 01/18/2020
+ms.locfileid: "76268721"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Introduzione a Swashbuckle e ad ASP.NET Core
 
@@ -39,7 +39,7 @@ Esistono tre componenti principali di Swashbuckle:
   * Eseguire il comando seguente:
 
     ```powershell
-    Install-Package Swashbuckle.AspNetCore -Version 5.0.0-rc5
+    Install-Package Swashbuckle.AspNetCore -Version 5.0.0
     ```
 
 * Dalla finestra di dialogo **Gestisci pacchetti NuGet**:
@@ -62,7 +62,7 @@ Esistono tre componenti principali di Swashbuckle:
 Eseguire il comando seguente da **Terminale integrato**:
 
 ```dotnetcli
-dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.0.0-rc4
+dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.0.0
 ```
 
 ### <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
@@ -70,7 +70,7 @@ dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.0.0-rc4
 Eseguire il comando seguente:
 
 ```dotnetcli
-dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.0.0-rc4
+dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.0.0
 ```
 
 ---
