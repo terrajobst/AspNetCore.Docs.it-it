@@ -2,19 +2,20 @@
 title: Ospitare e distribuire ASP.NET Core Blazor webassembly
 author: guardrex
 description: Informazioni su come ospitare e distribuire un'app Blazor usando ASP.NET Core, le reti per la distribuzione di contenuti (CDN), i file server e le pagine di GitHub.
-monikerRange: '>= aspnetcore-3.0'
+monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/15/2019
+ms.date: 12/18/2019
 no-loc:
 - Blazor
+- SignalR
 uid: host-and-deploy/blazor/webassembly
-ms.openlocfilehash: 0fcefc3f1e51beb7cc29aef6dd4f4b8557e61965
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 8ed95cdb96804e08c3f1273bbea8f64a8e4f173c
+ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963639"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76160249"
 ---
 # <a name="host-and-deploy-aspnet-core-opno-locblazor-webassembly"></a>Ospitare e distribuire ASP.NET Core Blazor webassembly
 
@@ -36,8 +37,8 @@ Sono supportate le strategie di distribuzione seguenti:
 
 Il routing delle richieste per i componenti della pagina in un'app webassembly Blazor non è semplice come le richieste di routing in un server Blazor, un'app ospitata. Si consideri un'app webassembly Blazor con due componenti:
 
-* *Main.razor*&ndash; Viene caricato nella radice dell'app e contiene un collegamento al componente `About` (`href="About"`).
-* *About.Razor* &ndash; Componente `About`.
+* *Main. razor* &ndash; carica alla radice dell'app e contiene un collegamento al componente di `About` (`href="About"`).
+* *About. razor* &ndash; `About` componente.
 
 Quando viene richiesto il documento predefinito dell'app usando la barra degli indirizzi del browser (ad esempio, `https://www.contoso.com/`):
 
@@ -81,11 +82,11 @@ Gli asset pubblicati vengono creati nella cartella */bin/Release/{FRAMEWORK DEST
 Quando viene pubblicato un progetto di Blazor, viene creato un file *Web. config* con la seguente configurazione di IIS:
 
 * Vengono impostati tipi MIME per le estensioni di file seguenti:
-  * *.dll* &ndash; `application/octet-stream`
-  * *.json* &ndash; `application/json`
-  * *.wasm* &ndash; `application/wasm`
-  * *.woff* &ndash; `application/font-woff`
-  * *.woff2* &ndash; `application/font-woff`
+  * *dll* &ndash; `application/octet-stream`
+  * *json* &ndash; `application/json`
+  * *. wasm* &ndash; `application/wasm`
+  * *. woff* &ndash; `application/font-woff`
+  * *. woff2* &ndash; `application/font-woff`
 * Viene abilitata la compressione HTTP per i tipi MIME seguenti:
   * `application/octet-stream`
   * `application/wasm`
@@ -139,7 +140,7 @@ Se un'app autonoma è ospitata come una sub-app IIS, eseguire una delle operazio
 
 La rimozione del gestore o la disabilitazione dell'ereditarietà viene eseguita oltre alla [configurazione del percorso di base dell'applicazione](xref:host-and-deploy/blazor/index#app-base-path). Impostare il percorso di base dell'app nel file *index.html* dell'app sull'alias IIS usato durante la configurazione della sottoapp in IIS.
 
-#### <a name="troubleshooting"></a>Troubleshooting
+#### <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se si riceve un *errore interno del server 500* e Gestione IIS genera errori durante il tentativo di accedere alla configurazione del sito Web, verificare che sia installato URL Rewrite Module. Quando il modulo non è installato, il file *web.config* non può essere analizzato da IIS. In questo modo si impedisce al gestore IIS di caricare la configurazione del sito Web e il sito Web di di soddisfare i file statici di Blazor.
 
