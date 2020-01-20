@@ -154,9 +154,9 @@ Il supporto di Firefox per il nuovo standard può essere testato nella versione 
 
 ### <a name="test-with-edge-browser"></a>Eseguire test con il browser Microsoft Edge
 
-Edge supporta lo standard navigava sullostesso sito precedente. La versione perimetrale 44 non presenta problemi di compatibilità noti con il nuovo standard.
+Microsoft Edge supporta lo standard navigava sullostesso sito precedente. La versione perimetrale 44 non presenta problemi di compatibilità noti con il nuovo standard.
 
-### <a name="test-with-edge-chromium"></a>Test con Edge (cromo)
+### <a name="test-with-edge-chromium"></a>Test con Microsoft Edge (cromo)
 
 I flag navigava sullostesso sito sono impostati nella pagina `edge://flags/#same-site-by-default-cookies`. Nessun problema di compatibilità rilevato con cromo perimetrale.
 
