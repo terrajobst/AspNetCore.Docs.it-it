@@ -2,19 +2,20 @@
 title: Routing ASP.NET Core Blazor
 author: guardrex
 description: Informazioni su come instradare le richieste nelle app e sul componente NavLink.
-monikerRange: '>= aspnetcore-3.0'
+monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 12/18/2019
 no-loc:
 - Blazor
+- SignalR
 uid: blazor/routing
-ms.openlocfilehash: 1690434f48141bc83e7bc02e22cb763430eaa10d
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: 0cd15f25ff7975cae3f63a739212aa23062ece23
+ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74944018"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76160158"
 ---
 # <a name="aspnet-core-opno-locblazor-routing"></a>Routing ASP.NET Core Blazor
 
@@ -121,7 +122,7 @@ Il router usa parametri di route per popolare i parametri del componente corrisp
 }
 ```
 
-I parametri facoltativi non sono supportati per le app Blazor in ASP.NET Core 3,0. Nell' `@page` esempio precedente vengono applicate due direttive. Il primo consente la navigazione al componente senza un parametro. La seconda direttiva `@page` accetta il parametro di route `{text}` e assegna il valore alla proprietà `Text`.
+I parametri facoltativi non sono supportati. Nell' `@page` esempio precedente vengono applicate due direttive. Il primo consente la navigazione al componente senza un parametro. La seconda direttiva `@page` accetta il parametro di route `{text}` e assegna il valore alla proprietà `Text`.
 
 ## <a name="route-constraints"></a>Vincoli di route
 

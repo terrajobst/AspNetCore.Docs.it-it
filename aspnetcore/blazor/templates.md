@@ -2,20 +2,20 @@
 title: Modelli di Blazor ASP.NET Core
 author: guardrex
 description: Informazioni su ASP.NET Core Blazor modelli di app e Blazor struttura del progetto.
-monikerRange: '>= aspnetcore-3.0'
+monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/25/2019
+ms.date: 12/18/2019
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/templates
-ms.openlocfilehash: bc0ea4a777e8684a7b0925377b8a19a45c2b531c
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 2a95b986450471b474d93ead252255f2bd9d4918
+ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74879661"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76160119"
 ---
 # <a name="aspnet-core-opno-locblazor-templates"></a>Modelli di Blazor ASP.NET Core
 
@@ -50,13 +50,13 @@ I file e le cartelle seguenti costituiscono un'app Blazor generata da un modello
 * *wwwroot/index.html* (Blazor webassembly) &ndash; pagina radice dell'app implementata come pagina HTML:
   * Quando viene inizialmente richiesta una pagina dell'app, il rendering della pagina viene eseguito e restituito nella risposta.
   * La pagina specifica la posizione in cui viene eseguito il rendering del componente `App` radice. Il componente `App` (*app. Razor*) viene specificato come elemento `app` Dom al metodo `AddComponent` in `Startup.Configure`.
-  * Viene caricato il file JavaScript *_framework/blazor.webassembly.js* , che:
+  * Viene caricato il file `_framework/blazor.webassembly.js` JavaScript, che:
     * Scarica il Runtime .NET, l'app e le dipendenze dell'app.
     * Inizializza il runtime per l'esecuzione dell'app.
 
 * *Pages/_Host. cshtml* (Blazor Server) &ndash; la pagina radice dell'app implementata come pagina Razor:
   * Quando viene inizialmente richiesta una pagina dell'app, il rendering della pagina viene eseguito e restituito nella risposta.
-  * Viene caricato il file JavaScript *_framework/blazor.Server.js* , che configura la connessione SignalR in tempo reale tra il browser e il server.
+  * Viene caricato il file `_framework/blazor.server.js` JavaScript, che configura la connessione SignalR in tempo reale tra il browser e il server.
   * Nella pagina host viene specificata la posizione in cui viene eseguito il rendering del componente `App` radice (*app. Razor*).
 
 * *App. razor* &ndash; il componente radice dell'app che configura il routing sul lato client usando il componente <xref:Microsoft.AspNetCore.Components.Routing.Router>. Il componente `Router` intercetta la navigazione del browser ed esegue il rendering della pagina corrispondente all'indirizzo richiesto.

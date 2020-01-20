@@ -2,28 +2,26 @@
 title: Gestione degli errori nelle app ASP.NET Core Blazor
 author: guardrex
 description: Scopri in che modo ASP.NET Core Blazor il modo in cui Blazor gestisce le eccezioni non gestite e come sviluppare app che rilevano e gestiscono gli errori.
-monikerRange: '>= aspnetcore-3.0'
+monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 12/18/2019
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/handle-errors
-ms.openlocfilehash: d73eb9a0dd0ec7a4bec4b7b9aeaaa4a9ee888bce
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: fe4cc13b1efb8c70c9632f032626aa938fb65ea3
+ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74943706"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76159950"
 ---
 # <a name="handle-errors-in-aspnet-core-opno-locblazor-apps"></a>Gestione degli errori nelle app ASP.NET Core Blazor
 
 Di [Steve Sanderson](https://github.com/SteveSandersonMS)
 
 Questo articolo descrive come Blazor gestisce le eccezioni non gestite e come sviluppare app che rilevano e gestiscono gli errori.
-
-::: moniker range=">= aspnetcore-3.1"
 
 ## <a name="detailed-errors-during-development"></a>Errori dettagliati durante lo sviluppo
 
@@ -58,8 +56,6 @@ In un'app Server Blazor personalizzare l'esperienza nel file *pages/_Host. cshtm
 ```
 
 L'elemento `blazor-error-ui` è nascosto dagli stili inclusi nei modelli di Blazor e quindi visualizzato quando si verifica un errore.
-
-::: moniker-end
 
 ## <a name="how-the-opno-locblazor-framework-reacts-to-unhandled-exceptions"></a>Reazione del Blazor Framework alle eccezioni non gestite
 
@@ -213,8 +209,6 @@ Quando un circuito termina perché un utente si è disconnesso e il Framework pu
 
 ### <a name="prerendering"></a>Tempistiche
 
-::: moniker range=">= aspnetcore-3.1"
-
 è possibile eseguire il prerendering dei componenti Blazor usando l'helper Tag `Component`, in modo che il markup HTML sottoposto a rendering venga restituito come parte della richiesta HTTP iniziale dell'utente. Funziona per:
 
 * Creazione di un nuovo circuito per tutti i componenti di cui è stato eseguito il rendering che fanno parte della stessa pagina.
@@ -229,27 +223,6 @@ Se un componente genera un'eccezione non gestita durante il prerendering, ad ese
 In circostanze normali, quando si verifica un errore di prerendering, continuare a compilare ed eseguire il rendering del componente non ha senso perché non è possibile eseguire il rendering di un componente funzionante.
 
 Per tollerare gli errori che possono verificarsi durante il prerendering, la logica di gestione degli errori deve essere inserita all'interno di un componente che può generare eccezioni. Usare le istruzioni [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) con la gestione e la registrazione degli errori. Anziché eseguire il wrapping dell'helper Tag `Component` in un'istruzione `try-catch`, inserire la logica di gestione degli errori nel componente sottoposto a rendering dall'helper Tag `Component`.
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.1"
-
-è possibile eseguire il prerendering dei componenti Blazor usando `Html.RenderComponentAsync`, in modo che il markup HTML sottoposto a rendering venga restituito come parte della richiesta HTTP iniziale dell'utente. Funziona per:
-
-* Creazione di un nuovo circuito per tutti i componenti di cui è stato eseguito il rendering che fanno parte della stessa pagina.
-* Generazione del codice HTML iniziale.
-* Trattare il circuito come `disconnected` finché il browser dell'utente non stabilisce una connessione SignalR allo stesso server. Quando viene stabilita la connessione, interattività sul circuito viene ripresa e il markup HTML dei componenti viene aggiornato.
-
-Se un componente genera un'eccezione non gestita durante il prerendering, ad esempio durante un metodo del ciclo di vita o nella logica di rendering:
-
-* L'eccezione è fatale per il circuito.
-* L'eccezione viene generata dallo stack di chiamate dalla chiamata `Html.RenderComponentAsync`. Pertanto, l'intera richiesta HTTP ha esito negativo a meno che l'eccezione non venga intercettata in modo esplicito dal codice dello sviluppatore.
-
-In circostanze normali, quando si verifica un errore di prerendering, continuare a compilare ed eseguire il rendering del componente non ha senso perché non è possibile eseguire il rendering di un componente funzionante.
-
-Per tollerare gli errori che possono verificarsi durante il prerendering, la logica di gestione degli errori deve essere inserita all'interno di un componente che può generare eccezioni. Usare le istruzioni [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) con la gestione e la registrazione degli errori. Anziché eseguire il wrapping della chiamata a `RenderComponentAsync` in un'istruzione `try-catch`, inserire la logica di gestione degli errori nel componente sottoposto a rendering da `RenderComponentAsync`.
-
-::: moniker-end
 
 ## <a name="advanced-scenarios"></a>Scenari avanzati
 

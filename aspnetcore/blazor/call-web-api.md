@@ -2,19 +2,20 @@
 title: Chiamare un'API Web da ASP.NET Core Blazor
 author: guardrex
 description: Informazioni su come chiamare un'API Web da un'app Blazor usando Helper JSON, inclusa la creazione di richieste di condivisione di risorse tra le origini (CORS).
-monikerRange: '>= aspnetcore-3.0'
+monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 12/18/2019
 no-loc:
 - Blazor
+- SignalR
 uid: blazor/call-web-api
-ms.openlocfilehash: f1929b48275a36552f061a64823267df0f3acabc
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: 66605f38a6fcaedebc92b0946dca1e5f28b593c6
+ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74943914"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76160067"
 ---
 # <a name="call-a-web-api-from-aspnet-core-opno-locblazor"></a>Chiamare un'API Web da ASP.NET Core Blazor
 
@@ -24,7 +25,7 @@ Di [Luke Latham](https://github.com/guardrex), [Daniel Roth](https://github.com/
 
 [Blazor le app webassembly](xref:blazor/hosting-models#blazor-webassembly) chiamano API Web usando un servizio di `HttpClient` preconfigurato. Comporre richieste, che possono includere opzioni [API di recupero](https://developer.mozilla.org/docs/Web/API/Fetch_API) JavaScript, usando Blazor Helper JSON o con <xref:System.Net.Http.HttpRequestMessage>.
 
-[Blazor](xref:blazor/hosting-models#blazor-server) le app server chiamano API Web usando istanze di <xref:System.Net.Http.HttpClient> in genere create con <xref:System.Net.Http.IHttpClientFactory>. Per altre informazioni, vedere <xref:fundamentals/http-requests>.
+[Blazor](xref:blazor/hosting-models#blazor-server) le app server chiamano API Web usando istanze di <xref:System.Net.Http.HttpClient> in genere create con <xref:System.Net.Http.IHttpClientFactory>. Per ulteriori informazioni, vedere <xref:fundamentals/http-requests>.
 
 Consente di [visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([come scaricare](xref:index#how-to-download-a-sample)) &ndash; selezionare l'app *BlazorWebAssemblySample* .
 
@@ -201,7 +202,7 @@ Quando si esegue il webassembly in un'app Blazor webassembly, usare [HttpClient]
 }
 ```
 
-Per ulteriori informazioni sulle opzioni di recupero delle API, vedere la pagina relativa alla documentazione Web di [MDN: WindowOrWorkerGlobalScope. fetch ():P](https://developer.mozilla.org/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters)arameters.
+Per altre informazioni sulle opzioni di recupero delle API, vedere la pagina relativa alla [documentazione Web MDN: WindowOrWorkerGlobalScope. fetch ():P arameters](https://developer.mozilla.org/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters).
 
 Quando si inviano le credenziali (cookie/intestazioni di autorizzazione) nelle richieste CORS, l'intestazione `Authorization` deve essere consentita dal criterio CORS.
 

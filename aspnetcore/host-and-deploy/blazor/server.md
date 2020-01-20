@@ -2,20 +2,20 @@
 title: Ospitare e distribuire ASP.NET Core Server Blazor
 author: guardrex
 description: Informazioni su come ospitare e distribuire un'app Server Blazor usando ASP.NET Core.
-monikerRange: '>= aspnetcore-3.0'
+monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 12/18/2019
 no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/server
-ms.openlocfilehash: d45d355eabc53fc90bcda4cb7be22fb6a9f04541
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: c07cd05dd8e1c4384c6f8f019173b9b7a9a06fd0
+ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74944334"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76160223"
 ---
 # <a name="host-and-deploy-opno-locblazor-server"></a>Ospitare e distribuire Blazor server
 
@@ -49,7 +49,7 @@ Per istruzioni sulla creazione di app Server Blazor sicure e scalabili, vedere <
 
 Ogni circuito utilizza circa 250 KB di memoria per un'app di tipo *Hello World*minima. La dimensione di un circuito dipende dal codice dell'app e dai requisiti di manutenzione dello stato associati a ogni componente. Si consiglia di misurare le richieste di risorse durante lo sviluppo dell'applicazione e dell'infrastruttura, ma la linea di base seguente può essere un punto di partenza per la pianificazione della destinazione di distribuzione: se si prevede che l'app supporti 5.000 utenti simultanei, prendere in considerazione il budget almeno 1,3 GB di memoria del server per l'app (o circa 273 KB per utente).
 
-### <a name="opno-locsignalr-configuration"></a>Configurazione di SignalR
+### <a name="opno-locsignalr-configuration"></a>configurazione di SignalR
 
 le app Server Blazor usano SignalR ASP.NET Core per comunicare con il browser. [le condizioni di hosting e scalabilità diSignalR](xref:signalr/publish-to-azure-web-app) si applicano alle app Blazor server.
 

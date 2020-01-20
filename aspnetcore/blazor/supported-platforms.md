@@ -2,19 +2,20 @@
 title: Piattaforme supportate da ASP.NET Core Blazor
 author: guardrex
 description: Informazioni sulle piattaforme supportate per ASP.NET Core Blazor.
-monikerRange: '>= aspnetcore-3.0'
+monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/15/2019
+ms.date: 12/18/2019
 no-loc:
 - Blazor
+- SignalR
 uid: blazor/supported-platforms
-ms.openlocfilehash: de51296cc8785474e1c1406cfd5d4e5bd4050172
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 505974280b5c96ec2bcae42c6e076ab67a15bb07
+ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73962736"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76160132"
 ---
 # <a name="aspnet-core-opno-locblazor-supported-platforms"></a>Piattaforme supportate da ASP.NET Core Blazor
 
@@ -46,7 +47,7 @@ Di [Luke Latham](https://github.com/guardrex)
 | Safari, incluso iOS            | Corrente    |
 | Microsoft Internet Explorer      | 11&dagger; |
 
-sono necessarie le compilazioni &dagger;Additional (ad esempio, le promesse possono essere aggiunte tramite un bundle [polyfill.io](https://polyfill.io/v3/) ).
+sono necessari &dagger;ulteriori riempimenti, ad esempio le promesse possono essere aggiunte tramite un bundle [polyfill.io](https://polyfill.io/v3/) .
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

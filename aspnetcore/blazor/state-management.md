@@ -2,19 +2,20 @@
 title: Gestione stato Blazor ASP.NET Core
 author: guardrex
 description: Informazioni su come salvare in modo permanente lo stato nelle app Blazor server.
-monikerRange: '>= aspnetcore-3.0'
+monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 12/18/2019
 no-loc:
 - Blazor
+- SignalR
 uid: blazor/state-management
-ms.openlocfilehash: 7351ee2438c6adf675b8aa5e8ecdb1b2da7b4f23
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: ffb32a4f274a30f2a5ceed9cbf193285e85bab4c
+ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74943927"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76160145"
 ---
 # <a name="aspnet-core-opno-locblazor-state-management"></a>Gestione stato Blazor ASP.NET Core
 
@@ -241,17 +242,7 @@ Durante il prerendering:
 
 Un modo per risolvere l'errore consiste nel disabilitare il prerendering. Questa è in genere la scelta migliore se l'app usa in modo intensivo l'archiviazione basata su browser. Il prerendering aggiunge complessità e non è vantaggioso per l'app perché l'app non può eseguire il prerendering di contenuto utile fino a quando non sono disponibili `localStorage` o `sessionStorage`.
 
-::: moniker range=">= aspnetcore-3.1"
-
 Per disabilitare il prerendering, aprire il file *pages/_Host. cshtml* e modificare la chiamata `render-mode` dell'helper Tag `Component` in `Server`.
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.1"
-
-Per disabilitare il prerendering, aprire il file *pages/_Host. cshtml* e modificare la chiamata a `Html.RenderComponentAsync<App>(RenderMode.Server)`.
-
-::: moniker-end
 
 Il prerendering può essere utile per altre pagine che non utilizzano `localStorage` o `sessionStorage`. Per rendere abilitato il prerendering, rinviare l'operazione di caricamento finché il browser non è connesso al circuito. Di seguito è riportato un esempio per l'archiviazione di un valore del contatore:
 
