@@ -5,16 +5,16 @@ description: Informazioni su come usare gli hub in ASP.NET Core SignalR.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 11/12/2019
+ms.date: 01/16/2020
 no-loc:
 - SignalR
 uid: signalr/hubs
-ms.openlocfilehash: f95766cab84bddff2c7c62f30bce1e6d1e43deab
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: e5bc12c5ccafe2b5273d72e6bde0f631ca043428
+ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963793"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294632"
 ---
 # <a name="use-hubs-in-opno-locsignalr-for-aspnet-core"></a>Usare gli hub in SignalR per ASP.NET Core
 
@@ -80,7 +80,7 @@ public class ChatHub : Hub
 
 La classe `Hub` dispone di una proprietà `Context` che contiene le proprietà seguenti con le informazioni sulla connessione:
 
-| proprietà | Descrizione |
+| Gli | Descrizione |
 | ------ | ----------- |
 | `ConnectionId` | Ottiene l'ID univoco per la connessione, assegnato dal SignalR. È presente un ID di connessione per ogni connessione.|
 | `UserIdentifier` | Ottiene l' [identificatore utente](xref:signalr/groups). Per impostazione predefinita, SignalR usa il `ClaimTypes.NameIdentifier` dal `ClaimsPrincipal` associato alla connessione come identificatore utente. |
@@ -100,7 +100,7 @@ La classe `Hub` dispone di una proprietà `Context` che contiene le proprietà s
 
 La classe `Hub` dispone di una proprietà `Clients` che contiene le proprietà seguenti per la comunicazione tra server e client:
 
-| proprietà | Descrizione |
+| Gli | Descrizione |
 | ------ | ----------- |
 | `All` | Chiama un metodo su tutti i client connessi |
 | `Caller` | Chiama un metodo sul client che ha richiamato il metodo Hub |
@@ -146,7 +146,7 @@ Questa interfaccia può essere utilizzata per effettuare il refactoring dell'ese
 
 L'uso di `Hub<IChatClient>` consente il controllo in fase di compilazione dei metodi client. In questo modo si evitano i problemi causati dall'uso di stringhe magiche, perché `Hub<T>` possibile fornire accesso solo ai metodi definiti nell'interfaccia.
 
-L'uso di un `Hub<T>` fortemente tipizzato Disabilita la possibilità di usare `SendAsync`. Tutti i metodi definiti nell'interfaccia possono comunque essere definiti come asincroni. Ognuno di questi metodi deve infatti restituire un `Task`. Poiché si tratta di un'interfaccia, non usare la parola chiave `async`. Esempio:
+L'uso di un `Hub<T>` fortemente tipizzato Disabilita la possibilità di usare `SendAsync`. Tutti i metodi definiti nell'interfaccia possono comunque essere definiti come asincroni. Ognuno di questi metodi deve infatti restituire un `Task`. Poiché si tratta di un'interfaccia, non usare la parola chiave `async`. Ad esempio:
 
 ```csharp
 public interface IClient
@@ -174,13 +174,15 @@ Eseguire l'override del metodo virtuale `OnDisconnectedAsync` per eseguire azion
 
 [!code-csharp[Handle disconnection](hubs/sample/hubs/chathub.cs?name=OnDisconnectedAsync)]
 
+[!INCLUDE[](~/includes/connectionid-signalr.md)]
+
 ## <a name="handle-errors"></a>Gestire gli errori
 
 Le eccezioni generate nei metodi dell'hub vengono inviate al client che ha richiamato il metodo. Nel client JavaScript il metodo `invoke` restituisce un [Suggerimento JavaScript](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Using_promises). Quando il client riceve un errore con un gestore associato alla promessa usando `catch`, viene richiamato e passato come oggetto JavaScript `Error`.
 
 [!code-javascript[Error](hubs/sample/wwwroot/js/chat.js?range=23)]
 
-Se l'Hub genera un'eccezione, le connessioni non vengono chiuse. Per impostazione predefinita, SignalR restituisce al client un messaggio di errore generico. Esempio:
+Se l'Hub genera un'eccezione, le connessioni non vengono chiuse. Per impostazione predefinita, SignalR restituisce al client un messaggio di errore generico. Ad esempio:
 
 ```
 Microsoft.AspNetCore.SignalR.HubException: An unexpected error occurred invoking 'MethodName' on the server.

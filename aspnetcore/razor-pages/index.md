@@ -4,14 +4,14 @@ author: Rick-Anderson
 description: Informazioni su come Razor Pages in ASP.NET Core semplifica e rende più produttiva la scrittura di codice incentrata sulle pagine rispetto a MVC.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 12/05/2019
+ms.date: 01/18/2020
 uid: razor-pages/index
-ms.openlocfilehash: fbe6e307ff5f7388e91cc2276f22ae1672507587
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 69c9f09aa0e3dbdbe78720c573b5e1fc63464571
+ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880888"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294660"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introduzione a Razor Pages in ASP.NET Core
 
@@ -25,7 +25,7 @@ Se si sta cercando un'esercitazione in cui si usa l'approccio Model-View-Control
 
 Questo documento offre un'introduzione a Razor Pages. Non è un'esercitazione dettagliata. Se alcune sezioni risultano troppo avanzate, vedere [Introduzione a Razor Pages](xref:tutorials/razor-pages/razor-pages-start). Per una panoramica di ASP.NET Core, vedere [Introduzione a ASP.NET Core](xref:index).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -128,7 +128,7 @@ La classe `PageModel` consente la separazione della logica di una pagina dalla r
 * Gestione delle dipendenze di pagina tramite l' [inserimento di dipendenze](xref:fundamentals/dependency-injection).
 * [Testing unità](xref:test/razor-pages-tests)
 
-La pagina contiene un oggetto `OnPostAsync`, ovvero un *metodo gestore* che viene eseguito per le richieste `POST`, quando un utente invia il form. È possibile aggiungere i metodi del gestore per qualsiasi verbo HTTP. I gestori più comuni sono:
+La pagina dispone di un *metodo del gestore*`OnPostAsync`, che viene eseguito su richieste di `POST` (quando un utente pubblica il modulo). È possibile aggiungere i metodi del gestore per qualsiasi verbo HTTP. I gestori più comuni sono:
 
 * `OnGet` per inizializzare lo stato necessario per la pagina. Nel codice precedente, il metodo `OnGet` Visualizza la pagina Razor *CreateModel. cshtml* .
 * `OnPost` per gestire gli invii di form.
@@ -386,7 +386,7 @@ La direttiva `@namespace` imposta lo spazio dei nomi per la pagina. La direttiva
 
 Se la direttiva `@namespace` è contenuta in *_ViewImports.cshtml*, lo spazio dei nomi specificato indica il prefisso per lo spazio dei nomi generato nella pagina che importa la direttiva `@namespace`. Il resto dello spazio dei nomi generato (la parte del suffisso) è il percorso relativo separato dal punto tra la cartella contenente *_Viewimports.cshtml* e la cartella contenente la pagina.
 
-Ad esempio, la classe `PageModel` *Pages/Customers/Edit.cshtml.cs* imposta in modo esplicito lo spazio dei nomi:
+Ad esempio, la classe `PageModel`*Pages/Customers/Edit.cshtml.cs* imposta in modo esplicito lo spazio dei nomi:
 
 [!code-cs[](index/sample/RazorPagesContacts2/Pages/Customers/Edit.cshtml.cs?name=snippet_namespace)]
 
@@ -396,7 +396,7 @@ Il file *Pages/_ViewImports.cshtml* file imposta il seguente spazio dei nomi:
 
 Lo spazio dei nomi generato per la pagina Razor *Pages/Customers/Edit.cshtml* corrisponde alla classe `PageModel`.
 
-`@namespace` *Funziona anche con le normali visualizzazioni Razor.*
+`@namespace` *funziona anche con le visualizzazioni Razor convenzionali.*
 
 Si consideri il file di visualizzazione *pages/create. cshtml* :
 
@@ -559,9 +559,7 @@ Usare la direttiva `@page` per:
 
 Un percorso relativo alla directory radice designato da una tilde (`~`) all'inizio del percorso è supportato. Ad esempio, `@page "~/Some/Other/Path"` equivale a `@page "/Some/Other/Path"`.
 
-È possibile modificare la stringa di query `?handler=JoinList` nell'URL in un segmento di route `/JoinList` specificando il modello di route `@page "{handler?}"`.
-
-Se si vuole omettere la stringa di query `?handler=JoinList` dall'URL, è possibile modificare la route in modo da inserire il nome del gestore nella parte di percorso dell'URL. È possibile personalizzare la route aggiungendo un modello di route racchiuso tra virgolette doppie dopo la direttiva `@page`.
+Se non si desidera che la stringa di query `?handler=JoinList` nell'URL, modificare la route per inserire il nome del gestore nella parte relativa al percorso dell'URL. La route può essere personalizzata aggiungendo un modello di route racchiuso tra virgolette doppie dopo la direttiva `@page`.
 
 [!code-cshtml[](index/sample/RazorPagesContacts2/Pages/Customers/CreateRoute.cshtml?highlight=1)]
 
@@ -618,7 +616,7 @@ Se si sta cercando un'esercitazione in cui si usa l'approccio Model-View-Control
 
 Questo documento offre un'introduzione a Razor Pages. Non è un'esercitazione dettagliata. Se alcune sezioni risultano troppo avanzate, vedere [Introduzione a Razor Pages](xref:tutorials/razor-pages/razor-pages-start). Per una panoramica di ASP.NET Core, vedere [Introduzione a ASP.NET Core](xref:index).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -721,7 +719,7 @@ La classe `PageModel` consente la separazione della logica di una pagina dalla r
 * Gestione delle dipendenze di pagina tramite l' [inserimento di dipendenze](xref:fundamentals/dependency-injection).
 * [Testing unità](xref:test/razor-pages-tests) delle pagine.
 
-La pagina contiene un oggetto `OnPostAsync`, ovvero un *metodo gestore* che viene eseguito per le richieste `POST`, quando un utente invia il form. È possibile aggiungere metodi gestore per qualsiasi verbo HTTP. I gestori più comuni sono:
+La pagina dispone di un *metodo del gestore*`OnPostAsync`, che viene eseguito su richieste di `POST` (quando un utente pubblica il modulo). È possibile aggiungere metodi gestore per qualsiasi verbo HTTP. I gestori più comuni sono:
 
 * `OnGet` per inizializzare lo stato necessario per la pagina. Esempio di [OnGet](#OnGet).
 * `OnPost` per gestire gli invii di form.
@@ -905,7 +903,7 @@ La direttiva imposta lo spazio dei nomi per la pagina. La direttiva `@model` non
 
 Se la direttiva `@namespace` è contenuta in *_ViewImports.cshtml*, lo spazio dei nomi specificato indica il prefisso per lo spazio dei nomi generato nella pagina che importa la direttiva `@namespace`. Il resto dello spazio dei nomi generato (la parte del suffisso) è il percorso relativo separato dal punto tra la cartella contenente *_Viewimports.cshtml* e la cartella contenente la pagina.
 
-Ad esempio, la classe `PageModel` *Pages/Customers/Edit.cshtml.cs* imposta in modo esplicito lo spazio dei nomi:
+Ad esempio, la classe `PageModel`*Pages/Customers/Edit.cshtml.cs* imposta in modo esplicito lo spazio dei nomi:
 
 [!code-cs[](index/sample/RazorPagesContacts2/Pages/Customers/Edit.cshtml.cs?name=snippet_namespace)]
 
@@ -915,7 +913,7 @@ Il file *Pages/_ViewImports.cshtml* file imposta il seguente spazio dei nomi:
 
 Lo spazio dei nomi generato per la pagina Razor *Pages/Customers/Edit.cshtml* corrisponde alla classe `PageModel`.
 
-`@namespace` *Funziona anche con le normali visualizzazioni Razor.*
+`@namespace` *funziona anche con le visualizzazioni Razor convenzionali.*
 
 Il file di visualizzazione *Pages/Create.cshtml* originale:
 
@@ -1066,9 +1064,7 @@ Usare la direttiva `@page` per:
 
 Un percorso relativo alla directory radice designato da una tilde (`~`) all'inizio del percorso è supportato. Ad esempio, `@page "~/Some/Other/Path"` equivale a `@page "/Some/Other/Path"`.
 
-È possibile modificare la stringa di query `?handler=JoinList` nell'URL in un segmento di route `/JoinList` specificando il modello di route `@page "{handler?}"`.
-
-Se si vuole omettere la stringa di query `?handler=JoinList` dall'URL, è possibile modificare la route in modo da inserire il nome del gestore nella parte di percorso dell'URL. È possibile personalizzare la route aggiungendo un modello di route racchiuso tra virgolette doppie dopo la direttiva `@page`.
+Se non si desidera che la stringa di query `?handler=JoinList` nell'URL, modificare la route per inserire il nome del gestore nella parte relativa al percorso dell'URL. La route può essere personalizzata aggiungendo un modello di route racchiuso tra virgolette doppie dopo la direttiva `@page`.
 
 [!code-cshtml[](index/sample/RazorPagesContacts2/Pages/Customers/CreateRoute.cshtml?highlight=1)]
 

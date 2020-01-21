@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 3bf930d19684e84365f0ff0255fccd2939fb3f39
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: 73e547b014d78dcbcbf1c887ebec16e0743d10b9
+ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75354914"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294742"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Esercitazione: creare un'API Web con ASP.NET Core
 
@@ -186,7 +186,7 @@ Un *modello* è un set di classi che rappresentano i dati gestiti dall'app. Il m
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto. Selezionare **Aggiungi** > **Nuova cartella**. Assegnare il nome *Modelli* alla cartella.
+* In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto. Selezionare **Aggiungi** > **Nuova cartella**. Assegnare il nome *Models* alla cartella.
 
 * Fare clic con il pulsante destro del mouse sulla cartella *Models* e scegliere **Aggiungi** > **Classe**. Assegnare alla classe il nome *TodoItem* e selezionare **Aggiungi**.
 
@@ -200,7 +200,7 @@ Un *modello* è un set di classi che rappresentano i dati gestiti dall'app. Il m
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
-* Fare clic con il pulsante destro del mouse sul progetto. Selezionare **Aggiungi** > **Nuova cartella**. Assegnare il nome *Modelli* alla cartella.
+* Fare clic con il pulsante destro del mouse sul progetto. Selezionare **Aggiungi** > **Nuova cartella**. Assegnare il nome *Models* alla cartella.
 
   ![Nuova cartella](first-web-api-mac/_static/folder.png)
 
@@ -296,7 +296,6 @@ I comandi precedenti:
 
 Il codice generato:
 
-* Definisce una classe controller API senza metodi.
 * Contrassegna la classe con l'attributo [`[ApiController]`](/dotnet/api/microsoft.aspnetcore.mvc.apicontrollerattribute) . L'attributo indica che il controller risponde alle richieste di API Web. Per informazioni sui comportamenti specifici consentiti dall'attributo, vedere <xref:web-api/index>.
 * Usa l'inserimento delle dipendenze per inserire il contesto del database (`TodoContext`) nel controller. Il contesto di database viene usato in ognuno dei metodi [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) nel controller.
 
@@ -322,7 +321,7 @@ Questa esercitazione usa Postman per testare l'API Web.
 * Avviare l'app Web.
 * Avviare Postman.
 * Disattivare **SSL certificate verification** (Verifica certificato SSL)
-* In **File** > **Impostazioni** (scheda**generale** ) disabilitare la **Verifica del certificato SSL**.
+  * In **File** > **Impostazioni** (scheda**generale** ) disabilitare la **Verifica del certificato SSL**.
     > [!WARNING]
     > Riattivare la verifica dei certificati SSL al termine del test del controller.
 
@@ -589,7 +588,7 @@ Un *modello* è un set di classi che rappresentano i dati gestiti dall'app. Il m
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto. Selezionare **Aggiungi** > **Nuova cartella**. Assegnare il nome *Modelli* alla cartella.
+* In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto. Selezionare **Aggiungi** > **Nuova cartella**. Assegnare il nome *Models* alla cartella.
 
 * Fare clic con il pulsante destro del mouse sulla cartella *Models* e scegliere **Aggiungi** > **Classe**. Assegnare alla classe il nome *TodoItem* e selezionare **Aggiungi**.
 
@@ -603,7 +602,7 @@ Un *modello* è un set di classi che rappresentano i dati gestiti dall'app. Il m
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
-* Fare clic con il pulsante destro del mouse sul progetto. Selezionare **Aggiungi** > **Nuova cartella**. Assegnare il nome *Modelli* alla cartella.
+* Fare clic con il pulsante destro del mouse sul progetto. Selezionare **Aggiungi** > **Nuova cartella**. Assegnare il nome *Models* alla cartella.
 
   ![Nuova cartella](first-web-api-mac/_static/folder.png)
 

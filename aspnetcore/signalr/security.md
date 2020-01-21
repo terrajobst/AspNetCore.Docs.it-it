@@ -5,16 +5,16 @@ description: Informazioni su come usare l'autenticazione e l'autorizzazione in A
 monikerRange: '>= aspnetcore-2.1'
 ms.author: anurse
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 01/16/2020
 no-loc:
 - SignalR
 uid: signalr/security
-ms.openlocfilehash: 1bdb8b10a24c65735f49f04285e4129cb77eb3fb
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 4b27d9abb36938ed8161ff0d3535204e3fa68765
+ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828945"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294709"
 ---
 # <a name="security-considerations-in-aspnet-core-opno-locsignalr"></a>Considerazioni sulla sicurezza in ASP.NET Core SignalR
 
@@ -112,16 +112,20 @@ In ASP.NET Core 2,1 e versioni successive, è possibile ottenere la convalida de
 
 ::: moniker-end
 
+## <a name="connectionid"></a>ConnectionId
+
+L'esposizione di `ConnectionId` può causare la rappresentazione dannosa se la versione del server o del client di SignalR è ASP.NET Core 2,2 o versioni precedenti. Se il server SignalR e la versione del client sono ASP.NET Core 3,0 o versioni successive, il `ConnectionToken` anziché il `ConnectionId` deve essere mantenuto segreto. Il `ConnectionToken` non viene esposto intenzionalmente in alcuna API.  Può essere difficile assicurarsi che i client di SignalR meno recenti non si connettano al server, quindi anche se la versione del server SignalR è ASP.NET Core 3,0 o successiva, non è necessario esporre il `ConnectionId`.
+
 ## <a name="access-token-logging"></a>Registrazione del token di accesso
 
-Quando si usano WebSocket o eventi inviati dal server, il client browser invia il token di accesso nella stringa di query. La ricezione del token di accesso tramite la stringa di query è in genere sicura quanto l'utilizzo dell'intestazione `Authorization` standard. Usare sempre HTTPS per garantire una connessione end-to-end sicura tra il client e il server. Molti server Web registrano l'URL per ogni richiesta, inclusa la stringa di query. La registrazione degli URL può registrare il token di accesso. Per impostazione predefinita, ASP.NET Core registra l'URL per ogni richiesta, che include la stringa di query. Ad esempio:
+Quando si usano WebSocket o eventi inviati dal server, il client browser invia il token di accesso nella stringa di query. La ricezione del token di accesso tramite la stringa di query è generalmente sicura come l'utilizzo dell'intestazione `Authorization` standard. Usare sempre HTTPS per garantire una connessione end-to-end sicura tra il client e il server. Molti server Web registrano l'URL per ogni richiesta, inclusa la stringa di query. La registrazione degli URL può registrare il token di accesso. Per impostazione predefinita, ASP.NET Core registra l'URL per ogni richiesta, che include la stringa di query. Ad esempio:
 
 ```
 info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
       Request starting HTTP/1.1 GET http://localhost:5000/myhub?access_token=1234
 ```
 
-In caso di dubbi sulla registrazione di questi dati con i log del server, è possibile disabilitare completamente questa registrazione configurando il logger di `Microsoft.AspNetCore.Hosting` al livello di `Warning` o superiore (questi messaggi vengono scritti a livello di `Info`). Per ulteriori informazioni, vedere la documentazione relativa al [filtro dei log](xref:fundamentals/logging/index#log-filtering) . Se si vuole comunque registrare determinate informazioni sulle richieste, è possibile [scrivere un middleware](xref:fundamentals/middleware/write) per registrare i dati necessari e filtrare il valore della stringa di query `access_token` (se presente).
+In caso di dubbi sulla registrazione di questi dati con i log del server, è possibile disabilitare completamente questa registrazione configurando il logger di `Microsoft.AspNetCore.Hosting` al livello di `Warning` o superiore (questi messaggi vengono scritti a livello di `Info`). Per ulteriori informazioni, vedere [filtro dei log](xref:fundamentals/logging/index#log-filtering) per ulteriori informazioni. Se si vuole comunque registrare determinate informazioni sulle richieste, è possibile [scrivere un middleware](xref:fundamentals/middleware/write) per registrare i dati necessari e filtrare il valore della stringa di query `access_token` (se presente).
 
 ## <a name="exceptions"></a>Eccezioni
 

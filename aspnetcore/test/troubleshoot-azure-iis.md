@@ -5,14 +5,14 @@ description: Informazioni su come diagnosticare i problemi relativi alle distrib
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/10/2020
+ms.date: 01/18/2020
 uid: test/troubleshoot-azure-iis
-ms.openlocfilehash: 23c90c33d197d26d1c4ad758449e318e20ef3760
-ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
+ms.openlocfilehash: 071dba9e936351e201b7582b3d0667cd6fac54bb
+ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75952147"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294623"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service-and-iis"></a>Risolvere i problemi relativi a ASP.NET Core in app Azure servizio e IIS
 
@@ -117,7 +117,10 @@ Il processo di lavoro ha esito negativo. L'app non viene avviata.
 
 Il [modulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module) tenta di avviare .NET Core CLR in-process, ma non è possibile avviarlo. La cause di un errore di avvio del processo può in genere essere determinata dalle voci nel registro eventi dell'applicazione e dal log stdout del modulo ASP.NET Core.
 
-Una condizione di errore comune è dovuta alla configurazione non corretta dell'app perché come destinazione viene specificata una versione del framework condiviso ASP.NET Core, che non è presente. Controllare le versioni del framework condiviso ASP.NET Core installate nel computer di destinazione.
+Condizioni di errore comuni:
+
+* L'app non è configurata correttamente perché la destinazione è una versione di ASP.NET Core Framework condiviso che non è presente. Controllare le versioni del framework condiviso ASP.NET Core installate nel computer di destinazione.
+* Utilizzando Azure Key Vault, non sono disponibili autorizzazioni per l'Key Vault. Verificare i criteri di accesso nel Key Vault di destinazione per verificare che siano state concesse le autorizzazioni corrette.
 
 ### <a name="50031-ancm-failed-to-find-native-dependencies"></a>500.31 ANCM Failed to Find Native Dependencies (500.31 Il modulo ASP.NET Core non è riuscito a trovare le dipendenze native)
 
@@ -282,7 +285,7 @@ L'output della console per l'app, in cui sono indicati gli eventuali errori, ver
 *Richiede l'installazione dell'estensione del sito del runtime ASP.NET Core {VERSION} (x86).*
 
 1. `cd D:\home\SiteExtensions\AspNetCoreRuntime.{X.Y}.x32` (`{X.Y}` è la versione di runtime)
-1. Eseguire l'app. `dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
+1. Eseguire l'app: `dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
 
 L'output della console per l'app, in cui sono indicati gli eventuali errori, verrà inviato alla console Kudu.
 
@@ -292,10 +295,10 @@ L'output della console per l'app, in cui sono indicati gli eventuali errori, ver
 
 * Se l'app è una [distribuzione dipendente dal framework](/dotnet/core/deploying/#framework-dependent-deployments-fdd) a 64 bit (x64):
   1. `cd D:\Program Files\dotnet`
-  1. Eseguire l'app. `dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
+  1. Eseguire l'app: `dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
 * Se l'app è una [distribuzione autonoma](/dotnet/core/deploying/#self-contained-deployments-scd):
   1. `cd D:\home\site\wwwroot`
-  1. Eseguire l'app. `{ASSEMBLY NAME}.exe`
+  1. Eseguire l'app: `{ASSEMBLY NAME}.exe`
 
 L'output della console per l'app, in cui sono indicati gli eventuali errori, verrà inviato alla console Kudu.
 
@@ -304,7 +307,7 @@ L'output della console per l'app, in cui sono indicati gli eventuali errori, ver
 *Richiede l'installazione dell'estensione del sito del runtime ASP.NET Core {VERSION} (x64).*
 
 1. `cd D:\home\SiteExtensions\AspNetCoreRuntime.{X.Y}.x64` (`{X.Y}` è la versione di runtime)
-1. Eseguire l'app. `dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
+1. Eseguire l'app: `dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
 
 L'output della console per l'app, in cui sono indicati gli eventuali errori, verrà inviato alla console Kudu.
 

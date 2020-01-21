@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/11/2019
 uid: web-api/http-repl
-ms.openlocfilehash: 34ec2b2eb511f33e1263cdad4a338183a3e4b83a
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: 15899917826fb6559244998766d99d00f56e0521
+ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75356183"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294723"
 ---
 # <a name="test-web-apis-with-the-http-repl"></a>Testare le API Web con il ciclo Read-Eval-Print (REPL) HTTP
 
@@ -578,8 +578,9 @@ Per inviare una richiesta HTTP PUT:
         "data": "Strawberry"
       }
     ]
+    ```
 
-1. Run the `put` command on an endpoint that supports it:
+1. Eseguire il comando `put` in un endpoint che lo supporta:
 
     ```console
     https://localhost:5001/fruits~ put 2 -h Content-Type=application/json
