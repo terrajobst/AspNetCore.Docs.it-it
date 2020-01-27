@@ -5,12 +5,12 @@ description: Aggiungere un modello a una semplice app ASP.NET Core.
 ms.author: riande
 ms.date: 01/13/2020
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: adf313418e82cc265304262f7a751273fa0e139f
-ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
+ms.openlocfilehash: 12429f1f381788569615a2a40e1ca13c4b3cfb6e
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75952106"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76727116"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Aggiungere un modello a un'app ASP.NET Core MVC
 
@@ -22,7 +22,7 @@ Si usano queste classi con [Entity Framework Core](/ef/core) (EF Core) per usare
 
 Le classi di modello create sono dette classi POCO (da **P**lain **O**ld **C**LR **O**bjects) perché non hanno alcuna dipendenza in EF Core. Definiscono semplicemente le proprietà dei dati che verranno archiviati nel database.
 
-In questa esercitazione si scrivono innanzitutto le classi di modello e EF Core crea il database. Un approccio alternativo non trattato in questo articolo consiste nel generare classi del modello da un database esistente. Per informazioni su questo approccio, vedere [ASP.NET Core - Existing Database](/ef/core/get-started/aspnetcore/existing-db) (Introduzione a EF Core su ASP.NET Core con un database esistente).
+In questa esercitazione si scrivono innanzitutto le classi di modello e EF Core crea il database.
 
 ::: moniker range=">= aspnetcore-3.0"
 

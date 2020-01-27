@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/configure-linker
-ms.openlocfilehash: cdcd62915b8f1bae26773ed91e55973527e158f6
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
+ms.openlocfilehash: 263b85a3213c1da233e4c96095faaf39d0a8e13f
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76160275"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76726768"
 ---
 # <a name="configure-the-linker-for-aspnet-core-opno-locblazor"></a>Configurare il linker per ASP.NET Core Blazor
 
@@ -108,4 +108,4 @@ Per controllare quali assembly I18N vengono conservati, impostare la proprietà 
 
 Usare una virgola per separare più valori, ad esempio `mideast,west`.
 
-Per altre informazioni, vedere [i18n: Pnetlib internazionalizzazione Framework libreria (repository GitHub mono/mono)](https://github.com/mono/mono/tree/master/mcs/class/I18N).
+Per altre informazioni, vedere [i18n: Pnetlib internationalation Framework Library (repository GitHub mono/mono)](https://github.com/mono/mono/tree/master/mcs/class/I18N).

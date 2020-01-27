@@ -4,14 +4,14 @@ author: rick-anderson
 description: Questa esercitazione illustra come compilare un'app ASP.NET Core usando OAuth 2,0 con provider di autenticazione esterni.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/21/2019
+ms.date: 01/23/2020
 uid: security/authentication/social/index
-ms.openlocfilehash: 06ce9c72f43955345efb61afed2538158810005f
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: 7d0f6647a6f5a4d41067b13acd3d294144027bb7
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358069"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76727327"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Autenticazione dei provider Facebook, Google ed esterni in ASP.NET Core
 
@@ -35,7 +35,7 @@ Per degli esempi di come gli account di accesso ai social possano risultare util
 * Creare un nuovo progetto.
 * Selezionare **Applicazione Web ASP.NET Core** e **Avanti**.
 * Specificare un **Nome progetto** e confermare o modificare il **Percorso**. Scegliere **Crea**.
-* Selezionare **ASP.NET Core 3,0** nell'elenco a discesa, quindi selezionare **applicazione Web**.
+* Selezionare la versione più recente di ASP.NET Core nell'elenco a discesa (**ASP.NET Core {X. Y}** ), quindi selezionare **applicazione Web**.
 * In **Autenticazione** selezionare **Modifica** e impostare l'autenticazione su **Account utente individuali**. Scegliere **OK**.
 * Nella finestra **Crea una nuova applicazione Web ASP.NET Core** selezionare **Crea**.
 

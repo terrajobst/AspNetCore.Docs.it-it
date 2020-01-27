@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/13/2020
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: e718592127115e46df3154364957943a457b0b1b
-ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
+ms.openlocfilehash: 880d1762ebbea641c0b9c5a9f8bbca0b68a463c5
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76146329"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76726672"
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Hosting di ASP.NET Core in Linux con Nginx
 
@@ -144,6 +144,8 @@ server {
     }
 }
 ```
+
+Se l'app è un'app del server blazer che si basa su WebSocket di SignalR, vedere <xref:host-and-deploy/blazor/server#linux-with-nginx> per informazioni su come impostare l'intestazione del `Connection`.
 
 Se nessun `server_name` corrisponde, Nginx usa il server predefinito. Se non è definito alcun server predefinito, il primo server nel file di configurazione è il server predefinito. Come procedura consigliata, aggiungere un server predefinito specifico che restituisce un codice di stato 444 nel file di configurazione. Un esempio di configurazione del server predefinito è il seguente:
 

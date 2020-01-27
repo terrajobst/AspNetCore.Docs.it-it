@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni su come CORS come standard per consentire o rifiutare le richieste tra origini in un'app ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/13/2019
+ms.date: 01/23/2020
 uid: security/cors
-ms.openlocfilehash: 3a51d365626c858ad48298a1108e37eba9050fe7
-ms.sourcegitcommit: 35a86ce48041caaf6396b1e88b0472578ba24483
+ms.openlocfilehash: 57098be73164c71d1b0d1fe2f3aee7ec41a32346
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72391302"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76727320"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>Abilitare le richieste tra le origini (CORS) in ASP.NET Core
 
@@ -502,6 +502,11 @@ Gli endpoint abilitati per CORS possono essere testati con uno strumento, ad ese
 * Non è necessario che il middleware CORS elabori la richiesta.
 * Le intestazioni CORS non vengono restituite nella risposta.
 
+## <a name="cors-in-iis"></a>CORS in IIS
+
+Quando si esegue la distribuzione in IIS, CORS deve essere eseguito prima dell'autenticazione di Windows se il server non è configurato per consentire l'accesso anonimo. Per supportare questo scenario, è necessario installare e configurare il [modulo cors di IIS](https://www.iis.net/downloads/microsoft/iis-cors-module) per l'app.
+
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Condivisione di risorse tra le origini (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS)
+* [Introduzione al modulo CORS di IIS](https://blogs.iis.net/iisteam/getting-started-with-the-iis-cors-module)

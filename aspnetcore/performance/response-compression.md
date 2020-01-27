@@ -5,14 +5,14 @@ description: Informazioni sulla compressione delle risposte e su come usare il r
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/05/2019
+ms.date: 01/22/2020
 uid: performance/response-compression
-ms.openlocfilehash: 04b2ffd7047e8b127968adb5d40e0141365fb5fe
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: b8a84418a3258e9ac43b4eadd8564c0708590bce
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880914"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76726970"
 ---
 # <a name="response-compression-in-aspnet-core"></a>Compressione della risposta in ASP.NET Core
 
@@ -139,7 +139,7 @@ public class Startup
 
 Note:
 
-* `app.UseResponseCompression` necessario chiamare prima di `app.UseMvc`.
+* `app.UseResponseCompression` deve essere chiamato prima di qualsiasi middleware che comprime le risposte. Per ulteriori informazioni, vedere <xref:fundamentals/middleware/index#middleware-order>.
 * Per impostare l'intestazione `Accept-Encoding` della richiesta e studiare le intestazioni, le dimensioni e il corpo della risposta, usare uno strumento, ad esempio [Fiddler](https://www.telerik.com/fiddler), [Firebug](https://getfirebug.com/) o [Postman](https://www.getpostman.com/).
 
 Inviare una richiesta all'app di esempio senza l'intestazione `Accept-Encoding` e osservare che la risposta non è compressa. Le intestazioni `Content-Encoding` e `Vary` non sono presenti nella risposta.
@@ -202,7 +202,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Impostare il livello di compressione con <xref:Microsoft.AspNetCore.ResponseCompression.BrotliCompressionProviderOptions>. Per impostazione predefinita, il provider di compressione Brotli è il livello di compressione più veloce ([CompressionLevel. Fast](xref:System.IO.Compression.CompressionLevel)), che potrebbe non produrre la compressione più efficiente. Se si desidera la compressione più efficiente, configurare il middleware per la compressione ottimale.
 
-| Compression Level | Descrizione |
+| Livello di compressione | Descrizione |
 | ----------------- | ----------- |
 | [CompressionLevel.Fastest](xref:System.IO.Compression.CompressionLevel) | La compressione deve essere completata il più rapidamente possibile, anche se l'output risultante non viene compresso in modo ottimale. |
 | [CompressionLevel. NoCompression](xref:System.IO.Compression.CompressionLevel) | Non deve essere eseguita alcuna compressione. |
@@ -265,7 +265,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Impostare il livello di compressione con <xref:Microsoft.AspNetCore.ResponseCompression.GzipCompressionProviderOptions>. Per impostazione predefinita, il provider di compressione gzip è il livello di compressione più veloce ([CompressionLevel. Fast](xref:System.IO.Compression.CompressionLevel)), che potrebbe non produrre la compressione più efficiente. Se si desidera la compressione più efficiente, configurare il middleware per la compressione ottimale.
 
-| Compression Level | Descrizione |
+| Livello di compressione | Descrizione |
 | ----------------- | ----------- |
 | [CompressionLevel.Fastest](xref:System.IO.Compression.CompressionLevel) | La compressione deve essere completata il più rapidamente possibile, anche se l'output risultante non viene compresso in modo ottimale. |
 | [CompressionLevel. NoCompression](xref:System.IO.Compression.CompressionLevel) | Non deve essere eseguita alcuna compressione. |

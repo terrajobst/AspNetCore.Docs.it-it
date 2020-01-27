@@ -5,14 +5,14 @@ description: Informazioni su come usare l'API di configurazione per configurare 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/13/2020
+ms.date: 01/23/2020
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 09ef06f179e34cd7f4f04ac30c3b5dd95d058244
-ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
+ms.openlocfilehash: 141ae5cda7672159032013cbda1ef4bfa7c142dd
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75951863"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76726978"
 ---
 # <a name="configuration-in-aspnet-core"></a>Configurazione in ASP.NET Core
 
@@ -21,7 +21,7 @@ Di [Luke Latham](https://github.com/guardrex)
 La configurazione delle app in ASP.NET Core si basa su coppie chiave-valore stabilite dai *provider di configurazione*. I provider di configurazione leggono i dati di configurazione in coppie chiave-valore da un'ampia gamma di origini di configurazione:
 
 * Azure Key Vault
-* Configurazione app di Azure
+* Configurazione di app Azure
 * Argomenti della riga di comando
 * Provider personalizzati (installati o creati)
 * File della directory
@@ -205,7 +205,7 @@ La tabella seguente mostra i provider di configurazione disponibili per le app A
 | Provider | Fornisce la configurazione da&hellip; |
 | -------- | ----------------------------------- |
 | [Provider di configurazione di Azure Key Vault](xref:security/key-vault-configuration) (argomenti *Sicurezza*) | Azure Key Vault |
-| [Provider di Configurazione app](/azure/azure-app-configuration/quickstart-aspnet-core-app) (Documentazione di Azure) | Configurazione app di Azure |
+| [Provider di Configurazione app](/azure/azure-app-configuration/quickstart-aspnet-core-app) (Documentazione di Azure) | Configurazione di app Azure |
 | [Provider di configurazione della riga di comando](#command-line-configuration-provider) | Parametri della riga di comando |
 | [Provider di configurazione personalizzato](#custom-configuration-provider) | Origine personalizzata |
 | [Provider di configurazione delle variabili di ambiente](#environment-variables-configuration-provider) | Variabili di ambiente |
@@ -923,7 +923,7 @@ Considerati i dati di esempio, `sectionExists` è `false` perché non esiste una
 
 La configurazione può essere associata alle classi che rappresentano gruppi di impostazioni correlate usando il *modello di opzioni*. Per ulteriori informazioni, vedere <xref:fundamentals/configuration/options>.
 
-I valori di configurazione vengono restituiti come stringhe, ma la chiamata di <xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> consente la costruzione di oggetti [POCO](https://wikipedia.org/wiki/Plain_Old_CLR_Object).
+I valori di configurazione vengono restituiti come stringhe, ma la chiamata di <xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> consente la costruzione di oggetti [POCO](https://wikipedia.org/wiki/Plain_Old_CLR_Object). Il Binder associa i valori a tutte le proprietà di lettura/scrittura pubbliche del tipo fornito. I campi **non** sono associati.
 
 L'app di esempio contiene un modello `Starship` (*Models/Starship.cs*):
 
@@ -980,7 +980,7 @@ L'app di esempio chiama `GetSection` con la chiave `starship`. Le coppie chiave-
 
 ## <a name="bind-to-an-object-graph"></a>Associazione a un oggetto grafico
 
-<xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> è in grado di associare un intero oggetto grafico POCO.
+<xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> è in grado di associare un intero oggetto grafico POCO. Come per l'associazione di un oggetto semplice, vengono associate solo le proprietà di lettura/scrittura pubbliche.
 
 L'esempio contiene un modello `TvShow` il cui oggetto grafico include `Metadata` e le classi `Actors` (*Models/TvShow.cs*):
 

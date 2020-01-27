@@ -9,12 +9,12 @@ ms.date: 11/12/2019
 no-loc:
 - SignalR
 uid: signalr/messagepackhubprotocol
-ms.openlocfilehash: cd052a97db1e20d6c7aa00f47cf6a7d01a9bc305
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 1b01357233a9b95a5da052d92e30232c94e78a78
+ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963758"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76727231"
 ---
 # <a name="use-messagepack-hub-protocol-in-opno-locsignalr-for-aspnet-core"></a>Usare il protocollo dell'hub MessagePack in SignalR per ASP.NET Core
 
@@ -145,7 +145,7 @@ public class ChatMessage
 }
 ```
 
-Quando si invia dal client JavaScript, è necessario usare `PascalCased` nomi di proprietà, poiché la combinazione di maiuscole e minuscole deve corrispondere esattamente alla C# classe. Esempio:
+Quando si invia dal client JavaScript, è necessario usare `PascalCased` nomi di proprietà, poiché la combinazione di maiuscole e minuscole deve corrispondere esattamente alla C# classe. Ad esempio:
 
 ```javascript
 connection.invoke("SomeMethod", { Sender: "Sally", Message: "Hello!" });
@@ -173,7 +173,7 @@ Per ulteriori informazioni su questa limitazione, vedere la pagina relativa ai p
 
 ### <a name="messagepack-support-in-ahead-of-time-compilation-environment"></a>Supporto di MessagePack nell'ambiente di compilazione "Ahead of Time"
 
-La libreria [MessagePack-CSharp](https://github.com/neuecc/MessagePack-CSharp) utilizzata dal client e dal server .NET utilizza la generazione del codice per ottimizzare la serializzazione. Di conseguenza, non è supportato per impostazione predefinita negli ambienti che usano la compilazione "Ahead of Time" (ad esempio, Novell iOS o Unity). È possibile usare MessagePack in questi ambienti mediante la "pre-generazione" del codice del serializzatore/deserializzatore. Per ulteriori informazioni, vedere [la documentazione di MessagePack-CSharp](https://github.com/neuecc/MessagePack-CSharp#pre-code-generationunityxamarin-supports). Dopo aver generato i serializzatori, è possibile registrarli usando il delegato di configurazione passato a `AddMessagePackProtocol`:
+La libreria [MessagePack-CSharp](https://github.com/neuecc/MessagePack-CSharp/tree/v1.8) utilizzata dal client e dal server .NET utilizza la generazione del codice per ottimizzare la serializzazione. Di conseguenza, non è supportato per impostazione predefinita negli ambienti che usano la compilazione "Ahead of Time" (ad esempio, Novell iOS o Unity). È possibile usare MessagePack in questi ambienti mediante la "pre-generazione" del codice del serializzatore/deserializzatore. Per ulteriori informazioni, vedere [la documentazione di MessagePack-CSharp](https://github.com/neuecc/MessagePack-CSharp/tree/v1.8#pre-code-generationunityxamarin-supports). Dopo aver generato i serializzatori, è possibile registrarli usando il delegato di configurazione passato a `AddMessagePackProtocol`:
 
 ```csharp
 services.AddSignalR()

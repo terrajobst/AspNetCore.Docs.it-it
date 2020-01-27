@@ -1,5 +1,7 @@
 - name: Documentazione di ASP.NET Core
   href: '/aspnet/#pivot=core'
+- name: Novità nella documentazione di ASP.NET Core
+  href: whats-new/index.yml
 - name: Panoramica
   items:
     - name: Informazioni su ASP.NET Core
@@ -10,7 +12,7 @@
       href: /dotnet/standard/choosing-core-framework-server?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
 - name: Introduzione
   uid: getting-started
-- name: Novità
+- name: Note sulla versione
   items:
     - name: Novità nella versione 3.1
       uid: aspnetcore-3.1
@@ -885,15 +887,27 @@
             - name: Panoramica
               uid: security/authentication/azure-active-directory/index
             - name: Integrare Azure AD in un'app Web
-              href: 'https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial'
-            - name: Integrare Azure AD B2C in un'app Web
-              uid: security/authentication/azure-ad-b2c
-            - name: Integrare Azure AD B2C in un'API Web
-              uid: security/authentication/azure-ad-b2c-webapi
-            - name: Chiamare un'API Web da WPF
-              href: 'https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore'
-            - name: Chiamare un'API Web in un'app Web con Azure AD
-              href: 'https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore'
+              href: /azure/active-directory/develop/quickstart-v2-aspnet-core-webapp
+            - name: Scenari
+              items:
+                - name: App Web che gestisce l'accesso degli utenti
+                  href: /azure/active-directory/develop/scenario-web-app-sign-user-overview?tabs=aspnetcore
+                - name: App Web che chiama le API Web
+                  href: /azure/active-directory/develop/scenario-web-app-call-api-overview
+                - name: API Web protetta
+                  href: /azure/active-directory/develop/scenario-protected-web-api-overview
+                - name: App Web che chiama altre API Web
+                  href: /azure/active-directory/develop/scenario-web-api-call-api-overview
+                - name: Integrare Azure AD B2C in un'app Web
+                  uid: security/authentication/azure-ad-b2c
+            - name: Esempi
+              items:
+                - name: Gestire l'accesso degli utenti e chiamare API Web con Azure AD V2
+                  href: /samples/azure-samples/active-directory-aspnetcore-webapp-openidconnect-v2/enable-webapp-signin/
+                - name: Chiamata di un'API Web ASP.NET Core 2.0 da un'applicazione WPF con Azure AD V2
+                  href: /samples/azure-samples/active-directory-dotnet-native-aspnetcore-v2/calling-an-aspnet-core-web-api-from-a-wpf-application-using-azure-ad-v2/
+                - name: API Web con Azure AD B2C
+                  href: 'https://azure.microsoft.com/resources/samples/active-directory-b2c-dotnetcore-webapi/'
         - name: Proteggere app ASP.NET Core con IdentityServer4
           href: 'https://identityserver4.readthedocs.io/'
         - name: Proteggere app ASP.NET Core con l'autenticazione di Servizio app di Azure
