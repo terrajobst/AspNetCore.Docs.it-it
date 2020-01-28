@@ -15,19 +15,19 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/08/2020
 ms.locfileid: "75737516"
 ---
-# <a name="use-aspnet-core-opno-locsignalr-with-typescript-and-webpack"></a>Usare ASP.NET Core SignalR con TypeScript e Webpack
+# <a name="use-aspnet-core-opno-locsignalr-with-typescript-and-webpack"></a>Usare ASP.NET Core [!OP.NO-LOC(SignalR)] con TypeScript e Webpack
 
 Di [Sébastien Sougnez](https://twitter.com/ssougnez) e [Scott Addie](https://twitter.com/Scott_Addie)
 
-[Webpack](https://webpack.js.org/) consente agli sviluppatori di creare un bundle delle risorse di un'app Web sul lato client-e di compilarle. Questa esercitazione illustra l'uso di Webpack in un ASP.NET Core SignalR app Web il cui client è scritto in [typescript](https://www.typescriptlang.org/).
+[Webpack](https://webpack.js.org/) consente agli sviluppatori di creare un bundle delle risorse di un'app Web sul lato client-e di compilarle. Questa esercitazione illustra l'uso di Webpack in un ASP.NET Core [!OP.NO-LOC(SignalR)] app Web il cui client è scritto in [typescript](https://www.typescriptlang.org/).
 
 In questa esercitazione si imparerà a:
 
 > [!div class="checklist"]
-> * Impalcatura uno starter ASP.NET Core SignalR app
-> * Configurare il client TypeScript di SignalR
+> * Impalcatura uno starter ASP.NET Core [!OP.NO-LOC(SignalR)] app
+> * Configurare il client TypeScript di [!OP.NO-LOC(SignalR)]
 > * Configurare una pipeline di compilazione tramite Webpack
-> * Configurare il server di SignalR
+> * Configurare il server di [!OP.NO-LOC(SignalR)]
 > * Abilitare la comunicazione tra client e server
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/signalr-typescript-webpack/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
@@ -132,7 +132,7 @@ I passaggi seguenti consentono di configurare la conversione da TypeScript a Jav
     Il file precedente configura la compilazione di Webpack. Ecco alcuni dettagli di configurazione del server da tenere in considerazione:
 
     * La proprietà `output` esegue l'override del valore predefinito di *dist*. Il bundle viene invece creato nella directory *wwwroot*.
-    * La matrice `resolve.extensions` include *. js* per importare il codice JavaScript del client SignalR.
+    * La matrice `resolve.extensions` include *. js* per importare il codice JavaScript del client [!OP.NO-LOC(SignalR)].
 
 1. Creare una nuova directory *src* nella radice del progetto. La sua funzione è quella di archiviare le risorse lato client del progetto.
 
@@ -177,11 +177,11 @@ I passaggi seguenti consentono di configurare la conversione da TypeScript a Jav
 
    [!code-csharp[Startup](signalr-typescript-webpack/sample/3.x/Startup.cs?name=snippet_UseSignalR&highlight=3)]
 
-1. Nel metodo `Startup.ConfigureServices` chiamare [AddSignalR](/dotnet/api/microsoft.extensions.dependencyinjection.signalrdependencyinjectionextensions.addsignalr#Microsoft_Extensions_DependencyInjection_SignalRDependencyInjectionExtensions_AddSignalR_Microsoft_Extensions_DependencyInjection_IServiceCollection_). Aggiunge i servizi SignalR al progetto.
+1. Nel metodo `Startup.ConfigureServices` chiamare [AddSignalR](/dotnet/api/microsoft.extensions.dependencyinjection.signalrdependencyinjectionextensions.addsignalr#Microsoft_Extensions_DependencyInjection_SignalRDependencyInjectionExtensions_AddSignalR_Microsoft_Extensions_DependencyInjection_IServiceCollection_). Aggiunge i servizi [!OP.NO-LOC(SignalR)] al progetto.
 
    [!code-csharp[Startup](signalr-typescript-webpack/sample/3.x/Startup.cs?name=snippet_AddSignalR)]
 
-1. Creare una nuova directory denominata *Hubs* nella radice del progetto. Lo scopo è archiviare l'hub SignalR, che verrà creato nel passaggio successivo.
+1. Creare una nuova directory denominata *Hubs* nella radice del progetto. Lo scopo è archiviare l'hub [!OP.NO-LOC(SignalR)], che verrà creato nel passaggio successivo.
 
 1. Creare l'hub *Hubs/ChatHub.cs* con il codice seguente:
 
@@ -201,7 +201,7 @@ L'app attualmente visualizza un semplice form per l'invio di messaggi. Quando si
     npm install @microsoft/signalr
     ```
 
-    Il comando precedente installa il [client diSignalR typescript](https://www.npmjs.com/package/@microsoft/signalr), che consente al client di inviare messaggi al server.
+    Il comando precedente installa il [client di[!OP.NO-LOC(SignalR)] typescript](https://www.npmjs.com/package/@microsoft/signalr), che consente al client di inviare messaggi al server.
 
 1. Aggiungere il codice evidenziato al file *src/index.ts*:
 
@@ -209,7 +209,7 @@ L'app attualmente visualizza un semplice form per l'invio di messaggi. Quando si
 
     Il codice precedente supporta la ricezione di messaggi dal server. La classe `HubConnectionBuilder` crea un nuovo compilatore per la configurazione della connessione al server. La funzione `withUrl` configura l'URL dell'hub.
 
-    SignalR consente lo scambio di messaggi tra un client e un server. Ogni messaggio ha un nome specifico. Ad esempio, i messaggi con nome `messageReceived` eseguono la logica responsabile della visualizzazione del nuovo messaggio nell'area dei messaggi. L'ascolto di un messaggio specifico può essere eseguito tramite la funzione `on`. È possibile restare in ascolto di un numero indefinito di nomi di messaggio. Si può anche passare parametri al messaggio, come il nome dell'autore e il contenuto del messaggio ricevuto. Quando il client riceve un messaggio, viene creato un nuovo elemento `div` con il nome dell'autore e il contenuto del messaggio nell'attributo `innerHTML`. Viene aggiunto all'elemento `div` principale che visualizza i messaggi.
+    [!OP.NO-LOC(SignalR)] consente lo scambio di messaggi tra un client e un server. Ogni messaggio ha un nome specifico. Ad esempio, i messaggi con nome `messageReceived` eseguono la logica responsabile della visualizzazione del nuovo messaggio nell'area dei messaggi. L'ascolto di un messaggio specifico può essere eseguito tramite la funzione `on`. È possibile restare in ascolto di un numero indefinito di nomi di messaggio. Si può anche passare parametri al messaggio, come il nome dell'autore e il contenuto del messaggio ricevuto. Quando il client riceve un messaggio, viene creato un nuovo elemento `div` con il nome dell'autore e il contenuto del messaggio nell'attributo `innerHTML`. Viene aggiunto all'elemento `div` principale che visualizza i messaggi.
 
 1. Ora che il client può ricevere messaggi, configurarlo anche per l'invio. Aggiungere il codice evidenziato al file *src/index.ts*:
 
@@ -369,7 +369,7 @@ I passaggi seguenti consentono di configurare la conversione da TypeScript a Jav
     Il file precedente configura la compilazione di Webpack. Ecco alcuni dettagli di configurazione del server da tenere in considerazione:
 
     * La proprietà `output` esegue l'override del valore predefinito di *dist*. Il bundle viene invece creato nella directory *wwwroot*.
-    * La matrice `resolve.extensions` include *. js* per importare il codice JavaScript del client SignalR.
+    * La matrice `resolve.extensions` include *. js* per importare il codice JavaScript del client [!OP.NO-LOC(SignalR)].
 
 1. Creare una nuova directory *src* nella radice del progetto. La sua funzione è quella di archiviare le risorse lato client del progetto.
 
@@ -410,7 +410,7 @@ I passaggi seguenti consentono di configurare la conversione da TypeScript a Jav
 
     Il codice precedente consente al server di individuare e servire il file *index.html*, sia che l'utente immetta l'URL completo o l'URL radice dell'app Web.
 
-1. Chiamare [AddSignalR](/dotnet/api/microsoft.extensions.dependencyinjection.signalrdependencyinjectionextensions.addsignalr#Microsoft_Extensions_DependencyInjection_SignalRDependencyInjectionExtensions_AddSignalR_Microsoft_Extensions_DependencyInjection_IServiceCollection_) nel metodo `Startup.ConfigureServices`. Aggiunge i servizi SignalR al progetto.
+1. Chiamare [AddSignalR](/dotnet/api/microsoft.extensions.dependencyinjection.signalrdependencyinjectionextensions.addsignalr#Microsoft_Extensions_DependencyInjection_SignalRDependencyInjectionExtensions_AddSignalR_Microsoft_Extensions_DependencyInjection_IServiceCollection_) nel metodo `Startup.ConfigureServices`. Aggiunge i servizi [!OP.NO-LOC(SignalR)] al progetto.
 
     [!code-csharp[Startup](signalr-typescript-webpack/sample/2.x/Startup.cs?name=snippet_AddSignalR)]
 
@@ -418,7 +418,7 @@ I passaggi seguenti consentono di configurare la conversione da TypeScript a Jav
 
     [!code-csharp[Startup](signalr-typescript-webpack/sample/2.x/Startup.cs?name=snippet_UseSignalR)]
 
-1. Creare una nuova directory denominata *Hubs* nella radice del progetto. Lo scopo è archiviare l'hub SignalR, che verrà creato nel passaggio successivo.
+1. Creare una nuova directory denominata *Hubs* nella radice del progetto. Lo scopo è archiviare l'hub [!OP.NO-LOC(SignalR)], che verrà creato nel passaggio successivo.
 
 1. Creare l'hub *Hubs/ChatHub.cs* con il codice seguente:
 
@@ -438,7 +438,7 @@ L'app attualmente visualizza un semplice form per l'invio di messaggi. Quando si
     npm install @aspnet/signalr
     ```
 
-    Il comando precedente installa il [client diSignalR typescript](https://www.npmjs.com/package/@microsoft/signalr), che consente al client di inviare messaggi al server.
+    Il comando precedente installa il [client di[!OP.NO-LOC(SignalR)] typescript](https://www.npmjs.com/package/@microsoft/signalr), che consente al client di inviare messaggi al server.
 
 1. Aggiungere il codice evidenziato al file *src/index.ts*:
 
@@ -446,7 +446,7 @@ L'app attualmente visualizza un semplice form per l'invio di messaggi. Quando si
 
     Il codice precedente supporta la ricezione di messaggi dal server. La classe `HubConnectionBuilder` crea un nuovo compilatore per la configurazione della connessione al server. La funzione `withUrl` configura l'URL dell'hub.
 
-    SignalR consente lo scambio di messaggi tra un client e un server. Ogni messaggio ha un nome specifico. Ad esempio, i messaggi con nome `messageReceived` eseguono la logica responsabile della visualizzazione del nuovo messaggio nell'area dei messaggi. L'ascolto di un messaggio specifico può essere eseguito tramite la funzione `on`. È possibile restare in ascolto di un numero indefinito di nomi di messaggio. Si può anche passare parametri al messaggio, come il nome dell'autore e il contenuto del messaggio ricevuto. Quando il client riceve un messaggio, viene creato un nuovo elemento `div` con il nome dell'autore e il contenuto del messaggio nell'attributo `innerHTML`. Viene aggiunto all'elemento `div` principale che visualizza i messaggi.
+    [!OP.NO-LOC(SignalR)] consente lo scambio di messaggi tra un client e un server. Ogni messaggio ha un nome specifico. Ad esempio, i messaggi con nome `messageReceived` eseguono la logica responsabile della visualizzazione del nuovo messaggio nell'area dei messaggi. L'ascolto di un messaggio specifico può essere eseguito tramite la funzione `on`. È possibile restare in ascolto di un numero indefinito di nomi di messaggio. Si può anche passare parametri al messaggio, come il nome dell'autore e il contenuto del messaggio ricevuto. Quando il client riceve un messaggio, viene creato un nuovo elemento `div` con il nome dell'autore e il contenuto del messaggio nell'attributo `innerHTML`. Viene aggiunto all'elemento `div` principale che visualizza i messaggi.
 
 1. Ora che il client può ricevere messaggi, configurarlo anche per l'invio. Aggiungere il codice evidenziato al file *src/index.ts*:
 
