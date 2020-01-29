@@ -3,15 +3,15 @@ title: Interfaccia utente Razor riutilizzabile nelle librerie di classi con ASP.
 author: Rick-Anderson
 description: Viene illustrato come creare un'interfaccia Razor riutilizzabili tramite le visualizzazioni parziali in una libreria di classi in ASP.NET Core.
 ms.author: riande
-ms.date: 10/26/2019
+ms.date: 01/25/2020
 ms.custom: mvc, seodec18
 uid: razor-pages/ui-class
-ms.openlocfilehash: b5235f4e31f6edd21fb410824fb215ab2d4a41b6
-ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
+ms.openlocfilehash: 420cc54701394673e2b442b1fdf999e421820fd5
+ms.sourcegitcommit: b5ceb0a46d0254cc3425578116e2290142eec0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76727292"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76809120"
 ---
 # <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>Creare un'interfaccia utente riutilizzabile usando il progetto libreria di classi Razor in ASP.NET Core
 
@@ -86,7 +86,7 @@ Si supponga *RazorUIClassLib/pagine/Shared* contiene due file parziali: *_Header
 
 ## <a name="create-an-rcl-with-static-assets"></a>Creare un RCL con asset statici
 
-Un RCL può richiedere risorse statiche complementari a cui è possibile fare riferimento dall'app consumer di RCL. ASP.NET Core consente di creare RCL che includono risorse statiche disponibili per un'app di consumo.
+Un RCL può richiedere risorse statiche complementari a cui è possibile fare riferimento tramite il RCL o l'app consumer di RCL. ASP.NET Core consente di creare RCL che includono risorse statiche disponibili per un'app di consumo.
 
 Per includere asset complementari come parte di un RCL, creare una cartella *wwwroot* nella libreria di classi e includere tutti i file necessari in tale cartella.
 
@@ -127,7 +127,7 @@ Per includere i file TypeScript in un RCL:
 
 ### <a name="consume-content-from-a-referenced-rcl"></a>Utilizzare il contenuto da un RCL a cui si fa riferimento
 
-I file inclusi nella cartella *wwwroot* di RCL vengono esposti all'app consumer sotto il prefisso `_content/{LIBRARY NAME}/`. Ad esempio, una libreria denominata *Razor. Class. lib* genera un percorso del contenuto statico in `_content/Razor.Class.Lib/`. Quando si produce un pacchetto NuGet e il nome dell'assembly non corrisponde all'ID del pacchetto, usare l'ID del pacchetto per `{LIBRARY NAME}`.
+I file inclusi nella cartella *wwwroot* di RCL vengono esposti a RCL o all'app consumer sotto il prefisso `_content/{LIBRARY NAME}/`. Ad esempio, una libreria denominata *Razor. Class. lib* genera un percorso del contenuto statico in `_content/Razor.Class.Lib/`. Quando si produce un pacchetto NuGet e il nome dell'assembly non corrisponde all'ID del pacchetto, usare l'ID del pacchetto per `{LIBRARY NAME}`.
 
 L'app consumer fa riferimento a risorse statiche fornite dalla libreria con `<script>`, `<style>`, `<img>`e altri tag HTML. Per l'app consumer deve essere abilitato il [supporto dei file statici](xref:fundamentals/static-files) in `Startup.Configure`:
 

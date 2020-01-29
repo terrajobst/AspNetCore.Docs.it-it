@@ -6,12 +6,12 @@ description: Individuare gli attributi dell'helper tag di collegamento ASP.NET C
 ms.custom: mvc
 ms.date: 09/24/2019
 uid: mvc/views/tag-helpers/builtin-th/link-tag-helper
-ms.openlocfilehash: e1e2e58b4ab9087e1f9de5b5c03b587feb88f1b9
-ms.sourcegitcommit: fae6f0e253f9d62d8f39de5884d2ba2b4b2a6050
+ms.openlocfilehash: d7514433bee8a138cd7d75bfd15c9798d4fd31a3
+ms.sourcegitcommit: b5ceb0a46d0254cc3425578116e2290142eec0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71256519"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76809107"
 ---
 # <a name="link-tag-helper-in-aspnet-core"></a>Helper tag di collegamento in ASP.NET Core
 
@@ -23,7 +23,7 @@ L' [Helper tag di collegamento](xref:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTag
 
 L'helper tag di collegamento consente di specificare una rete CDN per il file CSS e un fallback quando la rete CDN non è disponibile. L'helper tag di collegamento offre il vantaggio delle prestazioni di una rete CDN con l'affidabilità dell'hosting locale.
 
-Il markup Razor seguente mostra l' `head` elemento di un file di layout creato con il modello di app Web di ASP.NET Core:
+Il markup Razor seguente mostra l'elemento `head` di un file di layout creato con il modello di ASP.NET Core app Web:
 
 [!code-html[](link-tag-helper/sample/_Layout.cshtml?name=snippet)]
 
@@ -31,7 +31,7 @@ Di seguito viene eseguito il rendering del codice HTML dal codice precedente (in
 
 [!code-csharp[](link-tag-helper/sample/HtmlPage1.html)]
 
-Nel codice precedente, l'helper tag di collegamento ha generato l' `<meta name="x-stylesheet-fallback-test" content="" class="sr-only" />` elemento e il seguente codice JavaScript usato per verificare che il file *bootstrap. min. CSS* richiesto sia disponibile nella rete CDN. In questo caso, il file CSS era disponibile, in modo che l'helper tag `<link />` generasse l'elemento con il file CSS della rete CDN.
+Nel codice precedente, l'helper tag di collegamento ha generato l'elemento `<meta name="x-stylesheet-fallback-test" content="" class="sr-only" />` e il seguente codice JavaScript usato per verificare che il file *bootstrap. min. CSS* richiesto sia disponibile nella rete CDN. In questo caso, il file CSS era disponibile, quindi l'helper Tag generava l'elemento `<link />` con il file CSS della rete CDN.
 
 ## <a name="commonly-used-link-tag-helper-attributes"></a>Attributi di helper tag di collegamento comunemente utilizzati
 
@@ -47,19 +47,15 @@ URL di un foglio di stile CSS di cui eseguire il fallback in caso di errore dell
 
 ### <a name="asp-fallback-test-class"></a>ASP-fallback-test-Class
 
-Nome della classe definito nel foglio di stile da utilizzare per il test di fallback. Per altre informazioni, vedere <xref:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackTestClass>.
+Nome della classe definito nel foglio di stile da utilizzare per il test di fallback. Per ulteriori informazioni, vedere <xref:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackTestClass>.
 
 ### <a name="asp-fallback-test-property"></a>ASP-fallback-test-proprietà
 
-Nome della proprietà CSS da utilizzare per il test di fallback. Per altre informazioni, vedere <xref:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackTestProperty>.
+Nome della proprietà CSS da utilizzare per il test di fallback. Per ulteriori informazioni, vedere <xref:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackTestProperty>.
 
 ### <a name="asp-fallback-test-value"></a>ASP-fallback-test-value
 
-Valore della proprietà CSS da utilizzare per il test di fallback. Per altre informazioni, vedere <xref:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackTestValue>.
-
-### <a name="asp-fallback-test-value"></a>ASP-fallback-test-value
-
-Valore della proprietà CSS da utilizzare per il test di fallback. Per altre informazioni, vedere <xref:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackTestValue>.
+Valore della proprietà CSS da utilizzare per il test di fallback. Per ulteriori informazioni, vedere <xref:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackTestValue>.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

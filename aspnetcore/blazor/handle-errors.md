@@ -5,17 +5,17 @@ description: Scopri in che modo ASP.NET Core Blazor il modo in cui Blazor gestis
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2019
+ms.date: 01/22/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/handle-errors
-ms.openlocfilehash: fe4cc13b1efb8c70c9632f032626aa938fb65ea3
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
+ms.openlocfilehash: 7b5602d5ae5e58d1678762fe1cd2adec1f31c969
+ms.sourcegitcommit: b5ceb0a46d0254cc3425578116e2290142eec0f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76159950"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76809003"
 ---
 # <a name="handle-errors-in-aspnet-core-opno-locblazor-apps"></a>Gestione degli errori nelle app ASP.NET Core Blazor
 
@@ -112,7 +112,7 @@ Le eccezioni non gestite precedenti sono descritte nelle sezioni seguenti di que
 Quando Blazor crea un'istanza di un componente:
 
 * Il costruttore del componente viene richiamato.
-* Vengono richiamati i costruttori di tutti i servizi non singleton forniti al costruttore del componente tramite la direttiva [`@inject`](xref:blazor/dependency-injection#request-a-service-in-a-component) o l'attributo [`[Inject]`](xref:blazor/dependency-injection#request-a-service-in-a-component) . 
+* Vengono richiamati i costruttori di tutti i servizi non singleton forniti al costruttore del componente tramite la direttiva [`@inject`](xref:blazor/dependency-injection#request-a-service-in-a-component) o l'attributo [`[Inject]`](xref:blazor/dependency-injection#request-a-service-in-a-component) .
 
 Un circuito ha esito negativo quando un costruttore eseguito o un setter per qualsiasi proprietà `[Inject]` genera un'eccezione non gestita. L'eccezione è irreversibile perché il Framework non è in grado di creare un'istanza del componente. Se la logica del costruttore può generare eccezioni, l'app deve intercettare le eccezioni usando un'istruzione [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) con gestione e registrazione degli errori.
 
@@ -165,7 +165,7 @@ Se il codice utente non intercetta e gestisce l'eccezione, il Framework registra
 
 ### <a name="component-disposal"></a>Eliminazione componenti
 
-Un componente può essere rimosso dall'interfaccia utente, ad esempio perché l'utente ha esplorato un'altra pagina. Quando un componente che implementa <xref:System.IDisposable?displayProperty=fullName> viene rimosso dall'interfaccia utente, il Framework chiama il metodo di <xref:System.IDisposable.Dispose*> del componente. 
+Un componente può essere rimosso dall'interfaccia utente, ad esempio perché l'utente ha esplorato un'altra pagina. Quando un componente che implementa <xref:System.IDisposable?displayProperty=fullName> viene rimosso dall'interfaccia utente, il Framework chiama il metodo di <xref:System.IDisposable.Dispose*> del componente.
 
 Se il metodo `Dispose` del componente genera un'eccezione non gestita, l'eccezione è fatale per il circuito. Se la logica di eliminazione può generare eccezioni, l'app deve intercettare le eccezioni usando un'istruzione [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) con gestione e registrazione degli errori.
 
@@ -192,16 +192,49 @@ Per ulteriori informazioni, vedere <xref:blazor/javascript-interop>.
 
 ### <a name="circuit-handlers"></a>Gestori del circuito
 
-Blazor consente al codice di definire un *gestore di circuito*, che riceve le notifiche quando lo stato del circuito di un utente cambia. Vengono utilizzati gli Stati seguenti:
+Blazor Server consente al codice di definire un *gestore di circuito*, che consente l'esecuzione di codice in base alle modifiche apportate allo stato del circuito di un utente. Un gestore di circuito viene implementato derivando da `CircuitHandler` e registrando la classe nel contenitore del servizio dell'app. L'esempio seguente di un gestore di circuito tiene traccia delle connessioni SignalR aperte:
 
-* `initialized`
-* `connected`
-* `disconnected`
-* `disposed`
+```csharp
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Components.Server.Circuits;
 
-Le notifiche vengono gestite registrando un servizio DI che eredita dalla classe di base astratta `CircuitHandler`.
+public class TrackingCircuitHandler : CircuitHandler
+{
+    private HashSet<Circuit> _circuits = new HashSet<Circuit>();
 
-Se i metodi di un gestore di circuito personalizzato generano un'eccezione non gestita, l'eccezione è fatale per il circuito. Per tollerare le eccezioni nel codice di un gestore o i metodi chiamati, eseguire il wrapping del codice in una o più istruzioni [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) con gestione e registrazione degli errori.
+    public override Task OnConnectionUpAsync(Circuit circuit, 
+        CancellationToken cancellationToken)
+    {
+        _circuits.Add(circuit);
+
+        return Task.CompletedTask;
+    }
+
+    public override Task OnConnectionDownAsync(Circuit circuit, 
+        CancellationToken cancellationToken)
+    {
+        _circuits.Remove(circuit);
+
+        return Task.CompletedTask;
+    }
+
+    public int ConnectedCircuits => _circuits.Count;
+}
+```
+
+I gestori del circuito vengono registrati usando l'inserimento DI dipendenze. Le istanze con ambito vengono create per ogni istanza di un circuito. Utilizzando la `TrackingCircuitHandler` nell'esempio precedente, viene creato un servizio singleton perché è necessario tenere traccia dello stato di tutti i circuiti:
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    ...
+    services.AddSingleton<CircuitHandler, TrackingCircuitHandler>();
+}
+```
+
+Se i metodi di un gestore di circuito personalizzato generano un'eccezione non gestita, l'eccezione è fatale per il circuito di Blazor server. Per tollerare le eccezioni nel codice di un gestore o i metodi chiamati, eseguire il wrapping del codice in una o più istruzioni [try-catch](/dotnet/csharp/language-reference/keywords/try-catch) con gestione e registrazione degli errori.
 
 ### <a name="circuit-disposal"></a>Eliminazione del circuito
 

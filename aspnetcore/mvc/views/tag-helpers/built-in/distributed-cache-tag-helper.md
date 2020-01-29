@@ -4,14 +4,14 @@ author: pkellner
 description: Informazioni su come usare l'helper tag di cache distribuita.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/10/2018
+ms.date: 01/24/2020
 uid: mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper
-ms.openlocfilehash: 4e4d383bac67c73bad8b0a31b9ceb9452251761b
-ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
-ms.translationtype: HT
+ms.openlocfilehash: e5100d7244600358186b653073990985f48434a7
+ms.sourcegitcommit: b5ceb0a46d0254cc3425578116e2290142eec0f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67856191"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76809055"
 ---
 # <a name="distributed-cache-tag-helper-in-aspnet-core"></a>Helper tag di cache distribuita in ASP.NET Core
 
@@ -19,7 +19,7 @@ Di [Peter Kellner](https://peterkellner.net) e [Luke Latham](https://github.com/
 
 L'helper tag di cache distribuita consente di migliorare notevolmente le prestazioni dell'app ASP.NET Core memorizzandone il contenuto in un'origine cache distribuita.
 
-Per una panoramica degli helper tag, vedere <xref:mvc/views/tag-helpers/intro>.
+Per una panoramica degli helper per tag, vedere <xref:mvc/views/tag-helpers/intro>.
 
 L'helper tag di cache distribuita eredita dalla stessa classe di base da cui eredita l'helper tag di cache. Tutti gli attributi dell'[helper tag di cache](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper) sono disponibili per l'helper tag di cache distribuita.
 
@@ -42,9 +42,9 @@ L'helper tag di cache distribuita usa l'[inserimento del costruttore](xref:funda
 
 L'helper tag di cache distribuita eredita dalla stessa classe dell'helper tag di cache. Per una descrizione di questi attributi, vedere [Helper tag di cache](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper).
 
-### <a name="name"></a>name
+### <a name="name"></a>nome
 
-| Tipo di attributo | Esempio                               |
+| Tipo attributo | Esempio                               |
 | -------------- | ------------------------------------- |
 | Stringa         | `my-distributed-cache-unique-key-101` |
 
@@ -60,7 +60,7 @@ Esempio:
 
 ## <a name="distributed-cache-tag-helper-idistributedcache-implementations"></a>Implementazioni IDistributedCache dell'helper tag di cache distribuita
 
-Esistono due implementazioni di <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> integrate in ASP.NET Core. Una è basata su SQL Server e l'altra su Redis. I dettagli di queste implementazioni sono disponibili in <xref:performance/caching/distributed>. Entrambe le implementazioni implicano l'impostazione di un'istanza di `IDistributedCache` in `Startup`.
+Esistono due implementazioni di <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> integrate in ASP.NET Core. Una è basata su SQL Server e l'altra su Redis. Sono inoltre disponibili implementazioni di terze parti, ad esempio [NCache](http://www.alachisoft.com/ncache/aspnet-core-idistributedcache-ncache.html). I dettagli di queste implementazioni sono disponibili in <xref:performance/caching/distributed>. Entrambe le implementazioni implicano l'impostazione di un'istanza di `IDistributedCache` in `Startup`.
 
 Nessun attributo di tag è associato specificamente all'uso di un'implementazione specifica di `IDistributedCache`.
 
