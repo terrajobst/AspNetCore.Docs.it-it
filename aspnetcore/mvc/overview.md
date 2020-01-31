@@ -3,18 +3,18 @@ title: Panoramica di ASP.NET MVC
 author: ardalis
 description: Informazioni sul framework avanzato di ASP.NET Core MVC per la creazione di app Web e API tramite lo schema progettuale MVC (Model-View-Controller).
 ms.author: riande
-ms.date: 11/07/2019
+ms.date: 01/28/2020
 uid: mvc/overview
-ms.openlocfilehash: 4f4ea3da8563cabaaa6183c6835c2f1eb8c387b4
-ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
+ms.openlocfilehash: a147c2aa01f1440f8ac59f73eb7be734193f802a
+ms.sourcegitcommit: fe41cff0b99f3920b727286944e5b652ca301640
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73799488"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76869971"
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Panoramica di ASP.NET MVC
 
-[Steve Smith](https://ardalis.com/)
+Di [Steve Smith](https://ardalis.com/)
 
 ASP.NET Core MVC è un framework avanzato per la creazione di app Web e API tramite lo schema progettuale MVC (Model-View-Controller).
 
@@ -41,7 +41,7 @@ Le visualizzazioni sono responsabili della presentazione del contenuto tramite l
 
 ### <a name="controller-responsibilities"></a>Responsabilità del controller
 
-I controller sono i componenti che gestiscono l'interazione dell'utente, interagiscono con il modello e selezionano in definitiva la visualizzazione di cui verrà eseguito il rendering. In un'applicazione MVC la visualizzazione presenta solo le informazioni, mentre il controller gestisce e risponde all'input e all'interazione dell'utente. Nello schema MVC il controller è il punto di ingresso iniziale ed è responsabile della selezione dei tipi di modello con cui interagire e della visualizzazione di cui eseguire il rendering. Come suggerito dal nome, questo componente controlla il modo in cui l'app risponde a una determinata richiesta.
+I controller sono i componenti che gestiscono l'interazione dell'utente, interagiscono con il modello e selezionano in definitiva la visualizzazione di cui verrà eseguito il rendering. In un'applicazione MVC la visualizzazione consente solo di visualizzare le informazioni. Il controller svolge il ruolo di gestore e risponde all'input e all'interazione dell'utente. Nello schema MVC il controller è il punto di ingresso iniziale ed è responsabile della selezione dei tipi di modello con cui interagire e della visualizzazione di cui eseguire il rendering. Come suggerito dal nome, questo componente controlla il modo in cui l'app risponde a una determinata richiesta.
 
 > [!NOTE]
 > È consigliabile non sovraccaricare eccessivamente i controller con troppe responsabilità. Per evitare che la logica del controller diventi troppo complessa, escludere la logica di business dal controller e includerla nel modello di dominio.
@@ -161,7 +161,7 @@ L'app può inoltre usare l'[inserimento di dipendenze nei file di visualizzazion
 </html>
 ```
 
-### <a name="filters"></a>Filtri
+### <a name="filters"></a>Filtri.
 
 I [filtri](controllers/filters.md) consentono agli sviluppatori di incapsulare questioni trasversali quali la gestione delle eccezioni o l'autorizzazione. I filtri consentono l'esecuzione di logica pre-elaborazione e post-elaborazione personalizzata per i metodi di azione e possono essere configurati per l'esecuzione in determinate fasi della pipeline di esecuzione per una richiesta specifica. È possibile applicare i filtri ai controller o alle azioni come attributi o eseguirli a livello globale. Il framework include diversi filtri, ad esempio, `Authorize`. `[Authorize]` è l'attributo usato per creare filtri di autorizzazione MVC.
 
@@ -172,7 +172,7 @@ public class AccountController : Controller
 
 ### <a name="areas"></a>Aree
 
-Le [aree](controllers/areas.md) consentono di suddividere un'app Web ASP.NET Core MVC di grandi dimensioni in raggruppamenti funzionali più piccoli. Un'area è una struttura MVC all'interno di un'applicazione. In un progetto MVC i componenti logici come modello, controller e visualizzazione si trovano in cartelle diverse e MVC crea una relazione tra questi componenti tramite convenzioni di denominazione. Per un'app di grandi dimensioni può risultare utile suddividere l'app in aree di funzionalità di alto livello distinte. Ad esempio, un'app di e-commerce con più business unit, ad esempio checkout, fatturazione e ricerca e così via. Ognuna di queste unità dispone di visualizzazioni, controller e modelli di componenti logici.
+Le [aree](controllers/areas.md) consentono di suddividere un'app Web ASP.NET Core MVC di grandi dimensioni in raggruppamenti funzionali più piccoli. Un'area è una struttura MVC all'interno di un'applicazione. In un progetto MVC i componenti logici come modello, controller e visualizzazione si trovano in cartelle diverse e MVC usa le convenzioni di denominazione per creare la relazione tra questi componenti. Per un'app di grandi dimensioni può risultare utile suddividere l'app in aree di funzionalità di alto livello distinte. Ad esempio, un'app di e-commerce con più business unit, ad esempio checkout, fatturazione e ricerca e così via. Ognuna di queste unità dispone di visualizzazioni, controller e modelli di componenti logici.
 
 ### <a name="web-apis"></a>API Web
 
@@ -258,4 +258,5 @@ Per ulteriori informazioni, vedere <xref:mvc/compatibility-version>.
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Tested. AspNetCore. Mvc-libreria di test Fluent per ASP.NET Core mvc](https://github.com/ivaylokenov/MyTested.AspNetCore.Mvc) &ndash; libreria di unit test fortemente tipizzata, che fornisce un'interfaccia Fluent per il test di app per le API Web e MVC. (*Non mantenuto o supportato da Microsoft).*
+* [Integrare i componenti Razor in app Razor Pages e MVC](xref:blazor/hosting-models#integrate-razor-components-into-razor-pages-and-mvc-apps)
 

@@ -10,20 +10,20 @@ no-loc:
 - Blazor
 - SignalR
 uid: blazor/dependency-injection
-ms.openlocfilehash: 6930d721f04fd5f7cad2ba472724497a157fda0f
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
-ms.translationtype: MT
+ms.openlocfilehash: fa6762522c831c7fbe2742dbfe4e25a377988e1e
+ms.sourcegitcommit: fe41cff0b99f3920b727286944e5b652ca301640
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76159976"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76869564"
 ---
-# <a name="aspnet-core-opno-locblazor-dependency-injection"></a>ASP.NET Core Blazor inserimento delle dipendenze
+# <a name="aspnet-core-blazor-dependency-injection"></a>Inserimento delle dipendenze di ASP.NET Core Blazor
 
 Di [Rainer Stropek](https://www.timecockpit.com)
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-Blazor supporta l' [inserimento di dipendenze](xref:fundamentals/dependency-injection). Le app possono usare i servizi predefiniti inserendoli in componenti. Le app possono anche definire e registrare servizi personalizzati e renderli disponibili nell'app tramite DI.
+Blazor supporta l' [inserimento delle dipendenze (di)](xref:fundamentals/dependency-injection). Le app possono usare i servizi predefiniti inserendoli in componenti. Le app possono anche definire e registrare servizi personalizzati e renderli disponibili nell'app tramite DI.
 
 DI è una tecnica per accedere ai servizi configurati in una posizione centrale. Questa operazione può essere utile nelle app Blazor per:
 
@@ -36,9 +36,9 @@ I servizi predefiniti vengono aggiunti automaticamente alla raccolta di servizi 
 
 | Servizio | Durata | Descrizione |
 | ------- | -------- | ----------- |
-| <xref:System.Net.Http.HttpClient> | Singleton | Fornisce metodi per l'invio di richieste HTTP e la ricezione di risposte HTTP da una risorsa identificata da un URI.<br><br>L'istanza di `HttpClient` in un'app webassembly Blazor usa il browser per gestire il traffico HTTP in background.<br><br>per impostazione predefinita, le app Server Blazor non includono un `HttpClient` configurato come servizio. Fornire un `HttpClient` a un'app Blazor server.<br><br>Per ulteriori informazioni, vedere <xref:blazor/call-web-api>. |
-| `IJSRuntime` | Singleton (Blazor webassembly)<br>Con ambito (serverBlazor) | Rappresenta un'istanza di un runtime JavaScript in cui vengono inviate le chiamate a JavaScript. Per ulteriori informazioni, vedere <xref:blazor/javascript-interop>. |
-| `NavigationManager` | Singleton (Blazor webassembly)<br>Con ambito (serverBlazor) | Contiene gli helper per lavorare con gli URI e lo stato di navigazione. Per ulteriori informazioni, vedere [URI e Helper dello stato di navigazione](xref:blazor/routing#uri-and-navigation-state-helpers). |
+| <xref:System.Net.Http.HttpClient> | Singleton | Fornisce metodi per l'invio di richieste HTTP e la ricezione di risposte HTTP da una risorsa identificata da un URI.<br><br>L'istanza di `HttpClient` in un'app webassembly Blazer usa il browser per gestire il traffico HTTP in background.<br><br>Per impostazione predefinita, le app del server Blazer non includono un `HttpClient` configurato come servizio. Fornire un `HttpClient` a un'app del server blazer.<br><br>Per ulteriori informazioni, vedere <xref:blazor/call-web-api>. |
+| `IJSRuntime` | Singleton (webassembly Blazer)<br>Con ambito (server Blazer) | Rappresenta un'istanza di un runtime JavaScript in cui vengono inviate le chiamate a JavaScript. Per ulteriori informazioni, vedere <xref:blazor/javascript-interop>. |
+| `NavigationManager` | Singleton (webassembly Blazer)<br>Con ambito (server Blazer) | Contiene gli helper per lavorare con gli URI e lo stato di navigazione. Per ulteriori informazioni, vedere [URI e Helper dello stato di navigazione](xref:blazor/routing#uri-and-navigation-state-helpers). |
 
 Un provider di servizi personalizzato non fornisce automaticamente i servizi predefiniti elencati nella tabella. Se si usa un provider di servizi personalizzato e si richiede uno dei servizi indicati nella tabella, aggiungere i servizi necessari al nuovo provider di servizi.
 
@@ -134,7 +134,7 @@ Prerequisiti per l'inserimento del costruttore:
 
 Nelle app ASP.NET Core, i servizi con ambito hanno in genere come ambito la richiesta corrente. Al termine della richiesta, tutti i servizi con ambito o temporaneo vengono eliminati dal sistema DI. Nelle app Blazor server l'ambito della richiesta dura per la durata della connessione client, che può comportare un tempo di permanenza dei servizi temporanei e con ambito maggiore del previsto.
 
-Per definire l'ambito dei servizi per la durata di un componente, può usare le classi di base `OwningComponentBase` e `OwningComponentBase<TService>`. Queste classi di base espongono una proprietà `ScopedServices` di tipo `IServiceProvider` che risolve i servizi che hanno come ambito la durata del componente. Per creare un componente che eredita da una classe di base in Razor, usare la direttiva `@inherits`.
+Per definire l'ambito dei servizi per la durata di un componente, è possibile usare le classi di base `OwningComponentBase` e `OwningComponentBase<TService>`. Queste classi di base espongono una proprietà `ScopedServices` di tipo `IServiceProvider` che risolve i servizi che hanno come ambito la durata del componente. Per creare un componente che eredita da una classe di base in Razor, usare la direttiva `@inherits`.
 
 ```razor
 @page "/users"

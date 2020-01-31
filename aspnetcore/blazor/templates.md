@@ -5,17 +5,17 @@ description: Informazioni su ASP.NET Core Blazor modelli di app e Blazor struttu
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2019
+ms.date: 01/29/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/templates
-ms.openlocfilehash: 2a95b986450471b474d93ead252255f2bd9d4918
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
+ms.openlocfilehash: acfa4b8a42cbd310c6fc6dc973573578e94ef999
+ms.sourcegitcommit: c81ef12a1b6e6ac838e5e07042717cf492e6635b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76160119"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885517"
 ---
 # <a name="aspnet-core-opno-locblazor-templates"></a>Modelli di Blazor ASP.NET Core
 
@@ -36,16 +36,20 @@ Per istruzioni dettagliate sulla creazione di un'app Blazor da un modello, veder
 
 I file e le cartelle seguenti costituiscono un'app Blazor generata da un modello di Blazor:
 
-* *Program.cs* &ndash; punto di ingresso dell'app che configura l' [host](xref:fundamentals/host/generic-host)ASP.NET Core. Il codice in questo file è comune a tutte le app ASP.NET Core generate dai modelli ASP.NET Core.
+* *Program.cs* &ndash; punto di ingresso dell'app che configura:
 
-* *Startup.cs* &ndash; contiene la logica di avvio dell'app. La classe `Startup` definisce due metodi:
+  * [Host](xref:fundamentals/host/generic-host) ASP.NET Core (serverBlazor)
+  * L'host webassembly (Blazor webassembly) &ndash; il codice in questo file è univoco per le app create dal modello Blazor webassembly (`blazorwasm`).
+    * Il componente `App`, che è il componente radice dell'app, viene specificato come elemento `app` DOM al metodo `Add`.
+    * I servizi possono essere configurati con il metodo `ConfigureServices` nel generatore host, ad esempio `builder.Services.AddSingleton<IMyDependency, MyDependency>();`.
+    * La configurazione può essere fornita tramite il generatore host (`builder.Configuration`).
+
+* *Startup.cs* (serverBlazor) &ndash; contiene la logica di avvio dell'app. La classe `Startup` definisce due metodi:
 
   * `ConfigureServices` &ndash; configura i servizi [di inserimento delle dipendenze](xref:fundamentals/dependency-injection) dell'app. Nelle app Blazor server i servizi vengono aggiunti chiamando <xref:Microsoft.Extensions.DependencyInjection.ComponentServiceCollectionExtensions.AddServerSideBlazor*>e il `WeatherForecastService` viene aggiunto al contenitore del servizio per l'uso da parte del componente `FetchData` di esempio.
   * `Configure` &ndash; configura la pipeline di gestione delle richieste dell'app:
-    * Blazor webassembly &ndash; aggiunge il componente `App` (specificato come `app` elemento DOM al metodo `AddComponent`), che è il componente radice dell'app.
-    * Server Blazor
-      * <xref:Microsoft.AspNetCore.Builder.ComponentEndpointRouteBuilderExtensions.MapBlazorHub*> viene chiamato per configurare un endpoint per la connessione in tempo reale con il browser. La connessione viene creata con [SignalR](xref:signalr/introduction), un Framework per l'aggiunta di funzionalità Web in tempo reale alle app.
-      * [MapFallbackToPage ("/_Host")](xref:Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions.MapFallbackToPage*) viene chiamato per configurare la pagina radice dell'app (*pages/_Host. cshtml*) e abilitare la navigazione.
+    * <xref:Microsoft.AspNetCore.Builder.ComponentEndpointRouteBuilderExtensions.MapBlazorHub*> viene chiamato per configurare un endpoint per la connessione in tempo reale con il browser. La connessione viene creata con [SignalR](xref:signalr/introduction), un Framework per l'aggiunta di funzionalità Web in tempo reale alle app.
+    * [MapFallbackToPage ("/_Host")](xref:Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions.MapFallbackToPage*) viene chiamato per configurare la pagina radice dell'app (*pages/_Host. cshtml*) e abilitare la navigazione.
 
 * *wwwroot/index.html* (Blazor webassembly) &ndash; pagina radice dell'app implementata come pagina HTML:
   * Quando viene inizialmente richiesta una pagina dell'app, il rendering della pagina viene eseguito e restituito nella risposta.

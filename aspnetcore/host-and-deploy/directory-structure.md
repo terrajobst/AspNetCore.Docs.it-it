@@ -5,14 +5,14 @@ description: Informazioni sulla struttura di directory delle app ASP.NET Core pu
 monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/17/2019
+ms.date: 01/28/2020
 uid: host-and-deploy/directory-structure
-ms.openlocfilehash: f1df047decc7a0a6b7dcee57a690c55eea428b05
-ms.sourcegitcommit: 28a2874765cefe9eaa068dceb989a978ba2096aa
-ms.translationtype: HT
+ms.openlocfilehash: ba5cb96dfdcdca10034299e3bbe662ce056af791
+ms.sourcegitcommit: fe41cff0b99f3920b727286944e5b652ca301640
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67166976"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76870266"
 ---
 # <a name="aspnet-core-directory-structure"></a>Struttura di directory di ASP.NET Core
 
@@ -28,8 +28,8 @@ La directory *publish* contiene gli asset distribuibili prodotti dal comando [do
 
 | Tipo di app | Struttura di directory |
 | -------- | ------------------- |
-| [Distribuzione dipendente dal framework](/dotnet/core/deploying/#framework-dependent-deployments-fdd) | <ul><li>publish&dagger;<ul><li>Views&dagger; (app MVC; se non sono precompilate visualizzazioni)</li><li>Pages&dagger; (MVC o app Razor Pages; se non sono precompilate pagine)</li><li>wwwroot&dagger;</li><li>*\.dll files</li><li>{NOME ASSEMBLY}.deps.json</li><li>{NOME ASSEMBLY}.dll</li><li>{NOME ASSEMBLY}.pdb</li><li>{NOME ASSEMBLY}.Views.dll</li><li>{NOME ASSEMBLY}.Views.pdb</li><li>{NOME ASSEMBLY}.runtimeconfig.json</li><li>web.config (distribuzioni IIS)</li></ul></li></ul> |
-| [Distribuzione autonoma](/dotnet/core/deploying/#self-contained-deployments-scd) | <ul><li>publish&dagger;<ul><li>Views&dagger; (app MVC; se non sono precompilate visualizzazioni)</li><li>Pages&dagger; (MVC o app Razor Pages; se non sono precompilate pagine)</li><li>wwwroot&dagger;</li><li>\*.dll files</li><li>{NOME ASSEMBLY}.deps.json</li><li>{NOME ASSEMBLY}.dll</li><li>{NOME ASSEMBLY}.exe</li><li>{NOME ASSEMBLY}.pdb</li><li>{NOME ASSEMBLY}.Views.dll</li><li>{NOME ASSEMBLY}.Views.pdb</li><li>{NOME ASSEMBLY}.runtimeconfig.json</li><li>web.config (distribuzioni IIS)</li></ul></li></ul> |
+| [Eseguibile dipendente dal Framework (supportano)](/dotnet/core/deploying/#framework-dependent-executables-fde) | <ul><li>publish&dagger;<ul><li>Viste&dagger; app MVC; Se le visualizzazioni non sono precompilate</li><li>Pagine&dagger; MVC o Razor Pages app, se le pagine non sono precompilate</li><li>wwwroot&dagger;</li><li>*i file con estensione dll</li><li>{nome assembly}. Deps. json</li><li>{nome assembly}. dll</li><li>{nome assembly} {. Estensione} estensione *exe* in Windows, nessuna estensione in MacOS o Linux</li><li>{nome assembly}. pdb</li><li>{nome assembly}. Views. dll</li><li>{nome ASSEMBLY}. Views. pdb</li><li>{nome ASSEMBLY}. runtimeconfig. JSON</li><li>Web. config (distribuzioni IIS)</li><li>createdump ([Linux createdump Utility](https://github.com/dotnet/coreclr/blob/master/Documentation/botr/xplat-minidump-generation.md#configurationpolicy))</li>* <li>. so (libreria di oggetti condivisi Linux)</li><li>*. a (archivio MacOS)</li><li>* . dylib (libreria dinamica MacOS)</li></ul></li></ul> |
+| [Distribuzione autonoma (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd) | <ul><li>publish&dagger;<ul><li>Viste&dagger; app MVC, se le visualizzazioni non sono precompilate</li><li>Pagine&dagger; MVC o Razor Pages app, se le pagine non sono precompilate</li><li>wwwroot&dagger;</li><li>file *. dll</li><li>{NOME ASSEMBLY}.deps.json</li><li>{NOME ASSEMBLY}.dll</li><li>{NOME ASSEMBLY}.exe</li><li>{NOME ASSEMBLY}.pdb</li><li>{NOME ASSEMBLY}.Views.dll</li><li>{NOME ASSEMBLY}.Views.pdb</li><li>{NOME ASSEMBLY}.runtimeconfig.json</li><li>web.config (distribuzioni IIS)</li></ul></li></ul> |
 
 &dagger;Indica una directory
 

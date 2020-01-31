@@ -5,12 +5,12 @@ description: Aggiunta di una vista a una semplice app ASP.NET Core MVC
 ms.author: riande
 ms.date: 8/04/2019
 uid: tutorials/first-mvc-app/adding-view
-ms.openlocfilehash: de75c3b0651c0cda6629af786d7db9dc83bc4fef
-ms.sourcegitcommit: 020c3760492efed71b19e476f25392dda5dd7388
+ms.openlocfilehash: a25233968f115c6e3a214d97cf2ca5ab81df8d83
+ms.sourcegitcommit: fe41cff0b99f3920b727286944e5b652ca301640
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72288829"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76870428"
 ---
 # <a name="add-a-view-to-an-aspnet-core-mvc-app"></a>Aggiungere una vista a un'app ASP.NET Core MVC
 
@@ -59,11 +59,11 @@ Aggiungere una vista `Index` per `HelloWorldController`.
 
 * Fare clic con il pulsante destro del mouse sulla cartella *Views*, quindi su **Aggiungi > Nuova cartella** e denominare la cartella *HelloWorld*.
 * Fare clic con il pulsante destro del mouse sulla cartella *Views/HelloWorld*, quindi su **Aggiungi > Nuovo file**.
-* Nella finestra di dialogo **Nuovo file**:
+* Nel finestra di dialogo **Nuovo file**:
 
-  * Selezionare **Web** nel riquadro a sinistra.
-  * Selezionare **File HTML vuoto** nel riquadro centrale.
-  * Digitare *Index.cshtml* nella casella **Nome**.
+  * Selezionare **ASP .NET Core** nel riquadro sinistro.
+  * Selezionare la **pagina visualizzazione MVC** nel riquadro centrale.
+  * Digitare *index* nella casella **nome** .
   * Selezionare **Nuovo**.
 
 ![Finestra di dialogo Aggiungi nuovo elemento](adding-view/_static/add_view_mac.png)
@@ -95,7 +95,7 @@ Il markup precedente ha apportato le modifiche seguenti:
 * 3 occorrenze di `MvcMovie` sostituite con `Movie App`.
 * L'elemento di ancoraggio `<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MvcMovie</a>` è stato sostituito con `<a class="navbar-brand" asp-controller="Movies" asp-action="Index">Movie App</a>`.
 
-Nel markup precedente, l'attributo `asp-area=""` [Helper Tag di ancoraggio](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) e il valore dell'attributo sono stati omessi perché questa app non usa le [Aree](xref:mvc/controllers/areas).
+Nel markup precedente, l'attributo dell' [Helper tag di ancoraggio](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) `asp-area=""` e il valore dell'attributo sono stati omessi perché l'app non usa le [aree](xref:mvc/controllers/areas).
 
 **Nota**: il controller di `Movies` non è stato implementato. A questo punto, il collegamento `Movie App` non è funzionale.
 
@@ -216,7 +216,7 @@ Aggiungere una vista `Index` per `HelloWorldController`.
 
 * Fare clic con il pulsante destro del mouse sulla cartella *Views*, quindi su **Aggiungi > Nuova cartella** e denominare la cartella *HelloWorld*.
 * Fare clic con il pulsante destro del mouse sulla cartella *Views/HelloWorld*, quindi su **Aggiungi > Nuovo file**.
-* Nella finestra di dialogo **Nuovo file**:
+* Nel finestra di dialogo **Nuovo file**:
 
   * Selezionare **Web** nel riquadro a sinistra.
   * Selezionare **File HTML vuoto** nel riquadro centrale.
@@ -250,7 +250,7 @@ Il markup seguente visualizza le modifiche evidenziate:
 
 [!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/Shared/_Layout.cshtml?highlight=6,24,51)]
 
-Nel markup precedente, l'attributo `asp-area` [Helper Tag di ancoraggio](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) è stato omesso perché questa app non usa le [Aree](xref:mvc/controllers/areas).
+Nel markup precedente, l'attributo dell' [Helper tag di ancoraggio](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) `asp-area` è stato omesso perché l'app non usa le [aree](xref:mvc/controllers/areas).
 
 <!-- Routing has changed in 2.2, it's going to the last route.
 >[!WARNING]

@@ -3,15 +3,15 @@ title: Aggiungere, scaricare ed eliminare i dati utente all'identità in un prog
 author: rick-anderson
 description: Informazioni su come aggiungere dati utente personalizzati all'identità in un progetto ASP.NET Core. Eliminare i dati al GDPR.
 ms.author: riande
-ms.date: 12/05/2019
+ms.date: 01/28/2020
 ms.custom: mvc, seodec18
 uid: security/authentication/add-user-data
-ms.openlocfilehash: f54df68834cd3e2493e558aaab9851f036f3f01b
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: e08c02e2e5d4a429aae10c59e7ae3ea48c975067
+ms.sourcegitcommit: c81ef12a1b6e6ac838e5e07042717cf492e6635b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880748"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885549"
 ---
 # <a name="add-download-and-delete-custom-user-data-to-identity-in-an-aspnet-core-project"></a>Aggiungere, scaricare ed eliminare dati utente personalizzati all'identità in un progetto ASP.NET Core
 
@@ -26,7 +26,7 @@ Esempio di progetto viene creato da un'app web Razor Pages, ma le istruzioni son
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/add-user-data) ([procedura per il download](xref:index#how-to-download-a-sample))
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -78,15 +78,15 @@ dotnet new webapp -o WebApp1
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Dal **Esplora soluzioni**, fare doppio clic sul progetto > **Add** > **nuovo elemento di scaffolding**.
-* Dal riquadro sinistro della finestra di **Add Scaffold** finestra di dialogo, seleziona **identità** > **aggiungere**.
-* Nel **identità ADD** finestra di dialogo, le opzioni seguenti:
+* Dal riquadro sinistro della finestra di dialogo **Aggiungi impalcatura** selezionare **Identity** > **Aggiungi**.
+* Nella finestra di dialogo **Aggiungi identità** sono disponibili le opzioni seguenti:
   * Selezionare il file di layout esistente *~/Pages/Shared/_Layout.cshtml*
   * Selezionare i file seguenti per eseguire l'override:
     * **Account/Register**
     * **Account/gestire/indice**
   * Selezionare il **+** per creare un nuovo pulsante **classe contesto dati**. Accettare il tipo (**WebApp1.Models.WebApp1Context** se il progetto viene denominato **App Web 1**).
   * Selezionare il **+** per creare un nuovo pulsante **classe utente**. Accettare il tipo (**WebApp1User** se il progetto viene denominato **App Web 1**) > **Add**.
-* Selezionare **aggiungere**.
+* Selezionare **Aggiungi**.
 
 # <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 

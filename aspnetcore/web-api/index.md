@@ -5,14 +5,14 @@ description: Informazioni di base sulla creazione di un'API Web in ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 11/22/2019
+ms.date: 01/27/2020
 uid: web-api/index
-ms.openlocfilehash: 5ef8b4d012f4ed90339ffea191612e4dc365d958
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 8609e2095c202643cdc905cc610298195b654215
+ms.sourcegitcommit: fe41cff0b99f3920b727286944e5b652ca301640
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880535"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76870017"
 ---
 # <a name="create-web-apis-with-aspnet-core"></a>Creare API Web con ASP.NET Core
 
@@ -78,13 +78,28 @@ Per un elenco che include gli attributi disponibili, vedere lo spazio dei nomi <
 
 L'attributo [`[ApiController]`](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) può essere applicato a una classe controller per abilitare i seguenti comportamenti supponenti specifici dell'API:
 
+::: moniker range=">= aspnetcore-2.2"
+
 * [Requisiti del routing degli attributi](#attribute-routing-requirement)
 * [Risposte HTTP 400 automatiche](#automatic-http-400-responses)
 * [Inferenza del parametro di origine di associazione](#binding-source-parameter-inference)
 * [Inferenza di richieste multipart/form-data](#multipartform-data-request-inference)
 * [Dettagli del problema per i codici di stato di errore](#problem-details-for-error-status-codes)
 
+La funzionalità *Dettagli problema per i codici di stato di errore* richiede una [versione di compatibilità](xref:mvc/compatibility-version) 2,2 o successiva. Le altre funzionalità richiedono una versione di compatibilità 2,1 o successiva.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.1"
+
+* [Requisiti del routing degli attributi](#attribute-routing-requirement)
+* [Risposte HTTP 400 automatiche](#automatic-http-400-responses)
+* [Inferenza del parametro di origine di associazione](#binding-source-parameter-inference)
+* [Inferenza di richieste multipart/form-data](#multipartform-data-request-inference)
+
 Queste funzionalità richiedono la [versione di compatibilità](xref:mvc/compatibility-version) 2.1 o successiva.
+
+::: moniker-end
 
 ### <a name="attribute-on-specific-controllers"></a>Attributo su controller specifici
 
