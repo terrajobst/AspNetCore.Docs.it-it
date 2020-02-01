@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/16/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: 37ba756cc4170c145d2ab1f9f0a465057cc826c1
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: cd31094884f53f34d55c0bceabae41ca2bacba4c
+ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358708"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76928548"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Provider di configurazione di Azure Key Vault in ASP.NET Core
 
@@ -73,11 +73,11 @@ Le istruzioni fornite nell'argomento [avvio rapido: impostare e recuperare un se
 
 1. Aprire Azure cloud shell usando uno dei metodi seguenti nel [portale di Azure](https://portal.azure.com/):
 
-   * Selezionare **Prova** nell'angolo superiore destro di un blocco di codice. Usare la stringa di ricerca "interfaccia della riga di comando di Azure" nella casella di testo.
+   * Selezionare **try it** nell'angolo superiore destro di un blocco di codice. Usare la stringa di ricerca "interfaccia della riga di comando di Azure" nella casella di testo.
    * Aprire Cloud Shell nel browser con il pulsante **avvia cloud Shell** .
-   * Selezionare il pulsante **Cloud Shell** nel menu nell'angolo in alto a destra del portale di Azure.
+   * Selezionare il pulsante **cloud Shell** nel menu nell'angolo in alto a destra del portale di Azure.
 
-   Per altre informazioni, vedere [interfaccia della riga di comando di Azure](/cli/azure/) e [Panoramica di Azure cloud Shell](/azure/cloud-shell/overview).
+   Per altre informazioni, vedere l'interfaccia della riga di comando di [Azure](/cli/azure/) e [Panoramica di Azure cloud Shell](/azure/cloud-shell/overview).
 
 1. Se non è già stato eseguito l'autenticazione, effettuare l'accesso con il comando `az login`.
 
@@ -106,7 +106,7 @@ Le istruzioni fornite nell'argomento [avvio rapido: impostare e recuperare un se
 
 ## <a name="use-application-id-and-x509-certificate-for-non-azure-hosted-apps"></a>Usare l'ID applicazione e il certificato X. 509 per le app non ospitate in Azure
 
-Configurare Azure AD, Azure Key Vault e l'app per usare un ID applicazione Azure Active Directory e un certificato X. 509 per l'autenticazione in un insieme di credenziali **delle chiavi quando l'app è ospitata all'esterno di Azure**. Per i dettagli, vedere l'articolo relativo alle [informazioni su chiavi, segreti e certificati](/azure/key-vault/about-keys-secrets-and-certificates).
+Configurare Azure AD, Azure Key Vault e l'app per usare un ID applicazione Azure Active Directory e un certificato X. 509 per l'autenticazione in un insieme di credenziali **delle chiavi quando l'app è ospitata all'esterno di Azure**. Per ulteriori informazioni, vedere [informazioni su chiavi, segreti e certificati](/azure/key-vault/about-keys-secrets-and-certificates).
 
 > [!NOTE]
 > Sebbene l'uso di un ID applicazione e di un certificato X. 509 sia supportato per le app ospitate in Azure, è consigliabile usare [identità gestite per le risorse di Azure](#use-managed-identities-for-azure-resources) quando si ospita un'app in Azure. Le identità gestite non richiedono l'archiviazione di un certificato nell'app o nell'ambiente di sviluppo.
@@ -124,10 +124,10 @@ L'app di esempio usa un ID applicazione e un certificato X. 509 quando l'istruzi
 1. Archiviare il nome dell'insieme di credenziali delle chiavi, l'ID applicazione e l'identificazione personale del certificato nel file *appSettings. JSON* dell'app.
 1. Passare a insiemi di credenziali delle **chiavi** nella portale di Azure.
 1. Selezionare l'insieme di credenziali delle chiavi creato nell' [Archivio Secret nell'ambiente di produzione con Azure Key Vault](#secret-storage-in-the-production-environment-with-azure-key-vault) sezione.
-1. Selezionare **Criteri di accesso**.
+1. Selezionare **criteri di accesso**.
 1. Selezionare **Aggiungi criteri di accesso**.
 1. Aprire **autorizzazioni segrete** e fornire all'app le autorizzazioni **Get** ed **List** .
-1. Selezionare **Seleziona entità** e selezionare l'app registrata in base al nome. Fare clic sul pulsante **Seleziona**.
+1. Selezionare **Seleziona entità** e selezionare l'app registrata in base al nome. Selezionare il pulsante **Seleziona** .
 1. Scegliere **OK**.
 1. Selezionare **Salva**.
 1. Distribuire l'app.
@@ -153,7 +153,7 @@ Il certificato X. 509 è gestito dal sistema operativo. L'app chiama <xref:Micro
 
 ::: moniker-end
 
-Valori di esempio
+Valori di esempio:
 
 * Nome dell'insieme di credenziali delle chiavi: `contosovault`
 * ID applicazione: `627e911e-43cc-61d4-992e-12db9c81b413`

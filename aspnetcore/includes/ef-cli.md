@@ -1,1 +1,1 @@
-Per altre informazioni sugli strumenti dell'interfaccia della riga di comando per EF Core, vedere [Informazioni di riferimento sugli strumenti EF Core per l'interfaccia della riga di comando .NET](/ef/core/miscellaneous/cli/dotnet).
+Per altre informazioni sull'interfaccia della riga di comando per EF Core, vedere Guida di [riferimento agli strumenti EF core per l'interfaccia](/ef/core/miscellaneous/cli/dotnet)della riga di comando

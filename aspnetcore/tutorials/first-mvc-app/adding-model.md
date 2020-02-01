@@ -5,12 +5,12 @@ description: Aggiungere un modello a una semplice app ASP.NET Core.
 ms.author: riande
 ms.date: 01/13/2020
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: 12429f1f381788569615a2a40e1ca13c4b3cfb6e
-ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
+ms.openlocfilehash: 2b656f316a25759456a1d00a9176ea160b2fe5bf
+ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76727116"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76928586"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Aggiungere un modello a un'app ASP.NET Core MVC
 
@@ -264,7 +264,7 @@ dotnet ef database update
 
 * `ef database update`: aggiorna il database alla migrazione più recente, creata dal comando precedente. Il comando esegue il metodo `Up` nel file *Migrations/{time-stamp}_InitialCreate.cs*, che crea il database.
 
-[!INCLUDE [more information on the CLI tools for EF Core](~/includes/ef-cli.md)]
+[!INCLUDE [more information on the CLI for EF Core](~/includes/ef-cli.md)]
 
 ---
 

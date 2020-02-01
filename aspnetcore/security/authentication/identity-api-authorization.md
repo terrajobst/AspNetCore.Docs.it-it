@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 11/08/2019
 uid: security/authentication/identity/spa
-ms.openlocfilehash: 31a5e47d772e7416646c4d83c3209d7d2b254199
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 623f739b17c0bed3ce929f562c9581ab26ecf5bc
+ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829166"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76928556"
 ---
 # <a name="authentication-and-authorization-for-spas"></a>Autenticazione e autorizzazione per le ZPS
 
@@ -42,7 +42,7 @@ Il comando precedente crea un'app ASP.NET Core con una directory *ClientApp* con
 
 Le sezioni seguenti descrivono le aggiunte al progetto quando è incluso il supporto per l'autenticazione:
 
-### <a name="startup-class"></a>Classe di avvio
+### <a name="startup-class"></a>Classe Startup
 
 La classe `Startup` presenta le aggiunte seguenti:
 
@@ -260,7 +260,7 @@ async populateWeatherData() {
 }
 ```
 
-## <a name="deploy-to-production"></a>Distribuire nell'ambiente di produzione
+## <a name="deploy-to-production"></a>Distribuisci in produzione
 
 Per distribuire l'app nell'ambiente di produzione, è necessario eseguire il provisioning delle risorse seguenti:
 
@@ -285,9 +285,9 @@ Questa sezione descrive la distribuzione dell'app in siti Web di Azure usando un
 }
 ```
 
-* La proprietà Name del certificato corrisponde all'oggetto distinto per il certificato.
-* Il percorso dell'archivio indica dove caricare il certificato (`CurrentUser` o `LocalMachine`).
 * Il nome dell'archivio rappresenta il nome dell'archivio certificati in cui è archiviato il certificato. In questo caso, fa riferimento all'archivio utenti personali.
+* Il percorso dell'archivio indica dove caricare il certificato (`CurrentUser` o `LocalMachine`).
+* La proprietà Name del certificato corrisponde all'oggetto distinto per il certificato.
 
 Per eseguire la distribuzione in siti Web di Azure, distribuire l'app seguendo la procedura descritta in [distribuire l'app in Azure](xref:tutorials/publish-to-azure-webapp-using-vs#deploy-the-app-to-azure) per creare le risorse di Azure necessarie e distribuire l'app nell'ambiente di produzione.
 
@@ -301,7 +301,7 @@ Dopo questo passaggio, riavviare l'app e dovrebbe essere funzionante.
 
 Il supporto per l'autorizzazione API si basa su IdentityServer con un set di convenzioni, valori predefiniti e miglioramenti per semplificare l'esperienza per le Spa. Inutile dire che la potenza completa di IdentityServer è disponibile dietro le quinte se le integrazioni ASP.NET Core non coprono lo scenario. Il supporto ASP.NET Core si concentra sulle app "First-Party", in cui tutte le app vengono create e distribuite dall'organizzazione. Di conseguenza, il supporto non viene offerto per elementi come il consenso o la Federazione. Per questi scenari, usare IdentityServer e seguire la relativa documentazione.
 
-### <a name="application-profiles"></a>Profili dell'applicazione
+### <a name="application-profiles"></a>Profili applicazione
 
 I profili dell'applicazione sono configurazioni predefinite per le app che definiscono ulteriormente i parametri. A questo punto sono supportati i profili seguenti:
 

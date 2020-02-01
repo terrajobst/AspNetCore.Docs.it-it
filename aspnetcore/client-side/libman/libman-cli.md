@@ -8,24 +8,24 @@ ms.date: 11/12/2019
 no-loc:
 - SignalR
 uid: client-side/libman/libman-cli
-ms.openlocfilehash: 8b2b1e45ab4685482554ac439b0276e0cf381609
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 02d88d09805bd23a86ef924766373245fec7ff52
+ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73962793"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76928356"
 ---
-# <a name="use-the-libman-command-line-interface-cli-with-aspnet-core"></a>Usare l'interfaccia della riga di comando di LibMan con ASP.NET Core
+# <a name="use-the-libman-cli-with-aspnet-core"></a>Usare l'interfaccia della riga di comando di LibMan con ASP.NET Core
 
 Di [Scott Addie](https://twitter.com/Scott_Addie)
 
 L'interfaccia della riga di comando di [LibMan](xref:client-side/libman/index) è uno strumento multipiattaforma supportato ovunque sia supportato .NET Core.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * [!INCLUDE [2.1-SDK](../../includes/2.1-SDK.md)]
 
-## <a name="installation"></a>Installazione
+## <a name="installation"></a>Installazione di
 
 Per installare l'interfaccia della riga di comando di LibMan:
 
@@ -43,7 +43,7 @@ dotnet tool install -g Microsoft.Web.LibraryManager.Cli --version 1.0.94-g606058
 
 Nell'esempio precedente, uno strumento globale di .NET Core viene installato dal file *C:\Temp\Microsoft.Web.librarymanager.cli.1.0.94-g606058a278.nupkg* del computer Windows locale.
 
-## <a name="usage"></a>Utilizzo
+## <a name="usage"></a>Usage
 
 Una volta completata l'installazione dell'interfaccia della riga di comando, è possibile usare il comando seguente:
 
@@ -103,7 +103,7 @@ libman init [-d|--default-destination] [-p|--default-provider] [--verbosity]
 libman init [-h|--help]
 ```
 
-### <a name="options"></a>Opzioni
+### <a name="options"></a>Options
 
 Per il comando `libman init` sono disponibili le opzioni seguenti:
 
@@ -157,13 +157,13 @@ libman install <LIBRARY> [-d|--destination] [--files] [-p|--provider] [--verbosi
 libman install [-h|--help]
 ```
 
-### <a name="arguments"></a>argomenti
+### <a name="arguments"></a>Argomenti
 
 `LIBRARY`
 
 Nome della libreria da installare. Questo nome può includere la notazione dei numeri di versione, ad esempio `@1.2.0`.
 
-### <a name="options"></a>Opzioni
+### <a name="options"></a>Options
 
 Per il comando `libman install` sono disponibili le opzioni seguenti:
 
@@ -276,7 +276,7 @@ libman restore [--verbosity]
 libman restore [-h|--help]
 ```
 
-### <a name="options"></a>Opzioni
+### <a name="options"></a>Options
 
 Per il comando `libman restore` sono disponibili le opzioni seguenti:
 
@@ -301,7 +301,7 @@ libman clean [--verbosity]
 libman clean [-h|--help]
 ```
 
-### <a name="options"></a>Opzioni
+### <a name="options"></a>Options
 
 Per il comando `libman clean` sono disponibili le opzioni seguenti:
 
@@ -336,13 +336,13 @@ libman uninstall <LIBRARY> [--verbosity]
 libman uninstall [-h|--help]
 ```
 
-### <a name="arguments"></a>argomenti
+### <a name="arguments"></a>Argomenti
 
 `LIBRARY`
 
 Nome della libreria da disinstallare. Questo nome può includere la notazione dei numeri di versione, ad esempio `@1.2.0`.
 
-### <a name="options"></a>Opzioni
+### <a name="options"></a>Options
 
 Per il comando `libman uninstall` sono disponibili le opzioni seguenti:
 
@@ -388,13 +388,13 @@ libman update <LIBRARY> [-pre] [--to] [--verbosity]
 libman update [-h|--help]
 ```
 
-### <a name="arguments"></a>argomenti
+### <a name="arguments"></a>Argomenti
 
 `LIBRARY`
 
 Nome della libreria da aggiornare.
 
-### <a name="options"></a>Opzioni
+### <a name="options"></a>Options
 
 Per il comando `libman update` sono disponibili le opzioni seguenti:
 
@@ -440,7 +440,7 @@ libman cache list [--files] [--libraries] [--verbosity]
 libman cache [-h|--help]
 ```
 
-### <a name="arguments"></a>argomenti
+### <a name="arguments"></a>Argomenti
 
 `PROVIDER`
 
@@ -448,7 +448,7 @@ Utilizzato solo con il comando `clean`. Specifica la cache del provider da pulir
 
 [!INCLUDE [LibMan provider names](../../includes/libman-cli/provider-names.md)]
 
-### <a name="options"></a>Opzioni
+### <a name="options"></a>Options
 
 Per il comando `libman cache` sono disponibili le opzioni seguenti:
 
