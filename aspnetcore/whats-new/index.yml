@@ -19,11 +19,11 @@ landingContent:
     links:
     - text: Dicembre 2019
       url: 2019-12.md
-    - text: 2019 novembre
+    - text: Novembre 2019
       url: 2019-11.md
     - text: Ottobre 2019
       url: 2019-10.md
-    - text: 2019 settembre
+    - text: Settembre 2019
       url: 2019-09.md
 - title: Partecipa a ASP.NET Core docs
   linkLists:
