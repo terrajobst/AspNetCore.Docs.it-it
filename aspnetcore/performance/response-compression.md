@@ -80,7 +80,7 @@ Gli algoritmi di compressione sono soggetti a un compromesso tra la velocità di
 
 Le intestazioni necessarie per la richiesta, l'invio, la memorizzazione nella cache e la ricezione di contenuti compressi sono descritte nella tabella seguente.
 
-| Header             | Ruolo |
+| Intestazione             | Role |
 | ------------------ | ---- |
 | `Accept-Encoding`  | Inviato dal client al server per indicare gli schemi di codifica del contenuto accettabili per il client. |
 | `Content-Encoding` | Inviato dal server al client per indicare la codifica del contenuto nel payload. |
@@ -108,7 +108,7 @@ Per includere il middleware in un progetto, aggiungere un riferimento al [metapa
 
 ::: moniker-end
 
-## <a name="configuration"></a>Configurazione di
+## <a name="configuration"></a>Configurazione
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -139,8 +139,8 @@ public class Startup
 
 Note:
 
-* `app.UseResponseCompression` deve essere chiamato prima di qualsiasi middleware che comprime le risposte. Per ulteriori informazioni, vedere <xref:fundamentals/middleware/index#middleware-order>.
-* Per impostare l'intestazione `Accept-Encoding` della richiesta e studiare le intestazioni, le dimensioni e il corpo della risposta, usare uno strumento, ad esempio [Fiddler](https://www.telerik.com/fiddler), [Firebug](https://getfirebug.com/) o [Postman](https://www.getpostman.com/).
+* `app.UseResponseCompression` deve essere chiamato prima di qualsiasi middleware che comprime le risposte. Per altre informazioni, vedere <xref:fundamentals/middleware/index#middleware-order>.
+* Per impostare l'intestazione della richiesta `Accept-Encoding` e studiare le intestazioni, le dimensioni e il corpo della risposta, usare uno strumento come [Fiddler](https://www.telerik.com/fiddler), [Firebug](https://getfirebug.com/)o [postazione](https://www.getpostman.com/) .
 
 Inviare una richiesta all'app di esempio senza l'intestazione `Accept-Encoding` e osservare che la risposta non è compressa. Le intestazioni `Content-Encoding` e `Vary` non sono presenti nella risposta.
 
@@ -202,11 +202,11 @@ public void ConfigureServices(IServiceCollection services)
 
 Impostare il livello di compressione con <xref:Microsoft.AspNetCore.ResponseCompression.BrotliCompressionProviderOptions>. Per impostazione predefinita, il provider di compressione Brotli è il livello di compressione più veloce ([CompressionLevel. Fast](xref:System.IO.Compression.CompressionLevel)), che potrebbe non produrre la compressione più efficiente. Se si desidera la compressione più efficiente, configurare il middleware per la compressione ottimale.
 
-| Livello di compressione | Descrizione |
+| Compression Level | Descrizione |
 | ----------------- | ----------- |
-| [CompressionLevel.Fastest](xref:System.IO.Compression.CompressionLevel) | La compressione deve essere completata il più rapidamente possibile, anche se l'output risultante non viene compresso in modo ottimale. |
+| [CompressionLevel. più veloce](xref:System.IO.Compression.CompressionLevel) | La compressione deve essere completata il più rapidamente possibile, anche se l'output risultante non viene compresso in modo ottimale. |
 | [CompressionLevel. NoCompression](xref:System.IO.Compression.CompressionLevel) | Non deve essere eseguita alcuna compressione. |
-| [CompressionLevel.Optimal](xref:System.IO.Compression.CompressionLevel) | Le risposte devono essere compresse in modo ottimale, anche se la compressione impiega più tempo per il completamento. |
+| [CompressionLevel. Optimal](xref:System.IO.Compression.CompressionLevel) | Le risposte devono essere compresse in modo ottimale, anche se la compressione impiega più tempo per il completamento. |
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -265,11 +265,11 @@ public void ConfigureServices(IServiceCollection services)
 
 Impostare il livello di compressione con <xref:Microsoft.AspNetCore.ResponseCompression.GzipCompressionProviderOptions>. Per impostazione predefinita, il provider di compressione gzip è il livello di compressione più veloce ([CompressionLevel. Fast](xref:System.IO.Compression.CompressionLevel)), che potrebbe non produrre la compressione più efficiente. Se si desidera la compressione più efficiente, configurare il middleware per la compressione ottimale.
 
-| Livello di compressione | Descrizione |
+| Compression Level | Descrizione |
 | ----------------- | ----------- |
-| [CompressionLevel.Fastest](xref:System.IO.Compression.CompressionLevel) | La compressione deve essere completata il più rapidamente possibile, anche se l'output risultante non viene compresso in modo ottimale. |
+| [CompressionLevel. più veloce](xref:System.IO.Compression.CompressionLevel) | La compressione deve essere completata il più rapidamente possibile, anche se l'output risultante non viene compresso in modo ottimale. |
 | [CompressionLevel. NoCompression](xref:System.IO.Compression.CompressionLevel) | Non deve essere eseguita alcuna compressione. |
-| [CompressionLevel.Optimal](xref:System.IO.Compression.CompressionLevel) | Le risposte devono essere compresse in modo ottimale, anche se la compressione impiega più tempo per il completamento. |
+| [CompressionLevel. Optimal](xref:System.IO.Compression.CompressionLevel) | Le risposte devono essere compresse in modo ottimale, anche se la compressione impiega più tempo per il completamento. |
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -354,7 +354,7 @@ Se si dispone di un modulo di compressione dinamica IIS attivo configurato a liv
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-Usare uno strumento come [Fiddler](https://www.telerik.com/fiddler), [Firebug](https://getfirebug.com/)o [Postman](https://www.getpostman.com/), che consente di impostare l'intestazione `Accept-Encoding` della richiesta e studiare le intestazioni, le dimensioni e il corpo della risposta. Per impostazione predefinita, il middleware della compressione della risposta comprime le risposte che soddisfano le condizioni seguenti:
+Usare uno strumento come [Fiddler](https://www.telerik.com/fiddler), [Firebug](https://getfirebug.com/)o [postazione](https://www.getpostman.com/), che consente di impostare l'intestazione della richiesta `Accept-Encoding` e studiare le intestazioni, le dimensioni e il corpo della risposta. Per impostazione predefinita, il middleware della compressione della risposta comprime le risposte che soddisfano le condizioni seguenti:
 
 ::: moniker range=">= aspnetcore-2.2"
 

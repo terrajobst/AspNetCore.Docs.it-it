@@ -194,7 +194,7 @@ Per configurare NCache:
 
 1. Installare [NCache Open Source NuGet](https://www.nuget.org/packages/Alachisoft.NCache.OpenSource.SDK/).
 1. Configurare il cluster di cache in [client. ncconf](https://www.alachisoft.com/resources/docs/ncache-oss/admin-guide/client-config.html).
-1. Aggiungi il seguente codice a `Startup.ConfigureServices`.
+1. Aggiungere il codice seguente a `Startup.ConfigureServices`:
 
    ```csharp
    services.AddNCacheDistributedCache(configuration =>    
@@ -248,13 +248,13 @@ Aggiornare immediatamente l'ora memorizzata nella cache all'ora corrente selezio
 >
 > È anche possibile creare un'istanza di <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> ovunque sia necessario, anziché usare DI, ma la creazione di un'istanza nel codice può rendere il codice più difficile da testare e violare il [principio delle dipendenze esplicite](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies).
 
-## <a name="recommendations"></a>Suggerimenti
+## <a name="recommendations"></a>Consigli
 
 Quando si decide quale implementazione di <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> è migliore per l'app, tenere presente quanto segue:
 
 * Infrastruttura esistente
 * Requisiti relativi alle prestazioni
-* Cost
+* Costo
 * Esperienza del team
 
 Le soluzioni per la memorizzazione nella cache si basano in genere sull'archiviazione in memoria per consentire un rapido recupero dei dati memorizzati nella cache, ma la memoria è una risorsa limitata ed è dispendiosa per espanderla. Archiviare solo i dati utilizzati di frequente in una cache.

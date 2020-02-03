@@ -102,7 +102,7 @@ Le modifiche apportate tramite l'applicazione di un documento JSON Patch a una r
 
 ## <a name="path-syntax"></a>Sintassi di path
 
-La proprietà [path](https://tools.ietf.org/html/rfc6901) di un oggetto operazione include barre tra livelli. Ad esempio `"/address/zipCode"`.
+La proprietà [path](https://tools.ietf.org/html/rfc6901) di un oggetto operazione include barre tra livelli. Ad esempio: `"/address/zipCode"`.
 
 Vengono usati indici in base zero per specificare gli elementi della matrice. Il primo elemento della matrice `addresses` è in corrispondenza di `/addresses/0`. Per aggiungere (`add`) un elemento alla fine della matrice, usare un trattino (-) invece di un numero di indice: `/addresses/-`.
 
@@ -131,7 +131,7 @@ In un controller API un metodo di azione per JSON Patch:
 * Accetta una `JsonPatchDocument<T>`, in genere con `[FromBody]`.
 * Chiama `ApplyTo` nel documento di patch per applicare le modifiche.
 
-Di seguito è riportato un esempio:
+Ad esempio:
 
 [!code-csharp[](jsonpatch/samples/2.2/Controllers/HomeController.cs?name=snippet_PatchAction&highlight=1,3,9)]
 
@@ -314,7 +314,7 @@ Le modifiche apportate tramite l'applicazione di un documento JSON Patch a una r
 
 ## <a name="path-syntax"></a>Sintassi di path
 
-La proprietà [path](https://tools.ietf.org/html/rfc6901) di un oggetto operazione include barre tra livelli. Ad esempio `"/address/zipCode"`.
+La proprietà [path](https://tools.ietf.org/html/rfc6901) di un oggetto operazione include barre tra livelli. Ad esempio: `"/address/zipCode"`.
 
 Vengono usati indici in base zero per specificare gli elementi della matrice. Il primo elemento della matrice `addresses` è in corrispondenza di `/addresses/0`. Per aggiungere (`add`) un elemento alla fine della matrice, usare un trattino (-) invece di un numero di indice: `/addresses/-`.
 
@@ -343,7 +343,7 @@ In un controller API un metodo di azione per JSON Patch:
 * Accetta una `JsonPatchDocument<T>`, in genere con `[FromBody]`.
 * Chiama `ApplyTo` nel documento di patch per applicare le modifiche.
 
-Di seguito è riportato un esempio:
+Ad esempio:
 
 [!code-csharp[](jsonpatch/samples/2.2/Controllers/HomeController.cs?name=snippet_PatchAction&highlight=1,3,9)]
 

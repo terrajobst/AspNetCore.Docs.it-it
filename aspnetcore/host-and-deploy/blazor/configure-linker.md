@@ -17,13 +17,13 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/24/2020
 ms.locfileid: "76726768"
 ---
-# <a name="configure-the-linker-for-aspnet-core-opno-locblazor"></a>Configurare il linker per ASP.NET Core Blazor
+# <a name="configure-the-linker-for-aspnet-core-opno-locblazor"></a>Configurare il linker per ASP.NET Core [!OP.NO-LOC(Blazor)]
 
 Di [Luke Latham](https://github.com/guardrex)
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-Blazor esegue il collegamento [Intermediate Language (il)](/dotnet/standard/managed-code#intermediate-language--execution) durante una compilazione per rimuovere il linguaggio intermedio non necessario dagli assembly di output dell'app.
+[!OP.NO-LOC(Blazor)] esegue il collegamento [Intermediate Language (il)](/dotnet/standard/managed-code#intermediate-language--execution) durante una compilazione per rimuovere il linguaggio intermedio non necessario dagli assembly di output dell'app.
 
 Controllare il collegamento degli assembly adottando uno degli approcci seguenti:
 
@@ -55,7 +55,7 @@ Controllare il collegamento per ogni singolo assembly usando un file di configur
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--
-  This file specifies which parts of the BCL or Blazor packages must not be
+  This file specifies which parts of the BCL or [!OP.NO-LOC(Blazor)] packages must not be
   stripped by the IL Linker even if they aren't referenced by user code.
 -->
 <linker>
@@ -86,7 +86,7 @@ Per altre informazioni, vedere [il linker: sintassi del descrittore XML](https:/
 
 ### <a name="configure-the-linker-for-internationalization"></a>Configurare il linker per l'internazionalizzazione
 
-Per impostazione predefinita, la configurazione del linker Blazorper le app Blazor webassembly rimuove le informazioni di internazionalizzazione ad eccezione delle impostazioni locali richieste in modo esplicito. La rimozione di questi assembly riduce al minimo le dimensioni dell'app.
+Per impostazione predefinita, la configurazione del linker [!OP.NO-LOC(Blazor)]per le app [!OP.NO-LOC(Blazor)] webassembly rimuove le informazioni di internazionalizzazione ad eccezione delle impostazioni locali richieste in modo esplicito. La rimozione di questi assembly riduce al minimo le dimensioni dell'app.
 
 Per controllare quali assembly I18N vengono conservati, impostare la proprietà `<MonoLinkerI18NAssemblies>` MSBuild nel file di progetto:
 
@@ -101,7 +101,7 @@ Per controllare quali assembly I18N vengono conservati, impostare la proprietà 
 | `all`            | Tutti gli assembly inclusi |
 | `cjk`            | *I18n. CJK. dll*          |
 | `mideast`        | *I18n. . Dll medio*      |
-| `none` (impostazione predefinita) | nessuna                    |
+| `none` (impostazione predefinita) | None                    |
 | `other`          | *I18n. Other. dll*        |
 | `rare`           | *I18n. Rare. dll*         |
 | `west`           | *I18n. Dll occidentale*         |

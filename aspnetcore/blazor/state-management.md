@@ -139,7 +139,7 @@ Un esempio di pacchetto NuGet che fornisce la [protezione dei dati](xref:securit
 > [!WARNING]
 > `Microsoft.AspNetCore.ProtectedBrowserStorage` è un pacchetto sperimentale non supportato non adatto per l'uso in fase di produzione.
 
-### <a name="installation"></a>Installazione di
+### <a name="installation"></a>Installazione
 
 Per installare il pacchetto di `Microsoft.AspNetCore.ProtectedBrowserStorage`:
 
@@ -195,7 +195,7 @@ protected override async Task OnInitializedAsync()
 }
 ```
 
-Se i parametri del componente includono lo stato di navigazione, chiamare `ProtectedSessionStore.GetAsync` e assegnare il risultato in `OnParametersSetAsync`, non `OnInitializedAsync`. `OnInitializedAsync` viene chiamato una sola volta quando viene creata la prima istanza del componente. `OnInitializedAsync` non viene chiamato di nuovo in un secondo momento se l'utente passa a un URL diverso rimanendo nella stessa pagina. Per ulteriori informazioni, vedere <xref:blazor/lifecycle>.
+Se i parametri del componente includono lo stato di navigazione, chiamare `ProtectedSessionStore.GetAsync` e assegnare il risultato in `OnParametersSetAsync`, non `OnInitializedAsync`. `OnInitializedAsync` viene chiamato una sola volta quando viene creata la prima istanza del componente. `OnInitializedAsync` non viene chiamato di nuovo in un secondo momento se l'utente passa a un URL diverso rimanendo nella stessa pagina. Per altre informazioni, vedere <xref:blazor/lifecycle>.
 
 > [!WARNING]
 > Gli esempi in questa sezione funzionano solo se per il server non è abilitato il prerendering. Con il prerendering abilitato, viene generato un errore simile al seguente:

@@ -22,7 +22,7 @@ Per un'esercitazione sulla pubblicazione di un'app ASP.NET Core in un server IIS
 
 [Installare il bundle di hosting .NET Core](#install-the-net-core-hosting-bundle)
 
-## <a name="supported-operating-systems"></a>Supported operating systems
+## <a name="supported-operating-systems"></a>Sistemi operativi supportati
 
 Sono supportati i sistemi operativi seguenti:
 
@@ -36,7 +36,7 @@ Sono supportati i sistemi operativi seguenti:
 ::: moniker range="< aspnetcore-3.0"
 
 * Windows 7 o versione successiva
-* Windows Server 2008 R2 o versioni successive
+* Windows Server 2008 R2 o versione successiva
 
 ::: moniker-end
 
@@ -197,7 +197,7 @@ services.Configure<IISServerOptions>(options =>
 
 ::: moniker range=">= aspnetcore-3.0"
 
-| Opzione                         | Default | Impostazione di |
+| Opzione                         | Default | Impostazione |
 | ------------------------------ | :-----: | ------- |
 | `AutomaticAuthentication`      | `true`  | Se `true`, IIS Server imposta l'utente `HttpContext.User` autenticato tramite l'[autenticazione di Windows](xref:security/authentication/windowsauth). Se `false`, il server fornisce solo un'identità per `HttpContext.User` e risponde alle richieste esplicite di `AuthenticationScheme`. Per il funzionamento di `AutomaticAuthentication` l’autenticazione di Windows deve essere abilitata in IIS. Per altre informazioni, vedere [Autenticazione di Windows](xref:security/authentication/windowsauth). |
 | `AuthenticationDisplayName`    | `null`  | Imposta il nome visualizzato dagli utenti nelle pagine di accesso. |
@@ -210,7 +210,7 @@ services.Configure<IISServerOptions>(options =>
 
 ::: moniker range="< aspnetcore-3.0"
 
-| Opzione                         | Default | Impostazione di |
+| Opzione                         | Default | Impostazione |
 | ------------------------------ | :-----: | ------- |
 | `AutomaticAuthentication`      | `true`  | Se `true`, IIS Server imposta l'utente `HttpContext.User` autenticato tramite l'[autenticazione di Windows](xref:security/authentication/windowsauth). Se `false`, il server fornisce solo un'identità per `HttpContext.User` e risponde alle richieste esplicite di `AuthenticationScheme`. Per il funzionamento di `AutomaticAuthentication` l’autenticazione di Windows deve essere abilitata in IIS. Per altre informazioni, vedere [Autenticazione di Windows](xref:security/authentication/windowsauth). |
 | `AuthenticationDisplayName`    | `null`  | Imposta il nome visualizzato dagli utenti nelle pagine di accesso. |
@@ -232,7 +232,7 @@ services.Configure<IISOptions>(options =>
 });
 ```
 
-| Opzione                         | Default | Impostazione di |
+| Opzione                         | Default | Impostazione |
 | ------------------------------ | :-----: | ------- |
 | `AutomaticAuthentication`      | `true`  | Se `true`, il [middleware di integrazione IIS](#enable-the-iisintegration-components) imposta `HttpContext.User` autenticato tramite l'[autenticazione di Windows](xref:security/authentication/windowsauth). Se `false`, il middleware fornisce solo un'identità per `HttpContext.User` e risponde solo alle richieste esplicite di `AuthenticationScheme`. Per il funzionamento di `AutomaticAuthentication` l’autenticazione di Windows deve essere abilitata in IIS. Per altre informazioni, vedere l'argomento [Autenticazione di Windows](xref:security/authentication/windowsauth). |
 | `AuthenticationDisplayName`    | `null`  | Imposta il nome visualizzato dagli utenti nelle pagine di accesso. |
@@ -264,7 +264,7 @@ Per impedire che Web SDK trasformi il file *web.config*, usare la proprietà **\
 </PropertyGroup>
 ```
 
-Quando si disabilita la trasformazione del file in Web SDK, il valore di *processPath* e gli *argomenti* devono essere impostati manualmente dallo sviluppatore. Per ulteriori informazioni, vedere <xref:host-and-deploy/aspnet-core-module>.
+Quando si disabilita la trasformazione del file in Web SDK, il valore di *processPath* e gli *argomenti* devono essere impostati manualmente dallo sviluppatore. Per altre informazioni, vedere <xref:host-and-deploy/aspnet-core-module>.
 
 ### <a name="webconfig-file-location"></a>Posizione del file web.config
 
@@ -304,7 +304,7 @@ Abilitare il ruolo del server **Server Web (IIS)** e stabilire i servizi di ruol
 
 Abilitare **Console di gestione IIS** e **Servizi Web**.
 
-1. Passare a **Pannello di controllo** > **Programmi** > **Programmi e funzionalità** > **Disattivare o attivare le funzionalità di Windows** (a sinistra dello schermo).
+1. Passare a **Pannello di controllo** > **Programmi** > **Programmi e funzionalità** > **Attiva o disattiva funzionalità di Windows** (sul lato sinistro dello schermo).
 
 1. Aprire il nodo **Internet Information Services**. Aprire il nodo **Strumenti di gestione Web**.
 
@@ -359,7 +359,7 @@ Per ottenere una versione precedente del programma di installazione:
    * `OPT_NO_RUNTIME=1` &ndash; ignorare l'installazione del runtime di .NET Core. Utilizzato quando il server ospita solo le [distribuzioni autosufficienti (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd).
    * `OPT_NO_SHAREDFX=1` &ndash; ignorare l'installazione del Framework condiviso ASP.NET (runtime ASP.NET). Utilizzato quando il server ospita solo le [distribuzioni autosufficienti (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd).
    * `OPT_NO_X86=1` &ndash; ignorare l'installazione di Runtime x86. Usare questo parametro se si è certi che non verrà eseguito l'hosting di app a 32 bit. Se non esiste alcuna possibilità che in futuro venga eseguito l'hosting di app sia a 32 che a 64 bit, non usare questo parametro e installare entrambi i runtime.
-   * `OPT_NO_SHARED_CONFIG_CHECK=1` &ndash; disabilitare il controllo per l'utilizzo di una configurazione condivisa di IIS quando la configurazione condivisa (*ApplicationHost. config*) si trova nello stesso computer dell'installazione di IIS. *Disponibile solo per i programmi di installazione di bundler di hosting ASP.NET Core 2.2 o versioni successive.* Per ulteriori informazioni, vedere <xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration>.
+   * `OPT_NO_SHARED_CONFIG_CHECK=1` &ndash; disabilitare il controllo per l'utilizzo di una configurazione condivisa di IIS quando la configurazione condivisa (*ApplicationHost. config*) si trova nello stesso computer dell'installazione di IIS. *Disponibile solo per i programmi di installazione di bundler di hosting ASP.NET Core 2.2 o versioni successive.* Per altre informazioni, vedere <xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration>.
 1. Riavviare il sistema o eseguire i comandi seguenti in una shell dei comandi:
 
    ```console
@@ -505,7 +505,7 @@ Per configurare la protezione dati in IIS in modo da rendere permanente il grupp
 
   1. Passare alla cartella *%windir%/system32/inetsrv/config*.
   1. Aprire il file *applicationHost.config*.
-  1. Individuare l'elemento `<system.applicationHost><applicationPools><applicationPoolDefaults><processModel>` .
+  1. Individuare l'elemento `<system.applicationHost><applicationPools><applicationPoolDefaults><processModel>`.
   1. Verificare che l'attributo `setProfileEnvironment` non sia presente, condizione che corrisponde all'impostazione predefinita `true`, o impostare in modo esplicito il valore dell'attributo su `true`.
 
 * **Usare il file system come archivio del gruppo di chiavi**
@@ -519,7 +519,7 @@ Per configurare la protezione dati in IIS in modo da rendere permanente il grupp
 
 * **Impostare criteri a livello di computer per la protezione dei dati**
 
-  Il sistema di protezione dei dati ha un supporto limitato per l'impostazione di [criteri a livello di computer](xref:security/data-protection/configuration/machine-wide-policy) predefiniti per tutte le app che usano le API di protezione dei dati. Per ulteriori informazioni, vedere <xref:security/data-protection/introduction>.
+  Il sistema di protezione dei dati ha un supporto limitato per l'impostazione di [criteri a livello di computer](xref:security/data-protection/configuration/machine-wide-policy) predefiniti per tutte le app che usano le API di protezione dei dati. Per altre informazioni, vedere <xref:security/data-protection/introduction>.
 
 ## <a name="virtual-directories"></a>Directory virtuali
 
@@ -588,7 +588,7 @@ Per ulteriori informazioni sul modello di hosting in-process e sulla configurazi
 
 La configurazione di IIS è influenzata dalla sezione `<system.webServer>` di *web.config* per gli scenari IIS funzionali per le app ASP.NET Core con il modulo ASP.NET Core. Ad esempio, la configurazione di IIS è funzionale per la compressione dinamica. Se IIS è configurato a livello di server per l'uso della compressione dinamica, l'elemento `<urlCompression>` nel file *web.config* dell'app può disabilitare questa impostazione per un'app ASP.NET Core.
 
-Per altre informazioni, vedere i seguenti argomenti:
+Per altre informazioni, vedere gli argomenti seguenti:
 
 * [Riferimento alla configurazione per \<System. webserver >](/iis/configuration/system.webServer/)
 * <xref:host-and-deploy/aspnet-core-module>
@@ -662,7 +662,7 @@ ICACLS C:\sites\MyWebApp /grant "IIS AppPool\DefaultAppPool":F
 
 Per altre informazioni, vedere l'argomento [icacls](/windows-server/administration/windows-commands/icacls).
 
-## <a name="http2-support"></a>Supporto per HTTP/2
+## <a name="http2-support"></a>Supporto HTTP/2
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -797,5 +797,5 @@ Per evitare il timeout delle app ospitate [out-of-process](#out-of-process-hosti
 * <xref:index>
 * [Il sito IIS ufficiale di Microsoft](https://www.iis.net/)
 * [Libreria di contenuti tecnici di Windows Server](/windows-server/windows-server)
-* [HTTP/2 in IIS](/iis/get-started/whats-new-in-iis-10/http2-on-iis)
+* [HTTP/2 on IIS](/iis/get-started/whats-new-in-iis-10/http2-on-iis) (HTTP/2 in IIS)
 * <xref:host-and-deploy/iis/transform-webconfig>

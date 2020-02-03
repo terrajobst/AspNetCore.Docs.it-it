@@ -428,7 +428,7 @@ In questa sezione viene descritto cosa accade in una richiesta [CORS](https://de
   * Il client (browser) deve applicare CORS. Il server esegue la richiesta e restituisce la risposta, ovvero il client che restituisce un errore e blocca la risposta. Uno degli strumenti seguenti, ad esempio, visualizzerà la risposta del server:
     * [Fiddler](https://www.telerik.com/fiddler)
     * [Postman](https://www.getpostman.com/)
-    * [.NET HttpClient](/dotnet/csharp/tutorials/console-webapiclient)
+    * [HttpClient .NET](/dotnet/csharp/tutorials/console-webapiclient)
     * Un Web browser immettendo l'URL nella barra degli indirizzi.
 * Si tratta di un modo per consentire a un server di consentire ai browser di eseguire una richiesta dell' [API di recupero](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) o di [XHR](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) tra le origini, che altrimenti sarebbe proibita.
   * I browser (senza CORS) non possono eseguire richieste tra le origini. Prima di CORS, [JSONP](https://www.w3schools.com/js/js_json_jsonp.asp) è stato usato per aggirare questa restrizione. JSONP non usa XHR, usa il tag `<script>` per ricevere la risposta. Gli script possono essere caricati tra le origini.
@@ -466,12 +466,12 @@ Se la risposta non include l'intestazione `Access-Control-Allow-Origin`, la rich
 
 <a name="test"></a>
 
-## <a name="test-cors"></a>Test CORS
+## <a name="test-cors"></a>Testare CORS
 
 Per testare CORS:
 
 1. [Creare un progetto API](xref:tutorials/first-web-api). In alternativa, è possibile [scaricare l'esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/cors/sample/Cors).
-1. Abilitare CORS usando uno degli approcci descritti in questo documento. Ad esempio:
+1. Abilitare CORS usando uno degli approcci descritti in questo documento. Ad esempio,
 
   [!code-csharp[](cors/sample/Cors/WebAPI/StartupTest.cs?name=snippet2&highlight=13-18)]
 

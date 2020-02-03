@@ -34,7 +34,7 @@ Per degli esempi di come gli account di accesso ai social possano risultare util
 
 * Creare un nuovo progetto.
 * Selezionare **Applicazione Web ASP.NET Core** e **Avanti**.
-* Specificare un **Nome progetto** e confermare o modificare il **Percorso**. Scegliere **Crea**.
+* Specificare un **Nome progetto** e confermare o modificare il **Percorso**. Selezionare **Crea**.
 * Selezionare la versione più recente di ASP.NET Core nell'elenco a discesa (**ASP.NET Core {X. Y}** ), quindi selezionare **applicazione Web**.
 * In **Autenticazione** selezionare **Modifica** e impostare l'autenticazione su **Account utente individuali**. Scegliere **OK**.
 * Nella finestra **Crea una nuova applicazione Web ASP.NET Core** selezionare **Crea**.
@@ -103,7 +103,7 @@ Per creare una password e accedere usando la posta elettronica impostata durante
 
 ![Vista Gestione dell'applicazione Web](index/_static/pass1a.png)
 
-* Selezionare **Crea**.
+* Selezionare **Crea**
 
 ![Impostare la pagina della password](index/_static/pass2a.png)
 
@@ -114,4 +114,4 @@ Per creare una password e accedere usando la posta elettronica impostata durante
 * Per informazioni su come personalizzare i pulsanti di accesso, vedere [questo problema di GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/10563) .
 * Questo articolo ha introdotto l'autenticazione esterna e ha illustrato i prerequisiti necessari per aggiungere gli account di accesso esterni all'app di ASP.NET Core.
 * Pagine di riferimento specifico del provider per configurare gli account di accesso per i provider richiesti dall'app.
-* Può essere opportuno salvare in modo permanente dati aggiuntivi sull'utente e il relativo accesso e i token di aggiornamento. Per ulteriori informazioni, vedere <xref:security/authentication/social/additional-claims>.
+* Può essere opportuno salvare in modo permanente dati aggiuntivi sull'utente e il relativo accesso e i token di aggiornamento. Per altre informazioni, vedere <xref:security/authentication/social/additional-claims>.

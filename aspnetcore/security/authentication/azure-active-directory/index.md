@@ -20,13 +20,13 @@ Queste esercitazioni ed esempi illustrano l'autenticazione in ASP.NET Core usand
 ## <a name="application-scenarios"></a>Scenari di applicazione
 
 * [Guida introduttiva: aggiungere l'accesso con Microsoft a un'app Web ASP.NET Core](/azure/active-directory/develop/quickstart-v2-aspnet-core-webapp)
-* [App Web che esegue l'accesso degli utenti](/azure/active-directory/develop/scenario-web-app-sign-user-overview?tabs=aspnetcore)
+* [App Web che offre l'accesso agli utenti](/azure/active-directory/develop/scenario-web-app-sign-user-overview?tabs=aspnetcore)
 * [App Web che chiama le API Web](/azure/active-directory/develop/scenario-web-app-call-api-overview)
 * [API Web protetta](/azure/active-directory/develop/scenario-protected-web-api-overview)
 * [API Web che chiama altre API Web](/azure/active-directory/develop/scenario-web-api-call-api-overview)
 * [App Web che consente agli utenti di accedere con Azure AD B2C](xref:security/authentication/azure-ad-b2c)
 
-## <a name="samples"></a>Esempi di
+## <a name="samples"></a>Samples
 
 * [Abilitare l'app ASP.NET Core per gli utenti di accesso e chiamare le API Web usando Azure ad V2](/samples/azure-samples/active-directory-aspnetcore-webapp-openidconnect-v2/enable-webapp-signin/): 
   * Vedere [questo video associato](https://channel9.msdn.com/Events/Build/2018/THR5001)
