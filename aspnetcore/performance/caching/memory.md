@@ -4,14 +4,14 @@ author: rick-anderson
 description: Informazioni su come memorizzare i dati nella cache in memoria in ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/2/2019
+ms.date: 02/02/2020
 uid: performance/caching/memory
-ms.openlocfilehash: eb40026bc9686357cc7cfb8a99f127a3b433cb70
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 23acc17c861c203a87b1c113940e7bf42b51e810
+ms.sourcegitcommit: 990a4c2e623c202a27f60bdf3902f250359c13be
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75866033"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972009"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>Memorizzare nella cache in memoria ASP.NET Core
 
@@ -37,7 +37,7 @@ La cache in memoria può archiviare qualsiasi oggetto. L'interfaccia della cache
 
 * .NET Standard 2,0 o versione successiva.
 * Qualsiasi [implementazione di .NET](/dotnet/standard/net-standard#net-implementation-support) destinata a .NET standard 2,0 o versione successiva. Ad esempio, ASP.NET Core 2,0 o versione successiva.
-* .NET Framework 4.5 o versioni successive.
+* .NET Framework 4,5 o versione successiva.
 
 È consigliabile usare [Microsoft.Extensions.Caching.Memory](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/)/`IMemoryCache` (descritto in questo articolo), anziché `System.Runtime.Caching`/`MemoryCache`, perché è più integrato in ASP.NET Core. Ad esempio, `IMemoryCache` funziona in modo nativo con ASP.NET Core [inserimento delle dipendenze](xref:fundamentals/dependency-injection).
 
@@ -115,7 +115,7 @@ Ad esempio:
 * Se l'app Web è stata utilizzata principalmente per la memorizzazione nella cache delle stringhe, le dimensioni della voce della cache potrebbero essere la lunghezza della stringa.
 * L'app può specificare le dimensioni di tutte le voci come 1 e il limite di dimensioni è il numero di voci.
 
-Se <xref:Microsoft.Extensions.Caching.Memory.MemoryCacheOptions.SizeLimit> non è impostato, la cache cresce senza alcun limite. Il runtime di ASP.NET Core non elimina la cache quando la memoria di sistema è insufficiente. Le app sono molto progettate per:
+Se <xref:Microsoft.Extensions.Caching.Memory.MemoryCacheOptions.SizeLimit> non è impostato, la cache cresce senza alcun limite. Il runtime di ASP.NET Core non elimina la cache quando la memoria di sistema è insufficiente. Le app devono essere progettate per:
 
 * Limitare la crescita della cache.
 * Chiamare <xref:Microsoft.Extensions.Caching.Memory.MemoryCache.Compact*> o <xref:Microsoft.Extensions.Caching.Memory.MemoryCache.Remove*> quando la memoria disponibile è limitata:
@@ -214,7 +214,7 @@ La cache in memoria può archiviare qualsiasi oggetto. L'interfaccia della cache
 
 * .NET Standard 2,0 o versione successiva.
 * Qualsiasi [implementazione di .NET](/dotnet/standard/net-standard#net-implementation-support) destinata a .NET standard 2,0 o versione successiva. Ad esempio, ASP.NET Core 2,0 o versione successiva.
-* .NET Framework 4.5 o versioni successive.
+* .NET Framework 4,5 o versione successiva.
 
 È consigliabile usare [Microsoft.Extensions.Caching.Memory](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/)/`IMemoryCache` (descritto in questo articolo), anziché `System.Runtime.Caching`/`MemoryCache`, perché è più integrato in ASP.NET Core. Ad esempio, `IMemoryCache` funziona in modo nativo con ASP.NET Core [inserimento delle dipendenze](xref:fundamentals/dependency-injection).
 
