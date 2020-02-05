@@ -7,12 +7,12 @@ ms.author: stevesa
 ms.custom: mvc
 ms.date: 03/07/2019
 uid: spa/angular
-ms.openlocfilehash: 62654ca040be99de8063a63c7e4ac09cbb8564eb
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: 150b2176eac2e68c1ef9ec6deabb087836ff84ce
+ms.sourcegitcommit: cb6015f737b6a93127016ab0f21b58e34b624ff3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71080407"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77004266"
 ---
 # <a name="use-the-angular-project-template-with-aspnet-core"></a>Usare il modello di progetto per Angular con ASP.NET Core
 
@@ -53,7 +53,7 @@ Now listening on: http://localhost:<port>
 
 Passare a questo URL in un browser.
 
-L'app avvia in background un'istanza del server dell'interfaccia della riga di comando di Angular. Verrà registrato un messaggio simile al seguente: *Ng Live server di sviluppo è in ascolto su localhost&lt;:&gt;otherport, aprire il browser http://localhost:&lt in otherport&gt;/* . Ignorare questo messaggio: **non** si tratta dell'URL per l'app combinata per ASP.NET Core e l'interfaccia della riga di comando di Angular.
+L'app avvia in background un'istanza del server dell'interfaccia della riga di comando di Angular. Verrà registrato un messaggio simile al seguente: *NG Live Development Server is listening on localhost:&lt;otherport&gt;, open your browser on http://localhost:&lt;otherport&gt;/* . Ignorare questo messaggio: **non** si tratta dell'URL per l'app combinata per ASP.NET Core e l'interfaccia della riga di comando di Angular.
 
 ---
 
@@ -61,7 +61,7 @@ Il modello di progetto crea un'app ASP.NET Core e un'app Angular. L'app ASP.NET 
 
 ## <a name="add-pages-images-styles-modules-etc"></a>Aggiungere pagine, immagini, stili, moduli e così via.
 
-La directory *ClientApp* contiene un'app standard per l'interfaccia della riga di comando di Angular. Per altre informazioni, vedere la [documentazione ufficiale di Angular](https://github.com/angular/angular-cli/wiki).
+La directory *ClientApp* contiene un'app standard per l'interfaccia della riga di comando di Angular. Per altre informazioni, vedere la [documentazione ufficiale di Angular](https://https://angular.io).
 
 Vi sono piccole differenze tra l'app Angular creata tramite questo modello e quella creata tramite l'interfaccia della riga di comando di Angular stessa (mediante `ng new`). Le funzionalità dell'app restano comunque invariate. L'app creata tramite il modello contiene un layout basato su [bootstrap](https://getbootstrap.com/) e un esempio di routing di base.
 
@@ -73,7 +73,7 @@ In un prompt dei comandi passare alla sottodirectory *ClientApp*:
 cd ClientApp
 ```
 
-Se si dispone dello strumento `ng` installato globalmente, è possibile eseguire i relativi comandi. Ad esempio, è possibile eseguire `ng lint`, `ng test` o qualsiasi altro [comando dell'interfaccia della riga di comando di Angular](https://github.com/angular/angular-cli/wiki#additional-commands). Non è tuttavia necessario eseguire `ng serve`, poiché l'app ASP.NET Core si occupa della gestione sia delle parti sul lato server che di quelle sul lato client dell'app. Internamente, usa `ng serve` in fase di sviluppo.
+Se si dispone dello strumento `ng` installato globalmente, è possibile eseguire i relativi comandi. Ad esempio, è possibile eseguire `ng lint`, `ng test` o qualsiasi altro [comando dell'interfaccia della riga di comando di Angular](https://angular.io/cli). Non è tuttavia necessario eseguire `ng serve`, poiché l'app ASP.NET Core si occupa della gestione sia delle parti sul lato server che di quelle sul lato client dell'app. Internamente, usa `ng serve` in fase di sviluppo.
 
 Se lo strumento `ng` non è installato, eseguire `npm run ng`. Ad esempio, è possibile eseguire `npm run ng lint` o `npm run ng test`.
 
