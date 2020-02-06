@@ -5,14 +5,14 @@ description: Informazioni su come ospitare un'app ASP.NET Core in un servizio Wi
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/13/2020
+ms.date: 02/06/2020
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: d4b540de50f4153f517f871f037521347fb5eb84
-ms.sourcegitcommit: 990a4c2e623c202a27f60bdf3902f250359c13be
+ms.openlocfilehash: 71f7bf3f5dcf8068d0ada03675ef7948267b79f4
+ms.sourcegitcommit: bd896935e91236e03241f75e6534ad6debcecbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76971997"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77044901"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Ospitare ASP.NET Core in un servizio Windows
 
@@ -50,8 +50,10 @@ L'app richiede un riferimento al pacchetto per [Microsoft. Extensions. Hosting. 
 
 * Imposta la durata dell'host su `WindowsServiceLifetime`.
 * Imposta la [radice del contenuto](xref:fundamentals/index#content-root) su [AppContext. BaseDirectory](xref:System.AppContext.BaseDirectory). Per altre informazioni, vedere la sezione [Directory corrente e radice del contenuto](#current-directory-and-content-root).
-* Abilita la registrazione nel log eventi con il nome dell'applicazione come nome di origine predefinito.
-  * Il livello di registrazione può essere configurato con la chiave `Logging:LogLevel:Default` nel file *appsettings.Production.json*.
+* Abilita la registrazione nel registro eventi:
+  * Il nome dell'applicazione viene usato come nome di origine predefinito.
+  * Il livello di registrazione predefinito è *avviso* o superiore per un'app basata su un modello di ASP.NET Core che chiama `CreateDefaultBuilder` per compilare l'host.
+  * Eseguire l'override del livello di registrazione predefinito con la chiave `Logging:EventLog:LogLevel:Default` in *appSettings. json*/*appSettings. { Environment}. JSON* o un altro provider di configurazione.
   * Solo gli amministratori possono creare nuove origini eventi. Quando non è possibile creare un'origine evento usando il nome dell'applicazione, viene registrato un avviso nell'origine *Applicazione* e i log eventi vengono disabilitati.
 
 In `CreateHostBuilder` di *Program.cs*:
@@ -223,7 +225,7 @@ Per stabilire i diritti *Accesso come servizio* per un account utente di servizi
 1. Selezionare **Aggiungi utente o gruppo**.
 1. Specificare il nome oggetto (account utente) in uno dei modi seguenti:
    1. Digitare l'account utente (`{DOMAIN OR COMPUTER NAME\USER}`) nel campo del nome oggetto e scegliere **OK** per aggiungere l'utente al criterio.
-   1. Selezionare **Avanzate**. Selezionare **Trova**. Selezionare l'account utente dall'elenco. Scegliere **OK**. Scegliere di nuovo **OK** per aggiungere l'utente al criterio.
+   1. Fare clic su **Avanzate**. Selezionare **Trova**. Selezionare l'account utente dall'elenco. Scegliere **OK**. Scegliere di nuovo **OK** per aggiungere l'utente al criterio.
 1. Scegliere **OK** o **Applica** per accettare le modifiche.
 
 ## <a name="create-and-manage-the-windows-service"></a>Creare e gestire il servizio di Windows
@@ -316,7 +318,7 @@ Per gestire gli eventi <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHos
 
 ## <a name="proxy-server-and-load-balancer-scenarios"></a>Scenari con server proxy e servizi di bilanciamento del carico
 
-I servizi che interagiscono con le richieste da Internet o da una rete aziendale e si trovano dietro un proxy o un servizio di bilanciamento del carico potrebbero richiedere una configurazione aggiuntiva. Per ulteriori informazioni, vedere <xref:host-and-deploy/proxy-load-balancer>.
+I servizi che interagiscono con le richieste da Internet o da una rete aziendale e si trovano dietro un proxy o un servizio di bilanciamento del carico potrebbero richiedere una configurazione aggiuntiva. Per altre informazioni, vedere <xref:host-and-deploy/proxy-load-balancer>.
 
 ## <a name="configure-endpoints"></a>Configurare gli endpoint
 
@@ -378,7 +380,7 @@ CreateWebHostBuilder(args)
 
 Specificare un percorso assoluto con <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> quando si usa un <xref:Microsoft.Extensions.Configuration.IConfigurationBuilder> per la cartella contenente i file.
 
-## <a name="troubleshoot"></a>Risolvere i problemi
+## <a name="troubleshoot"></a>Risoluzione dei problemi
 
 Per risolvere i problemi relativi a un'app di servizio Windows, vedere <xref:test/troubleshoot>.
 

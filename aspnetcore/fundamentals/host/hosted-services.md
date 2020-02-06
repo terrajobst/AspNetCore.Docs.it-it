@@ -5,14 +5,14 @@ description: Informazioni su come implementare attività in background con servi
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/08/2020
+ms.date: 02/05/2020
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: 49229b5db4d58f25f86425f8622d12c9107262bd
-ms.sourcegitcommit: 57b85708f4cded99b8f008a69830cb104cd8e879
+ms.openlocfilehash: 6a88e56afc4fb1b4f673c362f83d948eda84b930
+ms.sourcegitcommit: bd896935e91236e03241f75e6534ad6debcecbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75914218"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77044877"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>Attività in background con servizi ospitati in ASP.NET Core
 
@@ -95,8 +95,8 @@ L'interfaccia <xref:Microsoft.Extensions.Hosting.IHostedService> definisce due m
 
   Per estendere il timeout di arresto predefinito di cinque secondi, impostare:
 
-  * <xref:Microsoft.Extensions.Hosting.HostOptions.ShutdownTimeout*> quando si usa l'host generico. Per ulteriori informazioni, vedere <xref:fundamentals/host/generic-host#shutdown-timeout>.
-  * Impostazione di configurazione dell'host del timeout di arresto quando si usa l'host Web. Per ulteriori informazioni, vedere <xref:fundamentals/host/web-host#shutdown-timeout>.
+  * <xref:Microsoft.Extensions.Hosting.HostOptions.ShutdownTimeout*> quando si usa l'host generico. Per altre informazioni, vedere <xref:fundamentals/host/generic-host#shutdown-timeout>.
+  * Impostazione di configurazione dell'host del timeout di arresto quando si usa l'host Web. Per altre informazioni, vedere <xref:fundamentals/host/web-host#shutdown-timeout>.
 
 Il servizio ospitato viene attivato una volta all'avvio dell'app e arrestato normalmente all'arresto dell'applicazione. Se viene generato un errore durante l'esecuzione dell'attività in background, deve essere chiamato `Dispose` anche se `StopAsync` non viene chiamato.
 
@@ -126,7 +126,7 @@ Per usare i [servizi con ambito](xref:fundamentals/dependency-injection#service-
 
 Il servizio dell'attività in background con ambito contiene la logica dell'attività in background. Nell'esempio seguente:
 
-* Il servizio è asincrono. Il metodo `DoWork` restituisce un tipo `Task`. A scopo dimostrativo, è atteso un ritardo di dieci secondi nel metodo `DoWork`.
+* Il servizio è asincrono. Il metodo `DoWork` restituisce un elemento `Task`. A scopo dimostrativo, è atteso un ritardo di dieci secondi nel metodo `DoWork`.
 * Un <xref:Microsoft.Extensions.Logging.ILogger> viene inserito nel servizio.
 
 [!code-csharp[](hosted-services/samples/3.x/BackgroundTasksSample/Services/ScopedProcessingService.cs?name=snippet1)]
@@ -202,8 +202,8 @@ I servizi ospitati implementano l'interfaccia <xref:Microsoft.Extensions.Hosting
 
   Per estendere il timeout di arresto predefinito di cinque secondi, impostare:
 
-  * <xref:Microsoft.Extensions.Hosting.HostOptions.ShutdownTimeout*> quando si usa l'host generico. Per ulteriori informazioni, vedere <xref:fundamentals/host/generic-host#shutdown-timeout>.
-  * Impostazione di configurazione dell'host del timeout di arresto quando si usa l'host Web. Per ulteriori informazioni, vedere <xref:fundamentals/host/web-host#shutdown-timeout>.
+  * <xref:Microsoft.Extensions.Hosting.HostOptions.ShutdownTimeout*> quando si usa l'host generico. Per altre informazioni, vedere <xref:fundamentals/host/generic-host#shutdown-timeout>.
+  * Impostazione di configurazione dell'host del timeout di arresto quando si usa l'host Web. Per altre informazioni, vedere <xref:fundamentals/host/web-host#shutdown-timeout>.
 
 Il servizio ospitato viene attivato una volta all'avvio dell'app e arrestato normalmente all'arresto dell'applicazione. Se viene generato un errore durante l'esecuzione dell'attività in background, deve essere chiamato `Dispose` anche se `StopAsync` non viene chiamato.
 
@@ -265,4 +265,5 @@ Quando si seleziona il pulsante **Aggiungi attività** nella pagina di indice, v
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Implementare attività in background in microservizi con IHostedService e la classe BackgroundService](/dotnet/standard/microservices-architecture/multi-container-microservice-net-applications/background-tasks-with-ihostedservice)
+* [Eseguire attività in background con processi Web nel servizio app Azure](/azure/app-service/webjobs-create)
 * <xref:System.Threading.Timer>

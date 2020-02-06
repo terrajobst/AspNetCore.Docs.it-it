@@ -5,14 +5,14 @@ description: Informazioni su come configurare Nginx come proxy inverso in Ubuntu
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/13/2020
+ms.date: 02/05/2020
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: 1a83b7d1b211862793e3ba086234b97248f9ae70
-ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
+ms.openlocfilehash: 7f17be1d883e8cce375487aa39f4d1ebbe8a95f4
+ms.sourcegitcommit: bd896935e91236e03241f75e6534ad6debcecbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76928494"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77044864"
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Hosting di ASP.NET Core in Linux con Nginx
 
@@ -88,6 +88,8 @@ Qualsiasi componente che dipende dallo schema, ad esempio l'autenticazione, la g
 Richiamare il metodo <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*> in `Startup.Configure` prima di chiamare <xref:Microsoft.AspNetCore.Builder.AuthAppBuilderExtensions.UseAuthentication*> o un middleware con schema di autenticazione simile. Configurare il middleware per l'inoltro delle intestazioni `X-Forwarded-For` e `X-Forwarded-Proto`:
 
 ```csharp
+// using Microsoft.AspNetCore.HttpOverrides;
+
 app.UseForwardedHeaders(new ForwardedHeadersOptions
 {
     ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
@@ -101,13 +103,15 @@ Se non vengono specificate opzioni <xref:Microsoft.AspNetCore.Builder.ForwardedH
 I proxy in esecuzione su indirizzi di loopback (127.0.0.0/8, [::1]), incluso l'indirizzo localhost standard (127.0.0.1), sono considerati attendibili per impostazione predefinita. Se le richieste tra Internet e il server Web vengono gestite anche da altri proxy o reti attendibili all'interno dell'organizzazione, aggiungerli all'elenco di <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.KnownProxies*> o <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.KnownNetworks*> con <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions>. L'esempio seguente aggiunge un server proxy attendibile all'indirizzo IP 10.0.0.100 nel middleware delle intestazioni inoltrate `KnownProxies` in `Startup.ConfigureServices`:
 
 ```csharp
+// using System.Net;
+
 services.Configure<ForwardedHeadersOptions>(options =>
 {
     options.KnownProxies.Add(IPAddress.Parse("10.0.0.100"));
 });
 ```
 
-Per ulteriori informazioni, vedere <xref:host-and-deploy/proxy-load-balancer>.
+Per altre informazioni, vedere <xref:host-and-deploy/proxy-load-balancer>.
 
 ### <a name="install-nginx"></a>Installare Nginx
 

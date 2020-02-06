@@ -5,14 +5,14 @@ description: Informazioni su come iniziare a usare il modello di progetto per ap
 monikerRange: '>= aspnetcore-2.1'
 ms.author: stevesa
 ms.custom: mvc
-ms.date: 03/07/2019
+ms.date: 02/06/2020
 uid: spa/angular
-ms.openlocfilehash: 150b2176eac2e68c1ef9ec6deabb087836ff84ce
-ms.sourcegitcommit: cb6015f737b6a93127016ab0f21b58e34b624ff3
+ms.openlocfilehash: 11ad5d4c7cadcc582b3e288a331569f62f0b98ac
+ms.sourcegitcommit: bd896935e91236e03241f75e6534ad6debcecbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77004266"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77044851"
 ---
 # <a name="use-the-angular-project-template-with-aspnet-core"></a>Usare il modello di progetto per Angular con ASP.NET Core
 
@@ -53,7 +53,7 @@ Now listening on: http://localhost:<port>
 
 Passare a questo URL in un browser.
 
-L'app avvia in background un'istanza del server dell'interfaccia della riga di comando di Angular. Verrà registrato un messaggio simile al seguente: *NG Live Development Server is listening on localhost:&lt;otherport&gt;, open your browser on http://localhost:&lt;otherport&gt;/* . Ignorare questo messaggio: **non** si tratta dell'URL per l'app combinata per ASP.NET Core e l'interfaccia della riga di comando di Angular.
+L'app avvia in background un'istanza del server dell'interfaccia della riga di comando di Angular. Verrà registrato un messaggio simile al seguente: *NG Live Development Server is listening on localhost:&lt;otherport&gt;, open your browser on http://localhost:&lt;otherport&gt;/* . Ignorare questo messaggio: &mdash;non** si tratta dell'URL per l'app combinata per ASP.NET Core e l'interfaccia della riga di comando di Angular.
 
 ---
 
@@ -61,7 +61,7 @@ Il modello di progetto crea un'app ASP.NET Core e un'app Angular. L'app ASP.NET 
 
 ## <a name="add-pages-images-styles-modules-etc"></a>Aggiungere pagine, immagini, stili, moduli e così via.
 
-La directory *ClientApp* contiene un'app standard per l'interfaccia della riga di comando di Angular. Per altre informazioni, vedere la [documentazione ufficiale di Angular](https://https://angular.io).
+La directory *ClientApp* contiene un'app standard per l'interfaccia della riga di comando di Angular. Per altre informazioni, vedere la [documentazione ufficiale di Angular](https://angular.io).
 
 Vi sono piccole differenze tra l'app Angular creata tramite questo modello e quella creata tramite l'interfaccia della riga di comando di Angular stessa (mediante `ng new`). Le funzionalità dell'app restano comunque invariate. L'app creata tramite il modello contiene un layout basato su [bootstrap](https://getbootstrap.com/) e un esempio di routing di base.
 
@@ -79,7 +79,7 @@ Se lo strumento `ng` non è installato, eseguire `npm run ng`. Ad esempio, è po
 
 ## <a name="install-npm-packages"></a>Installa nuovi pacchetti npm
 
-Per installare i pacchetti npm di terze parti, usare un prompt dei comandi nella sottodirectory *ClientApp*. Ad esempio:
+Per installare i pacchetti npm di terze parti, usare un prompt dei comandi nella sottodirectory *ClientApp*. Ad esempio,
 
 ```console
 cd ClientApp
@@ -98,7 +98,7 @@ Nell'ambiente di produzione usare una versione dell'app ottimizzata per le prest
 
 Il progetto è configurato in modo da avviare in background la propria istanza del server dell'interfaccia della riga di comando di Angular all'avvio dell'app ASP.NET Core in modalità di sviluppo. Ciò risulta utile in quanto evita di dover eseguire manualmente un server distinto.
 
-Questa configurazione predefinita presenta tuttavia uno svantaggio. Ogni volta che si modifica il codice C# ed è necessario riavviare l'app ASP.NET Core, il server dell'interfaccia della riga di comando di Angular viene riavviato. Per avviare il backup sono necessari circa 10 secondi. Se si apportano frequentemente modifiche al codice C# e non si vuole attendere il riavvio dell'interfaccia della riga di comando di Angular, eseguire il server dell'interfaccia della riga di comando di Angular esternamente, in modo indipendente dal processo ASP.NET Core. A tale scopo:
+Questa configurazione predefinita presenta tuttavia uno svantaggio. Ogni volta che si modifica il codice C# ed è necessario riavviare l'app ASP.NET Core, il server dell'interfaccia della riga di comando di Angular viene riavviato. Per avviare il backup sono necessari circa 10 secondi. Se si apportano frequentemente modifiche al codice C# e non si vuole attendere il riavvio dell'interfaccia della riga di comando di Angular, eseguire il server dell'interfaccia della riga di comando di Angular esternamente, in modo indipendente dal processo ASP.NET Core. A tale scopo, procedere come indicato di seguito:
 
 1. In un prompt dei comandi passare alla sottodirectory *ClientApp* e avviare il server di sviluppo dell'interfaccia della riga di comando di Angular:
 

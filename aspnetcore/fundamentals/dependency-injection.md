@@ -5,14 +5,14 @@ description: Informazioni su come ASP.NET Core implementa l'inserimento delle di
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/30/2020
+ms.date: 02/05/2020
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: a9d268489ebcef69d64c6fd65087bc38a3581821
-ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
+ms.openlocfilehash: 7c0789dafcb7dfacd15ac448a39bad94649963c8
+ms.sourcegitcommit: bd896935e91236e03241f75e6534ad6debcecbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76928412"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77044922"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Inserimento delle dipendenze in ASP.NET Core
 
@@ -176,7 +176,7 @@ public void Configure(IApplicationBuilder app, IOptions<MyOptions> options)
 }
 ```
 
-Per ulteriori informazioni, vedere <xref:fundamentals/startup>.
+Per altre informazioni, vedere <xref:fundamentals/startup>.
 
 ## <a name="framework-provided-services"></a>Servizi forniti dal framework
 
@@ -259,7 +259,7 @@ I servizi con durata temporanea (<xref:Microsoft.Extensions.DependencyInjection.
 I servizi con durata con ambito (<xref:Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped*>) vengono creati una volta per ogni richiesta client (connessione).
 
 > [!WARNING]
-> Quando si usa un servizio con ambito in un middleware, inserire il servizio nel metodo `Invoke` o `InvokeAsync`. Evitare l'inserimento tramite il costruttore, che impone al servizio il comportamento singleton. Per ulteriori informazioni, vedere <xref:fundamentals/middleware/write#per-request-middleware-dependencies>.
+> Quando si usa un servizio con ambito in un middleware, inserire il servizio nel metodo `Invoke` o `InvokeAsync`. Evitare l'inserimento tramite il costruttore, che impone al servizio il comportamento singleton. Per altre informazioni, vedere <xref:fundamentals/middleware/write#per-request-middleware-dependencies>.
 
 ### <a name="singleton"></a>Singleton
 
@@ -272,7 +272,7 @@ I servizi con durata singleton (<xref:Microsoft.Extensions.DependencyInjection.S
 
 I metodi di estensione per la registrazione del servizio offrono overload che risultano utili in scenari specifici.
 
-| Metodo | Automatico<br>Oggetto di<br>eliminazione | Più elementi<br>implementazioni | Pass args |
+| Metodo | Automatico<br>object<br>eliminazione | Selezione multipla<br>implementazioni | Pass args |
 | ------ | :-----------------------------: | :-------------------------: | :-------: |
 | `Add{LIFETIME}<{SERVICE}, {IMPLEMENTATION}>()`<br>Esempio:<br>`services.AddSingleton<IMyDep, MyDep>();` | Sì | Sì | No |
 | `Add{LIFETIME}<{SERVICE}>(sp => new {IMPLEMENTATION})`<br>Esempi:<br>`services.AddSingleton<IMyDep>(sp => new MyDep());`<br>`services.AddSingleton<IMyDep>(sp => new MyDep("A string!"));` | Sì | Sì | Sì |
@@ -544,7 +544,17 @@ public class Program
 
 ## <a name="scope-validation"></a>Convalida dell'ambito
 
-Quando l'app viene eseguita nell'ambiente di sviluppo, il provider di servizi predefinito esegue controlli per verificare che:
+::: moniker range=">= aspnetcore-3.0"
+
+Quando l'app è in esecuzione nell'ambiente di sviluppo e chiama [CreateDefaultBuilder](xref:fundamentals/host/generic-host#default-builder-settings) per compilare l'host, il provider di servizi predefinito esegue i controlli per verificare che:
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+Quando l'app è in esecuzione nell'ambiente di sviluppo e chiama [CreateDefaultBuilder](xref:fundamentals/host/web-host#set-up-a-host) per compilare l'host, il provider di servizi predefinito esegue i controlli per verificare che:
+
+::: moniker-end
 
 * I servizi con ambito non vengano risolti direttamente o indirettamente dal provider di servizi radice.
 * I servizi con ambito non vengano inseriti direttamente o indirettamente in singleton.
@@ -553,7 +563,7 @@ Il provider di servizi radice venga creato con la chiamata di <xref:Microsoft.Ex
 
 I servizi con ambito vengono eliminati dal contenitore che li ha creati. Se un servizio con ambito viene creato nel contenitore radice, la durata del servizio viene di fatto convertita in singleton, perché il servizio viene eliminato solo dal contenitore radice alla chiusura dell'app/server. La convalida degli ambiti servizio rileva queste situazioni nel contesto della chiamata di `BuildServiceProvider`.
 
-Per ulteriori informazioni, vedere <xref:fundamentals/host/web-host#scope-validation>.
+Per altre informazioni, vedere <xref:fundamentals/host/web-host#scope-validation>.
 
 ## <a name="request-services"></a>Servizi di richiesta
 
@@ -631,7 +641,7 @@ Creare servizi singleton thread-safe. Se un servizio singleton ha una dipendenza
 
 Non è necessario che il metodo factory del singolo servizio, ad esempio il secondo argomento per [AddSingleton\<TService>(IServiceCollection, Func\<IServiceProvider,TService)](xref:Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton*), sia thread-safe. Come nel caso di un costruttore di tipo (`static`), è garantito che venga chiamato una sola volta da un singolo thread.
 
-## <a name="recommendations"></a>Suggerimenti
+## <a name="recommendations"></a>Consigli
 
 * La risoluzione basata sui servizi `async/await` e `Task` non è supportata. Dato che C# non supporta i costruttori asincroni, il modello consigliato consiste nell'usare i metodi asincroni dopo avere risolto in modo sincrono il servizio.
 
@@ -657,7 +667,7 @@ Non è necessario che il metodo factory del singolo servizio, ad esempio il seco
   }
   ```
 
-  **Corretto**:
+  **Corretti**:
 
   ```csharp
   public class MyClass

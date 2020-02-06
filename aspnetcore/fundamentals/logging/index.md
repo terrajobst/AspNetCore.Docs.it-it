@@ -5,14 +5,14 @@ description: Informazioni su come usare il framework di registrazione fornito da
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/08/2020
+ms.date: 02/05/2020
 uid: fundamentals/logging/index
-ms.openlocfilehash: f21559e43ae004c81abc18fe8a768d4145ffb184
-ms.sourcegitcommit: 57b85708f4cded99b8f008a69830cb104cd8e879
+ms.openlocfilehash: 3c75fdc940701b8f4d367990b5073861467079b2
+ms.sourcegitcommit: bd896935e91236e03241f75e6534ad6debcecbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75914233"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77044906"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>Registrazione in .NET Core e ASP.NET Core
 
@@ -49,7 +49,7 @@ In un'app console non host chiamare il metodo di estensione `Add{provider name}`
 I modelli di progetto ASP.NET Core predefiniti chiamano <xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder%2A>, che aggiunge i provider di registrazione seguenti:
 
 * [Console](#console-provider)
-* [Debug](#debug-provider)
+* [Eseguire il debug](#debug-provider)
 * [EventSource](#event-source-provider)
 * [EventLog](#windows-eventlog-provider) (solo in caso di esecuzione in Windows)
 
@@ -69,7 +69,7 @@ Il codice precedente richiede riferimenti a `Microsoft.Extensions.Logging` e `Mi
 
 Il modello di progetto predefinito chiama <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder%2A>, che aggiunge i provider di registrazione seguenti:
 
-* Console di
+* Console
 * Debug
 * EventSource (a partire da ASP.NET Core 2.2)
 
@@ -297,7 +297,7 @@ public class Program
 
 La registrazione deve essere così rapida da non giustificare l'impatto sulle prestazioni del codice asincrono. Se l'archivio dati di registrazione è lento, non scrivere direttamente al suo interno. Scrivere invece i messaggi di log prima in un archivio veloce e quindi spostarli nell'archivio lento in un secondo momento. Ad esempio, se la registrazione viene eseguita in SQL Server, è preferibile non farlo direttamente in un metodo `Log`, poiché i metodi `Log` sono sincroni. Al contrario, aggiungere i messaggi di log in modo sincrono a una coda in memoria e usare un ruolo di lavoro in background per eseguire il pull dei messaggi dalla coda per eseguire le operazioni asincrone di push dei dati in SQL Server. Per altre informazioni, vedere [questo](https://github.com/aspnet/AspNetCore.Docs/issues/11801) problema di GitHub.
 
-## <a name="configuration"></a>Configurazione di
+## <a name="configuration"></a>Configurazione
 
 La configurazione dei provider di registrazione viene fornita da uno o più provider di configurazione:
 
@@ -431,7 +431,7 @@ Il resto di questo articolo spiega alcuni dettagli e le opzioni per la registraz
 
 Le interfacce `ILogger` e `ILoggerFactory` si trovano in [Microsoft.Extensions.Logging.Abstractions](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Abstractions/) e le loro implementazioni predefinite si trovano in [Microsoft.Extensions.Logging](https://www.nuget.org/packages/microsoft.extensions.logging/).
 
-## <a name="log-category"></a>Categoria dei log
+## <a name="log-category"></a>Categoria di log
 
 Quando viene creato un oggetto `ILogger`, viene specificata la relativa *categoria*. La categoria è inclusa in ogni messaggio di log creato da tale istanza di `ILogger`. La categoria può essere qualsiasi stringa, ma per convenzione si usa il nome della classe, ad esempio "TodoApi.Controllers.TodoController".
 
@@ -513,7 +513,7 @@ ASP.NET Core definisce i livelli di registrazione seguenti, ordinati dal meno gr
 
   Per gli errori che richiedono attenzione immediata. Esempi: scenari di perdita di dati, spazio su disco insufficiente.
 
-Usare il livello di registrazione per controllare la quantità di output di log scritto in un supporto di archiviazione specifico o in una finestra. Ad esempio:
+Usare il livello di registrazione per controllare la quantità di output di log scritto in un supporto di archiviazione specifico o in una finestra. Ad esempio,
 
 * In produzione:
   * La registrazione all'`Trace` tramite livelli di `Information` produce un volume elevato di messaggi di log dettagliati. Per controllare i costi e non superare i limiti di archiviazione dei dati, registrare `Trace` tramite messaggi di `Information` livello in un archivio dati a volume elevato e a basso costo.
@@ -696,7 +696,7 @@ System.Exception: Item not found exception.
    at TodoApiSample.Controllers.TodoController.GetById(String id) in C:\TodoApiSample\Controllers\TodoController.cs:line 226
 ```
 
-## <a name="log-filtering"></a>Filtro dei log
+## <a name="log-filtering"></a>Filtro del log
 
 È possibile specificare un livello di registrazione minimo per un provider e una categoria specifici oppure per tutti i provider o tutte le categorie. Tutti i log sotto il livello minimo non sono passati al provider, quindi non vengono visualizzati o archiviati.
 
@@ -728,7 +728,7 @@ L'esempio seguente illustra come registrare le regole di filtro nel codice:
 
 ::: moniker range=">= aspnetcore-3.0"
 
-[!code-csharp[](index/samples/3.x/TodoApiSample/Program.cs?name=snippet_FilterInCode&highlight=4-5)]
+[!code-csharp[](index/samples/3.x/TodoApiSample/Program.cs?name=snippet_FilterInCode&highlight=2-3)]
 
 ::: moniker-end
 
@@ -746,11 +746,11 @@ I dati di configurazione e il codice `AddFilter` illustrato negli esempi precede
 
 | Number | Provider      | Categorie che iniziano con...          | Livello di registrazione minimo |
 | :----: | ------------- | --------------------------------------- | ----------------- |
-| 1      | Debug         | Tutte le categorie                          | Informazioni su       |
-| 2      | Console di       | Microsoft.AspNetCore.Mvc.Razor.Internal | Avviso           |
-| 3\.      | Console di       | Microsoft.AspNetCore.Mvc.Razor.Razor    | Debug             |
-| 4      | Console di       | Microsoft.AspNetCore.Mvc.Razor          | Errore di             |
-| 5      | Console di       | Tutte le categorie                          | Informazioni su       |
+| 1      | Debug         | Tutte le categorie                          | Informazioni       |
+| 2      | Console       | Microsoft.AspNetCore.Mvc.Razor.Internal | Avviso           |
+| 3      | Console       | Microsoft.AspNetCore.Mvc.Razor.Razor    | Debug             |
+| 4      | Console       | Microsoft.AspNetCore.Mvc.Razor          | Errore             |
+| 5      | Console       | Tutte le categorie                          | Informazioni       |
 | 6      | Tutti i provider | Tutte le categorie                          | Debug             |
 | 7      | Tutti i provider | System                                  | Debug             |
 | 8      | Debug         | Microsoft                               | Traccia             |
@@ -775,11 +775,11 @@ L'istanza di `ILogger` risultante invia i log di livello `Trace` o superiore al 
 
 Ogni provider definisce un *alias* che può essere utilizzato nella configurazione al posto del nome completo di tipo.  Per i provider predefiniti, usare gli alias seguenti:
 
-* Console di
+* Console
 * Debug
 * EventSource
 * EventLog
-* Origine traccia
+* TraceSource
 * AzureAppServicesFile
 * AzureAppServicesBlob
 * ApplicationInsights
@@ -804,7 +804,7 @@ Se non si imposta in modo esplicito il livello minimo, il valore predefinito è 
 
 ### <a name="filter-functions"></a>Funzioni di filtro
 
-Una funzione di filtro viene richiamata per tutti i provider e le categorie a cui non sono assegnate regole tramite la configurazione o il codice. Il codice della funzione ha accesso al tipo di provider, alla categoria e al livello di registrazione. Ad esempio:
+Una funzione di filtro viene richiamata per tutti i provider e le categorie a cui non sono assegnate regole tramite la configurazione o il codice. Il codice della funzione ha accesso al tipo di provider, alla categoria e al livello di registrazione. Ad esempio,
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -822,7 +822,7 @@ Una funzione di filtro viene richiamata per tutti i provider e le categorie a cu
 
 Di seguito sono elencate alcune categorie usate da ASP.NET Core ed Entity Framework Core, con note sui log previsti per ognuna:
 
-| Categoria                            | Note |
+| Category                            | Note |
 | ----------------------------------- | ----- |
 | Microsoft.AspNetCore                | Diagnostica generale di ASP.NET Core. |
 | Microsoft.AspNetCore.DataProtection | Chiavi considerate, trovate e usate. |
@@ -889,7 +889,7 @@ warn: TodoApiSample.Controllers.TodoController[4000]
 ASP.NET Core include i provider seguenti:
 
 * [Console](#console-provider)
-* [Debug](#debug-provider)
+* [Eseguire il debug](#debug-provider)
 * [EventSource](#event-source-provider)
 * [EventLog](#windows-eventlog-provider)
 * [TraceSource](#tracesource-provider)
@@ -1001,7 +1001,7 @@ Usare gli strumenti di traccia DotNet per raccogliere una traccia da un'app:
    | 0           | `LogAlways`     |
    | 1           | `Critical`      |
    | 2           | `Error`         |
-   | 3\.           | `Warning`       |
+   | 3           | `Warning`       |
    | 4           | `Informational` |
    | 5           | `Verbose`       |
 
@@ -1141,7 +1141,7 @@ Il flusso di registrazione di Azure consente di visualizzare l'attività di regi
 Per configurare il flusso di registrazione di Azure:
 
 * Passare alla pagina **Log del servizio app** dalla pagina del portale dell'app.
-* Impostare **Registrazione applicazioni (file system)** su **Sì**.
+* Impostare **Registrazione applicazioni (file system)** su **Attiva**.
 * Scegliere il livello di registrazione in **Livello**. Questa impostazione è valida solo per lo streaming dei log di Azure, non per altri provider di registrazione nell'app.
 
 Passare alla pagina **Flusso di registrazione** per visualizzare i messaggi dell'app. I messaggi vengono registrati dall'app tramite l'interfaccia `ILogger`.

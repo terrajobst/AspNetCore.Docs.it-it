@@ -5,14 +5,14 @@ description: Informazioni su come configurare Apache come server proxy inverso i
 monikerRange: '>= aspnetcore-2.1'
 ms.author: shboyer
 ms.custom: mvc
-ms.date: 01/13/2020
+ms.date: 02/05/2020
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: 028f5112188e2b74f4f01409e25268aecdc761c0
-ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
+ms.openlocfilehash: f522c54fdc584845f18040bae1b2a2bda36d28fa
+ms.sourcegitcommit: bd896935e91236e03241f75e6534ad6debcecbbf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76146290"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77044847"
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Hosting di ASP.NET Core in Linux con Apache
 
@@ -67,6 +67,8 @@ Qualsiasi componente che dipende dallo schema, ad esempio l'autenticazione, la g
 Richiamare il metodo <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*> in `Startup.Configure` prima di chiamare <xref:Microsoft.AspNetCore.Builder.AuthAppBuilderExtensions.UseAuthentication*> o un middleware con schema di autenticazione simile. Configurare il middleware per l'inoltro delle intestazioni `X-Forwarded-For` e `X-Forwarded-Proto`:
 
 ```csharp
+// using Microsoft.AspNetCore.HttpOverrides;
+
 app.UseForwardedHeaders(new ForwardedHeadersOptions
 {
     ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
@@ -80,13 +82,15 @@ Se non vengono specificate opzioni <xref:Microsoft.AspNetCore.Builder.ForwardedH
 I proxy in esecuzione su indirizzi di loopback (127.0.0.0/8, [::1]), incluso l'indirizzo localhost standard (127.0.0.1), sono considerati attendibili per impostazione predefinita. Se le richieste tra Internet e il server Web vengono gestite anche da altri proxy o reti attendibili all'interno dell'organizzazione, aggiungerli all'elenco di <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.KnownProxies*> o <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.KnownNetworks*> con <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions>. L'esempio seguente aggiunge un server proxy attendibile all'indirizzo IP 10.0.0.100 nel middleware delle intestazioni inoltrate `KnownProxies` in `Startup.ConfigureServices`:
 
 ```csharp
+// using System.Net;
+
 services.Configure<ForwardedHeadersOptions>(options =>
 {
     options.KnownProxies.Add(IPAddress.Parse("10.0.0.100"));
 });
 ```
 
-Per ulteriori informazioni, vedere <xref:host-and-deploy/proxy-load-balancer>.
+Per altre informazioni, vedere <xref:host-and-deploy/proxy-load-balancer>.
 
 ### <a name="install-apache"></a>Installare Apache
 
@@ -281,7 +285,7 @@ Per configurare la protezione dei dati in modo da rendere persistente il gruppo 
 
 ## <a name="secure-the-app"></a>Proteggere l'app
 
-### <a name="configure-firewall"></a>Configurare firewall
+### <a name="configure-firewall"></a>Configurare il firewall
 
 *Firewalld* è un daemon dinamico per gestire il firewall con il supporto per le aree di rete. È comunque possibile usare iptables per gestire le porte e il filtro dei pacchetti. *Firewalld* dovrebbe essere installato per impostazione predefinita. È possibile usare `yum` per installare il pacchetto o verificare che sia installato.
 
