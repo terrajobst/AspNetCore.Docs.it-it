@@ -5,17 +5,17 @@ description: Esplora ASP.NET Core Blazor, un modo per creare un'interfaccia uten
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc, seoapril2019
-ms.date: 12/18/2019
+ms.date: 01/31/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/index
-ms.openlocfilehash: 9f43735fc02ba9f8da4ba27c8b5763d587b5429a
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
+ms.openlocfilehash: 02c95c19ebfb5ea6ad722f9d49f4cddc7471f8e1
+ms.sourcegitcommit: 0e21d4f8111743bcb205a2ae0f8e57910c3e8c25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76159924"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77034082"
 ---
 # <a name="introduction-to-aspnet-core-opno-locblazor"></a>Introduzione a ASP.NET Core Blazor
 
@@ -140,7 +140,7 @@ La connessione utilizzata dal server Blazor per comunicare con il browser viene 
 
 ## <a name="javascript-interop"></a>Interoperabilità JavaScript
 
-Per le app che richiedono librerie JavaScript di terze parti e l'accesso alle API del browser, i componenti supportano l'interoperabilità con JavaScript. I componenti sono in grado di usare qualsiasi libreria o API supportata da JavaScript. Il codice C# può effettuare chiamate nel codice JavaScript e vice versa. Per ulteriori informazioni, vedere <xref:blazor/javascript-interop>.
+Per le app che richiedono librerie JavaScript di terze parti e l'accesso alle API del browser, i componenti supportano l'interoperabilità con JavaScript. I componenti sono in grado di usare qualsiasi libreria o API supportata da JavaScript. Il codice C# può effettuare chiamate nel codice JavaScript e vice versa. Per altre informazioni, vedere <xref:blazor/javascript-interop>.
 
 ## <a name="code-sharing-and-net-standard"></a>Condivisione del codice e .NET Standard
 
@@ -152,6 +152,7 @@ Le API non valide all'interno di un Web browser (ad esempio per l'accesso al fil
 
 * [WebAssembly](https://webassembly.org/)
 * <xref:blazor/hosting-models>
+* <xref:tutorials/signalr-blazor-webassembly>
 * [Guida a C#](/dotnet/csharp/)
 * <xref:mvc/views/razor>
 * [HTML](https://www.w3.org/html/)
