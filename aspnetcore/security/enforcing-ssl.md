@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/06/2019
 uid: security/enforcing-ssl
-ms.openlocfilehash: d7d4eece935bd83b69a6a5d81898012b99d73193
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 59883a8165040fa58edb2f6cf22d4d6b3abf6f3e
+ms.sourcegitcommit: 80286715afb93c4d13c931b008016d6086c0312b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828906"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77074549"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Applicare HTTPS in ASP.NET Core
 
@@ -85,7 +85,7 @@ Il codice evidenziato precedente:
 
 È consigliabile usare reindirizzamenti temporanei anziché reindirizzamenti permanenti. La memorizzazione nella cache dei collegamenti può causare un comportamento instabile negli ambienti di sviluppo. Se si preferisce inviare un codice di stato di reindirizzamento permanente quando l'app si trova in un ambiente non di sviluppo, vedere la sezione [configurare reindirizzamenti permanenti in produzione](#configure-permanent-redirects-in-production) . È consigliabile usare [HSTS](#http-strict-transport-security-protocol-hsts) per segnalare ai client che solo le richieste di risorse protette devono essere inviate all'app (solo nell'ambiente di produzione).
 
-### <a name="port-configuration"></a>Configurazione della porta
+### <a name="port-configuration"></a>Configurazione delle porte
 
 Una porta deve essere disponibile affinché il middleware reindirizzi una richiesta non sicura a HTTPS. Se non è disponibile alcuna porta:
 
@@ -150,7 +150,7 @@ Se le richieste vengono inviate in una configurazione del proxy inverso, usare i
 
 Quando si esegue la distribuzione nel servizio app Azure, seguire le istruzioni riportate in [esercitazione: associare un certificato SSL personalizzato esistente ad app Web di Azure](/azure/app-service/app-service-web-tutorial-custom-ssl).
 
-### <a name="options"></a>Options
+### <a name="options"></a>Opzioni
 
 Il codice evidenziato seguente chiama [AddHttpsRedirection](/dotnet/api/microsoft.aspnetcore.builder.httpsredirectionservicesextensions.addhttpsredirection) per configurare le opzioni del middleware:
 
@@ -313,7 +313,7 @@ Deselezionare la casella **di controllo Configura per HTTPS** .
 
 # <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli) 
 
-Usare l'opzione `--no-https`. Esempio:
+Usare l'opzione `--no-https`. Ad esempio:
 
 ```dotnetcli
 dotnet new webapp --no-https
@@ -419,7 +419,7 @@ Per la risoluzione dei problemi relativi ai certificati con Visual Studio, veder
 
 ### <a name="iis-express-ssl-certificate-used-with-visual-studio"></a>IIS Express certificato SSL usato con Visual Studio
 
-Per risolvere i problemi relativi al certificato IIS Express, selezionare **Ripristina** dal programma di installazione di Visual Studio.
+Per risolvere i problemi relativi al certificato IIS Express, selezionare **Ripristina** dal programma di installazione di Visual Studio. Per altre informazioni, vedere [questo problema in GitHub](https://github.com/dotnet/aspnetcore/issues/16892).
 
 ## <a name="additional-information"></a>Informazioni aggiuntive
 

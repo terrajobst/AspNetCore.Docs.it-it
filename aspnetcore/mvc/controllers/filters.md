@@ -4,14 +4,14 @@ author: Rick-Anderson
 description: Informazioni sul funzionamento dei filtri e su come usarli in ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 1/1/2020
+ms.date: 02/04/2020
 uid: mvc/controllers/filters
-ms.openlocfilehash: 759c150e7f35f3f6a52947edc5ef41448dc227fe
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: c4bb9d5746e494106ead6ad5bbf972bbcc5a39f1
+ms.sourcegitcommit: 0e21d4f8111743bcb205a2ae0f8e57910c3e8c25
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828971"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77034065"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtri in ASP.NET Core
 
@@ -28,13 +28,16 @@ I filtri predefiniti gestiscono attività, ad esempio:
 
 I filtri personalizzati possono essere creati per gestire problemi relativi a più settori. Esempi di problematiche trasversali includono la gestione degli errori, la memorizzazione nella cache, la configurazione, l'autorizzazione e la registrazione.  I filtri evitano la duplicazione del codice. Ad esempio, un filtro eccezioni per la gestione degli errori potrebbe consolidare la gestione degli errori.
 
-Questo documento si applica a Razor Pages, controller API e controller con visualizzazioni.
+Questo documento si applica a Razor Pages, controller API e controller con visualizzazioni. I filtri non funzionano direttamente con i [componenti Razor](xref:blazor/components). Un filtro può influire indirettamente su un componente solo quando:
+
+* Il componente è incorporato in una pagina o in una vista.
+* La pagina o il controller/Visualizzazione usa il filtro.
 
 [Visualizzare o scaricare un esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/3.1sample) ([procedura per il download](xref:index#how-to-download-a-sample)).
 
 ## <a name="how-filters-work"></a>Funzionamento dei filtri
 
-I filtri vengono eseguiti all'interno della *pipeline di chiamata di azioni ASP.NET Core*, talvolta definita *pipeline di filtro*.  La pipeline di filtro viene eseguita dopo che ASP.NET Core ha selezionato l'azione da eseguire.
+I filtri vengono eseguiti all'interno della *pipeline di chiamata di azioni ASP.NET Core*, talvolta definita *pipeline di filtro*. La pipeline di filtro viene eseguita dopo che ASP.NET Core ha selezionato l'azione da eseguire.
 
 ![La richiesta viene elaborata tramite altri middleware, middleware di routing, selezione dell'azione e pipeline di chiamata dell'azione. L'elaborazione della richiesta torna alla selezione azione, al middleware di routing e a diversi altri middleware prima di diventare la risposta che viene inviata al client.](filters/_static/filter-pipeline-1.png)
 
@@ -173,11 +176,11 @@ Come risultato dell'annidamento dei filtri, il codice *after* dei filtri viene e
   
 L'esempio seguente illustra l'ordine in cui i metodi dei filtri vengono chiamati per i filtri di azione sincroni.
 
-| Sequence | Ambito del filtro | Filter - metodo |
+| Sequenza | Ambito del filtro | Filter - metodo |
 |:--------:|:------------:|:-------------:|
 | 1 | Global | `OnActionExecuting` |
 | 2 | Controller o pagina Razor| `OnActionExecuting` |
-| 3\. | Metodo | `OnActionExecuting` |
+| 3 | Metodo | `OnActionExecuting` |
 | 4 | Metodo | `OnActionExecuted` |
 | 5 | Controller o pagina Razor | `OnActionExecuted` |
 | 6 | Global | `OnActionExecuted` |
@@ -273,7 +276,7 @@ Pertanto il filtro `AddHeader` non viene mai eseguito per l'azione `SomeResource
 
 [!code-csharp[](./filters/3.1sample/FiltersSample/Controllers/SampleController.cs?name=snippet_AddHeader&highlight=1)]
 
-## <a name="dependency-injection"></a>Inserimento di dipendenze
+## <a name="dependency-injection"></a>Inserimento delle dipendenze
 
 È possibile aggiungere filtri per tipo o per istanza. Se viene aggiunta un'istanza, tale istanza viene usata per ogni richiesta. Se viene aggiunto un tipo, il filtro è attivato dal tipo. Un filtro attivato dal tipo comporta:
 
@@ -391,7 +394,7 @@ Esempi di filtri di risorse:
 
 ## <a name="action-filters"></a>Filtri azioni
 
-I filtri azione **non** si applicano a Razor Pages. Razor Pages supporta <xref:Microsoft.AspNetCore.Mvc.Filters.IPageFilter> e <xref:Microsoft.AspNetCore.Mvc.Filters.IAsyncPageFilter>. Per altre informazioni, vedere [Modalità di filtro per pagine Razor](xref:razor-pages/filter).
+I filtri azione **non** si applicano a Razor Pages. Razor Pages supporta <xref:Microsoft.AspNetCore.Mvc.Filters.IPageFilter> e <xref:Microsoft.AspNetCore.Mvc.Filters.IAsyncPageFilter>. Per ulteriori informazioni, vedere [Metodi di filtro per Razor Pages](xref:razor-pages/filter).
 
 I filtri di azione:
 
@@ -544,7 +547,7 @@ Il filtro viene applicato nel codice seguente:
 Testare il codice precedente eseguendo l' [esempio di download](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/3.1sample):
 
 * Richiamare gli strumenti di sviluppo F12.
-* Passare a `https://localhost:5001/Sample/HeaderWithFactory`.
+* Accedere a `https://localhost:5001/Sample/HeaderWithFactory`.
 
 Gli strumenti di sviluppo F12 visualizzano le intestazioni di risposta seguenti aggiunte dal codice di esempio:
 
@@ -714,11 +717,11 @@ Come risultato dell'annidamento dei filtri, il codice *after* dei filtri viene e
   
 L'esempio seguente illustra l'ordine in cui i metodi dei filtri vengono chiamati per i filtri di azione sincroni.
 
-| Sequence | Ambito del filtro | Filter - metodo |
+| Sequenza | Ambito del filtro | Filter - metodo |
 |:--------:|:------------:|:-------------:|
 | 1 | Global | `OnActionExecuting` |
 | 2 | Controller | `OnActionExecuting` |
-| 3\. | Metodo | `OnActionExecuting` |
+| 3 | Metodo | `OnActionExecuting` |
 | 4 | Metodo | `OnActionExecuted` |
 | 5 | Controller | `OnActionExecuted` |
 | 6 | Global | `OnActionExecuted` |
@@ -774,11 +777,11 @@ La proprietà `Order` può essere impostata con un parametro del costruttore:
 
 Prendere in considerazione gli stessi tre filtri di azione illustrati nell'esempio precedente. Se la proprietà `Order` del controller e dei filtri globali è impostata, rispettivamente, su 1 e su 2, l'ordine di esecuzione viene invertito.
 
-| Sequence | Ambito del filtro | Proprietà`Order` | Filter - metodo |
+| Sequenza | Ambito del filtro | Proprietà `Order` | Filter - metodo |
 |:--------:|:------------:|:-----------------:|:-------------:|
 | 1 | Metodo | 0 | `OnActionExecuting` |
 | 2 | Controller | 1  | `OnActionExecuting` |
-| 3\. | Global | 2  | `OnActionExecuting` |
+| 3 | Global | 2  | `OnActionExecuting` |
 | 4 | Global | 2  | `OnActionExecuted` |
 | 5 | Controller | 1  | `OnActionExecuted` |
 | 6 | Metodo | 0  | `OnActionExecuted` |
@@ -802,7 +805,7 @@ Pertanto il filtro `AddHeader` non viene mai eseguito per l'azione `SomeResource
 
 [!code-csharp[](./filters/sample/FiltersSample/Controllers/SampleController.cs?name=snippet_AddHeader&highlight=1,9)]
 
-## <a name="dependency-injection"></a>Inserimento di dipendenze
+## <a name="dependency-injection"></a>Inserimento delle dipendenze
 
 È possibile aggiungere filtri per tipo o per istanza. Se viene aggiunta un'istanza, tale istanza viene usata per ogni richiesta. Se viene aggiunto un tipo, il filtro è attivato dal tipo. Un filtro attivato dal tipo comporta:
 
@@ -922,7 +925,7 @@ Esempi di filtri di risorse:
 ## <a name="action-filters"></a>Filtri azioni
 
 > [!IMPORTANT]
-> I filtri azione **non** si applicano a Razor Pages. Razor Pages supporta <xref:Microsoft.AspNetCore.Mvc.Filters.IPageFilter> e <xref:Microsoft.AspNetCore.Mvc.Filters.IAsyncPageFilter>. Per altre informazioni, vedere [Modalità di filtro per pagine Razor](xref:razor-pages/filter).
+> I filtri azione **non** si applicano a Razor Pages. Razor Pages supporta <xref:Microsoft.AspNetCore.Mvc.Filters.IPageFilter> e <xref:Microsoft.AspNetCore.Mvc.Filters.IAsyncPageFilter>. Per ulteriori informazioni, vedere [Metodi di filtro per Razor Pages](xref:razor-pages/filter).
 
 I filtri di azione:
 
@@ -1067,7 +1070,7 @@ Un altro approccio alla creazione di filtri consiste nell'implementare `IFilterF
 Il codice precedente può essere testato eseguendo l'[esempio scaricato](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/sample):
 
 * Richiamare gli strumenti di sviluppo F12.
-* Passare a `https://localhost:5001/Sample/HeaderWithFactory`.
+* Accedere a `https://localhost:5001/Sample/HeaderWithFactory`.
 
 Gli strumenti di sviluppo F12 visualizzano le intestazioni di risposta seguenti aggiunte dal codice di esempio:
 

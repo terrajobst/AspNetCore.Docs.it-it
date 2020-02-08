@@ -5,14 +5,14 @@ description: Informazioni di base sulla creazione di un'API Web in ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 01/27/2020
+ms.date: 02/02/2020
 uid: web-api/index
-ms.openlocfilehash: 8609e2095c202643cdc905cc610298195b654215
-ms.sourcegitcommit: fe41cff0b99f3920b727286944e5b652ca301640
+ms.openlocfilehash: 3dca07db3d6be4ab219a2e05e3adcf1b24ee5c40
+ms.sourcegitcommit: 80286715afb93c4d13c931b008016d6086c0312b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76870017"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77074510"
 ---
 # <a name="create-web-apis-with-aspnet-core"></a>Creare API Web con ASP.NET Core
 
@@ -156,7 +156,7 @@ namespace WebApiSample
 
 ## <a name="attribute-routing-requirement"></a>Requisiti del routing degli attributi
 
-Con l'attributo `[ApiController]` il routing degli attributi è un requisito. Ad esempio:
+Con l'attributo `[ApiController]` il routing degli attributi è un requisito. Ad esempio,
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -369,7 +369,7 @@ Si consideri il codice seguente in un'azione del controller:
 
 [!code-csharp[](index/samples/2.x/2.2/Controllers/PetsController.cs?name=snippet_ProblemDetailsStatusCode)]
 
-Il metodo `NotFound` genera un codice di stato HTTP 404 con un corpo `ProblemDetails`. Ad esempio:
+Il metodo `NotFound` genera un codice di stato HTTP 404 con un corpo `ProblemDetails`. Ad esempio,
 
 ```json
 {
@@ -397,6 +397,30 @@ La creazione automatica di un'istanza di `ProblemDetails` viene disabilitata qua
 [!code-csharp[](index/samples/2.x/2.2/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=3,8)]
 
 ::: moniker-end
+
+<a name="consumes"></a>
+
+## <a name="define-supported-request-content-types-with-the-consumes-attribute"></a>Definire i tipi di contenuto della richiesta supportati con l'attributo [consums]
+
+Per impostazione predefinita, un'azione supporta tutti i tipi di contenuto della richiesta disponibili. Se, ad esempio, un'app è configurata in modo da supportare i [formattatori di input](xref:mvc/models/model-binding#input-formatters)sia JSON che XML, un'azione supporta più tipi di contenuto, tra cui `application/json` e `application/xml`.
+
+L'attributo [[consums]](<xref:Microsoft.AspNetCore.Mvc.ConsumesAttribute>) consente a un'azione di limitare i tipi di contenuto della richiesta supportati. Applicare l'attributo `[Consumes]` a un'azione o a un controller, specificando uno o più tipi di contenuto:
+
+```csharp
+[HttpPost]
+[Consumes("application/xml")]
+public IActionResult CreateProduct(Product product)
+```
+
+Nel codice precedente, l'azione `CreateProduct` specifica il tipo di contenuto `application/xml`. Le richieste indirizzate a questa azione devono specificare un'intestazione `Content-Type` di `application/xml`. Le richieste che non specificano un'intestazione `Content-Type` di `application/xml` comportano una risposta del [tipo di supporto 415 non supportata](https://developer.mozilla.org/docs/Web/HTTP/Status/415) .
+
+L'attributo `[Consumes]` consente anche a un'azione di influenzare la selezione in base al tipo di contenuto di una richiesta in ingresso applicando un vincolo di tipo. Prendere in considerazione gli esempi seguenti:
+
+[!code-csharp[](index/samples/3.x/Controllers/ConsumesController.cs?name=snippet_Class)]
+
+Nel codice precedente `ConsumesController` viene configurato per gestire le richieste inviate all'URL `https://localhost:5001/api/Consumes`. Entrambe le azioni del controller, `PostJson` e `PostForm`, gestiscono richieste POST con lo stesso URL. Senza l'attributo `[Consumes]` che applica un vincolo di tipo, viene generata un'eccezione di corrispondenza ambigua.
+
+L'attributo `[Consumes]` viene applicato a entrambe le azioni. L'azione `PostJson` gestisce le richieste inviate con un'intestazione `Content-Type` di `application/json`. L'azione `PostForm` gestisce le richieste inviate con un'intestazione `Content-Type` di `application/x-www-form-urlencoded`. 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

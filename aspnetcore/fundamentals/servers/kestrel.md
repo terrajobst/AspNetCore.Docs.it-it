@@ -5,14 +5,14 @@ description: Informazioni su Kestrel, il server Web multipiattaforma per ASP.NET
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/26/2019
+ms.date: 02/06/2020
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 9fbf0ec93634100fccef279fc7cad92cb1420e84
-ms.sourcegitcommit: 991442dfb16ef08a0aae05bc79f9e9a2d819c587
+ms.openlocfilehash: 0c5d16b1901a8a8e5ae1914e5eaa86f71fa3a90b
+ms.sourcegitcommit: 80286715afb93c4d13c931b008016d6086c0312b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75492592"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77074536"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementazione del server Web Kestrel in ASP.NET Core
 
@@ -35,7 +35,7 @@ Kestrel è supportato in tutte le piattaforme e le versioni supportate da .NET C
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
-## <a name="http2-support"></a>Supporto per HTTP/2
+## <a name="http2-support"></a>Supporto HTTP/2
 
 [HTTP/2](https://httpwg.org/specs/rfc7540.html) è disponibile per le app ASP.NET Core se vengono soddisfatti i requisiti di base seguenti:
 
@@ -116,7 +116,7 @@ Negli esempi seguenti viene usato lo spazio dei nomi <xref:Microsoft.AspNetCore.
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 ```
 
-Le opzioni di gheppio, che sono C# configurate nel codice negli esempi seguenti, possono essere impostate anche usando un [provider di configurazione](xref:fundamentals/configuration/index). Il provider di configurazione file, ad esempio, può caricare la configurazione di Gheppio da *appSettings. JSON* o *appSettings. { File Environment}. JSON* :
+Negli esempi illustrati più avanti in questo articolo, le opzioni di C# gheppio sono configurate nel codice. È inoltre possibile impostare le opzioni di Gheppio utilizzando un [provider di configurazione](xref:fundamentals/configuration/index). Il [provider di configurazione file](xref:fundamentals/configuration/index#file-configuration-provider) , ad esempio, può caricare la configurazione di Gheppio da *appSettings. JSON* o *appSettings. { File Environment}. JSON* :
 
 ```json
 {
@@ -129,6 +129,9 @@ Le opzioni di gheppio, che sono C# configurate nel codice negli esempi seguenti,
   }
 }
 ```
+
+> [!NOTE]
+> la configurazione di <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions> e dell' [endpoint](#endpoint-configuration) può essere configurata dai provider di configurazione. La configurazione del gheppio rimanente deve C# essere configurata nel codice.
 
 Usare **uno** degli approcci seguenti:
 
@@ -489,7 +492,6 @@ Nel file *appsettings.json* di esempio seguente:
       "Http": {
         "Url": "http://localhost:5000"
       },
-
       "HttpsInlineCertFile": {
         "Url": "https://localhost:5001",
         "Certificate": {
@@ -497,7 +499,6 @@ Nel file *appsettings.json* di esempio seguente:
           "Password": "<certificate password>"
         }
       },
-
       "HttpsInlineCertStore": {
         "Url": "https://localhost:5002",
         "Certificate": {
@@ -507,11 +508,9 @@ Nel file *appsettings.json* di esempio seguente:
           "AllowInvalid": "<true or false; defaults to false>"
         }
       },
-
       "HttpsDefaultCert": {
         "Url": "https://localhost:5003"
       },
-
       "Https": {
         "Url": "https://*:5004",
         "Certificate": {
@@ -986,7 +985,7 @@ Kestrel è supportato in tutte le piattaforme e le versioni supportate da .NET C
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/kestrel/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
-## <a name="http2-support"></a>Supporto per HTTP/2
+## <a name="http2-support"></a>Supporto HTTP/2
 
 [HTTP/2](https://httpwg.org/specs/rfc7540.html) è disponibile per le app ASP.NET Core se vengono soddisfatti i requisiti di base seguenti:
 
