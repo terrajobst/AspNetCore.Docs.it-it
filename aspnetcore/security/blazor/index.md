@@ -5,17 +5,17 @@ description: Informazioni sugli scenari di autenticazione e autorizzazione Blazo
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/29/2020
+ms.date: 02/02/2020
 no-loc:
 - Blazor
 - SignalR
 uid: security/blazor/index
-ms.openlocfilehash: e9087c246f4805e5931180fa0869fc8a8d23a6c1
-ms.sourcegitcommit: c81ef12a1b6e6ac838e5e07042717cf492e6635b
+ms.openlocfilehash: c7b3788b5737073100e7fa449fd6bb4a83c0043a
+ms.sourcegitcommit: 235623b6e5a5d1841139c82a11ac2b4b3f31a7a9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885591"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114887"
 ---
 # <a name="aspnet-core-blazor-authentication-and-authorization"></a>Autenticazione e autorizzazione per ASP.NET Core Blazor
 
@@ -32,7 +32,7 @@ Gli scenari di sicurezza sono diversi tra le app Blazor server e Blazor webassem
 
 Le app webassembly Blazor vengono eseguite sul client. L'autorizzazione viene usata *solo* per determinare quali opzioni dell'interfaccia utente visualizzare. Poiché i controlli lato client possono essere modificati o ignorati da un utente, un'app webassembly Blazor non può applicare regole di accesso alle autorizzazioni.
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 
 Blazor usa i meccanismi di autenticazione di ASP.NET Core esistenti per stabilire l'identità dell'utente. Il meccanismo esatto dipende dal modo in cui l'app Blazor è ospitata, il server Blazor o il webassembly Blazor.
 
@@ -44,7 +44,7 @@ Il modello di progetto server Blazor può configurare automaticamente l'autentic
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Per creare un nuovo progetto server Blazor con un meccanismo di autenticazione, seguire le linee guida di Visual Studio disponibili nell'articolo <xref:blazor/get-started>.
+Per creare un nuovo progetto server Blazer con un meccanismo di autenticazione, seguire le istruzioni di Visual Studio disponibili nell'articolo <xref:blazor/get-started>.
 
 Dopo aver scelto il modello **App server Blazor** nella finestra di dialogo **Crea una nuova applicazione Web ASP.NET Core**, selezionare **Modifica** in **Autenticazione** .
 
@@ -59,7 +59,7 @@ Viene visualizzata una finestra di dialogo che offre lo stesso set di meccanismi
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-Seguire le indicazioni Visual Studio Code nell' <xref:blazor/get-started> articolo per creare un nuovo progetto server Blazor con un meccanismo di autenticazione:
+Per creare un nuovo progetto server Blazer con un meccanismo di autenticazione, seguire le indicazioni Visual Studio Code nell'articolo <xref:blazor/get-started>:
 
 ```dotnetcli
 dotnet new blazorserver -o {APP NAME} -au {AUTHENTICATION}
@@ -67,7 +67,7 @@ dotnet new blazorserver -o {APP NAME} -au {AUTHENTICATION}
 
 I valori di autenticazione consentiti (`{AUTHENTICATION}`) sono indicati nella tabella seguente.
 
-| Meccanismo di autenticazione                                                                 | Valore di `{AUTHENTICATION}` |
+| Meccanismo di autenticazione                                                                 | Valore della proprietà `{AUTHENTICATION}` |
 | ---------------------------------------------------------------------------------------- | :----------------------: |
 | Nessuna autenticazione                                                                        | `None`                   |
 | Utenti<br>individuali archiviati nell'app con ASP.NET Core Identity.                        | `Individual`             |
@@ -329,7 +329,7 @@ Per l'autorizzazione basata sui ruoli, usare il parametro `Roles`:
 </AuthorizeView>
 ```
 
-Per ulteriori informazioni, vedere <xref:security/authorization/roles>.
+Per altre informazioni, vedere <xref:security/authorization/roles>.
 
 Per l'autorizzazione basata sui criteri, usare il parametro `Policy`:
 
@@ -339,7 +339,7 @@ Per l'autorizzazione basata sui criteri, usare il parametro `Policy`:
 </AuthorizeView>
 ```
 
-L'autorizzazione basata sulle attestazioni è un caso speciale di autorizzazione basata su criteri. Ad esempio, è possibile definire un criterio che richiede che gli utenti abbiano una determinata attestazione. Per ulteriori informazioni, vedere <xref:security/authorization/policies>.
+L'autorizzazione basata sulle attestazioni è un caso speciale di autorizzazione basata su criteri. Ad esempio, è possibile definire un criterio che richiede che gli utenti abbiano una determinata attestazione. Per altre informazioni, vedere <xref:security/authorization/policies>.
 
 Queste API possono essere usate nelle app Blazor server o Blazor webassembly.
 
@@ -530,3 +530,4 @@ Errori comuni:
 * <xref:security/index>
 * <xref:security/blazor/server>
 * <xref:security/authentication/windowsauth>
+* [Awesome Blazor:](https://github.com/AdrienTorris/awesome-blazor#authentication) collegamenti di esempio della community di autenticazione
