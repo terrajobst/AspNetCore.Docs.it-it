@@ -2,13 +2,13 @@
 npm run release
 ```
 
-Questo comando restituisce le risorse lato client che devono essere servite durante l'esecuzione dell'app. Le risorse si trovano nella cartella *wwwroot*.
+Questo comando genera gli asset lato client da servire durante l'esecuzione dell'app. Le risorse si trovano nella cartella *wwwroot*.
 
 Webpack ha completato le attività seguenti:
 
 * Ha ripulito il contenuto della directory *wwwroot*.
-* Ha convertito TypeScript in JavaScript, un processo noto con il termine tecnico *transpiling*.
-* Ha modificato il codice JavaScript generato per ridurre le dimensioni del file, un processo noto con il termine tecnico *minimizzazione*.
+* Il TypeScript è stato convertito in JavaScript in un processo noto come *transpilazione*.
+* Il codice JavaScript generato è stato modificato per ridurre le dimensioni del file in un processo noto come *minification*.
 * Ha copiato i file JavaScript, CSS e HTML elaborati dalla directory *src* alla directory *wwwroot*.
 * Ha inserito gli elementi seguenti nel file *wwwroot/index.html*:
   * Un tag `<link>` che fa riferimento al file *wwwroot/main.\<hash\>.css*. Questo tag viene inserito immediatamente prima del tag `</head>` di chiusura.

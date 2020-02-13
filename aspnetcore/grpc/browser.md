@@ -1,19 +1,19 @@
 ---
-title: gRPC nelle app del browser
+title: Usare gRPC nelle app del browser
 author: jamesnk
 description: Informazioni su come configurare i servizi gRPC in ASP.NET Core per essere richiamabili dalle app del browser usando gRPC-Web.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
-ms.date: 01/24/2020
+ms.date: 02/10/2020
 uid: grpc/browser
-ms.openlocfilehash: 6359c3b76b3cb1ba2b6d9f9a989f64cbf4c4379d
-ms.sourcegitcommit: b5ceb0a46d0254cc3425578116e2290142eec0f0
+ms.openlocfilehash: 333fc8c4277bbac47042d4904c276e963186914a
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76830660"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77172267"
 ---
-# <a name="grpc-in-browser-apps"></a>gRPC nelle app del browser
+# <a name="use-grpc-in-browser-apps"></a>Usare gRPC nelle app del browser
 
 Di [James Newton-King](https://twitter.com/jamesnk)
 
@@ -38,7 +38,7 @@ Per abilitare gRPC-Web con un servizio gRPC ASP.NET Core:
 * Aggiungere un riferimento al pacchetto [Grpc. AspNetCore. Web](https://www.nuget.org/packages/Grpc.AspNetCore.Web) .
 * Configurare l'app per l'uso di gRPC-Web aggiungendo `AddGrpcWeb` e `UseGrpcWeb` a *Startup.cs*:
 
-[!code-csharp[](~/grpc/browser/sample/Startup.cs?name=snippet_1&highlight=3,10,14)]
+[!code-csharp[](~/grpc/browser/sample/Startup.cs?name=snippet_1&highlight=10,14)]
 
 Il codice precedente:
 
@@ -47,7 +47,7 @@ Il codice precedente:
 
 In alternativa, configurare tutti i servizi per il supporto di gRPC-Web aggiungendo `services.AddGrpcWeb(o => o.GrpcWebEnabled = true);` a ConfigureServices.
 
-[!code-csharp[](~/grpc/browser/sample/AllServicesSupportExample_Startup.cs?name=snippet_1&highlight=5,12,16)]
+[!code-csharp[](~/grpc/browser/sample/AllServicesSupportExample_Startup.cs?name=snippet_1&highlight=6,13)]
 
 Potrebbe essere necessaria una configurazione aggiuntiva per chiamare gRPC-Web dal browser, ad esempio la configurazione di ASP.NET Core per il supporto di CORS. Per ulteriori informazioni, vedere [supporto di CORS](xref:security/cors).
 
@@ -70,6 +70,7 @@ Il client gRPC .NET può essere configurato per effettuare chiamate gRPC-Web. Qu
 Per usare gRPC-Web:
 
 * Aggiungere un riferimento al pacchetto [Grpc .NET. client. Web](https://www.nuget.org/packages/Grpc.Net.Client.Web) .
+* Verificare che il riferimento a [Grpc .NET. client](https://www.nuget.org/packages/Grpc.Net.Client) Package sia 2.27.0 o versione successiva.
 * Configurare il canale per l'uso del `GrpcWebHandler`:
 
 [!code-csharp[](~/grpc/browser/sample/Handler.cs?name=snippet_1)]
@@ -81,9 +82,14 @@ Il codice precedente:
 
 Al momento della creazione, nel `GrpcWebHandler` sono disponibili le opzioni di configurazione seguenti:
 
-* **InnerHandler**: <xref:System.Net.Http.HttpMessageHandler> sottostante che esegue la chiamata http, ad esempio `HttpClientHandler`.
-* **Modalità**: `GrpcWebMode` enum. `GrpcWebMode.GrpcWebText` configura il contenuto con codifica Base64, necessario per supportare le chiamate di streaming del server.
-* **HttpVersion**: `Version`del protocollo http. gRPC-Web non richiede un protocollo specifico e non ne specifica uno quando si effettua una richiesta, a meno che non sia configurato.
+* **InnerHandler**: <xref:System.Net.Http.HttpMessageHandler> sottostante che esegue la richiesta http gRPC, ad esempio `HttpClientHandler`.
+* **Mode**: tipo di enumerazione che specifica se la richiesta di richiesta HTTP gRPC `Content-Type` è `application/grpc-web` o `application/grpc-web-text`.
+    * `GrpcWebMode.GrpcWeb` configura il contenuto da inviare senza codifica. Valore predefinito.
+    * `GrpcWebMode.GrpcWebText` configura il contenuto con codifica Base64. Obbligatorio per le chiamate di streaming del server nei browser.
+* **HttpVersion**: il protocollo http `Version` usato per impostare [HttpRequestMessage. Version](xref:System.Net.Http.HttpRequestMessage.Version) sulla richiesta http gRPC sottostante. gRPC-Web non richiede una versione specifica e non esegue l'override dell'impostazione predefinita, a meno che non sia specificato.
+
+> [!IMPORTANT]
+> I client gRPC generati hanno metodi Sync e Async per la chiamata di metodi unaria. Ad esempio, `SayHello` è Sync e `SayHelloAsync` è Async. La chiamata di un metodo di sincronizzazione in un'app webassembly Blaze provocherà la mancata risposta dell'app. I metodi asincroni devono essere sempre usati in un webassembly blazer.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

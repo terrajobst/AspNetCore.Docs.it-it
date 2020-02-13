@@ -5,12 +5,12 @@ description: Scoprire come aggiungere classi per la gestione dei film in un data
 ms.author: riande
 ms.date: 12/05/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 9d9266ae08c7abe747d4497bbcf52778cf2e370e
-ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
+ms.openlocfilehash: d2f9a64c77d76702004b94cdf36e558b33d7e19a
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76268762"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77172566"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Aggiungere un modello a un'app Razor Pages in ASP.NET Core
 
@@ -38,8 +38,8 @@ Fare clic con il pulsante destro del mouse sulla cartella *Models*. Selezionare 
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-* Aggiungere una cartella denominata *Modelli*.
-* Aggiungere una classe alla cartella *Modello* denominata *Movie.cs*.
+* Aggiungere una cartella denominata *Models*.
+* Aggiungere una classe alla cartella *Models* denominata *Movie.cs*.
 
 [!INCLUDE [model 1b](~/includes/RP/model1b.md)]
 
@@ -49,11 +49,11 @@ Fare clic con il pulsante destro del mouse sulla cartella *Models*. Selezionare 
 
 * In riquadro della soluzione fare clic con il pulsante destro del mouse sul progetto **RazorPagesMovie** , quindi scegliere **Aggiungi** > **nuova cartella...** . Assegnare un nome ai *modelli*di cartella.
 * Fare clic con il pulsante destro del mouse sulla cartella *Models* , quindi scegliere **Aggiungi** > **nuovo file...** .
-* Nel finestra di dialogo **Nuovo file**:
+* Nella finestra di dialogo **Nuovo file**:
 
   * Selezionare **Generale** nel riquadro a sinistra.
   * Selezionare **Classe vuota** nel riquadro centrale.
-  * Denominare la classe **Filmato** e selezionare **Nuovo**.
+  * Denominare la classe **Movie** e selezionare **Nuovo**.
 
 [!INCLUDE [model 1b](~/includes/RP/model1b.md)]
 
@@ -61,9 +61,9 @@ Fare clic con il pulsante destro del mouse sulla cartella *Models*. Selezionare 
 
 Compilare il progetto per verificare che non siano presenti errori di compilazione.
 
-## <a name="scaffold-the-movie-model"></a>Eseguire lo scaffolding del modello di filmato
+## <a name="scaffold-the-movie-model"></a>Eseguire lo scaffolding del modello *Movie*
 
-In questa sezione viene eseguito lo scaffolding del modello *Movie*. Lo strumento di scaffolding crea quindi le pagine per le operazioni CRUD (creazione, lettura, aggiornamento ed eliminazione) per il modello *Movie*.
+In questa sezione viene eseguito lo scaffolding del modello *Movie*. Lo strumento di scaffolding crea quindi le pagine per le operazioni CRUD (creazione, lettura, aggiornamento ed eliminazione) per il modello di filmato.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -84,7 +84,7 @@ Completare la finestra di dialogo **Pagine Razor che usano Entity Framework (CRU
 
 * Nel menu a discesa **Classe modello** selezionare **Movie (RazorPagesMovie.Models)** .
 * Nella riga **Classe contesto di dati** selezionare il segno più **+** e modificare il nome generato da RazorPagesMovie.**Models**.RazorPagesMovieContext a RazorPagesMovie.**Data**.RazorPagesMovieContext. [Questa modifica](https://developercommunity.visualstudio.com/content/problem/652166/aspnet-core-ef-scaffolder-uses-incorrect-namespace.html) non è obbligatoria. Crea la classe del contesto di database con lo spazio dei nomi corretto.
-* Selezionare **Aggiungi**.
+* Fare clic su **Aggiungi**.
 
 ![Immagine relativa alle istruzioni precedenti.](model/_static/3/arp.png)
 
@@ -138,7 +138,7 @@ Completare la finestra di dialogo **Pagine Razor che usano Entity Framework (CRU
 
 * Nell'elenco a discesa **classe modello** selezionare o digitare **Movie (RazorPagesMovie. Models)** .
 * Nella riga della **classe del contesto dati** Digitare il nome della nuova classe, RazorPagesMovie. **Dati**. RazorPagesMovieContext. [Questa modifica](https://developercommunity.visualstudio.com/content/problem/652166/aspnet-core-ef-scaffolder-uses-incorrect-namespace.html) non è obbligatoria. Crea la classe del contesto di database con lo spazio dei nomi corretto.
-* Selezionare **Aggiungi**.
+* Fare clic su **Aggiungi**.
 
 ![Immagine relativa alle istruzioni precedenti.](model/_static/arpMac.png)
 
@@ -165,7 +165,7 @@ Il processo di scaffolding crea e aggiorna i file seguenti:
 * *Pages/Movies*: pagine Create (Crea), Delete (Elimina), Details (Dettagli), Edit (Modifica) e Index (Indice).
 * *Data/RazorPagesMovieContext.cs*
 
-### <a name="updated"></a>File aggiornati
+### <a name="updated"></a>Updated
 
 * *Startup.cs*
 
@@ -178,7 +178,7 @@ Il processo di scaffolding crea e aggiorna i file seguenti:
 * *Pages/Movies*: pagine Create (Crea), Delete (Elimina), Details (Dettagli), Edit (Modifica) e Index (Indice).
 * *Data/RazorPagesMovieContext.cs*
 
-### <a name="updated"></a>File aggiornati
+### <a name="updated"></a>Updated
 
 * *Startup.cs*
 
@@ -209,9 +209,9 @@ Dal menu **strumenti** selezionare **gestione pacchetti NuGet** > console di **G
 
   ![Menu della Console di Gestione pacchetti](../first-mvc-app/adding-model/_static/pmc.png)
 
-Nella Console di Gestione pacchetti immettere i comandi seguenti:
+In PMC, immettere i comandi seguenti:
 
-```PMC
+```powershell
 Add-Migration InitialCreate
 Update-Database
 ```
@@ -238,7 +238,7 @@ Il comando `update` esegue il `Up` metodo nelle migrazioni che non sono state ap
 
 ### <a name="examine-the-context-registered-with-dependency-injection"></a>Esaminare il contesto registrato con l'inserimento di dipendenze
 
-ASP.NET Core viene compilato tramite [dependency injection](xref:fundamentals/dependency-injection). I servizi, ad esempio il contesto di database di Entity Framework Core, vengono registrati tramite dependency injection durante l'avvio dell'applicazione. Questi servizi vengono quindi offerti ai componenti per cui sono necessari (ad esempio Razor Pages) tramite i parametri del costruttore. Più avanti nell'esercitazione viene illustrato il codice del costruttore che ottiene un'istanza del contesto di database.
+ASP.NET Core viene compilato con l'[inserimento di dipendenze](xref:fundamentals/dependency-injection). I servizi, ad esempio il contesto di database di Entity Framework Core, vengono registrati con l'inserimento delle dipendenze durante l'avvio dell'applicazione. Questi servizi vengono quindi offerti ai componenti per cui sono necessari (ad esempio Razor Pages) tramite i parametri del costruttore. Più avanti nell'esercitazione viene illustrato il codice del costruttore che ottiene un'istanza del contesto di database.
 
 Lo strumento di scaffolding ha creato automaticamente un contesto del database e lo ha registrato per la dependency injection.
 
@@ -266,7 +266,7 @@ Esaminare il metodo `Up`.
 
 <a name="test"></a>
 
-### <a name="test-the-app"></a>Eseguire il test dell'app
+### <a name="test-the-app"></a>Testare l'app
 
 * Eseguire l'app e accodare `/Movies` all'URL nel browser (`http://localhost:port/movies`).
 
@@ -284,11 +284,11 @@ Non è stato eseguita la [migrazione](#pmc).
   ![Pagina Create](model/_static/conan.png)
 
   > [!NOTE]
-  > Potrebbe non essere possibile immettere virgole decimali nel campo `Price`. Per supportare la [convalida jQuery](https://jqueryvalidation.org/) per impostazioni locali diverse dall'inglese che usano la virgola (",") come separatore decimale e per formati di data diversi da quello dell'inglese (Stati Uniti), è necessario localizzare l'app. Per istruzioni sulla globalizzazione, vedere [questo problema su GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420).
+  > Potrebbe non essere possibile immettere virgole decimali nel campo `Price`. Per supportare la [convalida jQuery](https://jqueryvalidation.org/) per impostazioni locali diverse dall'inglese che usano la virgola (",") come separatore decimale e per formati di data diversi da quello dell'inglese (Stati Uniti), è necessario localizzare l'app. Per istruzioni sulla localizzazione, vedere [questo problema su GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420).
 
-* Eseguire il test dei collegamenti **Modifica**, **Dettagli** e **Elimina**.
+* Testare i collegamenti **Modifica**, **Dettagli** ed **Elimina**.
 
-L'esercitazione successiva illustra i file creati tramite scaffolding.
+L'esercitazione successiva illustra i file creati dallo scaffolding.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
@@ -319,8 +319,8 @@ Fare clic con il pulsante destro del mouse sulla cartella *Models*. Selezionare 
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-* Aggiungere una cartella denominata *Modelli*.
-* Aggiungere una classe alla cartella *Modello* denominata *Movie.cs*.
+* Aggiungere una cartella denominata *Models*.
+* Aggiungere una classe alla cartella *Models* denominata *Movie.cs*.
 
 [!INCLUDE [model 1b](~/includes/RP/model1b.md)]
 
@@ -330,11 +330,11 @@ Fare clic con il pulsante destro del mouse sulla cartella *Models*. Selezionare 
 
 * In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **RazorPagesMovie**, quindi selezionare **Aggiungi** > **Nuova cartella**. Assegnare il nome *Models* alla cartella.
 * Fare clic con il pulsante destro del mouse sulla cartella *Models* , quindi scegliere **Aggiungi** > **nuovo file**.
-* Nel finestra di dialogo **Nuovo file**:
+* Nella finestra di dialogo **Nuovo file**:
 
   * Selezionare **Generale** nel riquadro a sinistra.
   * Selezionare **Classe vuota** nel riquadro centrale.
-  * Denominare la classe **Filmato** e selezionare **Nuovo**.
+  * Denominare la classe **Movie** e selezionare **Nuovo**.
 
 [!INCLUDE [model 1b](~/includes/RP/model1b.md)]
 
@@ -342,9 +342,9 @@ Fare clic con il pulsante destro del mouse sulla cartella *Models*. Selezionare 
 
 Compilare il progetto per verificare che non siano presenti errori di compilazione.
 
-## <a name="scaffold-the-movie-model"></a>Eseguire lo scaffolding del modello di filmato
+## <a name="scaffold-the-movie-model"></a>Eseguire lo scaffolding del modello *Movie*
 
-In questa sezione viene eseguito lo scaffolding del modello *Movie*. Lo strumento di scaffolding crea quindi le pagine per le operazioni CRUD (creazione, lettura, aggiornamento ed eliminazione) per il modello *Movie*.
+In questa sezione viene eseguito lo scaffolding del modello *Movie*. Lo strumento di scaffolding crea quindi le pagine per le operazioni CRUD (creazione, lettura, aggiornamento ed eliminazione) per il modello di filmato.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -369,7 +369,7 @@ to use Data, it should not use models. That will make the namespace the same for
 
 * Nel menu a discesa **Classe modello** selezionare **Movie (RazorPagesMovie.Models)** .
 * Nella riga **Classe contesto di dati** selezionare il segno più **+** e accettare il nome generato **RazorPagesMovie.Models.RazorPagesMovieContext**.
-* Selezionare **Aggiungi**.
+* Fare clic su **Aggiungi**.
 
 ![Immagine relativa alle istruzioni precedenti.](model/_static/arp.png)
 
@@ -415,7 +415,7 @@ Completare la finestra di dialogo **Pagine Razor che usano Entity Framework (CRU
 
 * Nell'elenco a discesa **classe modello** selezionare o digitare **Movie**.
 * Nella riga della **classe del contesto dati** Digitare select the **RazorPagesMovieContext** . verrà creata una nuova classe del contesto DB con lo spazio dei nomi corretto. In questo caso sarà **RazorPagesMovie. Models. RazorPagesMovieContext**.
-* Selezionare **Aggiungi**.
+* Fare clic su **Aggiungi**.
 
 ![Immagine relativa alle istruzioni precedenti.](model/_static/arpMac.png)
 
@@ -451,14 +451,14 @@ Dal menu **strumenti** selezionare **gestione pacchetti NuGet** > console di **G
 
   ![Menu della Console di Gestione pacchetti](../first-mvc-app/adding-model/_static/pmc.png)
 
-Nella Console di Gestione pacchetti immettere i comandi seguenti:
+In PMC, immettere i comandi seguenti:
 
-```Powershell
+```powershell
 Add-Migration Initial
 Update-Database
 ```
 
-Il comando `Add-Migration` genera un codice per creare lo schema del database iniziale. Lo schema è basato sul modello specificato in `DbContext` (nel file *RazorPagesMovieContext.cs*). L'argomento `InitialCreate` viene usato per assegnare un nome alla migrazione. È possibile usare qualsiasi nome, ma per convenzione viene usato un nome che descrive la migrazione. Per ulteriori informazioni, vedere <xref:data/ef-mvc/migrations>.
+Il comando `Add-Migration` genera un codice per creare lo schema del database iniziale. Lo schema è basato sul modello specificato in `DbContext` (nel file *RazorPagesMovieContext.cs*). L'argomento `InitialCreate` viene usato per assegnare un nome alla migrazione. È possibile usare qualsiasi nome, ma per convenzione viene usato un nome che descrive la migrazione. Per altre informazioni, vedere <xref:data/ef-mvc/migrations>.
 
 Il comando `Update-Database` esegue il metodo `Up` nel file *Migrations/\<time-stamp>_InitialCreate.cs*. Il metodo `Up` crea il database.
 
@@ -478,7 +478,7 @@ Il comando `Update-Database` esegue il metodo `Up` nel file *Migrations/\<time-s
 
 ### <a name="examine-the-context-registered-with-dependency-injection"></a>Esaminare il contesto registrato con l'inserimento di dipendenze
 
-ASP.NET Core viene compilato tramite [dependency injection](xref:fundamentals/dependency-injection). I servizi, ad esempio il contesto di database di Entity Framework Core, vengono registrati tramite dependency injection durante l'avvio dell'applicazione. Questi servizi vengono quindi offerti ai componenti per cui sono necessari (ad esempio Razor Pages) tramite i parametri del costruttore. Più avanti nell'esercitazione viene illustrato il codice del costruttore che ottiene un'istanza del contesto di database.
+ASP.NET Core viene compilato con l'[inserimento di dipendenze](xref:fundamentals/dependency-injection). I servizi, ad esempio il contesto di database di Entity Framework Core, vengono registrati con l'inserimento delle dipendenze durante l'avvio dell'applicazione. Questi servizi vengono quindi offerti ai componenti per cui sono necessari (ad esempio Razor Pages) tramite i parametri del costruttore. Più avanti nell'esercitazione viene illustrato il codice del costruttore che ottiene un'istanza del contesto di database.
 
 Lo strumento di scaffolding ha creato automaticamente un contesto del database e lo ha registrato per la dependency injection.
 
@@ -506,7 +506,7 @@ Esaminare il metodo `Up`.
 
 <a name="test"></a>
 
-### <a name="test-the-app"></a>Eseguire il test dell'app
+### <a name="test-the-app"></a>Testare l'app
 
 * Eseguire l'app e accodare `/Movies` all'URL nel browser (`http://localhost:port/movies`).
 
@@ -524,11 +524,11 @@ Non è stato eseguita la [migrazione](#pmc).
   ![Pagina Create](model/_static/conan.png)
 
   > [!NOTE]
-  > Potrebbe non essere possibile immettere virgole decimali nel campo `Price`. Per supportare la [convalida jQuery](https://jqueryvalidation.org/) per impostazioni locali diverse dall'inglese che usano la virgola (",") come separatore decimale e per formati di data diversi da quello dell'inglese (Stati Uniti), è necessario localizzare l'app. Per istruzioni sulla globalizzazione, vedere [questo problema su GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420).
+  > Potrebbe non essere possibile immettere virgole decimali nel campo `Price`. Per supportare la [convalida jQuery](https://jqueryvalidation.org/) per impostazioni locali diverse dall'inglese che usano la virgola (",") come separatore decimale e per formati di data diversi da quello dell'inglese (Stati Uniti), è necessario localizzare l'app. Per istruzioni sulla localizzazione, vedere [questo problema su GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420).
 
-* Eseguire il test dei collegamenti **Modifica**, **Dettagli** e **Elimina**.
+* Testare i collegamenti **Modifica**, **Dettagli** ed **Elimina**.
 
-L'esercitazione successiva illustra i file creati tramite scaffolding.
+L'esercitazione successiva illustra i file creati dallo scaffolding.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

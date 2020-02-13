@@ -5,12 +5,12 @@ description: Illustra come aggiungere la funzionalità di ricerca a un'app ASP.N
 ms.author: riande
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/search
-ms.openlocfilehash: 97ee5f66c142780d54d28013c109da61241d967b
-ms.sourcegitcommit: 2719c70cd15a430479ab4007ff3e197fbf5dfee0
-ms.translationtype: HT
+ms.openlocfilehash: 89f1fa84783430f160ca0b840bf7ae9699520cb7
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68862951"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77171641"
 ---
 # <a name="add-search-to-an-aspnet-core-mvc-app"></a>Aggiungere la funzionalità di ricerca a un'app ASP.NET Core MVC
 
@@ -37,9 +37,9 @@ Se il parametro `searchString` contiene una stringa, la query dei film viene mod
 
 Il codice `s => s.Title.Contains()` precedente è un'[espressione lambda](/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions). Le espressioni lambda vengono usate nelle query [LINQ](/dotnet/standard/using-linq) basate sul metodo come argomenti dei metodi di operatori di query standard, quali il metodo [Where](/dotnet/api/system.linq.enumerable.where) o `Contains` (usato nel codice precedente). Le query LINQ non vengono eseguite al momento della definizione o della modifica chiamando un metodo quale `Where`, `Contains` o `OrderBy`. L'esecuzione della query viene invece posticipata.  Per esecuzione posticipata si intende che la valutazione di un'espressione viene ritardata finché non viene eseguita l'iterazione del valore o non viene chiamato il metodo `ToListAsync`. Per altre informazioni sull'esecuzione posticipata di query, vedere [Esecuzione di query](/dotnet/framework/data/adonet/ef/language-reference/query-execution).
 
-Nota: il metodo [Contains](/dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) viene eseguito nel database, non nel codice C# illustrato in precedenza. La distinzione tra maiuscole/minuscole nella query dipende dal database e dalle regole di confronto. In SQL Server, [Contains](/dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) esegue il mapping a [SQL LIKE](/sql/t-sql/language-elements/like-transact-sql), che fa distinzione tra maiuscole e minuscole. In SQLite, con le regole di confronto predefinite si fa distinzione tra maiuscole e minuscole.
+Nota: il metodo [Contains](/dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) viene eseguito sul database, non nel codice C# indicato in precedenza. La distinzione tra maiuscole/minuscole nella query dipende dal database e dalle regole di confronto. In SQL Server, [Contains](/dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) esegue il mapping a [SQL LIKE](/sql/t-sql/language-elements/like-transact-sql), che fa distinzione tra maiuscole e minuscole. In SQLite, con le regole di confronto predefinite si fa distinzione tra maiuscole e minuscole.
 
-Passare a `/Movies/Index`. Accodare una stringa di query, ad esempio `?searchString=Ghost`, all'URL. Vengono visualizzati i film filtrati.
+Accedere a `/Movies/Index`. Accodare una stringa di query, ad esempio `?searchString=Ghost`, all'URL. Vengono visualizzati i film filtrati.
 
 ![Vista Index](~/tutorials/first-mvc-app/search/_static/ghost.png)
 
@@ -73,7 +73,7 @@ Il tag `<form>` HTML usa l'[helper tag del modulo](xref:mvc/views/working-with-f
 
 ![Vista Index con la parola ghost digitata nella casella di testo del filtro del titolo](~/tutorials/first-mvc-app/search/_static/filter.png)
 
-Non è presente alcun overload del metodo `[HttpPost]` `Index` come previsto. Non è necessario perché il metodo non modifica lo stato dell'app, ma filtra solo i dati.
+Non è presente alcun overload del metodo `[HttpPost]``Index` come previsto. Non è necessario perché il metodo non modifica lo stato dell'app, ma filtra solo i dati.
 
 È possibile aggiungere il metodo `[HttpPost] Index` seguente.
 
@@ -101,9 +101,9 @@ A questo punto quando si invia una ricerca, l'URL contiene la stringa di query d
 
 Il markup seguente mostra la modifica al tag `form`:
 
-```html
+```cshtml
 <form asp-controller="Movies" asp-action="Index" method="get">
-   ```
+```
 
 ## <a name="add-search-by-genre"></a>Aggiungere la funzionalità di ricerca in base al genere
 

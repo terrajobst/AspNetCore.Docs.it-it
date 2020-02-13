@@ -5,14 +5,14 @@ description: Come usare l'associazione del modello e lo streaming per caricare i
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/04/2019
+ms.date: 02/11/2020
 uid: mvc/models/file-uploads
-ms.openlocfilehash: b5433576ff3e997e6d80201236be2d8463a52d07
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 56fd26c1864089558f5cd89f693dc86ea30c3331
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829231"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77172465"
 ---
 # <a name="upload-files-in-aspnet-core"></a>Caricare file in ASP.NET Core
 
@@ -24,7 +24,7 @@ ASP.NET Core supporta il caricamento di uno o più file mediante l'associazione 
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
 
-## <a name="security-considerations"></a>Considerazioni sulla sicurezza
+## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
 
 Prestare attenzione quando si fornisce agli utenti la possibilità di caricare file in un server. Gli utenti malintenzionati possono tentare di:
 
@@ -64,7 +64,7 @@ Per ulteriori informazioni sull'implementazione di misure di sicurezza, inclusi 
 
 Le opzioni di archiviazione comuni per i file includono:
 
-* Database di
+* Database
 
   * Per i caricamenti di file di piccole dimensioni, un database è spesso più veloce rispetto alle opzioni di archiviazione fisica (file system o condivisione di rete).
   * Un database è spesso più pratico delle opzioni di archiviazione fisica perché il recupero di un record di database per i dati utente può fornire simultaneamente il contenuto del file, ad esempio un'immagine avatar.
@@ -83,7 +83,7 @@ Le opzioni di archiviazione comuni per i file includono:
   * I servizi in genere offrono una maggiore scalabilità e resilienza rispetto a soluzioni locali che in genere sono soggette a singoli punti di errore.
   * I servizi sono un costo potenzialmente inferiore in scenari di infrastruttura di archiviazione di grandi dimensioni.
 
-  Per altre informazioni, vedere [Guida introduttiva: usare .NET per creare un BLOB nell'archivio oggetti](/azure/storage/blobs/storage-quickstart-blobs-dotnet). Nell'argomento viene illustrato <xref:Microsoft.Azure.Storage.File.CloudFile.UploadFromFileAsync*>, ma è possibile utilizzare <xref:Microsoft.Azure.Storage.File.CloudFile.UploadFromStreamAsync*> per salvare un <xref:System.IO.FileStream> nell'archiviazione BLOB quando si utilizza un <xref:System.IO.Stream>.
+  Per altre informazioni, vedere [Guida introduttiva: usare .NET per creare un BLOB nell'archivio oggetti](/azure/storage/blobs/storage-quickstart-blobs-dotnet).
 
 ## <a name="file-upload-scenarios"></a>Scenari di caricamento di file
 
@@ -103,7 +103,7 @@ Il buffering di file di piccole dimensioni viene trattato nelle sezioni seguenti
 * [Archiviazione fisica](#upload-small-files-with-buffered-model-binding-to-physical-storage)
 * [Database](#upload-small-files-with-buffered-model-binding-to-a-database)
 
-**Flusso**
+**Streaming**
 
 Il file viene ricevuto da una richiesta multipart ed elaborato o salvato direttamente dall'app. Il flusso non migliora significativamente le prestazioni. Il flusso riduce le richieste di memoria o di spazio su disco durante il caricamento dei file.
 
@@ -183,7 +183,7 @@ L'esempio seguente è analogo all'esempio precedente, ad eccezione del fatto che
 Per eseguire il POST del form in JavaScript per i client che [non supportano l'API fetch](https://caniuse.com/#feat=fetch), usare uno degli approcci seguenti:
 
 * Usare un riempimento di recupero (ad esempio, [Window. fetch Refill (github/fetch)](https://github.com/github/fetch)).
-* Usare `XMLHttpRequest`. Ad esempio:
+* Usare `XMLHttpRequest`. Ad esempio,
 
   ```javascript
   <script>
@@ -228,7 +228,7 @@ Affinché un `files` elemento input supporti il caricamento di più file, fornir
 >
 > Gli esempi forniti finora non prendono in considerazione le considerazioni sulla sicurezza. Le informazioni aggiuntive sono fornite nelle sezioni seguenti e nell' [app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/):
 >
-> * [Considerazioni sulla sicurezza](#security-considerations)
+> * [Considerazioni relative alla sicurezza](#security-considerations)
 > * [Convalida](#validation)
 
 Quando si caricano file usando l'associazione di modelli e <xref:Microsoft.AspNetCore.Http.IFormFile>, il metodo di azione può accettare:
@@ -399,7 +399,7 @@ L'esempio precedente è simile a uno scenario illustrato nell'app di esempio:
 >
 > Gli esempi forniti non prendono in considerazione le considerazioni sulla sicurezza. Le informazioni aggiuntive sono fornite nelle sezioni seguenti e nell' [app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/):
 >
-> * [Considerazioni sulla sicurezza](#security-considerations)
+> * [Considerazioni relative alla sicurezza](#security-considerations)
 > * [Convalida](#validation)
 
 ### <a name="upload-large-files-with-streaming"></a>Caricare file di grandi dimensioni con flusso
@@ -448,7 +448,7 @@ La classe di `FileHelpers` dell'app di esempio illustra diversi controlli per i 
 >
 > **Non implementare mai indiscriminatamente il codice di sicurezza in un'app senza soddisfare questi requisiti.**
 
-### <a name="content-validation"></a>Convalida contenuto
+### <a name="content-validation"></a>Convalida del contenuto
 
 **Usare un'API di analisi di virus/malware di terze parti nel contenuto caricato.**
 
@@ -456,7 +456,7 @@ L'analisi dei file richiede le risorse del server in scenari con volumi elevati.
 
 ### <a name="file-extension-validation"></a>Convalida dell'estensione di file
 
-L'estensione del file caricato deve essere verificata rispetto a un elenco di estensioni consentite. Ad esempio:
+L'estensione del file caricato deve essere verificata rispetto a un elenco di estensioni consentite. Ad esempio,
 
 ```csharp
 private string[] permittedExtensions = { ".txt", ".pdf" };
@@ -718,7 +718,7 @@ Questa impostazione si applica solo a IIS. Il comportamento non si verifica per 
 
 Le limitazioni del modulo ASP.NET Core o della presenza del modulo filtro richieste IIS possono limitare il caricamento a 2 o 4 GB. Per altre informazioni, vedere [non è possibile caricare file di dimensioni superiori a 2 GB (DotNet/AspNetCore #2711)](https://github.com/dotnet/AspNetCore/issues/2711).
 
-## <a name="troubleshoot"></a>Risolvere i problemi
+## <a name="troubleshoot"></a>Risoluzione dei problemi
 
 Di seguito sono trattati alcuni problemi comuni riscontrati durante il caricamento di file, con le soluzioni possibili corrispondenti.
 
@@ -753,7 +753,7 @@ ASP.NET Core supporta il caricamento di uno o più file mediante l'associazione 
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
 
-## <a name="security-considerations"></a>Considerazioni sulla sicurezza
+## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
 
 Prestare attenzione quando si fornisce agli utenti la possibilità di caricare file in un server. Gli utenti malintenzionati possono tentare di:
 
@@ -793,7 +793,7 @@ Per ulteriori informazioni sull'implementazione di misure di sicurezza, inclusi 
 
 Le opzioni di archiviazione comuni per i file includono:
 
-* Database di
+* Database
 
   * Per i caricamenti di file di piccole dimensioni, un database è spesso più veloce rispetto alle opzioni di archiviazione fisica (file system o condivisione di rete).
   * Un database è spesso più pratico delle opzioni di archiviazione fisica perché il recupero di un record di database per i dati utente può fornire simultaneamente il contenuto del file, ad esempio un'immagine avatar.
@@ -832,7 +832,7 @@ Il buffering di file di piccole dimensioni viene trattato nelle sezioni seguenti
 * [Archiviazione fisica](#upload-small-files-with-buffered-model-binding-to-physical-storage)
 * [Database](#upload-small-files-with-buffered-model-binding-to-a-database)
 
-**Flusso**
+**Streaming**
 
 Il file viene ricevuto da una richiesta multipart ed elaborato o salvato direttamente dall'app. Il flusso non migliora significativamente le prestazioni. Il flusso riduce le richieste di memoria o di spazio su disco durante il caricamento dei file.
 
@@ -912,7 +912,7 @@ L'esempio seguente è analogo all'esempio precedente, ad eccezione del fatto che
 Per eseguire il POST del form in JavaScript per i client che [non supportano l'API fetch](https://caniuse.com/#feat=fetch), usare uno degli approcci seguenti:
 
 * Usare un riempimento di recupero (ad esempio, [Window. fetch Refill (github/fetch)](https://github.com/github/fetch)).
-* Usare `XMLHttpRequest`. Ad esempio:
+* Usare `XMLHttpRequest`. Ad esempio,
 
   ```javascript
   <script>
@@ -957,7 +957,7 @@ Affinché un `files` elemento input supporti il caricamento di più file, fornir
 >
 > Gli esempi forniti finora non prendono in considerazione le considerazioni sulla sicurezza. Le informazioni aggiuntive sono fornite nelle sezioni seguenti e nell' [app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/):
 >
-> * [Considerazioni sulla sicurezza](#security-considerations)
+> * [Considerazioni relative alla sicurezza](#security-considerations)
 > * [Convalida](#validation)
 
 Quando si caricano file usando l'associazione di modelli e <xref:Microsoft.AspNetCore.Http.IFormFile>, il metodo di azione può accettare:
@@ -1128,7 +1128,7 @@ L'esempio precedente è simile a uno scenario illustrato nell'app di esempio:
 >
 > Gli esempi forniti non prendono in considerazione le considerazioni sulla sicurezza. Le informazioni aggiuntive sono fornite nelle sezioni seguenti e nell' [app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/):
 >
-> * [Considerazioni sulla sicurezza](#security-considerations)
+> * [Considerazioni relative alla sicurezza](#security-considerations)
 > * [Convalida](#validation)
 
 ### <a name="upload-large-files-with-streaming"></a>Caricare file di grandi dimensioni con flusso
@@ -1177,7 +1177,7 @@ La classe di `FileHelpers` dell'app di esempio illustra diversi controlli per i 
 >
 > **Non implementare mai indiscriminatamente il codice di sicurezza in un'app senza soddisfare questi requisiti.**
 
-### <a name="content-validation"></a>Convalida contenuto
+### <a name="content-validation"></a>Convalida del contenuto
 
 **Usare un'API di analisi di virus/malware di terze parti nel contenuto caricato.**
 
@@ -1185,7 +1185,7 @@ L'analisi dei file richiede le risorse del server in scenari con volumi elevati.
 
 ### <a name="file-extension-validation"></a>Convalida dell'estensione di file
 
-L'estensione del file caricato deve essere verificata rispetto a un elenco di estensioni consentite. Ad esempio:
+L'estensione del file caricato deve essere verificata rispetto a un elenco di estensioni consentite. Ad esempio,
 
 ```csharp
 private string[] permittedExtensions = { ".txt", ".pdf" };
@@ -1440,7 +1440,7 @@ Questa impostazione si applica solo a IIS. Il comportamento non si verifica per 
 
 Le limitazioni del modulo ASP.NET Core o della presenza del modulo filtro richieste IIS possono limitare il caricamento a 2 o 4 GB. Per altre informazioni, vedere [non è possibile caricare file di dimensioni superiori a 2 GB (DotNet/AspNetCore #2711)](https://github.com/dotnet/AspNetCore/issues/2711).
 
-## <a name="troubleshoot"></a>Risolvere i problemi
+## <a name="troubleshoot"></a>Risoluzione dei problemi
 
 Di seguito sono trattati alcuni problemi comuni riscontrati durante il caricamento di file, con le soluzioni possibili corrispondenti.
 

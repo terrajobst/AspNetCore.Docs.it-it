@@ -1,42 +1,42 @@
 ---
-title: Evitare il Cross-Site Scripting (XSS) in ASP.NET Core
+title: Impedisci l'esecuzione di script tra siti (XSS) in ASP.NET Core
 author: rick-anderson
-description: Informazioni su Cross-Site Scripting (XSS) e le tecniche per risolvere questa vulnerabilità in un'app ASP.NET Core.
+description: Informazioni sulle tecniche e sugli script tra siti (XSS) per risolvere questa vulnerabilità in un'app ASP.NET Core.
 ms.author: riande
 ms.date: 10/02/2018
 uid: security/cross-site-scripting
-ms.openlocfilehash: 1e9e988be68313cfd493832519c1be89335d6e48
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 1d6f605dc336d8768b8a47e4995f119d198a61af
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815214"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77172640"
 ---
-# <a name="prevent-cross-site-scripting-xss-in-aspnet-core"></a>Evitare il Cross-Site Scripting (XSS) in ASP.NET Core
+# <a name="prevent-cross-site-scripting-xss-in-aspnet-core"></a>Impedisci l'esecuzione di script tra siti (XSS) in ASP.NET Core
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Cross-Site Scripting (XSS) è una vulnerabilità di sicurezza che consente a un utente malintenzionato di inserire gli script sul lato client (in genere JavaScript) in pagine web. Quando altri utenti caricare pagine interessate verranno eseguiti script non autorizzato, consentendo all'utente malintenzionato di impadronirsi di cookie e token di sessione, modificare il contenuto della pagina web mediante modifica DOM o reindirizzare il browser a un'altra pagina. Le vulnerabilità XSS, in genere, vengono eseguiti quando un'applicazione accetta input dell'utente e lo invia a una pagina senza la convalida, la codifica o facendola.
+Il cross-site scripting (XSS) è una vulnerabilità della sicurezza che consente a un utente malintenzionato di inserire gli script sul lato client (in genere JavaScript) nelle pagine Web. Quando gli altri utenti caricano pagine interessate, gli script dell'utente malintenzionato vengono eseguiti, consentendo all'autore dell'attacco di rubare cookie e token di sessione, modificare il contenuto della pagina Web tramite la manipolazione DOM o reindirizzare il browser a un'altra pagina. In genere, le vulnerabilità XSS si verificano quando un'applicazione accetta l'input dell'utente e la restituisce a una pagina senza convalidare, codificare o eseguire l'escape.
 
-## <a name="protecting-your-application-against-xss"></a>Proteggere l'applicazione da XSS
+## <a name="protecting-your-application-against-xss"></a>Protezione dell'applicazione da XSS
 
-AT un XSS a livello di base funziona inducendo dell'applicazione nell'inserimento di un `<script>` tag nella pagina sottoposta a rendering, o inserendo un `On*` evento in un elemento. Gli sviluppatori utilizzino la seguente procedura di prevenzione per evitare l'introduzione di XSS nelle proprie applicazioni.
+A un livello di base XSS funziona facendo in modo che l'applicazione inserisca un tag `<script>` nella pagina di cui è stato eseguito il rendering oppure inserendo un evento `On*` in un elemento. Per evitare di introdurre XSS nella propria applicazione, gli sviluppatori devono utilizzare i seguenti passaggi di prevenzione.
 
-1. Non inserire mai i dati non attendibili nell'input HTML, a meno che non si seguono il resto dei passaggi seguenti. Dati non attendibili sono tutti i dati che possono essere controllati da un utente malintenzionato, gli input dei moduli HTML, le stringhe di query, intestazioni HTTP, persino i dati originati da un database come un utente malintenzionato potrebbe essere in grado di violare il database anche se essi non è una violazione dell'applicazione.
+1. Non inserire mai i dati non attendibili nell'input HTML, a meno che non si segua il resto dei passaggi riportati di seguito. I dati non attendibili sono i dati che possono essere controllati da un utente malintenzionato, input di form HTML, stringhe di query, intestazioni HTTP, persino dati originati da un database, perché un utente malintenzionato potrebbe violare il database anche se non è in grado di violare l'applicazione.
 
-2. Prima di inserire i dati non attendibili all'interno di un elemento HTML verificare che sia codificato in formato HTML. La codifica HTML accetta caratteri, ad esempio &lt; e li converte in un formato sicuro, ad esempio &amp;lt;
+2. Prima di inserire dati non attendibili all'interno di un elemento HTML, assicurarsi che sia codificato in HTML. La codifica HTML accetta caratteri come &lt; e li modifica in un formato sicuro come &amp;lt;
 
-3. Prima di inserire i dati non attendibili in un attributo HTML verificare che è codificato in formato HTML. Codifica dell'attributo HTML è un superset di codifica HTML e codifica i caratteri aggiuntivi, ad esempio "e".
+3. Prima di inserire dati non attendibili in un attributo HTML, assicurarsi che sia codificato in HTML. La codifica dell'attributo HTML è un superset della codifica HTML e codifica caratteri aggiuntivi come "and".
 
-4. Prima di inserire i dati non attendibili in JavaScript inserire i dati in un elemento HTML il cui contenuto è recuperare in fase di esecuzione. Se questo non è possibile, quindi verificare che i dati sono con codificata JavaScript. Codifica JavaScript accetta caratteri pericolosi per JavaScript e li sostituisce con loro esadecimale, ad esempio &lt; potrebbe essere codificato come `\u003C`.
+4. Prima di inserire dati non attendibili in JavaScript, inserire i dati in un elemento HTML il cui contenuto viene recuperato in fase di esecuzione. Se ciò non è possibile, assicurarsi che i dati siano codificati in JavaScript. La codifica JavaScript accetta caratteri pericolosi per JavaScript e li sostituisce con la relativa esadecimale, ad esempio &lt; verrebbe codificata come `\u003C`.
 
-5. Prima di inserire i dati non attendibili in una stringa di query URL assicurarsi che è codificato in URL.
+5. Prima di inserire dati non attendibili in una stringa di query URL, assicurarsi che l'URL sia codificato.
 
 ## <a name="html-encoding-using-razor"></a>Codifica HTML con Razor
 
-Il motore di Razor usato automaticamente in MVC consente di codificare tutte output originate dalle variabili, a meno che non lavorare sodo per evitare che in questo modo. Usa le regole di codifica attributi HTML quando si usa la *@* direttiva. HTML codifica dell'attributo è un superset di codifica HTML ciò significa che non è necessario preoccuparsi se sia necessario utilizzare la codifica HTML o codifica dell'attributo HTML. È necessario assicurarsi di utilizzare solo in un contesto HTML, non quando si tenta di inserire input non attendibile direttamente in JavaScript. Gli helper tag verranno inoltre codificare l'input che utilizzare nei parametri di tag.
+Il motore Razor usato in MVC codifica automaticamente tutto l'output originato dalle variabili, a meno che non si lavori molto duramente per impedirlo. Usa le regole di codifica degli attributi HTML quando si usa la direttiva *@* . Poiché la codifica degli attributi HTML è un superset della codifica HTML, questo significa che non è necessario preoccuparsi se è necessario usare la codifica HTML o la codifica degli attributi HTML. È necessario assicurarsi di usare @ solo in un contesto HTML, non quando si tenta di inserire input non attendibile direttamente in JavaScript. Gli helper Tag codificano inoltre l'input usato nei parametri tag.
 
-Richiedere la visualizzazione Razor seguente:
+Prendere in considerazione la visualizzazione Razor seguente:
 
 ```cshtml
 @{
@@ -46,18 +46,18 @@ Richiedere la visualizzazione Razor seguente:
    @untrustedInput
    ```
 
-In questa vista restituisce il contenuto della *untrustedInput* variabile. Questa variabile include alcuni caratteri che vengono utilizzati per gli attacchi XSS, vale a dire &lt;, "e &gt;. Esaminare l'origine Mostra l'output sottoposto a rendering codificato come:
+Questa visualizzazione restituisce il contenuto della variabile *untrustedInput* . Questa variabile include alcuni caratteri usati negli attacchi XSS, in particolare &lt;"e &gt;. L'analisi dell'origine Mostra l'output sottoposto a rendering codificato come:
 
 ```html
 &lt;&quot;123&quot;&gt;
    ```
 
 >[!WARNING]
-> ASP.NET Core MVC offre un `HtmlString` classe che non è con codifica automatica al momento di output. Ciò non deve mai essere usato in combinazione con l'input non attendibile come si esporrà una vulnerabilità XSS.
+> ASP.NET Core MVC fornisce una classe `HtmlString` che non viene codificata automaticamente al momento dell'output. Questa operazione non deve mai essere utilizzata in combinazione con un input non attendibile, in quanto verrà esposta una vulnerabilità XSS.
 
-## <a name="javascript-encoding-using-razor"></a>Codifica di JavaScript con Razor
+## <a name="javascript-encoding-using-razor"></a>Codifica JavaScript con Razor
 
-È possibile che si desidera inserire un valore in JavaScript per l'elaborazione nella propria visualizzazione. È possibile ottenere questo risultato in due modi. Il modo più sicuro per inserire i valori è di inserire il valore in un attributo di dati di un tag e recuperarla in JavaScript. Ad esempio:
+In alcuni casi potrebbe essere necessario inserire un valore in JavaScript da elaborare nella visualizzazione. Questa operazione può essere eseguita in due modi. Il modo più sicuro per inserire valori consiste nell'inserire il valore in un attributo di dati di un tag e recuperarlo nel codice JavaScript. Ad esempio,
 
 ```cshtml
 @{
@@ -85,7 +85,7 @@ In questa vista restituisce il contenuto della *untrustedInput* variabile. Quest
    </script>
    ```
 
-Questo modo verrà generato il codice HTML seguente
+Verrà generato il codice HTML seguente:
 
 ```html
 <div
@@ -107,14 +107,14 @@ Questo modo verrà generato il codice HTML seguente
    </script>
    ```
 
-Che, quando è in esecuzione, verrà visualizzato quanto segue:
+Che, quando viene eseguito, eseguirà il rendering degli elementi seguenti:
 
-```none
+```
 <"123">
    <"123">
-   ```
+```
 
-È inoltre possibile chiamare direttamente il codificatore di JavaScript:
+È anche possibile chiamare direttamente il codificatore JavaScript:
 
 ```cshtml
 @using System.Text.Encodings.Web;
@@ -127,24 +127,24 @@ Che, quando è in esecuzione, verrà visualizzato quanto segue:
    <script>
        document.write("@encoder.Encode(untrustedInput)");
    </script>
-   ```
+```
 
-Questo verrà eseguito il rendering nel browser come indicato di seguito:
+Verrà eseguito il rendering nel browser nel modo seguente:
 
 ```html
 <script>
-       document.write("\u003C\u0022123\u0022\u003E");
-   </script>
-   ```
+    document.write("\u003C\u0022123\u0022\u003E");
+</script>
+```
 
 >[!WARNING]
-> Non concatenare l'input non attendibile in JavaScript per creare gli elementi DOM. È consigliabile usare `createElement()` e assegnare i valori delle proprietà in modo appropriato, ad esempio `node.TextContent=`, oppure utilizzare `element.SetAttribute()` / `element[attribute]=` in caso contrario, si espone al XSS in base al modello DOM.
+> Non concatenare input non attendibile in JavaScript per creare elementi DOM. È consigliabile utilizzare `createElement()` e assegnare i valori di proprietà in modo appropriato, ad esempio `node.TextContent=`, oppure utilizzare `element.SetAttribute()`/`element[attribute]=` altrimenti si esporrà a XSS basati su DOM.
 
-## <a name="accessing-encoders-in-code"></a>L'accesso ai codificatori nel codice
+## <a name="accessing-encoders-in-code"></a>Accesso ai codificatori nel codice
 
-I codificatori HTML, JavaScript e l'URL sono disponibili per il codice in due modi, è possibile inserire tramite [inserimento delle dipendenze](xref:fundamentals/dependency-injection) oppure è possibile usare i codificatori predefinito contenuti nel `System.Text.Encodings.Web` dello spazio dei nomi. Se si usano i codificatori predefinita qualsiasi è applicata a intervalli di caratteri per essere considerato sicuro non avranno effetto: i codificatori predefinito usano le regole di codifica più sicure possibile.
+I codificatori HTML, JavaScript e URL sono disponibili per il codice in due modi, è possibile inserirli tramite l' [inserimento di dipendenze](xref:fundamentals/dependency-injection) oppure è possibile usare i codificatori predefiniti contenuti nello spazio dei nomi `System.Text.Encodings.Web`. Se si usano i codificatori predefiniti, qualsiasi utente applicato agli intervalli di caratteri per essere considerato sicuro non avrà effetto. i codificatori predefiniti utilizzano le regole di codifica più sicure possibili.
 
-Usare i codificatori configurabili tramite l'inserimento delle dipendenze di costruttori devono accettare un *HtmlEncoder*, *JavaScriptEncoder* e *UrlEncoder* parametro come appropriato. Ad esempio;
+Per usare i codificatori configurabili tramite i, i costruttori devono prendere un parametro *HtmlEncoder*, *JavaScriptEncoder* e *UrlEncoder* in base alle esigenze. ad esempio:
 
 ```csharp
 public class HomeController : Controller
@@ -164,43 +164,43 @@ public class HomeController : Controller
    }
    ```
 
-## <a name="encoding-url-parameters"></a>Codifica dei parametri URL
+## <a name="encoding-url-parameters"></a>Parametri URL di codifica
 
-Se si desidera compilare una stringa di query URL con input non attendibile come utilizzare un valore di `UrlEncoder` per codificare il valore. Ad esempio,
+Se si desidera compilare una stringa di query URL con input non attendibile come valore, utilizzare il `UrlEncoder` per codificare il valore. Ad esempio,
 
 ```csharp
 var example = "\"Quoted Value with spaces and &\"";
    var encodedValue = _urlEncoder.Encode(example);
    ```
 
-Dopo la codifica di encodedValue variabile conterrà `%22Quoted%20Value%20with%20spaces%20and%20%26%22`. Gli spazi, offerte, segni di punteggiatura e altri caratteri non sicuri sarà percentuale con codifica per il loro valore esadecimale, ad esempio un carattere di spazio diventerà % 20.
+Dopo la codifica, la variabile valore conterrà `%22Quoted%20Value%20with%20spaces%20and%20%26%22`. Spazi, virgolette, punteggiatura e altri caratteri unsafe verranno codificati in percentuale nel valore esadecimale. ad esempio, un carattere di spazio diventerà %20.
 
 >[!WARNING]
-> Non usare l'input non attendibile come parte di un percorso URL. Passare sempre l'input non attendibile come valore di stringa di query.
+> Non usare input non attendibile come parte di un percorso URL. Passare sempre un input non attendibile come valore stringa di query.
 
 <a name="security-cross-site-scripting-customization"></a>
 
 ## <a name="customizing-the-encoders"></a>Personalizzazione dei codificatori
 
-Per impostazione predefinita i codificatori usano un elenco elementi attendibili limitato all'intervallo Unicode latino di base e codificare tutti i caratteri esterni all'intervallo come gli equivalenti di codice carattere. Questo comportamento influisce anche sul rendering di helper tag Razor e HtmlHelper come userà i codificatori per le stringhe di output.
+Per impostazione predefinita, i codificatori utilizzano un elenco sicuro limitato all'intervallo Unicode Basic Latin e codificano tutti i caratteri al di fuori di tale intervallo come equivalenti del codice carattere. Questo comportamento interessa anche Razor TagHelper e il rendering di HtmlHelper perché utilizzerà i codificatori per restituire le stringhe.
 
-Infatti sono per la protezione da bug del browser sconosciuto o futuro (bug del browser precedenti hanno perché entrano in gioco l'analisi basata sull'elaborazione dei caratteri non inglesi). Se il sito web abbia un uso massiccio di caratteri non latini, ad esempio il cinese, alfabeto cirillico o da altri utenti non si tratta probabilmente il comportamento desiderato.
+Il motivo è quello di proteggersi da bug sconosciuti o futuri (i bug del browser precedenti hanno attivato l'analisi in base all'elaborazione di caratteri non in lingua inglese). Se il sito Web USA in modo intensivo caratteri non latini, come il cinese, il cirillico o altri, probabilmente non è il comportamento desiderato.
 
-È possibile personalizzare gli elenchi sicuri codificatore per includere gli intervalli appropriati per l'applicazione durante l'avvio, in Unicode `ConfigureServices()`.
+È possibile personalizzare gli elenchi di sicurezza del codificatore in modo da includere gli intervalli Unicode appropriati per l'applicazione durante l'avvio, in `ConfigureServices()`.
 
-Ad esempio, tramite la configurazione predefinita è possibile usare un HtmlHelper Razor in questo modo;
+Se ad esempio si usa la configurazione predefinita, è possibile usare un HtmlHelper Razor come segue;
 
 ```html
 <p>This link text is in Chinese: @Html.ActionLink("汉语/漢語", "Index")</p>
    ```
 
-Quando si visualizza l'origine della pagina web verrà visualizzato che al rendering come indicato di seguito, con il testo in cinese codificato.
+Quando si visualizza l'origine della pagina Web, si noterà che è stato eseguito il rendering come segue, con il testo cinese codificato;
 
 ```html
 <p>This link text is in Chinese: <a href="/">&#x6C49;&#x8BED;/&#x6F22;&#x8A9E;</a></p>
    ```
 
-Per ampliare i caratteri considerati sicuri dal codificatore si potrebbe inserire la riga seguente nel `ConfigureServices()` metodo `startup.cs`;
+Per ampliare i caratteri considerati sicuri dal codificatore, inserire la riga seguente nel metodo `ConfigureServices()` in `startup.cs`;
 
 ```csharp
 services.AddSingleton<HtmlEncoder>(
@@ -208,21 +208,21 @@ services.AddSingleton<HtmlEncoder>(
                                                UnicodeRanges.CjkUnifiedIdeographs }));
    ```
 
-In questo esempio può ampliarsi nel tipo nell'elenco per includere il CjkUnifiedIdeographs intervallo Unicode. Ora diventa l'output sottoposto a rendering
+In questo esempio l'elenco Safe viene ampliato per includere l'intervallo Unicode CjkUnifiedIdeographs. L'output di cui è stato eseguito il rendering è ora
 
 ```html
 <p>This link text is in Chinese: <a href="/">汉语/漢語</a></p>
    ```
 
-Gli intervalli di elenco elementi attendibili vengono specificati come tabelle di codici Unicode, non i linguaggi. Il [standard Unicode](https://unicode.org/) contiene un elenco delle [codice grafici](https://www.unicode.org/charts/index.html) è possibile usare per trovare il grafico contenente i caratteri. Ogni codificatore, Html, JavaScript e Url, deve essere configurato separatamente.
+Gli intervalli di elenchi sicuri vengono specificati come grafici di codice Unicode e non per le lingue. Lo [standard Unicode](https://unicode.org/) include un elenco di [grafici di codice](https://www.unicode.org/charts/index.html) che è possibile utilizzare per trovare il grafico contenente i caratteri. Ogni codificatore, HTML, JavaScript e URL, deve essere configurato separatamente.
 
 > [!NOTE]
-> Personalizzazione dell'elenco elementi attendibili influisce solo sui codificatori originati tramite l'inserimento delle dipendenze. Se si accede direttamente a un codificatore tramite `System.Text.Encodings.Web.*Encoder.Default` quindi l'impostazione predefinita, latino di base verranno utilizzato solo dell'elenco indirizzi attendibili.
+> La personalizzazione dell'elenco di sicurezza influiscono solo sui codificatori originati tramite l'inserimento DI dipendenze. Se si accede direttamente a un codificatore tramite `System.Text.Encodings.Web.*Encoder.Default` il valore predefinito, verrà utilizzato solo il tipo di sicurezza Basic Latin.
 
 ## <a name="where-should-encoding-take-place"></a>Dove dovrebbe avvenire la codifica?
 
 La pratica generalmente accettata è che la codifica avvenga nel punto di output e che i valori codificati non devono mai essere archiviati in un database. La codifica nel punto di output consente di modificare l'utilizzo dei dati, ad esempio da HTML a un valore query string. Consente inoltre di cercare facilmente i dati senza dover codificare i valori prima di eseguire ricerca e di sfruttare i vantaggi di eventuali modifiche o correzioni di errori apportate agli encoder.
 
-## <a name="validation-as-an-xss-prevention-technique"></a>Convalida di una tecnica di prevenzione di XSS
+## <a name="validation-as-an-xss-prevention-technique"></a>Convalida come tecnica di prevenzione XSS
 
-La convalida può essere uno strumento utile per limitare gli attacchi XSS. Ad esempio, una stringa numerica che contiene solo i caratteri 0-9 non attiva un attacco XSS. Convalida diventa più complessa quando si accettano HTML nell'input dell'utente. L'analisi di input HTML è difficile, se non impossibile. Markdown, insieme a un parser che estrae con HTML incorporati, è un'opzione più sicura per accettare gli input avanzati. Non basarsi sulla convalida da solo. Codificare sempre l'input non attendibile prima di output, indipendentemente da quali la convalida o la purificazione dei processi è stata eseguita.
+La convalida può essere uno strumento utile per limitare gli attacchi XSS. Ad esempio, una stringa numerica contenente solo i caratteri 0-9 non attiverà un attacco XSS. La convalida diventa più complessa quando si accetta codice HTML nell'input dell'utente. L'analisi dell'input HTML è difficile, se non è impossibile. Markdown, abbinato a un parser che rimuove il codice HTML incorporato, è un'opzione più sicura per l'accettazione di un input avanzato. Non utilizzare mai solo la convalida. Codificare sempre l'input non attendibile prima dell'output, indipendentemente dalla convalida o dalla purificazione eseguita.

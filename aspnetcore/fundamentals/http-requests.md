@@ -5,14 +5,14 @@ description: Informazioni sull'uso dell'interfaccia IHttpClientFactory per gesti
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/16/2019
+ms.date: 02/09/2020
 uid: fundamentals/http-requests
-ms.openlocfilehash: 9b9da82191a587be0603ee114562e9a964f05250
-ms.sourcegitcommit: fe41cff0b99f3920b727286944e5b652ca301640
+ms.openlocfilehash: 93b75525e8a3f10c4e0b655baaff83c0f6e8131b
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76870398"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77171810"
 ---
 # <a name="make-http-requests-using-ihttpclientfactory-in-aspnet-core"></a>Effettuare richieste HTTP usando IHttpClientFactory in ASP.NET Core
 
@@ -109,7 +109,12 @@ Il codice seguente chiama <xref:Microsoft.Extensions.DependencyInjection.HttpCli
 
 [!code-csharp[](http-requests/samples/3.x/HttpClientFactorySample/Startup.cs?name=snippet3)]
 
-Il client tipizzato viene registrato come temporaneo nell'inserimento di dipendenze. Il client tipizzato può essere inserito e usato direttamente:
+Il client tipizzato viene registrato come temporaneo nell'inserimento di dipendenze. Nel codice precedente `AddHttpClient` registra `GitHubService` come servizio temporaneo. Questa registrazione usa un metodo factory per:
+
+1. Creare un'istanza di `HttpClient`.
+1. Creare un'istanza di `GitHubService`, passando l'istanza di `HttpClient` al relativo costruttore.
+
+Il client tipizzato può essere inserito e usato direttamente:
 
 [!code-csharp[](http-requests/samples/3.x/HttpClientFactorySample/Pages/TypedClient.cshtml.cs?name=snippet1&highlight=11-14,20)]
 
@@ -190,7 +195,7 @@ public class ValuesController : ControllerBase
 
     * memorizzazione nella cache
     * gestione errori
-    * serialization
+    * serializzazione
     * registrazione
 
 Per creare un gestore di delega:
@@ -231,7 +236,7 @@ Per consentire l'uso dei criteri Polly con le istanze configurate di `HttpClient
 Gli errori si verificano in genere quando le chiamate HTTP esterne sono temporanee. <xref:Microsoft.Extensions.DependencyInjection.PollyHttpClientBuilderExtensions.AddTransientHttpErrorPolicy*> consente di definire un criterio per gestire gli errori temporanei. I criteri configurati con `AddTransientHttpErrorPolicy` gestiscono le risposte seguenti:
 
 * <xref:System.Net.Http.HttpRequestException>
-* 5xx HTTP
+* HTTP 5xx
 * HTTP 408
 
 `AddTransientHttpErrorPolicy` fornisce l'accesso a un oggetto `PolicyBuilder` configurato per gestire gli errori che rappresentano un possibile errore temporaneo:
@@ -364,7 +369,7 @@ La propagazione dell'intestazione è un middleware ASP.NET Core per propagare le
 
 * Il client include le intestazioni configurate nelle richieste in uscita:
 
-  ```C#
+  ```csharp
   var client = clientFactory.CreateClient("MyForwardingClient");
   var response = client.GetAsync(...);
   ```
@@ -991,7 +996,7 @@ La propagazione dell'intestazione è un middleware supportato dalla community pe
 
 * Il client include le intestazioni configurate nelle richieste in uscita:
 
-  ```C#
+  ```csharp
   var client = clientFactory.CreateClient("MyForwardingClient");
   var response = client.GetAsync(...);
   ```

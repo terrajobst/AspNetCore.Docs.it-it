@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/webassembly
-ms.openlocfilehash: 8ed95cdb96804e08c3f1273bbea8f64a8e4f173c
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
+ms.openlocfilehash: 861935ff31652f923399a8aa5ae52baa6b77fa91
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76160249"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77172402"
 ---
 # <a name="host-and-deploy-aspnet-core-opno-locblazor-webassembly"></a>Ospitare e distribuire ASP.NET Core Blazor webassembly
 
@@ -155,7 +155,7 @@ Quando il servizio BLOB è abilitato per l'hosting di siti Web statici in un acc
 * Impostare **Nome del documento di indice** su `index.html`.
 * Impostare **Percorso del documento di errore** su `index.html`. I componenti di Razor e altri endpoint non basati su file non risiedono in percorsi fisici nel contenuto statico archiviato dal servizio BLOB. Quando viene ricevuta una richiesta per una di queste risorse che il router di Blazor deve gestire, l'errore *404 non trovato* generato dal servizio BLOB instrada la richiesta al percorso del **documento di errore**. Viene restituito il BLOB *index. html* e il router Blazor carica ed elabora il percorso.
 
-Per altre informazioni, vedere [Static website hosting in Azure Storage](/azure/storage/blobs/storage-blob-static-website) (Hosting di siti Web statici in Archiviazione di Azure).
+Per altre informazioni, vedere [Hosting di siti Web statici in Archiviazione di Azure](/azure/storage/blobs/storage-blob-static-website).
 
 ### <a name="nginx"></a>Nginx
 
@@ -183,7 +183,7 @@ Per ospitare Blazor in Docker usando nginx, configurare Dockerfile per l'uso del
 
 Aggiungere una riga al Dockerfile, come illustrato nell'esempio seguente:
 
-```Dockerfile
+```dockerfile
 FROM nginx:alpine
 COPY ./bin/Release/netstandard2.0/publish /usr/share/nginx/html/
 COPY nginx.conf /etc/nginx/nginx.conf
@@ -318,4 +318,4 @@ L'argomento `--urls` imposta gli indirizzi IP o gli indirizzi host con le porte 
 
 ## <a name="configure-the-linker"></a>Configurare il linker
 
-Blazor esegue il collegamento Intermediate Language (IL) a ogni compilazione per rimuovere IL linguaggio IL non necessario dagli assembly di output. Il collegamento degli assembly può essere controllato in fase di compilazione. Per ulteriori informazioni, vedere <xref:host-and-deploy/blazor/configure-linker>.
+Blazor esegue il collegamento Intermediate Language (IL) a ogni compilazione per rimuovere IL linguaggio IL non necessario dagli assembly di output. Il collegamento degli assembly può essere controllato in fase di compilazione. Per altre informazioni, vedere <xref:host-and-deploy/blazor/configure-linker>.

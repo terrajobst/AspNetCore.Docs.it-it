@@ -5,12 +5,12 @@ description: Informazioni sulla sintassi di markup Razor per l'incorporamento di
 ms.author: riande
 ms.date: 12/05/2019
 uid: mvc/views/razor
-ms.openlocfilehash: baac0ac38a0781cb9c16689cf3e29526b602d8da
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: 2d47fbc33328ab454616bcabab796df089686d79
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74944252"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77171851"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Guida di riferimento della sintassi Razor per ASP.NET Core
 
@@ -128,7 +128,7 @@ Il codice esegue il rendering dell'HTML seguente:
 
 Il codice HTML viene visualizzato nel browser come:
 
-```
+```html
 <span>Hello World</span>
 ```
 
@@ -380,7 +380,7 @@ La gestione delle eccezioni è simile a C#:
 
 ### <a name="lock"></a>\@lock
 
-Razor è in grado di proteggere le sezioni critiche con le istruzioni di lock:
+Razor è in grado di proteggere le sezioni critiche con le istruzioni di blocco:
 
 ```cshtml
 @lock (SomeLock)
@@ -487,7 +487,7 @@ Nei [componenti di Razor](xref:blazor/components) usare `@code` in `@functions` 
 
 ::: moniker-end
 
-Ad esempio:
+Ad esempio,
 
 [!code-cshtml[](razor/sample/Views/Home/Contact6.cshtml)]
 
@@ -601,7 +601,7 @@ La direttiva `@inject` consente alla pagina Razor di inserire un servizio dal [c
 
 *Questo scenario si applica solo ai componenti di Razor (con estensione razor).*
 
-La direttiva `@layout` specifica un layout per un componente di Razor. I componenti di layout vengono usati per evitare la duplicazione e l'incoerenza del codice. Per ulteriori informazioni, vedere <xref:blazor/layouts>.
+La direttiva `@layout` specifica un layout per un componente di Razor. I componenti di layout vengono usati per evitare la duplicazione e l'incoerenza del codice. Per altre informazioni, vedere <xref:blazor/layouts>.
 
 ::: moniker-end
 
@@ -677,13 +677,13 @@ Se la cartella *EvenMorePages* nell'esempio precedente ha un file di importazion
 La direttiva `@page` ha effetti diversi a seconda del tipo del file in cui viene visualizzata. La direttiva:
 
 * In un file con estensione *cshtml* indica che il file è una pagina Razor. Per ulteriori informazioni, vedere [route personalizzate](xref:razor-pages/index#custom-routes) e <xref:razor-pages/index>.
-* Specifica che un componente Razor deve gestire direttamente le richieste. Per ulteriori informazioni, vedere <xref:blazor/routing>.
+* Specifica che un componente Razor deve gestire direttamente le richieste. Per altre informazioni, vedere <xref:blazor/routing>.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-La direttiva `@page` nella prima riga di un file con estensione *cshtml* indica che il file è una pagina Razor. Per ulteriori informazioni, vedere <xref:razor-pages/index>.
+La direttiva `@page` nella prima riga di un file con estensione *cshtml* indica che il file è una pagina Razor. Per altre informazioni, vedere <xref:razor-pages/index>.
 
 ::: moniker-end
 
@@ -691,7 +691,7 @@ La direttiva `@page` nella prima riga di un file con estensione *cshtml* indica 
 
 *Questo scenario si applica solo alle viste MVC e a Razor Pages (con estensione cshtml).*
 
-La direttiva `@section` viene usata in combinazione con i [layout di MVC e Razor Pages](xref:mvc/views/layout) per abilitare le viste o le pagine per il rendering del contenuto in diverse parti della pagina HTML. Per ulteriori informazioni, vedere <xref:mvc/views/layout>.
+La direttiva `@section` viene usata in combinazione con i [layout di MVC e Razor Pages](xref:mvc/views/layout) per abilitare le viste o le pagine per il rendering del contenuto in diverse parti della pagina HTML. Per altre informazioni, vedere <xref:mvc/views/layout>.
 
 ### <a name="using"></a>\@using
 
@@ -701,7 +701,7 @@ La direttiva `@using` aggiunge la direttiva C# `using` alla visualizzazione gene
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Nei [componenti di Razor](xref:blazor/components) `@using` controlla anche quali componenti sono inclusi nell'ambito.
+Nei [componenti di Razor](xref:blazor/components)`@using` controlla anche quali componenti sono inclusi nell'ambito.
 
 ::: moniker-end
 
@@ -713,19 +713,19 @@ Nei [componenti di Razor](xref:blazor/components) `@using` controlla anche quali
 
 *Questo scenario si applica solo ai componenti di Razor (con estensione razor).*
 
-`@attributes` consente a un componente di eseguire il rendering di attributi non dichiarati. Per ulteriori informazioni, vedere <xref:blazor/components#attribute-splatting-and-arbitrary-parameters>.
+`@attributes` consente a un componente di eseguire il rendering di attributi non dichiarati. Per altre informazioni, vedere <xref:blazor/components#attribute-splatting-and-arbitrary-parameters>.
 
 ### <a name="bind"></a>\@bind
 
 *Questo scenario si applica solo ai componenti di Razor (con estensione razor).*
 
-Il data binding nei componenti viene eseguito con l'attributo `@bind`. Per ulteriori informazioni, vedere <xref:blazor/components#data-binding>.
+Il data binding nei componenti viene eseguito con l'attributo `@bind`. Per altre informazioni, vedere <xref:blazor/components#data-binding>.
 
 ### <a name="onevent"></a>\@su {EVENT}
 
 *Questo scenario si applica solo ai componenti di Razor (con estensione razor).*
 
-Razor fornisce funzionalità di gestione degli eventi per i componenti. Per ulteriori informazioni, vedere <xref:blazor/components#event-handling>.
+Razor fornisce funzionalità di gestione degli eventi per i componenti. Per altre informazioni, vedere <xref:blazor/components#event-handling>.
 
 ::: moniker-end
 
@@ -751,19 +751,19 @@ Arresta la propagazione degli eventi per l'evento.
 
 *Questo scenario si applica solo ai componenti di Razor (con estensione razor).*
 
-L'attributo della direttiva `@key` fa in modo che l'algoritmo di controllo delle differenze tra componenti garantisca la conservazione degli elementi o dei componenti in base al valore della chiave. Per ulteriori informazioni, vedere <xref:blazor/components#use-key-to-control-the-preservation-of-elements-and-components>.
+L'attributo della direttiva `@key` fa in modo che l'algoritmo di controllo delle differenze tra componenti garantisca la conservazione degli elementi o dei componenti in base al valore della chiave. Per altre informazioni, vedere <xref:blazor/components#use-key-to-control-the-preservation-of-elements-and-components>.
 
 ### <a name="ref"></a>\@ref
 
 *Questo scenario si applica solo ai componenti di Razor (con estensione razor).*
 
-I riferimenti ai componenti (`@ref`) consentono di fare riferimento a un'istanza di un componente in modo che sia possibile eseguire comandi su tale istanza. Per ulteriori informazioni, vedere <xref:blazor/components#capture-references-to-components>.
+I riferimenti ai componenti (`@ref`) consentono di fare riferimento a un'istanza di un componente in modo che sia possibile eseguire comandi su tale istanza. Per altre informazioni, vedere <xref:blazor/components#capture-references-to-components>.
 
 ### <a name="typeparam"></a>\@typeparam
 
 *Questo scenario si applica solo ai componenti di Razor (con estensione razor).*
 
-La direttiva `@typeparam` dichiara un parametro di tipo generico per la classe Component generata. Per ulteriori informazioni, vedere <xref:blazor/components#generic-typed-components>.
+La direttiva `@typeparam` dichiara un parametro di tipo generico per la classe Component generata. Per altre informazioni, vedere <xref:blazor/components#generic-typed-components>.
 
 ::: moniker-end
 
@@ -883,10 +883,10 @@ Esistono tre direttive che riguardano gli [helper tag](xref:mvc/views/tag-helper
 ### <a name="razor-keywords"></a>Parole chiave Razor
 
 * page (richiede ASP.NET Core 2.1 o versione successiva)
-* Spazio dei nomi
+* namespace
 * functions
 * inherits
-* model
+* modello
 * section
 * helper (attualmente non supportata da ASP.NET Core)
 
@@ -901,19 +901,19 @@ Le parole chiave Razor sono precedute dal carattere di escape `@(Razor Keyword)`
 * foreach
 * if
 * else
-* blocco
-* switch
-* try
-* catch
+* lock
+* opzione
+* provare
+* generazione
 * finally
 * using
-* while
+* mentre
 
 Le parole chiave Razor C# devono essere precedute dal doppio carattere di escape `@(@C# Razor Keyword)` (ad esempio, `@(@case)`). Il primo `@` è il carattere di escape del parser Razor. Il secondo `@` è il carattere di escape del parser C#.
 
 ### <a name="reserved-keywords-not-used-by-razor"></a>Parole chiave riservate non usate da Razor
 
-* classe
+* class
 
 ## <a name="inspect-the-razor-c-class-generated-for-a-view"></a>Ispezionare la classe C# Razor generata per una visualizzazione
 

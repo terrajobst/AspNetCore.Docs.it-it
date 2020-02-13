@@ -5,14 +5,14 @@ description: Informazioni su Kestrel, il server Web multipiattaforma per ASP.NET
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/06/2020
+ms.date: 02/10/2020
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 0c5d16b1901a8a8e5ae1914e5eaa86f71fa3a90b
-ms.sourcegitcommit: 80286715afb93c4d13c931b008016d6086c0312b
+ms.openlocfilehash: d026e1b6fc1a9ecc66014eacb8eb0b46dd9353ec
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77074536"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77171727"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementazione del server Web Kestrel in ASP.NET Core
 
@@ -662,6 +662,9 @@ L'esempio configura HTTPS per un endpoint con <xref:Microsoft.AspNetCore.Server.
 Impostare l'ascolto su un socket Unix con <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ListenUnixSocket*> per migliorare le prestazioni con Nginx, come visualizzato nell'esempio seguente:
 
 [!code-csharp[](kestrel/samples/3.x/KestrelSample/Program.cs?name=snippet_UnixSocket)]
+
+* Nel file nginx confiuguration impostare il `server` > `location`voce di `proxy_pass`  > `http://unix:/tmp/{KESTREL SOCKET}:/;`. `{KESTREL SOCKET}` è il nome del socket fornito per <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ListenUnixSocket*>, ad esempio `kestrel-test.sock` nell'esempio precedente.
+* Verificare che il socket sia scrivibile da nginx, ad esempio `chmod go+w /tmp/kestrel-test.sock`.
 
 ### <a name="port-0"></a>Porta 0
 
@@ -1661,6 +1664,9 @@ Impostare l'ascolto su un socket Unix con <xref:Microsoft.AspNetCore.Server.Kest
 
 [!code-csharp[](kestrel/samples/2.x/KestrelSample/Program.cs?name=snippet_UnixSocket)]
 
+* Nel file nginx confiuguration impostare il `server` > `location`voce di `proxy_pass`  > `http://unix:/tmp/{KESTREL SOCKET}:/;`. `{KESTREL SOCKET}` è il nome del socket fornito per <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ListenUnixSocket*>, ad esempio `kestrel-test.sock` nell'esempio precedente.
+* Verificare che il socket sia scrivibile da nginx, ad esempio `chmod go+w /tmp/kestrel-test.sock`. 
+
 ### <a name="port-0"></a>Porta 0
 
 Quando si specifica il numero di porta `0`, Kestrel esegue l'associazione dinamica a una porta disponibile. L'esempio seguente indica come determinare la porta alla quale Kestrel ha eseguito l'associazione in fase di esecuzione:
@@ -2570,6 +2576,9 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             });
         });
 ```
+
+* Nel file nginx confiuguration impostare il `server` > `location`voce di `proxy_pass`  > `http://unix:/tmp/{KESTREL SOCKET}:/;`. `{KESTREL SOCKET}` è il nome del socket fornito per <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ListenUnixSocket*>, ad esempio `kestrel-test.sock` nell'esempio precedente.
+* Verificare che il socket sia scrivibile da nginx, ad esempio `chmod go+w /tmp/kestrel-test.sock`. 
 
 ### <a name="port-0"></a>Porta 0
 

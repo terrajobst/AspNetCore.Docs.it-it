@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: 61b50a63bd026f917035f64785d8d3b1956958a6
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 1c7652c909432b25ae373873cd593afd879cfa00
+ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880955"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77172560"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>Helper tag nei moduli in ASP.NET Core
 
@@ -27,7 +27,7 @@ In molti casi gli helper HTML offrono un approccio alternativo a un helper tag s
 
 L'helper tag [Form](https://www.w3.org/TR/html401/interact/forms.html):
 
-* Genera il valore dell'attributo `action` di [\<FORM>](https://www.w3.org/TR/html401/interact/forms.html) HTML per un'azione del controller MVC o una route denominata
+* Genera il [form HTML\<>](https://www.w3.org/TR/html401/interact/forms.html) `action` valore dell'attributo per un'azione del controller MVC o una route denominata
 
 * Genera un [token di verifica della richiesta](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) nascosto per impedire richieste intersito false, in caso di uso con l'attributo `[ValidateAntiForgeryToken]` nel metodo azione HTTP Post
 
@@ -41,7 +41,7 @@ Esempio:
 
 L'helper tag Form precedente genera il codice HTML seguente:
 
-```HTML
+```html
 <form method="post" action="/Demo/Register">
     <!-- Input and Submit elements -->
     <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>">
@@ -69,7 +69,7 @@ Molte delle visualizzazioni nella cartella *Views/Account* (generata quando si c
 
 ## <a name="the-form-action-tag-helper"></a>Helper tag per l'azione modulo
 
-L'helper tag per l'azione modulo genera l'attributo `formaction` per l'elemento `<button ...>` o il tag `<input type="image" ...>` generato. L'attributo `formaction` controlla se un modulo invia i dati. Viene associato agli elementi [\<input>](https://www.w3.org/wiki/HTML/Elements/input) di tipo `image` e agli elementi [\<button>](https://www.w3.org/wiki/HTML/Elements/button). L'helper tag per l'azione modulo consente l'utilizzo di vari attributi `asp-` di [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) per controllare quale collegamento `formaction` viene generato per l'elemento corrispondente.
+L'helper tag per l'azione modulo genera l'attributo `formaction` per l'elemento `<button ...>` o il tag `<input type="image" ...>` generato. L'attributo `formaction` controlla se un modulo invia i dati. Viene associato agli elementi [\<input>](https://www.w3.org/wiki/HTML/Elements/input) di tipo `image` e agli elementi [\<button>](https://www.w3.org/wiki/HTML/Elements/button). L'helper Tag azione modulo consente l'utilizzo di diversi attributi `asp-` [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) per controllare quale `formaction` collegamento viene generato per l'elemento corrispondente.
 
 Attributi di [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) supportati per controllare il valore di `formaction`:
 
@@ -81,7 +81,7 @@ Attributi di [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-
 |[asp-page](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-page)|Nome della pagina Razor.|
 |[asp-page-handler](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-page-handler)|Nome del gestore di pagina Razor.|
 |[asp-route](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route)|Nome della route.|
-|[asp-route-{value}](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route-value)|Singolo valore di route URL. Ad esempio `asp-route-id="1234"`.|
+|[asp-route-{value}](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route-value)|Singolo valore di route URL. Ad esempio: `asp-route-id="1234"`.|
 |[asp-all-route-data](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-all-route-data)|Tutti i valori di route.|
 |[asp-fragment](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-fragment)|Frammento di URL.|
 
@@ -161,17 +161,17 @@ Il markup precedente genera il codice HTML seguente:
 
 ## <a name="the-input-tag-helper"></a>Helper tag Input
 
-L'helper tag Input associa un elemento HTML [ \<input>](https://www.w3.org/wiki/HTML/Elements/input) a un'espressione di modello nella visualizzazione Razor.
+L'helper tag Input associa un elemento HTML [\<input>](https://www.w3.org/wiki/HTML/Elements/input) a un'espressione di modello nella visualizzazione Razor.
 
 Sintassi:
 
-```HTML
+```cshtml
 <input asp-for="<Expression Name>">
 ```
 
 L'helper tag Input:
 
-* Genera gli attributi HTML `id` e `name` per il nome dell'espressione specificata nell'attributo `asp-for`. `asp-for="Property1.Property2"` è equivalente a `m => m.Property1.Property2`. Il nome dell'espressione viene usato come valore dell'attributo `asp-for`. Per altre informazioni, vedere la sezione [Nomi delle espressioni](#expression-names).
+* Genera gli attributi HTML `id` e `name` per il nome dell'espressione specificata nell'attributo `asp-for`. `asp-for="Property1.Property2"` equivale a: `m => m.Property1.Property2`. Il nome dell'espressione viene usato come valore dell'attributo `asp-for`. Per altre informazioni, vedere la sezione [Nomi delle espressioni](#expression-names).
 
 * Imposta il valore dell'attributo HTML `type` in base agli attributi relativi al tipo di modello e all'[annotazione dei dati](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) applicati alla proprietà del modello
 
@@ -183,7 +183,7 @@ L'helper tag Input:
 
 * Consente una tipizzazione forte. Se il nome di proprietà viene modificato e non si aggiorna l'helper tag, si ottiene un errore simile al seguente:
 
-```HTML
+```
 An error occurred during the compilation of a resource required to process
 this request. Please review the following specific error details and modify
 your source code appropriately.
@@ -196,18 +196,18 @@ Type expected
 
 L'helper tag `Input` imposta l'attributo HTML `type` in base al tipo .NET. La tabella seguente elenca alcuni tipi .NET comuni e il tipo HTML generato. Non sono elencati tutti i tipi .NET.
 
-|Tipo .NET|Tipo Input|
+|Tipo .NET|Tipo di input|
 |---|---|
 |Bool|type="checkbox"|
-|Stringa|type="text"|
-|DateTime|type=["datetime-local"](https://developer.mozilla.org/docs/Web/HTML/Element/input/datetime-local)|
+|String|type="text"|
+|Datetime|type=["datetime-local"](https://developer.mozilla.org/docs/Web/HTML/Element/input/datetime-local)|
 |Byte|type="number"|
 |Int|type="number"|
 |Single, Double|type="number"|
 
 La tabella seguente illustra alcuni attributi di [annotazioni dei dati](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) comuni di cui l'helper tag Input esegue il mapping a tipi di input specifici (non tutti gli attributi di convalida sono elencati):
 
-|Attributo|Tipo Input|
+|Attributo|Tipo di input|
 |---|---|
 |[EmailAddress]|type="email"|
 |[Url]|type="url"|
@@ -225,7 +225,7 @@ Esempio:
 
 Il codice precedente genera il codice HTML seguente:
 
-```HTML
+```html
   <form method="post" action="/Demo/RegisterInput">
       Email:
       <input type="email" data-val="true"
@@ -241,7 +241,7 @@ Il codice precedente genera il codice HTML seguente:
    </form>
 ```
 
-Le annotazioni dei dati applicate alle proprietà `Email` e `Password` generano metadati per il modello. L'helper tag Input usa i metadati del modello e genere attributi [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-val-*` (vedere [Convalida del modello](../models/validation.md)). Questi attributi descrivono i validator da collegare ai campi di input. Ciò consente una convalida HTML5 e [jQuery](https://jquery.com/) discreta. Gli attributi non intrusivi hanno il formato `data-val-rule="Error Message"`, dove rule è il nome della regola di convalida, ad esempio `data-val-required`, `data-val-email`, `data-val-maxlength`e così via. Se un messaggio di errore viene fornito nell'attributo, viene visualizzato come valore per l'attributo `data-val-rule`. Esistono anche attributi di `data-val-ruleName-argumentName="argumentValue"` di Form che offrono dettagli aggiuntivi sulla regola, ad esempio, `data-val-maxlength-max="1024"` .
+Le annotazioni dei dati applicate alle proprietà `Email` e `Password` generano metadati per il modello. L'helper tag di input usa i metadati del modello e produce gli attributi `data-val-*` [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) (vedere [convalida del modello](../models/validation.md)). Questi attributi descrivono i validator da collegare ai campi di input. Ciò consente una convalida HTML5 e [jQuery](https://jquery.com/) discreta. Gli attributi non intrusivi hanno il formato `data-val-rule="Error Message"`, dove rule è il nome della regola di convalida, ad esempio `data-val-required`, `data-val-email`, `data-val-maxlength`e così via. Se un messaggio di errore viene fornito nell'attributo, viene visualizzato come valore per l'attributo `data-val-rule`. Esistono anche attributi di `data-val-ruleName-argumentName="argumentValue"` di Form che offrono dettagli aggiuntivi sulla regola, ad esempio, `data-val-maxlength-max="1024"` .
 
 ### <a name="html-helper-alternatives-to-input-tag-helper"></a>Alternative helper HTML per l'helper tag Input
 
@@ -251,7 +251,7 @@ Le annotazioni dei dati applicate alle proprietà `Email` e `Password` generano 
 
 Quando eseguono i modelli predefiniti, `@Html.Editor()` e `@Html.EditorFor()` usano una voce `ViewDataDictionary` speciale denominata `htmlAttributes`. È possibile aumentare questo comportamento usando i parametri `additionalViewData`. La chiave "htmlAttributes" non fa distinzione tra maiuscole e minuscole. La chiave "htmlAttributes" viene gestita in modo analogo all'oggetto `htmlAttributes` passato agli helper di input come `@Html.TextBox()`.
 
-```HTML
+```cshtml
 @Html.EditorFor(model => model.YourProperty, 
   new { htmlAttributes = new { @class="myCssClass", style="Width:100px" } })
 ```
@@ -260,16 +260,17 @@ Quando eseguono i modelli predefiniti, `@Html.Editor()` e `@Html.EditorFor()` us
 
 Il valore dell'attributo `asp-for` è un `ModelExpression` e il lato destro di un'espressione lambda. Pertanto, `asp-for="Property1"` diventa `m => m.Property1` nel codice generato. Per questo motivo il prefisso `Model` non è necessario. È possibile usare il carattere "\@" per iniziare un'espressione inline, spostandolo prima di `m.`:
 
-```HTML
+```cshtml
 @{
-       var joe = "Joe";
-   }
-   <input asp-for="@joe">
+  var joe = "Joe";
+}
+
+<input asp-for="@joe">
 ```
 
 Genera quanto segue:
 
-```HTML
+```html
 <input type="text" id="joe" name="joe" value="Joe">
 ```
 
@@ -294,7 +295,7 @@ Nella visualizzazione, viene eseguita l'associazione a `Address.AddressLine1`:
 
 Per `Address.AddressLine1` viene generato il codice HTML seguente:
 
-```HTML
+```html
 <input type="text" id="Address_AddressLine1" name="Address.AddressLine1" value="">
 ```
 
@@ -308,10 +309,10 @@ Metodo di azione:
 
 ```csharp
 public IActionResult Edit(int id, int colorIndex)
-   {
-       ViewData["Index"] = colorIndex;
-       return View(GetPerson(id));
-   }
+{
+    ViewData["Index"] = colorIndex;
+    return View(GetPerson(id));
+}
 ```
 
 Il codice Razor seguente illustra come accedere a un elemento `Color` specifico:
@@ -345,7 +346,7 @@ Modello *Views/Shared/EditorTemplates/ToDoItem.cshtml*:
 
 `Textarea Tag Helper` è simile all'helper Tag Input.
 
-* Genera gli attributi `id` e `name`, nonché gli attributi di convalida dei dati dal modello per un elemento [ \<textarea>](https://www.w3.org/wiki/HTML/Elements/textarea).
+* Genera gli attributi `id` e `name`, nonché gli attributi di convalida dei dati dal modello per un elemento [\<textarea>](https://www.w3.org/wiki/HTML/Elements/textarea).
 
 * Consente una tipizzazione forte.
 
@@ -359,7 +360,7 @@ Esempio:
 
 Viene generato il codice HTML seguente:
 
-```HTML
+```html
 <form method="post" action="/Demo/RegisterTextArea">
   <textarea data-val="true"
    data-val-maxlength="The field Description must be a string or array type with a maximum length of &#x27;1024&#x27;."
@@ -395,7 +396,7 @@ Esempio:
 
 Per l'elemento `<label>` viene generato il codice HTML seguente:
 
-```HTML
+```html
 <label for="Email">Email Address</label>
 ```
 
@@ -407,7 +408,7 @@ Ci sono due helper tag di convalida. `Validation Message Tag Helper`, che visual
 
 ### <a name="the-validation-message-tag-helper"></a>Helper tag Validation Message
 
-* Aggiunge l'attributo [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-valmsg-for="property"` all'elemento [span](https://developer.mozilla.org/docs/Web/HTML/Element/span), che collega i messaggi di errore di convalida nel campo di input della proprietà del modello specificato. Quando si verifica un errore di convalida sul lato client, [jQuery](https://jquery.com/) visualizza il messaggio di errore nell'elemento `<span>`.
+* Aggiunge l'attributo`data-valmsg-for="property"` [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) all'elemento [span](https://developer.mozilla.org/docs/Web/HTML/Element/span) , che consente di alleghi i messaggi di errore di convalida nel campo di input della proprietà del modello specificata. Quando si verifica un errore di convalida sul lato client, [jQuery](https://jquery.com/) visualizza il messaggio di errore nell'elemento `<span>`.
 
 * La convalida viene eseguita anche nel server. Nei client JavaScript può essere disabilitato e una parte della convalida può essere eseguita solo sul lato server.
 
@@ -415,13 +416,13 @@ Ci sono due helper tag di convalida. `Validation Message Tag Helper`, che visual
 
 `Validation Message Tag Helper` viene usato con l'attributo `asp-validation-for` in un elemento HTML [span](https://developer.mozilla.org/docs/Web/HTML/Element/span).
 
-```HTML
+```cshtml
 <span asp-validation-for="Email"></span>
 ```
 
 L'helper tag Validation Message genera il codice HTML seguente:
 
-```HTML
+```html
 <span class="field-validation-valid"
   data-valmsg-for="Email"
   data-valmsg-replace="true"></span>
@@ -434,7 +435,7 @@ In genere si usa `Validation Message Tag Helper` dopo un helper tag `Input` per 
 
 Se si verifica un errore di convalida sul lato server, ad esempio quando la convalida sul lato server è personalizzata o quando la convalida sul lato client è disabilitata, MVC inserisce il messaggio di errore nel corpo dell'elemento `<span>`.
 
-```HTML
+```html
 <span class="field-validation-error" data-valmsg-for="Email"
             data-valmsg-replace="true">
    The Email Address field is required.
@@ -453,7 +454,7 @@ Se si verifica un errore di convalida sul lato server, ad esempio quando la conv
 |--- |--- |
 |ValidationSummary.All|Livello di modello e proprietà|
 |ValidationSummary.ModelOnly|Modello|
-|ValidationSummary.None|nessuna|
+|ValidationSummary.None|None|
 
 ### <a name="sample"></a>Esempio
 
@@ -465,7 +466,7 @@ Nell'esempio seguente il modello di dati include `DataAnnotation` attributi, che
 
 Codice HTML generato (se il modello è valido):
 
-```HTML
+```html
 <form action="/DemoReg/Register" method="post">
   <div class="validation-summary-valid" data-valmsg-summary="true">
   <ul><li style="display:none"></li></ul></div>
@@ -490,7 +491,7 @@ Codice HTML generato (se il modello è valido):
 
 * Ha come helper HTML alternativi `Html.DropDownListFor` e `Html.ListBoxFor`
 
-`Select Tag Helper` `asp-for` specifica il nome della proprietà di modello per l'elemento [select](https://www.w3.org/wiki/HTML/Elements/select) e `asp-items` specifica gli elementi [option](https://www.w3.org/wiki/HTML/Elements/option).  Ad esempio:
+Il `Select Tag Helper` `asp-for` specifica il nome della proprietà del modello per l'elemento [Select](https://www.w3.org/wiki/HTML/Elements/select) e `asp-items` specifica gli elementi [Option](https://www.w3.org/wiki/HTML/Elements/option) .  Ad esempio,
 
 [!code-HTML[](working-with-forms/sample/final/Views/Home/Index.cshtml?range=4)]
 
@@ -551,7 +552,7 @@ Il metodo `GetEnumSelectList` genera un oggetto `SelectList` per un enum.
 
 Viene generato il codice HTML seguente:
 
-```HTML
+```html
   <form method="post" action="/Home/IndexEnum">
          <select data-val="true" data-val-required="The EnumCountry field is required."
                  id="EnumCountry" name="EnumCountry">
@@ -569,7 +570,7 @@ Viene generato il codice HTML seguente:
 
 ### <a name="option-group"></a>Gruppo di opzioni
 
-L'elemento HTML [ \<optgroup>](https://www.w3.org/wiki/HTML/Elements/optgroup) viene generato quando il modello di visualizzazione contiene uno o più oggetti `SelectListGroup`.
+L'elemento HTML [\<optgroup>](https://www.w3.org/wiki/HTML/Elements/optgroup) viene generato quando il modello di visualizzazione contiene uno o più oggetti `SelectListGroup`.
 
 `CountryViewModelGroup` suddivide gli elementi `SelectListItem` nei gruppi "North America" ed "Europe":
 
@@ -581,7 +582,7 @@ I due gruppi sono illustrati di seguito:
 
 Codice HTML generato:
 
-```HTML
+```html
  <form method="post" action="/Home/IndexGroup">
       <select id="Country" name="Country">
           <optgroup label="North America">
@@ -610,9 +611,9 @@ Con la visualizzazione seguente:
 
 [!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexMultiSelect.cshtml?highlight=4)]
 
-Viene generato il codice HTML seguente:
+genera il codice HTML seguente:
 
-```HTML
+```html
 <form method="post" action="/Home/IndexMultiSelect">
     <select id="CountryCodes"
     multiple="multiple"
@@ -638,7 +639,7 @@ Modello *Views/Shared/EditorTemplates/CountryViewModel.cshtml*:
 
 [!code-HTML[](working-with-forms/sample/final/Views/Shared/EditorTemplates/CountryViewModel.cshtml)]
 
-L'aggiunta di elementi HTML [ \<option>](https://www.w3.org/wiki/HTML/Elements/option) non è limitata al caso relativo a *nessuna selezione*. La visualizzazione e il metodo di azione seguenti, ad esempio, generano codice HTML simile al codice precedente:
+L'aggiunta di elementi HTML [\<option>](https://www.w3.org/wiki/HTML/Elements/option) non è limitata al caso relativo a *nessuna selezione*. La visualizzazione e il metodo di azione seguenti, ad esempio, generano codice HTML simile al codice precedente:
 
 [!code-csharp[](working-with-forms/sample/final/Controllers/HomeController.cs?name=snippetNone)]
 
@@ -648,7 +649,7 @@ L'elemento `<option>` corretto viene selezionato (con l'attributo `selected="sel
 
 [!code-csharp[](working-with-forms/sample/final/Controllers/HomeController.cs?range=114-119)]
 
-```HTML
+```html
  <form method="post" action="/Home/IndexEmpty">
       <select id="Country" name="Country">
           <option value="">&lt;none&gt;</option>
