@@ -5,16 +5,16 @@ description: In questa esercitazione si inizia a usare la funzionalità delle mi
 ms.author: riande
 ms.date: 07/22/2019
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 4246d9d8f6e6ba9e9d735b944ed748720bcf3e16
-ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
+ms.openlocfilehash: f8e78cf7230528a4047eac1d52a12e2ed8392dec
+ms.sourcegitcommit: d2ba66023884f0dca115ff010bd98d5ed6459283
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76928367"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77213443"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Migrazioni - 4 di 8
 
-[Tom Dykstra](https://github.com/tdykstra), [Jon P Smith](https://twitter.com/thereformedprog) e [Rick Anderson](https://twitter.com/RickAndMSFT)
+Di [Tom Dykstra](https://github.com/tdykstra), [Jon P Smith](https://twitter.com/thereformedprog) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [!INCLUDE [about the series](~/includes/RP-EF/intro.md)]
 
@@ -128,7 +128,7 @@ La migrazione del database deve essere eseguita come parte della distribuzione e
 * Uso delle migrazioni per creare script SQL e uso degli script SQL nella distribuzione.
 * Esecuzione di `dotnet ef database update` da un ambiente controllato.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Se l'app usa SQL Server Local DB e visualizza l'eccezione seguente:
 
@@ -180,7 +180,7 @@ Usare **Esplora oggetti di SQL Server** o il comando `database drop`:
 
 Nella **console di Gestione pacchetti** eseguire il comando seguente:
 
-```PMC
+```powershell
 Drop-Database
 ```
 
@@ -204,7 +204,7 @@ Compilare il progetto e creare la prima migrazione.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-```PMC
+```powershell
 Add-Migration InitialCreate
 Update-Database
 ```
@@ -293,7 +293,7 @@ La migrazione del database deve essere eseguita come parte della distribuzione e
 
 EF Core usa la tabella `__MigrationsHistory` per stabilire se è necessario eseguire migrazioni. Se il database è aggiornato, non viene eseguita alcuna migrazione.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Scaricare l'[app completa](
 https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu21snapshots/cu-part4-migrations).

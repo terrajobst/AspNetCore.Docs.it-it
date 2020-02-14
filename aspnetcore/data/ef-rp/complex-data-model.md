@@ -6,22 +6,22 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/22/2019
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 1244b2e23a842538ff2fca01a513317a690afe7c
-ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
+ms.openlocfilehash: 411c0874d2b2c6ecadd1da9aff7a093f1e8e525a
+ms.sourcegitcommit: d2ba66023884f0dca115ff010bd98d5ed6459283
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034027"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77213428"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Modello di dati - 5 di 8
 
-Di [Tom Dykstra](https://github.com/tdykstra) e [Rick Anderson](https://twitter.com/RickAndMSFT)
+[Tom Dykstra](https://github.com/tdykstra) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [!INCLUDE [about the series](~/includes/RP-EF/intro.md)]
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Nelle esercitazioni precedenti è stato usato un modello di dati semplice costituito da tre entità. In questa esercitazione:
+Nelle esercitazioni precedenti è stato usato un modello di dati semplice costituito da tre entità. Contenuto dell'esercitazione:
 
 * Vengono aggiunte altre entità e relazioni.
 * Il modello di dati viene personalizzato specificando regole di formattazione, convalida e mapping del database.
@@ -301,7 +301,7 @@ Aggiornare *Models/Course.cs* con il codice seguente:
 
 L'entità `Course` dispone di una proprietà chiave esterna (FK) `DepartmentID`. `DepartmentID` fa riferimento all'entità `Department` correlata. L'entità `Course` dispone di una proprietà di navigazione `Department`.
 
-EF Core non richiede una proprietà chiave esterna per un modello di dati quando il modello include una proprietà di navigazione per un'entità correlata. EF Core crea automaticamente le chiavi esterne nel database quando sono necessarie. EF Core crea [proprietà nascoste](/ef/core/modeling/shadow-properties) per le chiavi esterne create automaticamente. Includere la chiave esterna in modo esplicito nel modello di dati, tuttavia, può rendere più semplici ed efficienti gli aggiornamenti. Si consideri ad esempio un modello in cui la proprietà chiave esterna `DepartmentID` *non* è inclusa. Quando un'entità Course viene recuperata per la modifica:
+EF Core non richiede una proprietà chiave esterna per un modello di dati quando il modello include una proprietà di navigazione per un'entità correlata. EF Core crea automaticamente le chiavi esterne nel database quando sono necessarie. EF Core crea [proprietà nascoste](/ef/core/modeling/shadow-properties) per le chiavi esterne create automaticamente. Includere la chiave esterna in modo esplicito nel modello di dati, tuttavia, può rendere più semplici ed efficienti gli aggiornamenti. Si consideri ad esempio un modello in cui la proprietà chiave esterna `DepartmentID`*non* è inclusa. Quando un'entità Course viene recuperata per la modifica:
 
 * La proprietà `Department` è Null se non viene caricata in modo esplicito.
 * Per aggiornare l'entità Course, è in primo luogo necessario recuperare l'entità `Department`.
@@ -349,7 +349,7 @@ public ICollection<CourseAssignment> CourseAssignments { get; set; }
 
 ## <a name="the-department-entity"></a>Entità Department
 
-![Entità Department](complex-data-model/_static/department-entity.png)
+![Entità reparto](complex-data-model/_static/department-entity.png)
 
 Creare *Models/Department.cs* con il codice seguente:
 
@@ -518,7 +518,7 @@ La figura seguente visualizza il diagramma creato da EF Power Tools per il model
 
 ![Diagramma dell'entità](complex-data-model/_static/diagram.png)
 
-Il diagramma precedente visualizza quanto segue:
+Il diagramma precedente mostra quanto segue:
 
 * Più linee di relazione uno-a-molti (da 1 a \*).
 * La linea di relazione uno-a-zero-o-uno (da 1 a 0..1) tra le entità `Instructor` e `OfficeAssignment`.
@@ -534,7 +534,7 @@ Il codice precedente offre i dati di inizializzazione per le nuove entità. La m
 
 ## <a name="add-a-migration"></a>Aggiungere una migrazione
 
-Compilazione del progetto.
+Compilare il progetto.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -634,7 +634,7 @@ Aprire il database in SSOX:
 * Se SSOX è stato aperto in precedenza, fare clic sul pulsante **Aggiorna**.
 * Espandere il nodo **Tabelle**. Vengono visualizzate le tabelle create.
 
-  ![Tabelle in SSOX](complex-data-model/_static/ssox-tables.png)
+  ![Tabelle in Esplora oggetti di SQL Server](complex-data-model/_static/ssox-tables.png)
 
 * Esaminare la tabella **CourseAssignment**:
 
@@ -725,7 +725,7 @@ Nelle due esercitazioni successive viene illustrato come leggere e aggiornare i 
 
 ::: moniker range="< aspnetcore-3.0"
 
-Nelle esercitazioni precedenti è stato usato un modello di dati semplice costituito da tre entità. In questa esercitazione:
+Nelle esercitazioni precedenti è stato usato un modello di dati semplice costituito da tre entità. Contenuto dell'esercitazione:
 
 * Vengono aggiunte altre entità e relazioni.
 * Il modello di dati viene personalizzato specificando regole di formattazione, convalida e mapping del database.
@@ -821,18 +821,18 @@ Con la modifica precedente, `Student.FirstMidName` nell'app esegue il mapping al
 
 L'aggiunta dell'attributo `Column` modifica il modello che supporta `SchoolContext`. Il modello che supporta `SchoolContext` non corrisponde più al database. Se l'app viene eseguita prima di applicare migrations, viene generata l'eccezione seguente:
 
-```SQL
+```
 SqlException: Invalid column name 'FirstName'.
 ```
 
 Per aggiornare il database:
 
-* Compilazione del progetto.
+* Compilare il progetto.
 * Aprire una finestra di comando nella cartella di progetto. Immettere i comandi seguenti per creare una nuova migrazione e aggiornare il database:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-```PMC
+```powershell
 Add-Migration ColumnFirstName
 Update-Database
 ```
@@ -855,7 +855,7 @@ Please review the migration for accuracy.
 
 L'avviso viene generato perché i campi nome ora sono limitati a 50 caratteri. Se un nome nel database ha più di 50 caratteri, i caratteri dal 51 all'ultimo andranno perduti.
 
-* Eseguire il test dell'app.
+* Testare l'app.
 
 Aprire la tabella Student (Studente) in SSOX:
 
@@ -998,7 +998,7 @@ L'entità `Course` dispone di una proprietà chiave esterna (FK) `DepartmentID`.
 
 EF Core non richiede una proprietà chiave esterna per un modello di dati quando il modello dispone di una proprietà di navigazione per un'entità correlata.
 
-EF Core crea automaticamente le chiavi esterne nel database quando sono necessarie. EF Core crea [proprietà nascoste](/ef/core/modeling/shadow-properties) per le chiavi esterne create automaticamente. Il fatto di avere la chiave esterna nel modello di dati può rendere più semplici ed efficienti gli aggiornamenti. Si consideri ad esempio un modello in cui la proprietà chiave esterna `DepartmentID` *non* è inclusa. Quando un'entità Course viene recuperata per la modifica:
+EF Core crea automaticamente le chiavi esterne nel database quando sono necessarie. EF Core crea [proprietà nascoste](/ef/core/modeling/shadow-properties) per le chiavi esterne create automaticamente. Il fatto di avere la chiave esterna nel modello di dati può rendere più semplici ed efficienti gli aggiornamenti. Si consideri ad esempio un modello in cui la proprietà chiave esterna `DepartmentID`*non* è inclusa. Quando un'entità Course viene recuperata per la modifica:
 
 * L'entità `Department` è null se non viene caricata in modo esplicito.
 * Per aggiornare l'entità Course, è in primo luogo necessario recuperare l'entità `Department`.
@@ -1046,7 +1046,7 @@ public ICollection<CourseAssignment> CourseAssignments { get; set; }
 
 ## <a name="create-the-department-entity"></a>Creare l'entità Department
 
-![Entità Department](complex-data-model/_static/department-entity.png)
+![Entità reparto](complex-data-model/_static/department-entity.png)
 
 Creare *Models/Department.cs* con il codice seguente:
 
@@ -1226,7 +1226,7 @@ La figura seguente visualizza il diagramma creato da EF Power Tools per il model
 
 ![Diagramma dell'entità](complex-data-model/_static/diagram.png)
 
-Il diagramma precedente visualizza quanto segue:
+Il diagramma precedente mostra quanto segue:
 
 * Più linee di relazione uno-a-molti (da 1 a \*).
 * La linea di relazione uno-a-zero-o-uno (da 1 a 0..1) tra le entità `Instructor` e `OfficeAssignment`.
@@ -1242,7 +1242,7 @@ Il codice precedente offre i dati di inizializzazione per le nuove entità. La m
 
 ## <a name="add-a-migration"></a>Aggiungere una migrazione
 
-Compilazione del progetto.
+Compilare il progetto.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -1290,7 +1290,7 @@ Il codice aggiornato in `DbInitializer` aggiunge dati di inizializzazione per le
 
 Nella **console di Gestione pacchetti** eseguire il comando seguente:
 
-```PMC
+```powershell
 Drop-Database
 Update-Database
 ```
@@ -1317,7 +1317,7 @@ Aprire il database in SSOX:
 * Se SSOX è stato aperto in precedenza, fare clic sul pulsante **Aggiorna**.
 * Espandere il nodo **Tabelle**. Vengono visualizzate le tabelle create.
 
-![Tabelle in SSOX](complex-data-model/_static/ssox-tables.png)
+![Tabelle in Esplora oggetti di SQL Server](complex-data-model/_static/ssox-tables.png)
 
 Esaminare la tabella **CourseAssignment**:
 
@@ -1358,7 +1358,7 @@ Aggiungere il codice evidenziato seguente. Il nuovo codice viene inserito dopo i
 
 [!code-csharp[](intro/samples/cu/Migrations/20171027005808_ComplexDataModel.cs?name=snippet_CreateDefaultValue&highlight=22-32)]
 
-Con le modifiche precedenti, le righe `Course` esistenti saranno correlate al reparto "Temp" dopo l'esecuzione del metodo `ComplexDataModel` `Up`.
+Con le modifiche precedenti, le righe di `Course` esistenti saranno correlate al reparto "Temp" dopo l'esecuzione del metodo `ComplexDataModel` `Up`.
 
 Un'app di produzione:
 

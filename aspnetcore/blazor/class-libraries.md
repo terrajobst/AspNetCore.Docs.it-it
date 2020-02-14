@@ -5,17 +5,17 @@ description: Scopri in che modo è possibile includere i componenti nelle app Bl
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2019
+ms.date: 01/23/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/class-libraries
-ms.openlocfilehash: f8e8688cdb3d1aef0d470e0e2d8c3857140ef65f
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
+ms.openlocfilehash: 32088b43f91174596f6b9251d36782e806f966b9
+ms.sourcegitcommit: d2ba66023884f0dca115ff010bd98d5ed6459283
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76160028"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77213249"
 ---
 # <a name="aspnet-core-razor-components-class-libraries"></a>Librerie di classi dei componenti di ASP.NET Core Razor
 
@@ -31,21 +31,30 @@ Così come i componenti sono tipi .NET normali, i componenti forniti da un RCL s
 
 ## <a name="create-an-rcl"></a>Creare un RCL
 
-Per configurare l'ambiente per Blazor, seguire le istruzioni riportate nell'articolo <xref:blazor/get-started>.
+Per configurare l'ambiente per blazer, seguire le istruzioni riportate nell'articolo <xref:blazor/get-started>.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 1. Creare un nuovo progetto.
-1. Selezionare **libreria di classi Razor**. Scegliere **Avanti**.
+1. Selezionare **libreria di classi Razor**. Selezionare **Avanti**.
 1. Nella finestra di dialogo **Crea una nuova libreria di classi Razor** selezionare **Crea**.
-1. Specificare il nome di un progetto nel campo **Nome progetto** oppure accettare il nome predefinito. Gli esempi in questo argomento usano il nome del progetto `MyComponentLib1`. Scegliere **Crea**.
+1. Specificare il nome di un progetto nel campo **Nome progetto** oppure accettare il nome predefinito. Gli esempi in questo argomento usano il nome del progetto `MyComponentLib1`. Selezionare **Create** (Crea).
 1. Aggiungere RCL a una soluzione:
    1. Fare clic con il pulsante destro del mouse sulla soluzione. Selezionare **aggiungi** > **progetto esistente**.
    1. Passare al file di progetto di RCL.
    1. Selezionare il file di progetto di RCL (con*estensione csproj*).
 1. Aggiungere un riferimento a RCL dall'app:
    1. Fare clic con il pulsante destro del mouse sul progetto app. Selezionare **Aggiungi** **riferimento** > .
-   1. Selezionare il progetto RCL. Scegliere **OK**.
+   1. Selezionare il progetto RCL. Selezionare **OK**.
+
+> [!NOTE]
+> Se la casella di controllo **pagine e visualizzazioni di supporto** è selezionata durante la generazione del RCL dal modello, aggiungere anche un file *_Imports. Razor* alla radice del progetto generato con il contenuto seguente per abilitare la creazione dei componenti Razor:
+>
+> ```razor
+> @using Microsoft.AspNetCore.Components.Web
+> ```
+>
+> Aggiungere manualmente il file alla radice del progetto generato.
 
 # <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 
@@ -54,6 +63,15 @@ Per configurare l'ambiente per Blazor, seguire le istruzioni riportate nell'arti
    ```dotnetcli
    dotnet new razorclasslib -o MyComponentLib1
    ```
+
+   > [!NOTE]
+   > Se viene usata l'opzione `-s|--support-pages-and-views` durante la generazione del RCL dal modello, aggiungere anche un file *_Imports. Razor* alla radice del progetto generato con il contenuto seguente per abilitare la creazione dei componenti Razor:
+   >
+   > ```razor
+   > @using Microsoft.AspNetCore.Components.Web
+   > ```
+   >
+   > Aggiungere manualmente il file alla radice del progetto generato.
 
 1. Per aggiungere la libreria a un progetto esistente, usare il comando [DotNet Add Reference](/dotnet/core/tools/dotnet-add-reference) in una shell dei comandi. Nell'esempio seguente viene aggiunto RCL all'app. Eseguire il comando seguente dalla cartella del progetto dell'app con il percorso della libreria:
 
@@ -108,7 +126,7 @@ Caricare il pacchetto in NuGet usando il comando [DotNet NuGet push](/dotnet/cor
 
 ## <a name="create-a-razor-components-class-library-with-static-assets"></a>Creare una libreria di classi di componenti Razor con asset statici
 
-Un RCL può includere asset statici. Gli asset statici sono disponibili per qualsiasi app che usa la libreria. Per ulteriori informazioni, vedere <xref:razor-pages/ui-class#create-an-rcl-with-static-assets>.
+Un RCL può includere asset statici. Gli asset statici sono disponibili per qualsiasi app che usa la libreria. Per altre informazioni, vedere <xref:razor-pages/ui-class#create-an-rcl-with-static-assets>.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
