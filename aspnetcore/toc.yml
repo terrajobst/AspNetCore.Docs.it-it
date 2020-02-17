@@ -297,18 +297,20 @@
           uid: blazor/components
         - name: Ciclo di vita
           uid: blazor/lifecycle
-        - name: Moduli e convalida
-          uid: blazor/forms-validation
-        - name: Librerie di componenti
-          uid: blazor/class-libraries
         - name: Layout
           uid: blazor/layouts
+        - name: Moduli e convalida
+          uid: blazor/forms-validation
         - name: Inserimento di dipendenze
           uid: blazor/dependency-injection
         - name: Routing
           uid: blazor/routing
         - name: Interoperabilità JavaScript
           uid: blazor/javascript-interop
+        - name: Configurazione del modello di hosting
+          uid: blazor/hosting-model-configuration
+        - name: Librerie di componenti
+          uid: blazor/class-libraries
         - name: Sicurezza e Identity
           items:
             - name: Panoramica
