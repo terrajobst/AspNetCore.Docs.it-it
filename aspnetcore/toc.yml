@@ -295,6 +295,16 @@
           uid: blazor/templates
         - name: Componenti
           uid: blazor/components
+        - name: Associazione dati
+          uid: blazor/data-binding
+        - name: Gestione di eventi
+          uid: blazor/event-handling
+        - name: Componenti basati su modelli
+          uid: blazor/templated-components
+        - name: Integrare componenti
+          uid: blazor/integrate-components
+        - name: Globalizzazione e localizzazione
+          uid: blazor/globalization-localization
         - name: Ciclo di vita
           uid: blazor/lifecycle
         - name: Layout
@@ -335,6 +345,8 @@
               uid: host-and-deploy/blazor/server
             - name: Configurare il linker
               uid: host-and-deploy/blazor/configure-linker
+        - name: Scenari avanzati
+          uid: blazor/advanced-scenarios
     - name: Sviluppo lato client
       items:
         - name: Applicazioni a pagina singola
