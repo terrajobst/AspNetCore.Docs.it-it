@@ -6,37 +6,37 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: bdorrans
 ms.date: 01/02/2020
 uid: security/authentication/certauth
-ms.openlocfilehash: 9c175439c0313d62c75898f1af097774b06f353a
-ms.sourcegitcommit: e7d4fe6727d423f905faaeaa312f6c25ef844047
+ms.openlocfilehash: 280daa86510d4445c791b6952653122961f13aeb
+ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75608145"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77447282"
 ---
-# <a name="configure-certificate-authentication-in-aspnet-core"></a><span data-ttu-id="33f34-103">Configurare l'autenticazione del certificato in ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="33f34-103">Configure certificate authentication in ASP.NET Core</span></span>
+# <a name="configure-certificate-authentication-in-aspnet-core"></a><span data-ttu-id="52c84-103">Configurare l'autenticazione del certificato in ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="52c84-103">Configure certificate authentication in ASP.NET Core</span></span>
 
-<span data-ttu-id="33f34-104">`Microsoft.AspNetCore.Authentication.Certificate` contiene un'implementazione simile all' [autenticazione del certificato](https://tools.ietf.org/html/rfc5246#section-7.4.4) per ASP.NET Core.</span><span class="sxs-lookup"><span data-stu-id="33f34-104">`Microsoft.AspNetCore.Authentication.Certificate` contains an implementation similar to [Certificate Authentication](https://tools.ietf.org/html/rfc5246#section-7.4.4) for ASP.NET Core.</span></span> <span data-ttu-id="33f34-105">L'autenticazione del certificato viene eseguita a livello di TLS, molto prima che venga mai ASP.NET Core.</span><span class="sxs-lookup"><span data-stu-id="33f34-105">Certificate authentication happens at the TLS level, long before it ever gets to ASP.NET Core.</span></span> <span data-ttu-id="33f34-106">Più precisamente, si tratta di un gestore di autenticazione che convalida il certificato e quindi fornisce un evento in cui è possibile risolvere il certificato in un `ClaimsPrincipal`.</span><span class="sxs-lookup"><span data-stu-id="33f34-106">More accurately, this is an authentication handler that validates the certificate and then gives you an event where you can resolve that certificate to a `ClaimsPrincipal`.</span></span> 
+<span data-ttu-id="52c84-104">`Microsoft.AspNetCore.Authentication.Certificate` contiene un'implementazione simile all' [autenticazione del certificato](https://tools.ietf.org/html/rfc5246#section-7.4.4) per ASP.NET Core.</span><span class="sxs-lookup"><span data-stu-id="52c84-104">`Microsoft.AspNetCore.Authentication.Certificate` contains an implementation similar to [Certificate Authentication](https://tools.ietf.org/html/rfc5246#section-7.4.4) for ASP.NET Core.</span></span> <span data-ttu-id="52c84-105">L'autenticazione del certificato viene eseguita a livello di TLS, molto prima che venga mai ASP.NET Core.</span><span class="sxs-lookup"><span data-stu-id="52c84-105">Certificate authentication happens at the TLS level, long before it ever gets to ASP.NET Core.</span></span> <span data-ttu-id="52c84-106">Più precisamente, si tratta di un gestore di autenticazione che convalida il certificato e quindi fornisce un evento in cui è possibile risolvere il certificato in un `ClaimsPrincipal`.</span><span class="sxs-lookup"><span data-stu-id="52c84-106">More accurately, this is an authentication handler that validates the certificate and then gives you an event where you can resolve that certificate to a `ClaimsPrincipal`.</span></span> 
 
-<span data-ttu-id="33f34-107">[Configurare l'host](#configure-your-host-to-require-certificates) per l'autenticazione del certificato, essere IIS, gheppio, app Web di Azure o qualsiasi altro elemento in uso.</span><span class="sxs-lookup"><span data-stu-id="33f34-107">[Configure your host](#configure-your-host-to-require-certificates) for certificate authentication, be it IIS, Kestrel, Azure Web Apps, or whatever else you're using.</span></span>
+<span data-ttu-id="52c84-107">[Configurare l'host](#configure-your-host-to-require-certificates) per l'autenticazione del certificato, essere IIS, gheppio, app Web di Azure o qualsiasi altro elemento in uso.</span><span class="sxs-lookup"><span data-stu-id="52c84-107">[Configure your host](#configure-your-host-to-require-certificates) for certificate authentication, be it IIS, Kestrel, Azure Web Apps, or whatever else you're using.</span></span>
 
-## <a name="proxy-and-load-balancer-scenarios"></a><span data-ttu-id="33f34-108">Scenari di proxy e bilanciamento del carico</span><span class="sxs-lookup"><span data-stu-id="33f34-108">Proxy and load balancer scenarios</span></span>
+## <a name="proxy-and-load-balancer-scenarios"></a><span data-ttu-id="52c84-108">Scenari di proxy e bilanciamento del carico</span><span class="sxs-lookup"><span data-stu-id="52c84-108">Proxy and load balancer scenarios</span></span>
 
-<span data-ttu-id="33f34-109">L'autenticazione del certificato è uno scenario con stato usato principalmente quando un proxy o un servizio di bilanciamento del carico non gestisce il traffico tra client e server.</span><span class="sxs-lookup"><span data-stu-id="33f34-109">Certificate authentication is a stateful scenario primarily used where a proxy or load balancer doesn't handle traffic between clients and servers.</span></span> <span data-ttu-id="33f34-110">Se si usa un proxy o un servizio di bilanciamento del carico, l'autenticazione del certificato funziona solo se il proxy o il servizio di bilanciamento del carico:</span><span class="sxs-lookup"><span data-stu-id="33f34-110">If a proxy or load balancer is used, certificate authentication only works if the proxy or load balancer:</span></span>
+<span data-ttu-id="52c84-109">L'autenticazione del certificato è uno scenario con stato usato principalmente quando un proxy o un servizio di bilanciamento del carico non gestisce il traffico tra client e server.</span><span class="sxs-lookup"><span data-stu-id="52c84-109">Certificate authentication is a stateful scenario primarily used where a proxy or load balancer doesn't handle traffic between clients and servers.</span></span> <span data-ttu-id="52c84-110">Se si usa un proxy o un servizio di bilanciamento del carico, l'autenticazione del certificato funziona solo se il proxy o il servizio di bilanciamento del carico:</span><span class="sxs-lookup"><span data-stu-id="52c84-110">If a proxy or load balancer is used, certificate authentication only works if the proxy or load balancer:</span></span>
 
-* <span data-ttu-id="33f34-111">Gestisce l'autenticazione.</span><span class="sxs-lookup"><span data-stu-id="33f34-111">Handles the authentication.</span></span>
-* <span data-ttu-id="33f34-112">Passa le informazioni di autenticazione utente all'app, ad esempio in un'intestazione di richiesta, che agisce sulle informazioni di autenticazione.</span><span class="sxs-lookup"><span data-stu-id="33f34-112">Passes the user authentication information to the app (for example, in a request header), which acts on the authentication information.</span></span>
+* <span data-ttu-id="52c84-111">Gestisce l'autenticazione.</span><span class="sxs-lookup"><span data-stu-id="52c84-111">Handles the authentication.</span></span>
+* <span data-ttu-id="52c84-112">Passa le informazioni di autenticazione utente all'app, ad esempio in un'intestazione di richiesta, che agisce sulle informazioni di autenticazione.</span><span class="sxs-lookup"><span data-stu-id="52c84-112">Passes the user authentication information to the app (for example, in a request header), which acts on the authentication information.</span></span>
 
-<span data-ttu-id="33f34-113">Un'alternativa all'autenticazione del certificato negli ambienti in cui vengono usati proxy e servizi di bilanciamento del carico è Active Directory servizi federati (ADFS) con OpenID Connect (OIDC).</span><span class="sxs-lookup"><span data-stu-id="33f34-113">An alternative to certificate authentication in environments where proxies and load balancers are used is Active Directory Federated Services (ADFS) with OpenID Connect (OIDC).</span></span>
+<span data-ttu-id="52c84-113">Un'alternativa all'autenticazione del certificato negli ambienti in cui vengono usati proxy e servizi di bilanciamento del carico è Active Directory servizi federati (ADFS) con OpenID Connect (OIDC).</span><span class="sxs-lookup"><span data-stu-id="52c84-113">An alternative to certificate authentication in environments where proxies and load balancers are used is Active Directory Federated Services (ADFS) with OpenID Connect (OIDC).</span></span>
 
-## <a name="get-started"></a><span data-ttu-id="33f34-114">Attività iniziali</span><span class="sxs-lookup"><span data-stu-id="33f34-114">Get started</span></span>
+## <a name="get-started"></a><span data-ttu-id="52c84-114">Introduzione</span><span class="sxs-lookup"><span data-stu-id="52c84-114">Get started</span></span>
 
-<span data-ttu-id="33f34-115">Acquisire un certificato HTTPS, applicarlo e [configurare l'host](#configure-your-host-to-require-certificates) per richiedere i certificati.</span><span class="sxs-lookup"><span data-stu-id="33f34-115">Acquire an HTTPS certificate, apply it, and [configure your host](#configure-your-host-to-require-certificates) to require certificates.</span></span>
+<span data-ttu-id="52c84-115">Acquisire un certificato HTTPS, applicarlo e [configurare l'host](#configure-your-host-to-require-certificates) per richiedere i certificati.</span><span class="sxs-lookup"><span data-stu-id="52c84-115">Acquire an HTTPS certificate, apply it, and [configure your host](#configure-your-host-to-require-certificates) to require certificates.</span></span>
 
-<span data-ttu-id="33f34-116">Nell'app Web aggiungere un riferimento al pacchetto `Microsoft.AspNetCore.Authentication.Certificate`.</span><span class="sxs-lookup"><span data-stu-id="33f34-116">In your web app, add a reference to the `Microsoft.AspNetCore.Authentication.Certificate` package.</span></span> <span data-ttu-id="33f34-117">Quindi, nel metodo `Startup.ConfigureServices`, chiamare `services.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme).AddCertificate(...);` con le opzioni, fornendo un delegato per `OnCertificateValidated` eseguire qualsiasi convalida supplementare sul certificato client inviato con le richieste.</span><span class="sxs-lookup"><span data-stu-id="33f34-117">Then in the `Startup.ConfigureServices` method, call `services.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme).AddCertificate(...);` with your options, providing a delegate for `OnCertificateValidated` to do any supplementary validation on the client certificate sent with requests.</span></span> <span data-ttu-id="33f34-118">Trasformare le informazioni in un `ClaimsPrincipal` e impostarle sulla proprietà `context.Principal`.</span><span class="sxs-lookup"><span data-stu-id="33f34-118">Turn that information into a `ClaimsPrincipal` and set it on the `context.Principal` property.</span></span>
+<span data-ttu-id="52c84-116">Nell'app Web aggiungere un riferimento al pacchetto `Microsoft.AspNetCore.Authentication.Certificate`.</span><span class="sxs-lookup"><span data-stu-id="52c84-116">In your web app, add a reference to the `Microsoft.AspNetCore.Authentication.Certificate` package.</span></span> <span data-ttu-id="52c84-117">Quindi, nel metodo `Startup.ConfigureServices`, chiamare `services.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme).AddCertificate(...);` con le opzioni, fornendo un delegato per `OnCertificateValidated` eseguire qualsiasi convalida supplementare sul certificato client inviato con le richieste.</span><span class="sxs-lookup"><span data-stu-id="52c84-117">Then in the `Startup.ConfigureServices` method, call `services.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme).AddCertificate(...);` with your options, providing a delegate for `OnCertificateValidated` to do any supplementary validation on the client certificate sent with requests.</span></span> <span data-ttu-id="52c84-118">Trasformare le informazioni in un `ClaimsPrincipal` e impostarle sulla proprietà `context.Principal`.</span><span class="sxs-lookup"><span data-stu-id="52c84-118">Turn that information into a `ClaimsPrincipal` and set it on the `context.Principal` property.</span></span>
 
-<span data-ttu-id="33f34-119">Se l'autenticazione ha esito negativo, questo gestore restituisce una risposta `403 (Forbidden)` piuttosto una `401 (Unauthorized)`, come si può immaginare.</span><span class="sxs-lookup"><span data-stu-id="33f34-119">If authentication fails, this handler returns a `403 (Forbidden)` response rather a `401 (Unauthorized)`, as you might expect.</span></span> <span data-ttu-id="33f34-120">Il motivo è che l'autenticazione deve verificarsi durante la connessione TLS iniziale.</span><span class="sxs-lookup"><span data-stu-id="33f34-120">The reasoning is that the authentication should happen during the initial TLS connection.</span></span> <span data-ttu-id="33f34-121">Quando raggiunge il gestore, è troppo tardi.</span><span class="sxs-lookup"><span data-stu-id="33f34-121">By the time it reaches the handler, it's too late.</span></span> <span data-ttu-id="33f34-122">Non è possibile aggiornare la connessione da una connessione anonima a un'altra con un certificato.</span><span class="sxs-lookup"><span data-stu-id="33f34-122">There's no way to upgrade the connection from an anonymous connection to one with a certificate.</span></span>
+<span data-ttu-id="52c84-119">Se l'autenticazione ha esito negativo, questo gestore restituisce una risposta `403 (Forbidden)` piuttosto una `401 (Unauthorized)`, come si può immaginare.</span><span class="sxs-lookup"><span data-stu-id="52c84-119">If authentication fails, this handler returns a `403 (Forbidden)` response rather a `401 (Unauthorized)`, as you might expect.</span></span> <span data-ttu-id="52c84-120">Il motivo è che l'autenticazione deve verificarsi durante la connessione TLS iniziale.</span><span class="sxs-lookup"><span data-stu-id="52c84-120">The reasoning is that the authentication should happen during the initial TLS connection.</span></span> <span data-ttu-id="52c84-121">Quando raggiunge il gestore, è troppo tardi.</span><span class="sxs-lookup"><span data-stu-id="52c84-121">By the time it reaches the handler, it's too late.</span></span> <span data-ttu-id="52c84-122">Non è possibile aggiornare la connessione da una connessione anonima a un'altra con un certificato.</span><span class="sxs-lookup"><span data-stu-id="52c84-122">There's no way to upgrade the connection from an anonymous connection to one with a certificate.</span></span>
 
-<span data-ttu-id="33f34-123">Aggiungere anche `app.UseAuthentication();` nel metodo `Startup.Configure`.</span><span class="sxs-lookup"><span data-stu-id="33f34-123">Also add `app.UseAuthentication();` in the `Startup.Configure` method.</span></span> <span data-ttu-id="33f34-124">In caso contrario, il `HttpContext.User` non verrà impostato su `ClaimsPrincipal` creato dal certificato.</span><span class="sxs-lookup"><span data-stu-id="33f34-124">Otherwise, the `HttpContext.User` will not be set to `ClaimsPrincipal` created from the certificate.</span></span> <span data-ttu-id="33f34-125">Ad esempio:</span><span class="sxs-lookup"><span data-stu-id="33f34-125">For example:</span></span>
+<span data-ttu-id="52c84-123">Aggiungere anche `app.UseAuthentication();` nel metodo `Startup.Configure`.</span><span class="sxs-lookup"><span data-stu-id="52c84-123">Also add `app.UseAuthentication();` in the `Startup.Configure` method.</span></span> <span data-ttu-id="52c84-124">In caso contrario, il `HttpContext.User` non verrà impostato su `ClaimsPrincipal` creato dal certificato.</span><span class="sxs-lookup"><span data-stu-id="52c84-124">Otherwise, the `HttpContext.User` will not be set to `ClaimsPrincipal` created from the certificate.</span></span> <span data-ttu-id="52c84-125">Ad esempio:</span><span class="sxs-lookup"><span data-stu-id="52c84-125">For example:</span></span>
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -55,60 +55,60 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-<span data-ttu-id="33f34-126">Nell'esempio precedente viene illustrata la modalità predefinita per aggiungere l'autenticazione del certificato.</span><span class="sxs-lookup"><span data-stu-id="33f34-126">The preceding example demonstrates the default way to add certificate authentication.</span></span> <span data-ttu-id="33f34-127">Il gestore crea un'entità utente usando le proprietà comuni del certificato.</span><span class="sxs-lookup"><span data-stu-id="33f34-127">The handler constructs a user principal using the common certificate properties.</span></span>
+<span data-ttu-id="52c84-126">Nell'esempio precedente viene illustrata la modalità predefinita per aggiungere l'autenticazione del certificato.</span><span class="sxs-lookup"><span data-stu-id="52c84-126">The preceding example demonstrates the default way to add certificate authentication.</span></span> <span data-ttu-id="52c84-127">Il gestore crea un'entità utente usando le proprietà comuni del certificato.</span><span class="sxs-lookup"><span data-stu-id="52c84-127">The handler constructs a user principal using the common certificate properties.</span></span>
 
-## <a name="configure-certificate-validation"></a><span data-ttu-id="33f34-128">Configurare la convalida del certificato</span><span class="sxs-lookup"><span data-stu-id="33f34-128">Configure certificate validation</span></span>
+## <a name="configure-certificate-validation"></a><span data-ttu-id="52c84-128">Configurare la convalida del certificato</span><span class="sxs-lookup"><span data-stu-id="52c84-128">Configure certificate validation</span></span>
 
-<span data-ttu-id="33f34-129">Il gestore `CertificateAuthenticationOptions` dispone di alcune convalide predefinite che rappresentano le convalide minime che è necessario eseguire su un certificato.</span><span class="sxs-lookup"><span data-stu-id="33f34-129">The `CertificateAuthenticationOptions` handler has some built-in validations that are the minimum validations you should perform on a certificate.</span></span> <span data-ttu-id="33f34-130">Ognuna di queste impostazioni è abilitata per impostazione predefinita.</span><span class="sxs-lookup"><span data-stu-id="33f34-130">Each of these settings is enabled by default.</span></span>
+<span data-ttu-id="52c84-129">Il gestore `CertificateAuthenticationOptions` dispone di alcune convalide predefinite che rappresentano le convalide minime che è necessario eseguire su un certificato.</span><span class="sxs-lookup"><span data-stu-id="52c84-129">The `CertificateAuthenticationOptions` handler has some built-in validations that are the minimum validations you should perform on a certificate.</span></span> <span data-ttu-id="52c84-130">Ognuna di queste impostazioni è abilitata per impostazione predefinita.</span><span class="sxs-lookup"><span data-stu-id="52c84-130">Each of these settings is enabled by default.</span></span>
 
-### <a name="allowedcertificatetypes--chained-selfsigned-or-all-chained--selfsigned"></a><span data-ttu-id="33f34-131">AllowedCertificateTypes = concatenato, SelfSigned o tutti (concatenato | SelfSigned)</span><span class="sxs-lookup"><span data-stu-id="33f34-131">AllowedCertificateTypes = Chained, SelfSigned, or All (Chained | SelfSigned)</span></span>
+### <a name="allowedcertificatetypes--chained-selfsigned-or-all-chained--selfsigned"></a><span data-ttu-id="52c84-131">AllowedCertificateTypes = concatenato, SelfSigned o tutti (concatenato | SelfSigned)</span><span class="sxs-lookup"><span data-stu-id="52c84-131">AllowedCertificateTypes = Chained, SelfSigned, or All (Chained | SelfSigned)</span></span>
 
-<span data-ttu-id="33f34-132">Valore predefinito: `CertificateTypes.Chained`</span><span class="sxs-lookup"><span data-stu-id="33f34-132">Default value: `CertificateTypes.Chained`</span></span>
+<span data-ttu-id="52c84-132">Valore predefinito: `CertificateTypes.Chained`</span><span class="sxs-lookup"><span data-stu-id="52c84-132">Default value: `CertificateTypes.Chained`</span></span>
 
-<span data-ttu-id="33f34-133">Questo controllo consente di verificare che sia consentito solo il tipo di certificato appropriato.</span><span class="sxs-lookup"><span data-stu-id="33f34-133">This check validates that only the appropriate certificate type is allowed.</span></span> <span data-ttu-id="33f34-134">Se l'app usa certificati autofirmati, questa opzione deve essere impostata su `CertificateTypes.All` o `CertificateTypes.SelfSigned`.</span><span class="sxs-lookup"><span data-stu-id="33f34-134">If the app is using self-signed certificates, this option needs to be set to `CertificateTypes.All` or `CertificateTypes.SelfSigned`.</span></span>
+<span data-ttu-id="52c84-133">Questo controllo consente di verificare che sia consentito solo il tipo di certificato appropriato.</span><span class="sxs-lookup"><span data-stu-id="52c84-133">This check validates that only the appropriate certificate type is allowed.</span></span> <span data-ttu-id="52c84-134">Se l'app usa certificati autofirmati, questa opzione deve essere impostata su `CertificateTypes.All` o `CertificateTypes.SelfSigned`.</span><span class="sxs-lookup"><span data-stu-id="52c84-134">If the app is using self-signed certificates, this option needs to be set to `CertificateTypes.All` or `CertificateTypes.SelfSigned`.</span></span>
 
-### <a name="validatecertificateuse"></a><span data-ttu-id="33f34-135">ValidateCertificateUse</span><span class="sxs-lookup"><span data-stu-id="33f34-135">ValidateCertificateUse</span></span>
+### <a name="validatecertificateuse"></a><span data-ttu-id="52c84-135">ValidateCertificateUse</span><span class="sxs-lookup"><span data-stu-id="52c84-135">ValidateCertificateUse</span></span>
 
-<span data-ttu-id="33f34-136">Valore predefinito: `true`</span><span class="sxs-lookup"><span data-stu-id="33f34-136">Default value: `true`</span></span>
+<span data-ttu-id="52c84-136">Valore predefinito: `true`</span><span class="sxs-lookup"><span data-stu-id="52c84-136">Default value: `true`</span></span>
 
-<span data-ttu-id="33f34-137">Questo controllo verifica che il certificato presentato dal client disponga dell'utilizzo chiavi avanzato (EKU) di autenticazione client o non EKU affatto.</span><span class="sxs-lookup"><span data-stu-id="33f34-137">This check validates that the certificate presented by the client has the Client Authentication extended key use (EKU), or no EKUs at all.</span></span> <span data-ttu-id="33f34-138">Come le specifiche dicono, se non è specificato alcun EKU, tutti i EKU vengono considerati validi.</span><span class="sxs-lookup"><span data-stu-id="33f34-138">As the specifications say, if no EKU is specified, then all EKUs are deemed valid.</span></span>
+<span data-ttu-id="52c84-137">Questo controllo verifica che il certificato presentato dal client disponga dell'utilizzo chiavi avanzato (EKU) di autenticazione client o non EKU affatto.</span><span class="sxs-lookup"><span data-stu-id="52c84-137">This check validates that the certificate presented by the client has the Client Authentication extended key use (EKU), or no EKUs at all.</span></span> <span data-ttu-id="52c84-138">Come le specifiche dicono, se non è specificato alcun EKU, tutti i EKU vengono considerati validi.</span><span class="sxs-lookup"><span data-stu-id="52c84-138">As the specifications say, if no EKU is specified, then all EKUs are deemed valid.</span></span>
 
-### <a name="validatevalidityperiod"></a><span data-ttu-id="33f34-139">ValidateValidityPeriod</span><span class="sxs-lookup"><span data-stu-id="33f34-139">ValidateValidityPeriod</span></span>
+### <a name="validatevalidityperiod"></a><span data-ttu-id="52c84-139">ValidateValidityPeriod</span><span class="sxs-lookup"><span data-stu-id="52c84-139">ValidateValidityPeriod</span></span>
 
-<span data-ttu-id="33f34-140">Valore predefinito: `true`</span><span class="sxs-lookup"><span data-stu-id="33f34-140">Default value: `true`</span></span>
+<span data-ttu-id="52c84-140">Valore predefinito: `true`</span><span class="sxs-lookup"><span data-stu-id="52c84-140">Default value: `true`</span></span>
 
-<span data-ttu-id="33f34-141">Questo controllo verifica che il certificato sia entro il periodo di validità.</span><span class="sxs-lookup"><span data-stu-id="33f34-141">This check validates that the certificate is within its validity period.</span></span> <span data-ttu-id="33f34-142">Per ogni richiesta, il gestore garantisce che un certificato valido al momento della presentazione non sia scaduto durante la sessione corrente.</span><span class="sxs-lookup"><span data-stu-id="33f34-142">On each request, the handler ensures that a certificate that was valid when it was presented hasn't expired during its current session.</span></span>
+<span data-ttu-id="52c84-141">Questo controllo verifica che il certificato sia entro il periodo di validità.</span><span class="sxs-lookup"><span data-stu-id="52c84-141">This check validates that the certificate is within its validity period.</span></span> <span data-ttu-id="52c84-142">Per ogni richiesta, il gestore garantisce che un certificato valido al momento della presentazione non sia scaduto durante la sessione corrente.</span><span class="sxs-lookup"><span data-stu-id="52c84-142">On each request, the handler ensures that a certificate that was valid when it was presented hasn't expired during its current session.</span></span>
 
-### <a name="revocationflag"></a><span data-ttu-id="33f34-143">RevocationFlag</span><span class="sxs-lookup"><span data-stu-id="33f34-143">RevocationFlag</span></span>
+### <a name="revocationflag"></a><span data-ttu-id="52c84-143">RevocationFlag</span><span class="sxs-lookup"><span data-stu-id="52c84-143">RevocationFlag</span></span>
 
-<span data-ttu-id="33f34-144">Valore predefinito: `X509RevocationFlag.ExcludeRoot`</span><span class="sxs-lookup"><span data-stu-id="33f34-144">Default value: `X509RevocationFlag.ExcludeRoot`</span></span>
+<span data-ttu-id="52c84-144">Valore predefinito: `X509RevocationFlag.ExcludeRoot`</span><span class="sxs-lookup"><span data-stu-id="52c84-144">Default value: `X509RevocationFlag.ExcludeRoot`</span></span>
 
-<span data-ttu-id="33f34-145">Flag che specifica i certificati nella catena controllati per la revoca.</span><span class="sxs-lookup"><span data-stu-id="33f34-145">A flag that specifies which certificates in the chain are checked for revocation.</span></span>
+<span data-ttu-id="52c84-145">Flag che specifica i certificati nella catena controllati per la revoca.</span><span class="sxs-lookup"><span data-stu-id="52c84-145">A flag that specifies which certificates in the chain are checked for revocation.</span></span>
 
-<span data-ttu-id="33f34-146">I controlli di revoca vengono eseguiti solo quando il certificato è concatenato a un certificato radice.</span><span class="sxs-lookup"><span data-stu-id="33f34-146">Revocation checks are only performed when the certificate is chained to a root certificate.</span></span>
+<span data-ttu-id="52c84-146">I controlli di revoca vengono eseguiti solo quando il certificato è concatenato a un certificato radice.</span><span class="sxs-lookup"><span data-stu-id="52c84-146">Revocation checks are only performed when the certificate is chained to a root certificate.</span></span>
 
-### <a name="revocationmode"></a><span data-ttu-id="33f34-147">RevocationMode</span><span class="sxs-lookup"><span data-stu-id="33f34-147">RevocationMode</span></span>
+### <a name="revocationmode"></a><span data-ttu-id="52c84-147">RevocationMode</span><span class="sxs-lookup"><span data-stu-id="52c84-147">RevocationMode</span></span>
 
-<span data-ttu-id="33f34-148">Valore predefinito: `X509RevocationMode.Online`</span><span class="sxs-lookup"><span data-stu-id="33f34-148">Default value: `X509RevocationMode.Online`</span></span>
+<span data-ttu-id="52c84-148">Valore predefinito: `X509RevocationMode.Online`</span><span class="sxs-lookup"><span data-stu-id="52c84-148">Default value: `X509RevocationMode.Online`</span></span>
 
-<span data-ttu-id="33f34-149">Flag che specifica la modalità di esecuzione dei controlli di revoca.</span><span class="sxs-lookup"><span data-stu-id="33f34-149">A flag that specifies how revocation checks are performed.</span></span>
+<span data-ttu-id="52c84-149">Flag che specifica la modalità di esecuzione dei controlli di revoca.</span><span class="sxs-lookup"><span data-stu-id="52c84-149">A flag that specifies how revocation checks are performed.</span></span>
 
-<span data-ttu-id="33f34-150">La specifica di un controllo online può comportare un ritardo prolungato mentre viene contattata l'autorità di certificazione.</span><span class="sxs-lookup"><span data-stu-id="33f34-150">Specifying an online check can result in a long delay while the certificate authority is contacted.</span></span>
+<span data-ttu-id="52c84-150">La specifica di un controllo online può comportare un ritardo prolungato mentre viene contattata l'autorità di certificazione.</span><span class="sxs-lookup"><span data-stu-id="52c84-150">Specifying an online check can result in a long delay while the certificate authority is contacted.</span></span>
 
-<span data-ttu-id="33f34-151">I controlli di revoca vengono eseguiti solo quando il certificato è concatenato a un certificato radice.</span><span class="sxs-lookup"><span data-stu-id="33f34-151">Revocation checks are only performed when the certificate is chained to a root certificate.</span></span>
+<span data-ttu-id="52c84-151">I controlli di revoca vengono eseguiti solo quando il certificato è concatenato a un certificato radice.</span><span class="sxs-lookup"><span data-stu-id="52c84-151">Revocation checks are only performed when the certificate is chained to a root certificate.</span></span>
 
-### <a name="can-i-configure-my-app-to-require-a-certificate-only-on-certain-paths"></a><span data-ttu-id="33f34-152">È possibile configurare l'app in modo che richieda un certificato solo su determinati percorsi?</span><span class="sxs-lookup"><span data-stu-id="33f34-152">Can I configure my app to require a certificate only on certain paths?</span></span>
+### <a name="can-i-configure-my-app-to-require-a-certificate-only-on-certain-paths"></a><span data-ttu-id="52c84-152">È possibile configurare l'app in modo che richieda un certificato solo su determinati percorsi?</span><span class="sxs-lookup"><span data-stu-id="52c84-152">Can I configure my app to require a certificate only on certain paths?</span></span>
 
-<span data-ttu-id="33f34-153">Questa operazione non è possibile.</span><span class="sxs-lookup"><span data-stu-id="33f34-153">This isn't possible.</span></span> <span data-ttu-id="33f34-154">Tenere presente che lo scambio di certificati è stato eseguito dall'avvio della conversazione HTTPS, che viene eseguito dal server prima che la prima richiesta venga ricevuta sulla connessione, quindi non è possibile definire l'ambito in base a qualsiasi campo di richiesta.</span><span class="sxs-lookup"><span data-stu-id="33f34-154">Remember the certificate exchange is done that the start of the HTTPS conversation, it's done by the server before the first request is received on that connection so it's not possible to scope based on any request fields.</span></span>
+<span data-ttu-id="52c84-153">Questa operazione non è possibile.</span><span class="sxs-lookup"><span data-stu-id="52c84-153">This isn't possible.</span></span> <span data-ttu-id="52c84-154">Tenere presente che lo scambio di certificati è stato eseguito dall'avvio della conversazione HTTPS, che viene eseguito dal server prima che la prima richiesta venga ricevuta sulla connessione, quindi non è possibile definire l'ambito in base a qualsiasi campo di richiesta.</span><span class="sxs-lookup"><span data-stu-id="52c84-154">Remember the certificate exchange is done that the start of the HTTPS conversation, it's done by the server before the first request is received on that connection so it's not possible to scope based on any request fields.</span></span>
 
-## <a name="handler-events"></a><span data-ttu-id="33f34-155">Eventi gestore</span><span class="sxs-lookup"><span data-stu-id="33f34-155">Handler events</span></span>
+## <a name="handler-events"></a><span data-ttu-id="52c84-155">Eventi gestore</span><span class="sxs-lookup"><span data-stu-id="52c84-155">Handler events</span></span>
 
-<span data-ttu-id="33f34-156">Il gestore dispone di due eventi:</span><span class="sxs-lookup"><span data-stu-id="33f34-156">The handler has two events:</span></span>
+<span data-ttu-id="52c84-156">Il gestore dispone di due eventi:</span><span class="sxs-lookup"><span data-stu-id="52c84-156">The handler has two events:</span></span>
 
-* <span data-ttu-id="33f34-157">`OnAuthenticationFailed` &ndash; chiamato se si verifica un'eccezione durante l'autenticazione e consente di rispondere.</span><span class="sxs-lookup"><span data-stu-id="33f34-157">`OnAuthenticationFailed` &ndash; Called if an exception happens during authentication and allows you to react.</span></span>
-* <span data-ttu-id="33f34-158">`OnCertificateValidated` &ndash; chiamato dopo che il certificato è stato convalidato, è stata passata la convalida ed è stata creata un'entità predefinita.</span><span class="sxs-lookup"><span data-stu-id="33f34-158">`OnCertificateValidated` &ndash; Called after the certificate has been validated, passed validation and a default principal has been created.</span></span> <span data-ttu-id="33f34-159">Questo evento consente di eseguire una convalida personalizzata e di aumentare o sostituire l'entità di protezione.</span><span class="sxs-lookup"><span data-stu-id="33f34-159">This event allows you to perform your own validation and augment or replace the principal.</span></span> <span data-ttu-id="33f34-160">Gli esempi includono:</span><span class="sxs-lookup"><span data-stu-id="33f34-160">For examples include:</span></span>
-  * <span data-ttu-id="33f34-161">Determinare se il certificato è noto ai servizi.</span><span class="sxs-lookup"><span data-stu-id="33f34-161">Determining if the certificate is known to your services.</span></span>
-  * <span data-ttu-id="33f34-162">Creazione di un'entità personalizzata.</span><span class="sxs-lookup"><span data-stu-id="33f34-162">Constructing your own principal.</span></span> <span data-ttu-id="33f34-163">Si consideri l'esempio seguente in `Startup.ConfigureServices`:</span><span class="sxs-lookup"><span data-stu-id="33f34-163">Consider the following example in `Startup.ConfigureServices`:</span></span>
+* <span data-ttu-id="52c84-157">`OnAuthenticationFailed` &ndash; chiamato se si verifica un'eccezione durante l'autenticazione e consente di rispondere.</span><span class="sxs-lookup"><span data-stu-id="52c84-157">`OnAuthenticationFailed` &ndash; Called if an exception happens during authentication and allows you to react.</span></span>
+* <span data-ttu-id="52c84-158">`OnCertificateValidated` &ndash; chiamato dopo che il certificato è stato convalidato, è stata passata la convalida ed è stata creata un'entità predefinita.</span><span class="sxs-lookup"><span data-stu-id="52c84-158">`OnCertificateValidated` &ndash; Called after the certificate has been validated, passed validation and a default principal has been created.</span></span> <span data-ttu-id="52c84-159">Questo evento consente di eseguire una convalida personalizzata e di aumentare o sostituire l'entità di protezione.</span><span class="sxs-lookup"><span data-stu-id="52c84-159">This event allows you to perform your own validation and augment or replace the principal.</span></span> <span data-ttu-id="52c84-160">Gli esempi includono:</span><span class="sxs-lookup"><span data-stu-id="52c84-160">For examples include:</span></span>
+  * <span data-ttu-id="52c84-161">Determinare se il certificato è noto ai servizi.</span><span class="sxs-lookup"><span data-stu-id="52c84-161">Determining if the certificate is known to your services.</span></span>
+  * <span data-ttu-id="52c84-162">Creazione di un'entità personalizzata.</span><span class="sxs-lookup"><span data-stu-id="52c84-162">Constructing your own principal.</span></span> <span data-ttu-id="52c84-163">Si consideri l'esempio seguente in `Startup.ConfigureServices`:</span><span class="sxs-lookup"><span data-stu-id="52c84-163">Consider the following example in `Startup.ConfigureServices`:</span></span>
 
 ```csharp
 services.AddAuthentication(
@@ -142,9 +142,9 @@ services.AddAuthentication(
     });
 ```
 
-<span data-ttu-id="33f34-164">Se il certificato in ingresso non soddisfa la convalida aggiuntiva, chiamare `context.Fail("failure reason")` con un motivo dell'errore.</span><span class="sxs-lookup"><span data-stu-id="33f34-164">If you find the inbound certificate doesn't meet your extra validation, call `context.Fail("failure reason")` with a failure reason.</span></span>
+<span data-ttu-id="52c84-164">Se il certificato in ingresso non soddisfa la convalida aggiuntiva, chiamare `context.Fail("failure reason")` con un motivo dell'errore.</span><span class="sxs-lookup"><span data-stu-id="52c84-164">If you find the inbound certificate doesn't meet your extra validation, call `context.Fail("failure reason")` with a failure reason.</span></span>
 
-<span data-ttu-id="33f34-165">Per le funzionalità reali, è probabile che si voglia chiamare un servizio registrato nell'inserimento delle dipendenze che si connette a un database o a un altro tipo di archivio utente.</span><span class="sxs-lookup"><span data-stu-id="33f34-165">For real functionality, you'll probably want to call a service registered in dependency injection that connects to a database or other type of user store.</span></span> <span data-ttu-id="33f34-166">Accedere al servizio usando il contesto passato al delegato.</span><span class="sxs-lookup"><span data-stu-id="33f34-166">Access your service by using the context passed into your delegate.</span></span> <span data-ttu-id="33f34-167">Si consideri l'esempio seguente in `Startup.ConfigureServices`:</span><span class="sxs-lookup"><span data-stu-id="33f34-167">Consider the following example in `Startup.ConfigureServices`:</span></span>
+<span data-ttu-id="52c84-165">Per le funzionalità reali, è probabile che si voglia chiamare un servizio registrato nell'inserimento delle dipendenze che si connette a un database o a un altro tipo di archivio utente.</span><span class="sxs-lookup"><span data-stu-id="52c84-165">For real functionality, you'll probably want to call a service registered in dependency injection that connects to a database or other type of user store.</span></span> <span data-ttu-id="52c84-166">Accedere al servizio usando il contesto passato al delegato.</span><span class="sxs-lookup"><span data-stu-id="52c84-166">Access your service by using the context passed into your delegate.</span></span> <span data-ttu-id="52c84-167">Si consideri l'esempio seguente in `Startup.ConfigureServices`:</span><span class="sxs-lookup"><span data-stu-id="52c84-167">Consider the following example in `Startup.ConfigureServices`:</span></span>
 
 ```csharp
 services.AddAuthentication(
@@ -187,13 +187,13 @@ services.AddAuthentication(
     });
 ```
 
-<span data-ttu-id="33f34-168">Concettualmente, la convalida del certificato è un problema di autorizzazione.</span><span class="sxs-lookup"><span data-stu-id="33f34-168">Conceptually, the validation of the certificate is an authorization concern.</span></span> <span data-ttu-id="33f34-169">L'aggiunta di un controllo, ad esempio, di un'autorità emittente o di un'identificazione personale in un criterio di autorizzazione, anziché all'interno di `OnCertificateValidated`, è perfettamente accettabile.</span><span class="sxs-lookup"><span data-stu-id="33f34-169">Adding a check on, for example, an issuer or thumbprint in an authorization policy, rather than inside `OnCertificateValidated`, is perfectly acceptable.</span></span>
+<span data-ttu-id="52c84-168">Concettualmente, la convalida del certificato è un problema di autorizzazione.</span><span class="sxs-lookup"><span data-stu-id="52c84-168">Conceptually, the validation of the certificate is an authorization concern.</span></span> <span data-ttu-id="52c84-169">L'aggiunta di un controllo, ad esempio, di un'autorità emittente o di un'identificazione personale in un criterio di autorizzazione, anziché all'interno di `OnCertificateValidated`, è perfettamente accettabile.</span><span class="sxs-lookup"><span data-stu-id="52c84-169">Adding a check on, for example, an issuer or thumbprint in an authorization policy, rather than inside `OnCertificateValidated`, is perfectly acceptable.</span></span>
 
-## <a name="configure-your-host-to-require-certificates"></a><span data-ttu-id="33f34-170">Configurare l'host per richiedere i certificati</span><span class="sxs-lookup"><span data-stu-id="33f34-170">Configure your host to require certificates</span></span>
+## <a name="configure-your-host-to-require-certificates"></a><span data-ttu-id="52c84-170">Configurare l'host per richiedere i certificati</span><span class="sxs-lookup"><span data-stu-id="52c84-170">Configure your host to require certificates</span></span>
 
-### <a name="kestrel"></a><span data-ttu-id="33f34-171">Kestrel</span><span class="sxs-lookup"><span data-stu-id="33f34-171">Kestrel</span></span>
+### <a name="kestrel"></a><span data-ttu-id="52c84-171">Kestrel</span><span class="sxs-lookup"><span data-stu-id="52c84-171">Kestrel</span></span>
 
-<span data-ttu-id="33f34-172">In *Program.cs*configurare gheppio come segue:</span><span class="sxs-lookup"><span data-stu-id="33f34-172">In *Program.cs*, configure Kestrel as follows:</span></span>
+<span data-ttu-id="52c84-172">In *Program.cs*configurare gheppio come segue:</span><span class="sxs-lookup"><span data-stu-id="52c84-172">In *Program.cs*, configure Kestrel as follows:</span></span>
 
 ```csharp
 public static void Main(string[] args)
@@ -218,37 +218,44 @@ public static IHostBuilder CreateHostBuilder(string[] args)
 ```
 
 > [!NOTE]
-> <span data-ttu-id="33f34-173">Per gli endpoint creati chiamando <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.Listen*> **prima** di chiamare <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ConfigureHttpsDefaults*> non verranno applicati i valori predefiniti.</span><span class="sxs-lookup"><span data-stu-id="33f34-173">Endpoints created by calling <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.Listen*> **before** calling <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ConfigureHttpsDefaults*> won't have the defaults applied.</span></span>
+> <span data-ttu-id="52c84-173">Per gli endpoint creati chiamando <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.Listen*> **prima** di chiamare <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ConfigureHttpsDefaults*> non verranno applicati i valori predefiniti.</span><span class="sxs-lookup"><span data-stu-id="52c84-173">Endpoints created by calling <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.Listen*> **before** calling <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ConfigureHttpsDefaults*> won't have the defaults applied.</span></span>
 
-### <a name="iis"></a><span data-ttu-id="33f34-174">IIS</span><span class="sxs-lookup"><span data-stu-id="33f34-174">IIS</span></span>
+### <a name="iis"></a><span data-ttu-id="52c84-174">IIS</span><span class="sxs-lookup"><span data-stu-id="52c84-174">IIS</span></span>
 
-<span data-ttu-id="33f34-175">Completare i passaggi seguenti in Gestione IIS:</span><span class="sxs-lookup"><span data-stu-id="33f34-175">Complete the following steps in IIS Manager:</span></span>
+<span data-ttu-id="52c84-175">Completare i passaggi seguenti in Gestione IIS:</span><span class="sxs-lookup"><span data-stu-id="52c84-175">Complete the following steps in IIS Manager:</span></span>
 
-1. <span data-ttu-id="33f34-176">Selezionare il sito dalla scheda **connessioni** .</span><span class="sxs-lookup"><span data-stu-id="33f34-176">Select your site from the **Connections** tab.</span></span>
-1. <span data-ttu-id="33f34-177">Fare doppio clic sull'opzione **Impostazioni SSL** nella finestra **visualizzazione funzionalità** .</span><span class="sxs-lookup"><span data-stu-id="33f34-177">Double-click the **SSL Settings** option in the **Features View** window.</span></span>
-1. <span data-ttu-id="33f34-178">Selezionare la casella di controllo **Richiedi SSL** e selezionare il pulsante di opzione **Richiedi** nella sezione **certificati client** .</span><span class="sxs-lookup"><span data-stu-id="33f34-178">Check the **Require SSL** checkbox, and select the **Require** radio button in the **Client certificates** section.</span></span>
+1. <span data-ttu-id="52c84-176">Selezionare il sito dalla scheda **connessioni** .</span><span class="sxs-lookup"><span data-stu-id="52c84-176">Select your site from the **Connections** tab.</span></span>
+1. <span data-ttu-id="52c84-177">Fare doppio clic sull'opzione **Impostazioni SSL** nella finestra **visualizzazione funzionalità** .</span><span class="sxs-lookup"><span data-stu-id="52c84-177">Double-click the **SSL Settings** option in the **Features View** window.</span></span>
+1. <span data-ttu-id="52c84-178">Selezionare la casella di controllo **Richiedi SSL** e selezionare il pulsante di opzione **Richiedi** nella sezione **certificati client** .</span><span class="sxs-lookup"><span data-stu-id="52c84-178">Check the **Require SSL** checkbox, and select the **Require** radio button in the **Client certificates** section.</span></span>
 
 ![Impostazioni del certificato client in IIS](README-IISConfig.png)
 
-### <a name="azure-and-custom-web-proxies"></a><span data-ttu-id="33f34-180">Azure e proxy Web personalizzati</span><span class="sxs-lookup"><span data-stu-id="33f34-180">Azure and custom web proxies</span></span>
+### <a name="azure-and-custom-web-proxies"></a><span data-ttu-id="52c84-180">Azure e proxy Web personalizzati</span><span class="sxs-lookup"><span data-stu-id="52c84-180">Azure and custom web proxies</span></span>
 
-<span data-ttu-id="33f34-181">Vedere l' [host e distribuire la documentazione](xref:host-and-deploy/proxy-load-balancer#certificate-forwarding) per informazioni su come configurare il middleware di invio del certificato.</span><span class="sxs-lookup"><span data-stu-id="33f34-181">See the [host and deploy documentation](xref:host-and-deploy/proxy-load-balancer#certificate-forwarding) for how to configure the certificate forwarding middleware.</span></span>
+<span data-ttu-id="52c84-181">Vedere l' [host e distribuire la documentazione](xref:host-and-deploy/proxy-load-balancer#certificate-forwarding) per informazioni su come configurare il middleware di invio del certificato.</span><span class="sxs-lookup"><span data-stu-id="52c84-181">See the [host and deploy documentation](xref:host-and-deploy/proxy-load-balancer#certificate-forwarding) for how to configure the certificate forwarding middleware.</span></span>
 
-### <a name="use-certificate-authentication-in-azure-web-apps"></a><span data-ttu-id="33f34-182">Usare l'autenticazione del certificato in app Web di Azure</span><span class="sxs-lookup"><span data-stu-id="33f34-182">Use certificate authentication in Azure Web Apps</span></span>
+### <a name="use-certificate-authentication-in-azure-web-apps"></a><span data-ttu-id="52c84-182">Usare l'autenticazione del certificato in app Web di Azure</span><span class="sxs-lookup"><span data-stu-id="52c84-182">Use certificate authentication in Azure Web Apps</span></span>
 
-<span data-ttu-id="33f34-183">Il metodo `AddCertificateForwarding` viene usato per specificare:</span><span class="sxs-lookup"><span data-stu-id="33f34-183">The `AddCertificateForwarding` method is used to specify:</span></span>
+<span data-ttu-id="52c84-183">Per Azure non è necessaria alcuna configurazione di invio.</span><span class="sxs-lookup"><span data-stu-id="52c84-183">No forwarding configuration is required for Azure.</span></span> <span data-ttu-id="52c84-184">Questa configurazione è già presente nel middleware di invio del certificato.</span><span class="sxs-lookup"><span data-stu-id="52c84-184">This is already setup in the certificate forwarding middleware.</span></span>
 
-* <span data-ttu-id="33f34-184">Nome dell'intestazione del client.</span><span class="sxs-lookup"><span data-stu-id="33f34-184">The client header name.</span></span>
-* <span data-ttu-id="33f34-185">Modalità di caricamento del certificato (utilizzando la proprietà `HeaderConverter`).</span><span class="sxs-lookup"><span data-stu-id="33f34-185">How the certificate is to be loaded (using the `HeaderConverter` property).</span></span>
+> [!NOTE]
+> <span data-ttu-id="52c84-185">A tale scopo, è necessario che CertificateForwardingMiddleware sia presente.</span><span class="sxs-lookup"><span data-stu-id="52c84-185">This requires that the CertificateForwardingMiddleware is present.</span></span>
 
-<span data-ttu-id="33f34-186">Nelle app Web di Azure il certificato viene passato come intestazione di richiesta personalizzata denominata `X-ARR-ClientCert`.</span><span class="sxs-lookup"><span data-stu-id="33f34-186">In Azure Web Apps, the certificate is passed as a custom request header named `X-ARR-ClientCert`.</span></span> <span data-ttu-id="33f34-187">Per usarlo, configurare l'invio del certificato nel `Startup.ConfigureServices`:</span><span class="sxs-lookup"><span data-stu-id="33f34-187">To use it, configure certificate forwarding in `Startup.ConfigureServices`:</span></span>
+### <a name="use-certificate-authentication-in-custom-web-proxies"></a><span data-ttu-id="52c84-186">Usare l'autenticazione del certificato in proxy Web personalizzati</span><span class="sxs-lookup"><span data-stu-id="52c84-186">Use certificate authentication in custom web proxies</span></span>
+
+<span data-ttu-id="52c84-187">Il metodo `AddCertificateForwarding` viene usato per specificare:</span><span class="sxs-lookup"><span data-stu-id="52c84-187">The `AddCertificateForwarding` method is used to specify:</span></span>
+
+* <span data-ttu-id="52c84-188">Nome dell'intestazione del client.</span><span class="sxs-lookup"><span data-stu-id="52c84-188">The client header name.</span></span>
+* <span data-ttu-id="52c84-189">Modalità di caricamento del certificato (utilizzando la proprietà `HeaderConverter`).</span><span class="sxs-lookup"><span data-stu-id="52c84-189">How the certificate is to be loaded (using the `HeaderConverter` property).</span></span>
+
+<span data-ttu-id="52c84-190">Nei proxy Web personalizzati, il certificato viene passato come intestazione di richiesta personalizzata, ad esempio `X-SSL-CERT`.</span><span class="sxs-lookup"><span data-stu-id="52c84-190">In custom web proxies, the certificate is passed as a custom request header, for example `X-SSL-CERT`.</span></span> <span data-ttu-id="52c84-191">Per usarlo, configurare l'invio del certificato nel `Startup.ConfigureServices`:</span><span class="sxs-lookup"><span data-stu-id="52c84-191">To use it, configure certificate forwarding in `Startup.ConfigureServices`:</span></span>
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddCertificateForwarding(options =>
     {
-        options.CertificateHeader = "X-ARR-ClientCert";
+        options.CertificateHeader = "X-SSL-CERT";
         options.HeaderConverter = (headerValue) =>
         {
             X509Certificate2 clientCertificate = null;
@@ -278,7 +285,7 @@ private static byte[] StringToByteArray(string hex)
 }
 ```
 
-<span data-ttu-id="33f34-188">Il metodo `Startup.Configure` aggiunge quindi il middleware.</span><span class="sxs-lookup"><span data-stu-id="33f34-188">The `Startup.Configure` method then adds the middleware.</span></span> <span data-ttu-id="33f34-189">`UseCertificateForwarding` viene chiamato prima delle chiamate a `UseAuthentication` e `UseAuthorization`:</span><span class="sxs-lookup"><span data-stu-id="33f34-189">`UseCertificateForwarding` is called before the calls to `UseAuthentication` and `UseAuthorization`:</span></span>
+<span data-ttu-id="52c84-192">Il metodo `Startup.Configure` aggiunge quindi il middleware.</span><span class="sxs-lookup"><span data-stu-id="52c84-192">The `Startup.Configure` method then adds the middleware.</span></span> <span data-ttu-id="52c84-193">`UseCertificateForwarding` viene chiamato prima delle chiamate a `UseAuthentication` e `UseAuthorization`:</span><span class="sxs-lookup"><span data-stu-id="52c84-193">`UseCertificateForwarding` is called before the calls to `UseAuthentication` and `UseAuthorization`:</span></span>
 
 ```csharp
 public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -298,7 +305,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 }
 ```
 
-<span data-ttu-id="33f34-190">Una classe separata può essere usata per implementare la logica di convalida.</span><span class="sxs-lookup"><span data-stu-id="33f34-190">A separate class can be used to implement validation logic.</span></span> <span data-ttu-id="33f34-191">Poiché in questo esempio viene usato lo stesso certificato autofirmato, assicurarsi che sia possibile usare solo il certificato.</span><span class="sxs-lookup"><span data-stu-id="33f34-191">Because the same self-signed certificate is used in this example, ensure that only your certificate can be used.</span></span> <span data-ttu-id="33f34-192">Verificare che le identificazioni personali del certificato client e del certificato del server corrispondano; in caso contrario, è possibile usare qualsiasi certificato e sarà sufficiente per l'autenticazione.</span><span class="sxs-lookup"><span data-stu-id="33f34-192">Validate that the thumbprints of both the client certificate and the server certificate match, otherwise any certificate can be used and will be enough to authenticate.</span></span> <span data-ttu-id="33f34-193">Viene usato all'interno del metodo `AddCertificate`.</span><span class="sxs-lookup"><span data-stu-id="33f34-193">This would be used inside the `AddCertificate` method.</span></span> <span data-ttu-id="33f34-194">È anche possibile convalidare l'oggetto o l'autorità emittente qui se si usano certificati intermedi o figlio.</span><span class="sxs-lookup"><span data-stu-id="33f34-194">You could also validate the subject or the issuer here if you're using intermediate or child certificates.</span></span>
+<span data-ttu-id="52c84-194">Una classe separata può essere usata per implementare la logica di convalida.</span><span class="sxs-lookup"><span data-stu-id="52c84-194">A separate class can be used to implement validation logic.</span></span> <span data-ttu-id="52c84-195">Poiché in questo esempio viene usato lo stesso certificato autofirmato, assicurarsi che sia possibile usare solo il certificato.</span><span class="sxs-lookup"><span data-stu-id="52c84-195">Because the same self-signed certificate is used in this example, ensure that only your certificate can be used.</span></span> <span data-ttu-id="52c84-196">Verificare che le identificazioni personali del certificato client e del certificato del server corrispondano; in caso contrario, è possibile usare qualsiasi certificato e sarà sufficiente per l'autenticazione.</span><span class="sxs-lookup"><span data-stu-id="52c84-196">Validate that the thumbprints of both the client certificate and the server certificate match, otherwise any certificate can be used and will be enough to authenticate.</span></span> <span data-ttu-id="52c84-197">Viene usato all'interno del metodo `AddCertificate`.</span><span class="sxs-lookup"><span data-stu-id="52c84-197">This would be used inside the `AddCertificate` method.</span></span> <span data-ttu-id="52c84-198">È anche possibile convalidare l'oggetto o l'autorità emittente qui se si usano certificati intermedi o figlio.</span><span class="sxs-lookup"><span data-stu-id="52c84-198">You could also validate the subject or the issuer here if you're using intermediate or child certificates.</span></span>
 
 ```csharp
 using System.IO;
@@ -326,56 +333,90 @@ namespace AspNetCoreCertificateAuthApi
 }
 ```
 
-#### <a name="implement-an-httpclient-using-a-certificate"></a><span data-ttu-id="33f34-195">Implementare un HttpClient usando un certificato</span><span class="sxs-lookup"><span data-stu-id="33f34-195">Implement an HttpClient using a certificate</span></span>
+#### <a name="implement-an-httpclient-using-a-certificate-and-the-httpclienthandler"></a><span data-ttu-id="52c84-199">Implementare un HttpClient usando un certificato e HttpClientHandler</span><span class="sxs-lookup"><span data-stu-id="52c84-199">Implement an HttpClient using a certificate and the HttpClientHandler</span></span>
 
-<span data-ttu-id="33f34-196">Il client dell'API Web usa un `HttpClient`, che è stato creato usando un'istanza di `IHttpClientFactory`.</span><span class="sxs-lookup"><span data-stu-id="33f34-196">The web API client uses an `HttpClient`, which was created using an `IHttpClientFactory` instance.</span></span> <span data-ttu-id="33f34-197">Questa operazione non consente di definire un gestore per la `HttpClient`, quindi utilizzare un `HttpRequestMessage` per aggiungere il certificato all'intestazione della richiesta di `X-ARR-ClientCert`.</span><span class="sxs-lookup"><span data-stu-id="33f34-197">This doesn't provide a way to define a handler for the `HttpClient`, so use an `HttpRequestMessage` to add the certificate to the `X-ARR-ClientCert` request header.</span></span> <span data-ttu-id="33f34-198">Il certificato viene aggiunto come stringa usando il metodo `GetRawCertDataString`.</span><span class="sxs-lookup"><span data-stu-id="33f34-198">The certificate is added as a string using the `GetRawCertDataString` method.</span></span> 
+<span data-ttu-id="52c84-200">È possibile aggiungere HttpClientHandler direttamente nel costruttore della classe HttpClient.</span><span class="sxs-lookup"><span data-stu-id="52c84-200">The HttpClientHandler could be added directly in the constructor of the HttpClient class.</span></span> <span data-ttu-id="52c84-201">Quando si creano istanze di HttpClient è necessario prestare attenzione.</span><span class="sxs-lookup"><span data-stu-id="52c84-201">Care should be taken when creating instances of the HttpClient.</span></span> <span data-ttu-id="52c84-202">Il HttpClient invierà quindi il certificato a ogni richiesta.</span><span class="sxs-lookup"><span data-stu-id="52c84-202">The HttpClient will then send the certificate with each request.</span></span>
 
 ```csharp
-private async Task<JsonDocument> GetApiDataAsync()
+private async Task<JsonDocument> GetApiDataUsingHttpClientHandler()
 {
-    try
+    var cert = new X509Certificate2(Path.Combine(_environment.ContentRootPath, "sts_dev_cert.pfx"), "1234");
+    var handler = new HttpClientHandler();
+    handler.ClientCertificates.Add(cert);
+    var client = new HttpClient(handler);
+     
+    var request = new HttpRequestMessage()
     {
-        // Do not hardcode passwords in production code
-        // Use thumbprint or key vault
-        var cert = new X509Certificate2(
-            Path.Combine(_environment.ContentRootPath, 
-                "sts_dev_cert.pfx"), "1234");
-        var client = _clientFactory.CreateClient();
-        var request = new HttpRequestMessage()
-        {
-            RequestUri = new Uri("https://localhost:44379/api/values"),
-            Method = HttpMethod.Get,
-        };
-
-        request.Headers.Add("X-ARR-ClientCert", cert.GetRawCertDataString());
-        var response = await client.SendAsync(request);
-
-        if (response.IsSuccessStatusCode)
-        {
-            var responseContent = await response.Content.ReadAsStringAsync();
-            var data = JsonDocument.Parse(responseContent);
-
-            return data;
-        }
-
-        throw new ApplicationException(
-            $"Status code: {response.StatusCode}, " +
-            $"Error: {response.ReasonPhrase}");
-    }
-    catch (Exception e)
+        RequestUri = new Uri("https://localhost:44379/api/values"),
+        Method = HttpMethod.Get,
+    };
+    var response = await client.SendAsync(request);
+    if (response.IsSuccessStatusCode)
     {
-        throw new ApplicationException($"Exception {e}");
+        var responseContent = await response.Content.ReadAsStringAsync();
+        var data = JsonDocument.Parse(responseContent);
+        return data;
     }
+ 
+    throw new ApplicationException($"Status code: {response.StatusCode}, Error: {response.ReasonPhrase}");
 }
 ```
 
-<span data-ttu-id="33f34-199">Se il certificato corretto viene inviato al server, vengono restituiti i dati.</span><span class="sxs-lookup"><span data-stu-id="33f34-199">If the correct certificate is sent to the server, the data is returned.</span></span> <span data-ttu-id="33f34-200">Se non viene inviato alcun certificato o il certificato errato, viene restituito un codice di stato HTTP 403.</span><span class="sxs-lookup"><span data-stu-id="33f34-200">If no certificate or the wrong certificate is sent, an HTTP 403 status code is returned.</span></span>
+#### <a name="implement-an-httpclient-using-a-certificate-and-a-named-httpclient-from-ihttpclientfactory"></a><span data-ttu-id="52c84-203">Implementare un HttpClient usando un certificato e un HttpClient denominato da IHttpClientFactory</span><span class="sxs-lookup"><span data-stu-id="52c84-203">Implement an HttpClient using a certificate and a named HttpClient from IHttpClientFactory</span></span> 
 
-### <a name="create-certificates-in-powershell"></a><span data-ttu-id="33f34-201">Creare certificati in PowerShell</span><span class="sxs-lookup"><span data-stu-id="33f34-201">Create certificates in PowerShell</span></span>
+<span data-ttu-id="52c84-204">Nell'esempio seguente viene aggiunto un certificato client a un HttpClientHandler usando la proprietà ClientCertificates dal gestore.</span><span class="sxs-lookup"><span data-stu-id="52c84-204">In the following example, a client certificate is added to a HttpClientHandler using the ClientCertificates property from the handler.</span></span> <span data-ttu-id="52c84-205">Questo gestore può quindi essere utilizzato in un'istanza denominata di un HttpClient utilizzando il metodo ConfigurePrimaryHttpMessageHandler.</span><span class="sxs-lookup"><span data-stu-id="52c84-205">This handler can then be used in a named instance of a HttpClient using the ConfigurePrimaryHttpMessageHandler method.</span></span> <span data-ttu-id="52c84-206">Questa configurazione è configurata nella classe Startup nel metodo ConfigureServices.</span><span class="sxs-lookup"><span data-stu-id="52c84-206">This is setup in the Startup class in the ConfigureServices method.</span></span>
 
-<span data-ttu-id="33f34-202">La creazione dei certificati è la parte più difficile per la configurazione di questo flusso.</span><span class="sxs-lookup"><span data-stu-id="33f34-202">Creating the certificates is the hardest part in setting up this flow.</span></span> <span data-ttu-id="33f34-203">È possibile creare un certificato radice usando il cmdlet `New-SelfSignedCertificate` PowerShell.</span><span class="sxs-lookup"><span data-stu-id="33f34-203">A root certificate can be created using the `New-SelfSignedCertificate` PowerShell cmdlet.</span></span> <span data-ttu-id="33f34-204">Quando si crea il certificato, usare una password complessa.</span><span class="sxs-lookup"><span data-stu-id="33f34-204">When creating the certificate, use a strong password.</span></span> <span data-ttu-id="33f34-205">È importante aggiungere il parametro `KeyUsageProperty` e il parametro `KeyUsage`, come illustrato.</span><span class="sxs-lookup"><span data-stu-id="33f34-205">It's important to add the `KeyUsageProperty` parameter and the `KeyUsage` parameter as shown.</span></span>
+```csharp
+var clientCertificate = 
+    new X509Certificate2(
+      Path.Combine(_environment.ContentRootPath, "sts_dev_cert.pfx"), "1234");
+ 
+var handler = new HttpClientHandler();
+handler.ClientCertificates.Add(clientCertificate);
+ 
+services.AddHttpClient("namedClient", c =>
+{
+}).ConfigurePrimaryHttpMessageHandler(() => handler);
+```
 
-#### <a name="create-root-ca"></a><span data-ttu-id="33f34-206">Crea CA radice</span><span class="sxs-lookup"><span data-stu-id="33f34-206">Create root CA</span></span>
+<span data-ttu-id="52c84-207">IHttpClientFactory può quindi essere usato per ottenere l'istanza denominata con il gestore e il certificato.</span><span class="sxs-lookup"><span data-stu-id="52c84-207">The IHttpClientFactory can then be used to get the named instance with the handler and the certificate.</span></span> <span data-ttu-id="52c84-208">Il Metodo CreateClient con il nome del client definito nella classe Startup viene usato per ottenere l'istanza.</span><span class="sxs-lookup"><span data-stu-id="52c84-208">The CreateClient method with the name of the client defined in the Startup class is used to get the instance.</span></span> <span data-ttu-id="52c84-209">La richiesta HTTP può essere inviata utilizzando il client come richiesto.</span><span class="sxs-lookup"><span data-stu-id="52c84-209">The HTTP request can be sent using the client as required.</span></span>
+
+```csharp
+private readonly IHttpClientFactory _clientFactory;
+ 
+public ApiService(IHttpClientFactory clientFactory)
+{
+    _clientFactory = clientFactory;
+}
+ 
+private async Task<JsonDocument> GetApiDataWithNamedClient()
+{
+    var client = _clientFactory.CreateClient("namedClient");
+ 
+    var request = new HttpRequestMessage()
+    {
+        RequestUri = new Uri("https://localhost:44379/api/values"),
+        Method = HttpMethod.Get,
+    };
+    var response = await client.SendAsync(request);
+    if (response.IsSuccessStatusCode)
+    {
+        var responseContent = await response.Content.ReadAsStringAsync();
+        var data = JsonDocument.Parse(responseContent);
+        return data;
+    }
+ 
+    throw new ApplicationException($"Status code: {response.StatusCode}, Error: {response.ReasonPhrase}");
+}
+```
+
+<span data-ttu-id="52c84-210">Se il certificato corretto viene inviato al server, vengono restituiti i dati.</span><span class="sxs-lookup"><span data-stu-id="52c84-210">If the correct certificate is sent to the server, the data is returned.</span></span> <span data-ttu-id="52c84-211">Se non viene inviato alcun certificato o il certificato errato, viene restituito un codice di stato HTTP 403.</span><span class="sxs-lookup"><span data-stu-id="52c84-211">If no certificate or the wrong certificate is sent, an HTTP 403 status code is returned.</span></span>
+
+### <a name="create-certificates-in-powershell"></a><span data-ttu-id="52c84-212">Creare certificati in PowerShell</span><span class="sxs-lookup"><span data-stu-id="52c84-212">Create certificates in PowerShell</span></span>
+
+<span data-ttu-id="52c84-213">La creazione dei certificati è la parte più difficile per la configurazione di questo flusso.</span><span class="sxs-lookup"><span data-stu-id="52c84-213">Creating the certificates is the hardest part in setting up this flow.</span></span> <span data-ttu-id="52c84-214">È possibile creare un certificato radice usando il cmdlet `New-SelfSignedCertificate` PowerShell.</span><span class="sxs-lookup"><span data-stu-id="52c84-214">A root certificate can be created using the `New-SelfSignedCertificate` PowerShell cmdlet.</span></span> <span data-ttu-id="52c84-215">Quando si crea il certificato, usare una password complessa.</span><span class="sxs-lookup"><span data-stu-id="52c84-215">When creating the certificate, use a strong password.</span></span> <span data-ttu-id="52c84-216">È importante aggiungere il parametro `KeyUsageProperty` e il parametro `KeyUsage`, come illustrato.</span><span class="sxs-lookup"><span data-stu-id="52c84-216">It's important to add the `KeyUsageProperty` parameter and the `KeyUsage` parameter as shown.</span></span>
+
+#### <a name="create-root-ca"></a><span data-ttu-id="52c84-217">Crea CA radice</span><span class="sxs-lookup"><span data-stu-id="52c84-217">Create root CA</span></span>
 
 ```powershell
 New-SelfSignedCertificate -DnsName "root_ca_dev_damienbod.com", "root_ca_dev_damienbod.com" -CertStoreLocation "cert:\LocalMachine\My" -NotAfter (Get-Date).AddYears(20) -FriendlyName "root_ca_dev_damienbod.com" -KeyUsageProperty All -KeyUsage CertSign, CRLSign, DigitalSignature
@@ -388,19 +429,19 @@ Export-Certificate -Cert cert:\localMachine\my\"The thumbprint..." -FilePath roo
 ```
 
 > [!NOTE]
-> <span data-ttu-id="33f34-207">Il valore del parametro `-DnsName` deve corrispondere alla destinazione di distribuzione dell'app.</span><span class="sxs-lookup"><span data-stu-id="33f34-207">The `-DnsName` parameter value must match the deployment target of the app.</span></span> <span data-ttu-id="33f34-208">Ad esempio, "localhost" per lo sviluppo.</span><span class="sxs-lookup"><span data-stu-id="33f34-208">For example, "localhost" for development.</span></span>
+> <span data-ttu-id="52c84-218">Il valore del parametro `-DnsName` deve corrispondere alla destinazione di distribuzione dell'app.</span><span class="sxs-lookup"><span data-stu-id="52c84-218">The `-DnsName` parameter value must match the deployment target of the app.</span></span> <span data-ttu-id="52c84-219">Ad esempio, "localhost" per lo sviluppo.</span><span class="sxs-lookup"><span data-stu-id="52c84-219">For example, "localhost" for development.</span></span>
 
-#### <a name="install-in-the-trusted-root"></a><span data-ttu-id="33f34-209">Installare nella radice attendibile</span><span class="sxs-lookup"><span data-stu-id="33f34-209">Install in the trusted root</span></span>
+#### <a name="install-in-the-trusted-root"></a><span data-ttu-id="52c84-220">Installare nella radice attendibile</span><span class="sxs-lookup"><span data-stu-id="52c84-220">Install in the trusted root</span></span>
 
-<span data-ttu-id="33f34-210">Il certificato radice deve essere considerato attendibile nel sistema host.</span><span class="sxs-lookup"><span data-stu-id="33f34-210">The root certificate needs to be trusted on your host system.</span></span> <span data-ttu-id="33f34-211">Un certificato radice che non è stato creato da un'autorità di certificazione non sarà considerato attendibile per impostazione predefinita.</span><span class="sxs-lookup"><span data-stu-id="33f34-211">A root certificate which was not created by a certificate authority won't be trusted by default.</span></span> <span data-ttu-id="33f34-212">Il collegamento seguente illustra come eseguire questa operazione in Windows:</span><span class="sxs-lookup"><span data-stu-id="33f34-212">The following link explains how this can be accomplished on Windows:</span></span>
+<span data-ttu-id="52c84-221">Il certificato radice deve essere considerato attendibile nel sistema host.</span><span class="sxs-lookup"><span data-stu-id="52c84-221">The root certificate needs to be trusted on your host system.</span></span> <span data-ttu-id="52c84-222">Un certificato radice che non è stato creato da un'autorità di certificazione non sarà considerato attendibile per impostazione predefinita.</span><span class="sxs-lookup"><span data-stu-id="52c84-222">A root certificate which was not created by a certificate authority won't be trusted by default.</span></span> <span data-ttu-id="52c84-223">Il collegamento seguente illustra come eseguire questa operazione in Windows:</span><span class="sxs-lookup"><span data-stu-id="52c84-223">The following link explains how this can be accomplished on Windows:</span></span>
 
 https://social.msdn.microsoft.com/Forums/SqlServer/5ed119ef-1704-4be4-8a4f-ef11de7c8f34/a-certificate-chain-processed-but-terminated-in-a-root-certificate-which-is-not-trusted-by-the
 
-#### <a name="intermediate-certificate"></a><span data-ttu-id="33f34-213">Certificato intermedio</span><span class="sxs-lookup"><span data-stu-id="33f34-213">Intermediate certificate</span></span>
+#### <a name="intermediate-certificate"></a><span data-ttu-id="52c84-224">Certificato intermedio</span><span class="sxs-lookup"><span data-stu-id="52c84-224">Intermediate certificate</span></span>
 
-<span data-ttu-id="33f34-214">È ora possibile creare un certificato intermedio dal certificato radice.</span><span class="sxs-lookup"><span data-stu-id="33f34-214">An intermediate certificate can now be created from the root certificate.</span></span> <span data-ttu-id="33f34-215">Questa operazione non è necessaria per tutti i casi d'uso, ma potrebbe essere necessario creare molti certificati o attivare o disabilitare gruppi di certificati.</span><span class="sxs-lookup"><span data-stu-id="33f34-215">This isn't required for all use cases, but you might need to create many certificates or need to activate or disable groups of certificates.</span></span> <span data-ttu-id="33f34-216">Il parametro `TextExtension` è necessario per impostare la lunghezza del percorso nei vincoli di base del certificato.</span><span class="sxs-lookup"><span data-stu-id="33f34-216">The `TextExtension` parameter is required to set the path length in the basic constraints of the certificate.</span></span>
+<span data-ttu-id="52c84-225">È ora possibile creare un certificato intermedio dal certificato radice.</span><span class="sxs-lookup"><span data-stu-id="52c84-225">An intermediate certificate can now be created from the root certificate.</span></span> <span data-ttu-id="52c84-226">Questa operazione non è necessaria per tutti i casi d'uso, ma potrebbe essere necessario creare molti certificati o attivare o disabilitare gruppi di certificati.</span><span class="sxs-lookup"><span data-stu-id="52c84-226">This isn't required for all use cases, but you might need to create many certificates or need to activate or disable groups of certificates.</span></span> <span data-ttu-id="52c84-227">Il parametro `TextExtension` è necessario per impostare la lunghezza del percorso nei vincoli di base del certificato.</span><span class="sxs-lookup"><span data-stu-id="52c84-227">The `TextExtension` parameter is required to set the path length in the basic constraints of the certificate.</span></span>
 
-<span data-ttu-id="33f34-217">Il certificato intermedio può quindi essere aggiunto al certificato intermedio attendibile nel sistema host Windows.</span><span class="sxs-lookup"><span data-stu-id="33f34-217">The intermediate certificate can then be added to the trusted intermediate certificate in the Windows host system.</span></span>
+<span data-ttu-id="52c84-228">Il certificato intermedio può quindi essere aggiunto al certificato intermedio attendibile nel sistema host Windows.</span><span class="sxs-lookup"><span data-stu-id="52c84-228">The intermediate certificate can then be added to the trusted intermediate certificate in the Windows host system.</span></span>
 
 ```powershell
 $mypwd = ConvertTo-SecureString -String "1234" -Force -AsPlainText
@@ -414,9 +455,9 @@ Get-ChildItem -Path cert:\localMachine\my\"The thumbprint..." | Export-PfxCertif
 Export-Certificate -Cert cert:\localMachine\my\"The thumbprint..." -FilePath intermediate_dev_damienbod.crt
 ```
 
-#### <a name="create-child-certificate-from-intermediate-certificate"></a><span data-ttu-id="33f34-218">Crea certificato figlio da certificato intermedio</span><span class="sxs-lookup"><span data-stu-id="33f34-218">Create child certificate from intermediate certificate</span></span>
+#### <a name="create-child-certificate-from-intermediate-certificate"></a><span data-ttu-id="52c84-229">Crea certificato figlio da certificato intermedio</span><span class="sxs-lookup"><span data-stu-id="52c84-229">Create child certificate from intermediate certificate</span></span>
 
-<span data-ttu-id="33f34-219">Un certificato figlio può essere creato dal certificato intermedio.</span><span class="sxs-lookup"><span data-stu-id="33f34-219">A child certificate can be created from the intermediate certificate.</span></span> <span data-ttu-id="33f34-220">Si tratta dell'entità finale e non è necessario creare più certificati figlio.</span><span class="sxs-lookup"><span data-stu-id="33f34-220">This is the end entity and doesn't need to create more child certificates.</span></span>
+<span data-ttu-id="52c84-230">Un certificato figlio può essere creato dal certificato intermedio.</span><span class="sxs-lookup"><span data-stu-id="52c84-230">A child certificate can be created from the intermediate certificate.</span></span> <span data-ttu-id="52c84-231">Si tratta dell'entità finale e non è necessario creare più certificati figlio.</span><span class="sxs-lookup"><span data-stu-id="52c84-231">This is the end entity and doesn't need to create more child certificates.</span></span>
 
 ```powershell
 $parentcert = ( Get-ChildItem -Path cert:\LocalMachine\My\"The thumbprint from the Intermediate certificate..." )
@@ -430,9 +471,9 @@ Get-ChildItem -Path cert:\localMachine\my\"The thumbprint..." | Export-PfxCertif
 Export-Certificate -Cert cert:\localMachine\my\"The thumbprint..." -FilePath child_a_dev_damienbod.crt
 ```
 
-#### <a name="create-child-certificate-from-root-certificate"></a><span data-ttu-id="33f34-221">Crea certificato figlio dal certificato radice</span><span class="sxs-lookup"><span data-stu-id="33f34-221">Create child certificate from root certificate</span></span>
+#### <a name="create-child-certificate-from-root-certificate"></a><span data-ttu-id="52c84-232">Crea certificato figlio dal certificato radice</span><span class="sxs-lookup"><span data-stu-id="52c84-232">Create child certificate from root certificate</span></span>
 
-<span data-ttu-id="33f34-222">È anche possibile creare un certificato figlio direttamente dal certificato radice.</span><span class="sxs-lookup"><span data-stu-id="33f34-222">A child certificate can also be created from the root certificate directly.</span></span> 
+<span data-ttu-id="52c84-233">È anche possibile creare un certificato figlio direttamente dal certificato radice.</span><span class="sxs-lookup"><span data-stu-id="52c84-233">A child certificate can also be created from the root certificate directly.</span></span> 
 
 ```powershell
 $rootcert = ( Get-ChildItem -Path cert:\LocalMachine\My\"The thumbprint from the root cert..." )
@@ -446,7 +487,7 @@ Get-ChildItem -Path cert:\localMachine\my\"The thumbprint..." | Export-PfxCertif
 Export-Certificate -Cert cert:\localMachine\my\"The thumbprint..." -FilePath child_a_dev_damienbod.crt
 ```
 
-#### <a name="example-root---intermediate-certificate---certificate"></a><span data-ttu-id="33f34-223">Esempio di certificato radice-intermedio-certificato</span><span class="sxs-lookup"><span data-stu-id="33f34-223">Example root - intermediate certificate - certificate</span></span>
+#### <a name="example-root---intermediate-certificate---certificate"></a><span data-ttu-id="52c84-234">Esempio di certificato radice-intermedio-certificato</span><span class="sxs-lookup"><span data-stu-id="52c84-234">Example root - intermediate certificate - certificate</span></span>
 
 ```powershell
 $mypwdroot = ConvertTo-SecureString -String "1234" -Force -AsPlainText
@@ -475,7 +516,7 @@ Get-ChildItem -Path cert:\localMachine\my\141594A0AE38CBBECED7AF680F7945CD51D8F2
 Export-Certificate -Cert cert:\localMachine\my\141594A0AE38CBBECED7AF680F7945CD51D8F28A -FilePath child_b_from_a_dev_damienbod.crt
 ```
 
-<span data-ttu-id="33f34-224">Quando si utilizzano i certificati radice, intermedi o figlio, è possibile convalidare i certificati utilizzando l'identificazione personale o PublicKey come richiesto.</span><span class="sxs-lookup"><span data-stu-id="33f34-224">When using the root, intermediate, or child certificates, the certificates can be validated using the Thumbprint or PublicKey as required.</span></span>
+<span data-ttu-id="52c84-235">Quando si utilizzano i certificati radice, intermedi o figlio, è possibile convalidare i certificati utilizzando l'identificazione personale o PublicKey come richiesto.</span><span class="sxs-lookup"><span data-stu-id="52c84-235">When using the root, intermediate, or child certificates, the certificates can be validated using the Thumbprint or PublicKey as required.</span></span>
 
 ```csharp
 using System.Collections.Generic;
