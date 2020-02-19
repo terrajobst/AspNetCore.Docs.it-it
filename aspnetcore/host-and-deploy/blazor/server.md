@@ -5,17 +5,17 @@ description: Informazioni su come ospitare e distribuire un'app Server Blazor us
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/15/2020
+ms.date: 02/12/2020
 no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/server
-ms.openlocfilehash: b928296c45ddb11efcd2c8912cc595c799e65037
+ms.openlocfilehash: a051d51e734fec4315da73d3c4df57706df7f363
 ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/19/2020
-ms.locfileid: "77447256"
+ms.locfileid: "77465823"
 ---
 # <a name="host-and-deploy-opno-locblazor-server"></a>Ospitare e distribuire Blazor server
 
@@ -87,10 +87,7 @@ Blazor funziona al meglio quando si usano WebSocket come il trasporto SignalR a 
 
 #### <a name="iis"></a>IIS
 
-Quando si usa IIS, abilitare:
-
-* [WebSocket in IIS](xref:fundamentals/websockets#enabling-websockets-on-iis).
-* [Sessioni permanenti con routing della richiesta dell'applicazione](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing).
+Quando si usa IIS, le sessioni permanenti sono abilitate con il routing delle richieste di applicazioni. Per altre informazioni, vedere [bilanciamento del carico http usando il routing delle richieste di applicazioni](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing).
 
 #### <a name="kubernetes"></a>Kubernetes
 
