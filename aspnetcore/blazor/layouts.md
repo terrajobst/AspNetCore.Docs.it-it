@@ -5,17 +5,17 @@ description: Informazioni su come creare componenti di layout riutilizzabili per
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2019
+ms.date: 02/12/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/layouts
-ms.openlocfilehash: 8e7294f6b66d34781473522a71f929ed5f9c33f2
-ms.sourcegitcommit: d2ba66023884f0dca115ff010bd98d5ed6459283
+ms.openlocfilehash: 5b6e1c7ceb4a6e41230e31bbe379bde1bb0a8286
+ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77213376"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77447139"
 ---
 # <a name="aspnet-core-opno-locblazor-layouts"></a>Layout di Blazor ASP.NET Core
 
@@ -23,7 +23,7 @@ Di [Rainer Stropek](https://www.timecockpit.com) e [Luke Latham](https://github.
 
 Alcuni elementi dell'app, ad esempio i menu, i messaggi di copyright e i logo aziendali, fanno in genere parte del layout generale dell'app e vengono usati da ogni componente nell'app. La copia del codice di questi elementi in tutti i componenti di un'app non è un approccio efficiente&mdash;ogni volta che uno degli elementi richiede un aggiornamento, ogni componente deve essere aggiornato. Tale duplicazione è difficile da gestire e può causare contenuti incoerenti nel tempo. I *layout* risolvono questo problema.
 
-Tecnicamente, un layout è semplicemente un altro componente. Un layout è definito in un modello Razor o nel C# codice e può usare [Data Binding](xref:blazor/components#data-binding), l' [inserimento di dipendenze](xref:blazor/dependency-injection)e altri scenari di componenti.
+Tecnicamente, un layout è semplicemente un altro componente. Un layout è definito in un modello Razor o nel C# codice e può usare [Data Binding](xref:blazor/data-binding), l' [inserimento di dipendenze](xref:blazor/dependency-injection)e altri scenari di componenti.
 
 Per trasformare un *componente* in un *layout*, il componente:
 
@@ -66,9 +66,9 @@ Ogni cartella di un'app può contenere facoltativamente un file modello denomina
 
 Il seguente file di *_Imports. Razor* Imports:
 
-* `MyCoolLayout`.
+* `MyCoolLayout`
 * Tutti i componenti Razor nella stessa cartella e in tutte le sottocartelle.
-* Spazio dei nomi `BlazorApp1.Data`.
+* Spazio dei nomi `BlazorApp1.Data` .
  
 [!code-razor[](layouts/sample_snapshot/3.x/_Imports.razor)]
 
@@ -94,7 +94,7 @@ Infine, `MasterLayout` in *MasterLayout. Razor* contiene gli elementi di layout 
 
 ## <a name="share-a-razor-pages-layout-with-integrated-components"></a>Condividere un layout di Razor Pages con i componenti integrati
 
-Quando i componenti instradabili sono integrati in un'app Razor Pages, il layout condiviso dell'app può essere usato con i componenti. Per altre informazioni, vedere <xref:blazor/hosting-model-configuration#integrate-razor-components-into-razor-pages-and-mvc-apps>.
+Quando i componenti instradabili sono integrati in un'app Razor Pages, il layout condiviso dell'app può essere usato con i componenti. Per altre informazioni, vedere <xref:blazor/integrate-components>.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

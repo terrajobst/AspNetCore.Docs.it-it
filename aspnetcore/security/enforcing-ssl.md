@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/06/2019
 uid: security/enforcing-ssl
-ms.openlocfilehash: 9efd49bb246a10c4eb49fb1bb0374ae9442d55a1
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: 43f3abfa4bc311ed246f6f2585d522661e492039
+ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77172619"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77447152"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Applicare HTTPS in ASP.NET Core
 
@@ -52,7 +52,7 @@ Nessuna API può impedire a un client di inviare dati sensibili alla prima richi
 
 ::: moniker-end
 
-## <a name="require-https"></a>Richiedi HTTPS
+## <a name="require-https"></a>Richiedere HTTPS
 
 Si consiglia di usare le app Web ASP.NET Core di produzione:
 
@@ -259,7 +259,7 @@ ASP.NET Core 2,1 e versioni successive implementa HSTS con il metodo di estensio
 
 `UseHsts` non è consigliabile per lo sviluppo poiché le impostazioni HSTS sono altamente memorizzabili nella cache dai browser. Per impostazione predefinita, `UseHsts` esclude l'indirizzo di loopback locale.
 
-Per gli ambienti di produzione che implementano HTTPS per la prima volta, impostare il valore iniziale [HstsOptions. MaxAge](xref:Microsoft.AspNetCore.HttpsPolicy.HstsOptions.MaxAge*) su un valore ridotto utilizzando uno dei metodi <xref:System.TimeSpan>. Impostare il valore da ore a non più di un singolo giorno nel caso in cui sia necessario ripristinare l'infrastruttura HTTPS su HTTP. Quando si è certi della sostenibilità della configurazione HTTPS, aumentare il valore di HSTS max-age; un valore di uso comune è di un anno.
+Per gli ambienti di produzione che implementano HTTPS per la prima volta, impostare il valore iniziale [HstsOptions. MaxAge](xref:Microsoft.AspNetCore.HttpsPolicy.HstsOptions.MaxAge*) su un valore ridotto utilizzando uno dei metodi <xref:System.TimeSpan>. Impostare il valore da ore a non più di un singolo giorno nel caso in cui sia necessario ripristinare l'infrastruttura HTTPS su HTTP. Quando si è certi della sostenibilità della configurazione HTTPS, aumentare il valore di HSTS `max-age`; un valore di uso comune è di un anno.
 
 Il codice seguente:
 
@@ -277,9 +277,9 @@ Il codice seguente:
 ::: moniker-end
 
 
-* Imposta il parametro preload dell'intestazione Strict-Transport-Security. Il precaricamento non fa parte della [specifica RFC HSTS](https://tools.ietf.org/html/rfc6797), ma è supportato dai Web browser per precaricare i siti HSTS in una nuova installazione. Per altre informazioni, vedere [https://hstspreload.org/](https://hstspreload.org/).
+* Imposta il parametro preload dell'intestazione `Strict-Transport-Security`. Il precaricamento non fa parte della [specifica RFC HSTS](https://tools.ietf.org/html/rfc6797), ma è supportato dai Web browser per precaricare i siti HSTS in una nuova installazione. Per altre informazioni, vedere [https://hstspreload.org/](https://hstspreload.org/).
 * Abilita [includeSubDomain](https://tools.ietf.org/html/rfc6797#section-6.1.2), che applica il criterio HSTS ai sottodomini host.
-* Imposta in modo esplicito il parametro max-age dell'intestazione Strict-Transport-Security su 60 giorni. Se non è impostato, il valore predefinito è 30 giorni. Per ulteriori informazioni, vedere la [direttiva max-age](https://tools.ietf.org/html/rfc6797#section-6.1.1) .
+* Imposta in modo esplicito il parametro `max-age` dell'intestazione `Strict-Transport-Security` su 60 giorni. Se non è impostato, il valore predefinito è 30 giorni. Per ulteriori informazioni, vedere la [direttiva max-age](https://tools.ietf.org/html/rfc6797#section-6.1.1).
 * Aggiunge `example.com` all'elenco di host da escludere.
 
 `UseHsts` esclude gli host di loopback seguenti:
@@ -294,7 +294,7 @@ In alcuni scenari di servizi back-end in cui la sicurezza della connessione vien
 
 Per rifiutare esplicitamente il protocollo HTTPS/HSTS:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
 Deselezionare la casella **di controllo Configura per HTTPS** .
 
@@ -311,9 +311,9 @@ Deselezionare la casella **di controllo Configura per HTTPS** .
 ::: moniker-end
 
 
-# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli) 
+# <a name="net-core-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli) 
 
-Usare l'opzione `--no-https`. Ad esempio:
+Usare l'opzione `--no-https`. Esempio:
 
 ```dotnetcli
 dotnet new webapp --no-https
@@ -325,7 +325,7 @@ dotnet new webapp --no-https
 
 ## <a name="trust-the-aspnet-core-https-development-certificate-on-windows-and-macos"></a>Considera attendibile il certificato di sviluppo HTTPS ASP.NET Core in Windows e macOS
 
-Il .NET Core SDK include un certificato di sviluppo HTTPS. Il certificato viene installato come parte dell'esperienza di prima esecuzione. Ad esempio, `dotnet --info` produce un output simile al seguente:
+Il .NET Core SDK include un certificato di sviluppo HTTPS. Il certificato viene installato come parte dell'esperienza di prima esecuzione. `dotnet --info`, ad esempio, produce una variante dell'output seguente:
 
 ```
 ASP.NET Core
@@ -336,7 +336,7 @@ For establishing trust on other platforms refer to the platform specific documen
 For more information on configuring HTTPS see https://go.microsoft.com/fwlink/?linkid=848054.
 ```
 
-L'installazione di .NET Core SDK include l'installazione del certificato di sviluppo HTTPS ASP.NET Core nell'archivio certificati utente locale. Il certificato è stato installato, ma non è attendibile. Per considerare attendibile il certificato, eseguire il passaggio unico per eseguire lo strumento di `dev-certs` DotNet:
+L'installazione di .NET Core SDK include l'installazione del certificato di sviluppo HTTPS ASP.NET Core nell'archivio certificati utente locale. Il certificato è stato installato, ma non è attendibile. Per considerare attendibile il certificato, eseguire il passaggio monouso per eseguire lo strumento di `dev-certs` DotNet:
 
 ```dotnetcli
 dotnet dev-certs https --trust
@@ -404,7 +404,7 @@ Chiude tutte le istanze del browser aperte. Aprire una nuova finestra del browse
 * Aprire l'accesso keychain.
 * Selezionare il keychain di sistema.
 * Verificare la presenza di un certificato localhost.
-* Verificare che contenga un simbolo di `+` sull'icona per indicare la relativa attendibilità per tutti gli utenti.
+* Verificare che contenga un simbolo di `+` sull'icona per indicare che è attendibile per tutti gli utenti.
 * Rimuovere il certificato dal keychain di sistema.
 * Eseguire i comandi seguenti:
 

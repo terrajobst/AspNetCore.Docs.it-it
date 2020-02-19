@@ -5,17 +5,17 @@ description: Scopri in che modo ASP.NET Core Blazor il modo in cui Blazor gestis
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/22/2020
+ms.date: 02/12/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/handle-errors
-ms.openlocfilehash: b987513e5410e95ab632b9935d858b648838d94f
-ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
+ms.openlocfilehash: 7191ae50d64ebd6a9b23b391116aedf3a6d01de2
+ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76928264"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77447022"
 ---
 # <a name="handle-errors-in-aspnet-core-opno-locblazor-apps"></a>Gestione degli errori nelle app ASP.NET Core Blazor
 
@@ -87,9 +87,9 @@ In produzione, non eseguire il rendering dei messaggi di eccezione del Framework
 
 ## <a name="log-errors-with-a-persistent-provider"></a>Registrare gli errori con un provider persistente
 
-Se si verifica un'eccezione non gestita, l'eccezione viene registrata in <xref:Microsoft.Extensions.Logging.ILogger> istanze configurate nel contenitore dei servizi. Per impostazione predefinita, Blazor il registro delle app nell'output della console con il provider di registrazione della console. Prendere in considerazione la registrazione a una posizione più permanente con un provider che gestisce le dimensioni del log e la rotazione del log. Per ulteriori informazioni, vedere <xref:fundamentals/logging/index>.
+Se si verifica un'eccezione non gestita, l'eccezione viene registrata in <xref:Microsoft.Extensions.Logging.ILogger> istanze configurate nel contenitore dei servizi. Per impostazione predefinita, Blazor il registro delle app nell'output della console con il provider di registrazione della console. Prendere in considerazione la registrazione a una posizione più permanente con un provider che gestisce le dimensioni del log e la rotazione del log. Per altre informazioni, vedere <xref:fundamentals/logging/index>.
 
-Durante lo sviluppo, Blazor in genere invia i dettagli completi delle eccezioni alla console del browser per facilitare il debug. In produzione, gli errori dettagliati nella console del browser sono disabilitati per impostazione predefinita, il che significa che gli errori non vengono inviati ai client, ma i dettagli completi dell'eccezione sono ancora registrati sul lato server. Per ulteriori informazioni, vedere <xref:fundamentals/error-handling>.
+Durante lo sviluppo, Blazor in genere invia i dettagli completi delle eccezioni alla console del browser per facilitare il debug. In produzione, gli errori dettagliati nella console del browser sono disabilitati per impostazione predefinita, il che significa che gli errori non vengono inviati ai client, ma i dettagli completi dell'eccezione sono ancora registrati sul lato server. Per altre informazioni, vedere <xref:fundamentals/error-handling>.
 
 È necessario decidere quali eventi imprevisti registrare e il livello di gravità degli eventi imprevisti registrati. Gli utenti ostili potrebbero essere in grado di attivare intenzionalmente gli errori. Ad esempio, non registrare un evento imprevisto da un errore in cui viene fornito un `ProductId` sconosciuto nell'URL di un componente che Visualizza i dettagli del prodotto. Non tutti gli errori devono essere considerati come eventi imprevisti con gravità elevata per la registrazione.
 
@@ -190,7 +190,7 @@ Analogamente, il codice JavaScript può avviare chiamate a metodi .NET indicati 
 
 È possibile scegliere di usare il codice di gestione degli errori sul lato .NET o sul lato JavaScript della chiamata al metodo.
 
-Per ulteriori informazioni, vedere <xref:blazor/javascript-interop>.
+Per altre informazioni, vedere <xref:blazor/javascript-interop>.
 
 ### <a name="opno-locblazor-server-circuit-handlers"></a>gestori del circuito di Blazor server
 
@@ -285,7 +285,7 @@ Per evitare modelli di ricorsione infinita, verificare che il codice di renderin
 
 ### <a name="custom-render-tree-logic"></a>Logica dell'albero di rendering personalizzata
 
-La maggior parte delle Blazor componenti viene implementata come file con *estensione Razor* e viene compilata per produrre la logica che opera su un `RenderTreeBuilder` per eseguire il rendering dell'output. Uno sviluppatore può implementare manualmente `RenderTreeBuilder` logica usando il C# codice procedurale. Per ulteriori informazioni, vedere <xref:blazor/components#manual-rendertreebuilder-logic>.
+La maggior parte delle Blazor componenti viene implementata come file con *estensione Razor* e viene compilata per produrre la logica che opera su un `RenderTreeBuilder` per eseguire il rendering dell'output. Uno sviluppatore può implementare manualmente `RenderTreeBuilder` logica usando il C# codice procedurale. Per altre informazioni, vedere <xref:blazor/advanced-scenarios#manual-rendertreebuilder-logic>.
 
 > [!WARNING]
 > L'uso della logica del generatore di albero di rendering manuale è considerato uno scenario avanzato e non sicuro, non consigliato per lo sviluppo di componenti generali.

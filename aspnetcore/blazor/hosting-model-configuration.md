@@ -5,17 +5,17 @@ description: Informazioni su Blazor la configurazione del modello di hosting, in
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/04/2020
+ms.date: 02/12/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/hosting-model-configuration
-ms.openlocfilehash: 91dd1aa32bb5165845eb4794377a50ccbd01adc3
-ms.sourcegitcommit: d2ba66023884f0dca115ff010bd98d5ed6459283
+ms.openlocfilehash: bd44643877e45c5b48b0972bcc2f637fbc5d98f2
+ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77215060"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77447035"
 ---
 # <a name="aspnet-core-blazor-hosting-model-configuration"></a>Configurazione del modello di hosting di ASP.NET Core Blazer
 
@@ -32,187 +32,6 @@ Questo articolo illustra la configurazione del modello di hosting.
 -->
 
 ## <a name="blazor-server"></a>Server Blazor
-
-### <a name="integrate-razor-components-into-razor-pages-and-mvc-apps"></a>Integrare i componenti Razor in app Razor Pages e MVC
-
-#### <a name="use-components-in-pages-and-views"></a>Usare i componenti in pagine e visualizzazioni
-
-Un'app Razor Pages o MVC esistente può integrare i componenti Razor in pagine e visualizzazioni:
-
-1. Nel file di layout dell'app ( *_Layout. cshtml*):
-
-   * Aggiungere il tag di `<base>` seguente all'elemento `<head>`:
-
-     ```html
-     <base href="~/" />
-     ```
-
-     Il valore `href` (il *percorso di base dell'app*) nell'esempio precedente presuppone che l'app si trovi nel percorso URL radice (`/`). Se l'app è un'applicazione secondaria, seguire le istruzioni nella sezione *percorso di base dell'app* dell'articolo <xref:host-and-deploy/blazor/index#app-base-path>.
-
-     Il file *_Layout. cshtml* si trova nella cartella *pages/Shared* in un'app Razor Pages o in una cartella *Views/Shared* in un'app MVC.
-
-   * Aggiungere un tag `<script>` per lo script *blazer. Server. js* immediatamente prima del tag di chiusura `</body>`:
-
-     ```html
-     <script src="_framework/blazor.server.js"></script>
-     ```
-
-     Il Framework aggiunge lo script *blazer. Server. js* all'app. Non è necessario aggiungere manualmente lo script all'app.
-
-1. Aggiungere un file *_Imports. Razor* alla cartella radice del progetto con il contenuto seguente (modificare l'ultimo spazio dei nomi, `MyAppNamespace`, nello spazio dei nomi dell'app):
-
-   ```csharp
-   @using System.Net.Http
-   @using Microsoft.AspNetCore.Authorization
-   @using Microsoft.AspNetCore.Components.Authorization
-   @using Microsoft.AspNetCore.Components.Forms
-   @using Microsoft.AspNetCore.Components.Routing
-   @using Microsoft.AspNetCore.Components.Web
-   @using Microsoft.JSInterop
-   @using MyAppNamespace
-   ```
-
-1. In `Startup.ConfigureServices`registrare il servizio Server Blazer:
-
-   ```csharp
-   services.AddServerSideBlazor();
-   ```
-
-1. In `Startup.Configure`aggiungere l'endpoint dell'hub blazer per `app.UseEndpoints`:
-
-   ```csharp
-   endpoints.MapBlazorHub();
-   ```
-
-1. Integrare i componenti in qualsiasi pagina o visualizzazione. Per ulteriori informazioni, vedere la sezione *integrare componenti in Razor Pages e app MVC* dell'articolo <xref:blazor/components#integrate-components-into-razor-pages-and-mvc-apps>.
-
-#### <a name="use-routable-components-in-a-razor-pages-app"></a>Usare componenti instradabili in un'app Razor Pages
-
-Per supportare componenti Razor instradabili nelle app Razor Pages:
-
-1. Seguire le istruzioni riportate nella sezione [usare i componenti in pagine e viste](#use-components-in-pages-and-views) .
-
-1. Aggiungere un file *app. Razor* alla radice del progetto con il contenuto seguente:
-
-   ```razor
-   @using Microsoft.AspNetCore.Components.Routing
-
-   <Router AppAssembly="typeof(Program).Assembly">
-       <Found Context="routeData">
-           <RouteView RouteData="routeData" />
-       </Found>
-       <NotFound>
-           <h1>Page not found</h1>
-           <p>Sorry, but there's nothing here!</p>
-       </NotFound>
-   </Router>
-   ```
-
-1. Aggiungere un file *_Host. cshtml* alla cartella *pages* con il contenuto seguente:
-
-   ```cshtml
-   @page "/blazor"
-   @{
-       Layout = "_Layout";
-   }
-
-   <app>
-       <component type="typeof(App)" render-mode="ServerPrerendered" />
-   </app>
-   ```
-
-   I componenti usano il file Shared *_Layout. cshtml* per il layout.
-
-1. Aggiungere una route con priorità bassa per la pagina *_Host. cshtml* alla configurazione dell'endpoint in `Startup.Configure`:
-
-   ```csharp
-   app.UseEndpoints(endpoints =>
-   {
-       ...
-
-       endpoints.MapFallbackToPage("/_Host");
-   });
-   ```
-
-1. Aggiungere componenti instradabili all'app. Ad esempio:
-
-   ```razor
-   @page "/counter"
-
-   <h1>Counter</h1>
-
-   ...
-   ```
-
-   Quando si usa una cartella personalizzata per archiviare i componenti dell'app, aggiungere lo spazio dei nomi che rappresenta la cartella al file *pages/_ViewImports. cshtml* . Per altre informazioni, vedere <xref:blazor/components#integrate-components-into-razor-pages-and-mvc-apps>.
-
-#### <a name="use-routable-components-in-an-mvc-app"></a>Usare componenti instradabili in un'app MVC
-
-Per supportare i componenti Razor instradabili nelle app MVC:
-
-1. Seguire le istruzioni riportate nella sezione [usare i componenti in pagine e viste](#use-components-in-pages-and-views) .
-
-1. Aggiungere un file *app. Razor* alla radice del progetto con il contenuto seguente:
-
-   ```razor
-   @using Microsoft.AspNetCore.Components.Routing
-
-   <Router AppAssembly="typeof(Program).Assembly">
-       <Found Context="routeData">
-           <RouteView RouteData="routeData" />
-       </Found>
-       <NotFound>
-           <h1>Page not found</h1>
-           <p>Sorry, but there's nothing here!</p>
-       </NotFound>
-   </Router>
-   ```
-
-1. Aggiungere un file *_Host. cshtml* alla cartella *views/Home* con il contenuto seguente:
-
-   ```cshtml
-   @{
-       Layout = "_Layout";
-   }
-
-   <app>
-       <component type="typeof(App)" render-mode="ServerPrerendered" />
-   </app>
-   ```
-
-   I componenti usano il file Shared *_Layout. cshtml* per il layout.
-
-1. Aggiungere un'azione al controller Home:
-
-   ```csharp
-   public IActionResult Blazor()
-   {
-      return View("_Host");
-   }
-   ```
-
-1. Aggiungere una route con priorità bassa per l'azione del controller che restituisce la vista *_Host. cshtml* alla configurazione dell'endpoint in `Startup.Configure`:
-
-   ```csharp
-   app.UseEndpoints(endpoints =>
-   {
-       ...
-
-       endpoints.MapFallbackToController("Blazor", "Home");
-   });
-   ```
-
-1. Creare una cartella *pages* e aggiungere componenti instradabili all'app. Ad esempio:
-
-   ```razor
-   @page "/counter"
-
-   <h1>Counter</h1>
-
-   ...
-   ```
-
-   Quando si usa una cartella personalizzata per archiviare i componenti dell'app, aggiungere lo spazio dei nomi che rappresenta la cartella al file *views/_ViewImports. cshtml* . Per altre informazioni, vedere <xref:blazor/components#integrate-components-into-razor-pages-and-mvc-apps>.
 
 ### <a name="reflect-the-connection-state-in-the-ui"></a>Riflette lo stato di connessione nell'interfaccia utente
 
@@ -254,7 +73,7 @@ Per impostazione predefinita, le app del server Blazor sono configurate per eseg
 * Viene preeseguito nella pagina.
 * Viene visualizzato come HTML statico nella pagina o se include le informazioni necessarie per eseguire il bootstrap di un'app Blazor dall'agente utente.
 
-| `RenderMode`        | Descrizione |
+| `RenderMode`        | Description |
 | ------------------- | ----------- |
 | `ServerPrerendered` | Esegue il rendering del componente in HTML statico e include un marcatore per un'app Server Blazor. Quando l'agente utente viene avviato, questo marcatore viene usato per eseguire il bootstrap di un'app Blazor. |
 | `Server`            | Esegue il rendering di un marcatore per un'app Server Blazor. L'output del componente non è incluso. Quando l'agente utente viene avviato, questo marcatore viene usato per eseguire il bootstrap di un'app Blazor. |

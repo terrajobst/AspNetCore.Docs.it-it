@@ -5,17 +5,17 @@ description: Informazioni sugli scenari di autenticazione e autorizzazione Blazo
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/02/2020
+ms.date: 02/13/2020
 no-loc:
 - Blazor
 - SignalR
 uid: security/blazor/index
-ms.openlocfilehash: c7b3788b5737073100e7fa449fd6bb4a83c0043a
-ms.sourcegitcommit: 235623b6e5a5d1841139c82a11ac2b4b3f31a7a9
+ms.openlocfilehash: c07ffdbd5df58d6b3d19a5d75ce224d830101eac
+ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114887"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77447425"
 ---
 # <a name="aspnet-core-blazor-authentication-and-authorization"></a>Autenticazione e autorizzazione per ASP.NET Core Blazor
 
@@ -42,7 +42,7 @@ Le app del server Blazor operano su una connessione in tempo reale creata con Si
 
 Il modello di progetto server Blazor può configurare automaticamente l'autenticazione quando viene creato il progetto.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Per creare un nuovo progetto server Blazer con un meccanismo di autenticazione, seguire le istruzioni di Visual Studio disponibili nell'articolo <xref:blazor/get-started>.
 
@@ -57,7 +57,7 @@ Viene visualizzata una finestra di dialogo che offre lo stesso set di meccanismi
 * **Account aziendali o dell'istituto di istruzione**
 * **Autenticazione di Windows**
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Per creare un nuovo progetto server Blazer con un meccanismo di autenticazione, seguire le indicazioni Visual Studio Code nell'articolo <xref:blazor/get-started>:
 
@@ -67,7 +67,7 @@ dotnet new blazorserver -o {APP NAME} -au {AUTHENTICATION}
 
 I valori di autenticazione consentiti (`{AUTHENTICATION}`) sono indicati nella tabella seguente.
 
-| Meccanismo di autenticazione                                                                 | Valore della proprietà `{AUTHENTICATION}` |
+| Meccanismo di autenticazione                                                                 | Valore di`{AUTHENTICATION}` |
 | ---------------------------------------------------------------------------------------- | :----------------------: |
 | Nessuna autenticazione                                                                        | `None`                   |
 | Utenti<br>individuali archiviati nell'app con ASP.NET Core Identity.                        | `Individual`             |
@@ -139,7 +139,7 @@ Il servizio `AuthenticationStateProvider` può fornire i dati <xref:System.Secur
 @using Microsoft.AspNetCore.Components.Authorization
 @inject AuthenticationStateProvider AuthenticationStateProvider
 
-<button @onclick="@LogUsername">Write user info to console</button>
+<button @onclick="LogUsername">Write user info to console</button>
 
 @code {
     private async Task LogUsername()
@@ -222,7 +222,7 @@ Se i dati dello stato di autenticazione sono necessari per la logica procedurale
 ```razor
 @page "/"
 
-<button @onclick="@LogUsername">Log username</button>
+<button @onclick="LogUsername">Log username</button>
 
 @code {
     [CascadingParameter]
@@ -253,6 +253,8 @@ Se `user.Identity.IsAuthenticated` è `true`, è possibile enumerare le attestaz
 Configurare il `Task<AuthenticationState>` parametro di propagazione usando i componenti `AuthorizeRouteView` e `CascadingAuthenticationState` nel file *app. Razor* :
 
 ```razor
+@using Microsoft.AspNetCore.Components.Authorization
+
 <Router AppAssembly="@typeof(Program).Assembly">
     <Found Context="routeData">
         <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
@@ -265,6 +267,13 @@ Configurare il `Task<AuthenticationState>` parametro di propagazione usando i co
         </CascadingAuthenticationState>
     </NotFound>
 </Router>
+```
+
+Aggiungere servizi per le opzioni e l'autorizzazione ai `Program.Main`:
+
+```csharp
+builder.Services.AddOptions();
+builder.Services.AddAuthorizationCore();
 ```
 
 ## <a name="authorization"></a>Autorizzazione

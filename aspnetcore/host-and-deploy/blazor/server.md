@@ -5,17 +5,17 @@ description: Informazioni su come ospitare e distribuire un'app Server Blazor us
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/17/2020
+ms.date: 02/15/2020
 no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/server
-ms.openlocfilehash: e8b3a7faaf1dc88059a79abbc7e74657ebb2068c
-ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
+ms.openlocfilehash: b928296c45ddb11efcd2c8912cc595c799e65037
+ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76726736"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77447256"
 ---
 # <a name="host-and-deploy-opno-locblazor-server"></a>Ospitare e distribuire Blazor server
 
@@ -59,7 +59,7 @@ Blazor funziona al meglio quando si usano WebSocket come il trasporto SignalR a 
 
 È consigliabile usare il [servizio SignalR di Azure](/azure/azure-signalr) per le app Blazor server. Il servizio consente di aumentare le prestazioni di un'app Server Blazor per un numero elevato di connessioni SignalR simultanee. Inoltre, la portata globale del servizio SignalR e i Data Center a prestazioni elevate consentono di ridurre significativamente la latenza a causa della geografia. Per configurare un'app e, facoltativamente, effettuare il provisioning del servizio SignalR di Azure:
 
-1. Consentire al servizio di supportare le *sessioni permanenti*, in cui i client vengono [reindirizzati allo stesso server durante il prerendering](xref:blazor/hosting-models#reconnection-to-the-same-server). Impostare l'opzione `ServerStickyMode` o il valore di configurazione su `Required`. In genere, un'app crea la configurazione usando **uno** degli approcci seguenti:
+1. Consentire al servizio di supportare le *sessioni permanenti*, in cui i client vengono [reindirizzati allo stesso server durante il prerendering](xref:blazor/hosting-models#connection-to-the-server). Impostare l'opzione `ServerStickyMode` o il valore di configurazione su `Required`. In genere, un'app crea la configurazione usando **uno** degli approcci seguenti:
 
    * `Startup.ConfigureServices`:
   
@@ -87,7 +87,10 @@ Blazor funziona al meglio quando si usano WebSocket come il trasporto SignalR a 
 
 #### <a name="iis"></a>IIS
 
-Quando si usa IIS, le sessioni permanenti sono abilitate con il routing delle richieste di applicazioni. Per altre informazioni, vedere [bilanciamento del carico http usando il routing delle richieste di applicazioni](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing).
+Quando si usa IIS, abilitare:
+
+* [WebSocket in IIS](xref:fundamentals/websockets#enabling-websockets-on-iis).
+* [Sessioni permanenti con routing della richiesta dell'applicazione](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing).
 
 #### <a name="kubernetes"></a>Kubernetes
 

@@ -3,14 +3,14 @@ title: Guida di riferimento della sintassi Razor per ASP.NET Core
 author: rick-anderson
 description: Informazioni sulla sintassi di markup Razor per l'incorporamento di codice basato su server in pagine Web.
 ms.author: riande
-ms.date: 12/05/2019
+ms.date: 02/12/2020
 uid: mvc/views/razor
-ms.openlocfilehash: 2d47fbc33328ab454616bcabab796df089686d79
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: 0b1eed2816329d62fca4bdb5719825a4197af353
+ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77171851"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77447178"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Guida di riferimento della sintassi Razor per ASP.NET Core
 
@@ -487,7 +487,7 @@ Nei [componenti di Razor](xref:blazor/components) usare `@code` in `@functions` 
 
 ::: moniker-end
 
-Ad esempio,
+Ad esempio:
 
 [!code-cshtml[](razor/sample/Views/Home/Contact6.cshtml)]
 
@@ -719,13 +719,13 @@ Nei [componenti di Razor](xref:blazor/components)`@using` controlla anche quali 
 
 *Questo scenario si applica solo ai componenti di Razor (con estensione razor).*
 
-Il data binding nei componenti viene eseguito con l'attributo `@bind`. Per altre informazioni, vedere <xref:blazor/components#data-binding>.
+Il data binding nei componenti viene eseguito con l'attributo `@bind`. Per altre informazioni, vedere <xref:blazor/data-binding>.
 
 ### <a name="onevent"></a>\@su {EVENT}
 
 *Questo scenario si applica solo ai componenti di Razor (con estensione razor).*
 
-Razor fornisce funzionalità di gestione degli eventi per i componenti. Per altre informazioni, vedere <xref:blazor/components#event-handling>.
+Razor fornisce funzionalità di gestione degli eventi per i componenti. Per altre informazioni, vedere <xref:blazor/event-handling>.
 
 ::: moniker-end
 
@@ -763,7 +763,7 @@ I riferimenti ai componenti (`@ref`) consentono di fare riferimento a un'istanza
 
 *Questo scenario si applica solo ai componenti di Razor (con estensione razor).*
 
-La direttiva `@typeparam` dichiara un parametro di tipo generico per la classe Component generata. Per altre informazioni, vedere <xref:blazor/components#generic-typed-components>.
+La direttiva `@typeparam` dichiara un parametro di tipo generico per la classe Component generata. Per altre informazioni, vedere <xref:blazor/templated-components#generic-typed-components>.
 
 ::: moniker-end
 
@@ -872,7 +872,7 @@ Output sottoposto a rendering:
 
 Esistono tre direttive che riguardano gli [helper tag](xref:mvc/views/tag-helpers/intro).
 
-| Directive | Funzione |
+| Direttiva | Funzione |
 | --------- | -------- |
 | [`@addTagHelper`](xref:mvc/views/tag-helpers/intro#add-helper-label) | Rende gli helper tag disponibili per una visualizzazione. |
 | [`@removeTagHelper`](xref:mvc/views/tag-helpers/intro#remove-razor-directives-label) | Rimuove gli helper tag aggiunti in precedenza da una visualizzazione. |
@@ -886,7 +886,7 @@ Esistono tre direttive che riguardano gli [helper tag](xref:mvc/views/tag-helper
 * namespace
 * functions
 * inherits
-* modello
+* model
 * section
 * helper (attualmente non supportata da ASP.NET Core)
 
@@ -896,24 +896,24 @@ Le parole chiave Razor sono precedute dal carattere di escape `@(Razor Keyword)`
 
 * case
 * do
-* predefiniti
-* per
+* default
+* for
 * foreach
 * if
 * else
-* lock
-* opzione
-* provare
-* generazione
+* blocco
+* switch
+* try
+* catch
 * finally
-* using
-* mentre
+* utilizzo
+* while
 
 Le parole chiave Razor C# devono essere precedute dal doppio carattere di escape `@(@C# Razor Keyword)` (ad esempio, `@(@case)`). Il primo `@` è il carattere di escape del parser Razor. Il secondo `@` è il carattere di escape del parser C#.
 
 ### <a name="reserved-keywords-not-used-by-razor"></a>Parole chiave riservate non usate da Razor
 
-* class
+* classe
 
 ## <a name="inspect-the-razor-c-class-generated-for-a-view"></a>Ispezionare la classe C# Razor generata per una visualizzazione
 

@@ -5,14 +5,14 @@ description: Informazioni su come usare il modello di opzioni per rappresentare 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/07/2019
+ms.date: 02/12/2020
 uid: fundamentals/configuration/options
-ms.openlocfilehash: 98fe30fbc424dd51ce8f8319b7ce959fd755c480
-ms.sourcegitcommit: da2fb2d78ce70accdba903ccbfdcfffdd0112123
+ms.openlocfilehash: 1f3625380d816c7d4df5a7a24b0ac146500330de
+ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75722739"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77447205"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>Modello di opzioni in ASP.NET Core
 
@@ -116,7 +116,7 @@ Nel codice seguente viene aggiunto un secondo servizio <xref:Microsoft.Extension
 
 [!code-csharp[](options/samples/3.x/OptionsSample/Pages/Index.cshtml.cs?name=snippet_Example2)]
 
-È possibile aggiungere più provider di configurazione. I provider di configurazione sono disponibili dai pacchetti NuGet e vengono applicati nell'ordine in cui sono registrati. Per ulteriori informazioni, vedere <xref:fundamentals/configuration/index>.
+È possibile aggiungere più provider di configurazione. I provider di configurazione sono disponibili dai pacchetti NuGet e vengono applicati nell'ordine in cui sono registrati. Per altre informazioni, vedere <xref:fundamentals/configuration/index>.
 
 Ogni chiamata a <xref:Microsoft.Extensions.Options.IConfigureOptions%601.Configure*> aggiunge un servizio <xref:Microsoft.Extensions.Options.IConfigureOptions%601> al contenitore di servizi. Nell'esempio precedente i valori di `Option1` e `Option2` sono entrambi specificati in *appsettings.json*, mentre i valori di `Option1` e `Option2` sono sottoposti a override dal delegato configurato.
 
@@ -326,10 +326,10 @@ catch (OptionsValidationException e)
 
 L'esempio precedente imposta l'istanza di opzioni denominata su `optionalOptionsName`. L'istanza di opzioni predefinita è `Options.DefaultName`.
 
-La convalida viene eseguita quando viene creata l'istanza di opzioni. L'istanza di opzioni supera sicuramente la convalida al primo accesso.
+La convalida viene eseguita quando viene creata l'istanza di opzioni. Si garantisce che un'istanza di opzioni superi la convalida la prima volta che si accede.
 
 > [!IMPORTANT]
-> La convalida delle opzioni non protegge da eventuali modifiche dopo la configurazione e la convalida iniziali delle opzioni.
+> La convalida delle opzioni non protegge le modifiche delle opzioni dopo la creazione dell'istanza di Options. Le opzioni `IOptionsSnapshot`, ad esempio, vengono create e convalidate una volta per ogni richiesta quando si accede per la prima volta. Le opzioni di `IOptionsSnapshot` non vengono convalidate di nuovo nei tentativi di accesso successivi *per la stessa richiesta*.
 
 Il metodo `Validate` accetta `Func<TOptions, bool>`. Per personalizzare completamente la convalida, implementare `IValidateOptions<TOptions>`, che consente:
 
@@ -540,7 +540,7 @@ Nel codice seguente viene aggiunto un secondo servizio <xref:Microsoft.Extension
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Pages/Index.cshtml.cs?name=snippet_Example2)]
 
-È possibile aggiungere più provider di configurazione. I provider di configurazione sono disponibili dai pacchetti NuGet e vengono applicati nell'ordine in cui sono registrati. Per ulteriori informazioni, vedere <xref:fundamentals/configuration/index>.
+È possibile aggiungere più provider di configurazione. I provider di configurazione sono disponibili dai pacchetti NuGet e vengono applicati nell'ordine in cui sono registrati. Per altre informazioni, vedere <xref:fundamentals/configuration/index>.
 
 Ogni chiamata a <xref:Microsoft.Extensions.Options.IConfigureOptions%601.Configure*> aggiunge un servizio <xref:Microsoft.Extensions.Options.IConfigureOptions%601> al contenitore di servizi. Nell'esempio precedente i valori di `Option1` e `Option2` sono entrambi specificati in *appsettings.json*, mentre i valori di `Option1` e `Option2` sono sottoposti a override dal delegato configurato.
 
@@ -750,10 +750,10 @@ catch (OptionsValidationException e)
 
 L'esempio precedente imposta l'istanza di opzioni denominata su `optionalOptionsName`. L'istanza di opzioni predefinita è `Options.DefaultName`.
 
-La convalida viene eseguita quando viene creata l'istanza di opzioni. L'istanza di opzioni supera sicuramente la convalida al primo accesso.
+La convalida viene eseguita quando viene creata l'istanza di opzioni. Si garantisce che un'istanza di opzioni superi la convalida la prima volta che si accede.
 
 > [!IMPORTANT]
-> La convalida delle opzioni non protegge da eventuali modifiche dopo la configurazione e la convalida iniziali delle opzioni.
+> La convalida delle opzioni non protegge le modifiche delle opzioni dopo la creazione dell'istanza di Options. Le opzioni `IOptionsSnapshot`, ad esempio, vengono create e convalidate una volta per ogni richiesta quando si accede per la prima volta. Le opzioni di `IOptionsSnapshot` non vengono convalidate di nuovo nei tentativi di accesso successivi *per la stessa richiesta*.
 
 Il metodo `Validate` accetta `Func<TOptions, bool>`. Per personalizzare completamente la convalida, implementare `IValidateOptions<TOptions>`, che consente:
 
@@ -962,7 +962,7 @@ Nel codice seguente viene aggiunto un secondo servizio <xref:Microsoft.Extension
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Pages/Index.cshtml.cs?name=snippet_Example2)]
 
-È possibile aggiungere più provider di configurazione. I provider di configurazione sono disponibili dai pacchetti NuGet e vengono applicati nell'ordine in cui sono registrati. Per ulteriori informazioni, vedere <xref:fundamentals/configuration/index>.
+È possibile aggiungere più provider di configurazione. I provider di configurazione sono disponibili dai pacchetti NuGet e vengono applicati nell'ordine in cui sono registrati. Per altre informazioni, vedere <xref:fundamentals/configuration/index>.
 
 Ogni chiamata a <xref:Microsoft.Extensions.Options.IConfigureOptions%601.Configure*> aggiunge un servizio <xref:Microsoft.Extensions.Options.IConfigureOptions%601> al contenitore di servizi. Nell'esempio precedente i valori di `Option1` e `Option2` sono entrambi specificati in *appsettings.json*, mentre i valori di `Option1` e `Option2` sono sottoposti a override dal delegato configurato.
 
