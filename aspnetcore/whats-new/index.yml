@@ -5,34 +5,36 @@ metadata:
   title: 'ASP.NET Core documentazione: novità'
   description: Informazioni sul contenuto nuovo e aggiornato in ASP.NET Core docs.
   ms.topic: landing-page
-  ms.date: 01/17/2020
-  ms.openlocfilehash: c7656fc51e8e8724c1505aecb5b583abbd216928
-  ms.sourcegitcommit: cb6015f737b6a93127016ab0f21b58e34b624ff3
+  ms.date: 03/02/2020
+  ms.openlocfilehash: dd10c004215718e372a43afacdef117aab7ef05a
+  ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 02/04/2020
-  ms.locfileid: "77004331"
+  ms.lasthandoff: 03/06/2020
+  ms.locfileid: "78663800"
 landingContent:
 - title: Trovare gli aggiornamenti di ASP.NET Core docs
   linkLists:
   - linkListType: whats-new
     links:
-    - text: 2020 gennaio
+    - text: Febbraio 2020
+      url: 2020-02.md
+    - text: Gennaio 2020
       url: 2020-01.md
     - text: Dicembre 2019
       url: 2019-12.md
-    - text: 2019 novembre
+    - text: Novembre 2019
       url: 2019-11.md
     - text: Ottobre 2019
       url: 2019-10.md
-    - text: 2019 settembre
+    - text: Settembre 2019
       url: 2019-09.md
 - title: Partecipa a ASP.NET Core docs
   linkLists:
   - linkListType: overview
     links:
     - text: Repository ASP.NET Core docs
-      url: https://github.com/aspnet/AspNetCore.Docs/blob/master/README.md
+      url: https://github.com/dotnet/AspNetCore.Docs/blob/master/README.md
     - text: Struttura del progetto ed etichette per problemi e richieste pull
       url: https://github.com/dotnet/docs/blob/master/styleguide/labels-projects.md
   - linkListType: concept
@@ -40,9 +42,9 @@ landingContent:
     - text: Guida per i collaboratori di Microsoft docs
       url: https://docs.microsoft.com/contribute
     - text: Guida per i collaboratori di ASP.NET Core docs
-      url: https://github.com/aspnet/AspNetCore.Docs/blob/master/CONTRIBUTING.md
+      url: https://github.com/dotnet/AspNetCore.Docs/blob/master/CONTRIBUTING.md
     - text: Guida per i collaboratori di documentazione di riferimento per l'API ASP.NET Core
-      url: https://github.com/aspnet/ApiDocs/blob/master/CONTRIBUTING.md
+      url: https://github.com/dotnet/AspNetApiDocs/blob/master/CONTRIBUTING.md
 - title: Pagine relative alle novità
   linkLists:
   - linkListType: whats-new
