@@ -2,7 +2,7 @@
 
 Questa app di esempio illustra i concetti descritti nell'argomento [caricare file in ASP.NET Core](https://docs.microsoft.com/aspnet/core/mvc/models/file-uploads) .
 
-## <a name="security-considerations"></a>Considerazioni sulla sicurezza
+## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
 
 Prestare attenzione quando si fornisce agli utenti la possibilità di caricare file in un server. Gli utenti malintenzionati possono eseguire attacchi [di tipo Denial of Service](/windows-hardware/drivers/ifs/denial-of-service) , tentare di caricare virus o malware oppure provare a compromettere le reti e i server in altri modi.
 
@@ -44,6 +44,6 @@ Nel file *appSettings. JSON* :
    * L'app di esempio imposta il valore su `c:\\files`, che presuppone che esista una cartella denominata *files* nella radice dell'unità C: del sistema.
    * È necessario specificare un percorso esistente. Creare una cartella *file* nell'unità C: del sistema o impostare il percorso su un percorso appropriato.
    * Il processo dell'app richiede autorizzazioni di lettura/scrittura per il percorso.
-   * **IMPORTANTE!** Disabilitare le autorizzazioni di esecuzione per tutti gli utenti nel percorso.
+   * **IMPORTANTE** Disabilitare le autorizzazioni di esecuzione per tutti gli utenti nel percorso.
 
 1. Impostare il limite delle dimensioni del file (`FileSizeLimit`) in byte. Il valore predefinito dell'app di esempio di `2097152` (2.097.152 byte) consente il caricamento di file fino a 2 MB.

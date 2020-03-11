@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 03/07/2019
 uid: spa/react
-ms.openlocfilehash: bbe5328bfa5b4187989a00c3c94e98dabc5d032a
-ms.sourcegitcommit: 032113208bb55ecfb2faeb6d3e9ea44eea827950
+ms.openlocfilehash: 9703a62eb7f779974382fe0fb01702d9fcd37d64
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73190524"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664962"
 ---
 # <a name="use-the-react-project-template-with-aspnet-core"></a>Usare il modello di progetto per React con ASP.NET Core
 
@@ -35,13 +35,13 @@ cd my-new-app
 
 Eseguire l'app da Visual Studio o dall'interfaccia della riga di comando di .NET Core:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Aprire il file con estensione *csproj* generato ed eseguire l'app come di consueto da tale posizione.
 
 Alla prima esecuzione, il processo di compilazione ripristina le dipendenze di npm. Tale operazione può richiedere alcuni minuti. Le compilazioni successive sono molto più veloci.
 
-# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 
 Assicurarsi di disporre di una variabile di ambiente denominata `ASPNETCORE_Environment` con valore `Development`. In Windows (in prompt non PowerShell) eseguire `SET ASPNETCORE_Environment=Development`. In Linux o Mac OS eseguire `export ASPNETCORE_Environment=Development`.
 
@@ -55,13 +55,13 @@ Il modello di progetto crea un'app ASP.NET Core e un'app React. L'app ASP.NET Co
 
 ## <a name="add-pages-images-styles-modules-etc"></a>Aggiungere pagine, immagini, stili, moduli e così via.
 
-La directory *ClientApp* è un'app React CRA standard. Per altre informazioni, vedere la [documentazione ufficiale di CRA](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+La directory *ClientApp* è un'app React CRA standard. Per altre informazioni, vedere la [documentazione ufficiale di CRA](https://create-react-app.dev/docs/getting-started/).
 
 Vi sono piccole differenze tra l'app React creata tramite questo modello e quella creata tramite CRA stesso. Le funzionalità dell'app restano comunque invariate. L'app creata tramite il modello contiene un layout basato su [bootstrap](https://getbootstrap.com/) e un esempio di routing di base.
 
 ## <a name="install-npm-packages"></a>Installa nuovi pacchetti npm
 
-Per installare i pacchetti npm di terze parti, usare un prompt dei comandi nella sottodirectory *ClientApp*. Esempio:
+Per installare i pacchetti npm di terze parti, usare un prompt dei comandi nella sottodirectory *ClientApp*. Ad esempio:
 
 ```console
 cd ClientApp
@@ -80,7 +80,7 @@ Nell'ambiente di produzione usare una versione dell'app ottimizzata per le prest
 
 Il progetto è configurato in modo da avviare la propria istanza del server di sviluppo CRA in background all'avvio dell'app ASP.NET Core in modalità di sviluppo. Ciò risulta utile in quanto evita di dover eseguire manualmente un server distinto.
 
-Questa configurazione predefinita presenta tuttavia uno svantaggio. Ogni volta che si modifica il codice C# ed è necessario riavviare l'app ASP.NET Core, il server CRA viene riavviato. Per avviare il backup sono necessari alcuni secondi. Se si apportano frequentemente modifiche al codice C# e non si vuole attendere il riavvio del server CRA, eseguire il server CRA esternamente, in modo indipendente dal processo ASP.NET Core. A tale scopo:
+Questa configurazione predefinita presenta tuttavia uno svantaggio. Ogni volta che si modifica il codice C# ed è necessario riavviare l'app ASP.NET Core, il server CRA viene riavviato. Per avviare il backup sono necessari alcuni secondi. Se si apportano frequentemente modifiche al codice C# e non si vuole attendere il riavvio del server CRA, eseguire il server CRA esternamente, in modo indipendente dal processo ASP.NET Core. A tale scopo, procedere come indicato di seguito:
 
 1. Aggiungere un file con *estensione ENV* alla sottodirectory *ClientApp* con l'impostazione seguente:
 

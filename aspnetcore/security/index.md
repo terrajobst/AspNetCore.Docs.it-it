@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 10/24/2018
 uid: security/index
 ms.openlocfilehash: 0f8e96fb7d5246e746b95f8907745f849de60e24
-ms.sourcegitcommit: 8835b6777682da6fb3becf9f9121c03f89dc7614
-ms.translationtype: HT
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69975653"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78656037"
 ---
 # <a name="overview-of-aspnet-core-security"></a>Panoramica sulla sicurezza di ASP.NET Core
 
@@ -21,7 +21,7 @@ ASP.NET Core consente agli sviluppatori di configurare e gestire facilmente la s
 
 ASP.NET Core fornisce numerosi strumenti e librerie per proteggere le app, inclusi i provider di identità predefiniti, ma è anche possibile usare servizi di identità di terze parti, ad esempio Facebook, Twitter e LinkedIn. Con ASP.NET Core, è possibile gestire facilmente i segreti dell'app, che consentono di archiviare e usare informazioni riservate senza la necessità di esporle nel codice.
 
-## <a name="authentication-vs-authorization"></a>Autenticazione e Autorizzazione
+## <a name="authentication-vs-authorization"></a>Autenticazione e autorizzazione
 
 L'autenticazione è un processo in cui un utente fornisce le credenziali che vengono quindi confrontate con quelle archiviate in un sistema operativo, un database, un'applicazione o una risorsa. Se corrispondono, gli utenti vengono autenticati correttamente e quindi possono eseguire azioni per cui sono autorizzati, durante un processo di autorizzazione. L'autorizzazione è il processo che determina quali operazioni può eseguire un utente.
 

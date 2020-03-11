@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/22/2019
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 944e746624bf5fe7c586a521059fa4eb34b0f1e7
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: c4d43f26ba80e7922c3cbd37d9a5f8e1561b11ad
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259389"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78656912"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Concorrenza - 8 di 8
 
@@ -62,7 +62,7 @@ John fa clic su **Salva** in una pagina Edit (Modifica) che visualizza ancora un
 
 * È possibile consentire che la modifica di John sovrascriva la modifica di Jane.
 
-  Quando un utente torna a visualizzare il reparto English (Inglese), visualizza 9/1/2013 e il valore $ 350.000,00 recuperato. Questo scenario è detto *Priorità client* o *Last in Wins* (Priorità ultimo accesso). Tutti i valori del client hanno la precedenza sui valori presenti nell'archivio dati. Se non si configura nessun codice per la gestione della concorrenza, la priorità client viene applicata automaticamente.
+  Quando un utente torna a visualizzare il reparto English (Inglese), visualizza 9/1/2013 e il valore $ 350.000,00 recuperato. Questo scenario è detto *Priorità client* o *Last in Wins* (Priorità ultimo accesso). Tutti i valori del client hanno la precedenza sugli elementi presenti nell'archivio dati. Se non si esegue alcuna codifica per la gestione della concorrenza, la WINS client viene eseguita automaticamente.
 
 * È possibile impedire l'aggiornamento del database con la modifica di John. In genere, l'app:
 
@@ -70,7 +70,7 @@ John fa clic su **Salva** in una pagina Edit (Modifica) che visualizza ancora un
   * Visualizza lo stato corrente dei dati.
   * Consente all'utente di riapplicare le modifiche.
 
-  Questo scenario è detto *Store Wins* (Priorità archivio). I valori dell'archivio dati hanno la precedenza sui valori inoltrati dal client. In questa esercitazione viene implementato lo scenario Store Wins (Priorità archivio). Questo metodo garantisce che nessuna modifica venga sovrascritta senza che un utente riceva un avviso.
+  Questo scenario è detto *Store Wins* (Priorità archivio). I valori dell'archivio dati hanno la precedenza sui valori inviati dal client. In questa esercitazione viene implementato lo scenario di WINS dello Store. Questo metodo garantisce che nessuna modifica venga sovrascritta senza che un utente riceva un avviso.
 
 ## <a name="conflict-detection-in-ef-core"></a>Rilevamento dei conflitti in EF Core
 
@@ -98,7 +98,7 @@ modelBuilder.Entity<Department>()
   .IsRowVersion();
 ```
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Per un database di SQL Server l'attributo `[Timestamp]` per una proprietà dell'entità definita come matrice di byte:
 
@@ -123,7 +123,7 @@ Il codice evidenziato seguente visualizza la notazione T-SQL che verifica che è
 
 [@@ROWCOUNT](/sql/t-sql/functions/rowcount-transact-sql) restituisce il numero delle righe interessate dall'ultima istruzione. Se non viene aggiornata alcuna riga, EF Core genera `DbUpdateConcurrencyException`.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Per un database SQLite l'attributo `[Timestamp]` per una proprietà dell'entità definita come matrice di byte:
 
@@ -144,7 +144,7 @@ L'aggiunta della proprietà `RowVersion` cambia il modello di dati e ciò richie
 
 Compilare il progetto. 
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Eseguire il comando seguente nella console di Gestione pacchetti:
 
@@ -152,7 +152,7 @@ Compilare il progetto.
   Add-Migration RowVersion
   ```
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * Eseguire il comando seguente in un terminale:
 
@@ -169,7 +169,7 @@ Questo comando:
 
   [!code-csharp[](intro/samples/cu30/Migrations/SchoolContextModelSnapshot.cs?name=snippet_Department&highlight=15-17)]
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Eseguire il comando seguente nella console di Gestione pacchetti:
 
@@ -177,7 +177,7 @@ Questo comando:
   Update-Database
   ```
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * Aprire il file `Migrations/<timestamp>_RowVersion.cs` e aggiungere il codice evidenziato:
 
@@ -200,7 +200,7 @@ Questo comando:
 
 ## <a name="scaffold-department-pages"></a>Scaffolding delle pagine Department
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Seguire le istruzioni in [Scaffolding delle pagine Student](xref:data/ef-rp/intro#scaffold-student-pages) con le eccezioni seguenti:
 
@@ -208,7 +208,7 @@ Questo comando:
 * Usare `Department` per la classe del modello.
   * Usare la classe di contesto esistente anziché crearne una nuova.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * Creare una cartella *Pages/Departments*.
 
@@ -311,11 +311,11 @@ Fare clic su **Salva**. Vengono visualizzati messaggi di errore per tutti i camp
 
 ![Messaggio di errore della pagina Department Edit (Modifica - Reparto)](concurrency/_static/edit-error30.png)
 
-Questa finestra del browser non prevedeva la modifica del campo Name (Nome). Copiare e incollare il valore corrente Languages (Lingue) nel campo Name (Nome). Uscire dalla scheda tramite tabulazione. La convalida lato client rimuove il messaggio di errore.
+Questa finestra del browser non prevedeva la modifica del campo Name (Nome). Copiare e incollare il valore corrente Languages (Lingue) nel campo Name (Nome). Tabulazione. La convalida lato client rimuove il messaggio di errore.
 
-Fare di nuovo clic su **Salva**. Il valore immesso nella seconda scheda del browser viene salvato. I valori salvati vengono visualizzati nella pagina Index.
+Fare clic su **Salva**. Il valore immesso nella seconda scheda del browser viene salvato. I valori salvati vengono visualizzati nella pagina Index.
 
-## <a name="update-the-delete-page"></a>Aggiornare la pagina Delete (Elimina)
+## <a name="update-the-delete-page"></a>Aggiornare la pagina Delete
 
 Aggiornare *Pages/Departments/Delete.cshtml.cs* con il codice seguente:
 
@@ -363,7 +363,7 @@ Eliminare il reparto di test dalla seconda scheda. Viene visualizzato un errore 
 
 * [Concurrency Tokens in EF Core](/ef/core/modeling/concurrency) (Token di concorrenza in EF Core)
 * [Gestione della concorrenza in EF Core](/ef/core/saving/concurrency)
-* [Debug dell'origine ASP.NET Core 2.x](https://github.com/aspnet/AspNetCore.Docs/issues/4155)
+* [Debug dell'origine ASP.NET Core 2.x](https://github.com/dotnet/AspNetCore.Docs/issues/4155)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -376,7 +376,7 @@ Questa è l'ultima esercitazione nella serie. Ulteriori argomenti sono trattati 
 
 ::: moniker range="< aspnetcore-3.0"
 
-Questa esercitazione descrive la gestione dei conflitti quando più utenti aggiornano la stessa entità contemporaneamente. Se si verificano problemi che non si è in grado di risolvere, [scaricare o visualizzare l'app completa](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples). [Istruzioni per il download](xref:index#how-to-download-a-sample).
+Questa esercitazione descrive la gestione dei conflitti quando più utenti aggiornano la stessa entità contemporaneamente. Se si verificano problemi che non si è in grado di risolvere, [scaricare o visualizzare l'app completa](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples). [Istruzioni per il download](xref:index#how-to-download-a-sample).
 
 ## <a name="concurrency-conflicts"></a>Conflitti di concorrenza
 
@@ -418,7 +418,7 @@ La concorrenza ottimistica include le opzioni seguenti:
 
 * È possibile consentire che la modifica di John sovrascriva la modifica di Jane.
 
-  Quando un utente torna a visualizzare il reparto English (Inglese), visualizza 9/1/2013 e il valore $ 350.000,00 recuperato. Questo scenario è detto *Priorità client* o *Last in Wins* (Priorità ultimo accesso). Tutti i valori del client hanno la precedenza sui valori presenti nell'archivio dati. Se non si configura nessun codice per la gestione della concorrenza, la priorità client viene applicata automaticamente.
+  Quando un utente torna a visualizzare il reparto English (Inglese), visualizza 9/1/2013 e il valore $ 350.000,00 recuperato. Questo scenario è detto *Priorità client* o *Last in Wins* (Priorità ultimo accesso). Tutti i valori del client hanno la precedenza sugli elementi presenti nell'archivio dati. Se non si esegue alcuna codifica per la gestione della concorrenza, la WINS client viene eseguita automaticamente.
 
 * È possibile impedire che la modifica di John venga implementata nel database. In genere, l'app:
 
@@ -426,7 +426,7 @@ La concorrenza ottimistica include le opzioni seguenti:
   * Visualizza lo stato corrente dei dati.
   * Consente all'utente di riapplicare le modifiche.
 
-  Questo scenario è detto *Store Wins* (Priorità archivio). I valori dell'archivio dati hanno la precedenza sui valori inoltrati dal client. In questa esercitazione viene implementato lo scenario Store Wins (Priorità archivio). Questo metodo garantisce che nessuna modifica venga sovrascritta senza che un utente riceva un avviso.
+  Questo scenario è detto *Store Wins* (Priorità archivio). I valori dell'archivio dati hanno la precedenza sui valori inviati dal client. In questa esercitazione viene implementato lo scenario di WINS dello Store. Questo metodo garantisce che nessuna modifica venga sovrascritta senza che un utente riceva un avviso.
 
 ## <a name="handling-concurrency"></a>Gestione della concorrenza 
 
@@ -445,7 +445,7 @@ L'attributo `[ConcurrencyCheck]` non viene usato in questa esercitazione.
 
 ### <a name="detecting-concurrency-conflicts-on-a-row"></a>Rilevamento dei conflitti di concorrenza per una riga
 
-Per rilevare i conflitti di concorrenza si aggiunge al modello una colonna di rilevamento [rowversion](/sql/t-sql/data-types/rowversion-transact-sql).  `rowversion`:
+Per rilevare i conflitti di concorrenza si aggiunge al modello una colonna di rilevamento [rowversion](/sql/t-sql/data-types/rowversion-transact-sql).  `rowversion` :
 
 * È specifica per SQL Server. È possibile che altri database non dispongano di una funzionalità simile.
 * Viene usata per determinare che un'entità non è stata modificata dopo il suo recupero dal database. 
@@ -512,11 +512,11 @@ I comandi precedenti:
 
 ## <a name="scaffold-the-departments-model"></a>Scaffolding del modello Departments (Reparti)
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
 Seguire le istruzioni in [Eseguire lo scaffolding del modello Student (Studente)](xref:data/ef-rp/intro#scaffold-student-pages) e usare `Department` per la classe modello.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
  Eseguire il comando seguente:
 
@@ -570,7 +570,7 @@ Il codice evidenziato seguente imposta il valore `RowVersion` sul nuovo valore r
 
 L'istruzione `ModelState.Remove` è necessaria perché `ModelState` presenta il valore obsoleto `RowVersion`. Nella pagina Razor il valore `ModelState` di un campo ha la precedenza sui valori di proprietà del modello quando entrambi gli elementi sono presenti.
 
-## <a name="update-the-edit-page"></a>Aggiornare la pagina Edit (Modifica)
+## <a name="update-the-edit-page"></a>Aggiornare la pagina Edit
 
 Aggiornare *Pages/Departments/Edit.cshtml* con il markup seguente:
 
@@ -607,13 +607,13 @@ Fare clic su **Salva**. Vengono visualizzati messaggi di errore per tutti i camp
 
 ![Messaggio di errore della pagina Department Edit (Modifica - Reparto)](concurrency/_static/edit-error.png)
 
-Questa finestra del browser non prevedeva la modifica del campo Name (Nome). Copiare e incollare il valore corrente Languages (Lingue) nel campo Name (Nome). Uscire dalla scheda tramite tabulazione. La convalida lato client rimuove il messaggio di errore.
+Questa finestra del browser non prevedeva la modifica del campo Name (Nome). Copiare e incollare il valore corrente Languages (Lingue) nel campo Name (Nome). Tabulazione. La convalida lato client rimuove il messaggio di errore.
 
 ![Messaggio di errore della pagina Department Edit (Modifica - Reparto)](concurrency/_static/cv.png)
 
-Fare di nuovo clic su **Salva**. Il valore immesso nella seconda scheda del browser viene salvato. I valori salvati vengono visualizzati nella pagina Index.
+Fare clic su **Salva**. Il valore immesso nella seconda scheda del browser viene salvato. I valori salvati vengono visualizzati nella pagina Index.
 
-## <a name="update-the-delete-page"></a>Aggiornare la pagina Delete (Elimina)
+## <a name="update-the-delete-page"></a>Aggiornare la pagina Delete
 
 Aggiornare il modello di pagina Delete (Elimina) con il codice seguente:
 
@@ -625,7 +625,7 @@ La pagina Delete (Elimina) rileva i conflitti di concorrenza quando l'entità è
 * Viene generata un'eccezione DbUpdateConcurrencyException.
 * `OnGetAsync` viene chiamata con `concurrencyError`.
 
-### <a name="update-the-delete-page"></a>Aggiornare la pagina Delete (Elimina)
+### <a name="update-the-delete-page"></a>Aggiornare la pagina Delete
 
 Aggiornare *Pages/Departments/Delete.cshtml* con il codice seguente:
 
@@ -668,7 +668,7 @@ Per informazioni su come ereditare un modello di dati, vedere [Ereditarietà](xr
 * [Versione YouTube dell'esercitazione (parte 3)](https://www.youtube.com/watch?v=d4RbpfvELRs)
 
 > [!div class="step-by-step"]
-> [Precedente](xref:data/ef-rp/update-related-data)
+> [Indietro](xref:data/ef-rp/update-related-data)
 
 ::: moniker-end
 

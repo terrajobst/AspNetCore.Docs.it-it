@@ -5,12 +5,12 @@ description: In questo articolo vengono illustrati i passaggi più comuni per la
 ms.author: scaddie
 ms.date: 06/21/2019
 uid: migration/1x-to-2x/identity-2x
-ms.openlocfilehash: f3817fa1808c331f7e167618e3bb00d68ad08571
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: af905f1127d504839f66d9e0e1ca1dfc27e32772
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355173"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667608"
 ---
 # <a name="migrate-authentication-and-identity-to-aspnet-core-20"></a>Eseguire la migrazione dell'autenticazione e dell'identità a ASP.NET Core 2,0
 
@@ -177,7 +177,7 @@ Apportare le modifiche seguenti in *Startup.cs*:
     });
     ```
     
-### <a name="facebook-authentication"></a>Autenticazione Facebook
+### <a name="facebook-authentication"></a>Autenticazione di Facebook
 
 Apportare le modifiche seguenti in *Startup.cs*:
 - Sostituire la chiamata al metodo `UseFacebookAuthentication` nel metodo `Configure` con `UseAuthentication`:
@@ -197,7 +197,7 @@ Apportare le modifiche seguenti in *Startup.cs*:
             });
     ```
 
-### <a name="google-authentication"></a>Autenticazione Google
+### <a name="google-authentication"></a>Autenticazione di Google
 
 Apportare le modifiche seguenti in *Startup.cs*:
 - Sostituire la chiamata al metodo `UseGoogleAuthentication` nel metodo `Configure` con `UseAuthentication`:
@@ -217,9 +217,9 @@ Apportare le modifiche seguenti in *Startup.cs*:
             });
     ```
 
-### <a name="microsoft-account-authentication"></a>Autenticazione tramite account Microsoft
+### <a name="microsoft-account-authentication"></a>Autenticazione di account Microsoft
 
-Per ulteriori informazioni sull'autenticazione account Microsoft, vedere [questo problema di GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/14455).
+Per ulteriori informazioni sull'autenticazione account Microsoft, vedere [questo problema di GitHub](https://github.com/dotnet/AspNetCore.Docs/issues/14455).
 
 Apportare le modifiche seguenti in *Startup.cs*:
 - Sostituire la chiamata al metodo `UseMicrosoftAccountAuthentication` nel metodo `Configure` con `UseAuthentication`:
@@ -239,7 +239,7 @@ Apportare le modifiche seguenti in *Startup.cs*:
             });
     ```
 
-### <a name="twitter-authentication"></a>Autenticazione Twitter
+### <a name="twitter-authentication"></a>Autenticazione di Twitter
 
 Apportare le modifiche seguenti in *Startup.cs*:
 - Sostituire la chiamata al metodo `UseTwitterAuthentication` nel metodo `Configure` con `UseAuthentication`:
@@ -330,7 +330,7 @@ Esistono due varianti di autenticazione di Windows:
 
   > `System.InvalidOperationException`: non è stato specificato alcun authenticationScheme e non è stato trovato alcun DefaultChallengeScheme.
 
-Per ulteriori informazioni, vedere <xref:security/authentication/windowsauth>.
+Per altre informazioni, vedere <xref:security/authentication/windowsauth>.
 
 <a name="identity-cookie-options"></a>
 

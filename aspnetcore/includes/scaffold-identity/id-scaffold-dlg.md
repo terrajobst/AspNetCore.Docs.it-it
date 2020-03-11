@@ -1,15 +1,15 @@
 Eseguire l'impalcatura delle identità:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Dal **Esplora soluzioni**, fare doppio clic sul progetto > **Add** > **nuovo elemento di scaffolding**.
-* Dal riquadro sinistro della finestra di **Add Scaffold** finestra di dialogo, seleziona **identità** > **aggiungere**.
+* Da **Esplora soluzioni**, fare clic con il pulsante destro del mouse sul progetto > **Aggiungi** > **nuovo elemento con impalcatura**.
+* Dal riquadro sinistro della finestra di dialogo **Aggiungi impalcatura** selezionare **Identity** > **Aggiungi**.
 * Nella finestra di dialogo **Aggiungi identità** selezionare le opzioni desiderate.
   * Selezionare la pagina layout esistente. in alternativa, il file di layout verrà sovrascritto con un markup errato. Ad esempio `~/Pages/Shared/_Layout.cshtml` per Razor Pages `~/Views/Shared/_Layout.cshtml` per i progetti MVC
-  * Selezionare il **+** per creare un nuovo pulsante **classe contesto dati**.
-* Selezionare **aggiungere**.
+  * Selezionare il pulsante **+** per creare una nuova **classe del contesto dati**.
+* Selezionare **Aggiungi**.
 
-# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 
 Se l'utilità di scaffolding di ASP.NET Core non è stato precedentemente installato, installarlo ora:
 

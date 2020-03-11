@@ -5,12 +5,12 @@ description: Informazioni su come l'associazione di modelli consente alle azioni
 ms.author: riande
 ms.date: 01/06/2020
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: 92e7abbb9d9b4c29af429557a31e3ef403211976
-ms.sourcegitcommit: 79850db9e79b1705b89f466c6f2c961ff15485de
+ms.openlocfilehash: 511cf39bfedfc55d2f75842daf4445d2aaf4872d
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75693947"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78659866"
 ---
 # <a name="custom-model-binding-in-aspnet-core"></a>Associazione di modelli personalizzata in ASP.NET Core
 
@@ -20,7 +20,7 @@ Di [Steve Smith](https://ardalis.com/) e [Kirk Larkin](https://twitter.com/serpe
 
 Mediante l'associazione di modelli le azioni dei controller possono operare direttamente con i tipi di modello (passati come argomenti dei metodi), anziché con le richieste HTTP. Il mapping tra i dati delle richieste in ingresso e i modelli applicativi è gestito dagli strumenti di associazione di modelli. Gli sviluppatori possono estendere la funzionalità di associazione di modelli predefinita implementando strumenti di associazione di modelli personalizzati (anche se in genere non è necessario creare un provider personalizzato).
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/custom-model-binding/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/custom-model-binding/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="default-model-binder-limitations"></a>Limiti degli strumenti di associazione di modelli predefiniti
 
@@ -34,7 +34,7 @@ Prima di creare uno strumento di associazione di modelli personalizzato, è util
 
 ### <a name="working-with-the-bytearraymodelbinder"></a>Uso di ByteArrayModelBinder
 
-Le stringhe con codifica Base64 possono essere usate per rappresentare i dati binari. Un'immagine, ad esempio, può essere codificata come stringa. Nell'esempio è inclusa un'immagine come stringa con codifica Base64 in [Base64String. txt](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/samples/3.x/CustomModelBindingSample/Base64String.txt).
+Le stringhe con codifica Base64 possono essere usate per rappresentare i dati binari. Un'immagine, ad esempio, può essere codificata come stringa. Nell'esempio è inclusa un'immagine come stringa con codifica Base64 in [Base64String. txt](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/samples/3.x/CustomModelBindingSample/Base64String.txt).
 
 ASP.NET Core MVC può accettare una stringa con codifica base64 e usare un oggetto `ByteArrayModelBinder` per convertirla in una matrice di byte. Il <xref:Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider> esegue il mapping degli argomenti di `byte[]` a `ByteArrayModelBinder`:
 
@@ -61,6 +61,7 @@ Quando si crea un gestore di associazione di modelli personalizzato, è possibil
 L'esempio indica come usare `ByteArrayModelBinder` per convertire una stringa con codifica base64 in un `byte[]` e salvare il risultato in un file:
 
 [!code-csharp[](custom-model-binding/samples/3.x/CustomModelBindingSample/Controllers/ImageController.cs?name=snippet_Post)]
+[!INCLUDE[about the series](~/includes/code-comments-loc.md)]
 
 È possibile pubblicare (POST) una stringa con codifica base64 in questo metodo API usando uno strumento come [Postman](https://www.getpostman.com/):
 
@@ -139,11 +140,11 @@ Gli strumenti di associazione di modelli personalizzati:
 ::: moniker-end
 ::: moniker range="< aspnetcore-3.0"
 
-Di [Steve Smith](https://ardalis.com/)
+[Steve Smith](https://ardalis.com/)
 
 Mediante l'associazione di modelli le azioni dei controller possono operare direttamente con i tipi di modello (passati come argomenti dei metodi), anziché con le richieste HTTP. Il mapping tra i dati delle richieste in ingresso e i modelli applicativi è gestito dagli strumenti di associazione di modelli. Gli sviluppatori possono estendere la funzionalità di associazione di modelli predefinita implementando strumenti di associazione di modelli personalizzati (anche se in genere non è necessario creare un provider personalizzato).
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/custom-model-binding/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/custom-model-binding/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="default-model-binder-limitations"></a>Limiti degli strumenti di associazione di modelli predefiniti
 
@@ -157,7 +158,7 @@ Prima di creare uno strumento di associazione di modelli personalizzato, è util
 
 ### <a name="working-with-the-bytearraymodelbinder"></a>Uso di ByteArrayModelBinder
 
-Le stringhe con codifica Base64 possono essere usate per rappresentare i dati binari. Un'immagine, ad esempio, può essere codificata come stringa. Nell'esempio è inclusa un'immagine come stringa con codifica Base64 in [Base64String. txt](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/samples/2.x/CustomModelBindingSample/Base64String.txt).
+Le stringhe con codifica Base64 possono essere usate per rappresentare i dati binari. Un'immagine, ad esempio, può essere codificata come stringa. Nell'esempio è inclusa un'immagine come stringa con codifica Base64 in [Base64String. txt](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/samples/2.x/CustomModelBindingSample/Base64String.txt).
 
 ASP.NET Core MVC può accettare una stringa con codifica base64 e usare un oggetto `ByteArrayModelBinder` per convertirla in una matrice di byte. Il <xref:Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider> esegue il mapping degli argomenti di `byte[]` a `ByteArrayModelBinder`:
 

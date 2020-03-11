@@ -5,17 +5,17 @@ description: Informazioni sui modelli di hosting Blazor webassembly e Blazor ser
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/12/2020
+ms.date: 02/18/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/hosting-models
-ms.openlocfilehash: 54be0e032a60c69880f428e52f9d778032385dc5
-ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
+ms.openlocfilehash: e6ce2be53c35268854e0e8d408b649a8c6ef497e
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77447048"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658319"
 ---
 # <a name="aspnet-core-opno-locblazor-hosting-models"></a>ASP.NET Core Blazor modelli di hosting
 
@@ -33,7 +33,7 @@ Per la configurazione avanzata, vedere <xref:blazor/hosting-model-configuration>
 
 Il modello di hosting principale per Blazor è in esecuzione sul lato client nel browser del webassembly. L'app Blazor, le relative dipendenze e il Runtime .NET vengono scaricati nel browser. L'app viene eseguita direttamente nel thread dell'interfaccia utente del browser. Gli aggiornamenti dell'interfaccia utente e la gestione degli eventi si verificano nello stesso processo. Le risorse dell'app vengono distribuite come file statici in un server Web o in un servizio in grado di servire contenuto statico ai client.
 
-![[! OP. NO-LOC (Blazer)] webassembly: [! OP. L'app NO-LOC (Blazer)] viene eseguita su un thread dell'interfaccia utente all'interno del browser.](hosting-models/_static/blazor-webassembly.png)
+![Blazor webassembly: l'app Blazor viene eseguita su un thread dell'interfaccia utente all'interno del browser.](hosting-models/_static/blazor-webassembly.png)
 
 Per creare un'app Blazor usando il modello di hosting lato client, usare il modello di **app webassemblyBlazor** ([DotNet New blazorwasm](/dotnet/core/tools/dotnet-new)).
 
@@ -62,7 +62,7 @@ Ci sono svantaggi per Blazor l'hosting di webassembly:
 
 Con il modello di hosting del server di Blazor, l'app viene eseguita nel server dall'interno di un'app ASP.NET Core. Gli aggiornamenti dell'interfaccia utente, la gestione degli eventi e le chiamate JavaScript vengono gestiti tramite una connessione [SignalR](xref:signalr/introduction) .
 
-![Il browser interagisce con l'app (ospitata all'interno di un'app ASP.NET Core) sul server tramite un [! OP. Connessione NO-LOC (SignalR)].](hosting-models/_static/blazor-server.png)
+![il browser interagisce con l'app (ospitata all'interno di un'app ASP.NET Core) nel server tramite una connessione SignalR.](hosting-models/_static/blazor-server.png)
 
 Per creare un'app Blazor usando il modello di hosting del server Blazor, usare il modello di **app ASP.NET CoreBlazor server** ([DotNet New blazorserver](/dotnet/core/tools/dotnet-new)). L'app ASP.NET Core ospita l'app Blazor server e crea l'endpoint SignalR a cui si connettono i client.
 
@@ -122,6 +122,8 @@ Un'app Server Blazor è basata sull' [SignalRASP.NET Core ](xref:signalr/introdu
 Ogni schermata del browser (scheda del browser o iframe) connessa a un'app del server Blazor usa una connessione SignalR. Si tratta ancora di un'altra distinzione importante rispetto alle app tipiche sottoposte a rendering server. In un'app sottoposta a rendering server, l'apertura della stessa app in più schermate del browser in genere non viene convertita in richieste di risorse aggiuntive sul server. In un'app Server Blazor, ogni schermata del browser richiede un circuito separato e istanze separate dello stato dei componenti che devono essere gestite dal server.
 
 Blazor considera la chiusura di una scheda del browser o l'esplorazione di un URL esterno a una chiusura *normale* . In caso di chiusura normale, il circuito e le risorse associate vengono immediatamente rilasciati. Un client può anche disconnettersi in modo non corretto, ad esempio a causa di un'interruzione della rete. Blazor Server archivia circuiti disconnessi per un intervallo configurabile in modo da consentire la riconnessione del client.
+
+Blazor Server consente al codice di definire un *gestore di circuito*, che consente l'esecuzione di codice in base alle modifiche apportate allo stato del circuito di un utente. Per altre informazioni, vedere <xref:blazor/advanced-scenarios#blazor-server-circuit-handler>.
 
 ### <a name="ui-latency"></a>Latenza interfaccia utente
 

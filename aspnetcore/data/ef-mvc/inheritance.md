@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Implementare l'ereditarietà - ASP.NET MVC con EF Core"
+title: "Esercitazione: implementare l'ereditarietà-ASP.NET MVC con EF Core"
 description: Questa esercitazione illustra come implementare l'ereditarietà nel modello di dati usando Entity Framework Core in un'applicazione ASP.NET Core.
 author: rick-anderson
 ms.author: riande
@@ -7,20 +7,20 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: c10df60a43f5d59f3ce13afd38aad42b88c80516
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: dab3d2b057162f6d986db10e74e3681acc0ada3b
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259396"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78657241"
 ---
-# <a name="tutorial-implement-inheritance---aspnet-mvc-with-ef-core"></a>Esercitazione: Implementare l'ereditarietà - ASP.NET MVC con EF Core
+# <a name="tutorial-implement-inheritance---aspnet-mvc-with-ef-core"></a>Esercitazione: implementare l'ereditarietà-ASP.NET MVC con EF Core
 
 Nell'esercitazione precedente sono state presentate le eccezioni di concorrenza. In questa esercitazione viene illustrato come implementare l'ereditarietà nel modello di dati.
 
 Nella programmazione orientata a oggetti è possibile usare l'ereditarietà per facilitare il riutilizzo del codice. In questa esercitazione verranno modificate le classi `Instructor` e `Student` in modo che derivino da una classe di base `Person` contenente proprietà quali `LastName` comuni a docenti e studenti. Non verranno aggiunte o modificate pagine Web, ma si modificherà parte del codice e le modifiche verranno automaticamente riflesse nel database.
 
-Le attività di questa esercitazione sono le seguenti:
+In questa esercitazione:
 
 > [!div class="checklist"]
 > * Eseguire il mapping dell'ereditarietà al database
@@ -30,7 +30,7 @@ Le attività di questa esercitazione sono le seguenti:
 > * Creare e aggiornare le migrazioni
 > * Testare l'implementazione
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Gestire la concorrenza](concurrency.md)
 
@@ -134,7 +134,7 @@ dotnet ef database update
 In un sistema di produzione verrebbero apportate modifiche corrispondenti al metodo `Down` nel caso fosse necessario usarlo per tornare alla versione precedente del database. Per questa esercitazione, il metodo `Down` non verrà usato.
 
 > [!NOTE]
-> Quando si apportano modifiche allo schema in un database con dati esistenti è possibile che si riscontrino altri errori. Se si verificano errori di migrazione che non si riesce a risolvere, è possibile modificare il nome del database nella stringa di connessione o eliminare il database. Un nuovo database non contiene dati di cui eseguire la migrazione e ci sono maggiori probabilità che il comando update-database venga completato senza errori. Per eliminare il database, usare SSOX o eseguire il comando dell’interfaccia della riga di comando `database drop`.
+> Quando si apportano modifiche allo schema in un database con dati esistenti è possibile che si verifichino altri errori. Se si verificano errori di migrazione che non si riesce a risolvere, è possibile modificare il nome del database nella stringa di connessione o eliminare il database. Un nuovo database non contiene dati di cui eseguire la migrazione e ci sono maggiori probabilità che il comando update-database venga completato senza errori. Per eliminare il database, usare SSOX o eseguire il comando dell’interfaccia della riga di comando `database drop`.
 
 ## <a name="test-the-implementation"></a>Testare l'implementazione
 
@@ -150,7 +150,7 @@ Fare clic con il pulsante destro del mouse sulla tabella Person e quindi su **Mo
 
 ## <a name="get-the-code"></a>Ottenere il codice
 
-[Scaricare o visualizzare l'applicazione completata.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[Scaricare o visualizzare l'applicazione completata.](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
@@ -158,7 +158,7 @@ Per altre informazioni sull'ereditarietà in Entity Framework Core, vedere [Ered
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Le attività di questa esercitazione sono le seguenti:
+In questa esercitazione:
 
 > [!div class="checklist"]
 > * Eseguire il mapping dell'ereditarietà al database
@@ -171,4 +171,4 @@ Le attività di questa esercitazione sono le seguenti:
 Passare all'esercitazione successiva per apprendere come gestire diversi scenari di Entity Framework relativamente avanzati.
 
 > [!div class="nextstepaction"]
-> [Successivo: Argomenti avanzati](advanced.md)
+> [Avanti: argomenti avanzati](advanced.md)

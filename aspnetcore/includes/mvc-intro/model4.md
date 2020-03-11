@@ -1,8 +1,8 @@
 Nella tabella seguente sono specificati i parametri del generatore di codice ASP.NET Core:
 
-| Parametro               | DESCRIZIONE|
+| Parametro               | Descrizione|
 | ----------------- | ------------ |
-| -m  | Nome del modello. |
+| -M  | Il nome del modello. |
 | -dc  | Contesto dati. |
 | -udl | Uso del layout predefinito. |
 | --relativeFolderPath | Percorso relativo della cartella di output per creare i file. |

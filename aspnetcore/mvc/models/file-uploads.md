@@ -1,28 +1,28 @@
 ---
 title: Caricare file in ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Come usare l'associazione del modello e lo streaming per caricare i file in ASP.NET Core MVC.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/11/2020
+ms.date: 02/25/2020
 uid: mvc/models/file-uploads
-ms.openlocfilehash: 56fd26c1864089558f5cd89f693dc86ea30c3331
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: fc71c39dd1aa70e6b092799fec00bd7bf66703e8
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77172465"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664829"
 ---
 # <a name="upload-files-in-aspnet-core"></a>Caricare file in ASP.NET Core
 
-Di [Luke Latham](https://github.com/guardrex), [Steve Smith](https://ardalis.com/)e [Rutger Storm](https://github.com/rutix)
+Di [Steve Smith](https://ardalis.com/) e [Rutger Storm](https://github.com/rutix)
 
 ::: moniker range=">= aspnetcore-3.0"
 
 ASP.NET Core supporta il caricamento di uno o più file mediante l'associazione di modelli memorizzati nel buffer per i file più piccoli e il flusso non memorizzato nel buffer per file di dimensioni maggiori.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
 
@@ -183,7 +183,7 @@ L'esempio seguente è analogo all'esempio precedente, ad eccezione del fatto che
 Per eseguire il POST del form in JavaScript per i client che [non supportano l'API fetch](https://caniuse.com/#feat=fetch), usare uno degli approcci seguenti:
 
 * Usare un riempimento di recupero (ad esempio, [Window. fetch Refill (github/fetch)](https://github.com/github/fetch)).
-* Usare `XMLHttpRequest`. Ad esempio,
+* Usare `XMLHttpRequest`. Ad esempio:
 
   ```javascript
   <script>
@@ -226,7 +226,7 @@ Affinché un `files` elemento input supporti il caricamento di più file, fornir
 > string untrustedFileName = Path.GetFileName(pathName);
 > ```
 >
-> Gli esempi forniti finora non prendono in considerazione le considerazioni sulla sicurezza. Le informazioni aggiuntive sono fornite nelle sezioni seguenti e nell' [app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/):
+> Gli esempi forniti finora non prendono in considerazione le considerazioni sulla sicurezza. Le informazioni aggiuntive sono fornite nelle sezioni seguenti e nell' [app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/):
 >
 > * [Considerazioni relative alla sicurezza](#security-considerations)
 > * [Convalida](#validation)
@@ -242,7 +242,7 @@ Quando si caricano file usando l'associazione di modelli e <xref:Microsoft.AspNe
 > [!NOTE]
 > L'associazione corrisponde ai file di form in base al nome. Ad esempio, il valore HTML `name` in `<input type="file" name="formFile">` deve corrispondere al C# parametro/proprietà associato (`FormFile`). Per ulteriori informazioni, vedere la sezione [corrispondenza del nome dell'attributo del nome del parametro del metodo post](#match-name-attribute-value-to-parameter-name-of-post-method) .
 
-L'esempio seguente consente di:
+L'esempio seguente:
 
 * Esegue il ciclo di uno o più file caricati.
 * USA [Path. GetTempFileName](xref:System.IO.Path.GetTempFileName*) per restituire un percorso completo per un file, incluso il nome del file. 
@@ -270,7 +270,7 @@ public async Task<IActionResult> OnPostUploadAsync(List<IFormFile> files)
     // Process uploaded files
     // Don't rely on or trust the FileName property without validation.
 
-    return Ok(new { count = files.Count, size, filePath });
+    return Ok(new { count = files.Count, size });
 }
 ```
 
@@ -397,7 +397,7 @@ L'esempio precedente è simile a uno scenario illustrato nell'app di esempio:
 >
 > Non basarsi o considerare attendibile la proprietà `FileName` di <xref:Microsoft.AspNetCore.Http.IFormFile> senza convalida. È consigliabile utilizzare la proprietà `FileName` solo a scopo di visualizzazione e solo dopo la codifica HTML.
 >
-> Gli esempi forniti non prendono in considerazione le considerazioni sulla sicurezza. Le informazioni aggiuntive sono fornite nelle sezioni seguenti e nell' [app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/):
+> Gli esempi forniti non prendono in considerazione le considerazioni sulla sicurezza. Le informazioni aggiuntive sono fornite nelle sezioni seguenti e nell' [app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/):
 >
 > * [Considerazioni relative alla sicurezza](#security-considerations)
 > * [Convalida](#validation)
@@ -434,7 +434,7 @@ Il metodo di `StreamingController.UploadPhysical` completo per lo streaming in u
 
 Nell'app di esempio, i controlli di convalida vengono gestiti da `FileHelpers.ProcessStreamedFile`.
 
-## <a name="validation"></a>Validation
+## <a name="validation"></a>Convalida
 
 La classe di `FileHelpers` dell'app di esempio illustra diversi controlli per i caricamenti di file <xref:Microsoft.AspNetCore.Http.IFormFile> memorizzati nel buffer e con flusso. Per l'elaborazione <xref:Microsoft.AspNetCore.Http.IFormFile> caricamenti di file memorizzati nel buffer nell'app di esempio, vedere il metodo `ProcessFormFile` nel file *Utilities/FileHelpers. cs* . Per l'elaborazione di file trasmessi, vedere il metodo `ProcessStreamedFile` nello stesso file.
 
@@ -456,7 +456,7 @@ L'analisi dei file richiede le risorse del server in scenari con volumi elevati.
 
 ### <a name="file-extension-validation"></a>Convalida dell'estensione di file
 
-L'estensione del file caricato deve essere verificata rispetto a un elenco di estensioni consentite. Ad esempio,
+L'estensione del file caricato deve essere verificata rispetto a un elenco di estensioni consentite. Ad esempio:
 
 ```csharp
 private string[] permittedExtensions = { ".txt", ".pdf" };
@@ -718,7 +718,7 @@ Questa impostazione si applica solo a IIS. Il comportamento non si verifica per 
 
 Le limitazioni del modulo ASP.NET Core o della presenza del modulo filtro richieste IIS possono limitare il caricamento a 2 o 4 GB. Per altre informazioni, vedere [non è possibile caricare file di dimensioni superiori a 2 GB (DotNet/AspNetCore #2711)](https://github.com/dotnet/AspNetCore/issues/2711).
 
-## <a name="troubleshoot"></a>Risoluzione dei problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 Di seguito sono trattati alcuni problemi comuni riscontrati durante il caricamento di file, con le soluzioni possibili corrispondenti.
 
@@ -751,7 +751,7 @@ Gli esempi in questo argomento si basano su <xref:System.IO.MemoryStream> per co
 
 ASP.NET Core supporta il caricamento di uno o più file mediante l'associazione di modelli memorizzati nel buffer per i file più piccoli e il flusso non memorizzato nel buffer per file di dimensioni maggiori.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
 
@@ -912,7 +912,7 @@ L'esempio seguente è analogo all'esempio precedente, ad eccezione del fatto che
 Per eseguire il POST del form in JavaScript per i client che [non supportano l'API fetch](https://caniuse.com/#feat=fetch), usare uno degli approcci seguenti:
 
 * Usare un riempimento di recupero (ad esempio, [Window. fetch Refill (github/fetch)](https://github.com/github/fetch)).
-* Usare `XMLHttpRequest`. Ad esempio,
+* Usare `XMLHttpRequest`. Ad esempio:
 
   ```javascript
   <script>
@@ -955,7 +955,7 @@ Affinché un `files` elemento input supporti il caricamento di più file, fornir
 > string untrustedFileName = Path.GetFileName(pathName);
 > ```
 >
-> Gli esempi forniti finora non prendono in considerazione le considerazioni sulla sicurezza. Le informazioni aggiuntive sono fornite nelle sezioni seguenti e nell' [app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/):
+> Gli esempi forniti finora non prendono in considerazione le considerazioni sulla sicurezza. Le informazioni aggiuntive sono fornite nelle sezioni seguenti e nell' [app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/):
 >
 > * [Considerazioni relative alla sicurezza](#security-considerations)
 > * [Convalida](#validation)
@@ -971,7 +971,7 @@ Quando si caricano file usando l'associazione di modelli e <xref:Microsoft.AspNe
 > [!NOTE]
 > L'associazione corrisponde ai file di form in base al nome. Ad esempio, il valore HTML `name` in `<input type="file" name="formFile">` deve corrispondere al C# parametro/proprietà associato (`FormFile`). Per ulteriori informazioni, vedere la sezione [corrispondenza del nome dell'attributo del nome del parametro del metodo post](#match-name-attribute-value-to-parameter-name-of-post-method) .
 
-L'esempio seguente consente di:
+L'esempio seguente:
 
 * Esegue il ciclo di uno o più file caricati.
 * USA [Path. GetTempFileName](xref:System.IO.Path.GetTempFileName*) per restituire un percorso completo per un file, incluso il nome del file. 
@@ -999,7 +999,7 @@ public async Task<IActionResult> OnPostUploadAsync(List<IFormFile> files)
     // Process uploaded files
     // Don't rely on or trust the FileName property without validation.
 
-    return Ok(new { count = files.Count, size, filePath });
+    return Ok(new { count = files.Count, size });
 }
 ```
 
@@ -1126,7 +1126,7 @@ L'esempio precedente è simile a uno scenario illustrato nell'app di esempio:
 >
 > Non basarsi o considerare attendibile la proprietà `FileName` di <xref:Microsoft.AspNetCore.Http.IFormFile> senza convalida. È consigliabile utilizzare la proprietà `FileName` solo a scopo di visualizzazione e solo dopo la codifica HTML.
 >
-> Gli esempi forniti non prendono in considerazione le considerazioni sulla sicurezza. Le informazioni aggiuntive sono fornite nelle sezioni seguenti e nell' [app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/):
+> Gli esempi forniti non prendono in considerazione le considerazioni sulla sicurezza. Le informazioni aggiuntive sono fornite nelle sezioni seguenti e nell' [app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/file-uploads/samples/):
 >
 > * [Considerazioni relative alla sicurezza](#security-considerations)
 > * [Convalida](#validation)
@@ -1163,7 +1163,7 @@ Il metodo di `StreamingController.UploadPhysical` completo per lo streaming in u
 
 Nell'app di esempio, i controlli di convalida vengono gestiti da `FileHelpers.ProcessStreamedFile`.
 
-## <a name="validation"></a>Validation
+## <a name="validation"></a>Convalida
 
 La classe di `FileHelpers` dell'app di esempio illustra diversi controlli per i caricamenti di file <xref:Microsoft.AspNetCore.Http.IFormFile> memorizzati nel buffer e con flusso. Per l'elaborazione <xref:Microsoft.AspNetCore.Http.IFormFile> caricamenti di file memorizzati nel buffer nell'app di esempio, vedere il metodo `ProcessFormFile` nel file *Utilities/FileHelpers. cs* . Per l'elaborazione di file trasmessi, vedere il metodo `ProcessStreamedFile` nello stesso file.
 
@@ -1185,7 +1185,7 @@ L'analisi dei file richiede le risorse del server in scenari con volumi elevati.
 
 ### <a name="file-extension-validation"></a>Convalida dell'estensione di file
 
-L'estensione del file caricato deve essere verificata rispetto a un elenco di estensioni consentite. Ad esempio,
+L'estensione del file caricato deve essere verificata rispetto a un elenco di estensioni consentite. Ad esempio:
 
 ```csharp
 private string[] permittedExtensions = { ".txt", ".pdf" };
@@ -1440,7 +1440,7 @@ Questa impostazione si applica solo a IIS. Il comportamento non si verifica per 
 
 Le limitazioni del modulo ASP.NET Core o della presenza del modulo filtro richieste IIS possono limitare il caricamento a 2 o 4 GB. Per altre informazioni, vedere [non è possibile caricare file di dimensioni superiori a 2 GB (DotNet/AspNetCore #2711)](https://github.com/dotnet/AspNetCore/issues/2711).
 
-## <a name="troubleshoot"></a>Risoluzione dei problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 Di seguito sono trattati alcuni problemi comuni riscontrati durante il caricamento di file, con le soluzioni possibili corrispondenti.
 

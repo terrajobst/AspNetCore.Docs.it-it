@@ -1,22 +1,20 @@
 ---
 title: Moduli IIS con ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Individuare i moduli IIS attivi e inattivi per le app ASP.NET Core e come gestire i moduli IIS.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 01/13/2020
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: ca6cf349aa05db97e145f1cd0cae97a107761fd8
-ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
+ms.openlocfilehash: 0f13ef3eb1da03960ef1fa54d33532b6ebbdc128
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75951803"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78657906"
 ---
 # <a name="iis-modules-with-aspnet-core"></a>Moduli IIS con ASP.NET Core
-
-Di [Luke Latham](https://github.com/guardrex)
 
 Alcuni dei moduli nativi e tutti i moduli gestiti di IIS non sono disponibili per l'elaborazione delle richieste per le app ASP.NET Core. In molti casi, ASP.NET Core offre un'alternativa agli scenari gestiti dai moduli nativi e gestiti di IIS.
 
@@ -24,10 +22,10 @@ Alcuni dei moduli nativi e tutti i moduli gestiti di IIS non sono disponibili pe
 
 La tabella indica i moduli di IIS nativi che funzionano con le app ASP.NET Core e il modulo ASP.NET Core.
 
-| Module | Funzionante con le app ASP.NET Core | Opzione di ASP.NET Core |
+| Modulo | Funzionante con le app ASP.NET Core | Opzione di ASP.NET Core |
 | --- | :---: | --- |
 | **Autenticazione anonima**<br>`AnonymousAuthenticationModule`                                  | Sì | |
-| **Autenticazione base**<br>`BasicAuthenticationModule`                                          | Sì | |
+| **Autenticazione di base**<br>`BasicAuthenticationModule`                                          | Sì | |
 | **Autenticazione mapping certificazione client**<br>`CertificateMappingAuthenticationModule`      | Sì | |
 | **CGI**<br>`CgiModule`                                                                           | No  | |
 | **Convalida della configurazione**<br>`ConfigurationValidationModule`                                  | Sì | |
@@ -38,8 +36,8 @@ La tabella indica i moduli di IIS nativi che funzionano con le app ASP.NET Core 
 | **Esplorazione directory**<br>`DirectoryListingModule`                                               | No  | [Middleware di esplorazione directory](xref:fundamentals/static-files#enable-directory-browsing) |
 | **Compressione dinamica**<br>`DynamicCompressionModule`                                            | Sì | [Middleware di compressione delle risposte](xref:performance/response-compression) |
 | **Traccia delle richieste non riuscite**<br>`FailedRequestsTracingModule`                                     | Sì | [Registrazione di ASP.NET Core](xref:fundamentals/logging/index#tracesource-provider) |
-| **Memorizzazione nella cache dei file**<br>`FileCacheModule`                                                            | No  | [Middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware) |
-| **Memorizzazione nella cache HTTP**<br>`HttpCacheModule`                                                            | No  | [Middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware) |
+| **Memorizzazione nella cache dei file**<br>`FileCacheModule`                                                            | No  | [Middleware di memorizzazione nella cache di risposta](xref:performance/caching/middleware) |
+| **Memorizzazione nella cache HTTP**<br>`HttpCacheModule`                                                            | No  | [Middleware di memorizzazione nella cache di risposta](xref:performance/caching/middleware) |
 | **Registrazione HTTP**<br>`HttpLoggingModule`                                                          | Sì | [Registrazione di ASP.NET Core](xref:fundamentals/logging/index) |
 | **Reindirizzamento HTTP**<br>`HttpRedirectionModule`                                                  | Sì | [Middleware di riscrittura URL](xref:fundamentals/url-rewriting) |
 | **Traccia HTTP**<br>`TracingModule`                                                              | Sì | |
@@ -65,17 +63,17 @@ La tabella indica i moduli di IIS nativi che funzionano con le app ASP.NET Core 
 
 I moduli gestiti *non* funzionano con le app ASP.NET Core ospitate quando la versione CLR .NET del pool di app è impostata su **Nessun codice gestito**. In molti casi, ASP.NET Core offre alternative a livello di middleware.
 
-| Module                  | Opzione di ASP.NET Core |
+| Modulo                  | Opzione di ASP.NET Core |
 | ----------------------- | ------------------- |
 | AnonymousIdentification | |
 | DefaultAuthentication   | |
 | FileAuthorization       | |
 | FormsAuthentication     | [Cookie del middleware di autenticazione](xref:security/authentication/cookie) |
-| OutputCache             | [Middleware di memorizzazione nella cache delle risposte](xref:performance/caching/middleware) |
+| OutputCache             | [Middleware di memorizzazione nella cache di risposta](xref:performance/caching/middleware) |
 | Profilo                 | |
 | RoleManager             | |
 | ScriptModule-4.0        | |
-| Sessione                 | [Middleware di sessione](xref:fundamentals/app-state) |
+| sessione                 | [Middleware di sessione](xref:fundamentals/app-state) |
 | UrlAuthorization        | |
 | UrlMappingsModule       | [Middleware di riscrittura URL](xref:fundamentals/url-rewriting) |
 | UrlRoutingModule-4.0    | [Identità di ASP.NET Core](xref:security/authentication/identity) |

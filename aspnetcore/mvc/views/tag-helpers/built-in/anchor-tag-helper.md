@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 10/13/2019
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: 3ff8a52361b4911a5bb3163a8ea6ae90e504e4ef
-ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
+ms.openlocfilehash: 6bfbad39115c7823b5677d3c52ca64cfb0683037
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333945"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664003"
 ---
 # <a name="anchor-tag-helper-in-aspnet-core"></a>Helper tag di ancoraggio in ASP.NET Core
 
@@ -19,9 +19,9 @@ Di [Peter Kellner](https://peterkellner.net) e [Scott Addie](https://github.com/
 
 L'[helper tag](xref:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper) di ancoraggio migliora il tag di ancoraggio HTML standard (`<a ... ></a>`) con l'aggiunta di nuovi attributi. Per convenzione, i nomi di attributo hanno il prefisso `asp-`. Il valore dell'attributo `href` dell'elemento di ancoraggio visualizzato dipende dai valori degli attributi `asp-`.
 
-Per una panoramica degli helper per tag, vedere <xref:mvc/views/tag-helpers/intro>.
+Per una panoramica degli helper tag, vedere <xref:mvc/views/tag-helpers/intro>.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/tag-helpers/built-in/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/tag-helpers/built-in/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 *SpeakerController* viene usato negli esempi in tutto il documento:
 
@@ -241,7 +241,7 @@ Codice HTML generato:
 
 ### <a name="asp-protocol"></a>asp-protocol
 
-L'attributo [asp-protocol](xref:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Protocol*) consente di specificare un protocollo (ad esempio `https`) nell'URL. Esempio:
+L'attributo [asp-protocol](xref:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Protocol*) consente di specificare un protocollo (ad esempio `https`) nell'URL. Ad esempio:
 
 [!code-cshtml[](samples/TagHelpersBuiltIn/Views/Home/Index.cshtml?name=snippet_AspProtocol)]
 
@@ -255,7 +255,7 @@ Il nome host nell'esempio è localhost. L'helper tag di ancoraggio usa il domini
 
 ### <a name="asp-host"></a>asp-host
 
-L'attributo [asp-host](xref:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Host*) consente di specificare un nome host nell'URL. Esempio:
+L'attributo [asp-host](xref:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Host*) consente di specificare un nome host nell'URL. Ad esempio:
 
 [!code-cshtml[](samples/TagHelpersBuiltIn/Views/Home/Index.cshtml?name=snippet_AspHost)]
 

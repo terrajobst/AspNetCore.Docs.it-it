@@ -10,11 +10,11 @@ no-loc:
 - SignalR
 uid: signalr/scale
 ms.openlocfilehash: 260e2f0c16288fec2e0a694d070f357529782d8d
-ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77447334"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668154"
 ---
 # <a name="aspnet-core-signalr-hosting-and-scaling"></a>Hosting e scalabilità di ASP.NET Core SignalR
 
@@ -52,7 +52,7 @@ Per evitare che l'utilizzo delle risorse SignalR causi errori in altre app Web, 
 
 Per evitare che l'utilizzo delle risorse SignalR causi errori in un'app SignalR, aumentare il numero di connessioni per limitare il numero di connessioni che un server deve gestire.
 
-## <a name="scale-out"></a>Scalare in orizzontale
+## <a name="scale-out"></a>Scalabilità orizzontale
 
 Un'app che usa SignalR deve tenere traccia di tutte le connessioni, che creano problemi per un server farm. Aggiungere un server e ottenere nuove connessioni che gli altri server non conoscono. Ad esempio, SignalR in ogni server del diagramma seguente non è a conoscenza delle connessioni sugli altri server. Quando SignalR su uno dei server vuole inviare un messaggio a tutti i client, il messaggio passa solo ai client connessi a tale server.
 

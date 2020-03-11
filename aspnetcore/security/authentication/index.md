@@ -4,14 +4,14 @@ author: mjrousos
 description: Informazioni sull'autenticazione in ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/04/2019
+ms.date: 03/03/2020
 uid: security/authentication/index
-ms.openlocfilehash: 40b2fb59b96486435a2ec0a7d69bee5ab4a814d2
-ms.sourcegitcommit: 76d7fff62014c3db02564191ab768acea00f1b26
+ms.openlocfilehash: 24113fd4f090cf76746a7b077212fdab012f82c1
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74852714"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78659628"
 ---
 # <a name="overview-of-aspnet-core-authentication"></a>Panoramica dell'autenticazione ASP.NET Core
 
@@ -78,16 +78,16 @@ In base alla configurazione dello schema di autenticazione e al contesto della r
   * Non sono autorizzati ad accedere.
   * Quando non sono autenticati (Challenge).
 
-### <a name="authenticate"></a>Autenticazione
+### <a name="authenticate"></a>Authenticate
 
-Un'azione di autenticazione dello schema di autenticazione è responsabile della costruzione dell'identità dell'utente in base al contesto della richiesta. Restituisce un <xref:Microsoft.AspNetCore.Authentication.AuthenticateResult> che indica se l'autenticazione ha avuto esito positivo e, in caso affermativo, l'identità dell'utente in un ticket di autenticazione. Vedere `HttpContext.AuthenticateAsync`. Gli esempi di autenticazione includono:
+Un'azione di autenticazione dello schema di autenticazione è responsabile della costruzione dell'identità dell'utente in base al contesto della richiesta. Restituisce un <xref:Microsoft.AspNetCore.Authentication.AuthenticateResult> che indica se l'autenticazione ha avuto esito positivo e, in caso affermativo, l'identità dell'utente in un ticket di autenticazione. Vedere <xref:Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions.AuthenticateAsync%2A>. Gli esempi di autenticazione includono:
 
 * Schema di autenticazione dei cookie che costruisce l'identità dell'utente dai cookie.
 * Uno schema di portatore JWT che deserializza e convalida un JWT bearer token per costruire l'identità dell'utente.
 
 ### <a name="challenge"></a>Esercizio
 
-Una richiesta di autenticazione viene richiamata dall'autorizzazione quando un utente non autenticato richiede un endpoint che richiede l'autenticazione. Viene eseguita una richiesta di autenticazione, ad esempio quando un utente anonimo richiede una risorsa limitata o fa clic su un collegamento di accesso. L'autorizzazione richiama una richiesta di verifica utilizzando gli schemi di autenticazione specificati oppure il valore predefinito se non ne viene specificato alcuno. Vedere `HttpContext.ChallengeAsync`. Gli esempi di richiesta di autenticazione includono:
+Una richiesta di autenticazione viene richiamata dall'autorizzazione quando un utente non autenticato richiede un endpoint che richiede l'autenticazione. Viene eseguita una richiesta di autenticazione, ad esempio quando un utente anonimo richiede una risorsa limitata o fa clic su un collegamento di accesso. L'autorizzazione richiama una richiesta di verifica utilizzando gli schemi di autenticazione specificati oppure il valore predefinito se non ne viene specificato alcuno. Vedere <xref:Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions.ChallengeAsync%2A>. Gli esempi di richiesta di autenticazione includono:
 
 * Uno schema di autenticazione dei cookie che reindirizza l'utente a una pagina di accesso.
 * Uno schema di portatore JWT che restituisce un risultato 401 con un'intestazione `www-authenticate: bearer`.
@@ -96,7 +96,7 @@ Un'azione di verifica deve consentire all'utente di conoscere il meccanismo di a
 
 ### <a name="forbid"></a>Impediscono
 
-Un'azione di proibisce dello schema di autenticazione viene chiamata dall'autorizzazione quando un utente autenticato tenta di accedere a una risorsa a cui non è consentito l'accesso. Vedere `HttpContext.ForbidAsync`. Gli esempi di autenticazione proibita includono:
+Un'azione di proibisce dello schema di autenticazione viene chiamata dall'autorizzazione quando un utente autenticato tenta di accedere a una risorsa a cui non è consentito l'accesso. Vedere <xref:Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions.ForbidAsync%2A>. Gli esempi di autenticazione proibita includono:
 * Uno schema di autenticazione dei cookie che reindirizza l'utente a una pagina che indica che l'accesso non è consentito.
 * Uno schema di porta JWT che restituisce un risultato 403.
 * Uno schema di autenticazione personalizzato che reindirizza a una pagina in cui l'utente può richiedere l'accesso alla risorsa.

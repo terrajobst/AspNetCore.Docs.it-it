@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 02/12/2020
 uid: mvc/overview
 ms.openlocfilehash: 2911399f6ed4e14345171c908c4306b9c3e33805
-ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77447412"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658431"
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Panoramica di ASP.NET MVC
 
@@ -41,7 +41,7 @@ Le visualizzazioni sono responsabili della presentazione del contenuto tramite l
 
 ### <a name="controller-responsibilities"></a>Responsabilità del controller
 
-I controller sono i componenti che gestiscono l'interazione dell'utente, interagiscono con il modello e selezionano in definitiva la visualizzazione di cui verrà eseguito il rendering. In un'applicazione MVC la visualizzazione presenta solo le informazioni, mentre il controller gestisce e risponde all'input e all'interazione dell'utente. Nello schema MVC il controller è il punto di ingresso iniziale ed è responsabile della selezione dei tipi di modello con cui interagire e della visualizzazione di cui eseguire il rendering. Come suggerito dal nome, questo componente controlla il modo in cui l'app risponde a una determinata richiesta.
+I controller sono i componenti che gestiscono l'interazione dell'utente, interagiscono con il modello e selezionano in definitiva la visualizzazione di cui verrà eseguito il rendering. In un'applicazione MVC la visualizzazione consente solo di visualizzare le informazioni. Il controller svolge il ruolo di gestore e risponde all'input e all'interazione dell'utente. Nello schema MVC il controller è il punto di ingresso iniziale ed è responsabile della selezione dei tipi di modello con cui interagire e della visualizzazione di cui eseguire il rendering. Come suggerito dal nome, questo componente controlla il modo in cui l'app risponde a una determinata richiesta.
 
 > [!NOTE]
 > È consigliabile non sovraccaricare eccessivamente i controller con troppe responsabilità. Per evitare che la logica del controller diventi troppo complessa, escludere la logica di business dal controller e includerla nel modello di dominio.
@@ -72,7 +72,7 @@ ASP.NET Core MVC include:
 * [Helper tag](#tag-helpers)
 * [Componenti di visualizzazione](#view-components)
 
-### <a name="routing"></a>Routing
+### <a name="routing"></a>Routing.
 
 ASP.NET Core MVC si basa sul [routing di ASP.NET Core](../fundamentals/routing.md), un potente componente per il mapping di URL che consente di compilare applicazioni con URL comprensibili che supportano la ricerca. Ciò consente di definire criteri di denominazione dell'URL dell'applicazione che funzionano perfettamente per l'ottimizzazione dei motori di ricerca (SEO) e la generazione di collegamenti, indipendentemente da come sono organizzati i file nel server Web. È possibile definire le route usando una pratica sintassi del modello di route che supporta i vincoli di valore delle route, i valori predefiniti e quelli facoltativi.
 
@@ -141,7 +141,7 @@ public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = 
 
 Il framework gestisce la convalida dei dati della richiesta nel client e nel server. La logica di convalida specificata nei tipi di modello viene aggiunta alle visualizzazioni sottoposte a rendering come annotazioni discrete e viene applicata al browser con [jQuery Validation](https://jqueryvalidation.org/).
 
-### <a name="dependency-injection"></a>Inserimento di dipendenze
+### <a name="dependency-injection"></a>Inserimento delle dipendenze
 
 ASP.NET Core include il supporto predefinito per l'[inserimento di dipendenze](../fundamentals/dependency-injection.md). In ASP.NET Core MVC i [controller](controllers/dependency-injection.md) possono richiedere i servizi necessari attraverso i propri costruttori. Ciò consente loro di seguire il [principio delle dipendenze esplicite](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies).
 

@@ -1,19 +1,19 @@
 ---
-title: 'Esercitazione: Leggere dati correlati - ASP.NET MVC con EF Core'
+title: 'Esercitazione: leggere dati correlati-MVC ASP.NET con EF Core'
 description: In questa esercitazione verranno letti e visualizzati dati correlati, ovvero dati che Entity Framework carica all'interno delle proprietà di navigazione.
 author: rick-anderson
 ms.author: riande
 ms.date: 09/28/2019
 ms.topic: tutorial
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: 1a16f905669d0192d713cbba9bfc6e3e75008b5d
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: a6e63723101ab09219db81ee9796c3938a612226
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259430"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78657108"
 ---
-# <a name="tutorial-read-related-data---aspnet-mvc-with-ef-core"></a>Esercitazione: Leggere dati correlati - ASP.NET MVC con EF Core
+# <a name="tutorial-read-related-data---aspnet-mvc-with-ef-core"></a>Esercitazione: leggere dati correlati-MVC ASP.NET con EF Core
 
 Nell'esercitazione precedente è stato completato il modello di dati School. In questa esercitazione verranno letti e visualizzati dati correlati, ovvero dati che Entity Framework carica all'interno delle proprietà di navigazione.
 
@@ -23,7 +23,7 @@ Le figure seguenti illustrano le pagine che verranno usate.
 
 ![Pagina di indice degli insegnanti](read-related-data/_static/instructors-index.png)
 
-Le attività di questa esercitazione sono le seguenti:
+In questa esercitazione:
 
 > [!div class="checklist"]
 > * Scoprire come caricare i dati correlati
@@ -31,7 +31,7 @@ Le attività di questa esercitazione sono le seguenti:
 > * Creare una pagina Instructors
 > * Ottenere informazioni sul caricamento esplicito
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Creare un modello di dati complesso](complex-data-model.md)
 
@@ -47,7 +47,7 @@ Il software ORM (Object-Relational Mapping), ad esempio Entity Framework, può c
 
   ![Esempio di query separate](read-related-data/_static/separate-queries.png)
 
-* Caricamento esplicito. Quando un'entità viene letta per la prima volta, i dati correlati non vengono recuperati. Il codice del caricamento consente di recuperare i dati correlati se sono necessari. Come nel caso del caricamento eager con query separate, il caricamento esplicito ha come risultato l'invio di più query al database. La differenza è che con il caricamento esplicito il codice specifica le proprietà di navigazione da caricare. In Entity Framework Core 1.1, per eseguire il caricamento esplicito è possibile usare il metodo `Load`. Esempio:
+* Caricamento esplicito. Quando un'entità viene letta per la prima volta, i dati correlati non vengono recuperati. Il codice del caricamento consente di recuperare i dati correlati se sono necessari. Come nel caso del caricamento eager con query separate, il caricamento esplicito ha come risultato l'invio di più query al database. La differenza è che con il caricamento esplicito il codice specifica le proprietà di navigazione da caricare. In Entity Framework Core 1.1, per eseguire il caricamento esplicito è possibile usare il metodo `Load`. Ad esempio:
 
   ![Esempio di caricamento esplicito](read-related-data/_static/explicit-loading.png)
 
@@ -157,7 +157,7 @@ Usare il metodo `Single` per una raccolta quando si sa che la raccolta ha un sol
 .Single(i => i.ID == id.Value)
 ```
 
-Invece di:
+Anziché:
 
 ```csharp
 .Where(i => i.ID == id.Value).Single()
@@ -169,7 +169,7 @@ Se è stato selezionato un corso, questo viene quindi recuperato dall'elenco dei
 
 ### <a name="modify-the-instructor-index-view"></a>Modificare la visualizzazione dell'indice degli insegnanti
 
-In *Views/Instructors/Index.cshtml* sostituire il codice del modello con il codice seguente. Le modifiche sono evidenziate.
+In *Views/Instructors/Index.cshtml* sostituire il codice del modello con il codice seguente. Le modifiche vengono evidenziate.
 
 [!code-html[](intro/samples/cu/Views/Instructors/Index1.cshtml?range=1-64&highlight=1,3-7,15-19,24,26-31,41-54,56)]
 
@@ -207,7 +207,7 @@ Al codice esistente sono state apportate le modifiche seguenti:
   <a asp-action="Index" asp-route-id="@item.ID">Select</a> |
   ```
 
-Eseguire l'app e selezionare la scheda **Instructors** (Insegnanti). La pagina visualizza la proprietà Location delle entità OfficeAssignment correlate e una cella vuota nella tabella se non esiste alcuna entità OfficeAssignment correlata.
+Eseguire l'app e selezionare la scheda **Instructors (insegnanti** ). La pagina Visualizza la proprietà location delle entità OfficeAssignment correlate e una cella della tabella vuota quando non esiste alcuna entità OfficeAssignment correlata.
 
 ![Pagina di indice degli insegnanti con nessuna selezione](read-related-data/_static/instructors-index-no-selection.png)
 
@@ -245,11 +245,11 @@ Eseguire l'app e passare alla pagina di indice degli insegnanti. Non si noterà 
 
 ## <a name="get-the-code"></a>Ottenere il codice
 
-[Scaricare o visualizzare l'applicazione completata.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[Scaricare o visualizzare l'applicazione completata.](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Le attività di questa esercitazione sono le seguenti:
+In questa esercitazione:
 
 > [!div class="checklist"]
 > * Come caricare i dati correlati

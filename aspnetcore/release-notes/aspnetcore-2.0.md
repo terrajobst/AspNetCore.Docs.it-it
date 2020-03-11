@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: aspnetcore-2.0
-ms.openlocfilehash: 9d1e1b1154113b8825f4d0faf0f4552b8bd22287
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 5ca43bab1496aa9fda65282cbb0b1177ad8689eb
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828425"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667258"
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>Novità di ASP.NET Core 2.0
 
@@ -48,7 +48,7 @@ Il metapacchetto `Microsoft.AspNetCore.All` è riservato esclusivamente a .NET C
 
 In ASP.NET Core 2.0 viene aggiunta per impostazione predefinita un'istanza di `IConfiguration` al contenitore dei servizi. `IConfiguration` nel contenitore dei servizi semplifica per le applicazioni il recupero dei valori di configurazione dal contenitore.
 
-Per informazioni sullo stato della documentazione prevista, vedere l'[argomento su GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/3387).
+Per informazioni sullo stato della documentazione prevista, vedere l'[argomento su GitHub](https://github.com/dotnet/AspNetCore.Docs/issues/3387).
 
 ## <a name="logging-update"></a>Aggiornamento della registrazione
 
@@ -62,7 +62,7 @@ Un nuovo modello di autenticazione rende più semplice configurare l'autenticazi
 
 I nuovi modelli sono disponibili per la configurazione dell'autenticazione per le app Web e le API Web che usano [Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/).
 
-Per informazioni sullo stato della documentazione prevista, vedere l'[argomento su GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/3054).
+Per informazioni sullo stato della documentazione prevista, vedere l'[argomento su GitHub](https://github.com/dotnet/AspNetCore.Docs/issues/3054).
 
 ## <a name="identity-update"></a>Aggiornamento dell'identità
 
@@ -114,7 +114,7 @@ Gli ambienti di hosting sono ora in grado di inserire le dipendenze aggiuntive d
 
 In ASP.NET Core 2.0 questa funzionalità viene usata per abilitare automaticamente la diagnostica di Application Insights durante il debug in Visual Studio e, dopo aver scelto questa opzione, durante l'esecuzione in Servizi app di Azure. Di conseguenza, i modelli di progetto non aggiungono più i pacchetti e il codice di Application Insights per impostazione predefinita.
 
-Per informazioni sullo stato della documentazione prevista, vedere l'[argomento su GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/3389).
+Per informazioni sullo stato della documentazione prevista, vedere l'[argomento su GitHub](https://github.com/dotnet/AspNetCore.Docs/issues/3389).
 
 ## <a name="automatic-use-of-anti-forgery-tokens"></a>Uso automatico dei token antifalsificazione
 
@@ -141,13 +141,13 @@ Per informazioni sullo stato delle funzionalità di C# 7.1, vedere il [repositor
 ## <a name="other-documentation-updates-for-20"></a>Altri aggiornamenti alla documentazione per la versione 2.0
 
 * [Visual Studio publish profiles for ASP.NET Core app deployment](xref:host-and-deploy/visual-studio-publish-profiles) (Profili di pubblicazione di Visual Studio per la distribuzione di app ASP.NET Core)
-* [Key Management](xref:security/data-protection/implementation/key-management) (Gestione delle chiavi)
-* [Configurazione dell'autenticazione di Facebook](xref:security/authentication/facebook-logins)
-* [Configurazione dell'autenticazione di Twitter](xref:security/authentication/twitter-logins)
-* [Configurazione dell'autenticazione di Google](xref:security/authentication/google-logins)
+* [Gestione della chiave](xref:security/data-protection/implementation/key-management)
+* [Configurare l'autenticazione di Facebook](xref:security/authentication/facebook-logins)
+* [Configurare l'autenticazione di Twitter](xref:security/authentication/twitter-logins)
+* [Configurare l'autenticazione di Google](xref:security/authentication/google-logins)
 * [Configurazione dell'autenticazione di account Microsoft](xref:security/authentication/microsoft-logins)
 
-## <a name="migration-guidance"></a>Materiale sussidiario di migrazione
+## <a name="migration-guidance"></a>Indicazioni sulla migrazione
 
 Per indicazioni su come eseguire la migrazione delle applicazioni ASP.NET Core 1.x ad ASP.NET Core 2.0, vedere le risorse seguenti:
 

@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: blazor/index
-ms.openlocfilehash: 02c95c19ebfb5ea6ad722f9d49f4cddc7471f8e1
-ms.sourcegitcommit: 0e21d4f8111743bcb205a2ae0f8e57910c3e8c25
+ms.openlocfilehash: 038799564078c4d3e8a7aa3a9841c6303edf9d12
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77034082"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658277"
 ---
 # <a name="introduction-to-aspnet-core-opno-locblazor"></a>Introduzione a ASP.NET Core Blazor
 
@@ -38,7 +38,7 @@ L'uso di .NET per lo sviluppo Web lato client offre i vantaggi seguenti:
 * produttività con Visual Studio in Windows, Linux e macOS.
 * basato su un set comune di linguaggi, framework e strumenti che sono stabili, ricchi di funzionalità e facili da usare.
 
-## <a name="components"></a>Components
+## <a name="components"></a>Componenti
 
 Blazor le app sono basate su *componenti*. Un componente di Blazor è un elemento dell'interfaccia utente, ad esempio una pagina, una finestra di dialogo o un form di immissione dati.
 
@@ -114,7 +114,7 @@ L'esecuzione di codice .NET all'interno di Web browser è resa possibile da [Web
 
 Il codice WebAssembly può accedere a tutte le funzionalità del browser tramite l'*interoperabilità JavaScript* (*JavaScript interop*). Il codice .NET eseguito tramite WebAssembly nel browser viene eseguito nella sandbox JavaScript del browser con le misure di sicurezza offerte dalla sandbox per la protezione da azioni dannose nel computer client.
 
-![[! OP. NO-LOC (Blazer)] webassembly esegue il codice .NET nel browser con webassembly.](index/_static/blazor-webassembly.png)
+![Blazor webassembly esegue il codice .NET nel browser con webassembly.](index/_static/blazor-webassembly.png)
 
 Quando viene compilata ed eseguita un'app webassembly Blazor in un browser:
 
@@ -136,11 +136,14 @@ Il runtime gestisce l'invio di eventi dell'interfaccia utente dal browser al ser
 
 La connessione utilizzata dal server Blazor per comunicare con il browser viene utilizzata anche per gestire le chiamate di interoperabilità JavaScript.
 
-![[! OP. Il server NO-LOC (Blazer)] esegue il codice .NET sul server e interagisce con il Document Object Model sul client su [! OP. Connessione NO-LOC (SignalR)]](index/_static/blazor-server.png)
+![Blazor server esegue il codice .NET sul server e interagisce con l'Document Object Model sul client tramite una connessione SignalR](index/_static/blazor-server.png)
 
 ## <a name="javascript-interop"></a>Interoperabilità JavaScript
 
-Per le app che richiedono librerie JavaScript di terze parti e l'accesso alle API del browser, i componenti supportano l'interoperabilità con JavaScript. I componenti sono in grado di usare qualsiasi libreria o API supportata da JavaScript. Il codice C# può effettuare chiamate nel codice JavaScript e vice versa. Per altre informazioni, vedere <xref:blazor/javascript-interop>.
+Per le app che richiedono librerie JavaScript di terze parti e l'accesso alle API del browser, i componenti supportano l'interoperabilità con JavaScript. I componenti sono in grado di usare qualsiasi libreria o API supportata da JavaScript. Il codice C# può effettuare chiamate nel codice JavaScript e vice versa. Per altre informazioni, vedere gli articoli seguenti:
+
+* <xref:blazor/call-javascript-from-dotnet>
+* <xref:blazor/call-dotnet-from-javascript>
 
 ## <a name="code-sharing-and-net-standard"></a>Condivisione del codice e .NET Standard
 

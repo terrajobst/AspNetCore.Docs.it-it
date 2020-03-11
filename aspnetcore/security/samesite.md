@@ -5,28 +5,78 @@ description: Informazioni su come usare per navigava sullostesso sito i cookie i
 ms.author: riande
 ms.custom: mvc
 ms.date: 12/03/2019
+no-loc:
+- Electron
 uid: security/samesite
-ms.openlocfilehash: b344ed8f539979210980b3421659207edd513f32
-ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
+ms.openlocfilehash: eeba2c4403d33312692ed187021a125c22df5d08
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76146433"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667741"
 ---
 # <a name="work-with-samesite-cookies-in-aspnet-core"></a>Usare i cookie navigava sullostesso sito in ASP.NET Core
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[Navigava sullostesso sito](https://tools.ietf.org/html/draft-west-first-party-cookies-07) è una bozza [IETF](https://ietf.org/about/) progettata per garantire una protezione contro gli attacchi di richiesta intersito falsificazione (CSRF). [Bozza di navigava sullostesso sito 2019](https://tools.ietf.org/html/draft-west-cookie-incrementalism-00):
+Navigava sullostesso sito è uno standard [IETF](https://ietf.org/about/) Draft progettato per garantire una protezione contro gli attacchi di richiesta intersito falsificazione (CSRF). Originariamente redatto in [2016](https://tools.ietf.org/html/draft-west-first-party-cookies-07), il Draft standard è stato aggiornato in [2019](https://tools.ietf.org/html/draft-west-cookie-incrementalism-00). Lo standard aggiornato non è compatibile con le versioni precedenti dello standard precedente, con le differenze più evidenti tra quelle riportate di seguito:
 
-* Considera i cookie come `SameSite=Lax` per impostazione predefinita.
-* Indica che i cookie che asseriscono in modo esplicito `SameSite=None` per abilitare il recapito tra siti devono essere contrassegnati come `Secure`.
+* I cookie senza intestazione navigava sullostesso sito vengono considerati `SameSite=Lax` per impostazione predefinita.
+* `SameSite=None` deve essere usato per consentire l'uso di cookie tra siti.
+* I cookie che asseriscono `SameSite=None` devono essere anche contrassegnati come `Secure`.
+* Le applicazioni che utilizzano [`<iframe>`](https://developer.mozilla.org/docs/Web/HTML/Element/iframe) possono riscontrare problemi con `sameSite=Lax` o `sameSite=Strict` cookie perché `<iframe>` vengono considerati scenari tra siti.
+* Il valore `SameSite=None` non è consentito dallo [standard 2016](https://tools.ietf.org/html/draft-west-first-party-cookies-07) e fa in modo che alcune implementazioni gestiscano tali cookie come `SameSite=Strict`. Vedere [supporto di browser meno recenti](#sob) in questo documento.
 
-`Lax` funziona per la maggior parte dei cookie dell'app. Alcune forme di autenticazione come [OpenID Connect](https://openid.net/connect/) (OIDC) e l'impostazione predefinita di [WS-Federation](https://auth0.com/docs/protocols/ws-fed) sono i reindirizzamenti basati su post. I reindirizzamenti basati su POST attivano le protezioni del browser navigava sullostesso sito, pertanto navigava sullostesso sito è disabilitato per questi componenti. La maggior parte degli accessi [OAuth](https://oauth.net/) non è interessata a causa di differenze nel modo in cui la richiesta fluisce.
-
-Il parametro `None` causa problemi di compatibilità con i client che hanno implementato lo standard Draft precedente 2016 (ad esempio, iOS 12). Vedere [supporto di browser meno recenti](#sob) in questo documento.
+L'impostazione `SameSite=Lax` funziona per la maggior parte dei cookie dell'applicazione. Alcune forme di autenticazione come [OpenID Connect](https://openid.net/connect/) (OIDC) e l'impostazione predefinita di [WS-Federation](https://auth0.com/docs/protocols/ws-fed) sono i reindirizzamenti basati su post. I reindirizzamenti basati su POST attivano le protezioni del browser navigava sullostesso sito, pertanto navigava sullostesso sito è disabilitato per questi componenti. La maggior parte degli accessi [OAuth](https://oauth.net/) non è interessata a causa di differenze nel modo in cui la richiesta fluisce.
 
 Ogni componente ASP.NET Core che emette cookie deve decidere se navigava sullostesso sito è appropriato.
+
+## <a name="samesite-test-sample-code"></a>Codice di esempio di test di navigava sullostesso sito
+
+ ::: moniker range=">= aspnetcore-2.1 < aspnetcore-3.0"
+
+È possibile scaricare e testare gli esempi seguenti:
+
+| Esempio               | Document |
+| ----------------- | ------------ |
+| [MVC .NET Core](https://github.com/blowdart/AspNetSameSiteSamples/tree/master/AspNetCore21MVC)  | <xref:security/samesite/mvc21> |
+| [Razor Pages .NET Core](https://github.com/blowdart/AspNetSameSiteSamples/tree/master/AspNetCore21RazorPages)  | <xref:security/samesite/rp21> |
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+È possibile scaricare e testare l'esempio seguente:
+
+
+| Esempio               | Document |
+| ----------------- | ------------ |
+| [Razor Pages .NET Core](https://github.com/blowdart/AspNetSameSiteSamples/tree/master/AspNetCore31RazorPages)  | <xref:security/samesite/rp31> |
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+## <a name="net-core-support-for-the-samesite-attribute"></a>Supporto di .NET Core per l'attributo navigava sullostesso sito
+
+.NET Core 2,2 supporta lo standard 2019 Draft per navigava sullostesso sito dal rilascio degli aggiornamenti nel 2019 dicembre. Gli sviluppatori sono in grado di controllare a livello di codice il valore dell'attributo navigava sullostesso sito usando la proprietà `HttpCookie.SameSite`. Impostando la proprietà `SameSite` su Strict, LAX o None, i valori vengono scritti in rete con il cookie. L'impostazione di un valore uguale a (SameSiteMode) (-1) indica che non è necessario includere nella rete alcun attributo navigava sullostesso sito con il cookie
+
+[!code-csharp[](samesite/snippets/Privacy.cshtml.cs?name=snippet)]
+
+.NET Core 3,0 supporta i valori navigava sullostesso sito aggiornati e aggiunge un valore enum aggiuntivo, `SameSiteMode.Unspecified` al `SameSiteMode` enum.
+Questo nuovo valore indica che non è necessario inviare navigava sullostesso sito con il cookie.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.1"
+
+## <a name="december-patch-behavior-changes"></a>Modifiche al comportamento della patch di dicembre
+
+La modifica del comportamento specifico per .NET Framework e .NET Core 2,1 è il modo in cui la proprietà `SameSite` interpreta il valore di `None`. Prima della patch, un valore di `None` significava "non emettere l'attributo", dopo la patch significa "creare l'attributo con un valore di `None`". Al termine della patch, un valore `SameSite` `(SameSiteMode)(-1)` causa la mancata creazione dell'attributo.
+
+Il valore predefinito di navigava sullostesso sito per l'autenticazione basata su form e i cookie di stato della sessione è stato modificato da `None` a `Lax`.
+
+::: moniker-end
 
 ## <a name="api-usage-with-samesite"></a>Utilizzo delle API con navigava sullostesso sito
 
@@ -36,7 +86,7 @@ Il valore predefinito di [HttpContext. Response. cookies. Append](xref:Microsoft
 
 Tutti i componenti ASP.NET Core che emettono cookie sostituiscono i valori predefiniti precedenti con le impostazioni appropriate per gli scenari. L'override dei valori predefiniti precedenti non è stato modificato.
 
-| Componente | cookie | Default |
+| Componente | cookie | Predefinito |
 | ------------- | ------------- |
 | <xref:Microsoft.AspNetCore.Http.CookieBuilder> | <xref:Microsoft.AspNetCore.Http.CookieBuilder.SameSite> | `Unspecified` |
 | <xref:Microsoft.AspNetCore.Http.HttpContext.Session>  | [SessionOptions. cookie](xref:Microsoft.AspNetCore.Builder.SessionOptions.Cookie) |`Lax` |
@@ -144,6 +194,8 @@ Google non rende disponibili versioni precedenti di Chrome. Seguire le istruzion
 * [Cromo 76 Win64](https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?prefix=Win_x64/664998/)
 * [Cromo 74 Win64](https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?prefix=Win_x64/638880/)
 
+A partire dalla versione Canary `80.0.3975.0`, la mitigazione di LAX + POST temporanea può essere disabilitata a scopo di test usando il nuovo flag `--enable-features=SameSiteDefaultChecksMethodRigorously` per consentire il test di siti e servizi nello stato finale finale della funzionalità in cui è stata rimossa la mitigazione. Per ulteriori informazioni, vedere la pagina relativa agli [aggiornamenti di navigava sullostesso sito](https://www.chromium.org/updates/same-site) per progetti Chromium
+
 ### <a name="test-with-safari"></a>Eseguire test con Safari
 
 Safari 12 ha implementato rigorosamente la bozza precedente e ha esito negativo quando il nuovo valore `None` si trova in un cookie. `None` viene evitata tramite il codice di rilevamento del browser che [supporta i browser meno recenti](#sob) in questo documento. Testare gli accessi basati su stile sistema operativo Safari 12, Safari 13 e WebKit usando MSAL, ADAL o qualsiasi libreria in uso. Il problema dipende dalla versione del sistema operativo sottostante. I problemi di compatibilità con il nuovo comportamento navigava sullostesso sito sono noti per OSX Mojave (10,14) e iOS 12. L'aggiornamento del sistema operativo a OSX Catalina (10,15) o iOS 13 corregge il problema. Safari attualmente non dispone di un flag di consenso esplicito per il test del nuovo comportamento delle specifiche.
@@ -154,9 +206,9 @@ Il supporto di Firefox per il nuovo standard può essere testato nella versione 
 
 ### <a name="test-with-edge-browser"></a>Eseguire test con il browser Microsoft Edge
 
-Microsoft Edge supporta lo standard navigava sullostesso sito precedente. La versione perimetrale 44 non presenta problemi di compatibilità noti con il nuovo standard.
+Edge supporta lo standard navigava sullostesso sito precedente. La versione perimetrale 44 non presenta problemi di compatibilità noti con il nuovo standard.
 
-### <a name="test-with-edge-chromium"></a>Test con Microsoft Edge (cromo)
+### <a name="test-with-edge-chromium"></a>Test con Edge (cromo)
 
 I flag navigava sullostesso sito sono impostati nella pagina `edge://flags/#same-site-by-default-cookies`. Nessun problema di compatibilità rilevato con cromo perimetrale.
 
@@ -169,3 +221,20 @@ Le versioni di Electron includono versioni precedenti di cromo. Ad esempio, la v
 * [Blog di Chromium: sviluppatori: prepararsi per la nuova navigava sullostesso sito = None; Impostazioni sicure del cookie](https://blog.chromium.org/2019/10/developers-get-ready-for-new.html)
 * [Spiegazione dei cookie navigava sullostesso sito](https://web.dev/samesite-cookies-explained/)
 * [Patch di novembre 2019](https://devblogs.microsoft.com/dotnet/net-core-November-2019/)
+
+ ::: moniker range=">= aspnetcore-2.1 < aspnetcore-3.0"
+
+| Esempio               | Document |
+| ----------------- | ------------ |
+| [MVC .NET Core](https://github.com/blowdart/AspNetSameSiteSamples/tree/master/AspNetCore21MVC)  | <xref:security/samesite/mvc21> |
+| [Razor Pages .NET Core](https://github.com/blowdart/AspNetSameSiteSamples/tree/master/AspNetCore21RazorPages)  | <xref:security/samesite/rp21> |
+
+::: moniker-end
+
+ ::: moniker range=">= aspnetcore-3.0"
+
+| Esempio               | Document |
+| ----------------- | ------------ |
+| [Razor Pages .NET Core](https://github.com/blowdart/AspNetSameSiteSamples/tree/master/AspNetCore31RazorPages)  | <xref:security/samesite/rp31> |
+
+::: moniker-end

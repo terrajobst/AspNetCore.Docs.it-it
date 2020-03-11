@@ -1,22 +1,22 @@
 ---
 title: Caching distribuito in ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Informazioni su come usare una cache distribuita ASP.NET Core per migliorare le prestazioni e la scalabilità delle app, soprattutto in un ambiente cloud o server farm.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/07/2020
 uid: performance/caching/distributed
-ms.openlocfilehash: d39ac6c7496de7cf9dc8d40718bbaf611e744c19
-ms.sourcegitcommit: 235623b6e5a5d1841139c82a11ac2b4b3f31a7a9
+ms.openlocfilehash: a4d2a59c8f81ad3e3f020e73a6657864885aa39a
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114744"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78659187"
 ---
 # <a name="distributed-caching-in-aspnet-core"></a>Caching distribuito in ASP.NET Core
 
-Di [Luke Latham](https://github.com/guardrex), di la [Nasir Nasir](https://github.com/mohsinnasir)e di [Steve Smith](https://ardalis.com/)
+Di e di Stevie [Nasir](https://github.com/mohsinnasir) e [Steve Smith](https://ardalis.com/)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -32,7 +32,7 @@ Quando vengono distribuiti i dati memorizzati nella cache, i dati:
 
 La configurazione della cache distribuita è specifica dell'implementazione. Questo articolo descrive come configurare le cache distribuite SQL Server e Redis. Sono disponibili anche implementazioni di terze parti, ad esempio [NCache](http://www.alachisoft.com/ncache/aspnet-core-idistributedcache-ncache.html) ([NCache su GitHub](https://github.com/Alachisoft/NCache)). Indipendentemente dall'implementazione selezionata, l'app interagisce con la cache usando l'interfaccia <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache>.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/distributed/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/distributed/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -202,7 +202,7 @@ Quando vengono distribuiti i dati memorizzati nella cache, i dati:
 
 La configurazione della cache distribuita è specifica dell'implementazione. Questo articolo descrive come configurare le cache distribuite SQL Server e Redis. Sono disponibili anche implementazioni di terze parti, ad esempio [NCache](http://www.alachisoft.com/ncache/aspnet-core-idistributedcache-ncache.html) ([NCache su GitHub](https://github.com/Alachisoft/NCache)). Indipendentemente dall'implementazione selezionata, l'app interagisce con la cache usando l'interfaccia <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache>.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/distributed/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/distributed/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -372,7 +372,7 @@ Quando vengono distribuiti i dati memorizzati nella cache, i dati:
 
 La configurazione della cache distribuita è specifica dell'implementazione. Questo articolo descrive come configurare le cache distribuite SQL Server e Redis. Sono disponibili anche implementazioni di terze parti, ad esempio [NCache](http://www.alachisoft.com/ncache/aspnet-core-idistributedcache-ncache.html) ([NCache su GitHub](https://github.com/Alachisoft/NCache)). Indipendentemente dall'implementazione selezionata, l'app interagisce con la cache usando l'interfaccia <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache>.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/distributed/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/distributed/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -533,3 +533,4 @@ Quando SQL Server viene usato come archivio di backup della cache distribuita, l
 * <xref:host-and-deploy/web-farm>
 
 ::: moniker-end
+ 

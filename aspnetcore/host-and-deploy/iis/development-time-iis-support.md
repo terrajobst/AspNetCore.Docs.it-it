@@ -1,28 +1,28 @@
 ---
 title: Supporto di IIS in fase di sviluppo in Visual Studio per ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Informazioni sul supporto del debug di app ASP.NET Core durante l'esecuzione con IIS in Windows Server.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/07/2020
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: f03ee94e5890c58addef4ba0d3ba7a4af6b659e7
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: f87a1d8cf41248f14932908c0633f98a7198853f
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77172098"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664045"
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Supporto di IIS in fase di sviluppo in Visual Studio per ASP.NET Core
 
-Di [Sourabh Shirhatti](https://twitter.com/sshirhatti) e [Luke Latham](https://github.com/guardrex)
+Di [Sourabh Shirhatti](https://twitter.com/sshirhatti)
 
 ::: moniker range=">= aspnetcore-3.0"
 
 Questo articolo descrive il supporto del debug di app ASP.NET Core in [Visual Studio](https://visualstudio.microsoft.com) durante l'esecuzione con IIS in Windows Server. Questo argomento illustra nel dettaglio l'abilitazione di questo scenario e la configurazione di un progetto.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Visual Studio per Windows](https://visualstudio.microsoft.com/downloads/)
 * **ASP.NET e carico di lavoro di sviluppo Web**
@@ -32,7 +32,7 @@ Questo articolo descrive il supporto del debug di app ASP.NET Core in [Visual St
 ## <a name="enable-iis"></a>Abilitare IIS
 
 1. In Windows passare a **Pannello di controllo** > **programmi** > **programmi e funzionalità** > **attivare o disattivare le funzionalità Windows** (lato sinistro dello schermo).
-1. Selezionare la casella di controllo **Internet Information Services**. Scegliere **OK**.
+1. Selezionare la casella di controllo **Internet Information Services**. Selezionare **OK**.
 
 L'installazione di IIS potrebbe richiedere un riavvio del sistema.
 
@@ -137,7 +137,7 @@ Se viene usato un certificato di sviluppo non attendibile, il browser potrebbe r
 
 Questo articolo descrive il supporto del debug di app ASP.NET Core in [Visual Studio](https://visualstudio.microsoft.com) durante l'esecuzione con IIS in Windows Server. Questo argomento illustra nel dettaglio l'abilitazione di questo scenario e la configurazione di un progetto.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Visual Studio per Windows](https://visualstudio.microsoft.com/downloads/)
 * **ASP.NET e carico di lavoro di sviluppo Web**
@@ -147,7 +147,7 @@ Questo articolo descrive il supporto del debug di app ASP.NET Core in [Visual St
 ## <a name="enable-iis"></a>Abilitare IIS
 
 1. In Windows passare a **Pannello di controllo** > **programmi** > **programmi e funzionalità** > **attivare o disattivare le funzionalità Windows** (lato sinistro dello schermo).
-1. Selezionare la casella di controllo **Internet Information Services**. Scegliere **OK**.
+1. Selezionare la casella di controllo **Internet Information Services**. Selezionare **OK**.
 
 L'installazione di IIS potrebbe richiedere un riavvio del sistema.
 

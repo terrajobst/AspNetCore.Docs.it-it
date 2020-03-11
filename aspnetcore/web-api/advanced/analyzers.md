@@ -8,11 +8,11 @@ ms.custom: mvc
 ms.date: 09/05/2019
 uid: web-api/advanced/analyzers
 ms.openlocfilehash: 7b6a7328deb8718a2a1c67c104cec359a4f13497
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71082515"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78661917"
 ---
 # <a name="use-web-api-analyzers"></a>Usare gli analizzatori dell'API Web
 
@@ -29,7 +29,7 @@ Il pacchetto degli analizzatori informa l'utente di qualsiasi azione del control
 
 ## <a name="reference-the-analyzer-package"></a>Fare riferimento al pacchetto dell'analizzatore
 
-In ASP.NET Core 3,0 o versioni successive, gli analizzatori sono inclusi nel .NET Core SDK. Per abilitare l'analizzatore nel progetto, includere la `IncludeOpenAPIAnalyzers` proprietà nel file di progetto:
+In ASP.NET Core 3,0 o versioni successive, gli analizzatori sono inclusi nel .NET Core SDK. Per abilitare l'analizzatore nel progetto, includere la proprietà `IncludeOpenAPIAnalyzers` nel file di progetto:
 
 ```xml
 <PropertyGroup>
@@ -45,25 +45,25 @@ In ASP.NET Core 3,0 o versioni successive, gli analizzatori sono inclusi nel .NE
 
 Installare il pacchetto NuGet [Microsoft. AspNetCore. Mvc. API. Analyzers](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Api.Analyzers) con uno degli approcci seguenti:
 
-### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+### <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Dalla finestra **Console di Gestione pacchetti**:
-  * Passare a **Visualizza** > altre **console di gestione pacchetti**di **Windows** > .
+  * Passare a **visualizza** > **altri** > **console di gestione pacchetti**di Windows.
   * Passare alla directory che contiene il file *ApiConventions.csproj*.
-  * Eseguire il seguente comando:
+  * Eseguire il comando seguente:
 
     ```powershell
     Install-Package Microsoft.AspNetCore.Mvc.Api.Analyzers
     ```
 
-### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
+### <a name="visual-studio-for-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 * Fare clic con il pulsante destro del mouse sulla cartella *pacchetti* in **riquadro della soluzione** > **Aggiungi pacchetti...** .
 * Impostare l'elenco a discesa **Aggiungi pacchetti** della finestra **Origine** su "nuget.org".
 * Immettere "Microsoft.AspNetCore.Mvc.Api.Analyzers" nella casella di ricerca.
 * Selezionare il pacchetto "Microsoft.AspNetCore.Mvc.Api.Analyzers" nel riquadro dei risultati e fare clic su **Aggiungi pacchetto**.
 
-### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+### <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Eseguire il comando seguente da **Terminale integrato**:
 
@@ -71,7 +71,7 @@ Eseguire il comando seguente da **Terminale integrato**:
 dotnet add ApiConventions.csproj package Microsoft.AspNetCore.Mvc.Api.Analyzers
 ```
 
-### <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
+### <a name="net-core-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 
 Eseguire il comando seguente:
 
@@ -85,9 +85,9 @@ dotnet add ApiConventions.csproj package Microsoft.AspNetCore.Mvc.Api.Analyzers
 
 ## <a name="analyzers-for-web-api-conventions"></a>Analizzatori per le convenzioni API Web
 
-I documenti OpenAPI contengono i codici di stato e i tipi di risposta che può restituire un'azione. In ASP.NET Core MVC, per documentare un'azione vengono usati attributi come <xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute> e <xref:Microsoft.AspNetCore.Mvc.ProducesAttribute>. <xref:tutorials/web-api-help-pages-using-swagger>viene illustrato in dettaglio la documentazione dell'API Web.
+I documenti OpenAPI contengono i codici di stato e i tipi di risposta che può restituire un'azione. In ASP.NET Core MVC, per documentare un'azione vengono usati attributi come <xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute> e <xref:Microsoft.AspNetCore.Mvc.ProducesAttribute>. <xref:tutorials/web-api-help-pages-using-swagger> approfondisce la documentazione dell'API Web.
 
-Uno degli analizzatori del pacchetto verifica i controller annotati con <xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute> e identifica le azioni che non documentano completamente le relative risposte. Si consideri l'esempio seguente:
+Uno degli analizzatori del pacchetto verifica i controller annotati con <xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute> e identifica le azioni che non documentano completamente le relative risposte. Prendere in considerazione gli esempi seguenti:
 
 [!code-csharp[](conventions/sample/Controllers/ContactsController.cs?name=missing404docs&highlight=10)]
 

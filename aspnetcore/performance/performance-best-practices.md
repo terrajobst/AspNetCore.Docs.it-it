@@ -9,11 +9,11 @@ no-loc:
 - SignalR
 uid: performance/performance-best-practices
 ms.openlocfilehash: c74adf7479d176c41dc26c7e77acfc3dc9cdcb88
-ms.sourcegitcommit: 79850db9e79b1705b89f466c6f2c961ff15485de
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75693960"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666397"
 ---
 # <a name="aspnet-core-performance-best-practices"></a>Procedure consigliate per le prestazioni ASP.NET Core
 
@@ -23,7 +23,7 @@ Questo articolo fornisce linee guida per le procedure consigliate per le prestaz
 
 ## <a name="cache-aggressively"></a>Cache in modo aggressivo
 
-La memorizzazione nella cache viene discussa in diverse parti di questo documento. Per ulteriori informazioni, vedere <xref:performance/caching/response>.
+La memorizzazione nella cache viene discussa in diverse parti di questo documento. Per altre informazioni, vedere <xref:performance/caching/response>.
 
 ## <a name="understand-hot-code-paths"></a>Informazioni sui percorsi del codice attivo
 
@@ -53,7 +53,7 @@ Un profiler, ad esempio [PerfView](https://github.com/Microsoft/perfview), può 
 
 [.NET Core Garbage Collector](/dotnet/standard/garbage-collection/) gestisce automaticamente l'allocazione e il rilascio di memoria nelle app ASP.NET Core. Il Garbage Collection automatico in genere significa che gli sviluppatori non devono preoccuparsi di come o quando la memoria viene liberata. Tuttavia, la pulizia di oggetti senza riferimenti richiede tempo CPU, quindi gli sviluppatori dovrebbero ridurre al minimo l'allocazione di oggetti nei [percorsi di codice a caldo](#understand-hot-code-paths). Il processo di Garbage Collection è particolarmente costoso in oggetti di grandi dimensioni (> 85 K byte). Gli oggetti di grandi dimensioni vengono archiviati nell' [heap degli oggetti grandi](/dotnet/standard/garbage-collection/large-object-heap) e richiedono una Garbage Collection completa (seconda generazione) per eseguire la pulizia. Diversamente dalle raccolte di generazione 0 e generazione 1, una raccolta di generazione 2 richiede una sospensione temporanea dell'esecuzione dell'app. L'allocazione e la deallocazione frequenti di oggetti di grandi dimensioni possono causare prestazioni incoerenti.
 
-Indicazioni:
+Consigli:
 
 * **Prendere in** considerazione la memorizzazione nella cache di oggetti di grandi dimensioni usati di frequente. La memorizzazione nella cache di oggetti di grandi dimensioni impedisce allocazioni costose.
 * I buffer del pool **vengono** usati con un [ArrayPool\<t >](/dotnet/api/system.buffers.arraypool-1) per archiviare matrici di grandi dimensioni.
@@ -71,11 +71,11 @@ Per altre informazioni, vedere [Garbage Collection e performance](/dotnet/standa
 
 Le interazioni con un archivio dati e altri servizi remoti sono spesso le parti più lente di un'app ASP.NET Core. La lettura e la scrittura dei dati in modo efficiente sono essenziali per garantire prestazioni ottimali.
 
-Indicazioni:
+Consigli:
 
 * **Chiamare tutte** le API di accesso ai dati in modo asincrono.
 * **Non** recuperare più dati del necessario. Scrivere query per restituire solo i dati necessari per la richiesta HTTP corrente.
-* **Si consiglia di** memorizzare nella cache i dati a cui si accede di frequente recuperati da un database o da un servizio remoto se i dati leggermente non aggiornati sono accettabili. A seconda dello scenario, utilizzare un oggetto [MemoryCache](xref:performance/caching/memory) o un [DistributedCache](xref:performance/caching/distributed). Per ulteriori informazioni, vedere <xref:performance/caching/response>.
+* **Si consiglia di** memorizzare nella cache i dati a cui si accede di frequente recuperati da un database o da un servizio remoto se i dati leggermente non aggiornati sono accettabili. A seconda dello scenario, utilizzare un oggetto [MemoryCache](xref:performance/caching/memory) o un [DistributedCache](xref:performance/caching/distributed). Per altre informazioni, vedere <xref:performance/caching/response>.
 * **Ridurre al** minimo i round trip di rete. L'obiettivo è recuperare i dati necessari in una singola chiamata invece che in diverse chiamate.
 * **Utilizzare** [query senza rilevamento](/ef/core/querying/tracking#no-tracking-queries) in Entity Framework Core durante l'accesso ai dati per scopi di sola lettura. EF Core possibile restituire in modo più efficiente i risultati delle query senza rilevamento.
 * **Filtrare e** aggregare le query LINQ, ad esempio `.Where`, `.Select`o `.Sum` istruzioni, in modo che il filtro venga eseguito dal database.
@@ -95,7 +95,7 @@ Si consiglia di misurare l'effetto degli approcci ad alte prestazioni precedenti
 
 Sebbene [HttpClient](/dotnet/api/system.net.http.httpclient) implementi l'interfaccia `IDisposable`, è progettato per il riutilizzo. Le istanze di `HttpClient` chiuse lasciano i socket aperti nello stato `TIME_WAIT` per un breve periodo di tempo. Se viene usato di frequente un percorso del codice che crea ed Elimina `HttpClient` oggetti, l'app può esaurire i socket disponibili. [HttpClientFactory](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests) è stato introdotto in ASP.NET Core 2,1 come soluzione per questo problema. Gestisce il pool di connessioni HTTP per ottimizzare le prestazioni e l'affidabilità.
 
-Indicazioni:
+Consigli:
 
 * **Non creare ed** eliminare direttamente le istanze di `HttpClient`.
 * **Usare** [HttpClientFactory](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests) per recuperare le istanze di `HttpClient`. Per altre informazioni, vedere [usare HttpClientFactory per implementare richieste http resilienti](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
@@ -107,7 +107,7 @@ Si vuole che tutto il codice sia veloce e spesso denominato percorsi di codice s
 * Componenti middleware nella pipeline di elaborazione delle richieste dell'app, in particolare il middleware viene eseguito all'inizio della pipeline. Questi componenti hanno un notevole effetto sulle prestazioni.
 * Codice eseguito per ogni richiesta o più volte per richiesta. Ad esempio, la registrazione personalizzata, i gestori di autorizzazione o l'inizializzazione di servizi temporanei.
 
-Indicazioni:
+Consigli:
 
 * **Non** usare componenti middleware personalizzati con attività a esecuzione prolungata.
 * **Usare gli** strumenti di profilatura delle prestazioni, ad esempio [Visual Studio strumenti di diagnostica](/visualstudio/profiling/profiling-feature-tour) o [PerfView](https://github.com/Microsoft/perfview)), per identificare i [percorsi del codice attivo](#understand-hot-code-paths).
@@ -116,7 +116,7 @@ Indicazioni:
 
 La maggior parte delle richieste a un'app ASP.NET Core può essere gestita da un controller o da un modello di pagina che chiama i servizi necessari e restituisce una risposta HTTP. Per alcune richieste che coinvolgono attività a esecuzione prolungata, è preferibile rendere asincrono l'intero processo di richiesta-risposta.
 
-Indicazioni:
+Consigli:
 
 * **Non attendere il** completamento delle attività con esecuzione prolungata come parte dell'elaborazione di una richiesta HTTP ordinata.
 * **Si** consiglia di gestire le richieste con esecuzione prolungata con [Servizi in background](xref:fundamentals/host/hosted-services) o out-of-process con una [funzione di Azure](/azure/azure-functions/). Il completamento del lavoro out-of-process è particolarmente vantaggioso per le attività con utilizzo intensivo della CPU.
@@ -129,7 +129,7 @@ ASP.NET Core le app con front-end complessi servono spesso molti file JavaScript
 * Creazione di bundle, che combina più file in uno.
 * Minimizzazione, che riduce le dimensioni dei file rimuovendo gli spazi vuoti e i commenti.
 
-Indicazioni:
+Consigli:
 
 * **Usare il** [supporto predefinito](xref:client-side/bundling-and-minification) di ASP.NET Core per la creazione di bundle e la minimizzazione delle risorse client.
 * **Prendere in** considerazione altri strumenti di terze parti, ad esempio [Webpack](https://webpack.js.org/), per la gestione delle risorse client complesse.
@@ -146,7 +146,7 @@ Ogni nuova versione di ASP.NET Core include miglioramenti delle prestazioni. Le 
 
 Le eccezioni devono essere rare. Le eccezioni di generazione e rilevamento sono lente rispetto ad altri modelli di flusso del codice. Per questo motivo, le eccezioni non devono essere usate per controllare il flusso di programma normale.
 
-Indicazioni:
+Consigli:
 
 * **Non** usare la generazione o l'intercettazione di eccezioni come mezzo del normale flusso di programma, soprattutto nei [percorsi di codice caldo](#understand-hot-code-paths).
 * **Includere la** logica nell'app per rilevare e gestire le condizioni che causerebbero un'eccezione.

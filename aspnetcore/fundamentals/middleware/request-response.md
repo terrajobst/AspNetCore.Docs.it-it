@@ -7,12 +7,12 @@ ms.author: jukotali
 ms.custom: mvc
 ms.date: 08/29/2019
 uid: fundamentals/middleware/request-response
-ms.openlocfilehash: 5e531c0ce0ed48097054fd81ddc3655a66cc7c5f
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.openlocfilehash: b473fa02e1d23f02bc5d2e15fa54ab7b1dbbb17c
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71081676"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667216"
 ---
 # <a name="request-and-response-operations-in-aspnet-core"></a>Operazioni di richiesta e risposta in ASP.NET Core
 
@@ -20,22 +20,23 @@ Di [Justin Kotalik](https://github.com/jkotalik)
 
 Questo articolo illustra come leggere dal corpo della richiesta e scrivere nel corpo della risposta. Il codice per queste operazioni potrebbe essere necessario quando si scrive il middleware. Al di fuori della scrittura del middleware, il codice personalizzato non è in genere necessario perché le operazioni vengono gestite da MVC e Razor Pages.
 
-Esistono due astrazioni per i corpi di richiesta e risposta: <xref:System.IO.Stream> e <xref:System.IO.Pipelines.Pipe>. Per la lettura della richiesta, [HttpRequest.Body](xref:Microsoft.AspNetCore.Http.HttpRequest.Body) è un <xref:System.IO.Stream> e `HttpRequest.BodyReader` è un <xref:System.IO.Pipelines.PipeReader>. Per la scrittura della risposta, [HttpResponse. Body](xref:Microsoft.AspNetCore.Http.HttpResponse.Body) è <xref:System.IO.Stream>un `HttpResponse.BodyWriter` e è <xref:System.IO.Pipelines.PipeWriter>un.
+Esistono due astrazioni per i corpi di richiesta e risposta: <xref:System.IO.Stream> e <xref:System.IO.Pipelines.Pipe>. Per la lettura della richiesta, [HttpRequest.Body](xref:Microsoft.AspNetCore.Http.HttpRequest.Body) è un <xref:System.IO.Stream> e `HttpRequest.BodyReader` è un <xref:System.IO.Pipelines.PipeReader>. Per la scrittura della risposta, [HttpResponse. Body](xref:Microsoft.AspNetCore.Http.HttpResponse.Body) è un <xref:System.IO.Stream>e `HttpResponse.BodyWriter` è un <xref:System.IO.Pipelines.PipeWriter>.
 
-Le pipeline sono consigliate per i flussi. I flussi possono essere più facili da usare per alcune operazioni semplici, ma le pipeline hanno prestazioni migliori e sono più facili da usare nella maggior parte degli scenari. ASP.NET Core sta iniziando a usare le pipeline anziché i flussi internamente. Ecco alcuni esempi:
+Le [pipeline](/dotnet/standard/io/pipelines) sono consigliate per i flussi. I flussi possono essere più facili da usare per alcune operazioni semplici, ma le pipeline hanno prestazioni migliori e sono più facili da usare nella maggior parte degli scenari. ASP.NET Core sta iniziando a usare le pipeline anziché i flussi internamente. Tra gli esempi sono inclusi:
 
 * `FormReader`
 * `TextReader`
 * `TextWriter`
 * `HttpResponse.WriteAsync`
 
-I flussi non vengono rimossi dal Framework. I flussi continuano a essere usati in .NET e molti tipi di flusso non hanno equivalenti di pipe, `FileStreams` ad `ResponseCompression`esempio e.
+I flussi non vengono rimossi dal Framework. I flussi continuano a essere usati in .NET e molti tipi di flusso non hanno equivalenti di pipe, ad esempio `FileStreams` e `ResponseCompression`.
 
 ## <a name="stream-examples"></a>Esempi di flussi
 
 Si supponga che l'obiettivo sia quello di creare un middleware che legga l'intero corpo della richiesta come un elenco di stringhe, suddividendo le nuove righe. Un'implementazione di flusso semplice potrebbe essere simile alla seguente:
 
 [!code-csharp[](request-response/samples/3.x/RequestResponseSample/Startup.cs?name=GetListOfStringsFromStream)]
+[!INCLUDE[about the series](~/includes/code-comments-loc.md)]
 
 Questo codice funziona, ma esistono alcuni problemi:
 
@@ -66,17 +67,17 @@ L'esempio seguente mostra come è possibile gestire lo stesso scenario con un `P
 
 Questo esempio consente di risolvere molti problemi delle implementazioni dei flussi:
 
-* Non è necessario un buffer di stringa perché gestisce i `PipeReader` byte che non sono stati usati.
+* Non è necessario un buffer di stringa perché il `PipeReader` gestisce i byte che non sono stati usati.
 * Le stringhe codificate vengono aggiunte direttamente all'elenco di stringhe restituite.
 * La creazione di stringhe non comporta allocazioni, oltre alla memoria usata dalla stringa (ad eccezione della chiamata `ToArray()`).
 
-## <a name="adapters"></a>Adattatori
+## <a name="adapters"></a>adapter
 
-Entrambe `Body` le `BodyReader/BodyWriter` proprietà e sono disponibili `HttpRequest` per `HttpResponse`e. Quando si imposta `Body` su un flusso diverso, un nuovo set di adapter adatta automaticamente ogni tipo all'altro. Se si imposta `HttpRequest.Body` su un nuovo flusso, `HttpRequest.BodyReader` viene impostato automaticamente su `HttpRequest.Body`un nuovo `PipeReader` oggetto che esegue il wrapping.
+Le proprietà `Body` e `BodyReader/BodyWriter` sono disponibili per `HttpRequest` e `HttpResponse`. Quando si imposta `Body` su un flusso diverso, un nuovo set di adattatori adatta automaticamente ogni tipo all'altro. Se si imposta `HttpRequest.Body` su un nuovo flusso, `HttpRequest.BodyReader` viene impostato automaticamente su un nuovo `PipeReader` che esegue il wrapping `HttpRequest.Body`.
 
 ## <a name="startasync"></a>StartAsync
 
-`HttpResponse.StartAsync`viene utilizzato per indicare che le intestazioni non sono modificabili e `OnStarting` per eseguire i callback. Quando si usa gheppio come server, la `StartAsync` chiamata di prima `PipeReader` di usare garantisce che la `GetMemory` memoria restituita da appartenga <xref:System.IO.Pipelines.Pipe> a un buffer interno di Gheppio anziché a un buffer esterno.
+`HttpResponse.StartAsync` viene utilizzato per indicare che le intestazioni non sono modificabili e per eseguire `OnStarting` callback. Quando si usa gheppio come server, la chiamata di `StartAsync` prima di usare il `PipeReader` garantisce che la memoria restituita da `GetMemory` appartenga al <xref:System.IO.Pipelines.Pipe> interno di Gheppio anziché a un buffer esterno.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

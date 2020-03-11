@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/05/2020
 uid: fundamentals/logging/index
-ms.openlocfilehash: 3c75fdc940701b8f4d367990b5073861467079b2
-ms.sourcegitcommit: bd896935e91236e03241f75e6534ad6debcecbbf
+ms.openlocfilehash: 58e236ad7f0863b87907d5585e1cb6bf61d46e99
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77044906"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78663303"
 ---
 # <a name="logging-in-net-core-and-aspnet-core"></a>Registrazione in .NET Core e ASP.NET Core
 
@@ -22,13 +22,13 @@ Di [Tom Dykstra](https://github.com/tdykstra) e [Steve Smith](https://ardalis.co
 
 ::: moniker range=">= aspnetcore-3.0"
 
-La maggior parte degli esempi di codice illustrati in questo articolo proviene da app ASP.NET Core. Le parti specifiche per la registrazione di questi frammenti di codice si applicano a qualsiasi app .NET Core che usa l' [host generico](xref:fundamentals/host/generic-host). Per un esempio di come usare l'host generico in un'app console non Web, vedere il file *Program.cs* dell' [app di esempio attività in background](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples) (<xref:fundamentals/host/hosted-services>).
+La maggior parte degli esempi di codice illustrati in questo articolo proviene da app ASP.NET Core. Le parti specifiche per la registrazione di questi frammenti di codice si applicano a qualsiasi app .NET Core che usa l' [host generico](xref:fundamentals/host/generic-host). Per un esempio di come usare l'host generico in un'app console non Web, vedere il file *Program.cs* dell' [app di esempio attività in background](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples) (<xref:fundamentals/host/hosted-services>).
 
 Il codice di registrazione per le app senza host generico differisce per il modo in cui vengono [aggiunti i provider](#add-providers) e [creati i logger](#create-logs). Gli esempi di codice non host sono illustrati nelle sezioni dell'articolo in cui sono riportate queste procedure.
 
 ::: moniker-end
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/index/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/index/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="add-providers"></a>Aggiungere provider
 
@@ -295,7 +295,7 @@ public class Program
 
 ### <a name="no-asynchronous-logger-methods"></a>Evitare l'uso di metodi logger asincroni
 
-La registrazione deve essere così rapida da non giustificare l'impatto sulle prestazioni del codice asincrono. Se l'archivio dati di registrazione è lento, non scrivere direttamente al suo interno. Scrivere invece i messaggi di log prima in un archivio veloce e quindi spostarli nell'archivio lento in un secondo momento. Ad esempio, se la registrazione viene eseguita in SQL Server, è preferibile non farlo direttamente in un metodo `Log`, poiché i metodi `Log` sono sincroni. Al contrario, aggiungere i messaggi di log in modo sincrono a una coda in memoria e usare un ruolo di lavoro in background per eseguire il pull dei messaggi dalla coda per eseguire le operazioni asincrone di push dei dati in SQL Server. Per altre informazioni, vedere [questo](https://github.com/aspnet/AspNetCore.Docs/issues/11801) problema di GitHub.
+La registrazione deve essere così rapida da non giustificare l'impatto sulle prestazioni del codice asincrono. Se l'archivio dati di registrazione è lento, non scrivere direttamente al suo interno. Scrivere invece i messaggi di log prima in un archivio veloce e quindi spostarli nell'archivio lento in un secondo momento. Ad esempio, se la registrazione viene eseguita in SQL Server, è preferibile non farlo direttamente in un metodo `Log`, poiché i metodi `Log` sono sincroni. Al contrario, aggiungere i messaggi di log in modo sincrono a una coda in memoria e usare un ruolo di lavoro in background per eseguire il pull dei messaggi dalla coda per eseguire le operazioni asincrone di push dei dati in SQL Server. Per altre informazioni, vedere [questo](https://github.com/dotnet/AspNetCore.Docs/issues/11801) problema di GitHub.
 
 ## <a name="configuration"></a>Configurazione
 
@@ -513,7 +513,7 @@ ASP.NET Core definisce i livelli di registrazione seguenti, ordinati dal meno gr
 
   Per gli errori che richiedono attenzione immediata. Esempi: scenari di perdita di dati, spazio su disco insufficiente.
 
-Usare il livello di registrazione per controllare la quantità di output di log scritto in un supporto di archiviazione specifico o in una finestra. Ad esempio,
+Usare il livello di registrazione per controllare la quantità di output di log scritto in un supporto di archiviazione specifico o in una finestra. Ad esempio:
 
 * In produzione:
   * La registrazione all'`Trace` tramite livelli di `Information` produce un volume elevato di messaggi di log dettagliati. Per controllare i costi e non superare i limiti di archiviazione dei dati, registrare `Trace` tramite messaggi di `Information` livello in un archivio dati a volume elevato e a basso costo.
@@ -752,8 +752,8 @@ I dati di configurazione e il codice `AddFilter` illustrato negli esempi precede
 | 4      | Console       | Microsoft.AspNetCore.Mvc.Razor          | Errore             |
 | 5      | Console       | Tutte le categorie                          | Informazioni       |
 | 6      | Tutti i provider | Tutte le categorie                          | Debug             |
-| 7      | Tutti i provider | System                                  | Debug             |
-| 8      | Debug         | Microsoft                               | Traccia             |
+| 7      | Tutti i provider | Sistema                                  | Debug             |
+| 8      | Debug         | Microsoft                               | Trace             |
 
 Quando viene creato un oggetto `ILogger`, l'oggetto `ILoggerFactory` seleziona una singola regola per ogni provider da applicare al logger. Tutti i messaggi scritti da un'istanza di `ILogger` vengono filtrati in base alle regole selezionate. Tra le regole disponibili viene selezionata la regola più specifica possibile per ogni coppia di categoria e provider.
 
@@ -804,7 +804,7 @@ Se non si imposta in modo esplicito il livello minimo, il valore predefinito è 
 
 ### <a name="filter-functions"></a>Funzioni di filtro
 
-Una funzione di filtro viene richiamata per tutti i provider e le categorie a cui non sono assegnate regole tramite la configurazione o il codice. Il codice della funzione ha accesso al tipo di provider, alla categoria e al livello di registrazione. Ad esempio,
+Una funzione di filtro viene richiamata per tutti i provider e le categorie a cui non sono assegnate regole tramite la configurazione o il codice. Il codice della funzione ha accesso al tipo di provider, alla categoria e al livello di registrazione. Ad esempio:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -1154,7 +1154,7 @@ Il provider di registrazione è incluso come dipendenza di [Microsoft.Applicatio
 
 Non usare il pacchetto [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web), che è per ASP.NET 4.x.
 
-Per ulteriori informazioni, vedere le seguenti risorse:
+Per altre informazioni, vedere le seguenti risorse:
 
 * [Panoramica di Application Insights](/azure/application-insights/app-insights-overview)
 * [Application Insights per applicazioni ASP.NET Core](/azure/azure-monitor/app/asp-net-core): iniziare da qui se si vuole implementare l'intervallo completo dei dati di telemetria di Application Insights insieme alla registrazione.

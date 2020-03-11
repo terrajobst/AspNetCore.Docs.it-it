@@ -7,18 +7,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/25/2018
 uid: fundamentals/metapackage
-ms.openlocfilehash: 91f39fc59e5682fb19f8cbc6e9ebe5b30e5dcf3c
-ms.sourcegitcommit: 8a36be1bfee02eba3b07b7a86085ec25c38bae6b
+ms.openlocfilehash: e47f583d0fa75bdeb26b669303747a70619117c1
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219142"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78663149"
 ---
 # <a name="microsoftaspnetcoreall-metapackage-for-aspnet-core-20"></a>Metapacchetto Microsoft.AspNetCore.All per ASP.NET Core 2.0
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Il `Microsoft.AspNetCore.All` metapacchetto non è incluso in ASP.NET Core 3,0 e versioni successive. Per altre informazioni, vedere [questo problema su GitHub](https://github.com/aspnet/Announcements/issues/314).
+Il metapacchetto `Microsoft.AspNetCore.All` non è incluso in ASP.NET Core 3,0 e versioni successive. Per altre informazioni, vedere [questo problema in GitHub](https://github.com/aspnet/Announcements/issues/314).
 
 ::: moniker-end
 
@@ -47,15 +47,15 @@ Il file con estensione *csproj* seguente fa riferimento al metapacchetto `Micros
 
 ## <a name="implicit-versioning"></a>Controllo delle versioni implicito
 
-In ASP.NET Core 2.1 o versioni successive è possibile specificare il riferimento al pacchetto `Microsoft.AspNetCore.All` senza la versione. Quando la versione non è specificata, il SDK specifica una versione implicita (`Microsoft.NET.Sdk.Web`). È consigliabile basarsi sulla versione implicita specificata dall'SDK e non impostando in modo esplicito il numero di versione sul riferimento al pacchetto. In caso di domande su questo approccio, lasciare un commento GitHub nella pagina della [discussione per la versione implicita Microsoft.AspNetCore.App](https://github.com/aspnet/AspNetCore.Docs/issues/6430).
+In ASP.NET Core 2.1 o versioni successive è possibile specificare il riferimento al pacchetto `Microsoft.AspNetCore.All` senza la versione. Quando la versione non è specificata, il SDK specifica una versione implicita (`Microsoft.NET.Sdk.Web`). È consigliabile basarsi sulla versione implicita specificata dall'SDK e non impostando in modo esplicito il numero di versione sul riferimento al pacchetto. In caso di domande su questo approccio, lasciare un commento GitHub nella pagina della [discussione per la versione implicita Microsoft.AspNetCore.App](https://github.com/dotnet/AspNetCore.Docs/issues/6430).
 
 La versione implicita è impostata su `major.minor.0` per le app portabili. Il meccanismo di roll forward del framework condiviso esegue l'app sulla versione compatibile più recente tra i framework condivisi installati. Per garantire che venga usata la stessa versione in fase di sviluppo, test e produzione, verificare che in tutti gli ambienti sia installata la stessa versione del framework condiviso. Per le app autonome, il numero di versione implicita è impostato sul valore `major.minor.patch` del framework condiviso nel bundle nell'SDK installato.
 
-Il fatto di specificare un numero di versione nel riferimento del pacchetto `Microsoft.AspNetCore.All` **non** garantisce che verrà scelta la versione corrispondente del framework condiviso. Si supponga ad esempio che venga specificata la versione "2.1.1" ma che sia installata la versione "2.1.3". In tal caso, l'app userà "2.1.3". Benché non sia consigliabile, è possibile disabilitare il roll forward (patch e/o versioni secondarie). Per altre informazioni su come eseguire il roll forward dell'host dotnet e configurarne il comportamento, vedere [dotnet host rollforward](https://github.com/dotnet/core-setup/blob/master/Documentation/design-docs/roll-forward-on-no-candidate-fx.md) (Roll forward dell'host dotnet).
+Il fatto di specificare un numero di versione nel riferimento del pacchetto `Microsoft.AspNetCore.All`**non** garantisce che verrà scelta la versione corrispondente del framework condiviso. Si supponga ad esempio che venga specificata la versione "2.1.1" ma che sia installata la versione "2.1.3". In tal caso, l'app userà "2.1.3". Benché non sia consigliabile, è possibile disabilitare il roll forward (patch e/o versioni secondarie). Per altre informazioni su come eseguire il roll forward dell'host dotnet e configurarne il comportamento, vedere [dotnet host rollforward](https://github.com/dotnet/core-setup/blob/master/Documentation/design-docs/roll-forward-on-no-candidate-fx.md) (Roll forward dell'host dotnet).
 
 Il SDK del progetto deve essere impostato su `Microsoft.NET.Sdk.Web` nel file di progetto perché venga usata la versione implicita di `Microsoft.AspNetCore.All`. Se è specificato il SDK `Microsoft.NET.Sdk` (`<Project Sdk="Microsoft.NET.Sdk">` nella parte superiore del file di progetto), viene generato l'avviso seguente:
 
-*Avviso NU1604: La dipendenza Microsoft.AspNetCore.All del progetto non contiene un limite inferiore inclusivo. Includere un limite inferiore nella versione della dipendenza per garantire risultati di ripristino coerenti.*
+*Avviso NU1604: la dipendenza del progetto Microsoft. AspNetCore. All non contiene un limite inferiore inclusivo. Includere un limite inferiore nella versione della dipendenza per garantire risultati di ripristino coerenti.*
 
 Si tratta di un problema noto con .NET Core 2.1 SDK, che verrà risolto in .NET Core 2.2 SDK.
 
@@ -94,6 +94,6 @@ Tutte le dipendenze dei pacchetti precedenti che non sono in altro modo dipenden
 
 È consigliabile eseguire la migrazione al metapacchetto `Microsoft.AspNetCore.App` per la versione 2.1 e versioni successive. Per continuare a usare il metapacchetto `Microsoft.AspNetCore.All` e assicurarsi che venga distribuita la versione della patch più recente:
 
-* Nei computer di sviluppo e nei server di compilazione: installare la versione più recente di [.NET Core SDK](https://www.microsoft.com/net/download).
-* Nei server di distribuzione: installare la versione più recente del [runtime .NET Core](https://www.microsoft.com/net/download).
+* Nei computer di sviluppo e nei server di compilazione: installare il [.NET Core SDK](https://www.microsoft.com/net/download) più recente.
+* Nei server di distribuzione: installare il [runtime di .NET Core](https://www.microsoft.com/net/download) più recente.
  L'app eseguirà il roll forward all'ultima versione installata al riavvio dell'applicazione.

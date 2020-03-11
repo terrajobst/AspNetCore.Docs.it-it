@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/06/2019
 uid: security/enforcing-ssl
-ms.openlocfilehash: 43f3abfa4bc311ed246f6f2585d522661e492039
-ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
+ms.openlocfilehash: 2a7b4152004cb65ee12487eb4793d42d0b7165d0
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77447152"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78662638"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Applicare HTTPS in ASP.NET Core
 
@@ -52,7 +52,7 @@ Nessuna API può impedire a un client di inviare dati sensibili alla prima richi
 
 ::: moniker-end
 
-## <a name="require-https"></a>Richiedere HTTPS
+## <a name="require-https"></a>Richiedi HTTPS
 
 Si consiglia di usare le app Web ASP.NET Core di produzione:
 
@@ -313,7 +313,7 @@ Deselezionare la casella **di controllo Configura per HTTPS** .
 
 # <a name="net-core-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli) 
 
-Usare l'opzione `--no-https`. Esempio:
+Usare l'opzione `--no-https`. Ad esempio:
 
 ```dotnetcli
 dotnet new webapp --no-https
@@ -350,7 +350,7 @@ dotnet dev-certs https --help
 
 ## <a name="how-to-set-up-a-developer-certificate-for-docker"></a>Come configurare un certificato per sviluppatori per Docker
 
-Vedere [il problema in GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/6199).
+Vedere [il problema in GitHub](https://github.com/dotnet/AspNetCore.Docs/issues/6199).
 
 <a name="wsl"></a>
 

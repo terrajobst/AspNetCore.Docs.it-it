@@ -5,22 +5,22 @@ description: Informazioni su come eseguire la migrazione della configurazione da
 ms.author: riande
 ms.date: 10/14/2016
 uid: migration/configuration
-ms.openlocfilehash: 455e66b94dd69ee6aab88768b64c525d56b8bbcf
-ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
+ms.openlocfilehash: 2c50ea768a42aa38d14c55d8c403fea4176b3650
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73033897"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78659327"
 ---
 # <a name="migrate-configuration-to-aspnet-core"></a>Eseguire la migrazione della configurazione a ASP.NET Core
 
-[Steve Smith](https://ardalis.com/) e [Scott Addie](https://scottaddie.com)
+Di [Steve Smith](https://ardalis.com/) e [Scott Addie](https://scottaddie.com)
 
 Nell'articolo precedente è stata avviata la [migrazione di un progetto mvc ASP.NET a ASP.NET Core MVC](xref:migration/mvc). In questo articolo viene eseguita la migrazione della configurazione.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/migration/configuration/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/migration/configuration/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
-## <a name="setup-configuration"></a>Configurazione del programma di installazione
+## <a name="setup-configuration"></a>Eseguire la configurazione
 
 ASP.NET Core non utilizza più i file *Global. asax* e *Web. config* utilizzati dalle versioni precedenti di ASP.NET. Nelle versioni precedenti di ASP.NET, la logica di avvio dell'applicazione è stata inserita in un metodo di `Application_StartUp` all'interno di *Global. asax*. In seguito, in ASP.NET MVC, è stato incluso un file *Startup.cs* nella radice del progetto. e è stato chiamato all'avvio dell'applicazione. ASP.NET Core ha adottato completamente questo approccio inserendo tutta la logica di avvio nel file *Startup.cs* .
 
@@ -48,6 +48,6 @@ Il progetto MVC ASP.NET include la stringa di connessione del database necessari
 
 Nella riga evidenziata sopra, modificare il nome del database da **_CHANGE_ME** al nome del database.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 ASP.NET Core inserisce tutta la logica di avvio per l'applicazione in un unico file, in cui è possibile definire e configurare le dipendenze e i servizi necessari. Sostituisce il file *Web. config* con una funzionalità di configurazione flessibile che può utilizzare una varietà di formati di file, ad esempio JSON, e variabili di ambiente.

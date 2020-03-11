@@ -9,17 +9,17 @@ products:
 - vs
 urlFragment: aspnetcore-webapi-mongodb
 ms.openlocfilehash: 01f9cf237dcf2a9b95c181c2cb87ef9f59102244
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74881164"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78663499"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a>Creare un'API Web con ASP.NET Core e MongoDB
 
 Questa esercitazione crea un'API Web che esegue operazioni di creazione, lettura, aggiornamento ed eliminazione (CRUD) su un database NoSQL [MongoDB](https://www.mongodb.com/what-is-mongodb).
 
-In questa esercitazione si imparerà a:
+In questa esercitazione verranno illustrate le procedure per:
 
 * Configurare MongoDB
 * Creare un database MongoDB
@@ -124,7 +124,7 @@ Il database è pronto. È possibile iniziare a creare l'API Web ASP.NET Core.
 
 ## <a name="create-the-aspnet-core-web-api-project"></a>Creare il progetto per l'API Web ASP.NET Core
 
-1. Passare a **File** > **Nuovo** > **progetto**.
+1. Passare a **File** > **Nuovo** > **Progetto**.
 1. Selezionare il tipo di progetto **Applicazione Web ASP.NET Core** e selezionare **Avanti**.
 1. Assegnare al progetto il nome *BooksApi* e selezionare **Crea**.
 1. Selezionare il framework di destinazione **.NET Core** e **ASP.NET Core 3.0**. Selezionare il modello di progetto **API** e scegliere **Crea**.
@@ -206,7 +206,7 @@ Il database è pronto. È possibile iniziare a creare l'API Web ASP.NET Core.
     }
     ```
 
-    La classe `BookstoreDatabaseSettings` precedente viene utilizzata per archiviare i valori della proprietà `BookstoreDatabaseSettings` del file *appsettings.json*. I nomi delle proprietà JSON e C# sono identici per semplificare il processo di mapping.
+    La classe `BookstoreDatabaseSettings` precedente viene utilizzata per archiviare i valori della proprietà *del file*appsettings.json`BookstoreDatabaseSettings`. I nomi delle proprietà JSON e C# sono identici per semplificare il processo di mapping.
 
 1. Aggiungere il codice evidenziato seguente a `Startup.ConfigureServices`:
 
@@ -225,7 +225,7 @@ Il database è pronto. È possibile iniziare a creare l'API Web ASP.NET Core.
 
     Nel codice precedente:
 
-    * L'istanza di configurazione a cui si associa la sezione `BookstoreDatabaseSettings` del file *appsettings.json* viene registrata nel contenitore di inserimento delle dipendenze. Una proprietà `ConnectionString` di un oggetto `BookstoreDatabaseSettings` viene popolata con la proprietà `BookstoreDatabaseSettings:ConnectionString` in *appsettings.json*.
+    * L'istanza di configurazione a cui si associa la sezione *del file*appsettings.json`BookstoreDatabaseSettings` viene registrata nel contenitore di inserimento delle dipendenze. Una proprietà `BookstoreDatabaseSettings` di un oggetto `ConnectionString` viene popolata con la proprietà `BookstoreDatabaseSettings:ConnectionString` in *appsettings.json*.
     * L'interfaccia `IBookstoreDatabaseSettings` è registrata nell'inserimento di dipendenze con una [durata del servizio](xref:fundamentals/dependency-injection#service-lifetimes) singleton. Quando avviene l'inserimento, l'istanza dell'interfaccia restituisce un oggetto `BookstoreDatabaseSettings`.
 
 1. Aggiungere il codice seguente all'inizio del file *Startup.cs* per risolvere i riferimenti a `BookstoreDatabaseSettings` e `IBookstoreDatabaseSettings`:
@@ -313,7 +313,7 @@ Il database è pronto. È possibile iniziare a creare l'API Web ASP.NET Core.
 
 La classe `BookService` usa i membri `MongoDB.Driver` seguenti per eseguire operazioni CRUD sul database:
 
-* [MongoClient](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_MongoClient.htm) &ndash; Legge l'istanza del server per l'esecuzione di operazioni di database. Al costruttore di questa classe viene passata la stringa di connessione MongoDB:
+* [MongoClient](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_MongoClient.htm) &ndash; legge l'istanza del server per l'esecuzione di operazioni di database. Al costruttore di questa classe viene passata la stringa di connessione MongoDB:
 
     ```csharp
     public BookService(IBookstoreDatabaseSettings settings)
@@ -325,18 +325,18 @@ La classe `BookService` usa i membri `MongoDB.Driver` seguenti per eseguire oper
     }
     ```
 
-* [IMongoDatabase](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_IMongoDatabase.htm) &ndash; Rappresenta il database di Mongo per l'esecuzione delle operazioni. Questa esercitazione usa il metodo [GetCollection\<TDocument>(collection)](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoDatabase_GetCollection__1.htm) generico sull'interfaccia per ottenere l'accesso ai dati in una raccolta specifica. Eseguire le operazioni CRUD sulla raccolta dopo la chiamata a questo metodo. Nella chiamata del metodo `GetCollection<TDocument>(collection)`:
+* [IMongoDatabase](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_IMongoDatabase.htm) &ndash; rappresenta il database Mongo per l'esecuzione di operazioni. Questa esercitazione usa il metodo [GetCollection\<TDocument>(collection)](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoDatabase_GetCollection__1.htm) generico sull'interfaccia per ottenere l'accesso ai dati in una raccolta specifica. Eseguire le operazioni CRUD sulla raccolta dopo la chiamata a questo metodo. Nella chiamata del metodo `GetCollection<TDocument>(collection)`:
   * `collection` rappresenta il nome della raccolta.
   * `TDocument` rappresenta il tipo di oggetto CLR archiviato nella raccolta.
 
 `GetCollection<TDocument>(collection)` restituisce un oggetto [MongoCollection](https://api.mongodb.com/csharp/current/html/T_MongoDB_Driver_MongoCollection.htm) che rappresenta la raccolta. In questa esercitazione, vengono richiamati i metodi seguenti sulla raccolta:
 
 * [DeleteOne](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_DeleteOne.htm) &ndash; Elimina un singolo documento corrispondente ai criteri di ricerca specificati.
-* [Find\<TDocument>](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollectionExtensions_Find__1_1.htm) &ndash; Restituisce tutti i documenti nella raccolta corrispondenti ai criteri di ricerca specificati.
-* [InsertOne](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_InsertOne.htm) &ndash; Inserisce l'oggetto specificato come nuovo documento nella raccolta.
-* [ReplaceOne](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_ReplaceOne.htm) &ndash; Sostituisce il singolo documento corrispondente ai criteri di ricerca specificati con l'oggetto specificato.
+* [Find\<TDocument >](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollectionExtensions_Find__1_1.htm) &ndash; restituisce tutti i documenti della raccolta che corrispondono ai criteri di ricerca specificati.
+* [InsertOne](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_InsertOne.htm) &ndash; inserisce l'oggetto fornito come nuovo documento nella raccolta.
+* [ReplaceOne](https://api.mongodb.com/csharp/current/html/M_MongoDB_Driver_IMongoCollection_1_ReplaceOne.htm) &ndash; sostituisce il singolo documento corrispondente ai criteri di ricerca specificati con l'oggetto fornito.
 
-## <a name="add-a-controller"></a>Aggiungere un controller
+## <a name="add-a-controller"></a>Aggiunta di un controller
 
 Aggiungere una classe `BooksController` alla directory *Controllers* con il codice seguente:
 
@@ -421,7 +421,7 @@ Il controller dell'API Web precedente:
 
 * Usa la classe `BookService` per eseguire operazioni CRUD.
 * Contiene metodi di azione per supportare le richieste HTTP GET, POST, PUT e DELETE.
-* Chiama <xref:System.Web.Http.ApiController.CreatedAtRoute*> nel metodo dell'azione `Create` per restituire una risposta [HTTP 201](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). Il codice di stato 201 è la risposta standard per un metodo HTTP POST che crea una nuova risorsa nel server. `Location` aggiunge anche un'intestazione `CreatedAtRoute` alla risposta. L'intestazione `Location` specifica l'URI del libro appena creato.
+* Chiama <xref:System.Web.Http.ApiController.CreatedAtRoute*> nel metodo dell'azione `Create` per restituire una risposta [HTTP 201](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). Il codice di stato 201 è la risposta standard per un metodo HTTP POST che crea una nuova risorsa nel server. `CreatedAtRoute` aggiunge anche un'intestazione `Location` alla risposta. L'intestazione `Location` specifica l'URI del libro appena creato.
 
 ## <a name="test-the-web-api"></a>Testare l'API Web
 
@@ -489,7 +489,7 @@ Per soddisfare i requisiti precedenti, apportare le modifiche seguenti:
     }
     ```
 
-    Con la modifica precedente, i nomi delle proprietà nella risposta JSON serializzata dell'API Web corrispondono ai nomi di proprietà corrispondenti nel tipo di oggetto CLR. Ad esempio, la proprietà `Author` della classe `Book` viene serializzata come `Author`.
+    Con la modifica precedente, i nomi delle proprietà nella risposta JSON serializzata dell'API Web corrispondono ai nomi di proprietà corrispondenti nel tipo di oggetto CLR. Ad esempio, la proprietà `Book` della classe `Author` viene serializzata come `Author`.
 
 1. In *models/book. cs*annotare la proprietà `BookName` con l'attributo [`[JsonProperty]`](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_JsonPropertyAttribute.htm) seguente:
 
@@ -499,7 +499,7 @@ Per soddisfare i requisiti precedenti, apportare le modifiche seguenti:
     public string BookName { get; set; }
     ```
 
-    Il valore `Name` dell'attributo `[JsonProperty]` rappresenta il nome della proprietà nella risposta JSON serializzata dell'API Web.
+    Il valore `[JsonProperty]` dell'attributo `Name` rappresenta il nome della proprietà nella risposta JSON serializzata dell'API Web.
 
 1. Aggiungere il codice seguente all'inizio di *Models/Book.cs* per risolvere il riferimento all'attributo `[JsonProperty]`:
 

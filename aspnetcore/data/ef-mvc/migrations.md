@@ -7,18 +7,18 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: 9f3e3b29d155f1024aef530bf9c55efa57d4546a
-ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
+ms.openlocfilehash: 8b3417205457a5ce5fa16994701a06e2a4d7d350
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76928395"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78665725"
 ---
 # <a name="tutorial-using-the-migrations-feature---aspnet-mvc-with-ef-core"></a>Esercitazione: uso della funzionalità Migrations-ASP.NET MVC con EF Core
 
 In questa esercitazione si inizia a usare la funzionalità delle migrazioni EF Core per la gestione delle modifiche al modello di dati. Nelle esercitazioni successive si aggiungeranno altre migrazioni quando si modifica il modello di dati.
 
-Le attività di questa esercitazione sono le seguenti:
+In questa esercitazione:
 
 > [!div class="checklist"]
 > * Ottenere informazioni sulle migrazioni
@@ -28,7 +28,7 @@ Le attività di questa esercitazione sono le seguenti:
 > * Esaminare lo snapshot del modello di dati
 > * Applicare la migrazione
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Ordinamento, filtro e suddivisione in pagine](sort-filter-page.md)
 
@@ -49,7 +49,7 @@ Nel file *appsettings.json* cambiare il nome del database nella stringa di conne
 Questa modifica configura il progetto in modo che la prima migrazione crei un nuovo database. Questa operazione non è necessaria per iniziare a usare le migrazioni, ma si capirà più avanti perché è utile eseguirla.
 
 > [!NOTE]
-> In alternativa alla modifica del nome del database, è possibile eliminare il database. Usare **Esplora oggetti di SQL Server** (SSOX) o il comando CLI `database drop`:
+> In alternativa alla modifica del nome del database, è possibile eliminare il database. Usare **Esplora oggetti di SQL Server** o il comando della CLI `database drop`:
 >
 > ```dotnetcli
 > dotnet ef database drop
@@ -116,7 +116,7 @@ Nella finestra di comando immettere il comando seguente per creare il database e
 dotnet ef database update
 ```
 
-L'output del comando è simile al comando `migrations add`, a eccezione del fatto che vengono visualizzati i log per i comandi SQL che configurano il database. La maggior parte dei log viene omessa nell'output di esempio seguente. Se si vuole ridurre il livello di dettaglio nei messaggi di log, è possibile modificare i livelli di log nel file *appsettings.Development.json*. Per ulteriori informazioni, vedere <xref:fundamentals/logging/index>.
+L'output del comando è simile al comando `migrations add`, a eccezione del fatto che vengono visualizzati i log per i comandi SQL che configurano il database. La maggior parte dei log viene omessa nell'output di esempio seguente. Se si vuole ridurre il livello di dettaglio nei messaggi di log, è possibile modificare i livelli di log nel file *appsettings.Development.json*. Per altre informazioni, vedere <xref:fundamentals/logging/index>.
 
 ```text
 info: Microsoft.EntityFrameworkCore.Infrastructure[10403]
@@ -169,16 +169,16 @@ Per altre informazioni sui comandi della console di Gestione pacchetti, vedere [
 
 ## <a name="get-the-code"></a>Ottenere il codice
 
-[Scaricare o visualizzare l'applicazione completata.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[Scaricare o visualizzare l'applicazione completata.](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="next-step"></a>Passaggio successivo
 
-Le attività di questa esercitazione sono le seguenti:
+In questa esercitazione:
 
 > [!div class="checklist"]
 > * Sono state descritte le migrazioni
 > * Sono stati presentati i pacchetti di migrazione NuGet
-> * Modifica della stringa di connessione
+> * È stata modificata la stringa di connessione
 > * È stata creata una migrazione iniziale
 > * Sono stati esaminati i metodi Up e Down
 > * È stato esaminato lo snapshot del modello di dati

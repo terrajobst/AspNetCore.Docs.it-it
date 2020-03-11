@@ -6,12 +6,12 @@ ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: riande
 ms.date: 12/18/2019
 uid: mvc/models/model-binding
-ms.openlocfilehash: a389afe46636155e4703677d362d879a18ea5864
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 19580768679f30131683717792252c03aade68f9
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829205"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666278"
 ---
 # <a name="model-binding-in-aspnet-core"></a>Associazione di modelli in ASP.NET Core
 
@@ -19,7 +19,7 @@ ms.locfileid: "75829205"
 
 Questo articolo illustra cos'è l'associazione di modelli, come funziona e come personalizzarne il comportamento.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/model-binding/samples) ([procedura per il download](xref:index#how-to-download-a-sample)).
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/model-binding/samples) ([procedura per il download](xref:index#how-to-download-a-sample)).
 
 ## <a name="what-is-model-binding"></a>Che cos'è l'associazione di modelli
 
@@ -55,7 +55,7 @@ Il framework chiama quindi il metodo `GetById`, passando 2 per il parametro `id`
 
 Nell'esempio precedente le destinazioni dell'associazione di modelli sono parametri di metodo che sono tipi semplici. Le destinazioni possono essere anche le proprietà di un tipo complesso. Dopo l'associazione di ogni proprietà, viene eseguita la [convalida dei modelli](xref:mvc/models/validation) per la proprietà. Il record dei dati associati al modello e di eventuali errori di associazione o convalida viene archiviato in [ControllerBase.ModelState](xref:Microsoft.AspNetCore.Mvc.ControllerBase.ModelState) oppure [PageModel.ModelState](xref:Microsoft.AspNetCore.Mvc.ControllerBase.ModelState). Per scoprire se questo processo ha esito positivo, l'app controlla il flag [ModelState.IsValid](xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.IsValid).
 
-## <a name="targets"></a>Destinazioni
+## <a name="targets"></a>Server di destinazione
 
 L'associazione di modelli cerca di trovare i valori per i tipi di destinazioni seguenti:
 
@@ -87,7 +87,7 @@ Per impostazione predefinita, l'associazione di modelli ottiene i dati sotto for
 
 1. Campi modulo
 1. Il corpo della richiesta (per i controller [ con l'attributo [ApiController]](xref:web-api/index#binding-source-parameter-inference).)
-1. Dati della route
+1. Indirizzare i dati
 1. Parametri della stringa di query
 1. File caricati
 
@@ -153,7 +153,7 @@ I dati di origine vengono forniti al sistema di associazione di modelli dai *pro
 * Creare una classe che implementi `IValueProviderFactory`.
 * Registrare la classe factory in `Startup.ConfigureServices`.
 
-L'app di esempio include un esempio di [provider di valori](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/3.x/ModelBindingSample/CookieValueProvider.cs) e [factory](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/3.x/ModelBindingSample/CookieValueProviderFactory.cs) che ottiene i valori dai cookie. Ecco il codice di registrazione in `Startup.ConfigureServices`:
+L'app di esempio include un esempio di [provider di valori](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/3.x/ModelBindingSample/CookieValueProvider.cs) e [factory](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/3.x/ModelBindingSample/CookieValueProviderFactory.cs) che ottiene i valori dai cookie. Ecco il codice di registrazione in `Startup.ConfigureServices`:
 
 [!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Startup.cs?name=snippet_ValueProvider&highlight=4)]
 
@@ -202,7 +202,7 @@ I tipi semplici in cui lo strumento di associazione di modelli può convertire l
 * [Enum](xref:System.ComponentModel.EnumConverter)
 * [Guid](xref:System.ComponentModel.GuidConverter)
 * [Int16](xref:System.ComponentModel.Int16Converter), [Int32](xref:System.ComponentModel.Int32Converter), [Int64](xref:System.ComponentModel.Int64Converter)
-* [Single](xref:System.ComponentModel.SingleConverter)
+* [Singolo](xref:System.ComponentModel.SingleConverter)
 * [TimeSpan](xref:System.ComponentModel.TimeSpanConverter)
 * [UInt16](xref:System.ComponentModel.UInt16Converter), [UInt32](xref:System.ComponentModel.UInt32Converter), [UInt64](xref:System.ComponentModel.UInt64Converter)
 * [Uri](xref:System.UriTypeConverter)
@@ -274,13 +274,13 @@ Sono disponibili vari attributi predefiniti per controllare l'associazione di mo
 
 ### <a name="bindrequired-attribute"></a>Attributo [BindRequired]
 
-Può essere applicato solo alle proprietà del modello e non ai parametri di metodo. Con questo attributo l'associazione di modelli aggiunge un errore di stato del modello se non è possibile eseguire l'associazione per una proprietà del modello. Di seguito è riportato un esempio:
+Può essere applicato solo alle proprietà del modello e non ai parametri di metodo. Con questo attributo l'associazione di modelli aggiunge un errore di stato del modello se non è possibile eseguire l'associazione per una proprietà del modello. Ad esempio:
 
 [!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Models/InstructorWithCollection.cs?name=snippet_BindRequired&highlight=8-9)]
 
 ### <a name="bindnever-attribute"></a>Attributo [BindNever]
 
-Può essere applicato solo alle proprietà del modello e non ai parametri di metodo. Impedisce all'associazione di modelli di impostare una proprietà del modello. Di seguito è riportato un esempio:
+Può essere applicato solo alle proprietà del modello e non ai parametri di metodo. Impedisce all'associazione di modelli di impostare una proprietà del modello. Ad esempio:
 
 [!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Models/InstructorWithDictionary.cs?name=snippet_BindNever&highlight=3-4)]
 
@@ -480,7 +480,7 @@ Per disabilitare la convalida per le proprietà di un tipo specificato, aggiunge
 
 ## <a name="manual-model-binding"></a>Associazione di modelli manuale 
 
-L'associazione di modelli può essere richiamata manualmente usando il metodo <xref:Microsoft.AspNetCore.Mvc.ControllerBase.TryUpdateModelAsync*>. Il metodo è definito in entrambe le classi `ControllerBase` e `PageModel`. Gli overload del metodo consentono di specificare il prefisso e il provider di valori da usare. Il metodo restituisce `false` se l'associazione di modelli non riesce. Di seguito è riportato un esempio:
+L'associazione di modelli può essere richiamata manualmente usando il metodo <xref:Microsoft.AspNetCore.Mvc.ControllerBase.TryUpdateModelAsync*>. Il metodo è definito in entrambe le classi `ControllerBase` e `PageModel`. Gli overload del metodo consentono di specificare il prefisso e il provider di valori da usare. Il metodo restituisce `false` se l'associazione di modelli non riesce. Ad esempio:
 
 [!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Pages/InstructorsWithCollection/Create.cshtml.cs?name=snippet_TryUpdate&highlight=1-4)]
 
@@ -505,7 +505,7 @@ Il nome di questo attributo segue il modello degli attributi di associazione di 
 
 Questo articolo illustra cos'è l'associazione di modelli, come funziona e come personalizzarne il comportamento.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/model-binding/samples) ([procedura per il download](xref:index#how-to-download-a-sample)).
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/model-binding/samples) ([procedura per il download](xref:index#how-to-download-a-sample)).
 
 ## <a name="what-is-model-binding"></a>Che cos'è l'associazione di modelli
 
@@ -541,7 +541,7 @@ Il framework chiama quindi il metodo `GetById`, passando 2 per il parametro `id`
 
 Nell'esempio precedente le destinazioni dell'associazione di modelli sono parametri di metodo che sono tipi semplici. Le destinazioni possono essere anche le proprietà di un tipo complesso. Dopo l'associazione di ogni proprietà, viene eseguita la [convalida dei modelli](xref:mvc/models/validation) per la proprietà. Il record dei dati associati al modello e di eventuali errori di associazione o convalida viene archiviato in [ControllerBase.ModelState](xref:Microsoft.AspNetCore.Mvc.ControllerBase.ModelState) oppure [PageModel.ModelState](xref:Microsoft.AspNetCore.Mvc.ControllerBase.ModelState). Per scoprire se questo processo ha esito positivo, l'app controlla il flag [ModelState.IsValid](xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.IsValid).
 
-## <a name="targets"></a>Destinazioni
+## <a name="targets"></a>Server di destinazione
 
 L'associazione di modelli cerca di trovare i valori per i tipi di destinazioni seguenti:
 
@@ -573,7 +573,7 @@ Per impostazione predefinita, l'associazione di modelli ottiene i dati sotto for
 
 1. Campi modulo
 1. Il corpo della richiesta (per i controller [ con l'attributo [ApiController]](xref:web-api/index#binding-source-parameter-inference).)
-1. Dati della route
+1. Indirizzare i dati
 1. Parametri della stringa di query
 1. File caricati
 
@@ -639,7 +639,7 @@ I dati di origine vengono forniti al sistema di associazione di modelli dai *pro
 * Creare una classe che implementi `IValueProviderFactory`.
 * Registrare la classe factory in `Startup.ConfigureServices`.
 
-L'app di esempio include un esempio di [provider di valori](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/2.x/ModelBindingSample/CookieValueProvider.cs) e [factory](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/2.x/ModelBindingSample/CookieValueProviderFactory.cs) che ottiene i valori dai cookie. Ecco il codice di registrazione in `Startup.ConfigureServices`:
+L'app di esempio include un esempio di [provider di valori](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/2.x/ModelBindingSample/CookieValueProvider.cs) e [factory](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/2.x/ModelBindingSample/CookieValueProviderFactory.cs) che ottiene i valori dai cookie. Ecco il codice di registrazione in `Startup.ConfigureServices`:
 
 [!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Startup.cs?name=snippet_ValueProvider&highlight=3)]
 
@@ -688,7 +688,7 @@ I tipi semplici in cui lo strumento di associazione di modelli può convertire l
 * [Enum](xref:System.ComponentModel.EnumConverter)
 * [Guid](xref:System.ComponentModel.GuidConverter)
 * [Int16](xref:System.ComponentModel.Int16Converter), [Int32](xref:System.ComponentModel.Int32Converter), [Int64](xref:System.ComponentModel.Int64Converter)
-* [Single](xref:System.ComponentModel.SingleConverter)
+* [Singolo](xref:System.ComponentModel.SingleConverter)
 * [TimeSpan](xref:System.ComponentModel.TimeSpanConverter)
 * [UInt16](xref:System.ComponentModel.UInt16Converter), [UInt32](xref:System.ComponentModel.UInt32Converter), [UInt64](xref:System.ComponentModel.UInt64Converter)
 * [Uri](xref:System.UriTypeConverter)
@@ -760,13 +760,13 @@ Sono disponibili vari attributi predefiniti per controllare l'associazione di mo
 
 ### <a name="bindrequired-attribute"></a>Attributo [BindRequired]
 
-Può essere applicato solo alle proprietà del modello e non ai parametri di metodo. Con questo attributo l'associazione di modelli aggiunge un errore di stato del modello se non è possibile eseguire l'associazione per una proprietà del modello. Di seguito è riportato un esempio:
+Può essere applicato solo alle proprietà del modello e non ai parametri di metodo. Con questo attributo l'associazione di modelli aggiunge un errore di stato del modello se non è possibile eseguire l'associazione per una proprietà del modello. Ad esempio:
 
 [!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Models/InstructorWithCollection.cs?name=snippet_BindRequired&highlight=8-9)]
 
 ### <a name="bindnever-attribute"></a>Attributo [BindNever]
 
-Può essere applicato solo alle proprietà del modello e non ai parametri di metodo. Impedisce all'associazione di modelli di impostare una proprietà del modello. Di seguito è riportato un esempio:
+Può essere applicato solo alle proprietà del modello e non ai parametri di metodo. Impedisce all'associazione di modelli di impostare una proprietà del modello. Ad esempio:
 
 [!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Models/InstructorWithDictionary.cs?name=snippet_BindNever&highlight=3-4)]
 
@@ -948,7 +948,7 @@ Per disabilitare la convalida per le proprietà di un tipo specificato, aggiunge
 
 ## <a name="manual-model-binding"></a>Associazione di modelli manuale
 
-L'associazione di modelli può essere richiamata manualmente usando il metodo <xref:Microsoft.AspNetCore.Mvc.ControllerBase.TryUpdateModelAsync*>. Il metodo è definito in entrambe le classi `ControllerBase` e `PageModel`. Gli overload del metodo consentono di specificare il prefisso e il provider di valori da usare. Il metodo restituisce `false` se l'associazione di modelli non riesce. Di seguito è riportato un esempio:
+L'associazione di modelli può essere richiamata manualmente usando il metodo <xref:Microsoft.AspNetCore.Mvc.ControllerBase.TryUpdateModelAsync*>. Il metodo è definito in entrambe le classi `ControllerBase` e `PageModel`. Gli overload del metodo consentono di specificare il prefisso e il provider di valori da usare. Il metodo restituisce `false` se l'associazione di modelli non riesce. Ad esempio:
 
 [!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Pages/InstructorsWithCollection/Create.cshtml.cs?name=snippet_TryUpdate&highlight=1-4)]
 
