@@ -1,22 +1,22 @@
 ---
 title: Middleware Riscrittura URL in ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Informazioni sulla riscrittura e il reindirizzamento di URL con il middleware Riscrittura URL nelle applicazioni ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 08/16/2019
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: e284d2172af723bb80a7be9f6e6f1a87ebe5208e
-ms.sourcegitcommit: 41f2c1a6b316e6e368a4fd27a8b18d157cef91e1
-ms.translationtype: HT
+ms.openlocfilehash: 7d63cf381f1d8a19ed4fb789348e36f94304ad63
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69886500"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666467"
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Middleware Riscrittura URL in ASP.NET Core
 
-Di [Luke Latham](https://github.com/guardrex) e [Mikael Mengistu](https://github.com/mikaelm12)
+Di [Mikael Mengistu](https://github.com/mikaelm12)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -35,7 +35,7 @@ La riscrittura URL è l'azione di modificare gli URL di richiesta in base a una 
 > [!NOTE]
 > La riscrittura URL può ridurre le prestazioni di un'app. Ove possibile, limitare il numero e la complessità delle regole.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="url-redirect-and-url-rewrite"></a>Reindirizzamento URL e riscrittura URL
 
@@ -43,7 +43,7 @@ La differenza tra i termini *reindirizzamento URL* e *riscrittura URL* è minima
 
 Un *reindirizzamento URL* implica un'operazione lato client, in cui viene richiesto al client di accedere a una risorsa a un indirizzo diverso da quello richiesto originariamente dal client. Questa operazione richiede un round trip al server. L'URL di reindirizzamento restituito al client viene visualizzato nella barra degli indirizzi del browser quando il client effettua una nuova richiesta per la risorsa.
 
-In caso di *reindirizzamento* di `/resource` a `/different-resource`, il server risponde che il client deve ottenere la risorsa presso `/different-resource` con un codice di stato che indica se il reindirizzamento è temporaneo o permanente.
+In caso di `/resource`reindirizzamento*di* a `/different-resource`, il server risponde che il client deve ottenere la risorsa presso `/different-resource` con un codice di stato che indica se il reindirizzamento è temporaneo o permanente.
 
 ![Un endpoint di servizio WebAPI è stato modificato temporaneamente dalla versione 1 (v1) alla versione 2 (v2) nel server. Un client esegue una richiesta al servizio nel percorso della versione 1, ovvero /v1/api. Il server restituisce una risposta 302 (Trovato) con il nuovo percorso temporaneo del servizio versione 2, ovvero /v2/api. Il client esegue una seconda richiesta al servizio all'URL di reindirizzamento. Il server risponde con un codice di stato 200 (OK).](url-rewriting/_static/url_redirect.png)
 
@@ -53,7 +53,7 @@ Quando si reindirizzano le richieste a un URL diverso, indicare se il reindirizz
 
 * Il codice di stato *302 - Trovato* viene usato quando il reindirizzamento è temporaneo o comunque soggetto a modifiche. Il codice di stato 302 indica che il client non dovrà archiviare e riusare l'URL di reindirizzamento in futuro.
 
-Per altre informazioni sui codici di stato, vedere [RFC 2616: Status Code Definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) (RFC: Definizioni dei codici di stato).
+Per altre informazioni sui codici di stato, vedere [RFC 2616: Status Code Definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) (RFC 2616: Definizioni dei codici di stato).
 
 La *riscrittura URL* è un'operazione lato server che rende disponibile una risorsa da un indirizzo diverso da quello richiesto dal client. La riscrittura URL non richiede un round trip al server. L'URL riscritto non viene restituito al client e non viene visualizzato nella barra degli indirizzi del browser.
 
@@ -65,7 +65,7 @@ Anche se il client fosse in grado di recuperare la risorsa nell'URL riscritto, n
 
 ## <a name="url-rewriting-sample-app"></a>App di esempio per la riscrittura URL
 
-È possibile esplorare le funzionalità del middleware Riscrittura URL con l'[app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/). L'app applica regole di reindirizzamento e riscrittura e visualizza l'URL reindirizzato o riscritto per diversi scenari.
+È possibile esplorare le funzionalità del middleware Riscrittura URL con l'[app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/). L'app applica regole di reindirizzamento e riscrittura e visualizza l'URL reindirizzato o riscritto per diversi scenari.
 
 ## <a name="when-to-use-url-rewriting-middleware"></a>Quando usare il middleware Riscrittura URL
 
@@ -100,11 +100,11 @@ Il middleware di riscrittura URL è fornito dal pacchetto [Microsoft.AspNetCore.
 
 Sono disponibili tre opzioni che consentono all'app di reindirizzare richieste non-`www` su `www`:
 
-* <xref:Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions.AddRedirectToWwwPermanent*> &ndash; Reindirizza in modo permanente la richiesta al sottodominio `www` se la richiesta è non `www`. Reindirizza con un codice di stato [Status308PermanentRedirect](xref:Microsoft.AspNetCore.Http.StatusCodes.Status308PermanentRedirect).
+* <xref:Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions.AddRedirectToWwwPermanent*> &ndash; reindirizza definitivamente la richiesta al sottodominio `www` se la richiesta non è`www`. Reindirizza con un codice di stato [Status308PermanentRedirect](xref:Microsoft.AspNetCore.Http.StatusCodes.Status308PermanentRedirect).
 
-* <xref:Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions.AddRedirectToWww*> &ndash; Reindirizza la richiesta al sottodominio `www` se la richiesta in ingresso è non `www`. Reindirizza con un codice di stato [Status307TemporaryRedirect](xref:Microsoft.AspNetCore.Http.StatusCodes.Status307TemporaryRedirect). Un overload consente di specificare il codice di stato per la risposta. Usare un campo della classe <xref:Microsoft.AspNetCore.Http.StatusCodes> per un'assegnazione di codice di stato.
+* <xref:Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions.AddRedirectToWww*> &ndash; reindirizza la richiesta al sottodominio `www` se la richiesta in ingresso è non`www`. Reindirizza con un codice di stato [Status307TemporaryRedirect](xref:Microsoft.AspNetCore.Http.StatusCodes.Status307TemporaryRedirect). Un overload consente di specificare il codice di stato per la risposta. Usare un campo della classe <xref:Microsoft.AspNetCore.Http.StatusCodes> per un'assegnazione di codice di stato.
 
-### <a name="url-redirect"></a>Renidirizzamento URL
+### <a name="url-redirect"></a>Reindirizzamento URL
 
 Per reindirizzare le richieste, usare <xref:Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions.AddRedirect*>. Il primo parametro contiene l'espressione regolare per la corrispondenza in base al percorso dell'URL in ingresso. Il secondo parametro è la stringa di sostituzione. Il terzo parametro, se presente, specifica il codice di stato. Se il codice di stato non è specificato, assume come valore predefinito *302 - Trovato*, che indica che la risorsa è stata temporaneamente spostata o sostituita.
 
@@ -186,15 +186,15 @@ L'accento circonflesso (`^`) all'inizio dell'espressione indica che la corrispon
 
 Nell'esempio precedente della regola di reindirizzamento `redirect-rule/(.*)`, non è presente l'accento circonflesso (`^`) all'inizio dell'espressione regolare. È quindi possibile ottenere una corrispondenza anteponendo qualsiasi carattere a `redirect-rule/`.
 
-| Path                               | Corrispondenza con |
+| Path                               | Corrispondente |
 | ---------------------------------- | :---: |
 | `/redirect-rule/1234/5678`         | Sì   |
-| `/my-cool-redirect-rule/1234/5678` | Yes   |
+| `/my-cool-redirect-rule/1234/5678` | Sì   |
 | `/anotherredirect-rule/1234/5678`  | Sì   |
 
 La regola di riscrittura, `^rewrite-rule/(\d+)/(\d+)`, rileva la corrispondenza dei percorsi solo se iniziano con `rewrite-rule/`. Nella tabella seguente, si noti la differenza nella corrispondenza.
 
-| Path                              | Corrispondenza con |
+| Path                              | Corrispondente |
 | --------------------------------- | :---: |
 | `/rewrite-rule/1234/5678`         | Sì   |
 | `/my-cool-rewrite-rule/1234/5678` | No    |
@@ -214,7 +214,7 @@ Non viene eseguito alcun round trip al server per ottenere la risorsa. Se la ris
 
 Applicare le regole del modulo Apache mod_rewrite con <xref:Microsoft.AspNetCore.Rewrite.ApacheModRewriteOptionsExtensions.AddApacheModRewrite*>. Assicurarsi che il file delle regole venga distribuito con l'app. Per altre informazioni ed esempi di regole mod_rewrite, vedere [Modulo Apache mod_rewrite](https://httpd.apache.org/docs/2.4/rewrite/).
 
-Per leggere le regole del file di regole *ApacheModRewrite.txt* si usa <xref:System.IO.StreamReader>:
+Per leggere le regole del file di regole <xref:System.IO.StreamReader>ApacheModRewrite.txt*si usa*:
 
 [!code-csharp[](url-rewriting/samples/3.x/SampleApp/Startup.cs?name=snippet1&highlight=3-4,12)]
 
@@ -262,7 +262,7 @@ Il middleware supporta le seguenti variabili server del modulo Apache mod_rewrit
 
 Per usare lo stesso set di regole applicabile a IIS URL Rewrite Module, usare <xref:Microsoft.AspNetCore.Rewrite.IISUrlRewriteOptionsExtensions.AddIISUrlRewrite*>. Assicurarsi che il file delle regole venga distribuito con l'app. Non indirizzare il middleware all'uso del file *web.config* dell'app quando è in esecuzione in Windows Server IIS. Con IIS queste regole devono essere archiviate al di fuori del file *web.config* dell'app, per evitare conflitti con il modulo IIS Rewrite. Per altre informazioni ed esempi di regole di IIS URL Rewrite Module, vedere [Using URL Rewrite Module 2.0](/iis/extensions/url-rewrite-module/using-url-rewrite-module-20) (Uso di URL Rewrite Module 2.0) e [URL Rewrite Module Configuration Reference](/iis/extensions/url-rewrite-module/url-rewrite-module-configuration-reference) (Guida di riferimento per la configurazione di URL Rewrite Module).
 
-Per leggere le regole del file di regole *IISUrlRewrite.xml* si usa un <xref:System.IO.StreamReader>:
+Per leggere le regole del file di regole <xref:System.IO.StreamReader>IISUrlRewrite.xml*si usa un*:
 
 [!code-csharp[](url-rewriting/samples/3.x/SampleApp/Startup.cs?name=snippet1&highlight=5-6,13)]
 
@@ -317,7 +317,7 @@ Il middleware supporta le seguenti variabili server di IIS URL Rewrite Module:
 
 Usare <xref:Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions.Add*> per implementare logica della regola personalizzata in un metodo. `Add` espone <xref:Microsoft.AspNetCore.Rewrite.RewriteContext>, che rende disponibile <xref:Microsoft.AspNetCore.Http.HttpContext> per l'uso nel metodo. [RewriteContext.Result](xref:Microsoft.AspNetCore.Rewrite.RewriteContext.Result*) determina la modalità di gestione dell'elaborazione pipeline aggiuntiva. Impostare il valore su uno dei campi <xref:Microsoft.AspNetCore.Rewrite.RuleResult> descritti nella tabella seguente.
 
-| `RewriteContext.Result`              | Operazione                                                           |
+| `RewriteContext.Result`              | Azione                                                           |
 | ------------------------------------ | ---------------------------------------------------------------- |
 | `RuleResult.ContinueRules` (impostazione predefinita) | Continuare ad applicare le regole.                                         |
 | `RuleResult.EndResponse`             | Interrompere l'applicazione delle regole e inviare la risposta.                       |
@@ -387,7 +387,7 @@ La riscrittura URL è l'azione di modificare gli URL di richiesta in base a una 
 > [!NOTE]
 > La riscrittura URL può ridurre le prestazioni di un'app. Ove possibile, limitare il numero e la complessità delle regole.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="url-redirect-and-url-rewrite"></a>Reindirizzamento URL e riscrittura URL
 
@@ -395,7 +395,7 @@ La differenza tra i termini *reindirizzamento URL* e *riscrittura URL* è minima
 
 Un *reindirizzamento URL* implica un'operazione lato client, in cui viene richiesto al client di accedere a una risorsa a un indirizzo diverso da quello richiesto originariamente dal client. Questa operazione richiede un round trip al server. L'URL di reindirizzamento restituito al client viene visualizzato nella barra degli indirizzi del browser quando il client effettua una nuova richiesta per la risorsa.
 
-In caso di *reindirizzamento* di `/resource` a `/different-resource`, il server risponde che il client deve ottenere la risorsa presso `/different-resource` con un codice di stato che indica se il reindirizzamento è temporaneo o permanente.
+In caso di `/resource`reindirizzamento*di* a `/different-resource`, il server risponde che il client deve ottenere la risorsa presso `/different-resource` con un codice di stato che indica se il reindirizzamento è temporaneo o permanente.
 
 ![Un endpoint di servizio WebAPI è stato modificato temporaneamente dalla versione 1 (v1) alla versione 2 (v2) nel server. Un client esegue una richiesta al servizio nel percorso della versione 1, ovvero /v1/api. Il server restituisce una risposta 302 (Trovato) con il nuovo percorso temporaneo del servizio versione 2, ovvero /v2/api. Il client esegue una seconda richiesta al servizio all'URL di reindirizzamento. Il server risponde con un codice di stato 200 (OK).](url-rewriting/_static/url_redirect.png)
 
@@ -405,7 +405,7 @@ Quando si reindirizzano le richieste a un URL diverso, indicare se il reindirizz
 
 * Il codice di stato *302 - Trovato* viene usato quando il reindirizzamento è temporaneo o comunque soggetto a modifiche. Il codice di stato 302 indica che il client non dovrà archiviare e riusare l'URL di reindirizzamento in futuro.
 
-Per altre informazioni sui codici di stato, vedere [RFC 2616: Status Code Definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) (RFC: Definizioni dei codici di stato).
+Per altre informazioni sui codici di stato, vedere [RFC 2616: Status Code Definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) (RFC 2616: Definizioni dei codici di stato).
 
 La *riscrittura URL* è un'operazione lato server che rende disponibile una risorsa da un indirizzo diverso da quello richiesto dal client. La riscrittura URL non richiede un round trip al server. L'URL riscritto non viene restituito al client e non viene visualizzato nella barra degli indirizzi del browser.
 
@@ -417,7 +417,7 @@ Anche se il client fosse in grado di recuperare la risorsa nell'URL riscritto, n
 
 ## <a name="url-rewriting-sample-app"></a>App di esempio per la riscrittura URL
 
-È possibile esplorare le funzionalità del middleware Riscrittura URL con l'[app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/). L'app applica regole di reindirizzamento e riscrittura e visualizza l'URL reindirizzato o riscritto per diversi scenari.
+È possibile esplorare le funzionalità del middleware Riscrittura URL con l'[app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/). L'app applica regole di reindirizzamento e riscrittura e visualizza l'URL reindirizzato o riscritto per diversi scenari.
 
 ## <a name="when-to-use-url-rewriting-middleware"></a>Quando usare il middleware Riscrittura URL
 
@@ -454,11 +454,11 @@ Se non si usa il metapacchetto `Microsoft.AspNetCore.App`, aggiungere un riferim
 
 Sono disponibili tre opzioni che consentono all'app di reindirizzare richieste non-`www` su `www`:
 
-* <xref:Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions.AddRedirectToWwwPermanent*> &ndash; Reindirizza in modo permanente la richiesta al sottodominio `www` se la richiesta è non `www`. Reindirizza con un codice di stato [Status308PermanentRedirect](xref:Microsoft.AspNetCore.Http.StatusCodes.Status308PermanentRedirect).
+* <xref:Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions.AddRedirectToWwwPermanent*> &ndash; reindirizza definitivamente la richiesta al sottodominio `www` se la richiesta non è`www`. Reindirizza con un codice di stato [Status308PermanentRedirect](xref:Microsoft.AspNetCore.Http.StatusCodes.Status308PermanentRedirect).
 
-* <xref:Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions.AddRedirectToWww*> &ndash; Reindirizza la richiesta al sottodominio `www` se la richiesta in ingresso è non `www`. Reindirizza con un codice di stato [Status307TemporaryRedirect](xref:Microsoft.AspNetCore.Http.StatusCodes.Status307TemporaryRedirect). Un overload consente di specificare il codice di stato per la risposta. Usare un campo della classe <xref:Microsoft.AspNetCore.Http.StatusCodes> per un'assegnazione di codice di stato.
+* <xref:Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions.AddRedirectToWww*> &ndash; reindirizza la richiesta al sottodominio `www` se la richiesta in ingresso è non`www`. Reindirizza con un codice di stato [Status307TemporaryRedirect](xref:Microsoft.AspNetCore.Http.StatusCodes.Status307TemporaryRedirect). Un overload consente di specificare il codice di stato per la risposta. Usare un campo della classe <xref:Microsoft.AspNetCore.Http.StatusCodes> per un'assegnazione di codice di stato.
 
-### <a name="url-redirect"></a>Renidirizzamento URL
+### <a name="url-redirect"></a>Reindirizzamento URL
 
 Per reindirizzare le richieste, usare <xref:Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions.AddRedirect*>. Il primo parametro contiene l'espressione regolare per la corrispondenza in base al percorso dell'URL in ingresso. Il secondo parametro è la stringa di sostituzione. Il terzo parametro, se presente, specifica il codice di stato. Se il codice di stato non è specificato, assume come valore predefinito *302 - Trovato*, che indica che la risorsa è stata temporaneamente spostata o sostituita.
 
@@ -540,15 +540,15 @@ L'accento circonflesso (`^`) all'inizio dell'espressione indica che la corrispon
 
 Nell'esempio precedente della regola di reindirizzamento `redirect-rule/(.*)`, non è presente l'accento circonflesso (`^`) all'inizio dell'espressione regolare. È quindi possibile ottenere una corrispondenza anteponendo qualsiasi carattere a `redirect-rule/`.
 
-| Path                               | Corrispondenza con |
+| Path                               | Corrispondente |
 | ---------------------------------- | :---: |
 | `/redirect-rule/1234/5678`         | Sì   |
-| `/my-cool-redirect-rule/1234/5678` | Yes   |
+| `/my-cool-redirect-rule/1234/5678` | Sì   |
 | `/anotherredirect-rule/1234/5678`  | Sì   |
 
 La regola di riscrittura, `^rewrite-rule/(\d+)/(\d+)`, rileva la corrispondenza dei percorsi solo se iniziano con `rewrite-rule/`. Nella tabella seguente, si noti la differenza nella corrispondenza.
 
-| Path                              | Corrispondenza con |
+| Path                              | Corrispondente |
 | --------------------------------- | :---: |
 | `/rewrite-rule/1234/5678`         | Sì   |
 | `/my-cool-rewrite-rule/1234/5678` | No    |
@@ -568,7 +568,7 @@ Non viene eseguito alcun round trip al server per ottenere la risorsa. Se la ris
 
 Applicare le regole del modulo Apache mod_rewrite con <xref:Microsoft.AspNetCore.Rewrite.ApacheModRewriteOptionsExtensions.AddApacheModRewrite*>. Assicurarsi che il file delle regole venga distribuito con l'app. Per altre informazioni ed esempi di regole mod_rewrite, vedere [Modulo Apache mod_rewrite](https://httpd.apache.org/docs/2.4/rewrite/).
 
-Per leggere le regole del file di regole *ApacheModRewrite.txt* si usa <xref:System.IO.StreamReader>:
+Per leggere le regole del file di regole <xref:System.IO.StreamReader>ApacheModRewrite.txt*si usa*:
 
 [!code-csharp[](url-rewriting/samples/2.x/SampleApp/Startup.cs?name=snippet1&highlight=3-4,12)]
 
@@ -616,7 +616,7 @@ Il middleware supporta le seguenti variabili server del modulo Apache mod_rewrit
 
 Per usare lo stesso set di regole applicabile a IIS URL Rewrite Module, usare <xref:Microsoft.AspNetCore.Rewrite.IISUrlRewriteOptionsExtensions.AddIISUrlRewrite*>. Assicurarsi che il file delle regole venga distribuito con l'app. Non indirizzare il middleware all'uso del file *web.config* dell'app quando è in esecuzione in Windows Server IIS. Con IIS queste regole devono essere archiviate al di fuori del file *web.config* dell'app, per evitare conflitti con il modulo IIS Rewrite. Per altre informazioni ed esempi di regole di IIS URL Rewrite Module, vedere [Using URL Rewrite Module 2.0](/iis/extensions/url-rewrite-module/using-url-rewrite-module-20) (Uso di URL Rewrite Module 2.0) e [URL Rewrite Module Configuration Reference](/iis/extensions/url-rewrite-module/url-rewrite-module-configuration-reference) (Guida di riferimento per la configurazione di URL Rewrite Module).
 
-Per leggere le regole del file di regole *IISUrlRewrite.xml* si usa un <xref:System.IO.StreamReader>:
+Per leggere le regole del file di regole <xref:System.IO.StreamReader>IISUrlRewrite.xml*si usa un*:
 
 [!code-csharp[](url-rewriting/samples/2.x/SampleApp/Startup.cs?name=snippet1&highlight=5-6,13)]
 
@@ -671,7 +671,7 @@ Il middleware supporta le seguenti variabili server di IIS URL Rewrite Module:
 
 Usare <xref:Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions.Add*> per implementare logica della regola personalizzata in un metodo. `Add` espone <xref:Microsoft.AspNetCore.Rewrite.RewriteContext>, che rende disponibile <xref:Microsoft.AspNetCore.Http.HttpContext> per l'uso nel metodo. [RewriteContext.Result](xref:Microsoft.AspNetCore.Rewrite.RewriteContext.Result*) determina la modalità di gestione dell'elaborazione pipeline aggiuntiva. Impostare il valore su uno dei campi <xref:Microsoft.AspNetCore.Rewrite.RuleResult> descritti nella tabella seguente.
 
-| `RewriteContext.Result`              | Operazione                                                           |
+| `RewriteContext.Result`              | Azione                                                           |
 | ------------------------------------ | ---------------------------------------------------------------- |
 | `RuleResult.ContinueRules` (impostazione predefinita) | Continuare ad applicare le regole.                                         |
 | `RuleResult.EndResponse`             | Interrompere l'applicazione delle regole e inviare la risposta.                       |

@@ -9,11 +9,11 @@ no-loc:
 - SignalR
 uid: client-side/using-browserlink
 ms.openlocfilehash: 19cc3c2ed91bd9e05df3c036123c78ecbf81fcc0
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828270"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658851"
 ---
 # <a name="browser-link-in-aspnet-core"></a>Browser Link in ASP.NET Core
 
@@ -47,7 +47,7 @@ Il modello di progetto **applicazione Web** ASP.NET Core 1. x include un riferim
 
 ::: moniker-end
 
-### <a name="configuration"></a>Configurazione di
+### <a name="configuration"></a>Configurazione
 
 Chiamare `UseBrowserLink` nel metodo `Startup.Configure`:
 
@@ -65,7 +65,7 @@ if (env.IsDevelopment())
 }
 ```
 
-Per ulteriori informazioni, vedere <xref:fundamentals/environments>.
+Per altre informazioni, vedere <xref:fundamentals/environments>.
 
 ## <a name="how-to-use-browser-link"></a>Come usare Browser Link
 

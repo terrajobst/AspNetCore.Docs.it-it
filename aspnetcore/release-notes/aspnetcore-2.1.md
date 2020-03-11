@@ -8,12 +8,12 @@ ms.date: 12/05/2019
 no-loc:
 - SignalR
 uid: aspnetcore-2.1
-ms.openlocfilehash: 57fe6c4e32ad666987c782fac75ddb19e3d3b5c7
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: af5807b782d4acec8c7d40111dc508dfa6127057
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829140"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667545"
 ---
 # <a name="whats-new-in-aspnet-core-21"></a>Novità di ASP.NET Core 2.1
 
@@ -51,9 +51,9 @@ Per altre informazioni, vedere [Scaffold Identity in ASP.NET Core projects](xref
 
 ## <a name="https"></a>HTTPS
 
-Vista la maggiore attenzione rivolta a sicurezza e privacy, è importante abilitare HTTPS per le app Web. L'imposizione HTTPS sta diventando sempre più rigida sul Web. I siti che non utilizzano HTTPS sono considerati non sicuri. Alcuni browser come Chromium e Mozilla hanno iniziato a imporre che le funzionalità Web siano usate da un contesto protetto. Il [Regolamento generale sulla protezione dei dati (GDPR) ](xref:security/gdpr) richiede l'uso di HTTPS per proteggere la privacy degli utenti. Usare HTTPS nell'ambiente di produzione è una questione critica, usarlo nell'ambiente di sviluppo può invece prevenire problemi di distribuzione, ad esempio collegamenti non sicuri. ASP.NET Core 2.1 include numerosi miglioramenti che semplificano l'uso di HTTPS nell'ambiente di sviluppo e la configurazione di HTTPS nell'ambiente di produzione. Per altre informazioni, vedere [Imporre HTTPS](xref:security/enforcing-ssl).
+Vista la maggiore attenzione rivolta a sicurezza e privacy, è importante abilitare HTTPS per le app Web. L'imposizione HTTPS sta diventando sempre più rigida sul Web. I siti che non utilizzano HTTPS sono considerati non sicuri. Alcuni browser come Chromium e Mozilla hanno iniziato a imporre che le funzionalità Web siano usate da un contesto protetto. Il [Regolamento generale sulla protezione dei dati (GDPR) ](xref:security/gdpr) richiede l'uso di HTTPS per proteggere la privacy degli utenti. Usare HTTPS nell'ambiente di produzione è una questione critica, usarlo nell'ambiente di sviluppo può invece prevenire problemi di distribuzione, ad esempio collegamenti non sicuri. ASP.NET Core 2.1 include numerosi miglioramenti che semplificano l'uso di HTTPS nell'ambiente di sviluppo e la configurazione di HTTPS nell'ambiente di produzione. Per altre informazioni, vedere [Applicare HTTPS](xref:security/enforcing-ssl).
 
-### <a name="on-by-default"></a>Abilitazione predefinita
+### <a name="on-by-default"></a>Attivato per impostazione predefinita
 
 Per semplificare lo sviluppo di siti Web sicuri, HTTPS è ora abilitato per impostazione predefinita. A partire dalla versione 2.1, Kestrel è in ascolto su `https://localhost:5001` quando è disponibile un certificato di sviluppo locale. Viene creato un certificato di sviluppo nei casi seguenti:
 
@@ -77,7 +77,7 @@ Nell'ambiente di produzione, HTTPS deve essere configurato in modo esplicito. Ne
 
 ## <a name="gdpr"></a>GDPR
 
-ASP.NET Core offre API e modelli con cui è possibile soddisfare alcuni dei requisiti del [GDPR](https://www.eugdpr.org/). Per altre informazioni, vedere [Supporto per il Regolamento generale sulla protezione dei dati in ASP.NET Core](xref:security/gdpr). L'[app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/security/gdpr/sample) illustra come usare e testare molte delle API e dei punti di estensione del GDPR aggiunti nei modelli ASP.NET Core 2.1.
+ASP.NET Core offre API e modelli con cui è possibile soddisfare alcuni dei requisiti del [GDPR](https://www.eugdpr.org/). Per altre informazioni, vedere [Supporto per il Regolamento generale sulla protezione dei dati in ASP.NET Core](xref:security/gdpr). L'[app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/live/aspnetcore/security/gdpr/sample) illustra come usare e testare molte delle API e dei punti di estensione del GDPR aggiunti nei modelli ASP.NET Core 2.1.
 
 ## <a name="integration-tests"></a>Test di integrazione
 
@@ -169,7 +169,7 @@ Razor Pages ora supporta le [aree](xref:mvc/controllers/areas). Per visualizzare
 
 Il metodo <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> consente a un'app di acconsentire o rifiutare esplicitamente modifiche potenzialmente importanti del comportamento introdotte in ASP.NET Core MVC 2.1 o versioni successive.
 
-Per ulteriori informazioni, vedere <xref:mvc/compatibility-version>.
+Per altre informazioni, vedere <xref:mvc/compatibility-version>.
 
 ## <a name="migrate-from-20-to-21"></a>Eseguire la migrazione dalla versione 2.0 alla versione 2.1
 

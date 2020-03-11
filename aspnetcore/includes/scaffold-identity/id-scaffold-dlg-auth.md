@@ -2,7 +2,7 @@
 
 Eseguire l'impalcatura delle identità:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Da **Esplora soluzioni**, fare clic con il pulsante destro del mouse sul progetto > **Aggiungi** > **nuovo elemento con impalcatura**.
 * Dal riquadro sinistro della finestra di dialogo **Aggiungi impalcatura** selezionare **Identity** > **Aggiungi**.
@@ -14,12 +14,12 @@ Eseguire l'impalcatura delle identità:
   * Selezionare la classe del contesto dati.
   * Selezionare **Aggiungi**.
 * Per creare un nuovo contesto utente ed eventualmente creare una classe utente personalizzata per l'identità:
-  * Selezionare il **+** per creare un nuovo pulsante **classe contesto dati**.
+  * Selezionare il pulsante **+** per creare una nuova **classe del contesto dati**.
   * Selezionare **Aggiungi**.
 
 Nota: se si sta creando un nuovo contesto utente, non è necessario selezionare un file di cui eseguire l'override.
 
-# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 
 Se l'utilità di scaffolding di ASP.NET Core non è stato precedentemente installato, installarlo ora:
 
@@ -68,7 +68,7 @@ Se si esegue l'impalcatura delle identità senza specificare il flag di `--files
 
 Eseguire l'impalcatura delle identità:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Da **Esplora soluzioni**, fare clic con il pulsante destro del mouse sul progetto > **Aggiungi** > **nuovo elemento con impalcatura**.
 * Dal riquadro sinistro della finestra di dialogo **Aggiungi impalcatura** selezionare **Identity** > **Aggiungi**.
@@ -80,12 +80,12 @@ Eseguire l'impalcatura delle identità:
   * Selezionare la classe del contesto dati.
   * Selezionare **Aggiungi**.
 * Per creare un nuovo contesto utente ed eventualmente creare una classe utente personalizzata per l'identità:
-  * Selezionare il **+** per creare un nuovo pulsante **classe contesto dati**.
+  * Selezionare il pulsante **+** per creare una nuova **classe del contesto dati**.
   * Selezionare **Aggiungi**.
 
 Nota: se si sta creando un nuovo contesto utente, non è necessario selezionare un file di cui eseguire l'override.
 
-# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 
 Se l'utilità di scaffolding di ASP.NET Core non è stato precedentemente installato, installarlo ora:
 

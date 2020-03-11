@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 02/02/2020
 uid: web-api/index
-ms.openlocfilehash: 3dca07db3d6be4ab219a2e05e3adcf1b24ee5c40
-ms.sourcegitcommit: 80286715afb93c4d13c931b008016d6086c0312b
+ms.openlocfilehash: be88b8d58f1f660f3a815c395c210c05a7b4917c
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77074510"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666005"
 ---
 # <a name="create-web-apis-with-aspnet-core"></a>Creare API Web con ASP.NET Core
 
@@ -20,7 +20,7 @@ Di [Scott Addie](https://github.com/scottaddie) e [Tom Dykstra](https://github.c
 
 ASP.NET Core supporta la creazione di servizi RESTful, noti anche come API Web, con C#. Per gestire le richieste, un'API Web usa i controller. I *controller* in un'API Web sono classi che derivano da `ControllerBase`. Questo articolo illustra come usare i controller per gestire le richieste API Web.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/index/samples). ([Come scaricare un esempio](xref:index#how-to-download-a-sample)).
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/index/samples). ([Come scaricare un esempio](xref:index#how-to-download-a-sample)).
 
 ## <a name="controllerbase-class"></a>Classe ControllerBase
 
@@ -56,7 +56,7 @@ Di seguito sono elencati alcuni esempi di metodi forniti da `ControllerBase`.
 
 Per un elenco di tutti i metodi e proprietà disponibili, vedere <xref:Microsoft.AspNetCore.Mvc.ControllerBase>.
 
-## <a name="attributes"></a>Attributi
+## <a name="attributes"></a>Attributes
 
 Lo spazio dei nomi <xref:Microsoft.AspNetCore.Mvc> include attributi che possono essere usati per configurare il comportamento del controller di API Web e i metodi di azione. Nell'esempio seguente vengono utilizzati gli attributi per specificare il verbo di azione HTTP supportato e i codici di stato HTTP noti che possono essere restituiti:
 
@@ -156,7 +156,7 @@ namespace WebApiSample
 
 ## <a name="attribute-routing-requirement"></a>Requisiti del routing degli attributi
 
-Con l'attributo `[ApiController]` il routing degli attributi è un requisito. Ad esempio,
+Con l'attributo `[ApiController]` il routing degli attributi è un requisito. Ad esempio:
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -226,7 +226,7 @@ Tipo di `ValidationProblemDetails`:
 
 ### <a name="log-automatic-400-responses"></a>Registrare le risposte 400 automatiche
 
-Vedere [How to log automatic 400 responses on model validation errors (aspnet/AspNetCore.Docs #12157)](https://github.com/aspnet/AspNetCore.Docs/issues/12157) (Come registrare le risposte 400 automatiche negli errori di convalida del modello - aspnet/AspNetCore.Docs 12157).
+Vedere [How to log automatic 400 responses on model validation errors (aspnet/AspNetCore.Docs #12157)](https://github.com/dotnet/AspNetCore.Docs/issues/12157) (Come registrare le risposte 400 automatiche negli errori di convalida del modello - aspnet/AspNetCore.Docs 12157).
 
 ### <a name="disable-automatic-400-response"></a>Disabilitare la risposta automatica 400
 
@@ -256,7 +256,7 @@ Un attributo di origine di associazione definisce la posizione in cui viene trov
 
 |Attributo|Origine di associazione |
 |---------|---------|
-|[`[FromBody]`](xref:Microsoft.AspNetCore.Mvc.FromBodyAttribute)     | Testo della richiesta |
+|[`[FromBody]`](xref:Microsoft.AspNetCore.Mvc.FromBodyAttribute)     | Corpo della richiesta |
 |[`[FromForm]`](xref:Microsoft.AspNetCore.Mvc.FromFormAttribute)     | Dati di modulo nel corpo della richiesta |
 |[`[FromHeader]`](xref:Microsoft.AspNetCore.Mvc.FromHeaderAttribute) | Intestazione della richiesta |
 |[`[FromQuery]`](xref:Microsoft.AspNetCore.Mvc.FromQueryAttribute)   | Parametri della stringa di query della richiesta |
@@ -369,7 +369,7 @@ Si consideri il codice seguente in un'azione del controller:
 
 [!code-csharp[](index/samples/2.x/2.2/Controllers/PetsController.cs?name=snippet_ProblemDetailsStatusCode)]
 
-Il metodo `NotFound` genera un codice di stato HTTP 404 con un corpo `ProblemDetails`. Ad esempio,
+Il metodo `NotFound` genera un codice di stato HTTP 404 con un corpo `ProblemDetails`. Ad esempio:
 
 ```json
 {
@@ -382,7 +382,7 @@ Il metodo `NotFound` genera un codice di stato HTTP 404 con un corpo `ProblemDet
 
 ### <a name="disable-problemdetails-response"></a>Disabilitare la risposta ProblemDetails
 
-La creazione automatica di un'istanza di `ProblemDetails` viene disabilitata quando la proprietà <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressMapClientErrors%2A> è impostata su `true`. Aggiungere il codice seguente a `Startup.ConfigureServices`:
+La creazione automatica di un `ProblemDetails` per i codici di stato di errore è disabilitata quando la proprietà <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressMapClientErrors%2A> è impostata su `true`. Aggiungere il codice seguente a `Startup.ConfigureServices`:
 
 ::: moniker-end
 

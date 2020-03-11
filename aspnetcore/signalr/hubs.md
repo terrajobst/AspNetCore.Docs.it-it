@@ -9,24 +9,24 @@ ms.date: 01/16/2020
 no-loc:
 - SignalR
 uid: signalr/hubs
-ms.openlocfilehash: e5bc12c5ccafe2b5273d72e6bde0f631ca043428
-ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
+ms.openlocfilehash: 54ffd8614c1cec4cfeba0878e910ed25fc6ba7d2
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294632"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78662953"
 ---
-# <a name="use-hubs-in-opno-locsignalr-for-aspnet-core"></a>Usare gli hub in SignalR per ASP.NET Core
+# <a name="use-hubs-in-signalr-for-aspnet-core"></a>Usare gli hub in SignalR per ASP.NET Core
 
 Di [Rachel Appel](https://twitter.com/rachelappel) e [Kevin Griffin](https://twitter.com/1kevgriff)
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/hubs/sample/ ) [(procedura per il download)](xref:index#how-to-download-a-sample)
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/hubs/sample/ ) [(procedura per il download)](xref:index#how-to-download-a-sample)
 
-## <a name="what-is-a-opno-locsignalr-hub"></a>Che cos'è un hub SignalR
+## <a name="what-is-a-signalr-hub"></a>Che cos'è un hub SignalR
 
-L'API SignalR Hub consente di chiamare i metodi sui client connessi dal server. Nel codice del server si definiscono i metodi che vengono chiamati dal client. Nel codice client è possibile definire metodi che vengono chiamati dal server. SignalR gestisce tutti gli elementi dietro le quinte che rendono possibili le comunicazioni da client a server e da server a client in tempo reale.
+L'API degli hub SignalR consente di chiamare i metodi sui client connessi dal server. Nel codice del server si definiscono i metodi che vengono chiamati dal client. Nel codice client è possibile definire metodi che vengono chiamati dal server. SignalR si occupa di tutto ciò che rende possibile le comunicazioni tra client e server in tempo reale e da server a client.
 
-## <a name="configure-opno-locsignalr-hubs"></a>Configurare gli hub SignalR
+## <a name="configure-signalr-hubs"></a>Configurare gli hub SignalR
 
 Il middleware SignalR richiede alcuni servizi, che vengono configurati chiamando `services.AddSignalR`.
 
@@ -34,7 +34,7 @@ Il middleware SignalR richiede alcuni servizi, che vengono configurati chiamando
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Quando si aggiungono SignalR funzionalità a un'app ASP.NET Core, il programma di installazione SignalR le route chiamando `endpoint.MapHub` nel callback `Startup.Configure` del metodo `app.UseEndpoints`.
+Quando si aggiungono funzionalità SignalR a un'app ASP.NET Core, configurare le route SignalR chiamando `endpoint.MapHub` nel callback `app.UseEndpoints` del metodo `Startup.Configure`.
 
 ```csharp
 app.UseRouting();
@@ -48,7 +48,7 @@ app.UseEndpoints(endpoints =>
 
 ::: moniker range="<= aspnetcore-2.2"
 
-Quando si aggiungono SignalR funzionalità a un'app ASP.NET Core, il programma di installazione SignalR le route chiamando `app.UseSignalR` nel metodo `Startup.Configure`.
+Quando si aggiungono funzionalità SignalR a un'app ASP.NET Core, configurare le route SignalR chiamando `app.UseSignalR` nel metodo `Startup.Configure`.
 
 [!code-csharp[Configure routes to hubs](hubs/sample/startup.cs?range=57-60)]
 
@@ -80,9 +80,9 @@ public class ChatHub : Hub
 
 La classe `Hub` dispone di una proprietà `Context` che contiene le proprietà seguenti con le informazioni sulla connessione:
 
-| Gli | Descrizione |
+| Proprietà | Descrizione |
 | ------ | ----------- |
-| `ConnectionId` | Ottiene l'ID univoco per la connessione, assegnato dal SignalR. È presente un ID di connessione per ogni connessione.|
+| `ConnectionId` | Ottiene l'ID univoco per la connessione, assegnato da SignalR. È presente un ID di connessione per ogni connessione.|
 | `UserIdentifier` | Ottiene l' [identificatore utente](xref:signalr/groups). Per impostazione predefinita, SignalR usa il `ClaimTypes.NameIdentifier` dal `ClaimsPrincipal` associato alla connessione come identificatore utente. |
 | `User` | Ottiene l'`ClaimsPrincipal` associato all'utente corrente. |
 | `Items` | Ottiene una raccolta chiave/valore che può essere utilizzata per condividere i dati nell'ambito di questa connessione. I dati possono essere archiviati in questa raccolta e verranno mantenuti per la connessione tra diverse chiamate al metodo dell'hub. |
@@ -100,7 +100,7 @@ La classe `Hub` dispone di una proprietà `Context` che contiene le proprietà s
 
 La classe `Hub` dispone di una proprietà `Clients` che contiene le proprietà seguenti per la comunicazione tra server e client:
 
-| Gli | Descrizione |
+| Proprietà | Descrizione |
 | ------ | ----------- |
 | `All` | Chiama un metodo su tutti i client connessi |
 | `Caller` | Chiama un metodo sul client che ha richiamato il metodo Hub |

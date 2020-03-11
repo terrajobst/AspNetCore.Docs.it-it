@@ -10,20 +10,20 @@ no-loc:
 - SignalR
 uid: signalr/publish-to-azure-web-app
 ms.openlocfilehash: d03a007ca883b3d0391b848e3e92c90469ee640a
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963924"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78661357"
 ---
-# <a name="publish-an-aspnet-core-opno-locsignalr-app-to-azure-app-service"></a>Pubblicare un'app SignalR di ASP.NET Core nel servizio app Azure
+# <a name="publish-an-aspnet-core-signalr-app-to-azure-app-service"></a>Pubblicare un'app SignalR ASP.NET Core nel servizio app Azure
 
 Di [Brady Gaster](https://twitter.com/bradygaster)
 
 Il [servizio app Azure](/azure/app-service/app-service-web-overview) è un servizio della piattaforma [Microsoft Cloud Computing](https://azure.microsoft.com/) per l'hosting di app web, tra cui ASP.NET Core.
 
 > [!NOTE]
-> Questo articolo si riferisce alla pubblicazione di un'app SignalR di ASP.NET Core da Visual Studio. Per altre informazioni, vedere [servizioSignalR per Azure](https://azure.microsoft.com/services/signalr-service).
+> Questo articolo si riferisce alla pubblicazione di un'app SignalR ASP.NET Core da Visual Studio. Per altre informazioni, vedere [servizio SignalR per Azure](https://azure.microsoft.com/services/signalr-service).
 
 ## <a name="publish-the-app"></a>Pubblicare l'app
 
@@ -46,7 +46,7 @@ Questo articolo illustra la pubblicazione con gli strumenti di Visual Studio. Vi
 
 1. Selezionare il **servizio SignalR di Azure** nell'elenco a discesa **dipendenze** > **Aggiungi** :
 
-   ![Area dipendenze che mostra la selezione di Azure [! OP. Servizio NO-LOC (SignalR)] nell'elenco a discesa Aggiungi](publish-to-azure-web-app/_static/signalr-service-dependency.png)
+   ![area dipendenze che mostra la selezione del servizio SignalR di Azure nell'elenco a discesa Aggiungi](publish-to-azure-web-app/_static/signalr-service-dependency.png)
 
 1. Nella finestra di dialogo **servizio SignalR di Azure** selezionare **Crea una nuova istanza del servizio SignalR di Azure**.
 

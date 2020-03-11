@@ -7,11 +7,11 @@ ms.author: johluo
 ms.date: 09/25/2019
 uid: grpc/migration
 ms.openlocfilehash: 451171a041f7bbb3711babd73d2fa2e245aadd28
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355136"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664136"
 ---
 # <a name="migrating-grpc-services-from-c-core-to-aspnet-core"></a>Migrazione dei servizi gRPC da C-core a ASP.NET Core
 
@@ -82,7 +82,7 @@ Le app basate su C-core configurano HTTPS tramite la [Proprietà Server. Ports](
 
 ## <a name="grpc-interceptors-vs-middleware"></a>gRPC intercettori vs middleware
 
-ASP.NET Core [middleware](xref:fundamentals/middleware/index) offre funzionalità simili rispetto agli intercettori nelle app gRPC basate su C core. ASP.NET Core middleware e gli intercettori sono concettualmente simili. Entrambi:
+ASP.NET Core [middleware](xref:fundamentals/middleware/index) offre funzionalità simili rispetto agli intercettori nelle app gRPC basate su C core. ASP.NET Core middleware e gli intercettori sono concettualmente simili. Both:
 
 * Vengono usati per costruire una pipeline che gestisce una richiesta gRPC.
 * Consentire l'esecuzione del lavoro prima o dopo il componente successivo nella pipeline.

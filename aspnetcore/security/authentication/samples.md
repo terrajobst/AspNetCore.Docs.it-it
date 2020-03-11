@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 01/31/2019
 uid: security/authentication/samples
 ms.openlocfilehash: 3d7e28f6e501bd8bd3908ca4b314a63cee52ebe3
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828672"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658417"
 ---
 # <a name="authentication-samples-for-aspnet-core"></a>Esempi di autenticazione per ASP.NET Core
 
@@ -30,7 +30,7 @@ Il [repository ASP.NET Core](https://github.com/dotnet/AspNetCore) contiene gli 
 
 ## <a name="run-the-samples"></a>Eseguire gli esempi
 
-* Selezionare un [ramo](https://github.com/dotnet/AspNetCore). Ad esempio, `Tag:v3.0.0`.
+* Selezionare un [ramo](https://github.com/dotnet/AspNetCore). Ad esempio, usare `Tag:v3.0.0`
 * Clonare o scaricare il [repository ASP.NET Core](https://github.com/dotnet/AspNetCore).
 * Verificare di aver installato la versione di [.NET Core SDK](https://www.microsoft.com/net/download/all) corrispondente al clone del repository di ASP.NET Core.
 * Passare a un esempio in *AspNetCore/SRC/Security/Samples* ed eseguire l'esempio con `dotnet run`.
@@ -51,7 +51,7 @@ Il [repository ASP.NET Core](https://github.com/dotnet/AspNetCore) contiene gli 
 
 ## <a name="run-the-samples"></a>Eseguire gli esempi
 
-* Selezionare un [ramo](https://github.com/dotnet/AspNetCore). Ad esempio, `release/2.2`.
+* Selezionare un [ramo](https://github.com/dotnet/AspNetCore). Ad esempio, usare `release/2.2`
 * Clonare o scaricare il [repository ASP.NET Core](https://github.com/dotnet/AspNetCore).
 * Verificare di aver installato la versione di [.NET Core SDK](https://www.microsoft.com/net/download/all) corrispondente al clone del repository di ASP.NET Core.
 * Passare a un esempio in *AspNetCore/SRC/Security/Samples* ed eseguire l'esempio con `dotnet run`.

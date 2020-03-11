@@ -5,12 +5,12 @@ description: In questa esercitazione si inizia a usare la funzionalità delle mi
 ms.author: riande
 ms.date: 07/22/2019
 uid: data/ef-rp/migrations
-ms.openlocfilehash: f8e78cf7230528a4047eac1d52a12e2ed8392dec
-ms.sourcegitcommit: d2ba66023884f0dca115ff010bd98d5ed6459283
+ms.openlocfilehash: 86fd83c898fce8e121e4d259aaca12c59591e606
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77213443"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78656534"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Migrazioni - 4 di 8
 
@@ -32,7 +32,7 @@ Anziché eliminare e ricreare il database quando il modello di dati viene modifi
 
 ## <a name="drop-the-database"></a>Eliminare il database
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Usare **Esplora oggetti di SQL Server** (SSOX) per eliminare il database oppure eseguire il comando seguente nella **console di Gestione pacchetti**:
 
@@ -40,7 +40,7 @@ Usare **Esplora oggetti di SQL Server** (SSOX) per eliminare il database oppure 
 Drop-Database
 ```
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * Al prompt dei comandi eseguire il comando seguente per installare l'interfaccia della riga di comando EF:
 
@@ -60,7 +60,7 @@ Drop-Database
 
 ## <a name="create-an-initial-migration"></a>Creare una migrazione iniziale
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Eseguire i comandi seguenti nella console di Gestione pacchetti:
 
@@ -69,7 +69,7 @@ Add-Migration InitialCreate
 Update-Database
 ```
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Assicurarsi che il prompt dei comandi si trovi nella cartella del progetto ed eseguire i comandi seguenti:
 
@@ -160,7 +160,7 @@ L'esercitazione successiva compila il modello di dati, aggiungendo le proprietà
 In questa esercitazione viene usata la funzionalità delle migrazioni EF Core per la gestione delle modifiche al modello di dati.
 
 Se si verificano problemi che non si è in grado di risolvere, scaricare l'[app completa](
-https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).
+https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).
 
 Quando viene sviluppata una nuova app, il modello di dati cambia spesso. Ogni volta che vengono apportate modifiche al modello, questo non è più sincronizzato con il database. L'esercitazione è iniziata con la configurazione di Entity Framework per creare il database se non esiste già. Ogni volta che il modello di dati cambia:
 
@@ -176,7 +176,7 @@ Anziché eliminare e ricreare il database quando il modello di dati viene modifi
 
 Usare **Esplora oggetti di SQL Server** o il comando `database drop`:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Nella **console di Gestione pacchetti** eseguire il comando seguente:
 
@@ -186,7 +186,7 @@ Drop-Database
 
 Eseguire `Get-Help about_EntityFrameworkCore` dalla console di Gestione pacchetti per ottenere informazioni.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Aprire una finestra di comando e passare alla cartella del progetto. La cartella del progetto contiene il file *Startup.cs*.
 
@@ -202,14 +202,14 @@ Digitare quanto segue nella finestra di comando:
 
 Compilare il progetto e creare la prima migrazione.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ```powershell
 Add-Migration InitialCreate
 Update-Database
 ```
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 ```dotnetcli
 dotnet ef migrations add InitialCreate
@@ -243,11 +243,11 @@ Le migrazioni creano uno *snapshot* dello schema del database corrente in *Migra
 
 Per eliminare una migrazione, usare il comando seguente:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Remove-Migration
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 ```dotnetcli
 dotnet ef migrations remove
@@ -296,7 +296,7 @@ EF Core usa la tabella `__MigrationsHistory` per stabilire se è necessario eseg
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Scaricare l'[app completa](
-https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu21snapshots/cu-part4-migrations).
+https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu21snapshots/cu-part4-migrations).
 
 L'app genera l'eccezione seguente:
 

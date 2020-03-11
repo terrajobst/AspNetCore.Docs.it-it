@@ -9,12 +9,12 @@ ms.date: 11/12/2019
 no-loc:
 - SignalR
 uid: fundamentals/websockets
-ms.openlocfilehash: fc07d572116f8eea2b30ea6cf80324e5c66f994c
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: a8040003374906fd93e12c9fde44c4a5ccc2cf37
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963164"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78655785"
 ---
 # <a name="websockets-support-in-aspnet-core"></a>Supporto di WebSocket in ASP.NET Core
 
@@ -22,13 +22,13 @@ Di [Tom Dykstra](https://github.com/tdykstra) e [Andrew Stanton-Nurse](https://g
 
 L'articolo contiene l'introduzione all'uso di oggetti WebSocket in ASP.NET Core. [WebSocket](https://wikipedia.org/wiki/WebSocket) ([RFC 6455](https://tools.ietf.org/html/rfc6455)) è un protocollo che consente canali di comunicazione persistente bidirezionale su connessioni TCP. Viene usato nelle app che sfruttano comunicazioni veloci e in tempo reale, ad esempio le app di chat, i dashboard e le app di gioco.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/websockets/samples) ([procedura per il download](xref:index#how-to-download-a-sample)). [Come eseguire](#sample-app).
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/websockets/samples) ([procedura per il download](xref:index#how-to-download-a-sample)). [Come eseguire](#sample-app).
 
-## SignalR
+## <a name="signalr"></a>SignalR
 
-[ASP.NET Core SignalR](xref:signalr/introduction) è una libreria che semplifica l'aggiunta di funzionalità Web in tempo reale alle app. Laddove possibile, usa oggetti WebSocket.
+[ASP.NET Core SignalR](xref:signalr/introduction) è una libreria che consente di aggiungere in modo più semplice funzionalità Web in tempo reale alle app. Laddove possibile, usa oggetti WebSocket.
 
-Per la maggior parte delle applicazioni, è consigliabile SignalR su WebSocket non elaborati. SignalR fornisce il fallback del trasporto per gli ambienti in cui WebSocket non è disponibile. Fornisce inoltre un modello di app Remote Procedure Call semplice. Nella maggior parte degli scenari, SignalR non ha un notevole svantaggio in merito alle prestazioni rispetto all'uso di WebSocket non elaborati.
+Per la maggior parte delle applicazioni, è consigliabile preferire SignalR a oggetti WebSocket non elaborati. SignalR fornisce il fallback per il trasporto per gli ambienti in cui i WebSocket non sono disponibili. Fornisce inoltre un modello di app Remote Procedure Call semplice. Nella maggior parte degli scenari, inoltre, l'uso di SignalR non genera alcuno svantaggio significativo in termini di prestazioni rispetto all'uso di oggetti WebSocket non elaborati.
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -171,10 +171,10 @@ Per abilitare il supporto per il protocollo WebSocket in Windows Server 2012 o v
 > Questi passaggi non sono necessari quando si usa IIS Express
 
 1. Usare la procedura guidata **Aggiungi ruoli e funzionalità** accessibile tramite il menu **Gestisci** o il collegamento in **Server Manager**.
-1. Selezionare **Installazione basata su ruoli o basata su funzionalità**. Scegliere **Avanti**.
-1. Selezionare il server appropriato (il server locale è selezionato per impostazione predefinita). Scegliere **Avanti**.
+1. Selezionare **Installazione basata su ruoli o basata su funzionalità**. Selezionare **Avanti**.
+1. Selezionare il server appropriato (il server locale è selezionato per impostazione predefinita). Selezionare **Avanti**.
 1. Espandere **Server Web (IIS)** nella struttura **Ruoli**, espandere **Server Web**, quindi **Sviluppo applicazioni**.
-1. Selezionare **Protocollo WebSocket**. Scegliere **Avanti**.
+1. Selezionare **Protocollo WebSocket**. Selezionare **Avanti**.
 1. Se non sono necessarie le funzionalità aggiuntive, selezionare **Avanti**.
 1. Selezionare **Installa**.
 1. Al termine dell'installazione, selezionare **Chiudi** per chiudere la procedura guidata.
@@ -186,7 +186,7 @@ Per abilitare il supporto per il protocollo WebSocket in Windows 8 o versioni su
 
 1. Passare a **Pannello di controllo** > **Programmi** > **Programmi e funzionalità** > **Attiva o disattiva funzionalità di Windows** (sul lato sinistro dello schermo).
 1. Espandere i nodi seguenti: **Internet Information Services** > **Servizi Web** > **Funzionalità per lo sviluppo di applicazioni**.
-1. Selezionare la funzionalità **Protocollo WebSocket**. Scegliere **OK**.
+1. Selezionare la funzionalità **Protocollo WebSocket**. Selezionare **OK**.
 
 ### <a name="disable-websocket-when-using-socketio-on-nodejs"></a>Disabilitare WebSocket quando si usa socket.io su node.js
 
@@ -200,7 +200,7 @@ Se si usa il supporto WebSocket in [Socket.io](https://socket.io/) in [node. js]
 
 ## <a name="sample-app"></a>App di esempio
 
-L'[app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/websockets/samples) inclusa in questo articolo è un'app echo. Ha una pagina Web che consente la connessione WebSocket e il server reinvia al client tutti i messaggi ricevuti. Eseguire l'app da un prompt dei comandi, in quanto non è configurata per l'esecuzione da Visual Studio con IIS Express, quindi passare a http://localhost:5000. Nella parte superiore sinistra della pagina Web viene visualizzato lo stato della connessione:
+L'[app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/websockets/samples) inclusa in questo articolo è un'app echo. Ha una pagina Web che consente la connessione WebSocket e il server reinvia al client tutti i messaggi ricevuti. Eseguire l'app da un prompt dei comandi, in quanto non è configurata per l'esecuzione da Visual Studio con IIS Express, quindi passare a http://localhost:5000. Nella parte superiore sinistra della pagina Web viene visualizzato lo stato della connessione:
 
 ![Stato iniziale della pagina Web](websockets/_static/start.png)
 

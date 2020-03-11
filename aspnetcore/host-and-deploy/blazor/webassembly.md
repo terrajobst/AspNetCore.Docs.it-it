@@ -5,17 +5,17 @@ description: Informazioni su come ospitare e distribuire un'app Blazor usando AS
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2019
+ms.date: 02/19/2020
 no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/webassembly
-ms.openlocfilehash: 861935ff31652f923399a8aa5ae52baa6b77fa91
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: eae12b266e91a30a47daf63ac77ba082c25225aa
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77172402"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664101"
 ---
 # <a name="host-and-deploy-aspnet-core-opno-locblazor-webassembly"></a>Ospitare e distribuire ASP.NET Core Blazor webassembly
 
@@ -140,7 +140,7 @@ Se un'app autonoma è ospitata come una sub-app IIS, eseguire una delle operazio
 
 La rimozione del gestore o la disabilitazione dell'ereditarietà viene eseguita oltre alla [configurazione del percorso di base dell'applicazione](xref:host-and-deploy/blazor/index#app-base-path). Impostare il percorso di base dell'app nel file *index.html* dell'app sull'alias IIS usato durante la configurazione della sottoapp in IIS.
 
-#### <a name="troubleshooting"></a>Risoluzione dei problemi
+#### <a name="troubleshooting"></a>risoluzione dei problemi
 
 Se si riceve un *errore interno del server 500* e Gestione IIS genera errori durante il tentativo di accedere alla configurazione del sito Web, verificare che sia installato URL Rewrite Module. Quando il modulo non è installato, il file *web.config* non può essere analizzato da IIS. In questo modo si impedisce al gestore IIS di caricare la configurazione del sito Web e il sito Web di di soddisfare i file statici di Blazor.
 
@@ -203,7 +203,7 @@ Per distribuire un'app webassembly Blazor in CentOS 7 o versione successiva:
        DocumentRoot "/var/www/blazorapp"
        ErrorDocument 404 /index.html
 
-       AddType aplication/wasm .wasm
+       AddType application/wasm .wasm
        AddType application/octet-stream .dll
    
        <Directory "/var/www/blazorapp">

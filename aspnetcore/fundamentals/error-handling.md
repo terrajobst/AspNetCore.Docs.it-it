@@ -7,20 +7,20 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: fundamentals/error-handling
-ms.openlocfilehash: c20d8757eef80fdbb73b1b7a9933a3c0be9bb8ed
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: 28b463bccfb8aff4d10b95aa9a984455b4f4b976
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358977"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658816"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Gestire gli errori in ASP.NET Core
 
-Di [Tom Dykstra](https://github.com/tdykstra/), [Luke Latham](https://github.com/guardrex) e [Steve Smith](https://ardalis.com/)
+Di [Tom Dykstra](https://github.com/tdykstra/) e [Steve Smith](https://ardalis.com/)
 
 Questo articolo illustra gli approcci comuni per la gestione degli errori nelle app Web ASP.NET Core. Vedere <xref:web-api/handle-errors> per le API Web.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples). ([Come scaricare](xref:index#how-to-download-a-sample)). L'articolo include istruzioni su come impostare le direttive per il preprocessore (`#if`, `#endif`, `#define`) nell'app di esempio per abilitare diversi scenari.
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples). ([Come scaricare](xref:index#how-to-download-a-sample)). L'articolo include istruzioni su come impostare le direttive per il preprocessore (`#if`, `#endif`, `#define`) nell'app di esempio per abilitare diversi scenari.
 
 ## <a name="developer-exception-page"></a>Pagina delle eccezioni per gli sviluppatori
 
@@ -38,9 +38,9 @@ La pagina include le informazioni seguenti sull'eccezione e sulla richiesta:
 * Analisi dello stack
 * Parametri della stringa di query (se presenti)
 * Cookie (se presenti)
-* Intestazioni
+* Headers
 
-Per visualizzare la pagina delle eccezioni per gli sviluppatori nell'[app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), usare la direttiva del preprocessore `DevEnvironment` e selezionare **Trigger an exception** (Attiva un'eccezione) nella home page.
+Per visualizzare la pagina delle eccezioni per gli sviluppatori nell'[app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), usare la direttiva del preprocessore `DevEnvironment` e selezionare **Trigger an exception** (Attiva un'eccezione) nella home page.
 
 ## <a name="exception-handler-page"></a>Pagina del gestore di eccezioni
 
@@ -75,7 +75,7 @@ Usare <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> per a
 > [!WARNING]
 > **Non** fornire informazioni sugli errori sensibili ai client. Fornire informazioni sugli errori rappresenta un rischio di sicurezza.
 
-Per visualizzare la pagina di gestione delle eccezioni nell'[app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), usare le direttive del preprocessore `ProdEnvironment` e `ErrorHandlerPage` e selezionare **Trigger an exception** (Attiva un'eccezione) nella home page.
+Per visualizzare la pagina di gestione delle eccezioni nell'[app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), usare le direttive del preprocessore `ProdEnvironment` e `ErrorHandlerPage` e selezionare **Trigger an exception** (Attiva un'eccezione) nella home page.
 
 ## <a name="exception-handler-lambda"></a>Espressione lambda per il gestore di eccezioni
 
@@ -85,12 +85,12 @@ Di seguito è riportato un esempio dell'uso di un'espressione lambda per la gest
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_HandlerPageLambda)]
 
-Nel codice precedente `await context.Response.WriteAsync(new string(' ', 512));` viene aggiunto, in modo che il browser Internet Explorer visualizzi il messaggio di errore anziché un messaggio di errore di IE. Per altre informazioni, vedere [questo problema su GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/16144).
+Nel codice precedente `await context.Response.WriteAsync(new string(' ', 512));` viene aggiunto, in modo che il browser Internet Explorer visualizzi il messaggio di errore anziché un messaggio di errore di IE. Per altre informazioni, vedere [questo problema in GitHub](https://github.com/dotnet/AspNetCore.Docs/issues/16144).
 
 > [!WARNING]
 > **Non** fornire informazioni sugli errori sensibili da <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature> o <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> ai client. Fornire informazioni sugli errori rappresenta un rischio di sicurezza.
 
-Per visualizzare il risultato dell'espressione lambda di gestione delle eccezioni nell'[app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), usare le direttive del preprocessore `ProdEnvironment` e `ErrorHandlerLambda` e selezionare **Trigger an exception** (Attiva un'eccezione) nella home page.
+Per visualizzare il risultato dell'espressione lambda di gestione delle eccezioni nell'[app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), usare le direttive del preprocessore `ProdEnvironment` e `ErrorHandlerLambda` e selezionare **Trigger an exception** (Attiva un'eccezione) nella home page.
 
 ## <a name="usestatuscodepages"></a>UseStatusCodePages
 
@@ -110,7 +110,7 @@ Di seguito è riportato un esempio del testo visualizzato dai gestori predefinit
 Status Code: 404; Not Found
 ```
 
-Per visualizzare uno dei vari formati di tabella codici di stato nell'[app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), usare una delle direttive del preprocessore che iniziano con `StatusCodePages` e selezionare **Trigger a 404** (Genera un 404) nella home page.
+Per visualizzare uno dei vari formati di tabella codici di stato nell'[app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), usare una delle direttive del preprocessore che iniziano con `StatusCodePages` e selezionare **Trigger a 404** (Genera un 404) nella home page.
 
 ## <a name="usestatuscodepages-with-format-string"></a>UseStatusCodePages con stringa di formato
 
@@ -133,7 +133,7 @@ Metodo di estensione <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtension
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePagesWithRedirect)]
 
-Il modello di URL può includere un segnaposto `{0}` per il codice di stato, come illustrato nell'esempio. Se il modello di URL inizia con una tilde (~), la tilde viene sostituita con il valore `PathBase` dell'app. Se si punta a un endpoint all'interno dell'app, creare una visualizzazione MVC o una pagina Razor per l'endpoint. Per un esempio di Razor Pages, vedere *StatusCode.cshtml* nell'[app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples).
+Il modello di URL può includere un segnaposto `{0}` per il codice di stato, come illustrato nell'esempio. Se il modello di URL inizia con una tilde (~), la tilde viene sostituita con il valore `PathBase` dell'app. Se si punta a un endpoint all'interno dell'app, creare una visualizzazione MVC o una pagina Razor per l'endpoint. Per un esempio di Razor Pages, vedere *StatusCode.cshtml* nell'[app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples).
 
 Questo metodo viene usato comunemente quando l'app:
 
@@ -149,7 +149,7 @@ Metodo di estensione <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtension
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePagesWithReExecute)]
 
-Se si punta a un endpoint all'interno dell'app, creare una visualizzazione MVC o una pagina Razor per l'endpoint. Per un esempio di Razor Pages, vedere *StatusCode.cshtml* nell'[app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples).
+Se si punta a un endpoint all'interno dell'app, creare una visualizzazione MVC o una pagina Razor per l'endpoint. Per un esempio di Razor Pages, vedere *StatusCode.cshtml* nell'[app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/error-handling/samples).
 
 Questo metodo viene usato comunemente quando l'app deve:
 
@@ -206,7 +206,7 @@ Il livello di hosting può visualizzare una pagina di errore per un errore di av
 * Si verifica un arresto anomalo del processo di dotnet.
 * Non viene visualizzata alcuna pagina di errore quando il server HTTP è [Kestrel](xref:fundamentals/servers/kestrel).
 
-Se durante l'esecuzione in [IIS](/iis) (o servizio app di Azure) o in [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) il processo non può essere avviato, viene restituito l'errore *502.5 Errore del processo* dal [modulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module). Per ulteriori informazioni, vedere <xref:test/troubleshoot-azure-iis>.
+Se durante l'esecuzione in [IIS](/iis) (o servizio app di Azure) o in [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) il processo non può essere avviato, viene restituito l'errore *502.5 Errore del processo* dal [modulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module). Per altre informazioni, vedere <xref:test/troubleshoot-azure-iis>.
 
 ## <a name="database-error-page"></a>Pagina di errore di database
 
@@ -223,7 +223,7 @@ if (env.IsDevelopment())
 
 ## <a name="exception-filters"></a>Filtri eccezioni
 
-Nelle app MVC i filtri delle eccezioni possono essere configurati a livello globale o per ogni controller o azione singolarmente. Nelle app Razor Pages è possibile configurarli a livello globale o per ogni modello di pagina. Questi filtri gestiscono tutte le eccezioni non gestite che si verificano durante l'esecuzione di un'azione del controller o di un altro filtro Per ulteriori informazioni, vedere <xref:mvc/controllers/filters#exception-filters>.
+Nelle app MVC i filtri delle eccezioni possono essere configurati a livello globale o per ogni controller o azione singolarmente. Nelle app Razor Pages è possibile configurarli a livello globale o per ogni modello di pagina. Questi filtri gestiscono tutte le eccezioni non gestite che si verificano durante l'esecuzione di un'azione del controller o di un altro filtro Per altre informazioni, vedere <xref:mvc/controllers/filters#exception-filters>.
 
 > [!TIP]
 > I filtri delle eccezioni sono utili per intercettare le eccezioni che si verificano all'interno di azioni MVC, ma non sono flessibili come il middleware di gestione degli errori. È consigliabile usare il middleware. Usare i filtri solo quando è necessario eseguire la gestione degli errori in modo diverso in base all'azione MVC scelta.

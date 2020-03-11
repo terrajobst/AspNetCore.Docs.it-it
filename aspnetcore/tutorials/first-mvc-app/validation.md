@@ -6,17 +6,17 @@ ms.author: riande
 ms.date: 04/13/2017
 uid: tutorials/first-mvc-app/validation
 ms.openlocfilehash: 2bb4ed173d154e3b7457ce3f8009f0f9406e36c4
-ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72334068"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78661966"
 ---
 # <a name="add-validation-to-an-aspnet-core-mvc-app"></a>Aggiungere la funzionalità di convalida a un'app ASP.NET Core MVC
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-In questa sezione:
+Contenuto della sezione:
 
 * La logica di convalida viene aggiunta al modello `Movie`.
 * Si verifica che le regole di convalida vengano applicate ogni volta che un utente crea o modifica un film.
@@ -85,7 +85,7 @@ Aprire il file *Movie.cs* ed esaminare la classe `Movie`. Lo spazio dei nomi `Sy
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?highlight=2,6&name=snippet2)]
 
-Gli attributi `DataType` specificano solo gli hint per far sì che il motore di vista formatti i dati (e fornisca gli elementi/attributi, ad esempio `<a>` per l'URL e `<a href="mailto:EmailAddress.com">` per la posta elettronica). È possibile usare l'attributo `RegularExpression` per convalidare il formato dei dati. L'attributo `DataType` viene usato per specificare un tipo di dati più specifico del tipo intrinseco del database; non si tratta di attributi di convalida. In questo caso si vuole solo tenere traccia della data, non dell'ora. L'enumerazione `DataType` fornisce molti tipi di dati, ad esempio Data, Ora, Numero di telefono, Valuta, Indirizzo di posta elettronica e altro ancora. L'attributo `DataType` può anche consentire all'applicazione di fornire automaticamente le funzionalità specifiche del tipo. Ad esempio, è possibile creare un collegamento `mailto:` per `DataType.EmailAddress` e fornire un selettore data per `DataType.Date` nei browser che supportano HTML5. Gli attributi `DataType` generano attributi `data-` HTML5 (pronunciato data dash) supportati dai browser HTML5. Gli attributi `DataType` **non** forniscono alcuna convalida.
+Gli attributi `DataType` specificano solo gli hint per far sì che il motore di vista formatti i dati (e fornisca gli elementi/attributi, ad esempio `<a>` per l'URL e `<a href="mailto:EmailAddress.com">` per la posta elettronica). È possibile usare l'attributo `RegularExpression` per convalidare il formato dei dati. L'attributo `DataType` viene usato per specificare un tipo di dati più specifico del tipo intrinseco del database; non si tratta di attributi di convalida. In questo caso si vuole solo tenere traccia della data, non dell'ora. L'enumerazione `DataType` fornisce molti tipi di dati, ad esempio Data, Ora, Numero di telefono, Valuta, Indirizzo di posta elettronica e altro ancora. L'attributo `DataType` può anche consentire all'applicazione di fornire automaticamente le funzionalità specifiche del tipo. Ad esempio, è possibile creare un collegamento `mailto:` per `DataType.EmailAddress` e fornire un selettore data per `DataType.Date` nei browser che supportano HTML5. Gli attributi `DataType` generano attributi `data-` HTML5 (pronunciato data dash) supportati dai browser HTML5. Gli attributi `DataType`**non** forniscono alcuna convalida.
 
 `DataType.Date` non specifica il formato della data visualizzata. Per impostazione predefinita, il campo dei dati viene visualizzato in base ai formati predefiniti per il valore `CultureInfo` del server.
 

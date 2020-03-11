@@ -6,18 +6,18 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 01/17/2020
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: 16583cde2f4a6deaabc2fc965a5b9484ca94c2fd
-ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
+ms.openlocfilehash: da848ef9c5fa85f5186d1b6f0a6111d8c8d069c4
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76268721"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78661301"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Introduzione a Swashbuckle e ad ASP.NET Core
 
 Di [Shayne Boyer](https://twitter.com/spboyer) e [Scott Addie](https://twitter.com/Scott_Addie)
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 Esistono tre componenti principali di Swashbuckle:
 
@@ -31,7 +31,7 @@ Esistono tre componenti principali di Swashbuckle:
 
 È possibile aggiungere Swashbuckle con gli approcci seguenti:
 
-### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+### <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Dalla finestra **Console di Gestione pacchetti**:
   * Passare a **Vista** > **Altre finestre** > **Console di Gestione pacchetti**
@@ -49,7 +49,7 @@ Esistono tre componenti principali di Swashbuckle:
   * Immettere "Swashbuckle.AspNetCore" nella casella di ricerca
   * Selezionare il pacchetto "Swashbuckle.AspNetCore" più recente nella scheda **Sfoglia** e fare clic su **Installa**
 
-### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
+### <a name="visual-studio-for-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 * Fare clic su con il pulsante destro del mouse sulla cartella *Pacchetti* in **Solution Pad** (Riquadro della soluzione) > **Aggiungi pacchetti**
 * Impostare l'elenco a discesa **Aggiungi pacchetti** della finestra **Origine** su "nuget.org"
@@ -57,7 +57,7 @@ Esistono tre componenti principali di Swashbuckle:
 * Immettere "Swashbuckle.AspNetCore" nella casella di ricerca
 * Selezionare il pacchetto "Swashbuckle.AspNetCore" più recente nel riquadro dei risultati e fare clic su **Aggiungi pacchetto**
 
-### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+### <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Eseguire il comando seguente da **Terminale integrato**:
 
@@ -65,7 +65,7 @@ Eseguire il comando seguente da **Terminale integrato**:
 dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.0.0
 ```
 
-### <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
+### <a name="net-core-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 
 Eseguire il comando seguente:
 
@@ -126,7 +126,7 @@ L'interfaccia utente di Swagger è disponibile in `http://localhost:<port>/swagg
 >
 > [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup3.cs?name=snippet_UseSwaggerUI&highlight=4)]
 
-Se si usano le directory con ISS o il proxy inverso, impostare l'endpoint Swagger su un percorso relativo tramite il prefisso `./`. Ad esempio `./swagger/v1/swagger.json`. L'uso di `/swagger/v1/swagger.json` indica all'app di cercare il file JSON nella vera radice dell'URL (con il prefisso della route, se usato). Ad esempio, usare `http://localhost:<port>/<route_prefix>/swagger/v1/swagger.json` invece di `http://localhost:<port>/<virtual_directory>/<route_prefix>/swagger/v1/swagger.json`.
+Se si usano le directory con ISS o il proxy inverso, impostare l'endpoint Swagger su un percorso relativo tramite il prefisso `./`. Ad esempio: `./swagger/v1/swagger.json`. L'uso di `/swagger/v1/swagger.json` indica all'app di cercare il file JSON nella vera radice dell'URL (con il prefisso della route, se usato). Usare, ad esempio, `http://localhost:<port>/<route_prefix>/swagger/v1/swagger.json` invece di `http://localhost:<port>/<virtual_directory>/<route_prefix>/swagger/v1/swagger.json`.
 
 ## <a name="customize-and-extend"></a>Personalizzare ed estendere
 
@@ -154,7 +154,7 @@ L'interfaccia utente di Swagger visualizza le informazioni sulla versione:
 
 I commenti XML possono essere abilitati con gli approcci seguenti:
 
-#### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+#### <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -172,7 +172,7 @@ I commenti XML possono essere abilitati con gli approcci seguenti:
 
 ::: moniker-end
 
-#### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
+#### <a name="visual-studio-for-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -190,7 +190,7 @@ I commenti XML possono essere abilitati con gli approcci seguenti:
 
 ::: moniker-end
 
-#### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+#### <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Aggiungere manualmente le righe evidenziate al file con estensione *csproj*:
 
@@ -206,7 +206,7 @@ Aggiungere manualmente le righe evidenziate al file con estensione *csproj*:
 
 ::: moniker-end
 
-#### <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
+#### <a name="net-core-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 
 Aggiungere manualmente le righe evidenziate al file con estensione *csproj*:
 
@@ -443,7 +443,7 @@ L'interfaccia utente di Swagger ora documenta chiaramente i codici di risposta H
 
 ::: moniker range=">= aspnetcore-2.2"
 
-In ASP.NET Core 2.2 o versioni successive, possono essere usate convenzioni in alternativa alla decorazione esplicita di azioni singole con `[ProducesResponseType]`. Per ulteriori informazioni, vedere <xref:web-api/advanced/conventions>.
+In ASP.NET Core 2.2 o versioni successive, possono essere usate convenzioni in alternativa alla decorazione esplicita di azioni singole con `[ProducesResponseType]`. Per altre informazioni, vedere <xref:web-api/advanced/conventions>.
 
 ::: moniker-end
 

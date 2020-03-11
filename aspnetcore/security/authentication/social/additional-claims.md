@@ -1,41 +1,39 @@
 ---
 title: Mantieni attestazioni e token aggiuntivi da provider esterni in ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Informazioni su come creare attestazioni e token aggiuntivi da provider esterni.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/15/2019
 uid: security/authentication/social/additional-claims
-ms.openlocfilehash: 44b3e72085e6265319b53b548f7f7ddde2adbd14
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 9dfe5745125e34ed813d078529471a0ba2a53ab0
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828581"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666831"
 ---
 # <a name="persist-additional-claims-and-tokens-from-external-providers-in-aspnet-core"></a>Mantieni attestazioni e token aggiuntivi da provider esterni in ASP.NET Core
-
-Di [Luke Latham](https://github.com/guardrex)
 
 ::: moniker range=">= aspnetcore-3.0"
 
 Un'app ASP.NET Core può creare attestazioni e token aggiuntivi da provider di autenticazione esterni, ad esempio Facebook, Google, Microsoft e Twitter. Ogni provider rivela informazioni diverse sugli utenti sulla propria piattaforma, ma il modello per la ricezione e la trasformazione dei dati utente in attestazioni aggiuntive è lo stesso.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/social/additional-claims/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/social/additional-claims/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-Decidere quali provider di autenticazione esterni supportare nell'app. Per ogni provider, registrare l'app e ottenere un ID client e un segreto client. Per ulteriori informazioni, vedere <xref:security/authentication/social/index>. L'app di esempio usa il [provider di autenticazione Google](xref:security/authentication/google-logins).
+Decidere quali provider di autenticazione esterni supportare nell'app. Per ogni provider, registrare l'app e ottenere un ID client e un segreto client. Per altre informazioni, vedere <xref:security/authentication/social/index>. L'app di esempio usa il [provider di autenticazione Google](xref:security/authentication/google-logins).
 
 ## <a name="set-the-client-id-and-client-secret"></a>Impostare l'ID client e il segreto client
 
 Il provider di autenticazione OAuth stabilisce una relazione di trust con un'app che usa un ID client e un segreto client. I valori relativi all'ID client e al segreto client vengono creati per l'app dal provider di autenticazione esterno quando l'app viene registrata con il provider. Ogni provider esterno usato dall'app deve essere configurato in modo indipendente con l'ID client e il segreto client del provider. Per ulteriori informazioni, vedere gli argomenti del provider di autenticazione esterno applicabili allo scenario:
 
-* [Autenticazione Facebook](xref:security/authentication/facebook-logins)
-* [Autenticazione Google](xref:security/authentication/google-logins)
+* [Autenticazione di Facebook](xref:security/authentication/facebook-logins)
+* [Autenticazione di Google](xref:security/authentication/google-logins)
 * [Autenticazione Microsoft](xref:security/authentication/microsoft-logins)
-* [Autenticazione Twitter](xref:security/authentication/twitter-logins)
+* [Autenticazione di Twitter](xref:security/authentication/twitter-logins)
 * [Altri provider di autenticazione](xref:security/authentication/otherlogins)
 * [OpenIdConnect](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2)
 
@@ -47,7 +45,7 @@ L'app di esempio configura il provider di autenticazione Google con un ID client
 
 Specificare l'elenco di autorizzazioni da recuperare dal provider specificando la <xref:Microsoft.AspNetCore.Authentication.OAuth.OAuthOptions.Scope*>. Gli ambiti di autenticazione per i provider esterni comuni sono riportati nella tabella seguente.
 
-| Provider  | Ambito                                                            |
+| Provider  | Scope                                                            |
 | --------- | ---------------------------------------------------------------- |
 | Facebook  | `https://www.facebook.com/dialog/oauth`                          |
 | Google    | `https://www.googleapis.com/auth/userinfo.profile`               |
@@ -110,7 +108,7 @@ Il Framework fornisce azioni comuni e metodi di estensione per la creazione e l'
 
 Gli utenti possono definire azioni personalizzate derivando da <xref:Microsoft.AspNetCore.Authentication.OAuth.Claims.ClaimAction> e implementando il metodo abstract <xref:Microsoft.AspNetCore.Authentication.OAuth.Claims.ClaimAction.Run*>.
 
-Per ulteriori informazioni, vedere <xref:Microsoft.AspNetCore.Authentication.OAuth.Claims>.
+Per altre informazioni, vedere <xref:Microsoft.AspNetCore.Authentication.OAuth.Claims>.
 
 ## <a name="removal-of-claim-actions-and-claims"></a>Rimozione di azioni attestazioni e attestazioni
 
@@ -162,20 +160,20 @@ Authentication Properties
 
 Un'app ASP.NET Core può creare attestazioni e token aggiuntivi da provider di autenticazione esterni, ad esempio Facebook, Google, Microsoft e Twitter. Ogni provider rivela informazioni diverse sugli utenti sulla propria piattaforma, ma il modello per la ricezione e la trasformazione dei dati utente in attestazioni aggiuntive è lo stesso.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/social/additional-claims/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/social/additional-claims/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-Decidere quali provider di autenticazione esterni supportare nell'app. Per ogni provider, registrare l'app e ottenere un ID client e un segreto client. Per ulteriori informazioni, vedere <xref:security/authentication/social/index>. L'app di esempio usa il [provider di autenticazione Google](xref:security/authentication/google-logins).
+Decidere quali provider di autenticazione esterni supportare nell'app. Per ogni provider, registrare l'app e ottenere un ID client e un segreto client. Per altre informazioni, vedere <xref:security/authentication/social/index>. L'app di esempio usa il [provider di autenticazione Google](xref:security/authentication/google-logins).
 
 ## <a name="set-the-client-id-and-client-secret"></a>Impostare l'ID client e il segreto client
 
 Il provider di autenticazione OAuth stabilisce una relazione di trust con un'app che usa un ID client e un segreto client. I valori relativi all'ID client e al segreto client vengono creati per l'app dal provider di autenticazione esterno quando l'app viene registrata con il provider. Ogni provider esterno usato dall'app deve essere configurato in modo indipendente con l'ID client e il segreto client del provider. Per ulteriori informazioni, vedere gli argomenti del provider di autenticazione esterno applicabili allo scenario:
 
-* [Autenticazione Facebook](xref:security/authentication/facebook-logins)
-* [Autenticazione Google](xref:security/authentication/google-logins)
+* [Autenticazione di Facebook](xref:security/authentication/facebook-logins)
+* [Autenticazione di Google](xref:security/authentication/google-logins)
 * [Autenticazione Microsoft](xref:security/authentication/microsoft-logins)
-* [Autenticazione Twitter](xref:security/authentication/twitter-logins)
+* [Autenticazione di Twitter](xref:security/authentication/twitter-logins)
 * [Altri provider di autenticazione](xref:security/authentication/otherlogins)
 * [OpenIdConnect](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2)
 
@@ -187,7 +185,7 @@ L'app di esempio configura il provider di autenticazione Google con un ID client
 
 Specificare l'elenco di autorizzazioni da recuperare dal provider specificando la <xref:Microsoft.AspNetCore.Authentication.OAuth.OAuthOptions.Scope*>. Gli ambiti di autenticazione per i provider esterni comuni sono riportati nella tabella seguente.
 
-| Provider  | Ambito                                                            |
+| Provider  | Scope                                                            |
 | --------- | ---------------------------------------------------------------- |
 | Facebook  | `https://www.facebook.com/dialog/oauth`                          |
 | Google    | `https://www.googleapis.com/auth/userinfo.profile`               |
@@ -250,7 +248,7 @@ Il Framework fornisce azioni comuni e metodi di estensione per la creazione e l'
 
 Gli utenti possono definire azioni personalizzate derivando da <xref:Microsoft.AspNetCore.Authentication.OAuth.Claims.ClaimAction> e implementando il metodo abstract <xref:Microsoft.AspNetCore.Authentication.OAuth.Claims.ClaimAction.Run*>.
 
-Per ulteriori informazioni, vedere <xref:Microsoft.AspNetCore.Authentication.OAuth.Claims>.
+Per altre informazioni, vedere <xref:Microsoft.AspNetCore.Authentication.OAuth.Claims>.
 
 ## <a name="removal-of-claim-actions-and-claims"></a>Rimozione di azioni attestazioni e attestazioni
 

@@ -5,12 +5,12 @@ description: Informazioni su come usare layout comuni, condividere direttive ed 
 ms.author: riande
 ms.date: 07/30/2019
 uid: mvc/views/layout
-ms.openlocfilehash: 3ba2f459ca2b04a3001e261acab26880b6582500
-ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
+ms.openlocfilehash: db8c6c30397593c1a8375ebc800c1c0e34d241cb
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74289003"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667902"
 ---
 # <a name="layout-in-aspnet-core"></a>Layout in ASP.NET Core
 
@@ -109,7 +109,7 @@ Deve essere eseguito il rendering della parte principale e di tutte le sezioni d
 
 ## <a name="importing-shared-directives"></a>Importazione delle direttive condivise
 
-Le visualizzazioni e le pagine possono usare direttive Razor per l'importazione di spazi dei nomi e usare l'[inserimento delle dipendenze](dependency-injection.md). Le direttive condivise da numerose visualizzazioni possono essere specificate in un file *_ViewImports.cshtml* comune. Il file `_ViewImports` supporta le direttive seguenti:
+Viste e pagine possono utilizzare le direttive Razor per importare gli spazi dei nomi e utilizzare l' [inserimento delle dipendenze](dependency-injection.md). Le direttive condivise da numerose visualizzazioni possono essere specificate in un file *_ViewImports.cshtml* comune. Il file `_ViewImports` supporta le direttive seguenti:
 
 * `@addTagHelper`
 * `@removeTagHelper`
@@ -155,4 +155,4 @@ File *_ViewStart.cshtml* di esempio:
 
 Il file precedente specifica che tutte le visualizzazioni useranno il layout *_Layout.cshtml*.
 
-*_ViewStart.cshtml* e *_ViewImports.cshtml* **non** vengono in genere posizionati nella cartella */Pages/Shared* (o */Views/Shared*). Le versioni a livello di app di questi file devono essere posizionate direttamente nella cartella */Pages* (o */Views*).
+*_ViewStart.cshtml* e *_ViewImports.cshtml***non** vengono in genere posizionati nella cartella */Pages/Shared* (o */Views/Shared*). Le versioni a livello di app di questi file devono essere posizionate direttamente nella cartella */Pages* (o */Views*).

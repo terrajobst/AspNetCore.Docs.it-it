@@ -5,20 +5,20 @@ description: Informazioni sulle modalità con cui ASP.NET Core supporta l'inseri
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/views/dependency-injection
-ms.openlocfilehash: 63feea5ddf286dd3e659f3a622cfb0f7451b9bba
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
-ms.translationtype: HT
+ms.openlocfilehash: 6241bb8e262f64e2e30721bc5fe6f8f1be84b60d
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815345"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78656100"
 ---
 # <a name="dependency-injection-into-views-in-aspnet-core"></a>Inserimento di dipendenze nelle visualizzazioni in ASP.NET Core
 
-Di [Steve Smith](https://ardalis.com/)
+[Steve Smith](https://ardalis.com/)
 
 ASP.NET Core supporta l'[inserimento di dipendenze](xref:fundamentals/dependency-injection) nelle visualizzazioni. Questo può essere utile per i servizi specifici delle visualizzazioni, ad esempio per la localizzazione o per dati necessari solo per il popolamento degli elementi delle visualizzazioni. È consigliabile mantenere la [separazione delle competenze](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns) tra i controller e le visualizzazioni. La maggior parte dei dati nelle visualizzazioni devono essere passati dal controller.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/dependency-injection/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/dependency-injection/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="configuration-injection"></a>Inserimento della configurazione
 
@@ -106,4 +106,4 @@ Se si vuole estendere i servizi esistenti, è sufficiente usare questa tecnica m
 
 ## <a name="see-also"></a>Vedere anche
 
-* Blog di Simon Timms: [Getting Lookup Data Into Your View](https://blog.simontimms.com/2015/06/09/getting-lookup-data-into-you-view/) (Recupero dei dati di ricerca nella visualizzazione)
+* Blog di Simon Timms: [Getting Lookup Data Into Your View](https://blog.simontimms.com/2015/06/09/getting-lookup-data-into-you-view/) (Inserimento di dati di ricerca nei propri)

@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 11/12/2019
 uid: tutorials/razor-pages/razor-pages-start
 ms.openlocfilehash: 6e1d58ccd83f7d7c1083dc2bf9ce7476650812a1
-ms.sourcegitcommit: da2fb2d78ce70accdba903ccbfdcfffdd0112123
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75723011"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658543"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Esercitazione: Introduzione all'uso di Razor Pages in ASP.NET Core
 
@@ -25,7 +25,7 @@ Al termine della serie si otterrà un'app che gestisce un database di film.
 
 [!INCLUDE[View or download sample code](~/includes/rp/download.md)]
 
-Le attività di questa esercitazione sono le seguenti:
+In questa esercitazione:
 
 > [!div class="checklist"]
 > * Creare un'app Web di Razor Pages.
@@ -36,17 +36,17 @@ Alla fine di questa esercitazione si avrà un'app Web Razor Pages funzionante, c
 
 ![Pagina Home o di indice](razor-pages-start/_static/home2.2.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 [!INCLUDE[](~/includes/net-core-prereqs-vs-3.1.md)]
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 [!INCLUDE[](~/includes/net-core-prereqs-vsc-3.1.md)]
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 [!INCLUDE[](~/includes/net-core-prereqs-mac-3.1.md)]
 
@@ -54,7 +54,7 @@ Alla fine di questa esercitazione si avrà un'app Web Razor Pages funzionante, c
 
 ## <a name="create-a-razor-pages-web-app"></a>Creare un'app Web di Razor Pages
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Scegliere **nuovo** > **progetto**dal menu **file** di Visual Studio.
 * Creare una nuova applicazione Web ASP.NET Core e selezionare **Avanti**.
@@ -70,7 +70,7 @@ Alla fine di questa esercitazione si avrà un'app Web Razor Pages funzionante, c
 
   ![Esplora soluzioni](razor-pages-start/_static/se2.2.png)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * Aprire il [terminale integrato](https://code.visualstudio.com/docs/editor/integrated-terminal).
 
@@ -90,7 +90,7 @@ Alla fine di questa esercitazione si avrà un'app Web Razor Pages funzionante, c
 
   Una directory *.vscode* che contiene i file *launch.json* e *tasks.json* viene aggiunta alla directory radice del progetto.
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 * Selezionare **File** > **nuova soluzione**.
 
@@ -127,23 +127,23 @@ Contiene le pagine Razor e i file di supporto. Ogni pagina Razor è una coppia d
 * Un file con estensione *cshtml* contenente il markup HTML con codice C# che usa la sintassi Razor.
 * Un file con estensione *cshtml.cs* contenente il codice C# per la gestione degli eventi della pagina.
 
-I nomi dei file di supporto iniziano con un carattere di sottolineatura. Ad esempio, il file *_Layout.cshtml* configura elementi dell'interfaccia utente comuni a tutte le pagine. Questo file imposta il menu di navigazione nella parte superiore della pagina e le informazioni sul copyright in fondo alla pagina. Per ulteriori informazioni, vedere <xref:mvc/views/layout>.
+I nomi dei file di supporto iniziano con un carattere di sottolineatura. Ad esempio, il file *_Layout.cshtml* configura elementi dell'interfaccia utente comuni a tutte le pagine. Questo file imposta il menu di navigazione nella parte superiore della pagina e le informazioni sul copyright in fondo alla pagina. Per altre informazioni, vedere <xref:mvc/views/layout>.
 
 ### <a name="wwwroot-folder"></a>Cartella wwwroot
 
-Contiene i file statici, ad esempio i file HTML, i file JavaScript e i file CSS. Per ulteriori informazioni, vedere <xref:fundamentals/static-files>.
+Contiene i file statici, ad esempio i file HTML, i file JavaScript e i file CSS. Per altre informazioni, vedere <xref:fundamentals/static-files>.
 
 ### <a name="appsettingsjson"></a>appSettings.json
 
-Contiene i dati di configurazione, ad esempio le stringhe di connessione. Per ulteriori informazioni, vedere <xref:fundamentals/configuration/index>.
+Contiene i dati di configurazione, ad esempio le stringhe di connessione. Per altre informazioni, vedere <xref:fundamentals/configuration/index>.
 
 ### <a name="programcs"></a>Program.cs
 
-Contiene il punto di ingresso per il programma. Per ulteriori informazioni, vedere <xref:fundamentals/host/generic-host>.
+Contiene il punto di ingresso per il programma. Per altre informazioni, vedere <xref:fundamentals/host/generic-host>.
 
 ### <a name="startupcs"></a>Startup.cs
 
-Contiene codice che consente di configurare il comportamento dell'app. Per ulteriori informazioni, vedere <xref:fundamentals/startup>.
+Contiene codice che consente di configurare il comportamento dell'app. Per altre informazioni, vedere <xref:fundamentals/startup>.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -166,7 +166,7 @@ Al termine della serie si otterrà un'app che gestisce un database di film.
 
 [!INCLUDE[View or download sample code](~/includes/rp/download.md)]
 
-Le attività di questa esercitazione sono le seguenti:
+In questa esercitazione:
 
 > [!div class="checklist"]
 > * Creare un'app Web di Razor Pages.
@@ -177,17 +177,17 @@ Alla fine di questa esercitazione si avrà un'app Web Razor Pages funzionante, c
 
 ![Pagina Home o di indice](razor-pages-start/_static/home2.2.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 [!INCLUDE[](~/includes/net-core-prereqs-vs2019-2.2.md)]
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 [!INCLUDE[](~/includes/net-core-prereqs-vsc-2.2.md)]
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 [!INCLUDE[](~/includes/net-core-prereqs-mac-2.2.md)]
 
@@ -195,7 +195,7 @@ Alla fine di questa esercitazione si avrà un'app Web Razor Pages funzionante, c
 
 ## <a name="create-a-razor-pages-web-app"></a>Creare un'app Web di Razor Pages
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Scegliere **nuovo** > **progetto**dal menu **file** di Visual Studio.
 
@@ -215,7 +215,7 @@ Alla fine di questa esercitazione si avrà un'app Web Razor Pages funzionante, c
 
   ![Esplora soluzioni](razor-pages-start/_static/se2.2.png)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * Aprire il [terminale integrato](https://code.visualstudio.com/docs/editor/integrated-terminal).
 
@@ -235,7 +235,7 @@ Alla fine di questa esercitazione si avrà un'app Web Razor Pages funzionante, c
 
   Una directory *.vscode* che contiene i file *launch.json* e *tasks.json* viene aggiunta alla directory radice del progetto.
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 * Selezionare **File** > **nuova soluzione**.
 
@@ -259,7 +259,7 @@ Alla fine di questa esercitazione si avrà un'app Web Razor Pages funzionante, c
 
 ## <a name="run-the-app"></a>Eseguire l'app
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Premere CTRL+F5 per l'esecuzione senza il debugger.
 
@@ -277,7 +277,7 @@ Alla fine di questa esercitazione si avrà un'app Web Razor Pages funzionante, c
 
   ![Pagina Home o di indice](razor-pages-start/_static/home2.2.png)
   
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
   [!INCLUDE[](~/includes/trustCertVSC.md)]
 
@@ -295,7 +295,7 @@ Alla fine di questa esercitazione si avrà un'app Web Razor Pages funzionante, c
 
   ![Pagina Home o di indice](razor-pages-start/_static/home2.2.png)
   
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
   [!INCLUDE[](~/includes/trustCertMac.md)]
 
@@ -328,23 +328,23 @@ Contiene le pagine Razor e i file di supporto. Ogni pagina Razor è una coppia d
 * Un file con estensione *cshtml* contenente il markup HTML con codice C# che usa la sintassi Razor.
 * Un file con estensione *cshtml.cs* contenente il codice C# per la gestione degli eventi della pagina.
 
-I nomi dei file di supporto iniziano con un carattere di sottolineatura. Ad esempio, il file *_Layout.cshtml* configura elementi dell'interfaccia utente comuni a tutte le pagine. Questo file imposta il menu di navigazione nella parte superiore della pagina e le informazioni sul copyright in fondo alla pagina. Per ulteriori informazioni, vedere <xref:mvc/views/layout>.
+I nomi dei file di supporto iniziano con un carattere di sottolineatura. Ad esempio, il file *_Layout.cshtml* configura elementi dell'interfaccia utente comuni a tutte le pagine. Questo file imposta il menu di navigazione nella parte superiore della pagina e le informazioni sul copyright in fondo alla pagina. Per altre informazioni, vedere <xref:mvc/views/layout>.
 
 ### <a name="wwwroot-folder"></a>Cartella wwwroot
 
-Contiene i file statici, ad esempio i file HTML, i file JavaScript e i file CSS. Per ulteriori informazioni, vedere <xref:fundamentals/static-files>.
+Contiene i file statici, ad esempio i file HTML, i file JavaScript e i file CSS. Per altre informazioni, vedere <xref:fundamentals/static-files>.
 
 ### <a name="appsettingsjson"></a>appSettings.json
 
-Contiene i dati di configurazione, ad esempio le stringhe di connessione. Per ulteriori informazioni, vedere <xref:fundamentals/configuration/index>.
+Contiene i dati di configurazione, ad esempio le stringhe di connessione. Per altre informazioni, vedere <xref:fundamentals/configuration/index>.
 
 ### <a name="programcs"></a>Program.cs
 
-Contiene il punto di ingresso per il programma. Per ulteriori informazioni, vedere <xref:fundamentals/host/generic-host>.
+Contiene il punto di ingresso per il programma. Per altre informazioni, vedere <xref:fundamentals/host/generic-host>.
 
 ### <a name="startupcs"></a>Startup.cs
 
-Contiene codice che configura il comportamento dell'app, ad esempio se richiede il consenso per i cookie. Per ulteriori informazioni, vedere <xref:fundamentals/startup>.
+Contiene codice che configura il comportamento dell'app, ad esempio se richiede il consenso per i cookie. Per altre informazioni, vedere <xref:fundamentals/startup>.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

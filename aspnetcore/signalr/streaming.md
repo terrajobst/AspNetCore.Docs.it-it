@@ -9,12 +9,12 @@ ms.date: 11/12/2019
 no-loc:
 - SignalR
 uid: signalr/streaming
-ms.openlocfilehash: 7825beba55cefb6236fd8d8e332d030a7e4fc6df
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 21dd8180fe168f81ed68b01f02b81a6264d6e5a6
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963896"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667727"
 ---
 # <a name="use-streaming-in-aspnet-core-opno-locsignalr"></a>Usare il flusso in ASP.NET Core SignalR
 
@@ -32,7 +32,7 @@ ASP.NET Core SignalR supporta il flusso dei valori restituiti dei metodi del ser
 
 ::: moniker-end
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/signalr/streaming/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/live/aspnetcore/signalr/streaming/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="set-up-a-hub-for-streaming"></a>Configurare un hub per lo streaming
 
@@ -258,7 +258,7 @@ channel.Writer.Complete();
 
 I client JavaScript chiamano i metodi di streaming da server a client negli hub con `connection.stream`. Il metodo `stream` accetta due argomenti:
 
-* Nome del metodo dell'hub. Nell'esempio seguente il nome del metodo dell'hub è `Counter`.
+* Il nome del metodo dell'hub. Nell'esempio seguente il nome del metodo dell'hub è `Counter`.
 * Argomenti definiti nel metodo dell'hub. Nell'esempio seguente gli argomenti sono un conteggio per il numero di elementi del flusso da ricevere e il ritardo tra gli elementi del flusso.
 
 `connection.stream` restituisce un `IStreamResult`, che contiene un metodo di `subscribe`. Passare un `IStreamSubscriber` `subscribe` e impostare i callback `next`, `error`e `complete` per ricevere le notifiche dalla chiamata `stream`.
@@ -298,7 +298,7 @@ Per terminare il flusso, chiamare `subject.complete()`.
 Il client Java SignalR usa il metodo `stream` per richiamare i metodi di streaming. `stream` accetta tre o più argomenti:
 
 * Tipo previsto degli elementi del flusso.
-* Nome del metodo dell'hub.
+* Il nome del metodo dell'hub.
 * Argomenti definiti nel metodo dell'hub.
 
 ```java

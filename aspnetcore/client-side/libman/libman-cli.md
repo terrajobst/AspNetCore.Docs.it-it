@@ -9,11 +9,11 @@ no-loc:
 - SignalR
 uid: client-side/libman/libman-cli
 ms.openlocfilehash: 02d88d09805bd23a86ef924766373245fec7ff52
-ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76928356"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664633"
 ---
 # <a name="use-the-libman-cli-with-aspnet-core"></a>Usare l'interfaccia della riga di comando di LibMan con ASP.NET Core
 
@@ -21,11 +21,11 @@ Di [Scott Addie](https://twitter.com/Scott_Addie)
 
 L'interfaccia della riga di comando di [LibMan](xref:client-side/libman/index) è uno strumento multipiattaforma supportato ovunque sia supportato .NET Core.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [!INCLUDE [2.1-SDK](../../includes/2.1-SDK.md)]
 
-## <a name="installation"></a>Installazione di
+## <a name="installation"></a>Installazione
 
 Per installare l'interfaccia della riga di comando di LibMan:
 
@@ -43,7 +43,7 @@ dotnet tool install -g Microsoft.Web.LibraryManager.Cli --version 1.0.94-g606058
 
 Nell'esempio precedente, uno strumento globale di .NET Core viene installato dal file *C:\Temp\Microsoft.Web.librarymanager.cli.1.0.94-g606058a278.nupkg* del computer Windows locale.
 
-## <a name="usage"></a>Usage
+## <a name="usage"></a>Uso
 
 Una volta completata l'installazione dell'interfaccia della riga di comando, è possibile usare il comando seguente:
 
@@ -103,7 +103,7 @@ libman init [-d|--default-destination] [-p|--default-provider] [--verbosity]
 libman init [-h|--help]
 ```
 
-### <a name="options"></a>Options
+### <a name="options"></a>Opzioni
 
 Per il comando `libman init` sono disponibili le opzioni seguenti:
 
@@ -163,7 +163,7 @@ libman install [-h|--help]
 
 Nome della libreria da installare. Questo nome può includere la notazione dei numeri di versione, ad esempio `@1.2.0`.
 
-### <a name="options"></a>Options
+### <a name="options"></a>Opzioni
 
 Per il comando `libman install` sono disponibili le opzioni seguenti:
 
@@ -263,7 +263,7 @@ Dopo aver accettato la destinazione predefinita, il file *libman. JSON* è simil
 
 ## <a name="restore-library-files"></a>Ripristinare i file di libreria
 
-Il comando `libman restore` installa i file di libreria definiti in *libman. JSON*. È necessario attenersi alle regole che seguono:
+Il comando `libman restore` installa i file di libreria definiti in *libman. JSON*. Sono applicabili le regole seguenti:
 
 * Se nella radice del progetto non è presente alcun file *libman. JSON* , viene restituito un errore.
 * Se una libreria specifica un provider, la proprietà `defaultProvider` in *libman. JSON* viene ignorata.
@@ -276,7 +276,7 @@ libman restore [--verbosity]
 libman restore [-h|--help]
 ```
 
-### <a name="options"></a>Options
+### <a name="options"></a>Opzioni
 
 Per il comando `libman restore` sono disponibili le opzioni seguenti:
 
@@ -301,7 +301,7 @@ libman clean [--verbosity]
 libman clean [-h|--help]
 ```
 
-### <a name="options"></a>Options
+### <a name="options"></a>Opzioni
 
 Per il comando `libman clean` sono disponibili le opzioni seguenti:
 
@@ -342,7 +342,7 @@ libman uninstall [-h|--help]
 
 Nome della libreria da disinstallare. Questo nome può includere la notazione dei numeri di versione, ad esempio `@1.2.0`.
 
-### <a name="options"></a>Options
+### <a name="options"></a>Opzioni
 
 Per il comando `libman uninstall` sono disponibili le opzioni seguenti:
 
@@ -394,7 +394,7 @@ libman update [-h|--help]
 
 Nome della libreria da aggiornare.
 
-### <a name="options"></a>Options
+### <a name="options"></a>Opzioni
 
 Per il comando `libman update` sono disponibili le opzioni seguenti:
 
@@ -448,7 +448,7 @@ Utilizzato solo con il comando `clean`. Specifica la cache del provider da pulir
 
 [!INCLUDE [LibMan provider names](../../includes/libman-cli/provider-names.md)]
 
-### <a name="options"></a>Options
+### <a name="options"></a>Opzioni
 
 Per il comando `libman cache` sono disponibili le opzioni seguenti:
 

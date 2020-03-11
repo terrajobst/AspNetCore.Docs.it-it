@@ -1,22 +1,20 @@
 ---
 title: Pubblicare un'app ASP.NET Core in IIS
-author: guardrex
+author: rick-anderson
 description: Informazioni su come ospitare un'app ASP.NET Core in un server IIS.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 10/03/2019
 uid: tutorials/publish-to-iis
-ms.openlocfilehash: 820527cc15f883c906d2fdf1c073d443a5b3b40e
-ms.sourcegitcommit: d8b12cc1716ee329d7bd2300e201b61e15d506ac
+ms.openlocfilehash: f3860ba6ca7b99e63000ba0066749751f80cdc23
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71942876"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78657836"
 ---
 # <a name="publish-an-aspnet-core-app-to-iis"></a>Pubblicare un'app ASP.NET Core in IIS
-
-Di [Luke Latham](https://github.com/guardrex)
 
 Questa esercitazione mostra come ospitare un'app ASP.NET Core in un server IIS.
 
@@ -27,7 +25,7 @@ Questa esercitazione illustra le operazioni seguenti:
 > * Creare un sito IIS in Gestione IIS.
 > * Distribuire un'app ASP.NET Core.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [.NET Core SDK](/dotnet/core/sdk) installato nel computer di sviluppo.
 * Windows Server configurato con il ruolo del server **Server Web (IIS)** . Se il server non è configurato per ospitare siti Web con IIS, seguire le istruzioni nella sezione *Configurazione di IIS* dell'articolo <xref:host-and-deploy/iis/index#iis-configuration> e quindi tornare a questa esercitazione.
@@ -72,7 +70,7 @@ Seguire l'esercitazione <xref:getting-started> per creare un'app Razor Pages.
 * L'app viene pubblicata in una cartella.
 * Il contenuto della cartella viene spostato nella cartella del sito IIS, ovvero il **percorso fisico** del sito in Gestione IIS.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 1. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Pubblica**.
 1. Nella finestra di dialogo **Selezionare una destinazione di pubblicazione** selezionare l'opzione di pubblicazione **Cartella**.
@@ -80,7 +78,7 @@ Seguire l'esercitazione <xref:getting-started> per creare un'app Razor Pages.
    * Se è stata creata una cartella per il sito IIS disponibile nel computer di sviluppo come una condivisione di rete, specificare il percorso della condivisione. L'utente corrente deve avere l'accesso in scrittura per la pubblicazione nella condivisione.
    * Se non è possibile eseguire la distribuzione direttamente nella cartella del sito IIS nel server IIS, pubblicare in una cartella su un supporto rimovibile e spostare fisicamente l'app pubblicata nella cartella del sito IIS nel server, ovvero il **percorso fisico** del sito in Gestione IIS. Spostare il contenuto della cartella *bin/Release/{TARGET FRAMEWORK}/publish* nella cartella del sito IIS nel server, ovvero il **percorso fisico** del sito in Gestione IIS.
 
-# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 
 1. Da una shell dei comandi pubblicare l'app nella configurazione di versione con il comando [dotnet publish](/dotnet/core/tools/dotnet-publish):
 
@@ -90,7 +88,7 @@ Seguire l'esercitazione <xref:getting-started> per creare un'app Razor Pages.
 
 1. Spostare il contenuto della cartella *bin/Release/{TARGET FRAMEWORK}/publish* nella cartella del sito IIS nel server, ovvero il **percorso fisico** del sito in Gestione IIS.
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 1. Fare clic con il pulsante destro del mouse sul progetto in **Soluzione** e scegliere **Pubblica** > **Pubblica nella cartella**.
 1. Impostare il percorso in **Scegliere una cartella**.
@@ -105,7 +103,7 @@ L'app è accessibile in un browser dopo la ricezione della prima richiesta. Invi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Installare il bundle di hosting di.NET Core in Windows Server.

@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 10/16/2019
 uid: tutorials/first-mvc-app/start-mvc
 ms.openlocfilehash: 901257efdfbc7b36249233745175f5ed253da2c7
-ms.sourcegitcommit: da2fb2d78ce70accdba903ccbfdcfffdd0112123
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75722874"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78662477"
 ---
 # <a name="get-started-with-aspnet-core-mvc"></a>Introduzione ad ASP.NET Core MVC
 
@@ -22,7 +22,7 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Questa esercitazione illustra le nozioni di base della creazione di un'app Web ASP.NET Core MVC.
 
-L'app gestisce un database di titoli di film. Vengono illustrate le seguenti procedure:
+L'app gestisce un database di titoli di film. Si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare un'app Web.
@@ -34,17 +34,17 @@ Al termine di queste operazioni si ottiene un'app che può gestire e visualizzar
 
 [!INCLUDE[](~/includes/mvc-intro/download.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 [!INCLUDE[](~/includes/net-core-prereqs-vs-3.1.md)]
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 [!INCLUDE[](~/includes/net-core-prereqs-vsc-3.1.md)]
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 [!INCLUDE[](~/includes/net-core-prereqs-mac-3.1.md)]
 
@@ -52,7 +52,7 @@ Al termine di queste operazioni si ottiene un'app che può gestire e visualizzar
 
 ## <a name="create-a-web-app"></a>Creare un'app Web
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Dal menu di Visual Studio selezionare **Crea un nuovo progetto**.
 
@@ -70,7 +70,7 @@ Al termine di queste operazioni si ottiene un'app che può gestire e visualizzar
 
 Per il progetto MVC appena creato Visual Studio ha usato il modello predefinito. Ora è possibile disporre di un'app funzionante immettendo un nome progetto e selezionando alcune opzioni. Si tratta di un progetto iniziale di base.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Nell'esercitazione si presuppone una familarità con Visual Studio Code. Vedere [Introduzione a VS Code](https://code.visualstudio.com/docs) e [Guida a Visual Studio Code](#visual-studio-code-help) per altre informazioni.
 
@@ -83,12 +83,12 @@ Nell'esercitazione si presuppone una familarità con Visual Studio Code. Vedere 
    code -r MvcMovie
    ```
 
-  * Viene visualizzata una finestra di dialogo con le **risorse necessarie per la compilazione e il debug non è presente in ' MvcMovie '. Aggiungerli?**  Selezionare **Sì**.
+  * Viene visualizzata una finestra di dialogo con le **risorse necessarie per la compilazione e il debug non è presente in ' MvcMovie '. Aggiungerli?**  Selezionare **Sì**
 
   * `dotnet new mvc -o MvcMovie`: crea un nuovo progetto ASP.NET Core MVC nella cartella *MvcMovie*.
   * `code -r MvcMovie`: carica il file di progetto *MvcMovie. csproj* in Visual Studio Code.
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 * Selezionare **File** > **nuova soluzione**.
 
@@ -108,7 +108,7 @@ Nell'esercitazione si presuppone una familarità con Visual Studio Code. Vedere 
 
 ### <a name="run-the-app"></a>Eseguire l'app
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Selezionare **CTRL+F5** per eseguire l'app in modalità non di debug.
 
@@ -128,7 +128,7 @@ Selezionare **CTRL+F5** per eseguire l'app in modalità non di debug.
 
   ![Pagina Home o di indice](start-mvc/_static/home2.2.png)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Premere CTRL+F5 per l'esecuzione senza il debugger.
 
@@ -140,7 +140,7 @@ Premere CTRL+F5 per l'esecuzione senza il debugger.
 
   ![Pagina Home o di indice](start-mvc/_static/home2.2.png)
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 Per avviare l'app, selezionare **Esegui** > **Avvia senza eseguire debug**. Visual Studio per Mac avvia il server [Kestrel](xref:fundamentals/servers/index#kestrel), apre un browser e naviga all'indirizzo `http://localhost:port`, dove *port* è un numero di porta selezionato a caso.
 
@@ -160,7 +160,7 @@ Per avviare l'app, selezionare **Esegui** > **Avvia senza eseguire debug**. Visu
 Nella parte seguente di questa esercitazione vengono fornite informazioni su MVC e istruzioni per iniziare a creare codice.
 
 > [!div class="step-by-step"]
-> [Successivo](adding-controller.md)
+> [Avanti](adding-controller.md)
 
 ::: moniker-end
 
@@ -170,7 +170,7 @@ Nella parte seguente di questa esercitazione vengono fornite informazioni su MVC
 
 Questa esercitazione illustra le nozioni di base della creazione di un'app Web ASP.NET Core MVC.
 
-L'app gestisce un database di titoli di film. Vengono illustrate le seguenti procedure:
+L'app gestisce un database di titoli di film. Si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare un'app Web.
@@ -182,24 +182,24 @@ Al termine di queste operazioni si ottiene un'app che può gestire e visualizzar
 
 [!INCLUDE[](~/includes/mvc-intro/download.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 [!INCLUDE[](~/includes/net-core-prereqs-vs2019-2.2.md)]
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 [!INCLUDE[](~/includes/net-core-prereqs-vsc-2.2.md)]
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 [!INCLUDE[](~/includes/net-core-prereqs-mac-2.2.md)]
 
 ---
 ## <a name="create-a-web-app"></a>Creare un'app Web
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Dal menu di Visual Studio selezionare **Crea un nuovo progetto**.
 
@@ -218,7 +218,7 @@ Al termine di queste operazioni si ottiene un'app che può gestire e visualizzar
 
 Per il progetto MVC appena creato Visual Studio ha usato il modello predefinito. Ora è possibile disporre di un'app funzionante immettendo un nome progetto e selezionando alcune opzioni. Si tratta di un progetto iniziale di base che rappresenta un ottimo punto di partenza.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Nell'esercitazione si presuppone una familarità con Visual Studio Code. Vedere [Introduzione a VS Code](https://code.visualstudio.com/docs) e [Guida a Visual Studio Code](#visual-studio-code-help) per altre informazioni.
 
@@ -231,12 +231,12 @@ Nell'esercitazione si presuppone una familarità con Visual Studio Code. Vedere 
    code -r MvcMovie
    ```
 
-  * Viene visualizzata una finestra di dialogo con le **risorse necessarie per la compilazione e il debug non è presente in ' MvcMovie '. Aggiungerli?**  Selezionare **Sì**.
+  * Viene visualizzata una finestra di dialogo con le **risorse necessarie per la compilazione e il debug non è presente in ' MvcMovie '. Aggiungerli?**  Selezionare **Sì**
 
   * `dotnet new mvc -o MvcMovie`: crea un nuovo progetto ASP.NET Core MVC nella cartella *MvcMovie*.
   * `code -r MvcMovie`: carica il file di progetto *MvcMovie. csproj* in Visual Studio Code.
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 * Selezionare **File** > **nuova soluzione**.
 
@@ -256,7 +256,7 @@ Nell'esercitazione si presuppone una familarità con Visual Studio Code. Vedere 
 
 ### <a name="run-the-app"></a>Eseguire l'app
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Selezionare **CTRL+F5** per eseguire l'app in modalità non di debug.
 
@@ -280,7 +280,7 @@ Selezionare **CTRL+F5** per eseguire l'app in modalità non di debug.
 
   ![Pagina Home o di indice](start-mvc/_static/home2.2.png)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Premere CTRL+F5 per l'esecuzione senza il debugger.
 
@@ -298,7 +298,7 @@ Premere CTRL+F5 per l'esecuzione senza il debugger.
 
   ![Pagina Home o di indice](start-mvc/_static/home2.2.png)
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 Per avviare l'app, selezionare **Esegui** > **Avvia senza eseguire debug**. Visual Studio per Mac avvia il server [Kestrel](xref:fundamentals/servers/index#kestrel), apre un browser e naviga all'indirizzo `http://localhost:port`, dove *port* è un numero di porta selezionato a caso.
 
@@ -322,6 +322,6 @@ Per avviare l'app, selezionare **Esegui** > **Avvia senza eseguire debug**. Visu
 Nella parte seguente di questa esercitazione vengono fornite informazioni su MVC e istruzioni per iniziare a creare codice.
 
 > [!div class="step-by-step"]
-> [Successivo](adding-controller.md)
+> [Avanti](adding-controller.md)
 
 ::: moniker-end

@@ -8,11 +8,11 @@ ms.custom: mvc
 ms.date: 12/05/2019
 uid: mvc/views/view-compilation
 ms.openlocfilehash: cd096bba5eb580c0a606699a2bf7c36442fb56f7
-ms.sourcegitcommit: b5ceb0a46d0254cc3425578116e2290142eec0f0
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76809068"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78661105"
 ---
 # <a name="razor-file-compilation-in-aspnet-core"></a>Compilazione del file Razor in ASP.NET Core
 
@@ -57,7 +57,7 @@ La compilazione di file Razor in fase di build e pubblicazione è abilitata per 
 > [!IMPORTANT]
 > Lo strumento di precompilazione è stato deprecato e verrà rimosso in ASP.NET Core 3.0. È consigliabile eseguire la migrazione a [Razor SDK](xref:razor-pages/sdk).
 >
-> Razor SDK è attivo solo se nel file di progetto non sono impostate proprietà specifiche di precompilazione. Se ad esempio si imposta la proprietà `MvcRazorCompileOnPublish` del file con estensione *csproj* su `true`, Razor SDK viene disabilitato.
+> Razor SDK è attivo solo se nel file di progetto non sono impostate proprietà specifiche di precompilazione. Se ad esempio si imposta la proprietà *del file con estensione*csproj`MvcRazorCompileOnPublish` su `true`, Razor SDK viene disabilitato.
 
 ::: moniker-end
 

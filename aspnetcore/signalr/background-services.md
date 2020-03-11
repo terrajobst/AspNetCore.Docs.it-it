@@ -9,12 +9,12 @@ ms.date: 11/12/2019
 no-loc:
 - SignalR
 uid: signalr/background-services
-ms.openlocfilehash: 324592759af79d1229eb147fb4551e97c678ef64
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: 86319cc93febab18c29e2fb6366cef0d025943ba
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358678"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658144"
 ---
 # <a name="host-aspnet-core-opno-locsignalr-in-background-services"></a>SignalR di ASP.NET Core host nei servizi in background
 
@@ -25,7 +25,7 @@ Questo articolo fornisce indicazioni per:
 * Hosting di hub SignalR usando un processo di lavoro in background ospitato con ASP.NET Core.
 * Invio di messaggi ai client connessi dall'interno di un [BackgroundService](xref:Microsoft.Extensions.Hosting.BackgroundService)di .NET Core.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/background-service/sample/) [(procedura per il download)](xref:index#how-to-download-a-sample)
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/background-service/sample/) [(procedura per il download)](xref:index#how-to-download-a-sample)
 
 ## <a name="enable-opno-locsignalr-in-startup"></a>Abilita SignalR all'avvio
 
@@ -121,7 +121,7 @@ Durante il `IHostedService.StopAsync` metodo, il `HubConnection` viene eliminato
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Introduzione](xref:tutorials/signalr)
+* [Operazioni preliminari](xref:tutorials/signalr)
 * [Hub](xref:signalr/hubs)
 * [Pubblicare in Azure](xref:signalr/publish-to-azure-web-app)
 * [Hub fortemente tipizzati](xref:signalr/hubs#strongly-typed-hubs)

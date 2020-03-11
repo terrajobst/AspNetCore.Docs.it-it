@@ -11,11 +11,11 @@ no-loc:
 - SignalR
 uid: blazor/integrate-components
 ms.openlocfilehash: de1a37ffd9456c956e3d84fcc69431ecb794513c
-ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77453296"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78663317"
 ---
 # <a name="integrate-aspnet-core-razor-components-into-razor-pages-and-mvc-apps"></a>Integrare ASP.NET Core componenti Razor in app Razor Pages e MVC
 
@@ -124,7 +124,7 @@ Per supportare componenti Razor instradabili nelle app Razor Pages:
    });
    ```
 
-1. Aggiungere componenti instradabili all'app. Ad esempio,
+1. Aggiungere componenti instradabili all'app. Ad esempio:
 
    ```razor
    @page "/counter"
@@ -194,7 +194,7 @@ Per supportare i componenti Razor instradabili nelle app MVC:
    });
    ```
 
-1. Creare una cartella *pages* e aggiungere componenti instradabili all'app. Ad esempio,
+1. Creare una cartella *pages* e aggiungere componenti instradabili all'app. Ad esempio:
 
    ```razor
    @page "/counter"
@@ -219,7 +219,7 @@ Quando si usa una cartella personalizzata per archiviare i componenti dell'app, 
 
 Il file *_ViewImports. cshtml* si trova nella cartella *pagine* di un'app Razor Pages o nella cartella *views* di un'app MVC.
 
-Per ulteriori informazioni, vedere <xref:blazor/components#import-components>.
+Per altre informazioni, vedere <xref:blazor/components#import-components>.
 
 ## <a name="render-components-from-a-page-or-view"></a>Eseguire il rendering dei componenti da una pagina o da una vista
 

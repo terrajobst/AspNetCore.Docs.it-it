@@ -8,11 +8,11 @@ ms.date: 12/4/2019
 monikerRange: '>= aspnetcore-3.0'
 uid: security/authentication/microsoft-logins
 ms.openlocfilehash: ddaae1a25a1dcf167ffae0f24b480e2cde6aca5b
-ms.sourcegitcommit: f4cd3828e26e6d549ba8d0c36a17be35ad9e5a51
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74825463"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78659796"
 ---
 # <a name="microsoft-account-external-login-setup-with-aspnet-core"></a>Configurazione dell'accesso esterno all'account Microsoft con ASP.NET Core
 
@@ -30,7 +30,7 @@ Se non si dispone di un account Microsoft, selezionare **crearne uno**. Dopo ave
 * Seleziona **nuova registrazione**
 * Immettere un **Nome**.
 * Selezionare un'opzione per i **tipi di account supportati**.  <!-- Accounts for any org work with MS domain accounts. Most folks probably want the last option, personal MS accounts -->
-* In **URI di reindirizzamento**immettere l'URL di sviluppo con `/signin-microsoft` accodato. Ad esempio `https://localhost:5001/signin-microsoft`. Lo schema di autenticazione Microsoft configurato più avanti in questo esempio gestirà automaticamente le richieste in `/signin-microsoft` route per implementare il flusso OAuth.
+* In **URI di reindirizzamento**immettere l'URL di sviluppo con `/signin-microsoft` accodato. Ad esempio: `https://localhost:5001/signin-microsoft`. Lo schema di autenticazione Microsoft configurato più avanti in questo esempio gestirà automaticamente le richieste in `/signin-microsoft` route per implementare il flusso OAuth.
 * Seleziona **Registro**
 
 ### <a name="create-client-secret"></a>Crea segreto client
@@ -48,7 +48,7 @@ Se non si dispone di un account Microsoft, selezionare **crearne uno**. Dopo ave
 
 ## <a name="store-the-microsoft-client-id-and-client-secret"></a>Archiviare l'ID client e il segreto client Microsoft
 
-Eseguire i comandi seguenti per archiviare `ClientId` e `ClientSecret` in modo sicuro e usare [Secret Manager](xref:security/app-secrets):
+Eseguire i comandi seguenti per archiviare in modo sicuro `ClientId` e `ClientSecret` utilizzando [Secret Manager](xref:security/app-secrets):
 
 ```dotnetcli
 dotnet user-secrets set Authentication:Microsoft:ClientId <Client-Id>
@@ -81,18 +81,18 @@ A questo punto è stato effettuato l'accesso con le credenziali Microsoft:
 
 [!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 * Se il provider di account Microsoft reindirizza l'utente a una pagina di errore di accesso, prendere nota dei parametri della stringa di query titolo e Descrizione dell'errore direttamente dopo il `#` (hashtag) nell'URI.
 
   Anche se il messaggio di errore sembra indicare un problema con l'autenticazione Microsoft, la causa più comune è l'URI dell'applicazione che non corrisponde ad alcuno degli **URI di reindirizzamento** specificati per la piattaforma **Web** .
 * Se l'identità non è configurata chiamando `services.AddIdentity` in `ConfigureServices`, il tentativo di eseguire l'autenticazione determinerà *ArgumentException: è necessario fornire l'opzione ' SignInScheme '* . Il modello di progetto utilizzato in questo esempio garantisce che questa operazione venga eseguita.
-* Se il database del sito non è stato creato applicando la migrazione iniziale, si otterrà *un'operazione di database non riuscita durante l'elaborazione della richiesta* errore. Toccare **applicare le migrazioni** per creare il database e di aggiornamento per continuare oltre l'errore.
+* Se il database del sito non è stato creato applicando la migrazione iniziale, si otterrà *un'operazione di database non riuscita durante l'elaborazione dell'* errore di richiesta. Toccare **applica migrazioni** per creare il database e aggiornare per continuare a superare l'errore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Questo articolo ha illustrato come è possibile eseguire l'autenticazione con Microsoft. È possibile seguire un approccio simile per l'autenticazione con altri provider di servizi elencati nella [pagina precedente](xref:security/authentication/social/index).
+* Questo articolo ha illustrato come è possibile eseguire l'autenticazione con Microsoft. È possibile seguire un approccio simile per l'autenticazione con altri provider elencati nella [pagina precedente](xref:security/authentication/social/index).
 
 * Dopo aver pubblicato il sito Web nell'app Web di Azure, creare un nuovo segreto client nel portale per sviluppatori Microsoft.
 
-* Impostare il `Authentication:Microsoft:ClientId` e `Authentication:Microsoft:ClientSecret` come impostazioni dell'applicazione nel portale di Azure. Il sistema di configurazione è configurato per leggere le chiavi da variabili di ambiente.
+* Impostare il `Authentication:Microsoft:ClientId` e `Authentication:Microsoft:ClientSecret` come impostazioni dell'applicazione nella portale di Azure. Il sistema di configurazione è configurato per leggere le chiavi da variabili di ambiente.

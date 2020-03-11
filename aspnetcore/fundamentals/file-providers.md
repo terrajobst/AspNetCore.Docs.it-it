@@ -1,22 +1,22 @@
 ---
 title: Provider di file in ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Informazioni su come ASP.NET Core astrae l'accesso al file system tramite l'utilizzo di provider di file.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 11/07/2019
 uid: fundamentals/file-providers
-ms.openlocfilehash: a454ca394546184968222ca2ca44d7159b19a12a
-ms.sourcegitcommit: 851b921080fe8d719f54871770ccf6f78052584e
+ms.openlocfilehash: 34a48bbcf9ffb20bb61f89c80adedc1cc4783988
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74944308"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658788"
 ---
 # <a name="file-providers-in-aspnet-core"></a>Provider di file in ASP.NET Core
 
-Di [Steve Smith](https://ardalis.com/) e [Luke Latham](https://github.com/guardrex)
+[Steve Smith](https://ardalis.com/)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -27,7 +27,7 @@ ASP.NET Core astrae l'accesso al file system tramite l'utilizzo di provider di f
 * [Razor](xref:mvc/views/razor) usa i provider di file per individuare pagine e viste.
 * Gli strumenti .NET Core usano i provider di file e i criteri GLOB per specificare i file da pubblicare.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/file-providers/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/file-providers/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="file-provider-interfaces"></a>Interfacce del provider di file
 
@@ -75,9 +75,9 @@ var fileInfo = provider.GetFileInfo("wwwroot/js/site.js");
 
 Tipi nell'esempio precedente:
 
-* `provider` è `IFileProvider`.
-* `contents` è `IDirectoryContents`.
-* `fileInfo` è `IFileInfo`.
+* `provider` è di tipo `IFileProvider`.
+* `contents` è di tipo `IDirectoryContents`.
+* `fileInfo` è di tipo `IFileInfo`.
 
 Il provider di file può essere usato per scorrere la directory specificata da `applicationRoot` oppure per chiamare `GetFileInfo` per ottenere informazioni su un file. Il provider di file non ha accesso all'esterno della directory `applicationRoot`.
 
@@ -132,8 +132,8 @@ Nell'app di esempio, un `PhysicalFileProvider` e un `ManifestEmbeddedFileProvide
 
 Il metodo [IFileProvider.Watch](xref:Microsoft.Extensions.FileProviders.IFileProvider.Watch*) consente di controllare uno o più file o directory per il rilevamento delle modifiche. `Watch` accetta una stringa di percorso in cui è possibile usare [criteri GLOB](#glob-patterns) per specificare più file. `Watch` restituisce un oggetto <xref:Microsoft.Extensions.Primitives.IChangeToken>. Il token di modifica espone:
 
-* <xref:Microsoft.Extensions.Primitives.IChangeToken.HasChanged> &ndash; Una proprietà che può essere ispezionata per determinare se è stata apportata una modifica.
-* <xref:Microsoft.Extensions.Primitives.IChangeToken.RegisterChangeCallback*> &ndash; Chiamato quando vengono rilevate modifiche alla stringa di percorso specificata. Ogni token di modifica chiama solo il relativo callback associato in risposta a una singola modifica. Per abilitare un monitoraggio continuo, usare <xref:System.Threading.Tasks.TaskCompletionSource`1> come illustrato di seguito oppure ricreare istanze di `IChangeToken` in risposta alle modifiche.
+* <xref:Microsoft.Extensions.Primitives.IChangeToken.HasChanged> &ndash; una proprietà che può essere controllata per determinare se si è verificata una modifica.
+* <xref:Microsoft.Extensions.Primitives.IChangeToken.RegisterChangeCallback*> &ndash; chiamato quando vengono rilevate modifiche nella stringa di percorso specificata. Ogni token di modifica chiama solo il relativo callback associato in risposta a una singola modifica. Per abilitare un monitoraggio continuo, usare <xref:System.Threading.Tasks.TaskCompletionSource`1> come illustrato di seguito oppure ricreare istanze di `IChangeToken` in risposta alle modifiche.
 
 Nell'app di esempio, l'app console *WatchConsole* viene configurata per visualizzare un messaggio quando viene modificato un file di testo:
 
@@ -176,7 +176,7 @@ ASP.NET Core astrae l'accesso al file system tramite l'utilizzo di provider di f
 * [Razor](xref:mvc/views/razor) usa i provider di file per individuare pagine e viste.
 * Gli strumenti .NET Core usano i provider di file e i criteri GLOB per specificare i file da pubblicare.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/file-providers/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/file-providers/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="file-provider-interfaces"></a>Interfacce del provider di file
 
@@ -224,9 +224,9 @@ var fileInfo = provider.GetFileInfo("wwwroot/js/site.js");
 
 Tipi nell'esempio precedente:
 
-* `provider` è `IFileProvider`.
-* `contents` è `IDirectoryContents`.
-* `fileInfo` è `IFileInfo`.
+* `provider` è di tipo `IFileProvider`.
+* `contents` è di tipo `IDirectoryContents`.
+* `fileInfo` è di tipo `IFileInfo`.
 
 Il provider di file può essere usato per scorrere la directory specificata da `applicationRoot` oppure per chiamare `GetFileInfo` per ottenere informazioni su un file. Il provider di file non ha accesso all'esterno della directory `applicationRoot`.
 
@@ -279,8 +279,8 @@ Nell'app di esempio, un `PhysicalFileProvider` e un `ManifestEmbeddedFileProvide
 
 Il metodo [IFileProvider.Watch](xref:Microsoft.Extensions.FileProviders.IFileProvider.Watch*) consente di controllare uno o più file o directory per il rilevamento delle modifiche. `Watch` accetta una stringa di percorso in cui è possibile usare [criteri GLOB](#glob-patterns) per specificare più file. `Watch` restituisce un oggetto <xref:Microsoft.Extensions.Primitives.IChangeToken>. Il token di modifica espone:
 
-* <xref:Microsoft.Extensions.Primitives.IChangeToken.HasChanged> &ndash; Una proprietà che può essere ispezionata per determinare se è stata apportata una modifica.
-* <xref:Microsoft.Extensions.Primitives.IChangeToken.RegisterChangeCallback*> &ndash; Chiamato quando vengono rilevate modifiche alla stringa di percorso specificata. Ogni token di modifica chiama solo il relativo callback associato in risposta a una singola modifica. Per abilitare un monitoraggio continuo, usare <xref:System.Threading.Tasks.TaskCompletionSource`1> come illustrato di seguito oppure ricreare istanze di `IChangeToken` in risposta alle modifiche.
+* <xref:Microsoft.Extensions.Primitives.IChangeToken.HasChanged> &ndash; una proprietà che può essere controllata per determinare se si è verificata una modifica.
+* <xref:Microsoft.Extensions.Primitives.IChangeToken.RegisterChangeCallback*> &ndash; chiamato quando vengono rilevate modifiche nella stringa di percorso specificata. Ogni token di modifica chiama solo il relativo callback associato in risposta a una singola modifica. Per abilitare un monitoraggio continuo, usare <xref:System.Threading.Tasks.TaskCompletionSource`1> come illustrato di seguito oppure ricreare istanze di `IChangeToken` in risposta alle modifiche.
 
 Nell'app di esempio, l'app console *WatchConsole* viene configurata per visualizzare un messaggio quando viene modificato un file di testo:
 

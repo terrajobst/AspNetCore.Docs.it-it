@@ -6,18 +6,18 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 11/04/2019
 uid: performance/caching/response
-ms.openlocfilehash: ab5d1414ae72edade81ab55aef6b0fa5af30f0f4
-ms.sourcegitcommit: 990a4c2e623c202a27f60bdf3902f250359c13be
+ms.openlocfilehash: 91358e2553d09c5e7366ba7a2301a798ad921d69
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76971982"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78655729"
 ---
 # <a name="response-caching-in-aspnet-core"></a>Memorizzazione nella cache delle risposte in ASP.NET Core
 
-Di [John Luo](https://github.com/JunTaoLuo), [Rick Anderson](https://twitter.com/RickAndMSFT), [Steve Smith](https://ardalis.com/)e [Luke Latham](https://github.com/guardrex)
+Di [John Luo](https://github.com/JunTaoLuo), [Rick Anderson](https://twitter.com/RickAndMSFT)e [Steve Smith](https://ardalis.com/)
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/response/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/response/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 La memorizzazione nella cache delle risposte riduce il numero di richieste effettuate da un client o da un proxy a un server Web. La memorizzazione nella cache delle risposte riduce anche la quantità di lavoro eseguita dal server Web per generare una risposta. La memorizzazione nella cache delle risposte è controllata dalle intestazioni che specificano come si desidera che client, proxy e middleware memorizzino le risposte.
 
@@ -31,19 +31,19 @@ La [specifica di Caching HTTP 1,1](https://tools.ietf.org/html/rfc7234) descrive
 
 Nella tabella seguente sono illustrate le direttive comuni di `Cache-Control`.
 
-| Directive                                                       | Azione |
+| Direttiva                                                       | Azione |
 | --------------------------------------------------------------- | ------ |
-| [public](https://tools.ietf.org/html/rfc7234#section-5.2.2.5)   | Una cache può archiviare la risposta. |
+| [pubblico](https://tools.ietf.org/html/rfc7234#section-5.2.2.5)   | Una cache può archiviare la risposta. |
 | [private](https://tools.ietf.org/html/rfc7234#section-5.2.2.6)  | La risposta non deve essere archiviata da una cache condivisa. Una cache privata può archiviare e riutilizzare la risposta. |
-| [max-age](https://tools.ietf.org/html/rfc7234#section-5.2.1.1)  | Il client non accetta una risposta la cui età è superiore al numero di secondi specificato. Esempi: `max-age=60` (60 secondi), `max-age=2592000` (1 mese) |
-| [no-cache](https://tools.ietf.org/html/rfc7234#section-5.2.1.4) | **Sulle richieste**: una cache non deve usare una risposta archiviata per soddisfare la richiesta. Il server di origine rigenera la risposta per il client e il middleware aggiorna la risposta archiviata nella cache.<br><br>**In**risposta: non è necessario usare la risposta per una richiesta successiva senza convalida nel server di origine. |
-| [no-store](https://tools.ietf.org/html/rfc7234#section-5.2.1.5) | **Sulle richieste**: una cache non deve archiviare la richiesta.<br><br>**Nelle risposte**: una cache non deve archiviare alcuna parte della risposta. |
+| [validità massima](https://tools.ietf.org/html/rfc7234#section-5.2.1.1)  | Il client non accetta una risposta la cui età è superiore al numero di secondi specificato. Esempi: `max-age=60` (60 secondi), `max-age=2592000` (1 mese) |
+| [No-cache](https://tools.ietf.org/html/rfc7234#section-5.2.1.4) | **Sulle richieste**: una cache non deve usare una risposta archiviata per soddisfare la richiesta. Il server di origine rigenera la risposta per il client e il middleware aggiorna la risposta archiviata nella cache.<br><br>**In**risposta: non è necessario usare la risposta per una richiesta successiva senza convalida nel server di origine. |
+| [Nessun archivio](https://tools.ietf.org/html/rfc7234#section-5.2.1.5) | **Sulle richieste**: una cache non deve archiviare la richiesta.<br><br>**Nelle risposte**: una cache non deve archiviare alcuna parte della risposta. |
 
 Nella tabella seguente sono illustrate le altre intestazioni della cache che svolgono un ruolo nella memorizzazione nella cache.
 
-| Header                                                     | Funzione |
+| Intestazione                                                     | Funzione |
 | ---------------------------------------------------------- | -------- |
-| [Età](https://tools.ietf.org/html/rfc7234#section-5.1)     | Stima della quantità di tempo in secondi trascorsa dalla generazione della risposta o dalla convalida corretta nel server di origine. |
+| [Age](https://tools.ietf.org/html/rfc7234#section-5.1)     | Stima della quantità di tempo in secondi trascorsa dalla generazione della risposta o dalla convalida corretta nel server di origine. |
 | [Scadenza](https://tools.ietf.org/html/rfc7234#section-5.3) | Tempo trascorso il quale la risposta è considerata obsoleta. |
 | [Pragma](https://tools.ietf.org/html/rfc7234#section-5.4)  | Esiste per la compatibilità con le versioni precedenti con le cache HTTP/1.0 per l'impostazione del comportamento `no-cache`. Se è presente l'intestazione `Cache-Control`, l'intestazione `Pragma` viene ignorata. |
 | [Variare](https://tools.ietf.org/html/rfc7231#section-7.1.4)  | Specifica che una risposta memorizzata nella cache non deve essere inviata a meno che tutti i campi di intestazione del `Vary` corrispondano sia nella richiesta originale della risposta memorizzata nella cache che nella nuova richiesta. |
@@ -62,25 +62,25 @@ Il comportamento di memorizzazione nella cache non è disponibile per gli svilup
 
 La memorizzazione nella cache in memoria usa la memoria del server per archiviare i dati memorizzati nella cache. Questo tipo di memorizzazione nella cache è adatto per un singolo server o più server che usano *sessioni permanenti*. Sessioni permanenti significa che le richieste provenienti da un client vengono sempre indirizzate allo stesso server per l'elaborazione.
 
-Per ulteriori informazioni, vedere <xref:performance/caching/memory>.
+Per altre informazioni, vedere <xref:performance/caching/memory>.
 
 ### <a name="distributed-cache"></a>Cache distribuita
 
 Usare una cache distribuita per archiviare i dati in memoria quando l'app è ospitata in un cloud o in server farm. La cache è condivisa tra i server che elaborano le richieste. Un client può inviare una richiesta gestita da qualsiasi server del gruppo se sono disponibili dati memorizzati nella cache per il client. ASP.NET Core funziona con le cache distribuite SQL Server, [Redis](https://www.nuget.org/packages/Microsoft.Extensions.Caching.StackExchangeRedis)e [NCache](https://www.nuget.org/packages/Alachisoft.NCache.OpenSource.SDK/) .
 
-Per ulteriori informazioni, vedere <xref:performance/caching/distributed>.
+Per altre informazioni, vedere <xref:performance/caching/distributed>.
 
 ### <a name="cache-tag-helper"></a>Helper tag di cache
 
 Memorizza nella cache il contenuto da una visualizzazione MVC o da una pagina Razor con l'helper tag di cache. L'helper tag di cache usa la memorizzazione nella cache in memoria per archiviare i dati.
 
-Per ulteriori informazioni, vedere <xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper>.
+Per altre informazioni, vedere <xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper>.
 
 ### <a name="distributed-cache-tag-helper"></a>Helper tag di cache distribuita
 
 Memorizzare nella cache il contenuto da una visualizzazione MVC o da una pagina Razor in scenari cloud distribuiti o Web farm con l'helper tag di cache distribuita. L'helper tag di cache distribuita usa SQL Server, [Redis](https://www.nuget.org/packages/Microsoft.Extensions.Caching.StackExchangeRedis)o [NCache](https://www.nuget.org/packages/Alachisoft.NCache.OpenSource.SDK/) per archiviare i dati.
 
-Per ulteriori informazioni, vedere <xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>.
+Per altre informazioni, vedere <xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>.
 
 ## <a name="responsecache-attribute"></a>Attributo ResponseCache
 

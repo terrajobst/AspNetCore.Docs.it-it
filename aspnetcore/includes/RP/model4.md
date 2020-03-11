@@ -2,7 +2,7 @@
 
 | Parametro               | Descrizione|
 | ----------------- | ------------ |
-| -m  | Nome del modello. |
+| -M  | Il nome del modello. |
 | -dc  | Classe `DbContext` da usare. |
 | -udl | Uso del layout predefinito. |
 | -outDir | Percorso relativo della cartella di output per creare le viste. |

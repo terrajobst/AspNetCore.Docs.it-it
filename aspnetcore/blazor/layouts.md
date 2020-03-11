@@ -11,11 +11,11 @@ no-loc:
 - SignalR
 uid: blazor/layouts
 ms.openlocfilehash: 5b6e1c7ceb4a6e41230e31bbe379bde1bb0a8286
-ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77447139"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78660412"
 ---
 # <a name="aspnet-core-opno-locblazor-layouts"></a>Layout di Blazor ASP.NET Core
 
@@ -66,9 +66,9 @@ Ogni cartella di un'app può contenere facoltativamente un file modello denomina
 
 Il seguente file di *_Imports. Razor* Imports:
 
-* `MyCoolLayout`
+* `MyCoolLayout`.
 * Tutti i componenti Razor nella stessa cartella e in tutte le sottocartelle.
-* Spazio dei nomi `BlazorApp1.Data` .
+* Spazio dei nomi `BlazorApp1.Data`.
  
 [!code-razor[](layouts/sample_snapshot/3.x/_Imports.razor)]
 

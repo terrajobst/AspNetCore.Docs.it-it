@@ -7,11 +7,11 @@ ms.author: jamesnk
 ms.date: 01/09/2020
 uid: grpc/versioning
 ms.openlocfilehash: 9bd76009ba28a1abef25a98686afea6753d4a8f4
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828516"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664115"
 ---
 # <a name="versioning-grpc-services"></a>Controllo delle versioni dei servizi gRPC
 

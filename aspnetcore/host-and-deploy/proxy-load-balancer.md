@@ -1,22 +1,22 @@
 ---
 title: Configurare ASP.NET Core per l'uso di server proxy e servizi di bilanciamento del carico
-author: guardrex
+author: rick-anderson
 description: Informazioni sulla configurazione per le app ospitate dietro server proxy e servizi di bilanciamento del carico, che spesso nascondono informazioni importanti sulle richieste.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/07/2020
 uid: host-and-deploy/proxy-load-balancer
-ms.openlocfilehash: 9db9ef386b84907f10e0393aca125edc9f32424a
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: b5c81e0cfa29cddeb1aeed1119a711fca4d91ae4
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77172458"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78659383"
 ---
 # <a name="configure-aspnet-core-to-work-with-proxy-servers-and-load-balancers"></a>Configurare ASP.NET Core per l'uso di server proxy e servizi di bilanciamento del carico
 
-Di [Luke Latham](https://github.com/guardrex) e [Chris Ross](https://github.com/Tratcher)
+Di [Chris Ross](https://github.com/Tratcher)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -304,7 +304,7 @@ services.AddCertificateForwarding(options =>
 });
 ```
 
-## <a name="troubleshoot"></a>Risoluzione dei problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 Quando le intestazioni non vengono inoltrate come previsto, abilitare la [registrazione](xref:fundamentals/logging/index). Se i log non forniscono informazioni sufficienti per risolvere il problema, enumerare le intestazioni delle richieste ricevute dal server. Usare il middleware inline per scrivere le intestazioni di richiesta in una risposta dell'app o per registrare le intestazioni. 
 
@@ -632,7 +632,7 @@ if (string.Equals(
 }
 ```
 
-## <a name="troubleshoot"></a>Risoluzione dei problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 Quando le intestazioni non vengono inoltrate come previsto, abilitare la [registrazione](xref:fundamentals/logging/index). Se i log non forniscono informazioni sufficienti per risolvere il problema, enumerare le intestazioni delle richieste ricevute dal server. Usare il middleware inline per scrivere le intestazioni di richiesta in una risposta dell'app o per registrare le intestazioni. 
 

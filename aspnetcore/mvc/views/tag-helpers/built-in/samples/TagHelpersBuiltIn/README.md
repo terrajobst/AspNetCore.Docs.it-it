@@ -17,5 +17,5 @@ In questo esempio vengono illustrate le variazioni degli helper per tag incorpor
 - [Helper per tag parziale](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/partial-tag-helper)
   - [for](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/partial-tag-helper#for)
   - [model](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/partial-tag-helper#model)
-  - [name](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/partial-tag-helper#name)
+  - [nome](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/partial-tag-helper#name)
   - [view-data](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/partial-tag-helper#view-data)

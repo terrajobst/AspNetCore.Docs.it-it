@@ -9,11 +9,11 @@ products:
 - vs
 urlFragment: create-grpc-client
 ms.openlocfilehash: b9feb9eed62177358fffc0d7da582f625a431e32
-ms.sourcegitcommit: 9e85c2562df5e108d7933635c830297f484bb775
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73463041"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78660930"
 ---
 # <a name="create-a-grpc-client-and-server-in-aspnet-core-30-using-visual-studio"></a>Creare un client e un server gRPC in ASP.NET Core 3.0 con Visual Studio
 
@@ -31,13 +31,13 @@ Le attività di questa esercitazione sono le seguenti:
 
 * Dal menu **File** di Visual Studio selezionare **Nuovo** > **Progetto**.
 * Nella finestra di dialogo **Crea un nuovo progetto** selezionare **Applicazione Web ASP.NET Core**.
-* Scegliere **Avanti**
+* Selezionare **Avanti**
 * Denominare il progetto **GrpcGreeter**. È importante denominare il progetto *GrpcGreeter* in modo che gli spazi dei nomi corrispondano nell'operazione copia/incolla del codice.
-* Selezionare **Crea**.
+* Selezionare **Crea**
 * Nella finestra di dialogo **Crea una nuova applicazione Web ASP.NET Core**:
   * Selezionare **.NET Core** e **ASP.NET Core 3.0** negli elenchi a discesa. 
   * Selezionare il modello del **servizio gRPC**.
-  * Selezionare **Crea**.
+  * Selezionare **Crea**
 
 ### <a name="run-the-service"></a>Eseguire il servizio
 
@@ -68,8 +68,8 @@ File di progetto *GrpcGreeter*:
 
 * *greet. proto*: il file *Protos/greet. proto* definisce il `Greeter` gRPC e viene usato per generare gli asset del server gRPC. Per altre informazioni, vedere [Introduzione a gRPC](xref:grpc/index).
 * Cartella dei *Servizi* : contiene l'implementazione del servizio `Greeter`.
-* *appSettings. JSON*: contiene i dati di configurazione, ad esempio il protocollo usato da gheppio. Per ulteriori informazioni, vedere <xref:fundamentals/configuration/index>.
-* *Program.cs*: contiene il punto di ingresso per il servizio gRPC. Per ulteriori informazioni, vedere <xref:fundamentals/host/generic-host>.
+* *appSettings. JSON*: contiene i dati di configurazione, ad esempio il protocollo usato da gheppio. Per altre informazioni, vedere <xref:fundamentals/configuration/index>.
+* *Program.cs*: contiene il punto di ingresso per il servizio gRPC. Per altre informazioni, vedere <xref:fundamentals/host/generic-host>.
 * *Startup.cs*: contiene il codice che configura il comportamento dell'app. Per altre informazioni, vedere [Avvio dell'app](xref:fundamentals/startup).
 
 ## <a name="create-the-grpc-client-in-a-net-console-app"></a>Creare il client gRPC in un'app console .NET
@@ -77,9 +77,9 @@ File di progetto *GrpcGreeter*:
 * Aprire una seconda istanza di Visual Studio.
 * Selezionare **File** > **Nuovo** > **Progetto** dalla barra dei menu.
 * Nella finestra di dialogo **Crea un nuovo progetto** selezionare **App console (.NET Core)** .
-* Scegliere **Avanti**
+* Selezionare **Avanti**
 * Nella casella di testo **Nome** immettere "GrpcGreeterClient".
-* Scegliere **Crea**.
+* Selezionare **Create** (Crea).
 
 ### <a name="add-required-packages"></a>Aggiungere i pacchetti necessari
 

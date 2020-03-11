@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/07/2020
 uid: getting-started
-ms.openlocfilehash: 4f7e67e1e422afe3f7e2970e0c40380f065390ac
-ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
+ms.openlocfilehash: 047fd7a74d3d53f68a730d67b63c65fe6bda529f
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76928322"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658466"
 ---
 # <a name="tutorial-get-started-with-aspnet-core"></a>Esercitazione: Introduzione ad ASP.NET Core
 
-Questa esercitazione illustra come usare la interfaccia della riga di comando di .NET Core per creare ed eseguire un'app Web di ASP.NET Core.
+Questa esercitazione illustra come creare ed eseguire un'app Web ASP.NET Core usando il interfaccia della riga di comando di .NET Core.
 
-Si imparerà a eseguire le operazioni seguenti:
+Si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare un progetto di app Web.
@@ -29,7 +29,7 @@ Al termine, si avrà un'app Web funzionante che viene eseguita nel computer loca
 
 ![Home page dell'app Web](_static/home-page.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE[](~/includes/3.1-SDK.md)]
 
@@ -50,7 +50,7 @@ Il comando precedente:
 
 Considerare attendibile il certificato di sviluppo HTTPS:
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 ```dotnetcli
 dotnet dev-certs https --trust
@@ -62,7 +62,7 @@ Il comando precedente consente di visualizzare la finestra di dialogo seguente:
 
 Selezionare **Sì** se si accetta di considerare attendibile il certificato di sviluppo.
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
+# <a name="macos"></a>[macOS](#tab/macos)
 
 ```dotnetcli
 dotnet dev-certs https --trust
@@ -74,7 +74,7 @@ Il comando precedente consente di visualizzare il messaggio seguente:
 
 Questo comando potrebbe richiedere la password per installare il certificato nel keychain di sistema. Inserire la password se si accetta di considerare attendibile il certificato di sviluppo.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 Vedere la documentazione della distribuzione di Linux su come rendere attendibile il certificato di sviluppo HTTPS.
 
@@ -103,7 +103,7 @@ Passare a [https://localhost:5001](https://localhost:5001), aggiornare la pagina
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un progetto di app Web.

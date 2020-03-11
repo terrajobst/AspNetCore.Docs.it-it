@@ -7,11 +7,11 @@ ms.author: riande
 ms.date: 07/04/2019
 uid: fundamentals/tools/dotnet-aspnet-codegenerator
 ms.openlocfilehash: 1043a578f66d5bb57f4a81e9fe21afa5e3c37cb8
-ms.sourcegitcommit: 215954a638d24124f791024c66fd4fb9109fd380
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71081505"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78665186"
 ---
 # <a name="dotnet-aspnet-codegenerator"></a>dotnet aspnet-codegenerator
 
@@ -54,11 +54,11 @@ Il generatore di codice da eseguire. Sono disponibili i generatori seguenti:
 
 | Generator | Operazione |
 | ----------------- | ------------ | 
-| Area      | [Esegue lo scaffolding di un'area](/aspnet/core/mvc/controllers/areas) |
+| area      | [Esegue lo scaffolding di un'area](/aspnet/core/mvc/controllers/areas) |
   controller| [Esegue lo scaffolding di un controller](/aspnet/core/tutorials/first-mvc-app/adding-model) |
   identity  | [Esegue lo scaffolding dell'identità](/aspnet/core/security/authentication/scaffold-identity) |
   razorpage | [Esegue lo scaffolding di Razor Pages](/aspnet/core/tutorials/razor-pages/model) |
-  visualizzazione      | [Esegue lo scaffolding di una visualizzazione](/aspnet/core/mvc/views/overview) |
+  vista      | [Esegue lo scaffolding di una visualizzazione](/aspnet/core/mvc/views/overview) |
 
 ## <a name="options"></a>Opzioni
 
@@ -72,7 +72,7 @@ Definisce la configurazione di compilazione. Il valore predefinito è `Debug`.
 
 `-tfm|--target-framework`
 
-[Framework](/dotnet/standard/frameworks) di destinazione da usare. Ad esempio `net46`.
+[Framework](/dotnet/standard/frameworks) di destinazione da usare. Ad esempio: `net46`.
 
 `-b|--build-base-path`
 
@@ -96,7 +96,7 @@ Nelle sezioni seguenti vengono descritte in dettaglio le opzioni disponibili per
 
 * Area
 * Controller
-* identità  
+* Identità  
 * Razorpage
 * Visualizza
 
@@ -114,14 +114,14 @@ Il comando precedente genera le cartelle seguenti:
   * *AreaNameToGenerate*
     * *Controller*
     * *Dati*
-    * *Models*
+    * *Modelli*
     * *Visualizzazioni*
 
 <a name="ctl"></a>
 
 ### <a name="controller-options"></a>Opzioni per controller
 
-La tabella seguente contiene un elenco di opzioni per `aspnet-codegenerator` `controller` e `razorpage`:
+Nella tabella seguente sono elencate le opzioni per `aspnet-codegenerator` `controller` e `razorpage`:
 
 [!INCLUDE [aspnet-codegenerator-args-md.md](~/includes/aspnet-codegenerator-args-md.md)]
 
@@ -170,7 +170,7 @@ In genere, il modello e il nome di file generato non vengono specificati e vengo
 * `Details`
 * `List`
 
-La tabella seguente contiene un elenco di opzioni per `aspnet-codegenerator` `razorpage` e `controller`:
+Nella tabella seguente sono elencate le opzioni per `aspnet-codegenerator` `razorpage` e `controller`:
 
 [!INCLUDE [aspnet-codegenerator-args-md.md](~/includes/aspnet-codegenerator-args-md.md)]
 
@@ -190,6 +190,6 @@ dotnet aspnet-codegenerator razorpage -h
 
 Vedere [Eseguire lo scaffolding del modello di filmato](/aspnet/core/tutorials/razor-pages/model) per un esempio di `dotnet aspnet-codegenerator razorpage`.
 
-### <a name="identity"></a>identità
+### <a name="identity"></a>Identità
 
 Vedere [Scaffolding dell'identità](/aspnet/core/security/authentication/scaffold-identity)

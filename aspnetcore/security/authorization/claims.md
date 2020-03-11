@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 10/14/2016
 uid: security/authorization/claims
 ms.openlocfilehash: e289851aafcbc7e3b3f60ab9fbe4b182a78bdf8a
-ms.sourcegitcommit: de0fc77487a4d342bcc30965ec5c142d10d22c03
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73143425"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78661805"
 ---
 # <a name="claims-based-authorization-in-aspnet-core"></a>Autorizzazione basata sulle attestazioni in ASP.NET Core
 
@@ -146,7 +146,7 @@ Se il valore dell'attestazione non è un singolo valore o se è richiesta una tr
 
 ## <a name="multiple-policy-evaluation"></a>Valutazione di più criteri
 
-Se si applicano più criteri a un controller o a un'azione, tutti i criteri devono essere superati prima che venga concesso l'accesso. Esempio:
+Se si applicano più criteri a un controller o a un'azione, tutti i criteri devono essere superati prima che venga concesso l'accesso. Ad esempio:
 
 ```csharp
 [Authorize(Policy = "EmployeeOnly")]

@@ -1,22 +1,22 @@
 ---
 title: Attività in background con servizi ospitati in ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Informazioni su come implementare attività in background con servizi ospitati in ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/10/2020
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: 9b7224c07df027c9466db34dcc23505410893f1f
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: d3f409170eedd281fd7608c4b9835bf9443c49b0
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77171787"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666201"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>Attività in background con servizi ospitati in ASP.NET Core
 
-Di [Luke Latham](https://github.com/guardrex) e [Jeow li Huan](https://github.com/huan086)
+Di [Jeow li Huan](https://github.com/huan086)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -26,7 +26,7 @@ In ASP.NET Core le attività in background possono essere implementate come *ser
 * Servizio ospitato che attiva un [servizio con ambito](xref:fundamentals/dependency-injection#service-lifetimes). Il servizio con ambito può usare l' [inserimento di dipendenze](xref:fundamentals/dependency-injection).
 * Attività in background in coda che vengono eseguite in sequenza.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="worker-service-template"></a>Modello di servizio di ruolo di lavoro
 
@@ -181,7 +181,7 @@ In ASP.NET Core le attività in background possono essere implementate come *ser
 * Servizio ospitato che attiva un [servizio con ambito](xref:fundamentals/dependency-injection#service-lifetimes). Il servizio con ambito può usare l' [inserimento di dipendenze](xref:fundamentals/dependency-injection)
 * Attività in background in coda che vengono eseguite in sequenza.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="package"></a>Pacchetto
 

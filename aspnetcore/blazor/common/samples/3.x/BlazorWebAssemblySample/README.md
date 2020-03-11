@@ -1,6 +1,6 @@
-# <a name="blazor-webassembly-sample-app"></a>App di esempio webassembly Blazer
+# <a name="blazor-webassembly-sample-app"></a>App di esempio webassembly Blazor
 
-Questo esempio illustra l'uso degli scenari di Blazer descritti nella documentazione di Blazer.
+Questo esempio illustra l'uso degli scenari di Blazor descritti nella documentazione di Blazor.
 
 ## <a name="call-web-api-example"></a>Esempio di chiamata all'API Web
 

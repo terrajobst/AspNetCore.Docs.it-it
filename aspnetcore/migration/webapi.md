@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: migration/webapi
-ms.openlocfilehash: c68cf83f427f53b110075168c6d5e4d021808782
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 7f61b78c589fc9d01061b50554e5a639e372c3d8
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74881138"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78661847"
 ---
 # <a name="migrate-from-aspnet-web-api-to-aspnet-core"></a>Eseguire la migrazione da API Web ASP.NET a ASP.NET Core
 
@@ -19,7 +19,7 @@ Di [Scott Addie](https://twitter.com/scott_addie) e [Steve Smith](https://ardali
 
 Un'API Web ASP.NET 4. x è un servizio HTTP che raggiunge un'ampia gamma di client, inclusi browser e dispositivi mobili. ASP.NET Core unifica i modelli di app per le API Web e MVC di ASP.NET 4. x in un modello di programmazione più semplice noto come ASP.NET Core MVC. Questo articolo illustra i passaggi necessari per eseguire la migrazione dall'API Web ASP.NET 4. x a ASP.NET Core MVC.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/migration/webapi/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/migration/webapi/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -61,7 +61,7 @@ La soluzione ora contiene due progetti. Le sezioni seguenti illustrano come eseg
 
 ## <a name="migrate-configuration"></a>Esegui migrazione configurazione
 
-ASP.NET Core non utilizza la cartella *app_start* o il file *Global. asax* e il file *Web. config* viene aggiunto in fase di pubblicazione. *Startup.cs* è la sostituzione di *Global. asax* e si trova nella radice del progetto. La classe `Startup` gestisce tutte le attività di avvio dell'app. Per ulteriori informazioni, vedere <xref:fundamentals/startup>.
+ASP.NET Core non utilizza la cartella *app_start* o il file *Global. asax* e il file *Web. config* viene aggiunto in fase di pubblicazione. *Startup.cs* è la sostituzione di *Global. asax* e si trova nella radice del progetto. La classe `Startup` gestisce tutte le attività di avvio dell'app. Per altre informazioni, vedere <xref:fundamentals/startup>.
 
 In ASP.NET Core MVC, il routing degli attributi è incluso per impostazione predefinita quando viene chiamato <xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvc*> in `Startup.Configure`. La chiamata di `UseMvc` seguente sostituisce il file di *app_start/webapiconfig.cs* del progetto *ProductsApp* :
 
@@ -69,7 +69,7 @@ In ASP.NET Core MVC, il routing degli attributi è incluso per impostazione pred
 
 ## <a name="migrate-models-and-controllers"></a>Eseguire la migrazione di modelli e controller
 
-Copiare il controller del progetto *ProductApp* e il modello usato. Esegui questi passaggi:
+Copiare il controller del progetto *ProductApp* e il modello usato. A tale scopo, seguire questa procedura:
 
 1. Copiare *Controllers/ProductsController. cs* dal progetto originale a quello nuovo.
 1. Copiare l'intera cartella *Models* dal progetto originale a quella nuova.
@@ -79,11 +79,11 @@ A questo punto, la compilazione dell'app comporta una serie di errori di compila
 
 * Classe `ApiController`
 * Spazio dei nomi `System.Web.Http`
-* Interfaccia `IHttpActionResult`
+* interfaccia `IHttpActionResult`
 
 Correggere gli errori nel modo seguente:
 
-1. Change `ApiController` a <xref:Microsoft.AspNetCore.Mvc.ControllerBase>. Aggiungere `using Microsoft.AspNetCore.Mvc;` per risolvere il riferimento `ControllerBase`.
+1. Cambiare `ApiController` in <xref:Microsoft.AspNetCore.Mvc.ControllerBase>. Aggiungere `using Microsoft.AspNetCore.Mvc;` per risolvere il riferimento `ControllerBase`.
 1. Eliminare `using System.Web.Http;`.
 1. Modificare il tipo restituito dell'azione di `GetProduct` da `IHttpActionResult` a `ActionResult<Product>`.
 

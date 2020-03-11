@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 08/05/2017
 uid: tutorials/first-mvc-app/adding-controller
 ms.openlocfilehash: fb670902b0dafa7dce2b3372e550095387844936
-ms.sourcegitcommit: 57b85708f4cded99b8f008a69830cb104cd8e879
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75914245"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666992"
 ---
 # <a name="add-a-controller-to-an-aspnet-core-mvc-app"></a>Aggiungere un controller a un'app ASP.NET Core MVC
 
@@ -30,9 +30,9 @@ Il pattern MVC consente di creare app che separano i diversi aspetti dell'app (l
 
 Questi concetti vengono illustrati in questa serie di esercitazioni e descrivono come compilare un'app per i film. Il progetto MVC contiene le cartelle per i *controller* e le *viste*.
 
-## <a name="add-a-controller"></a>Aggiungere un controller
+## <a name="add-a-controller"></a>Aggiunta di un controller
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Controller > Aggiungi > Controller**
   ![Menu contestuale](adding-controller/_static/add_controller.png)
@@ -43,13 +43,13 @@ Questi concetti vengono illustrati in questa serie di esercitazioni e descrivono
 
 * Nella **finestra di dialogo Aggiungi Controller MVC vuoto**, immettere **HelloWorldController** e selezionare **AGGIUNGI**.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Selezionare l'icona **EXPLORER** e quindi fare CTRL+clic (clic con il pulsante destro del mouse) su **Controller > Nuovo File** e assegnare al nuovo file il nome *HelloWorldController.cs*.
 
   ![Menu di scelta rapida](~/tutorials/first-mvc-app-xplat/adding-controller/_static/new_file.png)
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Controller > Aggiungi > Nuovo file**.
 ![Menu di scelta rapida](~/tutorials/first-mvc-app-mac/adding-controller/_static/add_controller.png)
@@ -92,7 +92,7 @@ Passare a `https://localhost:{PORT}/HelloWorld/Welcome`. Il metodo `Welcome` vie
 
 ![Finestra del browser con una risposta dell'applicazione, This is the Welcome action method](~/tutorials/first-mvc-app/adding-controller/_static/welcome.png)
 
-Modificare il codice in modo da passare le informazioni dei parametri dall'URL al controller. Ad esempio `/HelloWorld/Welcome?name=Rick&numtimes=4`. Modificare il metodo `Welcome` in modo da includere due parametri, come illustrato nel codice seguente.
+Modificare il codice in modo da passare le informazioni dei parametri dall'URL al controller. Ad esempio: `/HelloWorld/Welcome?name=Rick&numtimes=4`. Modificare il metodo `Welcome` in modo da includere due parametri, come illustrato nel codice seguente.
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_2)]
 
@@ -144,9 +144,9 @@ Il pattern MVC consente di creare app che separano i diversi aspetti dell'app (l
 
 Questi concetti vengono illustrati in questa serie di esercitazioni e descrivono come compilare un'app per i film. Il progetto MVC contiene le cartelle per i *controller* e le *viste*.
 
-## <a name="add-a-controller"></a>Aggiungere un controller
+## <a name="add-a-controller"></a>Aggiunta di un controller
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Controller > Aggiungi > Controller**
   ![Menu contestuale](adding-controller/_static/add_controller.png)
@@ -157,13 +157,13 @@ Questi concetti vengono illustrati in questa serie di esercitazioni e descrivono
 
 * Nella **finestra di dialogo Aggiungi Controller MVC vuoto**, immettere **HelloWorldController** e selezionare **AGGIUNGI**.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Selezionare l'icona **EXPLORER** e quindi fare CTRL+clic (clic con il pulsante destro del mouse) su **Controller > Nuovo File** e assegnare al nuovo file il nome *HelloWorldController.cs*.
 
   ![Menu di scelta rapida](~/tutorials/first-mvc-app-xplat/adding-controller/_static/new_file.png)
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Controller > Aggiungi > Nuovo file**.
 ![Menu di scelta rapida](~/tutorials/first-mvc-app-mac/adding-controller/_static/add_controller.png)
@@ -211,7 +211,7 @@ Passare a `https://localhost:{PORT}/HelloWorld/Welcome`. Il metodo `Welcome` vie
 
 ![Finestra del browser con una risposta dell'applicazione, This is the Welcome action method](~/tutorials/first-mvc-app/adding-controller/_static/welcome.png)
 
-Modificare il codice in modo da passare le informazioni dei parametri dall'URL al controller. Ad esempio `/HelloWorld/Welcome?name=Rick&numtimes=4`. Modificare il metodo `Welcome` in modo da includere due parametri, come illustrato nel codice seguente.
+Modificare il codice in modo da passare le informazioni dei parametri dall'URL al controller. Ad esempio: `/HelloWorld/Welcome?name=Rick&numtimes=4`. Modificare il metodo `Welcome` in modo da includere due parametri, come illustrato nel codice seguente.
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_2)]
 

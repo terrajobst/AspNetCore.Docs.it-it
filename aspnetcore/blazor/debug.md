@@ -11,19 +11,19 @@ no-loc:
 - SignalR
 uid: blazor/debug
 ms.openlocfilehash: 1b0035af48b82807a6ae14835a41a1ecbef06bb6
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76159989"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78661707"
 ---
-# <a name="debug-aspnet-core-opno-locblazor"></a>Debug ASP.NET Core [!OP.NO-LOC(Blazor)]
+# <a name="debug-aspnet-core-blazor"></a>Debug ASP.NET Core Blazor
 
 [Daniel Roth](https://github.com/danroth27)
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-Il supporto *anticipato* esiste per il debug [!OP.NO-LOC(Blazor)] webassembly usando gli strumenti di sviluppo del browser nei browser basati su cromo (Chrome/Microsoft Edge). Il lavoro è in corso per:
+Il supporto *anticipato* è disponibile per il debug di un Webassembly Blazer usando gli strumenti di sviluppo del browser nei browser basati su cromo (Chrome/Edge). Il lavoro è in corso per:
 
 * Abilita completamente il debug in Visual Studio.
 * Abilitare il debug in Visual Studio Code.
@@ -46,7 +46,7 @@ Le funzionalità del debugger sono limitate. Gli scenari disponibili includono:
 
 Lo sviluppo di altri scenari di debug è un'attività in corso del team di progettazione.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Il debug richiede uno dei seguenti browser:
 
@@ -55,15 +55,15 @@ Il debug richiede uno dei seguenti browser:
 
 ## <a name="procedure"></a>Procedura
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 > [!WARNING]
 > Il supporto del debug in Visual Studio si trova in una fase iniziale dello sviluppo. Il debug di **F5** attualmente non è supportato.
 
-1. Eseguire un'app webassembly [!OP.NO-LOC(Blazor)] in `Debug` configurazione senza debug (**Ctrl**+**F5** anziché **F5**).
-1. Aprire le proprietà di debug dell'app (ultima voce nel menu **debug** ) e copiare l'URL dell' **app**http. Individuare l'indirizzo HTTP (non l'indirizzo HTTPS) dell'app usando un browser basato su cromo (Microsoft Edge beta o Chrome).
+1. Eseguire un'app webassembly Blazer in `Debug` configurazione senza debug (**Ctrl**+**F5** anziché **F5**).
+1. Aprire le proprietà di debug dell'app (ultima voce nel menu **debug** ) e copiare l'URL dell' **app**http. Individuare l'indirizzo HTTP (non l'indirizzo HTTPS) dell'app usando un browser basato su cromo (Edge beta o Chrome).
 1. Posizionare lo stato attivo sulla tastiera nell'app nella finestra del browser, non nel pannello strumenti di sviluppo. È consigliabile lasciare il pannello strumenti di sviluppo chiuso per questa procedura. Dopo l'avvio del debug, è possibile riaprire il pannello strumenti di sviluppo.
-1. Selezionare il seguente tasto di scelta rapida specifico per [!OP.NO-LOC(Blazor)]:
+1. Selezionare il seguente tasto di scelta rapida specifico di Blazor:
 
    * `Shift+Alt+D` in Windows
    * `Shift+Cmd+D` in macOS
@@ -72,22 +72,22 @@ Il debug richiede uno dei seguenti browser:
    
    Dopo l'abilitazione del debug remoto:
    
-   1 \. Verrà aperta una nuova finestra del browser Chiudere la finestra precedente.
+   1 \. Verrà visualizzata una nuova finestra del browser. Chiudere la finestra precedente.
 
    2 \. Posizionare lo stato attivo sulla tastiera nell'app nella finestra del browser.
 
-   3 \. Selezionare il tasto di scelta rapida specifico per [!OP.NO-LOC(Blazor)]nella nuova finestra del browser: `Shift+Alt+D` in Windows o `Shift+Cmd+D` in macOS.
+   3 \. Selezionare il tasto di scelta rapida specifico di Blazer nella nuova finestra del browser: `Shift+Alt+D` in Windows o `Shift+Cmd+D` in macOS.
 
    4 \. Verrà visualizzata la scheda **devtools** nel browser. **Selezionare nuovamente la scheda dell'app nella finestra del browser.**
 
    Per aggiungere l'app a Visual Studio, vedere la sezione [Connetti a processo in Visual Studio](#attach-to-process-in-visual-studio) .
 
-# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli/)
+# <a name="net-core-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli/)
 
-1. Eseguire un'app webassembly [!OP.NO-LOC(Blazor)] nella configurazione `Debug` passando l'opzione `--configuration Debug` al comando [DotNet Run](/dotnet/core/tools/dotnet-run) : `dotnet run --configuration Debug`.
+1. Eseguire un'app webassembly Blazer nella configurazione `Debug` passando l'opzione `--configuration Debug` al comando [DotNet Run](/dotnet/core/tools/dotnet-run) : `dotnet run --configuration Debug`.
 1. Passare all'app nell'URL HTTP visualizzato nella finestra della shell.
 1. Posizionare lo stato attivo della tastiera sull'app, non sul pannello strumenti di sviluppo. È consigliabile lasciare il pannello strumenti di sviluppo chiuso per questa procedura. Dopo l'avvio del debug, è possibile riaprire il pannello strumenti di sviluppo.
-1. Selezionare il seguente tasto di scelta rapida specifico per [!OP.NO-LOC(Blazor)]:
+1. Selezionare il seguente tasto di scelta rapida specifico di Blazor:
 
    * `Shift+Alt+D` in Windows
    * `Shift+Cmd+D` in macOS
@@ -96,11 +96,11 @@ Il debug richiede uno dei seguenti browser:
    
    Dopo l'abilitazione del debug remoto:
    
-   1 \. Verrà aperta una nuova finestra del browser Chiudere la finestra precedente.
+   1 \. Verrà visualizzata una nuova finestra del browser. Chiudere la finestra precedente.
 
    2 \. Posizionare lo stato attivo sulla tastiera nell'app nella finestra del browser, non nel pannello strumenti di sviluppo.
 
-   3 \. Selezionare il tasto di scelta rapida specifico per [!OP.NO-LOC(Blazor)]nella nuova finestra del browser: `Shift+Alt+D` in Windows o `Shift+Cmd+D` in macOS.
+   3 \. Selezionare il tasto di scelta rapida specifico di Blazer nella nuova finestra del browser: `Shift+Alt+D` in Windows o `Shift+Cmd+D` in macOS.
 
 ---
 
@@ -125,13 +125,13 @@ Per alleghi il processo dell'app in esecuzione a Visual Studio:
 1. Per la **destinazione della connessione**, incollare l'indirizzo http (non l'indirizzo https) dell'app.
 1. Selezionare **Aggiorna** per aggiornare le voci in **processi disponibili**.
 1. Selezionare il processo del browser di cui eseguire il debug e selezionare **Connetti**.
-1. Nella finestra di dialogo **Seleziona tipo di codice** selezionare il tipo di codice per il browser specifico a cui si sta eseguendo la connessione (Microsoft Edge o Chrome) e quindi fare clic su **OK**.
+1. Nella finestra di dialogo **Seleziona tipo di codice** selezionare il tipo di codice per il browser specifico a cui si sta eseguendo la connessione (Edge o Chrome) e quindi fare clic su **OK**.
 
 ## <a name="browser-source-maps"></a>Mappe di origine del browser
 
 Le mappe di origine del browser consentono al browser di eseguire il mapping dei file compilati ai file di origine originali e vengono comunemente usati per il debug sul lato client. Tuttavia, non Blazor attualmente viene C# effettuato il mapping direttamente a JavaScript/WASM. Al contrario, Blazor l'interpretazione del nel browser, quindi le mappe di origine non sono rilevanti.
 
-## <a name="troubleshoot"></a>Risolvere i problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 Se si verificano errori, è possibile che venga utile il suggerimento seguente:
 

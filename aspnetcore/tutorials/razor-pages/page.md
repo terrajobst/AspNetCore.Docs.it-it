@@ -5,12 +5,12 @@ description: Illustra le pagine Razor generate tramite scaffolding.
 ms.author: riande
 ms.date: 08/17/2019
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: 594fd6186cc73aa054fc9a1478850fa01e481ef2
-ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
+ms.openlocfilehash: cec4295a2c08c89db0975808583f41c7d09bfc88
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034204"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78662449"
 ---
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>Pagine Razor create in ASP.NET Core tramite scaffolding
 
@@ -32,7 +32,7 @@ Le pagine Razor vengono derivate da `PageModel`. Per convenzione, la classe deri
 
 Quando per la pagina viene eseguita una richiesta, il metodo `OnGetAsync` restituisce un elenco di filmati alla pagina Razor. viene chiamato `OnGetAsync` o `OnGet` per inizializzare lo stato della pagina. In questo caso, `OnGetAsync` ottiene un elenco di filmati e li visualizza.
 
-Quando `OnGet` restituisce `void` o `OnGetAsync` restituisce`Task`, non viene utilizzata alcuna istruzione return. Quando il tipo restituito è `IActionResult` o `Task<IActionResult>`, è necessario specificare un'istruzione return. Ad esempio, il metodo *Pages/Movies/Create.cshtml.cs* `OnPostAsync`:
+Quando `OnGet` restituisce `void` o `OnGetAsync` restituisce`Task`, non viene utilizzata alcuna istruzione return. Quando il tipo restituito è `IActionResult` o `Task<IActionResult>`, è necessario specificare un'istruzione return. Ad esempio, il metodo di `OnPostAsync` *pages/Movies/create. cshtml. cs* :
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Pages/Movies/Create.cshtml.cs?name=snippet)]
 
@@ -60,7 +60,7 @@ L'helper HTML `DisplayNameFor` controlla la proprietà `Title` a cui fa riferime
 
 [!code-cshtml[](razor-pages-start/snapshot_sample3/RazorPagesMovie30/Pages/Movies/Index.cshtml?range=1-2&highlight=2)]
 
-La direttiva `@model` specifica il tipo di modello passato alla pagina Razor. Nell'esempio precedente la riga `@model` rende disponibile la classe derivata `PageModel` alla pagina Razor. Il modello viene usato negli `@Html.DisplayNameFor`helper HTML`@Html.DisplayFor` [ e ](/aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs#understanding-html-helpers) nella pagina.
+La direttiva `@model` specifica il tipo di modello passato alla pagina Razor. Nell'esempio precedente la riga `@model` rende disponibile la classe derivata `PageModel` alla pagina Razor. Il modello viene usato nella `@Html.DisplayNameFor` e `@Html.DisplayFor` [helper HTML](/aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs#understanding-html-helpers) nella pagina.
 
 ### <a name="the-layout-page"></a>Pagina di layout
 
@@ -114,12 +114,12 @@ Sostituire l'elemento precedente con il markup seguente:
 
 L'elemento di ancoraggio precedente è un [helper tag](xref:mvc/views/tag-helpers/intro). In questo caso, si tratta dell'[helper tag di ancoraggio](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper). L'attributo e il valore dell'helper tag `asp-page="/Movies/Index"` creano un collegamento alla pagina Razor `/Movies/Index`. Poiché il valore dell'attributo `asp-area` è vuoto, l'area non viene usata nel collegamento. Per altre informazioni, vedere [Aree](xref:mvc/controllers/areas).
 
-Salvare le modifiche e testare l'app selezionando il collegamento **RpMovie**. In caso di problemi, vedere il file [_Layout.cshtml](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie30/Pages/Shared/_Layout.cshtml) in GitHub.
+Salvare le modifiche e testare l'app selezionando il collegamento **RpMovie**. In caso di problemi, vedere il file [_Layout.cshtml](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie30/Pages/Shared/_Layout.cshtml) in GitHub.
 
 Testare gli altri collegamenti (**Home**, **RpMovie**, **Create**, **Edit** e **Delete**). Ogni pagina imposta il titolo, che è possibile visualizzare nella scheda del browser. Quando si aggiunge un segnalibro a una pagina, il titolo viene usato per il segnalibro.
 
 > [!NOTE]
-> Potrebbe non essere possibile immettere virgole decimali nel campo `Price`. Per supportare la [convalida jQuery](https://jqueryvalidation.org/) per impostazioni locali diverse dall'inglese che usano la virgola (",") come separatore decimale e per formati di data diversi da quello dell'inglese degli Stati Uniti, è necessario eseguire alcuni passaggi per globalizzare l'app. Vedere questo [problema 4076 su GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420) per istruzioni sull'aggiunta della virgola decimale.
+> Potrebbe non essere possibile immettere virgole decimali nel campo `Price`. Per supportare la [convalida jQuery](https://jqueryvalidation.org/) per impostazioni locali diverse dall'inglese che usano la virgola (",") come separatore decimale e per formati di data diversi da quello dell'inglese degli Stati Uniti, è necessario eseguire alcuni passaggi per globalizzare l'app. Vedere questo [problema 4076 su GitHub](https://github.com/dotnet/AspNetCore.Docs/issues/4076#issuecomment-326590420) per istruzioni sull'aggiunta della virgola decimale.
 
 La proprietà `Layout` viene impostata nel file *Pages/_ViewStart.cshtml*:
 
@@ -151,7 +151,7 @@ Esaminare il file della pagina Razor *Pages/Movies/Create.cshtml*:
 
 [!code-cshtml[](razor-pages-start/snapshot_sample3/RazorPagesMovie30/Pages/Movies/Create.cshtml)]
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Visual Studio visualizza i tag seguenti con un tipo di carattere in grassetto distintivo specifico per gli helper tag:
 
@@ -163,7 +163,7 @@ Visual Studio visualizza i tag seguenti con un tipo di carattere in grassetto di
 
 ![Visualizzazione di VS17 della pagina Create.cshtml](page/_static/th3.png)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Nel markup precedente sono visualizzati gli helper tag seguenti:
 
@@ -173,7 +173,7 @@ Nel markup precedente sono visualizzati gli helper tag seguenti:
 * `<input asp-for="Movie.Title" class="form-control" />`
 * `<span asp-validation-for="Movie.Title" class="text-danger"></span>`
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 Visual Studio visualizza i tag seguenti con un tipo di carattere in grassetto distintivo specifico per gli helper tag:
 
@@ -213,7 +213,7 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 In questa esercitazione vengono esaminate le pagine Razor create tramite scaffolding nell'[esercitazione precedente](xref:tutorials/razor-pages/model).
 
-[Visualizzare o scaricare](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22) l'esempio.
+[Visualizzare o scaricare](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22) l'esempio.
 
 ## <a name="the-create-delete-details-and-edit-pages"></a>Pagine di creazione, eliminazione, dettagli e modifica
 
@@ -225,7 +225,7 @@ Le pagine Razor vengono derivate da `PageModel`. Per convenzione, la classe deri
 
 Quando per la pagina viene eseguita una richiesta, il metodo `OnGetAsync` restituisce un elenco di filmati alla pagina Razor. Nella pagina Razor viene chiamato `OnGetAsync`o `OnGet` per inizializzare lo stato della pagina. In questo caso, `OnGetAsync` ottiene un elenco di filmati e li visualizza.
 
-Quando `OnGet` restituisce `void` o `OnGetAsync` restituisce`Task`, non viene usato alcun metodo restituito. Quando il tipo restituito è `IActionResult` o `Task<IActionResult>`, è necessario specificare un'istruzione return. Ad esempio, il metodo *Pages/Movies/Create.cshtml.cs* `OnPostAsync`:
+Quando `OnGet` restituisce `void` o `OnGetAsync` restituisce`Task`, non viene usato alcun metodo restituito. Quando il tipo restituito è `IActionResult` o `Task<IActionResult>`, è necessario specificare un'istruzione return. Ad esempio, il metodo di `OnPostAsync` *pages/Movies/create. cshtml. cs* :
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Create.cshtml.cs?name=snippet)]
 
@@ -251,7 +251,7 @@ L'helper HTML `DisplayNameFor` controlla la proprietà `Title` a cui fa riferime
 
 [!code-cshtml[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-2&highlight=2)]
 
-La direttiva `@model` specifica il tipo di modello passato alla pagina Razor. Nell'esempio precedente la riga `@model` rende disponibile la classe derivata `PageModel` alla pagina Razor. Il modello viene usato negli `@Html.DisplayNameFor`helper HTML`@Html.DisplayFor` [ e ](/aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs#understanding-html-helpers) nella pagina.
+La direttiva `@model` specifica il tipo di modello passato alla pagina Razor. Nell'esempio precedente la riga `@model` rende disponibile la classe derivata `PageModel` alla pagina Razor. Il modello viene usato nella `@Html.DisplayNameFor` e `@Html.DisplayFor` [helper HTML](/aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs#understanding-html-helpers) nella pagina.
 
 ### <a name="the-layout-page"></a>Pagina di layout
 
@@ -300,12 +300,12 @@ Sostituire l'elemento precedente con il markup seguente.
 
 L'elemento di ancoraggio precedente è un [helper tag](xref:mvc/views/tag-helpers/intro). In questo caso, si tratta dell'[helper tag di ancoraggio](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper). L'attributo e il valore dell'helper tag `asp-page="/Movies/Index"` creano un collegamento alla pagina Razor `/Movies/Index`. Poiché il valore dell'attributo `asp-area` è vuoto, l'area non viene usata nel collegamento. Per altre informazioni, vedere [Aree](xref:mvc/controllers/areas).
 
-Salvare le modifiche e testare l'app selezionando il collegamento **RpMovie**. In caso di problemi, vedere il file [_Layout.cshtml](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Pages/Shared/_Layout.cshtml) in GitHub.
+Salvare le modifiche e testare l'app selezionando il collegamento **RpMovie**. In caso di problemi, vedere il file [_Layout.cshtml](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Pages/Shared/_Layout.cshtml) in GitHub.
 
 Testare gli altri collegamenti (**Home**, **RpMovie**, **Create**, **Edit** e **Delete**). Ogni pagina imposta il titolo, che è possibile visualizzare nella scheda del browser. Quando si aggiunge un segnalibro a una pagina, il titolo viene usato per il segnalibro.
 
 > [!NOTE]
-> Potrebbe non essere possibile immettere virgole decimali nel campo `Price`. Per supportare la [convalida jQuery](https://jqueryvalidation.org/) per impostazioni locali diverse dall'inglese che usano la virgola (",") come separatore decimale e per formati di data diversi da quello dell'inglese degli Stati Uniti, è necessario eseguire alcuni passaggi per globalizzare l'app. [Problema 4076 su GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/4076#issuecomment-326590420) per istruzioni sull'aggiunta della virgola decimale.
+> Potrebbe non essere possibile immettere virgole decimali nel campo `Price`. Per supportare la [convalida jQuery](https://jqueryvalidation.org/) per impostazioni locali diverse dall'inglese che usano la virgola (",") come separatore decimale e per formati di data diversi da quello dell'inglese degli Stati Uniti, è necessario eseguire alcuni passaggi per globalizzare l'app. [Problema 4076 su GitHub](https://github.com/dotnet/AspNetCore.Docs/issues/4076#issuecomment-326590420) per istruzioni sull'aggiunta della virgola decimale.
 
 La proprietà `Layout` viene impostata nel file *Pages/_ViewStart.cshtml*:
 
@@ -337,17 +337,17 @@ Esaminare il file della pagina Razor *Pages/Movies/Create.cshtml*:
 
 [!code-cshtml[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml)]
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Per visualizzare il tag `<form method="post">`, Visual Studio usa un tipo di carattere in grassetto distintivo specifico per gli helper tag:
 
 ![Visualizzazione di VS17 della pagina Create.cshtml](page/_static/th.png)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Per altre informazioni sugli helper tag, ad esempio `<form method="post">`, vedere [Helper tag in ASP.NET Core](xref:mvc/views/tag-helpers/intro).
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 Per visualizzare il tag `<form method="post">`, Visual Studio per Mac usa un tipo di carattere in grassetto distintivo specifico per gli helper tag.
 

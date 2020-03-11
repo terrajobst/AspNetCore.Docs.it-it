@@ -11,11 +11,11 @@ no-loc:
 - SignalR
 uid: blazor/globalization-localization
 ms.openlocfilehash: aba62fa7b6285c8ba884652694f1ea3e3a66ed18
-ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77453268"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78655491"
 ---
 # <a name="aspnet-core-opno-locblazor-globalization-and-localization"></a>ASP.NET Core Blazor la globalizzazione e la localizzazione
 
@@ -31,7 +31,7 @@ Sono attualmente supportati un set limitato di scenari di localizzazione di ASP.
 * `IStringLocalizer<>` *è supportata* nelle app Blazor.
 * la localizzazione `IHtmlLocalizer<>`, `IViewLocalizer<>`e le annotazioni dei dati sono ASP.NET Core scenari MVC e **non sono supportate** nelle app Blazor.
 
-Per ulteriori informazioni, vedere <xref:fundamentals/localization>.
+Per altre informazioni, vedere <xref:fundamentals/localization>.
 
 ## <a name="globalization"></a>Globalizzazione
 
@@ -135,7 +135,7 @@ public class CultureController : Controller
 ```
 
 > [!WARNING]
-> Usare il risultato dell'azione `LocalRedirect` per impedire gli attacchi di reindirizzamento aperti. Per ulteriori informazioni, vedere <xref:security/preventing-open-redirects>.
+> Usare il risultato dell'azione `LocalRedirect` per impedire gli attacchi di reindirizzamento aperti. Per altre informazioni, vedere <xref:security/preventing-open-redirects>.
 
 Il componente seguente mostra un esempio di come eseguire il reindirizzamento iniziale quando l'utente seleziona le impostazioni cultura:
 

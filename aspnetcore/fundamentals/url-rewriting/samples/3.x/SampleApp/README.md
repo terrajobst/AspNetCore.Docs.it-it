@@ -19,13 +19,13 @@ Quando si esegue l'esempio, al momento dell'applicazione di una delle regole a u
   - Codice di stato riuscito del comando eseguito: 200 (OK)
   - Esempio (riscrittura): **/iis-rules-rewrite/{gruppo_capture}** in **/rewritten?id={gruppo_capture}**
 * `Add(RedirectXmlFileRequests)`
-  - Codice di stato riuscito del comando eseguito: 301 (Spostato in modo permanente)
+  - Codice di stato riuscito del comando eseguito: 301 (Spostato permanentemente)
   - Esempio (reindirizzamento): **/file.xml** a **/xmlfiles/file.xml**
 * `Add(RewriteTextFileRequests)`
   - Codice di stato riuscito del comando eseguito: 200 (OK)
   - Esempio (riscrittura): da **/some_file.txt** a **/file.txt**
 * `Add(new RedirectImageRequests(".png", "/png-images")))`<br>`Add(new RedirectImageRequests(".jpg", "/jpg-images")))`
-  - Codice di stato riuscito del comando eseguito: 301 (Spostato in modo permanente)
+  - Codice di stato riuscito del comando eseguito: 301 (Spostato permanentemente)
   - Esempio (reindirizzamento): **/image.png** a **/png-images/image.png**
   - Esempio (reindirizzamento): **/image.jpg** a **/jpg-images/image.jpg**
 

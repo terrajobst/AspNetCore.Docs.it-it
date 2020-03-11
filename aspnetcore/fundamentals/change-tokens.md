@@ -1,27 +1,25 @@
 ---
 title: Rilevare le modifiche apportate con i token di modifica in ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Informazioni su come usare i token di modifica per rilevare le modifiche.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 10/07/2019
 uid: fundamentals/change-tokens
-ms.openlocfilehash: bb30d7a4c7dc82200821c60a49c314b246562111
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: 70451e219f1295b854e2f84aac55f0cfd1786b19
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007205"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78656345"
 ---
 # <a name="detect-changes-with-change-tokens-in-aspnet-core"></a>Rilevare le modifiche apportate con i token di modifica in ASP.NET Core
-
-Di [Luke Latham](https://github.com/guardrex)
 
 ::: moniker range=">= aspnetcore-3.0"
 
 Un *token di modifica* è un blocco predefinito di uso generico e di basso livello che viene usato per il rilevamento delle modifiche di stato.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/change-tokens/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/change-tokens/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="ichangetoken-interface"></a>Interfaccia IChangeToken
 
@@ -51,7 +49,7 @@ L'overload [ChangeToken.OnChange\<TState>(Func\<IChangeToken>, Action\<TState>, 
 
 I token di modifica vengono usati nelle aree principali di ASP.NET Core per monitorare le modifiche apportate agli oggetti:
 
-* Per monitorare le modifiche ai file, il metodo <xref:Microsoft.Extensions.FileProviders.IFileProvider.Watch*> di <xref:Microsoft.Extensions.FileProviders.IFileProvider> crea un elemento `IChangeToken` per le cartelle o i file specificati da controllare.
+* Per monitorare le modifiche ai file, il metodo <xref:Microsoft.Extensions.FileProviders.IFileProvider> di <xref:Microsoft.Extensions.FileProviders.IFileProvider.Watch*> crea un elemento `IChangeToken` per le cartelle o i file specificati da controllare.
 * È possibile aggiungere token `IChangeToken` alle voci della cache per attivare le eliminazioni dalla cache alla modifica.
 * Per le modifiche di `TOptions`, l'implementazione <xref:Microsoft.Extensions.Options.OptionsMonitor`1> predefinita di <xref:Microsoft.Extensions.Options.IOptionsMonitor`1> ha un overload che accetta una o più istanze di <xref:Microsoft.Extensions.Options.IOptionsChangeTokenSource`1>. Ogni istanza restituisce un elemento `IChangeToken` per registrare un callback di notifica delle modifiche per il rilevamento delle modifiche apportate alle opzioni.
 
@@ -59,7 +57,7 @@ I token di modifica vengono usati nelle aree principali di ASP.NET Core per moni
 
 Per impostazione predefinita, i modelli ASP.NET Core usano [file di configurazione JSON](xref:fundamentals/configuration/index#json-configuration-provider) (*appsettings.json*, *appsettings.Development.json* e *appsettings.Production.json*) per caricare le impostazioni di configurazione dell'app.
 
-Questi file vengono configurati usando il metodo di estensione [AddJsonFile(IConfigurationBuilder, String, Boolean, Boolean)](xref:Microsoft.Extensions.Configuration.JsonConfigurationExtensions.AddJsonFile*) per <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> che accetta un parametro `reloadOnChange`. `reloadOnChange` indica se la configurazione deve essere ricaricata alla modifica del file. Questa impostazione viene visualizzata nel metodo pratico <xref:Microsoft.Extensions.Hosting.Host> <xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder*>:
+Questi file vengono configurati usando il metodo di estensione [AddJsonFile(IConfigurationBuilder, String, Boolean, Boolean)](xref:Microsoft.Extensions.Configuration.JsonConfigurationExtensions.AddJsonFile*) per <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> che accetta un parametro `reloadOnChange`. `reloadOnChange` indica se la configurazione deve essere ricaricata alla modifica del file. Questa impostazione viene visualizzata nel metodo pratico <xref:Microsoft.Extensions.Hosting.Host><xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder*>:
 
 ```csharp
 config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
@@ -115,8 +113,8 @@ Il costruttore della classe implementata, `ConfigurationMonitor`, registra un ca
 
 `config.GetReloadToken()` fornisce il token. `InvokeChanged` è il metodo di callback. Il valore `state` in questa istanza è un riferimento all'istanza `IConfigurationMonitor` usata per accedere allo stato di monitoraggio. Vengono usate due proprietà:
 
-* `MonitoringEnabled` &ndash; Indica se il callback deve eseguire il proprio codice personalizzato.
-* `CurrentState` &ndash; Descrive lo stato di monitoraggio corrente per l'uso nell'interfaccia utente.
+* `MonitoringEnabled` &ndash; indica se il callback deve eseguire il codice personalizzato.
+* `CurrentState` &ndash; descrive lo stato di monitoraggio corrente per l'uso nell'interfaccia utente.
 
 Il metodo `InvokeChanged` è simile all'approccio precedente, ad eccezione del fatto che:
 
@@ -172,7 +170,7 @@ Se non è possibile reperire il contenuto memorizzato nella cache usando la chia
 1. Un token di modifica viene ottenuto dal provider di file con [IFileProviders.Watch](xref:Microsoft.Extensions.FileProviders.IFileProvider.Watch*). Il callback del token viene attivato alla modifica del file.
 1. Il contenuto del file viene memorizzato nella cache con un periodo di [scadenza variabile](xref:Microsoft.Extensions.Caching.Memory.MemoryCacheEntryOptions.SlidingExpiration). Al token di modifica viene associato [MemoryCacheEntryExtensions.AddExpirationToken](xref:Microsoft.Extensions.Caching.Memory.MemoryCacheEntryExtensions.AddExpirationToken*) per eliminare la voce della cache se il file viene modificato mentre è memorizzato nella cache.
 
-Nell'esempio seguente i file vengono archiviati nella [radice del contenuto](xref:fundamentals/index#content-root)dell'app. `IWebHostEnvironment.ContentRootFileProvider` viene usato per ottenere un <xref:Microsoft.Extensions.FileProviders.IFileProvider> che punta al `IWebHostEnvironment.ContentRootPath` dell'app. `filePath` viene ottenuto con [IFileInfo.PhysicalPath](xref:Microsoft.Extensions.FileProviders.IFileInfo.PhysicalPath).
+Nell'esempio seguente i file vengono archiviati nella [radice del contenuto](xref:fundamentals/index#content-root)dell'app. `IWebHostEnvironment.ContentRootFileProvider` viene usato per ottenere un <xref:Microsoft.Extensions.FileProviders.IFileProvider> che punta al `IWebHostEnvironment.ContentRootPath`dell'app. `filePath` viene ottenuto con [IFileInfo.PhysicalPath](xref:Microsoft.Extensions.FileProviders.IFileInfo.PhysicalPath).
 
 [!code-csharp[](change-tokens/samples/3.x/SampleApp/Services/FileService.cs?name=snippet1)]
 
@@ -219,7 +217,7 @@ var compositeChangeToken =
 
 Un *token di modifica* è un blocco predefinito di uso generico e di basso livello che viene usato per il rilevamento delle modifiche di stato.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/change-tokens/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/change-tokens/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="ichangetoken-interface"></a>Interfaccia IChangeToken
 
@@ -249,7 +247,7 @@ L'overload [ChangeToken.OnChange\<TState>(Func\<IChangeToken>, Action\<TState>, 
 
 I token di modifica vengono usati nelle aree principali di ASP.NET Core per monitorare le modifiche apportate agli oggetti:
 
-* Per monitorare le modifiche ai file, il metodo <xref:Microsoft.Extensions.FileProviders.IFileProvider.Watch*> di <xref:Microsoft.Extensions.FileProviders.IFileProvider> crea un elemento `IChangeToken` per le cartelle o i file specificati da controllare.
+* Per monitorare le modifiche ai file, il metodo <xref:Microsoft.Extensions.FileProviders.IFileProvider> di <xref:Microsoft.Extensions.FileProviders.IFileProvider.Watch*> crea un elemento `IChangeToken` per le cartelle o i file specificati da controllare.
 * È possibile aggiungere token `IChangeToken` alle voci della cache per attivare le eliminazioni dalla cache alla modifica.
 * Per le modifiche di `TOptions`, l'implementazione <xref:Microsoft.Extensions.Options.OptionsMonitor`1> predefinita di <xref:Microsoft.Extensions.Options.IOptionsMonitor`1> ha un overload che accetta una o più istanze di <xref:Microsoft.Extensions.Options.IOptionsChangeTokenSource`1>. Ogni istanza restituisce un elemento `IChangeToken` per registrare un callback di notifica delle modifiche per il rilevamento delle modifiche apportate alle opzioni.
 
@@ -257,7 +255,7 @@ I token di modifica vengono usati nelle aree principali di ASP.NET Core per moni
 
 Per impostazione predefinita, i modelli ASP.NET Core usano [file di configurazione JSON](xref:fundamentals/configuration/index#json-configuration-provider) (*appsettings.json*, *appsettings.Development.json* e *appsettings.Production.json*) per caricare le impostazioni di configurazione dell'app.
 
-Questi file vengono configurati usando il metodo di estensione [AddJsonFile(IConfigurationBuilder, String, Boolean, Boolean)](xref:Microsoft.Extensions.Configuration.JsonConfigurationExtensions.AddJsonFile*) per <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> che accetta un parametro `reloadOnChange`. `reloadOnChange` indica se la configurazione deve essere ricaricata alla modifica del file. Questa impostazione viene visualizzata nel metodo pratico <xref:Microsoft.AspNetCore.WebHost> <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*>:
+Questi file vengono configurati usando il metodo di estensione [AddJsonFile(IConfigurationBuilder, String, Boolean, Boolean)](xref:Microsoft.Extensions.Configuration.JsonConfigurationExtensions.AddJsonFile*) per <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder> che accetta un parametro `reloadOnChange`. `reloadOnChange` indica se la configurazione deve essere ricaricata alla modifica del file. Questa impostazione viene visualizzata nel metodo pratico <xref:Microsoft.AspNetCore.WebHost><xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*>:
 
 ```csharp
 config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
@@ -313,8 +311,8 @@ Il costruttore della classe implementata, `ConfigurationMonitor`, registra un ca
 
 `config.GetReloadToken()` fornisce il token. `InvokeChanged` è il metodo di callback. Il valore `state` in questa istanza è un riferimento all'istanza `IConfigurationMonitor` usata per accedere allo stato di monitoraggio. Vengono usate due proprietà:
 
-* `MonitoringEnabled` &ndash; Indica se il callback deve eseguire il proprio codice personalizzato.
-* `CurrentState` &ndash; Descrive lo stato di monitoraggio corrente per l'uso nell'interfaccia utente.
+* `MonitoringEnabled` &ndash; indica se il callback deve eseguire il codice personalizzato.
+* `CurrentState` &ndash; descrive lo stato di monitoraggio corrente per l'uso nell'interfaccia utente.
 
 Il metodo `InvokeChanged` è simile all'approccio precedente, ad eccezione del fatto che:
 

@@ -11,11 +11,11 @@ products:
 - vs-mac
 urlFragment: getstarted-swashbuckle-aspnetcore
 ms.openlocfilehash: e02247325f430b0ce23dbb3f5bc344a60a1a164a
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74879722"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78659936"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Introduzione a Swashbuckle e ad ASP.NET Core
 
@@ -80,7 +80,7 @@ L'interfaccia utente di Swagger è disponibile in `http://localhost:<port>/swagg
 >});
 >```
 
-Se si usano le directory con ISS o il proxy inverso, impostare l'endpoint Swagger su un percorso relativo tramite il prefisso `./`. Ad esempio `./swagger/v1/swagger.json`. L'uso di `/swagger/v1/swagger.json` indica all'app di cercare il file JSON nella vera radice dell'URL (con il prefisso della route, se usato). Ad esempio, usare `http://localhost:<port>/<route_prefix>/swagger/v1/swagger.json` invece di `http://localhost:<port>/<virtual_directory>/<route_prefix>/swagger/v1/swagger.json`.
+Se si usano le directory con ISS o il proxy inverso, impostare l'endpoint Swagger su un percorso relativo tramite il prefisso `./`. Ad esempio: `./swagger/v1/swagger.json`. L'uso di `/swagger/v1/swagger.json` indica all'app di cercare il file JSON nella vera radice dell'URL (con il prefisso della route, se usato). Usare, ad esempio, `http://localhost:<port>/<route_prefix>/swagger/v1/swagger.json` invece di `http://localhost:<port>/<virtual_directory>/<route_prefix>/swagger/v1/swagger.json`.
 
 ## <a name="customize-and-extend"></a>Personalizzare ed estendere
 
@@ -130,7 +130,7 @@ L'interfaccia utente di Swagger visualizza le informazioni sulla versione:
 
 I commenti XML possono essere abilitati con gli approcci seguenti:
 
-#### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+#### <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Modifica <nome_progetto>.csproj**.
 * Aggiungere manualmente le righe evidenziate al file con estensione *csproj*:
@@ -142,7 +142,7 @@ I commenti XML possono essere abilitati con gli approcci seguenti:
 </PropertyGroup>
 ```
 
-#### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
+#### <a name="visual-studio-for-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 * Dal *riquadro della soluzione* premere **controllo** e fare clic sul nome del progetto. Passare a **Strumenti** > **Modifica file**.
 * Aggiungere manualmente le righe evidenziate al file con estensione *csproj*:
@@ -154,7 +154,7 @@ I commenti XML possono essere abilitati con gli approcci seguenti:
 </PropertyGroup>
 ```
 
-#### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+#### <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Aggiungere manualmente le righe evidenziate al file con estensione *csproj*:
 

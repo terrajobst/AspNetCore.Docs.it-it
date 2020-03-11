@@ -8,11 +8,11 @@ ms.custom: mvc
 ms.date: 07/07/2019
 uid: grpc/security
 ms.openlocfilehash: f84bec0ef485b701b2be36384a2e49b9b28e473d
-ms.sourcegitcommit: 8b36f75b8931ae3f656e2a8e63572080adc78513
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70310386"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667321"
 ---
 # <a name="security-considerations-in-grpc-for-aspnet-core"></a>Considerazioni sulla sicurezza in gRPC per ASP.NET Core
 
@@ -39,7 +39,7 @@ I messaggi in ingresso per i client e i servizi di gRPC vengono caricati in memo
 
 gRPC utilizza i limiti delle dimensioni per messaggio per gestire i messaggi in ingresso e in uscita. Per impostazione predefinita, gRPC limita i messaggi in ingresso a 4 MB. Non esiste alcun limite per i messaggi in uscita.
 
-Sul server, è possibile configurare i limiti dei messaggi gRPC per tutti i servizi in un' `AddGrpc`app con:
+Sul server, è possibile configurare i limiti dei messaggi gRPC per tutti i servizi in un'app con `AddGrpc`:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -52,7 +52,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-È anche possibile configurare i limiti per un singolo servizio `AddServiceOptions<TService>`usando. Per ulteriori informazioni sulla configurazione dei limiti delle dimensioni dei messaggi, vedere [configurazione di gRPC](xref:grpc/configuration).
+È anche possibile configurare i limiti per un singolo servizio usando `AddServiceOptions<TService>`. Per ulteriori informazioni sulla configurazione dei limiti delle dimensioni dei messaggi, vedere [configurazione di gRPC](xref:grpc/configuration).
 
 ## <a name="client-certificate-validation"></a>Convalida del certificato client
 

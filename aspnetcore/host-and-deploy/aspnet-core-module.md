@@ -1,22 +1,22 @@
 ---
 title: Modulo ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Informazioni su come configurare il modulo di ASP.NET Core per l'hosting di app ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 01/13/2020
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: 75f4a158253dd3276ed37011d9aa73d82cad5b79
-ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
+ms.openlocfilehash: 298d424557600735668217e1ef07ace606dac60b
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75952012"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667300"
 ---
 # <a name="aspnet-core-module"></a>Modulo ASP.NET Core
 
-Di [Tom Dykstra](https://github.com/tdykstra), [Rick Strahl](https://github.com/RickStrahl), [Chris Ross](https://github.com/Tratcher), [Rick Anderson](https://twitter.com/RickAndMSFT), [Sourabh Shirhatti](https://twitter.com/sshirhatti), [Justin Kotalik](https://github.com/jkotalik) e [Luke Latham](https://github.com/guardrex)
+Di [Tom Dykstra](https://github.com/tdykstra), [Rick Strahl](https://github.com/RickStrahl), [Chris Ross](https://github.com/Tratcher), [Rick Anderson](https://twitter.com/RickAndMSFT), [Shirhatti](https://twitter.com/sshirhatti)e [Justin Kotalik](https://github.com/jkotalik)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -25,10 +25,10 @@ Il modulo ASP.NET Core è un modulo IIS nativo collegato alla pipeline di IIS pe
 * Ospitare un app ASP.NET Core all'interno del processo di lavoro IIS (`w3wp.exe`), denominato [modello di hosting in-process](#in-process-hosting-model).
 * Inoltrare le richieste Web all'app back-end ASP.NET Core che esegue il [server Kestrel](xref:fundamentals/servers/kestrel), denominato [modello di hosting out-of-process](#out-of-process-hosting-model).
 
-Versioni di Windows supportate:
+Versioni supportate di Windows:
 
 * Windows 7 o versione successiva
-* Windows Server 2008 R2 o versioni successive
+* Windows Server 2008 R2 o versione successiva
 
 In caso di hosting in-process, il modulo usa un'implementazione di server in-process per IIS detta server HTTP di IIS (`IISHttpServer`).
 
@@ -60,7 +60,7 @@ In caso di hosting in-process, vengono applicate le caratteristiche seguenti:
 
 * In ASP.NET Core 2.2.1 o versioni precedenti, <xref:System.IO.Directory.GetCurrentDirectory*> restituisce la directory di lavoro del processo avviato da IIS invece che la directory dell'app (ad esempio, *C:\Windows\System32\inetsrv* per *w3wp.exe*).
 
-  Per vedere il codice di esempio che imposta la directory corrente dell'app, vedere la [classe CurrentDirectoryHelpers](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/aspnet-core-module/samples_snapshot/3.x/CurrentDirectoryHelpers.cs). Chiamare il metodo `SetCurrentDirectory`. Le chiamate successive a <xref:System.IO.Directory.GetCurrentDirectory*> specificano la directory dell'app.
+  Per vedere il codice di esempio che imposta la directory corrente dell'app, vedere la [classe CurrentDirectoryHelpers](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/aspnet-core-module/samples_snapshot/3.x/CurrentDirectoryHelpers.cs). Chiamare il metodo `SetCurrentDirectory` . Le chiamate successive a <xref:System.IO.Directory.GetCurrentDirectory*> specificano la directory dell'app.
 
 * In caso di hosting in-process, <xref:Microsoft.AspNetCore.Authentication.AuthenticationService.AuthenticateAsync*> non viene chiamato internamente per inizializzare un utente. Pertanto, un'implementazione di <xref:Microsoft.AspNetCore.Authentication.IClaimsTransformation> usate per trasformare le attestazioni dopo ogni autenticazione non viene attivata per impostazione predefinita. Quando si trasformano le attestazioni con un'implementazione di <xref:Microsoft.AspNetCore.Authentication.IClaimsTransformation>, chiamare <xref:Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication*> per aggiungere i servizi di autenticazione:
 
@@ -106,7 +106,7 @@ Se l'impostazione `hostingModel` viene modificata nel file *web.config* (descrit
 
 Per IIS Express, il modulo non ricicla il processo di lavoro. Attiva invece un arresto normale del processo di IIS Express corrente. La richiesta successiva all'app attiva un nuovo processo di IIS Express.
 
-### <a name="process-name"></a>Nome processo
+### <a name="process-name"></a>Nome del processo
 
 `Process.GetCurrentProcess().ProcessName` dichiara `w3wp`/`iisexpress` (In-Process) o `dotnet` (out-of-process).
 
@@ -173,7 +173,7 @@ Per informazioni sulla configurazione delle applicazioni secondarie IIS, vedere 
 
 ### <a name="attributes-of-the-aspnetcore-element"></a>Attributi dell'elemento aspNetCore
 
-| Attributo | Descrizione | Default |
+| Attributo | Descrizione | Predefinito |
 | --------- | ----------- | :-----: |
 | `arguments` | <p>Attributo stringa facoltativo.</p><p>Argomenti per l'eseguibile specificato in **processPath**.</p> | |
 | `disableStartUpErrorPage` | <p>Attributo booleano facoltativo.</p><p>Se true, la pagina **502.5 - Errore del processo** non viene visualizzata e la tabella codici di stato 502 configurata in *web.config* ha la precedenza.</p> | `false` |
@@ -293,7 +293,7 @@ I valori di livello debug (`debugLevel`) possono includere sia il livello che il
 
 Livelli (in ordine dal meno dettagliato al più dettagliato):
 
-* ERROR
+* ERRORE
 * WARNING
 * INFO
 * TRACE
@@ -370,7 +370,7 @@ I log del programma di installazione del bundle di hosting per il modulo sono di
 
 ## <a name="module-schema-and-configuration-file-locations"></a>Percorsi dei file di modulo, schema e configurazione
 
-### <a name="module"></a>Module
+### <a name="module"></a>Modulo
 
 **IIS (x86/amd64):**
 
@@ -392,7 +392,7 @@ I log del programma di installazione del bundle di hosting per il modulo sono di
 
 * %Programmi(x86)%\IIS Express\Asp.Net Core Module\V2\aspnetcorev2.dll
 
-### <a name="schema"></a>Schema
+### <a name="schema"></a>SCHEMA
 
 **IIS**
 
@@ -406,7 +406,7 @@ I log del programma di installazione del bundle di hosting per il modulo sono di
 
 * %Programmi%\IIS Express\config\schema\aspnetcore_schema_v2.xml
 
-### <a name="configuration"></a>Configurazione di
+### <a name="configuration"></a>Configurazione
 
 **IIS**
 
@@ -429,10 +429,10 @@ Il modulo ASP.NET Core è un modulo IIS nativo collegato alla pipeline di IIS pe
 * Ospitare un app ASP.NET Core all'interno del processo di lavoro IIS (`w3wp.exe`), denominato [modello di hosting in-process](#in-process-hosting-model).
 * Inoltrare le richieste Web all'app back-end ASP.NET Core che esegue il [server Kestrel](xref:fundamentals/servers/kestrel), denominato [modello di hosting out-of-process](#out-of-process-hosting-model).
 
-Versioni di Windows supportate:
+Versioni supportate di Windows:
 
 * Windows 7 o versione successiva
-* Windows Server 2008 R2 o versioni successive
+* Windows Server 2008 R2 o versione successiva
 
 In caso di hosting in-process, il modulo usa un'implementazione di server in-process per IIS detta server HTTP di IIS (`IISHttpServer`).
 
@@ -476,7 +476,7 @@ In caso di hosting in-process, vengono applicate le caratteristiche seguenti:
 
 * In ASP.NET Core 2.2.1 o versioni precedenti, <xref:System.IO.Directory.GetCurrentDirectory*> restituisce la directory di lavoro del processo avviato da IIS invece che la directory dell'app (ad esempio, *C:\Windows\System32\inetsrv* per *w3wp.exe*).
 
-  Per vedere il codice di esempio che imposta la directory corrente dell'app, vedere la [classe CurrentDirectoryHelpers](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/aspnet-core-module/samples_snapshot/2.x/CurrentDirectoryHelpers.cs). Chiamare il metodo `SetCurrentDirectory`. Le chiamate successive a <xref:System.IO.Directory.GetCurrentDirectory*> specificano la directory dell'app.
+  Per vedere il codice di esempio che imposta la directory corrente dell'app, vedere la [classe CurrentDirectoryHelpers](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/aspnet-core-module/samples_snapshot/2.x/CurrentDirectoryHelpers.cs). Chiamare il metodo `SetCurrentDirectory` . Le chiamate successive a <xref:System.IO.Directory.GetCurrentDirectory*> specificano la directory dell'app.
 
 * In caso di hosting in-process, <xref:Microsoft.AspNetCore.Authentication.AuthenticationService.AuthenticateAsync*> non viene chiamato internamente per inizializzare un utente. Pertanto, un'implementazione di <xref:Microsoft.AspNetCore.Authentication.IClaimsTransformation> usate per trasformare le attestazioni dopo ogni autenticazione non viene attivata per impostazione predefinita. Quando si trasformano le attestazioni con un'implementazione di <xref:Microsoft.AspNetCore.Authentication.IClaimsTransformation>, chiamare <xref:Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication*> per aggiungere i servizi di autenticazione:
 
@@ -521,7 +521,7 @@ Se l'impostazione `hostingModel` viene modificata nel file *web.config* (descrit
 
 Per IIS Express, il modulo non ricicla il processo di lavoro. Attiva invece un arresto normale del processo di IIS Express corrente. La richiesta successiva all'app attiva un nuovo processo di IIS Express.
 
-### <a name="process-name"></a>Nome processo
+### <a name="process-name"></a>Nome del processo
 
 `Process.GetCurrentProcess().ProcessName` dichiara `w3wp`/`iisexpress` (In-Process) o `dotnet` (out-of-process).
 
@@ -588,7 +588,7 @@ Per informazioni sulla configurazione delle applicazioni secondarie IIS, vedere 
 
 ### <a name="attributes-of-the-aspnetcore-element"></a>Attributi dell'elemento aspNetCore
 
-| Attributo | Descrizione | Default |
+| Attributo | Descrizione | Predefinito |
 | --------- | ----------- | :-----: |
 | `arguments` | <p>Attributo stringa facoltativo.</p><p>Argomenti per l'eseguibile specificato in **processPath**.</p> | |
 | `disableStartUpErrorPage` | <p>Attributo booleano facoltativo.</p><p>Se true, la pagina **502.5 - Errore del processo** non viene visualizzata e la tabella codici di stato 502 configurata in *web.config* ha la precedenza.</p> | `false` |
@@ -603,7 +603,7 @@ Per informazioni sulla configurazione delle applicazioni secondarie IIS, vedere 
 | `stdoutLogEnabled` | <p>Attributo booleano facoltativo.</p><p>Se true, **stdout** e **stderr** per il processo specificato in **processPath** vengono reindirizzati al file specificato in **stdoutLogFile**.</p> | `false` |
 | `stdoutLogFile` | <p>Attributo stringa facoltativo.</p><p>Specifica il percorso relativo o assoluto per cui vengono registrati **stdout** e **stderr** dal processo specificato in **processPath**. I percorsi relativi sono relativi alla radice del sito. Qualsiasi percorso che inizia con `.` è relativo al sito radice e tutti gli altri percorsi vengono trattati come percorsi assoluti. Le eventuali cartelle specificate nel percorso vengono create dal modulo quando viene creato il file di log. Usando il carattere di sottolineatura come delimitatore, il timestamp, l'ID processo e l'estensione del file ( *.log*) vengono aggiunti all'ultimo segmento del percorso **stdoutLogFile**. Se si specifica `.\logs\stdout` come valore, un log stdout di esempio salvato il 5/2/2018 alle 19:41:32 con un ID processo 1934 viene salvato come *stdout_20180205194132_1934.log* nella cartella *logs*.</p> | `aspnetcore-stdout` |
 
-### <a name="setting-environment-variables"></a>Impostazione delle variabili di ambiente
+### <a name="setting-environment-variables"></a>Impostazioni delle variabili di ambiente
 
 È possibile specificare le variabili di ambiente per il processo nell'attributo `processPath`. Specificare una variabile di ambiente con l'elemento figlio `<environmentVariable>` di un elemento della raccolta `<environmentVariables>`. Le variabili di ambiente impostate in questa sezione hanno la precedenza sulle variabili di ambiente di sistema.
 
@@ -706,7 +706,7 @@ I valori di livello debug (`debugLevel`) possono includere sia il livello che il
 
 Livelli (in ordine dal meno dettagliato al più dettagliato):
 
-* ERROR
+* ERRORE
 * WARNING
 * INFO
 * TRACE
@@ -765,7 +765,7 @@ I log del programma di installazione del bundle di hosting per il modulo sono di
 
 ## <a name="module-schema-and-configuration-file-locations"></a>Percorsi dei file di modulo, schema e configurazione
 
-### <a name="module"></a>Module
+### <a name="module"></a>Modulo
 
 **IIS (x86/amd64):**
 
@@ -787,7 +787,7 @@ I log del programma di installazione del bundle di hosting per il modulo sono di
 
 * %Programmi(x86)%\IIS Express\Asp.Net Core Module\V2\aspnetcorev2.dll
 
-### <a name="schema"></a>Schema
+### <a name="schema"></a>SCHEMA
 
 **IIS**
 
@@ -801,7 +801,7 @@ I log del programma di installazione del bundle di hosting per il modulo sono di
 
 * %Programmi%\IIS Express\config\schema\aspnetcore_schema_v2.xml
 
-### <a name="configuration"></a>Configurazione di
+### <a name="configuration"></a>Configurazione
 
 **IIS**
 
@@ -821,10 +821,10 @@ I log del programma di installazione del bundle di hosting per il modulo sono di
 
 Il modulo ASP.NET Core è un modulo IIS nativo collegato alla pipeline di IIS che inoltra le richieste Web alle app back-end ASP.NET Core.
 
-Versioni di Windows supportate:
+Versioni supportate di Windows:
 
 * Windows 7 o versione successiva
-* Windows Server 2008 R2 o versioni successive
+* Windows Server 2008 R2 o versione successiva
 
 Il modulo funziona solo con Kestrel. Il modulo non è compatibile con [HTTP.sys](xref:fundamentals/servers/httpsys).
 
@@ -895,7 +895,7 @@ Per informazioni sulla configurazione delle applicazioni secondarie IIS, vedere 
 
 ### <a name="attributes-of-the-aspnetcore-element"></a>Attributi dell'elemento aspNetCore
 
-| Attributo | Descrizione | Default |
+| Attributo | Descrizione | Predefinito |
 | --------- | ----------- | :-----: |
 | `arguments` | <p>Attributo stringa facoltativo.</p><p>Argomenti per l'eseguibile specificato in **processPath**.</p>| |
 | `disableStartUpErrorPage` | <p>Attributo booleano facoltativo.</p><p>Se true, la pagina **502.5 - Errore del processo** non viene visualizzata e la tabella codici di stato 502 configurata in *web.config* ha la precedenza.</p> | `false` |
@@ -909,7 +909,7 @@ Per informazioni sulla configurazione delle applicazioni secondarie IIS, vedere 
 | `stdoutLogEnabled` | <p>Attributo booleano facoltativo.</p><p>Se true, **stdout** e **stderr** per il processo specificato in **processPath** vengono reindirizzati al file specificato in **stdoutLogFile**.</p> | `false` |
 | `stdoutLogFile` | <p>Attributo stringa facoltativo.</p><p>Specifica il percorso relativo o assoluto per cui vengono registrati **stdout** e **stderr** dal processo specificato in **processPath**. I percorsi relativi sono relativi alla radice del sito. Qualsiasi percorso che inizia con `.` è relativo al sito radice e tutti gli altri percorsi vengono trattati come percorsi assoluti. Le eventuali cartelle specificate nel percorso devono essere già esistenti affinché il modulo possa creare il file di log. Usando il carattere di sottolineatura come delimitatore, il timestamp, l'ID processo e l'estensione del file ( *.log*) vengono aggiunti all'ultimo segmento del percorso **stdoutLogFile**. Se si specifica `.\logs\stdout` come valore, un log stdout di esempio salvato il 5/2/2018 alle 19:41:32 con un ID processo 1934 viene salvato come *stdout_20180205194132_1934.log* nella cartella *logs*.</p> | `aspnetcore-stdout` |
 
-### <a name="setting-environment-variables"></a>Impostazione delle variabili di ambiente
+### <a name="setting-environment-variables"></a>Impostazioni delle variabili di ambiente
 
 È possibile specificare le variabili di ambiente per il processo nell'attributo `processPath`. Specificare una variabile di ambiente con l'elemento figlio `<environmentVariable>` di un elemento della raccolta `<environmentVariables>`.
 
@@ -1003,7 +1003,7 @@ I log del programma di installazione del bundle di hosting per il modulo sono di
 
 ## <a name="module-schema-and-configuration-file-locations"></a>Percorsi dei file di modulo, schema e configurazione
 
-### <a name="module"></a>Module
+### <a name="module"></a>Modulo
 
 **IIS (x86/amd64):**
 
@@ -1017,7 +1017,7 @@ I log del programma di installazione del bundle di hosting per il modulo sono di
 
 * %ProgramFiles(x86)%\IIS Express\aspnetcore.dll
 
-### <a name="schema"></a>Schema
+### <a name="schema"></a>SCHEMA
 
 **IIS**
 
@@ -1027,7 +1027,7 @@ I log del programma di installazione del bundle di hosting per il modulo sono di
 
 * %ProgramFiles%\IIS Express\config\schema\aspnetcore_schema.xml
 
-### <a name="configuration"></a>Configurazione di
+### <a name="configuration"></a>Configurazione
 
 **IIS**
 

@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 10/05/2019
 uid: security/authorization/policies
 ms.openlocfilehash: eeb5ddd63ef8177325b35e5a666aa5e9ab047057
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828958"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78661812"
 ---
 # <a name="policy-based-authorization-in-aspnet-core"></a>Autorizzazione basata su criteri in ASP.NET Core
 
@@ -123,7 +123,7 @@ I criteri vengono applicati a Razor Pages usando l'attributo `[Authorize]` con i
 
 I criteri possono essere applicati anche a Razor Pages usando una [convenzione di autorizzazione](xref:security/authorization/razor-pages-authorization).
 
-## <a name="requirements"></a>Requisiti di
+## <a name="requirements"></a>Requisiti
 
 Un requisito di autorizzazione è una raccolta di parametri dati che un criterio può utilizzare per valutare l'entità utente corrente. Nel criterio "AtLeast21", il requisito è un singolo parametro&mdash;età minima. Un requisito implementa [IAuthorizationRequirement](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationrequirement), che è un'interfaccia marcatore vuota. Un requisito di validità minima con parametri può essere implementato come segue:
 
@@ -340,7 +340,7 @@ I criteri vengono applicati a Razor Pages usando l'attributo `[Authorize]` con i
 
 I criteri possono essere applicati anche a Razor Pages usando una [convenzione di autorizzazione](xref:security/authorization/razor-pages-authorization).
 
-## <a name="requirements"></a>Requisiti di
+## <a name="requirements"></a>Requisiti
 
 Un requisito di autorizzazione è una raccolta di parametri dati che un criterio può utilizzare per valutare l'entità utente corrente. Nel criterio "AtLeast21", il requisito è un singolo parametro&mdash;età minima. Un requisito implementa [IAuthorizationRequirement](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationrequirement), che è un'interfaccia marcatore vuota. Un requisito di validità minima con parametri può essere implementato come segue:
 

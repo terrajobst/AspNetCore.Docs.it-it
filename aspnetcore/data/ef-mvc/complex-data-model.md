@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: b8b1ade4c8c29d34200bf8c0944cff6adec0bb95
-ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
+ms.openlocfilehash: 91fd09874ecab8bfdb6a38a404faba04aeb73edc
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74288960"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78657430"
 ---
 # <a name="tutorial-create-a-complex-data-model---aspnet-mvc-with-ef-core"></a>Esercitazione: creare un modello di dati complesso-ASP.NET MVC con EF Core
 
@@ -22,7 +22,7 @@ Al termine dell'operazione le classi di entità verranno incluse nel modello di 
 
 ![Diagramma dell'entità](complex-data-model/_static/diagram.png)
 
-Le attività di questa esercitazione sono le seguenti:
+In questa esercitazione:
 
 > [!div class="checklist"]
 > * Personalizzare il modello di dati
@@ -38,7 +38,7 @@ Le attività di questa esercitazione sono le seguenti:
 > * Modificare la stringa di connessione
 > * Aggiornare il database
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Uso di migrazioni EF Core](migrations.md)
 
@@ -147,7 +147,7 @@ Prima dell'applicazione delle prime due migrazioni, le colonne del nome erano di
 
 ![Entità Student](complex-data-model/_static/student-entity.png)
 
-In *Models/Student.cs* sostituire il codice aggiunto in precedenza con il codice seguente. Le modifiche sono evidenziate.
+In *Models/Student.cs* sostituire il codice aggiunto in precedenza con il codice seguente. Le modifiche vengono evidenziate.
 
 [!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_BeforeInheritance&highlight=11,13,15,18,22,24-31)]
 
@@ -239,7 +239,7 @@ L'entità Instructor dispone di una proprietà di navigazione `OfficeAssignment`
 
 ![Entità Course](complex-data-model/_static/course-entity.png)
 
-In *Models/Course.cs* sostituire il codice aggiunto in precedenza con il codice seguente. Le modifiche sono evidenziate.
+In *Models/Course.cs* sostituire il codice aggiunto in precedenza con il codice seguente. Le modifiche vengono evidenziate.
 
 [!code-csharp[](intro/samples/cu/Models/Course.cs?name=snippet_Final&highlight=2,10,13,16,19,21,23)]
 
@@ -286,7 +286,7 @@ public ICollection<CourseAssignment> CourseAssignments { get; set; }
 
 ## <a name="create-department-entity"></a>Creare l'entità Department
 
-![Entità Department](complex-data-model/_static/department-entity.png)
+![Entità reparto](complex-data-model/_static/department-entity.png)
 
 Creare *Models/Department.cs* con il codice seguente:
 
@@ -500,7 +500,7 @@ Eseguire l'app per far sì che il metodo `DbInitializer.Initialize` venga esegui
 
 Aprire il database in SSOX come in precedenza, quindi espandere il nodo **Tabelle** per visualizzare tutte le tabelle che sono state create. Se SSOX è ancora aperto dall'operazione precedente, fare clic sul pulsante **Aggiorna**.
 
-![Tabelle in SSOX](complex-data-model/_static/ssox-tables.png)
+![Tabelle in Esplora oggetti di SQL Server](complex-data-model/_static/ssox-tables.png)
 
 Eseguire l'app per attivare il codice inizializzatore che esegue l'inizializzazione del database.
 
@@ -510,11 +510,11 @@ Fare clic con il pulsante destro del mouse sulla tabella **CourseAssignment** e 
 
 ## <a name="get-the-code"></a>Ottenere il codice
 
-[Scaricare o visualizzare l'applicazione completata.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[Scaricare o visualizzare l'applicazione completata.](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Le attività di questa esercitazione sono le seguenti:
+In questa esercitazione:
 
 > [!div class="checklist"]
 > * Personalizzazione del modello di dati
@@ -527,7 +527,7 @@ Le attività di questa esercitazione sono le seguenti:
 > * Aggiornamento del contesto di database
 > * Seeding del database con dati di test
 > * Aggiunta di una migrazione
-> * Modifica della stringa di connessione
+> * È stata modificata la stringa di connessione
 > * Aggiornamento del database
 
 Passare all'esercitazione successiva per altre informazioni su come accedere ai dati correlati.

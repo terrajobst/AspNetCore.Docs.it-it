@@ -1,22 +1,22 @@
 ---
 title: Implementazione del server Web HTTP.sys in ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Informazioni su HTTP.sys, un server Web per ASP.NET Core in Windows. Basato sul driver in modalità kernel HTTP.sys, HTTP.sys è un'alternativa a Kestrel che consente la connessione diretta a Internet senza IIS.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/07/2020
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 8a315d859fa70d97501156ff3cf97d4c3a5c5bd4
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: 3e858a974d6a5c008969c3c51a507880cc25a7ff
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77171760"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666922"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>Implementazione del server Web HTTP.sys in ASP.NET Core
 
-Di [Tom Dykstra](https://github.com/tdykstra), [Chris Ross](https://github.com/Tratcher) e [Luke Latham](https://github.com/guardrex)
+[Tom Dykstra](https://github.com/tdykstra) e [Chris Ross](https://github.com/Tratcher)
 
 ::: moniker range=">= aspnetcore-3.1"
 
@@ -40,7 +40,7 @@ Versioni supportate di Windows:
 * Windows 7 o versione successiva
 * Windows Server 2008 R2 o versione successiva
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-httpsys"></a>Quando usare HTTP.sys
 
@@ -84,7 +84,7 @@ Le configurazioni aggiuntive di HTTP.sys vengono gestite tramite [impostazioni d
 
 **Opzioni di HTTP.sys**
 
-| Proprietà | Descrizione | Default |
+| Proprietà | Descrizione | Predefinito |
 | -------- | ----------- | :-----: |
 | [AllowSynchronousIO](xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.AllowSynchronousIO) | Controllare se l'input e/o l'output sincroni sono consentiti per `HttpContext.Request.Body` e `HttpContext.Response.Body`. | `false` |
 | [Authentication.AllowAnonymous](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationManager.AllowAnonymous) | Consentire richieste anonime. | `true` |
@@ -133,7 +133,7 @@ In Visual Studio il profilo di avvio predefinito è per IIS Express. Per eseguir
 
 1. Ottenere e installare i certificati X.509, se necessario.
 
-   In Windows, creare certificati autofirmati con il [cmdlet di PowerShell New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate). Per un esempio non supportato, vedere [UpdateIISExpressSSLForChrome.ps1](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/includes/make-x509-cert/UpdateIISExpressSSLForChrome.ps1).
+   In Windows, creare certificati autofirmati con il [cmdlet di PowerShell New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate). Per un esempio non supportato, vedere [UpdateIISExpressSSLForChrome.ps1](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/includes/make-x509-cert/UpdateIISExpressSSLForChrome.ps1).
 
    Installare i certificati autofirmati o firmati da un'autorità di certificazione nel **computer locale** del server > archivio **personale** .
 
@@ -293,7 +293,7 @@ Versioni supportate di Windows:
 * Windows 7 o versione successiva
 * Windows Server 2008 R2 o versione successiva
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-httpsys"></a>Quando usare HTTP.sys
 
@@ -337,7 +337,7 @@ Le configurazioni aggiuntive di HTTP.sys vengono gestite tramite [impostazioni d
 
 **Opzioni di HTTP.sys**
 
-| Proprietà | Descrizione | Default |
+| Proprietà | Descrizione | Predefinito |
 | -------- | ----------- | :-----: |
 | [AllowSynchronousIO](xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.AllowSynchronousIO) | Controllare se l'input e/o l'output sincroni sono consentiti per `HttpContext.Request.Body` e `HttpContext.Response.Body`. | `false` |
 | [Authentication.AllowAnonymous](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationManager.AllowAnonymous) | Consentire richieste anonime. | `true` |
@@ -384,7 +384,7 @@ In Visual Studio il profilo di avvio predefinito è per IIS Express. Per eseguir
 
 1. Ottenere e installare i certificati X.509, se necessario.
 
-   In Windows, creare certificati autofirmati con il [cmdlet di PowerShell New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate). Per un esempio non supportato, vedere [UpdateIISExpressSSLForChrome.ps1](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/includes/make-x509-cert/UpdateIISExpressSSLForChrome.ps1).
+   In Windows, creare certificati autofirmati con il [cmdlet di PowerShell New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate). Per un esempio non supportato, vedere [UpdateIISExpressSSLForChrome.ps1](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/includes/make-x509-cert/UpdateIISExpressSSLForChrome.ps1).
 
    Installare i certificati autofirmati o firmati da un'autorità di certificazione nel **computer locale** del server > archivio **personale** .
 
@@ -544,7 +544,7 @@ Versioni supportate di Windows:
 * Windows 7 o versione successiva
 * Windows Server 2008 R2 o versione successiva
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-httpsys"></a>Quando usare HTTP.sys
 
@@ -590,7 +590,7 @@ Le configurazioni aggiuntive di HTTP.sys vengono gestite tramite [impostazioni d
 
 **Opzioni di HTTP.sys**
 
-| Proprietà | Descrizione | Default |
+| Proprietà | Descrizione | Predefinito |
 | -------- | ----------- | :-----: |
 | [AllowSynchronousIO](xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.AllowSynchronousIO) | Controllare se l'input e/o l'output sincroni sono consentiti per `HttpContext.Request.Body` e `HttpContext.Response.Body`. | `true` |
 | [Authentication.AllowAnonymous](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationManager.AllowAnonymous) | Consentire richieste anonime. | `true` |
@@ -637,7 +637,7 @@ In Visual Studio il profilo di avvio predefinito è per IIS Express. Per eseguir
 
 1. Ottenere e installare i certificati X.509, se necessario.
 
-   In Windows, creare certificati autofirmati con il [cmdlet di PowerShell New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate). Per un esempio non supportato, vedere [UpdateIISExpressSSLForChrome.ps1](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/includes/make-x509-cert/UpdateIISExpressSSLForChrome.ps1).
+   In Windows, creare certificati autofirmati con il [cmdlet di PowerShell New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate). Per un esempio non supportato, vedere [UpdateIISExpressSSLForChrome.ps1](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/includes/make-x509-cert/UpdateIISExpressSSLForChrome.ps1).
 
    Installare i certificati autofirmati o firmati da un'autorità di certificazione nel **computer locale** del server > archivio **personale** .
 
@@ -797,7 +797,7 @@ Versioni supportate di Windows:
 * Windows 7 o versione successiva
 * Windows Server 2008 R2 o versione successiva
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-httpsys"></a>Quando usare HTTP.sys
 
@@ -843,7 +843,7 @@ Le configurazioni aggiuntive di HTTP.sys vengono gestite tramite [impostazioni d
 
 **Opzioni di HTTP.sys**
 
-| Proprietà | Descrizione | Default |
+| Proprietà | Descrizione | Predefinito |
 | -------- | ----------- | :-----: |
 | [AllowSynchronousIO](xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.AllowSynchronousIO) | Controllare se l'input e/o l'output sincroni sono consentiti per `HttpContext.Request.Body` e `HttpContext.Response.Body`. | `true` |
 | [Authentication.AllowAnonymous](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationManager.AllowAnonymous) | Consentire richieste anonime. | `true` |
@@ -890,7 +890,7 @@ In Visual Studio il profilo di avvio predefinito è per IIS Express. Per eseguir
 
 1. Ottenere e installare i certificati X.509, se necessario.
 
-   In Windows, creare certificati autofirmati con il [cmdlet di PowerShell New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate). Per un esempio non supportato, vedere [UpdateIISExpressSSLForChrome.ps1](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/includes/make-x509-cert/UpdateIISExpressSSLForChrome.ps1).
+   In Windows, creare certificati autofirmati con il [cmdlet di PowerShell New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate). Per un esempio non supportato, vedere [UpdateIISExpressSSLForChrome.ps1](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/includes/make-x509-cert/UpdateIISExpressSSLForChrome.ps1).
 
    Installare i certificati autofirmati o firmati da un'autorità di certificazione nel **computer locale** del server > archivio **personale** .
 

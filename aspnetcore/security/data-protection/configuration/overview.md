@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 10/07/2019
 uid: security/data-protection/configuration/overview
 ms.openlocfilehash: c0846aca4bb663b1d562ab0c877fefba02da460f
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829036"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666593"
 ---
 # <a name="configure-aspnet-core-data-protection"></a>Configurare la protezione dei dati ASP.NET Core
 
@@ -78,7 +78,7 @@ public void ConfigureServices(IServiceCollection services)
 > [!WARNING]
 > Se si modifica il percorso di persistenza della chiave, il sistema non crittografa più automaticamente le chiavi inattive, perché non è in grado di stabilire se DPAPI è un meccanismo di crittografia appropriato.
 
-## <a name="protectkeyswith"></a>ProtectKeysWith\*
+## <a name="protectkeyswith"></a>\* ProtectKeysWith
 
 È possibile configurare il sistema in modo da proteggere le chiavi inattive chiamando una delle API di configurazione di [ProtectKeysWith\*](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions) . Si consideri l'esempio seguente, in cui le chiavi vengono archiviate in una condivisione UNC e le chiavi inattive vengono crittografate con un certificato X. 509 specifico:
 
@@ -389,7 +389,7 @@ Quando si esegue l'hosting in un contenitore [Docker](/dotnet/standard/microserv
 
 ## <a name="persisting-keys-with-redis"></a>Salvataggio permanente delle chiavi con Redis
 
-Per archiviare le chiavi è necessario usare solo le versioni di redis che supportano la [persistenza dei dati Redis](/azure/azure-cache-for-redis/cache-how-to-premium-persistence) . L' [archiviazione BLOB di Azure](/azure/storage/blobs/storage-blobs-introduction) è persistente e può essere usata per archiviare le chiavi. Per altre informazioni, vedere [questo problema su GitHub](https://github.com/dotnet/AspNetCore/issues/13476).
+Per archiviare le chiavi è necessario usare solo le versioni di redis che supportano la [persistenza dei dati Redis](/azure/azure-cache-for-redis/cache-how-to-premium-persistence) . L' [archiviazione BLOB di Azure](/azure/storage/blobs/storage-blobs-introduction) è persistente e può essere usata per archiviare le chiavi. Per altre informazioni, vedere [questo problema in GitHub](https://github.com/dotnet/AspNetCore/issues/13476).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

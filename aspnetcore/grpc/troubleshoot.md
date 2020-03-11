@@ -8,11 +8,11 @@ ms.custom: mvc
 ms.date: 10/16/2019
 uid: grpc/troubleshoot
 ms.openlocfilehash: c501cda14f3bac9297695ece59cbc4634e4b7895
-ms.sourcegitcommit: e71b6a85b0e94a600af607107e298f932924c849
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72519047"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664129"
 ---
 # <a name="troubleshoot-grpc-on-net-core"></a>Risolvere i problemi di gRPC in .NET Core
 
@@ -53,7 +53,7 @@ Tutte le implementazioni client di gRPC supportano TLS. i client gRPC di altri l
 Il client gRPC .NET richiede che il servizio disponga di un certificato attendibile. Quando si chiama un servizio gRPC senza un certificato attendibile, viene restituito il messaggio di errore seguente:
 
 > Eccezione non gestita. System .NET. http. HttpRequestexception: non è stato possibile stabilire la connessione SSL. vedere l'eccezione interna.
-> ---> System. Security. Authentication. AuthenticationException: il certificato remoto non è valido in base alla procedura di convalida.
+> ---> System.Security.Authentication.AuthenticationException: Il certificato remoto non è stato ritenuto valido dalla procedura di convalida.
 
 Questo errore può essere visualizzato se si sta testando l'app in locale e il certificato di sviluppo HTTPS ASP.NET Core non è attendibile. Per istruzioni su come risolvere questo problema, vedere [Considerare attendibile il certificato di sviluppo di ASP.NET Core HTTPS in Windows e macOS](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos).
 

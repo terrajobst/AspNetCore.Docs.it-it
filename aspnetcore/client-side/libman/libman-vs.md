@@ -6,70 +6,70 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/20/2018
 uid: client-side/libman/libman-vs
-ms.openlocfilehash: ebfb405516d968bf5d5b8cff956a9892457027f2
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: e92e6bc28ec58b26785dd6c79e71512368202a26
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67813467"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658312"
 ---
 # <a name="use-libman-with-aspnet-core-in-visual-studio"></a>Usare LibMan con ASP.NET Core in Visual Studio
 
 Di [Scott Addie](https://twitter.com/Scott_Addie)
 
-Visual Studio offre supporto predefinito per [LibMan](xref:client-side/libman/index) nei progetti ASP.NET Core, tra cui:
+Visual Studio include il supporto incorporato per [LibMan](xref:client-side/libman/index) in progetti di ASP.NET Core, tra cui:
 
-* Supporto per la configurazione ed esecuzione di operazioni di ripristino LibMan in fase di compilazione.
-* Voci di menu per l'attivazione LibMan ripristino e le operazioni di pulizia.
-* Finestra di dialogo di ricerca per trovare le librerie e aggiunge i file a un progetto.
-* Supporto per *libman.json*&mdash;LibMan file manifesto.
+* Supporto per la configurazione e l'esecuzione di operazioni di ripristino di LibMan durante la compilazione.
+* Voci di menu per l'attivazione delle operazioni di ripristino e pulizia del LibMan.
+* Finestra di dialogo Cerca per la ricerca di librerie e l'aggiunta di file a un progetto.
+* Modifica del supporto per *libman. json*&mdash;il file manifesto libman.
 
-[Visualizzare o scaricare codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/client-side/libman/samples/) [(come scaricare)](xref:index#how-to-download-a-sample)
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/client-side/libman/samples/) [(procedura per il download)](xref:index#how-to-download-a-sample)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) con il carico di lavoro **Sviluppo ASP.NET e Web**
 
-## <a name="add-library-files"></a>Aggiungere i file di libreria
+## <a name="add-library-files"></a>Aggiungi file di libreria
 
 I file di libreria possono essere aggiunti a un progetto ASP.NET Core in due modi diversi:
 
-1. [Utilizzare la finestra di dialogo Aggiungi libreria lato Client](#use-the-add-client-side-library-dialog)
-1. [Configurare manualmente le voci di file manifesto LibMan](#manually-configure-libman-manifest-file-entries)
+1. [Usare la finestra di dialogo Aggiungi libreria sul lato client](#use-the-add-client-side-library-dialog)
+1. [Configurare manualmente le voci del file manifesto LibMan](#manually-configure-libman-manifest-file-entries)
 
-### <a name="use-the-add-client-side-library-dialog"></a>Utilizzare la finestra di dialogo Aggiungi libreria lato Client
+### <a name="use-the-add-client-side-library-dialog"></a>Usare la finestra di dialogo Aggiungi libreria sul lato client
 
-Seguire questi passaggi per installare una libreria lato client:
+Per installare una libreria sul lato client, attenersi alla procedura seguente:
 
-* Nelle **Esplora soluzioni**, fare clic sulla cartella di progetto in cui i file devono essere aggiunti. Scegli **aggiungere** > **libreria lato Client**. Il **Aggiungi libreria lato Client** viene visualizzata la finestra:
+* In **Esplora soluzioni**fare clic con il pulsante destro del mouse sulla cartella del progetto in cui devono essere aggiunti i file. Scegliere **aggiungi** > **libreria sul lato client**. Viene visualizzata la finestra di dialogo **Aggiungi libreria sul lato client** :
 
-  ![Aggiungi finestra di dialogo libreria lato Client](_static/add-library-dialog.png)
+  ![Finestra di dialogo Aggiungi libreria sul lato client](_static/add-library-dialog.png)
 
-* Selezionare il provider della libreria dal **Provider** elenco a discesa. CDNJS è il provider predefinito.
-* Digitare il nome della libreria da recuperare nel **libreria** casella di testo. IntelliSense offre un elenco di librerie che iniziano con il testo specificato.
-* Selezionare la libreria dall'elenco di IntelliSense. Si noti che il nome della libreria viene aggiunto il suffisso di `@` simboli e la versione stabile più recente noto per il provider selezionato.
-* Decidere quali file da includere:
-  * Selezionare il **includere tutti i file di libreria** pulsante di opzione per includere tutti i file della libreria.
-  * Selezionare il **scegliere file specifici** pulsante di opzione per includere un sottoinsieme di file della libreria. Quando il pulsante di opzione è selezionato, l'albero di selettore file è abilitato. Selezionare le caselle alla sinistra di nomi di file da scaricare.
-* Specificare la cartella di progetto per archiviare i file nei **percorso di destinazione** casella di testo. Sotto forma di suggerimento, archiviare tutte le librerie in una cartella separata.
+* Selezionare il provider di librerie dall'elenco a discesa **provider** . CDNJS è il provider predefinito.
+* Digitare il nome della libreria da recuperare nella casella di testo **libreria** . IntelliSense fornisce un elenco di librerie che iniziano con il testo fornito.
+* Selezionare la libreria dall'elenco IntelliSense. Si noti che il nome della libreria è suffisso con il simbolo di `@` e la versione stabile più recente nota al provider selezionato.
+* Decidere quali file includere:
+  * Selezionare il pulsante di opzione **Includi tutti i file di libreria** per includere tutti i file della libreria.
+  * Selezionare il pulsante di opzione **Scegli file specifici** per includere un subset dei file della libreria. Quando il pulsante di opzione è selezionato, la struttura ad albero del selettore file è abilitata. Selezionare le caselle a sinistra dei nomi file da scaricare.
+* Specificare la cartella di progetto per l'archiviazione dei file nella casella di testo **percorso di destinazione** . Come raccomandazione, archiviare ogni libreria in una cartella separata.
 
-  Suggeriti **percorso di destinazione** cartella è basata sulla posizione da cui avviare la finestra di dialogo:
+  La cartella del **percorso di destinazione** suggerita è basata sul percorso da cui è stata avviata la finestra di dialogo:
 
   * Se avviato dalla radice del progetto:
-    * *Wwwroot/lib* viene usato se *wwwroot* esiste.
+    * Se *wwwroot* esiste, viene usato *wwwroot/lib* .
     * *lib* viene usato se *wwwroot* non esiste.
-  * Se avviata da una cartella di progetto, viene utilizzato il nome della cartella corrispondente.
+  * Se avviato da una cartella del progetto, viene usato il nome della cartella corrispondente.
 
-  Il suggerimento di cartella viene aggiunto il suffisso con il nome della libreria. La tabella seguente illustra i suggerimenti di cartella quando si installa jQuery in un progetto Razor Pages.
+  Il suggerimento della cartella è con suffisso con il nome della libreria. Nella tabella seguente vengono illustrati i suggerimenti per le cartelle quando si installa jQuery in un progetto Razor Pages.
   
-  |Posizione di avvio                           |Cartella suggerita      |
+  |Percorso di avvio                           |Cartella consigliata      |
   |------------------------------------------|----------------------|
-  |radice del progetto (se *wwwroot* esiste)        |*wwwroot/lib/jquery/* |
-  |radice del progetto (se *wwwroot* non esiste) |*lib/jquery/*         |
-  |*Pagine* cartella nel progetto                 |*Pages/jquery/*       |
+  |radice del progetto (se *wwwroot* esiste)        |*Wwwroot/lib/jQuery/* |
+  |radice del progetto (se *wwwroot* non esiste) |*lib/jQuery/*         |
+  |Cartella *pages* nel progetto                 |*Pagine/jQuery/*       |
 
-* Scegliere il **installare** pulsante per scaricare i file, per la configurazione nel *libman.json*.
-* Esaminare i **Gestione librerie** feed del **Output** finestra per i dettagli di installazione. Ad esempio:
+* Fare clic sul pulsante **Install (installa** ) per scaricare i file in base alla configurazione in *libman. JSON*.
+* Per informazioni sull'installazione, vedere il feed di **Gestione librerie** della finestra di **output** . Ad esempio:
 
   ```console
   Restore operation started...
@@ -82,53 +82,53 @@ Seguire questi passaggi per installare una libreria lato client:
   1 libraries restored in 2.32 seconds
   ```
 
-### <a name="manually-configure-libman-manifest-file-entries"></a>Configurare manualmente le voci di file manifesto LibMan
+### <a name="manually-configure-libman-manifest-file-entries"></a>Configurare manualmente le voci del file manifesto LibMan
 
-Tutte le operazioni di LibMan in Visual Studio sono basate sul contenuto del manifesto LibMan della radice del progetto (*libman.json*). È possibile modificare manualmente *libman.json* per configurare i file di libreria per il progetto. Visual Studio Ripristina tutti i file di libreria, una volta *libman.json* viene salvato.
+Tutte le operazioni LibMan in Visual Studio sono basate sul contenuto del manifesto LibMan della radice del progetto (*LibMan. JSON*). È possibile modificare manualmente *libman. JSON* per configurare i file di libreria per il progetto. Quando viene salvato *libman. JSON* , Visual Studio Ripristina tutti i file di libreria.
 
-Per aprire *libman.json* per la modifica, esistono le seguenti opzioni:
+Per aprire *libman. JSON* per la modifica, sono disponibili le opzioni seguenti:
 
-* Fare doppio clic il *libman.json* del file in **Esplora soluzioni**.
-* Fare clic sul progetto in **Esplora soluzioni** e selezionare **Gestisci librerie lato Client**. **&#8224;**
-* Selezionare **gestire le librerie Client-Side** Visual Studio **progetto** menu. **&#8224;**
+* Fare doppio clic sul file *libman. JSON* in **Esplora soluzioni**.
+* Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci librerie lato client**. **&#8224;**
+* Selezionare **Gestisci librerie lato client** dal menu **progetto** di Visual Studio. **&#8224;**
 
-**&#8224;** Se il *libman.json* file non esiste già nella radice del progetto, verrà creato con il contenuto del modello di elemento predefinito.
+**&#8224;** Se il file *libman. JSON* non esiste già nella radice del progetto, verrà creato con il contenuto del modello di elemento predefinito.
 
-Visual Studio offre JSON completo, supporto, ad esempio la colorazione di modifica, formattazione, IntelliSense e convalida dello schema. Schema JSON del manifesto LibMan si trova in corrispondenza [ https://json.schemastore.org/libman ](https://json.schemastore.org/libman).
+Visual Studio offre supporto avanzato per la modifica di JSON, ad esempio la colorazione, la formattazione, IntelliSense e la convalida dello schema. Lo schema JSON del manifesto LibMan è disponibile in [https://json.schemastore.org/libman](https://json.schemastore.org/libman).
 
-Con il file di manifesto seguente, LibMan recupera i file per la configurazione definita nel `libraries` proprietà. Una spiegazione dei valori letterali di oggetto definiti all'interno di `libraries` segue:
+Con il file manifesto seguente, LibMan recupera i file in base alla configurazione definita nella proprietà `libraries`. Di seguito è riportata una spiegazione dei valori letterali di oggetto definiti nel `libraries`:
 
-* Un subset delle [jQuery](https://jquery.com/) versione 3.3.1 viene recuperato dal provider CDNJS. Il subset è definito nel `files` proprietà&mdash;*jquery.min.js*, *jquery.js*, e *jquery.min.map*. I file vengono inseriti del progetto *wwwroot/lib/jquery* cartella.
-* Nella sua totalità [Bootstrap](https://getbootstrap.com/) versione 4.1.3 viene recuperato e inserita in un *wwwroot/lib/bootstrap* cartella. Del valore letterale di oggetto `provider` override delle proprietà di `defaultProvider` valore della proprietà. LibMan recupera i file Bootstrap del provider unpkg.
-* Un subset delle [Lodash](https://lodash.com/) è stata approvata da un corpo che implementano la governance all'interno dell'organizzazione. Il *lodash.js* e *lodash.min.js* i file vengono recuperati dal file system locale a *c:\\temp\\lodash\\* . I file vengono copiati nel progetto *wwwroot/lib/lodash* cartella.
+* Un subset di [jQuery](https://jquery.com/) versione 3.3.1 viene recuperato dal provider CDNJS. Il subset è definito nella proprietà `files`&mdash;*jQuery. min. js*, *jQuery. js*e *jQuery. min. map*. I file vengono inseriti nella cartella *wwwroot/lib/jQuery* del progetto.
+* L'intera versione di [bootstrap](https://getbootstrap.com/) 4.1.3 viene recuperata e inserita in una cartella *wwwroot/lib/bootstrap* . La proprietà `provider` del valore letterale dell'oggetto esegue l'override del valore della proprietà `defaultProvider`. LibMan recupera i file bootstrap dal provider unpkg.
+* Un subset di [Lodash](https://lodash.com/) è stato approvato da un corpo di governance all'interno dell'organizzazione. I file *lodash. js* e *lodash. min. js* vengono recuperati dal file system locale in *C:\\Temp\\lodash\\* . I file vengono copiati nella cartella *wwwroot/lib/lodash* del progetto.
 
 [!code-json[](samples/LibManSample/libman.json)]
 
 > [!NOTE]
-> LibMan supporta solo una versione di tutte le librerie da ogni provider. Il *libman.json* file ha esito negativo di convalida dello schema, se contiene due raccolte con lo stesso nome di libreria per un determinato provider.
+> LibMan supporta solo una versione di ogni libreria di ogni provider. Il file *libman. JSON* non riesce a convalidare lo schema se contiene due librerie con lo stesso nome di libreria per un determinato provider.
 
 ## <a name="restore-library-files"></a>Ripristinare i file di libreria
 
-Per ripristinare i file di libreria dall'interno di Visual Studio, è necessario un valore valido *libman.json* file nella radice del progetto. File ripristinati vengono inseriti nel progetto in corrispondenza della posizione specificata per ogni raccolta.
+Per ripristinare i file di libreria da Visual Studio, è necessario che nella radice del progetto sia presente un file *libman. JSON* valido. I file ripristinati vengono inseriti nel progetto nel percorso specificato per ogni libreria.
 
 I file di libreria possono essere ripristinati in un progetto ASP.NET Core in due modi:
 
 1. [Ripristinare i file durante la compilazione](#restore-files-during-build)
-1. [Ripristinare i file manualmente](#restore-files-manually)
+1. [Ripristino manuale dei file](#restore-files-manually)
 
 ### <a name="restore-files-during-build"></a>Ripristinare i file durante la compilazione
 
-LibMan puoi ripristinare i file di libreria definiti come parte del processo di compilazione. Per impostazione predefinita, il *ripristino in fase di compilazione* comportamento è disabilitato.
+LibMan consente di ripristinare i file di libreria definiti come parte del processo di compilazione. Per impostazione predefinita, il comportamento di *ripristino su compilazione* è disabilitato.
 
-Per abilitare e testare il comportamento di ripristino in fase di compilazione:
+Per abilitare e testare il comportamento di ripristino in base alla compilazione:
 
-* Fare doppio clic su *libman.json* nelle **Esplora soluzioni** e selezionare **abilitare ripristino configurazione di librerie lato Client in fase di compilazione** dal menu di scelta rapida.
-* Scegliere il **Sì** pulsante quando viene richiesto di installare un pacchetto NuGet. Il [Microsoft.Web.LibraryManager.Build](https://www.nuget.org/packages/Microsoft.Web.LibraryManager.Build/) pacchetto NuGet viene aggiunto al progetto:
+* Fare clic con il pulsante destro del mouse su *libman. JSON* in **Esplora soluzioni** e selezionare **Abilita ripristino di librerie sul lato client in compilazione** dal menu di scelta rapida.
+* Quando viene richiesto di installare un pacchetto NuGet, fare clic sul pulsante **Sì** . Al progetto viene aggiunto il pacchetto NuGet [Microsoft. Web. librarymanager. Build](https://www.nuget.org/packages/Microsoft.Web.LibraryManager.Build/) :
 
   [!code-xml[](samples/LibManSample/LibManSample.csproj?name=snippet_RestoreOnBuildPackage)]
 
-* Compilare il progetto per verificare che il ripristino dei file LibMan si verifica. Il `Microsoft.Web.LibraryManager.Build` pacchetto inserisce una destinazione di MSBuild che esegue LibMan durante l'operazione di compilazione del progetto.
-* Esaminare la **compilare** feed del **Output** finestra per il registro attività LibMan:
+* Compilare il progetto per confermare che si verifica il ripristino del file LibMan. Il pacchetto di `Microsoft.Web.LibraryManager.Build` inserisce una destinazione MSBuild che esegue LibMan durante l'operazione di compilazione del progetto.
+* Esaminare il feed di **compilazione** della finestra di **output** per un log attività LibMan:
 
   ```console
   1>------ Build started: Project: LibManSample, Configuration: Debug Any CPU ------
@@ -142,25 +142,25 @@ Per abilitare e testare il comportamento di ripristino in fase di compilazione:
   ========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
   ```
 
-Quando è abilitato il comportamento di ripristino in fase di compilazione, il *libman.json* menu di scelta rapida visualizza un **disabilitare ripristino configurazione di librerie lato Client in fase di compilazione** opzione. Se si seleziona questa opzione rimuove il `Microsoft.Web.LibraryManager.Build` riferimento dal file di progetto del pacchetto. Di conseguenza, le librerie lato client non vengono più ripristinate in ogni fase di compilazione.
+Quando il comportamento di ripristino in fase di compilazione è abilitato, il menu di scelta rapida *libman. JSON* Visualizza un'opzione **Disable Restore client-side Libraries on Build** . Se si seleziona questa opzione, il riferimento al pacchetto `Microsoft.Web.LibraryManager.Build` verrà rimosso dal file di progetto. Di conseguenza, le librerie sul lato client non vengono più ripristinate in ogni compilazione.
 
-Indipendentemente dall'impostazione di ripristino in fase di compilazione, è possibile ripristinare manualmente in qualsiasi momento dal *libman.json* menu di scelta rapida. Per altre informazioni, vedere [ripristinare manualmente i file](#restore-files-manually).
+Indipendentemente dall'impostazione di ripristino in base alla compilazione, è possibile eseguire manualmente il ripristino in qualsiasi momento dal menu di scelta rapida *libman. JSON* . Per ulteriori informazioni, vedere [ripristino manuale dei file](#restore-files-manually).
 
-### <a name="restore-files-manually"></a>Ripristinare i file manualmente
+### <a name="restore-files-manually"></a>Ripristino manuale dei file
 
 Per ripristinare manualmente i file di libreria:
 
 * Per tutti i progetti nella soluzione:
-  * Fare clic sul nome della soluzione in **Esplora soluzioni**.
-  * Selezionare il **ripristinare librerie lato Client** opzione.
+  * Fare clic con il pulsante destro del mouse sul nome della soluzione in **Esplora soluzioni**.
+  * Selezionare l'opzione **Ripristina librerie lato client** .
 * Per un progetto specifico:
-  * Fare doppio clic il *libman.json* del file in **Esplora soluzioni**.
-  * Selezionare il **ripristinare librerie lato Client** opzione.
+  * Fare clic con il pulsante destro del mouse sul file *libman. JSON* in **Esplora soluzioni**.
+  * Selezionare l'opzione **Ripristina librerie lato client** .
 
 Durante l'esecuzione dell'operazione di ripristino:
 
-* Icona del centro stato attività (TSC) sulla barra di stato di Visual Studio verrà animato e leggerà *avviato l'operazione di ripristino*. Facendo clic sull'icona viene visualizzata la descrizione comando Elenca le attività in background noti.
-* Messaggi verranno inviati nella barra di stato e il **Gestione librerie** feed del **Output** finestra. Ad esempio:
+* L'icona centro stato attività (TSC) sulla barra di stato di Visual Studio verrà animata e l'operazione di ripristino verrà letta *avviata*. Facendo clic sull'icona si apre una descrizione comando che elenca le attività in background note.
+* I messaggi verranno inviati alla barra di stato e al feed di **Gestione librerie** della finestra di **output** . Ad esempio:
 
   ```console
   Restore operation started...
@@ -173,19 +173,19 @@ Durante l'esecuzione dell'operazione di ripristino:
   1 libraries restored in 2.32 seconds
   ```
 
-## <a name="delete-library-files"></a>Eliminare i file di libreria
+## <a name="delete-library-files"></a>Elimina file di libreria
 
-Per eseguire la *pulita* , operazione che comporta l'eliminazione di file di libreria precedentemente ripristinati in Visual Studio:
+Per eseguire l'operazione di *pulizia* , che elimina i file di libreria ripristinati in precedenza in Visual Studio:
 
-* Fare doppio clic il *libman.json* del file in **Esplora soluzioni**.
-* Selezionare il **pulita librerie lato Client** opzione.
+* Fare clic con il pulsante destro del mouse sul file *libman. JSON* in **Esplora soluzioni**.
+* Selezionare l'opzione **Pulisci librerie lato client** .
 
-Per evitare la rimozione accidentale di file non di libreria, l'operazione di pulizia non comporta l'eliminazione intere directory. Rimuove solo i file che sono stati inclusi nel ripristino precedente.
+Per evitare la rimozione accidentale di file non di libreria, l'operazione di pulizia non Elimina intere directory. Rimuove solo i file inclusi nel ripristino precedente.
 
-Mentre l'operazione di pulizia è in esecuzione:
+Durante l'esecuzione dell'operazione di pulizia:
 
-* L'icona TSC sulla barra di stato di Visual Studio verrà animato e leggerà *operazione le librerie Client avviata*. Facendo clic sull'icona viene visualizzata la descrizione comando Elenca le attività in background noti.
-* I messaggi vengono inviati nella barra di stato e il **Gestione librerie** feed del **Output** finestra. Ad esempio:
+* L'icona TSC sulla barra di stato di Visual Studio verrà animata e verrà letta l' *operazione delle librerie client avviata*. Facendo clic sull'icona si apre una descrizione comando che elenca le attività in background note.
+* I messaggi vengono inviati alla barra di stato e al feed di **Gestione librerie** della finestra di **output** . Ad esempio:
 
 ```console
 Clean libraries operation started...
@@ -193,41 +193,41 @@ Clean libraries operation completed
 2 libraries were successfully deleted in 1.91 secs
 ```
 
-L'operazione di pulizia Elimina solo i file dal progetto. File della libreria di rimangono nella cache per il recupero più veloce sulle operazioni di ripristino future. Per gestire i file di libreria memorizzati nella cache del computer locale, usare il [LibMan CLI](xref:client-side/libman/libman-cli).
+L'operazione di pulizia elimina solo i file dal progetto. I file di libreria vengono mantenuti nella cache per un recupero più rapido delle operazioni di ripristino future. Per gestire i file di libreria archiviati nella cache del computer locale, usare l'interfaccia della riga di comando di [LibMan](xref:client-side/libman/libman-cli).
 
-## <a name="uninstall-library-files"></a>Disinstallare i file di libreria
+## <a name="uninstall-library-files"></a>Disinstalla file di libreria
 
 Per disinstallare i file di libreria:
 
-* Aprire *libman.json*.
-* Posizionare il cursore all'interno di corrispondente `libraries` valore letterale di oggetto.
-* Scegliere l'icona lampadina visualizzata nel margine sinistro e selezionare **disinstallazione \<library_name > @\<library_version >** :
+* Aprire *libman. JSON*.
+* Posizionare il punto di inserimento all'interno del valore letterale dell'oggetto `libraries` corrispondente.
+* Fare clic sull'icona a bulbo chiaro visualizzata nel margine sinistro e selezionare **disinstalla \<library_name > @\<library_version >** :
 
-  ![Disinstallare l'opzione del menu di scelta rapida della libreria](_static/uninstall-menu-option.png)
+  ![Opzione del menu di scelta rapida Disinstalla libreria](_static/uninstall-menu-option.png)
 
-In alternativa, è possibile manualmente modificare e salvare il manifesto LibMan (*libman.json*). Il [l'operazione di ripristino](#restore-library-files) viene eseguito quando viene salvato il file. File di libreria non è più definiti nella *libman.json* vengono rimossi dal progetto.
+In alternativa, è possibile modificare e salvare manualmente il manifesto LibMan (*LibMan. JSON*). L' [operazione di ripristino](#restore-library-files) viene eseguita quando il file viene salvato. I file di libreria che non sono più definiti in *libman. JSON* vengono rimossi dal progetto.
 
-## <a name="update-library-version"></a>Versione di aggiornamento libreria
+## <a name="update-library-version"></a>Aggiornare la versione della libreria
 
-Per controllare una versione di aggiornamento della libreria:
+Per verificare la presenza di una versione aggiornata della libreria:
 
-* Aprire *libman.json*.
-* Posizionare il cursore all'interno di corrispondente `libraries` valore letterale di oggetto.
-* Scegliere l'icona lampadina visualizzata nel margine sinistro. Passare il mouse su **verificare la presenza di aggiornamenti**.
+* Aprire *libman. JSON*.
+* Posizionare il punto di inserimento all'interno del valore letterale dell'oggetto `libraries` corrispondente.
+* Fare clic sull'icona a bulbo chiaro visualizzata nel margine sinistro. Passare il mouse su **Verifica disponibilità aggiornamenti**.
 
-LibMan controlla una versione della libreria più recente della versione installata. Possono verificarsi i seguenti risultati:
+LibMan verifica la presenza di una versione della libreria più recente della versione installata. Possono verificarsi i risultati seguenti:
 
-* Oggetto **non sono stati trovati aggiornamenti** messaggio viene visualizzato se è già installata la versione più recente.
-* La versione stabile più recente viene visualizzata se non già installata.
+* Se è già installata la versione più recente, viene visualizzato un messaggio di **Nessun aggiornamento trovato** .
+* Se non è già installata, viene visualizzata la versione stabile più recente.
 
-  ![Verificare la presenza di opzione del menu di scelta rapida degli aggiornamenti](_static/update-menu-option.png)
+  ![Opzione del menu di scelta rapida Controlla aggiornamenti](_static/update-menu-option.png)
 
-* Se è disponibile una versione non definitiva più recente della versione installata, viene visualizzata la versione non definitiva.
+* Se è disponibile una versione provvisoria più recente di quella installata, viene visualizzata la versione non definitiva.
 
-Per effettuare il downgrade a una versione precedente di libreria, modificare manualmente il *libman.json* file. Quando il file viene salvato, la LibMan [l'operazione di ripristino](#restore-library-files):
+Per eseguire il downgrade a una versione precedente della libreria, modificare manualmente il file *libman. JSON* . Quando il file viene salvato, l' [operazione di ripristino](#restore-library-files)LibMan:
 
-* Rimuove i file con ridondanza della versione precedente.
-* Aggiunge i file nuovi e aggiornati della nuova versione.
+* Rimuove i file ridondanti dalla versione precedente.
+* Aggiunge file nuovi e aggiornati dalla nuova versione.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

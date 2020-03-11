@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 12/05/2019
 uid: client-side/using-grunt
 ms.openlocfilehash: e516b85da7e94d0c93be642086fede0a11fea3c2
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74879786"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78657591"
 ---
 # <a name="use-grunt-in-aspnet-core"></a>USA Grugnio in ASP.NET Core
 
@@ -238,7 +238,7 @@ Il grugnito viene configurato usando un manifesto denominato *Gruntfile. js* che
     > [!NOTE]
     > Per ulteriori informazioni sulle opzioni per ogni pacchetto, vedere [https://www.npmjs.com/](https://www.npmjs.com/) e cercare il nome del pacchetto nella casella di ricerca della pagina principale. Ad esempio, è possibile cercare il pacchetto grugnito-contrib-clean per ottenere un collegamento alla documentazione in cui vengono illustrati tutti i relativi parametri.
 
-### <a name="all-together-now"></a>Riepilogo
+### <a name="all-together-now"></a>Tutti insieme adesso
 
 Usare il metodo di `registerTask()` grugnito per eseguire una serie di attività in una sequenza specifica. Ad esempio, per eseguire i passaggi di esempio precedenti nell'ordine Pulisci-> Concat-> jshint-> uglify, aggiungere il codice seguente al modulo. Il codice deve essere aggiunto allo stesso livello delle chiamate a loadNpmTasks (), all'esterno di initConfig.
 
@@ -281,6 +281,6 @@ Associare `watch` in modo che venga eseguito ogni volta che viene aperto Visual 
 
 Scaricare e ricaricare il progetto. Quando il progetto viene caricato nuovamente, l'attività Watch viene avviata automaticamente.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 Grugnito è un potente strumento di esecuzione delle attività che può essere usato per automatizzare la maggior parte delle attività di compilazione client. Grugni si avvale di NPM per distribuire i pacchetti e include funzionalità di integrazione degli strumenti con Visual Studio. Esplora attività di Visual Studio rileva le modifiche apportate ai file di configurazione e offre una comoda interfaccia per eseguire attività, visualizzare attività in esecuzione e associare attività agli eventi di Visual Studio.

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/15/2019
 uid: mvc/models/validation
-ms.openlocfilehash: a39eeead10849d11349688c42fe814ede9e8a847
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: cf6b77de78f2c5dda48ffcd8ac1f9ed2f8d28bd7
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77172494"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78661126"
 ---
 # <a name="model-validation-in-aspnet-core-mvc-and-razor-pages"></a>Convalida del modello in ASP.NET Core MVC e in Razor Pages
 
@@ -21,7 +21,7 @@ Di [Kirk Larkin](https://github.com/serpent5)
 
 Questo articolo illustra come convalidare l'input utente in un'app ASP.NET Core MVC o Razor Pages.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/validation/samples) ([procedura per il download](xref:index#how-to-download-a-sample)).
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/validation/samples) ([procedura per il download](xref:index#how-to-download-a-sample)).
 
 ## <a name="model-state"></a>Stato del modello
 
@@ -62,15 +62,15 @@ Di seguito sono elencati alcuni degli attributi di convalida predefiniti:
 
 Nello spazio dei nomi [System.ComponentModel.DataAnnotations](xref:System.ComponentModel.DataAnnotations) è possibile trovare un elenco completo degli attributi di convalida.
 
-### <a name="error-messages"></a>Messaggi di errore
+### <a name="error-messages"></a>messaggi di errore
 
-Gli attributi di convalida consentono di specificare il messaggio di errore da visualizzare in caso di input non valido. Ad esempio,
+Gli attributi di convalida consentono di specificare il messaggio di errore da visualizzare in caso di input non valido. Ad esempio:
 
 ```csharp
 [StringLength(8, ErrorMessage = "Name length can't be more than 8.")]
 ```
 
-Internamente gli attributi chiamano `String.Format` con un segnaposto per il nome campo e talvolta con segnaposto aggiuntivi. Ad esempio,
+Internamente gli attributi chiamano `String.Format` con un segnaposto per il nome campo e talvolta con segnaposto aggiuntivi. Ad esempio:
 
 ```csharp
 [StringLength(8, ErrorMessage = "{0} length must be between {2} and {1}.", MinimumLength = 6)]
@@ -265,7 +265,7 @@ La convalida del tipo di dati si basa sul tipo .NET di una proprietà, a meno ch
 
 ## <a name="unobtrusive-validation"></a>Convalida non intrusiva
 
-Per informazioni sulla convalida non intrusiva, vedere [questo problema di GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/1111).
+Per informazioni sulla convalida non intrusiva, vedere [questo problema di GitHub](https://github.com/dotnet/AspNetCore.Docs/issues/1111).
 
 ### <a name="add-validation-to-dynamic-forms"></a>Aggiungere la convalida a moduli dinamici
 
@@ -389,7 +389,7 @@ L'approccio precedente non impedisce la convalida lato client di ASP.NET Core li
 
 Questo articolo illustra come convalidare l'input utente in un'app ASP.NET Core MVC o Razor Pages.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/validation/sample) ([procedura per il download](xref:index#how-to-download-a-sample)).
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/validation/sample) ([procedura per il download](xref:index#how-to-download-a-sample)).
 
 ## <a name="model-state"></a>Stato del modello
 
@@ -409,7 +409,7 @@ La convalida è automatica, ma potrebbe essere necessario ripeterla manualmente.
 
 ## <a name="validation-attributes"></a>Attributi di convalida
 
-Gli attributi di convalida consentono di specificare le regole di convalida per le proprietà del modello. Nell'esempio seguente dell'[app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/validation/sample) viene illustrata una classe di modello annotata con attributi di convalida. `[ClassicMovie]` è un attributo di convalida personalizzato, mentre gli altri sono attributi predefiniti. Non viene mostrato `[ClassicMovie2]`, che mostra un metodo alternativo per implementare un attributo personalizzato.
+Gli attributi di convalida consentono di specificare le regole di convalida per le proprietà del modello. Nell'esempio seguente dell'[app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/validation/sample) viene illustrata una classe di modello annotata con attributi di convalida. `[ClassicMovie]` è un attributo di convalida personalizzato, mentre gli altri sono attributi predefiniti. Non viene mostrato `[ClassicMovie2]`, che mostra un metodo alternativo per implementare un attributo personalizzato.
 
 [!code-csharp[](validation/samples/2.x/ValidationSample/Models/Movie.cs?name=snippet_ModelClass)]
 
@@ -432,15 +432,15 @@ Quando si usa l'attributo `[RegularExpression]` con la convalida sul lato client
 
 Nello spazio dei nomi [System.ComponentModel.DataAnnotations](xref:System.ComponentModel.DataAnnotations) è possibile trovare un elenco completo degli attributi di convalida.
 
-### <a name="error-messages"></a>Messaggi di errore
+### <a name="error-messages"></a>messaggi di errore
 
-Gli attributi di convalida consentono di specificare il messaggio di errore da visualizzare in caso di input non valido. Ad esempio,
+Gli attributi di convalida consentono di specificare il messaggio di errore da visualizzare in caso di input non valido. Ad esempio:
 
 ```csharp
 [StringLength(8, ErrorMessage = "Name length can't be more than 8.")]
 ```
 
-Internamente gli attributi chiamano `String.Format` con un segnaposto per il nome campo e talvolta con segnaposto aggiuntivi. Ad esempio,
+Internamente gli attributi chiamano `String.Format` con un segnaposto per il nome campo e talvolta con segnaposto aggiuntivi. Ad esempio:
 
 ```csharp
 [StringLength(8, ErrorMessage = "{0} length must be between {2} and {1}.", MinimumLength = 6)]

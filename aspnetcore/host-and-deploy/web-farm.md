@@ -1,22 +1,22 @@
 ---
 title: Ospitare ASP.NET Core in una Web farm
-author: guardrex
+author: rick-anderson
 description: Informazioni su come ospitare più istanze di un'app ASP.NET Core con risorse condivise in un ambiente Web farm.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 01/13/2020
 uid: host-and-deploy/web-farm
-ms.openlocfilehash: 5c13e9bc4c514f9b42871d55a430265c8ec2da23
-ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
+ms.openlocfilehash: 316c87e5f49593c05991a94cbe5e55d175a49bb3
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75951823"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78659369"
 ---
 # <a name="host-aspnet-core-in-a-web-farm"></a>Ospitare ASP.NET Core in una Web farm
 
-Di [Luke Latham](https://github.com/guardrex) e [Chris Ross](https://github.com/Tratcher)
+Di [Chris Ross](https://github.com/Tratcher)
 
 Una *Web farm* è un gruppo di due o più server Web (o *nodi*) che ospita più istanze di un'app. Quando arrivano richieste dagli utenti per una Web farm, un servizio di *bilanciamento del carico* distribuisce le richieste ai nodi della Web farm. Le Web farm consentono di migliorare:
 
@@ -27,7 +27,7 @@ Una *Web farm* è un gruppo di due o più server Web (o *nodi*) che ospita più 
 
 Questo argomento descrive la configurazione e le dipendenze per le app ASP.NET Core ospitate in una Web farm che si basano su risorse condivise.
 
-## <a name="general-configuration"></a>Impostazioni di configurazione generali
+## <a name="general-configuration"></a>Configurazione generale
 
 <xref:host-and-deploy/index>  
 Informazioni sulla configurazione degli ambienti host e sulla distribuzione delle app ASP.NET Core. Configurare un gestore di processi in ogni nodo della Web farm per automatizzare avvii e riavvii dell'app. Ogni nodo richiede il runtime di ASP.NET Core. Per altre informazioni, vedere gli argomenti nell'area [Ospitare e distribuire](xref:host-and-deploy/index) della documentazione.
@@ -42,17 +42,17 @@ Il [servizio app di Azure](https://azure.microsoft.com/services/app-service/) è
 
 Quando un'app viene distribuita su più istanze, potrebbe essere necessario condividere informazioni sullo stato dell'app tra i nodi. Se lo stato è temporaneo, valutare la condivisione di una [IDistributedCache](/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache). Se lo stato condiviso deve essere persistente, valutare la possibilità di archiviare lo stato condiviso in un database.
 
-## <a name="required-configuration"></a>Configurazione richiesta
+## <a name="required-configuration"></a>Configurazione necessaria
 
 Occorre configurare la protezione dei dati e la memorizzazione nella cache per le app distribuite in una Web farm.
 
-### <a name="data-protection"></a>Protezione dati
+### <a name="data-protection"></a>Protezione dei dati
 
 Il [sistema di protezione dei dati di ASP.NET Core](xref:security/data-protection/introduction) viene usato dalle app per proteggere i dati. La protezione dei dati si basa su un set di chiavi di crittografia archiviate in un *KeyRing*. Quando il sistema di protezione dei dati viene inizializzato, vengono applicate le [impostazioni predefinite](xref:security/data-protection/configuration/default-settings) che archiviano il KeyRing in locale. In base alla configurazione predefinita, viene archiviato un unico KeyRing in ogni nodo della Web farm. Di conseguenza, ogni nodo della Web farm non può decrittografare i dati crittografati da un'app su qualsiasi altro nodo. La configurazione predefinita non è in genere adatta per l'hosting di app in una Web farm. In alternativa all'implementazione di un KeyRing condiviso, è sempre possibile indirizzare le richieste utente allo stesso nodo. Per altre informazioni sulla configurazione del sistema di protezione dei dati per le distribuzioni di Web farm, vedere <xref:security/data-protection/configuration/overview>.
 
 ### <a name="caching"></a>Memorizzazione nella cache
 
-In un ambiente Web farm, il meccanismo di memorizzazione nella cache deve condividere gli elementi memorizzati nella cache tra i nodi della Web farm. La memorizzazione nella cache deve basarsi su una cache Redis comune, un database di SQL Server condiviso o un'implementazione personalizzata di memorizzazione nella cache che condivide gli elementi memorizzati nella cache nella Web farm. Per ulteriori informazioni, vedere <xref:performance/caching/distributed>.
+In un ambiente Web farm, il meccanismo di memorizzazione nella cache deve condividere gli elementi memorizzati nella cache tra i nodi della Web farm. La memorizzazione nella cache deve basarsi su una cache Redis comune, un database di SQL Server condiviso o un'implementazione personalizzata di memorizzazione nella cache che condivide gli elementi memorizzati nella cache nella Web farm. Per altre informazioni, vedere <xref:performance/caching/distributed>.
 
 ## <a name="dependent-components"></a>Componenti dipendenti
 
@@ -60,13 +60,13 @@ Gli scenari seguenti non richiedono configurazioni aggiuntive, ma dipendono da t
 
 | Scenario | Dipende da &hellip; |
 | -------- | ------------------- |
-| Autenticazione | Protezione dei dati (vedere <xref:security/data-protection/configuration/overview>).<br><br>Per altre informazioni, vedere <xref:security/authentication/cookie> e <xref:security/cookie-sharing>. |
-| Identity | Configurazione di autenticazione e database.<br><br>Per ulteriori informazioni, vedere <xref:security/authentication/identity>. |
-| Sessione | Protezione dei dati (cookie crittografati) (vedere <xref:security/data-protection/configuration/overview>) e memorizzazione nella cache (vedere <xref:performance/caching/distributed>).<br><br>Per altre informazioni, vedere [Stato di sessioni e app: Stato sessione](xref:fundamentals/app-state#session-state). |
-| TempData | Protezione dei dati (cookie crittografati) (vedere <xref:security/data-protection/configuration/overview>) o sessione (vedere [Stato di sessioni e app: Stato sessione](xref:fundamentals/app-state#session-state)).<br><br>Per altre informazioni, vedere [Stato di sessioni e app: TempData](xref:fundamentals/app-state#tempdata). |
-| Antifalsificazione | Protezione dei dati (vedere <xref:security/data-protection/configuration/overview>).<br><br>Per ulteriori informazioni, vedere <xref:security/anti-request-forgery>. |
+| Authentication | Protezione dei dati (vedere <xref:security/data-protection/configuration/overview>).<br><br>Per altre informazioni, vedere <xref:security/authentication/cookie> e <xref:security/cookie-sharing>. |
+| Identità | Configurazione di autenticazione e database.<br><br>Per altre informazioni, vedere <xref:security/authentication/identity>. |
+| sessione | Protezione dei dati (cookie crittografati) (vedere <xref:security/data-protection/configuration/overview>) e memorizzazione nella cache (vedere <xref:performance/caching/distributed>).<br><br>Per ulteriori informazioni, vedere [sessione e gestione dello stato: stato della sessione](xref:fundamentals/app-state#session-state). |
+| TempData | Protezione dei dati (cookie crittografati) (vedere <xref:security/data-protection/configuration/overview>) o sessione (vedere [gestione di sessioni e Stati: stato sessione](xref:fundamentals/app-state#session-state)).<br><br>Per ulteriori informazioni, vedere [gestione delle sessioni e dello stato: TempData](xref:fundamentals/app-state#tempdata). |
+| Antifalsificazione | Protezione dei dati (vedere <xref:security/data-protection/configuration/overview>).<br><br>Per altre informazioni, vedere <xref:security/anti-request-forgery>. |
 
-## <a name="troubleshoot"></a>Risolvere i problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 ### <a name="data-protection-and-caching"></a>Protezione dei dati e memorizzazione nella cache
 
@@ -93,3 +93,4 @@ Se le app della Web farm sono in grado di rispondere alle richieste, è possibil
 
 * [Estensione script personalizzata per Windows](/azure/virtual-machines/extensions/custom-script-windows) &ndash; Scarica ed esegue script in macchine virtuali di Azure, utile per la configurazione post-distribuzione e l'installazione del software.
 * <xref:host-and-deploy/proxy-load-balancer>
+ 

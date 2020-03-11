@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 09/26/2019
 uid: data/ef-rp/intro
-ms.openlocfilehash: 1a9d83be9180b1d32ab941932eb3cab8612dff01
-ms.sourcegitcommit: d2ba66023884f0dca115ff010bd98d5ed6459283
+ms.openlocfilehash: 94783aa9014aef4c5f775fc8f36a2c3a7715e4b6
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77213402"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78656821"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>Razor Pages con Entity Framework Core in ASP.NET Core: esercitazione 1 di 8
 
@@ -19,19 +19,19 @@ ms.locfileid: "77213402"
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Questo è il primo di una serie di esercitazioni che illustrano come usare Entity Framework (EF) Core in un'app [ASP.NET Core Razor Pages](xref:razor-pages/index) . Con queste esercitazioni viene creato un sito Web per una fittizia Contoso University. Il sito include funzionalità, come ad esempio l'ammissione di studenti, la creazione di corsi e le assegnazioni degli insegnati. Nell'esercitazione viene usato l'approccio Code First. Per informazioni su come seguire questa esercitazione usando il primo approccio al database, vedere [questo problema di GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/16897).
+Questo è il primo di una serie di esercitazioni che illustrano come usare Entity Framework (EF) Core in un'app [ASP.NET Core Razor Pages](xref:razor-pages/index) . Con queste esercitazioni viene creato un sito Web per una fittizia Contoso University. Il sito include funzionalità, come ad esempio l'ammissione di studenti, la creazione di corsi e le assegnazioni degli insegnati. Nell'esercitazione viene usato l'approccio Code First. Per informazioni su come seguire questa esercitazione usando il primo approccio al database, vedere [questo problema di GitHub](https://github.com/dotnet/AspNetCore.Docs/issues/16897).
 
-[Scaricare o visualizzare l'app completata.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) [Istruzioni per il download](xref:index#how-to-download-a-sample).
+[Scaricare o visualizzare l'app completata.](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) [Istruzioni per il download](xref:index#how-to-download-a-sample).
 
 ## <a name="prerequisites"></a>Prerequisites
 
 * Se non si ha familiarità con Razor Pages, vedere la serie di esercitazioni [Introduzione a Razor Pages](xref:tutorials/razor-pages/razor-pages-start) prima di iniziare.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 [!INCLUDE[VS prereqs](~/includes/net-core-prereqs-vs-3.0.md)]
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 [!INCLUDE[VS Code prereqs](~/includes/net-core-prereqs-vsc-3.0.md)]
 
@@ -47,7 +47,7 @@ Se si sceglie di usare SQLite, scaricare e installare uno strumento di terze par
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 
-Se si verifica un problema che non è possibile risolvere, confrontare il codice con il [progetto completato](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples). Un buon metodo per ottenere assistenza è quello di pubblicare una domanda in StackOverflow.com con il [tag ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) o il [tag EF Core](https://stackoverflow.com/questions/tagged/entity-framework-core).
+Se si verifica un problema che non è possibile risolvere, confrontare il codice con il [progetto completato](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples). Un buon metodo per ottenere assistenza è quello di pubblicare una domanda in StackOverflow.com con il [tag ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) o il [tag EF Core](https://stackoverflow.com/questions/tagged/entity-framework-core).
 
 ## <a name="the-sample-app"></a>App di esempio
 
@@ -61,7 +61,7 @@ Lo stile dell'interfaccia utente del sito è basato sui modelli di progetto pred
 
 Seguire il collegamento nella parte superiore della pagina per ottenere il codice sorgente per il progetto completato. La cartella *cu30* contiene il codice per la versione di ASP.NET Core 3.0 dell'esercitazione. I file che riflettono lo stato del codice per le esercitazioni 1-7 si trovano nella cartella *cu30snapshots*.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Per eseguire l'app dopo il download del progetto completato:
 
@@ -75,7 +75,7 @@ Per eseguire l'app dopo il download del progetto completato:
 
 * Eseguire il progetto per il seeding del database.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Per eseguire l'app dopo il download del progetto completato:
 
@@ -103,14 +103,14 @@ Per eseguire l'app dopo il download del progetto completato:
 
 ## <a name="create-the-web-app-project"></a>Creare il progetto di app Web
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Scegliere **nuovo** > **progetto**dal menu **file** di Visual Studio.
 * Selezionare **Applicazione Web ASP.NET Core**.
 * Denominare il progetto *ContosoUniversity*. È importante usare questo nome esatto, incluse le maiuscole, in modo che gli spazi dei nomi corrispondano quando il codice viene copiato e incollato.
 * Selezionare **.NET Core** e **ASP.NET Core 3.0** nell'elenco a discesa, quindi selezionare **Applicazione Web**.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * In un terminale passare alla cartella in cui deve essere creata la cartella del progetto.
 
@@ -206,7 +206,7 @@ In questa sezione si userà lo strumento di scaffolding di ASP.NET Core per gene
 * Una classe *contesto* di EF Core. Il contesto è la classe principale che coordina le funzionalità di Entity Framework per un determinato modello di dati. Deriva dalla classe `Microsoft.EntityFrameworkCore.DbContext`.
 * Pagine Razor che gestiscono operazioni CRUD (creazione, lettura, aggiornamento ed eliminazione) per l'entità `Student`.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Creare una cartella *Students* nella cartella *Pages*.
 * In **Esplora soluzioni**fare clic con il pulsante destro del mouse sulla cartella *pages/students* e scegliere **Aggiungi** > **nuovo elemento con impalcatura**.
@@ -224,7 +224,7 @@ Vengono installati automaticamente i pacchetti seguenti:
 * `Microsoft.Extensions.Logging.Debug`
 * `Microsoft.EntityFrameworkCore.Tools`
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * Eseguire i comandi seguenti dell'interfaccia della riga di comando di .NET Core per installare i pacchetti NuGet necessari:
 <!-- TO DO  After testing, Replace with
@@ -282,7 +282,7 @@ Il processo di scaffolding:
 
 ## <a name="database-connection-string"></a>Stringa di connessione al database
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 La stringa di connessione specifica [SQL Server Local DB](/sql/database-engine/configure-windows/sql-server-2016-express-localdb). 
 
@@ -290,7 +290,7 @@ La stringa di connessione specifica [SQL Server Local DB](/sql/database-engine/c
 
 Local DB è una versione leggera del motore di database di SQL Server Express appositamente pensato per lo sviluppo di app e non per la produzione. Per impostazione predefinita, Local DB crea file con estensione *mdf* nella directory `C:/Users/<user>`.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Modificare la stringa di connessione in modo che punti a un file di database SQLite denominato *CU.db*:
 
@@ -323,13 +323,13 @@ ASP.NET Core viene compilato con l'[inserimento di dipendenze](xref:fundamentals
 
 Lo strumento di scaffolding ha registrato automaticamente la classe di contesto nel contenitore di inserimento delle dipendenze.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * In `ConfigureServices` le righe evidenziate sono state aggiunte dallo scaffolder:
 
   [!code-csharp[Main](intro/samples/cu30/Startup.cs?name=snippet_ConfigureServices&highlight=5-6)]
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * In `ConfigureServices` assicurarsi che il codice aggiunto dallo scaffolder chiami `UseSqlite`.
 
@@ -379,7 +379,7 @@ Creare *Data/DbInitializer.cs* con il codice seguente:
   DbInitializer.Initialize(context);
   ```
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Arrestare l'app se è in esecuzione ed eseguire il comando seguente nella **console di Gestione pacchetti**:
 
@@ -387,7 +387,7 @@ Arrestare l'app se è in esecuzione ed eseguire il comando seguente nella **cons
 Drop-Database
 ```
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * Arrestare l'app se è in esecuzione ed eliminare il file *CU.db*.
 
@@ -399,7 +399,7 @@ Drop-Database
 
 ## <a name="view-the-database"></a>Visualizzare il database
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Aprire **Esplora oggetti di SQL Server** dal menu **Visualizza** in Visual Studio.
 * In Esplora oggetti di SQL Server selezionare **(localdb)\MSSQLLocalDB > Database > SchoolContext-{GUID}** . Il nome del database viene generato dal nome del contesto specificato in precedenza con l'aggiunta di un trattino e un GUID.
@@ -407,7 +407,7 @@ Drop-Database
 * Fare clic con il pulsante destro del mouse sulla tabella **Student** (Studente) e fare clic su **Visualizza dati** per visualizzare le colonne create e le righe inserite nella tabella.
 * Fare clic con il pulsante destro del mouse sulla tabella **Student** e scegliere **Visualizza codice** per vedere il mapping tra il modello `Student` e lo schema della tabella `Student`.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Usare lo strumento SQLite per visualizzare lo schema del database e i dati di seeding. Il file di database è denominato*CU.db* e si trova nella cartella del progetto.
 
@@ -458,15 +458,15 @@ L'app Web di esempio di Contoso University illustra come creare un'app ASP.NET C
 
 L'app di esempio è un sito Web per una fittizia Contoso University. Include funzionalità, come ad esempio l'ammissione di studenti, la creazione di corsi e le assegnazioni di insegnati. Questa pagina è il prima di una serie di esercitazioni che illustrano come compilare l'app di esempio di Contoso University.
 
-[Scaricare o visualizzare l'app completata.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) [Istruzioni per il download](xref:index#how-to-download-a-sample).
+[Scaricare o visualizzare l'app completata.](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) [Istruzioni per il download](xref:index#how-to-download-a-sample).
 
 ## <a name="prerequisites"></a>Prerequisites
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 [!INCLUDE [](~/includes/net-core-prereqs-windows.md)]
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 [!INCLUDE [](~/includes/2.1-SDK.md)]
 
@@ -476,7 +476,7 @@ Conoscenza di [Razor Pages](xref:razor-pages/index). Prima di iniziare questa se
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 
-Se si verifica un problema che non si sa come risolvere, è generalmente possibile trovare la soluzione confrontando il codice con il [progetto completato](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples). Un buon metodo per ottenere assistenza è quello di pubblicare una domanda in [StackOverflow.com](https://stackoverflow.com/questions/tagged/asp.net-core) per [ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) o [EF Core](https://stackoverflow.com/questions/tagged/entity-framework-core).
+Se si verifica un problema che non si sa come risolvere, è generalmente possibile trovare la soluzione confrontando il codice con il [progetto completato](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples). Un buon metodo per ottenere assistenza è quello di pubblicare una domanda in [StackOverflow.com](https://stackoverflow.com/questions/tagged/asp.net-core) per [ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) o [EF Core](https://stackoverflow.com/questions/tagged/entity-framework-core).
 
 ## <a name="the-contoso-university-web-app"></a>App Web di Contoso University
 
@@ -492,7 +492,7 @@ Lo stile dell'interfaccia utente del sito è simile a quanto è stato generato t
 
 ## <a name="create-the-contosouniversity-razor-pages-web-app"></a>Creare l'app Web di Razor Pages ContosoUniversity
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Scegliere **nuovo** > **progetto**dal menu **file** di Visual Studio.
 * Creare una nuova applicazione Web ASP.NET Core. Denominare il progetto **ContosoUniversity**. È importante denominare il progetto *ContosoUniversity* in modo che gli spazi dei nomi corrispondano quando il codice viene copiato/incollato.
@@ -501,7 +501,7 @@ Lo stile dell'interfaccia utente del sito è simile a quanto è stato generato t
 Per le immagini dei passaggi precedenti, vedere [Creare un'app Web Razor](xref:tutorials/razor-pages/razor-pages-start#create-a-razor-pages-web-app).
 Eseguire l'app.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 ```dotnetcli
 dotnet new webapp -o ContosoUniversity
@@ -588,7 +588,7 @@ In questa sezione viene eseguito lo scaffolding del modello Student (Studente). 
 * Compilare il progetto.
 * Creare la cartella *Pages/Students*.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * In **Esplora soluzioni**fare clic con il pulsante destro del mouse sulla cartella *pages/students* > **aggiungere** > **nuovo elemento con impalcatura**.
 * Nella finestra di dialogo **Aggiungi impalcatura** selezionare **Razor Pages utilizzando Entity Framework (CRUD)** > **Aggiungi**.
@@ -604,7 +604,7 @@ Completare la finestra di dialogo **Pagine Razor che usano Entity Framework (CRU
 
 Vedere [Eseguire lo scaffolding del modello di filmato](xref:tutorials/razor-pages/model#scaffold-the-movie-model) se si riscontrano problemi con il passaggio precedente.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Eseguire i comandi seguenti per eseguire lo scaffolding del modello Student (Studente).
 
@@ -707,7 +707,7 @@ In *Program.cs* modificare il metodo `Main` per chiamare `Initialize`:
 
 [!code-csharp[](intro/samples/cu21/Program.cs?name=snippet2&highlight=14-15)]
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Arrestare l'app se è in esecuzione ed eseguire il comando seguente nella **console di Gestione pacchetti**:
 
@@ -715,7 +715,7 @@ Arrestare l'app se è in esecuzione ed eseguire il comando seguente nella **cons
 Drop-Database
 ```
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * Arrestare l'app se è in esecuzione ed eliminare il file *CU.db*.
 

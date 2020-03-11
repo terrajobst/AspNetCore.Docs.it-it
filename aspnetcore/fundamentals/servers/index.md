@@ -8,11 +8,11 @@ ms.custom: mvc
 ms.date: 11/07/2019
 uid: fundamentals/servers/index
 ms.openlocfilehash: d46793ef54c99fe609b5983c5a658fb7b20032fa
-ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74289069"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666341"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Implementazioni di server Web in ASP.NET Core
 
@@ -40,7 +40,7 @@ Per indicazioni per la configurazione di Kestrel e per informazioni su quando us
 
 ::: moniker range=">= aspnetcore-2.2"
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 ASP.NET Core include quanto segue:
 
@@ -66,11 +66,11 @@ Per altre informazioni e indicazioni per la configurazione, vedere gli argomenti
 * <xref:host-and-deploy/iis/index>
 * <xref:host-and-deploy/aspnet-core-module>
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
+# <a name="macos"></a>[macOS](#tab/macos)
 
 ASP.NET Core viene fornito con il [server Kestrel](xref:fundamentals/servers/kestrel), ovvero il server HTTP multipiattaforma predefinito.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 ASP.NET Core viene fornito con il [server Kestrel](xref:fundamentals/servers/kestrel), ovvero il server HTTP multipiattaforma predefinito.
 
@@ -80,7 +80,7 @@ ASP.NET Core viene fornito con il [server Kestrel](xref:fundamentals/servers/kes
 
 ::: moniker range="< aspnetcore-2.2"
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 ASP.NET Core include quanto segue:
 
@@ -106,11 +106,11 @@ Per indicazioni sulla configurazione di IIS e del modulo ASP.NET Core, vedere gl
 * <xref:host-and-deploy/iis/index>
 * <xref:host-and-deploy/aspnet-core-module>
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
+# <a name="macos"></a>[macOS](#tab/macos)
 
 ASP.NET Core viene fornito con il [server Kestrel](xref:fundamentals/servers/kestrel), ovvero il server HTTP multipiattaforma predefinito.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 ASP.NET Core viene fornito con il [server Kestrel](xref:fundamentals/servers/kestrel), ovvero il server HTTP multipiattaforma predefinito.
 
@@ -152,15 +152,15 @@ Se i server predefiniti non soddisfano i requisiti dell'app, è possibile creare
 
 Il server viene avviato quando l'editor o l'ambiente di sviluppo integrato (IDE) avvia l'app:
 
-* [Visual Studio](https://visualstudio.microsoft.com) &ndash; È possibile usare i profili di avvio per avviare l'app e il server con [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview)/[Modulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module) o la console.
-* [Visual Studio Code](https://code.visualstudio.com/) &ndash; L'app e il server vengono avviati da [Omnisharp](https://github.com/OmniSharp/omnisharp-vscode), che attiva il debugger CoreCLR.
-* [Visual Studio per Mac](https://visualstudio.microsoft.com/vs/mac/) &ndash; L'app e il server vengono avviati dal [debugger in modalità Mono Soft](https://www.mono-project.com/docs/advanced/runtime/docs/soft-debugger/).
+* È possibile usare i profili di avvio di [Visual Studio](https://visualstudio.microsoft.com) &ndash; per avviare l'app e il server con [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview)/[modulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module) o la console.
+* [Visual Studio Code](https://code.visualstudio.com/) &ndash; l'app e il server vengono avviati da [Omnisharp](https://github.com/OmniSharp/omnisharp-vscode), che attiva il debugger CoreCLR.
+* [Visual Studio per Mac](https://visualstudio.microsoft.com/vs/mac/) &ndash; l'app e il server vengono avviati dal [debugger in modalità Soft mono](https://www.mono-project.com/docs/advanced/runtime/docs/soft-debugger/).
 
 All'avvio dell'app dal prompt dei comandi nella cartella del progetto, [dotnet run](/dotnet/core/tools/dotnet-run) avvia l'app e il server (solo Kestrel e HTTP.sys). La configurazione viene specificata dall'opzione `-c|--configuration`, impostata su `Debug` (valore predefinito) o su `Release`.
 
 Un file *launchSettings. JSON* fornisce la configurazione quando si avvia un'app con `dotnet run` o con un debugger incorporato negli strumenti, ad esempio Visual Studio. Se i profili di avvio sono presenti in un file *launchSettings. JSON* , usare l'opzione `--launch-profile {PROFILE NAME}` con il comando `dotnet run` oppure selezionare il profilo in Visual Studio. Per altre informazioni, vedere [dotnet run](/dotnet/core/tools/dotnet-run) e [Creazione di pacchetti di distribuzione di .NET Core](/dotnet/core/build/distribution-packaging).
 
-## <a name="http2-support"></a>Supporto per HTTP/2
+## <a name="http2-support"></a>Supporto HTTP/2
 
 [HTTP/2](https://httpwg.org/specs/rfc7540.html) è supportato con ASP.NET Core negli scenari di distribuzione seguenti:
 

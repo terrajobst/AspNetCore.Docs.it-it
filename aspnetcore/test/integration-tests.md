@@ -1,22 +1,22 @@
 ---
 title: Test di integrazione in ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Informazioni su come i test di integrazione garantiscono che i componenti dell'app funzionano correttamente a livello di infrastruttura, tra cui database, file system e rete.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 01/06/2019
 uid: test/integration-tests
-ms.openlocfilehash: ccee8957a72da0eb5d870b1bd184ee1ea146a0e6
-ms.sourcegitcommit: 79850db9e79b1705b89f466c6f2c961ff15485de
+ms.openlocfilehash: 414e47b9c5a1c843755bd79d313f503b554945db
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75693791"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664696"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Test di integrazione in ASP.NET Core
 
-Di [Luke Latham](https://github.com/guardrex), [Javier Calvarro Nelson](https://github.com/javiercn), [Steve Smith](https://ardalis.com/)e [Jos van der til](https://jvandertil.nl)
+Di [Javier Calvarro Nelson](https://github.com/javiercn), [Steve Smith](https://ardalis.com/)e [Jos van der til](https://jvandertil.nl)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -24,7 +24,7 @@ I test di integrazione assicurano che i componenti di un'app funzionino corretta
 
 In questo argomento si presuppone una conoscenza di base degli unit test. Se non si ha familiarità con i concetti di test, vedere gli [unit test in .NET Core e .NET standard](/dotnet/core/testing/) argomento e il contenuto collegato.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 L'app di esempio è un'app Razor Pages e presuppone una conoscenza di base delle Razor Pages. Se non si ha familiarità con Razor Pages, vedere gli argomenti seguenti:
 
@@ -41,7 +41,7 @@ I test di integrazione valutano i componenti di un'app a un livello più ampio r
 
 Questi test più ampi vengono usati per testare l'infrastruttura dell'app e l'intero Framework, spesso inclusi i componenti seguenti:
 
-* Database di
+* Database
 * File system
 * Appliance di rete
 * Pipeline richiesta-risposta
@@ -106,10 +106,10 @@ Il progetto di test deve:
 * Fare riferimento al pacchetto [Microsoft. AspNetCore. Mvc. testing](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Testing) .
 * Specificare SDK Web nel file di progetto (`<Project Sdk="Microsoft.NET.Sdk.Web">`).
 
-Questi prerequisiti possono essere visualizzati nell' [app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples/). Esaminare il file *tests/RazorPagesProject. tests/RazorPagesProject. tests. csproj* . L'app di esempio usa il Framework di test [xUnit](https://xunit.github.io/) e la libreria del parser [AngleSharp](https://anglesharp.github.io/) , quindi l'app di esempio fa riferimento anche a:
+Questi prerequisiti possono essere visualizzati nell' [app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples/). Esaminare il file *tests/RazorPagesProject. tests/RazorPagesProject. tests. csproj* . L'app di esempio usa il Framework di test [xUnit](https://xunit.github.io/) e la libreria del parser [AngleSharp](https://anglesharp.github.io/) , quindi l'app di esempio fa riferimento anche a:
 
-* [xunit](https://www.nuget.org/packages/xunit)
-* [xunit.runner.visualstudio](https://www.nuget.org/packages/xunit.runner.visualstudio)
+* [xUnit](https://www.nuget.org/packages/xunit)
+* [xUnit. Runner. VisualStudio](https://www.nuget.org/packages/xunit.runner.visualstudio)
 * [AngleSharp](https://www.nuget.org/packages/AngleSharp)
 
 Entity Framework Core viene inoltre usato nei test. L'app fa riferimento a:
@@ -146,7 +146,7 @@ La configurazione dell'host Web può essere creata indipendentemente dalle class
 
    [!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/CustomWebApplicationFactory.cs?name=snippet1)]
 
-   Il seeding del database nell' [app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) viene eseguito dal metodo `InitializeDbForTests`. Il metodo è descritto nella sezione esempio di test di [integrazione: organizzazione di app di test](#test-app-organization) .
+   Il seeding del database nell' [app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) viene eseguito dal metodo `InitializeDbForTests`. Il metodo è descritto nella sezione esempio di test di [integrazione: organizzazione di app di test](#test-app-organization) .
 
    Il contesto di database di SUT viene registrato nel metodo `Startup.ConfigureServices`. Il callback `builder.ConfigureServices` dell'app di test viene eseguito *dopo* l'esecuzione del codice `Startup.ConfigureServices` dell'app. L'ordine di esecuzione è una modifica di rilievo per l' [host generico](xref:fundamentals/host/generic-host) con la versione di ASP.NET Core 3,0. Per usare un database diverso per i test rispetto al database dell'app, è necessario sostituire il contesto di database dell'app in `builder.ConfigureServices`.
 
@@ -181,7 +181,7 @@ Qualsiasi richiesta POST a SUT deve soddisfare il controllo antifalsificazione c
 1. Analizzare il cookie antifalsificazione e richiedere il token di convalida dalla risposta.
 1. Eseguire la richiesta POST con il cookie antifalsificazione e il token di convalida della richiesta sul posto.
 
-I metodi di estensione `SendAsync` Helper (*Helper/Metodo HttpClientExtensions. cs*) e il metodo helper `GetDocumentAsync` (*Helper/htmlhelpers. cs*) nell' [app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples/) usano il parser [AngleSharp](https://anglesharp.github.io/) per gestire il controllo antifalsificazione con i metodi seguenti:
+I metodi di estensione `SendAsync` Helper (*Helper/Metodo HttpClientExtensions. cs*) e il metodo helper `GetDocumentAsync` (*Helper/htmlhelpers. cs*) nell' [app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples/) usano il parser [AngleSharp](https://anglesharp.github.io/) per gestire il controllo antifalsificazione con i metodi seguenti:
 
 * `GetDocumentAsync` &ndash; riceve [HttpResponseMessage](/dotnet/api/system.net.http.httpresponsemessage) e restituisce un `IHtmlDocument`. `GetDocumentAsync` usa una factory che prepara una *risposta virtuale* basata sul `HttpResponseMessage`originale. Per ulteriori informazioni, vedere la [documentazione di AngleSharp](https://github.com/AngleSharp/AngleSharp#documentation).
 * `SendAsync` metodi di estensione per la `HttpClient` comporre un [HttpRequestMessage](/dotnet/api/system.net.http.httprequestmessage) e chiamare [SendAsync (HttpRequestMessage)](/dotnet/api/system.net.http.httpclient.sendasync#System_Net_Http_HttpClient_SendAsync_System_Net_Http_HttpRequestMessage_) per inviare richieste a SUT. Gli overload per `SendAsync` accettano il form HTML (`IHtmlFormElement`) e gli elementi seguenti:
@@ -194,9 +194,9 @@ I metodi di estensione `SendAsync` Helper (*Helper/Metodo HttpClientExtensions. 
 
 ## <a name="customize-the-client-with-withwebhostbuilder"></a>Personalizzare il client con WithWebHostBuilder
 
-Quando è richiesta una configurazione aggiuntiva in un metodo di test, [WithWebHostBuilder](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.withwebhostbuilder) crea un nuovo oggetto `WebApplicationFactory` con un [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) che viene ulteriormente personalizzato in base alla configurazione.
+Quando è richiesta una configurazione aggiuntiva in un metodo di test, [WithWebHostBuilder](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.withwebhostbuilder) crea una nuova `WebApplicationFactory` con un [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) che viene ulteriormente personalizzato dalla configurazione.
 
-Il metodo di test `Post_DeleteMessageHandler_ReturnsRedirectToRoot` dell' [app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) illustra l'uso di `WithWebHostBuilder`. Questo test esegue l'eliminazione di un record nel database attivando un invio di form in SUT.
+Il metodo di test `Post_DeleteMessageHandler_ReturnsRedirectToRoot` dell' [app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) illustra l'uso di `WithWebHostBuilder`. Questo test esegue l'eliminazione di un record nel database attivando un invio di form in SUT.
 
 Poiché un altro test nella classe `IndexPageTests` esegue un'operazione che elimina tutti i record nel database e può essere eseguita prima del metodo `Post_DeleteMessageHandler_ReturnsRedirectToRoot`, il database viene sottoposta a reseeding in questo metodo di test per assicurarsi che sia presente un record per il SUT da eliminare. La selezione del primo pulsante Elimina del modulo `messages` in SUT viene simulata nella richiesta al SUT:
 
@@ -204,9 +204,9 @@ Poiché un altro test nella classe `IndexPageTests` esegue un'operazione che eli
 
 ## <a name="client-options"></a>Opzioni client
 
-Nella tabella seguente viene illustrato il valore predefinito di [WebApplicationFactoryClientOptions](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions) disponibile durante la creazione di istanze `HttpClient`.
+Nella tabella seguente viene illustrato il valore predefinito di [WebApplicationFactoryClientOptions](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions) disponibile durante la creazione di `HttpClient` istanze.
 
-| Opzione | Descrizione | Default |
+| Opzione | Descrizione | Predefinito |
 | ------ | ----------- | ------- |
 | [AllowAutoRedirect](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.allowautoredirect) | Ottiene o imposta un valore che indica se le istanze `HttpClient` devono seguire automaticamente le risposte di reindirizzamento. | `true` |
 | [BaseAddress](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.baseaddress) | Ottiene o imposta l'indirizzo di base delle istanze di `HttpClient`. | `http://localhost` |
@@ -232,11 +232,11 @@ _client = _factory.CreateClient(clientOptions);
 
 L'esempio SUT include un servizio con ambito che restituisce un'offerta. La virgoletta è incorporata in un campo nascosto nella pagina di indice quando viene richiesta la pagina di indice.
 
-*Services/IQuoteService.cs*:
+*Services/IQuoteService. cs*:
 
 [!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/src/RazorPagesProject/Services/IQuoteService.cs?name=snippet1)]
 
-*Services/QuoteService.cs*:
+*Services/QuoteService. cs*:
 
 [!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/src/RazorPagesProject/Services/QuoteService.cs?name=snippet1)]
 
@@ -248,7 +248,7 @@ L'esempio SUT include un servizio con ambito che restituisce un'offerta. La virg
 
 [!code-csharp[](integration-tests/samples/3.x/IntegrationTestsSample/src/RazorPagesProject/Pages/Index.cshtml.cs?name=snippet1&highlight=4,9,20,26)]
 
-*Pages/Index.cs*:
+*Pages/index. cs*:
 
 [!code-cshtml[](integration-tests/samples/3.x/IntegrationTestsSample/src/RazorPagesProject/Pages/Index.cshtml?name=snippet_Quote)]
 
@@ -326,7 +326,7 @@ Il costruttore `WebApplicationFactory` deduce il percorso [radice del contenuto]
 
 ## <a name="disable-shadow-copying"></a>Disabilitare la copia shadow
 
-La copia shadow comporta l'esecuzione dei test in una directory diversa rispetto alla directory di output. Per il corretto funzionamento dei test, è necessario disabilitare la copia shadow. L' [app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) USA xUnit e Disabilita la copia shadow per xUnit includendo un file *xUnit. Runner. JSON* con l'impostazione di configurazione corretta. Per altre informazioni, vedere [configurazione di xUnit con JSON](https://xunit.github.io/docs/configuring-with-json.html).
+La copia shadow comporta l'esecuzione dei test in una directory diversa rispetto alla directory di output. Per il corretto funzionamento dei test, è necessario disabilitare la copia shadow. L' [app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) USA xUnit e Disabilita la copia shadow per xUnit includendo un file *xUnit. Runner. JSON* con l'impostazione di configurazione corretta. Per altre informazioni, vedere [configurazione di xUnit con JSON](https://xunit.github.io/docs/configuring-with-json.html).
 
 Aggiungere il file *xUnit. Runner. JSON* alla radice del progetto di test con il contenuto seguente:
 
@@ -342,12 +342,12 @@ Una volta eseguiti i test dell'implementazione di `IClassFixture`, [TestServer](
 
 ## <a name="integration-tests-sample"></a>Esempio di test di integrazione
 
-L' [app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) è costituita da due app:
+L' [app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) è costituita da due app:
 
 | App | Directory del progetto | Descrizione |
 | --- | ----------------- | ----------- |
 | App Message (SUT) | *src/RazorPagesProject* | Consente a un utente di aggiungere, eliminare, eliminare tutti i messaggi e analizzarli. |
-| Testare l'app | *tests/RazorPagesProject.Tests* | Utilizzato per eseguire il test di integrazione di SUT. |
+| Testare l'app | *test/RazorPagesProject. test* | Utilizzato per eseguire il test di integrazione di SUT. |
 
 I test possono essere eseguiti usando le funzionalità di test predefinite di un IDE, ad esempio [Visual Studio](https://visualstudio.microsoft.com). Se si usa [Visual Studio Code](https://code.visualstudio.com/) o la riga di comando, eseguire il comando seguente al prompt dei comandi nella directory *tests/RazorPagesProject. tests* :
 
@@ -401,7 +401,7 @@ I test di integrazione assicurano che i componenti di un'app funzionino corretta
 
 In questo argomento si presuppone una conoscenza di base degli unit test. Se non si ha familiarità con i concetti di test, vedere gli [unit test in .NET Core e .NET standard](/dotnet/core/testing/) argomento e il contenuto collegato.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 L'app di esempio è un'app Razor Pages e presuppone una conoscenza di base delle Razor Pages. Se non si ha familiarità con Razor Pages, vedere gli argomenti seguenti:
 
@@ -418,7 +418,7 @@ I test di integrazione valutano i componenti di un'app a un livello più ampio r
 
 Questi test più ampi vengono usati per testare l'infrastruttura dell'app e l'intero Framework, spesso inclusi i componenti seguenti:
 
-* Database di
+* Database
 * File system
 * Appliance di rete
 * Pipeline richiesta-risposta
@@ -482,13 +482,13 @@ Il progetto di test deve:
 
 * Fare riferimento ai pacchetti seguenti:
   * [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App/)
-  * [Microsoft.AspNetCore.Mvc.Testing](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Testing/)
+  * [Microsoft. AspNetCore. Mvc. testing](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Testing/)
 * Specificare SDK Web nel file di progetto (`<Project Sdk="Microsoft.NET.Sdk.Web">`). Il Web SDK è obbligatorio quando si fa riferimento al [metapacchetto Microsoft. AspNetCore. app](xref:fundamentals/metapackage-app).
 
-Questi prerequisiti possono essere visualizzati nell' [app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples/). Esaminare il file *tests/RazorPagesProject. tests/RazorPagesProject. tests. csproj* . L'app di esempio usa il Framework di test [xUnit](https://xunit.github.io/) e la libreria del parser [AngleSharp](https://anglesharp.github.io/) , quindi l'app di esempio fa riferimento anche a:
+Questi prerequisiti possono essere visualizzati nell' [app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples/). Esaminare il file *tests/RazorPagesProject. tests/RazorPagesProject. tests. csproj* . L'app di esempio usa il Framework di test [xUnit](https://xunit.github.io/) e la libreria del parser [AngleSharp](https://anglesharp.github.io/) , quindi l'app di esempio fa riferimento anche a:
 
-* [xunit](https://www.nuget.org/packages/xunit/)
-* [xunit.runner.visualstudio](https://www.nuget.org/packages/xunit.runner.visualstudio/)
+* [xUnit](https://www.nuget.org/packages/xunit/)
+* [xUnit. Runner. VisualStudio](https://www.nuget.org/packages/xunit.runner.visualstudio/)
 * [AngleSharp](https://www.nuget.org/packages/AngleSharp/)
 
 ## <a name="sut-environment"></a>Ambiente SUT
@@ -517,7 +517,7 @@ La configurazione dell'host Web può essere creata indipendentemente dalle class
 
    [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/CustomWebApplicationFactory.cs?name=snippet1)]
 
-   Il seeding del database nell' [app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) viene eseguito dal metodo `InitializeDbForTests`. Il metodo è descritto nella sezione esempio di test di [integrazione: organizzazione di app di test](#test-app-organization) .
+   Il seeding del database nell' [app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) viene eseguito dal metodo `InitializeDbForTests`. Il metodo è descritto nella sezione esempio di test di [integrazione: organizzazione di app di test](#test-app-organization) .
 
 2. Usare la `CustomWebApplicationFactory` personalizzata nelle classi di test. Nell'esempio seguente viene usata la Factory nella classe `IndexPageTests`:
 
@@ -535,7 +535,7 @@ Qualsiasi richiesta POST a SUT deve soddisfare il controllo antifalsificazione c
 1. Analizzare il cookie antifalsificazione e richiedere il token di convalida dalla risposta.
 1. Eseguire la richiesta POST con il cookie antifalsificazione e il token di convalida della richiesta sul posto.
 
-I metodi di estensione `SendAsync` Helper (*Helper/Metodo HttpClientExtensions. cs*) e il metodo helper `GetDocumentAsync` (*Helper/htmlhelpers. cs*) nell' [app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples/) usano il parser [AngleSharp](https://anglesharp.github.io/) per gestire il controllo antifalsificazione con i metodi seguenti:
+I metodi di estensione `SendAsync` Helper (*Helper/Metodo HttpClientExtensions. cs*) e il metodo helper `GetDocumentAsync` (*Helper/htmlhelpers. cs*) nell' [app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples/) usano il parser [AngleSharp](https://anglesharp.github.io/) per gestire il controllo antifalsificazione con i metodi seguenti:
 
 * `GetDocumentAsync` &ndash; riceve [HttpResponseMessage](/dotnet/api/system.net.http.httpresponsemessage) e restituisce un `IHtmlDocument`. `GetDocumentAsync` usa una factory che prepara una *risposta virtuale* basata sul `HttpResponseMessage`originale. Per ulteriori informazioni, vedere la [documentazione di AngleSharp](https://github.com/AngleSharp/AngleSharp#documentation).
 * `SendAsync` metodi di estensione per la `HttpClient` comporre un [HttpRequestMessage](/dotnet/api/system.net.http.httprequestmessage) e chiamare [SendAsync (HttpRequestMessage)](/dotnet/api/system.net.http.httpclient.sendasync#System_Net_Http_HttpClient_SendAsync_System_Net_Http_HttpRequestMessage_) per inviare richieste a SUT. Gli overload per `SendAsync` accettano il form HTML (`IHtmlFormElement`) e gli elementi seguenti:
@@ -548,9 +548,9 @@ I metodi di estensione `SendAsync` Helper (*Helper/Metodo HttpClientExtensions. 
 
 ## <a name="customize-the-client-with-withwebhostbuilder"></a>Personalizzare il client con WithWebHostBuilder
 
-Quando è richiesta una configurazione aggiuntiva in un metodo di test, [WithWebHostBuilder](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.withwebhostbuilder) crea un nuovo oggetto `WebApplicationFactory` con un [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) che viene ulteriormente personalizzato in base alla configurazione.
+Quando è richiesta una configurazione aggiuntiva in un metodo di test, [WithWebHostBuilder](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.withwebhostbuilder) crea una nuova `WebApplicationFactory` con un [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) che viene ulteriormente personalizzato dalla configurazione.
 
-Il metodo di test `Post_DeleteMessageHandler_ReturnsRedirectToRoot` dell' [app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) illustra l'uso di `WithWebHostBuilder`. Questo test esegue l'eliminazione di un record nel database attivando un invio di form in SUT.
+Il metodo di test `Post_DeleteMessageHandler_ReturnsRedirectToRoot` dell' [app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) illustra l'uso di `WithWebHostBuilder`. Questo test esegue l'eliminazione di un record nel database attivando un invio di form in SUT.
 
 Poiché un altro test nella classe `IndexPageTests` esegue un'operazione che elimina tutti i record nel database e può essere eseguita prima del metodo `Post_DeleteMessageHandler_ReturnsRedirectToRoot`, il database viene sottoposta a reseeding in questo metodo di test per assicurarsi che sia presente un record per il SUT da eliminare. La selezione del primo pulsante Elimina del modulo `messages` in SUT viene simulata nella richiesta al SUT:
 
@@ -558,9 +558,9 @@ Poiché un altro test nella classe `IndexPageTests` esegue un'operazione che eli
 
 ## <a name="client-options"></a>Opzioni client
 
-Nella tabella seguente viene illustrato il valore predefinito di [WebApplicationFactoryClientOptions](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions) disponibile durante la creazione di istanze `HttpClient`.
+Nella tabella seguente viene illustrato il valore predefinito di [WebApplicationFactoryClientOptions](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions) disponibile durante la creazione di `HttpClient` istanze.
 
-| Opzione | Descrizione | Default |
+| Opzione | Descrizione | Predefinito |
 | ------ | ----------- | ------- |
 | [AllowAutoRedirect](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.allowautoredirect) | Ottiene o imposta un valore che indica se le istanze `HttpClient` devono seguire automaticamente le risposte di reindirizzamento. | `true` |
 | [BaseAddress](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactoryclientoptions.baseaddress) | Ottiene o imposta l'indirizzo di base delle istanze di `HttpClient`. | `http://localhost` |
@@ -586,11 +586,11 @@ _client = _factory.CreateClient(clientOptions);
 
 L'esempio SUT include un servizio con ambito che restituisce un'offerta. La virgoletta è incorporata in un campo nascosto nella pagina di indice quando viene richiesta la pagina di indice.
 
-*Services/IQuoteService.cs*:
+*Services/IQuoteService. cs*:
 
 [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/src/RazorPagesProject/Services/IQuoteService.cs?name=snippet1)]
 
-*Services/QuoteService.cs*:
+*Services/QuoteService. cs*:
 
 [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/src/RazorPagesProject/Services/QuoteService.cs?name=snippet1)]
 
@@ -602,7 +602,7 @@ L'esempio SUT include un servizio con ambito che restituisce un'offerta. La virg
 
 [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/src/RazorPagesProject/Pages/Index.cshtml.cs?name=snippet1&highlight=4,9,20,26)]
 
-*Pages/Index.cs*:
+*Pages/index. cs*:
 
 [!code-cshtml[](integration-tests/samples/2.x/IntegrationTestsSample/src/RazorPagesProject/Pages/Index.cshtml?name=snippet_Quote)]
 
@@ -680,7 +680,7 @@ Il costruttore `WebApplicationFactory` deduce il percorso [radice del contenuto]
 
 ## <a name="disable-shadow-copying"></a>Disabilitare la copia shadow
 
-La copia shadow comporta l'esecuzione dei test in una directory diversa rispetto alla directory di output. Per il corretto funzionamento dei test, è necessario disabilitare la copia shadow. L' [app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) USA xUnit e Disabilita la copia shadow per xUnit includendo un file *xUnit. Runner. JSON* con l'impostazione di configurazione corretta. Per altre informazioni, vedere [configurazione di xUnit con JSON](https://xunit.github.io/docs/configuring-with-json.html).
+La copia shadow comporta l'esecuzione dei test in una directory diversa rispetto alla directory di output. Per il corretto funzionamento dei test, è necessario disabilitare la copia shadow. L' [app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) USA xUnit e Disabilita la copia shadow per xUnit includendo un file *xUnit. Runner. JSON* con l'impostazione di configurazione corretta. Per altre informazioni, vedere [configurazione di xUnit con JSON](https://xunit.github.io/docs/configuring-with-json.html).
 
 Aggiungere il file *xUnit. Runner. JSON* alla radice del progetto di test con il contenuto seguente:
 
@@ -706,12 +706,12 @@ Una volta eseguiti i test dell'implementazione di `IClassFixture`, [TestServer](
 
 ## <a name="integration-tests-sample"></a>Esempio di test di integrazione
 
-L' [app di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) è costituita da due app:
+L' [app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) è costituita da due app:
 
 | App | Directory del progetto | Descrizione |
 | --- | ----------------- | ----------- |
 | App Message (SUT) | *src/RazorPagesProject* | Consente a un utente di aggiungere, eliminare, eliminare tutti i messaggi e analizzarli. |
-| Testare l'app | *tests/RazorPagesProject.Tests* | Utilizzato per eseguire il test di integrazione di SUT. |
+| Testare l'app | *test/RazorPagesProject. test* | Utilizzato per eseguire il test di integrazione di SUT. |
 
 I test possono essere eseguiti usando le funzionalità di test predefinite di un IDE, ad esempio [Visual Studio](https://visualstudio.microsoft.com). Se si usa [Visual Studio Code](https://code.visualstudio.com/) o la riga di comando, eseguire il comando seguente al prompt dei comandi nella directory *tests/RazorPagesProject. tests* :
 

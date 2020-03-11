@@ -1,16 +1,16 @@
 ---
 title: Razor Pages con EF Core in ASP.NET Core - Aggiornare dati correlati - 7 di 8
-author: tdykstra
+author: rick-anderson
 description: In questa esercitazione vengono aggiornati i dati correlati tramite l'aggiornamento dei campi di chiave esterna e delle proprietà di navigazione.
 ms.author: riande
 ms.date: 07/22/2019
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: bc237cf928d852b92c5c1984527129404f88018d
-ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
-ms.translationtype: HT
+ms.openlocfilehash: fdfdb14ff8414b8bf30f9b95be7ba0a6bcbd2995
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69583499"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78656422"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---update-related-data---7-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Aggiornare dati correlati - 7 di 8
 
@@ -48,6 +48,8 @@ Un corso viene assegnato a un dipartimento. La classe di base per le pagine Crea
 Aggiornare *Pages/Courses/Create.cshtml.cs* con il codice seguente:
 
 [!code-csharp[](intro/samples/cu30/Pages/Courses/Create.cshtml.cs?highlight=7,18,27-41)]
+
+[!INCLUDE[about the series](~/includes/code-comments-loc.md)]
 
 Il codice precedente:
 
@@ -197,7 +199,7 @@ Il codice precedente crea una tabella HTML con tre colonne. Ogni colonna ha una 
 
 Quando viene eseguito il rendering iniziale delle caselle di controllo, vengono selezionati i corsi assegnati all'insegnante.
 
-Nota: L'approccio qui adottato per la modifica dei dati dei corsi degli insegnanti funziona bene quando è presente un numero limitato di corsi. Per raccolte molto più grandi, un'interfaccia utente diversa e un altro metodo di aggiornamento sono più efficienti e pratici.
+Nota: l'approccio qui adottato per la modifica dei dati dei corsi degli insegnanti funziona bene quando è presente un numero limitato di corsi. Per raccolte molto più grandi, un'interfaccia utente diversa e un altro metodo di aggiornamento sono più efficienti e pratici.
 
 Eseguire l'app e testare la pagina Edit per gli insegnanti aggiornata. Modificare alcune assegnazioni di corsi. Le modifiche si riflettono nella pagina di indice.
 
@@ -235,7 +237,7 @@ Eseguire l'app e testare la pagina Delete.
 
 ::: moniker range="< aspnetcore-3.0"
 
-Questa esercitazione illustra l'aggiornamento di dati correlati. Se si verificano problemi che non si è in grado di risolvere, [scaricare o visualizzare l'app completa](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples). [Istruzioni per il download](xref:index#how-to-download-a-sample).
+Questa esercitazione illustra l'aggiornamento di dati correlati. Se si verificano problemi che non si è in grado di risolvere, [scaricare o visualizzare l'app completa](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples). [Istruzioni per il download](xref:index#how-to-download-a-sample).
 
 Le illustrazioni seguenti mostrano alcune pagine completate.
 
@@ -414,7 +416,7 @@ Quando viene eseguito il rendering iniziale delle caselle di controllo, i corsi 
 
 Eseguire l'app e testare la pagina Edit (Modifica) dell'insegnante aggiornata. Modificare alcune assegnazioni di corsi. Le modifiche si riflettono nella pagina di indice.
 
-Nota: L'approccio qui adottato per la modifica dei dati dei corsi degli insegnanti funziona bene quando è presente un numero limitato di corsi. Per raccolte molto più grandi, un'interfaccia utente diversa e un altro metodo di aggiornamento sono più efficienti e pratici.
+Nota: l'approccio qui adottato per la modifica dei dati dei corsi degli insegnanti funziona bene quando è presente un numero limitato di corsi. Per raccolte molto più grandi, un'interfaccia utente diversa e un altro metodo di aggiornamento sono più efficienti e pratici.
 
 ### <a name="update-the-instructors-create-page"></a>Aggiornare la pagina di creazione dell'insegnante
 
@@ -430,7 +432,7 @@ Aggiornare la pagina Razor Create (Crea) dell'insegnante con il markup seguente:
 
 Testare la pagina Create (Crea) dell'insegnante.
 
-## <a name="update-the-delete-page"></a>Aggiornare la pagina Delete (Elimina)
+## <a name="update-the-delete-page"></a>Aggiornare la pagina Delete
 
 Aggiornare il modello di pagina Delete (Elimina) con il codice seguente:
 

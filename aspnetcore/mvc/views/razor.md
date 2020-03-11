@@ -5,16 +5,16 @@ description: Informazioni sulla sintassi di markup Razor per l'incorporamento di
 ms.author: riande
 ms.date: 02/12/2020
 uid: mvc/views/razor
-ms.openlocfilehash: 0b1eed2816329d62fca4bdb5719825a4197af353
-ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
+ms.openlocfilehash: e9d2e42ba3c36bc1661739f3b105ec8efe03de48
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77447178"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658718"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Guida di riferimento della sintassi Razor per ASP.NET Core
 
-Di [Rick Anderson](https://twitter.com/RickAndMSFT), [Luke Latham](https://github.com/guardrex), [Taylor Mullen](https://twitter.com/ntaylormullen) e [Dan Vicarel](https://github.com/Rabadash8820)
+Di [Rick Anderson](https://twitter.com/RickAndMSFT), [Taylor Mullen](https://twitter.com/ntaylormullen)e [Dan Vicarel](https://github.com/Rabadash8820)
 
 Razor è una sintassi di markup per l'incorporamento di codice basato su server in pagine Web. La sintassi Razor è costituita da markup Razor, C# e HTML. I file contenenti Razor in genere presentano l'estensione *cshtml*. Razor è presente anche nei file dei [componenti di Razor](xref:blazor/components) (con estensione *razor*).
 
@@ -389,7 +389,7 @@ Razor è in grado di proteggere le sezioni critiche con le istruzioni di blocco:
 }
 ```
 
-### <a name="comments"></a>Comments
+### <a name="comments"></a>Commenti
 
 Razor supporta i commenti in C# e HTML:
 
@@ -883,7 +883,7 @@ Esistono tre direttive che riguardano gli [helper tag](xref:mvc/views/tag-helper
 ### <a name="razor-keywords"></a>Parole chiave Razor
 
 * page (richiede ASP.NET Core 2.1 o versione successiva)
-* namespace
+* spazio dei nomi
 * functions
 * inherits
 * model
@@ -901,19 +901,19 @@ Le parole chiave Razor sono precedute dal carattere di escape `@(Razor Keyword)`
 * foreach
 * if
 * else
-* blocco
-* switch
-* try
-* catch
+* lock
+* opzione
+* provare
+* generazione
 * finally
-* utilizzo
-* while
+* Con
+* mentre
 
 Le parole chiave Razor C# devono essere precedute dal doppio carattere di escape `@(@C# Razor Keyword)` (ad esempio, `@(@case)`). Il primo `@` è il carattere di escape del parser Razor. Il secondo `@` è il carattere di escape del parser C#.
 
 ### <a name="reserved-keywords-not-used-by-razor"></a>Parole chiave riservate non usate da Razor
 
-* classe
+* class
 
 ## <a name="inspect-the-razor-c-class-generated-for-a-view"></a>Ispezionare la classe C# Razor generata per una visualizzazione
 

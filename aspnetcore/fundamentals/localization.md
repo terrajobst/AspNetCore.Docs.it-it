@@ -5,12 +5,12 @@ description: Informazioni su come ASP.NET Core offre servizi e middleware per la
 ms.author: riande
 ms.date: 11/30/2019
 uid: fundamentals/localization
-ms.openlocfilehash: 645f680436336acbe1d5c2854a242527c9b4b9cb
-ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
+ms.openlocfilehash: b175354220a8a71c029e005f27443d5a72749a11
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74717403"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78662120"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalizzazione e localizzazione in ASP.NET Core
 
@@ -30,7 +30,7 @@ La localizzazione dell'app comporta quanto segue:
 
 3. Implementare una strategia per la selezione della lingua o delle impostazioni cultura per ogni richiesta
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/localization/sample/Localization) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/localization/sample/Localization) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="make-the-apps-content-localizable"></a>Rendere localizzabile il contenuto dell'app
 
@@ -74,7 +74,7 @@ L'implementazione predefinita di `IViewLocalizer` individua il file di risorse i
 
 Un file di risorse francese può contenere quanto segue:
 
-| Key | Valore |
+| Chiave | valore |
 | ----- | ------ |
 | `<i>Hello</i> <b>{0}!</b>` | `<i>Bonjour</i> <b>{0} !</b>` |
 
@@ -148,10 +148,10 @@ Le risorse sono denominate con il nome completo del tipo della relativa classe m
 
 Poiché nel progetto di esempio il metodo `ConfigureServices` imposta `ResourcesPath` su "Resources", il percorso relativo del progetto per il file di risorse francese del controller principale è *Resources/Controllers.HomeController.fr.resx*. In alternativa, è possibile usare le cartelle per organizzare i file di risorse. Per il controller principale, il percorso sarà *Resources/Controllers/HomeController.fr.resx*. Se non si usa l'opzione `ResourcesPath`, il file con estensione *resx* viene memorizzato nella directory di base del progetto. Il file di risorse per `HomeController` sarà denominato *Controllers.HomeController.fr.resx*. La scelta di usare la convenzione di denominazione con il punto o il percorso dipende da come si vuole organizzare i file di risorse.
 
-| Nome della risorsa | Denominazione con il punto o il percorso |
+| Nome risorsa | Denominazione con il punto o il percorso |
 | ------------   | ------------- |
 | Resources/Controllers.HomeController.fr.resx | Punto  |
-| Resources/Controllers/HomeController.fr.resx  | Percorso |
+| Resources/Controllers/HomeController.fr.resx  | Path |
 |    |     |
 
 I file di risorse che usano `@inject IViewLocalizer` nelle visualizzazioni Razor seguono un modello simile. Il file di risorse per una visualizzazione può essere denominato usando la denominazione con il punto o con il percorso. I file di risorse di visualizzazione Razor simulano il percorso del file di visualizzazione associato. Se `ResourcesPath` viene impostato su "Resources", il file di risorse francese associato alla visualizzazione *Views/Home/About.cshtml* sarà uno dei seguenti:
@@ -225,6 +225,7 @@ La localizzazione è configurata nel metodo `Startup.ConfigureServices`:
 Le impostazioni cultura correnti in un richiesta sono impostate nel [middleware](xref:fundamentals/middleware/index) di localizzazione. Il middleware di localizzazione viene abilitato nel metodo `Startup.Configure`. Il middleware di localizzazione deve essere configurato prima di qualsiasi middleware che potrebbe controllare le impostazioni cultura della richiesta (ad esempio, `app.UseMvcWithDefaultRoute()`).
 
 [!code-csharp[](localization/sample/Localization/Startup.cs?name=snippet2)]
+[!INCLUDE[about the series](~/includes/code-comments-loc.md)]
 
 `UseRequestLocalization` inizializza un oggetto `RequestLocalizationOptions`. In ogni richiesta l'elenco di `RequestCultureProvider` in `RequestLocalizationOptions` è enumerato e viene usato il primo provider in grado di determinare le impostazioni cultura della richiesta. I provider predefiniti provengono dalla classe `RequestLocalizationOptions`:
 
@@ -248,7 +249,7 @@ Se si passa uno solo dei due parametri (`culture` o `ui-culture`), il provider d
 
 Le app di produzione offrono spesso la possibilità di specificare le impostazioni cultura con il cookie delle impostazioni cultura di ASP.NET Core. Usare il metodo `MakeCookieValue` per creare un cookie.
 
-`CookieRequestCultureProvider` `DefaultCookieName` restituisce il nome del cookie predefinito usato per tenere traccia delle informazioni di cultura preferite dell'utente. Il nome del cookie predefinito è `.AspNetCore.Culture`.
+Il `DefaultCookieName` `CookieRequestCultureProvider` restituisce il nome del cookie predefinito utilizzato per tenere traccia delle informazioni sulle impostazioni cultura preferite dell'utente. Il nome del cookie predefinito è `.AspNetCore.Culture`.
 
 Il formato del cookie è `c=%LANGCODE%|uic=%LANGCODE%`, dove `c` è `Culture` e `uic` è `UICulture`, ad esempio:
 
@@ -276,7 +277,7 @@ L'[intestazione Accept-Language](https://www.w3.org/International/questions/qa-a
 
 6. Toccare la lingua e quindi toccare **Sposta su**.
 
-::: moniker range=">= aspnetcore-3.1"
+::: moniker range="> aspnetcore-3.1"
 ### <a name="the-content-language-http-header"></a>Intestazione HTTP Content-Language
 
 Intestazione dell'entità [Content-Language](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Language) :
@@ -383,7 +384,7 @@ Il processo di localizzazione dell'app richiede anche una conoscenza di base dei
 
 La [localizzabilità](/dotnet/standard/globalization-localization/localizability-review) è un processo intermedio che verifica che un'app globalizzata sia pronta per la localizzazione.
 
-Il formato [RFC 4646](https://www.ietf.org/rfc/rfc4646.txt) per il nome delle impostazioni cultura è `<languagecode2>-<country/regioncode2>`, dove `<languagecode2>` è il codice della lingua e `<country/regioncode2>` è il codice della cultura secondaria. Ad esempio, `es-CL` per spagnolo (Cile), `en-US` per inglese (Stati Uniti) e `en-AU` per inglese (Australia). [RFC 4646](https://www.ietf.org/rfc/rfc4646.txt) è la combinazione di un codice di cultura in lettere minuscole di due lettere ISO 639 associato a una lingua e un codice di cultura secondaria in lettere maiuscole di due lettere ISO 3166 associato a un paese o un'area. Vedere [Language Culture Name](https://msdn.microsoft.com/library/ee825488(v=cs.20).aspx) (Nome delle impostazioni cultura delle lingue).
+Il formato [RFC 4646](https://www.ietf.org/rfc/rfc4646.txt) per il nome delle impostazioni cultura è `<languagecode2>-<country/regioncode2>`, dove `<languagecode2>` è il codice della lingua e `<country/regioncode2>` è il codice della cultura secondaria. Ad esempio, `es-CL` per spagnolo (Cile), `en-US` per inglese (Stati Uniti) e `en-AU` per inglese (Australia). [RFC 4646](https://www.ietf.org/rfc/rfc4646.txt) è la combinazione di un codice di cultura in lettere minuscole di due lettere ISO 639 associato a una lingua e un codice di cultura secondaria in lettere maiuscole di due lettere ISO 3166 associato a un paese o un'area geografica. Vedere [Language Culture Name](https://msdn.microsoft.com/library/ee825488(v=cs.20).aspx) (Nome delle impostazioni cultura delle lingue).
 
 L'internazionalizzazione è spesso abbreviata con "I18N". L'abbreviazione include la prima e l'ultima lettera e il numero di lettere che intercorrono tra di loro nel termine inglese "Internationalization". 18 è il numero di lettere tra la prima "I" e l'ultima "N". Lo stesso vale per globalizzazione (G11N) e localizzazione (L10N).
 

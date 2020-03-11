@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 07/10/2019
 uid: tutorials/publish-to-azure-webapp-using-vs
 ms.openlocfilehash: 7fc3644df3dcb957f2537538aaa9506c6b38a480
-ms.sourcegitcommit: 79850db9e79b1705b89f466c6f2c961ff15485de
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75693973"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78662204"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio"></a>Pubblicare un'app ASP.NET Core in Azure con Visual Studio
 
@@ -27,7 +27,7 @@ Vedere [pubblicare un'app Web nel servizio app Azure usando Visual Studio per Ma
 
 Per risolvere un problema di distribuzione del Servizio app di Azure, vedere <xref:test/troubleshoot-azure-iis>.
 
-## <a name="set-up"></a>Impostare
+## <a name="set-up"></a>Configurare
 
 * Aprire un [account Azure gratuito](https://azure.microsoft.com/free/dotnet/) se non è già disponibile un account. 
 
@@ -35,13 +35,13 @@ Per risolvere un problema di distribuzione del Servizio app di Azure, vedere <xr
 
 Nella Pagina iniziale di Visual Studio selezionare **File > Nuovo > Progetto**
 
-![File (menu)](publish-to-azure-webapp-using-vs/_static/file_new_project.png)
+![Menu File](publish-to-azure-webapp-using-vs/_static/file_new_project.png)
 
 Completare la finestra di dialogo **Nuovo progetto**:
 
 * Nel riquadro a sinistra selezionare **.NET Core**.
 * Nel riquadro al centro selezionare **Applicazione Web ASP.NET Core**.
-* Scegliere **OK**.
+* Selezionare **OK**.
 
 ![Finestra di dialogo Nuovo progetto](publish-to-azure-webapp-using-vs/_static/new_prj.png)
 
@@ -95,7 +95,7 @@ Nella finestra di dialogo **Pubblica**:
 
 ![Finestra di dialogo Pubblica](publish-to-azure-webapp-using-vs/_static/maas1.png)
 
-### <a name="create-azure-resources"></a>Creare risorse di Azure
+### <a name="create-azure-resources"></a>Creare le risorse di Azure
 
 Viene visualizzata la finestra di dialogo **Crea servizio app**:
 
@@ -123,7 +123,7 @@ Viene visualizzata la finestra di dialogo **Configura SQL Server**.
 
 ![Finestra di dialogo Configura SQL Server](publish-to-azure-webapp-using-vs/_static/conf_servername.png)
 
-* Scegliere **OK**.
+* Selezionare **OK**.
 
 Visual Studio torna alla finestra di dialogo **Crea servizio app**.
 
@@ -152,7 +152,7 @@ Fare clic su **Pubblica**. Visual Studio pubblica l'app in Azure. Al termine del
 
 * Eseguire il test dei collegamenti **About** (Informazioni su) e **Contact** (Contatto).
 
-* Registrare un nuovo utente
+* Registra un nuovo utente
 
 ![Applicazione Web aperta in Microsoft Edge in Servizio app di Azure](publish-to-azure-webapp-using-vs/_static/register.png)
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 12/18/2018
 uid: fundamentals/owin
-ms.openlocfilehash: 980b60512bdeadd2a58b87e633ebf1416f725851
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: 14b23ba6d284413e20417bbd4142e19a656350ac
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77172097"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666684"
 ---
 # <a name="open-web-interface-for-net-owin-with-aspnet-core"></a>Open Web Interface for .NET (OWIN) con ASP.NET Core
 
@@ -29,7 +29,7 @@ In questo modo ASP.NET Core può essere ospitato in un server/host compatibile c
 > [!NOTE]
 > L'uso di questi adattatori comporta una riduzione delle prestazioni. Le app che usano solo componenti di ASP.NET Core non devono usare il pacchetto o gli adattatori `Microsoft.AspNetCore.Owin`.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/owin/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/owin/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="running-owin-middleware-in-the-aspnet-core-pipeline"></a>Esecuzione del middleware OWIN nella pipeline ASP.NET Core
 
@@ -217,7 +217,7 @@ public class Startup
 }
 ```
 
-L'[esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/owin/sample) viene configurato usando lo stesso `NowinServer` del precedente, l'unica differenza è la modalità con cui l'applicazione viene configurata nel relativo metodo `Configure`. Un test che usa [un semplice client WebSocket](https://chrome.google.com/webstore/detail/simple-websocket-client/pfdhoblngboilpfeibdedpjgfnlcodoo?hl=en) illustra l'applicazione:
+L'[esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/owin/sample) viene configurato usando lo stesso `NowinServer` del precedente, l'unica differenza è la modalità con cui l'applicazione viene configurata nel relativo metodo `Configure`. Un test che usa [un semplice client WebSocket](https://chrome.google.com/webstore/detail/simple-websocket-client/pfdhoblngboilpfeibdedpjgfnlcodoo?hl=en) illustra l'applicazione:
 
 ![Client di test WebSocket](owin/_static/websocket-test.png)
 
@@ -252,14 +252,14 @@ OWIN dipende da un oggetto `IDictionary<string,object>` per comunicare informazi
 
 | Chiave               | Valore (tipo) | Descrizione |
 | ----------------- | ------------ | ----------- |
-| owin.RequestId | `String` | Facoltativa |
+| owin.RequestId | `String` | Facoltativo |
 
 ### <a name="response-data-owin-v100"></a>Dati della risposta (OWIN versione 1.0.0)
 
 | Chiave               | Valore (tipo) | Descrizione |
 | ----------------- | ------------ | ----------- |
-| owin.ResponseStatusCode | `int` | Facoltativa |
-| owin.ResponseReasonPhrase | `String` | Facoltativa |
+| owin.ResponseStatusCode | `int` | Facoltativo |
+| owin.ResponseReasonPhrase | `String` | Facoltativo |
 | owin.ResponseHeaders | `IDictionary<string,string[]>`  | |
 | owin.ResponseBody | `Stream`  | |
 
@@ -310,8 +310,8 @@ OWIN dipende da un oggetto `IDictionary<string,object>` per comunicare informazi
 | websocket.ReceiveAsync | `WebSocketReceiveAsync` | Vedere [Delegate signature](https://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) (Firma delegato)  |
 | websocket.CloseAsync | `WebSocketCloseAsync` | Vedere [Delegate signature](https://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) (Firma delegato)  |
 | websocket.CallCancelled | `CancellationToken` |  |
-| websocket.ClientCloseStatus | `int` | Facoltativa |
-| websocket.ClientCloseDescription | `String` | Facoltativa |
+| websocket.ClientCloseStatus | `int` | Facoltativo |
+| websocket.ClientCloseDescription | `String` | Facoltativo |
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

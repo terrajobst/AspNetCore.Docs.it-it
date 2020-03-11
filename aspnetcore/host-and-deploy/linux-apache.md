@@ -1,18 +1,18 @@
 ---
 title: Hosting di ASP.NET Core in Linux con Apache
-author: guardrex
+author: rick-anderson
 description: Informazioni su come configurare Apache come server proxy inverso in CentOS per reindirizzare il traffico HTTP a un'app Web ASP.NET Core in esecuzione su Kestrel.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: shboyer
 ms.custom: mvc
 ms.date: 02/05/2020
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: f522c54fdc584845f18040bae1b2a2bda36d28fa
-ms.sourcegitcommit: bd896935e91236e03241f75e6534ad6debcecbbf
+ms.openlocfilehash: 3a3edd961b08c1952e6ded8038ed7ada381c54b0
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77044847"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78657899"
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Hosting di ASP.NET Core in Linux con Apache
 
@@ -20,7 +20,7 @@ Di [Shayne Boyer](https://github.com/spboyer)
 
 Questa guida fornisce informazioni su come configurare [Apache](https://httpd.apache.org/) come server proxy inverso in [CentOS 7](https://www.centos.org/) per reindirizzare il traffico HTTP a un'app Web ASP.NET Core in esecuzione su server [Kestrel](xref:fundamentals/servers/kestrel). L'[estensione mod_proxy](https://httpd.apache.org/docs/2.4/mod/mod_proxy.html) e i moduli correlati creano il proxy inverso del server.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Server che esegue CentOS 7 con un account utente standard con privilegio sudo.
 * Installare il runtime .NET Core nel server.
@@ -428,7 +428,7 @@ sudo nano /etc/httpd/conf/httpd.conf
 
 Aggiungere la riga `Header set X-Content-Type-Options "nosniff"`. Salvare il file. Riavviare Apache.
 
-### <a name="load-balancing"></a>Bilanciamento del carico
+### <a name="load-balancing"></a>Bilanciamento del carico.
 
 Questo esempio illustra come impostare e configurare Apache CentOS 7 e Kestrel nello stesso computer dell'istanza. Per evitare di avere un singolo punto di errore, l'uso di *mod_proxy_balancer* e la modifica di **VirtualHost** consentono la gestione di più istanze delle app Web dietro il server proxy di Apache.
 

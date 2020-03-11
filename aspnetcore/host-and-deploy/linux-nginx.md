@@ -1,18 +1,18 @@
 ---
 title: Hosting di ASP.NET Core in Linux con Nginx
-author: guardrex
+author: rick-anderson
 description: Informazioni su come configurare Nginx come proxy inverso in Ubuntu 16.04 per inoltrare il traffico HTTP a un'app Web ASP.NET Core in esecuzione su Kestrel.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/05/2020
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: 7f17be1d883e8cce375487aa39f4d1ebbe8a95f4
-ms.sourcegitcommit: bd896935e91236e03241f75e6534ad6debcecbbf
+ms.openlocfilehash: 320a5364efe85b06028d8e80000e3455bb8ebd18
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77044864"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78657913"
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Hosting di ASP.NET Core in Linux con Nginx
 
@@ -23,7 +23,7 @@ Questa guida descrive come configurare un ambiente ASP.NET Core pronto per la pr
 Per informazioni su altre distribuzioni Linux supportate da ASP.NET Core, vedere [Prerequisiti per .NET Core in Linux](/dotnet/core/linux-prerequisites).
 
 > [!NOTE]
-> Per Ubuntu 14.04, è consigliabile *supervisord* come soluzione per il monitoraggio del processo Kestrel. *systemd* non è disponibile in Ubuntu 14.04. Per le istruzioni per Ubuntu 14.04, vedere la [versione precedente di questo argomento](https://github.com/aspnet/AspNetCore.Docs/blob/e9c1419175c4dd7e152df3746ba1df5935aaafd5/aspnetcore/publishing/linuxproduction.md).
+> Per Ubuntu 14.04, è consigliabile *supervisord* come soluzione per il monitoraggio del processo Kestrel. *systemd* non è disponibile in Ubuntu 14.04. Per le istruzioni per Ubuntu 14.04, vedere la [versione precedente di questo argomento](https://github.com/dotnet/AspNetCore.Docs/blob/e9c1419175c4dd7e152df3746ba1df5935aaafd5/aspnetcore/publishing/linuxproduction.md).
 
 In questa guida:
 
@@ -32,7 +32,7 @@ In questa guida:
 * Verificare che l'app Web venga eseguita all'avvio come daemon.
 * Configurare uno strumento di gestione del processo per consentire il riavvio dell'app Web.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 1. Accedere a un server Ubuntu 16.04 con un account utente standard con privilegio sudo.
 1. Installare il runtime .NET Core nel server.

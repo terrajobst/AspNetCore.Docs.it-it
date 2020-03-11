@@ -4,14 +4,14 @@ Questo documento illustra il processo per offrire il proprio contributo per gli 
 
 ## <a name="how-to-make-a-simple-correction-or-suggestion"></a>Come effettuare una semplice correzione o suggerire una modifica
 
-Gli articoli sono archiviati nel repository come file markdown. È possibile apportare modifiche semplici al contenuto di un file markdown nel browser selezionando il collegamento **Edit** (Modifica) nell'angolo superiore destro della finestra del browser. In una finestra del browser ridotta, espandere la barra delle **opzioni** per visualizzare il collegamento **Edit** (Modifica). Seguire le istruzioni per creare una richiesta pull. La richiesta pull verrà rivista e accettata oppure verranno suggerite modifiche.
+Gli articoli sono archiviati nel repository come file markdown. È possibile apportare modifiche semplici al contenuto di un file markdown nel browser selezionando il collegamento **Edit** (Modifica) nell'angolo superiore destro della finestra del browser. In una finestra del browser ristretta espandere la barra delle **Opzioni** per visualizzare il collegamento **modifica** . Seguire le istruzioni per creare una richiesta pull (PR). La richiesta pull verrà rivista e accettata oppure verranno suggerite modifiche.
 
 ## <a name="how-to-make-a-more-complex-submission"></a>Come effettuare un invio più complesso
 
 Sono necessarie conoscenze di base di [Git e GitHub.com](https://guides.github.com/activities/hello-world/).
 
-* Aprire un [problema](https://github.com/aspnet/Docs/issues/new) che descrive ciò che si vuole fare, ad esempio modificare un articolo esistente o crearne uno nuovo. Viene spesso richiesta una traccia del documento per i nuovi argomenti suggeriti. Attendere l'approvazione dal team prima di investire molto tempo.
-* Creare una copia tramite fork del repository [aspnet/Docs](https://github.com/aspnet/Docs/) e creare un ramo per le modifiche.
+* Aprire un [problema](https://github.com/dotnet/AspNetCore.Docs/issues/new) che descrive ciò che si vuole fare, ad esempio modificare un articolo esistente o crearne uno nuovo. Viene spesso richiesta una traccia del documento per i nuovi argomenti suggeriti. Attendere l'approvazione dal team prima di investire molto tempo.
+* Creare una copia tramite fork del repository [aspnet/Docs](https://github.com/dotnet/AspNetCore.Docs/) e creare un ramo per le modifiche.
 * Inviare una richiesta pull al master con le modifiche.
 * Se alla richiesta pull viene assegnata l'etichetta 'cla-required', [sottoscrivere il contratto di licenza per contributi](https://cla.dotnetfoundation.org/).
 * Rispondere ai commenti e suggerimenti per la richiesta pull.
@@ -28,7 +28,7 @@ Gli articoli sono scritti nel linguaggio [DocFx Flavored Markdown (DFM)](https:/
 
 ## <a name="folder-structure-conventions"></a>Convenzioni per la struttura di cartelle
 
-Per ogni file markdown può esistere una cartella per le immagini e una cartella per il codice di esempio. Se l'articolo è [fundamentals/configuration/index.md](https://github.com/aspnet/Docs/blob/master/aspnetcore/fundamentals/configuration/index.md), le immagini sono in [fundamentals/configuration/index/\_static](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/index/_static) e i file di progetto dell'app di esempio sono in [fundamentals/configuration/index/sample](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/index/sample). Il rendering di un'immagine nel file *fundamentals/configuration/index.md* viene eseguito dal codice Markdown seguente:
+Per ogni file markdown può esistere una cartella per le immagini e una cartella per il codice di esempio. Se l'articolo è [fundamentals/configuration/index.md](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/fundamentals/configuration/index.md), le immagini sono in [fundamentals/configuration/index/\_static](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/_static) e i file di progetto dell'app di esempio sono in [fundamentals/configuration/index/sample](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/sample). Il rendering di un'immagine nel file *fundamentals/configuration/index.md* viene eseguito dal codice Markdown seguente:
 
 ```md
 ![description of image for alt attribute](configuration/index/_static/imagename.png)
@@ -157,4 +157,4 @@ La [Microsoft Writing Style Guide](https://docs.microsoft.com/style-guide/welcom
 
 ## <a name="redirects"></a>Reindirizzamenti
 
-Se si elimina un articolo, si modifica il nome di file o lo si sposta in un'altra cartella, creare un reindirizzamento in modo che le persone che hanno contrassegnato l'articolo con un segnalibro non ricevano l'errore *404 Non trovato*. Aggiungere i reindirizzamenti al [file di reindirizzamento master](https://github.com/aspnet/Docs/blob/master/.openpublishing.redirection.json).
+Se si elimina un articolo, si modifica il nome di file o lo si sposta in un'altra cartella, creare un reindirizzamento in modo che le persone che hanno contrassegnato l'articolo con un segnalibro non ricevano l'errore *404 Non trovato*. Aggiungere i reindirizzamenti al [file di reindirizzamento master](https://github.com/dotnet/AspNetCore.Docs/blob/master/.openpublishing.redirection.json).

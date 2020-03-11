@@ -7,21 +7,21 @@ ms.custom: mvc
 ms.date: 01/15/2020
 uid: host-and-deploy/docker/building-net-docker-images
 ms.openlocfilehash: 5bed5e9a4a6109a45badcef7c0d4e03eb2312bf0
-ms.sourcegitcommit: cbd30479f42cbb3385000ef834d9c7d021fd218d
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76146342"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664073"
 ---
 # <a name="docker-images-for-aspnet-core"></a>Immagini Docker per ASP.NET Core
 
 Questa esercitazione mostra come eseguire un'app ASP.NET Core in contenitori Docker.
 
-Le attività di questa esercitazione sono le seguenti:
+In questa esercitazione:
 > [!div class="checklist"]
 > * Informazioni sulle immagini Docker per Microsoft .NET Core
 > * Download di un'app di esempio ASP.NET Core
-> * Esecuzione dell'app di esempio in locale
+> * Eseguire l'app di esempio in locale
 > * Esecuzione dell'app di esempio in contenitori Linux
 > * Esecuzione dell'app di esempio in contenitori Windows
 > * Compilazione e distribuzione manuali
@@ -40,7 +40,7 @@ Il documento Dockerfile di esempio usa la [funzionalità di compilazione in più
 
    L'esempio usa questa immagine per l'esecuzione dell'app. L'immagine contiene il runtime e le librerie ASP.NET Core ed è ottimizzata per l'esecuzione di app nell'ambiente di produzione. Progettata per offrire velocità di distribuzione e avvio dell'app, l'immagine è relativamente piccola, in modo da ottimizzare le prestazioni di rete dal registro Docker all'host Docker. Solo i file binari e i contenuti necessari per eseguire un'app vengono copiati nel contenitore. I contenuti sono pronti per l'esecuzione, fornendo i tempi più rapidi da `Docker run` all'avvio dell'app. La compilazione dinamica del codice non è necessaria nel modello di Docker.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 ::: moniker range="< aspnetcore-3.0"
 
 * [.NET Core 2.2 SDK](https://www.microsoft.com/net/core)

@@ -9,11 +9,11 @@ no-loc:
 - SignalR
 uid: grpc/comparison
 ms.openlocfilehash: 8935e665dfd5d8f9afa002f475c202ec0f0ee657
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880676"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667160"
 ---
 # <a name="compare-grpc-services-with-http-apis"></a>Confrontare servizi gRPC e API HTTP
 
@@ -25,15 +25,15 @@ Questo articolo illustra il confronto tra i [servizi di gRPC](https://grpc.io/do
 
 La tabella seguente offre un confronto di alto livello tra le funzionalità tra gRPC e le API HTTP con JSON.
 
-| Caratteristica          | gRPC                                               | API HTTP con JSON           |
+| Funzionalità          | gRPC                                               | API HTTP con JSON           |
 | ---------------- | -------------------------------------------------- | ----------------------------- |
 | Contratto         | Obbligatorio ( *. proto*)                                | Facoltativo (OpenAPI)            |
 | Protocollo         | HTTP/2                                             | HTTP                          |
 | Payload          | [Protobuf (Small, Binary)](#performance)           | JSON (grande, leggibile)  |
 | Prescriptiveness | [Specifica Strict](#strict-specification)      | Sciolto. Qualsiasi HTTP è valido.     |
-| Flusso        | [Client, server, bidirezionale](#streaming)       | Client, server                |
+| Streaming        | [Client, server, bidirezionale](#streaming)       | Client, server                |
 | Supporto browser  | [No (richiede grpc-Web)](#limited-browser-support) | Sì                           |
-| Sicurezza -         | Trasporto (TLS)                                    | Trasporto (TLS)               |
+| Security         | Trasporto (TLS)                                    | Trasporto (TLS)               |
 | Generazione di codice client | [Sì](#code-generation)                      | OpenAPI + strumenti di terze parti |
 
 ## <a name="grpc-strengths"></a>punti di forza di gRPC
@@ -59,7 +59,7 @@ Una specifica formale per l'API HTTP con JSON non esiste. Gli sviluppatori discu
 
 La [specifica gRPC](https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md) è prescrittiva sul formato che deve essere seguito da un servizio gRPC. gRPC Elimina il dibattito e Risparmia tempo per gli sviluppatori perché gRPC è coerente tra piattaforme e implementazioni.
 
-### <a name="streaming"></a>Flusso
+### <a name="streaming"></a>Streaming
 
 HTTP/2 fornisce una base per flussi di comunicazione di lunga durata e in tempo reale. gRPC fornisce il supporto di prima classe per lo streaming tramite HTTP/2.
 

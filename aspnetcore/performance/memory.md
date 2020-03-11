@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 12/05/2019
 uid: performance/memory
 ms.openlocfilehash: 0ae367e954e21e2f696a3b292fa64f1d2dba98ec
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829023"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667027"
 ---
 # <a name="memory-management-and-garbage-collection-gc-in-aspnet-core"></a>Gestione della memoria e Garbage Collection (GC) in ASP.NET Core
 
@@ -139,7 +139,7 @@ La modalità GC può essere impostata in modo esplicito nel file di progetto o n
 
 Per modificare `ServerGarbageCollection` nel file di progetto, è necessario ricompilare l'app.
 
-**Nota:** Il Garbage Collection server **non** è disponibile nei computer con un singolo core. Per ulteriori informazioni, vedere <xref:System.Runtime.GCSettings.IsServerGC>.
+**Nota:** Il Garbage Collection server **non** è disponibile nei computer con un singolo core. Per altre informazioni, vedere <xref:System.Runtime.GCSettings.IsServerGC>.
 
 La figura seguente mostra il profilo di memoria in un RPS da 5K usando il GC della workstation.
 

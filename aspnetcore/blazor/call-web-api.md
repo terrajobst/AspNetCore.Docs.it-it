@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: blazor/call-web-api
-ms.openlocfilehash: 345fb6962e3376c22551eb7914c70c89cb7100d5
-ms.sourcegitcommit: d2ba66023884f0dca115ff010bd98d5ed6459283
+ms.openlocfilehash: e6996f0e6731b05038d0a9329152b8afd5f6796d
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77213275"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78660146"
 ---
 # <a name="call-a-web-api-from-aspnet-core-opno-locblazor"></a>Chiamare un'API Web da ASP.NET Core Blazor
 
@@ -27,7 +27,7 @@ Di [Luke Latham](https://github.com/guardrex), [Daniel Roth](https://github.com/
 
 [Blazor](xref:blazor/hosting-models#blazor-server) le app server chiamano API Web usando istanze <xref:System.Net.Http.HttpClient>, in genere create usando <xref:System.Net.Http.IHttpClientFactory>. Le indicazioni fornite in questo argomento non riguardano le app Server Blazor. Quando si sviluppano app Server Blazor, seguire le istruzioni riportate in <xref:fundamentals/http-requests>.
 
-Consente di [visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([come scaricare](xref:index#how-to-download-a-sample)) &ndash; selezionare l'app *BlazorWebAssemblySample* .
+Consente di [visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([come scaricare](xref:index#how-to-download-a-sample)) &ndash; selezionare l'app *BlazorWebAssemblySample* .
 
 Vedere i componenti seguenti nell'app di esempio *BlazorWebAssemblySample* :
 
@@ -36,7 +36,7 @@ Vedere i componenti seguenti nell'app di esempio *BlazorWebAssemblySample* :
 
 ## <a name="packages"></a>Pacchetti
 
-Fare riferimento all'oggetto *sperimentale* [Microsoft.AspNetCore.Blazor.](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.HttpClient/)Pacchetto NuGet HttpClient nel file di progetto. `Microsoft.AspNetCore.Blazor.HttpClient` si basa su `HttpClient` e [System. Text. JSON](https://www.nuget.org/packages/System.Text.Json/).
+Fare riferimento all'oggetto *sperimentale* [Microsoft. AspNetCore.Blazor. ](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.HttpClient/)Pacchetto NuGet HttpClient nel file di progetto. `Microsoft.AspNetCore.Blazor.HttpClient` si basa su `HttpClient` e [System. Text. JSON](https://www.nuget.org/packages/System.Text.Json/).
 
 Per usare un'API stabile, usare il pacchetto [Microsoft. AspNet. WebAPI. client](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) , che usa [Newtonsoft. JSON](https://www.nuget.org/packages/Newtonsoft.Json/)/[JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm). L'uso dell'API stabile in `Microsoft.AspNet.WebApi.Client` non fornisce gli helper JSON descritti in questo argomento, che sono univoci per il pacchetto sperimentale di `Microsoft.AspNetCore.Blazor.HttpClient`.
 
@@ -160,7 +160,7 @@ Nel codice seguente, l'elemento Delete `<button>` chiama il metodo `DeleteItem`.
 
 La sicurezza del browser impedisce a una pagina Web di effettuare richieste a un dominio diverso da quello che ha servito la pagina Web. Questa restrizione è detta *criterio della stessa origine*. Il criterio della stessa origine impedisce a un sito dannoso di leggere dati sensibili da un altro sito. Per eseguire richieste dal browser a un endpoint con un'origine diversa, l' *endpoint* deve abilitare la [condivisione di risorse tra le origini (CORS)](https://www.w3.org/TR/cors/).
 
-L' [app di esempioBlazor webassembly (BlazorWebAssemblySample)](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) illustra l'uso di CORS nel componente API Web Call (*pages/CallWebAPI. Razor*).
+L' [app di esempioBlazor webassembly (BlazorWebAssemblySample)](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) illustra l'uso di CORS nel componente API Web Call (*pages/CallWebAPI. Razor*).
 
 Per consentire ad altri siti di effettuare richieste di condivisione risorse tra le origini (CORS) per l'app, vedere <xref:security/cors>.
 

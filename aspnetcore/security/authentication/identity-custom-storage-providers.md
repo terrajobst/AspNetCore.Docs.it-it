@@ -6,20 +6,20 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/23/2019
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: 70951085474d88fd57f1b1496a41adcda520b91f
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 574e66e4dedaf0bfd01d600c3ded4bfb5d1865cd
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829153"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664479"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Provider di archiviazione personalizzati per ASP.NET Core identità
 
-Di [Steve Smith](https://ardalis.com/)
+[Steve Smith](https://ardalis.com/)
 
 ASP.NET Core identità è un sistema estensibile che consente di creare un provider di archiviazione personalizzato e connetterlo all'app. In questo argomento viene descritto come creare un provider di archiviazione personalizzato per ASP.NET Core identità. Vengono illustrati i concetti importanti per la creazione di un provider di archiviazione, ma non una procedura dettagliata.
 
-[Visualizzare o scaricare un esempio da GitHub](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/identity/sample).
+[Visualizzare o scaricare un esempio da GitHub](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/identity/sample).
 
 ## <a name="introduction"></a>Introduzione
 
@@ -57,7 +57,7 @@ Quando si crea una nuova istanza di `UserManager` o `RoleManager` si fornisce il
 
 I tipi di dati [Identity ASP.NET Core](https://github.com/aspnet/identity) sono descritti in dettaglio nelle sezioni seguenti:
 
-### <a name="users"></a>Utenti di
+### <a name="users"></a>Utenti
 
 Utenti registrati del sito Web. Il tipo [IdentityUser](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuser) può essere esteso o usato come esempio per un tipo personalizzato. Non è necessario ereditare da un particolare tipo per implementare una soluzione di archiviazione delle identità personalizzata.
 
@@ -69,7 +69,7 @@ Set di istruzioni (o [attestazioni](/dotnet/api/system.security.claims.claim)) s
 
 Informazioni sul provider di autenticazione esterno, ad esempio Facebook o un account Microsoft, da usare per la registrazione di un utente. [Esempio](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuserlogin)
 
-### <a name="roles"></a>Ruoli di
+### <a name="roles"></a>Ruoli
 
 Gruppi di autorizzazione per il sito. Include l'ID del ruolo e il nome del ruolo (ad esempio, "admin" o "Employee"). [Esempio](/dotnet/api/microsoft.aspnet.identity.corecompat.identityrole)
 
@@ -138,7 +138,7 @@ Creare una classe `UserStore` che fornisca i metodi per tutte le operazioni sui 
 * [IUserTwoFactorStore](/dotnet/api/microsoft.aspnetcore.identity.iusertwofactorstore-1)
 * [IUserLockoutStore](/dotnet/api/microsoft.aspnetcore.identity.iuserlockoutstore-1)
 
-Le interfacce opzionali ereditano da `IUserStore<TUser>`. Nell' [app di esempio](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/security/authentication/identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs)è possibile visualizzare un archivio utenti di esempio parzialmente implementato.
+Le interfacce opzionali ereditano da `IUserStore<TUser>`. Nell' [app di esempio](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/security/authentication/identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs)è possibile visualizzare un archivio utenti di esempio parzialmente implementato.
 
 All'interno della classe `UserStore` si utilizzano le classi di accesso ai dati create per eseguire operazioni. Questi vengono passati usando l'inserimento di dipendenze. Ad esempio, nell'SQL Server con l'implementazione di elegante, la classe `UserStore` dispone del `CreateAsync` metodo che usa un'istanza di `DapperUsersTable` per inserire un nuovo record:
 
@@ -201,7 +201,7 @@ Di seguito è riportato un esempio di classe Role:
 
 * **IRoleStore&lt;TRole&gt;**  
  L'interfaccia [&gt;IRoleStore&lt;TRole](/dotnet/api/microsoft.aspnetcore.identity.irolestore-1) definisce i metodi da implementare nella classe dell'archivio ruoli. Contiene i metodi per la creazione, l'aggiornamento, l'eliminazione e il recupero di ruoli.
-* **RoleStore&lt;TRole&gt;**  
+* **Nell'rolestore&lt;TRole&gt;**  
  Per personalizzare `RoleStore`, creare una classe che implementi l'interfaccia `IRoleStore<TRole>`. 
 
 ## <a name="reconfigure-app-to-use-a-new-storage-provider"></a>Riconfigurare l'app per l'uso di un nuovo provider di archiviazione

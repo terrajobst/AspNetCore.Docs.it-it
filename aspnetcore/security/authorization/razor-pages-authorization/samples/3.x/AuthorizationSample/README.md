@@ -4,7 +4,7 @@ In questo esempio viene illustrato l'utilizzo di Razor Pages autorizzazione per 
 
 L'autorizzazione dell'utente in questo esempio usa le funzionalità di autenticazione dei cookie descritte nell'argomento [usare l'autenticazione tramite cookie senza ASP.NET Core Identity](https://docs.microsoft.com/aspnet/core/security/authentication/cookie) . I concetti e gli esempi illustrati in questo argomento si applicano ugualmente alle app che usano ASP.NET Core identità. Per informazioni sull'uso di ASP.NET Core identità, vedere [Introduzione all'identità su ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/authentication/identity).
 
-Usare l'indirizzo **maria.rodriguez@contoso.com** di posta elettronica per autenticare l'utente con qualsiasi password. L'utente viene autenticato nel `AuthenticateUser` metodo nel file pages */account/login. cshtml. cs* . In un esempio reale, l'utente viene autenticato a fronte di un database.
+Usare l'indirizzo di posta elettronica **maria.rodriguez@contoso.com** per autenticare l'utente con qualsiasi password. L'utente viene autenticato nel metodo `AuthenticateUser` nel file *pages/account/login. cshtml. cs* . In un esempio reale, l'utente viene autenticato a fronte di un database.
 
 ## <a name="examples-in-this-sample"></a>Esempi
 

@@ -7,22 +7,22 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 04/06/2019
 uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
-ms.openlocfilehash: 508f91cdcd93c149602223250520eecb73625b24
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: 269be9ece674b39d03cb50720f4fb182c565a639
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74880981"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78659649"
 ---
 # <a name="partial-tag-helper-in-aspnet-core"></a>Helper tag Partial in ASP.NET Core
 
 Di [Scott Addie](https://github.com/scottaddie)
 
-Per una panoramica degli helper per tag, vedere <xref:mvc/views/tag-helpers/intro>.
+Per una panoramica degli helper tag, vedere <xref:mvc/views/tag-helpers/intro>.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/tag-helpers/built-in/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/tag-helpers/built-in/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
-## <a name="overview"></a>Panoramica di
+## <a name="overview"></a>Panoramica
 
 L'helper tag Partial viene usato per il rendering di una [visualizzazione parziale](xref:mvc/views/partial) in Razor Pages e nelle app MVC. Tenere presente che:
 
@@ -43,7 +43,7 @@ Il modello *Product* è usato negli esempi di questo documento:
 
 Segue un inventario degli attributi dell'helper tag Partial.
 
-## <a name="name"></a>nome
+## <a name="name"></a>name
 
 L'attributo `name` è obbligatorio. Indica il nome o il percorso della visualizzazione parziale di cui eseguire il rendering. Quando viene offerto un nome della visualizzazione parziale, viene avviato il processo di [individuazione delle visualizzazioni](xref:mvc/views/overview#view-discovery). Tale processo viene ignorato quando viene offerto un percorso esplicito. Per tutti i valori `name` accettabili, vedere [Individuazione delle visualizzazioni parziali](xref:mvc/views/partial#partial-view-discovery).
 
@@ -51,7 +51,7 @@ Il markup seguente usa un percorso esplicito, che indica che *_ProductPartial.cs
 
 [!code-cshtml[](samples/TagHelpersBuiltIn/Pages/Product.cshtml?name=snippet_Name)]
 
-## <a name="for"></a>per
+## <a name="for"></a>for
 
 L'attributo `for` assegna una [ModelExpression](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.modelexpression) da valutare rispetto al modello corrente. Un elemento `ModelExpression` deduce la sintassi `@Model.`. Ad esempio `for="Product"` può essere usato invece di `for="@Model.Product"`. Questo comportamento di inferenza predefinito può essere ignorato se si usa il simbolo `@` per definire un'espressione inline.
 

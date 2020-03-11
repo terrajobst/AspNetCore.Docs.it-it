@@ -1,0 +1,1 @@
+Per visualizzare i commenti del codice tradotti in lingue diverse dall'inglese, segnalare [il problema in questo argomento di discussione su GitHub](https://github.com/MicrosoftDocs/feedback/issues/2515).

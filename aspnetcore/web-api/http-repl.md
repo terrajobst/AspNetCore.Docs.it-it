@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/11/2019
 uid: web-api/http-repl
-ms.openlocfilehash: 15899917826fb6559244998766d99d00f56e0521
-ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
+ms.openlocfilehash: d9beae68cc869b665ff5d2b6cf34f120406098dc
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294723"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78661889"
 ---
 # <a name="test-web-apis-with-the-http-repl"></a>Testare le API Web con il ciclo Read-Eval-Print (REPL) HTTP
 
@@ -34,13 +34,13 @@ Sono supportati i [verbi HTTP](https://github.com/microsoft/api-guidelines/blob/
 * [POST](#test-http-post-requests)
 * [PUT](#test-http-put-requests)
 
-Per continuare, [visualizzare o scaricare l'API Web ASP.NET Core di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/http-repl/samples) ([come scaricare](xref:index#how-to-download-a-sample)).
+Per continuare, [visualizzare o scaricare l'API Web ASP.NET Core di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/http-repl/samples) ([come scaricare](xref:index#how-to-download-a-sample)).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [!INCLUDE [2.1-SDK](~/includes/2.1-SDK.md)]
 
-## <a name="installation"></a>Installazione di
+## <a name="installation"></a>Installazione
 
 Per installare il ciclo Read-Eval-Print HTTP, eseguire il comando seguente:
 
@@ -50,7 +50,7 @@ dotnet tool install -g Microsoft.dotnet-httprepl
 
 Viene installato uno [strumento globale .NET Core](/dotnet/core/tools/global-tools#install-a-global-tool) dal pacchetto NuGet [Microsoft.dotnet-httprepl](https://www.nuget.org/packages/Microsoft.dotnet-httprepl).
 
-## <a name="usage"></a>Usage
+## <a name="usage"></a>Uso
 
 Dopo aver completato l'installazione dello strumento, eseguire il comando seguente per avviare il ciclo Read-Eval-Print HTTP:
 
@@ -225,15 +225,15 @@ https://localhost:5001/people~
 
 I [colori](#set-color-preferences) predefiniti del ciclo Read-Eval-Print HTTP possono essere personalizzati. È anche possibile definire un [editor di testo predefinito](#set-the-default-text-editor). Le preferenze del ciclo Read-Eval-Print HTTP vengono mantenute nella sessione corrente e nelle sessioni future. Dopo essere state modificate, le preferenze vengono archiviate nel file seguente:
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 *%HOME%/.httpreplprefs*
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
+# <a name="macos"></a>[macOS](#tab/macos)
 
 *%HOME%/.httpreplprefs*
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 *%USERPROFILE%\\.httpreplprefs*
 
@@ -335,19 +335,19 @@ pref set editor.command.default "<EXECUTABLE>"
 
 Nel comando precedente `<EXECUTABLE>` è il percorso completo del file eseguibile dell'editor di testo. Ad esempio, eseguire il comando seguente per impostare Visual Studio Code come editor di testo predefinito:
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 ```console
 pref set editor.command.default "/usr/bin/code"
 ```
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
+# <a name="macos"></a>[macOS](#tab/macos)
 
 ```console
 pref set editor.command.default "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
 ```
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 ```console
 pref set editor.command.default "C:\Program Files\Microsoft VS Code\Code.exe"
@@ -390,7 +390,7 @@ get <PARAMETER> [-F|--no-formatting] [-h|--header] [--response] [--response:body
 
 Parametro di route, se presente, previsto dal metodo di azione del controller associato.
 
-### <a name="options"></a>Options
+### <a name="options"></a>Opzioni
 
 Per il comando `get` sono disponibili le opzioni seguenti:
 
@@ -474,7 +474,7 @@ post <PARAMETER> [-c|--content] [-f|--file] [-h|--header] [--no-body] [-F|--no-f
 
 Parametro di route, se presente, previsto dal metodo di azione del controller associato.
 
-### <a name="options"></a>Options
+### <a name="options"></a>Opzioni
 
 [!INCLUDE [standard CLI options](~/includes/http-repl/standard-options.md)]
 
@@ -544,7 +544,7 @@ put <PARAMETER> [-c|--content] [-f|--file] [-h|--header] [--no-body] [-F|--no-fo
 
 Parametro di route, se presente, previsto dal metodo di azione del controller associato.
 
-### <a name="options"></a>Options
+### <a name="options"></a>Opzioni
 
 [!INCLUDE [standard CLI options](~/includes/http-repl/standard-options.md)]
 
@@ -659,7 +659,7 @@ delete <PARAMETER> [-F|--no-formatting] [-h|--header] [--response] [--response:b
 
 Parametro di route, se presente, previsto dal metodo di azione del controller associato.
 
-### <a name="options"></a>Options
+### <a name="options"></a>Opzioni
 
 [!INCLUDE [standard CLI options](~/includes/http-repl/standard-options.md)]
 
@@ -746,7 +746,7 @@ patch <PARAMETER> [-c|--content] [-f|--file] [-h|--header] [--no-body] [-F|--no-
 
 Parametro di route, se presente, previsto dal metodo di azione del controller associato.
 
-### <a name="options"></a>Options
+### <a name="options"></a>Opzioni
 
 [!INCLUDE [standard CLI options](~/includes/http-repl/standard-options.md)]
 
@@ -766,7 +766,7 @@ head <PARAMETER> [-F|--no-formatting] [-h|--header] [--response] [--response:bod
 
 Parametro di route, se presente, previsto dal metodo di azione del controller associato.
 
-### <a name="options"></a>Options
+### <a name="options"></a>Opzioni
 
 [!INCLUDE [standard CLI options](~/includes/http-repl/standard-options.md)]
 
@@ -784,7 +784,7 @@ options <PARAMETER> [-F|--no-formatting] [-h|--header] [--response] [--response:
 
 Parametro di route, se presente, previsto dal metodo di azione del controller associato.
 
-### <a name="options"></a>Options
+### <a name="options"></a>Opzioni
 
 [!INCLUDE [standard CLI options](~/includes/http-repl/standard-options.md)]
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/23/2020
 uid: security/authentication/social/index
-ms.openlocfilehash: 7d0f6647a6f5a4d41067b13acd3d294144027bb7
-ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
+ms.openlocfilehash: c698edbd85d665509366287b1dcad08e276e71cc
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76727327"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668042"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Autenticazione dei provider Facebook, Google ed esterni in ASP.NET Core
 
@@ -30,16 +30,16 @@ Per degli esempi di come gli account di accesso ai social possano risultare util
 
 ## <a name="create-a-new-aspnet-core-project"></a>Creare un nuovo progetto ASP.NET Core
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Creare un nuovo progetto.
 * Selezionare **Applicazione Web ASP.NET Core** e **Avanti**.
-* Specificare un **Nome progetto** e confermare o modificare il **Percorso**. Selezionare **Crea**.
+* Specificare un **Nome progetto** e confermare o modificare il **Percorso**. Selezionare **Create** (Crea).
 * Selezionare la versione più recente di ASP.NET Core nell'elenco a discesa (**ASP.NET Core {X. Y}** ), quindi selezionare **applicazione Web**.
-* In **Autenticazione** selezionare **Modifica** e impostare l'autenticazione su **Account utente individuali**. Scegliere **OK**.
+* In **Autenticazione** selezionare **Modifica** e impostare l'autenticazione su **Account utente individuali**. Selezionare **OK**.
 * Nella finestra **Crea una nuova applicazione Web ASP.NET Core** selezionare **Crea**.
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code/Visual Studio per Mac](#tab/visual-studio-code+visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mac"></a>[Visual Studio Code/Visual Studio per Mac](#tab/visual-studio-code+visual-studio-mac)
 
 * Aprire il terminale.  Per Visual Studio Code è possibile aprire il [terminale integrato](https://code.visualstudio.com/docs/editor/integrated-terminal).
 
@@ -111,7 +111,7 @@ Per creare una password e accedere usando la posta elettronica impostata durante
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni su come personalizzare i pulsanti di accesso, vedere [questo problema di GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/10563) .
+* Per informazioni su come personalizzare i pulsanti di accesso, vedere [questo problema di GitHub](https://github.com/dotnet/AspNetCore.Docs/issues/10563) .
 * Questo articolo ha introdotto l'autenticazione esterna e ha illustrato i prerequisiti necessari per aggiungere gli account di accesso esterni all'app di ASP.NET Core.
 * Pagine di riferimento specifico del provider per configurare gli account di accesso per i provider richiesti dall'app.
 * Può essere opportuno salvare in modo permanente dati aggiuntivi sull'utente e il relativo accesso e i token di aggiornamento. Per altre informazioni, vedere <xref:security/authentication/social/additional-claims>.

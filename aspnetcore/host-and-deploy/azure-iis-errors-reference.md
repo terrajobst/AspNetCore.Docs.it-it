@@ -1,22 +1,20 @@
 ---
 title: Errori comuni di Servizio app di Azure e IIS con ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Ottenere suggerimenti per la risoluzione degli errori comuni dell'hosting di app ASP.NET Core in Servizio app di Azure e IIS.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/07/2020
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: dcc0f15c3f4a2747da744e98fe8fbcd3f325b709
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: dd74b451e396ae1dec61b6ccc9136218db39b949
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77172432"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78662414"
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Errori comuni di Servizio app di Azure e IIS con ASP.NET Core
-
-Di [Luke Latham](https://github.com/guardrex)
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -24,7 +22,7 @@ Questo argomento descrive gli errori comuni e fornisce consigli per la risoluzio
 
 Per indicazioni generali sulla risoluzione dei problemi, vedere <xref:test/troubleshoot-azure-iis>.
 
-Raccogliere le seguenti informazioni:
+Raccogliere le informazioni seguenti:
 
 * Comportamento del browser (codice di stato e messaggio di errore)
 * Voci del log eventi dell'applicazione
@@ -312,7 +310,7 @@ Questo argomento descrive gli errori comuni e fornisce consigli per la risoluzio
 
 Per indicazioni generali sulla risoluzione dei problemi, vedere <xref:test/troubleshoot-azure-iis>.
 
-Raccogliere le seguenti informazioni:
+Raccogliere le informazioni seguenti:
 
 * Comportamento del browser (codice di stato e messaggio di errore)
 * Voci del log eventi dell'applicazione

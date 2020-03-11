@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: web-api/advanced/conventions
-ms.openlocfilehash: 2c7e33da24322504fc5e1be83c0b814710186687
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: d49b51d11d3f14d0c3edbe1765d74fd63e3ac061
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74881311"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78657752"
 ---
 # <a name="use-web-api-conventions"></a>Usare le convenzioni dell'API Web
 
@@ -29,13 +29,13 @@ ASP.NET Core MVC 2.2 e versioni successive include un set di convenzioni predefi
 
 In fase di runtime, <xref:Microsoft.AspNetCore.Mvc.ApiExplorer> riconosce le convenzioni. `ApiExplorer` è l'astrazione MVC per comunicare con i generatori di documenti [OpenAPI](https://www.openapis.org/) (noti anche come Swagger). Gli attributi della convenzione applicata vengono associati a un'azione e sono inclusi nella documentazione OpenAPI dell'azione. Anche gli [analizzatori di API](xref:web-api/advanced/analyzers) supportano le convenzioni. Se l'azione non è convenzionale (ad esempio, se restituisce un codice di stato non documentato dalla convenzione applicata), un avviso richiede di documentare il codice di stato.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/conventions/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/conventions/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="apply-web-api-conventions"></a>Applicare le convenzioni dell'API Web
 
 Le convenzioni non sono componibili; ogni azione può essere associata a una sola convenzione. Le convenzioni più specifiche hanno la precedenza su quelle meno specifiche. Quando si applicano a un'azione due o più convenzioni con la stessa priorità, la selezione è non deterministica. Per applicare una convenzione a un'azione sono disponibili le opzioni seguenti, dalla più specifica alla meno specifica:
 
-1. `Microsoft.AspNetCore.Mvc.ApiConventionMethodAttribute` &mdash; È valida per azioni singole, specifica il tipo di convenzione e il metodo della convenzione applicato.
+1. `Microsoft.AspNetCore.Mvc.ApiConventionMethodAttribute` &mdash; si applica a singole azioni e specifica il tipo di convenzione e il metodo di convenzione applicabile.
 
     Nell'esempio seguente, il metodo della convenzione `Microsoft.AspNetCore.Mvc.DefaultApiConventions.Put` del tipo di convenzione predefinito viene applicato all'azione `Update`:
 

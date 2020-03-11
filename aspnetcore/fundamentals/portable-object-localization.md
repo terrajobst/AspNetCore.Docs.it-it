@@ -5,12 +5,12 @@ description: Questo articolo presenta i file degli oggetti portabili e descrive 
 ms.author: scaddie
 ms.date: 09/26/2017
 uid: fundamentals/portable-object-localization
-ms.openlocfilehash: 6ec7afc59d6dfd2629a3d6d83ae619575397a9df
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
-ms.translationtype: HT
+ms.openlocfilehash: 08002564eb68bc04eebaeafed560202d0d69958a
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64884376"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78656191"
 ---
 # <a name="configure-portable-object-localization-in-aspnet-core"></a>Configurare la localizzazione degli oggetti portabili in ASP.NET Core
 
@@ -20,7 +20,7 @@ Questo articolo descrive i passaggi per l'uso dei file degli oggetti portabili (
 
 **Nota:** Orchard Core non è un prodotto Microsoft. Di conseguenza, Microsoft non fornisce alcun supporto per questa funzionalità.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/localization/sample/POLocalization) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/localization/sample/POLocalization) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="what-is-a-po-file"></a>Che cos'è un file PO?
 
@@ -99,9 +99,9 @@ Il file memorizza la stringa da tradurre e la stringa tradotta in francese. Le t
 
 ### <a name="testing-the-application"></a>Test dell'applicazione
 
-Eseguire l'applicazione e passare all'URL `/Home/About`. Il testo **Hello world!** viene visualizzato.
+Eseguire l'applicazione e passare all'URL `/Home/About`. Il testo **Hello world!** vengono visualizzati i puntini di sospensione (...).
 
-Passare all'URL `/Home/About?culture=fr-FR`. Il testo **Bonjour le monde!** viene visualizzato.
+Passare all'URL `/Home/About?culture=fr-FR`. Il testo **Bonjour le monde!** vengono visualizzati i puntini di sospensione (...).
 
 ## <a name="pluralization"></a>Pluralizzazione
 

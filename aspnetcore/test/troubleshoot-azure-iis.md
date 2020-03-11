@@ -1,22 +1,22 @@
 ---
 title: Risolvere i problemi relativi a ASP.NET Core in app Azure servizio e IIS
-author: guardrex
+author: rick-anderson
 description: Informazioni su come diagnosticare i problemi relativi alle distribuzioni del servizio app Azure e Internet Information Services (IIS) delle app di ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/07/2020
 uid: test/troubleshoot-azure-iis
-ms.openlocfilehash: a5cd17e46126828c6bc8436ccaaca28edb2573d0
-ms.sourcegitcommit: 235623b6e5a5d1841139c82a11ac2b4b3f31a7a9
+ms.openlocfilehash: 671f68da2ea261cb8ae32a9d5ef875217859054d
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114848"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78655330"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service-and-iis"></a>Risolvere i problemi relativi a ASP.NET Core in app Azure servizio e IIS
 
-Di [Luke Latham](https://github.com/guardrex) e [Justin Kotalik](https://github.com/jkotalik)
+Di [Justin Kotalik](https://github.com/jkotalik)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -254,7 +254,7 @@ L'output della console per l'app, in cui sono indicati gli eventuali errori, ver
 *Richiede l'installazione dell'estensione del sito del runtime ASP.NET Core {VERSION} (x86).*
 
 1. `cd D:\home\SiteExtensions\AspNetCoreRuntime.{X.Y}.x32` (`{X.Y}` è la versione di runtime)
-1. Eseguire l'app. `dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
+1. Eseguire l'app: `dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
 
 L'output della console per l'app, in cui sono indicati gli eventuali errori, verrà inviato alla console Kudu.
 
@@ -264,10 +264,10 @@ L'output della console per l'app, in cui sono indicati gli eventuali errori, ver
 
 * Se l'app è una [distribuzione dipendente dal framework](/dotnet/core/deploying/#framework-dependent-deployments-fdd) a 64 bit (x64):
   1. `cd D:\Program Files\dotnet`
-  1. Eseguire l'app. `dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
+  1. Eseguire l'app: `dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
 * Se l'app è una [distribuzione autonoma](/dotnet/core/deploying/#self-contained-deployments-scd):
   1. `cd D:\home\site\wwwroot`
-  1. Eseguire l'app. `{ASSEMBLY NAME}.exe`
+  1. Eseguire l'app: `{ASSEMBLY NAME}.exe`
 
 L'output della console per l'app, in cui sono indicati gli eventuali errori, verrà inviato alla console Kudu.
 
@@ -276,7 +276,7 @@ L'output della console per l'app, in cui sono indicati gli eventuali errori, ver
 *Richiede l'installazione dell'estensione del sito del runtime ASP.NET Core {VERSION} (x64).*
 
 1. `cd D:\home\SiteExtensions\AspNetCoreRuntime.{X.Y}.x64` (`{X.Y}` è la versione di runtime)
-1. Eseguire l'app. `dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
+1. Eseguire l'app: `dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
 
 L'output della console per l'app, in cui sono indicati gli eventuali errori, verrà inviato alla console Kudu.
 
@@ -500,7 +500,7 @@ Un *dump di arresto anomalo* del sistema è uno snapshot della memoria del siste
 Ottenere e analizzare un dump da [Segnalazione errori Windows](/windows/desktop/wer/windows-error-reporting):
 
 1. Creare una cartella per i file dump di arresto anomalo del sistema in `c:\dumps`. Il pool di app deve avere accesso in scrittura alla cartella.
-1. Eseguire lo [script di PowerShell EnableDumps](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/test/troubleshoot-azure-iis/scripts/EnableDumps.ps1):
+1. Eseguire lo [script di PowerShell EnableDumps](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/test/troubleshoot-azure-iis/scripts/EnableDumps.ps1):
    * Se l'app usa il [modello di hosting in-process](xref:host-and-deploy/iis/index#in-process-hosting-model), eseguire lo script per *w3wp.exe*:
 
      ```console
@@ -514,7 +514,7 @@ Ottenere e analizzare un dump da [Segnalazione errori Windows](/windows/desktop/
      ```
 
 1. Eseguire l'app nelle condizioni che causano l'arresto anomalo.
-1. Dopo che si è verificato l'arresto anomalo, eseguire lo [script di PowerShell DisableDumps](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/test/troubleshoot-azure-iis/scripts/DisableDumps.ps1):
+1. Dopo che si è verificato l'arresto anomalo, eseguire lo [script di PowerShell DisableDumps](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/test/troubleshoot-azure-iis/scripts/DisableDumps.ps1):
    * Se l'app usa il [modello di hosting in-process](xref:host-and-deploy/iis/index#in-process-hosting-model), eseguire lo script per *w3wp.exe*:
 
      ```console
@@ -747,7 +747,7 @@ L'output della console per l'app, in cui sono indicati gli eventuali errori, ver
 *Richiede l'installazione dell'estensione del sito del runtime ASP.NET Core {VERSION} (x86).*
 
 1. `cd D:\home\SiteExtensions\AspNetCoreRuntime.{X.Y}.x32` (`{X.Y}` è la versione di runtime)
-1. Eseguire l'app. `dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
+1. Eseguire l'app: `dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
 
 L'output della console per l'app, in cui sono indicati gli eventuali errori, verrà inviato alla console Kudu.
 
@@ -757,10 +757,10 @@ L'output della console per l'app, in cui sono indicati gli eventuali errori, ver
 
 * Se l'app è una [distribuzione dipendente dal framework](/dotnet/core/deploying/#framework-dependent-deployments-fdd) a 64 bit (x64):
   1. `cd D:\Program Files\dotnet`
-  1. Eseguire l'app. `dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
+  1. Eseguire l'app: `dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
 * Se l'app è una [distribuzione autonoma](/dotnet/core/deploying/#self-contained-deployments-scd):
   1. `cd D:\home\site\wwwroot`
-  1. Eseguire l'app. `{ASSEMBLY NAME}.exe`
+  1. Eseguire l'app: `{ASSEMBLY NAME}.exe`
 
 L'output della console per l'app, in cui sono indicati gli eventuali errori, verrà inviato alla console Kudu.
 
@@ -769,7 +769,7 @@ L'output della console per l'app, in cui sono indicati gli eventuali errori, ver
 *Richiede l'installazione dell'estensione del sito del runtime ASP.NET Core {VERSION} (x64).*
 
 1. `cd D:\home\SiteExtensions\AspNetCoreRuntime.{X.Y}.x64` (`{X.Y}` è la versione di runtime)
-1. Eseguire l'app. `dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
+1. Eseguire l'app: `dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
 
 L'output della console per l'app, in cui sono indicati gli eventuali errori, verrà inviato alla console Kudu.
 
@@ -993,7 +993,7 @@ Un *dump di arresto anomalo* del sistema è uno snapshot della memoria del siste
 Ottenere e analizzare un dump da [Segnalazione errori Windows](/windows/desktop/wer/windows-error-reporting):
 
 1. Creare una cartella per i file dump di arresto anomalo del sistema in `c:\dumps`. Il pool di app deve avere accesso in scrittura alla cartella.
-1. Eseguire lo [script di PowerShell EnableDumps](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/test/troubleshoot-azure-iis/scripts/EnableDumps.ps1):
+1. Eseguire lo [script di PowerShell EnableDumps](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/test/troubleshoot-azure-iis/scripts/EnableDumps.ps1):
    * Se l'app usa il [modello di hosting in-process](xref:host-and-deploy/iis/index#in-process-hosting-model), eseguire lo script per *w3wp.exe*:
 
      ```console
@@ -1007,7 +1007,7 @@ Ottenere e analizzare un dump da [Segnalazione errori Windows](/windows/desktop/
      ```
 
 1. Eseguire l'app nelle condizioni che causano l'arresto anomalo.
-1. Dopo che si è verificato l'arresto anomalo, eseguire lo [script di PowerShell DisableDumps](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/test/troubleshoot-azure-iis/scripts/DisableDumps.ps1):
+1. Dopo che si è verificato l'arresto anomalo, eseguire lo [script di PowerShell DisableDumps](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/test/troubleshoot-azure-iis/scripts/DisableDumps.ps1):
    * Se l'app usa il [modello di hosting in-process](xref:host-and-deploy/iis/index#in-process-hosting-model), eseguire lo script per *w3wp.exe*:
 
      ```console
@@ -1225,7 +1225,7 @@ L'output della console per l'app, in cui sono indicati gli eventuali errori, ver
 *Richiede l'installazione dell'estensione del sito del runtime ASP.NET Core {VERSION} (x86).*
 
 1. `cd D:\home\SiteExtensions\AspNetCoreRuntime.{X.Y}.x32` (`{X.Y}` è la versione di runtime)
-1. Eseguire l'app. `dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
+1. Eseguire l'app: `dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
 
 L'output della console per l'app, in cui sono indicati gli eventuali errori, verrà inviato alla console Kudu.
 
@@ -1235,10 +1235,10 @@ L'output della console per l'app, in cui sono indicati gli eventuali errori, ver
 
 * Se l'app è una [distribuzione dipendente dal framework](/dotnet/core/deploying/#framework-dependent-deployments-fdd) a 64 bit (x64):
   1. `cd D:\Program Files\dotnet`
-  1. Eseguire l'app. `dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
+  1. Eseguire l'app: `dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
 * Se l'app è una [distribuzione autonoma](/dotnet/core/deploying/#self-contained-deployments-scd):
   1. `cd D:\home\site\wwwroot`
-  1. Eseguire l'app. `{ASSEMBLY NAME}.exe`
+  1. Eseguire l'app: `{ASSEMBLY NAME}.exe`
 
 L'output della console per l'app, in cui sono indicati gli eventuali errori, verrà inviato alla console Kudu.
 
@@ -1247,7 +1247,7 @@ L'output della console per l'app, in cui sono indicati gli eventuali errori, ver
 *Richiede l'installazione dell'estensione del sito del runtime ASP.NET Core {VERSION} (x64).*
 
 1. `cd D:\home\SiteExtensions\AspNetCoreRuntime.{X.Y}.x64` (`{X.Y}` è la versione di runtime)
-1. Eseguire l'app. `dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
+1. Eseguire l'app: `dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
 
 L'output della console per l'app, in cui sono indicati gli eventuali errori, verrà inviato alla console Kudu.
 
@@ -1424,7 +1424,7 @@ Un *dump di arresto anomalo* del sistema è uno snapshot della memoria del siste
 Ottenere e analizzare un dump da [Segnalazione errori Windows](/windows/desktop/wer/windows-error-reporting):
 
 1. Creare una cartella per i file dump di arresto anomalo del sistema in `c:\dumps`. Il pool di app deve avere accesso in scrittura alla cartella.
-1. Eseguire lo [script di PowerShell EnableDumps](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/test/troubleshoot-azure-iis/scripts/EnableDumps.ps1):
+1. Eseguire lo [script di PowerShell EnableDumps](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/test/troubleshoot-azure-iis/scripts/EnableDumps.ps1):
    * Se l'app usa il [modello di hosting in-process](xref:host-and-deploy/iis/index#in-process-hosting-model), eseguire lo script per *w3wp.exe*:
 
      ```console
@@ -1438,7 +1438,7 @@ Ottenere e analizzare un dump da [Segnalazione errori Windows](/windows/desktop/
      ```
 
 1. Eseguire l'app nelle condizioni che causano l'arresto anomalo.
-1. Dopo che si è verificato l'arresto anomalo, eseguire lo [script di PowerShell DisableDumps](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/test/troubleshoot-azure-iis/scripts/DisableDumps.ps1):
+1. Dopo che si è verificato l'arresto anomalo, eseguire lo [script di PowerShell DisableDumps](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/test/troubleshoot-azure-iis/scripts/DisableDumps.ps1):
    * Se l'app usa il [modello di hosting in-process](xref:host-and-deploy/iis/index#in-process-hosting-model), eseguire lo script per *w3wp.exe*:
 
      ```console

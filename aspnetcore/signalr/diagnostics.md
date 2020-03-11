@@ -10,29 +10,29 @@ no-loc:
 - SignalR
 uid: signalr/diagnostics
 ms.openlocfilehash: c5bd2ac27f8ca486b0d75aed8439747f72448625
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963850"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78660972"
 ---
-# <a name="logging-and-diagnostics-in-aspnet-core-opno-locsignalr"></a>Registrazione e diagnostica in ASP.NET Core SignalR
+# <a name="logging-and-diagnostics-in-aspnet-core-signalr"></a>Registrazione e diagnostica in ASP.NET Core SignalR
 
 Di [Andrew Stanton-Nurse](https://twitter.com/anurse)
 
-Questo articolo fornisce indicazioni per la raccolta di dati diagnostici dall'app ASP.NET Core SignalR per facilitare la risoluzione dei problemi.
+Questo articolo fornisce indicazioni per la raccolta di dati diagnostici dall'app SignalR ASP.NET Core per facilitare la risoluzione dei problemi.
 
 ## <a name="server-side-logging"></a>Registrazione lato server
 
 > [!WARNING]
 > I log lato server possono contenere informazioni riservate dall'app. **Non pubblicare mai log non** elaborati dalle app di produzione nei forum pubblici come github.
 
-Poiché SignalR fa parte di ASP.NET Core, usa il sistema di registrazione ASP.NET Core. Nella configurazione predefinita SignalR registra informazioni molto piccole, ma è possibile configurarle. Per informazioni dettagliate sulla configurazione della registrazione ASP.NET Core, vedere la documentazione relativa alla [registrazione di ASP.NET Core](xref:fundamentals/logging/index#configuration) .
+Poiché SignalR fa parte di ASP.NET Core, usa il sistema di registrazione ASP.NET Core. Nella configurazione predefinita, SignalR registra pochissime informazioni, ma ciò può essere configurato. Per informazioni dettagliate sulla configurazione della registrazione ASP.NET Core, vedere la documentazione relativa alla [registrazione di ASP.NET Core](xref:fundamentals/logging/index#configuration) .
 
 SignalR usa due categorie di logger:
 
 * `Microsoft.AspNetCore.SignalR` &ndash; per i log relativi ai protocolli Hub, all'attivazione di hub, alla chiamata di metodi e ad altre attività correlate all'hub.
-* `Microsoft.AspNetCore.Http.Connections` &ndash; per i log relativi a trasporti quali WebSocket, polling prolungato ed eventi inviati dal server e l'infrastruttura di SignalR di basso livello.
+* `Microsoft.AspNetCore.Http.Connections` &ndash; per i log relativi a trasporti quali WebSocket, polling prolungato ed eventi inviati dal server e dall'infrastruttura SignalR di basso livello.
 
 Per abilitare i log dettagliati da SignalR, configurare entrambi i prefissi precedenti al livello di `Debug` nel file *appSettings. JSON* aggiungendo gli elementi seguenti alla sottosezione `LogLevel` in `Logging`:
 
@@ -57,7 +57,7 @@ La modalità di accesso ai log lato server dipende dall'ambiente in cui si esegu
 
 ### <a name="as-a-console-app-outside-iis"></a>Come app console all'esterno di IIS
 
-Se è in esecuzione un'app console, il [logger della console](xref:fundamentals/logging/index#console-provider) deve essere abilitato per impostazione predefinita. i log SignalR verranno visualizzati nella console di.
+Se è in esecuzione un'app console, il [logger della console](xref:fundamentals/logging/index#console-provider) deve essere abilitato per impostazione predefinita. I log di SignalR verranno visualizzati nella console di.
 
 ### <a name="within-iis-express-from-visual-studio"></a>All'interno IIS Express da Visual Studio
 
@@ -96,7 +96,7 @@ La tabella seguente illustra i livelli di log disponibili per il client JavaScri
 
 Dopo aver configurato il livello di dettaglio, i log verranno scritti nella console del browser o nell'output standard in un'app NodeJS.
 
-Se si desidera inviare i log a un sistema di registrazione personalizzato, è possibile fornire un oggetto JavaScript che implementi l'interfaccia `ILogger`. L'unico metodo che deve essere implementato è `log`, che accetta il livello dell'evento e il messaggio associato all'evento. Esempio:
+Se si desidera inviare i log a un sistema di registrazione personalizzato, è possibile fornire un oggetto JavaScript che implementi l'interfaccia `ILogger`. L'unico metodo che deve essere implementato è `log`, che accetta il livello dell'evento e il messaggio associato all'evento. Ad esempio:
 
 [!code-typescript[](diagnostics/custom-logger.ts?highlight=3-7,13)]
 
@@ -107,7 +107,7 @@ Se si desidera inviare i log a un sistema di registrazione personalizzato, è po
 
 Per ottenere i log dal client .NET, è possibile usare il metodo `ConfigureLogging` su `HubConnectionBuilder`. Funziona allo stesso modo del metodo `ConfigureLogging` in `WebHostBuilder` e `HostBuilder`. È possibile configurare gli stessi provider di registrazione usati in ASP.NET Core. Tuttavia, è necessario installare e abilitare manualmente i pacchetti NuGet per i singoli provider di registrazione.
 
-### <a name="console-logging"></a>Registrazione della console
+### <a name="console-logging"></a>Registrazione console
 
 Per abilitare la registrazione della console, aggiungere il pacchetto [Microsoft. Extensions. Logging. console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console) . Usare quindi il metodo `AddConsole` per configurare il logger della console:
 
@@ -170,7 +170,7 @@ La maggior parte del browser Strumenti di sviluppo dispone di una scheda di rete
 
 ### <a name="microsoft-edge-and-internet-explorer"></a>Microsoft Edge e Internet Explorer
 
-(Le istruzioni sono le stesse per Microsoft Edge e Internet Explorer)
+(Le istruzioni sono le stesse sia per Microsoft Edge che per Internet Explorer)
 
 1. Premere F12 per aprire gli strumenti di sviluppo
 2. Fare clic sulla scheda rete

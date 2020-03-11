@@ -8,11 +8,11 @@ ms.custom: mvc
 ms.date: 11/07/2019
 uid: host-and-deploy/visual-studio-publish-profiles
 ms.openlocfilehash: 274dd2cd528d3766aa07f69aac3470a131c79ffe
-ms.sourcegitcommit: 67116718dc33a7a01696d41af38590fdbb58e014
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73799342"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78659376"
 ---
 # <a name="visual-studio-publish-profiles-pubxml-for-aspnet-core-app-deployment"></a>Profili di pubblicazione di Visual Studio (con estensione pubxml) per la distribuzione di app ASP.NET Core
 
@@ -28,7 +28,7 @@ Il comando `dotnet new mvc` genera un file di progetto che contiene l'[elemento 
 </Project>
 ```
 
-L'attributo `Sdk` dell'elemento `<Project>` precedente importa le [proprietà](/visualstudio/msbuild/msbuild-properties) e le [destinazioni](/visualstudio/msbuild/msbuild-targets) di MSBuild rispettivamente da *$(MSBuildSDKsPath)\Microsoft.NET.Sdk.Web\Sdk\Sdk.props* e *$(MSBuildSDKsPath)\Microsoft.NET.Sdk.Web\Sdk\Sdk.targets*. Il percorso predefinito per `$(MSBuildSDKsPath)` (con Visual Studio 2019 Enterprise) è la cartella *%programfiles(x86)%\Microsoft Visual Studio\2019\Enterprise\MSBuild\Sdks*.
+L'attributo `<Project>` dell'elemento `Sdk` precedente importa le [proprietà](/visualstudio/msbuild/msbuild-properties) e le [destinazioni](/visualstudio/msbuild/msbuild-targets) di MSBuild rispettivamente da *$(MSBuildSDKsPath)\Microsoft.NET.Sdk.Web\Sdk\Sdk.props* e *$(MSBuildSDKsPath)\Microsoft.NET.Sdk.Web\Sdk\Sdk.targets*. Il percorso predefinito per `$(MSBuildSDKsPath)` (con Visual Studio 2019 Enterprise) è la cartella *%programfiles(x86)%\Microsoft Visual Studio\2019\Enterprise\MSBuild\Sdks*.
 
 `Microsoft.NET.Sdk.Web` (Web SDK) dipende da altri SDK, tra cui `Microsoft.NET.Sdk` (.NET Core SDK) e `Microsoft.NET.Sdk.Razor` ([Razor SDK](xref:razor-pages/sdk)). Vengono importate le proprietà e le destinazioni di MSBuild associate a ogni SDK dipendente. Le destinazioni di pubblicazione importano il set appropriato di destinazioni in base al metodo di pubblicazione usato.
 
@@ -42,7 +42,7 @@ Quando MSBuild o Visual Studio carica un progetto, vengono eseguite le azioni di
 
 Quando viene caricato il progetto, vengono calcolati gli [elementi del progetto di MSBuild](/visualstudio/msbuild/common-msbuild-project-items) (file). Il tipo di elemento determina la modalità di elaborazione del file. Per impostazione predefinita, i file *cs* sono inclusi nell'elenco di elementi `Compile`. I file presenti nell'elenco di elementi `Compile` vengono compilati.
 
-L'elenco di elementi `Content` contiene i file che sono pubblicati in aggiunta agli output di compilazione. Per impostazione predefinita, i file corrispondenti ai criteri `wwwroot\**`, `**\*.config` e `**\*.json` vengono inclusi nell'elenco di elementi `Content`. Il [criterio GLOB](https://gruntjs.com/configuring-tasks#globbing-patterns) `wwwroot\**`, ad esempio, specifica tutti i file nella cartella *wwwroot* e relative sottocartelle.
+L'elenco di elementi `Content` contiene i file che sono pubblicati in aggiunta agli output di compilazione. Per impostazione predefinita, i file corrispondenti ai criteri `wwwroot\**`, `**\*.config` e `**\*.json` vengono inclusi nell'elenco di elementi `Content`. Ad esempio, il modello di `wwwroot\**` [glob](https://gruntjs.com/configuring-tasks#globbing-patterns) corrisponde a tutti i file nella cartella *wwwroot* e nelle relative sottocartelle.
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -70,7 +70,7 @@ Quando un progetto ASP.NET Core fa riferimento a `Microsoft.NET.Sdk.Web` nel fil
 
 ## <a name="basic-command-line-publishing"></a>Pubblicazione di base dalla riga di comando
 
-La pubblicazione dalla riga di comando funziona su tutte le piattaforme supportate da .NET Core e non richiede Visual Studio. Negli esempi seguenti il comando [dotnet publish](/dotnet/core/tools/dotnet-publish) dell'interfaccia della riga di comando di .NET Core viene eseguito dalla directory del progetto (che contiene il file con estensione *csproj*). Se la cartella del progetto non è la directory di lavoro corrente, passare in modo esplicito il percorso del file di progetto. Esempio:
+La pubblicazione dalla riga di comando funziona su tutte le piattaforme supportate da .NET Core e non richiede Visual Studio. Negli esempi seguenti il comando [dotnet publish](/dotnet/core/tools/dotnet-publish) dell'interfaccia della riga di comando di .NET Core viene eseguito dalla directory del progetto (che contiene il file con estensione *csproj*). Se la cartella del progetto non è la directory di lavoro corrente, passare in modo esplicito il percorso del file di progetto. Ad esempio:
 
 ```dotnetcli
 dotnet publish C:\Webs\Web1
@@ -125,7 +125,7 @@ Questa sezione usa Visual Studio 2019 o versioni successive per creare un profil
 
 Creare un profilo di pubblicazione in Visual Studio scegliendo uno dei seguenti percorsi:
 
-* Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **pubblica**.
+* Fare clic con il pulsante destro del mouse in **Esplora soluzioni**, quindi scegliere **Pubblica**.
 * Selezionare **Pubblica {NOME PROGETTO}** dal menu **Compila**.
 
 Verrà visualizzata la scheda **Pubblica** della pagina di capacità dell'app. Se il progetto non ha un profilo di pubblicazione, viene visualizzata la pagina **Selezionare una destinazione di pubblicazione**. Viene richiesto di selezionare una delle destinazioni di pubblicazione seguenti:
@@ -307,7 +307,7 @@ msbuild {PATH}
 * {PROFILO} &ndash; Nome del profilo di pubblicazione.
 * {NOMEUTENTE} &ndash; Nome utente MSDeploy. {NOMEUTENTE} è disponibile nel profilo di pubblicazione.
 * {PASSWORD} &ndash; Password di MSDeploy. Il valore {PASSWORD} è disponibile nel file *{PROFILO}.PublishSettings*. Scaricare il file *.PublishSettings* da:
-  * **Esplora soluzioni**: selezionare **Visualizza**  > **Cloud Explorer**. Connettersi alla sottoscrizione di Azure. Aprire **Servizi app**. Fare clic con il pulsante destro del mouse sull'app. Selezionare **Scarica profilo di pubblicazione**.
+  * **Esplora soluzioni**: selezionare **Visualizza** > **Cloud Explorer**. Connettersi alla sottoscrizione di Azure. Aprire **Servizi app**. Fare clic con il pulsante destro del mouse sull'app. Selezionare **Scarica profilo di pubblicazione**.
   * Portale di Azure: selezionare **Ottieni profilo di pubblicazione** nel pannello **Panoramica** dell'app Web.
 
 L'esempio seguente usa un profilo di pubblicazione denominato *AzureWebApp - Web Deploy*:
@@ -465,7 +465,7 @@ Il markup evidenziato nell'esempio seguente dimostra:
 
 [!code-xml[](visual-studio-publish-profiles/samples/Web1.pubxml?highlight=18-23)]
 
-L'esempio precedente usa l'elemento `ResolvedFileToPublish`, il cui comportamento predefinito consiste nel copiare sempre i file specificati nell'attributo `Include` nel sito pubblicato. Eseguire l'override del comportamento predefinito, includendo un elemento figlio `<CopyToPublishDirectory>` con il testo interno `Never` o `PreserveNewest`. Esempio:
+L'esempio precedente usa l'elemento `ResolvedFileToPublish`, il cui comportamento predefinito consiste nel copiare sempre i file specificati nell'attributo `Include` nel sito pubblicato. Eseguire l'override del comportamento predefinito, includendo un elemento figlio `<CopyToPublishDirectory>` con il testo interno `Never` o `PreserveNewest`. Ad esempio:
 
 ```xml
 <ResolvedFileToPublish Include="..\ReadMe2.md">
@@ -501,7 +501,7 @@ Aggiungere la proprietà `<AllowUntrustedCertificate>` con un valore `True` al p
 
 ## <a name="the-kudu-service"></a>Servizio Kudu
 
-Per visualizzare i file in una distribuzione di app Web di Servizio app di Azure, usare il [servizio Kudu](https://github.com/projectkudu/kudu/wiki/Accessing-the-kudu-service). Accodare il token `scm` al nome dell'app Web. Esempio:
+Per visualizzare i file in una distribuzione di app Web di Servizio app di Azure, usare il [servizio Kudu](https://github.com/projectkudu/kudu/wiki/Accessing-the-kudu-service). Accodare il token `scm` al nome dell'app Web. Ad esempio:
 
 | URL                                    | Risultato       |
 | -------------------------------------- | ------------ |

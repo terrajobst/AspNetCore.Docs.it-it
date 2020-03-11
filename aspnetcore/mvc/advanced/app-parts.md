@@ -5,12 +5,12 @@ description: Condividi controller, Visualizza, Razor Pages e altro con le parti 
 ms.author: riande
 ms.date: 11/11/2019
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: a95c344410db0651b9f8f1c1eb7551029f084c25
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 0156c94bc6d0b83d0e14b8ef49468cfdf106d7e6
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829075"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667132"
 ---
 # <a name="share-controllers-views-razor-pages-and-more-with-application-parts"></a>Condividi controller, visualizzazioni, Razor Pages e altro ancora con le parti dell'applicazione
 
@@ -18,7 +18,7 @@ ms.locfileid: "75829075"
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 Una *parte dell'applicazione* è un'astrazione sulle risorse di un'app. Le parti dell'applicazione consentono ASP.NET Core di individuare controller, componenti di visualizzazione, helper tag, Razor Pages, origini di compilazione Razor e altro ancora. <xref:Microsoft.AspNetCore.Mvc.ApplicationParts.AssemblyPart> è una parte dell'applicazione. `AssemblyPart` incapsula un riferimento all'assembly ed espone i tipi e i riferimenti di compilazione.
 
@@ -36,7 +36,7 @@ Il codice seguente offre un approccio alternativo alla configurazione di `Applic
 
 [!code-csharp[](./app-parts/3.0sample1/WebAppParts/Startup2.cs?name=snippet)]
 
-I due esempi di codice precedenti caricano il `SharedController` da un assembly. Il `SharedController` non è presente nel progetto dell'app. Vedere il download dell'esempio di [soluzione WebAppParts](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/3.0sample1/WebAppParts) .
+I due esempi di codice precedenti caricano il `SharedController` da un assembly. Il `SharedController` non è presente nel progetto dell'app. Vedere il download dell'esempio di [soluzione WebAppParts](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/3.0sample1/WebAppParts) .
 
 ### <a name="include-views"></a>Includi visualizzazioni
 
@@ -74,7 +74,7 @@ Le funzionalità disponibili per un'app possono essere enumerate richiedendo un 
 
 [!code-csharp[](./app-parts/sample2/AppPartsSample/Controllers/FeaturesController.cs?highlight=16,25-27)]
 
-L' [esempio di download](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample2) usa il codice precedente per visualizzare le funzionalità dell'app:
+L' [esempio di download](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample2) usa il codice precedente per visualizzare le funzionalità dell'app:
 
 ```text
 Controllers:
@@ -108,7 +108,7 @@ Gli errori HTTP 404 non sono rari durante lo sviluppo con le parti dell'applicaz
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 Una *parte dell'applicazione* è un'astrazione sulle risorse di un'app. Le parti dell'applicazione consentono ASP.NET Core di individuare controller, componenti di visualizzazione, helper tag, Razor Pages, origini di compilazione Razor e altro ancora. [AssemblyPart](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.assemblypart#Microsoft_AspNetCore_Mvc_ApplicationParts_AssemblyPart) è una parte dell'applicazione. `AssemblyPart` incapsula un riferimento all'assembly ed espone i tipi e i riferimenti di compilazione.
 
@@ -126,7 +126,7 @@ Il codice seguente offre un approccio alternativo alla configurazione di `Applic
 
 [!code-csharp[](./app-parts/sample1/WebAppParts/Startup2.cs?name=snippet)]
 
-I due esempi di codice precedenti caricano il `SharedController` da un assembly. Il `SharedController` non è presente nel progetto dell'applicazione. Vedere il download dell'esempio di [soluzione WebAppParts](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample1/WebAppParts) .
+I due esempi di codice precedenti caricano il `SharedController` da un assembly. Il `SharedController` non è presente nel progetto dell'applicazione. Vedere il download dell'esempio di [soluzione WebAppParts](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample1/WebAppParts) .
 
 ### <a name="include-views"></a>Includi visualizzazioni
 
@@ -160,7 +160,7 @@ Le funzionalità disponibili per un'app possono essere enumerate richiedendo un 
 
 [!code-csharp[](./app-parts/sample2/AppPartsSample/Controllers/FeaturesController.cs?highlight=16,25-27)]
 
-L' [esempio di download](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample2) usa il codice precedente per visualizzare le funzionalità dell'app:
+L' [esempio di download](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample2) usa il codice precedente per visualizzare le funzionalità dell'app:
 
 ```text
 Controllers:

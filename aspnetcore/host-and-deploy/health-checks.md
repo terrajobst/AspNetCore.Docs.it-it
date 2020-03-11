@@ -1,22 +1,22 @@
 ---
 title: Controlli di integrità in ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Informazioni su come configurare i controlli di integrità per l'infrastruttura ASP.NET Core, ad esempio database e app.
 monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.custom: mvc
 ms.date: 12/15/2019
 uid: host-and-deploy/health-checks
-ms.openlocfilehash: 33e5e71983a55b4ee30436d8e9e1e04186259a5d
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 314e55c818cddf1dad2e3ec74d4d1e041ce7366f
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829218"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664885"
 ---
 # <a name="health-checks-in-aspnet-core"></a>Controlli di integrità in ASP.NET Core
 
-Di [Luke Latham](https://github.com/guardrex) e [Glenn Condron](https://github.com/glennc)
+Di [Glenn Condron](https://github.com/glennc)
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -28,11 +28,11 @@ I controlli di integrità vengono esposti da un'app come endpoint HTTP. È possi
 * È possibile monitorare lo stato di integrità di memoria, disco e altre risorse fisiche del server.
 * I controlli di integrità possono testare le dipendenze di un'app, ad esempio i database e gli endpoint di servizio esterni, per verificare la disponibilità e il normale funzionamento.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/health-checks/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/health-checks/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 L'app di esempio include esempi degli scenari descritti in questo argomento. Per eseguire l'app di esempio per un determinato scenario, usare il comando [dotnet run](/dotnet/core/tools/dotnet-run) dalla cartella del progetto in una shell dei comandi. Per informazioni dettagliate su come usare l'app di esempio, vedere il file *README.md* dell'app di esempio e le descrizioni degli scenari in questo argomento.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 I controlli di integrità vengono in genere usati con un servizio di monitoraggio esterno o un agente di orchestrazione per controllare lo stato di un'app. Prima di aggiungere i controlli di integrità a un'app, decidere quale sistema di monitoraggio usare. Il sistema di monitoraggio determina quali tipi di controlli di integrità creare e come configurare i relativi endpoint.
 
@@ -221,7 +221,7 @@ app.UseEndpoints(endpoints =>
 
 ### <a name="enable-cross-origin-requests-cors"></a>Abilitare richieste tra le origini (CORS)
 
-Sebbene i controlli di integrità eseguiti manualmente da un browser non siano uno scenario di utilizzo comune, il middleware CORS può essere abilitato chiamando `RequireCors` sugli endpoint di controllo dell'integrità. Un overload di `RequireCors` accetta un delegato del generatore di criteri CORS (`CorsPolicyBuilder`) o un nome di criterio. Se non viene specificato alcun criterio, viene usato il criterio CORS predefinito. Per ulteriori informazioni, vedere <xref:security/cors>.
+Sebbene i controlli di integrità eseguiti manualmente da un browser non siano uno scenario di utilizzo comune, il middleware CORS può essere abilitato chiamando `RequireCors` sugli endpoint di controllo dell'integrità. Un overload di `RequireCors` accetta un delegato del generatore di criteri CORS (`CorsPolicyBuilder`) o un nome di criterio. Se non viene specificato alcun criterio, viene usato il criterio CORS predefinito. Per altre informazioni, vedere <xref:security/cors>.
 
 ## <a name="health-check-options"></a>Opzioni dei controlli di integrità
 
@@ -550,7 +550,7 @@ dotnet run --scenario writer
 >
 > [AspNetCore. Diagnostics. HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) non è gestito né supportato da Microsoft.
 
-## <a name="filter-by-port"></a>Filtrare in base alla porta
+## <a name="filter-by-port"></a>Filtro per porta
 
 Chiamare `RequireHost` su `MapHealthChecks` con un modello di URL che specifica una porta per limitare le richieste di controllo integrità alla porta specificata. Questa chiamata viene in genere usata nell'ambiente di un contenitore per esporre una porta per il monitoraggio dei servizi.
 
@@ -783,7 +783,7 @@ app.UseEndpoints(endpoints =>
 });
 ```
 
-Per ulteriori informazioni, vedere <xref:fundamentals/middleware/index#use-run-and-map>.
+Per altre informazioni, vedere <xref:fundamentals/middleware/index#use-run-and-map>.
 
 ::: moniker-end
 
@@ -797,11 +797,11 @@ I controlli di integrità vengono esposti da un'app come endpoint HTTP. È possi
 * È possibile monitorare lo stato di integrità di memoria, disco e altre risorse fisiche del server.
 * I controlli di integrità possono testare le dipendenze di un'app, ad esempio i database e gli endpoint di servizio esterni, per verificare la disponibilità e il normale funzionamento.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/health-checks/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/health-checks/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 L'app di esempio include esempi degli scenari descritti in questo argomento. Per eseguire l'app di esempio per un determinato scenario, usare il comando [dotnet run](/dotnet/core/tools/dotnet-run) dalla cartella del progetto in una shell dei comandi. Per informazioni dettagliate su come usare l'app di esempio, vedere il file *README.md* dell'app di esempio e le descrizioni degli scenari in questo argomento.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 I controlli di integrità vengono in genere usati con un servizio di monitoraggio esterno o un agente di orchestrazione per controllare lo stato di un'app. Prima di aggiungere i controlli di integrità a un'app, decidere quale sistema di monitoraggio usare. Il sistema di monitoraggio determina quali tipi di controlli di integrità creare e come configurare i relativi endpoint.
 
@@ -1255,7 +1255,7 @@ dotnet run --scenario writer
 >
 > [AspNetCore. Diagnostics. HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) non è gestito né supportato da Microsoft.
 
-## <a name="filter-by-port"></a>Filtrare in base alla porta
+## <a name="filter-by-port"></a>Filtro per porta
 
 La chiamata a <xref:Microsoft.AspNetCore.Builder.HealthCheckApplicationBuilderExtensions.UseHealthChecks*> con una porta limita le richieste di controllo dell'integrità alla porta specificata. Questa chiamata viene in genere usata nell'ambiente di un contenitore per esporre una porta per il monitoraggio dei servizi.
 
@@ -1471,6 +1471,6 @@ app.MapWhen(
 app.UseMvc();
 ```
 
-Per ulteriori informazioni, vedere <xref:fundamentals/middleware/index#use-run-and-map>.
+Per altre informazioni, vedere <xref:fundamentals/middleware/index#use-run-and-map>.
 
 ::: moniker-end

@@ -11,11 +11,11 @@ no-loc:
 - SignalR
 uid: blazor/templated-components
 ms.openlocfilehash: b64d6a731e540b13c50b2c6108f75efd0ac9290c
-ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77453226"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78657717"
 ---
 # <a name="aspnet-core-opno-locblazor-templated-components"></a>ASP.NET Core Blazor componenti basati su modelli
 
@@ -26,7 +26,7 @@ I componenti basati su modelli sono componenti che accettano uno o più modelli 
 * Componente della tabella che consente a un utente di specificare i modelli per l'intestazione, le righe e il piè di pagina della tabella.
 * Componente di elenco che consente a un utente di specificare un modello per il rendering degli elementi in un elenco.
 
-## <a name="template-parameters"></a>Parametri modello
+## <a name="template-parameters"></a>Parametri del modello
 
 Un componente basato su modelli viene definito specificando uno o più parametri del componente di tipo `RenderFragment` o `RenderFragment<T>`. Un frammento di rendering rappresenta un segmento di interfaccia utente di cui eseguire il rendering. `RenderFragment<T>` accetta un parametro di tipo che può essere specificato quando viene richiamato il frammento di rendering.
 

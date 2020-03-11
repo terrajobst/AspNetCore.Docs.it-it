@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/10/2019
 uid: test/troubleshoot
-ms.openlocfilehash: 73a73fb51571e5f7b706ff4b958217854750c1fb
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: 042e1c84a7226cb4bf56bcc0ff4e576b67e68e1b
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75354704"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78655302"
 ---
 # <a name="troubleshoot-and-debug-aspnet-core-projects"></a>Risolvere i problemi ed eseguire il debug di progetti ASP.NET Core
 
@@ -60,7 +60,7 @@ Disinstallare tutti i runtime e gli SDK di .NET Core a 32 bit per evitare questo
 
   > Non è stato possibile trovare gli SDK DotNet installati.
 
-Questi avvisi vengono visualizzati quando la variabile di ambiente `PATH` non punta ad alcun SDK di .NET Core nel computer. Per risolvere il problema:
+Questi avvisi vengono visualizzati quando la variabile di ambiente `PATH` non punta ad alcun SDK di .NET Core nel computer. Per risolvere questo problema:
 
 * Installare .NET Core SDK. Ottenere il programma di installazione più recente da [download di .NET](https://dotnet.microsoft.com/download).
 * Verificare che la variabile di ambiente `PATH` punti al percorso in cui è installato l'SDK (`C:\Program Files\dotnet\` per a 64 bit/x64 o `C:\Program Files (x86)\dotnet\` per 32 bit/x86). Il programma di installazione di SDK imposta in genere il `PATH`. Installare sempre gli stessi SDK e Runtime bit nello stesso computer.
@@ -170,4 +170,4 @@ I collegamenti seguenti forniscono informazioni sul debug di ASP.NET Core app.
 * [Debug di ASP core in Linux](https://devblogs.microsoft.com/premier-developer/debugging-asp-core-on-linux-with-visual-studio-2017/)
 * [Debug di .NET Core su UNIX tramite SSH](https://devblogs.microsoft.com/devops/debugging-net-core-on-unix-over-ssh/)
 * [Guida introduttiva: eseguire il debug di ASP.NET con il debugger di Visual Studio](/visualstudio/debugger/quickstart-debug-aspnet)
-* Per ulteriori informazioni sul debug, vedere [questo problema di GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/2960) .
+* Per ulteriori informazioni sul debug, vedere [questo problema di GitHub](https://github.com/dotnet/AspNetCore.Docs/issues/2960) .

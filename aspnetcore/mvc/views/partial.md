@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/12/2019
 uid: mvc/views/partial
-ms.openlocfilehash: 50c4f41d5d3099184aa3992ed7e176b74c488d2a
-ms.sourcegitcommit: 805f625d16d74e77f02f5f37326e5aceafcb78e3
+ms.openlocfilehash: 04b6d6e620f34ac7154728b1b3048195e87c5860
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70985562"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78663051"
 ---
 # <a name="partial-views-in-aspnet-core"></a>Visualizzazioni parziali in ASP.NET Core
 
-Di [Steve Smith](https://ardalis.com/), [Luke Latham](https://github.com/guardrex), [Maher JENDOUBI](https://twitter.com/maherjend), [Rick Anderson](https://twitter.com/RickAndMSFT) e [Scott Sauber](https://twitter.com/scottsauber)
+Di [Steve Smith](https://ardalis.com/), [Maher JENDOUBI](https://twitter.com/maherjend), [Rick Anderson](https://twitter.com/RickAndMSFT) e [Scott Sauber](https://twitter.com/scottsauber)
 
 Una visualizzazione parziale è un file di markup [Razor](xref:mvc/views/razor) (con estensione *cshtml*) che esegue il rendering dell'output HTML *all'interno* dell'output sottoposto a rendering di un altro file di markup.
 
@@ -25,7 +25,7 @@ Il termine *visualizzazione parziale* viene usato nell'ambito dello sviluppo di 
 
 ::: moniker-end
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/partial/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/partial/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-partial-views"></a>Quando usare le visualizzazioni parziali
 
@@ -266,7 +266,7 @@ Le convenzioni seguenti si applicano all'individuazione delle visualizzazioni pa
 * Le visualizzazioni parziali possono essere *concatenate*, che significa che una visualizzazione parziale può chiamarne un'altra se le chiamate non formano un riferimento circolare. I percorsi relativi sono sempre relativi al file corrente, non alla radice o al padre del file.
 
 > [!NOTE]
-> Un oggetto [Razor](xref:mvc/views/razor) `section` definito in una visualizzazione parziale non è visibile ai file di markup padre. L'oggetto `section` è visibile solo per la visualizzazione parziale in cui è definito.
+> Un `section` [Razor](xref:mvc/views/razor) definito in una visualizzazione parziale è invisibile ai file di markup padre. L'oggetto `section` è visibile solo per la visualizzazione parziale in cui è definito.
 
 ## <a name="access-data-from-partial-views"></a>Accesso ai dati da visualizzazioni parziali
 

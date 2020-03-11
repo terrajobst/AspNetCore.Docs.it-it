@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/17/2019
 uid: fundamentals/environments
-ms.openlocfilehash: 30e2771c0a24fcbf6490d08c7028566314b6c011
-ms.sourcegitcommit: 2cb857f0de774df421e35289662ba92cfe56ffd1
+ms.openlocfilehash: b0218b2c77c283c0849dca9491046534b88c5a77
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358721"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78656219"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>Usare più ambienti in ASP.NET Core
 
@@ -22,7 +22,7 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ASP.NET Core configura il comportamento dell'app in base all'ambiente di runtime e tramite una variabile di ambiente.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/environments/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/environments/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="environments"></a>Ambienti
 
@@ -169,7 +169,7 @@ Un file *.vscode/launch.json* del progetto non viene letto quando si avvia l'app
 
 È necessario che l'ambiente di produzione sia configurato per ottimizzare la sicurezza, le prestazioni e l'affidabilità dell'app. Alcune impostazioni comuni che differiscono dallo sviluppo includono:
 
-* Memorizzazione nella cache.
+* Memorizzazione nella cache
 * Risorse lato client in bundle, minimizzate e potenzialmente offerte da una rete CDN.
 * Pagine di errore di diagnostica disabilitate.
 * Pagine di errore descrittive abilitate.
@@ -197,7 +197,7 @@ Per impostare l'ambiente in [Servizio app di Azure](https://azure.microsoft.com/
 
 Servizio app di Azure riavvia automaticamente l'app quando un'impostazione dell'app (una variabile di ambiente) viene aggiunta, modificata o eliminata nel portale di Azure.
 
-#### <a name="windows"></a>Portale di
+#### <a name="windows"></a>Windows
 
 Per impostare la variabile `ASPNETCORE_ENVIRONMENT` per la sessione corrente, se l'app viene avviata tramite [dotnet run](/dotnet/core/tools/dotnet-run), vengono usati i comandi seguenti:
 
@@ -301,7 +301,7 @@ Chiamare <xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.UseEnvi
 Per caricare la configurazione dall'ambiente, sono consigliabili:
 
 * file *appSettings* (*appSettings. { Environment}. JSON*). Vedere <xref:fundamentals/configuration/index#json-configuration-provider>.
-* Variabili di ambiente (impostate in ogni sistema in cui è ospitata l'app). Vedere <xref:fundamentals/host/generic-host#environmentname>e <xref:security/app-secrets#environment-variables>.
+* Variabili di ambiente (impostate in ogni sistema in cui è ospitata l'app). Controllare <xref:fundamentals/host/generic-host#environmentname> e <xref:security/app-secrets#environment-variables>.
 * Secret Manager (solo nell'ambiente di sviluppo). Vedere <xref:security/app-secrets>.
 
 ## <a name="environment-based-startup-class-and-methods"></a>Classe Startup e metodi basati sull'ambiente
@@ -417,6 +417,8 @@ public class Startup
 }
 ```
 
+[!INCLUDE[about the series](~/includes/code-comments-loc.md)]
+
 Usare l'overload [UseStartup(IWebHostBuilder, String)](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usestartup) che accetta un nome di assembly:
 
 ```csharp
@@ -452,7 +454,7 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ASP.NET Core configura il comportamento dell'app in base all'ambiente di runtime e tramite una variabile di ambiente.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/environments/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/environments/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="environments"></a>Ambienti
 
@@ -599,7 +601,7 @@ Un file *.vscode/launch.json* del progetto non viene letto quando si avvia l'app
 
 È necessario che l'ambiente di produzione sia configurato per ottimizzare la sicurezza, le prestazioni e l'affidabilità dell'app. Alcune impostazioni comuni che differiscono dallo sviluppo includono:
 
-* Memorizzazione nella cache.
+* Memorizzazione nella cache
 * Risorse lato client in bundle, minimizzate e potenzialmente offerte da una rete CDN.
 * Pagine di errore di diagnostica disabilitate.
 * Pagine di errore descrittive abilitate.
@@ -627,7 +629,7 @@ Per impostare l'ambiente in [Servizio app di Azure](https://azure.microsoft.com/
 
 Servizio app di Azure riavvia automaticamente l'app quando un'impostazione dell'app (una variabile di ambiente) viene aggiunta, modificata o eliminata nel portale di Azure.
 
-#### <a name="windows"></a>Portale di
+#### <a name="windows"></a>Windows
 
 Per impostare la variabile `ASPNETCORE_ENVIRONMENT` per la sessione corrente, se l'app viene avviata tramite [dotnet run](/dotnet/core/tools/dotnet-run), vengono usati i comandi seguenti:
 
@@ -730,7 +732,7 @@ Chiamare <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExt
 Per caricare la configurazione dall'ambiente, sono consigliabili:
 
 * file *appSettings* (*appSettings. { Environment}. JSON*). Vedere <xref:fundamentals/configuration/index#json-configuration-provider>.
-* Variabili di ambiente (impostate in ogni sistema in cui è ospitata l'app). Vedere <xref:fundamentals/host/web-host#environment>e <xref:security/app-secrets#environment-variables>.
+* Variabili di ambiente (impostate in ogni sistema in cui è ospitata l'app). Controllare <xref:fundamentals/host/web-host#environment> e <xref:security/app-secrets#environment-variables>.
 * Secret Manager (solo nell'ambiente di sviluppo). Vedere <xref:security/app-secrets>.
 
 ## <a name="environment-based-startup-class-and-methods"></a>Classe Startup e metodi basati sull'ambiente

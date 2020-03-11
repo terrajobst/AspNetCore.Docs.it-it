@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/04/2020
 uid: mvc/controllers/filters
-ms.openlocfilehash: c4bb9d5746e494106ead6ad5bbf972bbcc5a39f1
-ms.sourcegitcommit: 0e21d4f8111743bcb205a2ae0f8e57910c3e8c25
+ms.openlocfilehash: 03335811766ea3a1455901199863c6da0e35f7e4
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77034065"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78662785"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtri in ASP.NET Core
 
@@ -33,7 +33,7 @@ Questo documento si applica a Razor Pages, controller API e controller con visua
 * Il componente è incorporato in una pagina o in una vista.
 * La pagina o il controller/Visualizzazione usa il filtro.
 
-[Visualizzare o scaricare un esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/3.1sample) ([procedura per il download](xref:index#how-to-download-a-sample)).
+[Visualizzare o scaricare un esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/3.1sample) ([procedura per il download](xref:index#how-to-download-a-sample)).
 
 ## <a name="how-filters-work"></a>Funzionamento dei filtri
 
@@ -427,7 +427,7 @@ La classe <xref:Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext> specific
 Per un oggetto `IAsyncActionFilter`, una chiamata a <xref:Microsoft.AspNetCore.Mvc.Filters.ActionExecutionDelegate>:
 
 * Esegue qualsiasi filtro azione successivo e il metodo di azione.
-* Restituisce un valore `ActionExecutedContext`.
+* Restituisce `ActionExecutedContext`.
 
 Per causare il corto circuito, assegnare <xref:Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext.Result?displayProperty=fullName> a un'istanza del risultato e non chiamare `next` (`ActionExecutionDelegate`).
 
@@ -544,7 +544,7 @@ Il filtro viene applicato nel codice seguente:
 
 [!code-csharp[](./filters/3.1sample/FiltersSample/Controllers/SampleController.cs?name=snippet3&highlight=21)]
 
-Testare il codice precedente eseguendo l' [esempio di download](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/3.1sample):
+Testare il codice precedente eseguendo l' [esempio di download](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/3.1sample):
 
 * Richiamare gli strumenti di sviluppo F12.
 * Accedere a `https://localhost:5001/Sample/HeaderWithFactory`.
@@ -596,7 +596,7 @@ I filtri middleware vengono eseguiti nella stessa fase della pipeline filtro com
 ## <a name="next-actions"></a>Azioni successive
 
 * Vedere [metodi di filtro per Razor Pages](xref:razor-pages/filter).
-* Per sperimentare i filtri, [scaricare, testare e modificare l'esempio di GitHub](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/3.1sample).
+* Per sperimentare i filtri, [scaricare, testare e modificare l'esempio di GitHub](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/3.1sample).
 
 ::: moniker-end
 
@@ -615,7 +615,7 @@ I filtri personalizzati possono essere creati per gestire problemi relativi a pi
 
 Questo documento si applica a Razor Pages, controller API e controller con visualizzazioni.
 
-[Visualizzare o scaricare un esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/sample) ([procedura per il download](xref:index#how-to-download-a-sample)).
+[Visualizzare o scaricare un esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/sample) ([procedura per il download](xref:index#how-to-download-a-sample)).
 
 ## <a name="how-filters-work"></a>Funzionamento dei filtri
 
@@ -958,7 +958,7 @@ La classe <xref:Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext> specific
 Per un oggetto `IAsyncActionFilter`, una chiamata a <xref:Microsoft.AspNetCore.Mvc.Filters.ActionExecutionDelegate>:
 
 * Esegue qualsiasi filtro azione successivo e il metodo di azione.
-* Restituisce un valore `ActionExecutedContext`.
+* Restituisce `ActionExecutedContext`.
 
 Per causare il corto circuito, assegnare <xref:Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext.Result?displayProperty=fullName> a un'istanza del risultato e non chiamare `next` (`ActionExecutionDelegate`).
 
@@ -1067,7 +1067,7 @@ Un altro approccio alla creazione di filtri consiste nell'implementare `IFilterF
 
 [!code-csharp[](./filters/sample/FiltersSample/Filters/AddHeaderWithFactoryAttribute.cs?name=snippet_IFilterFactory&highlight=1,4,5,6,7)]
 
-Il codice precedente può essere testato eseguendo l'[esempio scaricato](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/sample):
+Il codice precedente può essere testato eseguendo l'[esempio scaricato](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/sample):
 
 * Richiamare gli strumenti di sviluppo F12.
 * Accedere a `https://localhost:5001/Sample/HeaderWithFactory`.
@@ -1119,6 +1119,6 @@ I filtri middleware vengono eseguiti nella stessa fase della pipeline filtro com
 ## <a name="next-actions"></a>Azioni successive
 
 * Vedere [metodi di filtro per Razor Pages](xref:razor-pages/filter).
-* Per sperimentare i filtri, [scaricare, testare e modificare l'esempio di GitHub](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/sample).
+* Per sperimentare i filtri, [scaricare, testare e modificare l'esempio di GitHub](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/filters/sample).
 
 ::: moniker-end

@@ -6,22 +6,22 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 02/11/2020
 uid: security/authentication/cookie
-ms.openlocfilehash: 62a3d247dade6c83156a8378407d5e3891713fd1
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: 64f881441a7a7f9a5529cb6ee5ce81142ccd69e6
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77172113"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78663002"
 ---
 # <a name="use-cookie-authentication-without-aspnet-core-identity"></a>Usa autenticazione cookie senza ASP.NET Core identità
 
-Di [Rick Anderson](https://twitter.com/RickAndMSFT) e [Luke Latham](https://github.com/guardrex)
+Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ::: moniker range=">= aspnetcore-3.0"
 
 ASP.NET Core identità è un provider di autenticazione completo e completo per la creazione e la gestione degli account di accesso. Tuttavia, è possibile usare un provider di autenticazione basato su cookie senza ASP.NET Core identità. Per altre informazioni, vedere <xref:security/authentication/identity>.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/cookie/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/cookie/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 A scopo dimostrativo nell'app di esempio, l'account utente per l'utente ipotetico, Maria Rodriguez, è hardcoded nell'app. Usare l'indirizzo di **posta elettronica** `maria.rodriguez@contoso.com` e qualsiasi password per accedere all'utente. L'utente viene autenticato nel metodo `AuthenticateUser` nel file *pages/account/login. cshtml. cs* . In un esempio reale, l'utente viene autenticato a fronte di un database.
 
@@ -238,7 +238,7 @@ await HttpContext.SignInAsync(
 
 ASP.NET Core identità è un provider di autenticazione completo e completo per la creazione e la gestione degli account di accesso. Tuttavia, è possibile usare un provider di autenticazione basata su cookie senza ASP.NET Core identità. Per altre informazioni, vedere <xref:security/authentication/identity>.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/cookie/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/cookie/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 A scopo dimostrativo nell'app di esempio, l'account utente per l'utente ipotetico, Maria Rodriguez, è hardcoded nell'app. Usare l'indirizzo di **posta elettronica** `maria.rodriguez@contoso.com` e qualsiasi password per accedere all'utente. L'utente viene autenticato nel metodo `AuthenticateUser` nel file *pages/account/login. cshtml. cs* . In un esempio reale, l'utente viene autenticato a fronte di un database.
 

@@ -5,16 +5,16 @@ description: Informazioni su come le visualizzazioni gestiscono la presentazione
 ms.author: riande
 ms.date: 12/05/2019
 uid: mvc/views/overview
-ms.openlocfilehash: f636908ee36d0af6e92875876240cb8712dd2ccc
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.openlocfilehash: de78624bafeee16a3ace322643cf89337531eef8
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74881027"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78665109"
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Visualizzazioni in ASP.NET Core MVC
 
-Di [Steve Smith](https://ardalis.com/) e [Luke Latham](https://github.com/guardrex)
+[Steve Smith](https://ardalis.com/)
 
 Questo documento illustra le visualizzazioni usate nelle applicazioni ASP.NET Core MVC. Per informazioni relative a Razor Pages, vedere [Introduzione a Razor Pages](xref:razor-pages/index).
 
@@ -87,7 +87,7 @@ Il metodo helper `View` ha diversi overload. È possibile specificare:
 
 Quando un'azione restituisce una visualizzazione viene eseguito un processo denominato *individuazione delle visualizzazioni*. Questo processo determina il file di visualizzazione che verrà usato in base al nome della visualizzazione. 
 
-In base al comportamento predefinito, il metodo `View` (`return View();`) restituisce una visualizzazione con lo stesso nome del metodo dell'azione dal quale viene chiamato. Nel caso di *About*, ad esempio, il nome del metodo `ActionResult` del controller viene usato per cercare un file di visualizzazione denominato *About.cshtml*. Il runtime cerca prima la visualizzazione nella cartella *Views/[ControllerName]* . Se la cartella non contiene una visualizzazione corrispondente, la ricerca passerà alla cartella *Shared*.
+In base al comportamento predefinito, il metodo `View` (`return View();`) restituisce una visualizzazione con lo stesso nome del metodo dell'azione dal quale viene chiamato. Ad esempio, il nome del metodo *about* `ActionResult` del controller viene usato per cercare un file di visualizzazione denominato *About. cshtml*. Il runtime cerca prima la visualizzazione nella cartella *Views/[ControllerName]* . Se la cartella non contiene una visualizzazione corrispondente, la ricerca passerà alla cartella *Shared*.
 
 La restituzione implicita di `ViewResult` con `return View();` o il passaggio esplicito del nome della visualizzazione al metodo `View` con `return View("<ViewName>");` non sono rilevanti. In entrambi i casi, l'individuazione delle visualizzazioni cercherà un file di visualizzazione corrispondente in quest'ordine:
 
@@ -192,7 +192,7 @@ Nulla impedisce di usare le stesse classi per i tipi viewmodel e i tipi del mode
 
 ### <a name="weakly-typed-data-viewdata-viewdata-attribute-and-viewbag"></a>Dati con tipizzazione debole (ViewData, attributo ViewData e ViewBag)
 
-`ViewBag` *non è disponibile in Razor Pages.*
+`ViewBag` *non è disponibile nel Razor Pages.*
 
 Oltre alle visualizzazioni fortemente tipizzate, le visualizzazioni hanno accesso a una raccolta di dati *con tipizzazione debole* o *debolmente tipizzati*. A differenza della tipizzazione forte, la *tipizzazione debole*, o l'espressione *debolmente tipizzato*, indica che il tipo di dati in uso non viene dichiarato in modo esplicito. È possibile usare la raccolta di dati con tipizzazione debole per passare piccole quantità di dati da e verso i controller e le visualizzazioni.
 
@@ -292,7 +292,7 @@ Nel layout il titolo viene letto dal dizionario ViewData:
 
 **ViewBag**
 
-`ViewBag` *non è disponibile in Razor Pages.*
+`ViewBag` *non è disponibile nel Razor Pages.*
 
 `ViewBag` è un oggetto [DynamicViewData](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata) che consente l'accesso dinamico agli oggetti archiviati in `ViewData`. `ViewBag` può risultare più comodo da usare poiché non richiede l'esecuzione del cast. Nell'esempio seguente viene illustrato come usare `ViewBag` con lo stesso risultato che si ottiene con l'uso di `ViewData` descritto in precedenza:
 
@@ -325,7 +325,7 @@ public IActionResult SomeAction()
 
 **Uso simultaneo di ViewData e ViewBag**
 
-`ViewBag` *non è disponibile in Razor Pages.*
+`ViewBag` *non è disponibile nel Razor Pages.*
 
 Dal momento che `ViewData` e `ViewBag` fanno riferimento alla stessa raccolta `ViewData` sottostante, è possibile usare `ViewData` e `ViewBag` e combinarle durante la lettura e la scrittura dei valori.
 
@@ -370,7 +370,7 @@ L'uso simultaneo di `ViewData` e `ViewBag` funziona, così come funziona la comb
 * `ViewData`
   * Deriva da [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) e include quindi proprietà di dizionario che possono risultare utili, ad esempio `ContainsKey`, `Add`, `Remove` e `Clear`.
   * Le chiavi nel dizionario sono stringhe, pertanto lo spazio vuoto è consentito. Esempio: `ViewData["Some Key With Whitespace"]`
-  * Per usare `ViewData` è necessario eseguire il cast di tutti i tipi diversi da `string` nella visualizzazione.
+  * Per usare `string` è necessario eseguire il cast di tutti i tipi diversi da `ViewData` nella visualizzazione.
 * `ViewBag`
   * Deriva da [DynamicViewData](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata) e consente quindi la creazione di proprietà dinamiche usando la notazione del punto (`@ViewBag.SomeKey = <value or object>`). L'esecuzione del cast non è necessaria. La sintassi di `ViewBag` velocizza l'aggiunta in controller e visualizzazioni.
   * Verificare la presenza di valori Null è più facile. Esempio: `@ViewBag.Person?.Name`

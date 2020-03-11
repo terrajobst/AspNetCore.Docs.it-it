@@ -5,23 +5,23 @@ description: Informazioni su come creare e usare i componenti Razor, tra cui la 
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/12/2020
+ms.date: 02/25/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/components
-ms.openlocfilehash: f9b4eab29fafe8113528062f57d28dadd0f57577
-ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
+ms.openlocfilehash: e444ebfef5143a6c33ed2d122933903ad3a4f4a7
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77447100"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78660699"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Creare e usare ASP.NET Core componenti Razor
 
 Di [Luke Latham](https://github.com/guardrex) e [Daniel Roth](https://github.com/danroth27)
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 Blazor le app vengono compilate usando i *componenti*. Un componente è un blocco di interfaccia utente (UI) autonomo, ad esempio una pagina, una finestra di dialogo o un form. Un componente include il markup HTML e la logica di elaborazione necessaria per inserire i dati o rispondere agli eventi dell'interfaccia utente. I componenti sono flessibili e leggeri. Possono essere annidati, riutilizzati e condivisi tra i progetti.
 
@@ -66,7 +66,21 @@ Per usare una cartella personalizzata, aggiungere lo spazio dei nomi della carte
 @using BlazorApp.Components
 ```
 
-## <a name="tag-helpers-arent-used-in-components"></a>Gli helper tag non vengono usati nei componenti
+## <a name="static-assets"></a>Asset statici
+
+Blazor segue la convenzione di ASP.NET Core app che collocano asset statici nella [cartella radice Web del progetto (wwwroot)](xref:fundamentals/index#web-root).
+
+Usare un percorso relativo di base (`/`) per fare riferimento alla radice Web per un asset statico. Nell'esempio seguente *logo. png* si trova fisicamente nella cartella *{Project root}/wwwroot/images* :
+
+```razor
+<img alt="Company logo" src="/images/logo.png" />
+```
+
+I componenti Razor **non** supportano la notazione tilde-barra (`~/`).
+
+Per informazioni sull'impostazione del percorso di base di un'app, vedere <xref:host-and-deploy/blazor/index#app-base-path>.
+
+## <a name="tag-helpers-arent-supported-in-components"></a>Gli helper tag non sono supportati nei componenti
 
 Gli [Helper Tag](xref:mvc/views/tag-helpers/intro) non sono supportati nei componenti Razor (file*Razor* ). Per fornire funzionalità di tipo Helper tag in Blazor, creare un componente con le stesse funzionalità dell'helper tag e usare invece il componente.
 
@@ -88,7 +102,7 @@ Il markup seguente in *index. Razor* esegue il rendering di un'istanza di `Headi
 
 Se un componente contiene un elemento HTML con una prima lettera maiuscola che non corrisponde a un nome di componente, viene emesso un avviso che indica che l'elemento ha un nome imprevisto. L'aggiunta di una direttiva `@using` per lo spazio dei nomi del componente rende disponibile il componente, che risolve l'avviso.
 
-## <a name="routing"></a>Routing
+## <a name="routing"></a>Routing.
 
 Il routing in Blazor viene effettuato fornendo un modello di route a ogni componente accessibile nell'app.
 
@@ -290,7 +304,7 @@ Quando viene eseguito il rendering del componente, il campo `_loginDialog` viene
 > [!IMPORTANT]
 > La variabile `_loginDialog` viene popolata solo dopo il rendering del componente e l'output include l'elemento `MyLoginDialog`. Fino a quel momento, non c'è niente a cui fare riferimento. Per modificare i riferimenti ai componenti dopo che il componente ha terminato il rendering, usare i [Metodi OnAfterRenderAsync o OnAfterRender](xref:blazor/lifecycle#after-component-render).
 
-Mentre l'acquisizione di riferimenti ai componenti usa una sintassi simile per l' [acquisizione di riferimenti a elementi](xref:blazor/javascript-interop#capture-references-to-elements), non è una funzionalità di [interoperabilità di JavaScript](xref:blazor/javascript-interop) . I riferimenti ai componenti non vengono passati al codice JavaScript&mdash;vengono usati solo nel codice .NET.
+Mentre l'acquisizione di riferimenti ai componenti usa una sintassi simile per l' [acquisizione di riferimenti a elementi](xref:blazor/call-javascript-from-dotnet#capture-references-to-elements), non è una funzionalità di interoperabilità di JavaScript. I riferimenti ai componenti non vengono passati al codice JavaScript&mdash;vengono usati solo nel codice .NET.
 
 > [!NOTE]
 > **Non** usare i riferimenti ai componenti per mutare lo stato dei componenti figlio. Usare invece i normali parametri dichiarativi per passare i dati ai componenti figlio. L'utilizzo di normali parametri dichiarativi restituisce automaticamente i componenti figlio che eseguono il rendering alle ore corrette.
@@ -370,7 +384,7 @@ Nell'esempio precedente `NotifierService` richiama il metodo di `OnNotify` del c
 
 Quando si esegue il rendering di un elenco di elementi o componenti e gli elementi o i componenti vengono modificati successivamente, l'algoritmo diff di Blazordeve decidere quali elementi o componenti precedenti possono essere conservati e come eseguire il mapping degli oggetti modello. In genere, questo processo è automatico e può essere ignorato, ma in alcuni casi potrebbe essere necessario controllare il processo.
 
-Si consideri l'esempio seguente:
+Prendere in considerazione gli esempi seguenti:
 
 ```csharp
 @foreach (var person in People)

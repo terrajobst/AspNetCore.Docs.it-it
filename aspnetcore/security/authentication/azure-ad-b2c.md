@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 01/21/2019
 uid: security/authentication/azure-ad-b2c
 ms.openlocfilehash: 136fa47788456492a9a7fe6d9d9e5996c13e8c20
-ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76727280"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78663660"
 ---
 # <a name="cloud-authentication-with-azure-active-directory-b2c-in-aspnet-core"></a>Autenticazione cloud con Azure Active Directory B2C in ASP.NET Core
 
@@ -30,7 +30,7 @@ In questa esercitazione si apprenderà come:
 > * Usare Visual Studio per creare un'app Web ASP.NET Core configurata per l'uso del tenant Azure AD B2C per l'autenticazione
 > * Configurare i criteri che controllano il comportamento del tenant Azure AD B2C
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Di seguito sono necessarie per questa procedura dettagliata:
 
@@ -45,9 +45,9 @@ Creare un tenant [di Azure Active Directory B2C come descritto nella documentazi
 
 Nel tenant di Azure AD B2C appena creato registrare l'app seguendo [la procedura descritta nella documentazione](/azure/active-directory-b2c/tutorial-register-applications#register-a-web-application) nella sezione **registrare un'app Web** . Arrestare la sezione **creare un segreto client dell'app Web** . Un segreto client non è necessario per questa esercitazione. 
 
-Utilizzare i valori seguenti:
+Usare i valori seguenti:
 
-| Impostazione                       | Valore                     | Note                                                                                                                                                                                              |
+| Impostazione                       | valore                     | Note                                                                                                                                                                                              |
 |-------------------------------|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Nome**                      | *nome dell'app &lt;&gt;*        | Immettere un **nome** per l'app che descriva l'app agli utenti.                                                                                                                                 |
 | **Includi app Web/API Web** | Sì                       |                                                                                                                                                                                                    |
@@ -81,7 +81,7 @@ In Visual Studio:
 
 5. Compilare il modulo con i valori seguenti:
     
-    | Impostazione                       | Valore                                                 |
+    | Impostazione                       | valore                                                 |
     |-------------------------------|-------------------------------------------------------|
     | **Nome di dominio**               | *&lt;il nome di dominio del tenant B2C&gt;*          |
     | **ID applicazione**            | *&lt;incollare l'ID applicazione dagli Appunti&gt;* |
@@ -142,7 +142,7 @@ Il browser reindirizza al tenant Azure AD B2C. Accedere con un account esistente
 
 Dopo aver eseguito l'accesso, il browser reindirizza all'app Web.
 
-![Success](./azure-ad-b2c/_static/success.png)
+![Operazione completata](./azure-ad-b2c/_static/success.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

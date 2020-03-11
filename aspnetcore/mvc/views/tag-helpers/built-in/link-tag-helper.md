@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 09/24/2019
 uid: mvc/views/tag-helpers/builtin-th/link-tag-helper
 ms.openlocfilehash: d7514433bee8a138cd7d75bfd15c9798d4fd31a3
-ms.sourcegitcommit: b5ceb0a46d0254cc3425578116e2290142eec0f0
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76809107"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78662729"
 ---
 # <a name="link-tag-helper-in-aspnet-core"></a>Helper tag di collegamento in ASP.NET Core
 
@@ -47,15 +47,15 @@ URL di un foglio di stile CSS di cui eseguire il fallback in caso di errore dell
 
 ### <a name="asp-fallback-test-class"></a>ASP-fallback-test-Class
 
-Nome della classe definito nel foglio di stile da utilizzare per il test di fallback. Per ulteriori informazioni, vedere <xref:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackTestClass>.
+Nome della classe definito nel foglio di stile da utilizzare per il test di fallback. Per altre informazioni, vedere <xref:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackTestClass>.
 
 ### <a name="asp-fallback-test-property"></a>ASP-fallback-test-proprietà
 
-Nome della proprietà CSS da utilizzare per il test di fallback. Per ulteriori informazioni, vedere <xref:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackTestProperty>.
+Nome della proprietà CSS da utilizzare per il test di fallback. Per altre informazioni, vedere <xref:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackTestProperty>.
 
 ### <a name="asp-fallback-test-value"></a>ASP-fallback-test-value
 
-Valore della proprietà CSS da utilizzare per il test di fallback. Per ulteriori informazioni, vedere <xref:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackTestValue>.
+Valore della proprietà CSS da utilizzare per il test di fallback. Per altre informazioni, vedere <xref:Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper.FallbackTestValue>.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

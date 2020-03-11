@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/10/2020
 uid: fundamentals/configuration/index
-ms.openlocfilehash: d0ef670aa0ac4960318f86ea7888b9eab71f17fd
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: 3dcabae3f76d81e641057c346dbb9097c2da42c7
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77171890"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78656331"
 ---
 # <a name="configuration-in-aspnet-core"></a>Configurazione in ASP.NET Core
 
@@ -41,7 +41,7 @@ using Microsoft.Extensions.Configuration;
 
 Il *modello di opzioni* è un'estensione dei concetti di configurazione descritti in questo argomento. Le opzioni usano le classi per rappresentare i gruppi di impostazioni correlate. Per altre informazioni, vedere <xref:fundamentals/configuration/options>.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="host-versus-app-configuration"></a>Host e configurazione delle app
 
@@ -81,7 +81,7 @@ La configurazione seguente si applica alle app che usano l'[host generico](xref:
   * Variabili di ambiente che usano il [provider di configurazione delle variabili di ambiente](#environment-variables-configuration-provider).
   * Argomenti della riga di comando che usano il [provider di configurazione della riga di comando](#command-line-configuration-provider).
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 
 Per proteggere i dati di configurazione sensibili, adottare le pratiche seguenti:
 
@@ -162,7 +162,7 @@ public class HomeController : Controller
 
 I provider di configurazione non possono usare l'inserimento delle dipendenze, perché non è disponibile quando vengono configurati dall'host.
 
-### <a name="keys"></a>Keys
+### <a name="keys"></a>Chiavi
 
 Le chiavi di configurazione adottano le convenzioni seguenti:
 
@@ -181,7 +181,7 @@ I valori di configurazione adottano le convenzioni seguenti:
 * I valori sono stringhe.
 * I valori null non possono essere archiviati nella configurazione o associati a oggetti.
 
-## <a name="providers"></a>Provider
+## <a name="providers"></a>Providers
 
 La tabella seguente mostra i provider di configurazione disponibili per le app ASP.NET Core.
 
@@ -360,7 +360,7 @@ Per le app che usano i mapping di sostituzione, la chiamata a `CreateDefaultBuil
 
 Il dizionario dei mapping di sostituzione creato contiene i dati visualizzati nella tabella seguente.
 
-| Chiave       | Valore             |
+| Chiave       | valore             |
 | --------- | ----------------- |
 | `-CLKey1` | `CommandLineKey1` |
 | `-CLKey2` | `CommandLineKey2` |
@@ -373,7 +373,7 @@ dotnet run -CLKey1=value1 -CLKey2=value2
 
 Dopo aver eseguito il comando precedente, la configurazione contiene i valori mostrati nella tabella seguente.
 
-| Chiave               | Valore    |
+| Chiave               | valore    |
 | ----------------- | -------- |
 | `CommandLineKey1` | `value1` |
 | `CommandLineKey2` | `value2` |
@@ -734,7 +734,7 @@ Il dizionario viene usato con una chiamata a `AddInMemoryCollection` per fornire
 
 [ConfigurationBinder. GetValue\<t >](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.GetValue*) estrae un singolo valore dalla configurazione con una chiave specificata e lo converte nel tipo non di raccolta specificato. Un overload accetta un valore predefinito.
 
-L'esempio seguente consente di:
+L'esempio seguente:
 
 * Estrae il valore di stringa dalla configurazione con la chiave `NumberKey`. Se `NumberKey` non viene trovato nelle chiavi di configurazione, viene usato il valore predefinito di `99`.
 * Assegna al valore il tipo `int`.
@@ -856,7 +856,7 @@ La sezione `starship` del file *starship.json* crea la configurazione quando l'a
 
 Vengono create le coppie chiave-valore della configurazione seguenti:
 
-| Chiave                   | Valore                                             |
+| Chiave                   | valore                                             |
 | --------------------- | ------------------------------------------------- |
 | starship:name         | USS Enterprise                                    |
 | starship:registry     | NCC-1701                                          |
@@ -906,7 +906,7 @@ Il <xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> supporta 
 
 Prendere in considerazione le chiavi di configurazione e i valori indicati nella tabella seguente.
 
-| Chiave             | Valore  |
+| Chiave             | valore  |
 | :-------------: | :----: |
 | array:entries:0 | value0 |
 | array:entries:1 | value1 |
@@ -966,7 +966,7 @@ config.AddJsonFile(
 
 La coppia chiave-valore mostrata nella tabella viene caricata nella configurazione.
 
-| Chiave             | Valore  |
+| Chiave             | valore  |
 | :-------------: | :----: |
 | array:entries:3 | value3 |
 
@@ -989,7 +989,7 @@ Se un file JSON contiene una matrice, vengono create chiavi di configurazione pe
 
 Il provider di configurazione JSON legge i dati di configurazione nelle coppie chiave-valore seguenti:
 
-| Chiave                     | Valore  |
+| Chiave                     | valore  |
 | ----------------------- | :----: |
 | json_array:key          | valueA |
 | json_array:subsection:0 | valueB |
@@ -1155,7 +1155,7 @@ using Microsoft.Extensions.Configuration;
 
 Il *modello di opzioni* è un'estensione dei concetti di configurazione descritti in questo argomento. Le opzioni usano le classi per rappresentare i gruppi di impostazioni correlate. Per altre informazioni, vedere <xref:fundamentals/configuration/options>.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="host-versus-app-configuration"></a>Host e configurazione delle app
 
@@ -1190,7 +1190,7 @@ La configurazione seguente si applica alle app che usano l'[host Web](xref:funda
   * Variabili di ambiente che usano il [provider di configurazione delle variabili di ambiente](#environment-variables-configuration-provider).
   * Argomenti della riga di comando che usano il [provider di configurazione della riga di comando](#command-line-configuration-provider).
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 
 Per proteggere i dati di configurazione sensibili, adottare le pratiche seguenti:
 
@@ -1271,7 +1271,7 @@ public class HomeController : Controller
 
 I provider di configurazione non possono usare l'inserimento delle dipendenze, perché non è disponibile quando vengono configurati dall'host.
 
-### <a name="keys"></a>Keys
+### <a name="keys"></a>Chiavi
 
 Le chiavi di configurazione adottano le convenzioni seguenti:
 
@@ -1290,7 +1290,7 @@ I valori di configurazione adottano le convenzioni seguenti:
 * I valori sono stringhe.
 * I valori null non possono essere archiviati nella configurazione o associati a oggetti.
 
-## <a name="providers"></a>Provider
+## <a name="providers"></a>Providers
 
 La tabella seguente mostra i provider di configurazione disponibili per le app ASP.NET Core.
 
@@ -1469,7 +1469,7 @@ Per le app che usano i mapping di sostituzione, la chiamata a `CreateDefaultBuil
 
 Il dizionario dei mapping di sostituzione creato contiene i dati visualizzati nella tabella seguente.
 
-| Chiave       | Valore             |
+| Chiave       | valore             |
 | --------- | ----------------- |
 | `-CLKey1` | `CommandLineKey1` |
 | `-CLKey2` | `CommandLineKey2` |
@@ -1482,7 +1482,7 @@ dotnet run -CLKey1=value1 -CLKey2=value2
 
 Dopo aver eseguito il comando precedente, la configurazione contiene i valori mostrati nella tabella seguente.
 
-| Chiave               | Valore    |
+| Chiave               | valore    |
 | ----------------- | -------- |
 | `CommandLineKey1` | `value1` |
 | `CommandLineKey2` | `value2` |
@@ -1843,7 +1843,7 @@ Il dizionario viene usato con una chiamata a `AddInMemoryCollection` per fornire
 
 [ConfigurationBinder. GetValue\<t >](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.GetValue*) estrae un singolo valore dalla configurazione con una chiave specificata e lo converte nel tipo non di raccolta specificato. Un overload accetta un valore predefinito.
 
-L'esempio seguente consente di:
+L'esempio seguente:
 
 * Estrae il valore di stringa dalla configurazione con la chiave `NumberKey`. Se `NumberKey` non viene trovato nelle chiavi di configurazione, viene usato il valore predefinito di `99`.
 * Assegna al valore il tipo `int`.
@@ -1965,7 +1965,7 @@ La sezione `starship` del file *starship.json* crea la configurazione quando l'a
 
 Vengono create le coppie chiave-valore della configurazione seguenti:
 
-| Chiave                   | Valore                                             |
+| Chiave                   | valore                                             |
 | --------------------- | ------------------------------------------------- |
 | starship:name         | USS Enterprise                                    |
 | starship:registry     | NCC-1701                                          |
@@ -2015,7 +2015,7 @@ Il <xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> supporta 
 
 Prendere in considerazione le chiavi di configurazione e i valori indicati nella tabella seguente.
 
-| Chiave             | Valore  |
+| Chiave             | valore  |
 | :-------------: | :----: |
 | array:entries:0 | value0 |
 | array:entries:1 | value1 |
@@ -2075,7 +2075,7 @@ config.AddJsonFile(
 
 La coppia chiave-valore mostrata nella tabella viene caricata nella configurazione.
 
-| Chiave             | Valore  |
+| Chiave             | valore  |
 | :-------------: | :----: |
 | array:entries:3 | value3 |
 
@@ -2098,7 +2098,7 @@ Se un file JSON contiene una matrice, vengono create chiavi di configurazione pe
 
 Il provider di configurazione JSON legge i dati di configurazione nelle coppie chiave-valore seguenti:
 
-| Chiave                     | Valore  |
+| Chiave                     | valore  |
 | ----------------------- | :----: |
 | json_array:key          | valueA |
 | json_array:subsection:0 | valueB |

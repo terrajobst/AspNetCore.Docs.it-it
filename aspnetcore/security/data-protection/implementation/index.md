@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/implementation/index
 ms.openlocfilehash: a21738ee2c092a9d14b7d448f7d3c7694f456ca8
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
-ms.translationtype: HT
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64882686"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667426"
 ---
 # <a name="aspnet-core-data-protection-implementation"></a>Implementazione della protezione dati di ASP.NET Core
 
@@ -20,7 +20,7 @@ ms.locfileid: "64882686"
 
 * [Intestazioni di contesto](xref:security/data-protection/implementation/context-headers)
 
-* [Gestione delle chiavi](xref:security/data-protection/implementation/key-management)
+* [Gestione della chiave](xref:security/data-protection/implementation/key-management)
 
 * [Provider di archiviazione chiavi](xref:security/data-protection/implementation/key-storage-providers)
 

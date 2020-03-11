@@ -11,11 +11,11 @@ no-loc:
 - SignalR
 uid: blazor/hosting-model-configuration
 ms.openlocfilehash: bd44643877e45c5b48b0972bcc2f637fbc5d98f2
-ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77447035"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658305"
 ---
 # <a name="aspnet-core-blazor-hosting-model-configuration"></a>Configurazione del modello di hosting di ASP.NET Core Blazer
 
@@ -73,7 +73,7 @@ Per impostazione predefinita, le app del server Blazor sono configurate per eseg
 * Viene preeseguito nella pagina.
 * Viene visualizzato come HTML statico nella pagina o se include le informazioni necessarie per eseguire il bootstrap di un'app Blazor dall'agente utente.
 
-| `RenderMode`        | Description |
+| `RenderMode`        | Descrizione |
 | ------------------- | ----------- |
 | `ServerPrerendered` | Esegue il rendering del componente in HTML statico e include un marcatore per un'app Server Blazor. Quando l'agente utente viene avviato, questo marcatore viene usato per eseguire il bootstrap di un'app Blazor. |
 | `Server`            | Esegue il rendering di un marcatore per un'app Server Blazor. L'output del componente non è incluso. Quando l'agente utente viene avviato, questo marcatore viene usato per eseguire il bootstrap di un'app Blazor. |

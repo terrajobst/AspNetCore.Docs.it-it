@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/details
 ms.openlocfilehash: 04eb2efa4e67d84e575580a6248d0b5b567064af
-ms.sourcegitcommit: b3e1e31e5d8bdd94096cf27444594d4a7b065525
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803383"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78662911"
 ---
 # <a name="examine-the-details-and-delete-methods-of-an-aspnet-core-app"></a>Esaminare i metodi Details e Delete di un'app ASP.NET Core
 
@@ -51,9 +51,9 @@ Un'altra alternativa comune per i metodi con nomi e firme identici consiste nel 
 public async Task<IActionResult> Delete(int id, bool notUsed)
 ```
 
-### <a name="publish-to-azure"></a>Pubblicare in Azure
+### <a name="publish-to-azure"></a>Pubblicazione in Azure
 
 Per informazioni sulla distribuzione in Azure, vedere [Tutorial: Build a .NET Core and SQL Database web app in Azure App Service](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb) (Esercitazione: Creare un'app Web .NET Core e database SQL nel Servizio app di Azure).
 
 > [!div class="step-by-step"]
-> [Precedente](validation.md)
+> [Indietro](validation.md)

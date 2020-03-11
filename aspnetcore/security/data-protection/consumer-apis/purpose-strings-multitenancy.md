@@ -1,28 +1,28 @@
 ---
-title: Gerarchia di scopi e multi-tenancy in ASP.NET Core
+title: Gerarchia degli scopi e multi-tenant in ASP.NET Core
 author: rick-anderson
-description: Informazioni sulla gerarchia di stringhe di scopi e multi-tenancy in relazione a ASP.NET Core Data Protection API.
+description: Informazioni sulla gerarchia di stringhe per finalità e sul multi-tenant in relazione alle API di protezione dei dati ASP.NET Core.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/consumer-apis/purpose-strings-multitenancy
 ms.openlocfilehash: 1133d40e7b325d58b3f70e7387494dae36ff8ac9
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64896798"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78664752"
 ---
-# <a name="purpose-hierarchy-and-multi-tenancy-in-aspnet-core"></a>Gerarchia di scopi e multi-tenancy in ASP.NET Core
+# <a name="purpose-hierarchy-and-multi-tenancy-in-aspnet-core"></a>Gerarchia degli scopi e multi-tenant in ASP.NET Core
 
-Poiché un' `IDataProtector` è inoltre in modo implicito un `IDataProtectionProvider`, a scopo può essere concatenato. In questo senso `provider.CreateProtector([ "purpose1", "purpose2" ])` equivale a `provider.CreateProtector("purpose1").CreateProtector("purpose2")`.
+Poiché un `IDataProtector` è anche implicitamente un `IDataProtectionProvider`, gli scopi possono essere concatenati. In questo senso, `provider.CreateProtector([ "purpose1", "purpose2" ])` equivale a `provider.CreateProtector("purpose1").CreateProtector("purpose2")`.
 
-In questo modo per alcune relazioni gerarchiche interessanti tramite il sistema di protezione dati. Nell'esempio precedente di [Contoso.Messaging.SecureMessage](xref:security/data-protection/consumer-apis/purpose-strings#data-protection-contoso-purpose), può chiamare il componente SecureMessage `provider.CreateProtector("Contoso.Messaging.SecureMessage")` iniziale una sola volta e memorizzare nella cache il risultato in una privata `_myProvider` campo. Sarà quindi possibile creare protezioni futuri tramite chiamate a `_myProvider.CreateProtector("User: username")`, e queste protezioni vengono usate per la protezione dei singoli messaggi.
+Questo consente di eseguire alcune interessanti relazioni gerarchiche tramite il sistema di protezione dei dati. Nell'esempio precedente di [contoso. Messaging. SecureMessage](xref:security/data-protection/consumer-apis/purpose-strings#data-protection-contoso-purpose), il componente SecureMessage può chiamare `provider.CreateProtector("Contoso.Messaging.SecureMessage")` una volta in primo piano e memorizzare nella cache il risultato in un campo di `_myProvider` privato. È quindi possibile creare protezioni future tramite chiamate a `_myProvider.CreateProtector("User: username")`e tali protezioni verranno utilizzate per proteggere i singoli messaggi.
 
-Ciò può anche essere invertita. Prendere in considerazione una singola applicazione logica che ospita più tenant (un sistema CMS sembra ragionevole) e ogni tenant può essere configurato con un proprio sistema di gestione dello stato e l'autenticazione. L'applicazione generico dispone di un singolo provider master e chiama `provider.CreateProtector("Tenant 1")` e `provider.CreateProtector("Tenant 2")` per fornire la propria sezione isolata del sistema di protezione dati di ogni tenant. I tenant è stato possibile derivare le proprie singoli programmi di protezione in base alle proprie esigenze, ma, indipendentemente dal livello provano non può creare protezioni con cui sono in conflitto con un altro tenant nel sistema. Graficamente, ciò è rappresentato come indicato di seguito.
+Questa operazione può anche essere capovolta. Si consideri una singola applicazione logica che ospita più tenant (un CMS sembra ragionevole) e ogni tenant può essere configurato con il proprio sistema di gestione di autenticazione e stato. L'applicazione Umbrella dispone di un singolo provider master e chiama `provider.CreateProtector("Tenant 1")` e `provider.CreateProtector("Tenant 2")` per assegnare a ogni tenant una sezione isolata del sistema di protezione dei dati. I tenant possono quindi derivare le proprie protezioni personalizzate in base alle proprie esigenze, ma indipendentemente dal livello di difficoltà con cui tentano di non creare protezioni che si scontrano con qualsiasi altro tenant nel sistema. Graficamente, rappresentata come indicato di seguito.
 
-![A scopo di tenancy più](purpose-strings-multitenancy/_static/purposes-multi-tenancy.png)
+![Scopi di multi-tenant](purpose-strings-multitenancy/_static/purposes-multi-tenancy.png)
 
 >[!WARNING]
-> Ciò presuppone l'ombrello controlli delle applicazioni quali API sono disponibili a singoli tenant e che i tenant non è possibile eseguire codice arbitrario nel server. Se un tenant può eseguire codice arbitrario, è stato possibile eseguire la reflection privata per interrompere le garanzie di isolamento oppure potrebbe semplicemente leggere direttamente il materiale della chiave master e derivano tutte le sottochiavi hanno l'esigenza di.
+> Si presuppone che l'applicazione Umbrella controlli quali API sono disponibili per i singoli tenant e che i tenant non possono eseguire codice arbitrario sul server. Se un tenant può eseguire codice arbitrario, può eseguire la reflection privata per suddividere le garanzie di isolamento oppure può semplicemente leggere direttamente il materiale della chiave master e derivare tutte le sottochiavi desiderate.
 
-Il sistema di protezione dei dati utilizza effettivamente una sorta di multi-tenancy nella configurazione predefinita della finestra. Per impostazione predefinita materiale della chiave master viene archiviato nella cartella del profilo utente dell'account del processo di lavoro (o il Registro di sistema, per le identità pool di applicazioni IIS). Ma è in realtà è abbastanza comune usare un singolo account per eseguire più applicazioni e pertanto tutte le applicazioni finirebbe materiale per le chiavi master di condivisione. Per risolvere questo problema, il sistema di protezione dati inserisce automaticamente un identificatore univoco per ogni applicazione come primo elemento nella catena di scopo generale. Che consente di funzione implicita [isolare le singole applicazioni](xref:security/data-protection/configuration/overview#per-application-isolation) uno da altro, in modo efficace considerando ogni applicazione come un tenant all'interno del sistema e il processo di creazione di protezione univoco è identico all'immagine sopra.
+Il sistema di protezione dei dati utilizza effettivamente una sorta di multi-tenant nella configurazione predefinita. Per impostazione predefinita, il materiale per le chiavi master viene archiviato nella cartella del profilo utente dell'account del processo di lavoro (o nel registro di sistema per le identità del pool di applicazioni IIS). Ma in realtà è abbastanza comune usare un singolo account per eseguire più applicazioni, quindi tutte le applicazioni finiranno con la condivisione del materiale delle chiavi master. Per risolvere questo problema, il sistema di protezione dei dati inserisce automaticamente un identificatore univoco per applicazione come primo elemento nella catena di scopi generali. Questo scopo implicito consente di [isolare le singole applicazioni](xref:security/data-protection/configuration/overview#per-application-isolation) l'una dall'altra, trattando in modo efficace ogni applicazione come tenant univoco all'interno del sistema e il processo di creazione della protezione è identico all'immagine precedente.

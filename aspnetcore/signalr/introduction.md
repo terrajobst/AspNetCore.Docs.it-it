@@ -10,15 +10,15 @@ no-loc:
 - SignalR
 uid: signalr/introduction
 ms.openlocfilehash: 635431abf9263c2dff261aea47e6f8324061763f
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829283"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78662918"
 ---
 # <a name="introduction-to-aspnet-core-opno-locsignalr"></a>Introduzione a ASP.NET Core SignalR
 
-## <a name="what-is-opno-locsignalr"></a>Cos'è SignalR?
+## <a name="what-is-opno-locsignalr"></a>Che cos'è SignalR?
 
 ASP.NET Core SignalR è una libreria open source che semplifica l'aggiunta di funzionalità Web in tempo reale alle app. La funzionalità Web in tempo reale consente di eseguire il push del contenuto ai client immediatamente dal codice lato server.
 

@@ -9,11 +9,11 @@ no-loc:
 - SignalR
 uid: aspnetcore-2.2
 ms.openlocfilehash: 97deafd520926476f7653fc3de40d577b394734b
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829127"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78661049"
 ---
 # <a name="whats-new-in-aspnet-core-22"></a>Novità di ASP.NET Core 2.2
 
@@ -23,7 +23,7 @@ Questo articolo evidenzia le modifiche più significative apportate ad ASP.NET C
 
 OpenAPI, chiamata in precedenza Swagger, è una specifica indipendente dal linguaggio per la descrizione delle API REST. L'ecosistema OpenAPI include strumenti che consentono di individuare, testare e produrre codice client usando la specifica. Il supporto per la generazione e la visualizzazione di documenti OpenAPI in ASP.NET Core MVC è fornito tramite progetti gestiti dalla community, ad esempio [NSwag](https://github.com/RicoSuter/NSwag) e [Swashbuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore). ASP.NET Core 2.2 offre strumenti ottimizzati e migliori esperienze con il runtime per la creazione di documenti OpenAPI.
 
-Per ulteriori informazioni, vedere le seguenti risorse:
+Per altre informazioni, vedere le seguenti risorse:
 
 * <xref:web-api/advanced/analyzers>
 * <xref:web-api/advanced/conventions>
@@ -37,7 +37,7 @@ Con ASP.NET Core 2.1 è stata introdotta la classe `ProblemDetails`, basata sull
 
 ASP.NET Core 2.2 prevede un nuovo sistema di *routing di endpoint* che rende più efficace l'invio delle richieste. Le modifiche includono una nuova funzione di generazione dei collegamenti per i membri dell'API e l'aggiunta di trasformatori per i parametri di routing.
 
-Per ulteriori informazioni, vedere le seguenti risorse:
+Per altre informazioni, vedere le seguenti risorse:
 
 * [Endpoint routing in 2.2](https://blogs.msdn.microsoft.com/webdev/2018/08/27/asp-net-core-2-2-0-preview1-endpoint-routing/) (Routing di endpoint in 2.2)
 * [Parameter transformers](https://www.hanselman.com/blog/ASPNETCore22ParameterTransformersForCleanURLGenerationAndSlugsInRazorPagesOrMVC.aspx) (Trasformatori dei parametri), sezione **Routing**
@@ -70,7 +70,7 @@ Per altre informazioni, vedere [Supporto per HTTP/2](xref:fundamentals/servers/i
 
 ## <a name="kestrel-configuration"></a>Configurazione di Kestrel
 
-Nelle versioni precedenti di ASP.NET Core, le opzioni di Kestrel venivano configurate chiamando `UseKestrel`. Nella versione 2.2, le opzioni di Kestrel sono configurate chiamando `ConfigureKestrel` nel generatore di host. Questa modifica risolve un problema legato all'ordine delle registrazioni `IServer` per l'hosting in-process. Per ulteriori informazioni, vedere le seguenti risorse:
+Nelle versioni precedenti di ASP.NET Core, le opzioni di Kestrel venivano configurate chiamando `UseKestrel`. Nella versione 2.2, le opzioni di Kestrel sono configurate chiamando `ConfigureKestrel` nel generatore di host. Questa modifica risolve un problema legato all'ordine delle registrazioni `IServer` per l'hosting in-process. Per altre informazioni, vedere le seguenti risorse:
 
 * [Mitigate UseIIS conflict](https://github.com/aspnet/KestrelHttpServer/issues/2760) (Ridurre i conflitti UseIIS)
 * [Configurare le opzioni del server Kestrel con ConfigureKestrel](xref:fundamentals/servers/kestrel?view=aspnetcore-2.2#how-to-use-kestrel-in-aspnet-core-apps)

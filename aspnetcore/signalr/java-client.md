@@ -9,12 +9,12 @@ ms.date: 11/12/2019
 no-loc:
 - SignalR
 uid: signalr/java-client
-ms.openlocfilehash: d7143b2c22ecdc4e68f484aa4c244e1c520beae0
-ms.sourcegitcommit: 3fc3020961e1289ee5bf5f3c365ce8304d8ebf19
+ms.openlocfilehash: 6919eabf454f16887e012161a454a4848c45002b
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73963787"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78660517"
 ---
 # <a name="aspnet-core-opno-locsignalr-java-client"></a>ASP.NET Core SignalR client Java
 
@@ -24,7 +24,7 @@ Il client Java consente la connessione a un ASP.NET Core Server SignalR dal codi
 
 L'app console Java di esempio a cui si fa riferimento in questo articolo usa il client Java SignalR.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/java-client/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/java-client/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="install-the-opno-locsignalr-java-client-package"></a>Installare il pacchetto client Java di SignalR
 
@@ -46,7 +46,7 @@ Per stabilire una `HubConnection`, è necessario usare il `HubConnectionBuilder`
 
 [!code-java[Build hub connection](java-client/sample/src/main/java/Chat.java?range=16-17)]
 
-## <a name="call-hub-methods-from-client"></a>Chiamare i metodi dell'hub dal client
+## <a name="call-hub-methods-from-client"></a>Chiamare i metodi dell'hub da client
 
 Una chiamata a `send` richiama un metodo dell'hub. Passare il nome del metodo dell'hub e gli eventuali argomenti definiti nel metodo hub per `send`.
 
@@ -55,7 +55,7 @@ Una chiamata a `send` richiama un metodo dell'hub. Passare il nome del metodo de
 > [!NOTE]
 > Se si usa il servizio SignalR di Azure in *modalità senza server*, non è possibile chiamare i metodi dell'hub da un client. Per ulteriori informazioni, vedere la [documentazione del servizioSignalR](/azure/azure-signalr/signalr-concept-serverless-development-config).
 
-## <a name="call-client-methods-from-hub"></a>Chiamare i metodi client dall'hub
+## <a name="call-client-methods-from-hub"></a>Chiamare i metodi client hub
 
 Usare `hubConnection.on` per definire i metodi sul client che l'hub può chiamare. Definire i metodi dopo la compilazione, ma prima di avviare la connessione.
 

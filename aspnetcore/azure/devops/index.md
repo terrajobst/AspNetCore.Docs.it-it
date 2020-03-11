@@ -7,11 +7,11 @@ ms.date: 08/07/2018
 ms.custom: mvc, seodec18
 uid: azure/devops/index
 ms.openlocfilehash: f45bb2a5dd4b3d1a820085ede7ce3219045ed80b
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
-ms.translationtype: HT
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64881956"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658081"
 ---
 # <a name="devops-with-aspnet-core-and-azure"></a>DevOps con ASP.NET Core e Azure
 
@@ -21,7 +21,7 @@ Di [Cam Soper](https://twitter.com/camsoper) e [Scott Addie](https://twitter.com
 
 Questa guida è disponibile come [e-book PDF scaricabile](https://aka.ms/devopsbook).
 
-## <a name="welcome"></a>Introduzione 
+## <a name="welcome"></a>Schermata iniziale 
 
 Benvenuti alla guida del ciclo di sviluppo di Azure per .NET. Questa guida presenta i concetti di base della creazione di un ciclo di sviluppo basato su Azure usando processi e strumenti di .NET. Dopo aver completato questa guida, è possibile sfruttare i vantaggi di una toolchain DevOps completa.
 
@@ -37,23 +37,23 @@ Questa guida è incentrata su un'esperienza di distribuzione continua end-to-end
 
 ## <a name="whats-in-this-guide"></a>Contenuto della Guida
 
-### <a name="tools-and-downloadsxrefazuredevopstools-and-downloads"></a>[Strumenti e download](xref:azure/devops/tools-and-downloads)
+### <a name="tools-and-downloads"></a>[Strumenti e download](xref:azure/devops/tools-and-downloads)
 
 Informazioni su come ottenere gli strumenti usati nella guida.
 
-### <a name="deploy-to-app-servicexrefazuredevopsdeploy-to-app-service"></a>[Distribuire nel servizio app](xref:azure/devops/deploy-to-app-service)
+### <a name="deploy-to-app-service"></a>[Distribuire nel servizio app](xref:azure/devops/deploy-to-app-service)
 
 Informazioni sui diversi metodi per distribuire un'app ASP.NET Core nel servizio App di Azure.
 
-### <a name="continuous-integration-and-deploymentxrefazuredevopscicd"></a>[Integrazione e distribuzione continua](xref:azure/devops/cicd)
+### <a name="continuous-integration-and-deployment"></a>[Integrazione e distribuzione continua](xref:azure/devops/cicd)
 
 Compilazione di una soluzione end-to-end di integrazione e distribuzione continua per l'app ASP.NET Core con GitHub, Azure DevOps Services e Azure.
 
-### <a name="monitor-and-debugxrefazuredevopsmonitor"></a>[Monitoraggio e debug](xref:azure/devops/monitor)
+### <a name="monitor-and-debug"></a>[Monitoraggio e debug](xref:azure/devops/monitor)
 
 Informazioni sull'uso degli strumenti di Azure per eseguire il monitoraggio, risolvere i problemi e ottimizzare l'applicazione.
 
-### <a name="next-stepsxrefazuredevopsnext-steps"></a>[Passaggi successivi](xref:azure/devops/next-steps)
+### <a name="next-steps"></a>[Passaggi successivi](xref:azure/devops/next-steps)
 
 Altri percorsi di apprendimento per gli sviluppatori ASP.NET Core che si avvicinano ad Azure.
 

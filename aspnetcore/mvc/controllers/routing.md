@@ -5,12 +5,12 @@ description: Informazioni su come ASP.NET Core MVC usa middleware di routing per
 ms.author: riande
 ms.date: 12/05/2019
 uid: mvc/controllers/routing
-ms.openlocfilehash: 8cf7e74df292a614f287eff8561a22187f6558ce
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 1116cc699f749a137638b75095a7172ad0d4858a
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75866059"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78663723"
 ---
 # <a name="routing-to-controller-actions-in-aspnet-core"></a>Routing ad azioni del controller in ASP.NET Core
 
@@ -200,7 +200,7 @@ app.UseMvc(routes =>
 });
 ```
 
-I nomi di route consentono di assegnare a una route un nome logico, in modo che la route denominata possa essere usata per la generazione di URL. Questo semplifica notevolmente la creazione degli URL quando l'ordinamento delle route può rendere complessa la generazione di URL. I nomi delle route devono essere univoci a livello di applicazione.
+I nomi di route consentono di assegnare a una route un nome logico, in modo che la route denominata possa essere usata per la generazione di URL. Questo semplifica notevolmente la creazione degli URL quando l'ordinamento delle route può rendere complessa la generazione di URL. I nomi di route devono essere univoci a livello di applicazione.
 
 I nomi di route non influiscono sulla corrispondenza degli URL o sulla gestione delle richieste, vengono usati solo per la generazione di URL. L'articolo sul [routing](xref:fundamentals/routing) contiene informazioni dettagliate sulla generazione di URL, inclusa la generazione negli helper specifici di MVC.
 
@@ -313,7 +313,7 @@ public class ProductsApiController : Controller
 }
 ```
 
-I nomi di route possono essere usati per generare un URL in base a un percorso specifico. I nomi di route non influiscono sul comportamento del routing riguardo alla corrispondenza degli URL e vengono usati solo per la generazione di URL. I nomi delle route devono essere univoci a livello di applicazione.
+I nomi di route possono essere usati per generare un URL in base a un percorso specifico. I nomi di route non influiscono sul comportamento del routing riguardo alla corrispondenza degli URL e vengono usati solo per la generazione di URL. I nomi di route devono essere univoci a livello di applicazione.
 
 > [!NOTE]
 > Confrontare questa opzione con la *route predefinita* convenzionale, che definisce il parametro `id` come facoltativo (`{id?}`). La possibilità di specificare in modo preciso le API presenta dei vantaggi, ad esempio consente di inviare `/products` e `/products/5` ad azioni  differenti.
@@ -559,7 +559,7 @@ Le azioni vengono indirizzate in modo convenzionale o con attributi. Se una rout
 
 ## <a name="complex-segments"></a>Segmenti complessi
 
-I segmenti complessi (ad esempio, `[Route("/dog{token}cat")]`), vengono elaborati individuando corrispondenze per i valori letterali da destra a sinistra in modalità non-greedy. Vedere [il codice sorgente](https://github.com/aspnet/Routing/blob/9cea167cfac36cf034dbb780e3f783114ef94780/src/Microsoft.AspNetCore.Routing/Patterns/RoutePatternMatcher.cs#L296) per una descrizione. Per altre informazioni, vedere [questo problema](https://github.com/aspnet/AspNetCore.Docs/issues/8197).
+I segmenti complessi (ad esempio, `[Route("/dog{token}cat")]`), vengono elaborati individuando corrispondenze per i valori letterali da destra a sinistra in modalità non-greedy. Vedere [il codice sorgente](https://github.com/aspnet/Routing/blob/9cea167cfac36cf034dbb780e3f783114ef94780/src/Microsoft.AspNetCore.Routing/Patterns/RoutePatternMatcher.cs#L296) per una descrizione. Per altre informazioni, vedere [questo problema](https://github.com/dotnet/AspNetCore.Docs/issues/8197).
 
 <a name="routing-url-gen-ref-label"></a>
 

@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 02/06/2019
 ms.topic: tutorial
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 04694f20c7142cc2917df25458e8e335ee933900
-ms.sourcegitcommit: f259889044d1fc0f0c7e3882df0008157ced4915
+ms.openlocfilehash: 8f6561616ccd0fde050276467920da8aa93677c6
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76268777"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78657248"
 ---
 # <a name="tutorial-get-started-with-ef-core-in-an-aspnet-mvc-web-app"></a>Esercitazione: Introduzione a EF Core in un'app Web MVC ASP.NET
 
@@ -21,7 +21,7 @@ Questa esercitazione **non** è stata aggiornata ad ASP.NET Core 3.0. La [versio
 * Si trovano nei file *Startup.cs* e *Program.cs* .
 * Si trova nella [versione Razor Pages](xref:data/ef-rp/intro). 
 
-Per informazioni su quando questo potrebbe essere aggiornato, vedere [questo problema in GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/13920).
+Per informazioni su quando questo potrebbe essere aggiornato, vedere [questo problema in GitHub](https://github.com/dotnet/AspNetCore.Docs/issues/13920).
 
 [!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc.md)]
 
@@ -29,7 +29,7 @@ L'applicazione Web di esempio di Contoso University illustra come creare applica
 
 L'applicazione di esempio è un sito Web per una fittizia Contoso University. Include funzionalità, come ad esempio l'ammissione di studenti, la creazione di corsi e le assegnazioni di insegnati. Questa è la prima di una serie di esercitazioni che illustrano come compilare da zero l'app di esempio di Contoso University.
 
-Le attività di questa esercitazione sono le seguenti:
+In questa esercitazione:
 
 > [!div class="checklist"]
 > * Creare un'app Web ASP.NET Core MVC
@@ -42,16 +42,16 @@ Le attività di questa esercitazione sono le seguenti:
 > * Creare controller e visualizzazioni
 > * Visualizzare il database
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [.NET Core SDK 2.2](https://www.microsoft.com/net/download)
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) con i carichi di lavoro seguenti:
   * **ASP.NET e carico di lavoro di sviluppo Web**
   * Carico di lavoro di **sviluppo multipiattaforma .NET Core**
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
-Se si verifica un problema che non si sa come risolvere, è generalmente possibile trovare la soluzione confrontando il codice con il [progetto completato](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final). Per un elenco degli errori comuni e delle relative soluzioni, vedere [la sezione relativa alla risoluzione dei problemi nell'ultima esercitazione della serie](advanced.md#common-errors). Se non si trova la soluzione, è possibile inviare una domanda a StackOverflow.com per [ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) o [Entity Framework Core](https://stackoverflow.com/questions/tagged/entity-framework-core).
+Se si verifica un problema che non si sa come risolvere, è generalmente possibile trovare la soluzione confrontando il codice con il [progetto completato](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final). Per un elenco degli errori comuni e delle relative soluzioni, vedere [la sezione relativa alla risoluzione dei problemi nell'ultima esercitazione della serie](advanced.md#common-errors). Se non si trova la soluzione, è possibile inviare una domanda a StackOverflow.com per [ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) o [Entity Framework Core](https://stackoverflow.com/questions/tagged/entity-framework-core).
 
 > [!TIP]
 > In questa serie di 10 esercitazioni ogni esercitazione si basa su quanto viene eseguito nelle esercitazioni precedenti. È consigliabile salvare una copia del progetto dopo aver completato ogni esercitazione. Se si verificano problemi, è possibile ricominciare dall'esercitazione precedente anziché tornare all'inizio della serie.
@@ -66,9 +66,9 @@ Gli utenti possono visualizzare e aggiornare le informazioni che riguardano stud
 
 ![Pagina Students Edit (Modifica studenti)](intro/_static/student-edit.png)
 
-## <a name="create-web-app"></a>Creare un'app Web
+## <a name="create-web-app"></a>Crea app Web
 
-* Apri Visual Studio.
+* Aprire Visual Studio.
 
 * Scegliere **Nuovo > Progetto** dal menu **File**.
 
@@ -86,7 +86,7 @@ Gli utenti possono visualizzare e aggiornare le informazioni che riguardano stud
 
 * Assicurarsi che per **Autenticazione** sia impostata l'opzione **Nessuna autenticazione**.
 
-* Scegliere **OK**.
+* Selezionare **OK**.
 
   ![Finestra di dialogo Nuovo progetto ASP.NET Core](intro/_static/new-aspnet2.png)
 
@@ -100,7 +100,7 @@ Aprire *Views/Shared/_Layout.cshtml* e apportare le modifiche seguenti:
 
 * Aggiungere le voci di menu per **About** (Informazioni su), **Students** (Studenti), **Courses** (Corsi), **Instructors** (Insegnanti) e **Departments** (Dipartimenti) ed eliminare la voce di menu **Privacy**.
 
-Le modifiche sono evidenziate.
+Le modifiche vengono evidenziate.
 
 [!code-cshtml[](intro/samples/cu/Views/Shared/_Layout.cshtml?highlight=6,34-48,63)]
 
@@ -140,9 +140,9 @@ Nella cartella *Models* (Modelli) creare un file di classe denominato *Student.c
 
 La proprietà `ID` diventa la colonna di chiave primaria della tabella di database che corrisponde a questa classe. Per impostazione predefinita, Entity Framework interpreta una proprietà denominata `ID` o `classnameID` come chiave primaria.
 
-La proprietà `Enrollments` rappresenta una [proprietà di navigazione](/ef/core/modeling/relationships). Le proprietà di navigazione contengono altre entità correlate a questa entità. In questo caso la proprietà `Enrollments` di `Student entity` contiene tutte le entità `Enrollment` correlate all'entità `Student`. In altre parole, se una determinata riga Student (Studente) nel database contiene due righe Enrollment (Iscrizione) correlate (le righe che contengono il valore della chiave primaria dello studente nella colonna della chiave esterna StudentID), la proprietà di navigazione `Enrollments` dell'entità `Student` contiene quelle due entità `Enrollment`.
+La proprietà `Enrollments` rappresenta una [proprietà di navigazione](/ef/core/modeling/relationships). Le proprietà di navigazione contengono altre entità correlate a questa entità. In questo caso la proprietà `Enrollments` di `Student entity` contiene tutte le entità `Enrollment` correlate all'entità `Student`. In altre parole, se una determinata riga Student (Studente) nel database contiene due righe Enrollment (Iscrizione) correlate (le righe che contengono il valore della chiave primaria dello studente nella colonna della chiave esterna StudentID), la proprietà di navigazione `Student` dell'entità `Enrollments` contiene quelle due entità `Enrollment`.
 
-Se una proprietà di navigazione può contenere più entità (come nel caso di relazioni molti-a-molti e uno-a-molti), il tipo della proprietà deve essere un elenco in cui le voci possono essere aggiunte, eliminate e aggiornate, come ad esempio `ICollection<T>`. È possibile specificare `ICollection<T>` o un tipo come `List<T>` o `HashSet<T>`. Se si specifica `ICollection<T>`, per impostazione predefinita EF crea una raccolta `HashSet<T>`.
+Se una proprietà di navigazione può contenere più entità (come nel caso di relazioni molti-a-molti e uno-a-molti), il tipo della proprietà deve essere un elenco in cui le voci possono essere aggiunte, eliminate e aggiornate, come ad esempio `ICollection<T>`. È possibile specificare `ICollection<T>` o un tipo come `List<T>` o `HashSet<T>`. Se si specifica `ICollection<T>`, per impostazione predefinita Entity Framework crea una raccolta `HashSet<T>`.
 
 ### <a name="the-enrollment-entity"></a>Entità Enrollment (Iscrizione)
 
@@ -210,7 +210,7 @@ Aprire il file *appsettings.json* e aggiungere una stringa di connessione come i
 
 [!code-json[](./intro/samples/cu/appsettings1.json?highlight=2-4)]
 
-### <a name="sql-server-express-localdb"></a>LocalDB di SQL Server Express
+### <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
 La stringa di connessione specifica un database Local DB di SQL Server. Local DB è una versione leggera del motore di database di SQL Server Express appositamente pensato per lo sviluppo di applicazioni e non per la produzione. Local DB viene avviato su richiesta ed eseguito in modalità utente; non richiede quindi una configurazione complessa. Per impostazione predefinita, Local DB crea file di database con estensione *mdf* nella directory `C:/Users/<user>`.
 
@@ -306,7 +306,7 @@ In Esplora oggetti di SQL Server fare clic su **(localdb) \MSSQLLocalDB > Databa
 
 Espandere il nodo **Tabelle** per visualizzare le tabelle nel database.
 
-![Tabelle in SSOX](intro/_static/ssox-tables.png)
+![Tabelle in Esplora oggetti di SQL Server](intro/_static/ssox-tables.png)
 
 Fare clic con il pulsante destro del mouse sulla tabella **Student** (Studente) e fare clic su **Visualizza dati** per visualizzare le colonne create e le righe inserite nella tabella.
 
@@ -362,11 +362,11 @@ Per altre informazioni sulla programmazione asincrona in .NET, vedere [Panoramic
 
 ## <a name="get-the-code"></a>Ottenere il codice
 
-[Scaricare o visualizzare l'applicazione completata.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[Scaricare o visualizzare l'applicazione completata.](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Le attività di questa esercitazione sono le seguenti:
+In questa esercitazione:
 
 > [!div class="checklist"]
 > * Creare un'app Web ASP.NET Core MVC

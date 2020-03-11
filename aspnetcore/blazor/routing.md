@@ -11,11 +11,11 @@ no-loc:
 - SignalR
 uid: blazor/routing
 ms.openlocfilehash: 32459f9f42220b01ce04e6444a9bb4a9592ee2da
-ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76928277"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78663807"
 ---
 # <a name="aspnet-core-blazor-routing"></a>Routing di ASP.NET Core Blazor
 
@@ -23,11 +23,11 @@ Di [Luke Latham](https://github.com/guardrex)
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-Informazioni su come instradare le richieste e su `NavLink` come usare il componente per creare collegamenti di navigazione nelle app Blazor.
+Informazioni su come instradare le richieste e su come usare il componente `NavLink` per creare collegamenti di navigazione nelle app blazer.
 
 ## <a name="aspnet-core-endpoint-routing-integration"></a>Integrazione di routing endpoint ASP.NET Core
 
-Il server Blazor è integrato nel [Routing ASP.NET Core endpoint](xref:fundamentals/routing). Un'app ASP.NET Core è configurata in modo da accettare le connessioni in ingresso per i componenti interattivi con `MapBlazorHub` in `Startup.Configure`:
+Il server blazer è integrato nel [Routing ASP.NET Core endpoint](xref:fundamentals/routing). Un'app ASP.NET Core è configurata in modo da accettare le connessioni in ingresso per i componenti interattivi con `MapBlazorHub` in `Startup.Configure`:
 
 [!code-csharp[](routing/samples_snapshot/3.x/Startup.cs?highlight=5)]
 
@@ -55,7 +55,7 @@ In fase di esecuzione, il componente `RouteView`:
 * Riceve il `RouteData` dall'`Router` insieme a tutti i parametri desiderati.
 * Esegue il rendering del componente specificato con il layout (o un layout predefinito facoltativo) utilizzando i parametri specificati.
 
-Facoltativamente, è possibile specificare `DefaultLayout` un parametro con una classe layout da utilizzare per i componenti che non specificano un layout. I modelli di Blazor predefiniti specificano il `MainLayout` componente. *MainLayout. Razor* si trova nella cartella *condivisa* del progetto modello. Per ulteriori informazioni sui layout, vedere <xref:blazor/layouts>.
+Facoltativamente, è possibile specificare un parametro `DefaultLayout` con una classe layout da utilizzare per i componenti che non specificano un layout. I modelli di Blazer predefiniti specificano il componente `MainLayout`. *MainLayout. Razor* si trova nella cartella *condivisa* del progetto modello. Per ulteriori informazioni sui layout, vedere <xref:blazor/layouts>.
 
 È possibile applicare più modelli di route a un componente. Il componente seguente risponde alle richieste di `/BlazorRoute` e `/DifferentBlazorRoute`:
 
@@ -67,7 +67,7 @@ Facoltativamente, è possibile specificare `DefaultLayout` un parametro con una 
 ```
 
 > [!IMPORTANT]
-> Per la corretta risoluzione degli URL, l'app deve includere `<base>` un tag nel file *wwwroot/index.html* (webassembly Blazor) o nel file *pages/_Host. cshtml* (server Blazor) con il percorso di base dell' `href` app specificato nell'attributo (`<base href="/">`). Per ulteriori informazioni, vedere <xref:host-and-deploy/blazor/index#app-base-path>.
+> Per risolvere correttamente gli URL, è necessario che l'app includa un tag `<base>` nel file *wwwroot/index.html* (Webassembly Blazer) o nel file *pages/_Host. cshtml* (server Blazer) con il percorso di base dell'app specificato nell'attributo `href` (`<base href="/">`). Per altre informazioni, vedere <xref:host-and-deploy/blazor/index#app-base-path>.
 
 ## <a name="provide-custom-content-when-content-isnt-found"></a>Fornire contenuto personalizzato quando il contenuto non è stato trovato
 
@@ -122,7 +122,7 @@ Il router usa parametri di route per popolare i parametri del componente corrisp
 }
 ```
 
-I parametri facoltativi non sono supportati. Nell' `@page` esempio precedente vengono applicate due direttive. Il primo consente la navigazione al componente senza un parametro. La seconda direttiva `@page` accetta il parametro di route `{text}` e assegna il valore alla proprietà `Text`.
+I parametri facoltativi non sono supportati. Nell'esempio precedente vengono applicate due direttive `@page`. Il primo consente la navigazione al componente senza un parametro. La seconda direttiva `@page` accetta il parametro di route `{text}` e assegna il valore alla proprietà `Text`.
 
 ## <a name="route-constraints"></a>Vincoli di route
 
@@ -137,7 +137,7 @@ Nell'esempio seguente, la route per il componente `Users` corrisponde solo a se:
 
 Sono disponibili i vincoli di route indicati nella tabella seguente. Per ulteriori informazioni, vedere l'avviso sotto la tabella per i vincoli di route corrispondenti alla lingua inglese.
 
-| Vincolo | Esempio           | Esempi di corrispondenza                                                                  | Invariante<br>lingua<br>corrispondenze |
+| Vincolo | Esempio           | Esempi di corrispondenza                                                                  | Invariante<br>culture<br>corrispondenze |
 | ---------- | ----------------- | -------------------------------------------------------------------------------- | :------------------------------: |
 | `bool`     | `{active:bool}`   | `true`, `FALSE`                                                                  | No                               |
 | `datetime` | `{dob:datetime}`  | `2016-12-31`, `2016-12-31 7:32pm`                                                | Sì                              |
@@ -153,7 +153,7 @@ Sono disponibili i vincoli di route indicati nella tabella seguente. Per ulterio
 
 ### <a name="routing-with-urls-that-contain-dots"></a>Routing con URL contenenti punti
 
-Nelle app del server Blazor la route predefinita in *_Host. cshtml* è `/` (`@page "/"`). Un URL di richiesta che contiene un punto (`.`) non corrisponde alla route predefinita perché l'URL viene visualizzato per richiedere un file. Un'app Blazor restituisce una risposta *404 non trovata* per un file statico che non esiste. Per usare le route che contengono un punto, configurare *_Host. cshtml* con il modello di route seguente:
+Nelle app del server blazer, la route predefinita in *_Host. cshtml* è `/` (`@page "/"`). Un URL di richiesta che contiene un punto (`.`) non corrisponde alla route predefinita perché l'URL viene visualizzato per richiedere un file. Un'app Blazer restituisce una risposta *404 non trovata* per un file statico che non esiste. Per usare le route che contengono un punto, configurare *_Host. cshtml* con il modello di route seguente:
 
 ```cshtml
 @page "/{**path}"
@@ -167,7 +167,7 @@ Il modello di `"/{**path}"` include:
 > [!NOTE]
 > La sintassi dei parametri *catch-all* (`*`/`**`) **non** è supportata nei componenti Razor (*Razor*).
 
-Per ulteriori informazioni, vedere <xref:fundamentals/routing>.
+Per altre informazioni, vedere <xref:fundamentals/routing>.
 
 ## <a name="navlink-component"></a>Componente NavLink
 
@@ -200,7 +200,7 @@ Viene eseguito il rendering del markup HTML seguente:
 
 Usare `Microsoft.AspNetCore.Components.NavigationManager` per lavorare con gli URI e la C# navigazione nel codice. `NavigationManager` fornisce l'evento e i metodi illustrati nella tabella seguente.
 
-| Member | Descrizione |
+| Membro | Descrizione |
 | ------ | ----------- |
 | `Uri` | Ottiene l'URI assoluto corrente. |
 | `BaseUri` | Ottiene l'URI di base (con una barra finale) che può essere anteposto ai percorsi URI relativi per produrre un URI assoluto. In genere, `BaseUri` corrisponde all'attributo `href` sull'elemento `<base>` del documento in *wwwroot/index.html* (Blazor webassembly) o *pages/_Host. cshtml* (Blazor Server). |

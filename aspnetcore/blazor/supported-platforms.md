@@ -11,13 +11,13 @@ no-loc:
 - SignalR
 uid: blazor/supported-platforms
 ms.openlocfilehash: 505974280b5c96ec2bcae42c6e076ab67a15bb07
-ms.sourcegitcommit: 9ee99300a48c810ca6fd4f7700cd95c3ccb85972
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76160132"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658858"
 ---
-# <a name="aspnet-core-opno-locblazor-supported-platforms"></a>Piattaforme supportate da ASP.NET Core Blazor
+# <a name="aspnet-core-blazor-supported-platforms"></a>Piattaforme supportate da ASP.NET Core Blazor
 
 Di [Luke Latham](https://github.com/guardrex)
 
@@ -25,7 +25,7 @@ Di [Luke Latham](https://github.com/guardrex)
 
 ## <a name="browser-requirements"></a>Requisiti del browser
 
-### <a name="opno-locblazor-webassembly"></a>Blazor webassembly
+### <a name="blazor-webassembly"></a>WebAssembly Blazor
 
 | Browser                          | Versione               |
 | -------------------------------- | :-------------------: |
@@ -37,7 +37,7 @@ Di [Luke Latham](https://github.com/guardrex)
 
 &dagger;Microsoft Internet Explorer non supporta [webassembly](https://webassembly.org).
 
-### <a name="opno-locblazor-server"></a>Server Blazor
+### <a name="blazor-server"></a>Server Blazor
 
 | Browser                          | Versione    |
 | -------------------------------- | :--------: |

@@ -1,36 +1,36 @@
 ---
 title: Trasformare web.config
-author: guardrex
+author: rick-anderson
 description: Informazioni su come trasformare il file web.config quando si pubblica un'app ASP.NET Core.
 monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.custom: mvc
 ms.date: 01/13/2020
 uid: host-and-deploy/iis/transform-webconfig
-ms.openlocfilehash: ef627de70c6aea44962d2187c4d401baab6557ae
-ms.sourcegitcommit: 2388c2a7334ce66b6be3ffbab06dd7923df18f60
+ms.openlocfilehash: 069b9bb516644a1a722235b33d4916460488ebf2
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75952038"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78657934"
 ---
 # <a name="transform-webconfig"></a>Trasformare web.config
 
-Di [Vijay Ramakrishnan](https://github.com/vijayrkn) e [Luke Latham](https://github.com/guardrex)
+Di [Vijay](https://github.com/vijayrkn) ,
 
 Le trasformazioni per il file *web.config* possono essere applicate automaticamente quando viene pubblicata un'app in base a:
 
 * [Configurazione della build](#build-configuration)
-* [Profile](#profile)
-* [Ambiente](#environment)
-* [Personalizzato](#custom)
+* [Profilo](#profile)
+* [Environment](#environment)
+* [Impostazione personalizzata](#custom)
 
 Queste trasformazioni si verificano per uno degli scenari di generazione di *web.config* seguenti:
 
 * Generati automaticamente dall'SDK `Microsoft.NET.Sdk.Web`.
 * Fornito dallo sviluppatore nella radice del [contenuto](xref:fundamentals/index#content-root) dell'app.
 
-## <a name="build-configuration"></a>Configurazione della build
+## <a name="build-configuration"></a>Configurare la compilazione
 
 Le trasformazioni di configurazione della build vengono eseguite per prime.
 
@@ -100,7 +100,7 @@ La proprietà di MSBuild per il nome del profilo è `$(PublishProfile)`.
 
 Se non viene passato alcun profilo, il nome del profilo predefinito è **FileSystem** e viene applicato *web.FileSystem.config* se il file è presente nella radice del contenuto dell'app.
 
-## <a name="environment"></a>Ambiente
+## <a name="environment"></a>Environment
 
 Le trasformazioni di ambiente vengono eseguite per terze, dopo le trasformazioni di [configurazione della build](#build-configuration) e di [profilo](#profile).
 

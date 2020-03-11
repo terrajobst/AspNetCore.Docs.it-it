@@ -8,11 +8,11 @@ ms.custom: mvc
 ms.date: 12/16/2019
 uid: host-and-deploy/azure-apps/index
 ms.openlocfilehash: ba9671f68a0faf99ff5232a6d5dd132d0a1d5ac5
-ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76928426"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78665144"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Distribuire le app ASP.NET Core in Servizio app di Azure
 
@@ -51,7 +51,7 @@ Riconoscere e risolvere i problemi di avvisi ed errori con i progetti ASP.NET Co
 
 ## <a name="application-configuration"></a>Configurazione dell'applicazione
 
-### <a name="platform"></a>Platform
+### <a name="platform"></a>Piattaforma
 
 L'architettura della piattaforma (x86/x64) di un'app di servizi app viene impostata nelle impostazioni dell'app nel portale di Azure per le app ospitate in un livello di hosting A serie A (Basic) o superiore. Verificare che le impostazioni di pubblicazione dell'app, ad esempio nel profilo di pubblicazione di Visual Studio [(con estensione pubxml)](xref:host-and-deploy/visual-studio-publish-profiles), corrispondano all'impostazione nella configurazione del servizio dell'app nel portale di Azure.
 
@@ -117,7 +117,7 @@ Le app ASP.NET Core distribuite in Servizio app ricevono automaticamente un'este
 
 Per informazioni sul monitoraggio, la registrazione e la risoluzione dei problemi, vedere gli articoli seguenti:
 
-[Monitorare le app nel servizio app di Azure](/azure/app-service/web-sites-monitor)  
+[Monitorare le app in Servizio app di Azure](/azure/app-service/web-sites-monitor)  
 Informazioni su come esaminare le quote e le metriche per le app e i piani del servizio app.
 
 [Abilitare la registrazione diagnostica per le app nel servizio app di Azure](/azure/app-service/web-sites-enable-diagnostic-log)  
@@ -139,11 +139,11 @@ Le [chiavi di protezione dati](xref:security/data-protection/implementation/key-
 Nel passaggio da uno slot di distribuzione all'altro, tutti i sistemi che usano la protezione dati non saranno in grado di decrittografare i dati archiviati usando il KeyRing all'interno dello slot precedente. Il middleware dei cookie di ASP.NET usa la protezione dati per proteggere i cookie. Di conseguenza, gli utenti vengono disconnessi da un'app che usa il middleware dei cookie di ASP.NET standard. Per una soluzione di KeyRing indipendente dallo slot, usare un provider di KeyRing esterno, ad esempio:
 
 * Archiviazione BLOB di Azure
-* Azure Key Vault
+* Insieme di credenziali chiave di Azure
 * Archivio SQL
 * Cache Redis
 
-Per ulteriori informazioni, vedere <xref:security/data-protection/implementation/key-storage-providers>.
+Per altre informazioni, vedere <xref:security/data-protection/implementation/key-storage-providers>.
 <a name="deploy-aspnet-core-preview-release-to-azure-app-service"></a>
 
 ## <a name="deploy-an-aspnet-core-app-that-uses-a-net-core-preview"></a>Distribuire un'app ASP.NET Core che usa un'anteprima di .NET Core
@@ -251,11 +251,11 @@ Per una distribuzione a 64 bit:
 
 ### <a name="deploy-the-app-framework-dependent"></a>Distribuire l'app in modo dipendente dal framework
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 1. Selezionare **Compila** > **Pubblica {nome applicazione}** dalla barra degli strumenti di Visual Studio oppure fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e selezionare **Pubblica**.
 1. Nella finestra di dialogo **Selezionare una destinazione di pubblicazione.** verificare che sia selezionata la voce **Servizio app**.
-1. Selezionare **Avanzate**. Viene visualizzata la finestra di dialogo **Pubblica**.
+1. Fare clic su **Avanzate**. Viene visualizzata la finestra di dialogo **Pubblica**.
 1. Nella finestra di dialogo **Pubblica**:
    * Verificare che sia selezionata la configurazione **Rilascio**.
    * Aprire l'elenco a discesa **Modalità di distribuzione** e selezionare **Dipendente dal framework**.
@@ -264,7 +264,7 @@ Per una distribuzione a 64 bit:
    * Selezionare **Salva**.
 1. Creare un nuovo sito o aggiornare un sito esistente seguendo le istruzioni rimanenti della pubblicazione guidata.
 
-# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli/)
+# <a name="net-core-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli/)
 
 1. Nel file di progetto non specificare un [Identificatore runtime](/dotnet/core/rid-catalog).
 
@@ -282,11 +282,11 @@ Per una distribuzione a 64 bit:
 
 Usare Visual Studio o il interfaccia della riga di comando di .NET Core per una [distribuzione autonoma (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd).
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 1. Selezionare **Compila** > **Pubblica {nome applicazione}** dalla barra degli strumenti di Visual Studio oppure fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e selezionare **Pubblica**.
 1. Nella finestra di dialogo **Selezionare una destinazione di pubblicazione.** verificare che sia selezionata la voce **Servizio app**.
-1. Selezionare **Avanzate**. Viene visualizzata la finestra di dialogo **Pubblica**.
+1. Fare clic su **Avanzate**. Viene visualizzata la finestra di dialogo **Pubblica**.
 1. Nella finestra di dialogo **Pubblica**:
    * Verificare che sia selezionata la configurazione **Rilascio**.
    * Aprire l'elenco a discesa **Modalità di distribuzione** e selezionare **Completa**.
@@ -295,7 +295,7 @@ Usare Visual Studio o il interfaccia della riga di comando di .NET Core per una 
    * Selezionare **Salva**.
 1. Creare un nuovo sito o aggiornare un sito esistente seguendo le istruzioni rimanenti della pubblicazione guidata.
 
-# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli/)
+# <a name="net-core-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli/)
 
 1. Nel file di progetto specificare uno o più [identificatori di runtime (RID)](/dotnet/core/rid-catalog). Usare `<RuntimeIdentifier>` (singolare) per un unico RID o `<RuntimeIdentifiers>` (plurale) per specificare un elenco di RID delimitato da punto e virgola. Nell'esempio seguente è specificato il RID `win-x86`:
 
@@ -326,7 +326,7 @@ Se è necessario trasformare *web.config* in fase di pubblicazione (ad esempio, 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Panoramica del servizio app](/azure/app-service/app-service-web-overview)
+* [Panoramica del Servizio app](/azure/app-service/app-service-web-overview)
 * [Azure App Service: The Best Place to Host your .NET Apps ](https://channel9.msdn.com/events/dotnetConf/2017/T222) (Servizio app di Azure: la soluzione migliore per l'hosting delle app .NET) (video di 55 minuti)
 * [Azure Friday: Azure App Service Diagnostic and Troubleshooting Experience](https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Diagnostic-and-Troubleshooting-Experience) (Azure Friday: diagnostica e risoluzione dei problemi del servizio app di Azure) (video di 12 minuti)
 * [Panoramica della diagnostica del servizio app di Azure](/azure/app-service/app-service-diagnostics)

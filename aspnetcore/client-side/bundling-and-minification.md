@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 06/17/2019
 uid: client-side/bundling-and-minification
 ms.openlocfilehash: a7a5c40d6c31c4416212c02c1b491dd794f2a1d3
-ms.sourcegitcommit: b3e1e31e5d8bdd94096cf27444594d4a7b065525
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803279"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78658270"
 ---
 # <a name="bundle-and-minify-static-assets-in-aspnet-core"></a>Aggregare e minimizzare asset statici in ASP.NET Core
 
@@ -85,7 +85,7 @@ Il file *bundleconfig. JSON* definisce le opzioni per ogni bundle. Nell'esempio 
 
 Le opzioni di configurazione possibili sono:
 
-* `outputFileName`: il nome del file di bundle da restituire. Può contenere un percorso relativo dal file *bundleconfig. JSON* . **required**
+* `outputFileName`: il nome del file di bundle da restituire. Può contenere un percorso relativo dal file *bundleconfig. JSON* . **obbligatorio**
 * `inputFiles`: matrice di file da raggruppare insieme. Si tratta di percorsi relativi del file di configurazione. **facoltativo**, * un valore vuoto restituisce un file di output vuoto. sono supportati i modelli [glob](https://www.tldp.org/LDP/abs/html/globbingref.html) .
 * `minify`: opzioni minification per il tipo di output. **facoltativo**, *`minify: { enabled: true }`predefinito*
   * Le opzioni di configurazione sono disponibili per ogni tipo di file di output.
@@ -103,11 +103,11 @@ Il pacchetto NuGet [BuildBundlerMinifier](https://www.nuget.org/packages/BuildBu
 > [!NOTE]
 > BuildBundlerMinifier appartiene a un progetto gestito dalla community su GitHub per cui Microsoft non fornisce alcun supporto. I problemi devono essere presentati [qui](https://github.com/madskristensen/BundlerMinifier/issues).
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Aggiungere il pacchetto *BuildBundlerMinifier* al progetto.
 
-Compilazione del progetto. Nella finestra di output verrà visualizzato quanto segue:
+Compilare il progetto. Nella finestra di output verrà visualizzato quanto segue:
 
 ```console
 1>------ Build started: Project: BuildBundlerMinifierApp, Configuration: Debug Any CPU ------
@@ -130,7 +130,7 @@ Pulire il progetto. Nella finestra di output verrà visualizzato quanto segue:
 ========== Clean: 1 succeeded, 0 failed, 0 skipped ==========
 ```
 
-# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 
 Aggiungere il pacchetto *BuildBundlerMinifier* al progetto:
 
@@ -197,7 +197,7 @@ dotnet bundle
 ```
 
 > [!IMPORTANT]
-> Gestione pacchetti NuGet aggiunge le dipendenze al file *.csproj come `<PackageReference />` nodi. Il comando `dotnet bundle` viene registrato con l'interfaccia della riga di comando di .NET Core solo quando viene usato un nodo `<DotNetCliToolReference />`. Modificare di conseguenza il file *. csproj.
+> Gestione pacchetti NuGet aggiunge le dipendenze al file *. csproj come nodi `<PackageReference />`. Il comando `dotnet bundle` viene registrato con l'interfaccia della riga di comando di .NET Core solo quando viene usato un nodo `<DotNetCliToolReference />`. Modificare di conseguenza il file *. csproj.
 
 ## <a name="add-files-to-workflow"></a>Aggiunta di file al flusso di lavoro
 
@@ -281,7 +281,7 @@ Il file *gulpfile. js* legge il file *bundleconfig. JSON* per gli input, gli out
 
 [!code-javascript[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/gulpfile.js?range=1-12&highlight=10)]
 
-### <a name="convert-manually"></a>Eseguire manualmente la conversione
+### <a name="convert-manually"></a>Converti manualmente
 
 Se Visual Studio e/o bundler & estensione Minifier non sono disponibili, eseguire la conversione manualmente.
 

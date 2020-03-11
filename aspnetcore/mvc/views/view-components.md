@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/18/2019
 uid: mvc/views/view-components
-ms.openlocfilehash: 8df070b580b6125db6616b33a81f3ffebad69f3a
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 910fffbf360ed0f62f7fe20bc8bfdf5be8198876
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75828919"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78660650"
 ---
 # <a name="view-components-in-aspnet-core"></a>Componenti di visualizzazione in ASP.NET Core
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/view-components/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/view-components/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="view-components"></a>Componenti di visualizzazione
 
@@ -42,7 +42,7 @@ I componenti di visualizzazione possono essere impiegati in un punto qualsiasi d
 
 Un componente di visualizzazione è costituito da due parti: la classe (in genere derivata da [ViewComponent](/dotnet/api/microsoft.aspnetcore.mvc.viewcomponent)) e il risultato restituito (in genere una visualizzazione). Come per i controller, un componente di visualizzazione può essere un oggetto POCO. Molti sviluppatori preferiscono tuttavia sfruttare i metodi e le proprietà disponibili derivando da `ViewComponent`.
 
-Quando si valuta se i componenti di visualizzazione soddisfano le specifiche di un'app, provare a usare Componenti Razor. Componenti Razor inoltre combina markup con codice C# per produrre unità riutilizzabili dell'interfaccia utente. Componenti Razor è progettato per la produttività degli sviluppatori quando si fornisce la composizione e la logica dell'interfaccia utente lato client. Per ulteriori informazioni, vedere <xref:blazor/components>.
+Quando si valuta se i componenti di visualizzazione soddisfano le specifiche di un'app, provare a usare Componenti Razor. Componenti Razor inoltre combina markup con codice C# per produrre unità riutilizzabili dell'interfaccia utente. Componenti Razor è progettato per la produttività degli sviluppatori quando si fornisce la composizione e la logica dell'interfaccia utente lato client. Per altre informazioni, vedere <xref:blazor/components>.
 
 ## <a name="creating-a-view-component"></a>Creazione di un componente di visualizzazione
 
@@ -155,7 +155,7 @@ In questo esempio il componente di visualizzazione viene chiamato direttamente d
 
 ## <a name="walkthrough-creating-a-simple-view-component"></a>Procedura dettagliata: creazione di un componente di visualizzazione semplice
 
-[Scaricare](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/view-components/sample), compilare e testare il codice di avvio. Si tratta di un progetto semplice con un controller `ToDo` che visualizza un elenco di elementi *ToDo*.
+[Scaricare](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/view-components/sample), compilare e testare il codice di avvio. Si tratta di un progetto semplice con un controller `ToDo` che visualizza un elenco di elementi *ToDo*.
 
 ![Elenco di elementi ToDo](view-components/_static/2dos.png)
 
@@ -202,7 +202,7 @@ Note riguardanti il codice:
 
 Il markup `@await Component.InvokeAsync` illustra la sintassi per chiamare i componenti di visualizzazione. Il primo argomento corrisponde al nome del componente che si vuole richiamare o chiamare. I parametri successivi vengono passati al componente. `InvokeAsync` può accettare un numero arbitrario di argomenti.
 
-Eseguire il test dell'app. La figura seguente illustra l'elenco ToDo e gli elementi con priorità:
+Testare l'app. La figura seguente illustra l'elenco ToDo e gli elementi con priorità:
 
 ![elenco todo ed elementi con priorità](view-components/_static/pi.png)
 

@@ -1,16 +1,16 @@
 ---
 title: Razor Pages con EF Core in ASP.NET Core - CRUD - 2 di 8
-author: tdykstra
+author: rick-anderson
 description: Illustra come eseguire operazioni CRUD (creazione, lettura, aggiornamento ed eliminazione) con EF Core.
 ms.author: riande
 ms.date: 07/22/2019
 uid: data/ef-rp/crud
-ms.openlocfilehash: 57c4a1789d54c29a28ba7e67a1d15815415a461c
-ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
-ms.translationtype: HT
+ms.openlocfilehash: 05519852fab22bd3ad5b77e3494b49191448286f
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69583125"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78665648"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>Razor Pages con EF Core in ASP.NET Core - CRUD - 2 di 8
 
@@ -79,7 +79,7 @@ Il codice precedente crea un oggetto Student e quindi usa i campi del modulo pub
 
 * Usa i valori del modulo pubblicati dalla proprietà [PageContext](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel.pagecontext#Microsoft_AspNetCore_Mvc_RazorPages_PageModel_PageContext) in [PageModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel).
 * Aggiorna solo le proprietà elencate (`s => s.FirstMidName, s => s.LastName, s => s.EnrollmentDate`).
-* Cerca i campi del modulo con il prefisso "student". Ad esempio `Student.FirstMidName`. Non viene fatta distinzione tra maiuscole e minuscole.
+* Cerca i campi del modulo con il prefisso "student". Ad esempio: `Student.FirstMidName`. Non viene fatta distinzione tra maiuscole e minuscole.
 * Usa il sistema di [associazione di modelli](xref:mvc/models/model-binding) per convertire i valori dei moduli da stringa ai tipi nel modello `Student`. Ad esempio, `EnrollmentDate` deve essere convertito in DateTime.
 
 Eseguire l'app e creare un'entità Student per testare la pagina Create.
@@ -116,9 +116,9 @@ Il codice seguente usa il modello di visualizzazione `StudentVM` per creare un n
 
 Il metodo [SetValues](/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues.setvalues#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyValues_SetValues_System_Object_) imposta i valori di questo oggetto leggendo i valori di un altro oggetto [PropertyValues](/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues). `SetValues` usa la corrispondenza dei nomi di proprietà. Poiché il tipo di modello di visualizzazione non deve essere correlato al tipo di modello, è sufficiente che abbia proprietà corrispondenti.
 
-Se si usa `StudentVM` è necessario che [Create.cshtml](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu30snapshots/2-crud/Pages/Students/CreateVM.cshtml) venga aggiornato per l'uso di `StudentVM` anziché `Student`.
+Se si usa `StudentVM` è necessario che [Create.cshtml](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu30snapshots/2-crud/Pages/Students/CreateVM.cshtml) venga aggiornato per l'uso di `StudentVM` anziché `Student`.
 
-## <a name="update-the-edit-page"></a>Aggiornare la pagina Edit (Modifica)
+## <a name="update-the-edit-page"></a>Aggiornare la pagina Edit
 
 In *Pages/Students/Edit.cshtml.cs* sostituire i metodi `OnGetAsync` e `OnPostAsync` con il codice seguente.
 
@@ -138,21 +138,21 @@ Il contesto del database tiene traccia della sincronizzazione delle entità in m
 
 Un'entità può essere in uno dei [seguenti stati](/dotnet/api/microsoft.entityframeworkcore.entitystate):
 
-* `Added`: L'entità non esiste ancora nel database. Il metodo `SaveChanges` genera un'istruzione INSERT.
+* `Added`: l'entità non esiste ancora nel database. Il metodo `SaveChanges` genera un'istruzione INSERT.
 
 * `Unchanged`: non è necessario salvare alcuna modifica con questa entità. Un'entità ha questo stato quando viene letta dal database.
 
-* `Modified`: Sono stati modificati alcuni o tutti i valori di proprietà dell'entità. Il metodo `SaveChanges` genera un'istruzione UPDATE.
+* `Modified`: sono stati modificati alcuni o tutti i valori di proprietà dell'entità. Il metodo `SaveChanges` genera un'istruzione UPDATE.
 
-* `Deleted`: L'entità è stata contrassegnata per l'eliminazione. Il metodo `SaveChanges` genera un'istruzione DELETE.
+* `Deleted`: l'entità è stata contrassegnata per l'eliminazione. Il metodo `SaveChanges` genera un'istruzione DELETE.
 
-* `Detached`: L'entità non viene registrata dal contesto del database.
+* `Detached`: l'entità non viene rilevata dal contesto del database.
 
 In un'applicazione desktop le modifiche dello stato vengono in genere impostate automaticamente. Viene letta un'entità, vengono apportate le modifiche e lo stato dell'entità viene modificato automaticamente in `Modified`. La chiamata di `SaveChanges` genera un'istruzione SQL UPDATE che aggiorna solo le proprietà modificate.
 
 In un'app Web il `DbContext` che legge un'entità e visualizza i dati viene eliminato dopo il rendering di una pagina. Quando viene chiamato il metodo `OnPostAsync` di una pagina, viene effettuata una nuova richiesta Web con una nuova istanza di `DbContext`. La rilettura dell'entità nel nuovo contesto simula l'elaborazione desktop.
 
-## <a name="update-the-delete-page"></a>Aggiornare la pagina Delete (Elimina)
+## <a name="update-the-delete-page"></a>Aggiornare la pagina Delete
 
 In questa sezione viene implementato un messaggio di errore personalizzato quando la chiamata a `SaveChanges` ha esito negativo.
 
@@ -196,7 +196,7 @@ Il codice con scaffolding usa il modello seguente per le pagine Create, Edit e D
 
 Le pagine Index e Details ottengono e visualizzano i dati richiesti con il metodo HTTP GET `OnGetAsync`
 
-## <a name="singleordefaultasync-vs-firstordefaultasync"></a>SingleOrDefaultAsync e FirstOrDefaultAsync
+## <a name="singleordefaultasync-vs-firstordefaultasync"></a>Confronto tra SingleOrDefaultAsync e FirstOrDefaultAsync
 
 Il codice generato usa [FirstOrDefaultAsync](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.firstordefaultasync#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_FirstOrDefaultAsync__1_System_Linq_IQueryable___0__System_Threading_CancellationToken_), che in genere è preferibile rispetto a [SingleOrDefaultAsync](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.singleordefaultasync#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_SingleOrDefaultAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_).
 
@@ -322,11 +322,11 @@ Il codice seguente usa il modello di visualizzazione `StudentVM` per creare un n
 
 Il metodo [SetValues](/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues.setvalues#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyValues_SetValues_System_Object_) imposta i valori di questo oggetto leggendo i valori di un altro oggetto [PropertyValues](/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues). `SetValues` usa la corrispondenza dei nomi di proprietà. Poiché il tipo di modello di visualizzazione non deve essere correlato al tipo di modello, è sufficiente che abbia proprietà corrispondenti.
 
-Se si usa `StudentVM` è necessario che [CreateVM.cshtml](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu21/Pages/Students/CreateVM.cshtml) venga aggiornato per l'uso di `StudentVM` anziché `Student`.
+Se si usa `StudentVM` è necessario che [CreateVM.cshtml](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu21/Pages/Students/CreateVM.cshtml) venga aggiornato per l'uso di `StudentVM` anziché `Student`.
 
 In Razor Pages la classe derivata `PageModel` è il modello di visualizzazione.
 
-## <a name="update-the-edit-page"></a>Aggiornare la pagina Edit (Modifica)
+## <a name="update-the-edit-page"></a>Aggiornare la pagina Edit
 
 Aggiornare il modello di pagina per la pagina Edit. Le modifiche principali sono evidenziate:
 
@@ -352,9 +352,9 @@ Un'entità può essere in uno dei [seguenti stati](/dotnet/api/microsoft.entityf
 
 * `Unchanged`: non è necessario salvare alcuna modifica con questa entità. Un'entità ha questo stato quando viene letta dal database.
 
-* `Modified`: Sono stati modificati alcuni o tutti i valori di proprietà dell'entità. Il metodo `SaveChanges` genera un'istruzione UPDATE.
+* `Modified`: sono stati modificati alcuni o tutti i valori di proprietà dell'entità. Il metodo `SaveChanges` genera un'istruzione UPDATE.
 
-* `Deleted`: L'entità è stata contrassegnata per l'eliminazione. Il metodo `SaveChanges` genera un'istruzione DELETE.
+* `Deleted`: l'entità è stata contrassegnata per l'eliminazione. Il metodo `SaveChanges` genera un'istruzione DELETE.
 
 * `Detached`: l'entità non viene registrata dal contesto del database.
 

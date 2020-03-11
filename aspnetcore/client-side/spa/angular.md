@@ -7,12 +7,12 @@ ms.author: stevesa
 ms.custom: mvc
 ms.date: 02/06/2020
 uid: spa/angular
-ms.openlocfilehash: 11ad5d4c7cadcc582b3e288a331569f62f0b98ac
-ms.sourcegitcommit: bd896935e91236e03241f75e6534ad6debcecbbf
+ms.openlocfilehash: fee872ff237e14cbe491efed9b320809df4c5654
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77044851"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78657633"
 ---
 # <a name="use-the-angular-project-template-with-aspnet-core"></a>Usare il modello di progetto per Angular con ASP.NET Core
 
@@ -33,13 +33,13 @@ cd my-new-app
 
 Eseguire l'app da Visual Studio o dall'interfaccia della riga di comando di .NET Core:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
 Aprire il file con estensione *csproj* generato ed eseguire l'app come di consueto da tale posizione.
 
 Alla prima esecuzione, il processo di compilazione ripristina le dipendenze di npm. Tale operazione può richiedere alcuni minuti. Le compilazioni successive sono molto più veloci.
 
-# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli/)
+# <a name="net-core-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli/)
 
 Assicurarsi di disporre di una variabile di ambiente denominata `ASPNETCORE_Environment` con valore `Development`. In Windows (in prompt non PowerShell) eseguire `SET ASPNETCORE_Environment=Development`. In Linux o Mac OS eseguire `export ASPNETCORE_Environment=Development`.
 
@@ -53,7 +53,8 @@ Now listening on: http://localhost:<port>
 
 Passare a questo URL in un browser.
 
-L'app avvia in background un'istanza del server dell'interfaccia della riga di comando di Angular. Verrà registrato un messaggio simile al seguente: *NG Live Development Server is listening on localhost:&lt;otherport&gt;, open your browser on http://localhost:&lt;otherport&gt;/* . Ignorare questo messaggio: &mdash;non** si tratta dell'URL per l'app combinata per ASP.NET Core e l'interfaccia della riga di comando di Angular.
+> [!WARNING]
+> L'app avvia in background un'istanza del server dell'interfaccia della riga di comando di Angular. Viene registrato un messaggio simile al seguente: *ng Live server di sviluppo è in ascolto su localhost:&lt;otherport&gt;, aprire un browser per http://localhost:&lt; otherport&gt;/* . Ignorare questo messaggio: &mdash;non** si tratta dell'URL per l'app combinata per ASP.NET Core e l'interfaccia della riga di comando di Angular.
 
 ---
 
@@ -79,7 +80,7 @@ Se lo strumento `ng` non è installato, eseguire `npm run ng`. Ad esempio, è po
 
 ## <a name="install-npm-packages"></a>Installa nuovi pacchetti npm
 
-Per installare i pacchetti npm di terze parti, usare un prompt dei comandi nella sottodirectory *ClientApp*. Ad esempio,
+Per installare i pacchetti npm di terze parti, usare un prompt dei comandi nella sottodirectory *ClientApp*. Ad esempio:
 
 ```console
 cd ClientApp

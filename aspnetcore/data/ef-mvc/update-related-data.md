@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Aggiornare i dati correlati - ASP.NET MVC con EF Core'
+title: 'Esercitazione: aggiornare i dati correlati-ASP.NET MVC con EF Core'
 description: In questa esercitazione verrà effettuato l'aggiornamento di dati correlati tramite l'aggiornamento di campi di chiave esterna e proprietà di navigazione.
 author: rick-anderson
 ms.author: riande
@@ -7,14 +7,14 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: 98f9f780c5814c0bd6e33052ee812b01a2bce306
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: 83d662659fb4bc7a2867be563e4e36927d2adafe
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259356"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78657143"
 ---
-# <a name="tutorial-update-related-data---aspnet-mvc-with-ef-core"></a>Esercitazione: Aggiornare i dati correlati - ASP.NET MVC con EF Core
+# <a name="tutorial-update-related-data---aspnet-mvc-with-ef-core"></a>Esercitazione: aggiornare i dati correlati-ASP.NET MVC con EF Core
 
 Nell'esercitazione precedente sono stati visualizzati dati correlati. In questa esercitazione i dati correlati verranno aggiornati tramite l'aggiornamento di campi di chiave esterna e proprietà di navigazione.
 
@@ -24,7 +24,7 @@ Le figure seguenti illustrano alcune delle pagine che verranno usate.
 
 ![Pagina di modifica dell'insegnante](update-related-data/_static/instructor-edit-courses.png)
 
-Le attività di questa esercitazione sono le seguenti:
+In questa esercitazione:
 
 > [!div class="checklist"]
 > * Personalizzare le pagine dei corsi
@@ -33,7 +33,7 @@ Le attività di questa esercitazione sono le seguenti:
 > * Aggiornare la pagina Delete
 > * Aggiungere posizione dell'ufficio e corsi alla pagina Create
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Leggere dati correlati](read-related-data.md)
 
@@ -101,7 +101,7 @@ Eseguire l'app, selezionare la scheda **Courses** (Corsi), fare clic su **Create
 
 ![Pagina di creazione del corso](update-related-data/_static/course-create.png)
 
-Fare clic su **Create**(Crea). La pagina di indice dei corsi viene visualizzata con il nuovo corso aggiunto all'elenco. Il nome del dipartimento nell'elenco della pagina di indice deriva dalla proprietà di navigazione, che mostra che la relazione è stata stabilita correttamente.
+Fare clic su **Crea**. La pagina di indice dei corsi viene visualizzata con il nuovo corso aggiunto all'elenco. Il nome del dipartimento nell'elenco della pagina di indice deriva dalla proprietà di navigazione, che mostra che la relazione è stata stabilita correttamente.
 
 Fare clic su **Edit** (Modifica) per un corso nella pagina di indice dei corsi.
 
@@ -129,7 +129,7 @@ Sostituire il metodo `Edit` HttpPost con il codice seguente per gestire gli aggi
 
 [!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_EditPostOA)]
 
-Il codice effettua queste operazioni:
+Il codice esegue le seguenti attività:
 
 * Modifica il nome del metodo in `EditPost` perché ora la firma è la stessa del metodo `Edit` HttpGet (l'attributo `ActionName` specifica che l'URL `/Edit/` viene ancora usato).
 
@@ -187,7 +187,7 @@ Creare *AssignedCourseData.cs* nella cartella *SchoolViewModels* e sostituire il
 
 [!code-csharp[](intro/samples/cu/Models/SchoolViewModels/AssignedCourseData.cs)]
 
-In *InstructorsController.cs* sostituire il metodo `Edit` HttpGet con il codice seguente. Le modifiche sono evidenziate.
+In *InstructorsController.cs* sostituire il metodo `Edit` HttpGet con il codice seguente. Le modifiche vengono evidenziate.
 
 [!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?highlight=10,17,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36&name=snippet_EditGetCourses)]
 
@@ -248,7 +248,7 @@ In *InstructorsController.cs* eliminare il metodo `DeleteConfirmed` e sostituirl
 
 [!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?highlight=5-7,9-12&name=snippet_DeleteConfirmed)]
 
-Questo codice determina le modifiche seguenti:
+Questo codice apporta le modifiche seguenti:
 
 * Esegue il caricamento eager per la proprietà di navigazione `CourseAssignments`. È necessario includere questa proprietà o EF non sarà a conoscenza delle entità `CourseAssignment` correlate e non le eliminerà. Per evitare la necessità di leggerle qui, è possibile configurare l'eliminazione a catena nel database.
 
@@ -301,11 +301,11 @@ Come spiegato nell' [esercitazione su CRUD](crud.md), per impostazione predefini
 
 ## <a name="get-the-code"></a>Ottenere il codice
 
-[Scaricare o visualizzare l'applicazione completata.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[Scaricare o visualizzare l'applicazione completata.](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Le attività di questa esercitazione sono le seguenti:
+In questa esercitazione:
 
 > [!div class="checklist"]
 > * Personalizzare le pagine dei corsi

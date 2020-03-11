@@ -10,11 +10,11 @@ no-loc:
 - SignalR
 uid: signalr/redis-backplane
 ms.openlocfilehash: 0461fc6a212ba78111bc2054cca74951721c5820
-ms.sourcegitcommit: f40c9311058c9b1add4ec043ddc5629384af6c56
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74289030"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78661371"
 ---
 # <a name="set-up-a-redis-backplane-for-aspnet-core-opno-locsignalr-scale-out"></a>Configurare un backplane Redis per ASP.NET Core SignalR con scalabilità orizzontale
 
@@ -29,11 +29,11 @@ Questo articolo SignalRillustra gli aspetti specifici della configurazione di un
   > [!IMPORTANT] 
   > Per l'uso in produzione, è consigliabile un backplane Redis solo quando viene eseguito nella stessa data center dell'app SignalR. In caso contrario, la latenza di rete comporta un peggioramento delle prestazioni. Se l'app SignalR è in esecuzione nel cloud di Azure, si consiglia il servizio Azure SignalR invece di un backplane Redis. È possibile usare il servizio cache Redis di Azure per gli ambienti di sviluppo e test.
 
-  Per ulteriori informazioni, vedere le seguenti risorse:
+  Per altre informazioni, vedere le seguenti risorse:
 
   * <xref:signalr/scale>
-  * [Documentazione di redis](https://redis.io/)
-  * [Documentazione di cache Redis di Azure](https://docs.microsoft.com/azure/redis-cache/)
+  * [Documentazione di Redis](https://redis.io/)
+  * [Documentazione di Cache Redis di Azure](https://docs.microsoft.com/azure/redis-cache/)
 
 ::: moniker range="= aspnetcore-2.1"
 
@@ -226,9 +226,9 @@ Il [clustering di redis](https://redis.io/topics/cluster-spec) è un metodo per 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni, vedere le seguenti risorse:
+Per altre informazioni, vedere le seguenti risorse:
 
 * <xref:signalr/scale>
-* [Documentazione di redis](https://redis.io/documentation)
+* [Documentazione di Redis](https://redis.io/documentation)
 * [Documentazione di StackExchange Redis](https://stackexchange.github.io/StackExchange.Redis/)
-* [Documentazione di cache Redis di Azure](https://docs.microsoft.com/azure/redis-cache/)
+* [Documentazione di Cache Redis di Azure](https://docs.microsoft.com/azure/redis-cache/)

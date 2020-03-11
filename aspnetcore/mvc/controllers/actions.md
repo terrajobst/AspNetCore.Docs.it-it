@@ -6,15 +6,15 @@ ms.author: riande
 ms.date: 12/05/2019
 uid: mvc/controllers/actions
 ms.openlocfilehash: 715a73863513870d1cbd522e75013d41830da1e7
-ms.sourcegitcommit: c0b72b344dadea835b0e7943c52463f13ab98dd1
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74881099"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78662792"
 ---
 # <a name="handle-requests-with-controllers-in-aspnet-core-mvc"></a>Gestire le richieste con controller in ASP.NET Core MVC
 
-[Steve Smith](https://ardalis.com/) e [Scott Addie](https://github.com/scottaddie)
+Di [Steve Smith](https://ardalis.com/) e [Scott Addie](https://github.com/scottaddie)
 
 I controller, le azioni e risultati delle azioni sono parti fondamentali dello sviluppo di app tramite ASP.NET Core MVC.
 
@@ -43,7 +43,7 @@ Il controller riceve il risultato di un'eventuale elaborazione del modello e res
 
 Il controller è un'astrazione *a livello di interfaccia utente*. Il suo compito è di verificare che i dati della richiesta siano validi e di scegliere la visualizzazione (o il risultato per un'API) da restituire. Nelle app con factoring corretto, il controller non include direttamente accesso ai dati o logica di business, ma delega la gestione di tali responsabilità a servizi specifici.
 
-## <a name="defining-actions"></a>Definizione delle azioni
+## <a name="defining-actions"></a>Definizione di azioni
 
 I metodi pubblici in un controller, ad eccezione di quelli con l'attributo `[NonAction]`, sono azioni. I parametri delle azioni sono associati a dati di richiesta e vengono convalidati tramite [associazione di modelli](xref:mvc/models/model-binding). La convalida del modello viene eseguita per tutto ciò che è associato a un modello. Il valore della proprietà `ModelState.IsValid` indica se l'associazione e la convalida dei modelli hanno avuto esito positivo.
 
@@ -77,7 +77,7 @@ La maggior parte dei metodi helper di questa categoria includono una proprietà 
 
 All'interno di questa categoria sono presenti due tipi di risultato: [visualizzazione](xref:mvc/views/overview) e [risposta formattata](xref:web-api/advanced/formatting).
 
-* **Visualizzazione**
+* **Visualizza**
 
     Questo tipo restituisce una visualizzazione che esegue il rendering HTML usando un modello. `return View(customer);`, ad esempio, passa un modello alla visualizzazione per eseguire il data binding.
 

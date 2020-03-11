@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
 ms.date: 08/21/2019
 uid: grpc/client
-ms.openlocfilehash: 1e7887388a752fb35d00e65db210c3924c6ab192
-ms.sourcegitcommit: 7dfe6cc8408ac6a4549c29ca57b0c67ec4baa8de
+ms.openlocfilehash: 6a6a649f7194354b16f3d67160be02428cc01170
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829101"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667174"
 ---
 # <a name="call-grpc-services-with-the-net-client"></a>Chiamare i servizi gRPC con il client .NET
 
@@ -55,13 +55,16 @@ Prestazioni e utilizzo del canale e del client:
 > [!NOTE]
 > È necessaria una configurazione aggiuntiva per [chiamare i servizi gRPC non protetti con il client .NET](xref:grpc/troubleshoot#call-insecure-grpc-services-with-net-core-client).
 
+> [!NOTE]
+> La chiamata a gRPC su HTTP/2 con `Grpc.Net.Client` non è attualmente supportata in Novell. Stiamo lavorando per migliorare il supporto HTTP/2 in una versione futura di Novell. [Grpc. Core](https://www.nuget.org/packages/Grpc.Core) e [Grpc-Web](xref:grpc/browser) sono valide alternative che funzionano oggi.
+
 ## <a name="make-grpc-calls"></a>Effettuare chiamate a gRPC
 
 Una chiamata gRPC viene avviata chiamando un metodo sul client. Il client gRPC gestirà la serializzazione dei messaggi e indirizza la chiamata gRPC al servizio corretto.
 
 gRPC dispone di tipi diversi di metodi. Il modo in cui si usa il client per effettuare una chiamata gRPC dipende dal tipo di metodo che si sta chiamando. I tipi di metodo gRPC sono:
 
-* Unario
+* Unaria
 * Streaming Server
 * Flusso client
 * Streaming bidirezionale

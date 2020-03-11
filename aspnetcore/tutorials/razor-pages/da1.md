@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 12/20/2018
 uid: tutorials/razor-pages/da1
 ms.openlocfilehash: 0f6535462fe2d308825bf7289c10d2b0690cebd4
-ms.sourcegitcommit: 07d98ada57f2a5f6d809d44bdad7a15013109549
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72334117"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666215"
 ---
 # <a name="update-the-generated-pages-in-an-aspnet-core-app"></a>Aggiornare le pagine generate in un'app ASP.NET Core
 
@@ -76,7 +76,7 @@ Per testare il comportamento di `@page "{id:int?}"`:
 
 * Impostare la direttiva page in *Pages/Movies/Details.cshtml* su `@page "{id:int?}"`.
 * Impostare un breakpoint in `public async Task<IActionResult> OnGetAsync(int? id)` (in *Pages/Movies/Details.cshtml.cs*).
-* Passare a `https://localhost:5001/Movies/Details/`.
+* Accedere a `https://localhost:5001/Movies/Details/`.
 
 Con l'istruzione `@page "{id:int}"`, il breakpoint non viene mai raggiunto. Il motore di routing restituisce HTTP 404. Se si utilizza `@page "{id:int?}"`, il metodo `OnGetAsync` restituisce `NotFound` (HTTP 404).
 
@@ -189,7 +189,7 @@ Per testare il comportamento di `@page "{id:int?}"`:
 
 * Impostare la direttiva page in *Pages/Movies/Details.cshtml* su `@page "{id:int?}"`.
 * Impostare un breakpoint in `public async Task<IActionResult> OnGetAsync(int? id)` (in *Pages/Movies/Details.cshtml.cs*).
-* Passare a `https://localhost:5001/Movies/Details/`.
+* Accedere a `https://localhost:5001/Movies/Details/`.
 
 Con l'istruzione `@page "{id:int}"`, il breakpoint non viene mai raggiunto. Il motore di routing restituisce HTTP 404. Se si utilizza `@page "{id:int?}"`, il metodo `OnGetAsync` restituisce `NotFound` (HTTP 404).
 

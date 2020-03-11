@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 12/05/2019
 uid: web-api/advanced/formatting
-ms.openlocfilehash: cab383053751598b882f3716943d3d9392c56f4a
-ms.sourcegitcommit: 29ace642ca0e1f0b48a18d66de266d8811df2b83
+ms.openlocfilehash: 908016720ade67a02ebe30d1dcb7929ad7592270
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74987961"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78661903"
 ---
 # <a name="format-response-data-in-aspnet-core-web-api"></a>Formattare i dati di risposta nell'API Web ASP.NET Core
 
@@ -19,13 +19,13 @@ ms.locfileid: "74987961"
 
 ASP.NET Core MVC supporta la formattazione dei dati di risposta. I dati di risposta possono essere formattati usando formati specifici o in risposta al formato richiesto dal client.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/formatting) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/formatting) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="format-specific-action-results"></a>Risultati azione specifici del formato
 
 Alcuni tipi di risultati di azioni sono specifici di un particolare formato, ad esempio <xref:Microsoft.AspNetCore.Mvc.JsonResult> e <xref:Microsoft.AspNetCore.Mvc.ContentResult>. Le azioni possono restituire risultati formattati in un formato specifico, indipendentemente dalle preferenze dei client. Ad esempio, la restituzione di `JsonResult` restituisce dati in formato JSON. La restituzione di `ContentResult` o una stringa restituisce dati di stringa in formato testo normale.
 
-Non è necessario eseguire un'azione per restituire un tipo specifico. ASP.NET Core supporta qualsiasi valore restituito da un oggetto.  I risultati di azioni che restituiscono oggetti che non sono <xref:Microsoft.AspNetCore.Mvc.IActionResult> tipi vengono serializzati usando l'implementazione <xref:Microsoft.AspNetCore.Mvc.Formatters.IOutputFormatter> appropriata. Per ulteriori informazioni, vedere <xref:web-api/action-return-types>.
+Non è necessario eseguire un'azione per restituire un tipo specifico. ASP.NET Core supporta qualsiasi valore restituito da un oggetto.  I risultati di azioni che restituiscono oggetti che non sono <xref:Microsoft.AspNetCore.Mvc.IActionResult> tipi vengono serializzati usando l'implementazione <xref:Microsoft.AspNetCore.Mvc.Formatters.IOutputFormatter> appropriata. Per altre informazioni, vedere <xref:web-api/action-return-types>.
 
 Il metodo helper incorporato <xref:Microsoft.AspNetCore.Mvc.ControllerBase.Ok*> restituisce dati in formato JSON: [!code-csharp[](./formatting/sample/Controllers/AuthorsController.cs?name=snippet_get)]
 
@@ -206,7 +206,7 @@ Quando si usa il codice precedente, i metodi controller devono restituire il for
 
 ### <a name="specify-a-format"></a>Specificare un formato
 
-Per limitare i formati di risposta, applicare il filtro [`[Produces]`](xref:Microsoft.AspNetCore.Mvc.ProducesAttribute) . Come la maggior parte `[Produces]` dei [filtri](xref:mvc/controllers/filters), può essere applicato all'azione, al controller o all'ambito globale:
+Per limitare i formati di risposta, applicare il filtro [`[Produces]`](xref:Microsoft.AspNetCore.Mvc.ProducesAttribute) . Come per la maggior parte dei [filtri](xref:mvc/controllers/filters), è possibile applicare `[Produces]` all'azione, al controller o all'ambito globale:
 
 [!code-csharp[](./formatting/3.0sample/Controllers/WeatherForecastController.cs?name=snippet)]
 

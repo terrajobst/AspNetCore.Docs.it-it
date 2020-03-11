@@ -5,12 +5,12 @@ description: Usare l'identità con un'app ASP.NET Core. Informazioni su come imp
 ms.author: riande
 ms.date: 01/15/2020
 uid: security/authentication/identity
-ms.openlocfilehash: 164ba10c1d1e2a73ebeb8240293a58f158055699
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: 2e0723d34a09109a034f3375c4e94aedab2a5427
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77172536"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78662344"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Introduzione all'identità in ASP.NET Core
 
@@ -38,7 +38,7 @@ In questo argomento si apprenderà come usare l'identità per la registrazione, 
 
 [!INCLUDE[](~/includes/IdentityServer4.md)]
 
-Consente di [visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/identity/sample) ([come scaricare)](xref:index#how-to-download-a-sample).
+Consente di [visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/identity/sample) ([come scaricare)](xref:index#how-to-download-a-sample).
 
 <a name="adi"></a>
 
@@ -46,14 +46,14 @@ Consente di [visualizzare o scaricare il codice di esempio](https://github.com/a
 
 Creare un progetto di applicazione Web di ASP.NET Core con singoli account utente.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Selezionare **File** > **nuovo** **progetto**>.
 * Selezionare **Applicazione Web ASP.NET Core**. Denominare il progetto **app Web 1** in modo che abbia lo stesso spazio dei nomi del download del progetto. Fare clic su **OK**.
 * Selezionare un' **applicazione Web**ASP.NET Core, quindi selezionare **Modifica autenticazione**.
 * Selezionare **singoli account utente** e fare clic su **OK**.
 
-# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 
 ```dotnetcli
 dotnet new webapp --auth Individual -o WebApp1
@@ -67,7 +67,7 @@ dotnet new webapp --auth Individual -uld -o WebApp1
 
 ---
 
-Il progetto generato fornisce [ASP.NET Core identità](xref:security/authentication/identity) come [libreria di classi Razor](xref:razor-pages/ui-class). La libreria della classe Razor Identity espone gli endpoint con l'area `Identity`. Ad esempio,
+Il progetto generato fornisce [ASP.NET Core identità](xref:security/authentication/identity) come [libreria di classi Razor](xref:razor-pages/ui-class). La libreria della classe Razor Identity espone gli endpoint con l'area `Identity`. Ad esempio:
 
 * /Identity/Account/Login
 * /Identity/Account/Logout
@@ -77,13 +77,13 @@ Il progetto generato fornisce [ASP.NET Core identità](xref:security/authenticat
 
 Applicare le migrazioni per inizializzare il database.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Eseguire il comando seguente nella console di gestione pacchetti (PMC):
 
 `PM> Update-Database`
 
-# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 
 Le migrazioni non sono necessarie in questo passaggio quando si usa SQLite. Per il database locale, eseguire il comando seguente:
 
@@ -119,11 +119,11 @@ Per ulteriori informazioni su `IdentityOptions` e `Startup`, vedere <xref:Micros
 
 ## <a name="scaffold-register-login-and-logout"></a>Registrazione, accesso e disconnessione del patibolo
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Aggiungere i file di registro, di accesso e di disconnessione. Seguire l' [identità del patibolo in un progetto Razor con](xref:security/authentication/scaffold-identity#scaffold-identity-into-a-razor-project-with-authorization) le istruzioni di autorizzazione per generare il codice illustrato in questa sezione.
 
-# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 
 Se il progetto è stato creato con il nome **app Web 1**, eseguire i comandi seguenti. In caso contrario, utilizzare lo spazio dei nomi corretto per il `ApplicationDbContext`:
 
@@ -232,7 +232,7 @@ Per evitare la pubblicazione di risorse di identità statiche (fogli di stile e 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni sulla configurazione dell'identità con SQLite, vedere [questo problema di GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/5131) .
+* Per informazioni sulla configurazione dell'identità con SQLite, vedere [questo problema di GitHub](https://github.com/dotnet/AspNetCore.Docs/issues/5131) .
 * [Configurare Identity](xref:security/authentication/identity-configuration)
 * <xref:security/authorization/secure-data>
 * <xref:security/authentication/add-user-data>
@@ -252,7 +252,7 @@ ASP.NET Core identità è un sistema di appartenenza che aggiunge la funzionalit
 
 L'identità può essere configurata utilizzando un database SQL Server per archiviare i nomi utente, le password e i dati di profilo. In alternativa, è possibile usare un altro archivio permanente, ad esempio archiviazione tabelle di Azure.
 
-Consente di [visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/identity/sample/src/ASPNETCore-IdentityDemoComplete/) ([come scaricare)](xref:index#how-to-download-a-sample).
+Consente di [visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/identity/sample/src/ASPNETCore-IdentityDemoComplete/) ([come scaricare)](xref:index#how-to-download-a-sample).
 
 In questo argomento si apprenderà come usare l'identità per la registrazione, l'accesso e la disconnessione di un utente. Per istruzioni più dettagliate sulla creazione di app che usano l'identità, vedere la sezione passaggi successivi alla fine di questo articolo.
 
@@ -272,14 +272,14 @@ Per altre informazioni, vedere [origine AddDefaultIdentity](https://github.com/d
 
 Creare un progetto di applicazione Web di ASP.NET Core con singoli account utente.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Selezionare **File** > **nuovo** **progetto**>.
 * Selezionare **Applicazione Web ASP.NET Core**. Denominare il progetto **app Web 1** in modo che abbia lo stesso spazio dei nomi del download del progetto. Fare clic su **OK**.
 * Selezionare un' **applicazione Web**ASP.NET Core, quindi selezionare **Modifica autenticazione**.
 * Selezionare **singoli account utente** e fare clic su **OK**.
 
-# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 
 ```dotnetcli
 dotnet new webapp --auth Individual -o WebApp1
@@ -287,7 +287,7 @@ dotnet new webapp --auth Individual -o WebApp1
 
 ---
 
-Il progetto generato fornisce [ASP.NET Core identità](xref:security/authentication/identity) come [libreria di classi Razor](xref:razor-pages/ui-class). La libreria della classe Razor Identity espone gli endpoint con l'area `Identity`. Ad esempio,
+Il progetto generato fornisce [ASP.NET Core identità](xref:security/authentication/identity) come [libreria di classi Razor](xref:razor-pages/ui-class). La libreria della classe Razor Identity espone gli endpoint con l'area `Identity`. Ad esempio:
 
 * /Identity/Account/Login
 * /Identity/Account/Logout
@@ -297,7 +297,7 @@ Il progetto generato fornisce [ASP.NET Core identità](xref:security/authenticat
 
 Applicare le migrazioni per inizializzare il database.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Eseguire il comando seguente nella console di gestione pacchetti (PMC):
 
@@ -305,7 +305,7 @@ Eseguire il comando seguente nella console di gestione pacchetti (PMC):
 Update-Database
 ```
 
-# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 
 ```dotnetcli
 dotnet ef database update
@@ -339,11 +339,11 @@ Per ulteriori informazioni, vedere la [Classe IdentityOptions](/dotnet/api/micro
 
 Seguire l' [identità del patibolo in un progetto Razor con](xref:security/authentication/scaffold-identity#scaffold-identity-into-a-razor-project-with-authorization) le istruzioni di autorizzazione per generare il codice illustrato in questa sezione.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Aggiungere i file di registro, di accesso e di disconnessione.
 
-# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 
 Se il progetto è stato creato con il nome **app Web 1**, eseguire i comandi seguenti. In caso contrario, utilizzare lo spazio dei nomi corretto per il `ApplicationDbContext`:
 
@@ -422,7 +422,7 @@ Vedere [configurazione](#pw) per un esempio che consente di impostare i requisit
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni sulla configurazione dell'identità con SQLite, vedere [questo problema di GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/5131) .
+* Per informazioni sulla configurazione dell'identità con SQLite, vedere [questo problema di GitHub](https://github.com/dotnet/AspNetCore.Docs/issues/5131) .
 * [Configurare Identity](xref:security/authentication/identity-configuration)
 * <xref:security/authorization/secure-data>
 * <xref:security/authentication/add-user-data>

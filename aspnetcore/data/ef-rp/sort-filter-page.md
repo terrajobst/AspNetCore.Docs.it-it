@@ -1,17 +1,17 @@
 ---
 title: Razor Pages con EF Core in ASP.NET Core - Ordinamento, filtro, suddivisione in pagine - 3 di 8
-author: tdykstra
+author: rick-anderson
 description: In questa esercitazione viene spiegato come aggiungere a una pagina Razor le funzionalità di ordinamento, filtro e suddivisione in pagine tramite ASP.NET Core ed Entity Framework Core.
 ms.author: riande
 ms.custom: mvc
 ms.date: 07/22/2019
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: b4cef98f3ad4973878c5fa65a47c0b86cdfc8686
-ms.sourcegitcommit: 257cc3fe8c1d61341aa3b07e5bc0fa3d1c1c1d1c
-ms.translationtype: HT
+ms.openlocfilehash: 9563f3ef52ce429eb0a58b468acb8e9cd7b276e2
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69583526"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78656464"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Ordinamento, filtro, suddivisione in pagine - 3 di 8
 
@@ -41,7 +41,7 @@ Il codice precedente:
 
 Il metodo `OnGetAsync` riceve un parametro `sortOrder` dalla stringa di query nell'URL. L'URL (inclusa la stringa di query) viene generato dall'[helper tag di ancoraggio](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper).
 
-Il parametro `sortOrder` è "Name" o "Data". Il parametro `sortOrder` è facoltativamente seguito da "_desc" per specificare l'ordine decrescente. L'ordinamento predefinito è crescente.
+Il parametro `sortOrder` è "Name" o "Data". Il parametro `sortOrder` è facoltativamente seguito da "_desc" per specificare l'ordine decrescente. Per impostazione predefinita, l'ordinamento è crescente.
 
 Quando la pagina Index (Indice) viene richiesta dal collegamento **Students** (Studenti), non è presente alcuna stringa di query. Gli studenti vengono visualizzati in ordine crescente in base al cognome. L'ordine crescente in base al cognome è l'impostazione predefinita (caso di fallthrough) nell'istruzione `switch`. Quando l'utente fa clic sul collegamento di un'intestazione di colonna, nel valore della stringa di query viene specificato il valore `sortOrder` appropriato.
 
@@ -49,7 +49,7 @@ Gli elementi `NameSort` e `DateSort` vengono usati dalla pagina Razor per config
 
 [!code-csharp[Main](intro/samples/cu30snapshots/3-sorting/Pages/Students/Index1.cshtml.cs?name=snippet_Ternary)]
 
-Il codice usa l'operatore condizionale C# [?:](/dotnet/csharp/language-reference/operators/conditional-operator). L'operatore `?:` è un operatore ternario (accetta tre operandi). La prima riga specifica che quando `sortOrder` è Null o vuoto, `NameSort` è impostato su "name_desc". Se `sortOrder` **non** è Null o vuoto, `NameSort` è impostato su una stringa vuota.
+Il codice usa l'operatore condizionale C# [?:](/dotnet/csharp/language-reference/operators/conditional-operator). L'operatore `?:` è un operatore ternario (accetta tre operandi). La prima riga specifica che quando `sortOrder` è Null o vuoto, `NameSort` è impostato su "name_desc". Se `sortOrder`**non** è Null o vuoto, `NameSort` è impostato su una stringa vuota.
 
 Queste due istruzioni consentono alla pagina di impostare i collegamenti ipertestuali delle intestazioni di colonna come indicato di seguito:
 
@@ -106,7 +106,7 @@ Il codice precedente:
 * Aggiunge il parametro `searchString` al metodo `OnGetAsync` e salva il valore del parametro nella proprietà `CurrentFilter`. Il valore della stringa di ricerca viene ricevuto da una casella di testo che verrà aggiunta nella sezione seguente.
 * Aggiunge una clausola `Where` all'istruzione LINQ. La clausola `Where` seleziona solo gli studenti il cui nome o cognome contiene la stringa di ricerca. L'istruzione LINQ viene eseguita solo se è presente un valore per la ricerca.
 
-### <a name="iqueryable-vs-ienumerable"></a>IQueryable o IEnumerable
+### <a name="iqueryable-vs-ienumerable"></a>IQueryable rispetto a IEnumerable
 
 Il codice chiama il metodo `Where` su un oggetto `IQueryable` e il filtro viene elaborato nel server. In alcuni scenari l'app potrebbe chiamare il metodo `Where` come metodo di estensione per una raccolta in memoria. Si supponga ad esempio che `_context.Students` cambi da `DbSet`Entity Framework Core a un metodo di repository che restituisce una raccolta `IEnumerable`. Il risultato sarebbe in genere lo stesso, ma in alcuni casi potrebbe essere diverso.
 
@@ -132,13 +132,13 @@ Sostituire il codice in *Pages/Students/Index.cshtml* per creare un pulsante **C
 
 [!code-cshtml[Main](intro/samples/cu30snapshots/3-sorting/Pages/Students/Index2.cshtml?highlight=14-23)]
 
-Il codice precedente usa l'[helper tag](xref:mvc/views/tag-helpers/intro) `<form>` per aggiungere la casella di testo e il pulsante di ricerca. Per impostazione predefinita, l'helper tag `<form>` invia i dati del modulo con POST. Con POST, i parametri vengono passati nel corpo del messaggio HTTP e non nell'URL. Quando viene usato HTTP GET, i dati del modulo vengono passati nell'URL come stringhe di query. Il passaggio di dati con le stringhe di query consente agli utenti di inserire l'URL nei segnalibri. Le [linee guida W3C](https://www.w3.org/2001/tag/doc/whenToUseGet.html) consigliano di usare l'istruzione GET quando l'azione non risulta in un aggiornamento.
+Il codice precedente usa l' [Helper tag](xref:mvc/views/tag-helpers/intro) `<form>` per aggiungere la casella di testo e il pulsante di ricerca. Per impostazione predefinita, l'helper tag `<form>` invia i dati del modulo con POST. Con POST, i parametri vengono passati nel corpo del messaggio HTTP e non nell'URL. Quando viene usato HTTP GET, i dati del modulo vengono passati nell'URL come stringhe di query. Il passaggio di dati con le stringhe di query consente agli utenti di inserire l'URL nei segnalibri. Le [linee guida W3C](https://www.w3.org/2001/tag/doc/whenToUseGet.html) consigliano di usare l'istruzione GET quando l'azione non risulta in un aggiornamento.
 
 Eseguire il test dell'app:
 
 * Selezionare la scheda **Students** (Studenti) e immettere una stringa di ricerca. Se si usa SQLite, il filtro non fa distinzione tra maiuscole e minuscole solo se è stato implementato il codice `ToUpper` facoltativo illustrato in precedenza.
 
-* Selezionare **Search** (Ricerca).
+* Selezionare **Cerca**.
 
 Si noti che l'URL contiene la stringa di ricerca. Ad esempio:
 
@@ -275,22 +275,22 @@ La figura seguente illustra una pagina completata. Le intestazioni di colonna so
 
 ![Pagina Student Index (Indice degli studenti)](sort-filter-page/_static/paging.png)
 
-Se si verificano problemi che non si è in grado di risolvere, scaricare l'[app completa](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).
+Se si verificano problemi che non si è in grado di risolvere, scaricare l'[app completa](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).
 
 ## <a name="add-sorting-to-the-index-page"></a>Aggiungere l'ordinamento alla pagina Index (Indice)
 
-Aggiungere stringhe al `PageModel` *Students/Index.cshtml.cs* per contenere i parametri di ordinamento:
+Aggiungere le stringhe al `PageModel` *students/index. cshtml. cs* per includere i parametri di ordinamento:
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet1&highlight=10-13)]
 
-Aggiornare *Students/Index.cshtml.cs* `OnGetAsync` con il codice seguente:
+Aggiornare il `OnGetAsync` *students/index. cshtml. cs* con il codice seguente:
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly)]
 
 Il codice precedente riceve un parametro `sortOrder` dalla stringa di query nell'URL. L'URL (inclusa la stringa di query) viene generato dall'[helper tag di ancoraggio](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper
 )
 
-Il parametro `sortOrder` è "Name" o "Data". Il parametro `sortOrder` è facoltativamente seguito da "_desc" per specificare l'ordine decrescente. L'ordinamento predefinito è crescente.
+Il parametro `sortOrder` è "Name" o "Data". Il parametro `sortOrder` è facoltativamente seguito da "_desc" per specificare l'ordine decrescente. Per impostazione predefinita, l'ordinamento è crescente.
 
 Quando la pagina Index (Indice) viene richiesta dal collegamento **Students** (Studenti), non è presente alcuna stringa di query. Gli studenti vengono visualizzati in ordine crescente in base al cognome. L'ordine crescente in base al cognome è l'impostazione predefinita (caso di fallthrough) nell'istruzione `switch`. Quando l'utente fa clic sul collegamento di un'intestazione di colonna, nel valore della stringa di query viene specificato il valore `sortOrder` appropriato.
 
@@ -302,7 +302,7 @@ Il codice seguente contiene l'[operatore condizionale ?:](/dotnet/csharp/languag
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet_Ternary)]
 
-La prima riga specifica che quando `sortOrder` è Null o vuoto, `NameSort` è impostato su "name_desc". Se `sortOrder` **non** è Null o vuoto, `NameSort` è impostato su una stringa vuota.
+La prima riga specifica che quando `sortOrder` è Null o vuoto, `NameSort` è impostato su "name_desc". Se `sortOrder`**non** è Null o vuoto, `NameSort` è impostato su una stringa vuota.
 
 `?: operator` è noto anche come operatore ternario.
 
@@ -359,7 +359,7 @@ Per aggiungere un filtro alla pagina Students Index (Indice degli studenti):
 
 ### <a name="add-filtering-functionality-to-the-index-method"></a>Aggiungere la funzionalità di filtro al metodo Index
 
-Aggiornare *Students/Index.cshtml.cs* `OnGetAsync` con il codice seguente:
+Aggiornare il `OnGetAsync` *students/index. cshtml. cs* con il codice seguente:
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet_SortFilter&highlight=1,5,9-13)]
 
@@ -387,12 +387,12 @@ In *Pages/Student/Index.cshtml* aggiungere il codice evidenziato seguente per cr
 
 [!code-html[](intro/samples/cu21/Pages/Students/Index3.cshtml?highlight=14-23&range=1-25)]
 
-Il codice precedente usa l'[helper tag](xref:mvc/views/tag-helpers/intro) `<form>` per aggiungere la casella di testo e il pulsante di ricerca. Per impostazione predefinita, l'helper tag `<form>` invia i dati del modulo con POST. Con POST, i parametri vengono passati nel corpo del messaggio HTTP e non nell'URL. Quando viene usato HTTP GET, i dati del modulo vengono passati nell'URL come stringhe di query. Il passaggio di dati con le stringhe di query consente agli utenti di inserire l'URL nei segnalibri. Le [linee guida W3C](https://www.w3.org/2001/tag/doc/whenToUseGet.html) consigliano di usare l'istruzione GET quando l'azione non risulta in un aggiornamento.
+Il codice precedente usa l' [Helper tag](xref:mvc/views/tag-helpers/intro) `<form>` per aggiungere la casella di testo e il pulsante di ricerca. Per impostazione predefinita, l'helper tag `<form>` invia i dati del modulo con POST. Con POST, i parametri vengono passati nel corpo del messaggio HTTP e non nell'URL. Quando viene usato HTTP GET, i dati del modulo vengono passati nell'URL come stringhe di query. Il passaggio di dati con le stringhe di query consente agli utenti di inserire l'URL nei segnalibri. Le [linee guida W3C](https://www.w3.org/2001/tag/doc/whenToUseGet.html) consigliano di usare l'istruzione GET quando l'azione non risulta in un aggiornamento.
 
 Eseguire il test dell'app:
 
 * Selezionare la scheda **Students** (Studenti) e immettere una stringa di ricerca.
-* Selezionare **Search** (Ricerca).
+* Selezionare **Cerca**.
 
 Si noti che l'URL contiene la stringa di ricerca.
 
@@ -424,7 +424,7 @@ In *Students/Index.cshtml.cs*, aggiornare il tipo di `Student` da `IList<Student
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPageType)]
 
-Aggiornare *Students/Index.cshtml.cs* `OnGetAsync` con il codice seguente:
+Aggiornare il `OnGetAsync` *students/index. cshtml. cs* con il codice seguente:
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage&highlight=1-4,7-14,41-999)]
 
@@ -521,13 +521,13 @@ Sostituire il codice nel file *Pages/About.cshtml* con il codice seguente:
 
 Eseguire l'app e passare alla pagina About (Informazioni). Il numero di studenti per ogni data di registrazione viene visualizzato in una tabella.
 
-Se si verificano problemi che non è possibile risolvere, scaricare l'[app completa per questa fase](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part3-sorting).
+Se si verificano problemi che non si è in grado di risolvere, scaricare l'[app completa per questa fase](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part3-sorting).
 
 ![Pagina About (Informazioni)](sort-filter-page/_static/about.png)
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Debug dell'origine ASP.NET Core 2.x](https://github.com/aspnet/AspNetCore.Docs/issues/4155)
+* [Debug dell'origine ASP.NET Core 2.x](https://github.com/dotnet/AspNetCore.Docs/issues/4155)
 * [Versione YouTube dell'esercitazione](https://www.youtube.com/watch?v=MDs7PFpoMqI)
 
 Nella prossima esercitazione, l'app usa le migrazioni per aggiornare il modello di dati.

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/28/2019
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: 5feed175999bf021cadc7e18f14e00066b50db5b
-ms.sourcegitcommit: 7d3c6565dda6241eb13f9a8e1e1fd89b1cfe4d18
+ms.openlocfilehash: d244ce1527486466bcbc6557ec35869aa206bc4f
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72259687"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78656576"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Razor Pages con EF Core in ASP.NET Core - Leggere dati correlati - 6 di 8
 
@@ -69,7 +69,7 @@ Per visualizzare il nome del dipartimento assegnato per un corso:
 
 ### <a name="scaffold-course-pages"></a>Scaffolding delle pagine Course
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Seguire le istruzioni in [Scaffolding delle pagine Student](xref:data/ef-rp/intro#scaffold-student-pages) con le eccezioni seguenti:
 
@@ -77,7 +77,7 @@ Per visualizzare il nome del dipartimento assegnato per un corso:
   * Usare `Course` per la classe del modello.
   * Usare la classe di contesto esistente anziché crearne una nuova.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * Creare una cartella *Pages/Courses*.
 
@@ -141,7 +141,7 @@ Il codice seguente carica dati correlati con il metodo `Select`:
 
 [!code-csharp[](intro/samples/cu30snapshots/6-related/Models/SchoolViewModels/CourseViewModel.cs?name=snippet)]
 
-Per un esempio completo, vedere [IndexSelect.cshtml](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu30snapshots/6-related/Pages/Courses/IndexSelect.cshtml) e [IndexSelect.cshtml.cs](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu30snapshots/6-related/Pages/Courses/IndexSelect.cshtml.cs).
+Per un esempio completo, vedere [IndexSelect.cshtml](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu30snapshots/6-related/Pages/Courses/IndexSelect.cshtml) e [IndexSelect.cshtml.cs](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu30snapshots/6-related/Pages/Courses/IndexSelect.cshtml.cs).
 
 ## <a name="create-instructor-pages"></a>Creare pagine Instructor
 
@@ -166,7 +166,7 @@ Creare *SchoolViewModels/InstructorIndexData.cs* con il codice seguente:
 
 ### <a name="scaffold-instructor-pages"></a>Scaffolding delle pagine Instructor
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Seguire le istruzioni in [Scaffolding delle pagine Student](xref:data/ef-rp/intro#scaffold-student-pages) con le eccezioni seguenti:
 
@@ -174,7 +174,7 @@ Creare *SchoolViewModels/InstructorIndexData.cs* con il codice seguente:
   * Usare `Instructor` per la classe del modello.
   * Usare la classe di contesto esistente anziché crearne una nuova.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * Creare una cartella *Pages/Instructors*.
 
@@ -316,7 +316,7 @@ Il codice precedente rilascia le chiamate del metodo *ThenInclude* per i dati de
 
 Si noti che nel codice precedente `.AsNoTracking()` è impostato come commento. Le proprietà di navigazione possono solo essere caricate in modo esplicito per le entità registrate.
 
-Eseguire il test dell'app. Dal punto di vista dell'utente, l'app si comporta in modo identico alla versione precedente.
+Testare l'app. Dal punto di vista dell'utente, l'app si comporta in modo identico alla versione precedente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -332,7 +332,7 @@ La prossima esercitazione illustra come aggiornare i dati correlati.
 
 In questa esercitazione vengono letti e visualizzati dati correlati. I dati correlati sono dati che EF Core carica all'interno delle proprietà di navigazione.
 
-Se si verificano problemi che non si è in grado di risolvere, [scaricare o visualizzare l'app completa](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples). [Istruzioni per il download](xref:index#how-to-download-a-sample).
+Se si verificano problemi che non si è in grado di risolvere, [scaricare o visualizzare l'app completa](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples). [Istruzioni per il download](xref:index#how-to-download-a-sample).
 
 Le figure seguenti mostrano le pagine completate per questa esercitazione:
 
@@ -382,11 +382,11 @@ Per visualizzare il nome del dipartimento assegnato in un elenco dei corsi:
 
 ### <a name="scaffold-the-course-model"></a>Scaffolding del modello Course
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
 Seguire le istruzioni in [Eseguire lo scaffolding del modello Student (Studente)](xref:data/ef-rp/intro#scaffold-the-student-model) e usare `Course` per la classe modello.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
  Eseguire il comando seguente:
 
@@ -396,7 +396,7 @@ Seguire le istruzioni in [Eseguire lo scaffolding del modello Student (Studente)
 
 ---
 
-Il comando precedente esegue lo scaffolding del modello `Course`. Apri il progetto in Visual Studio.
+Il comando precedente esegue lo scaffolding del modello `Course`. Aprire il progetto in Visual Studio.
 
 Aprire *Pages/Courses/Index.cshtml.cs* ed esaminare il metodo `OnGetAsync`. Il motore di scaffolding ha specificato il caricamento eager per la proprietà di navigazione `Department`. Il metodo `Include` specifica il caricamento eager.
 
@@ -444,7 +444,7 @@ Il codice seguente carica dati correlati con il metodo `Select`:
 
 [!code-csharp[](intro/samples/cu/Models/SchoolViewModels/CourseViewModel.cs?name=snippet)]
 
-Per un esempio completo, vedere [IndexSelect.cshtml](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml) e [IndexSelect.cshtml.cs](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml.cs).
+Per un esempio completo, vedere [IndexSelect.cshtml](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml) e [IndexSelect.cshtml.cs](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml.cs).
 
 ## <a name="create-an-instructors-page-that-shows-courses-and-enrollments"></a>Creare una pagina Instructors (Insegnanti) che mostri i corsi e le iscrizioni
 
@@ -469,11 +469,11 @@ Nella cartella *SchoolViewModels* creare *InstructorIndexData.cs* con il codice 
 
 ### <a name="scaffold-the-instructor-model"></a>Scaffolding del modello Instructor
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
 Seguire le istruzioni in [Eseguire lo scaffolding del modello Student (Studente)](xref:data/ef-rp/intro#scaffold-the-student-model) e usare `Instructor` per la classe modello.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
  Eseguire il comando seguente:
 
@@ -589,7 +589,7 @@ Aggiungere il markup seguente alla fine della pagina Razor *Pages/Instructors/In
 
 Quando è selezionato un insegnante, il markup precedente visualizza un elenco dei corsi correlati all'insegnante stesso.
 
-Eseguire il test dell'app. Fare clic su un collegamento **Select** (Seleziona) nella pagina Instructors (Insegnanti).
+Testare l'app. Fare clic su un collegamento **Select** (Seleziona) nella pagina Instructors (Insegnanti).
 
 ### <a name="show-student-data"></a>Visualizzare i dati degli studenti
 
@@ -636,7 +636,7 @@ Il codice precedente rilascia le chiamate del metodo *ThenInclude* per i dati de
 
 Si noti che nel codice precedente `.AsNoTracking()` è commentato. Le proprietà di navigazione possono solo essere caricate in modo esplicito per le entità registrate.
 
-Eseguire il test dell'app. Dal punto di vista degli utenti, l'app si comporta in modo identico alla versione precedente.
+Testare l'app. Dal punto di vista degli utenti, l'app si comporta in modo identico alla versione precedente.
 
 La prossima esercitazione illustra come aggiornare i dati correlati.
 

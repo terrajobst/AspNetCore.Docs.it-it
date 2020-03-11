@@ -1,30 +1,28 @@
 ---
 title: Ospitare ASP.NET Core in un servizio Windows
-author: guardrex
+author: rick-anderson
 description: Informazioni su come ospitare un'app ASP.NET Core in un servizio Windows.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/07/2020
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 829c282606e60a80682233555e1268acb706090e
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.openlocfilehash: 4eed461788f8fffa2ea00d8c931b0a0f5aaf1b46
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77172321"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78656184"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Ospitare ASP.NET Core in un servizio Windows
-
-Di [Luke Latham](https://github.com/guardrex)
 
 ::: moniker range=">= aspnetcore-3.0"
 
 È possibile ospitare un'app ASP.NET Core in Windows come [servizio Windows](/dotnet/framework/windows-services/introduction-to-windows-service-applications) senza usare IIS. Quando è ospitata come servizio di Windows, l'app viene avviata automaticamente dopo il riavvio del server.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/windows-service/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/windows-service/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [ASP.NET Core SDK 2.1 o versione successiva](https://dotnet.microsoft.com/download)
 * [PowerShell 6.2 o versione successiva](https://github.com/PowerShell/PowerShell)
@@ -149,7 +147,7 @@ Per stabilire i diritti *Accesso come servizio* per un account utente di servizi
 1. Selezionare **Aggiungi utente o gruppo**.
 1. Specificare il nome oggetto (account utente) in uno dei modi seguenti:
    1. Digitare l'account utente (`{DOMAIN OR COMPUTER NAME\USER}`) nel campo del nome oggetto e scegliere **OK** per aggiungere l'utente al criterio.
-   1. Fare clic su **Avanzate**. Selezionare **Trova**. Selezionare l'account utente dall'elenco. Scegliere **OK**. Scegliere di nuovo **OK** per aggiungere l'utente al criterio.
+   1. Fare clic su **Avanzate**. Selezionare **Trova**. Selezionare l'account utente dall'elenco. Selezionare **OK**. Scegliere di nuovo **OK** per aggiungere l'utente al criterio.
 1. Scegliere **OK** o **Applica** per accettare le modifiche.
 
 ## <a name="create-and-manage-the-windows-service"></a>Creare e gestire il servizio di Windows
@@ -256,7 +254,7 @@ Non tentare di usare <xref:System.IO.Directory.GetCurrentDirectory*> per ottener
 
 Specificare un percorso assoluto con <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> quando si usa un <xref:Microsoft.Extensions.Configuration.IConfigurationBuilder> per la cartella contenente i file.
 
-## <a name="troubleshoot"></a>Risoluzione dei problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 Per risolvere i problemi relativi a un'app di servizio Windows, vedere <xref:test/troubleshoot>.
 
@@ -307,14 +305,14 @@ Un *dump di arresto anomalo* del sistema è uno snapshot della memoria del siste
 Ottenere e analizzare un dump da [Segnalazione errori Windows](/windows/desktop/wer/windows-error-reporting):
 
 1. Creare una cartella per i file dump di arresto anomalo del sistema in `c:\dumps`.
-1. Eseguire lo [script di PowerShell EnableDumps](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/host-and-deploy/windows-service/scripts/EnableDumps.ps1) con il nome dell'eseguibile dell'applicazione:
+1. Eseguire lo [script di PowerShell EnableDumps](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/host-and-deploy/windows-service/scripts/EnableDumps.ps1) con il nome dell'eseguibile dell'applicazione:
 
    ```console
    .\EnableDumps {APPLICATION EXE} c:\dumps
    ```
 
 1. Eseguire l'app nelle condizioni che causano l'arresto anomalo.
-1. Dopo che si è verificato l'arresto anomalo, eseguire lo [script di PowerShell DisableDumps](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/host-and-deploy/windows-service/scripts/DisableDumps.ps1):
+1. Dopo che si è verificato l'arresto anomalo, eseguire lo [script di PowerShell DisableDumps](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/host-and-deploy/windows-service/scripts/DisableDumps.ps1):
 
    ```console
    .\DisableDumps {APPLICATION EXE}
@@ -345,9 +343,9 @@ Quando un'app si *blocca* (smette di rispondere ma non si arresta in modo anomal
 
 È possibile ospitare un'app ASP.NET Core in Windows come [servizio Windows](/dotnet/framework/windows-services/introduction-to-windows-service-applications) senza usare IIS. Quando è ospitata come servizio di Windows, l'app viene avviata automaticamente dopo il riavvio del server.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/windows-service/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/windows-service/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [ASP.NET Core SDK 2.1 o versione successiva](https://dotnet.microsoft.com/download)
 * [PowerShell 6.2 o versione successiva](https://github.com/PowerShell/PowerShell)
@@ -461,7 +459,7 @@ Per stabilire i diritti *Accesso come servizio* per un account utente di servizi
 1. Selezionare **Aggiungi utente o gruppo**.
 1. Specificare il nome oggetto (account utente) in uno dei modi seguenti:
    1. Digitare l'account utente (`{DOMAIN OR COMPUTER NAME\USER}`) nel campo del nome oggetto e scegliere **OK** per aggiungere l'utente al criterio.
-   1. Fare clic su **Avanzate**. Selezionare **Trova**. Selezionare l'account utente dall'elenco. Scegliere **OK**. Scegliere di nuovo **OK** per aggiungere l'utente al criterio.
+   1. Fare clic su **Avanzate**. Selezionare **Trova**. Selezionare l'account utente dall'elenco. Selezionare **OK**. Scegliere di nuovo **OK** per aggiungere l'utente al criterio.
 1. Scegliere **OK** o **Applica** per accettare le modifiche.
 
 ## <a name="create-and-manage-the-windows-service"></a>Creare e gestire il servizio di Windows
@@ -590,7 +588,7 @@ CreateWebHostBuilder(args)
 
 Specificare un percorso assoluto con <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> quando si usa un <xref:Microsoft.Extensions.Configuration.IConfigurationBuilder> per la cartella contenente i file.
 
-## <a name="troubleshoot"></a>Risoluzione dei problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 Per risolvere i problemi relativi a un'app di servizio Windows, vedere <xref:test/troubleshoot>.
 
@@ -641,14 +639,14 @@ Un *dump di arresto anomalo* del sistema è uno snapshot della memoria del siste
 Ottenere e analizzare un dump da [Segnalazione errori Windows](/windows/desktop/wer/windows-error-reporting):
 
 1. Creare una cartella per i file dump di arresto anomalo del sistema in `c:\dumps`.
-1. Eseguire lo [script di PowerShell EnableDumps](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/host-and-deploy/windows-service/scripts/EnableDumps.ps1) con il nome dell'eseguibile dell'applicazione:
+1. Eseguire lo [script di PowerShell EnableDumps](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/host-and-deploy/windows-service/scripts/EnableDumps.ps1) con il nome dell'eseguibile dell'applicazione:
 
    ```console
    .\EnableDumps {APPLICATION EXE} c:\dumps
    ```
 
 1. Eseguire l'app nelle condizioni che causano l'arresto anomalo.
-1. Dopo che si è verificato l'arresto anomalo, eseguire lo [script di PowerShell DisableDumps](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/host-and-deploy/windows-service/scripts/DisableDumps.ps1):
+1. Dopo che si è verificato l'arresto anomalo, eseguire lo [script di PowerShell DisableDumps](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/host-and-deploy/windows-service/scripts/DisableDumps.ps1):
 
    ```console
    .\DisableDumps {APPLICATION EXE}
@@ -679,9 +677,9 @@ Quando un'app si *blocca* (smette di rispondere ma non si arresta in modo anomal
 
 È possibile ospitare un'app ASP.NET Core in Windows come [servizio Windows](/dotnet/framework/windows-services/introduction-to-windows-service-applications) senza usare IIS. Quando è ospitata come servizio di Windows, l'app viene avviata automaticamente dopo il riavvio del server.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/windows-service/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/windows-service/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [ASP.NET Core SDK 2.1 o versione successiva](https://dotnet.microsoft.com/download)
 * [PowerShell 6.2 o versione successiva](https://github.com/PowerShell/PowerShell)
@@ -798,7 +796,7 @@ Per stabilire i diritti *Accesso come servizio* per un account utente di servizi
 1. Selezionare **Aggiungi utente o gruppo**.
 1. Specificare il nome oggetto (account utente) in uno dei modi seguenti:
    1. Digitare l'account utente (`{DOMAIN OR COMPUTER NAME\USER}`) nel campo del nome oggetto e scegliere **OK** per aggiungere l'utente al criterio.
-   1. Fare clic su **Avanzate**. Selezionare **Trova**. Selezionare l'account utente dall'elenco. Scegliere **OK**. Scegliere di nuovo **OK** per aggiungere l'utente al criterio.
+   1. Fare clic su **Avanzate**. Selezionare **Trova**. Selezionare l'account utente dall'elenco. Selezionare **OK**. Scegliere di nuovo **OK** per aggiungere l'utente al criterio.
 1. Scegliere **OK** o **Applica** per accettare le modifiche.
 
 ## <a name="create-and-manage-the-windows-service"></a>Creare e gestire il servizio di Windows
@@ -927,7 +925,7 @@ CreateWebHostBuilder(args)
 
 Specificare un percorso assoluto con <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*> quando si usa un <xref:Microsoft.Extensions.Configuration.IConfigurationBuilder> per la cartella contenente i file.
 
-## <a name="troubleshoot"></a>Risoluzione dei problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 Per risolvere i problemi relativi a un'app di servizio Windows, vedere <xref:test/troubleshoot>.
 
@@ -978,14 +976,14 @@ Un *dump di arresto anomalo* del sistema è uno snapshot della memoria del siste
 Ottenere e analizzare un dump da [Segnalazione errori Windows](/windows/desktop/wer/windows-error-reporting):
 
 1. Creare una cartella per i file dump di arresto anomalo del sistema in `c:\dumps`.
-1. Eseguire lo [script di PowerShell EnableDumps](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/host-and-deploy/windows-service/scripts/EnableDumps.ps1) con il nome dell'eseguibile dell'applicazione:
+1. Eseguire lo [script di PowerShell EnableDumps](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/host-and-deploy/windows-service/scripts/EnableDumps.ps1) con il nome dell'eseguibile dell'applicazione:
 
    ```console
    .\EnableDumps {APPLICATION EXE} c:\dumps
    ```
 
 1. Eseguire l'app nelle condizioni che causano l'arresto anomalo.
-1. Dopo che si è verificato l'arresto anomalo, eseguire lo [script di PowerShell DisableDumps](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/host-and-deploy/windows-service/scripts/DisableDumps.ps1):
+1. Dopo che si è verificato l'arresto anomalo, eseguire lo [script di PowerShell DisableDumps](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/host-and-deploy/windows-service/scripts/DisableDumps.ps1):
 
    ```console
    .\DisableDumps {APPLICATION EXE}

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/07/2019
 uid: fundamentals/static-files
-ms.openlocfilehash: 00bab51cb411552c884f85fa63d42d0691b401b1
-ms.sourcegitcommit: 3b6b0a54b20dc99b0c8c5978400c60adf431072f
+ms.openlocfilehash: 95a77defc7e98328e1f4e3615648b1d14485e51e
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74717273"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78660125"
 ---
 # <a name="static-files-in-aspnet-core"></a>File statici in ASP.NET Core
 
@@ -19,7 +19,7 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT) e [Steve Smith](https://twit
 
 I file statici, ad esempio HTML, CSS, immagini e JavaScript, sono asset che un'app ASP.NET Core rende direttamente disponibili nei client. Per abilitare l'uso di questi file, sono necessarie alcune configurazioni.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/static-files/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/static-files/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="serve-static-files"></a>Usare i file statici
 
@@ -50,7 +50,7 @@ I file statici sono accessibili tramite un percorso relativo alla [radice Web](x
   * **images**
   * **js**
 
-Il formato dell'URI per accedere a un file nella sottocartella *images* (immagini) è *http://\<indirizzo_server > /images/\<nome_file_immagine >* . Ad esempio: *http://localhost:9189/images/banner3.svg* .
+Il formato dell'URI per accedere a un file nella sottocartella *images* (immagini) è *http://\<indirizzo_server > /images/\<nome_file_immagine >* . Ad esempio, *http://localhost:9189/images/banner3.svg* .
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -111,6 +111,7 @@ Il markup seguente si riferisce a *MyStaticFiles/images/banner1.svg*:
 Per impostare le intestazioni della risposta HTTP, è possibile usare un oggetto [StaticFileOptions](/dotnet/api/microsoft.aspnetcore.builder.staticfileoptions). Oltre a configurare la funzione di file statici dalla [radice Web](xref:fundamentals/index#web-root), il codice seguente imposta l'intestazione `Cache-Control`:
 
 [!code-csharp[](static-files/samples/1x/StartupAddHeader.cs?name=snippet_ConfigureMethod)]
+[!INCLUDE[about the series](~/includes/code-comments-loc.md)]
 
 Il metodo [HeaderDictionaryExtensions.Append](/dotnet/api/microsoft.aspnetcore.http.headerdictionaryextensions.append) è disponibile nel pacchetto [Microsoft.AspNetCore.Http](https://www.nuget.org/packages/Microsoft.AspNetCore.Http/).
 
@@ -241,12 +242,12 @@ Con il codice precedente, una richiesta per un file con un tipo di contenuto sco
 
 ## <a name="serve-files-from-multiple-locations"></a>Gestire i file da più posizioni
 
-per impostazione predefinita `UseStaticFiles` e `UseFileServer` il provider di file che punta a *wwwroot*. È possibile fornire istanze aggiuntive di `UseStaticFiles` e `UseFileServer` con altri provider di file per gestire i file da altri percorsi. Per altre informazioni, vedere [questo problema di GitHub](https://github.com/aspnet/AspNetCore.Docs/issues/15578).
+per impostazione predefinita `UseStaticFiles` e `UseFileServer` il provider di file che punta a *wwwroot*. È possibile fornire istanze aggiuntive di `UseStaticFiles` e `UseFileServer` con altri provider di file per gestire i file da altri percorsi. Per altre informazioni, vedere [questo problema in GitHub](https://github.com/dotnet/AspNetCore.Docs/issues/15578).
 
-### <a name="considerations"></a>Considerazioni su
+### <a name="considerations"></a>Considerazioni
 
 > [!WARNING]
-> L'uso di `UseDirectoryBrowser` e `UseStaticFiles` può comportare la perdita di informazioni riservate. È consigliabile disabilitare l'esplorazione directory nell'ambiente di produzione. Controllare attentamente quali sono le directory abilitate tramite `UseStaticFiles` o `UseDirectoryBrowser`. L'intera directory e le relative sottodirectory diventano pubblicamente accessibili. Archiviare i file pubblicamente utilizzabili in una directory dedicata, ad esempio  *\<radice_contenuto > / wwwroot*. Tenere questi file separati da visualizzazioni MVC, Razor Pages (solo versione 2.x), file di configurazione e così via.
+> L'uso di `UseDirectoryBrowser` e `UseStaticFiles` può comportare la perdita di informazioni riservate. È consigliabile disabilitare l'esplorazione directory nell'ambiente di produzione. Controllare attentamente quali sono le directory abilitate tramite `UseStaticFiles` o `UseDirectoryBrowser`. L'intera directory e le relative sottodirectory diventano pubblicamente accessibili. Archiviare i file pubblicamente utilizzabili in una directory dedicata, ad esempio *\<radice_contenuto > / wwwroot*. Tenere questi file separati da visualizzazioni MVC, Razor Pages (solo versione 2.x), file di configurazione e così via.
 
 * Gli URL per il contenuto esposto con `UseDirectoryBrowser` e `UseStaticFiles` sono soggetti a distinzione tra maiuscole e minuscole e a limitazione di caratteri del file system sottostante. Ad esempio, in Windows viene fatta distinzione tra maiuscole e minuscole, al contrario di quanto avviene in macOS e Linux.
 

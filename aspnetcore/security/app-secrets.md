@@ -6,18 +6,18 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/05/2019
 uid: security/app-secrets
-ms.openlocfilehash: 9b36ae64fbe277cd81ed22ba7b21b0a035082dbd
-ms.sourcegitcommit: c815a9465e7b1bab44ce1643ec345b33e6cf1598
+ms.openlocfilehash: c3f165164f3c95e8c0aab773f3731429ae224bd9
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75606792"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666866"
 ---
 # <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a>Archiviazione sicura dei segreti delle app in fase di sviluppo in ASP.NET Core
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT), [Daniel Roth](https://github.com/danroth27)e [Scott Addie](https://github.com/scottaddie)
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/app-secrets/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/app-secrets/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 Questo documento illustra le tecniche per l'archiviazione e il recupero di dati sensibili durante lo sviluppo di un'app ASP.NET Core in un computer di sviluppo. Non archiviare mai le password o altri dati sensibili nel codice sorgente. I segreti di produzione non devono essere usati per lo sviluppo o il test. I segreti non devono essere distribuiti con l'app. Al contrario, i segreti devono essere resi disponibili nell'ambiente di produzione tramite un mezzo controllato, come le variabili di ambiente, Azure Key Vault e così via. È possibile archiviare e proteggere i segreti di test e di produzione di Azure con il [provider di configurazione Azure Key Vault](xref:security/key-vault-configuration).
 
@@ -51,13 +51,13 @@ Lo strumento Gestione Secret archivia i dati sensibili durante lo sviluppo di un
 
 Lo strumento di gestione dei segreti estrae i dettagli di implementazione, ad esempio dove e come vengono archiviati i valori. È possibile utilizzare lo strumento senza conoscere i dettagli di implementazione. I valori vengono archiviati in un file di configurazione JSON in una cartella del profilo utente protetta dal sistema nel computer locale:
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 Percorso del file System:
 
 `%APPDATA%\Microsoft\UserSecrets\<user_secrets_id>\secrets.json`
 
-# <a name="linux--macostablinuxmacos"></a>[Linux/macOS](#tab/linux+macos)
+# <a name="linux--macos"></a>[Linux/macOS](#tab/linux+macos)
 
 Percorso del file System:
 
@@ -199,7 +199,7 @@ La struttura JSON viene resa Flat dopo le modifiche tramite `dotnet user-secrets
 
 È possibile impostare un batch di segreti inviando tramite pipe JSON al comando `set`. Nell'esempio seguente il contenuto del file *input. JSON* viene inviato tramite pipe al comando `set`.
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 Aprire una shell dei comandi ed eseguire il comando seguente:
 
@@ -207,7 +207,7 @@ Aprire una shell dei comandi ed eseguire il comando seguente:
   type .\input.json | dotnet user-secrets set
   ```
 
-# <a name="linux--macostablinuxmacos"></a>[Linux/macOS](#tab/linux+macos)
+# <a name="linux--macos"></a>[Linux/macOS](#tab/linux+macos)
 
 Aprire una shell dei comandi ed eseguire il comando seguente:
 
@@ -410,6 +410,6 @@ No secrets configured for this application.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* Per informazioni sull'accesso a gestione Secret da IIS, vedere [questo problema](https://github.com/aspnet/AspNetCore.Docs/issues/16328) .
+* Per informazioni sull'accesso a gestione Secret da IIS, vedere [questo problema](https://github.com/dotnet/AspNetCore.Docs/issues/16328) .
 * <xref:fundamentals/configuration/index>
 * <xref:security/key-vault-configuration>

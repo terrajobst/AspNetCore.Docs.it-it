@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/environment-tag-helper
-ms.openlocfilehash: e2e038fe69da696b67f7aef61795e23dc8512fdf
-ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
-ms.translationtype: HT
+ms.openlocfilehash: 308e7db47104ebd4d6bb8d08c64f14bbd118898b
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67856125"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78663989"
 ---
 # <a name="environment-tag-helper-in-aspnet-core"></a>Helper tag di ambiente in ASP.NET Core
 
-Di [Peter Kellner](https://peterkellner.net), [Hisham Bin Ateya](https://twitter.com/hishambinateya) e [Luke Latham](https://github.com/guardrex)
+Di [Peter Kellner](https://peterkellner.net) e [Hisham Bin Ateya](https://twitter.com/hishambinateya)
 
 L'helper tag di ambiente esegue il rendering condizionale del proprio contenuto in base all'[ambiente host](xref:fundamentals/environments) corrente. L'unico attributo dell'helper tag di ambiente, `names`, è un elenco delimitato da virgole di nomi di ambiente. Se nessuno dei nomi di ambiente specificato corrisponde all'ambiente corrente, viene eseguito il rendering del contenuto incluso.
 
@@ -41,7 +41,7 @@ L'esempio seguente usa un helper tag di ambiente. Il rendering del contenuto vie
 
 ## <a name="include-and-exclude-attributes"></a>Attributi include ed exclude
 
-Gli attributi `include` ed `exclude` controllano il rendering del contenuto incluso in base ai nomi di ambiente host inclusi o esclusi.
+`include` & `exclude` gli attributi controllano il rendering del contenuto racchiuso in base ai nomi degli ambienti host inclusi o esclusi.
 
 ### <a name="include"></a>include
 

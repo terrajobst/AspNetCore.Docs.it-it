@@ -10,11 +10,11 @@ no-loc:
 - Blazor
 uid: tutorials/first-blazor-app
 ms.openlocfilehash: 8830dcf26b58b5f5fdd36b60298e7b365f99bdd9
-ms.sourcegitcommit: 925cdbd94613243f33bc7613a62ea34006219931
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921297"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78655309"
 ---
 # <a name="build-your-first-opno-locblazor-app"></a>Crea la tua prima app Blazor
 
@@ -44,7 +44,7 @@ Per creare un progetto Blazor per questa esercitazione, seguire le istruzioni ri
 
    Quando viene selezionato il pulsante **Click me**:
 
-   * Viene chiamato il gestore `onclick` registrato del componente `Counter` (metodo `IncrementCount`).
+   * Viene chiamato il gestore `Counter` registrato del componente `onclick` (metodo `IncrementCount`).
    * Il componente `Counter` rigenera il relativo albero di rendering.
    * Il nuovo albero di rendering viene confrontato con quello precedente.
    * Vengono applicate solo le modifiche al modello DOM (Document Object Model). Il conteggio visualizzato viene aggiornato.
@@ -87,7 +87,7 @@ I componenti possono avere anche parametri, I parametri del componente vengono d
        > From Visual Studio, you can quickly add a component parameter by using the `para` snippet. Type `para` and press the `Tab` key twice.
    -->
 
-1. Specificare un parametro `IncrementAmount` nell'elemento `<Counter>` del componente `Index` usando un attributo. Impostare il valore per incrementare il contatore di dieci unità.
+1. Specificare un parametro `IncrementAmount` nell'elemento `Index` del componente `<Counter>` usando un attributo. Impostare il valore per incrementare il contatore di dieci unità.
 
    *Pages/Index.razor*:
 
@@ -99,7 +99,7 @@ I componenti possono avere anche parametri, I parametri del componente vengono d
 
 La direttiva `@page` all'inizio del file *Counter.razor* specifica che il componente `Counter` è un endpoint di routing. Il componente `Counter` gestisce le richieste inviate a `/counter`. Senza la direttiva `@page`, un componente non gestisce le richieste instradate, ma può comunque essere usato da altri componenti.
 
-## <a name="dependency-injection"></a>Inserimento di dipendenze
+## <a name="dependency-injection"></a>Inserimento delle dipendenze
 
 ### <a name="opno-locblazor-server-experience"></a>esperienza del server Blazor
 

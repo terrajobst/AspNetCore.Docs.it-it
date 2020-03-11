@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/31/2018
 uid: security/ip-safelist
-ms.openlocfilehash: ca5b0f8088773027f7403120247cbeca8900bcf5
-ms.sourcegitcommit: 16cf016035f0c9acf3ff0ad874c56f82e013d415
+ms.openlocfilehash: d25c375f7e659168ab8cc9d8e11753cb7dfde831
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034339"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78659775"
 ---
 # <a name="client-ip-safelist-for-aspnet-core"></a>Indirizzi IP attendibili del client per ASP.NET Core
 
@@ -25,7 +25,7 @@ Questo articolo illustra tre modi per implementare un elenco di indirizzi IP att
 
 In ogni caso, una stringa contenente gli indirizzi IP client approvati viene archiviata in un'impostazione dell'app. Il middleware o il filtro analizza la stringa in un elenco e controlla se l'IP remoto è nell'elenco. In caso contrario, viene restituito un codice di stato HTTP 403 Forbidden.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/ip-safelist/samples/2.x/ClientIpAspNetCore) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/ip-safelist/samples/2.x/ClientIpAspNetCore) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="the-safelist"></a>Elenchi di sicurezza
 
@@ -45,7 +45,7 @@ Il middleware analizza la stringa in una matrice e cerca l'indirizzo IP remoto n
 
 ## <a name="action-filter"></a>Filtro azioni
 
-Se si desidera un tipo di attendibilità solo per controller o metodi di azione specifici, utilizzare un filtro azioni. Di seguito è riportato un esempio: 
+Se si desidera un tipo di attendibilità solo per controller o metodi di azione specifici, utilizzare un filtro azioni. Ad esempio: 
 
 [!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Filters/ClientIpCheckFilter.cs)]
 
@@ -61,7 +61,7 @@ Nell'app di esempio, il filtro viene applicato al metodo `Get`. Quindi, quando s
 
 ## <a name="razor-pages-filter"></a>Filtro Razor Pages 
 
-Per un'app Razor Pages, usare un filtro Razor Pages. Di seguito è riportato un esempio: 
+Per un'app Razor Pages, usare un filtro Razor Pages. Ad esempio: 
 
 [!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Filters/ClientIpCheckPageFilter.cs)]
 

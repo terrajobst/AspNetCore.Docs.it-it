@@ -8,11 +8,11 @@ ms.custom: mvc
 ms.date: 11/08/2019
 uid: security/authentication/identity/spa
 ms.openlocfilehash: 623f739b17c0bed3ce929f562c9581ab26ecf5bc
-ms.sourcegitcommit: 0b0e485a8a6dfcc65a7a58b365622b3839f4d624
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76928556"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78661413"
 ---
 # <a name="authentication-and-authorization-for-spas"></a>Autenticazione e autorizzazione per le ZPS
 
@@ -42,7 +42,7 @@ Il comando precedente crea un'app ASP.NET Core con una directory *ClientApp* con
 
 Le sezioni seguenti descrivono le aggiunte al progetto quando è incluso il supporto per l'autenticazione:
 
-### <a name="startup-class"></a>Classe Startup
+### <a name="startup-class"></a>Classe di avvio
 
 La classe `Startup` presenta le aggiunte seguenti:
 
@@ -260,7 +260,7 @@ async populateWeatherData() {
 }
 ```
 
-## <a name="deploy-to-production"></a>Distribuisci in produzione
+## <a name="deploy-to-production"></a>Distribuzione nell'ambiente di produzione
 
 Per distribuire l'app nell'ambiente di produzione, è necessario eseguire il provisioning delle risorse seguenti:
 

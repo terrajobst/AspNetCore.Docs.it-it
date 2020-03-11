@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 10/02/2018
 uid: security/cross-site-scripting
 ms.openlocfilehash: 1d6f605dc336d8768b8a47e4995f119d198a61af
-ms.sourcegitcommit: 85564ee396c74c7651ac47dd45082f3f1803f7a2
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77172640"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78667979"
 ---
 # <a name="prevent-cross-site-scripting-xss-in-aspnet-core"></a>Impedisci l'esecuzione di script tra siti (XSS) in ASP.NET Core
 
@@ -57,7 +57,7 @@ Questa visualizzazione restituisce il contenuto della variabile *untrustedInput*
 
 ## <a name="javascript-encoding-using-razor"></a>Codifica JavaScript con Razor
 
-In alcuni casi potrebbe essere necessario inserire un valore in JavaScript da elaborare nella visualizzazione. Questa operazione può essere eseguita in due modi. Il modo più sicuro per inserire valori consiste nell'inserire il valore in un attributo di dati di un tag e recuperarlo nel codice JavaScript. Ad esempio,
+In alcuni casi potrebbe essere necessario inserire un valore in JavaScript da elaborare nella visualizzazione. Per eseguire questa operazione è possibile procedere in due modi: Il modo più sicuro per inserire valori consiste nell'inserire il valore in un attributo di dati di un tag e recuperarlo nel codice JavaScript. Ad esempio:
 
 ```cshtml
 @{

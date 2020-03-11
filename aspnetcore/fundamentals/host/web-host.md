@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/07/2019
 uid: fundamentals/host/web-host
-ms.openlocfilehash: bc18b5490d232758b796d33a62cd8d1a7dd7289f
-ms.sourcegitcommit: 3d082bd46e9e00a3297ea0314582b1ed2abfa830
+ms.openlocfilehash: e02d6efcb3aec1329469b8654e66ba845870421a
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72007100"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78666712"
 ---
 # <a name="aspnet-core-web-host"></a>Host Web ASP.NET Core
 
@@ -52,7 +52,7 @@ public class Program
 
 Il codice che chiama `CreateDefaultBuilder` è incluso in un metodo denominato `CreateWebHostBuilder`, che lo separa dal codice in `Main` che chiama `Run` per l'oggetto generatore. Questa separazione è necessaria se si usano gli [strumenti di Entity Framework Core](/ef/core/miscellaneous/cli/). Gli strumenti si aspettano di trovare un metodo `CreateWebHostBuilder` che possono chiamare in fase di progettazione per configurare l'host senza eseguire l'app. Un'alternativa consiste nell'implementare `IDesignTimeDbContextFactory`. Per altre informazioni, vedere [Creazione DbContext in fase di progettazione](/ef/core/miscellaneous/cli/dbcontext-creation).
 
-`CreateDefaultBuilder` esegue le attività seguenti:
+`CreateDefaultBuilder` esegue queste attività:
 
 * Configura il server [Kestrel](xref:fundamentals/servers/kestrel) come server Web usando i provider di configurazione dell'host dell'app. Per le opzioni predefinite del server Kestrel, vedere <xref:fundamentals/servers/kestrel#kestrel-options>.
 * Imposta la [radice del contenuto](xref:fundamentals/index#content-root) sul percorso restituito da [Directory. GetCurrentDirectory](/dotnet/api/system.io.directory.getcurrentdirectory).
@@ -134,7 +134,7 @@ Quando si configura un host, è possibile specificare i metodi [Configure](/dotn
 
 [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) si basa sugli approcci seguenti per impostare i valori di configurazione dell'host:
 
-* Configurazione del generatore di host, che include le variabili di ambiente nel formato `ASPNETCORE_{configurationKey}`. Ad esempio `ASPNETCORE_ENVIRONMENT`.
+* Configurazione del generatore di host, che include le variabili di ambiente nel formato `ASPNETCORE_{configurationKey}`. Ad esempio: `ASPNETCORE_ENVIRONMENT`.
 * Le estensioni come [UseContentRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usecontentroot) e [UseConfiguration](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.useconfiguration) (vedere la sezione [Override della configurazione](#override-configuration)).
 * [UseSetting](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder.usesetting) e chiave associata. Quando si imposta un valore con `UseSetting`, il valore viene impostato come stringa indipendentemente dal tipo.
 
@@ -326,7 +326,7 @@ Indica gli indirizzi IP o gli indirizzi host con le porte e protocolli su cui il
 **Impostare usando**: `UseUrls`  
 **Variabile di ambiente**: `ASPNETCORE_URLS`
 
-Impostare su un elenco di prefissi URL separati da punto e virgola (;) ai quali il server deve rispondere. Ad esempio `http://localhost:123`. Usare "\*" per indicare che il server deve eseguire l'ascolto per le richieste su tutti gli indirizzi IP o nomi host usando la porta e il protocollo specificati (ad esempio, `http://*:5000`). Il protocollo (`http://` o `https://`) deve essere incluso con ogni URL. I formati supportati variano a seconda del server.
+Impostare su un elenco di prefissi URL separati da punto e virgola (;) ai quali il server deve rispondere. Ad esempio: `http://localhost:123`. Usare "\*" per indicare che il server deve eseguire l'ascolto per le richieste su tutti gli indirizzi IP o nomi host usando la porta e il protocollo specificati (ad esempio, `http://*:5000`). Il protocollo (`http://` o `https://`) deve essere incluso con ogni URL. I formati supportati variano a seconda del server.
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)
@@ -444,9 +444,7 @@ public class Program
 ```
 
 > [!NOTE]
-> Il metodo di estensione [UseConfiguration](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.useconfiguration) non è attualmente in grado di analizzare una sezione di configurazione restituita da `GetSection` (ad esempio, `.UseConfiguration(Configuration.GetSection("section"))`. Il metodo `GetSection` filtra le chiavi di configurazione per la sezione richiesta, ma lascia il nome di sezione sulle chiavi (ad esempio, `section:urls`, `section:environment`). Il metodo `UseConfiguration` prevede che le chiavi corrispondano alle chiavi `WebHostBuilder` (ad esempio, `urls`, `environment`). La presenza del nome di sezione sulle chiavi impedisce ai valori della sezione di configurare l'host. Questo problema verrà risolto in una delle prossime versioni. Per altre informazioni e soluzioni alternative, vedere [Passing configuration section into WebHostBuilder.UseConfiguration uses full keys](https://github.com/aspnet/Hosting/issues/839).
->
-> `UseConfiguration` copia solo le chiavi dall'elemento `IConfiguration` specificato nella configurazione del generatore di host. Pertanto, l'impostazione di `reloadOnChange: true` per i file JSON, INI e XML non ha alcun effetto.
+> [UseConfiguration](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.useconfiguration) copia solo le chiavi dalla `IConfiguration` fornita alla configurazione del generatore host. Pertanto, l'impostazione di `reloadOnChange: true` per i file JSON, INI e XML non ha alcun effetto.
 
 Per specificare l'host eseguito in un URL specifico, il valore desiderato può essere passato da un prompt dei comandi durante l'esecuzione di [dotnet run](/dotnet/core/tools/dotnet-run). L'argomento della riga di comando esegue l'override del valore `urls` dal file *hostsettings.json*, mentre il server esegue l'ascolto sulla porta 8080:
 
@@ -464,7 +462,7 @@ Il metodo `Run` avvia l'app Web e blocca il thread di chiamata fino all'arresto 
 host.Run();
 ```
 
-**Start**
+**Inizia**
 
 Eseguire l'host in modo non bloccante chiamandone il metodo `Start`:
 
