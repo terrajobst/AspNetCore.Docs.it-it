@@ -7,18 +7,18 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: abea9b189861954533b24cb73650af41952d1a86
-ms.sourcegitcommit: 57b85708f4cded99b8f008a69830cb104cd8e879
+ms.openlocfilehash: fc6f8d8c4ab09848cf316be2e522bf5ce3b9ac76
+ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75914120"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78657038"
 ---
 # <a name="tutorial-learn-about-advanced-scenarios---aspnet-mvc-with-ef-core"></a>Esercitazione: informazioni sugli scenari avanzati-MVC ASP.NET con EF Core
 
 Nell'esercitazione precedente è stata implementata l'ereditarietà tabella per gerarchia. Questa esercitazione presenta diversi argomenti che è utile tenere presente dopo aver appreso le nozioni di base sullo sviluppo di applicazioni Web ASP.NET Core che usano Entity Framework Core.
 
-Le attività di questa esercitazione sono le seguenti:
+In questa esercitazione:
 
 > [!div class="checklist"]
 > * Eseguire query SQL non elaborate
@@ -71,7 +71,7 @@ Aggiungere un'istruzione using:
 
 [!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_Usings2)]
 
-Eseguire l'app e passare alla pagina About. Vengono visualizzati gli stessi dati visualizzati in precedenza.
+Eseguire l'app e passare alla pagina About (Informazioni). Vengono visualizzati gli stessi dati visualizzati in precedenza.
 
 ![Pagina About (Informazioni)](advanced/_static/about.png)
 
@@ -103,7 +103,7 @@ Eseguire il metodo `UpdateCourseCredits` selezionando la scheda **Courses**, qui
 
 ![Pagina di aggiornamento dei crediti dei corsi](advanced/_static/update-credits.png)
 
-Fare clic su **Aggiorna**. Viene visualizzato il numero di righe interessate:
+Fare clic su **Update**. Viene visualizzato il numero di righe interessate:
 
 ![Righe interessate della pagina Update Course Credits](advanced/_static/update-credits-rows-affected.png)
 
@@ -173,7 +173,7 @@ Entity Framework determina come è stata modificata un'entità (e di conseguenza
 
 * ChangeTracker.Entries
 
-Se viene registrato un numero elevato di entità e uno solo di questi metodi viene chiamato più volte in un ciclo, è possibile ottenere miglioramenti significativi delle prestazioni disattivando temporaneamente il rilevamento automatico delle modifiche usando la proprietà `ChangeTracker.AutoDetectChangesEnabled`. Ad esempio:
+Se viene registrato un numero elevato di entità e uno solo di questi metodi viene chiamato più volte in un ciclo, è possibile ottenere miglioramenti significativi delle prestazioni disattivando temporaneamente il rilevamento automatico delle modifiche usando la proprietà `ChangeTracker.AutoDetectChangesEnabled`. Ad esempio,
 
 ```csharp
 _context.ChangeTracker.AutoDetectChangesEnabled = false;
@@ -203,7 +203,7 @@ Tom Dykstra e Rick Anderson (twitter @RickAndMSFT) hanno scritto questa esercita
 
 <a id="common-errors"></a>
 
-## <a name="troubleshoot-common-errors"></a>Risolvere gli errori comuni
+## <a name="troubleshoot-common-errors"></a>Risoluzione dei problemi comuni
 
 ### <a name="contosouniversitydll-used-by-another-process"></a>ContosoUniversity.dll usata da un altro processo
 
@@ -227,7 +227,7 @@ Eseguire il comando `migrations remove`, salvare le modifiche al codice e rieseg
 
 ### <a name="errors-while-running-database-update"></a>Errori durante l'esecuzione dell'aggiornamento del database
 
-Quando si apportano modifiche allo schema in un database con dati esistenti è possibile che si riscontrino altri errori. Se si verificano errori di migrazione che non si riesce a risolvere, è possibile modificare il nome del database nella stringa di connessione o eliminare il database. Un nuovo database non contiene dati di cui eseguire la migrazione e ci sono maggiori probabilità che il comando update-database venga completato senza errori.
+Quando si apportano modifiche allo schema in un database con dati esistenti è possibile che si verifichino altri errori. Se si verificano errori di migrazione che non si riesce a risolvere, è possibile modificare il nome del database nella stringa di connessione o eliminare il database. Un nuovo database non contiene dati di cui eseguire la migrazione e ci sono maggiori probabilità che il comando update-database venga completato senza errori.
 
 L'approccio più semplice consiste nel rinominare il database in *appsettings.json*. Alla successiva esecuzione di `database update`, verrà creato un nuovo database.
 
@@ -243,7 +243,7 @@ dotnet ef database drop
 
 Messaggio di errore:
 
-> Si è verificato un errore di rete o specifico dell'istanza mentre si cercava di stabilire una connessione con SQL Server. Il server non è stato trovato o non è accessibile. Verificare che il nome dell'istanza sia corretto e che SQL Server sia configurato in modo da consentire connessioni remote. (provider: interfacce di rete SQL, errore: 26 - Errore nell'individuazione del server/dell'istanza specificata)
+> Si è verificato un errore di rete o specifico dell'istanza mentre veniva stabilita la connessione a SQL Server. Il server non è stato trovato o non è accessibile. Verificare che il nome dell'istanza sia corretto e che il server sia configurato in modo da consentire connessioni remote. (provider: interfacce di rete SQL, errore: 26 - Errore nell'individuazione del server/dell'istanza specificata)
 
 Soluzione:
 
@@ -251,7 +251,7 @@ Controllare la stringa di connessione. Se il file di database è stato eliminato
 
 ## <a name="get-the-code"></a>Ottenere il codice
 
-[Scaricare o visualizzare l'applicazione completata.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[Scaricare o visualizzare l'applicazione completata.](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
@@ -263,7 +263,7 @@ Per informazioni su altri argomenti correlati ad ASP.NET Core MVC, ad esempio su
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Le attività di questa esercitazione sono le seguenti:
+In questa esercitazione:
 
 > [!div class="checklist"]
 > * Eseguire query SQL non elaborate
