@@ -1,0 +1,127 @@
+---
+title: Proteggere un'app ASP.NET Core Blazor webassembly autonomamente con Azure Active Directory B2C
+author: guardrex
+description: ''
+monikerRange: '>= aspnetcore-3.1'
+ms.author: riande
+ms.custom: mvc
+ms.date: 03/09/2020
+no-loc:
+- Blazor
+- SignalR
+uid: security/blazor/webassembly/standalone-with-azure-active-directory-b2c
+ms.openlocfilehash: 0ea42943c908d8cf9d083c1cfc568c1835588ce9
+ms.sourcegitcommit: 98bcf5fe210931e3eb70f82fd675d8679b33f5d6
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79083832"
+---
+# <a name="secure-an-aspnet-core-opno-locblazor-webassembly-standalone-app-with-azure-active-directory-b2c"></a><span data-ttu-id="3cece-102">Proteggere un'app ASP.NET Core Blazor webassembly autonomamente con Azure Active Directory B2C</span><span class="sxs-lookup"><span data-stu-id="3cece-102">Secure an ASP.NET Core Blazor WebAssembly standalone app with Azure Active Directory B2C</span></span>
+
+<span data-ttu-id="3cece-103">Di [Javier Calvarro Nelson](https://github.com/javiercn) e [Luke Latham](https://github.com/guardrex)</span><span class="sxs-lookup"><span data-stu-id="3cece-103">By [Javier Calvarro Nelson](https://github.com/javiercn) and [Luke Latham](https://github.com/guardrex)</span></span>
+
+[!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
+
+[!INCLUDE[](~/includes/blazorwasm-3.2-template-article-notice.md)]
+
+<span data-ttu-id="3cece-104">Per creare un'app Blazor webassembly autonoma che usa [Azure Active Directory (AAD) B2C](/azure/active-directory-b2c/overview) per l'autenticazione:</span><span class="sxs-lookup"><span data-stu-id="3cece-104">To create a Blazor WebAssembly standalone app that uses [Azure Active Directory (AAD) B2C](/azure/active-directory-b2c/overview) for authentication:</span></span>
+
+1. <span data-ttu-id="3cece-105">Per creare un tenant e registrare un'app Web nel portale di Azure, seguire le istruzioni riportate negli argomenti seguenti:</span><span class="sxs-lookup"><span data-stu-id="3cece-105">Follow the guidance in the following topics to create a tenant and register a web app in the Azure Portal:</span></span>
+
+   * <span data-ttu-id="3cece-106">[Creare un tenant AAD B2C](/azure/active-directory-b2c/tutorial-create-tenant) &ndash; registrare le informazioni seguenti:</span><span class="sxs-lookup"><span data-stu-id="3cece-106">[Create an AAD B2C tenant](/azure/active-directory-b2c/tutorial-create-tenant) &ndash; Record the following information:</span></span>
+
+     <span data-ttu-id="3cece-107">1 \.</span><span class="sxs-lookup"><span data-stu-id="3cece-107">1\.</span></span> <span data-ttu-id="3cece-108">AAD B2C istanza (ad esempio, `https://contoso.b2clogin.com/`, che include la barra finale)</span><span class="sxs-lookup"><span data-stu-id="3cece-108">AAD B2C instance (for example, `https://contoso.b2clogin.com/`, which includes the trailing slash)</span></span><br>
+     <span data-ttu-id="3cece-109">2 \.</span><span class="sxs-lookup"><span data-stu-id="3cece-109">2\.</span></span> <span data-ttu-id="3cece-110">AAD B2C dominio tenant, ad esempio `contoso.onmicrosoft.com`</span><span class="sxs-lookup"><span data-stu-id="3cece-110">AAD B2C Tenant domain (for example, `contoso.onmicrosoft.com`)</span></span>
+
+   * <span data-ttu-id="3cece-111">[Registrare un'applicazione web](/azure/active-directory-b2c/tutorial-register-applications) &ndash; effettuare le selezioni seguenti durante la registrazione dell'app:</span><span class="sxs-lookup"><span data-stu-id="3cece-111">[Register a web application](/azure/active-directory-b2c/tutorial-register-applications) &ndash; Make the following selections during app registration:</span></span>
+
+     <span data-ttu-id="3cece-112">1 \.</span><span class="sxs-lookup"><span data-stu-id="3cece-112">1\.</span></span> <span data-ttu-id="3cece-113">Impostare **app Web/API Web** su **Sì**.</span><span class="sxs-lookup"><span data-stu-id="3cece-113">Set **Web App / Web API** to **Yes**.</span></span><br>
+     <span data-ttu-id="3cece-114">2 \.</span><span class="sxs-lookup"><span data-stu-id="3cece-114">2\.</span></span> <span data-ttu-id="3cece-115">Impostare **Consenti flusso implicito** su **Sì**.</span><span class="sxs-lookup"><span data-stu-id="3cece-115">Set **Allow implicit flow** to **Yes**.</span></span><br>
+     <span data-ttu-id="3cece-116">3 \.</span><span class="sxs-lookup"><span data-stu-id="3cece-116">3\.</span></span> <span data-ttu-id="3cece-117">Aggiungere un **URL di risposta** di `https://localhost:5001/authentication/login-callback`.</span><span class="sxs-lookup"><span data-stu-id="3cece-117">Add a **Reply URL** of `https://localhost:5001/authentication/login-callback`.</span></span>
+
+     <span data-ttu-id="3cece-118">Registrare l'ID applicazione (ID client), ad esempio `11111111-1111-1111-1111-111111111111`.</span><span class="sxs-lookup"><span data-stu-id="3cece-118">Record the Application ID (Client ID) (for example, `11111111-1111-1111-1111-111111111111`).</span></span>
+
+   * <span data-ttu-id="3cece-119">[Creare flussi utente](/azure/active-directory-b2c/tutorial-create-user-flows) & ndash; Creare un flusso utente per l'iscrizione e l'accesso.</span><span class="sxs-lookup"><span data-stu-id="3cece-119">[Create user flows](/azure/active-directory-b2c/tutorial-create-user-flows) & ndash; Create a sign-up and sign-in user flow.</span></span>
+
+     <span data-ttu-id="3cece-120">Registrare il nome del flusso utente di iscrizione e accesso creato per l'app, ad esempio `B2C_1_signupsignin`.</span><span class="sxs-lookup"><span data-stu-id="3cece-120">Record the sign-up and sign-in user flow name created for the app (for example, `B2C_1_signupsignin`).</span></span>
+
+1. <span data-ttu-id="3cece-121">Sostituire i segnaposto nel comando seguente con le informazioni registrate in precedenza ed eseguire il comando in una shell dei comandi:</span><span class="sxs-lookup"><span data-stu-id="3cece-121">Replace the placeholders in the following command with the information recorded earlier and execute the command in a command shell:</span></span>
+
+   ```dotnetcli
+   dotnet new blazorwasm -au IndividualB2C --aad-b2c-instance "{AAD B2C INSTANCE}" --client-id "{CLIENT ID}" --domain "{DOMAIN}" -ssp "{SIGN UP OR SIGN IN POLICY}"
+   ```
+
+   <span data-ttu-id="3cece-122">Per specificare il percorso di output, che crea una cartella di progetto, se non esiste, includere l'opzione di output nel comando con un percorso, ad esempio `-o BlazorSample`.</span><span class="sxs-lookup"><span data-stu-id="3cece-122">To specify the output location, which creates a project folder if it doesn't exist, include the output option in the command with a path (for example, `-o BlazorSample`).</span></span> <span data-ttu-id="3cece-123">Il nome della cartella diventa anche parte del nome del progetto.</span><span class="sxs-lookup"><span data-stu-id="3cece-123">The folder name also becomes part of the project's name.</span></span>
+
+## <a name="authentication-package"></a><span data-ttu-id="3cece-124">Pacchetto di autenticazione</span><span class="sxs-lookup"><span data-stu-id="3cece-124">Authentication package</span></span>
+
+<span data-ttu-id="3cece-125">Quando viene creata un'app per usare un singolo account B2C (`IndividualB2C`), l'app riceve automaticamente un riferimento al pacchetto per [Microsoft Authentication Library](/azure/active-directory/develop/msal-overview) (`Microsoft.Authentication.WebAssembly.Msal`).</span><span class="sxs-lookup"><span data-stu-id="3cece-125">When an app is created to use an Individual B2C Account (`IndividualB2C`), the app automatically receives a package reference for the [Microsoft Authentication Library](/azure/active-directory/develop/msal-overview) (`Microsoft.Authentication.WebAssembly.Msal`).</span></span> <span data-ttu-id="3cece-126">Il pacchetto fornisce un set di primitive che consentono all'app di autenticare gli utenti e ottenere i token per chiamare le API protette.</span><span class="sxs-lookup"><span data-stu-id="3cece-126">The package provides a set of primitives that help the app authenticate users and obtain tokens to call protected APIs.</span></span>
+
+<span data-ttu-id="3cece-127">Se si aggiunge l'autenticazione a un'app, aggiungere manualmente il pacchetto al file di progetto dell'app:</span><span class="sxs-lookup"><span data-stu-id="3cece-127">If adding authentication to an app, manually add the package to the app's project file:</span></span>
+
+```xml
+<PackageReference Include="Microsoft.Authentication.WebAssembly.Msal" 
+    Version="{VERSION}" />
+```
+
+<span data-ttu-id="3cece-128">Sostituire `{VERSION}` nel riferimento al pacchetto precedente con la versione del pacchetto `Microsoft.AspNetCore.Blazor.Templates` illustrato nell'articolo <xref:blazor/get-started>.</span><span class="sxs-lookup"><span data-stu-id="3cece-128">Replace `{VERSION}` in the preceding package reference with the version of the `Microsoft.AspNetCore.Blazor.Templates` package shown in the <xref:blazor/get-started> article.</span></span>
+
+<span data-ttu-id="3cece-129">Il pacchetto di `Microsoft.Authentication.WebAssembly.Msal` aggiunge in modo transitivo il pacchetto di `Microsoft.AspNetCore.Components.WebAssembly.Authentication` all'app.</span><span class="sxs-lookup"><span data-stu-id="3cece-129">The `Microsoft.Authentication.WebAssembly.Msal` package transitively adds the `Microsoft.AspNetCore.Components.WebAssembly.Authentication` package to the app.</span></span>
+
+## <a name="authentication-service-support"></a><span data-ttu-id="3cece-130">Supporto del servizio di autenticazione</span><span class="sxs-lookup"><span data-stu-id="3cece-130">Authentication service support</span></span>
+
+<span data-ttu-id="3cece-131">Il supporto per l'autenticazione degli utenti viene registrato nel contenitore del servizio con il metodo di estensione `AddMsalAuthentication` fornito dal pacchetto di `Microsoft.Authentication.WebAssembly.Msal`.</span><span class="sxs-lookup"><span data-stu-id="3cece-131">Support for authenticating users is registered in the service container with the `AddMsalAuthentication` extension method provided by the `Microsoft.Authentication.WebAssembly.Msal` package.</span></span> <span data-ttu-id="3cece-132">Questo metodo configura tutti i servizi necessari per l'interazione dell'app con il provider di identità (IP).</span><span class="sxs-lookup"><span data-stu-id="3cece-132">This method sets up all of the services required for the app to interact with the Identity Provider (IP).</span></span>
+
+<span data-ttu-id="3cece-133">*Program.cs*:</span><span class="sxs-lookup"><span data-stu-id="3cece-133">*Program.cs*:</span></span>
+
+```csharp
+builder.Services.AddMsalAuthentication(options =>
+{
+    var authentication = options.ProviderOptions.Authentication;
+    authentication.Authority = 
+        "{AAD B2C INSTANCE}{DOMAIN}/{SIGN UP OR SIGN IN POLICY}";
+    authentication.ClientId = "{CLIENT ID}";
+    authentication.ValidateAuthority = false;
+});
+```
+
+<span data-ttu-id="3cece-134">Il metodo `AddMsalAuthentication` accetta un callback per configurare i parametri necessari per autenticare un'app.</span><span class="sxs-lookup"><span data-stu-id="3cece-134">The `AddMsalAuthentication` method accepts a callback to configure the parameters required to authenticate an app.</span></span> <span data-ttu-id="3cece-135">Quando si registra l'app, è possibile ottenere i valori necessari per la configurazione dell'app dalla configurazione di AAD del portale di Azure.</span><span class="sxs-lookup"><span data-stu-id="3cece-135">The values required for configuring the app can be obtained from the Azure Portal AAD configuration when you register the app.</span></span>
+
+<span data-ttu-id="3cece-136">Il modello di Blazor webassembly non configura automaticamente l'app per richiedere un token di accesso per un'API protetta.</span><span class="sxs-lookup"><span data-stu-id="3cece-136">The Blazor WebAssembly template doesn't automatically configure the app to request an access token for a secure API.</span></span> <span data-ttu-id="3cece-137">Per eseguire il provisioning di un token come parte del flusso di accesso, aggiungere l'ambito agli ambiti dei token di accesso predefiniti della `MsalProviderOptions`:</span><span class="sxs-lookup"><span data-stu-id="3cece-137">To provision a token as part of the sign-in flow, add the scope to the default access token scopes of the `MsalProviderOptions`:</span></span>
+
+```csharp
+builder.Services.AddMsalAuthentication(options =>
+{
+    ...
+    options.ProviderOptions.DefaultAccessTokenScopes.Add(
+        "{API ID URI}/{SCOPE}");
+});
+```
+
+## <a name="index-page"></a><span data-ttu-id="3cece-138">Pagina di indice</span><span class="sxs-lookup"><span data-stu-id="3cece-138">Index page</span></span>
+
+[!INCLUDE[](~/includes/blazor-security/index-page.md)]
+
+## <a name="app-component"></a><span data-ttu-id="3cece-139">Componente app</span><span class="sxs-lookup"><span data-stu-id="3cece-139">App component</span></span>
+
+[!INCLUDE[](~/includes/blazor-security/app-component.md)]
+
+## <a name="redirecttologin-component"></a><span data-ttu-id="3cece-140">Componente RedirectToLogin</span><span class="sxs-lookup"><span data-stu-id="3cece-140">RedirectToLogin component</span></span>
+
+[!INCLUDE[](~/includes/blazor-security/redirecttologin-component.md)]
+
+## <a name="logindisplay-component"></a><span data-ttu-id="3cece-141">Componente LoginDisplay</span><span class="sxs-lookup"><span data-stu-id="3cece-141">LoginDisplay component</span></span>
+
+[!INCLUDE[](~/includes/blazor-security/logindisplay-component.md)]
+
+## <a name="authentication-component"></a><span data-ttu-id="3cece-142">Componente di autenticazione</span><span class="sxs-lookup"><span data-stu-id="3cece-142">Authentication component</span></span>
+
+[!INCLUDE[](~/includes/blazor-security/authentication-component.md)]
+
+[!INCLUDE[](~/includes/blazor-security/troubleshoot.md)]
+
+## <a name="additional-resources"></a><span data-ttu-id="3cece-143">Risorse aggiuntive</span><span class="sxs-lookup"><span data-stu-id="3cece-143">Additional resources</span></span>
+
+* <xref:security/authentication/azure-ad-b2c>
+* [<span data-ttu-id="3cece-144">Esercitazione: Creare un tenant di Azure Active Directory B2C</span><span class="sxs-lookup"><span data-stu-id="3cece-144">Tutorial: Create an Azure Active Directory B2C tenant</span></span>](/azure/active-directory-b2c/tutorial-create-tenant)
