@@ -6,12 +6,12 @@ ms.author: riserrad
 ms.custom: mvc
 ms.date: 07/10/2019
 uid: tutorials/publish-to-azure-webapp-using-vscode
-ms.openlocfilehash: 90ba130f13903cd45eca062c0eca8945eff2e0fa
-ms.sourcegitcommit: 7a2c820692f04bfba04398641b70f27fa15391f5
+ms.openlocfilehash: eaf9cca61b21d04d127ff15a579f3d8da794f7d9
+ms.sourcegitcommit: 40dc9b00131985abcd99bd567647420d798e798a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72290651"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78935431"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio-code"></a>Pubblicare un'app ASP.NET Core in Azure con Visual Studio Code
 
@@ -21,16 +21,16 @@ Di [Ricardo Serradas](https://twitter.com/ricardoserradas)
 
 Per risolvere un problema di distribuzione del Servizio app di Azure, vedere <xref:test/troubleshoot-azure-iis>.
 
-## <a name="intro"></a>Introduzione
+## <a name="intro"></a>Intro
 
 Con questa esercitazione si apprenderà come creare un'applicazione ASP.Net Core MVC e distribuirla all'interno di Visual Studio Code.
 
-## <a name="set-up"></a>Impostare
+## <a name="set-up"></a>Configurare
 
 - Aprire un [account Azure gratuito](https://azure.microsoft.com/free/dotnet/) se non è già disponibile un account.
 - Installare [.NET Core SDK](https://dotnet.microsoft.com/download)
 - Installare [Visual Studio Code](https://code.visualstudio.com/Download)
-  - Installare l'[estensione C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) in Visual Studio Code
+  - Installare l'[estensione C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) in Visual Studio Code
   - Installare l' [estensione del servizio app Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) per Visual Studio Code e configurarla prima di procedere
 
 ## <a name="create-an-aspnet-core-mvc-project"></a>Creare un progetto ASP.NET Core MVC
@@ -90,7 +90,7 @@ tasks.json
 
 Questi sono file di utilità che consentono di compilare l'app Web .NET Core e di eseguirne il debug.
 
-## <a name="run-the-app"></a>Esecuzione dell'app
+## <a name="run-the-app"></a>Eseguire l'app
 
 Prima della distribuzione dell'app in Azure, assicurarsi che venga eseguita correttamente nel computer locale.
 
@@ -119,7 +119,7 @@ Sfruttando l'estensione del servizio app di Azure per Visual Studio Code, seguir
 
 - Fare clic con il pulsante destro del mouse sulla cartella `publish` e scegliere `Deploy to Web App...`
 - Selezionare la sottoscrizione in cui si vuole creare l'app Web
-- Selezionare `Create New Web App`
+- Selezionare `Create New Web App`.
 - Immettere un nome per l'app Web
 
 L'estensione creerà la nuova app Web e avvierà automaticamente la distribuzione del pacchetto in tale app. Al termine della distribuzione, fare clic su `Browse Website` per convalidare la distribuzione.

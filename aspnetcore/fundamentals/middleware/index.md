@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/02/2020
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 6698e269e0a6480cd5a03c59f9a19da31e23bf69
-ms.sourcegitcommit: 235623b6e5a5d1841139c82a11ac2b4b3f31a7a9
+ms.openlocfilehash: afa71b2c2b75be2c000fadd9545ac3fb4587825a
+ms.sourcegitcommit: 51c86c003ab5436598dbc42f26ea4a83a795fd6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77089149"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78964470"
 ---
 # <a name="aspnet-core-middleware"></a>Middleware di ASP.NET Core
 
@@ -35,7 +35,7 @@ In <xref:migration/http-modules> sono descritte le differenze tra le pipeline de
 
 La pipeline delle richieste ASP.NET Core è costituita da una sequenza di delegati di richiesta, chiamati uno dopo l'altro. Il diagramma seguente illustra il concetto. Il thread di esecuzione seguente le frecce nere.
 
-![Modello di elaborazione delle richieste che visualizza una richiesta in arrivo, l'elaborazione tramite tre middleware e la risposta che esce dall'app. Ogni middleware esegue la relativa logica e passa la richiesta al middleware successivo in corrispondenza dell'istruzione next(). Dopo che il terzo middleware ha elaborato la richiesta, la richiesta torna ai due middleware precedenti in ordine inverso per un'ulteriore elaborazione dopo le istruzioni next() prima di uscire dall'app sotto forma di risposta al client.](index/_static/request-delegate-pipeline.png)
+![Modello di elaborazione delle richieste che visualizza una richiesta in arrivo, l'elaborazione tramite tre middleware e la risposta che esce dall'app. Ogni middleware esegue la propria logica e passa la richiesta al middleware successivo in corrispondenza dell'istruzione next(). Dopo che il terzo middleware ha elaborato la richiesta, la richiesta torna ai due middleware precedenti in ordine inverso per un'ulteriore elaborazione dopo le istruzioni next() prima di uscire dall'app sotto forma di risposta al client.](index/_static/request-delegate-pipeline.png)
 
 Ogni delegato può eseguire operazioni prima e dopo il delegato successivo. I delegati che gestiscono le eccezioni devono essere chiamati nella prima parte della pipeline in modo che possano individuare le eccezioni che si verificano nelle parti successive della pipeline.
 
@@ -60,6 +60,7 @@ Quando un delegato non passa una richiesta al delegato successivo, si crea un co
 <xref:Microsoft.AspNetCore.Builder.RunExtensions.Run*> delegati non ricevono un parametro di `next`. Il primo delegato `Run` è sempre terminale e termina la pipeline. `Run` è una convenzione. Alcuni componenti del middleware possono esporre `Run[Middleware]` metodi che vengono eseguiti alla fine della pipeline:
 
 [!code-csharp[](index/snapshot/Chain/Startup.cs?highlight=12-15)]
+[!INCLUDE[about the series](~/includes/code-comments-loc.md)]
 
 Nell'esempio precedente, il delegato `Run` scrive `"Hello from 2nd delegate."` nella risposta e quindi termina la pipeline. Se dopo il delegato `Run` viene aggiunto un altro delegato `Use` o `Run`, questo non viene chiamato.
 
@@ -214,9 +215,9 @@ La tabella seguente visualizza le richieste e le risposte da `http://localhost:1
 | localhost:1234                | Hello from non-Map delegate. |
 | localhost:1234/?branch=master | Ramo usato = master         |
 
-<xref:Microsoft.AspNetCore.Builder.UseWhenExtensions.UseWhen*> inoltre la pipeline della richiesta in base al risultato del predicato specificato. A differenza di `MapWhen`, questo ramo viene riunito alla pipeline principale se esegue un cortocircuito o contiene un middleware terminale:
+<xref:Microsoft.AspNetCore.Builder.UseWhenExtensions.UseWhen*> inoltre la pipeline della richiesta in base al risultato del predicato specificato. A differenza di `MapWhen`, questo ramo viene riunito alla pipeline principale se non esegue un cortocircuito o contiene un middleware terminale:
 
-[!code-csharp[](index/snapshot/Chain/StartupUseWhen.cs?highlight=23-24)]
+[!code-csharp[](index/snapshot/Chain/StartupUseWhen.cs?highlight=25-26)]
 
 Nell'esempio precedente, risposta "Hello from Main pipeline". viene scritto per tutte le richieste. Se la richiesta include una variabile di stringa di query `branch`, il relativo valore viene registrato prima che la pipeline principale venga riaggiunta.
 
@@ -224,10 +225,10 @@ Nell'esempio precedente, risposta "Hello from Main pipeline". viene scritto per 
 
 ASP.NET Core include i componenti middleware seguenti. Nella colonna *Ordinamento* sono disponibili note sul posizionamento del middleware nella pipeline di elaborazione delle richieste e indicazioni sulle condizioni nelle quali il middleware può terminare l'elaborazione delle richieste. Quando un middleware esegue un corto circuito della pipeline di elaborazione delle richieste e impedisce al middleware a valle di elaborare una richiesta, viene denominato *middleware terminale*. Per altre informazioni sul corto circuito, vedere la sezione [Creare una pipeline middleware con IApplicationBuilder](#create-a-middleware-pipeline-with-iapplicationbuilder).
 
-| Middleware | Descrizione | JSON |
+| Middleware | Descrizione | Order |
 | ---------- | ----------- | ----- |
-| [autenticazione](xref:security/authentication/identity) | Offre il supporto dell'autenticazione. | Prima di `HttpContext.User`. Terminale per i callback OAuth. |
-| [autorizzazioni](xref:Microsoft.AspNetCore.Builder.AuthorizationAppBuilderExtensions.UseAuthorization*) | Fornisce supporto per l'autorizzazione. | Subito dopo il middleware di autenticazione. |
+| [Autenticazione](xref:security/authentication/identity) | Offre il supporto dell'autenticazione. | Prima di `HttpContext.User`. Terminale per i callback OAuth. |
+| [Autorizzazione](xref:Microsoft.AspNetCore.Builder.AuthorizationAppBuilderExtensions.UseAuthorization*) | Fornisce supporto per l'autorizzazione. | Subito dopo il middleware di autenticazione. |
 | [Criteri per i cookie](xref:security/gdpr) | Registra il consenso degli utenti per l'archiviazione delle informazioni personali e applica gli standard minimi per i campi dei cookie, come `secure` e `SameSite`. | Prima del middleware che emette i cookie. Esempi: Autenticazione, Sessione, MVC (TempData). |
 | [CORS](xref:security/cors) | Configura la condivisione di risorse tra le origini (CORS). | Prima dei componenti che usano CORS. |
 | [Diagnostica](xref:fundamentals/error-handling) | Diversi middleware distinti che forniscono una pagina di eccezione per gli sviluppatori, la gestione delle eccezioni, le tabelle codici di stato e la pagina Web predefinita per le nuove app. | Prima dei componenti che generano errori. Terminale per le eccezioni o per la pagina Web predefinita per le nuove app. |
@@ -244,7 +245,7 @@ ASP.NET Core include i componenti middleware seguenti. Nella colonna *Ordinament
 | [Localizzazione della richiesta](xref:fundamentals/localization) | Offre il supporto per la localizzazione. | Prima dei componenti sensibili alla localizzazione. |
 | [Routing degli endpoint](xref:fundamentals/routing) | Definisce e vincola le route di richiesta. | Terminale per le route corrispondenti. |
 | [SPA](xref:Microsoft.AspNetCore.Builder.SpaApplicationBuilderExtensions.UseSpa*) | Gestisce tutte le richieste da questo punto nella catena di middleware restituendo la pagina predefinita per l'applicazione a pagina singola (SPA) | In ritardo nella catena, in modo che altro middleware per la conservazione di file statici, azioni MVC e così via, abbia la precedenza.|
-| [Sessione](xref:fundamentals/app-state) | Offre il supporto per la gestione delle sessioni utente. | Prima dei componenti che richiedono la Sessione. | 
+| [Session](xref:fundamentals/app-state) | Offre il supporto per la gestione delle sessioni utente. | Prima dei componenti che richiedono la Sessione. | 
 | [File statici](xref:fundamentals/static-files) | Offre il supporto per la gestione di file statici e l'esplorazione directory. | Terminale se una richiesta corrisponde a un file. |
 | [URL Rewrite](xref:fundamentals/url-rewriting) (Riscrittura URL) | Offre il supporto per la riscrittura degli URL e il reindirizzamento delle richieste. | Prima dei componenti che usano l'URL. |
 | [Oggetti WebSocket](xref:fundamentals/websockets) | Abilita il protocollo WebSocket. | Prima dei componenti necessari per accettare le richieste WebSocket. |
@@ -279,7 +280,7 @@ In <xref:migration/http-modules> sono descritte le differenze tra le pipeline de
 
 La pipeline delle richieste ASP.NET Core è costituita da una sequenza di delegati di richiesta, chiamati uno dopo l'altro. Il diagramma seguente illustra il concetto. Il thread di esecuzione seguente le frecce nere.
 
-![Modello di elaborazione delle richieste che visualizza una richiesta in arrivo, l'elaborazione tramite tre middleware e la risposta che esce dall'app. Ogni middleware esegue la relativa logica e passa la richiesta al middleware successivo in corrispondenza dell'istruzione next(). Dopo che il terzo middleware ha elaborato la richiesta, la richiesta torna ai due middleware precedenti in ordine inverso per un'ulteriore elaborazione dopo le istruzioni next() prima di uscire dall'app sotto forma di risposta al client.](index/_static/request-delegate-pipeline.png)
+![Modello di elaborazione delle richieste che visualizza una richiesta in arrivo, l'elaborazione tramite tre middleware e la risposta che esce dall'app. Ogni middleware esegue la propria logica e passa la richiesta al middleware successivo in corrispondenza dell'istruzione next(). Dopo che il terzo middleware ha elaborato la richiesta, la richiesta torna ai due middleware precedenti in ordine inverso per un'ulteriore elaborazione dopo le istruzioni next() prima di uscire dall'app sotto forma di risposta al client.](index/_static/request-delegate-pipeline.png)
 
 Ogni delegato può eseguire operazioni prima e dopo il delegato successivo. I delegati che gestiscono le eccezioni devono essere chiamati nella prima parte della pipeline in modo che possano individuare le eccezioni che si verificano nelle parti successive della pipeline.
 
@@ -430,9 +431,9 @@ app.Map("/level1", level1App => {
 
 ASP.NET Core include i componenti middleware seguenti. Nella colonna *Ordinamento* sono disponibili note sul posizionamento del middleware nella pipeline di elaborazione delle richieste e indicazioni sulle condizioni nelle quali il middleware può terminare l'elaborazione delle richieste. Quando un middleware esegue un corto circuito della pipeline di elaborazione delle richieste e impedisce al middleware a valle di elaborare una richiesta, viene denominato *middleware terminale*. Per altre informazioni sul corto circuito, vedere la sezione [Creare una pipeline middleware con IApplicationBuilder](#create-a-middleware-pipeline-with-iapplicationbuilder).
 
-| Middleware | Descrizione | JSON |
+| Middleware | Descrizione | Order |
 | ---------- | ----------- | ----- |
-| [autenticazione](xref:security/authentication/identity) | Offre il supporto dell'autenticazione. | Prima di `HttpContext.User`. Terminale per i callback OAuth. |
+| [Autenticazione](xref:security/authentication/identity) | Offre il supporto dell'autenticazione. | Prima di `HttpContext.User`. Terminale per i callback OAuth. |
 | [Criteri per i cookie](xref:security/gdpr) | Registra il consenso degli utenti per l'archiviazione delle informazioni personali e applica gli standard minimi per i campi dei cookie, come `secure` e `SameSite`. | Prima del middleware che emette i cookie. Esempi: Autenticazione, Sessione, MVC (TempData). |
 | [CORS](xref:security/cors) | Configura la condivisione di risorse tra le origini (CORS). | Prima dei componenti che usano CORS. |
 | [Diagnostica](xref:fundamentals/error-handling) | Diversi middleware distinti che forniscono una pagina di eccezione per gli sviluppatori, la gestione delle eccezioni, le tabelle codici di stato e la pagina Web predefinita per le nuove app. | Prima dei componenti che generano errori. Terminale per le eccezioni o per la pagina Web predefinita per le nuove app. |
@@ -447,7 +448,7 @@ ASP.NET Core include i componenti middleware seguenti. Nella colonna *Ordinament
 | [Compressione delle risposte](xref:performance/response-compression) | Offre il supporto per la compressione delle risposte. | Prima dei componenti che richiedono la compressione. |
 | [Localizzazione della richiesta](xref:fundamentals/localization) | Offre il supporto per la localizzazione. | Prima dei componenti sensibili alla localizzazione. |
 | [Routing degli endpoint](xref:fundamentals/routing) | Definisce e vincola le route di richiesta. | Terminale per le route corrispondenti. |
-| [Sessione](xref:fundamentals/app-state) | Offre il supporto per la gestione delle sessioni utente. | Prima dei componenti che richiedono la Sessione. |
+| [Session](xref:fundamentals/app-state) | Offre il supporto per la gestione delle sessioni utente. | Prima dei componenti che richiedono la Sessione. |
 | [File statici](xref:fundamentals/static-files) | Offre il supporto per la gestione di file statici e l'esplorazione directory. | Terminale se una richiesta corrisponde a un file. |
 | [URL Rewrite](xref:fundamentals/url-rewriting) (Riscrittura URL) | Offre il supporto per la riscrittura degli URL e il reindirizzamento delle richieste. | Prima dei componenti che usano l'URL. |
 | [Oggetti WebSocket](xref:fundamentals/websockets) | Abilita il protocollo WebSocket. | Prima dei componenti necessari per accettare le richieste WebSocket. |

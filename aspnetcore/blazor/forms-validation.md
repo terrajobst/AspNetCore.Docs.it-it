@@ -10,18 +10,18 @@ no-loc:
 - Blazor
 - SignalR
 uid: blazor/forms-validation
-ms.openlocfilehash: 2758bcbbc76c8a59716fe224dd2deb4ca8c06929
-ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
+ms.openlocfilehash: 5aad5a4d4303151ef5be82481dfae7367abeffbc
+ms.sourcegitcommit: 98bcf5fe210931e3eb70f82fd675d8679b33f5d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76726887"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79083230"
 ---
-# <a name="aspnet-core-opno-locblazor-forms-and-validation"></a>ASP.NET Core [!OP.NO-LOC(Blazor)] moduli e convalida
+# <a name="aspnet-core-blazor-forms-and-validation"></a>Moduli e convalida di ASP.NET Core Blazor
 
 Di [Daniel Roth](https://github.com/danroth27) e [Luke Latham](https://github.com/guardrex)
 
-I moduli e la convalida sono supportati in [!OP.NO-LOC(Blazor)] usando le [annotazioni dei dati](xref:mvc/models/validation).
+I moduli e la convalida sono supportati in blazer usando le [annotazioni dei dati](xref:mvc/models/validation).
 
 Il tipo di `ExampleModel` seguente definisce la logica di convalida usando le annotazioni dei dati:
 
@@ -398,17 +398,17 @@ private class MyCustomValidator : ValidationAttribute
 
 ### <a name="opno-locblazor-data-annotations-validation-package"></a>pacchetto di convalida delle annotazioni dei dati Blazor
 
-[Microsoft. AspNetCore.Blazor.DataAnnotations.Validation](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.DataAnnotations.Validation) è un pacchetto che colma i gap dell'esperienza di convalida usando il componente `DataAnnotationsValidator`. Il pacchetto è attualmente *sperimentale*.
+[Microsoft. AspNetCore. Components. DataAnnotations. Validation](https://www.nuget.org/packages/Microsoft.AspNetCore.Components.DataAnnotations.Validation) è un pacchetto che colma i gap dell'esperienza di convalida usando il componente `DataAnnotationsValidator`. Il pacchetto è attualmente *sperimentale*.
 
 ### <a name="compareproperty-attribute"></a>Attributo [CompareProperty]
 
-Il <xref:System.ComponentModel.DataAnnotations.CompareAttribute> non funziona correttamente con il componente `DataAnnotationsValidator` perché non associa il risultato della convalida a un membro specifico. Ciò può comportare un comportamento incoerente tra la convalida a livello di campo e quando l'intero modello viene convalidato in un invio. [Microsoft. AspNetCore.Blazor.DataAnnotations.](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.DataAnnotations.Validation) il pacchetto *sperimentale* di convalida introduce un attributo di convalida aggiuntivo, `ComparePropertyAttribute`, che aggira queste limitazioni. In un'app Blazor `[CompareProperty]` è una sostituzione diretta per l'attributo `[Compare]`.
+Il <xref:System.ComponentModel.DataAnnotations.CompareAttribute> non funziona correttamente con il componente `DataAnnotationsValidator` perché non associa il risultato della convalida a un membro specifico. Ciò può comportare un comportamento incoerente tra la convalida a livello di campo e quando l'intero modello viene convalidato in un invio. Il pacchetto *sperimentale* [Microsoft. AspNetCore. Components. DataAnnotations. Validation](https://www.nuget.org/packages/Microsoft.AspNetCore.Components.DataAnnotations.Validation) introduce un attributo di convalida aggiuntivo, `ComparePropertyAttribute`, che aggira queste limitazioni. In un'app Blazor `[CompareProperty]` è una sostituzione diretta per l'attributo `[Compare]`.
 
 ### <a name="nested-models-collection-types-and-complex-types"></a>Modelli annidati, tipi di raccolta e tipi complessi
 
 Blazor fornisce il supporto per la convalida dell'input del form usando le annotazioni dei dati con la `DataAnnotationsValidator`predefinita. Tuttavia, il `DataAnnotationsValidator` convalida solo le proprietà di primo livello del modello associato al form che non sono proprietà di tipo raccolta o complesso.
 
-Per convalidare l'intero grafico di oggetti del modello associato, incluse le proprietà della raccolta e del tipo complesso, utilizzare la `ObjectGraphDataAnnotationsValidator` fornita dall'oggetto *sperimentale* [Microsoft.AspNetCore.Blazor.DataAnnotations.Validation](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.DataAnnotations.Validation) (pacchetto):
+Per convalidare l'intero grafico di oggetti del modello associato, incluse le proprietà della raccolta e del tipo complesso, usare il `ObjectGraphDataAnnotationsValidator` fornito dal pacchetto *sperimentale* [Microsoft. AspNetCore. Components. DataAnnotations. Validation](https://www.nuget.org/packages/Microsoft.AspNetCore.Components.DataAnnotations.Validation) :
 
 ```razor
 <EditForm Model="@_model" OnValidSubmit="HandleValidSubmit">

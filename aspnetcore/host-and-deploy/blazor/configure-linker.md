@@ -5,38 +5,42 @@ description: Informazioni su come controllare il linker del linguaggio intermedi
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2019
+ms.date: 03/10/2020
 no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/configure-linker
-ms.openlocfilehash: 263b85a3213c1da233e4c96095faaf39d0a8e13f
-ms.sourcegitcommit: eca76bd065eb94386165a0269f1e95092f23fa58
+ms.openlocfilehash: b08ec26fb8d139223c57774600bc3cb19a56ac49
+ms.sourcegitcommit: 98bcf5fe210931e3eb70f82fd675d8679b33f5d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76726768"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79083296"
 ---
-# <a name="configure-the-linker-for-aspnet-core-opno-locblazor"></a>Configurare il linker per ASP.NET Core [!OP.NO-LOC(Blazor)]
+# <a name="configure-the-linker-for-aspnet-core-blazor"></a>Configurare il linker per ASP.NET Core Blazor
 
 Di [Luke Latham](https://github.com/guardrex)
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-[!OP.NO-LOC(Blazor)] esegue il collegamento [Intermediate Language (il)](/dotnet/standard/managed-code#intermediate-language--execution) durante una compilazione per rimuovere il linguaggio intermedio non necessario dagli assembly di output dell'app.
+Blazer webassembly esegue il collegamento [Intermediate Language (il)](/dotnet/standard/managed-code#intermediate-language--execution) durante una compilazione per eliminare il linguaggio intermedio non necessario dagli assembly di output dell'app. Il linker è disabilitato durante la compilazione nella configurazione di debug. Per abilitare il linker, le app devono essere compilate in configurazione versione. Quando si distribuiscono le app webassembly blazer, si consiglia di eseguire la compilazione in versione. 
 
-Controllare il collegamento degli assembly adottando uno degli approcci seguenti:
+Il collegamento di un'app ottimizza le dimensioni, ma può avere effetti negativi. Le app che usano la reflection o le funzionalità dinamiche correlate potrebbero interrompersi quando vengono tagliate perché il linker non è a conoscenza di questo comportamento dinamico e non può determinare in generale quali tipi sono necessari per la reflection in fase di esecuzione. Per tagliare tali app, il linker deve essere informato sui tipi necessari per la reflection nel codice e nei pacchetti o Framework da cui dipende l'app. 
 
-* Disabilitare il collegamento a livello globale con una [proprietà di MSBuild](#disable-linking-with-a-msbuild-property).
+Per assicurarsi che l'app tagliata funzioni correttamente una volta distribuita, è importante testare le build di rilascio dell'app spesso durante lo sviluppo.
+
+Il collegamento per le app blazer può essere configurato usando le funzionalità di MSBuild seguenti:
+
+* Configurare il collegamento a livello globale con una [proprietà di MSBuild](#control-linking-with-an-msbuild-property).
 * Controllare il collegamento per ogni singolo assembly con un [file di configurazione](#control-linking-with-a-configuration-file).
 
-## <a name="disable-linking-with-a-msbuild-property"></a>Disabilitare il collegamento con una proprietà di MSBuild
+## <a name="control-linking-with-an-msbuild-property"></a>Controllo del collegamento con una proprietà MSBuild
 
-Il collegamento è abilitato per impostazione predefinita quando viene compilata un'app, che include la pubblicazione. Per disabilitare il collegamento per tutti gli assembly, impostare la proprietà di MSBuild `BlazorLinkOnBuild` su `false` nel file di progetto:
+Il collegamento viene abilitato quando un'app viene compilata in `Release` configuation. Per modificare questa configurazione, configurare la proprietà `BlazorWebAssemblyEnableLinking` MSBuild nel file di progetto:
 
 ```xml
 <PropertyGroup>
-  <BlazorLinkOnBuild>false</BlazorLinkOnBuild>
+  <BlazorWebAssemblyEnableLinking>false</BlazorWebAssemblyEnableLinking>
 </PropertyGroup>
 ```
 
@@ -55,7 +59,7 @@ Controllare il collegamento per ogni singolo assembly usando un file di configur
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--
-  This file specifies which parts of the BCL or [!OP.NO-LOC(Blazor)] packages must not be
+  This file specifies which parts of the BCL or Blazor packages must not be
   stripped by the IL Linker even if they aren't referenced by user code.
 -->
 <linker>
@@ -86,7 +90,7 @@ Per altre informazioni, vedere [il linker: sintassi del descrittore XML](https:/
 
 ### <a name="configure-the-linker-for-internationalization"></a>Configurare il linker per l'internazionalizzazione
 
-Per impostazione predefinita, la configurazione del linker [!OP.NO-LOC(Blazor)]per le app [!OP.NO-LOC(Blazor)] webassembly rimuove le informazioni di internazionalizzazione ad eccezione delle impostazioni locali richieste in modo esplicito. La rimozione di questi assembly riduce al minimo le dimensioni dell'app.
+Per impostazione predefinita, la configurazione del linker di blazer per le app webassembly di Blazer rimuove le informazioni di internazionalizzazione ad eccezione delle impostazioni locali richieste in modo esplicito. La rimozione di questi assembly riduce al minimo le dimensioni dell'app.
 
 Per controllare quali assembly I18N vengono conservati, impostare la proprietà `<MonoLinkerI18NAssemblies>` MSBuild nel file di progetto:
 

@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: security/blazor/index
-ms.openlocfilehash: c07ffdbd5df58d6b3d19a5d75ce224d830101eac
-ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
+ms.openlocfilehash: ba00c0370094df4e0ae0479aeb23eceea6ef04f0
+ms.sourcegitcommit: 98bcf5fe210931e3eb70f82fd675d8679b33f5d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77447425"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79083344"
 ---
 # <a name="aspnet-core-blazor-authentication-and-authorization"></a>Autenticazione e autorizzazione per ASP.NET Core Blazor
 
@@ -32,7 +32,7 @@ Gli scenari di sicurezza sono diversi tra le app Blazor server e Blazor webassem
 
 Le app webassembly Blazor vengono eseguite sul client. L'autorizzazione viene usata *solo* per determinare quali opzioni dell'interfaccia utente visualizzare. Poiché i controlli lato client possono essere modificati o ignorati da un utente, un'app webassembly Blazor non può applicare regole di accesso alle autorizzazioni.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
 Blazor usa i meccanismi di autenticazione di ASP.NET Core esistenti per stabilire l'identità dell'utente. Il meccanismo esatto dipende dal modo in cui l'app Blazor è ospitata, il server Blazor o il webassembly Blazor.
 
@@ -67,7 +67,7 @@ dotnet new blazorserver -o {APP NAME} -au {AUTHENTICATION}
 
 I valori di autenticazione consentiti (`{AUTHENTICATION}`) sono indicati nella tabella seguente.
 
-| Meccanismo di autenticazione                                                                 | Valore di`{AUTHENTICATION}` |
+| Meccanismo di autenticazione                                                                 | Valore di `{AUTHENTICATION}` |
 | ---------------------------------------------------------------------------------------- | :----------------------: |
 | Nessuna autenticazione                                                                        | `None`                   |
 | Utenti<br>individuali archiviati nell'app con ASP.NET Core Identity.                        | `Individual`             |
@@ -194,7 +194,7 @@ namespace BlazorSample.Services
 In un'app Blazor webassembly, il servizio `CustomAuthStateProvider` è registrato in `Main` di *Program.cs*:
 
 ```csharp
-using Microsoft.AspNetCore.Blazor.Hosting;
+using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.DependencyInjection;
 using BlazorSample.Services;
@@ -513,6 +513,8 @@ Se l'app deve controllare le regole di autorizzazione come parte della logica pr
 Nelle app Blazor webassembly è possibile ignorare i controlli di autorizzazione perché tutto il codice lato client può essere modificato dagli utenti. Lo stesso vale per tutte le tecnologie per app sul lato client, tra cui i framework JavaScript SPA o le app native per qualsiasi sistema operativo.
 
 **Eseguire sempre i controlli di autorizzazione nel server all'interno degli eventuali endpoint dell'API a cui accede l'app sul lato client.**
+
+Per ulteriori informazioni, vedere gli articoli in <xref:security/blazor/webassembly/index>.
 
 ## <a name="troubleshoot-errors"></a>Risolvere gli errori
 

@@ -5,17 +5,17 @@ description: Informazioni su come ospitare e distribuire un'app Server Blazor us
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/12/2020
+ms.date: 03/03/2020
 no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/server
-ms.openlocfilehash: a051d51e734fec4315da73d3c4df57706df7f363
-ms.sourcegitcommit: 6645435fc8f5092fc7e923742e85592b56e37ada
+ms.openlocfilehash: 866bb348180c872d8ab20787283cfb7217183a8d
+ms.sourcegitcommit: 3ca4a2235a8129def9e480d0a6ad54cc856920ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77465823"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79025418"
 ---
 # <a name="host-and-deploy-opno-locblazor-server"></a>Ospitare e distribuire Blazor server
 
@@ -87,7 +87,10 @@ Blazor funziona al meglio quando si usano WebSocket come il trasporto SignalR a 
 
 #### <a name="iis"></a>IIS
 
-Quando si usa IIS, le sessioni permanenti sono abilitate con il routing delle richieste di applicazioni. Per altre informazioni, vedere [bilanciamento del carico http usando il routing delle richieste di applicazioni](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing).
+Quando si usa IIS, abilitare:
+
+* [WebSocket in IIS](xref:fundamentals/websockets#enabling-websockets-on-iis).
+* [Sessioni permanenti con routing della richiesta dell'applicazione](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing).
 
 #### <a name="kubernetes"></a>Kubernetes
 
@@ -107,18 +110,44 @@ metadata:
 
 #### <a name="linux-with-nginx"></a>Linux con Nginx
 
-Per il corretto funzionamento di SignalR WebSocket, impostare le intestazioni `Upgrade` e `Connection` del proxy sul seguente:
+Per il corretto funzionamento di SignalR WebSocket, verificare che le intestazioni `Upgrade` e `Connection` del proxy siano impostate sui valori seguenti e che sia stato eseguito il mapping di `$connection_upgrade` a:
+
+* Valore dell'intestazione di aggiornamento per impostazione predefinita.
+* `close` quando l'intestazione di aggiornamento manca o è vuota.
 
 ```
-proxy_set_header Upgrade $http_upgrade;
-proxy_set_header Connection $connection_upgrade;
+http {
+    map $http_upgrade $connection_upgrade {
+        default Upgrade;
+        ''      close;
+    }
+
+    server {
+        listen      80;
+        server_name example.com *.example.com
+        location / {
+            proxy_pass         http://localhost:5000;
+            proxy_http_version 1.1;
+            proxy_set_header   Upgrade $http_upgrade;
+            proxy_set_header   Connection $connection_upgrade;
+            proxy_set_header   Host $host;
+            proxy_cache_bypass $http_upgrade;
+            proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header   X-Forwarded-Proto $scheme;
+        }
+    }
+}
 ```
 
-Per altre informazioni, vedere [nginx come proxy WebSocket](https://www.nginx.com/blog/websocket-nginx/).
+Per altre informazioni, vedere i seguenti articoli:
+
+* [NGINX come proxy WebSocket](https://www.nginx.com/blog/websocket-nginx/)
+* [Proxy WebSocket](http://nginx.org/docs/http/websocket.html)
+* <xref:host-and-deploy/linux-nginx>
 
 ### <a name="measure-network-latency"></a>Misurare la latenza di rete
 
-L' [interoperabilità JS](xref:blazor/javascript-interop) può essere usata per misurare la latenza di rete, come illustrato nell'esempio seguente:
+L' [interoperabilità JS](xref:blazor/call-javascript-from-dotnet) può essere usata per misurare la latenza di rete, come illustrato nell'esempio seguente:
 
 ```razor
 @inject IJSRuntime JS

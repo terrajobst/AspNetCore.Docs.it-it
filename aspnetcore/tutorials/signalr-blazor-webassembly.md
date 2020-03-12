@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: tutorials/signalr-blazor-webassembly
-ms.openlocfilehash: d3605c0823e9ec3ce34fb781da66a7470aa00622
-ms.sourcegitcommit: 0e21d4f8111743bcb205a2ae0f8e57910c3e8c25
+ms.openlocfilehash: 605cf8ebd3e85586f3e479c815f0b9902ce5a91a
+ms.sourcegitcommit: 98bcf5fe210931e3eb70f82fd675d8679b33f5d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77034178"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79083390"
 ---
 # <a name="use-aspnet-core-signalr-with-blazor-webassembly"></a>Usare ASP.NET Core SignalR con il webassembly Blazer
 
@@ -23,7 +23,7 @@ Di [Daniel Roth](https://github.com/danroth27) e [Luke Latham](https://github.co
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-Questa esercitazione illustra le nozioni di base per la creazione di un'app in tempo reale usando SignalR con il webassembly blazer. Si apprenderà come:
+Questa esercitazione illustra le nozioni di base per la creazione di un'app in tempo reale usando SignalR con il webassembly blazer. Vengono illustrate le seguenti procedure:
 
 > [!div class="checklist"]
 > * Creare un progetto di app ospitata webassembly Blazer
@@ -34,23 +34,23 @@ Questa esercitazione illustra le nozioni di base per la creazione di un'app in t
 
 Al termine di questa esercitazione, si disporrà di un'app di chat funzionante.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/signalr-blazor-webassembly/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/signalr-blazor-webassembly/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 [!INCLUDE[](~/includes/net-core-prereqs-vs-3.1.md)]
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 [!INCLUDE[](~/includes/net-core-prereqs-vsc-3.1.md)]
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 [!INCLUDE[](~/includes/net-core-prereqs-mac-3.1.md)]
 
-# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli/)
+# <a name="net-core-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli/)
 
 [!INCLUDE[](~/includes/3.1-SDK.md)]
 
@@ -58,15 +58,15 @@ Al termine di questa esercitazione, si disporrà di un'app di chat funzionante.
 
 ## <a name="create-a-hosted-blazor-webassembly-app-project"></a>Creare un progetto di app webassembly in hosting Blazer
 
-Installare il modello [Webassembly Blazer](xref:blazor/hosting-models#blazor-webassembly) . Il pacchetto [Microsoft. AspNetCore. Blazer. templates](https://www.nuget.org/packages/Microsoft.AspNetCore.Blazor.Templates/) include una versione di anteprima mentre Webassembly blazer è in anteprima. In una shell dei comandi eseguire il comando seguente:
+Installare il modello [Webassembly Blazer](xref:blazor/hosting-models#blazor-webassembly) . Il pacchetto [Microsoft. AspNetCore. Components. webassembly. templates](https://www.nuget.org/packages/Microsoft.AspNetCore.Components.WebAssembly.Templates/) include una versione di anteprima mentre Webassembly blazer è in anteprima. In una shell dei comandi eseguire il comando seguente:
 
 ```dotnetcli
-dotnet new -i Microsoft.AspNetCore.Blazor.Templates::3.2.0-preview1.20073.1
+dotnet new -i Microsoft.AspNetCore.Components.WebAssembly.Templates::3.2.0-preview2.20160.5
 ```
 
 Seguire le istruzioni per la scelta degli strumenti:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 1. Creare un nuovo progetto.
 
@@ -83,7 +83,7 @@ Seguire le istruzioni per la scelta degli strumenti:
 > [!NOTE]
 > Se è stato eseguito l'aggiornamento o l'installazione di una nuova versione di Visual Studio e il modello webassembly Blazer non viene visualizzato nell'interfaccia utente di Visual Studio, reinstallare il modello usando il comando `dotnet new` illustrato in precedenza.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 1. In una shell dei comandi eseguire il comando seguente:
 
@@ -95,7 +95,7 @@ Seguire le istruzioni per la scelta degli strumenti:
 
 1. Quando viene visualizzata la finestra di dialogo per aggiungere asset per compilare ed eseguire il debug dell'app, selezionare **Sì**. Visual Studio Code aggiunge automaticamente la cartella *. VSCODE* con i file *Launch. JSON* e *Tasks. JSON* generati.
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 1. In una shell dei comandi eseguire il comando seguente:
 
@@ -105,7 +105,7 @@ Seguire le istruzioni per la scelta degli strumenti:
 
 1. In Visual Studio per Mac aprire il progetto passando alla cartella del progetto e aprendo il file di soluzione del progetto ( *. sln*).
 
-# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli/)
+# <a name="net-core-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli/)
 
 In una shell dei comandi eseguire il comando seguente:
 
@@ -117,7 +117,7 @@ dotnet new blazorwasm --hosted --output BlazorSignalRApp
 
 ## <a name="add-the-signalr-client-library"></a>Aggiungere la libreria client di SignalR
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
 1. In **Esplora soluzioni**fare clic con il pulsante destro del mouse sul progetto **BlazorSignalRApp. client** e scegliere **Gestisci pacchetti NuGet**.
 
@@ -131,7 +131,7 @@ dotnet new blazorwasm --hosted --output BlazorSignalRApp
 
 1. Se viene visualizzata la finestra di dialogo **accettazione della licenza** , selezionare Accetto se **si accettano le** condizioni di licenza.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 
 Nel **terminale integrato** (**visualizzare** > **terminale** dalla barra degli strumenti) eseguire i comandi seguenti:
 
@@ -139,7 +139,7 @@ Nel **terminale integrato** (**visualizzare** > **terminale** dalla barra degli 
 dotnet add Client package Microsoft.AspNetCore.SignalR.Client
 ```
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 1. Nella barra laterale **soluzione** fare clic con il pulsante destro del mouse sul progetto **BlazorSignalRApp. client** e scegliere **Gestisci pacchetti NuGet**.
 
@@ -151,7 +151,7 @@ dotnet add Client package Microsoft.AspNetCore.SignalR.Client
 
 1. Se viene visualizzata la finestra di dialogo **accettazione della licenza** , selezionare **Accetto** se si accettano le condizioni di licenza.
 
-# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli/)
+# <a name="net-core-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli/)
 
 In una shell dei comandi eseguire i comandi seguenti:
 
@@ -200,7 +200,7 @@ Nel progetto **BlazorSignalRApp. Server** creare una cartella *Hub* (plurale) e 
 
 1. Seguire le istruzioni per gli strumenti:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 1. In **Esplora soluzioni**selezionare il progetto **BlazorSignalRApp. Server** . Premere **CTRL + F5** per eseguire l'app senza debug.
 
@@ -212,7 +212,7 @@ Nel progetto **BlazorSignalRApp. Server** creare una cartella *Hub* (plurale) e 
 
    Virgolette: *Star Trek VI: il paese non individuato* &copy;1991 [Paramount](https://www.paramountmovies.com/movies/star-trek-vi-the-undiscovered-country)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 1. Selezionare **debug** > **Esegui senza eseguire debug** dalla barra degli strumenti.
 
@@ -224,7 +224,7 @@ Nel progetto **BlazorSignalRApp. Server** creare una cartella *Hub* (plurale) e 
 
    Virgolette: *Star Trek VI: il paese non individuato* &copy;1991 [Paramount](https://www.paramountmovies.com/movies/star-trek-vi-the-undiscovered-country)
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 
 1. Nella barra laterale della **soluzione** selezionare il progetto **BlazorSignalRApp. Server** . Dal menu selezionare **esegui** > **Avvia senza eseguire debug**.
 
@@ -236,7 +236,7 @@ Nel progetto **BlazorSignalRApp. Server** creare una cartella *Hub* (plurale) e 
 
    Virgolette: *Star Trek VI: il paese non individuato* &copy;1991 [Paramount](https://www.paramountmovies.com/movies/star-trek-vi-the-undiscovered-country)
 
-# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli/)
+# <a name="net-core-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli/)
 
 1. In una shell dei comandi eseguire i comandi seguenti:
 
@@ -257,7 +257,7 @@ Nel progetto **BlazorSignalRApp. Server** creare una cartella *Hub* (plurale) e 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione sono state illustrate le procedure per:
+In questa esercitazione si è appreso come:
 
 > [!div class="checklist"]
 > * Creare un progetto di app ospitata Blazor webassembly
