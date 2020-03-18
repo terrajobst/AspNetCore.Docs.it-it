@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/10/2019
 uid: test/troubleshoot
-ms.openlocfilehash: 042e1c84a7226cb4bf56bcc0ff4e576b67e68e1b
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 345967f08cf99ef5f18d0c9bcd59ab29c74454f1
+ms.sourcegitcommit: d64ef143c64ee4fdade8f9ea0b753b16752c5998
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78655302"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511509"
 ---
 # <a name="troubleshoot-and-debug-aspnet-core-projects"></a>Risolvere i problemi ed eseguire il debug di progetti ASP.NET Core
 
@@ -32,7 +32,7 @@ Nella finestra di dialogo **nuovo progetto** per ASP.NET Core, è possibile che 
 
 > Sono installate entrambe le versioni a 32 bit e a 64 bit del .NET Core SDK. Vengono visualizzati solo i modelli delle versioni a 64 bit installate in "C:\\programmi\\DotNet\\SDK\\".
 
-Questo avviso viene visualizzato quando vengono installate entrambe le versioni a 32 bit (x86) e 64-bit (x64) del [.NET Core SDK](https://www.microsoft.com/net/download/all) . Di seguito sono elencati i motivi comuni per cui è possibile installare entrambe le versioni:
+Questo avviso viene visualizzato quando vengono installate entrambe le versioni a 32 bit (x86) e 64-bit (x64) del [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) . Di seguito sono elencati i motivi comuni per cui è possibile installare entrambe le versioni:
 
 * Il programma di installazione .NET Core SDK è stato scaricato in origine con un computer a 32 bit, ma è stato copiato e installato in un computer a 64 bit.
 * Il .NET Core SDK a 32 bit è stato installato da un'altra applicazione.
@@ -60,7 +60,7 @@ Disinstallare tutti i runtime e gli SDK di .NET Core a 32 bit per evitare questo
 
   > Non è stato possibile trovare gli SDK DotNet installati.
 
-Questi avvisi vengono visualizzati quando la variabile di ambiente `PATH` non punta ad alcun SDK di .NET Core nel computer. Per risolvere questo problema:
+Questi avvisi vengono visualizzati quando la variabile di ambiente `PATH` non punta ad alcun SDK di .NET Core nel computer. Per risolvere il problema:
 
 * Installare .NET Core SDK. Ottenere il programma di installazione più recente da [download di .NET](https://dotnet.microsoft.com/download).
 * Verificare che la variabile di ambiente `PATH` punti al percorso in cui è installato l'SDK (`C:\Program Files\dotnet\` per a 64 bit/x64 o `C:\Program Files (x86)\dotnet\` per 32 bit/x86). Il programma di installazione di SDK imposta in genere il `PATH`. Installare sempre gli stessi SDK e Runtime bit nello stesso computer.

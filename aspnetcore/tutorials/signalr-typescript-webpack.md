@@ -8,12 +8,12 @@ ms.date: 02/10/2020
 no-loc:
 - SignalR
 uid: tutorials/signalr-typescript-webpack
-ms.openlocfilehash: e6dd200367278b1697ef232f5d79dfbd138bb82b
-ms.sourcegitcommit: 40dc9b00131985abcd99bd567647420d798e798a
+ms.openlocfilehash: ce5752743912a979a95fb5d504e4bcbb2b69ce1e
+ms.sourcegitcommit: d64ef143c64ee4fdade8f9ea0b753b16752c5998
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78935485"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511340"
 ---
 # <a name="use-aspnet-core-signalr-with-typescript-and-webpack"></a>Usare ASP.NET Core SignalR con TypeScript e Webpack
 
@@ -21,7 +21,7 @@ Di [Sébastien Sougnez](https://twitter.com/ssougnez) e [Scott Addie](https://tw
 
 [Webpack](https://webpack.js.org/) consente agli sviluppatori di creare un bundle delle risorse di un'app Web sul lato client-e di compilarle. Questa esercitazione illustra l'uso di Webpack in un'app Web ASP.NET Core SignalR il cui client è scritto in [TypeScript](https://www.typescriptlang.org/).
 
-In questa esercitazione si imparerà a:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Eseguire lo scaffolding di un'app ASP.NET Core SignalR di base
@@ -39,13 +39,13 @@ In questa esercitazione si imparerà a:
 # <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) con il carico di lavoro **Sviluppo ASP.NET e Web**
-* [.NET Core SDK 3.0 o versione successiva](https://www.microsoft.com/net/download/all)
+* [.NET Core SDK 3.0 o versione successiva](https://dotnet.microsoft.com/download/dotnet-core)
 * [Node.js](https://nodejs.org/) con [npm](https://www.npmjs.com/)
 
 # <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * [Visual Studio Code](https://code.visualstudio.com/download)
-* [.NET Core SDK 3.0 o versione successiva](https://www.microsoft.com/net/download/all)
+* [.NET Core SDK 3.0 o versione successiva](https://dotnet.microsoft.com/download/dotnet-core)
 * [C# per Visual Studio Code 1.17.1 o versione successiva](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 * [Node.js](https://nodejs.org/) con [npm](https://www.npmjs.com/)
 
@@ -245,7 +245,7 @@ L'app Visualizza attualmente un modulo di base per inviare i messaggi, ma non è
 
     In questo esempio il client TypeScript invia un messaggio identificato come `newMessage`. Il metodo C# `NewMessage` si aspetta i dati inviati dal client. Viene eseguita una chiamata a [SendAsync](/dotnet/api/microsoft.aspnetcore.signalr.clientproxyextensions.sendasync) nei [client. All](/dotnet/api/microsoft.aspnetcore.signalr.ihubclients-1.all). I messaggi ricevuti vengono inviati a tutti i client connessi all'hub.
 
-## <a name="test-the-app"></a>Eseguire il test dell'applicazione
+## <a name="test-the-app"></a>Testare l'app
 
 Per verificare che l'app funzioni, eseguire la procedura seguente.
 
@@ -296,13 +296,13 @@ Per verificare che l'app funzioni, eseguire la procedura seguente.
 # <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) con il carico di lavoro **Sviluppo ASP.NET e Web**
-* [.NET Core SDK 2.2 o versione successiva](https://www.microsoft.com/net/download/all)
+* [.NET Core SDK 2.2 o versione successiva](https://dotnet.microsoft.com/download/dotnet-core)
 * [Node.js](https://nodejs.org/) con [npm](https://www.npmjs.com/)
 
 # <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * [Visual Studio Code](https://code.visualstudio.com/download)
-* [.NET Core SDK 2.2 o versione successiva](https://www.microsoft.com/net/download/all)
+* [.NET Core SDK 2.2 o versione successiva](https://dotnet.microsoft.com/download/dotnet-core)
 * [C# per Visual Studio Code 1.17.1 o versione successiva](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 * [Node.js](https://nodejs.org/) con [npm](https://www.npmjs.com/)
 
@@ -482,7 +482,7 @@ L'app attualmente visualizza un semplice form per l'invio di messaggi. Quando si
 
     In questo esempio il client TypeScript invia un messaggio identificato come `newMessage`. Il metodo C# `NewMessage` si aspetta i dati inviati dal client. Viene eseguita una chiamata a [SendAsync](/dotnet/api/microsoft.aspnetcore.signalr.clientproxyextensions.sendasync) nei [client. All](/dotnet/api/microsoft.aspnetcore.signalr.ihubclients-1.all). I messaggi ricevuti vengono inviati a tutti i client connessi all'hub.
 
-## <a name="test-the-app"></a>Eseguire il test dell'applicazione
+## <a name="test-the-app"></a>Testare l'app
 
 Per verificare che l'app funzioni, eseguire la procedura seguente.
 

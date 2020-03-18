@@ -5,12 +5,12 @@ description: Informazioni su come creare un'app ASP.NET Core con la conferma del
 ms.author: riande
 ms.date: 03/11/2019
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 49d3d214fd64edc5b17df2df929ddc3c2af47ede
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 3a6b0501d507929c9929207a7bb871b3b81b7cb8
+ms.sourcegitcommit: d64ef143c64ee4fdade8f9ea0b753b16752c5998
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78665389"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511626"
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Conferma dell'account e recupero della password in ASP.NET Core
 
@@ -32,7 +32,7 @@ Vedere [questo file PDF](https://webpifeed.blob.core.windows.net/webpifeed/Partn
 
 ::: moniker range="> aspnetcore-2.2"
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 [.NET Core 3,0 SDK o versione successiva](https://dotnet.microsoft.com/download/dotnet-core/3.0)
 
@@ -63,7 +63,7 @@ Creare una classe per recuperare la chiave di posta elettronica sicura. Per ques
 
 #### <a name="configure-sendgrid-user-secrets"></a>Configurare i segreti utente di SendGrid
 
-Impostare il `SendGridUser` e `SendGridKey` con lo [strumento di gestione dei segreti](xref:security/app-secrets). Ad esempio:
+Impostare il `SendGridUser` e `SendGridKey` con lo [strumento di gestione dei segreti](xref:security/app-secrets). Ad esempio,
 
 ```dotnetcli
 dotnet user-secrets set SendGridUser RickAndMSFT
@@ -217,9 +217,9 @@ L'abilitazione della conferma dell'account in un sito con utenti blocca tutti gl
 
 ::: moniker range="> aspnetcore-2.0 < aspnetcore-3.0"
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
-[.NET Core 2,2 SDK o versione successiva](https://www.microsoft.com/net/download/all)
+[.NET Core 2,2 SDK o versione successiva](https://dotnet.microsoft.com/download/dotnet-core)
 
 ## <a name="create-a-web--app-and-scaffold-identity"></a>Creare un'app Web e un'identità di impalcatura
 
@@ -271,7 +271,7 @@ Creare una classe per recuperare la chiave di posta elettronica sicura. Per ques
 
 #### <a name="configure-sendgrid-user-secrets"></a>Configurare i segreti utente di SendGrid
 
-Impostare il `SendGridUser` e `SendGridKey` con lo [strumento di gestione dei segreti](xref:security/app-secrets). Ad esempio:
+Impostare il `SendGridUser` e `SendGridKey` con lo [strumento di gestione dei segreti](xref:security/app-secrets). Ad esempio,
 
 ```console
 C:/WebAppl>dotnet user-secrets set SendGridUser RickAndMSFT

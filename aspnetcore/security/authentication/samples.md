@@ -5,12 +5,12 @@ description: Fornisce collegamenti agli esempi di autenticazione nel repository 
 ms.author: riande
 ms.date: 01/31/2019
 uid: security/authentication/samples
-ms.openlocfilehash: 3d7e28f6e501bd8bd3908ca4b314a63cee52ebe3
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: b013d02a65e752bbb61a87a0bf502785125378a2
+ms.sourcegitcommit: d64ef143c64ee4fdade8f9ea0b753b16752c5998
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78658417"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511613"
 ---
 # <a name="authentication-samples-for-aspnet-core"></a>Esempi di autenticazione per ASP.NET Core
 
@@ -32,7 +32,7 @@ Il [repository ASP.NET Core](https://github.com/dotnet/AspNetCore) contiene gli 
 
 * Selezionare un [ramo](https://github.com/dotnet/AspNetCore). Ad esempio, usare `Tag:v3.0.0`
 * Clonare o scaricare il [repository ASP.NET Core](https://github.com/dotnet/AspNetCore).
-* Verificare di aver installato la versione di [.NET Core SDK](https://www.microsoft.com/net/download/all) corrispondente al clone del repository di ASP.NET Core.
+* Verificare di aver installato la versione di [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) corrispondente al clone del repository di ASP.NET Core.
 * Passare a un esempio in *AspNetCore/SRC/Security/Samples* ed eseguire l'esempio con `dotnet run`.
 
 ::: moniker-end
@@ -53,7 +53,7 @@ Il [repository ASP.NET Core](https://github.com/dotnet/AspNetCore) contiene gli 
 
 * Selezionare un [ramo](https://github.com/dotnet/AspNetCore). Ad esempio, usare `release/2.2`
 * Clonare o scaricare il [repository ASP.NET Core](https://github.com/dotnet/AspNetCore).
-* Verificare di aver installato la versione di [.NET Core SDK](https://www.microsoft.com/net/download/all) corrispondente al clone del repository di ASP.NET Core.
+* Verificare di aver installato la versione di [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) corrispondente al clone del repository di ASP.NET Core.
 * Passare a un esempio in *AspNetCore/SRC/Security/Samples* ed eseguire l'esempio con `dotnet run`.
 
 ::: moniker-end

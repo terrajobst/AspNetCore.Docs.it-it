@@ -1,27 +1,29 @@
 ---
 title: ASP.NET Core Blazor data binding
 author: guardrex
-description: Informazioni sugli scenari di data binding per i componenti e gli elementi DOM nelle app Blazor.
+description: Informazioni sulle funzionalità di data binding per i componenti e gli elementi DOM nelle app Blazor.
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/24/2020
+ms.date: 03/16/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/data-binding
-ms.openlocfilehash: 92377730b9d353a507ffd384710fb979affe7265
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 5b49d2598a451ee607e034913bd1aeaa03f941c6
+ms.sourcegitcommit: d64ef143c64ee4fdade8f9ea0b753b16752c5998
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78661287"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511197"
 ---
 # <a name="aspnet-core-opno-locblazor-data-binding"></a>ASP.NET Core Blazor data binding
 
 Di [Luke Latham](https://github.com/guardrex) e [Daniel Roth](https://github.com/danroth27)
 
-L'associazione dati a entrambi i componenti e gli elementi DOM viene eseguita con l'attributo [`@bind`](xref:mvc/views/razor#bind) . Nell'esempio seguente viene associato un `CurrentValue` proprietà al valore della casella di testo:
+I componenti Razor forniscono data binding funzionalità tramite un attributo dell'elemento HTML denominato [`@bind`](xref:mvc/views/razor#bind) con un valore di campo, una proprietà o un'espressione Razor.
+
+Nell'esempio seguente la proprietà `CurrentValue` viene associata al valore della casella di testo:
 
 ```razor
 <input @bind="CurrentValue" />
@@ -78,6 +80,8 @@ Utilizzare `@bind-{ATTRIBUTE}` con `@bind-{ATTRIBUTE}:event` sintassi per associ
     private string _paragraphStyle = "color:red";
 }
 ```
+
+L'associazione di attributi distingue tra maiuscole e minuscole. Ad esempio, `@bind` è valido e `@Bind` non è valido.
 
 ## <a name="unparsable-values"></a>Valori non analizzabili
 

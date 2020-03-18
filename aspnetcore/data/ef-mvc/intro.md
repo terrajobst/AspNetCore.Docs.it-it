@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 02/06/2019
 ms.topic: tutorial
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 8f6561616ccd0fde050276467920da8aa93677c6
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: fca9fdc425506ec8b4eec5c609237208f4c0d7b5
+ms.sourcegitcommit: d64ef143c64ee4fdade8f9ea0b753b16752c5998
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78657248"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511301"
 ---
 # <a name="tutorial-get-started-with-ef-core-in-an-aspnet-mvc-web-app"></a>Esercitazione: Introduzione a EF Core in un'app Web MVC ASP.NET
 
@@ -42,14 +42,14 @@ In questa esercitazione:
 > * Creare controller e visualizzazioni
 > * Visualizzare il database
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
-* [.NET Core SDK 2.2](https://www.microsoft.com/net/download)
+* [.NET Core SDK 2.2](https://dotnet.microsoft.com/download)
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) con i carichi di lavoro seguenti:
   * **ASP.NET e carico di lavoro di sviluppo Web**
   * Carico di lavoro di **sviluppo multipiattaforma .NET Core**
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se si verifica un problema che non si sa come risolvere, è generalmente possibile trovare la soluzione confrontando il codice con il [progetto completato](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final). Per un elenco degli errori comuni e delle relative soluzioni, vedere [la sezione relativa alla risoluzione dei problemi nell'ultima esercitazione della serie](advanced.md#common-errors). Se non si trova la soluzione, è possibile inviare una domanda a StackOverflow.com per [ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) o [Entity Framework Core](https://stackoverflow.com/questions/tagged/entity-framework-core).
 
@@ -68,7 +68,7 @@ Gli utenti possono visualizzare e aggiornare le informazioni che riguardano stud
 
 ## <a name="create-web-app"></a>Crea app Web
 
-* Aprire Visual Studio.
+* Apri Visual Studio.
 
 * Scegliere **Nuovo > Progetto** dal menu **File**.
 
@@ -254,7 +254,7 @@ La creazione automatica di metodi di azione CRUD e di visualizzazioni è nota co
 
   * Selezionare **Controller MVC con visualizzazioni, che usa Entity Framework**.
 
-  * Fare clic su **Aggiungi**. Verrà visualizzata la finestra di dialogo **Aggiungi Controller MVC con visualizzazioni, che usa Entity Framework**.
+  * Fare clic su **Add**. Verrà visualizzata la finestra di dialogo **Aggiungi Controller MVC con visualizzazioni, che usa Entity Framework**.
 
     ![Scaffolding di Student](intro/_static/scaffold-student2.png)
 
@@ -264,7 +264,7 @@ La creazione automatica di metodi di azione CRUD e di visualizzazioni è nota co
 
   * Accettare il valore predefinito **StudentsController** come nome.
 
-  * Fare clic su **Aggiungi**.
+  * Fare clic su **Add**.
 
   Quando si fa clic su **Aggiungi**, il motore di scaffolding di Visual Studio crea un file *StudentsController.cs* e un set di visualizzazioni (file con estensione *cshtml*) che vengono usate insieme al controller.
 
