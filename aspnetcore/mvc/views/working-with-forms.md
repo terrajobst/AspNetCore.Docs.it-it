@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 12/05/2019
 uid: mvc/views/working-with-forms
 ms.openlocfilehash: 5af532db35b858d157f61a6aca30f55d15e9ff1e
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.sourcegitcommit: 98bcf5fe210931e3eb70f82fd675d8679b33f5d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78657535"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79416240"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>Helper tag nei moduli in ASP.NET Core
 
@@ -199,7 +199,7 @@ L'helper tag `Input` imposta l'attributo HTML `type` in base al tipo .NET. La ta
 |Tipo .NET|Tipo di input|
 |---|---|
 |Bool|type="checkbox"|
-|String|type="text"|
+|string|type="text"|
 |Datetime|type=["datetime-local"](https://developer.mozilla.org/docs/Web/HTML/Element/input/datetime-local)|
 |Byte|type="number"|
 |Int|type="number"|
@@ -454,7 +454,7 @@ Se si verifica un errore di convalida sul lato server, ad esempio quando la conv
 |--- |--- |
 |ValidationSummary.All|Livello di modello e proprietà|
 |ValidationSummary.ModelOnly|Modello|
-|ValidationSummary.None|None|
+|ValidationSummary.None|nessuno|
 
 ### <a name="sample"></a>Esempio
 
@@ -491,7 +491,7 @@ Codice HTML generato (se il modello è valido):
 
 * Ha come helper HTML alternativi `Html.DropDownListFor` e `Html.ListBoxFor`
 
-Il `Select Tag Helper` `asp-for` specifica il nome della proprietà del modello per l'elemento [Select](https://www.w3.org/wiki/HTML/Elements/select) e `asp-items` specifica gli elementi [Option](https://www.w3.org/wiki/HTML/Elements/option) .  Ad esempio,
+Il `Select Tag Helper` `asp-for` specifica il nome della proprietà del modello per l'elemento [Select](https://www.w3.org/wiki/HTML/Elements/select) e `asp-items` specifica gli elementi [Option](https://www.w3.org/wiki/HTML/Elements/option) .  Ad esempio:
 
 [!code-HTML[](working-with-forms/sample/final/Views/Home/Index.cshtml?range=4)]
 

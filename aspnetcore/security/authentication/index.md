@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/03/2020
 uid: security/authentication/index
-ms.openlocfilehash: 24113fd4f090cf76746a7b077212fdab012f82c1
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 404904ecfa30d1fe7e47f0daaa423ddd6f1b06e8
+ms.sourcegitcommit: 5bdc54162d7dea8d9fa54ac3055678db23586af1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78659628"
+ms.lasthandoff: 03/17/2020
+ms.locfileid: "79434330"
 ---
 # <a name="overview-of-aspnet-core-authentication"></a>Panoramica dell'autenticazione ASP.NET Core
 
@@ -78,7 +78,7 @@ In base alla configurazione dello schema di autenticazione e al contesto della r
   * Non sono autorizzati ad accedere.
   * Quando non sono autenticati (Challenge).
 
-### <a name="authenticate"></a>Authenticate
+### <a name="authenticate"></a>Autenticazione
 
 Un'azione di autenticazione dello schema di autenticazione è responsabile della costruzione dell'identità dell'utente in base al contesto della richiesta. Restituisce un <xref:Microsoft.AspNetCore.Authentication.AuthenticateResult> che indica se l'autenticazione ha avuto esito positivo e, in caso affermativo, l'identità dell'utente in un ticket di autenticazione. Vedere <xref:Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions.AuthenticateAsync%2A>. Gli esempi di autenticazione includono:
 
@@ -110,6 +110,18 @@ Vedere i collegamenti seguenti per le differenze tra la verifica e la proibizion
 
 * [Verifica e Impedisci un gestore di risorse operativo](xref:security/authorization/resourcebased#challenge-and-forbid-with-an-operational-resource-handler).
 * [Differenze tra la sfida e la proibizione](xref:security/authorization/secure-data#challenge).
+
+## <a name="authentication-providers-per-tenant"></a>Provider di autenticazione per tenant
+
+ASP.NET Core Framework non dispone di una soluzione incorporata per l'autenticazione multi-tenant.
+Sebbene sia certamente possibile che i clienti ne scrivano uno, usando le funzionalità predefinite, si consiglia ai clienti di esaminare [Orchard Core](https://www.orchardcore.net/) a questo scopo.
+
+Orchard core è:
+
+* Un Framework di app modulare e multi-tenant open source creato con ASP.NET Core.
+* Un sistema di gestione dei contenuti (CMS) basato su tale framework di app.
+
+Vedere l'origine [Orchard Core](https://github.com/OrchardCMS/OrchardCore) per un esempio di provider di autenticazione per ogni tenant.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

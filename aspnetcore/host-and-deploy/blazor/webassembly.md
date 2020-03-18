@@ -5,17 +5,17 @@ description: Informazioni su come ospitare e distribuire un'app Blazor usando AS
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/19/2020
+ms.date: 03/11/2020
 no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/webassembly
-ms.openlocfilehash: eae12b266e91a30a47daf63ac77ba082c25225aa
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 748ac9969134f4c89cc8c1235958dcc7ac1d1080
+ms.sourcegitcommit: 5bdc54162d7dea8d9fa54ac3055678db23586af1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78664101"
+ms.lasthandoff: 03/17/2020
+ms.locfileid: "79434278"
 ---
 # <a name="host-and-deploy-aspnet-core-opno-locblazor-webassembly"></a>Ospitare e distribuire ASP.NET Core Blazor webassembly
 
@@ -59,7 +59,7 @@ Quando si esegue la distribuzione in un server IIS, è possibile usare il modulo
 
 Una *distribuzione ospitata* serve l'app webassembly Blazor ai browser da un' [app ASP.NET Core](xref:index) in esecuzione su un server Web.
 
-L'app Blazor è inclusa nell'app ASP.NET Core nell'output pubblicato, in modo che le due app vengano distribuite insieme. È necessario un server Web in grado di ospitare un'app ASP.NET Core. Per una distribuzione ospitata, Visual Studio include il modello di progetto **app webassemblyBlazor** (`blazorwasm` modello quando si usa il comando [DotNet New](/dotnet/core/tools/dotnet-new) ) con l'opzione **Hosted** selezionata.
+L'app webassembly Blazor client viene pubblicata nella cartella */bin/Release/{Target Framework}/Publish/wwwroot* dell'app Server, insieme a qualsiasi altra risorsa Web statica dell'app Server. Le due app vengono distribuite insieme. È necessario un server Web in grado di ospitare un'app ASP.NET Core. Per una distribuzione ospitata, Visual Studio include il modello di progetto **app webassemblyBlazor** (`blazorwasm` modello quando si usa il comando [DotNet New](/dotnet/core/tools/dotnet-new) ) con l'opzione **Hosted** selezionata (`-ho|--hosted` quando si usa il comando `dotnet new`).
 
 Per altre informazioni su hosting e distribuzione di app ASP.NET Core, vedere <xref:host-and-deploy/index>.
 
@@ -69,7 +69,7 @@ Per informazioni sulla distribuzione in Servizio app di Azure, vedere <xref:tuto
 
 Una *distribuzione autonoma* serve l'app webassembly Blazor come un set di file statici richiesti direttamente dai client. Qualsiasi file server statico è in grado di gestire l'app Blazor.
 
-Gli asset di distribuzione autonoma vengono pubblicati nella cartella */bin/Release/{FRAMEWORK DI DESTINAZIONE}/publish/{NOME ASSEMBLY}/dist*.
+Le risorse di distribuzione autonome vengono pubblicate nella cartella */bin/Release/{Target Framework}/Publish/wwwroot*
 
 ### <a name="iis"></a>IIS
 
@@ -140,7 +140,7 @@ Se un'app autonoma è ospitata come una sub-app IIS, eseguire una delle operazio
 
 La rimozione del gestore o la disabilitazione dell'ereditarietà viene eseguita oltre alla [configurazione del percorso di base dell'applicazione](xref:host-and-deploy/blazor/index#app-base-path). Impostare il percorso di base dell'app nel file *index.html* dell'app sull'alias IIS usato durante la configurazione della sottoapp in IIS.
 
-#### <a name="troubleshooting"></a>risoluzione dei problemi
+#### <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se si riceve un *errore interno del server 500* e Gestione IIS genera errori durante il tentativo di accedere alla configurazione del sito Web, verificare che sia installato URL Rewrite Module. Quando il modulo non è installato, il file *web.config* non può essere analizzato da IIS. In questo modo si impedisce al gestore IIS di caricare la configurazione del sito Web e il sito Web di di soddisfare i file statici di Blazor.
 
@@ -155,7 +155,7 @@ Quando il servizio BLOB è abilitato per l'hosting di siti Web statici in un acc
 * Impostare **Nome del documento di indice** su `index.html`.
 * Impostare **Percorso del documento di errore** su `index.html`. I componenti di Razor e altri endpoint non basati su file non risiedono in percorsi fisici nel contenuto statico archiviato dal servizio BLOB. Quando viene ricevuta una richiesta per una di queste risorse che il router di Blazor deve gestire, l'errore *404 non trovato* generato dal servizio BLOB instrada la richiesta al percorso del **documento di errore**. Viene restituito il BLOB *index. html* e il router Blazor carica ed elabora il percorso.
 
-Per altre informazioni, vedere [Hosting di siti Web statici in Archiviazione di Azure](/azure/storage/blobs/storage-blob-static-website).
+Per altre informazioni, vedere [Static website hosting in Azure Storage](/azure/storage/blobs/storage-blob-static-website) (Hosting di siti Web statici in Archiviazione di Azure).
 
 ### <a name="nginx"></a>Nginx
 
@@ -318,4 +318,4 @@ L'argomento `--urls` imposta gli indirizzi IP o gli indirizzi host con le porte 
 
 ## <a name="configure-the-linker"></a>Configurare il linker
 
-Blazor esegue il collegamento Intermediate Language (IL) a ogni compilazione per rimuovere IL linguaggio IL non necessario dagli assembly di output. Il collegamento degli assembly può essere controllato in fase di compilazione. Per altre informazioni, vedere <xref:host-and-deploy/blazor/configure-linker>.
+Blazor esegue il collegamento Intermediate Language (IL) a ogni build di rilascio per rimuovere IL linguaggio IL non necessario dagli assembly di output. Per altre informazioni, vedere <xref:host-and-deploy/blazor/configure-linker>.

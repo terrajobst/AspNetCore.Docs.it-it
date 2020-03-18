@@ -8,11 +8,11 @@ ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/advanced
 ms.openlocfilehash: fc6f8d8c4ab09848cf316be2e522bf5ce3b9ac76
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.sourcegitcommit: 98bcf5fe210931e3eb70f82fd675d8679b33f5d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78657038"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79416233"
 ---
 # <a name="tutorial-learn-about-advanced-scenarios---aspnet-mvc-with-ef-core"></a>Esercitazione: informazioni sugli scenari avanzati-MVC ASP.NET con EF Core
 
@@ -31,7 +31,7 @@ In questa esercitazione:
 > * Scoprire di più sul codice sorgente e i piani di sviluppo di EF Core
 > * Imparare a usare LINQ dinamico per semplificare il codice
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Implementare l'ereditarietà](inheritance.md)
 
@@ -173,7 +173,7 @@ Entity Framework determina come è stata modificata un'entità (e di conseguenza
 
 * ChangeTracker.Entries
 
-Se viene registrato un numero elevato di entità e uno solo di questi metodi viene chiamato più volte in un ciclo, è possibile ottenere miglioramenti significativi delle prestazioni disattivando temporaneamente il rilevamento automatico delle modifiche usando la proprietà `ChangeTracker.AutoDetectChangesEnabled`. Ad esempio,
+Se viene registrato un numero elevato di entità e uno solo di questi metodi viene chiamato più volte in un ciclo, è possibile ottenere miglioramenti significativi delle prestazioni disattivando temporaneamente il rilevamento automatico delle modifiche usando la proprietà `ChangeTracker.AutoDetectChangesEnabled`. Ad esempio:
 
 ```csharp
 _context.ChangeTracker.AutoDetectChangesEnabled = false;
@@ -211,7 +211,7 @@ Messaggio di errore:
 
 > Impossibile aprire '...bin\Debug\netcoreapp1.0\ContosoUniversity.dll' per la scrittura -- 'Il processo non può accedere al file '...\bin\Debug\netcoreapp1.0\ContosoUniversity.dll' perché è in uso da un altro processo.
 
-Soluzione:
+Soluzione
 
 Arrestare il sito in IIS Express. Passare alla barra delle applicazioni di Windows, trovare IIS Express e fare clic con il pulsante destro del mouse sull'icona, selezionare il sito Contoso University e quindi fare clic su **Arresta sito**.
 
@@ -221,7 +221,7 @@ Possibile causa:
 
 I comandi CLI di EF non chiudono e salvano automaticamente i file di codice. Se sono presenti modifiche non salvate quando si esegue il comando `migrations add`, EF non trova le modifiche.
 
-Soluzione:
+Soluzione
 
 Eseguire il comando `migrations remove`, salvare le modifiche al codice e rieseguire il comando `migrations add`.
 
@@ -245,7 +245,7 @@ Messaggio di errore:
 
 > Si è verificato un errore di rete o specifico dell'istanza mentre veniva stabilita la connessione a SQL Server. Il server non è stato trovato o non è accessibile. Verificare che il nome dell'istanza sia corretto e che il server sia configurato in modo da consentire connessioni remote. (provider: interfacce di rete SQL, errore: 26 - Errore nell'individuazione del server/dell'istanza specificata)
 
-Soluzione:
+Soluzione
 
 Controllare la stringa di connessione. Se il file di database è stato eliminato manualmente, modificare il nome del database nella stringa di costruzione per riniziare con un nuovo database.
 

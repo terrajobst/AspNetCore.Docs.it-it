@@ -5,12 +5,12 @@ description: Aggiungere un modello a una app semplice di ASP.NET Core.
 ms.author: riande
 ms.date: 01/13/2020
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: d044ae4416c4528791755506314fc81275474f79
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: e7fc0496438734e13cfafcecf432da4a94737897
+ms.sourcegitcommit: 5bdc54162d7dea8d9fa54ac3055678db23586af1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78660237"
+ms.lasthandoff: 03/17/2020
+ms.locfileid: "79434512"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Aggiungere un modello a un'app ASP.NET Core MVC
 
@@ -48,14 +48,14 @@ Aggiornare il file *Movie.cs* con il codice seguente:
 
 La classe `Movie` contiene un campo `Id`, richiesto dal database per la chiave primaria.
 
-L'attributo [DataType](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) in `ReleaseDate` specifica il tipo di dati (`Date`). Con questo attributo:
+L'attributo <xref:System.ComponentModel.DataAnnotations.DataType> in `ReleaseDate` specifica il tipo di dati (`Date`). Con questo attributo:
 
 * l'utente non deve immettere le informazioni temporali nel campo della data.
 * Viene visualizzata solo la data, non le informazioni temporali.
 
 L'attributo [DataAnnotations](/dotnet/api/system.componentmodel.dataannotations) viene analizzato in un'esercitazione successiva.
 
-## <a name="add-nuget-packages"></a>Aggiungere i pacchetti NuGet
+## <a name="add-nuget-packages"></a>Aggiungere pacchetti NuGet
 
 # <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -278,7 +278,7 @@ Il metodo `Up` crea la tabella Movie e configura `Id` come chiave primaria. Il m
 
 <a name="test"></a>
 
-## <a name="test-the-app"></a>Testare l'app
+## <a name="test-the-app"></a>Eseguire il test dell'applicazione
 
 * Eseguire l'app e fare clic sul collegamento **Movie App**.
 
@@ -605,7 +605,7 @@ Il nome della stringa di connessione viene passato al contesto chiamando un meto
 
 <a name="test"></a>
 
-### <a name="test-the-app"></a>Testare l'app
+### <a name="test-the-app"></a>Eseguire il test dell'applicazione
 
 * Eseguire l'app e accodare `/Movies` all'URL nel browser (`http://localhost:port/movies`).
 
@@ -623,7 +623,7 @@ Non è stato eseguita la [migrazione](#pmc).
   > [!NOTE]
   > Potrebbe non essere possibile immettere virgole decimali nel campo `Price`. Per supportare la [convalida jQuery](https://jqueryvalidation.org/) per impostazioni locali diverse dall'inglese che usano la virgola (",") come separatore decimale e per formati di data diversi da quello dell'inglese (Stati Uniti), è necessario localizzare l'app. Per istruzioni sulla localizzazione, vedere [questo problema su GitHub](https://github.com/dotnet/AspNetCore.Docs/issues/4076#issuecomment-326590420).
 
-* Testare i collegamenti **Modifica**, **Dettagli** ed **Elimina**.
+* Eseguire il test dei collegamenti **Modifica**, **Dettagli** e **Elimina**.
 
 Esaminare la classe `Startup`:
 

@@ -5,17 +5,17 @@ description: Scopri come ospitare e distribuire app Blazor.
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2019
+ms.date: 03/11/2020
 no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/index
-ms.openlocfilehash: 238e7fc8f8d64c7847dc8847fb66e22442a3c8e0
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: ddf70da29a82d462422c1bdf74ff45b92bb10b56
+ms.sourcegitcommit: 5bdc54162d7dea8d9fa54ac3055678db23586af1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78667153"
+ms.lasthandoff: 03/17/2020
+ms.locfileid: "79434265"
 ---
 # <a name="host-and-deploy-aspnet-core-blazor"></a>Hosting e distribuzione di ASP.NET Core Blazor
 
@@ -31,7 +31,7 @@ Le app vengono pubblicate per la distribuzione nella configurazione per il rilas
 
 1. Selezionare **Compila** > **Pubblica {APPLICAZIONE}** sulla barra di spostamento.
 1. Selezionare la *destinazione di pubblicazione*. Per pubblicare in locale, selezionare **Cartella**.
-1. Accettare il percorso predefinito nel campo **Scegliere una cartella** oppure specificarne uno diverso. Fare clic sul pulsante **Pubblica**.
+1. Accettare il percorso predefinito nel campo **Scegliere una cartella** oppure specificarne uno diverso. Selezionare il pulsante **Pubblica**.
 
 # <a name="net-core-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 
@@ -45,7 +45,12 @@ dotnet publish -c Release
 
 La pubblicazione dell'app attiva un [ripristino](/dotnet/core/tools/dotnet-restore) delle dipendenze del progetto e [compila](/dotnet/core/tools/dotnet-build) il progetto prima di creare gli asset per la distribuzione. Come parte del processo di compilazione, vengono rimossi gli assembly e i metodi non usati per ridurre le dimensioni del download e i tempi di caricamento dell'app.
 
-Una Blazor app webassembly viene pubblicata nella cartella */bin/Release/{Target Framework}/Publish/{assembly nome}/dist* . Una Blazor app Server viene pubblicata nella cartella */bin/Release/{Target Framework}/Publish*
+Percorsi di pubblicazione:
+
+* Blazor webassembly
+  * Standalone &ndash; l'app viene pubblicata nella cartella */bin/Release/{Target Framework}/Publish/wwwroot* Per distribuire l'app come sito statico, copiare il contenuto della cartella *wwwroot* nell'host del sito statico.
+  * Ospitata &ndash; l'app webassembly client Blazor è pubblicata nella cartella */bin/Release/{Target Framework}/Publish/wwwroot* dell'app Server, insieme ad altri asset Web statici dell'app Server. Distribuire il contenuto della cartella di *pubblicazione* nell'host.
+* Blazor server &ndash; l'app viene pubblicata nella cartella */bin/Release/{Target Framework}/Publish* Distribuire il contenuto della cartella di *pubblicazione* nell'host.
 
 Gli asset nella cartella vengono distribuiti nel server Web. La distribuzione potrebbe essere un processo manuale o automatizzato a seconda degli strumenti di sviluppo in uso.
 

@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 10/14/2016
 uid: fundamentals/request-features
 ms.openlocfilehash: d0f3ae521d1f314dd04cb581d9a921da4719273d
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.sourcegitcommit: 98bcf5fe210931e3eb70f82fd675d8679b33f5d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78659677"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79416226"
 ---
 # <a name="request-features-in-aspnet-core"></a>Funzionalità di richiesta in ASP.NET Core
 
@@ -63,7 +63,7 @@ Il middleware può anche eseguire aggiunte alla raccolta di funzionalità impost
 
 Combinando implementazioni server personalizzate e miglioramenti specifici del middleware, è possibile costruire il set di funzionalità preciso richiesto da un'applicazione. In questo modo è possibile aggiungere le funzionalità mancanti senza che siano necessarie modifiche nel server e garantire che venga esposta solo una quantità minima di funzionalità, limitando in tal modo la superficie di attacco e migliorando le prestazioni.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 Le interfacce di funzionalità definiscono funzionalità HTTP specifiche supportate da una data richiesta. I server definiscono le raccolte di funzionalità e il set iniziale di funzionalità supportato dal server, ma è possibile usare il middleware per migliorare tali funzionalità.
 

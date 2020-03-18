@@ -5,17 +5,17 @@ description: Informazioni su come attenuare le minacce per la sicurezza per le a
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2019
+ms.date: 03/16/2020
 no-loc:
 - Blazor
 - SignalR
 uid: security/blazor/server
-ms.openlocfilehash: 61030f9b5beb849a7cf03571da425e49b144994c
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 128cd5e542153e07dc301032e1e73bf27e1236f3
+ms.sourcegitcommit: 5bdc54162d7dea8d9fa54ac3055678db23586af1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78663352"
+ms.lasthandoff: 03/17/2020
+ms.locfileid: "79434422"
 ---
 # <a name="secure-aspnet-core-blazor-server-apps"></a>Proteggere le app del server ASP.NET Core Blazor
 
@@ -94,7 +94,7 @@ Per impostazione predefinita, non esiste alcun limite al numero di connessioni p
 
 Gli attacchi di tipo Denial of Service (DoS) coinvolgono un client che induce il server a esaurire una o più risorse rendendo l'app non disponibile. Le app Server Blazor includono alcuni limiti predefiniti e si basano su altri limiti ASP.NET Core e SignalR per la protezione da attacchi DoS:
 
-| Limite app Server Blazor                            | Descrizione | Predefinito |
+| Limite app Server Blazor                            | Descrizione | Default |
 | ------------------------------------------------------- | ----------- | ------- |
 | `CircuitOptions.DisconnectedCircuitMaxRetained`         | Numero massimo di circuiti disconnessi che un determinato server utilizza in memoria per volta. | 100 |
 | `CircuitOptions.DisconnectedCircuitRetentionPeriod`     | Quantità massima di tempo durante il quale un circuito disconnesso viene mantenuto in memoria prima di essere eliminato. | 3 minuti |
@@ -102,7 +102,7 @@ Gli attacchi di tipo Denial of Service (DoS) coinvolgono un client che induce il
 | `CircuitOptions.MaxBufferedUnacknowledgedRenderBatches` | Numero massimo di batch di rendering non riconosciuti che il server mantiene in memoria per ogni circuito in un determinato momento per supportare una riconnessione affidabile. Dopo aver raggiunto il limite, il server smette di produrre nuovi batch di rendering finché uno o più batch non sono stati riconosciuti dal client. | 10 |
 
 
-| SignalR e limite di ASP.NET Core             | Descrizione | Predefinito |
+| SignalR e limite di ASP.NET Core             | Descrizione | Default |
 | ------------------------------------------ | ----------- | ------- |
 | `CircuitOptions.MaximumReceiveMessageSize` | Dimensioni del messaggio per un singolo messaggio. | 32 KB |
 
@@ -148,7 +148,7 @@ Non considerare attendibili le chiamate da JavaScript ai metodi .NET. Quando un 
 
 Gli eventi forniscono un punto di ingresso a un'app Server Blazor. Le stesse regole per la salvaguardia degli endpoint nelle app Web si applicano alla gestione degli eventi nelle app Blazor server. Un client dannoso può inviare tutti i dati che desidera inviare come payload per un evento.
 
-Ad esempio:
+Ad esempio,
 
 * Un evento di modifica per un `<select>` può inviare un valore che non rientra nelle opzioni presentate dall'app al client.
 * Un `<input>` può inviare dati di testo al server, ignorando la convalida lato client.
@@ -263,7 +263,7 @@ Oltre a usare un GUARD come descritto nella sezione [Guard da più invii](#guard
 
     public void Dispose()
     {
-        CancellationTokenSource.Cancel();
+        TokenSource.Cancel();
     }
 }
 ```
@@ -293,7 +293,7 @@ L'errore sul lato client non include il stack e non fornisce dettagli sulla ragi
 
 Abilitare gli errori dettagliati con:
 
-* `CircuitOptions.DetailedErrors`.
+* `CircuitOptions.DetailedErrors`
 * chiave di configurazione `DetailedErrors`. Ad esempio, impostare la variabile di ambiente `ASPNETCORE_DETAILEDERRORS` su un valore di `true`.
 
 > [!WARNING]

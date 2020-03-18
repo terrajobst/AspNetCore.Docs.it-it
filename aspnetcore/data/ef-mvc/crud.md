@@ -8,11 +8,11 @@ ms.date: 02/04/2019
 ms.topic: tutorial
 uid: data/ef-mvc/crud
 ms.openlocfilehash: 2aa4ef48509b9a34f3b25eb657b1ecac51c1374b
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.sourcegitcommit: 98bcf5fe210931e3eb70f82fd675d8679b33f5d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78656863"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79416212"
 ---
 # <a name="tutorial-implement-crud-functionality---aspnet-mvc-with-ef-core"></a>Esercitazione: implementare la funzionalità CRUD-ASP.NET MVC con EF Core
 
@@ -30,7 +30,7 @@ In questa esercitazione:
 > * Aggiornare la pagina Delete
 > * Chiudere le connessioni di database
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Introduzione a EF Core e ASP.NET Core MVC](intro.md)
 
@@ -265,7 +265,7 @@ Eseguire l'app, selezionare la scheda **Students** e fare clic sul collegamento 
 
 ![Pagina di conferma dell'eliminazione](crud/_static/student-delete.png)
 
-Scegliere **Elimina**. Viene visualizzata la pagina Index senza lo studente eliminato. (L'esercitazione sulla concorrenza include un esempio di codice per la gestione degli errori).
+Fare clic su **Elimina**. Viene visualizzata la pagina Index senza lo studente eliminato. (L'esercitazione sulla concorrenza include un esempio di codice per la gestione degli errori).
 
 ## <a name="close-database-connections"></a>Chiudere le connessioni di database
 

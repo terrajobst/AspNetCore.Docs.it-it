@@ -5,16 +5,16 @@ description: Creazione di un'app Blazor Step-by-Step.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/13/2020
+ms.date: 03/13/2020
 no-loc:
 - Blazor
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: 8830dcf26b58b5f5fdd36b60298e7b365f99bdd9
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 8b3802a6ffe3613e5d4ca65c57fafc3f404c8329
+ms.sourcegitcommit: 5bdc54162d7dea8d9fa54ac3055678db23586af1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78655309"
+ms.lasthandoff: 03/17/2020
+ms.locfileid: "79434499"
 ---
 # <a name="build-your-first-opno-locblazor-app"></a>Crea la tua prima app Blazor
 
@@ -24,9 +24,9 @@ Di [Daniel Roth](https://github.com/danroth27) e [Luke Latham](https://github.co
 
 Questa esercitazione illustra come creare e modificare un'app Blazor.
 
-Per creare un progetto Blazor per questa esercitazione, seguire le istruzioni riportate nell'articolo <xref:blazor/get-started>. Denominare il progetto *ToDoList*.
-
 ## <a name="build-components"></a>Compilare i componenti
+
+1. Per creare un progetto Blazor per questa esercitazione, seguire le istruzioni riportate nell'articolo <xref:blazor/get-started>. Denominare il progetto *ToDoList*.
 
 1. Passare a ognuna delle tre pagine dell'app nella cartella *pages* : Home, Counter e fetch data. Queste pagine vengono implementate dai file dei componenti Razor *Index.razor*, *Counter.razor* e *FetchData.razor*.
 
@@ -99,7 +99,7 @@ I componenti possono avere anche parametri, I parametri del componente vengono d
 
 La direttiva `@page` all'inizio del file *Counter.razor* specifica che il componente `Counter` è un endpoint di routing. Il componente `Counter` gestisce le richieste inviate a `/counter`. Senza la direttiva `@page`, un componente non gestisce le richieste instradate, ma può comunque essere usato da altri componenti.
 
-## <a name="dependency-injection"></a>Inserimento delle dipendenze
+## <a name="dependency-injection"></a>Inserimento di dipendenze
 
 ### <a name="opno-locblazor-server-experience"></a>esperienza del server Blazor
 
@@ -133,14 +133,14 @@ Viene usato un ciclo [`@foreach`](/dotnet/csharp/language-reference/keywords/for
 
 Aggiungere all'app un nuovo componente che implementa un semplice elenco attività.
 
-1. Aggiungere un file vuoto denominato *Todo.razor* all'app nella cartella *Pages*:
+1. Aggiungere un nuovo componente `Todo` Razor all'app nella cartella *pages* . In Visual Studio fare clic con il pulsante destro del mouse sulla cartella **pagine** e scegliere **Aggiungi** > **nuovo elemento** > **componente Razor**. Denominare il file del componente *todo. Razor*. In altri ambienti di sviluppo aggiungere un file vuoto alla cartella **pages** denominata *todo. Razor*.
 
 1. Specificare il markup iniziale per il componente:
 
    ```razor
    @page "/todo"
 
-   <h1>Todo</h1>
+   <h3>Todo</h3>
    ```
 
 1. Aggiungere il componente `Todo` alla barra di spostamento.
