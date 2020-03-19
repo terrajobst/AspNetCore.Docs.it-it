@@ -969,6 +969,8 @@
           uid: security/authentication/individual
         - name: Configurare l'autenticazione basata su certificato
           uid: security/authentication/certauth
+        - name: Autenticazione a più fattori
+          uid: security/authentication/mfa
     - name: Autorizzazione
       items:
         - name: Panoramica
