@@ -1,447 +1,361 @@
 ---
 title: Configurazione in ASP.NET Core
-author: guardrex
+author: rick-anderson
 description: Informazioni su come usare l'API di configurazione per configurare un'app ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/10/2020
+ms.date: 02/29/2020
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 3dcabae3f76d81e641057c346dbb9097c2da42c7
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: e1237db2625a127bfa5c31ac29b4394be6941b2f
+ms.sourcegitcommit: 9e2b3aaccc9a41291eb23bf4561159e79cf6bc9d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78656331"
+ms.lasthandoff: 03/19/2020
+ms.locfileid: "79546341"
 ---
 # <a name="configuration-in-aspnet-core"></a>Configurazione in ASP.NET Core
 
-Di [Luke Latham](https://github.com/guardrex)
+Di [Rick Anderson](https://twitter.com/RickAndMSFT) e [Kirk Larkin](https://twitter.com/serpent5)
 
 ::: moniker range=">= aspnetcore-3.0"
 
-La configurazione delle app in ASP.NET Core si basa su coppie chiave-valore stabilite dai *provider di configurazione*. I provider di configurazione leggono i dati di configurazione in coppie chiave-valore da un'ampia gamma di origini di configurazione:
+La configurazione in ASP.NET Core viene eseguita utilizzando uno o più [provider di configurazione](#cp). I provider di configurazione leggono i dati di configurazione da coppie chiave-valore usando un'ampia gamma di origini di configurazione:
 
+* File di impostazioni, ad esempio *appSettings. JSON*
+* Variabili di ambiente
 * Insieme di credenziali chiave di Azure
 * Configurazione app di Azure
 * Argomenti della riga di comando
-* Provider personalizzati (installati o creati)
+* Provider personalizzati, installati o creati
 * File della directory
-* Variabili di ambiente
 * Oggetti .NET in memoria
-* File di impostazioni
-
-I pacchetti di configurazione per gli scenari di provider di configurazione comuni ([Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/)) sono inclusi in modo implicito dal framework.
-
-Gli esempi di codice che seguono e quelli inclusi nell'app di esempio usano lo spazio dei nomi <xref:Microsoft.Extensions.Configuration>:
-
-```csharp
-using Microsoft.Extensions.Configuration;
-```
-
-Il *modello di opzioni* è un'estensione dei concetti di configurazione descritti in questo argomento. Le opzioni usano le classi per rappresentare i gruppi di impostazioni correlate. Per altre informazioni, vedere <xref:fundamentals/configuration/options>.
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
-## <a name="host-versus-app-configuration"></a>Host e configurazione delle app
-
-Prima che l'app venga configurata e avviata, viene configurato e avviato un *host*. L'host è responsabile della gestione dell'avvio e della durata delle app. Sia l'app che l'host vengono configurati tramite i provider di configurazione descritti in questo argomento. Anche le coppie chiave-valore di configurazione dell'host sono incluse nella configurazione dell'app. Per altre informazioni su come vengono usati i provider di configurazione quando viene creato l'host e sugli effetti delle origini di configurazione sull'host di configurazione, vedere <xref:fundamentals/index#host>.
-
-## <a name="other-configuration"></a>Altra configurazione
-
-Questo argomento riguarda solo la *configurazione dell'app*. Altri aspetti dell'esecuzione e dell'hosting di app ASP.NET Core sono configurati usando i file di configurazione non trattati in questo argomento:
-
-* *Launch. json*/*launchSettings. JSON* sono i file di configurazione degli strumenti per l'ambiente di sviluppo, descritti di seguito:
-  * In <xref:fundamentals/environments#development>.
-  * Nella documentazione in cui vengono usati i file per configurare ASP.NET Core app per scenari di sviluppo.
-* *Web. config* è un file di configurazione del server, descritto negli argomenti seguenti:
-  * <xref:host-and-deploy/iis/index>
-  * <xref:host-and-deploy/aspnet-core-module>
-
-Per ulteriori informazioni sulla migrazione della configurazione dell'app da versioni precedenti di ASP.NET, vedere <xref:migration/proper-to-2x/index#store-configurations>.
+<a name="default"></a>
 
 ## <a name="default-configuration"></a>Configurazione predefinita
 
-Le app basate sui modelli [dotnet new](/dotnet/core/tools/dotnet-new) di ASP.NET Core chiamano <xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder*> durante la compilazione di un host. `CreateDefaultBuilder` fornisce la configurazione predefinita per l'app nell'ordine seguente:
+ASP.NET Core app Web create con [DotNet New](/dotnet/core/tools/dotnet-new) o Visual Studio generano il codice seguente:
 
-La configurazione seguente si applica alle app che usano l'[host generico](xref:fundamentals/host/generic-host). Per informazioni dettagliate sulla configurazione predefinita quando viene usato l'[host Web](xref:fundamentals/host/web-host), vedere la [versione di questo argomento per ASP.NET Core 2.2](/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.2).
+[!code-csharp[](index/samples/3.x/ConfigSample/Program.cs?name=snippet&highlight=9)]
 
-* La configurazione dell'host viene specificata da:
-  * Variabili di ambiente con prefisso `DOTNET_` (ad esempio `DOTNET_ENVIRONMENT`) che usano il [provider di configurazione delle variabili di ambiente](#environment-variables-configuration-provider). Il prefisso (`DOTNET_`) viene rimosso al caricamento delle coppie chiave-valore della configurazione.
-  * Argomenti della riga di comando che usano il [provider di configurazione della riga di comando](#command-line-configuration-provider).
-* La configurazione predefinita dell'host Web viene stabilita (`ConfigureWebHostDefaults`) nel modo seguente:
-  * Kestrel viene usato come server Web e configurato con i provider di configurazione dell'app.
-  * Aggiungere il middleware di filtro host.
-  * Aggiungere il middleware delle intestazioni inoltrate se la variabile di ambiente `ASPNETCORE_FORWARDEDHEADERS_ENABLED` è impostata su `true`.
-  * Abilitare l'integrazione di IIS.
-* La configurazione dell'app viene fornita da:
-  * *appsettings.json* mediante il [provider di configurazione dei file](#file-configuration-provider).
-  * *appsettings.{Ambiente}.json* mediante il [provider di configurazione dei file](#file-configuration-provider).
-  * [Strumento di gestione dei segreti](xref:security/app-secrets) quando l'app viene eseguita nell'ambiente `Development` usando l'assembly di ingresso.
-  * Variabili di ambiente che usano il [provider di configurazione delle variabili di ambiente](#environment-variables-configuration-provider).
-  * Argomenti della riga di comando che usano il [provider di configurazione della riga di comando](#command-line-configuration-provider).
+ <xref:Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder*> fornisce la configurazione predefinita per l'app nell'ordine seguente:
 
-## <a name="security"></a>Security
+1. [ChainedConfigurationProvider](xref:Microsoft.Extensions.Configuration.ChainedConfigurationSource) : aggiunge un `IConfiguration` esistente come origine. Nel caso di configurazione predefinita, aggiunge la configurazione [host](#hvac) e la imposta come prima origine per la configurazione dell' _app_ .
+1. [appSettings. JSON](#appsettingsjson) con il [provider di configurazione JSON](#file-configuration-provider).
+1. *appSettings.* `Environment` *. JSON* con il [provider di configurazione JSON](#file-configuration-provider). Ad esempio, *appSettings*. ***Produzione***. *JSON* e *appSettings*. ***Sviluppo***. *JSON*.
+1. [Segreti dell'app](xref:security/app-secrets) quando l'app viene eseguita nell'ambiente `Development`.
+1. Variabili di ambiente che usano il [provider di configurazione delle variabili di ambiente](#evcp).
+1. Argomenti della riga di comando che usano il [provider di configurazione della riga di comando](#command-line-configuration-provider).
 
-Per proteggere i dati di configurazione sensibili, adottare le pratiche seguenti:
+I provider di configurazione aggiunti successivamente sostituiscono le impostazioni di chiave precedenti. Se, ad esempio, `MyKey` è impostato sia in *appSettings. JSON* che nell'ambiente, viene utilizzato il valore dell'ambiente. Utilizzando i provider di configurazione predefiniti, il [provider di configurazione della riga di comando](#command-line-configuration-provider) esegue l'override di tutti gli altri provider.
 
-* Non archiviare mai la password o altri dati sensibili nel codice del provider di configurazione o in file di configurazione di testo normale.
+Per ulteriori informazioni su `CreateDefaultBuilder`, vedere [impostazioni predefinite del generatore](xref:fundamentals/host/generic-host#default-builder-settings).
+
+Il codice seguente Visualizza i provider di configurazione abilitati nell'ordine in cui sono stati aggiunti:
+
+[!code-csharp[](index/samples/3.x/ConfigSample/Pages/Index2.cshtml.cs?name=snippet)]
+
+### <a name="appsettingsjson"></a>appsettings.json
+
+Si consideri il file *appSettings. JSON* seguente:
+
+[!code-json[](index/samples/3.x/ConfigSample/appsettings.json)]
+
+Il codice seguente del [download dell'esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples/3.x/ConfigSample) Visualizza diverse impostazioni di configurazione precedenti:
+
+[!code-csharp[](index/samples/3.x/ConfigSample/Pages/Test.cshtml.cs?name=snippet)]
+
+Il <xref:Microsoft.Extensions.Configuration.Json.JsonConfigurationProvider> predefinito carica la configurazione nell'ordine seguente:
+
+1. *appsettings.json*
+1. *appSettings.* `Environment` *. JSON* : ad esempio, *appSettings*. ***Produzione***. *JSON* e *appSettings*. ***Sviluppo***. file *JSON* . La versione dell'ambiente del file viene caricata in base a [IHostingEnvironment. EnvironmentName](xref:Microsoft.Extensions.Hosting.IHostingEnvironment.EnvironmentName*). Per altre informazioni, vedere <xref:fundamentals/environments>.
+
+*appSettings*.`Environment`. i valori *JSON* eseguono l'override delle chiavi in *appSettings. JSON*. Per impostazione predefinita, ad esempio:
+
+* In fase di sviluppo, *appSettings*. ***Sviluppo***. la configurazione *JSON* sovrascrive i valori trovati in *appSettings. JSON*.
+* In produzione, *appSettings*. ***Produzione***. la configurazione *JSON* sovrascrive i valori trovati in *appSettings. JSON*. Ad esempio, quando si distribuisce l'app in Azure.
+
+<a name="optpat"></a>
+
+#### <a name="bind-hierarchical-configuration-data-using-the-options-pattern"></a>Associare i dati di configurazione gerarchici usando il modello di opzioni
+
+Il modo migliore per leggere i valori di configurazione correlati consiste nell'usare il [modello di opzioni](xref:fundamentals/configuration/options). Ad esempio, per leggere i valori di configurazione seguenti:
+
+```json
+  "Position": {
+    "Title": "Editor",
+    "Name": "Joe Smith"
+  }
+```
+
+Creare la classe di `PositionOptions` seguente:
+
+[!code-csharp[](index/samples/3.x/ConfigSample/Options/PositionOptions.cs?name=snippet)]
+
+Tutte le proprietà di lettura/scrittura pubbliche del tipo sono associate. I campi ***non*** sono associati.
+
+Il codice seguente:
+
+* Chiama [ConfigurationBinder. Bind](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*) per associare la classe `PositionOptions` alla sezione `Position`.
+* Consente di visualizzare i dati di configurazione `Position`.
+
+[!code-csharp[](index/samples/3.x/ConfigSample/Pages/Test22.cshtml.cs?name=snippet)]
+
+[`ConfigurationBinder.Get<T>`](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*) associa e restituisce il tipo specificato. `ConfigurationBinder.Get<T>` possono essere più convenienti rispetto all'uso di `ConfigurationBinder.Bind`. Il codice seguente illustra come usare `ConfigurationBinder.Get<T>` con la classe `PositionOptions`:
+
+[!code-csharp[](index/samples/3.x/ConfigSample/Pages/Test21.cshtml.cs?name=snippet)]
+
+Un approccio alternativo quando si usa il ***modello di opzioni*** è associare la sezione `Position` e aggiungerla al [contenitore del servizio di inserimento delle dipendenze](xref:fundamentals/dependency-injection). Nel codice seguente `PositionOptions` viene aggiunto al contenitore del servizio con <xref:Microsoft.Extensions.DependencyInjection.OptionsConfigurationServiceCollectionExtensions.Configure*> e associato alla configurazione:
+
+[!code-csharp[](index/samples/3.x/ConfigSample/Startup.cs?name=snippet)]
+
+Utilizzando il codice precedente, il codice seguente legge le opzioni di posizione:
+
+[!code-csharp[](index/samples/3.x/ConfigSample/Pages/Test2.cshtml.cs?name=snippet)]
+
+Usando la [configurazione predefinita](#default) , i file *appSettings. JSON* e *appSettings.* `Environment` *. JSON* sono abilitati con [reloadOnChange: true](https://github.com/dotnet/extensions/blob/release/3.1/src/Hosting/Hosting/src/Host.cs#L74-L75). Le modifiche apportate al file *appSettings. JSON* e *appSettings.* `Environment` *. JSON* ***dopo*** l'avvio dell'app vengono lette dal [provider di configurazione JSON](#jcp).
+
+Per informazioni sull'aggiunta di altri file di configurazione JSON, vedere [provider di configurazione JSON](#jcp) in questo documento.
+
+<a name="security"></a>
+
+## <a name="security-and-secret-manager"></a>Gestione della sicurezza e del segreto
+
+Linee guida sui dati di configurazione:
+
+* Non archiviare mai la password o altri dati sensibili nel codice del provider di configurazione o in file di configurazione di testo normale. Il [gestore del segreto](xref:security/app-secrets) può essere usato per archiviare i segreti in fase di sviluppo.
 * Non usare i segreti di produzione in ambienti di sviluppo o di test.
 * Specificare i segreti all'esterno del progetto in modo che non possano essere inavvertitamente inviati a un repository del codice sorgente.
 
-Per altre informazioni, vedere gli argomenti seguenti:
+Per [impostazione predefinita](#default), [Secret Manager](xref:security/app-secrets) legge le impostazioni di configurazione dopo *appSettings. JSON* e *appSettings.* `Environment` *. JSON*.
+
+Per ulteriori informazioni sull'archiviazione di password o altri dati sensibili:
 
 * <xref:fundamentals/environments>
-* <xref:security/app-secrets> &ndash; include consigli sull'utilizzo delle variabili di ambiente per l'archiviazione di dati sensibili. Secret Manager usa il provider di configurazione dei file per archiviare i segreti utente in un file JSON nel sistema locale. Il provider di configurazione dei file è descritto più avanti in questo argomento.
+* <xref:security/app-secrets>: include consigli sull'uso delle variabili di ambiente per archiviare dati riservati. Il gestore dei segreti USA il [provider di configurazione file](#fcp) per archiviare i segreti utente in un file JSON nel sistema locale.
 
 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) archivia in modo sicuro i segreti delle app ASP.NET Core. Per altre informazioni, vedere <xref:security/key-vault-configuration>.
 
-## <a name="hierarchical-configuration-data"></a>Dati di configurazione gerarchici
+<a name="evcp"></a>
 
-L'API di configurazione è in grado di mantenere i dati di configurazione gerarchici rendendoli flat grazie all'uso di un delimitatore nelle chiavi di configurazione.
+## <a name="environment-variables"></a>Variabili di ambiente
 
-Nel file JSON seguente, esistono quattro chiavi in una gerarchia strutturata di due sezioni:
-
-```json
-{
-  "section0": {
-    "key0": "value",
-    "key1": "value"
-  },
-  "section1": {
-    "key0": "value",
-    "key1": "value"
-  }
-}
-```
-
-Quando il file viene letto nella configurazione, vengono create chiavi univoche per mantenere la struttura di dati gerarchici originale dell'origine di configurazione. Le sezioni e le chiavi vengono rese flat usando due punti (`:`) per mantenere la struttura originale:
-
-* section0:key0
-* section0:key1
-* section1:key0
-* section1:key1
-
-I metodi <xref:Microsoft.Extensions.Configuration.ConfigurationSection.GetSection*> e <xref:Microsoft.Extensions.Configuration.IConfiguration.GetChildren*> sono disponibili per isolare le sezioni e gli elementi figlio di una sezione nei dati di configurazione. Questi metodi sono descritti più avanti in [GetSection, GetChildren ed Exists](#getsection-getchildren-and-exists).
-
-## <a name="conventions"></a>Convenzioni
-
-### <a name="sources-and-providers"></a>Origini e provider
-
-All'avvio dell'app, le origini di configurazione vengono lette nell'ordine con cui sono specificati i rispettivi provider di configurazione.
-
-I provider di configurazione che implementano il rilevamento delle modifiche sono in grado di ricaricare la configurazione quando viene modificata un'impostazione sottostante. Ad esempio, il provider di configurazione dei file (descritto più avanti in questo argomento) e il [provider di configurazione di Azure Key Vault](xref:security/key-vault-configuration) implementano il rilevamento delle modifiche.
-
-<xref:Microsoft.Extensions.Configuration.IConfiguration> è disponibile nel contenitore di [inserimento delle dipendenze](xref:fundamentals/dependency-injection) dell'app. <xref:Microsoft.Extensions.Configuration.IConfiguration> possono essere inseriti in un Razor Pages <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> o MVC <xref:Microsoft.AspNetCore.Mvc.Controller> per ottenere la configurazione per la classe.
-
-Negli esempi seguenti viene usato il campo `_config` per accedere ai valori di configurazione:
-
-```csharp
-public class IndexModel : PageModel
-{
-    private readonly IConfiguration _config;
-
-    public IndexModel(IConfiguration config)
-    {
-        _config = config;
-    }
-}
-```
-
-```csharp
-public class HomeController : Controller
-{
-    private readonly IConfiguration _config;
-
-    public HomeController(IConfiguration config)
-    {
-        _config = config;
-    }
-}
-```
-
-I provider di configurazione non possono usare l'inserimento delle dipendenze, perché non è disponibile quando vengono configurati dall'host.
-
-### <a name="keys"></a>Chiavi
-
-Le chiavi di configurazione adottano le convenzioni seguenti:
-
-* Per le chiavi non viene fatta distinzione tra maiuscole e minuscole. Ad esempio, `ConnectionString` e `connectionstring` vengono considerate chiavi equivalenti.
-* Se un valore per la stessa chiave viene impostato dallo stesso provider di configurazione o da provider diversi, viene usato l'ultimo valore impostato per la chiave.
-* Chiavi gerarchiche
-  * Nell'ambito dell'API di configurazione, il separatore due punti (`:`) funziona in tutte le piattaforme.
-  * Nelle variabili di ambiente, un separatore due punti potrebbe non funzionare in tutte le piattaforme. Il doppio carattere di sottolineatura (`__`) è supportato da tutte le piattaforme e viene convertito automaticamente nei due punti.
-  * In Azure Key Vault, le chiavi gerarchiche usano `--` (due trattini) come separatore. Scrivere il codice per sostituire i trattini con i due punti quando i segreti vengono caricati nella configurazione dell'app.
-* Il <xref:Microsoft.Extensions.Configuration.ConfigurationBinder> supporta l'associazione di matrici agli oggetti usando gli indici delle matrici nelle chiavi di configurazione. L'associazione di matrici è descritta nella sezione [Associare una matrice a una classe](#bind-an-array-to-a-class).
-
-### <a name="values"></a>Valori
-
-I valori di configurazione adottano le convenzioni seguenti:
-
-* I valori sono stringhe.
-* I valori null non possono essere archiviati nella configurazione o associati a oggetti.
-
-## <a name="providers"></a>Providers
-
-La tabella seguente mostra i provider di configurazione disponibili per le app ASP.NET Core.
-
-| Provider | Fornisce la configurazione da&hellip; |
-| -------- | ----------------------------------- |
-| [Provider di configurazione di Azure Key Vault](xref:security/key-vault-configuration) (argomenti *Sicurezza*) | Insieme di credenziali chiave di Azure |
-| [Provider di Configurazione app](/azure/azure-app-configuration/quickstart-aspnet-core-app) (Documentazione di Azure) | Configurazione app di Azure |
-| [Provider di configurazione della riga di comando](#command-line-configuration-provider) | Parametri della riga di comando |
-| [Provider di configurazione personalizzato](#custom-configuration-provider) | Origine personalizzata |
-| [Provider di configurazione delle variabili di ambiente](#environment-variables-configuration-provider) | Variabili di ambiente |
-| [Provider di configurazione dei file](#file-configuration-provider) | File (INI, JSON, XML) |
-| [Provider di configurazione chiave-per-file](#key-per-file-configuration-provider) | File della directory |
-| [Provider di configurazione della memoria](#memory-configuration-provider) | Raccolte in memoria |
-| [Segreti utente (Secret Manager)](xref:security/app-secrets) (argomenti *Sicurezza*) | File nella directory dei profili utente |
-
-Le origini di configurazione vengono lette nell'ordine in cui vengono specificati i rispetti provider di configurazione all'avvio. I provider di configurazione descritti in questo argomento sono descritti in ordine alfabetico, non nell'ordine in cui il codice li dispone. Ordinare i provider di configurazione nel codice in base alle priorità per le origini di configurazione sottostanti richieste dall'app.
-
-Una sequenza tipica di provider di configurazione è:
-
-1. File (*appsettings.json*, *appsettings.{Environment}.json*, dove `{Environment}` è l'ambiente di hosting corrente dell'app)
-1. [Insieme di credenziali chiave Azure](xref:security/key-vault-configuration)
-1. [Segreti utente (Secret Manager)](xref:security/app-secrets) (solo nell'ambiente di sviluppo)
-1. Variabili di ambiente
-1. Argomenti della riga di comando
-
-È pratica comune posizionare il provider di configurazione della riga di comando per ultimo in una serie di provider per consentire agli argomenti della riga di comando di sostituire la configurazione impostata da altri provider.
-
-La sequenza di provider precedente viene utilizzata quando un nuovo generatore host viene inizializzato con `CreateDefaultBuilder`. Per altre informazioni, vedere la sezione [Configurazione predefinita](#default-configuration).
-
-## <a name="configure-the-host-builder-with-configurehostconfiguration"></a>Configurare il generatore di host con ConfigureHostConfiguration
-
-Per configurare il generatore di host, chiamare <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureHostConfiguration*> e specificare la configurazione. `ConfigureHostConfiguration` viene usato per inizializzare l'oggetto <xref:Microsoft.Extensions.Hosting.IHostEnvironment> da usare in un secondo momento nel processo di compilazione. `ConfigureHostConfiguration` può essere chiamato più volte e i risultati si sommano.
-
-```csharp
-public static IHostBuilder CreateHostBuilder(string[] args) =>
-    Host.CreateDefaultBuilder(args)
-        .ConfigureHostConfiguration(config =>
-        {
-            var dict = new Dictionary<string, string>
-            {
-                {"MemoryCollectionKey1", "value1"},
-                {"MemoryCollectionKey2", "value2"}
-            };
-
-            config.AddInMemoryCollection(dict);
-        })
-        .ConfigureWebHostDefaults(webBuilder =>
-        {
-            webBuilder.UseStartup<Startup>();
-        });
-```
-
-## <a name="configureappconfiguration"></a>ConfigureAppConfiguration
-
-Chiamare `ConfigureAppConfiguration` quando si crea l'host per specificare i provider di configurazione dell'app, oltre a quelli aggiunti automaticamente da `CreateDefaultBuilder`:
-
-[!code-csharp[](index/samples/3.x/ConfigurationSample/Program.cs?name=snippet_Program&highlight=20)]
-
-### <a name="override-previous-configuration-with-command-line-arguments"></a>Sostituire la configurazione precedente con argomenti della riga di comando
-
-Per fornire la configurazione dell'app che può essere sostituita con argomenti della riga di comando, chiamare `AddCommandLine` per ultimo:
-
-```csharp
-.ConfigureAppConfiguration((hostingContext, config) =>
-{
-    // Call other providers here
-    config.AddCommandLine(args);
-})
-```
-
-### <a name="remove-providers-added-by-createdefaultbuilder"></a>Rimuovere i provider aggiunti da CreateDefaultBuilder
-
-Per rimuovere i provider aggiunti da `CreateDefaultBuilder`, chiamare prima [Clear](/dotnet/api/system.collections.generic.icollection-1.clear) in [IConfigurationBuilder. Sources](xref:Microsoft.Extensions.Configuration.IConfigurationBuilder.Sources) :
-
-```csharp
-.ConfigureAppConfiguration((hostingContext, config) =>
-{
-    config.Sources.Clear();
-    // Add providers here
-})
-```
-
-### <a name="consume-configuration-during-app-startup"></a>Utilizzare la configurazione durante l'avvio dell'app
-
-La configurazione fornita all'app in `ConfigureAppConfiguration` è disponibile durante l'avvio dell'app, incluso `Startup.ConfigureServices`. Per altre informazioni, vedere la sezione [Accedere alla configurazione durante l'avvio](#access-configuration-during-startup).
-
-## <a name="command-line-configuration-provider"></a>Provider di configurazione della riga di comando
-
-<xref:Microsoft.Extensions.Configuration.CommandLine.CommandLineConfigurationProvider> carica la configurazione da coppie chiave-valore di argomenti della riga di comando in fase di esecuzione.
-
-Per attivare la configurazione della riga di comando, metodo di estensione <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*> viene chiamato su un'istanza di <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.
-
-`AddCommandLine` viene chiamato automaticamente quando viene chiamato il metodo `CreateDefaultBuilder(string [])`. Per altre informazioni, vedere la sezione [Configurazione predefinita](#default-configuration).
-
-`CreateDefaultBuilder` carica anche:
-
-* Una configurazione facoltativa dai file *appsettings.json* e *appsettings.{Environment}.json*.
-* [Segreti utente (Secret Manager)](xref:security/app-secrets) nell'ambiente di sviluppo.
-* Variabili di ambiente.
-
-`CreateDefaultBuilder` aggiunge il provider di configurazione della riga di comando per ultimo. Gli argomenti della riga di comando passati in fase di esecuzione sostituiscono la configurazione impostata dagli altri provider.
-
-`CreateDefaultBuilder` opera durante la creazione dell'host. Pertanto, la configurazione della riga di comando attivata da `CreateDefaultBuilder` può influire sul modo in cui l'host viene configurato.
-
-Per le app basate sui modelli di ASP.NET Core, `AddCommandLine` è già stato chiamato da `CreateDefaultBuilder`. Per aggiungere altri provider di configurazione e mantenere la possibilità di sostituire la configurazione di tali provider con argomenti della riga di comando, chiamare i provider aggiuntivi dell'app in `ConfigureAppConfiguration` e quindi chiamare `AddCommandLine` per ultimo.
-
-```csharp
-.ConfigureAppConfiguration((hostingContext, config) =>
-{
-    // Call other providers here
-    config.AddCommandLine(args);
-})
-```
-
-**Esempio**
-
-L'app di esempio consente di sfruttare il metodo di servizio statico `CreateDefaultBuilder` per creare l'host, che include una chiamata a <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*>.
-
-1. Aprire un prompt dei comandi nella directory del progetto.
-1. Fornire un argomento della riga di comando per il comando `dotnet run`, `dotnet run CommandLineKey=CommandLineValue`.
-1. Dopo che l'app è in esecuzione, aprire un browser per l'app all'indirizzo `http://localhost:5000`.
-1. Notare che l'output contiene la coppia chiave-valore per l'argomento della riga di comando di configurazione fornito per `dotnet run`.
-
-### <a name="arguments"></a>Argomenti
-
-Il valore deve seguire un segno di uguale (`=`) o la chiave deve avere un prefisso (`--` o `/`) quando il valore segue uno spazio. Il valore non è necessario se viene usato un segno di uguale, ad esempio `CommandLineKey=`.
-
-| Prefisso chiave               | Esempio                                                |
-| ------------------------ | ------------------------------------------------------ |
-| Nessun prefisso                | `CommandLineKey1=value1`                               |
-| Due trattini (`--`)        | `--CommandLineKey2=value2`, `--CommandLineKey2 value2` |
-| Barra (`/`)      | `/CommandLineKey3=value3`, `/CommandLineKey3 value3`   |
-
-Nello stesso comando, non mischiare coppie chiave-valore di argomenti della riga di comando che usano un segno di uguale con coppie chiave-valore che usano uno spazio.
-
-Comandi di esempio:
-
-```dotnetcli
-dotnet run CommandLineKey1=value1 --CommandLineKey2=value2 /CommandLineKey3=value3
-dotnet run --CommandLineKey1 value1 /CommandLineKey2 value2
-dotnet run CommandLineKey1= CommandLineKey2=value2
-```
-
-### <a name="switch-mappings"></a>Mapping di sostituzione
-
-I mapping di sostituzione consentono di usare la logica di sostituzione del nome della chiave. Quando si compila manualmente la configurazione con una <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>, fornire un dizionario di sostituzioni switch al metodo <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*>.
-
-Quando viene utilizzato il dizionario dei mapping di sostituzione, nel dizionario viene controllata la presenza di una chiave corrispondente alla chiave fornita da un argomento della riga di comando. Se la chiave della riga di comando viene trovata nel dizionario, il valore del dizionario (la sostituzione della chiave) viene passato nuovamente per impostare la coppia chiave-valore nella configurazione dell'app. Un mapping di sostituzione è necessario per le chiavi della riga di comando con un trattino singolo (`-`) come prefisso.
-
-Regole principali del dizionario dei mapping di sostituzione:
-
-* Le sostituzioni devono iniziare con un trattino (`-`) o un trattino doppio (`--`).
-* Il dizionario dei mapping di sostituzione non deve contenere chiavi duplicate.
-
-Creare un dizionario dei mapping di sostituzione. Nell'esempio seguente vengono creati due mapping di sostituzione:
-
-```csharp
-public static readonly Dictionary<string, string> _switchMappings = 
-    new Dictionary<string, string>
-    {
-        { "-CLKey1", "CommandLineKey1" },
-        { "-CLKey2", "CommandLineKey2" }
-    };
-```
-
-Quando viene creato l'host, chiamare `AddCommandLine` con il dizionario dei mapping di sostituzione:
-
-```csharp
-.ConfigureAppConfiguration((hostingContext, config) =>
-{
-    config.AddCommandLine(args, _switchMappings);
-})
-```
-
-Per le app che usano i mapping di sostituzione, la chiamata a `CreateDefaultBuilder` non deve passare argomenti. La chiamata `CreateDefaultBuilder` del metodo `AddCommandLine` non include sostituzioni mappate e non è possibile passare il dizionario dei mapping di sostituzione a `CreateDefaultBuilder`. La soluzione consiste nel non passare gli argomenti a `CreateDefaultBuilder` consentendo invece al metodo `ConfigurationBuilder` del metodo `AddCommandLine` di elaborare entrambi gli argomenti e il dizionario dei mapping di sostituzione.
-
-Il dizionario dei mapping di sostituzione creato contiene i dati visualizzati nella tabella seguente.
-
-| Chiave       | valore             |
-| --------- | ----------------- |
-| `-CLKey1` | `CommandLineKey1` |
-| `-CLKey2` | `CommandLineKey2` |
-
-Se le chiavi con mapping di sostituzione vengono usate all'avvio dell'app, la configurazione riceve il valore di configurazione per la chiave fornita dal dizionario:
-
-```dotnetcli
-dotnet run -CLKey1=value1 -CLKey2=value2
-```
-
-Dopo aver eseguito il comando precedente, la configurazione contiene i valori mostrati nella tabella seguente.
-
-| Chiave               | valore    |
-| ----------------- | -------- |
-| `CommandLineKey1` | `value1` |
-| `CommandLineKey2` | `value2` |
-
-## <a name="environment-variables-configuration-provider"></a>Provider di configurazione delle variabili di ambiente
-
-<xref:Microsoft.Extensions.Configuration.EnvironmentVariables.EnvironmentVariablesConfigurationProvider> carica la configurazione da coppie chiave-valore di variabili di ambiente in fase di esecuzione.
-
-Per attivare la configurazione delle variabili di ambiente, chiamare il metodo di estensione <xref:Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions.AddEnvironmentVariables*> su un'istanza di <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.
+Utilizzando la configurazione [predefinita](#default) , il <xref:Microsoft.Extensions.Configuration.EnvironmentVariables.EnvironmentVariablesConfigurationProvider> carica la configurazione dalle coppie chiave-valore della variabile di ambiente dopo aver letto *appSettings. JSON*, *appSettings.* `Environment` *. JSON*e [gestione Secret](xref:security/app-secrets). Pertanto, i valori di chiave letti dall'ambiente eseguono l'override dei valori letti da *appSettings. JSON*, *appSettings.* `Environment` *. JSON*e Secret Manager.
 
 [!INCLUDE[](~/includes/environmentVarableColon.md)]
 
-[App Azure servizio](https://azure.microsoft.com/services/app-service/) consente di impostare le variabili di ambiente nel portale di Azure che possono eseguire l'override della configurazione dell'app usando il provider di configurazione delle variabili di ambiente. Per altre informazioni, vedere [App di Azure: Eseguire l'override della configurazione delle app usando il portale di Azure](xref:host-and-deploy/azure-apps/index#override-app-configuration-using-the-azure-portal).
+Di seguito sono riportati i comandi `set`:
 
-`AddEnvironmentVariables` consente di caricare variabili di ambiente con prefisso `DOTNET_` per la [configurazione host](#host-versus-app-configuration) quando viene inizializzato un nuovo generatore di host con l'[host generico](xref:fundamentals/host/generic-host) e viene chiamato `CreateDefaultBuilder`. Per altre informazioni, vedere la sezione [Configurazione predefinita](#default-configuration).
+* Impostare le chiavi e i valori di ambiente dell' [esempio precedente](#appsettingsjson) in Windows.
+* Testare le impostazioni quando si usa il [download di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples/3.x/ConfigSample). Il `dotnet run` comando deve essere eseguito nella directory del progetto.
 
-`CreateDefaultBuilder` carica anche:
-
-* Configurazione delle app dalle variabili di ambiente senza prefisso chiamando `AddEnvironmentVariables` senza prefisso.
-* Una configurazione facoltativa dai file *appsettings.json* e *appsettings.{Environment}.json*.
-* [Segreti utente (Secret Manager)](xref:security/app-secrets) nell'ambiente di sviluppo.
-* Argomenti della riga di comando.
-
-Il provider di configurazione delle variabili di ambiente viene chiamato dopo aver stabilito la configurazione dai segreti utente e dai file *appsettings*. La chiamata del provider in questa posizione consente alle variabili di ambiente lette in fase di esecuzione di sostituire la configurazione impostata dai segreti utente e dai file *appsettings*.
-
-Per fornire la configurazione dell'app da variabili di ambiente aggiuntive, chiamare i provider aggiuntivi dell'app in `ConfigureAppConfiguration` e chiamare `AddEnvironmentVariables` con il prefisso:
-
-```csharp
-.ConfigureAppConfiguration((hostingContext, config) =>
-{
-    config.AddEnvironmentVariables(prefix: "PREFIX_");
-})
+```cmd
+set MyKey="My key from Environment"
+set Position__Title=Environment_Editor
+set Position__Name=Environment_Rick
+dotnet run
 ```
 
-Chiamare `AddEnvironmentVariables` ultimo per consentire alle variabili di ambiente con il prefisso specificato di eseguire l'override dei valori di altri provider.
+Le impostazioni di ambiente precedenti:
 
-**Esempio**
+* Vengono impostati solo nei processi avviati dalla finestra di comando in cui sono stati impostati.
+* Non verrà letto dai browser avviati con Visual Studio.
 
-L'app di esempio consente di sfruttare il metodo di servizio statico `CreateDefaultBuilder` per creare l'host, che include una chiamata a `AddEnvironmentVariables`.
+Per impostare le chiavi e i valori di ambiente in Windows, è possibile usare i comandi [Setx](/windows-server/administration/windows-commands/setx) seguenti. A differenza di `set`, le impostazioni di `setx` sono rese permanente. `/M` imposta la variabile nell'ambiente di sistema. Se non si utilizza l'opzione `/M`, viene impostata una variabile di ambiente utente.
 
-1. Eseguire l'app di esempio. Aprire un browser per l'app all'indirizzo `http://localhost:5000`.
-1. Notare che l'output contiene la coppia chiave-valore per la variabile di ambiente `ENVIRONMENT`. Il valore riflette l'ambiente in cui l'app è in esecuzione, in genere `Development` durante l'esecuzione locale.
-
-Per limitare l'elenco delle variabili di ambiente restituito dall'app, l'app filtra le variabili di ambiente. Vedere il file *Pages/Index.cshtml.cs* dell'app di esempio.
-
-Per esporre tutte le variabili di ambiente disponibili per l'app, modificare il `FilteredConfiguration` in *pages/index. cshtml. cs* come segue:
-
-```csharp
-FilteredConfiguration = _config.AsEnumerable();
+```cmd
+setx MyKey "My key from setx Environment" /M
+setx Position__Title Setx_Environment_Editor /M
+setx Position__Name Environment_Rick /M
 ```
 
-### <a name="prefixes"></a>Prefissi
+Per verificare che i comandi precedenti eseguano l'override di *apsettings. JSON* e *appSettings.* `Environment` *. JSON*:
 
-Le variabili di ambiente caricate nella configurazione dell'app vengono filtrate quando si specifica un prefisso per il metodo `AddEnvironmentVariables`. Ad esempio, per filtrare le variabili di ambiente in base al prefisso `CUSTOM_`, fornire il prefisso al provider di configurazione:
+* Con Visual Studio: chiudere e riavviare Visual Studio.
+* Con l'interfaccia della riga di comando: avviare una nuova finestra di comando e immettere `dotnet run`.
 
-```csharp
-var config = new ConfigurationBuilder()
-    .AddEnvironmentVariables("CUSTOM_")
-    .Build();
+Chiamare <xref:Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions.AddEnvironmentVariables*> con una stringa per specificare un prefisso per le variabili di ambiente:
+
+[!code-csharp[](index/samples/3.x/ConfigSample/Program.cs?name=snippet4&highlight=12)]
+
+Nel codice precedente:
+
+* `config.AddEnvironmentVariables(prefix: "MyCustomPrefix_")` viene aggiunto dopo i [provider di configurazione predefiniti](#default). Per un esempio di ordinamento dei provider di configurazione, vedere [provider di configurazione JSON](#jcp).
+* Le variabili di ambiente impostate con il prefisso `MyCustomPrefix_` sostituiscono i [provider di configurazione predefiniti](#default). Sono incluse le variabili di ambiente senza il prefisso.
+
+Il prefisso viene rimosso quando vengono lette le coppie chiave-valore di configurazione.
+
+I comandi seguenti verificano il prefisso personalizzato:
+
+```cmd
+set MyCustomPrefix_MyKey="My key with MyCustomPrefix_ Environment"
+set MyCustomPrefix_Position__Title=Editor_with_customPrefix
+set MyCustomPrefix_Position__Name=Environment_Rick_cp
+dotnet run
 ```
 
-Il prefisso viene rimosso quando vengono create le coppie chiave-valore della configurazione.
+La [configurazione predefinita](#default) carica le variabili di ambiente e gli argomenti della riga di comando preceduti da `DOTNET_` e `ASPNETCORE_`. I prefissi `DOTNET_` e `ASPNETCORE_` vengono usati da ASP.NET Core per la [configurazione dell'host e dell'app](xref:fundamentals/host/generic-host#host-configuration), ma non per la configurazione dell'utente. Per ulteriori informazioni sulla configurazione dell'host e dell'app, vedere [.NET Generic Host](xref:fundamentals/host/generic-host).
 
-Quando viene creato il generatore di host, la configurazione dell'host viene fornita dalle variabili di ambiente. Per altre informazioni sul prefisso usato per queste variabili di ambiente, vedere la sezione [Configurazione predefinita](#default-configuration).
+In [app Azure servizio](https://azure.microsoft.com/services/app-service/)selezionare **impostazione nuova applicazione** nella pagina **Impostazioni > configurazione** . App Azure impostazioni dell'applicazione del servizio sono:
 
-**Prefissi della stringa di connessione**
+* Crittografati a riposo e trasmessi su un canale crittografato.
+* Esposto come variabile di ambiente.
 
-L'API di configurazione prevede regole di elaborazione speciali per quattro variabili di ambiente di stringa di connessione coinvolte nella configurazione di stringhe di connessione di Azure per l'ambiente dell'app. Le variabili di ambiente con i prefissi indicati nella tabella vengono caricate nell'app se non viene fornito alcun prefisso a `AddEnvironmentVariables`.
+Per altre informazioni, vedere [App di Azure: Eseguire l'override della configurazione delle app usando il portale di Azure](xref:host-and-deploy/azure-apps/index#override-app-configuration-using-the-azure-portal).
+
+Per informazioni sulle stringhe di connessione del database di Azure, vedere [prefissi della stringa di connessione](#constr) .
+
+<a name="clcp"></a>
+
+## <a name="command-line"></a>Riga di comando
+
+Utilizzando la configurazione [predefinita](#default) , il <xref:Microsoft.Extensions.Configuration.CommandLine.CommandLineConfigurationProvider> carica la configurazione dalle coppie chiave-valore dell'argomento della riga di comando dopo le origini di configurazione seguenti:
+
+* *appSettings. JSON* e *appSettings*.`Environment`. file *JSON* .
+* [Segreti dell'app (gestione segreto)](xref:security/app-secrets) nell'ambiente di sviluppo.
+* Variabili di ambiente.
+
+Per [impostazione predefinita](#default), i valori di configurazione impostati nei valori di configurazione di override della riga di comando impostati con tutti gli altri provider di configurazione.
+
+### <a name="command-line-arguments"></a>Argomenti della riga di comando
+
+Il comando seguente imposta le chiavi e i valori usando `=`:
+
+```dotnetcli
+dotnet run MyKey="My key from command line" Position:Title=Cmd Position:Name=Cmd_Rick
+```
+
+Il comando seguente imposta le chiavi e i valori usando `/`:
+
+```dotnetcli
+dotnet run /MyKey "Using /" /Position:Title=Cmd_ /Position:Name=Cmd_Rick
+```
+
+Il comando seguente imposta le chiavi e i valori usando `--`:
+
+```dotnetcli
+dotnet run --MyKey "Using --" --Position:Title=Cmd-- --Position:Name=Cmd--Rick
+```
+
+Valore chiave:
+
+* Deve seguire `=`o la chiave deve avere un prefisso di `--` o `/` quando il valore segue uno spazio.
+* Non è obbligatorio se si usa `=`. Ad esempio: `MySetting=`.
+
+All'interno dello stesso comando, non combinare coppie chiave-valore dell'argomento della riga di comando che usano `=` con coppie chiave-valore che usano uno spazio.
+
+### <a name="switch-mappings"></a>Mapping di sostituzione
+
+I mapping switch consentono la logica di sostituzione del nome **chiave** . Fornire un dizionario di sostituzioni switch al metodo <xref:Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions.AddCommandLine*>.
+
+Quando viene utilizzato il dizionario dei mapping di sostituzione, nel dizionario viene controllata la presenza di una chiave corrispondente alla chiave fornita da un argomento della riga di comando. Se la chiave della riga di comando viene trovata nel dizionario, il valore del dizionario viene passato di nuovo per impostare la coppia chiave-valore nella configurazione dell'app. Un mapping di sostituzione è necessario per le chiavi della riga di comando con un trattino singolo (`-`) come prefisso.
+
+Regole principali del dizionario dei mapping di sostituzione:
+
+* Le opzioni devono iniziare con `-` o `--`.
+* Il dizionario dei mapping di sostituzione non deve contenere chiavi duplicate.
+
+Per usare un dizionario dei mapping delle opzioni, passarlo alla chiamata a `AddCommandLine`:
+
+[!code-csharp[](index/samples/3.x/ConfigSample/ProgramSwitch.cs?name=snippet&highlight=10-18,23)]
+
+Il codice seguente mostra i valori chiave per le chiavi sostituite:
+
+[!code-csharp[](index/samples/3.x/ConfigSample/Pages/Test3.cshtml.cs?name=snippet)]
+
+Eseguire il comando seguente per testare la sostituzione della chiave:
+
+```dotnetcli
+dotnet run -k1=value1 -k2 value2 --alt3=value2 /alt4=value3 --alt5 value5 /alt6 value6
+```
+
+Nota: attualmente non è possibile usare `=` per impostare i valori di sostituzione delle chiavi con un trattino singolo `-`. Vedere [il problema in GitHub](https://github.com/dotnet/extensions/issues/3059).
+
+Il comando seguente funziona per testare la sostituzione della chiave:
+
+```dotnetcli
+dotnet run -k1 value1 -k2 value2 --alt3=value2 /alt4=value3 --alt5 value5 /alt6 value6
+```
+
+Per le app che usano i mapping di sostituzione, la chiamata a `CreateDefaultBuilder` non deve passare argomenti. La chiamata `AddCommandLine` del metodo `CreateDefaultBuilder` non include opzioni mappate e non è possibile passare il dizionario di mapping switch a `CreateDefaultBuilder`. La soluzione non passa gli argomenti a `CreateDefaultBuilder` ma per consentire al metodo di `ConfigurationBuilder` `AddCommandLine` metodo di elaborare sia gli argomenti sia il dizionario di mapping delle opzioni.
+
+## <a name="hierarchical-configuration-data"></a>Dati di configurazione gerarchici
+
+L'API di configurazione legge i dati di configurazione gerarchici rendendo flat i dati gerarchici con l'uso di un delimitatore nelle chiavi di configurazione.
+
+Il [download di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples/3.x/ConfigSample) contiene il file *appSettings. JSON* seguente:
+
+[!code-json[](index/samples/3.x/ConfigSample/appsettings.json)]
+
+Il codice seguente del [download dell'esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples/3.x/ConfigSample) Visualizza diverse impostazioni di configurazione:
+
+[!code-csharp[](index/samples/3.x/ConfigSample/Pages/Test.cshtml.cs?name=snippet)]
+
+Il modo migliore per leggere i dati di configurazione gerarchici consiste nell'usare il modello di opzioni. Per altre informazioni, vedere [associare dati di configurazione gerarchici](#optpat) in questo documento.
+
+I metodi <xref:Microsoft.Extensions.Configuration.ConfigurationSection.GetSection*> e <xref:Microsoft.Extensions.Configuration.IConfiguration.GetChildren*> sono disponibili per isolare le sezioni e gli elementi figlio di una sezione nei dati di configurazione. Questi metodi sono descritti più avanti in [GetSection, GetChildren ed Exists](#getsection).
+
+<!--
+[Azure Key Vault configuration provider](xref:security/key-vault-configuration) implement change detection.
+-->
+
+## <a name="configuration-keys-and-values"></a>Chiavi e valori di configurazione
+
+Chiavi di configurazione:
+
+* Non fanno distinzione tra maiuscole e minuscole. Ad esempio, `ConnectionString` e `connectionstring` vengono considerate chiavi equivalenti.
+* Se una chiave e un valore vengono impostati in più provider di configurazione, viene utilizzato il valore dell'ultimo provider aggiunto. Per ulteriori informazioni, vedere [configurazione predefinita](#default).
+* Chiavi gerarchiche
+  * Nell'ambito dell'API di configurazione, il separatore due punti (`:`) funziona in tutte le piattaforme.
+  * Nelle variabili di ambiente, un separatore due punti potrebbe non funzionare in tutte le piattaforme. Un doppio carattere di sottolineatura, `__`, è supportato da tutte le piattaforme e viene convertito automaticamente in due punti `:`.
+  * In Azure Key Vault, le chiavi gerarchiche utilizzano `--` come separatore. Scrivere il codice per sostituire la `--` con un `:` quando i segreti vengono caricati nella configurazione dell'app.
+* Il <xref:Microsoft.Extensions.Configuration.ConfigurationBinder> supporta l'associazione di matrici agli oggetti usando gli indici delle matrici nelle chiavi di configurazione. L'associazione di matrici è descritta nella sezione [Associare una matrice a una classe](#boa).
+
+Valori di configurazione:
+
+* Sono stringhe.
+* I valori null non possono essere archiviati nella configurazione o associati a oggetti.
+
+<a name="cp"></a>
+
+## <a name="configuration-providers"></a>Provider di configurazione
+
+La tabella seguente mostra i provider di configurazione disponibili per le app ASP.NET Core.
+
+| Provider | Fornisce la configurazione da |
+| -------- | ----------------------------------- |
+| [Provider di configurazione di Azure Key Vault](xref:security/key-vault-configuration) | Insieme di credenziali chiave di Azure |
+| [Provider di configurazione app Azure](/azure/azure-app-configuration/quickstart-aspnet-core-app) | Configurazione app di Azure |
+| [Provider di configurazione della riga di comando](#clcp) | Parametri della riga di comando |
+| [Provider di configurazione personalizzato](#custom-configuration-provider) | Origine personalizzata |
+| [Provider di configurazione delle variabili di ambiente](#evcp) | Variabili di ambiente |
+| [Provider di configurazione file](#file-configuration-provider) | File INI, JSON e XML |
+| [Provider di configurazione chiave per file](#key-per-file-configuration-provider) | File della directory |
+| [Provider di configurazione della memoria](#memory-configuration-provider) | Raccolte in memoria |
+| [Gestione segreta](xref:security/app-secrets)  | File nella directory dei profili utente |
+
+Le origini di configurazione vengono lette nell'ordine in cui sono specificati i provider di configurazione. Ordinare i provider di configurazione nel codice in base alle priorità per le origini di configurazione sottostanti richieste dall'app.
+
+Una sequenza tipica di provider di configurazione è:
+
+1. *appsettings.json*
+1. *appSettings*.`Environment`. *JSON*
+1. [Gestione segreta](xref:security/app-secrets)
+1. Variabili di ambiente che usano il [provider di configurazione delle variabili di ambiente](#evcp).
+1. Argomenti della riga di comando che usano il [provider di configurazione della riga di comando](#command-line-configuration-provider).
+
+Una procedura comune consiste nell'aggiungere il provider di configurazione della riga di comando per ultimo in una serie di provider per consentire agli argomenti della riga di comando di eseguire l'override del set di configurazione da parte degli altri provider.
+
+La sequenza di provider precedente viene utilizzata nella [configurazione predefinita](#default).
+
+<a name="constr"></a>
+
+### <a name="connection-string-prefixes"></a>Prefissi della stringa di connessione
+
+L'API di configurazione dispone di regole di elaborazione speciali per quattro variabili di ambiente della stringa di connessione. Queste stringhe di connessione sono necessarie per configurare le stringhe di connessione di Azure per l'ambiente dell'app. Le variabili di ambiente con i prefissi visualizzati nella tabella vengono caricate nell'app con la [configurazione predefinita](#default) o quando non viene fornito alcun prefisso per `AddEnvironmentVariables`.
 
 | Prefisso della stringa di connessione | Provider |
 | ------------------------ | -------- |
@@ -462,202 +376,106 @@ Quando una variabile di ambiente viene individuata e caricata nella configurazio
 | `SQLAZURECONNSTR_{KEY}`  | `ConnectionStrings:{KEY}`   | Chiave: `ConnectionStrings:{KEY}_ProviderName`:<br>Valore: `System.Data.SqlClient`  |
 | `SQLCONNSTR_{KEY}`       | `ConnectionStrings:{KEY}`   | Chiave: `ConnectionStrings:{KEY}_ProviderName`:<br>Valore: `System.Data.SqlClient`  |
 
-**Esempio**
+<a name="jcp"></a>
 
-Nel server viene creata una variabile di ambiente della stringa di connessione personalizzata:
+### <a name="json-configuration-provider"></a>Provider di configurazione JSON
 
-* Nome &ndash; `CUSTOMCONNSTR_ReleaseDB`
-* Valore &ndash; `Data Source=ReleaseSQLServer;Initial Catalog=MyReleaseDB;Integrated Security=True`
+Il <xref:Microsoft.Extensions.Configuration.Json.JsonConfigurationProvider> carica la configurazione dalle coppie chiave-valore del file JSON.
 
-Se `IConfiguration` viene inserito e assegnato a un campo denominato `_config`, leggere il valore:
+Gli overload possono specificare:
 
-```csharp
-_config["ConnectionStrings:ReleaseDB"]
-```
+* Se il file è facoltativo.
+* Se la configurazione viene ricaricata se viene modificato il file.
 
-## <a name="file-configuration-provider"></a>Provider di configurazione dei file
+Esaminare il codice seguente:
 
-<xref:Microsoft.Extensions.Configuration.FileConfigurationProvider> è la classe base per il caricamento della configurazione dal file system. I provider di configurazione seguenti sono dedicati per specifici tipi di file:
+[!code-csharp[](index/samples/3.x/ConfigSample/ProgramJSON.cs?name=snippet&highlight=12-14)]
+
+Il codice precedente:
+
+* Configura il provider di configurazione JSON per caricare il file *config. JSON* con le opzioni seguenti:
+  * `optional: true`: il file è facoltativo.
+  * `reloadOnChange: true`: il file viene ricaricato quando vengono salvate le modifiche.
+* Legge i [provider di configurazione predefiniti](#default) prima del file *config. JSON* . Impostazioni nell'impostazione di sostituzione del file *config. JSON* nei provider di configurazione predefiniti, tra cui il [provider di configurazione delle variabili di ambiente](#evcp) e il provider di configurazione della riga di [comando](#clcp).
+
+In genere ***non*** si vuole che un file JSON personalizzato esegua l'override dei valori impostati nel [provider di configurazione delle variabili di ambiente](#evcp) e nel provider di configurazione della riga di [comando](#clcp).
+
+Il codice seguente cancella tutti i provider di configurazione e aggiunge diversi provider di configurazione:
+
+[!code-csharp[](index/samples/3.x/ConfigSample/ProgramJSON2.cs?name=snippet)]
+
+Nel codice precedente, Settings in *config. JSON* e *config*.`Environment`. file *JSON* :
+
+* Eseguire l'override delle impostazioni in *appSettings. JSON* e *appSettings*.`Environment`. file *JSON* .
+* Viene sottoposto a override dalle impostazioni del [provider di configurazione delle variabili di ambiente](#evcp) e del provider di configurazione della riga di [comando](#clcp).
+
+Il [download di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples/3.x/ConfigSample) contiene il file *config. JSON* seguente:
+
+[!code-json[](index/samples/3.x/ConfigSample/MyConfig.json)]
+
+Il codice seguente del [download dell'esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples/3.x/ConfigSample) Visualizza diverse impostazioni di configurazione precedenti:
+
+[!code-csharp[](index/samples/3.x/ConfigSample/Pages/Test.cshtml.cs?name=snippet)]
+
+<a name="fcp"></a>
+
+## <a name="file-configuration-provider"></a>Provider di configurazione file
+
+<xref:Microsoft.Extensions.Configuration.FileConfigurationProvider> è la classe base per il caricamento della configurazione dal file system. I provider di configurazione seguenti derivano da `FileConfigurationProvider`:
 
 * [Provider di configurazione INI](#ini-configuration-provider)
-* [Provider di configurazione JSON](#json-configuration-provider)
+* [Provider di configurazione JSON](#jcp)
 * [Provider di configurazione XML](#xml-configuration-provider)
 
 ### <a name="ini-configuration-provider"></a>Provider di configurazione INI
 
 <xref:Microsoft.Extensions.Configuration.Ini.IniConfigurationProvider> carica la configurazione da coppie chiave-valore di file INI in fase di esecuzione.
 
-Per attivare la configurazione di file INI, chiamare il metodo di estensione <xref:Microsoft.Extensions.Configuration.IniConfigurationExtensions.AddIniFile*> su un'istanza di <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.
+Il codice seguente cancella tutti i provider di configurazione e aggiunge diversi provider di configurazione:
 
-I due punti possono essere usati come delimitatore di sezione nella configurazione di file INI.
+[!code-csharp[](index/samples/3.x/ConfigSample/ProgramINI.cs?name=snippet&highlight=10-30)]
 
-Gli overload consentono di specificare:
+Nel codice precedente, le impostazioni in *MyIniConfig. ini* e *MyIniConfig*.`Environment`. i file *ini* vengono sottoposti a override dalle impostazioni nel:
 
-* Se il file è facoltativo.
-* Se la configurazione viene ricaricata se viene modificato il file.
-* Il <xref:Microsoft.Extensions.FileProviders.IFileProvider> usato per accedere al file.
+* [Provider di configurazione delle variabili di ambiente](#evcp)
+* [Provider di configurazione della riga di comando](#clcp).
 
-Chiamare `ConfigureAppConfiguration` quando si crea l'host per specificare la configurazione dell'app:
+Il [download di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples/3.x/ConfigSample) contiene il seguente file *MyIniConfig. ini* :
 
-```csharp
-.ConfigureAppConfiguration((hostingContext, config) =>
-{
-    config.AddIniFile(
-        "config.ini", optional: true, reloadOnChange: true);
-})
-```
+[!code-ini[](index/samples/3.x/ConfigSample/MyIniConfig.ini)]
 
-Un esempio generico di un file di configurazione INI:
+Il codice seguente del [download dell'esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples/3.x/ConfigSample) Visualizza diverse impostazioni di configurazione precedenti:
 
-```ini
-[section0]
-key0=value
-key1=value
-
-[section1]
-subsection:key=value
-
-[section2:subsection0]
-key=value
-
-[section2:subsection1]
-key=value
-```
-
-Il file di configurazione precedente carica le chiavi seguenti con `value`:
-
-* section0:key0
-* section0:key1
-* section1:subsection:key
-* section2:subsection0:key
-* section2:subsection1:key
-
-### <a name="json-configuration-provider"></a>Provider di configurazione JSON
-
-Il <xref:Microsoft.Extensions.Configuration.Json.JsonConfigurationProvider> carica la configurazione da coppie chiave-valore di file JSON in fase di esecuzione.
-
-Per attivare la configurazione di file JSON, chiamare il metodo di estensione <xref:Microsoft.Extensions.Configuration.JsonConfigurationExtensions.AddJsonFile*> su un'istanza di <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.
-
-Gli overload consentono di specificare:
-
-* Se il file è facoltativo.
-* Se la configurazione viene ricaricata se viene modificato il file.
-* Il <xref:Microsoft.Extensions.FileProviders.IFileProvider> usato per accedere al file.
-
-`AddJsonFile` viene chiamato automaticamente due volte quando un nuovo generatore host viene inizializzato con `CreateDefaultBuilder`. Il metodo viene chiamato per caricare la configurazione da:
-
-* *appSettings. json* &ndash; questo file viene letto per primo. La versione dell'ambiente del file può sostituire i valori forniti dal file *appsettings.json*.
-* *appSettings. {Environment}. JSON* &ndash; la versione dell'ambiente del file viene caricata in base a [IHostingEnvironment. EnvironmentName](xref:Microsoft.Extensions.Hosting.IHostingEnvironment.EnvironmentName*).
-
-Per altre informazioni, vedere la sezione [Configurazione predefinita](#default-configuration).
-
-`CreateDefaultBuilder` carica anche:
-
-* Variabili di ambiente.
-* [Segreti utente (Secret Manager)](xref:security/app-secrets) nell'ambiente di sviluppo.
-* Argomenti della riga di comando.
-
-Il provider di configurazione JSON viene stabilito per primo. I segreti utente, le variabili di ambiente e gli argomenti della riga di comando sostituiscono quindi la configurazione impostata dai file *appsettings*.
-
-Chiamare `ConfigureAppConfiguration` quando si crea l'host per specificare la configurazione dell'app per file diversi da *appsettings.json* e *appsettings.{Environment}.json*:
-
-```csharp
-.ConfigureAppConfiguration((hostingContext, config) =>
-{
-    config.AddJsonFile(
-        "config.json", optional: true, reloadOnChange: true);
-})
-```
-
-**Esempio**
-
-L'app di esempio sfrutta il metodo di convenienza statica `CreateDefaultBuilder` per compilare l'host, che include due chiamate al `AddJsonFile`:
-
-* La prima chiamata a `AddJsonFile` carica la configurazione da *appSettings. JSON*:
-
-  [!code-json[](index/samples/3.x/ConfigurationSample/appsettings.json)]
-
-* La seconda chiamata a `AddJsonFile` carica la configurazione da *appSettings. { Environment}. JSON*. Per *appSettings. Development. JSON* nell'app di esempio, viene caricato il file seguente:
-
-  [!code-json[](index/samples/3.x/ConfigurationSample/appsettings.Development.json)]
-
-1. Eseguire l'app di esempio. Aprire un browser per l'app all'indirizzo `http://localhost:5000`.
-1. L'output contiene coppie chiave-valore per la configurazione basata sull'ambiente dell'app. Il livello di registrazione per la chiave `Logging:LogLevel:Default` viene `Debug` quando si esegue l'app nell'ambiente di sviluppo.
-1. Eseguire di nuovo l'app di esempio nell'ambiente di produzione:
-   1. Aprire il file *Properties/launchSettings. JSON* .
-   1. Nel profilo di `ConfigurationSample` modificare il valore della variabile di ambiente `ASPNETCORE_ENVIRONMENT` in `Production`.
-   1. Salvare il file ed eseguire l'app con `dotnet run` in una shell dei comandi.
-1. Impostazioni in *appSettings. Development. JSON* non sostituisce più le impostazioni in *appSettings. JSON*. Il livello di registrazione per la chiave `Logging:LogLevel:Default` è `Information`.
+[!code-csharp[](index/samples/3.x/ConfigSample/Pages/Test.cshtml.cs?name=snippet)]
 
 ### <a name="xml-configuration-provider"></a>Provider di configurazione XML
 
 Il <xref:Microsoft.Extensions.Configuration.Xml.XmlConfigurationProvider> carica la configurazione da coppie chiave-valore di file XML in fase di esecuzione.
 
-Per attivare la configurazione di file XML, chiamare il metodo di estensione <xref:Microsoft.Extensions.Configuration.XmlConfigurationExtensions.AddXmlFile*> su un'istanza di <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.
+Il codice seguente cancella tutti i provider di configurazione e aggiunge diversi provider di configurazione:
 
-Gli overload consentono di specificare:
+[!code-csharp[](index/samples/3.x/ConfigSample/ProgramXML.cs?name=snippet)]
 
-* Se il file è facoltativo.
-* Se la configurazione viene ricaricata se viene modificato il file.
-* Il <xref:Microsoft.Extensions.FileProviders.IFileProvider> usato per accedere al file.
+Nel codice precedente, le impostazioni in *MyXMLFile. XML* e *MyXMLFile*.`Environment`. i file *XML* vengono sottoposti a override dalle impostazioni in:
 
-Il nodo radice del file di configurazione viene ignorato quando vengono create le coppie chiave-valore della configurazione. Non specificare una definizione DTD (Document Type Definition) o uno spazio dei nomi nel file.
+* [Provider di configurazione delle variabili di ambiente](#evcp)
+* [Provider di configurazione della riga di comando](#clcp).
 
-Chiamare `ConfigureAppConfiguration` quando si crea l'host per specificare la configurazione dell'app:
+Il [download di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples/3.x/ConfigSample) contiene il seguente file *MyXMLFile. XML* :
 
-```csharp
-.ConfigureAppConfiguration((hostingContext, config) =>
-{
-    config.AddXmlFile(
-        "config.xml", optional: true, reloadOnChange: true);
-})
-```
+[!code-xml[](index/samples/3.x/ConfigSample/MyXMLFile.xml)]
 
-I file di configurazione XML possono usare nomi di elementi distinti per le sezioni ripetute:
+Il codice seguente del [download dell'esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples/3.x/ConfigSample) Visualizza diverse impostazioni di configurazione precedenti:
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-  <section0>
-    <key0>value</key0>
-    <key1>value</key1>
-  </section0>
-  <section1>
-    <key0>value</key0>
-    <key1>value</key1>
-  </section1>
-</configuration>
-```
-
-Il file di configurazione precedente carica le chiavi seguenti con `value`:
-
-* section0:key0
-* section0:key1
-* section1:key0
-* section1:key1
+[!code-csharp[](index/samples/3.x/ConfigSample/Pages/Test.cshtml.cs?name=snippet)]
 
 La ripetizione di elementi che usano lo stesso nome di elemento funziona se si usa l'attributo `name` per distinguere gli elementi:
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-  <section name="section0">
-    <key name="key0">value</key>
-    <key name="key1">value</key>
-  </section>
-  <section name="section1">
-    <key name="key0">value</key>
-    <key name="key1">value</key>
-  </section>
-</configuration>
-```
+[!code-xml[](index/samples/3.x/ConfigSample/MyXMLFile3.xml)]
 
-Il file di configurazione precedente carica le chiavi seguenti con `value`:
+Il codice seguente legge il file di configurazione precedente e visualizza le chiavi e i valori:
 
-* section:section0:key:key0
-* section:section0:key:key1
-* section:section1:key:key0
-* section:section1:key:key1
+[!code-csharp[](index/samples/3.x/ConfigSample/Pages/XML/Index.cshtml.cs?name=snippet)]
 
 È possibile usare attributi per fornire valori:
 
@@ -676,9 +494,9 @@ Il file di configurazione precedente carica le chiavi seguenti con `value`:
 * key:attribute
 * section:key:attribute
 
-## <a name="key-per-file-configuration-provider"></a>Provider di configurazione KeyPerFile
+## <a name="key-per-file-configuration-provider"></a>Provider di configurazione chiave per file
 
-Il <xref:Microsoft.Extensions.Configuration.KeyPerFile.KeyPerFileConfigurationProvider> usa i file di una directory come coppie chiave-valore della configurazione. La chiave è il nome del file. Il valore contiene il contenuto del file. Il provider di configurazione KeyPerFile viene usato in scenari di hosting Docker.
+Il <xref:Microsoft.Extensions.Configuration.KeyPerFile.KeyPerFileConfigurationProvider> usa i file di una directory come coppie chiave-valore della configurazione. La chiave è il nome del file. Il valore contiene il contenuto del file. Il provider di configurazione chiave per file viene usato negli scenari di hosting di Docker.
 
 Per attivare la configurazione chiave-per-file, chiamare il metodo di estensione <xref:Microsoft.Extensions.Configuration.KeyPerFileConfigurationBuilderExtensions.AddKeyPerFile*> su un'istanza di <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>. Il `directoryPath` per i file deve essere un percorso assoluto.
 
@@ -700,313 +518,142 @@ Chiamare `ConfigureAppConfiguration` quando si crea l'host per specificare la co
 })
 ```
 
+<a name="mcp"></a>
+
 ## <a name="memory-configuration-provider"></a>Provider di configurazione della memoria
 
 Il <xref:Microsoft.Extensions.Configuration.Memory.MemoryConfigurationProvider> usa una raccolta in memoria come coppie chiave-valore della configurazione.
 
-Per attivare la configurazione della raccolta in memoria, chiamare il metodo di estensione <xref:Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions.AddInMemoryCollection*> su un'istanza di <xref:Microsoft.Extensions.Configuration.ConfigurationBuilder>.
+Il codice seguente aggiunge una raccolta di memoria al sistema di configurazione:
 
-Il provider di configurazione può essere inizializzato con un `IEnumerable<KeyValuePair<String,String>>`.
+[!code-csharp[](index/samples/3.x/ConfigSample/ProgramArray.cs?name=snippet6)]
 
-Chiamare `ConfigureAppConfiguration` quando si crea l'host per specificare la configurazione dell'app.
+Il codice seguente del [download dell'esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples/3.x/ConfigSample) Visualizza le impostazioni di configurazione precedenti:
 
-Nell'esempio seguente viene creato un dizionario di configurazione:
+[!code-csharp[](index/samples/3.x/ConfigSample/Pages/Test.cshtml.cs?name=snippet)]
 
-```csharp
-public static readonly Dictionary<string, string> _dict = 
-    new Dictionary<string, string>
-    {
-        {"MemoryCollectionKey1", "value1"},
-        {"MemoryCollectionKey2", "value2"}
-    };
-```
+Nel codice precedente `config.AddInMemoryCollection(Dict)` viene aggiunto dopo i provider di [configurazione predefiniti](#default). Per un esempio di ordinamento dei provider di configurazione, vedere [provider di configurazione JSON](#jcp).
 
-Il dizionario viene usato con una chiamata a `AddInMemoryCollection` per fornire la configurazione:
+Per un esempio di ordinamento dei provider di configurazione, vedere [provider di configurazione JSON](#jcp).
 
-```csharp
-.ConfigureAppConfiguration((hostingContext, config) =>
-{
-    config.AddInMemoryCollection(_dict);
-})
-```
+Vedere [associare una matrice](#boa) per un altro esempio usando `MemoryConfigurationProvider`.
 
 ## <a name="getvalue"></a>GetValue
 
-[ConfigurationBinder. GetValue\<t >](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.GetValue*) estrae un singolo valore dalla configurazione con una chiave specificata e lo converte nel tipo non di raccolta specificato. Un overload accetta un valore predefinito.
+[`ConfigurationBinder.GetValue<T>`](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.GetValue*) estrae un singolo valore dalla configurazione con una chiave specificata e lo converte nel tipo specificato:
 
-L'esempio seguente:
+[!code-csharp[](index/samples/3.x/ConfigSample/Pages/TestNum.cshtml.cs?name=snippet)]
 
-* Estrae il valore di stringa dalla configurazione con la chiave `NumberKey`. Se `NumberKey` non viene trovato nelle chiavi di configurazione, viene usato il valore predefinito di `99`.
-* Assegna al valore il tipo `int`.
-* Memorizza il valore nella proprietà `NumberConfig` per l'uso da parte della pagina.
-
-```csharp
-public class IndexModel : PageModel
-{
-    public IndexModel(IConfiguration config)
-    {
-        _config = config;
-    }
-
-    public int NumberConfig { get; private set; }
-
-    public void OnGet()
-    {
-        NumberConfig = _config.GetValue<int>("NumberKey", 99);
-    }
-}
-```
+Nel codice precedente, se `NumberKey` non è stato trovato nella configurazione, viene usato il valore predefinito di `99`.
 
 ## <a name="getsection-getchildren-and-exists"></a>GetSection, GetChildren ed Exists
 
-Per gli esempi che seguono, prendere in considerazione il file JSON seguente. Vengono trovate quattro chiavi in due sezioni, una delle quali include una coppia di sottosezioni:
+Per gli esempi che seguono, prendere in considerazione il seguente file *MySubsection. JSON* :
 
-```json
-{
-  "section0": {
-    "key0": "value",
-    "key1": "value"
-  },
-  "section1": {
-    "key0": "value",
-    "key1": "value"
-  },
-  "section2": {
-    "subsection0" : {
-      "key0": "value",
-      "key1": "value"
-    },
-    "subsection1" : {
-      "key0": "value",
-      "key1": "value"
-    }
-  }
-}
-```
+[!code-json[](index/samples/3.x/ConfigSample/MySubsection.json)]
 
-Quando il file viene letto nella configurazione, vengono create le chiavi gerarchiche univoche seguenti per contenere i valori di configurazione:
+Il codice seguente aggiunge *MySubsection. JSON* ai provider di configurazione:
 
-* section0:key0
-* section0:key1
-* section1:key0
-* section1:key1
-* section2:subsection0:key0
-* section2:subsection0:key1
-* section2:subsection1:key0
-* section2:subsection1:key1
+[!code-csharp[](index/samples/3.x/ConfigSample/ProgramJSONsection.cs?name=snippet)]
 
 ### <a name="getsection"></a>GetSection
 
-[IConfiguration.GetSection](xref:Microsoft.Extensions.Configuration.IConfiguration.GetSection*) estrae una sottosezione della configurazione con la chiave di sottosezione specificata.
+[IConfiguration. GetSection](xref:Microsoft.Extensions.Configuration.IConfiguration.GetSection*) restituisce una sottosezione di configurazione con la chiave della sottosezione specificata.
 
-Per restituire una <xref:Microsoft.Extensions.Configuration.IConfigurationSection> che contiene solo le coppie chiave-valore in `section1`, chiamare `GetSection` e fornire il nome della sezione:
+Il codice seguente restituisce i valori per `section1`:
 
-```csharp
-var configSection = _config.GetSection("section1");
-```
+[!code-csharp[](index/samples/3.x/ConfigSample/Pages/TestSection.cshtml.cs?name=snippet)]
 
-`configSection` non ha un valore, ma solo una chiave e un percorso.
+Il codice seguente restituisce i valori per `section2:subsection0`:
 
-In modo analogo, per ottenere i valori per le chiavi in `section2:subsection0`, chiamare `GetSection` e fornire il percorso della sezione:
-
-```csharp
-var configSection = _config.GetSection("section2:subsection0");
-```
+[!code-csharp[](index/samples/3.x/ConfigSample/Pages/TestSection2.cshtml.cs?name=snippet)]
 
 `GetSection` non restituisce mai `null`. Se non viene trovata una sezione corrispondente, viene restituita una `IConfigurationSection` vuota.
 
 Quando `GetSection` restituisce una sezione corrispondente, <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Value> non viene compilata. Quando la sezione esiste, vengono restituiti <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Key> e <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Path>.
 
-### <a name="getchildren"></a>GetChildren
+### <a name="getchildren-and-exists"></a>GetChildren ed EXISTS
 
-Una chiamata a [IConfiguration.GetChildren](xref:Microsoft.Extensions.Configuration.IConfiguration.GetChildren*) per `section2` ottiene una `IEnumerable<IConfigurationSection>` che include:
+Il codice seguente chiama [IConfiguration. GetChildren](xref:Microsoft.Extensions.Configuration.IConfiguration.GetChildren*) e restituisce i valori per `section2:subsection0`:
 
-* `subsection0`
-* `subsection1`
+[!code-csharp[](index/samples/3.x/ConfigSample/Pages/TestSection4.cshtml.cs?name=snippet)]
 
-```csharp
-var configSection = _config.GetSection("section2");
+Il codice precedente chiama [ConfigurationExtensions. Exists](xref:Microsoft.Extensions.Configuration.ConfigurationExtensions.Exists*) per verificare che la sezione esista:
 
-var children = configSection.GetChildren();
+ <a name="boa"></a>
+
+## <a name="bind-an-array"></a>Associare una matrice
+
+[ConfigurationBinder. Bind](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*) supporta l'associazione di matrici a oggetti usando gli indici di matrice nelle chiavi di configurazione. Qualsiasi formato di matrice che espone un segmento di chiave numerica è in grado di associare array a una matrice di classi [poco](https://wikipedia.org/wiki/Plain_Old_CLR_Object) .
+
+Si consideri il file con *estensione JSON* dal [download di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples/3.x/ConfigSample):
+
+[!code-json[](index/samples/3.x/ConfigSample/MyArray.json)]
+
+Il codice seguente aggiunge il file *Array. JSON* ai provider di configurazione:
+
+[!code-csharp[](index/samples/3.x/ConfigSample/ProgramJSONarray.cs?name=snippet)]
+
+Il codice seguente legge la configurazione e Visualizza i valori:
+
+[!code-csharp[](index/samples/3.x/ConfigSample/Pages/Array.cshtml.cs?name=snippet)]
+
+Il codice precedente restituisce l'output seguente:
+
+```text
+Index: 0  Value: value00
+Index: 1  Value: value10
+Index: 2  Value: value20
+Index: 3  Value: value40
+Index: 4  Value: value50
 ```
 
-### <a name="exists"></a>Exists
+Nell'output precedente index 3 ha un valore `value40`, corrispondente a `"4": "value40",` in *unarray. JSON*. Gli indici di matrice associati sono continui e non sono associati all'indice della chiave di configurazione. Il binder di configurazione non è in grado di associare valori null o di creare voci null negli oggetti associati
 
-Usare [ConfigurationExtensions.Exists](xref:Microsoft.Extensions.Configuration.ConfigurationExtensions.Exists*) per determinare se esiste una sezione di configurazione:
+Il codice seguente carica la configurazione di `array:entries` con il metodo di estensione <xref:Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions.AddInMemoryCollection*>:
 
-```csharp
-var sectionExists = _config.GetSection("section2:subsection2").Exists();
+[!code-csharp[](index/samples/3.x/ConfigSample/ProgramArray.cs?name=snippet)]
+
+Il codice seguente legge la configurazione nel `arrayDict` `Dictionary` e Visualizza i valori:
+
+[!code-csharp[](index/samples/3.x/ConfigSample/Pages/Array.cshtml.cs?name=snippet)]
+
+Il codice precedente restituisce l'output seguente:
+
+```text
+Index: 0  Value: value0
+Index: 1  Value: value1
+Index: 2  Value: value2
+Index: 3  Value: value4
+Index: 4  Value: value5
 ```
 
-Considerati i dati di esempio, `sectionExists` è `false` perché non esiste una sezione `section2:subsection2` nei dati di configurazione.
+L'indice &num;3 nell'oggetto associato contiene i dati di configurazione per la chiave di configurazione `array:4` e il relativo valore `value4`. Quando i dati di configurazione contenenti una matrice sono associati, gli indici di matrice nelle chiavi di configurazione vengono usati per scorrere i dati di configurazione durante la creazione dell'oggetto. Un valore null non può essere mantenuto nei dati di configurazione e una voce con valore null non viene creata in un oggetto associato quando una matrice nelle chiavi di configurazione ignora uno o più indici.
 
-## <a name="bind-to-a-class"></a>Eseguire l'associazione a una classe
+È possibile specificare l'elemento di configurazione mancante per index &num;3 prima di eseguire il binding all'istanza `ArrayExample` da qualsiasi provider di configurazione che legga l'indice &num;3 coppie chiave/valore. Si consideri il seguente file *valore3. JSON* dal Download di esempio:
 
-La configurazione può essere associata alle classi che rappresentano gruppi di impostazioni correlate usando il *modello di opzioni*. Per altre informazioni, vedere <xref:fundamentals/configuration/options>.
+[!code-json[](index/samples/3.x/ConfigSample/Value3.json)]
 
-I valori di configurazione vengono restituiti come stringhe, ma la chiamata di <xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> consente la costruzione di oggetti [POCO](https://wikipedia.org/wiki/Plain_Old_CLR_Object). Il Binder associa i valori a tutte le proprietà di lettura/scrittura pubbliche del tipo fornito. I campi **non** sono associati.
+Il codice seguente include la configurazione per *valore3. JSON* e il `Dictionary``arrayDict`:
 
-L'app di esempio contiene un modello `Starship` (*Models/Starship.cs*):
+[!code-csharp[](index/samples/3.x/ConfigSample/ProgramArray.cs?name=snippet2)]
 
-[!code-csharp[](index/samples/3.x/ConfigurationSample/Models/Starship.cs?name=snippet1)]
+Il codice seguente legge la configurazione precedente e Visualizza i valori:
 
-La sezione `starship` del file *starship.json* crea la configurazione quando l'app di esempio usa il provider di configurazione JSON per caricare la configurazione:
+[!code-csharp[](index/samples/3.x/ConfigSample/Pages/Array.cshtml.cs?name=snippet)]
 
-[!code-json[](index/samples/3.x/ConfigurationSample/starship.json)]
+Il codice precedente restituisce l'output seguente:
 
-Vengono create le coppie chiave-valore della configurazione seguenti:
-
-| Chiave                   | valore                                             |
-| --------------------- | ------------------------------------------------- |
-| starship:name         | USS Enterprise                                    |
-| starship:registry     | NCC-1701                                          |
-| starship:class        | Constitution                                      |
-| starship:length       | 304.8                                             |
-| starship:commissioned | False                                             |
-| trademark             | Paramount Pictures Corp. https://www.paramount.com |
-
-L'app di esempio chiama `GetSection` con la chiave `starship`. Le coppie chiave-valore `starship` sono isolate. Il metodo `Bind` viene chiamato sulla sottosezione passando un'istanza della classe `Starship`. Dopo aver associato i valori dell'istanza, l'istanza viene assegnata a una proprietà per il rendering:
-
-[!code-csharp[](index/samples/3.x/ConfigurationSample/Pages/Index.cshtml.cs?name=snippet_starship)]
-
-## <a name="bind-to-an-object-graph"></a>Associazione a un oggetto grafico
-
-<xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> è in grado di associare un intero oggetto grafico POCO. Come per l'associazione di un oggetto semplice, vengono associate solo le proprietà di lettura/scrittura pubbliche.
-
-L'esempio contiene un modello `TvShow` il cui oggetto grafico include `Metadata` e le classi `Actors` (*Models/TvShow.cs*):
-
-[!code-csharp[](index/samples/3.x/ConfigurationSample/Models/TvShow.cs?name=snippet1)]
-
-L'app di esempio ha un file *tvshow.xml* che contiene i dati di configurazione:
-
-[!code-xml[](index/samples/3.x/ConfigurationSample/tvshow.xml)]
-
-La configurazione viene associata all'intero oggetto grafico `TvShow` con il metodo `Bind`. L'istanza associata viene assegnata a una proprietà per il rendering:
-
-```csharp
-var tvShow = new TvShow();
-_config.GetSection("tvshow").Bind(tvShow);
-TvShow = tvShow;
+```text
+Index: 0  Value: value0
+Index: 1  Value: value1
+Index: 2  Value: value2
+Index: 3  Value: value3
+Index: 4  Value: value4
+Index: 5  Value: value5
 ```
 
-[ConfigurationBinder.Get\<T>](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*) associa e restituisce il tipo specificato. `Get<T>` può essere più comodo che usare `Bind`. Il codice seguente mostra come usare `Get<T>` con l'esempio precedente, che consente di assegnare l'istanza associata direttamente alla proprietà usata per il rendering:
-
-[!code-csharp[](index/samples/3.x/ConfigurationSample/Pages/Index.cshtml.cs?name=snippet_tvshow)]
-
-## <a name="bind-an-array-to-a-class"></a>Associare una matrice a una classe
-
-*L'app di esempio dimostra i concetti spiegati in questa sezione.*
-
-Il <xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> supporta l'associazione di matrici agli oggetti usando gli indici delle matrici nelle chiavi di configurazione. Qualsiasi formato di matrice che espone un segmento di chiave numerico (`:0:`, `:1:`, &hellip; `:{n}:`) è in grado di associare l'array a una matrice di classi POCO.
-
-> [!NOTE]
-> L'associazione viene fornita per convenzione. I provider di configurazione personalizzati non devono implementare l'associazione di matrici.
-
-**Elaborazione di matrici in memoria**
-
-Prendere in considerazione le chiavi di configurazione e i valori indicati nella tabella seguente.
-
-| Chiave             | valore  |
-| :-------------: | :----: |
-| array:entries:0 | value0 |
-| array:entries:1 | value1 |
-| array:entries:2 | value2 |
-| array:entries:4 | value4 |
-| array:entries:5 | value5 |
-
-Queste chiavi e i valori vengono caricati nell'app di esempio usando il provider di configurazione della memoria:
-
-[!code-csharp[](index/samples/3.x/ConfigurationSample/Program.cs?name=snippet_Program&highlight=5-12,22)]
-
-La matrice ignora un valore per l'indice &num;3. Lo strumento di associazione di configurazione non è in grado di associare valori null o di creare voci null negli oggetti associati, situazione che diventerà chiara tra poco quando viene illustrato il risultato dell'associazione di questa matrice a un oggetto.
-
-Nell'app di esempio, è disponibile una classe POCO per i dati di configurazione associati:
-
-[!code-csharp[](index/samples/3.x/ConfigurationSample/Models/ArrayExample.cs?name=snippet1)]
-
-I dati di configurazione sono associati all'oggetto:
-
-```csharp
-var arrayExample = new ArrayExample();
-_config.GetSection("array").Bind(arrayExample);
-```
-
-È possibile usare anche la sintassi [ConfigurationBinder.Get\<T>](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*), che produce codice più compatto:
-
-[!code-csharp[](index/samples/3.x/ConfigurationSample/Pages/Index.cshtml.cs?name=snippet_array)]
-
-L'oggetto associato, un'istanza di `ArrayExample`, riceve i dati di matrice dalla configurazione.
-
-| Indice di `ArrayExample.Entries` | `ArrayExample.Entries` Valore |
-| :--------------------------: | :--------------------------: |
-| 0                            | value0                       |
-| 1                            | value1                       |
-| 2                            | value2                       |
-| 3                            | value4                       |
-| 4                            | value5                       |
-
-L'indice &num;3 nell'oggetto associato contiene i dati di configurazione per la chiave di configurazione `array:4` e il relativo valore `value4`. Quando i dati di configurazione contenenti una matrice vengono associati, gli indici di matrice nelle chiavi di configurazione vengono usati semplicemente per scorrere i dati di configurazione quando si crea l'oggetto. Un valore null non può essere mantenuto nei dati di configurazione e una voce con valore null non viene creata in un oggetto associato quando una matrice nelle chiavi di configurazione ignora uno o più indici.
-
-L'elemento di configurazione mancante per l'indice &num;3 può essere fornito prima dell'associazione all'istanza `ArrayExample` da qualsiasi provider di configurazione che produce la coppia chiave-valore corretta nella configurazione. Se il codice di esempio include un provider di configurazione JSON aggiuntivo con la coppia chiave-valore mancante, `ArrayExample.Entries` corrisponde alla matrice di configurazione completa:
-
-*missing_value.json*:
-
-```json
-{
-  "array:entries:3": "value3"
-}
-```
-
-In `ConfigureAppConfiguration`:
-
-```csharp
-config.AddJsonFile(
-    "missing_value.json", optional: false, reloadOnChange: false);
-```
-
-La coppia chiave-valore mostrata nella tabella viene caricata nella configurazione.
-
-| Chiave             | valore  |
-| :-------------: | :----: |
-| array:entries:3 | value3 |
-
-Se l'istanza della classe `ArrayExample` viene associata dopo che il provider di configurazione JSON include la voce per l'indice &num;3, la matrice `ArrayExample.Entries` include il valore.
-
-| Indice di `ArrayExample.Entries` | `ArrayExample.Entries` Valore |
-| :--------------------------: | :--------------------------: |
-| 0                            | value0                       |
-| 1                            | value1                       |
-| 2                            | value2                       |
-| 3                            | value3                       |
-| 4                            | value4                       |
-| 5                            | value5                       |
-
-**Elaborazione di matrice JSON**
-
-Se un file JSON contiene una matrice, vengono create chiavi di configurazione per gli elementi della matrice con un indice di sezione in base zero. Nel file di configurazione seguente, `subsection` è una matrice:
-
-[!code-json[](index/samples/3.x/ConfigurationSample/json_array.json)]
-
-Il provider di configurazione JSON legge i dati di configurazione nelle coppie chiave-valore seguenti:
-
-| Chiave                     | valore  |
-| ----------------------- | :----: |
-| json_array:key          | valueA |
-| json_array:subsection:0 | valueB |
-| json_array:subsection:1 | valueC |
-| json_array:subsection:2 | valueD |
-
-Nell'app di esempio, la classe POCO seguente è disponibile per associare le coppie chiave-valore della configurazione:
-
-[!code-csharp[](index/samples/3.x/ConfigurationSample/Models/JsonArrayExample.cs?name=snippet1)]
-
-Dopo l'associazione, `JsonArrayExample.Key` contiene il valore `valueA`. I valori di sottosezione vengono archiviati nella proprietà matrice POCO `Subsection`.
-
-| Indice di `JsonArrayExample.Subsection` | `JsonArrayExample.Subsection` Valore |
-| :---------------------------------: | :---------------------------------: |
-| 0                                   | valueB                              |
-| 1                                   | valueC                              |
-| 2                                   | valueD                              |
+I provider di configurazione personalizzati non devono implementare l'associazione di matrici.
 
 ## <a name="custom-configuration-provider"></a>Provider di configurazione personalizzato
 
@@ -1052,75 +699,61 @@ L'esempio di codice seguente mostra come usare il `EFConfigurationProvider` pers
 
 [!code-csharp[](index/samples/3.x/ConfigurationSample/Program.cs?name=snippet_Program&highlight=29-30)]
 
-## <a name="access-configuration-during-startup"></a>Accedere alla configurazione durante l'avvio
+<a name="acs"></a>
 
-Inserire `IConfiguration` nel costruttore `Startup` per accedere ai valori di configurazione in `Startup.ConfigureServices`. Per accedere alla configurazione in `Startup.Configure`, inserire `IConfiguration` direttamente nel metodo o usare l'istanza dal costruttore:
+## <a name="access-configuration-in-startup"></a>Accedi alla configurazione all'avvio
 
-```csharp
-public class Startup
-{
-    private readonly IConfiguration _config;
+Il codice seguente consente di visualizzare i dati di configurazione in `Startup` metodi:
 
-    public Startup(IConfiguration config)
-    {
-        _config = config;
-    }
-
-    public void ConfigureServices(IServiceCollection services)
-    {
-        var value = _config["key"];
-    }
-
-    public void Configure(IApplicationBuilder app, IConfiguration config)
-    {
-        var value = config["key"];
-    }
-}
-```
+[!code-csharp[](index/samples/3.x/ConfigSample/StartupKey.cs?name=snippet&highlight=13,18)]
 
 Per un esempio di accesso alla configurazione usando metodi di servizio di avvio, vedere [Avvio dell'applicazione: Metodi pratici](xref:fundamentals/startup#convenience-methods).
 
-## <a name="access-configuration-in-a-razor-pages-page-or-mvc-view"></a>Accedere alla configurazione in una pagina Razor Pages o in una visualizzazione MVC
+## <a name="access-configuration-in-razor-pages"></a>Configurazione dell'accesso in Razor Pages
 
-Per accedere alle impostazioni di configurazione in una pagina Razor Pages o in una visualizzazione MVC, aggiungere un [direttiva using](xref:mvc/views/razor#using) ([Informazioni di riferimento su C#: direttiva using](/dotnet/csharp/language-reference/keywords/using-directive)) per lo [spazio dei nomi Microsoft.Extensions.Configuration](xref:Microsoft.Extensions.Configuration) e inserire <xref:Microsoft.Extensions.Configuration.IConfiguration> nella pagina o nella visualizzazione.
+Il codice seguente Visualizza i dati di configurazione in una pagina Razor:
 
-In una pagina Razor Pages:
+[!code-cshtml[](index/samples/3.x/ConfigSample/Pages/Test5.cshtml)]
 
-```cshtml
-@page
-@model IndexModel
-@using Microsoft.Extensions.Configuration
-@inject IConfiguration Configuration
+## <a name="access-configuration-in-a-mvc-view-file"></a>Accedere alla configurazione in un file di visualizzazione MVC
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Index Page</title>
-</head>
-<body>
-    <h1>Access configuration in a Razor Pages page</h1>
-    <p>Configuration value for 'key': @Configuration["key"]</p>
-</body>
-</html>
-```
+Il codice seguente consente di visualizzare i dati di configurazione in una visualizzazione MVC:
 
-In una visualizzazione MVC:
+[!code-cshtml[](index/samples/3.x/ConfigSample/Views/Home2/Index.cshtml)]
 
-```cshtml
-@using Microsoft.Extensions.Configuration
-@inject IConfiguration Configuration
+<a name="hvac"></a>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Index View</title>
-</head>
-<body>
-    <h1>Access configuration in an MVC view</h1>
-    <p>Configuration value for 'key': @Configuration["key"]</p>
-</body>
-</html>
-```
+## <a name="host-versus-app-configuration"></a>Host e configurazione delle app
+
+Prima che l'app venga configurata e avviata, viene configurato e avviato un *host*. L'host è responsabile della gestione dell'avvio e della durata delle app. Sia l'app che l'host vengono configurati tramite i provider di configurazione descritti in questo argomento. Anche le coppie chiave-valore di configurazione dell'host sono incluse nella configurazione dell'app. Per altre informazioni su come vengono usati i provider di configurazione quando viene creato l'host e sugli effetti delle origini di configurazione sull'host di configurazione, vedere <xref:fundamentals/index#host>.
+
+<a name="dhc"></a>
+
+## <a name="default-host-configuration"></a>Configurazione host predefinita
+
+Per informazioni dettagliate sulla configurazione predefinita quando viene usato l'[host Web](xref:fundamentals/host/web-host), vedere la [versione di questo argomento per ASP.NET Core 2.2](/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.2).
+
+* La configurazione dell'host viene specificata da:
+  * Le variabili di ambiente precedute dal prefisso `DOTNET_` (ad esempio `DOTNET_ENVIRONMENT`) utilizzando il [provider di configurazione delle variabili di ambiente](#environment-variables-configuration-provider). Il prefisso (`DOTNET_`) viene rimosso al caricamento delle coppie chiave-valore della configurazione.
+  * Argomenti della riga di comando che usano il [provider di configurazione della riga di comando](#command-line-configuration-provider).
+* La configurazione predefinita dell'host Web viene stabilita (`ConfigureWebHostDefaults`) nel modo seguente:
+  * Kestrel viene usato come server Web e configurato con i provider di configurazione dell'app.
+  * Aggiungere il middleware di filtro host.
+  * Aggiungere il middleware delle intestazioni inoltrate se la variabile di ambiente `ASPNETCORE_FORWARDEDHEADERS_ENABLED` è impostata su `true`.
+  * Abilitare l'integrazione di IIS.
+
+## <a name="other-configuration"></a>Altra configurazione
+
+Questo argomento riguarda solo la *configurazione dell'app*. Altri aspetti dell'esecuzione e dell'hosting di app ASP.NET Core sono configurati usando i file di configurazione non trattati in questo argomento:
+
+* *Launch. json*/*launchSettings. JSON* sono i file di configurazione degli strumenti per l'ambiente di sviluppo, descritti di seguito:
+  * In <xref:fundamentals/environments#development>.
+  * Nella documentazione in cui vengono usati i file per configurare ASP.NET Core app per scenari di sviluppo.
+* *Web. config* è un file di configurazione del server, descritto negli argomenti seguenti:
+  * <xref:host-and-deploy/iis/index>
+  * <xref:host-and-deploy/aspnet-core-module>
+
+Per ulteriori informazioni sulla migrazione della configurazione dell'app da versioni precedenti di ASP.NET, vedere <xref:migration/proper-to-2x/index#store-configurations>.
 
 ## <a name="add-configuration-from-an-external-assembly"></a>Aggiungere la configurazione da un assembly esterno
 
@@ -1128,6 +761,7 @@ Un'implementazione <xref:Microsoft.AspNetCore.Hosting.IHostingStartup> consente 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
+* [Codice sorgente configurazione](https://github.com/dotnet/extensions/tree/master/src/Configuration)
 * <xref:fundamentals/configuration/options>
 
 ::: moniker-end
@@ -1841,7 +1475,7 @@ Il dizionario viene usato con una chiamata a `AddInMemoryCollection` per fornire
 
 ## <a name="getvalue"></a>GetValue
 
-[ConfigurationBinder. GetValue\<t >](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.GetValue*) estrae un singolo valore dalla configurazione con una chiave specificata e lo converte nel tipo non di raccolta specificato. Un overload accetta un valore predefinito.
+[`ConfigurationBinder.GetValue<T>`](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.GetValue*) estrae un singolo valore dalla configurazione con una chiave specificata e lo converte nel tipo non di raccolta specificato. Un overload accetta un valore predefinito.
 
 L'esempio seguente:
 
@@ -1949,35 +1583,6 @@ var sectionExists = _config.GetSection("section2:subsection2").Exists();
 
 Considerati i dati di esempio, `sectionExists` è `false` perché non esiste una sezione `section2:subsection2` nei dati di configurazione.
 
-## <a name="bind-to-a-class"></a>Eseguire l'associazione a una classe
-
-La configurazione può essere associata alle classi che rappresentano gruppi di impostazioni correlate usando il *modello di opzioni*. Per altre informazioni, vedere <xref:fundamentals/configuration/options>.
-
-I valori di configurazione vengono restituiti come stringhe, ma la chiamata di <xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> consente la costruzione di oggetti [POCO](https://wikipedia.org/wiki/Plain_Old_CLR_Object). Il Binder associa i valori a tutte le proprietà di lettura/scrittura pubbliche del tipo fornito. I campi **non** sono associati.
-
-L'app di esempio contiene un modello `Starship` (*Models/Starship.cs*):
-
-[!code-csharp[](index/samples/2.x/ConfigurationSample/Models/Starship.cs?name=snippet1)]
-
-La sezione `starship` del file *starship.json* crea la configurazione quando l'app di esempio usa il provider di configurazione JSON per caricare la configurazione:
-
-[!code-json[](index/samples/2.x/ConfigurationSample/starship.json)]
-
-Vengono create le coppie chiave-valore della configurazione seguenti:
-
-| Chiave                   | valore                                             |
-| --------------------- | ------------------------------------------------- |
-| starship:name         | USS Enterprise                                    |
-| starship:registry     | NCC-1701                                          |
-| starship:class        | Constitution                                      |
-| starship:length       | 304.8                                             |
-| starship:commissioned | False                                             |
-| trademark             | Paramount Pictures Corp. https://www.paramount.com |
-
-L'app di esempio chiama `GetSection` con la chiave `starship`. Le coppie chiave-valore `starship` sono isolate. Il metodo `Bind` viene chiamato sulla sottosezione passando un'istanza della classe `Starship`. Dopo aver associato i valori dell'istanza, l'istanza viene assegnata a una proprietà per il rendering:
-
-[!code-csharp[](index/samples/2.x/ConfigurationSample/Pages/Index.cshtml.cs?name=snippet_starship)]
-
 ## <a name="bind-to-an-object-graph"></a>Associazione a un oggetto grafico
 
 <xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> è in grado di associare un intero oggetto grafico POCO. Come per l'associazione di un oggetto semplice, vengono associate solo le proprietà di lettura/scrittura pubbliche.
@@ -1998,7 +1603,7 @@ _config.GetSection("tvshow").Bind(tvShow);
 TvShow = tvShow;
 ```
 
-[ConfigurationBinder.Get\<T>](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*) associa e restituisce il tipo specificato. `Get<T>` può essere più comodo che usare `Bind`. Il codice seguente mostra come usare `Get<T>` con l'esempio precedente, che consente di assegnare l'istanza associata direttamente alla proprietà usata per il rendering:
+[`ConfigurationBinder.Get<T>`](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*) associa e restituisce il tipo specificato. `Get<T>` può essere più comodo che usare `Bind`. Il codice seguente illustra come usare `Get<T>` con l'esempio precedente:
 
 [!code-csharp[](index/samples/2.x/ConfigurationSample/Pages/Index.cshtml.cs?name=snippet_tvshow)]
 
@@ -2040,7 +1645,7 @@ var arrayExample = new ArrayExample();
 _config.GetSection("array").Bind(arrayExample);
 ```
 
-È possibile usare anche la sintassi [ConfigurationBinder.Get\<T>](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*), che produce codice più compatto:
+è anche possibile usare la sintassi [`ConfigurationBinder.Get<T>`](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*) , che comporta un codice più compatto:
 
 [!code-csharp[](index/samples/2.x/ConfigurationSample/Pages/Index.cshtml.cs?name=snippet_array)]
 
