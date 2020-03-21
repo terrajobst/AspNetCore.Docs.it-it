@@ -1,23 +1,23 @@
 ---
 title: Creazione di applicazioni Web progressive con ASP.NET Core Blazor webassembly
 author: guardrex
-description: Informazioni su come creare applicazioni Web progressive basate su Blazor(PWA), app Web che usano le funzionalità moderne del browser per comportarsi come le app desktop.
+description: Informazioni su come creare un'applicazione Web progressiva basata su Blazor(PWA) che usa le funzionalità moderne del browser per comportarsi come un'app desktop.
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/09/2020
+ms.date: 03/12/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/progressive-web-app
-ms.openlocfilehash: f1c1ce50f20bf579e67e1d4eb02cc7d9d681e354
-ms.sourcegitcommit: 98bcf5fe210931e3eb70f82fd675d8679b33f5d6
+ms.openlocfilehash: 53e1c4d043c0e8faf13668989cda1f1245c7157a
+ms.sourcegitcommit: 9b6e7f421c243963d5e419bdcfc5c4bde71499aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79083720"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "79989563"
 ---
-# <a name="build-progressive-web-applications-with-aspnet-core-opno-locblazor-webassembly"></a>Creazione di applicazioni Web progressive con ASP.NET Core Blazor webassembly
+# <a name="build-progressive-web-applications-with-aspnet-core-blazor-webassembly"></a>Creazione di applicazioni Web progressive con ASP.NET Core webassembly di Blazer
 
 Di [Steve Sanderson](https://github.com/SteveSandersonMS)
 
@@ -25,119 +25,145 @@ Di [Steve Sanderson](https://github.com/SteveSandersonMS)
 
 [!INCLUDE[](~/includes/blazorwasm-3.2-template-article-notice.md)]
 
-Un'applicazione Web progressiva (PWA) è un'applicazione basata sul Web che usa le API e le funzionalità moderne del browser per comportarsi come un'applicazione desktop. Queste funzionalità possono includere:
+Un'applicazione Web progressiva (PWA) è un'applicazione a pagina singola (SPA) che usa le API e le funzionalità moderne del browser per comportarsi come un'app desktop. Blazer webassembly è una piattaforma di app Web lato client basata su standard, pertanto può usare qualsiasi API del browser, incluse le API di PWA richieste per le funzionalità seguenti:
 
-* Lavorare offline e caricare sempre immediatamente, indipendentemente dalla velocità di rete
-* Possibilità di esecuzione nella finestra dell'applicazione, non solo in una finestra del browser
-* Viene avviato dal menu Start del sistema operativo host, ancorato o dalla schermata iniziale
-* Ricezione di notifiche push da un server back-end, anche quando l'utente non usa l'applicazione
-* Aggiornamento automatico in background
+* Lavorare offline e caricare immediatamente, indipendentemente dalla velocità di rete.
+* In esecuzione nella propria finestra dell'app, non solo in una finestra del browser.
+* Viene avviato dal menu Start del sistema operativo dell'host, ancorato o dalla schermata iniziale.
+* Ricezione di notifiche push da un server back-end, anche quando l'utente non usa l'app.
+* Aggiornamento automatico in background.
 
-Un utente potrebbe prima di tutto individuare e usare l'applicazione all'interno del Web browser come qualsiasi altra applicazione a singola pagina (SPA), quindi procedere in seguito per installarla nel sistema operativo e abilitare le notifiche push. Ecco perché usiamo il termine *progressive*.
+La parola *progressive* viene usata per descrivere tali app perché:
 
-Blazor webassembly è una vera piattaforma applicativa lato client basata su standard, pertanto può usare qualsiasi API del browser, incluse le API di PWA necessarie per le funzionalità elencate in precedenza. Può funzionare offline esattamente come qualsiasi altra tecnologia Web sul lato client.
+* Un utente potrebbe prima di tutto individuare e usare l'app nel Web browser come qualsiasi altra SPA.
+* Successivamente, l'utente procede all'installazione nel sistema operativo e Abilita le notifiche push.
 
-## <a name="pwa-template"></a>Modello di PWA
+## <a name="create-a-project-from-the-pwa-template"></a>Creare un progetto dal modello PWA
 
-Quando si crea una nuova applicazione Blazor webassembly, viene offerta la possibilità di aggiungere le funzionalità di PWA. In Visual Studio, l'opzione viene specificata come casella di controllo nella finestra di dialogo di creazione del progetto:
+# <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-![image](https://user-images.githubusercontent.com/1101362/76207411-a6b54200-61f5-11ea-9dfc-6acd87a91428.png)
+Quando si crea una nuova **app Webassembly Blazer** nella finestra di dialogo **Crea un nuovo progetto** , selezionare la casella di controllo **stato applicazione Web** :
 
-Se si sta creando il progetto nella riga di comando, è possibile usare il flag `--pwa`. Ad esempio,
+![La casella di controllo ' applicazione Web progressiva ' è selezionata nella finestra di dialogo nuovo progetto di Visual Studio.](progressive-web-app/_static/image1.png)
+
+<!--
+
+# [Visual Studio for Mac](#tab/visual-studio-mac)
+
+-->
+
+# <a name="visual-studio-code--net-core-cli"></a>[Visual Studio Code/Interfaccia della riga di comando di .NET Core](#tab/visual-studio-code+netcore-cli)
+
+Creare un progetto PWA in una shell dei comandi con l'opzione `--pwa`:
 
 ```dotnetcli
-dotnet new blazorwasm --pwa -o MyNewProject
+dotnet new blazorwasm -o MyNewProject --pwa
 ```
 
-In entrambi i casi, è possibile combinare questa opzione con l'opzione "ASP.NET Core Hosted", se lo si desidera, ma non è necessario. Le funzionalità di PWA sono indipendenti dal modello di hosting.
+---
+
+Facoltativamente, è possibile configurare PWA per un'app creata dal modello di ASP.NET Core Hosted. Lo scenario PWA è indipendente dal modello di hosting.
 
 ## <a name="installation-and-app-manifest"></a>Installazione e manifesto dell'applicazione
 
-Quando si visita un'applicazione creata usando l'opzione del modello di PWA, gli utenti hanno la possibilità di installare l'applicazione nel menu Start del sistema operativo, nel Dock o nella schermata iniziale.
+Quando si visita un'app creata usando il modello di PWA, gli utenti hanno la possibilità di installare l'app nel menu Start del sistema operativo, nell'ancoraggio o nella schermata iniziale. Il modo in cui viene presentata questa opzione dipende dal browser dell'utente. Quando si usano i browser basati su Chrome Desktop, ad esempio Edge o Chrome, viene visualizzato un pulsante **Aggiungi** nella barra degli URL. Dopo che l'utente ha selezionato il pulsante **Aggiungi** , viene visualizzata una finestra di dialogo di conferma:
 
-Il modo in cui viene presentata questa opzione dipende dal browser dell'utente. Ad esempio, quando si usano browser basati su Chrome Desktop come Edge o Chrome, viene visualizzato un pulsante *Aggiungi* nella barra degli URL:
+![Il diaglog di conferma in Google Chrome visualizza un pulsante di installazione per l'app ' MyBlazorPwa '.](progressive-web-app/_static/image2.png)
 
-![image](https://user-images.githubusercontent.com/1101362/76208127-f7796a80-61f6-11ea-8aea-7fba704be787.png)
+In iOS i visitatori possono installare il PWA usando il pulsante di **condivisione** di Safari e l'opzione **Aggiungi a homescreen** . In Chrome per Android, gli utenti devono selezionare il pulsante di **menu** nell'angolo in alto a destra, seguito da **Aggiungi alla schermata iniziale**.
 
-In iOS i visitatori possono installare il PWA usando il pulsante di *condivisione* di Safari e l'opzione *Aggiungi a homescreen* . In Chrome per Android gli utenti devono toccare il pulsante di *menu* nell'angolo in alto a destra, quindi scegliere *Aggiungi alla schermata iniziale*.
+Una volta installato, l'app viene visualizzata nella propria finestra senza una barra degli indirizzi:
 
-Una volta installato, l'applicazione viene visualizzata nella propria finestra, senza alcuna barra degli indirizzi.
+![L'app ' MyBlazorPwa ' viene eseguita in Google Chrome senza una barra degli indirizzi.](progressive-web-app/_static/image3.png)
 
-![image](https://user-images.githubusercontent.com/1101362/76208588-e2e9a200-61f7-11ea-85e1-8c3fc849b252.png)
-
-Per personalizzare il titolo della finestra, la combinazione di colori, l'icona o altri dettagli, vedere il file `manifest.json` nella directory *wwwroot* del progetto. Lo schema di questo file è definito dagli standard Web. Per la documentazione dettagliata, vedere https://developer.mozilla.org/docs/Web/Manifest.
+Per personalizzare il titolo della finestra, la combinazione di colori, l'icona o altri dettagli, vedere il file *manifest. JSON* nella directory *wwwroot* del progetto. Lo schema di questo file è definito dagli standard Web. Per altre informazioni, vedere la pagina relativa ai [documenti MDN Web: manifesto dell'app Web](https://developer.mozilla.org/docs/Web/Manifest).
 
 ## <a name="offline-support"></a>Supporto offline
 
-Per impostazione predefinita, le applicazioni create utilizzando l'opzione del modello PWA dispongono del supporto per l'esecuzione offline. Un utente deve prima visitare l'applicazione mentre è online, il browser scaricherà automaticamente e memorizza nella cache tutte le risorse necessarie per il funzionamento offline.
+Per impostazione predefinita, le app create usando l'opzione del modello di PWA hanno il supporto per l'esecuzione offline. Un utente deve prima visitare l'app mentre è in linea. Il browser Scarica e memorizza automaticamente tutte le risorse necessarie per il funzionamento offline.
 
 > [!IMPORTANT]
-> Il supporto offline è abilitato solo per le applicazioni *pubblicate* . Non è abilitata durante lo sviluppo. Ciò è dovuto al fatto che interferisce con il normale ciclo di sviluppo di apportare modifiche e testarle.
+> Il supporto per lo sviluppo interferisce con il normale ciclo di sviluppo di apportare modifiche e testarle. Il supporto offline è pertanto abilitato solo per le app *pubblicate* . 
 
 > [!WARNING]
-> Se si intende distribuire un PWA abilitato offline, è necessario comprendere [alcuni avvisi e Avvertenze importanti](#caveats-for-offline-pwas) . Sono intrinseci ai PWA offline e non sono specifici per Blazor. Assicurarsi di leggere e comprendere questi avvertimenti prima di ipotizzare il funzionamento dell'applicazione abilitata per offline.
+> Se si intende distribuire un PWA abilitato offline, sono presenti [diversi avvisi e Avvertenze importanti](#caveats-for-offline-pwas). Questi scenari sono inerenti a PWA offline e non sono specifici per Blazor. Assicurarsi di leggere e comprendere questi avvertimenti prima di ipotizzare il funzionamento dell'app abilitata per offline.
 
-Per verificare il funzionamento del supporto offline, [pubblicare prima l'applicazione](https://docs.microsoft.com/aspnet/core/host-and-deploy/blazor/?view=aspnetcore-3.1&tabs=visual-studio#publish-the-app)e ospitarla in un server che supporta HTTPS. Quando si visita l'applicazione, dovrebbe essere possibile aprire gli strumenti di sviluppo del browser e verificare che un ruolo di *lavoro del servizio* sia registrato per l'host:
+Per verificare il funzionamento del supporto offline:
 
-![image](https://user-images.githubusercontent.com/1101362/76210294-bd5e9780-61fb-11ea-9869-65c55c62803d.png)
+1. Pubblicare l'app. Per altre informazioni, vedere <xref:host-and-deploy/blazor/index#publish-the-app>.
+1. Distribuire l'app in un server che supporta HTTPS e accedere all'app in un browser con il relativo indirizzo HTTPS protetto.
+1. Aprire gli strumenti di sviluppo del browser e verificare che un ruolo di *lavoro del servizio* sia registrato per l'host nella scheda **applicazione** :
 
-Inoltre, se si ricarica la pagina, nella scheda *rete* si noterà che tutte le risorse necessarie per caricare la pagina vengono recuperate dal ruolo di lavoro del *servizio* o dalla *cache della memoria*:
+   ![La scheda ' applicazione ' degli strumenti di sviluppo di Google Chrome Mostra un servizio di lavoro attivato e in esecuzione.](progressive-web-app/_static/image4.png)
 
-![image](https://user-images.githubusercontent.com/1101362/76210472-1d553e00-61fc-11ea-84c6-291644df709e.png)
+1. Ricaricare la pagina ed esaminare la scheda **rete** . il ruolo di **lavoro del servizio** o la **cache della memoria** sono elencati come origini per tutti gli asset della pagina:
 
-Ciò indica che il browser non dipende dall'accesso alla rete per caricare l'applicazione. Per verificarlo, è possibile arrestare il server Web o indicare al browser di simulare la modalità offline:
+   ![Scheda ' rete ' degli strumenti di sviluppo di Google Chrome che mostra le origini per tutte le risorse della pagina.](progressive-web-app/_static/image5.png)
 
-![image](https://user-images.githubusercontent.com/1101362/76210556-47a6fb80-61fc-11ea-9d12-20a8f6528744.png)
+1. Per verificare che il browser non dipenda dall'accesso di rete per caricare l'app, eseguire una delle operazioni seguenti:
 
-A questo punto, anche senza accedere al server Web, dovrebbe essere possibile ricaricare la pagina e verificare che l'applicazione venga caricata ed eseguita. Analogamente, anche se si simula una connessione di rete molto lenta, la pagina verrà caricata immediatamente perché viene caricata indipendentemente dalla rete.
+   * Arrestare il server Web e verificare il funzionamento normale dell'app, che include il ricaricamento della pagina. Analogamente, l'applicazione continua a funzionare normalmente quando è presente una connessione di rete lenta.
+   * Indica al browser di simulare la modalità offline nella scheda **rete** :
 
-### <a name="service-worker"></a>Ruolo di lavoro del servizio
+   ![Scheda "rete" degli strumenti di sviluppo di Google Chrome con l'elenco a discesa Modalità browser modificato da "online" a "offline".](progressive-web-app/_static/image6.png)
 
-Il supporto offline viene eseguito tramite un ruolo di lavoro del servizio. Si tratta di uno standard Web, non specifico per Blazor. Per la documentazione relativa ai service worker, vedere https://developer.mozilla.org/docs/Web/API/Service_Worker_API. Per ulteriori informazioni sui modelli di utilizzo comuni per i ruoli di lavoro del servizio, vedere l'articolo eccellente ciclo di vita [del servizio](https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle).
+Il supporto offline tramite un worker del servizio è uno standard Web, non specifico per Blazor. Per altre informazioni sui ruoli di lavoro del servizio, vedere la pagina relativa all' [API del servizio Web MDN](https://developer.mozilla.org/docs/Web/API/Service_Worker_API). Per ulteriori informazioni sui modelli di utilizzo comuni per i ruoli di lavoro del servizio, vedere [Google Web: ciclo di vita del servizio](https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle).
 
 il modello PWA di Blazorproduce due file del ruolo di lavoro del servizio:
 
-* *wwwroot/Service-Worker. js*, usato durante lo sviluppo
-* *wwwroot/Service-Worker. Published. js*, che viene usato una volta pubblicata l'applicazione
+* *wwwroot/Service-Worker. js*, usato durante lo sviluppo.
+* *wwwroot/Service-Worker. Published. js*, che viene usato dopo la pubblicazione dell'app.
 
-Se si vuole condividere la logica tra questi due file, è consigliabile aggiungere un terzo file JavaScript per includere la logica comune e usare [`self.importScripts`](https://developer.mozilla.org/docs/Web/API/WorkerGlobalScope/importScripts) per caricare la logica in entrambi i file.
+Per condividere la logica tra i due file del ruolo di lavoro del servizio, prendere in considerazione l'approccio seguente:
 
-#### <a name="cache-first-fetch-strategy"></a>Strategia di recupero cache-First
+* Aggiungere un terzo file JavaScript per conservare la logica comune.
+* Usare [self. importScripts](https://developer.mozilla.org/docs/Web/API/WorkerGlobalScope/importScripts) per caricare la logica comune in entrambi i file del ruolo di lavoro del servizio.
 
-Il ruolo di lavoro del servizio *service-worker. Published. js* incorporato risolve le richieste usando una strategia di *cache-First* . Ciò significa che è sempre preferibile restituire il contenuto memorizzato nella cache, se disponibile, indipendentemente dal fatto che l'utente abbia accesso alla rete o che il contenuto più recente sia disponibile nel server.
+### <a name="cache-first-fetch-strategy"></a>Strategia di recupero cache-First
 
-Questo è utile per due motivi:
+Il ruolo di lavoro del servizio *service-worker. Published. js* incorporato risolve le richieste usando una strategia di *cache-First* . Questo significa che il ruolo di lavoro del servizio preferisce restituire contenuto memorizzato nella cache, indipendentemente dal fatto che l'utente abbia accesso alla rete o che nel server sia disponibile contenuto più recente.
 
-* **Garantisce l'affidabilità.** L'accesso alla rete non è uno stato booleano. Un utente non è semplicemente "online" o "offline". In realtà, il dispositivo dell'utente può ritenere che sia online, ma la rete potrebbe essere così lenta da risultare poco pratica da attendere. In alternativa, la rete potrebbe restituire risultati non validi per determinati URL, ad esempio quando è presente un portale Wi-Fi captive che sta attualmente bloccando o reindirizzando determinate richieste. Questo è il motivo per cui l'API `navigator.onLine` del browser non è affidabile e non dipende da.
-* **Garantisce la correttezza.** Quando si compila una cache di risorse offline, il ruolo di lavoro del servizio utilizza l'hashing del contenuto per garantire che sia stato recuperato uno snapshot completo e coerente delle risorse in un singolo momento. Questa cache viene quindi utilizzata come unità atomica. Dato questo, non ci sono punti che richiedono la rete per le risorse più recenti, perché le uniche versioni desiderate sono quelle già memorizzate nella cache. Altri rischiano incoerenza e incompatibilità (ad esempio, il tentativo di usare le versioni degli assembly .NET che non sono stati compilati insieme).
+La strategia di cache-First è utile perché:
 
-#### <a name="background-updates"></a>Aggiornamenti in background
+* **Garantisce l'affidabilità.** &ndash; accesso alla rete non è uno stato booleano. Un utente non è semplicemente online o offline:
 
-Come modello mentale, è possibile pensare a un'app per dispositivi mobili che può essere installata in modalità offline. Viene sempre avviato immediatamente indipendentemente dalla connettività di rete, ma la logica dell'applicazione installata deriva da uno snapshot temporizzato che potrebbe non essere la versione più recente.
+  * Il dispositivo dell'utente può presupporre che sia online, ma la rete potrebbe essere così lenta da risultare poco pratica da attendere.
+  * la rete potrebbe restituire risultati non validi per determinati URL, ad esempio quando è presente un portale WIFI captive che sta attualmente bloccando o reindirizzando determinate richieste.
+  
+  Questo è il motivo per cui l'API `navigator.onLine` del browser non è affidabile e non deve dipendere da.
 
-Il modello di Blazor PWA produce applicazioni che tentano automaticamente di aggiornarsi in background ogni volta che l'utente visita e ha una connessione di rete funzionante. Il funzionamento di questo approccio è il seguente:
+* **Garantisce la correttezza.** &ndash; quando si compila una cache di risorse offline, il ruolo di lavoro del servizio utilizza l'hashing del contenuto per garantire che sia stato recuperato uno snapshot completo e coerente delle risorse in un unico istante nel tempo. Questa cache viene quindi utilizzata come unità atomica. Non è necessario chiedere alla rete le risorse più recenti, perché le uniche versioni richieste sono quelle già memorizzate nella cache. Altri rischiano incoerenza e incompatibilità (ad esempio, il tentativo di usare le versioni degli assembly .NET che non sono stati compilati insieme).
 
-* Durante la compilazione, il progetto genera un manifesto delle risorse del ruolo di *lavoro del servizio*. Per impostazione predefinita, questo nome è denominato *service-worker-assets. js*. Vengono elencate tutte le risorse statiche di cui l'applicazione deve eseguire il funzionamento offline, ad esempio assembly .NET, file JavaScript, CSS e così via, inclusi gli hash del contenuto. Questo elenco viene caricato dal ruolo di lavoro del servizio in modo da sapere quali risorse memorizzare nella cache.
-* Ogni volta che l'utente visita l'applicazione, il browser richiede nuovamente *service-worker. js* e *service-worker-assets. js* in background. Se il server restituisce il contenuto modificato per uno di questi file (a confronto byte per byte con il ruolo di lavoro del servizio installato esistente), il ruolo di lavoro del servizio tenterà di installare una nuova versione di se stessa.
-* Quando si installa una nuova versione di se stessa, il ruolo di lavoro del servizio crea una nuova cache separata per le risorse offline e inizia a popolarla con le risorse elencate in *service-worker-assets. js*. Questa logica viene implementata nella funzione `onInstall` all'interno di *service-worker. Published. js*.
-* Se il processo viene completato correttamente (ad esempio, tutte le risorse vengono caricate senza errori e tutti gli hash del contenuto corrispondono), il nuovo thread di lavoro entra in uno stato "in attesa di attivazione". Non appena l'utente chiude l'applicazione (ad esempio, non sono presenti schede o finestre rimanenti che visualizzano l'applicazione), il nuovo servizio di lavoro diventa "attivo" e verrà usato per le visite successive all'applicazione. Il servizio di lavoro precedente e la relativa cache vengono eliminati.
-* Se il processo non viene completato correttamente, la nuova istanza del ruolo di lavoro del servizio viene eliminata. Il processo di aggiornamento verrà nuovamente ritentato alla visita successiva dell'utente, quando si spera che dispongano di una connessione di rete migliore in grado di completare le richieste.
+### <a name="background-updates"></a>Aggiornamenti in background
 
-È possibile personalizzare qualsiasi aspetto di questo processo modificando la logica del ruolo di lavoro del servizio. Nessuno dei precedenti è specifico per Blazor, ma è semplicemente un suggerimento fornito dall'opzione del modello PWA. Per ulteriori informazioni, vedere la [documentazione del servizio Worker](https://developer.mozilla.org/docs/Web/API/Service_Worker_API.) .
+Come modello mentale, è possibile pensare a un PWA offline-First come si comporta come un'app per dispositivi mobili che può essere installata. L'app viene avviata immediatamente indipendentemente dalla connettività di rete, ma la logica dell'app installata deriva da uno snapshot temporizzato che potrebbe non essere la versione più recente.
 
-#### <a name="how-requests-are-resolved"></a>Modalità di risoluzione delle richieste
+Il modello di Blazor PWA genera app che tentano automaticamente di aggiornarsi in background ogni volta che l'utente visita e ha una connessione di rete funzionante. Il funzionamento di questo approccio è il seguente:
 
-Come descritto in precedenza, il ruolo di lavoro predefinito del servizio utilizza una strategia di *cache-First* , ovvero tenta di gestire il contenuto memorizzato nella cache, se disponibile. Se non sono presenti contenuti memorizzati nella cache per un determinato URL, ad esempio quando si richiedono dati da un'API back-end, il ruolo di lavoro del servizio esegue il fallback su una normale richiesta di rete, che può avere esito positivo solo se il server è raggiungibile. Questa logica viene implementata all'interno `onFetch` all'interno di *service-worker. Published. js*.
+* Durante la compilazione, il progetto genera un manifesto delle risorse del ruolo di *lavoro del servizio*. Per impostazione predefinita, questo nome è denominato *service-worker-assets. js*. Il manifesto elenca tutte le risorse statiche richieste dall'app per funzionare offline, ad esempio assembly .NET, file JavaScript e CSS, inclusi gli hash del contenuto. L'elenco di risorse viene caricato dal ruolo di lavoro del servizio in modo da sapere quali risorse memorizzare nella cache.
+* Ogni volta che l'utente visita l'app, il browser richiede nuovamente *service-worker. js* e *service-worker-assets. js* in background. I file vengono confrontati byte per byte con il ruolo di lavoro del servizio installato esistente. Se il server restituisce contenuto modificato per uno di questi file, il ruolo di lavoro del servizio tenta di installare una nuova versione di se stessa.
+* Quando si installa una nuova versione di se stessa, il ruolo di lavoro del servizio crea una nuova cache separata per le risorse offline e inizia a popolare la cache con le risorse elencate in *service-worker-assets. js*. Questa logica viene implementata nella funzione `onInstall` all'interno di *service-worker. Published. js*.
+* Il processo viene completato correttamente quando tutte le risorse vengono caricate senza errori e tutti gli hash di contenuto corrispondono. In caso di esito positivo, il nuovo ruolo di lavoro del servizio entra *in attesa dello stato di attivazione* . Non appena l'utente chiude l'app (nessuna scheda o Windows dell'app rimanente), il nuovo Worker del servizio diventa *attivo* e viene usato per le visite successive all'app. Il servizio di lavoro precedente e la relativa cache vengono eliminati.
+* Se il processo non viene completato correttamente, la nuova istanza del ruolo di lavoro del servizio viene eliminata. Il processo di aggiornamento viene nuovamente ritentato alla visita successiva dell'utente, quando si spera che il client disponga di una connessione di rete migliore in grado di completare le richieste.
 
-Se i componenti Blazor si basano sulla richiesta di dati dalle API back-end e si desidera fornire un'esperienza utente intuitiva nel caso in cui tali richieste abbiano esito negativo a causa della mancata disponibilità della rete, è necessario implementare la logica all'interno dei componenti. Ad esempio, usare `try/catch` circa `HttpClient` richieste.
+Personalizzare questo processo modificando la logica del ruolo di lavoro del servizio. Nessuno dei comportamenti precedenti è specifico di Blazor ma è semplicemente l'esperienza predefinita fornita dall'opzione del modello PWA. Per ulteriori informazioni, vedere la pagina relativa all' [API Web di MDN: Service Worker](https://developer.mozilla.org/docs/Web/API/Service_Worker_API).
 
-#### <a name="support-server-rendered-pages"></a>Pagine di supporto per il rendering del server
+### <a name="how-requests-are-resolved"></a>Modalità di risoluzione delle richieste
 
-Si consideri cosa accade quando l'utente accede per la prima volta a un URL, ad esempio `/counter` o qualsiasi altro collegamento profondo nell'applicazione. In questi casi, non si vuole restituire contenuto memorizzato nella cache come `/counter`, ma è necessario che il browser carichi il contenuto memorizzato nella cache come `/index.html` per avviare l'applicazione di Blazor webassembly. Queste richieste iniziali sono note come richieste di *navigazione* (in contrapposizione alle richieste di *sottorisorse* per immagini/CSS e così via o richieste di *recupero/XHR* per i dati dell'API).
+Come descritto nella sezione relativa alla [strategia di recupero cache-First](#cache-first-fetch-strategy) , il ruolo di lavoro predefinito del servizio utilizza una strategia di *cache-First* , ovvero tenta di gestire il contenuto memorizzato nella cache, se disponibile. Se non sono presenti contenuti memorizzati nella cache per un determinato URL, ad esempio quando si richiedono dati da un'API back-end, il ruolo di lavoro del servizio esegue il fallback su una normale richiesta di rete. La richiesta di rete ha esito positivo se il server è raggiungibile. Questa logica viene implementata all'interno `onFetch` funzione in *service-worker. Published. js*.
 
-Il ruolo di lavoro del servizio predefinito contiene la logica speciale per le richieste di navigazione. Vengono risolti restituendo il contenuto memorizzato nella cache per `/index.html`, indipendentemente dall'URL richiesto. Questa logica viene implementata nella funzione `onFetch` all'interno di *service-worker. Published. js*.
+Se i componenti Razor dell'app si basano sulla richiesta di dati dalle API back-end e si vuole fornire un'esperienza utente intuitiva per le richieste non riuscite a causa di un'indisponibilità di rete, implementare la logica all'interno dei componenti dell'app. Ad esempio, usare `try/catch` circa `HttpClient` richieste.
 
-Se l'applicazione dispone di determinati URL che devono restituire il codice HTML sottoposto a rendering del server (senza `/index.html` dalla cache), è necessario modificare la logica nel ruolo di lavoro del servizio. Se, ad esempio, tutti gli URL contenenti `/Identity/` devono essere gestiti come richieste normali solo in linea al server, modificare la logica di `onFetch` *service-worker. Published. js* . Individuare il codice riportato di seguito:
+### <a name="support-server-rendered-pages"></a>Pagine di supporto per il rendering del server
+
+Si consideri cosa accade quando l'utente accede per la prima volta a un URL, ad esempio `/counter` o qualsiasi altro collegamento profondo nell'app. In questi casi, non si vuole restituire contenuto memorizzato nella cache come `/counter`, ma è necessario che il browser carichi il contenuto memorizzato nella cache come `/index.html` per avviare l'app di Blazor webassembly. Queste richieste iniziali sono note come richieste di *navigazione* , anziché:
+
+* richieste di *risorse* per le immagini, i fogli di stile o altri file.
+* richieste di *recupero/XHR* per i dati dell'API.
+
+Il ruolo di lavoro del servizio predefinito contiene la logica speciale per le richieste di navigazione. Il ruolo di lavoro del servizio risolve le richieste restituendo il contenuto memorizzato nella cache per `/index.html`, indipendentemente dall'URL richiesto. Questa logica viene implementata nella funzione `onFetch` all'interno di *service-worker. Published. js*.
+
+Se l'app dispone di determinati URL che devono restituire codice HTML sottoposto a rendering del server e non servono `/index.html` dalla cache, è necessario modificare la logica nel ruolo di lavoro del servizio. Se tutti gli URL contenenti `/Identity/` devono essere gestiti come richieste normali solo in linea al server, modificare la logica di `onFetch` *service-worker. Published. js* . Individuare il codice riportato di seguito:
 
 ```javascript
 const shouldServeIndexHtml = event.request.mode === 'navigate';
@@ -152,107 +178,103 @@ const shouldServeIndexHtml = event.request.mode === 'navigate'
 
 Se non si esegue questa operazione, indipendentemente dalla connettività di rete, il ruolo di lavoro del servizio intercetta le richieste per tali URL e le risolve utilizzando `/index.html`.
 
-#### <a name="control-asset-caching"></a>Controllare la memorizzazione nella cache degli asset
+### <a name="control-asset-caching"></a>Controllare la memorizzazione nella cache degli asset
 
-Se il progetto definisce una proprietà MSBuild denominata `ServiceWorkerAssetsManifest`, gli strumenti di compilazione di Blazorgenereranno un manifesto delle risorse del ruolo di lavoro del servizio con il nome specificato. Il modello predefinito di PWA produce un file di progetto contenente gli elementi seguenti:
+Se il progetto definisce la proprietà MSBuild `ServiceWorkerAssetsManifest`, gli strumenti di compilazione di Blazorgenerano un manifesto di asset del servizio di lavoro con il nome specificato. Il modello predefinito di PWA produce un file di progetto contenente la proprietà seguente:
 
 ```xml
 <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
 ```
 
-Il file si trova nella directory di output *wwwroot* , quindi il browser può recuperare il file richiedendo `/service-worker-assets.js`. Per visualizzare il contenuto, aprire *YourProject\bin\Debug\netstandard2.1\wwwroot\service-Worker-assets.js* in un editor di testo. Tuttavia, non modificare il file, perché verrà rigenerato in ogni compilazione.
+Il file si trova nella directory di output *wwwroot* , quindi il browser può recuperare il file richiedendo `/service-worker-assets.js`. Per visualizzare il contenuto di questo file, aprire */bin/debug/{Target Framework}/wwwroot/service-worker-assets.js* in un editor di testo. Tuttavia, non modificare il file perché viene rigenerato in ogni compilazione.
 
 Per impostazione predefinita, questo manifesto elenca:
 
-* Tutte le risorse gestite da Blazor, ad esempio gli assembly .NET e i file di runtime di .NET webassembly, necessari per il funzionamento offline
-* Tutte le risorse che verranno pubblicate nella directory *wwwroot* , ad esempio immagini, file CSS e file JavaScript. Sono inclusi gli asset Web statici forniti da progetti esterni e pacchetti NuGet.
+* Tutte le risorse gestite da Blazor, ad esempio gli assembly .NET e i file di runtime di .NET webassembly, necessari per il funzionamento offline.
+* Tutte le risorse per la pubblicazione nella directory *wwwroot* dell'app, ad esempio immagini, fogli di stile e file JavaScript, inclusi asset Web statici forniti da progetti esterni e pacchetti NuGet.
 
-È possibile controllare quali di queste risorse verranno recuperate e memorizzate nella cache dal ruolo di lavoro del servizio modificando la logica in `onInstall` in *service-worker. Published. js*. Per impostazione predefinita, i file vengono recuperati e memorizzati nella cache corrispondenti ad estensioni di file Web tipiche, ad esempio *HTML*, *CSS*, *JS*, *WASM*e altri, oltre ai tipi di file specifici per Blazor webassembly (con estensione*dll*, *PDB*).
+È possibile controllare quali di queste risorse vengono recuperate e memorizzate nella cache dal ruolo di lavoro del servizio modificando la logica in `onInstall` in *service-worker. Published. js*. Per impostazione predefinita, il ruolo di lavoro del servizio recupera e memorizza nella cache i file corrispondenti a estensioni di file Web tipiche, ad esempio *HTML*, *CSS*, *JS*e *WASM*, oltre ai tipi di file specifici per Blazor webassembly (con estensione*dll*, *PDB*).
 
-Se si desidera includere risorse aggiuntive che non sono presenti nella directory *wwwroot* , è possibile eseguire questa operazione definendo voci ItemGroup MSBuild aggiuntive. Nel file di progetto, ad esempio, aggiungere:
+Per includere risorse aggiuntive che non sono presenti nella directory *wwwroot* dell'app, definire voci di MSBuild `ItemGroup` aggiuntive, come illustrato nell'esempio seguente:
 
 ```xml
 <ItemGroup>
-    <ServiceWorkerAssetsManifestItem
-        Include="MyDirectory\AnotherFile.json"
-        RelativePath="MyDirectory\AnotherFile.json"
-        AssetUrl="files/AnotherFile.json" />
+  <ServiceWorkerAssetsManifestItem Include="MyDirectory\AnotherFile.json"
+    RelativePath="MyDirectory\AnotherFile.json" AssetUrl="files/AnotherFile.json" />
 </ItemGroup>
 ```
 
 I metadati di `AssetUrl` specificano l'URL relativo di base che il browser deve usare durante il recupero della risorsa nella cache. Questo può essere indipendente dal nome del file di origine originale sul disco.
 
 > [!IMPORTANT]
-> L'aggiunta di un `ServiceWorkerAssetsManifestItem` non determina la pubblicazione del file nella directory *wwwroot* Consente di controllare l'output di pubblicazione separatamente. Il `ServiceWorkerAssetsManifestItem` causa solo la visualizzazione di una voce aggiuntiva nel manifesto delle risorse del ruolo di lavoro del servizio.
+> L'aggiunta di un `ServiceWorkerAssetsManifestItem` non determina la pubblicazione del file nella directory *wwwroot* dell'app. L'output di pubblicazione deve essere controllato separatamente. Il `ServiceWorkerAssetsManifestItem` causa solo la visualizzazione di una voce aggiuntiva nel manifesto delle risorse del ruolo di lavoro del servizio.
 
 ## <a name="push-notifications"></a>Notifiche push
 
-Analogamente a qualsiasi altro PWA, un Blazor webassembly PWA può ricevere notifiche push da un server back-end. Il server può inviare questi elementi in qualsiasi momento, anche quando l'utente non usa attivamente l'applicazione (ad esempio, quando un altro utente esegue un'azione che può essere pertinente).
+Analogamente a qualsiasi altro PWA, un Blazor webassembly PWA può ricevere notifiche push da un server back-end. Il server può inviare notifiche push in qualsiasi momento, anche quando l'utente non usa attivamente l'app. Ad esempio, è possibile inviare notifiche push quando un altro utente esegue un'azione pertinente.
 
-Il meccanismo per l'invio di una notifica push è interamente indipendente da Blazor webassembly, dal momento che è implementato dal server back-end che può usare qualsiasi tecnologia. Se si desidera inviare notifiche push da un server di ASP.NET Core, è consigliabile [utilizzare una tecnica simile a quella del workshop di pizza ardente](https://github.com/dotnet-presentations/blazor-workshop/blob/master/docs/09-progressive-web-app.md#sending-push-notifications).
+Il meccanismo per l'invio di una notifica push è interamente indipendente da Blazor webassembly, dal momento che è implementato dal server back-end che può usare qualsiasi tecnologia. Se si desidera inviare notifiche push da un server di ASP.NET Core, è consigliabile [utilizzare una tecnica simile all'approccio adottato nel workshop sulla pizza ardente](https://github.com/dotnet-presentations/blazor-workshop/blob/master/docs/09-progressive-web-app.md#sending-push-notifications).
 
-Il meccanismo per la ricezione e la visualizzazione di una notifica push sul client è anche indipendente da Blazor webassembly, dal momento che è implementato nel servizio Worker, che è un file JavaScript. Ad esempio, è possibile vedere di nuovo [l'approccio usato nell'officina della pizza ardente](https://github.com/dotnet-presentations/blazor-workshop/blob/master/docs/09-progressive-web-app.md#displaying-notifications).
+Il meccanismo per la ricezione e la visualizzazione di una notifica push sul client è anche indipendente da Blazor webassembly, dal momento che è implementato nel file JavaScript del servizio Worker. Per un esempio, vedere [l'approccio usato in the Blazing pizza workshop](https://github.com/dotnet-presentations/blazor-workshop/blob/master/docs/09-progressive-web-app.md#displaying-notifications).
 
 ## <a name="caveats-for-offline-pwas"></a>Avvertenze per PWA offline
 
-Non tutte le applicazioni devono provare a supportare l'uso offline. Viene aggiunta una complessità significativa, sebbene non sempre pertinente.
+Non tutte le app devono provare a supportare l'uso offline. Il supporto offline aggiunge una complessità significativa, sebbene non sempre pertinente per i casi d'uso richiesti.
 
 Il supporto offline è in genere rilevante solo:
 
-* Se l'archivio dati primario è locale nel browser. Ad esempio, quando si compila un'interfaccia utente per [un dispositivo Internet](https://en.wikipedia.org/wiki/Internet_of_things) delle cose che archivia i dati in `localStorage` o [IndexedDB](https://developer.mozilla.org/docs/Web/API/IndexedDB_API).
+* Se l'archivio dati primario è locale nel browser. Ad esempio, l'approccio è pertinente in un'app con un'interfaccia utente per [un dispositivo Internet](https://en.wikipedia.org/wiki/Internet_of_things) delle cose che archivia i dati in `localStorage` o [IndexedDB](https://developer.mozilla.org/docs/Web/API/IndexedDB_API).
+* Se l'app esegue una quantità significativa di lavoro per recuperare e memorizzare nella cache i dati dell'API back-end rilevanti per ogni utente, in modo che possano spostarsi tra i dati offline. Se l'app deve supportare la modifica, è necessario compilare un sistema per tenere traccia delle modifiche e sincronizzare i dati con il back-end.
+* Se l'obiettivo è garantire che l'app venga caricata immediatamente indipendentemente dalle condizioni della rete. Implementare un'esperienza utente adatta alle richieste dell'API back-end per mostrare lo stato di avanzamento delle richieste e comportarsi correttamente quando le richieste hanno esito negativo a causa della mancata disponibilità della rete
 
-* Se si esegue un lavoro significativo per recuperare e memorizzare nella cache i dati dell'API back-end rilevanti per ogni utente, in modo da poterli esplorare offline. Se si supporta la modifica, sarà anche necessario compilare un sistema per tenere traccia delle modifiche e sincronizzarle con il back-end.
-
-* Se l'obiettivo è garantire il caricamento immediato dell'applicazione indipendentemente dalle condizioni della rete. Sarà quindi necessario implementare un'esperienza utente adatta alle richieste dell'API back-end per mostrare lo stato di avanzamento delle richieste e comportarsi in modo normale quando hanno esito negativo a causa della mancata disponibilità della rete.
-
-Inoltre, le PWA con supporto offline devono gestire una serie di complicazioni aggiuntive. Gli sviluppatori devono acquisire familiarità con attenzione con le avvertenze seguenti.
+Inoltre, le PWA con supporto offline devono gestire una serie di complicazioni aggiuntive. Gli sviluppatori devono acquisire familiarità con attenzione con le avvertenze riportate nelle sezioni riportate di seguito.
 
 ### <a name="offline-support-only-when-published"></a>Supporto offline solo dopo la pubblicazione
 
-il modello PWA di Blazorconsente il supporto offline solo dopo la pubblicazione. Il motivo è che, durante lo sviluppo, in genere si desidera visualizzare ogni modifica riflessa immediatamente nel browser, senza passare attraverso un processo di aggiornamento in background.
+Durante lo sviluppo, in genere si desidera visualizzare tutte le modifiche riflesse immediatamente nel browser senza passare attraverso un processo di aggiornamento in background. Pertanto, il modello PWA di Blazorconsente il supporto offline solo dopo la pubblicazione.
 
-Pertanto, quando si compila un'applicazione che supporta offline, non è sufficiente testare l'applicazione in modalità di sviluppo. È necessario testare l'applicazione nello stato pubblicato per comprendere come risponderà a condizioni di rete diverse.
+Quando si compila un'app che supporta offline, non è sufficiente testare l'app nell'ambiente di sviluppo. È necessario testare l'app nello stato pubblicato per comprendere come risponde a condizioni di rete diverse.
 
 ### <a name="update-completion-after-user-navigation-away-from-app"></a>Completamento dell'aggiornamento dopo la navigazione dell'utente dall'app
 
-Gli aggiornamenti non vengono completati fino a quando l'utente non si è spostato dall'applicazione in tutte le schede. Come illustrato negli [aggiornamenti in background](#background-updates), dopo la distribuzione di un aggiornamento nell'applicazione, il browser recupererà i file di lavoro del servizio aggiornati e avvierà un processo di aggiornamento.
+Gli aggiornamenti non vengono completati fino a quando l'utente non si è spostato dall'app in tutte le schede. Come spiegato nella sezione [aggiornamenti in background](#background-updates) , dopo la distribuzione di un aggiornamento nell'app, il browser recupera i file di lavoro del servizio aggiornati per avviare il processo di aggiornamento.
 
-Quali sono le sorprese che molti sviluppatori, anche al termine dell'aggiornamento, diventano effettive fino a quando l'utente **non** si è spostato in tutte le schede. **Non** è sufficiente aggiornare la scheda visualizzando l'applicazione, anche se è l'unica scheda che Visualizza l'applicazione. Finché l'applicazione non viene chiusa completamente, il nuovo ruolo di lavoro del servizio rimarrà in stato "in attesa di attivazione". **Questo non è specifico per Blazor, ma è piuttosto un comportamento standard della piattaforma Web.**
+Quali sono le sorprese che molti sviluppatori, anche al termine dell'aggiornamento, diventano effettive fino a quando l'utente **non** si è spostato in tutte le schede. **Non** è sufficiente aggiornare la scheda visualizzando l'app, anche se si tratta dell'unica scheda che Visualizza l'app. Finché l'app non viene chiusa completamente, il nuovo ruolo di lavoro del servizio rimane in *attesa di attivazione* . **Questo non è specifico per Blazor, ma è piuttosto un comportamento standard della piattaforma Web.**
 
 Questo problema si verifica in genere dagli sviluppatori che tentano di testare gli aggiornamenti al ruolo di lavoro del servizio o alle risorse nella cache offline. Se si archiviano gli strumenti di sviluppo del browser, è possibile che venga visualizzato un risultato simile al seguente:
 
-![image](https://user-images.githubusercontent.com/1101362/76226394-b93f7380-6215-11ea-8572-7d52afee2dd8.png)
+![La scheda "applicazione" di Google Chrome indica che il ruolo di lavoro del servizio dell'app è in attesa di attivazione.](progressive-web-app/_static/image7.png)
 
-Per il periodo di tempo in cui l'elenco dei "client" (ovvero le schede o le finestre che visualizzano l'applicazione) non è vuoto, il thread di lavoro continuerà ad attendere. Il motivo per cui i dipendenti del servizio eseguono questa operazione è garantire la coerenza, ovvero, che tutte le risorse vengono recuperate dalla stessa cache atomica.
+Per tutto il tempo in cui l'elenco di "client", che sono schede o finestre che visualizzano l'app, non è vuoto, il lavoro continua ad attendere. Il motivo per cui i dipendenti del servizio eseguono questa operazione è garantire la coerenza. La coerenza significa che tutte le risorse vengono recuperate dalla stessa cache atomica.
 
-Quando si verificano le modifiche, può essere utile fare clic sul collegamento "skipWaiting", come illustrato nella schermata precedente, quindi ricaricare la pagina. Se lo si desidera, è possibile automatizzare questa operazione per tutti gli utenti codificando il ruolo di lavoro del servizio in modo da [ignorare la fase di attesa e attivare immediatamente l'aggiornamento](https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle#skip_the_waiting_phase). Tuttavia, se si esegue questa operazione, si cede la garanzia che le risorse vengano sempre recuperate in modo coerente dalla stessa istanza della cache.
+Quando si verificano le modifiche, può essere utile fare clic sul collegamento "skipWaiting", come illustrato nella schermata precedente, quindi ricaricare la pagina. È possibile automatizzare questa operazione per tutti gli utenti codificando il ruolo di lavoro del servizio in modo da [ignorare la fase di attesa e attivare immediatamente l'aggiornamento](https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle#skip_the_waiting_phase). Se si ignora la fase di attesa, si cede la garanzia che le risorse vengano sempre recuperate in modo coerente dalla stessa istanza della cache.
 
 ### <a name="users-may-run-any-historical-version-of-the-app"></a>Gli utenti possono eseguire qualsiasi versione cronologica dell'app
 
-Gli sviluppatori Web si aspettano abitualmente che gli utenti eseguano solo la versione distribuita più recente della propria applicazione Web, dal momento che si tratta di una situazione normale nel modello di distribuzione Web tradizionale. Tuttavia, un PWA per la prima volta offline è più simile a un'app per dispositivi mobili nativa, in cui gli utenti non eseguono necessariamente la versione più recente.
+Gli sviluppatori Web si aspettano abitualmente che gli utenti eseguano solo la versione più recente distribuita dell'app Web, dal momento che è normale nel modello di distribuzione Web tradizionale. Tuttavia, un PWA per la prima volta offline è più simile a un'app per dispositivi mobili nativa, in cui gli utenti non eseguono necessariamente la versione più recente.
 
-Come spiegato negli [aggiornamenti in background](#background-updates), dopo la distribuzione di un aggiornamento nell'applicazione, **ogni utente esistente continuerà a usare una versione precedente per almeno un'altra visita** (poiché l'aggiornamento viene eseguito in background e non viene attivato fino a quando l'utente non si sposta). Inoltre, la versione precedente utilizzata non è necessariamente quella precedente distribuita. può trattarsi di *qualsiasi* versione cronologica, a seconda del momento in cui l'utente ha completato un aggiornamento.
+Come spiegato nella sezione [aggiornamenti in background](#background-updates) , dopo la distribuzione di un aggiornamento nell'app, **ogni utente esistente continua a usare una versione precedente per almeno un'altra visita** perché l'aggiornamento viene eseguito in background e non viene attivato fino a quando l'utente non si sposta in seguito. Inoltre, la versione precedente utilizzata non è necessariamente quella precedente distribuita. La versione precedente può essere *qualsiasi* versione cronologica, a seconda di quando l'utente ha completato un aggiornamento.
 
-Questo può essere un problema se le parti front-end e back-end dell'applicazione richiedono un accordo sullo schema per le richieste API. Non è necessario distribuire le modifiche allo schema API non compatibili con le versioni precedenti fino a quando non si è certi che tutti gli utenti abbiano eseguito l'aggiornamento o che almeno gli utenti non possano usare versioni precedenti dell'app incompatibili. Questo è proprio come un'app per dispositivi mobili nativa. Se si distribuisce una modifica di rilievo nelle API del server, l'app client verrà interrotta per gli utenti che non hanno ancora eseguito l'aggiornamento.
+Questo può essere un problema se le parti front-end e back-end dell'app richiedono un accordo sullo schema per le richieste API. Non è necessario distribuire le modifiche dello schema API incompatibili con le versioni precedenti fino a quando non si è certi che tutti gli utenti abbiano eseguito l'aggiornamento. In alternativa, impedire agli utenti di usare versioni precedenti dell'app incompatibili. Questo requisito dello scenario è identico a quello delle app per dispositivi mobili native. Se si distribuisce una modifica di rilievo nelle API del server, l'app client viene interrotta per gli utenti che non hanno ancora eseguito l'aggiornamento.
 
-Se possibile, non distribuire le modifiche di rilievo alle API back-end. Tuttavia, se è necessario eseguire questa operazione, è consigliabile utilizzare le [API di lavoro del servizio standard, ad esempio `ServiceWorkerRegistration`](https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration) per determinare se l'applicazione è aggiornata e, in caso contrario, per impedire l'utilizzo.
+Se possibile, non distribuire le modifiche di rilievo alle API back-end. Se necessario, provare a usare le [API standard del ruolo di lavoro del servizio, ad esempio ServiceWorkerRegistration](https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration) , per determinare se l'app è aggiornata e, in caso contrario, per impedire l'utilizzo.
 
 ### <a name="interference-with-server-rendered-pages"></a>Interferenze con le pagine sottoposte a rendering server
 
-[Come descritto in precedenza](#support-server-rendered-pages), se si desidera ignorare il comportamento del ruolo di lavoro del servizio per restituire `/index.html` contenuto per tutte le richieste di navigazione, è necessario modificare la logica nel ruolo di lavoro del servizio.
+Come descritto nella sezione [pagine di supporto](#support-server-rendered-pages) per il rendering del server, se si desidera ignorare il comportamento del ruolo di lavoro del servizio di restituzione `/index.html` contenuto per tutte le richieste di navigazione, modificare la logica nel ruolo di lavoro del servizio.
 
 ### <a name="all-service-worker-asset-manifest-contents-are-cached-by-default"></a>Tutti i contenuti del manifesto dell'asset del servizio di lavoro vengono memorizzati nella cache
 
-[Come descritto in precedenza](#control-asset-caching), il file *service-worker-assets. js* viene generato durante la compilazione ed elenca tutti gli asset che devono essere recuperati e memorizzati nella cache dal ruolo di lavoro del servizio.
+Come descritto nella sezione [Control asset Caching](#control-asset-caching) , il file *service-worker-assets. js* viene generato durante la compilazione ed elenca tutti gli asset che devono essere recuperati e memorizzati dal ruolo di lavoro del servizio.
 
-Poiché per impostazione predefinita questo elenco include tutti gli elementi emessi in *wwwroot* (incluso il contenuto fornito da pacchetti e progetti esterni), è necessario prestare attenzione a non inserire troppi contenuti. Se ad esempio la directory *wwwroot* contiene milioni di immagini, il ruolo di lavoro del servizio tenterà di recuperarli e memorizzarli nella cache, consumando una larghezza di banda eccessiva e probabilmente non verrà completata correttamente.
+Poiché per impostazione predefinita questo elenco include tutti gli elementi emessi per *wwwroot*, incluso il contenuto fornito da pacchetti e progetti esterni, è necessario prestare attenzione a non inserire troppi contenuti. Se la directory *wwwroot* contiene milioni di immagini, il ruolo di lavoro del servizio tenterà di recuperarli e memorizzarli nella cache, consumando una larghezza di banda eccessiva e probabilmente non viene completata correttamente.
 
-È possibile implementare una logica arbitraria per controllare quale subset del contenuto del manifesto deve essere recuperato e memorizzato nella cache modificando la funzione `onInstall` in *service-worker. Published. js*.
+Implementare una logica arbitraria per controllare quale subset del contenuto del manifesto deve essere recuperato e memorizzato nella cache modificando la funzione `onInstall` in *service-worker. Published. js*.
 
 ### <a name="interaction-with-authentication"></a>Interazione con l'autenticazione
 
 È possibile utilizzare l'opzione del modello PWA insieme alle opzioni di autenticazione. Un PWA con supporto offline può inoltre supportare l'autenticazione quando l'utente dispone di connettività di rete.
 
-Tuttavia, quando un utente non dispone di connettività di rete, non sarà in grado di autenticare o ottenere i token di accesso. Se si tenta di visitare la pagina "login", per impostazione predefinita viene visualizzato un messaggio che indica "errore di rete".
+Quando un utente non dispone di connettività di rete, non è in grado di autenticare o ottenere i token di accesso. Per impostazione predefinita, il tentativo di visitare la pagina di accesso senza accesso alla rete genera un messaggio di errore di rete.
 
-Di conseguenza, è il processo di progettazione di un flusso dell'interfaccia utente che consente all'utente di eseguire operazioni utili in modalità offline senza provare ad autenticare o ottenere i token di accesso o almeno in caso di errore in modo normale. Se l'applicazione non è possibile, è possibile che non si desideri abilitare il supporto offline.
+È necessario progettare un flusso dell'interfaccia utente che consenta all'utente di eseguire operazioni utili in modalità offline senza provare ad autenticare o ottenere i token di accesso. In alternativa, è possibile progettare l'applicazione in modo che non venga eseguita correttamente quando la rete non è disponibile. Se questa opzione non è possibile nell'app, potrebbe non essere necessario abilitare il supporto offline.

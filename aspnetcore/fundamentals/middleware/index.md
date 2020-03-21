@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/02/2020
 uid: fundamentals/middleware/index
-ms.openlocfilehash: afa71b2c2b75be2c000fadd9545ac3fb4587825a
-ms.sourcegitcommit: 51c86c003ab5436598dbc42f26ea4a83a795fd6e
+ms.openlocfilehash: 9dcd061d2807fb90884327916d0348af4593df9d
+ms.sourcegitcommit: 9b6e7f421c243963d5e419bdcfc5c4bde71499aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78964470"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "79989714"
 ---
 # <a name="aspnet-core-middleware"></a>Middleware di ASP.NET Core
 
@@ -163,12 +163,12 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
-Per le applicazioni a pagina singola, il middleware SPA <xref:Microsoft.Extensions.DependencyInjection.SpaStaticFilesExtensions.UseSpaStaticFiles*> in genere viene visualizzato per ultimo nella pipeline middleware. Il middleware SPA viene visualizzato per ultimo:
+Per le applicazioni a pagina singola (Spa), il middleware SPA <xref:Microsoft.Extensions.DependencyInjection.SpaStaticFilesExtensions.UseSpaStaticFiles*> in genere viene visualizzato per ultimo nella pipeline middleware. Il middleware SPA viene visualizzato per ultimo:
 
 * Per consentire a tutti gli altri middleware di rispondere prima alle richieste corrispondenti.
 * Per consentire l'esecuzione di SPAs con routing sul lato client per tutte le route non riconosciute dall'app Server.
 
-Per ulteriori informazioni sulle applicazioni a pagina singola, vedere le guide per i modelli di progetto [React](xref:spa/react) e [angolare](xref:spa/angular) .
+Per ulteriori informazioni sulle Spa, vedere le guide per i modelli di progetto [React](xref:spa/react) e [angolare](xref:spa/angular) .
 
 ## <a name="branch-the-middleware-pipeline"></a>Creare un ramo della pipeline middleware
 

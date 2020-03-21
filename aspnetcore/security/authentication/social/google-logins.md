@@ -4,14 +4,14 @@ author: rick-anderson
 description: Questa esercitazione illustra l'integrazione di autenticazione dell'utente account Google in un'app ASP.NET Core esistente.
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 10/30/2019
+ms.date: 03/19/2020
 uid: security/authentication/google-logins
-ms.openlocfilehash: 83f45143eca1be43410880bfd875a3fce1d2e9c9
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: a114d23c25201c9fe31ad0397efaf99fe98a312a
+ms.sourcegitcommit: 9b6e7f421c243963d5e419bdcfc5c4bde71499aa
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78667510"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "79989766"
 ---
 # <a name="google-external-login-setup-in-aspnet-core"></a>Configurazione dell'accesso esterno Google in ASP.NET Core
 
@@ -24,18 +24,21 @@ Questa esercitazione illustra come consentire agli utenti di accedere con il pro
 * Installare [Microsoft. AspNetCore. Authentication. Google](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Google).
 * Passare all'articolo relativo all' [integrazione di Google Sign-in nell'app Web](https://developers.google.com/identity/sign-in/web/devconsole-project) e selezionare **configura un progetto**.
 * Nella finestra di dialogo **Configura client OAuth** selezionare **server Web**.
-* Nella casella voce di testo **URI di reindirizzamento autorizzato** impostare l'URI di reindirizzamento. Ad esempio, usare `https://localhost:44312/signin-google`
+* Nella casella voce di testo **URI di reindirizzamento autorizzato** impostare l'URI di reindirizzamento. Ad esempio, `https://localhost:44312/signin-google`.
 * Salvare l' **ID client** e il **segreto client**.
 * Quando si distribuisce il sito, registrare il nuovo URL pubblico dalla **console di Google**.
 
-## <a name="store-google-clientid-and-clientsecret"></a>Store Google ClientID e ClientSecret
+## <a name="store-the-google-client-id-and-secret"></a>Archiviare l'ID e il segreto del client Google
 
-Archiviare le impostazioni riservate, ad esempio Google `Client ID` e `Client Secret` con la [gestione dei segreti](xref:security/app-secrets). Ai fini di questa esercitazione, denominare i token `Authentication:Google:ClientId` e `Authentication:Google:ClientSecret`:
+Archiviare le impostazioni riservate, ad esempio i valori di ID client e segreto di Google con [gestione Secret](xref:security/app-secrets). Per questo esempio, attenersi alla procedura seguente:
 
-```dotnetcli
-dotnet user-secrets set "Authentication:Google:ClientId" "<client id>"
-dotnet user-secrets set "Authentication:Google:ClientSecret" "<client secret>"
-```
+1. Inizializzare il progetto per l'archiviazione segreta in base alle istruzioni riportate in [abilitare l'archiviazione segreta](xref:security/app-secrets#enable-secret-storage).
+1. Archiviare le impostazioni sensibili nell'archivio dei segreti locali con le chiavi segrete `Authentication:Google:ClientId` e `Authentication:Google:ClientSecret`:
+
+    ```dotnetcli
+    dotnet user-secrets set "Authentication:Google:ClientId" "<client-id>"
+    dotnet user-secrets set "Authentication:Google:ClientSecret" "<client-secret>"
+    ```
 
 [!INCLUDE[](~/includes/environmentVarableColon.md)]
 
@@ -65,7 +68,7 @@ Per altre informazioni sulle opzioni di configurazione supportate da Google Auth
 
 Il `/signin-google` del segmento URI è impostato come callback predefinito del provider di autenticazione Google. È possibile modificare l'URI di callback predefinito durante la configurazione del middleware di autenticazione di Google tramite la proprietà [RemoteAuthenticationOptions. CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) ereditata della classe [GoogleOptions](/dotnet/api/microsoft.aspnetcore.authentication.google.googleoptions) .
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 * Se l'accesso non funziona e non si ricevono errori, passare alla modalità di sviluppo per semplificare il debug del problema.
 * Se l'identità non è configurata chiamando `services.AddIdentity` in `ConfigureServices`, il tentativo di autenticare i risultati in *ArgumentException: è necessario specificare l'opzione ' SignInScheme '* . Il modello di progetto usato in questa esercitazione garantisce che questa operazione viene eseguita.
