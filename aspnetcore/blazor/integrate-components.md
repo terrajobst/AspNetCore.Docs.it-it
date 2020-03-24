@@ -5,17 +5,17 @@ description: Informazioni sugli scenari di data binding per i componenti e gli e
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/12/2020
+ms.date: 03/17/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/integrate-components
-ms.openlocfilehash: de1a37ffd9456c956e3d84fcc69431ecb794513c
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: cf6056e0985d5433bddecac8dd183ca3f4c2af5b
+ms.sourcegitcommit: 91dc1dd3d055b4c7d7298420927b3fd161067c64
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78663317"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80218934"
 ---
 # <a name="integrate-aspnet-core-razor-components-into-razor-pages-and-mvc-apps"></a>Integrare ASP.NET Core componenti Razor in app Razor Pages e MVC
 
@@ -60,13 +60,13 @@ Un'app Razor Pages o MVC esistente può integrare i componenti Razor in pagine e
    @using MyAppNamespace
    ```
 
-1. In `Startup.ConfigureServices`registrare il servizio Server Blazer:
+1. In `Startup.ConfigureServices`registrare il servizio Blazor server:
 
    ```csharp
    services.AddServerSideBlazor();
    ```
 
-1. In `Startup.Configure`aggiungere l'endpoint dell'hub blazer per `app.UseEndpoints`:
+1. In `Startup.Configure`aggiungere l'endpoint dell'hub Blazor a `app.UseEndpoints`:
 
    ```csharp
    endpoints.MapBlazorHub();
@@ -225,31 +225,10 @@ Per altre informazioni, vedere <xref:blazor/components#import-components>.
 
 *Questa sezione riguarda l'aggiunta di componenti a pagine o viste, in cui i componenti non sono direttamente instradabili dalle richieste degli utenti.*
 
-Per eseguire il rendering di un componente da una pagina o da una vista, usare l'helper Tag `Component`:
-
-```cshtml
-<component type="typeof(Counter)" render-mode="ServerPrerendered" 
-    param-IncrementAmount="10" />
-```
-
-Il tipo di parametro deve essere serializzabile JSON, che in genere significa che il tipo deve avere un costruttore predefinito e le proprietà impostabili. Ad esempio, è possibile specificare un valore per `IncrementAmount` perché il tipo di `IncrementAmount` è un `int`, ovvero un tipo primitivo supportato dal serializzatore JSON.
-
-`RenderMode` configura se il componente:
-
-* Viene preeseguito nella pagina.
-* Viene visualizzato come HTML statico nella pagina o se include le informazioni necessarie per eseguire il bootstrap di un'app Blazor dall'agente utente.
-
-| `RenderMode`        | Descrizione |
-| ------------------- | ----------- |
-| `ServerPrerendered` | Esegue il rendering del componente in HTML statico e include un marcatore per un'app Server Blazor. Quando l'agente utente viene avviato, questo marcatore viene usato per eseguire il bootstrap di un'app Blazor. |
-| `Server`            | Esegue il rendering di un marcatore per un'app Server Blazor. L'output del componente non è incluso. Quando l'agente utente viene avviato, questo marcatore viene usato per eseguire il bootstrap di un'app Blazor. |
-| `Static`            | Esegue il rendering del componente in HTML statico. |
-
-Mentre le pagine e le visualizzazioni possono usare i componenti, il contrario non è vero. I componenti non possono usare scenari di visualizzazione e di pagina specifici, ad esempio visualizzazioni parziali e sezioni. Per usare la logica dalla visualizzazione parziale in un componente, scomporre la logica di visualizzazione parziale in un componente.
-
-Il rendering dei componenti server da una pagina HTML statica non è supportato.
+Per eseguire il rendering di un componente da una pagina o da una vista, usare l' [Helper Tag Component](xref:mvc/views/tag-helpers/builtin-th/component-tag-helper).
 
 Per ulteriori informazioni sulla modalità di rendering dei componenti, sullo stato del componente e sull'helper tag di `Component`, vedere gli articoli seguenti:
 
 * <xref:blazor/hosting-models>
 * <xref:blazor/hosting-model-configuration>
+* <xref:mvc/views/tag-helpers/builtin-th/component-tag-helper>

@@ -5,17 +5,17 @@ description: Informazioni su come proteggere Blazor app WebAssemlby come applica
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/09/2020
+ms.date: 03/12/2020
 no-loc:
 - Blazor
 - SignalR
 uid: security/blazor/webassembly/index
-ms.openlocfilehash: a65d47e55960d6e7bfeb672c0a1e6a7a305ad7ee
-ms.sourcegitcommit: 9b6e7f421c243963d5e419bdcfc5c4bde71499aa
+ms.openlocfilehash: 652d4c61110f786396d9d5af4f131b817c40e333
+ms.sourcegitcommit: 91dc1dd3d055b4c7d7298420927b3fd161067c64
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "79989481"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80219246"
 ---
 # <a name="secure-aspnet-core-opno-locblazor-webassembly"></a>Sicurezza ASP.NET Core Blazor webassembly
 
@@ -54,3 +54,47 @@ La libreria `Microsoft.AspNetCore.Components.WebAssembly.Authentication` offre d
 * Quando l'app webassembly Blazor carica l'endpoint di callback di accesso (`/authentication/login-callback`), viene elaborata la risposta di autenticazione.
   * Se il processo di autenticazione viene completato correttamente, l'utente viene autenticato e, facoltativamente, restituito all'URL protetto originale richiesto dall'utente.
   * Se il processo di autenticazione ha esito negativo per qualsiasi motivo, l'utente viene inviato alla pagina di accesso non riuscita (`/authentication/login-failed`) e viene visualizzato un errore.
+  
+## <a name="options-for-hosted-apps-and-third-party-login-providers"></a>Opzioni per le app ospitate e i provider di accesso di terze parti
+
+Quando si esegue l'autenticazione e l'autorizzazione di un'app webassembly Blazor ospitata con un provider di terze parti, sono disponibili diverse opzioni per l'autenticazione dell'utente. Quello scelto dipende dallo scenario.
+
+Per altre informazioni, vedere <xref:security/authentication/social/additional-claims>.
+
+### <a name="authenticate-users-to-only-call-protected-third-party-apis"></a>Autenticare gli utenti per chiamare solo le API di terze parti protette
+
+Autenticare l'utente con un flusso oAuth sul lato client rispetto al provider di API di terze parti:
+
+ ```csharp
+ builder.services.AddOidcAuthentication(options => { ... });
+ ```
+ 
+ In questo scenario:
+
+* Il server che ospita l'app non svolge un ruolo.
+* Le API nel server non possono essere protette.
+* L'app può chiamare solo API di terze parti protette.
+
+### <a name="authenticate-users-with-a-third-party-provider-and-call-protected-apis-on-the-host-server-and-the-third-party"></a>Autenticare gli utenti con un provider di terze parti e chiamare le API protette sul server host e la terza parte
+
+Configurare l'identità con un provider di accesso di terze parti. Ottenere i token necessari per l'accesso all'API di terze parti e archiviarli.
+
+Quando un utente esegue l'accesso, Identity raccoglie i token di accesso e di aggiornamento come parte del processo di autenticazione. A questo punto, sono disponibili due approcci per eseguire chiamate API a API di terze parti.
+
+#### <a name="use-a-server-access-token-to-retrieve-the-third-party-access-token"></a>Usare un token di accesso al server per recuperare il token di accesso di terze parti
+
+Usare il token di accesso generato sul server per recuperare il token di accesso di terze parti da un endpoint API server. Da qui, usare il token di accesso di terze parti per chiamare le risorse dell'API di terze parti direttamente dall'identità nel client.
+
+Questo approccio non è consigliato. Questo approccio richiede di trattare il token di accesso di terze parti come se fosse stato generato per un client pubblico. In termini di oAuth, l'app pubblica non ha un segreto client perché non può essere considerata attendibile per archiviare i segreti in modo sicuro e il token di accesso viene prodotto per un client riservato. Un client riservato è un client che dispone di un segreto client e si presuppone che sia in grado di archiviare in modo sicuro i segreti.
+
+* Al token di accesso di terze parti potrebbero essere stati concessi ulteriori ambiti per eseguire operazioni sensibili in base al fatto che la terza parte ha emesso il token per un client più attendibile.
+* Analogamente, i token di aggiornamento non devono essere rilasciati a un client che non è considerato attendibile, in quanto in questo modo si ottiene l'accesso illimitato ai client a meno che non vengano applicate altre restrizioni.
+
+#### <a name="make-api-calls-from-the-client-to-the-server-api-in-order-to-call-third-party-apis"></a>Eseguire chiamate API dal client all'API server per chiamare le API di terze parti
+
+Eseguire una chiamata API dal client all'API del server. Dal server recuperare il token di accesso per la risorsa API di terze parti ed emettere qualsiasi chiamata necessaria.
+
+Sebbene questo approccio richieda un hop di rete aggiuntivo tramite il server per la chiamata di un'API di terze parti, in definitiva si ottiene un'esperienza più sicura:
+
+* Il server può archiviare i token di aggiornamento e assicurarsi che l'app non perda l'accesso alle risorse di terze parti.
+* L'app non può perdere i token di accesso dal server che potrebbe contenere autorizzazioni più sensibili.

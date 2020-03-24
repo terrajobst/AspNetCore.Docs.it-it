@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/10/2020
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 8d96118800c47b2c551726342bf4cfba9671a09e
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: e9b4b57ee70e4050f9399b90a6e34e8cc9cca78d
+ms.sourcegitcommit: 91dc1dd3d055b4c7d7298420927b3fd161067c64
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78667370"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80218830"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementazione del server Web Kestrel in ASP.NET Core
 
@@ -663,7 +663,7 @@ Impostare l'ascolto su un socket Unix con <xref:Microsoft.AspNetCore.Server.Kest
 
 [!code-csharp[](kestrel/samples/3.x/KestrelSample/Program.cs?name=snippet_UnixSocket)]
 
-* Nel file nginx confiuguration impostare il `server` > `location`voce di `proxy_pass`  > `http://unix:/tmp/{KESTREL SOCKET}:/;`. `{KESTREL SOCKET}` è il nome del socket fornito per <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ListenUnixSocket*>, ad esempio `kestrel-test.sock` nell'esempio precedente.
+* Nel file di configurazione nginx impostare il `server` > `location`voce di `proxy_pass`  > `http://unix:/tmp/{KESTREL SOCKET}:/;`. `{KESTREL SOCKET}` è il nome del socket fornito per <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.ListenUnixSocket*>, ad esempio `kestrel-test.sock` nell'esempio precedente.
 * Verificare che il socket sia scrivibile da nginx, ad esempio `chmod go+w /tmp/kestrel-test.sock`.
 
 ### <a name="port-0"></a>Porta 0

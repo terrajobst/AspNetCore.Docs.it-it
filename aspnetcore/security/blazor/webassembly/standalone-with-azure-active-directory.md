@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: security/blazor/webassembly/standalone-with-azure-active-directory
-ms.openlocfilehash: 76bcac29d86a236e56c0eaea24a694c4845ecbcf
-ms.sourcegitcommit: 98bcf5fe210931e3eb70f82fd675d8679b33f5d6
+ms.openlocfilehash: e12c38ed42a4e2714d785ef8f03097246c40d36e
+ms.sourcegitcommit: 91dc1dd3d055b4c7d7298420927b3fd161067c64
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79083748"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80218979"
 ---
 # <a name="secure-an-aspnet-core-opno-locblazor-webassembly-standalone-app-with-azure-active-directory"></a>Proteggere un'app ASP.NET Core Blazor webassembly autonomamente con Azure Active Directory
 
@@ -42,7 +42,7 @@ In **Authentication** > **configurazioni della piattaforma** > **Web**:
 1. Verificare che sia presente l' **URI di reindirizzamento** del `https://localhost:5001/authentication/login-callback`.
 1. Per **concessione implicita**, selezionare le caselle di controllo per i token di **accesso** e i **token ID**.
 1. Per questa esperienza sono accettabili le impostazioni predefinite rimanenti per l'app.
-1. Selezionare il pulsante **Salva**.
+1. Fare clic sul pulsante **Salva**.
 
 Registrare le seguenti informazioni:
 
@@ -105,7 +105,7 @@ builder.Services.AddMsalAuthentication(options =>
 
 ## <a name="index-page"></a>Pagina di indice
 
-[!INCLUDE[](~/includes/blazor-security/index-page.md)]
+[!INCLUDE[](~/includes/blazor-security/index-page-msal.md)]
 
 ## <a name="app-component"></a>Componente app
 

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/15/2020
 uid: fundamentals/index
-ms.openlocfilehash: a16a2fbb4ad2a79f96b6646ffdc359619d361a25
-ms.sourcegitcommit: 5bdc54162d7dea8d9fa54ac3055678db23586af1
+ms.openlocfilehash: 7533242140c31a937f32cc9082d760103347ce25
+ms.sourcegitcommit: 91dc1dd3d055b4c7d7298420927b3fd161067c64
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2020
-ms.locfileid: "79434317"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80219181"
 ---
 # <a name="aspnet-core-fundamentals"></a>Nozioni fondamentali su ASP.NET Core
 
@@ -70,7 +70,7 @@ Un'app ASP.NET Core crea un *host* all'avvio. L'host è un oggetto che incapsula
 * Un'implementazione del server HTTP
 * I componenti middleware
 * Registrazione
-* Inserimento delle dipendenze
+* DI
 * Configurazione
 
 Il motivo principale per cui tutte le risorse interdipendenti dell'app sono incluse in un unico oggetto è la gestione del ciclo di vita, vale a dire il controllo sull'avvio dell'app e sull'arresto normale.
@@ -102,7 +102,7 @@ Un'app ASP.NET Core usa un'implementazione del server HTTP per l'ascolto delle r
 ASP.NET Core include le implementazioni server seguenti:
 
 * *Kestrel* è un server Web multipiattaforma. Kestrel viene spesso eseguito in una configurazione con proxy inverso tramite [IIS](https://www.iis.net/). In ASP.NET Core 2.0 o versione successiva Kestrel può essere eseguito come server perimetrale pubblico esposto direttamente a Internet.
-* *Server HTTP IIS* è un server per Windows che usa IIS. Con questo server l'app ASP.NET Core e IIS sono eseguiti nello stesso processo.
+* Il *Server http IIS* è un server per Windows che usa IIS. Con questo server l'app ASP.NET Core e IIS sono eseguiti nello stesso processo.
 * *HTTP.sys* è un server per Windows che non viene usato con IIS.
 
 # <a name="macos"></a>[macOS](#tab/macos)
@@ -176,7 +176,7 @@ L'interfaccia `ILogger` consente di passare qualsiasi numero di campi al provide
 
 Per altre informazioni, vedere <xref:fundamentals/logging/index>.
 
-## <a name="routing"></a>Routing
+## <a name="routing"></a>Routing.
 
 Una *route* è un modello URL di cui è stato eseguito il mapping su un gestore. Il gestore è in genere una pagina Razor, un metodo di azione in un controller MVC o un tipo di middleware. Il routing di ASP.NET Core consente di controllare gli URL usati dall'app.
 
@@ -187,7 +187,7 @@ Per altre informazioni, vedere <xref:fundamentals/routing>.
 ASP.NET Core dispone di funzionalità predefinite per la gestione degli errori, ad esempio:
 
 * Una pagina delle eccezioni per gli sviluppatori
-* Pagine degli errori personalizzate
+* Pagine di errore personalizzate
 * Pagine dei codici di stato statiche
 * Gestione delle eccezioni durante l'avvio
 
@@ -308,7 +308,7 @@ Un'app ASP.NET Core crea un *host* all'avvio. L'host è un oggetto che incapsula
 * Un'implementazione del server HTTP
 * I componenti middleware
 * Registrazione
-* Inserimento delle dipendenze
+* DI
 * Configurazione
 
 Il motivo principale per cui tutte le risorse interdipendenti dell'app sono incluse in un unico oggetto è la gestione del ciclo di vita, vale a dire il controllo sull'avvio dell'app e sull'arresto normale.
@@ -443,7 +443,7 @@ L'interfaccia `ILogger` consente di passare qualsiasi numero di campi al provide
 
 Per altre informazioni, vedere <xref:fundamentals/logging/index>.
 
-## <a name="routing"></a>Routing
+## <a name="routing"></a>Routing.
 
 Una *route* è un modello URL di cui è stato eseguito il mapping su un gestore. Il gestore è in genere una pagina Razor, un metodo di azione in un controller MVC o un tipo di middleware. Il routing di ASP.NET Core consente di controllare gli URL usati dall'app.
 
@@ -454,7 +454,7 @@ Per altre informazioni, vedere <xref:fundamentals/routing>.
 ASP.NET Core dispone di funzionalità predefinite per la gestione degli errori, ad esempio:
 
 * Una pagina delle eccezioni per gli sviluppatori
-* Pagine degli errori personalizzate
+* Pagine di errore personalizzate
 * Pagine dei codici di stato statiche
 * Gestione delle eccezioni durante l'avvio
 

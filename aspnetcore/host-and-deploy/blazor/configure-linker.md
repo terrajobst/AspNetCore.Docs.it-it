@@ -5,17 +5,17 @@ description: Informazioni su come controllare il linker del linguaggio intermedi
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/10/2020
+ms.date: 03/23/2020
 no-loc:
 - Blazor
 - SignalR
 uid: host-and-deploy/blazor/configure-linker
-ms.openlocfilehash: b08ec26fb8d139223c57774600bc3cb19a56ac49
-ms.sourcegitcommit: 98bcf5fe210931e3eb70f82fd675d8679b33f5d6
+ms.openlocfilehash: 109da5ef400c3b9d64ccf3ceb33a5387ea6b5618
+ms.sourcegitcommit: 91dc1dd3d055b4c7d7298420927b3fd161067c64
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79083296"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80218661"
 ---
 # <a name="configure-the-linker-for-aspnet-core-blazor"></a>Configurare il linker per ASP.NET Core Blazor
 
@@ -36,7 +36,7 @@ Il collegamento per le app blazer può essere configurato usando le funzionalit�
 
 ## <a name="control-linking-with-an-msbuild-property"></a>Controllo del collegamento con una proprietà MSBuild
 
-Il collegamento viene abilitato quando un'app viene compilata in `Release` configuation. Per modificare questa configurazione, configurare la proprietà `BlazorWebAssemblyEnableLinking` MSBuild nel file di progetto:
+Il collegamento viene abilitato quando un'app viene compilata in `Release` configurazione. Per modificare questa configurazione, configurare la proprietà `BlazorWebAssemblyEnableLinking` MSBuild nel file di progetto:
 
 ```xml
 <PropertyGroup>
@@ -50,11 +50,11 @@ Controllare il collegamento per ogni singolo assembly usando un file di configur
 
 ```xml
 <ItemGroup>
-  <BlazorLinkerDescriptor Include="Linker.xml" />
+  <BlazorLinkerDescriptor Include="LinkerConfig.xml" />
 </ItemGroup>
 ```
 
-*Linker.xml*:
+*LinkerConfig. XML*:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -86,7 +86,21 @@ Controllare il collegamento per ogni singolo assembly usando un file di configur
 </linker>
 ```
 
-Per altre informazioni, vedere [il linker: sintassi del descrittore XML](https://github.com/mono/linker/blob/master/src/linker/README.md#syntax-of-xml-descriptor).
+Per altre informazioni, vedere [esempi di file XML di collegamento (repository GitHub mono/linker)](https://github.com/mono/linker#link-xml-file-examples).
+
+## <a name="add-an-xml-linker-configuration-file-to-a-library"></a>Aggiungere un file di configurazione del linker XML a una raccolta
+
+Per configurare il linker per una libreria specifica, aggiungere un file di configurazione del linker XML nella libreria come risorsa incorporata. La risorsa incorporata deve avere lo stesso nome dell'assembly.
+
+Nell'esempio seguente il file *LinkerConfig. XML* viene specificato come una risorsa incorporata con lo stesso nome dell'assembly della libreria:
+
+```xml
+<ItemGroup>
+  <EmbeddedResource Include="LinkerConfig.xml">
+    <LogicalName>$(MSBuildProjectName).xml</LogicalName>
+  </EmbeddedResource>
+</ItemGroup>
+```
 
 ### <a name="configure-the-linker-for-internationalization"></a>Configurare il linker per l'internazionalizzazione
 
@@ -105,7 +119,7 @@ Per controllare quali assembly I18N vengono conservati, impostare la proprietà 
 | `all`            | Tutti gli assembly inclusi |
 | `cjk`            | *I18n. CJK. dll*          |
 | `mideast`        | *I18n. . Dll medio*      |
-| `none` (impostazione predefinita) | None                    |
+| `none` (impostazione predefinita) | nessuno                    |
 | `other`          | *I18n. Other. dll*        |
 | `rare`           | *I18n. Rare. dll*         |
 | `west`           | *I18n. Dll occidentale*         |

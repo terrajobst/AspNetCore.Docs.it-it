@@ -5,17 +5,17 @@ description: Informazioni su come usare i metodi del ciclo di vita del component
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2019
+ms.date: 03/17/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/lifecycle
-ms.openlocfilehash: ecacd0a9728cbefd716e9dc7cd8a8c62f3df6e0d
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 831f575afa6ce11d06c016d43ecd1bb59d09eab6
+ms.sourcegitcommit: 91dc1dd3d055b4c7d7298420927b3fd161067c64
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78659929"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80218908"
 ---
 # <a name="aspnet-core-opno-locblazor-lifecycle"></a>Ciclo di vita Blazor ASP.NET Core
 
@@ -56,6 +56,8 @@ Per impedire che il codice dello sviluppatore in `OnInitializedAsync` venga eseg
 
 Sebbene un'app di Blazor server sia prerendering, alcune azioni, ad esempio la chiamata a JavaScript, non sono possibili perché non è stata stabilita una connessione con il browser. I componenti potrebbero dover eseguire il rendering in modo diverso quando ne viene eseguito il rendering. Per altre informazioni, vedere la sezione [rilevare quando l'app è prerendering](#detect-when-the-app-is-prerendering) .
 
+Se sono configurati gestori di eventi, rimuoverli a disposizione. Per ulteriori informazioni, vedere la sezione relativa all' [eliminazione dei componenti con IDisposable](#component-disposal-with-idisposable) .
+
 ### <a name="before-parameters-are-set"></a>Prima dell'impostazione dei parametri
 
 <xref:Microsoft.AspNetCore.Components.ComponentBase.SetParametersAsync*> imposta i parametri forniti dall'elemento padre del componente nell'albero di rendering:
@@ -74,6 +76,8 @@ public override async Task SetParametersAsync(ParameterView parameters)
 L'implementazione predefinita di `SetParametersAsync` imposta il valore di ogni proprietà con l'attributo `[Parameter]` o `[CascadingParameter]` con un valore corrispondente nell'`ParameterView`. I parametri che non hanno un valore corrispondente in `ParameterView` vengono lasciati invariati.
 
 Se `base.SetParametersAync` non viene richiamato, il codice personalizzato può interpretare il valore dei parametri in ingresso in qualsiasi modo necessario. Ad esempio, non è necessario assegnare i parametri in ingresso alle proprietà della classe.
+
+Se sono configurati gestori di eventi, rimuoverli a disposizione. Per ulteriori informazioni, vedere la sezione relativa all' [eliminazione dei componenti con IDisposable](#component-disposal-with-idisposable) .
 
 ### <a name="after-parameters-are-set"></a>Parametri after impostati
 
@@ -100,6 +104,8 @@ protected override void OnParametersSet()
     ...
 }
 ```
+
+Se sono configurati gestori di eventi, rimuoverli a disposizione. Per ulteriori informazioni, vedere la sezione relativa all' [eliminazione dei componenti con IDisposable](#component-disposal-with-idisposable) .
 
 ### <a name="after-component-render"></a>Rendering del componente dopo
 
@@ -136,6 +142,8 @@ protected override void OnAfterRender(bool firstRender)
 ```
 
 `OnAfterRender` e `OnAfterRenderAsync` *non vengono chiamati durante il prerendering sul server.*
+
+Se sono configurati gestori di eventi, rimuoverli a disposizione. Per ulteriori informazioni, vedere la sezione relativa all' [eliminazione dei componenti con IDisposable](#component-disposal-with-idisposable) .
 
 ### <a name="suppress-ui-refreshing"></a>Evita aggiornamento dell'interfaccia utente
 
@@ -188,6 +196,16 @@ Se un componente implementa <xref:System.IDisposable>, il [metodo Dispose](/dotn
 
 > [!NOTE]
 > La chiamata di <xref:Microsoft.AspNetCore.Components.ComponentBase.StateHasChanged*> in `Dispose` non è supportata. `StateHasChanged` potrebbe essere richiamato nell'ambito della rimozione del renderer, quindi la richiesta degli aggiornamenti dell'interfaccia utente in quel momento non è supportata.
+
+Annulla la sottoscrizione di gestori eventi da eventi .NET. Gli esempi di [Blazor form](xref:blazor/forms-validation) seguenti illustrano come eseguire l'unhook di un gestore eventi nel metodo `Dispose`:
+
+* Approccio basato su campo privato e lambda
+
+  [!code-razor[](lifecycle/samples_snapshot/3.x/event-handler-disposal-1.razor?highlight=23,28)]
+
+* Approccio metodo privato
+
+  [!code-razor[](lifecycle/samples_snapshot/3.x/event-handler-disposal-2.razor?highlight=16,26)]
 
 ## <a name="handle-errors"></a>Gestire gli errori
 

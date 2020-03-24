@@ -5,17 +5,17 @@ description: Informazioni sugli scenari di autenticazione e autorizzazione Blazo
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/13/2020
+ms.date: 02/21/2020
 no-loc:
 - Blazor
 - SignalR
 uid: security/blazor/index
-ms.openlocfilehash: ba00c0370094df4e0ae0479aeb23eceea6ef04f0
-ms.sourcegitcommit: 98bcf5fe210931e3eb70f82fd675d8679b33f5d6
+ms.openlocfilehash: f7ffb4c3d5a05cb916b4f00cdfaf5898634a1a6d
+ms.sourcegitcommit: 91dc1dd3d055b4c7d7298420927b3fd161067c64
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79083344"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80219025"
 ---
 # <a name="aspnet-core-blazor-authentication-and-authorization"></a>Autenticazione e autorizzazione per ASP.NET Core Blazor
 
@@ -32,7 +32,9 @@ Gli scenari di sicurezza sono diversi tra le app Blazor server e Blazor webassem
 
 Le app webassembly Blazor vengono eseguite sul client. L'autorizzazione viene usata *solo* per determinare quali opzioni dell'interfaccia utente visualizzare. Poiché i controlli lato client possono essere modificati o ignorati da un utente, un'app webassembly Blazor non può applicare regole di accesso alle autorizzazioni.
 
-## <a name="authentication"></a>Autenticazione
+[Razor Pages le convenzioni di autorizzazione](xref:security/authorization/razor-pages-authorization) non si applicano ai componenti Razor instradabili. Se un componente Razor non instradabile è [incorporato in una pagina](xref:blazor/integrate-components#render-components-from-a-page-or-view), le convenzioni di autorizzazione della pagina influiscono indirettamente sul componente Razor insieme al resto del contenuto della pagina.
+
+## <a name="authentication"></a>Authentication
 
 Blazor usa i meccanismi di autenticazione di ASP.NET Core esistenti per stabilire l'identità dell'utente. Il meccanismo esatto dipende dal modo in cui l'app Blazor è ospitata, il server Blazor o il webassembly Blazor.
 
@@ -67,7 +69,7 @@ dotnet new blazorserver -o {APP NAME} -au {AUTHENTICATION}
 
 I valori di autenticazione consentiti (`{AUTHENTICATION}`) sono indicati nella tabella seguente.
 
-| Meccanismo di autenticazione                                                                 | Valore di `{AUTHENTICATION}` |
+| Meccanismo di autenticazione                                                                 | Valore della proprietà `{AUTHENTICATION}` |
 | ---------------------------------------------------------------------------------------- | :----------------------: |
 | Nessuna autenticazione                                                                        | `None`                   |
 | Utenti<br>individuali archiviati nell'app con ASP.NET Core Identity.                        | `Individual`             |
