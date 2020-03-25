@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: security/blazor/webassembly/standalone-with-microsoft-accounts
-ms.openlocfilehash: 6883af3486256e7c6905626d8da09e8ae0c4a896
-ms.sourcegitcommit: 98bcf5fe210931e3eb70f82fd675d8679b33f5d6
+ms.openlocfilehash: be73bec971f96bd64afc735a1ea750d47c7bc383
+ms.sourcegitcommit: 91dc1dd3d055b4c7d7298420927b3fd161067c64
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79083825"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80219259"
 ---
 # <a name="secure-an-aspnet-core-opno-locblazor-webassembly-standalone-app-with-microsoft-accounts"></a>Proteggere un'app ASP.NET Core Blazor webassembly autonomamente con gli account Microsoft
 
@@ -42,7 +42,7 @@ Per creare un'app Blazor webassembly autonoma che usa gli [account Microsoft con
    1 \. Verificare che sia presente l' **URI di reindirizzamento** del `https://localhost:5001/authentication/login-callback`.<br>
    2 \. Per **concessione implicita**, selezionare le caselle di controllo per i token di **accesso** e i **token ID**.<br>
    3 \. Per questa esperienza sono accettabili le impostazioni predefinite rimanenti per l'app.<br>
-   4 \. Selezionare il pulsante **Salva**.
+   4 \. Fare clic sul pulsante **Salva**.
 
    Registrare l'ID applicazione (ID client), ad esempio `11111111-1111-1111-1111-111111111111`.
 
@@ -93,7 +93,7 @@ Il metodo `AddMsalAuthentication` accetta un callback per configurare i parametr
 
 ## <a name="index-page"></a>Pagina di indice
 
-[!INCLUDE[](~/includes/blazor-security/index-page.md)]
+[!INCLUDE[](~/includes/blazor-security/index-page-msal.md)]
 
 ## <a name="app-component"></a>Componente app
 
