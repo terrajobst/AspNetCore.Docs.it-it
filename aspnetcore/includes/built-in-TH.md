@@ -4,6 +4,8 @@
 
 **[Helper per tag di cache](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)**
 
+**[Helper Tag componente](xref:mvc/views/tag-helpers/builtin-th/component-tag-helper)**
+
 **[Helper per tag di cache distribuita](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)**
 
 **[Helper per tag di ambiente](xref:mvc/views/tag-helpers/builtin-th/environment-tag-helper)**
