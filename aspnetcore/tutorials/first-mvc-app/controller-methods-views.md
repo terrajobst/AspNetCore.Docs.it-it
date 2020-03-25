@@ -5,12 +5,12 @@ description: Informazioni su come usare metodi, visualizzazioni e DataAnnotation
 ms.author: riande
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/controller-methods-views
-ms.openlocfilehash: 2c442060872ab1d2d79a2e355ae257fdf1005914
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 87b3cb2f4429157123d30274d1f12cd589c1cc99
+ms.sourcegitcommit: 99e71ae03319ab386baf2ebde956fc2d511df8b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78663506"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80242510"
 ---
 # <a name="controller-methods-and-views-in-aspnet-core"></a>Metodi e viste del controller in ASP.NET Core
 
@@ -53,6 +53,8 @@ Tenere presente il formato per il [routing](xref:mvc/controllers/routing) impost
 ASP.NET Core converte `https://localhost:5001/Movies/Edit/4` in una richiesta al metodo di azione `Edit` del controller `Movies` con il parametro `Id` impostato su 4. I metodi del controller sono noti anche come metodi di azione.
 
 Una delle nuove funzionalità più note di ASP.NET Core è rappresentata dagli [helper tag](xref:mvc/views/tag-helpers/intro). Per altre informazioni, vedere [Risorse aggiuntive](#additional-resources).
+
+<a name="get-post"></a>
 
 Aprire il controller `Movies` ed esaminare i due metodi di azione `Edit`. Il codice seguente illustra il metodo `HTTP GET Edit`, che recupera il film e popola il modulo di modifica generato dal file Razor *Edit.cshtml*.
 

@@ -5,18 +5,18 @@ description: Come aggiungere la convalida a un'app ASP.NET Core.
 ms.author: riande
 ms.date: 04/13/2017
 uid: tutorials/first-mvc-app/validation
-ms.openlocfilehash: 2bb4ed173d154e3b7457ce3f8009f0f9406e36c4
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: ecf3d011b38347eb32020df00e44d93ca789443a
+ms.sourcegitcommit: 99e71ae03319ab386baf2ebde956fc2d511df8b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78661966"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80242536"
 ---
 # <a name="add-validation-to-an-aspnet-core-mvc-app"></a>Aggiungere la funzionalità di convalida a un'app ASP.NET Core MVC
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Contenuto della sezione:
+In questa sezione:
 
 * La logica di convalida viene aggiunta al modello `Movie`.
 * Si verifica che le regole di convalida vengano applicate ogni volta che un utente crea o modifica un film.
@@ -55,7 +55,7 @@ Il primo metodo di azione (HTTP GET) `Create` visualizza il modulo di creazione 
 
 È possibile impostare un punto di interruzione nel metodo `[HttpPost] Create` e verificare che il metodo non venga mai chiamato, la convalida sul lato client non invierà i dati del modulo in caso di rilevamento di errori di convalida. Se si disabilita JavaScript nel browser, quindi si invia il modulo con errori, verrà raggiunto il punto di interruzione. Si ottiene comunque la convalida completa senza JavaScript. 
 
-La figura seguente illustra come disabilitare JavaScript nel browser FireFox.
+La figura seguente illustra come disabilitare JavaScript nel browser Firefox.
 
 ![Firefox: nella scheda Contenuti in Opzioni deselezionare la casella di controllo Abilita Javascript.](~/tutorials/first-mvc-app/validation/_static/ff.png)
 

@@ -1,17 +1,17 @@
 ---
 title: Pubblicare un'app ASP.NET Core in Azure con Visual Studio Code
-author: ricardoserradas
+author: rick-anderson
 description: Informazioni su come pubblicare un'app ASP.NET Core in Servizio app di Azure con Visual Studio Code
 ms.author: riserrad
 ms.custom: mvc
 ms.date: 07/10/2019
 uid: tutorials/publish-to-azure-webapp-using-vscode
-ms.openlocfilehash: eaf9cca61b21d04d127ff15a579f3d8da794f7d9
-ms.sourcegitcommit: 40dc9b00131985abcd99bd567647420d798e798a
+ms.openlocfilehash: 5f117cb2867a6e7b54269ef39abe819256b429ec
+ms.sourcegitcommit: 99e71ae03319ab386baf2ebde956fc2d511df8b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78935431"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80242678"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio-code"></a>Pubblicare un'app ASP.NET Core in Azure con Visual Studio Code
 
@@ -94,7 +94,7 @@ Questi sono file di utilità che consentono di compilare l'app Web .NET Core e d
 
 Prima della distribuzione dell'app in Azure, assicurarsi che venga eseguita correttamente nel computer locale.
 
-- Premere F5 per eseguire il progetto.
+- Premere F5 per eseguire il progetto
 
 L'app Web verrà eseguita in una nuova scheda del browser predefinito. Potrebbe essere visualizzato un avviso per la privacy subito dopo aver avviato l'app. L'avviso viene visualizzato perché l'app verrà avviata tramite HTTP e HTTPS e passerà all'endpoint HTTPS per impostazione predefinita.
 
@@ -111,15 +111,15 @@ Per mantenere la sessione di debug, fare clic su `Advanced` e quindi su `Continu
 
 ![Struttura della cartella di pubblicazione](publish-to-azure-webapp-using-vscode/_static/publish-folder.jpg)
 
-## <a name="publish-to-azure-app-service"></a>Eseguire la pubblicazione nel servizio app di Azure
+## <a name="publish-to-azure-app-service"></a>Pubblicare in Servizio app di Azure
 
 Sfruttando l'estensione del servizio app di Azure per Visual Studio Code, seguire questa procedura per pubblicare il sito Web direttamente nel servizio app di Azure.
 
 ### <a name="if-youre-creating-a-new-web-app"></a>Se si crea una nuova app Web
 
-- Fare clic con il pulsante destro del mouse sulla cartella `publish` e scegliere `Deploy to Web App...`
+- Fare clic con il pulsante destro del mouse sulla cartella `publish` e scegliere `Deploy to Web App...`.
 - Selezionare la sottoscrizione in cui si vuole creare l'app Web
-- Selezionare `Create New Web App`.
+- Selezionare `Create New Web App`
 - Immettere un nome per l'app Web
 
 L'estensione creerà la nuova app Web e avvierà automaticamente la distribuzione del pacchetto in tale app. Al termine della distribuzione, fare clic su `Browse Website` per convalidare la distribuzione.
@@ -132,7 +132,7 @@ Quando si fa clic su `Browse Website`, si passerà a tale sito tramite il browse
 
 ### <a name="if-youre-deploying-to-an-existing-web-app"></a>Per la distribuzione in un'app Web esistente
 
-- Fare clic con il pulsante destro del mouse sulla cartella `publish` e scegliere `Deploy to Web App...`
+- Fare clic con il pulsante destro del mouse sulla cartella `publish` e scegliere `Deploy to Web App...`.
 - Selezionare la sottoscrizione in cui risiede l'app Web esistente
 - Selezionare l'app Web nell'elenco
 - Visual Studio Code chiederà se si vuole sovrascrivere il contenuto esistente. Fare clic su `Deploy` per confermare
