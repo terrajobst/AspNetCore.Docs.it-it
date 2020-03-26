@@ -5,17 +5,17 @@ description: Creare un'app di chat che usa ASP.NET Core SignalR con Blazor webas
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/31/2020
+ms.date: 03/26/2020
 no-loc:
 - Blazor
 - SignalR
 uid: tutorials/signalr-blazor-webassembly
-ms.openlocfilehash: 605cf8ebd3e85586f3e479c815f0b9902ce5a91a
-ms.sourcegitcommit: 98bcf5fe210931e3eb70f82fd675d8679b33f5d6
+ms.openlocfilehash: c4843dc282e1978b39738e206ecc79ded87fcff9
+ms.sourcegitcommit: 6ffb583991d6689326605a24565130083a28ef85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79083390"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80306576"
 ---
 # <a name="use-aspnet-core-signalr-with-blazor-webassembly"></a>Usare ASP.NET Core SignalR con il webassembly Blazer
 
@@ -23,7 +23,7 @@ Di [Daniel Roth](https://github.com/danroth27) e [Luke Latham](https://github.co
 
 [!INCLUDE[](~/includes/blazorwasm-preview-notice.md)]
 
-Questa esercitazione illustra le nozioni di base per la creazione di un'app in tempo reale usando SignalR con il webassembly blazer. Vengono illustrate le seguenti procedure:
+Questa esercitazione illustra le nozioni di base per la creazione di un'app in tempo reale usando SignalR con il webassembly blazer. Si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare un progetto di app ospitata webassembly Blazer
@@ -36,7 +36,7 @@ Al termine di questa esercitazione, si disporrà di un'app di chat funzionante.
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/signalr-blazor-webassembly/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 # <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -58,10 +58,10 @@ Al termine di questa esercitazione, si disporrà di un'app di chat funzionante.
 
 ## <a name="create-a-hosted-blazor-webassembly-app-project"></a>Creare un progetto di app webassembly in hosting Blazer
 
-Installare il modello [Webassembly Blazer](xref:blazor/hosting-models#blazor-webassembly) . Il pacchetto [Microsoft. AspNetCore. Components. webassembly. templates](https://www.nuget.org/packages/Microsoft.AspNetCore.Components.WebAssembly.Templates/) include una versione di anteprima mentre Webassembly blazer è in anteprima. In una shell dei comandi eseguire il comando seguente:
+Quando non si usa Visual Studio versione 16,6 Preview 2 o versioni successive, installare il modello [Webassembly Blazer](xref:blazor/hosting-models#blazor-webassembly) . Il pacchetto [Microsoft. AspNetCore. Components. webassembly. templates](https://www.nuget.org/packages/Microsoft.AspNetCore.Components.WebAssembly.Templates/) include una versione di anteprima mentre Webassembly blazer è in anteprima. In una shell dei comandi eseguire il comando seguente:
 
 ```dotnetcli
-dotnet new -i Microsoft.AspNetCore.Components.WebAssembly.Templates::3.2.0-preview2.20160.5
+dotnet new -i Microsoft.AspNetCore.Components.WebAssembly.Templates::3.2.0-preview3.20168.3
 ```
 
 Seguire le istruzioni per la scelta degli strumenti:
@@ -72,13 +72,13 @@ Seguire le istruzioni per la scelta degli strumenti:
 
 1. Selezionare **app Blazer** e fare clic su **Avanti**.
 
-1. Digitare "BlazorSignalRApp" nel campo **nome progetto** . Confermare che la voce relativa al **percorso** sia corretta o specificare un percorso per il progetto. Selezionare **Crea**.
+1. Digitare "BlazorSignalRApp" nel campo **nome progetto** . Confermare che la voce relativa al **percorso** sia corretta o specificare un percorso per il progetto. Selezionare **Create** (Crea).
 
 1. Scegliere il modello **app Webassembly Blazer** .
 
 1. In **Avanzate**selezionare la casella di controllo **ASP.NET Core Hosted** .
 
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 > [!NOTE]
 > Se è stato eseguito l'aggiornamento o l'installazione di una nuova versione di Visual Studio e il modello webassembly Blazer non viene visualizzato nell'interfaccia utente di Visual Studio, reinstallare il modello usando il comando `dotnet new` illustrato in precedenza.
@@ -257,7 +257,7 @@ Nel progetto **BlazorSignalRApp. Server** creare una cartella *Hub* (plurale) e 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un progetto di app ospitata Blazor webassembly

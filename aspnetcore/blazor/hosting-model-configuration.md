@@ -5,17 +5,17 @@ description: Informazioni su Blazor la configurazione del modello di hosting, in
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/12/2020
+ms.date: 03/24/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/hosting-model-configuration
-ms.openlocfilehash: bd44643877e45c5b48b0972bcc2f637fbc5d98f2
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 1f71ac63bbe9dc9d56cfca2ded19a5b863be828f
+ms.sourcegitcommit: 6ffb583991d6689326605a24565130083a28ef85
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78658305"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80306430"
 ---
 # <a name="aspnet-core-blazor-hosting-model-configuration"></a>Configurazione del modello di hosting di ASP.NET Core Blazer
 
@@ -25,11 +25,26 @@ Di [Daniel Roth](https://github.com/danroth27)
 
 Questo articolo illustra la configurazione del modello di hosting.
 
-<!-- For future use:
+## <a name="blazor-webassembly"></a>WebAssembly Blazor
 
-## Blazor WebAssembly
+A partire dalla versione di ASP.NET Core 3,2 Preview 3, il webassembly Blazer supporta la configurazione da:
 
--->
+* *Wwwroot/appSettings. JSON*
+* *Wwwroot/appSettings. {ENVIRONMENT}. JSON*
+
+In un'app ospitata da Blazer, l' [ambiente di runtime](xref:fundamentals/environments) è uguale al valore dell'app Server.
+
+Quando si esegue l'app in locale, l'ambiente USA per impostazione predefinita lo sviluppo. Quando l'app viene pubblicata, per impostazione predefinita viene impostato l'ambiente di produzione. Per ulteriori informazioni, tra cui come configurare l'ambiente, vedere <xref:fundamentals/environments>.
+
+> [!WARNING]
+> La configurazione in un'app webassembly blazer è visibile agli utenti. **Non archiviare i segreti dell'app o le credenziali nella configurazione.**
+
+I file di configurazione vengono memorizzati nella cache per l'uso offline. Con [le applicazioni Web progressive (PWA)](xref:blazor/progressive-web-app)è possibile aggiornare solo i file di configurazione quando si crea una nuova distribuzione. La modifica dei file di configurazione tra le distribuzioni non ha effetto perché:
+
+* Gli utenti dispongono di versioni memorizzate nella cache dei file che continuano a usare.
+* I file *service-worker. js* e *service-worker-assets. js* di PWA devono essere ricompilati durante la compilazione, che segnalano all'app la prossima visita online dell'utente che l'app è stata ridistribuita.
+
+Per ulteriori informazioni sulla gestione degli aggiornamenti in background da PWA, vedere <xref:blazor/progressive-web-app#background-updates>.
 
 ## <a name="blazor-server"></a>Server Blazor
 
