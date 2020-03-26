@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 3/25/2020
 uid: fundamentals/routing
-ms.openlocfilehash: 69d8aa65084d4d2ee13a8ca0e8e275f4344d08c5
-ms.sourcegitcommit: 99e71ae03319ab386baf2ebde956fc2d511df8b8
+ms.openlocfilehash: 2ebba716de90f142a66cf7619b5a4b0c77684bd4
+ms.sourcegitcommit: 0c62042d7d030ec5296c73bccd9f9b961d84496a
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/25/2020
-ms.locfileid: "80242659"
+ms.locfileid: "80270446"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing in ASP.NET Core
 
@@ -101,7 +101,7 @@ Nell'esempio seguente viene illustrato il routing con i [controlli di integrità
 
 [!code-csharp[](routing/samples/3.x/RoutingSample/AuthorizationStartup.cs?name=snippet)]
 
-[!INCLUDE[](~/includes/MTcomments.md)]
+[!INCLUDE[request localized comments](~/includes/code-comments-loc.md)]
 
 Nell'esempio precedente viene illustrato come:
 
@@ -425,7 +425,7 @@ I modelli di URL che tentano di acquisire un nome file con un'estensione facolta
 * `/files/myFile.txt`
 * `/files/myFile`
 
-I parametri di route possono avere **valori predefiniti**, definiti specificando il valore predefinito dopo il nome del parametro, separato da un segno di uguale (`=`). Ad esempio, `{controller=Home}` definisce `Home` come valore predefinito per `controller`. Il valore predefinito viene usato se nell'URL non è presente alcun valore per il parametro. I parametri di route vengono resi facoltativi aggiungendo un punto interrogativo (`?`) alla fine del nome del parametro. Ad esempio: `id?`. La differenza tra i valori facoltativi e i parametri di route predefiniti è la seguente:
+I parametri di route possono avere **valori predefiniti**, definiti specificando il valore predefinito dopo il nome del parametro, separato da un segno di uguale (`=`). Ad esempio, `{controller=Home}` definisce `Home` come valore predefinito per `controller`. Il valore predefinito viene usato se nell'URL non è presente alcun valore per il parametro. I parametri di route vengono resi facoltativi aggiungendo un punto interrogativo (`?`) alla fine del nome del parametro. Ad esempio, `id?`. La differenza tra i valori facoltativi e i parametri di route predefiniti è la seguente:
 
 * Un parametro di route con un valore predefinito produce sempre un valore.
 * Un parametro facoltativo ha un valore solo quando un valore viene fornito dall'URL della richiesta.
@@ -546,14 +546,14 @@ Le espressioni regolari usano delimitatori e token simili a quelli usati dal rou
 
 Per eseguire l'escape dei caratteri di delimitazione del parametro di routing `{`, `}`, `[``]`, raddoppiare i caratteri nell'espressione, ad esempio `{{`, `}}`, `[[``]]`. La tabella seguente illustra un'espressione regolare e la relativa versione di escape:
 
-| Espressione regolare‏    | Espressione regolare con escape     |
+| Espressione regolare    | Espressione regolare con escape     |
 | --------------------- | ------------------------------ |
 | `^\d{3}-\d{2}-\d{4}$` | `^\\d{{3}}-\\d{{2}}-\\d{{4}}$` |
 | `^[a-z]{2}$`          | `^[[a-z]]{{2}}$`               |
 
 Le espressioni regolari utilizzate nel routing spesso iniziano con il carattere `^` e corrispondono alla posizione iniziale della stringa. Le espressioni terminano spesso con il carattere `$` e corrispondono alla fine della stringa. I caratteri `^` e `$` assicurano che l'espressione regolare corrisponda all'intero valore del parametro di route. Senza i caratteri `^` e `$`, l'espressione regolare corrisponde a qualsiasi sottostringa all'interno della stringa, che è spesso indesiderata. La tabella seguente fornisce esempi e spiega perché corrispondono o non riescono a corrispondere:
 
-| Expression   | String    | Corrispondente | Commento               |
+| Expression   | String    | Corrispondenza con | Commento               |
 | ------------ | --------- | :---: |  -------------------- |
 | `[a-z]{2}`   | hello     | Sì   | Corrispondenze di sottostringhe     |
 | `[a-z]{2}`   | 123abc456 | Sì   | Corrispondenze di sottostringhe     |
@@ -1470,7 +1470,7 @@ Per eseguire l'escape dei caratteri di delimitazione del parametro di routing `{
 
 Le espressioni regolari utilizzate nel routing spesso iniziano con il punto di inserimento `^` carattere e corrispondono alla posizione iniziale della stringa. Le espressioni terminano spesso con il segno di dollaro `$` carattere e la fine della corrispondenza della stringa. I caratteri `^` e `$` consentono di verificare che l'espressione regolare corrisponda all'intero valore del parametro di route. Senza i caratteri `^` e `$` l'espressione regolare corrisponde a qualsiasi sottostringa all'interno della stringa e spesso questo non è il risultato desiderato. La tabella seguente include alcuni esempi e descrive perché si verifica o non si verifica la corrispondenza.
 
-| Expression   | String    | Corrispondente | Commento               |
+| Expression   | String    | Corrispondenza con | Commento               |
 | ------------ | --------- | :---: |  -------------------- |
 | `[a-z]{2}`   | hello     | Sì   | Corrispondenze di sottostringhe     |
 | `[a-z]{2}`   | 123abc456 | Sì   | Corrispondenze di sottostringhe     |
@@ -1914,7 +1914,7 @@ Le espressioni regolari usano delimitatori e token simili a quelli usati dal rou
 
 Le espressioni regolari usate nel routing spesso iniziano con l'accento circonflesso (`^`) e corrispondono alla posizione iniziale della stringa. Le espressioni spesso terminano con il segno di dollaro (`$`) e corrispondono alla fine della stringa. I caratteri `^` e `$` consentono di verificare che l'espressione regolare corrisponda all'intero valore del parametro di route. Senza i caratteri `^` e `$` l'espressione regolare corrisponde a qualsiasi sottostringa all'interno della stringa e spesso questo non è il risultato desiderato. La tabella seguente include alcuni esempi e descrive perché si verifica o non si verifica la corrispondenza.
 
-| Expression   | String    | Corrispondente | Commento               |
+| Expression   | String    | Corrispondenza con | Commento               |
 | ------------ | --------- | :---: |  -------------------- |
 | `[a-z]{2}`   | hello     | Sì   | Corrispondenze di sottostringhe     |
 | `[a-z]{2}`   | 123abc456 | Sì   | Corrispondenze di sottostringhe     |
