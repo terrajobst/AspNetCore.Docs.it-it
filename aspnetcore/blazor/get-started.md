@@ -10,12 +10,12 @@ no-loc:
 - Blazor
 - SignalR
 uid: blazor/get-started
-ms.openlocfilehash: abecb640930c1e5770c0fad45a1e9a6df31a20f4
-ms.sourcegitcommit: 6ffb583991d6689326605a24565130083a28ef85
+ms.openlocfilehash: 9ebeb57d2fad7e4c288d61a46911f2bf64cac2fb
+ms.sourcegitcommit: f3b1bcfd108e5d53f73abc0bf2555890869d953b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/26/2020
-ms.locfileid: "80306449"
+ms.locfileid: "80320936"
 ---
 # <a name="get-started-with-aspnet-core-blazor"></a>Introduzione a ASP.NET Core Blazor
 
@@ -35,11 +35,11 @@ Per iniziare a usare blazer, seguire le istruzioni per la scelta degli strumenti
 
 1. Creare un nuovo progetto.
 
-1. Selezionare **app Blazer**. Selezionare **Avanti**.
+1. Selezionare **app Blazer**. Fare clic su **Avanti**.
 
-1. Specificare il nome di un progetto nel campo **Nome progetto** oppure accettare il nome predefinito. Confermare che la voce relativa al **percorso** sia corretta o specificare un percorso per il progetto. Selezionare **Create** (Crea).
+1. Specificare il nome di un progetto nel campo **Nome progetto** oppure accettare il nome predefinito. Confermare che la voce relativa al **percorso** sia corretta o specificare un percorso per il progetto. Selezionare **Crea**.
 
-1. Per un'esperienza di webassembly blazer (Visual Studio 16,6 Preview 2 o versione successiva), scegliere il modello di **app Webassembly Blazer** . Per un'esperienza del server blazer (Visual Studio 16,4 o versione successiva), scegliere il modello di **app del server Blazer** . Selezionare **Create** (Crea).
+1. Per un'esperienza di webassembly blazer (Visual Studio 16,6 Preview 2 o versione successiva), scegliere il modello di **app Webassembly Blazer** . Per un'esperienza del server blazer (Visual Studio 16,4 o versione successiva), scegliere il modello di **app del server Blazer** . Selezionare **Crea**.
 
 1. Premere <kbd>CTRL</kbd>+<kbd>F5</kbd> per eseguire l'app.
 
@@ -78,7 +78,7 @@ Per iniziare a usare blazer, seguire le istruzioni per la scelta degli strumenti
 
 1. Le richieste dell'IDE aggiungono risorse per compilare ed eseguire il debug del progetto. Selezionare **Sì**.
 
-1. TUN l'app usando il debugger Visual Studio Code.
+1. Eseguire l'app usando il debugger Visual Studio Code.
 
 1. In un browser passare a `https://localhost:5001`.
 
@@ -92,13 +92,13 @@ Il server blazer è supportato in Visual Studio per Mac. Il webassembly Blazer n
 
 1. Nella barra laterale selezionare **.NET Core** > **app**.
 
-1. Selezionare il modello **applicazione server Blazer** . Selezionare **Create** (Crea).
+1. Selezionare il modello **applicazione server Blazer** . Selezionare **Crea**.
 
    Per informazioni sul modello di hosting del server blazer, vedere <xref:blazor/hosting-models>.
 
 1. Impostare il **Framework di destinazione** su **.NET Core 3,1** e selezionare **Avanti**.
 
-1. Nel campo **nome progetto** assegnare un nome all'app `WebApplication1`. Selezionare **Create** (Crea).
+1. Nel campo **nome progetto** assegnare un nome all'app `WebApplication1`. Selezionare **Crea**.
 
 1. Selezionare **esegui** > **Esegui senza eseguire debug** per eseguire l'app *senza il debugger*. Eseguire l'app con **Avvia debug** per eseguire l'app *con il debugger*.
 

@@ -5,17 +5,17 @@ description: Informazioni su ASP.NET Core Blazor modelli di app e Blazor struttu
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/29/2020
+ms.date: 03/26/2020
 no-loc:
 - Blazor
 - SignalR
 uid: blazor/templates
-ms.openlocfilehash: acfa4b8a42cbd310c6fc6dc973573578e94ef999
-ms.sourcegitcommit: 9a129f5f3e31cc449742b164d5004894bfca90aa
+ms.openlocfilehash: 71a9d9eee8637dda0b3cecac82ff96a0c3bfedb5
+ms.sourcegitcommit: f3b1bcfd108e5d53f73abc0bf2555890869d953b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78664241"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80320985"
 ---
 # <a name="aspnet-core-opno-locblazor-templates"></a>Modelli di Blazor ASP.NET Core
 
@@ -58,18 +58,17 @@ I file e le cartelle seguenti costituiscono un'app Blazor generata da un modello
     * Scarica il Runtime .NET, l'app e le dipendenze dell'app.
     * Inizializza il runtime per l'esecuzione dell'app.
 
-* *Pages/_Host. cshtml* (Blazor Server) &ndash; la pagina radice dell'app implementata come pagina Razor:
-  * Quando viene inizialmente richiesta una pagina dell'app, il rendering della pagina viene eseguito e restituito nella risposta.
-  * Viene caricato il file `_framework/blazor.server.js` JavaScript, che configura la connessione SignalR in tempo reale tra il browser e il server.
-  * Nella pagina host viene specificata la posizione in cui viene eseguito il rendering del componente `App` radice (*app. Razor*).
-
 * *App. razor* &ndash; il componente radice dell'app che configura il routing sul lato client usando il componente <xref:Microsoft.AspNetCore.Components.Routing.Router>. Il componente `Router` intercetta la navigazione del browser ed esegue il rendering della pagina corrispondente all'indirizzo richiesto.
 
-* Cartella *pages* &ndash; contiene i componenti e le pagine instradabili (*Razor*) che costituiscono l'app Blazor. La route per ogni pagina viene specificata utilizzando la direttiva [`@page`](xref:mvc/views/razor#page) . Il modello include i componenti seguenti:
-  * `Index` (*index. Razor*) &ndash; implementa la Home page.
+* Cartella *pages* &ndash; contiene i componenti e le pagine instradabili (*Razor*) che costituiscono l'app Blazor e la pagina Razor radice di un'app Blazor server. La route per ogni pagina viene specificata utilizzando la direttiva [`@page`](xref:mvc/views/razor#page) . Il modello include quanto segue:
+  * *_Host. cshtml* (Blazor Server) &ndash; pagina radice dell'app implementata come pagina Razor:
+    * Quando viene inizialmente richiesta una pagina dell'app, il rendering della pagina viene eseguito e restituito nella risposta.
+    * Viene caricato il file `_framework/blazor.server.js` JavaScript, che configura la connessione SignalR in tempo reale tra il browser e il server.
+    * Nella pagina host viene specificata la posizione in cui viene eseguito il rendering del componente `App` radice (*app. Razor*).
   * `Counter` (*Counter. Razor*) &ndash; implementa la pagina del contatore.
   * `Error` (*Error. Razor*, Blazor solo app Server) &ndash; sottoposto a rendering quando si verifica un'eccezione non gestita nell'app.
   * `FetchData` (*fetchData. Razor*) &ndash; implementa la pagina Recupera dati.
+  * `Index` (*index. Razor*) &ndash; implementa la Home page.
 
 * Cartella *condivisa* &ndash; contiene altri componenti dell'interfaccia utente (*Razor*) usati dall'app:
   * `MainLayout` (*MainLayout. Razor*) &ndash; componente layout dell'app.
