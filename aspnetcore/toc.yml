@@ -1,5 +1,5 @@
 - name: Documentazione di ASP.NET Core
-  href: '/aspnet/#pivot=core'
+  href: index.yml
 - name: Novità nella documentazione di ASP.NET Core
   href: whats-new/index.yml
 - name: Panoramica
